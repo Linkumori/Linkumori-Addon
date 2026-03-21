@@ -1,0 +1,36 @@
+<!--
+ * first modified:  Jun 14, 2025  by Subham Mahesh
+ *secound modified:  august 21, 2025  by Subham Mahesh
+ third modified:  september 5, 2025  by Subham Mahesh
+ * Due to constraints, later modifications are not tracked inline.
+ * To view the full modification history, run:
+ *
+ *   node linkumori-cli-tool.js
+ *
+ * Then select "Generate Commit History". This will create a Markdown file
+ * where you can browse who modified which files and on what date.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 130" width="128" height="128" role="img" aria-label="Linkumori legacy disabled icon">
+  <defs>
+    <linearGradient id="bodyGradDisabled" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#b8bcc3"/>
+      <stop offset="100%" style="stop-color:#8f96a0"/>
+    </linearGradient>
+    <linearGradient id="lidGradDisabled" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e5e7eb"/>
+      <stop offset="100%" style="stop-color:#b8bcc3"/>
+    </linearGradient>
+    <filter id="shadowDisabled">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#6b7280" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect x="38" y="4" width="24" height="10" rx="5" ry="5" fill="url(#lidGradDisabled)"/>
+  <rect x="14" y="16" width="72" height="14" rx="7" ry="7" fill="url(#lidGradDisabled)" filter="url(#shadowDisabled)"/>
+  <path d="M20,34 L24,118 Q24,126 34,126 L66,126 Q76,126 76,118 L80,34 Z"
+        fill="url(#bodyGradDisabled)" filter="url(#shadowDisabled)"/>
+  <path d="M28,38 L30,110 Q30,118 38,118 L42,118 Q38,118 38,110 L36,38 Z"
+        fill="#f3f4f6" fill-opacity="0.25"/>
+  <line x1="50" y1="44" x2="50" y2="110" stroke="#f3f4f6" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round"/>
+  <line x1="38" y1="44" x2="36" y2="110" stroke="#f3f4f6" stroke-opacity="0.28" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="62" y1="44" x2="64" y2="110" stroke="#f3f4f6" stroke-opacity="0.28" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

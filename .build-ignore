@@ -1,0 +1,53 @@
+# Linkumori Extension Build Ignore File
+# Files and directories to ignore during web-ext operations
+
+# Development files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/**
+npm-debug.log*
+package-lock.json
+package.json
+
+# Version Control
+.git/**
+.svn/**
+
+# IDEs
+.vscode/**
+.idea/**
+*.swp
+*~
+
+# Build Output
+web-ext-artifacts/**
+build/**
+dist/**
+CHANGELOG.md
+# Assets & Fonts (sources only, keep compiled)
+svg/**
+Old-Country-Nobility/Old-Country-Nobility.sfd
+
+# Data Files (keep built files, exclude sources)
+data/downloaded-official-rules.json
+data/custom-rules.json
+downloaded-official-rules.min.hash
+# Build Tools
+.build-ignore
+linkumori-cli-tool.js
+scripts/**
+Template.md
+COMMIT_HISTORY.md
+
+# Environment
+.env
+.env.local
+
+# Testing
+test/**
+tests/**
+coverage/**

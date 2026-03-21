@@ -1,0 +1,143 @@
+name: Build and Sign Extension
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'New extension version (e.g. 2.0). Leave empty to auto-increment major version.'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-sign:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Install web-ext
+        run: bun install -g web-ext
+
+      - name: Install librsvg
+        run: sudo apt-get install -y librsvg2-bin
+
+      - name: Setup Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Determine version
+        id: version
+        run: |
+          if [ -n "${{ inputs.version }}" ]; then
+            echo "value=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            CURRENT=$(jq -r '.version' manifest.json)
+            MAJOR=$(echo "$CURRENT" | cut -d. -f1)
+            NEXT=$((MAJOR + 1))
+            echo "value=${NEXT}.0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bump manifest version
+        run: |
+          jq --arg ver "${{ steps.version.outputs.value }}" '.version = $ver' manifest.json > manifest.tmp.json
+          mv manifest.tmp.json manifest.json
+
+      - name: Build and sign extension
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
+          WEB_EXT_CHANNEL: ${{ secrets.WEB_EXT_CHANNEL }}
+        run: bun run linkumori-cli-tool.js build-and-sign
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: linkumori-${{ steps.version.outputs.value }}
+          path: web-ext-artifacts/
+
+      - name: Commit version bump
+        run: |
+          git add -A
+          git commit -m "release ${{ steps.version.outputs.value }}"
+          git push
+
+      - name: Generate commit history
+        run: bun run linkumori-cli-tool.js commit-history
+
+      - name: Commit commit history
+        run: |
+          if git diff --quiet; then
+            echo "No commit history changes to commit."
+            exit 0
+          fi
+          git add -A
+          git commit -m "chore: update commit history for v${{ steps.version.outputs.value }}"
+          git push
+
+      - name: Generate changelog
+        run: bun run changelog:auto
+
+      - name: Commit changelog
+        run: |
+          if git diff --quiet CHANGELOG.md; then
+            echo "No changelog changes to commit."
+            exit 0
+          fi
+          git add CHANGELOG.md
+          git commit -m "chore: update changelog for v${{ steps.version.outputs.value }}"
+          git push
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="v${{ steps.version.outputs.value }}"
+          SECTION_FILE="release-section.txt"
+
+          awk -v version="${VERSION}" '
+            {
+              line=$0
+              sub(/\r$/, "", line)
+            }
+            index(line, "## [" version "]") == 1 { in_section=1; next }
+            in_section && line ~ /^## \[/ { exit }
+            in_section { print line }
+          ' CHANGELOG.md > "$SECTION_FILE"
+
+          if [ ! -s "$SECTION_FILE" ]; then
+            echo "ERROR: Missing changelog section for ${VERSION} in CHANGELOG.md"
+            echo "Expected header: ## [${VERSION}] - YYYY-MM-DD"
+            exit 1
+          fi
+
+          {
+            echo "Release ${VERSION} of Linkumori (Clean URLs) Firefox Extension."
+            echo
+            cat "$SECTION_FILE"
+            echo
+            echo "Get the signed extension from the Firefox Add-ons store: https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/"
+          } > release-notes.txt
+
+          gh release create "linkumori-v${{ steps.version.outputs.value }}" \
+            web-ext-artifacts/* \
+            --title "Linkumori v${{ steps.version.outputs.value }}" \
+            --notes-file release-notes.txt \
+            --latest

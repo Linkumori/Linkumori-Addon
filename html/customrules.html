@@ -1,0 +1,3339 @@
+<!--
+  ============================================================
+  Linkumori — Custom Rules Editor
+  (i18n with Provider Import Feature and Provider List Modal)
+  ============================================================
+  Copyright (c) 2025 Subham Mahesh
+
+  This program is free software: you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation, either
+  version 3 of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this program. If not, see
+  <http://www.gnu.org/licenses/>.
+
+  ============================================================
+  SVG ICON ATTRIBUTIONS
+  ============================================================
+
+  CUSTOM ICONS
+  ------------
+  - Linkumori Logo
+    Author:   Subham Mahesh (c) 2025
+    Usage:    Embedded inline in header
+
+  EMBEDDED ICONS — Google Material Icons (Modified)
+  --------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+  Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+  Modifications: width=16, height=16, fill=currentColor
+
+  - FAQ/Help Icon  — derivative of help_faq.svg
+                     Used in: FAQ button
+  - Edit Icon      — derivative of edit.svg
+                     Used in: edit provider name action
+  - Delete Icon    — derivative of delete.svg
+                     Used in: delete provider action
+  - Plus/Add Icon  — derivative of plus.svg
+                     Used in: add/create provider actions
+  - Close Icon     — heavily modified derivative of close_24dp_E3E3E3.svg
+                     Used in: modal close and exit editor
+  - Save Icon      — heavily modified derivative of save.svg
+                     Used in: save provider action
+
+  Note: Additional embedded SVG icons are generated in
+  custom_rules_editor.js — see that file for attribution.
+
+  EXTERNAL FILE REFERENCES — Feather Icons
+  -----------------------------------------
+  License:   MIT License
+  Source:    https://feathericons.com/
+  Copyright: (c) 2013–2017 Cole Bemis
+
+  - Sun Icon  — ../LinkumorI_HTML_SVG/sun.svg
+  - Moon Icon — ../LinkumorI_HTML_SVG/moon.svg
+
+  ============================================================
+  MODIFICATION HISTORY
+  ============================================================
+  2025-06-14   Subham Mahesh   File created
+  2025-08-21   Subham Mahesh   Apache-licensed Google SVGs modified
+  2025-09-05   Subham Mahesh   Apache-licensed Google SVGs modified
+
+  Note: Due to inline constraints, subsequent modifications may
+  not appear here. To view the full history, run:
+
+    node linkumori-cli-tool.js
+
+  Select "Generate Commit History" to produce a Markdown file
+  listing all modifications by file, author, and date.
+
+  IMPORTANT NOTES
+  ---------------
+  - git clone is required before running "Generate Commit History";
+    otherwise commit history generation will not work.
+  - Older modifications may not appear in the generated
+    COMMIT_HISTORY.md.
+  - If a file's inline notice is limited, check for a separate
+    file-specific notice and COMMIT_HISTORY.md; if neither exists,
+    treat the inline notice as the final modification record.
+  - If a separate file-specific notice is provided, check the
+    file's inline notice and COMMIT_HISTORY.md; if neither exists,
+    treat the separate notice as the final modification record.
+  - Review individual modified source files for earlier notices.
+  - Some files may not contain notices within the file itself or
+    may not be listed in COMMIT_HISTORY.md; a separate notice
+    file may be provided instead.
+  - Not all source files have been modified, but review notices
+    in all source files and any separate notice files (.md or .txt).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title data-i18n="customRulesEditor_title"></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../external_js/theme_bootstrap.js"></script>
+    <script src="../external_js/theme_favicon.js"></script>
+
+    <!-- Bootstrap CSS -->
+ 
+
+    <style>
+        @font-face {
+            font-family: 'Old-Country-Nobility';
+            src: url('../Old-Country-Nobility/Old-Country-Nobility.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .import-export-buttons {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+          margin: 10px 0 12px;
+          padding: 10px;
+          border: 1px solid var(--border-color);
+          border-radius: 8px;
+          background: var(--bg-tertiary);
+        }
+
+        .import-export-buttons button {
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          gap: 6px;
+          min-height: 30px;
+          padding: 6px 8px;
+          font-size: 11px;
+        }
+
+        /* Pattern Type Selector Styles */
+        .pattern-type-selector {
+            margin: 8px 0;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color, #cbd5e1);
+            border-radius: 6px;
+            background: var(--bg-secondary, #f8fafc);
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        .radio-option:hover {
+            background: var(--bg-tertiary, #e2e8f0);
+            border-color: var(--button-primary, #2563eb);
+        }
+
+        .radio-option input[type="radio"] {
+            margin: 0;
+            accent-color: var(--button-primary, #2563eb);
+        }
+
+        .radio-option input[type="radio"]:checked + span {
+            font-weight: 500;
+            color: var(--button-primary, #2563eb);
+        }
+
+        .radio-option:has(input[type="radio"]:checked) {
+            background: var(--button-primary, #2563eb);
+            color: white;
+            border-color: var(--button-primary, #2563eb);
+        }
+
+        .radio-option:has(input[type="radio"]:checked) span {
+            color: white;
+        }
+
+        /* Larger input fields for provider modal */
+        #provider-form #url-pattern,
+        #provider-form #domain-patterns {
+            width: 100%;
+            min-width: 400px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        #provider-form #domain-patterns {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        /* Ensure modal is wide enough for larger inputs */
+        .modal-content {
+            min-width: 500px;
+            max-width: 90vw;
+        }
+
+        @media (max-width: 600px) {
+            #provider-form #url-pattern,
+            #provider-form #domain-patterns {
+                min-width: 100%;
+            }
+            
+            .modal-content {
+                min-width: 90vw;
+            }
+        }
+
+ :root[data-theme="midnight"] {
+            /* Primary Background Colors - Default Dark Theme */
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --bg-quaternary: #475569;
+            --bg-primary-theme: #1e293b;
+            
+            /* Interactive Elements - HARMONIZED BLUE PALETTE */
+            --button-primary: #2563eb;
+            --button-hover: #3b82f6;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #2563eb;
+            --button-success-hover: #3b82f6;
+            --button-warning: #2563eb;
+            --button-warning-hover: #3b82f6;
+            --button-info: #2563eb;
+            --button-info-hover: #3b82f6;
+            --logo-bg: #ffffff;
+            --logo-accent: #2563eb;
+            
+            /* Text Colors */
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+
+            /* Border and Shadow Colors */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.25);
+
+            /* Input and Interactive Element Colors */
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-focus: #3b82f6;
+            --toggle-bg: rgba(255, 255, 255, 0.2);
+            --toggle-active: #2563eb;
+            --theme-icon-filter: brightness(0) invert(1);
+
+            /* Editor specific colors */
+            --editor-bg: #1e293b;
+            --editor-border: rgba(255, 255, 255, 0.2);
+            --code-bg: #0f172a;
+            --code-text: #e2e8f0;
+            --code-keyword: #60a5fa;
+            --code-string: #34d399;
+            --code-number: #fbbf24;
+            --code-comment: #6b7280;
+        }
+
+        /* Light theme */
+        :root[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f1f5f9;
+            --bg-tertiary: #e2e8f0;
+            --bg-quaternary: #cbd5e1;
+            --bg-primary-theme: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --input-bg: rgba(0, 0, 0, 0.05);
+            --input-border: rgba(0, 0, 0, 0.1);
+            --button-primary: #2563eb;
+            --button-hover: #1e40af;
+            --button-danger: #dc2626;
+            --button-danger-hover: #b91c1c;
+            --button-success: #2563eb;
+            --button-success-hover: #1e40af;
+            --button-warning: #2563eb;
+            --button-warning-hover: #1e40af;
+            --button-info: #2563eb;
+            --button-info-hover: #1e40af;
+            --input-focus: #1e3a8a;
+            --logo-bg: #2563eb;
+            --logo-accent: #f1f5f9;
+            --toggle-bg: #cbd5e1;
+            --toggle-active: #2563eb;
+            --editor-bg: #f8fafc;
+            --editor-border: rgba(0, 0, 0, 0.2);
+            --code-bg: #ffffff;
+            --code-text: #1e293b;
+            --code-keyword: #1d4ed8;
+            --code-string: #059669;
+            --code-number: #d97706;
+            --code-comment: #6b7280;
+            --theme-icon-filter: brightness(0) saturate(100%);
+        }
+
+        /* Ice Cold theme */
+        :root[data-theme="icecold"] {
+            --bg-primary: #e5eaf5;
+            --bg-secondary: #f3f7fd;
+            --bg-tertiary: #d7e8f6;
+            --bg-quaternary: #a0d2eb;
+            --bg-primary-theme: #f3f7fd;
+
+            --button-primary: #8458b3;
+            --button-hover: #a28089;
+            --button-danger: #8458b3;
+            --button-danger-hover: #a28089;
+            --button-success: #8458b3;
+            --button-success-hover: #a28089;
+            --button-warning: #8458b3;
+            --button-warning-hover: #a28089;
+            --button-info: #8458b3;
+            --button-info-hover: #a28089;
+            --logo-bg: #ffffff;
+            --logo-accent: #8458b3;
+
+            --text-primary: #1f2937;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+
+            --border-color: rgba(148, 163, 184, 0.35);
+            --shadow-color: rgba(0, 0, 0, 0.08);
+
+            --input-bg: #ffffff;
+            --input-border: rgba(148, 163, 184, 0.45);
+            --input-focus: #8458b3;
+            --toggle-bg: rgba(132, 88, 179, 0.2);
+            --toggle-active: #8458b3;
+            --theme-icon-filter: brightness(0) saturate(100%);
+
+            --editor-bg: #f3f7fd;
+            --editor-border: rgba(148, 163, 184, 0.45);
+            --code-bg: #ffffff;
+            --code-text: #1f2937;
+            --code-keyword: #8458b3;
+            --code-string: #a28089;
+            --code-number: #8458b3;
+            --code-comment: #64748b;
+        }
+
+        /* Dark theme */
+        :root[data-theme="dark"] {
+            --bg-primary: #0f111a;
+            --bg-secondary: #161a24;
+            --bg-tertiary: #232838;
+            --bg-quaternary: #2f3648;
+            --bg-primary-theme: #161a24;
+
+            --button-primary: #2f3648;
+            --button-hover: #232838;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #2f3648;
+            --button-success-hover: #232838;
+            --button-warning: #2f3648;
+            --button-warning-hover: #232838;
+            --button-info: #2f3648;
+            --button-info-hover: #232838;
+            --logo-bg: #ffffff;
+            --logo-accent: #2f3648;
+
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+
+            --border-color: rgba(255, 255, 255, 0.12);
+            --shadow-color: rgba(0, 0, 0, 0.35);
+
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.14);
+            --input-focus: #8ab4e6;
+            --toggle-bg: rgba(47, 54, 72, 0.45);
+            --toggle-active: #2f3648;
+            --theme-icon-filter: brightness(0) invert(1);
+
+            --editor-bg: #161a24;
+            --editor-border: rgba(255, 255, 255, 0.14);
+            --code-bg: #0f111a;
+            --code-text: #f1f5f9;
+            --code-keyword: #8ab4e6;
+            --code-string: #93c5fd;
+            --code-number: #60a5fa;
+            --code-comment: #94a3b8;
+        }
+
+        /* Sunset Orange theme */
+        :root[data-theme="sunset"] {
+            --bg-primary: #f5f3f0;
+            --bg-secondary: #fffdfb;
+            --bg-tertiary: #fff6f2;
+            --bg-quaternary: #f76f53;
+            --bg-primary-theme: #fffdfb;
+            
+            --button-primary: #f76f53;
+            --button-hover: #c85a3e;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #f76f53;
+            --button-success-hover: #c85a3e;
+            --button-warning: #f76f53;
+            --button-warning-hover: #c85a3e;
+            --button-info: #f76f53;
+            --button-info-hover: #c85a3e;
+            --logo-bg: #ffffff;
+            --logo-accent: #f76f53;
+            
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --text-muted: #6b6b6b;
+            
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow-color: rgba(0, 0, 0, 0.06);
+            
+            --input-bg: rgba(0, 0, 0, 0.04);
+            --input-border: rgba(0, 0, 0, 0.15);
+            --input-focus: #f76f53;
+            --toggle-bg: rgba(0, 0, 0, 0.06);
+            --toggle-active: #f76f53;
+            --theme-icon-filter: brightness(0) saturate(100%);
+            
+            --editor-bg: #fffdfb;
+            --editor-border: rgba(0, 0, 0, 0.15);
+            --code-bg: #fff6f2;
+            --code-text: #1a1a1a;
+            --code-keyword: #c85a3e;
+            --code-string: #f76f53;
+            --code-number: #c85a3e;
+            --code-comment: #6b6b6b;
+        }
+        /* Legacy theme */
+        :root[data-theme="legacy"] {
+            --bg-primary: #212529;
+            --bg-secondary: #343a40;
+            --bg-tertiary: #495057;
+            --bg-quaternary: #6c757d;
+            --bg-primary-theme: #212529;
+
+            --button-primary: #FF7800;
+            --button-hover: #FF7800;
+            --button-danger: #dc3545;
+            --button-danger-hover: #c82333;
+            --button-success: #FF7800;
+            --button-success-hover: #FF7800;
+            --button-warning: #FF7800;
+            --button-warning-hover: #FF7800;
+            --button-info: #FF7800;
+            --button-info-hover: #FF7800;
+            --logo-bg: #ffffff;
+            --logo-accent: #2563eb;
+
+            --text-primary: #f8f9fa;
+            --text-secondary: #dee2e6;
+            --text-muted: #adb5bd;
+
+            --border-color: rgba(255, 255, 255, 0.14);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.2);
+            --input-focus: #FF7800;
+            --toggle-bg: rgba(255, 255, 255, 0.2);
+            --toggle-active: #FF7800;
+            --theme-icon-filter: brightness(0) invert(1);
+
+            --editor-bg: #2b3035;
+            --editor-border: rgba(255, 255, 255, 0.2);
+            --code-bg: #212529;
+            --code-text: #f8f9fa;
+            --code-keyword: #FF7800;
+            --code-string: #FF7800;
+            --code-number: #FF7800;
+            --code-comment: #adb5bd;
+        }
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Old-Country-Nobility", serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            font-size: 14px;
+        }
+
+        .header {
+            background: var(--bg-secondary);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 4px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            min-height: 60px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        :root[data-theme="legacy"] .logo {
+            background: url("../img/linkumori_icon_theme_legacy.svg") center / contain no-repeat;
+        }
+
+        :root[data-theme="legacy"] .logo * {
+            opacity: 0;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .header h1 {
+            color: var(--text-primary);
+            font-size: 16px;
+            margin: 0;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .version-badge {
+            background: var(--button-primary);
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 500;
+            align-self: flex-start;
+            letter-spacing: 0.5px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .faq-btn {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+            text-decoration: none;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .faq-btn:hover {
+            background: var(--bg-quaternary);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 24px;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            min-height: 38px;
+            position: relative;
+            overflow: hidden;
+            line-height: 1.2;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--button-primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: var(--button-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-success {
+            background: var(--button-success);
+            color: #ffffff;
+        }
+
+        .btn-success:hover {
+            background: var(--button-success-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+        }
+
+        .btn-danger {
+            background: var(--button-danger);
+            color: #ffffff;
+        }
+
+        .btn-danger:hover {
+            background: var(--button-danger-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-warning {
+            background: var(--button-warning);
+            color: #ffffff;
+        }
+
+        .btn-warning:hover {
+            background: var(--button-warning-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn-info {
+            background: var(--button-info);
+            color: #ffffff;
+        }
+
+        .btn-info:hover {
+            background: var(--button-info-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-quaternary);
+            transform: translateY(-1px);
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 24px;
+            min-height: calc(100vh - 100px);
+        }
+
+        .view-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .view-nav-btn {
+            border: 1px solid var(--border-color);
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .view-nav-btn.active {
+            background: var(--button-primary);
+            color: #fff;
+            border-color: var(--button-primary);
+        }
+
+        .view-panel {
+            display: none;
+        }
+
+        .view-panel.active {
+            display: block;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            height: fit-content;
+            position: sticky;
+            top: 84px;
+        }
+
+        .sidebar h3 {
+            margin: 0 0 16px 0;
+            font-size: 16px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .provider-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .whitelist-section {
+            margin-top: 12px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-tertiary);
+        }
+
+        .whitelist-page {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .whitelist-section-title {
+            margin: 0 0 8px 0;
+            font-size: 13px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .whitelist-section-description {
+            margin: 0 0 8px 0;
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .whitelist-input-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .whitelist-action-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+            justify-content: flex-end;
+        }
+
+        .whitelist-input,
+        .whitelist-search {
+            width: 100%;
+            min-width: 0;
+            border: 1px solid var(--input-border);
+            border-radius: 6px;
+            background: var(--input-bg);
+            color: var(--text-primary);
+            padding: 8px 10px;
+            font-size: 12px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .whitelist-input:focus,
+        .whitelist-search:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        .whitelist-search {
+            margin-bottom: 8px;
+        }
+
+        .whitelist-examples {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .whitelist-examples code {
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 3px;
+            padding: 2px 5px;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 10px;
+            color: var(--text-secondary);
+        }
+
+        .whitelist-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 170px;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+        }
+
+        .whitelist-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 7px 9px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .whitelist-item:last-child {
+            border-bottom: none;
+        }
+
+        .whitelist-domain {
+            font-size: 12px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .whitelist-empty {
+            padding: 12px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .whitelist-status {
+            margin-top: 8px;
+            min-height: 14px;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .whitelist-count {
+            margin-top: 6px;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .whitelist-status.success {
+            color: var(--text-primary);
+        }
+
+        .whitelist-status.error {
+            color: var(--button-danger);
+        }
+
+        .provider-item {
+            padding: 10px 12px;
+            margin: 4px 0;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .provider-item:hover {
+            background: var(--bg-quaternary);
+            transform: translateX(2px);
+        }
+
+        .provider-item.active {
+            background: var(--button-primary);
+            color: #ffffff;
+        }
+
+        .provider-name {
+            font-size: 13px;
+            font-weight: 500;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-actions {
+            display: flex;
+            gap: 4px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .provider-item:hover .provider-actions {
+            opacity: 1;
+        }
+
+        .provider-item.active .provider-actions {
+            opacity: 1;
+        }
+
+        .provider-action-btn {
+            background: none;
+            border: none;
+            color: currentColor;
+            cursor: pointer;
+            padding: 2px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+        }
+
+        .provider-action-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .add-provider-btn {
+            width: 100%;
+            margin-top: 12px;
+            justify-content: center;
+        }
+
+        /* Editor Panel */
+        .editor-panel {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .editor-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .editor-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+            flex: 1;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .editor-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .u-hidden {
+            display: none;
+        }
+
+        .whitelist-section-no-top {
+            margin-top: 0;
+        }
+
+        .editor-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .editor-section {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .editor-section.pattern-section {
+            background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+            border-color: var(--editor-border);
+        }
+
+        .editor-section-title {
+            margin: 0 0 12px 0;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 600;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        /* Form Styles */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .form-input {
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: var(--text-primary);
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 8px 0;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--button-primary);
+        }
+
+        .form-help {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        /* JSON Editor */
+        .json-editor {
+            border: 1px solid var(--editor-border);
+            border-radius: 6px;
+            background: var(--code-bg);
+            overflow: hidden;
+        }
+
+        .json-editor-header {
+            background: var(--bg-tertiary);
+            padding: 10px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--editor-border);
+        }
+
+        .json-editor-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .json-editor-content {
+            position: relative;
+        }
+
+        .json-key-toolbar {
+            padding: 12px;
+            border-bottom: 1px solid var(--editor-border);
+            background: var(--bg-secondary);
+        }
+
+        .json-key-toolbar-title {
+            font-size: 12px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .json-key-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 8px;
+        }
+
+        .json-key-toolbar-help {
+            margin-top: 8px;
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .json-key-add-btn {
+            justify-content: flex-start;
+            border-radius: 999px;
+            padding: 7px 12px;
+            border: 1px solid var(--input-border);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            font-size: 11px;
+            line-height: 1.1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .json-key-add-btn:hover {
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+        }
+
+        .editor-panel .pattern-type-selector {
+            margin: 2px 0 4px;
+        }
+
+        .editor-panel .pattern-type-selector .radio-group {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .editor-panel .pattern-type-selector .radio-option {
+            justify-content: center;
+            border-radius: 999px;
+            min-height: 40px;
+            padding: 8px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--input-border);
+            font-size: 13px;
+        }
+
+        .editor-panel .pattern-type-selector .radio-option:has(input[type="radio"]:checked) {
+            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.28);
+        }
+
+        #edit-url-pattern,
+        #edit-domain-patterns {
+            background: var(--bg-primary);
+            border-color: var(--editor-border);
+            width: 100%;
+            font-size: 14px;
+        }
+
+        #edit-url-pattern {
+            min-height: 48px;
+            padding: 12px 14px;
+        }
+
+        #edit-domain-patterns {
+            min-height: 170px;
+            padding: 12px 14px;
+        }
+
+        .json-editor-textarea {
+            width: 100%;
+            height: 400px;
+            background: var(--code-bg);
+            color: var(--code-text);
+            border: none;
+            padding: 16px;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 12px;
+            line-height: 1.5;
+            resize: vertical;
+            outline: none;
+        }
+
+        .json-editor-error {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid var(--button-danger);
+            color: var(--button-danger);
+            padding: 8px 12px;
+            margin: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .json-editor-valid {
+            background: rgba(22, 163, 74, 0.1);
+            border: 1px solid var(--button-success);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            margin: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .rule-test-lab {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .rule-test-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .rule-test-controls {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .rule-test-output {
+            margin: 0;
+            min-height: 220px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: monospace;
+            font-size: 12px;
+            background: var(--code-bg);
+            color: var(--code-text);
+        }
+
+        #rule-test-modal .modal-content.modal-large {
+            max-width: 900px;
+        }
+
+        /* Status indicators */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .status-valid {
+            background: var(--button-primary);
+            color: #ffffff;
+        }
+
+        /* Light theme - softer blue background */
+        :root[data-theme="light"] .status-valid {
+            background: rgba(30, 64, 175, 0.15);
+            color: #000000;
+        }
+
+        :root[data-theme="icecold"] .status-valid {
+            background: rgba(160, 210, 235, 0.35);
+            color: #000000;
+        }
+
+        /* Sunset Orange theme - orange-tinted background */
+        :root[data-theme="sunset"] .status-valid {
+            background: rgba(247, 111, 83, 0.2);
+            color: #000000;
+        }
+
+        .status-invalid {
+            background: rgba(220, 38, 38, 0.2);
+            color: var(--button-danger);
+        }
+
+        .status-unsaved {
+            background: rgba(217, 119, 6, 0.2);
+            color: var(--text-primary);
+        }
+
+        /* Status display */
+        .rules-status {
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .rules-status-title {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .rules-status-content {
+            font-size: 11px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .rules-status-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+
+        .rules-status-merge {
+            margin-top: 4px;
+            font-style: italic;
+            color: var(--text-muted);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .btn-sm {
+            padding: 6px 10px;
+            font-size: 11px;
+            min-height: 28px;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .empty-state h3 {
+            font-size: 18px;
+            margin: 0 0 8px 0;
+            color: var(--text-secondary);
+        }
+
+        .empty-state p {
+            font-size: 14px;
+            margin: 0 0 20px 0;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-content.modal-large {
+            max-width: 800px;
+            width: 95%;
+            max-height: 85vh;
+        }
+
+        .modal-content.modal-xl {
+            max-width: 1200px;
+            width: 95%;
+            max-height: 90vh;
+        }
+
+        /* Provider import modal should open fullscreen */
+        #provider-import-modal {
+            align-items: stretch;
+            justify-content: stretch;
+        }
+
+        #provider-import-modal .modal-content.modal-xl {
+            width: 100vw;
+            max-width: 100vw;
+            height: 100vh;
+            max-height: 100vh;
+            margin: 0;
+            border-radius: 0;
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #provider-import-modal .provider-browser {
+            flex: 1;
+            min-height: 0;
+            height: auto;
+        }
+
+        #provider-import-modal .provider-source-list,
+        #provider-import-modal .provider-browser-content,
+        #provider-import-modal .provider-grid {
+            min-height: 0;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 24px;
+            line-height: 1;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        /* Provider List / Disabled Rules Page Styles */
+        .provider-list-modal-content {
+            max-height: 62vh;
+            overflow-y: auto;
+            background: var(--bg-primary);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-list-page {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 1px 6px var(--shadow-color);
+        }
+
+        .provider-list-page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Disabled rules full-page styling */
+        #disabled-rules-view .provider-list-page {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        #disabled-rules-view .provider-list-page-header {
+            margin-bottom: 12px;
+        }
+
+        #disabled-rules-view .provider-list-page-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        #disabled-rules-view .provider-list-page-actions .btn {
+            min-height: 34px;
+            padding: 7px 14px;
+            font-size: 12px;
+            line-height: 1.1;
+            border-radius: 7px;
+        }
+
+        #disabled-rules-view .provider-list-page-actions .btn-warning,
+        #disabled-rules-view .provider-list-page-actions .btn-secondary {
+            background: var(--button-primary);
+            border-color: var(--button-primary);
+            color: #ffffff;
+        }
+
+        #disabled-rules-view .provider-list-page-actions .btn-warning:hover,
+        #disabled-rules-view .provider-list-page-actions .btn-secondary:hover {
+            background: var(--button-hover);
+            border-color: var(--button-hover);
+        }
+
+        #disabled-rules-page-content {
+            max-height: 60vh;
+            overflow: auto;
+            padding: 0;
+            background: transparent;
+            border: 0;
+        }
+
+        .disabled-rules-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .disabled-rules-meta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            padding: 6px 2px 2px;
+            color: var(--text-muted);
+            font-size: 11px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .disabled-rules-meta strong {
+            color: var(--text-primary);
+            margin-left: 4px;
+        }
+
+        .provider-list-search {
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: var(--text-primary);
+            border-radius: 8px;
+            padding: 9px 12px;
+            font-size: 13px;
+            width: 100%;
+            margin-bottom: 12px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-list-search:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        .provider-list-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-top: 1px solid var(--border-color);
+            transition: background-color 0.2s;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-list-item:first-child {
+            border-top: none;
+        }
+
+        .provider-list-item:hover {
+            background: var(--bg-quaternary);
+        }
+
+        .provider-list-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .provider-list-item-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin: 0 0 4px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-list-item-url {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-family: "Old-Country-Nobility", serif;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: "Old-Country-Nobility", serif;
+
+        }
+
+        .provider-list-item-stats {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+
+        .provider-list-item-stat {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 3px 7px;
+            border-radius: 999px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-family: "Old-Country-Nobility", serif;
+
+        }
+
+        .provider-list-item-actions {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .provider-list-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        /* Provider Import Modal Styles */
+        .provider-browser {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
+            height: 500px;
+        }
+
+        .provider-source-list {
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            padding: 12px;
+            overflow-y: auto;
+        }
+
+        .provider-source-item {
+            padding: 8px 12px;
+            margin: 4px 0;
+            background: var(--bg-quaternary);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .provider-source-item:hover {
+            background: var(--bg-primary);
+        }
+
+        .provider-source-item.active {
+            background: var(--button-primary);
+            color: #ffffff;
+        }
+
+        .provider-source-count {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        #disabled-rules-view .provider-disabled-section {
+            margin: 0;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-tertiary);
+        }
+
+        #disabled-rules-view .provider-disabled-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 8px 0;
+            padding: 0;
+        }
+
+        #disabled-rules-view .provider-disabled-title {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        #disabled-rules-view .provider-disabled-count-badge {
+            min-width: 26px;
+            text-align: center;
+            padding: 3px 8px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 10px;
+            font-weight: 600;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        #disabled-rules-view .provider-disabled-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            max-height: 170px;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+        }
+
+        #disabled-rules-view .provider-disabled-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto auto;
+            align-items: center;
+            gap: 14px;
+            padding: 7px 9px;
+            border-bottom: 1px solid var(--border-color);
+            background: transparent;
+            font-size: 12px;
+        }
+
+        #disabled-rules-view .provider-disabled-item:last-child {
+            border-bottom: 0;
+        }
+
+        #disabled-rules-view .provider-disabled-item:hover {
+            background: var(--bg-quaternary);
+        }
+
+        #disabled-rules-view .provider-disabled-signature {
+            display: block;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            white-space: normal;
+            color: var(--text-secondary);
+            line-height: 1.35;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+            font-size: 12px;
+        }
+
+        #disabled-rules-view .provider-disabled-source {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px 7px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background: var(--input-bg);
+            color: var(--text-secondary);
+            font-size: 10px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        #disabled-rules-view .provider-disabled-item .disabled-rules-restore-btn {
+            min-width: 88px;
+            min-height: 32px;
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 7px;
+            flex-shrink: 0;
+        }
+
+        #disabled-rules-view .provider-disabled-empty {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .provider-browser-content {
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .provider-search {
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: var(--text-primary);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 12px;
+            margin-bottom: 12px;
+            width: 100%;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-search:focus {
+            outline: none;
+            border-color: var(--input-focus);
+        }
+
+        .provider-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .provider-card {
+            background: var(--bg-quaternary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .provider-card:hover {
+            background: var(--bg-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .provider-card.selected {
+            border-color: var(--button-primary);
+            background: var(--button-primary);
+            color: #ffffff;
+        }
+
+        .provider-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .provider-card-name {
+            font-size: 13px;
+            font-weight: 500;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-card-checkbox {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--button-primary);
+        }
+
+        .provider-card-url {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-family: "Old-Country-Nobility", serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .provider-card.selected .provider-card-url {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .provider-card-stats {
+            display: flex;
+            gap: 8px;
+            font-size: 10px;
+            color: var(--text-muted);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-card.selected .provider-card-stats {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .provider-card-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-source-title {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        /* Provider import modal uses theme tokens for all themes */
+        #provider-import-modal .provider-source-list,
+        #provider-import-modal .provider-browser-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        #provider-import-modal .provider-source-list h4 {
+            color: var(--text-primary);
+        }
+
+        #provider-import-modal .provider-loading {
+            color: var(--text-secondary);
+        }
+
+        #provider-import-modal .provider-error {
+            color: var(--button-danger);
+        }
+
+        #provider-import-modal .provider-source-item {
+            color: var(--text-primary);
+        }
+
+        #provider-import-modal .provider-source-item:hover {
+            background: var(--bg-tertiary);
+        }
+
+        #provider-import-modal .provider-source-item.active {
+            background: var(--button-primary);
+            border-color: var(--button-primary);
+            color: #ffffff;
+        }
+
+        #provider-import-modal .provider-source-item.active * {
+            color: #ffffff;
+        }
+
+        #provider-import-modal .provider-source-count {
+            background: var(--input-bg);
+            color: var(--text-secondary);
+        }
+
+        #provider-import-modal .provider-source-item.active .provider-source-count {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        #provider-import-modal .provider-search {
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: var(--text-primary);
+        }
+
+        #provider-import-modal .provider-search::placeholder {
+            color: var(--text-muted);
+        }
+
+        #provider-import-modal .provider-grid {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        #provider-import-modal .provider-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        #provider-import-modal .provider-card:hover {
+            background: var(--bg-quaternary);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        #provider-import-modal .provider-card-url,
+        #provider-import-modal .provider-card-stats {
+            color: var(--text-secondary);
+        }
+
+        #provider-import-modal .provider-card-stat {
+            background: var(--input-bg);
+            color: var(--text-secondary);
+        }
+
+        .provider-loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .provider-error {
+            text-align: center;
+            padding: 40px;
+            color: var(--button-danger);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .selection-controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .selection-count {
+            background: var(--button-info);
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        /* FAQ Modal Specific Styles */
+        .faq-section {
+            margin-bottom: 24px;
+        }
+
+        .faq-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--button-primary);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            background: var(--bg-tertiary);
+            border: none;
+            color: var(--text-primary);
+            width: 100%;
+            padding: 12px 16px;
+            text-align: left;
+            cursor: pointer;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        /* Add to the existing CSS */
+
+
+        .faq-question:hover {
+            background: var(--bg-quaternary);
+        }
+
+        .faq-question.active {
+            background: var(--bg-quaternary);
+        }
+
+        .faq-question-icon {
+            transition: transform 0.2s;
+            font-size: 18px;
+            color: var(--text-muted);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .faq-question.active .faq-question-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+            background: var(--bg-primary);
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .faq-answer-content {
+            padding: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 13px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .faq-code {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 11px;
+            margin: 8px 0;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-highlight {
+            background: var(--button-warning);
+            color: var(--text-primary);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 500;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .faq-warning {
+            background: rgba(217, 119, 6, 0.1);
+            border: 1px solid var(--button-warning);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: 8px 0;
+            font-size: 12px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .faq-info {
+            background: rgba(8, 145, 178, 0.1);
+            border: 1px solid var(--button-info);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: 8px 0;
+            font-size: 12px;
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        .faq-list {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .faq-list li {
+            margin-bottom: 4px;
+            color: var(--text-secondary);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        /* Sidebar actions */
+        .sidebar-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-actions .btn {
+            flex: 1;
+        }
+
+        .sidebar-actions-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Enforce button styling */
+        .enforce-btn {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+         .theme-toggle-btn {
+            background: transparent;
+            padding: 4px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .theme-toggle-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--button-primary);
+        }
+
+        .theme-toggle-btn img {
+            width: 12px;
+            height: 12px;
+            transition: opacity 0.2s;
+            display: block;
+            filter: var(--theme-icon-filter);
+        }
+
+        .sun-icon {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .moon-icon {
+            opacity: 1;
+        }
+
+        :root[data-theme="light"] .sun-icon {
+            opacity: 1;
+        }
+
+        :root[data-theme="light"] .moon-icon {
+            opacity: 0;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 250px 1fr;
+                gap: 16px;
+            }
+            
+            .sidebar {
+                padding: 16px;
+            }
+            
+            .editor-panel {
+                padding: 16px;
+            }
+
+            .json-key-buttons {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .provider-browser {
+                grid-template-columns: 200px 1fr;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+            
+            .editor-panel {
+                order: 1;
+            }
+            
+            .container {
+                padding: 16px 12px;
+            }
+            
+            .header {
+                padding: 10px 16px;
+                min-height: 50px;
+            }
+            
+            .header h1 {
+                font-size: 14px;
+            }
+
+            .version-badge {
+                font-size: 9px;
+                padding: 2px 5px;
+            }
+
+            .logo {
+                width: 20px;
+                height: 20px;
+            }
+
+            .theme-toggle-btn {
+                width: 28px;
+                height: 28px;
+                padding: 5px;
+            }
+
+            .btn {
+                font-size: 12px;
+                padding: 8px 14px;
+            }
+
+            .json-editor-textarea {
+                height: 300px;
+                font-size: 11px;
+            }
+
+            .editor-panel .pattern-type-selector .radio-group {
+                grid-template-columns: 1fr;
+            }
+
+            .json-key-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-btn {
+                font-size: 11px;
+                padding: 5px 8px;
+            }
+
+            .modal-content.modal-large {
+                max-width: 95%;
+                padding: 16px;
+            }
+
+            .modal-content.modal-xl {
+                max-width: 95%;
+                padding: 16px;
+            }
+
+            #provider-import-modal .modal-content.modal-xl {
+                max-width: 100vw;
+                width: 100vw;
+                height: 100vh;
+                max-height: 100vh;
+                padding: 12px;
+                border-radius: 0;
+            }
+
+            .provider-browser {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                height: auto;
+            }
+
+            .provider-source-list {
+                max-height: 150px;
+            }
+
+            .provider-browser-content {
+                max-height: 400px;
+            }
+
+            .provider-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #disabled-rules-view .provider-list-page {
+                padding: 14px;
+            }
+
+            #disabled-rules-view .provider-list-page-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            #disabled-rules-view .provider-list-page-actions {
+                width: 100%;
+            }
+
+            #disabled-rules-view .provider-list-page-actions .btn {
+                flex: 1;
+                min-width: 0;
+            }
+
+            #disabled-rules-view .provider-disabled-item {
+                grid-template-columns: 1fr;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            #disabled-rules-view .provider-disabled-item .disabled-rules-restore-btn {
+                width: 100%;
+            }
+
+            .provider-list-item {
+                grid-template-columns: 1fr;
+                align-items: stretch;
+            }
+
+            .provider-list-item-actions {
+                justify-content: flex-end;
+            }
+
+            .sidebar-actions-row {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-answer {
+                max-height: 300px;
+            }
+
+            .faq-answer.active {
+                max-height: 300px;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: more) {
+            :root {
+                --border-color: rgba(255, 255, 255, 0.4);
+            }
+            
+            :root[data-theme="light"] {
+                --border-color: rgba(0, 0, 0, 0.4);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
+                <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
+                    fill="none"
+                    stroke="var(--logo-accent)"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+                <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35"
+                    fill="none"
+                    stroke="var(--logo-accent)"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+                <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28"
+                       fill="var(--logo-accent)"/>
+            </svg>
+            <div class="header-text">
+                <h1 id="page_title" data-i18n="customRulesEditor_pageTitle"></h1>
+                <span class="version-badge" id="version"></span>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="faq-btn" id="faq-btn">
+                <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                    <path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+                </svg>
+                <span data-i18n="faq_title"></span>
+            </button>
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="" data-i18n-aria="themeToggleAriaLabel">
+                <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" data-i18n-alt="sunIconAlt">
+                <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" data-i18n-alt="moonIconAlt">
+            </button>
+        </div>
+    </div>
+
+    <!-- FAQ Modal -->
+    <div class="modal" id="faq-modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 class="modal-title" data-i18n="faq_title"></h3>
+                <button class="modal-close" id="faq-modal-close">&times;</button>
+            </div>
+            
+            <div class="faq-section">
+                <h4 class="faq-section-title" data-i18n="faq_section_basics"></h4>
+                
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="what-is-custom-rules">
+                        <span data-i18n="faq_what_is_custom_rules"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_what_is_custom_rules_answer"></p>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_note"></strong> <span data-i18n="faq_custom_rules_note"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="how-providers-work">
+                        <span data-i18n="faq_how_providers_work"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_providers_explanation"></p>
+                            <p data-i18n="faq_provider_example"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h4 class="faq-section-title" data-i18n="faq_section_properties"></h4>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="url-pattern">
+                        <span data-i18n="faq_url_pattern"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_url_pattern_explanation"></p>
+                            <div class="faq-code">^https?://(?:[a-z0-9-]+\.)*?example\.com</div>
+                            <p data-i18n="faq_url_pattern_structure"></p>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_tip"></strong> <span data-i18n="faq_url_pattern_tip"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="domain-patterns">
+                        <span data-i18n="faq_domain_patterns"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_domain_patterns_explanation"></p>
+                            <div class="faq-code">example.com
+*.example.com
+subdomain.example.com
+||example.com^
+||*.example.com^
+||example.*^
+||*.example.*^</div>
+                            <p data-i18n="faq_url_patterns_explanation"></p>
+                            <div class="faq-code">^https?://(?:[a-z0-9-]+\.)*?example\.com</div>
+                            <div class="faq-warning">
+                                <strong data-i18n="faq_note"></strong> <span data-i18n="faq_pattern_exclusive_note"></span>
+                            </div>
+                            <p><strong data-i18n="faq_domain_pattern_types"></strong></p>
+                            <ul class="faq-list">
+                                <li><code data-i18n="faq_domain_pattern_basic"></code></li>
+                                <li><code data-i18n="faq_domain_pattern_wildcard"></code></li>
+                                <li><code data-i18n="faq_domain_pattern_adblock"></code></li>
+                                <li><code data-i18n="faq_domain_pattern_adblock_wildcard"></code></li>
+                                <li><code data-i18n="faq_domain_pattern_tld"></code></li>
+                                <li><code data-i18n="faq_domain_pattern_full_wildcard"></code></li>
+                            </ul>
+                            <p><strong data-i18n="faq_when_to_use_patterns"></strong></p>
+                            <ul class="faq-list">
+                                <li data-i18n="faq_use_domain_patterns"></li>
+                                <li data-i18n="faq_use_url_patterns"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="complete-provider">
+                        <span data-i18n="faq_complete_provider"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_complete_provider_explanation"></p>
+                            <div class="faq-warning">
+                                <strong data-i18n="faq_warning"></strong> <span data-i18n="faq_complete_provider_warning"></span>
+                            </div>
+                            <p data-i18n="faq_complete_provider_usage"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="rules-vs-raw-rules">
+                        <span data-i18n="faq_rules_vs_raw"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong data-i18n="faq_rules_title"></strong> <span data-i18n="faq_rules_explanation"></span></p>
+                            <div class="faq-code">"rules": ["utm_source", "fbclid", "||example.com^$removeparam=/^utm_/", "@@||example.com^$removeparam=utm_source"]</div>
+                            <p data-i18n="faq_rules_converted"></p>
+                            
+                            <p><strong data-i18n="faq_raw_rules_title"></strong> <span data-i18n="faq_raw_rules_explanation"></span></p>
+                            <div class="faq-code">"rawRules": ["/ref=[^/|?]*", "#comment-\\d+"]</div>
+                            <p data-i18n="faq_raw_rules_usage"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="referral-marketing">
+                        <span data-i18n="faq_referral_marketing"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_referral_explanation"></p>
+                            <div class="faq-code">"referralMarketing": ["ref", "tag", "affiliate_id"]</div>
+                            <div class="faq-warning">
+                                <strong data-i18n="faq_default_note"></strong> <span data-i18n="faq_referral_default"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="exceptions">
+                        <span data-i18n="faq_exceptions"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_exceptions_explanation"></p>
+                            <div class="faq-code">"exceptions": ["^https?://example\.com/api/", "example\.com/admin"]</div>
+                            <p data-i18n="faq_exceptions_usage"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="redirections">
+                        <span data-i18n="faq_redirections"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_redirections_explanation"></p>
+                            <div class="faq-code">"redirections": ["^https?://example\.com.*url=([^&]+)"]</div>
+                            <p data-i18n="faq_redirections_process"></p>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_example"></strong> <span data-i18n="faq_redirections_example"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="force-redirection">
+                        <span data-i18n="faq_force_redirection"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_force_redirection_explanation"></p>
+                            <p data-i18n="faq_force_redirection_usage"></p>
+                            <div class="faq-warning">
+                                <strong data-i18n="faq_caution"></strong> <span data-i18n="faq_force_redirection_warning"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="domain-exceptions">
+                        <span data-i18n="faq_domain_exceptions"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_domain_exceptions_explanation"></p>
+                            <div class="faq-code">example.com
+admin.example.com
+*.internal.example.com</div>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_tip"></strong> <span data-i18n="faq_domain_exceptions_tip"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="domain-redirections">
+                        <span data-i18n="faq_domain_redirections"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_domain_redirections_explanation"></p>
+                            <div class="faq-code">redirect.example.com$redirect=https://target.com
+||short.ly^$redirect=extracted_url</div>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_example"></strong> <span data-i18n="faq_domain_redirections_example"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="resource-types">
+                        <span data-i18n="faq_resource_types"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_resource_types_explanation"></p>
+                            <p><strong data-i18n="faq_resource_types_common"></strong></p>
+                            <ul class="faq-list">
+                                <li data-i18n="faq_rt_main_frame"></li>
+                                <li data-i18n="faq_rt_sub_frame"></li>
+                                <li data-i18n="faq_rt_script"></li>
+                                <li data-i18n="faq_rt_stylesheet"></li>
+                                <li data-i18n="faq_rt_image"></li>
+                                <li data-i18n="faq_rt_imageset"></li>
+                                <li data-i18n="faq_rt_font"></li>
+                                <li data-i18n="faq_rt_media"></li>
+                                <li data-i18n="faq_rt_xmlhttprequest"></li>
+                                <li data-i18n="faq_rt_websocket"></li>
+                                <li data-i18n="faq_rt_object"></li>
+                                <li data-i18n="faq_rt_object_subrequest"></li>
+                                <li data-i18n="faq_rt_xml_dtd"></li>
+                                <li data-i18n="faq_rt_xslt"></li>
+                                <li data-i18n="faq_rt_other"></li>
+                            </ul>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_tip"></strong> <span data-i18n="faq_resource_types_tip"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h4 class="faq-section-title" data-i18n="faq_section_new_features"></h4>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="provider-import">
+                        <span data-i18n="faq_provider_import"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_provider_import_explanation"></p>
+                            <p><strong data-i18n="faq_provider_import_benefits"></strong></p>
+                            <ul class="faq-list">
+                                <li data-i18n="faq_import_benefit_quick"></li>
+                                <li data-i18n="faq_import_benefit_tested"></li>
+                                <li data-i18n="faq_import_benefit_updates"></li>
+                                <li data-i18n="faq_import_benefit_search"></li>
+                            </ul>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_tip"></strong> <span data-i18n="faq_provider_import_tip"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="provider-list">
+                        <span data-i18n="faq_provider_list"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_provider_list_explanation"></p>
+                            <p><strong data-i18n="faq_provider_list_features"></strong></p>
+                            <ul class="faq-list">
+                                <li data-i18n="faq_list_feature_overview"></li>
+                                <li data-i18n="faq_list_feature_search"></li>
+                                <li data-i18n="faq_list_feature_actions"></li>
+                                <li data-i18n="faq_list_feature_stats"></li>
+                            </ul>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_tip"></strong> <span data-i18n="faq_provider_list_tip"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h4 class="faq-section-title" data-i18n="faq_section_advanced"></h4>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="http-methods">
+                        <span data-i18n="faq_http_methods"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_http_methods_explanation"></p>
+                            <p><strong data-i18n="faq_http_methods_common"></strong></p>
+                            <ul class="faq-list">
+                                <li data-i18n="faq_http_methods_get"></li>
+                                <li data-i18n="faq_http_methods_post"></li>
+                                <li data-i18n="faq_http_methods_put"></li>
+                                <li data-i18n="faq_http_methods_delete"></li>
+                                <li data-i18n="faq_http_methods_head"></li>
+                                <li data-i18n="faq_http_methods_options"></li>
+                            </ul>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_tip"></strong> <span data-i18n="faq_http_methods_tip"></span>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h4 class="faq-section-title" data-i18n="faq_section_examples"></h4>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="simple-example">
+                        <span data-i18n="faq_simple_example"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_simple_example_intro"></p>
+                            <div class="faq-code">{
+  "MyShop": {
+    "urlPattern": "^https?://(?:[a-z0-9-]+\\.)*?myshop\\.com",
+    "completeProvider": false,
+    "rules": [
+      "utm_source",
+      "utm_medium", 
+      "utm_campaign",
+      "fbclid"
+    ],
+    "referralMarketing": [
+      "affiliate_id",
+      "ref"
+    ],
+    "forceRedirection": false
+  }
+}</div>
+                            <p data-i18n="faq_simple_example_explanation"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="complex-example">
+                        <span data-i18n="faq_complex_example"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_complex_example_intro"></p>
+                            <div class="faq-code">{
+  "ComplexSite": {
+    "urlPattern": "^https?://(?:[a-z0-9-]+\\.)*?complex\\.com",
+    "completeProvider": false,
+    "rules": ["sessionId", "trackingId"],
+    "rawRules": ["/[?&]temp=[^&]*", "#section\\d+"],
+    "exceptions": [
+      "^https?://complex\\.com/api/",
+      "complex\\.com/login",
+      "complex\\.com/checkout"
+    ],
+    "redirections": [
+      "^https?://complex\\.com/redirect\\?url=([^&]+)",
+      "complex\\.com/go/([^?]+)"
+    ],
+    "forceRedirection": false
+  }
+}</div>
+                            <p data-i18n="faq_complex_example_explanation"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h4 class="faq-section-title" data-i18n="faq_section_tips"></h4>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="testing-tips">
+                        <span data-i18n="faq_testing_tips"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul class="faq-list">
+                                <li data-i18n="faq_test_regex"></li>
+                                <li data-i18n="faq_test_small"></li>
+                                <li data-i18n="faq_test_exceptions"></li>
+                                <li data-i18n="faq_test_backup"></li>
+                                <li data-i18n="faq_test_reload"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="common-mistakes">
+                        <span data-i18n="faq_common_mistakes"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul class="faq-list">
+                                <li data-i18n="faq_mistake_broad"></li>
+                                <li data-i18n="faq_mistake_complete"></li>
+                                <li data-i18n="faq_mistake_escape"></li>
+                                <li data-i18n="faq_mistake_exceptions"></li>
+                                <li data-i18n="faq_mistake_testing"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="performance-tips">
+                        <span data-i18n="faq_performance_tips"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul class="faq-list">
+                                <li data-i18n="faq_perf_specific"></li>
+                                <li data-i18n="faq_perf_simple"></li>
+                                <li data-i18n="faq_perf_combine"></li>
+                                <li data-i18n="faq_perf_limit"></li>
+                                <li data-i18n="faq_perf_review"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="faq-close-btn" data-i18n="button_close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Provider Import Modal -->
+    <div class="modal" id="provider-import-modal">
+        <div class="modal-content modal-xl">
+            <div class="modal-header">
+                <h3 class="modal-title" data-i18n="providerImport_title"></h3>
+                <button class="modal-close" id="provider-import-modal-close">&times;</button>
+            </div>
+            
+            <div class="provider-browser" id="provider-browser">
+                <!-- Source Selection Sidebar -->
+                <div class="provider-source-list">
+                    <h4 class="provider-source-title" data-i18n="providerImport_sources"></h4>
+                    <div class="provider-source-item active" data-source="bundled">
+                        <span data-i18n="providerImport_bundledRules"></span>
+                        <span class="provider-source-count" id="bundled-count"></span>
+                    </div>
+                </div>
+
+                <!-- Provider Browser Content -->
+                <div class="provider-browser-content">
+                    <div class="selection-controls">
+                        <input type="text" class="provider-search" id="provider-search" data-i18n-placeholder="providerImport_searchPlaceholder">
+                        <button class="btn btn-sm btn-secondary" id="select-all-btn" data-i18n="providerImport_selectAll"></button>
+                        <button class="btn btn-sm btn-secondary" id="clear-selection-btn" data-i18n="providerImport_clearSelection"></button>
+                        <span class="selection-count" id="selection-count"></span>
+                    </div>
+
+                    <div class="provider-grid" id="provider-grid">
+                        <div class="provider-loading">
+                            <span data-i18n="providerImport_loading"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="provider-import-cancel" data-i18n="button_cancel"></button>
+                <button class="btn btn-warning" id="provider-import-disable-selected" disabled data-i18n="providerImport_disableSelected"></button>
+                <button class="btn btn-primary" id="provider-import-confirm" disabled data-i18n="providerImport_import"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="view-nav">
+            <button type="button" id="nav-custom-rules" class="view-nav-btn active" data-i18n="customRulesEditor_nav_rules"></button>
+            <button type="button" id="nav-whitelist" class="view-nav-btn" data-i18n="customRulesEditor_nav_whitelist"></button>
+        </div>
+
+        <div id="custom-rules-view" class="view-panel active">
+        <div class="main-layout">
+            <!-- Sidebar with provider list -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h3 data-i18n="customRulesEditor_customProviders"></h3>
+                    <span id="provider-count" class="status-indicator status-valid">0</span>
+                </div>
+                
+                <!-- Rules Status Display -->
+                <div class="rules-status">
+                    <div class="rules-status-title" data-i18n="customRulesEditor_rulesStatus"></div>
+                    <div class="rules-status-content">
+                        <div class="rules-status-row">
+                            <span data-i18n="customRulesEditor_custom"></span>
+                            <span id="custom-count">0</span>
+                        </div>
+                        <div class="rules-status-row">
+                            <span data-i18n="customRulesEditor_builtin"></span>
+                            <span id="builtin-count" data-i18n="status_loading"></span>
+                        </div>
+                        <div class="rules-status-row">
+                            <span data-i18n="customRulesEditor_total"></span>
+                            <span id="total-count" data-i18n="status_loading"></span>
+                        </div>
+                        <div class="rules-status-row">
+                            <span data-i18n="customRulesEditor_disabled"></span>
+                            <span id="disabled-count">0</span>
+                        </div>
+                        <div class="rules-status-merge" id="merge-status" data-i18n="status_loading"></div>
+                    </div>
+                </div>
+                
+                <!-- Enforce Rule Button -->
+                <button class="btn btn-info enforce-btn" id="enforce-rules-btn" data-i18n-title="customRulesEditor_enforceTooltip">
+                    <span data-i18n="customRulesEditor_enforceRules"></span>
+                </button>
+                
+<div class="import-export-buttons">
+    <button class="btn btn-primary btn-sm" id="import-rules-btn" data-i18n="customRulesEditor_importTooltip">
+    </button>
+    <button class="btn btn-success btn-sm" id="export-rules-btn" data-i18n="customRulesEditor_exportTooltip">
+    </button>
+    <button class="btn btn-info btn-sm" id="disabled-rules-btn" data-i18n="providerImport_disabledTitle"></button>
+    <button class="btn btn-warning btn-sm" id="import-from-rules-btn">
+        <span data-i18n="providerImport_button"></span>
+    </button>
+    <button class="btn btn-warning btn-sm" id="open-rule-test-lab-btn" type="button" data-i18n="customRulesEditor_ruleTestLab_button"></button>
+
+                </div>
+                <button class="btn btn-primary add-provider-btn" id="add-provider-btn">
+                    <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M440-120v-320H120v-80h320v-320h80v320h320v80H520v320h-80Z"/>
+                    </svg>
+                    <span data-i18n="customRulesEditor_addProvider"></span>
+                </button>
+            </div>
+
+            <!-- Main editor panel -->
+            <div class="editor-panel">
+                <div class="editor-header">
+                    <h2 class="editor-title" id="editor-title" data-i18n="customRulesEditor_selectProvider"></h2>
+                    <div class="editor-actions">
+                        <span id="editor-status" class="status-indicator status-valid u-hidden" data-i18n="status_valid"></span>
+                        <button class="btn btn-secondary u-hidden" id="exit-editor-btn" data-i18n-title="customRulesEditor_exitTooltip">
+                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                            </svg>
+                            <span data-i18n="button_exit"></span>
+                        </button>
+                        <button class="btn btn-success u-hidden" id="save-provider-btn" data-i18n-title="customRulesEditor_saveTooltip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z"/>
+                            </svg>
+                            <span data-i18n="button_save"></span>
+                        </button>
+                        <button class="btn btn-warning u-hidden" id="edit-provider-name-btn" data-i18n-title="customRulesEditor_editName">
+                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                                <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>
+                            </svg>
+                            <span data-i18n="customRulesEditor_editName"></span>
+                        </button>
+                        <button class="btn btn-danger u-hidden" id="delete-provider-btn" data-i18n-title="customRulesEditor_deleteTooltip">
+                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                                <path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/>
+                            </svg>
+                            <span data-i18n="button_delete"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="editor-content">
+                    <div class="empty-state">
+                        <h3 data-i18n="customRulesEditor_welcome"></h3>
+                        <p data-i18n="customRulesEditor_description"></p>
+                        <button class="btn btn-primary" id="create-first-provider">
+                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                                <path d="M440-120v-320H120v-80h320v-320h80v320h320v80H520v320h-80Z"/>
+                            </svg>
+                            <span data-i18n="customRulesEditor_createFirst"></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        <div id="whitelist-view" class="view-panel">
+            <div class="whitelist-page">
+                <div class="whitelist-section whitelist-section-no-top">
+                    <h4 class="whitelist-section-title" data-i18n="whitelist_section_title"></h4>
+                    <p class="whitelist-section-description" data-i18n="whitelist_section_description"></p>
+                    <div class="whitelist-input-row">
+                        <input id="customrules-whitelist-input" class="whitelist-input" type="text" data-i18n-placeholder="whitelist_input_placeholder">
+                        <button class="btn btn-primary btn-sm" id="customrules-whitelist-add-btn" data-i18n="whitelist_add_button"></button>
+                    </div>
+                    <div class="whitelist-action-row">
+                        <button class="btn btn-primary btn-sm" id="customrules-whitelist-import-btn" data-i18n="whitelist_import_button"></button>
+                        <button class="btn btn-primary btn-sm" id="customrules-whitelist-export-btn" data-i18n="whitelist_export_button"></button>
+                    </div>
+                    <div id="whitelist_examples_text" class="whitelist-examples"></div>
+                    <input id="customrules-whitelist-search" class="whitelist-search" type="text" data-i18n-placeholder="whitelist_search_placeholder">
+                    <ul id="customrules-whitelist-list" class="whitelist-list"></ul>
+                    <div id="customrules-whitelist-count" class="whitelist-count"></div>
+                    <div id="customrules-whitelist-status" class="whitelist-status"></div>
+                </div>
+            </div>
+        </div>
+        <div id="provider-list-view" class="view-panel">
+            <div class="provider-list-page">
+                <div class="provider-list-page-header">
+                    <h3 class="modal-title" data-i18n="providerList_title"></h3>
+                    <button class="btn btn-secondary btn-sm" id="provider-list-close-btn" data-i18n="button_close"></button>
+                </div>
+                <input type="text" class="provider-list-search" id="provider-list-search" data-i18n-placeholder="providerList_searchPlaceholder" />
+                <div class="provider-list-modal-content" id="provider-list-modal-content">
+                    <!-- Provider list will be populated here -->
+                </div>
+            </div>
+        </div>
+        <div id="disabled-rules-view" class="view-panel">
+            <div class="provider-list-page">
+                <div class="provider-list-page-header">
+                    <h3 class="modal-title" data-i18n="providerImport_disabledTitle"></h3>
+                    <div class="provider-list-page-actions">
+                        <button class="btn btn-warning btn-sm" id="disabled-rules-page-clear-all-btn" data-i18n="providerImport_disabledClearAll"></button>
+                        <button class="btn btn-secondary btn-sm" id="disabled-rules-page-close-btn" data-i18n="button_close"></button>
+                    </div>
+                </div>
+                <div class="provider-list-modal-content" id="disabled-rules-page-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Provider Modal -->
+    <div class="modal" id="provider-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title" data-i18n="customRulesEditor_addNewProvider"></h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            
+            <form id="provider-form">
+                <div class="form-group">
+                    <label class="form-label" for="provider-name" data-i18n="customRulesEditor_providerName"></label>
+                    <input type="text" class="form-input" id="provider-name" required data-i18n-placeholder="customRulesEditor_providerNamePlaceholder">
+                    <div class="form-help" data-i18n="customRulesEditor_providerNameHelp"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" data-i18n="customRulesEditor_patternType"></label>
+                    <div class="pattern-type-selector">
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="pattern-type" value="urlPattern" id="pattern-type-url" checked>
+                                <span data-i18n="customRulesEditor_urlPatternOption"></span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="pattern-type" value="domainPatterns" id="pattern-type-domain">
+                                <span data-i18n="customRulesEditor_domainPatternsOption"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-help" data-i18n="customRulesEditor_patternTypeHelp"></div>
+                </div>
+                
+                <div class="form-group" id="url-pattern-group">
+                    <label class="form-label" for="url-pattern" data-i18n="customRulesEditor_urlPattern"></label>
+                    <input type="text" class="form-input" id="url-pattern" data-i18n-placeholder="customRulesEditor_urlPatternPlaceholder">
+                    <div class="form-help" data-i18n="customRulesEditor_urlPatternHelp"></div>
+                </div>
+                
+                <div class="form-group u-hidden" id="domain-patterns-group">
+                    <label class="form-label" for="domain-patterns" data-i18n="customRulesEditor_domainPatterns"></label>
+                    <textarea class="form-input" id="domain-patterns" rows="3" data-i18n-placeholder="customRulesEditor_domainPatternsPlaceholder"></textarea>
+                    <div class="form-help" data-i18n="customRulesEditor_domainPatternsHelp"></div>
+                </div>
+
+                <div class="form-checkbox">
+                    <input type="checkbox" id="complete-provider">
+                    <label for="complete-provider" data-i18n="customRulesEditor_completeProvider"></label>
+                </div>
+
+                <div class="form-checkbox">
+                    <input type="checkbox" id="force-redirection">
+                    <label for="force-redirection" data-i18n="customRulesEditor_forceRedirection"></label>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="modal-cancel" data-i18n="button_cancel"></button>
+                    <button type="submit" class="btn btn-primary" data-i18n="customRulesEditor_saveProvider"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rule Test Lab Modal -->
+    <div class="modal" id="rule-test-modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 class="modal-title" data-i18n="customRulesEditor_ruleTestLab_title"></h3>
+                <button class="modal-close" id="rule-test-modal-close" data-i18n-aria="customRulesEditor_ruleTestLab_close_aria" aria-label="">&times;</button>
+            </div>
+
+            <div class="rule-test-lab">
+                <p class="form-help" data-i18n="customRulesEditor_ruleTestLab_description"></p>
+                <div class="rule-test-controls">
+                    <input id="rule-test-input" class="form-input" type="text" data-i18n-placeholder="customRulesEditor_ruleTestLab_input_placeholder">
+                    <input id="rule-test-param-input" class="form-input" type="text" data-i18n-placeholder="customRulesEditor_ruleTestLab_param_placeholder">
+                    <button id="rule-test-run-btn" class="btn btn-primary" type="button" data-i18n="customRulesEditor_ruleTestLab_run"></button>
+                </div>
+                <div id="rule-test-status" class="form-help"></div>
+                <pre id="rule-test-output" class="form-input rule-test-output"></pre>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="rule-test-modal-dismiss" type="button" data-i18n="button_close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import file input -->
+    <input type="file" id="import-file-input" class="u-hidden" accept=".json">
+    <input type="file" id="customrules-whitelist-import-input" class="u-hidden" accept=".json,application/json">
+
+    <!-- Scripts -->
+    <script src="../external_js/linkumori-i18n.js"></script>
+    <script src="../external_js/light-punycode.js"></script>
+    <script src="../core_js/modal_dialog.js"></script>
+    <script src="../core_js/custom_rules_editor.js"></script>
+    <script src="../core_js/write_version.js"></script>
+</body>
+</html>

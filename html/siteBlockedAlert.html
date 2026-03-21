@@ -1,0 +1,107 @@
+<!--
+  ============================================================
+  ClearURLs
+  ============================================================
+  Copyright (c) 2017–2025 Kevin Röbert
+  Modified by Subham Mahesh (c) 2025 (modified parts only)
+
+  This program is free software: you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation, either
+  version 3 of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this program. If not, see
+  <http://www.gnu.org/licenses/>.
+
+  ============================================================
+  MODIFICATION HISTORY
+  ============================================================
+  2025-06-14   Subham Mahesh   First modification
+  2025-08-21   Subham Mahesh   Second modification
+  2025-09-05   Subham Mahesh   Third modification
+
+  Note: Due to inline constraints, subsequent modifications may
+  not appear here. To view the full history, run:
+
+    node linkumori-cli-tool.js
+
+  Select "Generate Commit History" to produce a Markdown file
+  listing all modifications by file, author, and date.
+
+  IMPORTANT NOTES
+  ---------------
+  - git clone is required before running "Generate Commit History";
+    otherwise commit history generation will not work.
+  - Older modifications may not appear in the generated
+    COMMIT_HISTORY.md.
+  - If a file's inline notice is limited, check for a separate
+    file-specific notice and COMMIT_HISTORY.md; if neither exists,
+    treat the inline notice as the final modification record.
+  - If a separate file-specific notice is provided, check the
+    file's inline notice and COMMIT_HISTORY.md; if neither exists,
+    treat the separate notice as the final modification record.
+  - Review individual modified source files for earlier notices.
+  - Some files may not contain notices within the file itself or
+    may not be listed in COMMIT_HISTORY.md; a separate notice
+    file may be provided instead.
+  - Not all source files have been modified, but review notices
+    in all source files and any separate notice files (.md or .txt).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="../external_js/theme_bootstrap.js"></script>
+    <script src="../external_js/theme_favicon.js"></script>
+    <link rel="stylesheet" href="../css/siteBlockedAlert.css">
+</head>
+<body>
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
+                    <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
+                        fill="none"
+                        stroke="var(--logo-accent)"
+                        stroke-width="8"
+                        stroke-linecap="round"/>
+                    <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35"
+                        fill="none"
+                        stroke="var(--logo-accent)"
+                        stroke-width="8"
+                        stroke-linecap="round"/>
+                    <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28"
+                           fill="var(--logo-accent)"/>
+                </svg>
+                <h1 class="text-center" id="title"></h1>
+                <p class="text-center" id="body"></p>
+                <p class="text-center">
+                    <a class="btn btn-warning" id="page"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="navbar navbar-dark bg-dark">
+        <small class="text-muted"><span id="siteBlockedFooterPrefix"></span><span id="version"></span></small>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+          <script src="../external_js/linkumori-i18n.js"></script>
+
+    <script src="../core_js/siteBlockedAlert.js"></script>
+    <script src="../core_js/write_version.js"></script>
+</body>
+</html>
