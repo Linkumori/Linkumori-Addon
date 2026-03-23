@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First soft release (`2026-03-23`, hash: [`348cc86`](https://github.com/Linkumori/Linkumori-Addon/commit/348cc86))
 - Generated commit history it since it is first commit any it is not relevent after upload files to github but going formward recipient of this free software may required to read this for understanding subsequent modification (`2026-03-23`, hash: [`2abd74d`](https://github.com/Linkumori/Linkumori-Addon/commit/2abd74d))
 - Update commit history (`2026-03-23`, hash: [`024a299`](https://github.com/Linkumori/Linkumori-Addon/commit/024a299))
+- Update commit history (`2026-03-23`, hash: [`2adc33b`](https://github.com/Linkumori/Linkumori-Addon/commit/2adc33b))
 
 ## [1.XX.0] - 2022-XX-XX
 
