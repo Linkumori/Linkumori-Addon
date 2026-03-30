@@ -8,15 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [v4.0] - 2026-03-29 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/v3.0...v4.0))
+## [v4.0] - 2026-03-29 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v3.0...linkumori-v4.0))
 ### Changed
 - Updated `data/public_suffix_list.dat` with latest public suffix data (`2026-03-29`, hash: [`8de65c4`](https://github.com/Linkumori/Linkumori-Addon/commit/8de65c4))
 
-## [v3.0] - 2026-03-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/v2.0...v3.0))
+## [v3.0] - 2026-03-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v2.0...linkumori-v3.0))
 ### Changed
 - Version bump (`2026-03-27`, hash: [`ed7456d`](https://github.com/Linkumori/Linkumori-Addon/commit/ed7456d))
 
-## [v2.0] - 2026-03-26
+## [v2.0] - 2026-03-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v1.0...linkumori-v2.0))
 ### Added
 - Add `Permissions.md` so users can read what permissions the extension uses (`2026-03-23`, hash: [`c5d7f14`](https://github.com/Linkumori/Linkumori-Addon/commit/c5d7f14))
 - Add clarification to third-party notices (`2026-03-24`, hash: [`fc94edc`](https://github.com/Linkumori/Linkumori-Addon/commit/fc94edc))
@@ -164,4 +164,3 @@ Special thanks to [SunsetTechuila](https://github.com/SunsetTechuila) for provid
 ### Changed
 - Updated `homepage_url` and `author` field in `manifest.json`
 - Replaced deprecated `String.prototype.substr()` in [!175](https://github.com/ClearURLs/Addon/pull/175). Thanks to [@CommanderRoot](https://github.com/CommanderRoot)
-- 
