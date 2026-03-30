@@ -6,37 +6,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-<!-- Legacy changelog entries below are preserved from the original ClearURLs project -->
-
 ## [Unreleased]
-### Changed
-- Update commit history for v4.0 (`2026-03-29`, hash: [`3fbca9b`](https://github.com/Linkumori/Linkumori-Addon/commit/3fbca9b))
 
 ## [v4.0] - 2026-03-29 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/v3.0...v4.0))
 ### Changed
-- Update changelog for v3.0 (`2026-03-27`, hash: [`2c6fb43`](https://github.com/Linkumori/Linkumori-Addon/commit/2c6fb43))
-- Update commit history for v3.0 (`2026-03-27`, hash: [`600108f`](https://github.com/Linkumori/Linkumori-Addon/commit/600108f))
+- Updated `data/public_suffix_list.dat` with latest public suffix data (`2026-03-29`, hash: [`8de65c4`](https://github.com/Linkumori/Linkumori-Addon/commit/8de65c4))
 
 ## [v3.0] - 2026-03-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/v2.0...v3.0))
 ### Changed
-- Update changelog for v2.0 (`2026-03-26`, hash: [`cc7db65`](https://github.com/Linkumori/Linkumori-Addon/commit/cc7db65))
-- Update commit history for v2.0 (`2026-03-26`, hash: [`e4b0623`](https://github.com/Linkumori/Linkumori-Addon/commit/e4b0623))
+- Version bump (`2026-03-27`, hash: [`ed7456d`](https://github.com/Linkumori/Linkumori-Addon/commit/ed7456d))
 
 ## [v2.0] - 2026-03-26
 ### Added
-- Introduce clarification further already notice was clear enough (`2026-03-24`, hash: [`fc94edc`](https://github.com/Linkumori/Linkumori-Addon/commit/fc94edc))
-- Introduce permissions.md so user can read what permission extension uses (`2026-03-23`, hash: [`c5d7f14`](https://github.com/Linkumori/Linkumori-Addon/commit/c5d7f14))
+- Add `Permissions.md` so users can read what permissions the extension uses (`2026-03-23`, hash: [`c5d7f14`](https://github.com/Linkumori/Linkumori-Addon/commit/c5d7f14))
+- Add clarification to third-party notices (`2026-03-24`, hash: [`fc94edc`](https://github.com/Linkumori/Linkumori-Addon/commit/fc94edc))
 
 ### Changed
-- First soft release (`2026-03-23`, hash: [`348cc86`](https://github.com/Linkumori/Linkumori-Addon/commit/348cc86))
-- Generated commit history it since it is first commit any it is not relevent after upload files to github but going formward recipient of this free software may required to read this for understanding subsequent modification (`2026-03-23`, hash: [`2abd74d`](https://github.com/Linkumori/Linkumori-Addon/commit/2abd74d))
-- Update changelog.md (`2026-03-23`, hash: [`316c631`](https://github.com/Linkumori/Linkumori-Addon/commit/316c631))
-- Update changelog.md (`2026-03-23`, hash: [`e38e39e`](https://github.com/Linkumori/Linkumori-Addon/commit/e38e39e))
-- Update commit history (`2026-03-23`, hash: [`024a299`](https://github.com/Linkumori/Linkumori-Addon/commit/024a299))
-- Update commit history (`2026-03-23`, hash: [`2adc33b`](https://github.com/Linkumori/Linkumori-Addon/commit/2adc33b))
-- Update commit history (`2026-03-23`, hash: [`64a2dd5`](https://github.com/Linkumori/Linkumori-Addon/commit/64a2dd5))
-- Update commit history (`2026-03-23`, hash: [`66d58b5`](https://github.com/Linkumori/Linkumori-Addon/commit/66d58b5))
-- Update commit history (`2026-03-23`, hash: [`c61693d`](https://github.com/Linkumori/Linkumori-Addon/commit/c61693d))
+- Updated ClearURLs rules data (`downloaded-official-rules.json`, `linkumori-clearurls-min.json`) (`2026-03-26`, hash: [`8c3ed13`](https://github.com/Linkumori/Linkumori-Addon/commit/8c3ed13))
+
+## [v1.0] - 2026-03-23
+### Added
+- First soft release — initial project files, core JS, HTML pages, icons, locales, licenses, and third-party notices (`2026-03-23`, hash: [`348cc86`](https://github.com/Linkumori/Linkumori-Addon/commit/348cc86))
+
+---
+
+<!-- Legacy changelog entries below are preserved from the original ClearURLs project -->
 
 ## [1.XX.0] - 2022-XX-XX
 
@@ -61,7 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#1301](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1301)
     - [#1302](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1302)
     - [#1305](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1305)
-    
+
 ### Compatibility note
 - Require Firefox >= 55
 - Require Chrome >= 37
@@ -108,7 +102,7 @@ Special thanks to [SunsetTechuila](https://github.com/SunsetTechuila) for provid
 - Require Chrome >= 37
 
 ### Changed
-- The popup window is now responsive 
+- The popup window is now responsive
 
 ## [1.25.0] - 2022-07-27
 
