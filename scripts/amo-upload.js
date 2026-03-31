@@ -24,7 +24,7 @@
  * MODIFICATION HISTORY
  * ============================================================
  * 2026-03-31  Subham Mahesh   First modification
- *
+ * 2026-03-31 Subham Mahes     Secound modificication
  * Note: Due to inline constraints, subsequent modifications may
  * not appear here. To view the full history, run:
  *
@@ -54,19 +54,47 @@
  * ============================================================
  */
 
-import { readFileSync } from "fs";
+
+import { readFileSync, writeFileSync } from "fs";
 import { execSync } from "child_process";
 import { glob } from "glob";
 
 const version = JSON.parse(readFileSync("manifest.json", "utf8")).version;
 
 const artifacts = await glob("web-ext-artifacts/*.xpi");
-
 if (artifacts.length === 0) {
   console.error("ERROR: No .xpi artifact found in web-ext-artifacts/");
   process.exit(1);
 }
 
+// Extract release notes for this version from CHANGELOG.md
+const changelog = readFileSync("CHANGELOG.md", "utf8");
+const versionHeader = `## [v${version}]`;
+const lines = changelog.split("\n");
+const start = lines.findIndex((l) => l.startsWith(versionHeader));
+if (start === -1) {
+  console.error(`ERROR: No changelog section found for v${version}`);
+  process.exit(1);
+}
+const notes = [];
+for (let i = start + 1; i < lines.length; i++) {
+  if (lines[i].startsWith("## [")) break;
+  notes.push(lines[i]);
+}
+const releaseNotes = notes.join("\n").trim();
+
+// Write version-metadata.json for --amo-metadata flag
+const metadata = {
+  version: {
+    release_notes: {
+      "en-US": releaseNotes,
+    },
+  },
+};
+writeFileSync("version-metadata.json", JSON.stringify(metadata, null, 2));
+console.log(`Release notes for v${version}:\n${releaseNotes}\n`);
+
+// Sign and upload to AMO
 const artifact = artifacts[0];
 console.log(`Uploading ${artifact} (v${version}) to AMO...`);
 
@@ -77,7 +105,6 @@ execSync(
     --channel ${process.env.WEB_EXT_CHANNEL} \
     --api-key ${process.env.WEB_EXT_API_KEY} \
     --api-secret ${process.env.WEB_EXT_API_SECRET} \
-    --use-submission-api \
-    --upload-source-code ${artifact}`,
+    --amo-metadata ./version-metadata.json`,
   { stdio: "inherit" }
 );
