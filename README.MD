@@ -112,7 +112,7 @@ You can also load your own rule sources or disable any rule you don't want.
 
 Or download a signed build from [Releases](https://github.com/Linkumori/Linkumori-Addon/releases/).
 
-Official Linkumori releases started with **v1.0** on **February 27, 2026**. See [CHANGELOG.md](CHANGELOG.md) for the full version history.
+Official Linkumori releases started with **v1.0** on **March 23, 2026**. See [CHANGELOG.md](CHANGELOG.md) for the full version history.
 
 ---
 
