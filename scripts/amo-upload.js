@@ -26,6 +26,7 @@
  * 2026-03-31  Subham Mahesh   First modification
  * 2026-03-31 Subham Mahes     Secound modificication
   2026-03-31 Subham Mahes     Third modification 
+  2026-03-31 Subham Mahes     Fourth modification 
  * Note: Due to inline constraints, subsequent modifications may
  * not appear here. To view the full history, run:
  *
@@ -109,6 +110,7 @@ execSync(
     --channel ${process.env.WEB_EXT_CHANNEL} \
     --api-key ${process.env.WEB_EXT_API_KEY} \
     --api-secret ${process.env.WEB_EXT_API_SECRET} \
-    --amo-metadata ./version-metadata.json`,
+    --amo-metadata ./version-metadata.json \
+    --approval-timeout 0`,
   { stdio: "inherit" }
 );
