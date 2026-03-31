@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v10.0] - 2026-03-31 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v9.0...linkumori-v10.0))
+### Changed
+- Update amo-upload.js (`2026-03-31`, hash: [`9ede4a1`](https://github.com/Linkumori/Linkumori-Addon/commit/9ede4a1))
+
 ## [v9.0] - 2026-03-31 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v8.0...linkumori-v9.0))
 ### Changed
 - Update amo-upload.js (`2026-03-31`, hash: [`c2ab8d6`](https://github.com/Linkumori/Linkumori-Addon/commit/c2ab8d6))
