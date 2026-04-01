@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v11.0] - 2026-04-01 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v10.0...linkumori-v11.0))
+### Changed
+- Correction of date in readme (`2026-03-31`, hash: [`e7cc17e`](https://github.com/Linkumori/Linkumori-Addon/commit/e7cc17e))
+- Update consent configuration (`2026-04-01`, hash: [`ba0e593`](https://github.com/Linkumori/Linkumori-Addon/commit/ba0e593))
+- Update privacy policy (`2026-04-01`, hash: [`51057c4`](https://github.com/Linkumori/Linkumori-Addon/commit/51057c4))
+
 ## [v10.0] - 2026-03-31 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v9.0...linkumori-v10.0))
 ### Changed
 - Update amo-upload.js (`2026-03-31`, hash: [`9ede4a1`](https://github.com/Linkumori/Linkumori-Addon/commit/9ede4a1))
