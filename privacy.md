@@ -1,6 +1,6 @@
 # Linkumori Privacy Policy
 
-**Last Updated:** March 23, 2026
+**Last Updated:** April 1, 2026
 
 Linkumori is a free, non-commercial, open-source tool.
 
@@ -73,7 +73,11 @@ This Privacy Policy applies exclusively to the **official versions** of Linkumor
 
 Any version of Linkumori that has been modified, repackaged, forked, or redistributed by a third party is considered an **unofficial version**. This Privacy Policy does not apply to unofficial versions. The developer makes no representations, warranties, or guarantees regarding the behavior, data practices, or privacy implications of any unofficial version. Users of unofficial versions should seek privacy information from whoever distributed that version.
 
-If you are unsure whether your version is official, you can verify by checking the official distribution channel where the extension was originally published by the developer.
+If you are unsure whether your version is official, you can verify it against the official distribution channels:
+
+- **Firefox Add-ons (Mozilla):** https://addons.mozilla.org/firefox/addon/linkumori-clean-urls/
+  (Extension ID: `linkumori-addon-official@ClearURLs`)
+- **Source Code (GitHub):** https://github.com/Linkumori/Linkumori-Addon
 
 ## Changes to the Extension
 
