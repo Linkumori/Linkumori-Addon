@@ -287,10 +287,10 @@
         }
 
         await browser.storage.local.set({
-            [SEARCH_LINK_FIX_STORAGE_KEY]: true
+            [SEARCH_LINK_FIX_STORAGE_KEY]: false
         }).catch(() => {});
 
-        return true;
+        return false;
     }
 
     async function syncManagedContentScripts() {
@@ -302,7 +302,7 @@
             ids: MANAGED_SCRIPT_IDS
         }).catch(() => {});
 
-        const enabled = await getSearchLinkFixEnabled().catch(() => true);
+        const enabled = await getSearchLinkFixEnabled().catch(() => false);
         if (!enabled) {
             return;
         }

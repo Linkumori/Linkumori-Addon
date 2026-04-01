@@ -70,6 +70,21 @@
   const CONSENT_VERSION_STORAGE_KEY = 'popupConsentPolicyVersionAccepted';
   const CONSENT_SIGNATURE_STORAGE_KEY = 'popupConsentPolicySignatureAccepted';
   const PRIVACY_VERSION_CONFIG_PATH = 'data/privacy-policy-map.json';
+  const POST_RELOAD_OPEN_URL_STORAGE_KEY = 'postReloadOpenUrl';
+  const OPTIONAL_FEATURES = [
+    {
+      key: 'searchLinkFixEnabled',
+      toggleId: 'legalSearchLinkFixEnabledToggle'
+    },
+    {
+      key: 'redirectionEnabled',
+      toggleId: 'legalRedirectionEnabledToggle'
+    },
+    {
+      key: 'eTagFiltering',
+      toggleId: 'legalETagFilteringToggle'
+    }
+  ];
   const {
     THEME_STORAGE_KEY,
     LAST_DARK_THEME_STORAGE_KEY,
@@ -97,8 +112,12 @@
     currentPrivacyVersion: '',
     privacyVersionMap: {},
     defaultPrivacyVersion: '',
+    optionalFeatureValues: {},
+    optionalFeatureDraft: {},
+    optionalFeaturesSaving: false,
     isInitialized: false,
   };
+  let legalRedirectionModalResolver = null;
 
   /* --------------------------- 
      Utility Functions
@@ -126,6 +145,10 @@
     target.replaceChildren(...Array.from(doc.body.childNodes));
   }
 
+  function normalizeBoolean(value) {
+    return value === true || value === 'true';
+  }
+
   function isClearURLsImportMode() {
     try {
       const params = new URLSearchParams(window.location.search || '');
@@ -150,6 +173,8 @@
     const shouldShowWelcome = guidedMode;
     const welcomeHeader = $('welcomeSectionHeader');
     const welcomeCard = $('welcomeSectionCard');
+    const optionalFeaturesHeader = $('optionalFeaturesSectionHeader');
+    const optionalFeaturesCard = $('optionalFeaturesSectionCard');
     const privacyHeader = $('privacySectionHeader');
     const privacyCard = $('privacySectionCard');
     const licenseHeader = $('licenseSectionHeader');
@@ -161,6 +186,12 @@
     }
     if (welcomeCard) {
       welcomeCard.style.display = shouldShowWelcome ? '' : 'none';
+    }
+    if (optionalFeaturesHeader) {
+      optionalFeaturesHeader.style.display = guidedMode ? '' : 'none';
+    }
+    if (optionalFeaturesCard) {
+      optionalFeaturesCard.style.display = guidedMode ? '' : 'none';
     }
 
     const showLegalContentNow = !guidedMode;
@@ -260,6 +291,259 @@
 
     modal.classList.remove('show');
     modal.style.display = 'none';
+  }
+
+  function showLegalRedirectionWarningModal() {
+    const modal = $('legalRedirectionWarningModal');
+    if (!modal) {
+      return Promise.resolve(true);
+    }
+
+    if (legalRedirectionModalResolver) {
+      legalRedirectionModalResolver(false);
+      legalRedirectionModalResolver = null;
+    }
+
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => {
+      modal.classList.add('show');
+    });
+
+    const continueButton = $('legalRedirectionWarningContinue');
+    if (continueButton) {
+      setTimeout(() => {
+        try {
+          continueButton.focus();
+        } catch (e) {
+          // no-op
+        }
+      }, 50);
+    }
+
+    return new Promise((resolve) => {
+      legalRedirectionModalResolver = resolve;
+    });
+  }
+
+  function resolveLegalRedirectionWarningModal(result) {
+    const modal = $('legalRedirectionWarningModal');
+    if (modal) {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+    }
+
+    if (typeof legalRedirectionModalResolver === 'function') {
+      legalRedirectionModalResolver(!!result);
+      legalRedirectionModalResolver = null;
+    }
+  }
+
+  function openAuditPageFromLegal() {
+    try {
+      if (browser.tabs && browser.runtime && typeof browser.runtime.getURL === 'function') {
+        const auditUrl = browser.runtime.getURL('html/audit.html');
+        browser.tabs.create({ url: auditUrl }).catch(() => {});
+      }
+    } catch (e) {
+      // no-op
+    }
+  }
+
+  function buildOptionalFeatureDefaults() {
+    return OPTIONAL_FEATURES.reduce((acc, { key }) => {
+      acc[key] = false;
+      return acc;
+    }, {});
+  }
+
+  function hasOptionalFeatureChanges() {
+    return OPTIONAL_FEATURES.some(({ key }) => {
+      return normalizeBoolean(state.optionalFeatureDraft[key]) !== normalizeBoolean(state.optionalFeatureValues[key]);
+    });
+  }
+
+  function renderOptionalFeatures() {
+    OPTIONAL_FEATURES.forEach(({ key, toggleId }) => {
+      const toggle = $(toggleId);
+      const draftValue = normalizeBoolean(state.optionalFeatureDraft[key]);
+
+      if (toggle) {
+        toggle.classList.toggle('active', draftValue);
+        toggle.setAttribute('aria-checked', draftValue ? 'true' : 'false');
+        toggle.disabled = state.optionalFeaturesSaving;
+      }
+    });
+
+    const saveButton = $('optionalFeatureSaveBtn');
+    if (saveButton) {
+      saveButton.disabled = state.optionalFeaturesSaving || !hasOptionalFeatureChanges();
+      saveButton.textContent = state.optionalFeaturesSaving
+        ? i18n('status_saving', 'Saving...')
+        : i18n('legal_optional_features_save_button', 'Save and reload Linkumori');
+    }
+
+    const note = $('optionalFeaturesNote');
+    if (note) {
+      const hasChanges = hasOptionalFeatureChanges();
+      note.classList.toggle('pending', hasChanges);
+      note.textContent = state.optionalFeaturesSaving
+        ? i18n(
+          'legal_optional_features_note_saving',
+          'Saving your optional feature changes and reloading Linkumori.'
+        )
+        : hasChanges
+          ? i18n(
+            'legal_optional_features_note_pending',
+            'Changes are pending. Save to apply them and reopen this legal page.'
+          )
+          : i18n(
+            'legal_optional_features_note_default',
+            'These features are disabled by default. Turn on any you want, then save and reload Linkumori.'
+          );
+    }
+  }
+
+  async function loadOptionalFeatures() {
+    const defaults = buildOptionalFeatureDefaults();
+    state.optionalFeatureValues = { ...defaults };
+    state.optionalFeatureDraft = { ...defaults };
+
+    try {
+      if (typeof browser === 'undefined' || !browser.storage || !browser.storage.local) {
+        renderOptionalFeatures();
+        return;
+      }
+
+      const result = await browser.storage.local.get(OPTIONAL_FEATURES.map(({ key }) => key));
+      OPTIONAL_FEATURES.forEach(({ key }) => {
+        const value = normalizeBoolean(result[key]);
+        state.optionalFeatureValues[key] = value;
+        state.optionalFeatureDraft[key] = value;
+      });
+    } catch (e) {
+      state.optionalFeatureValues = { ...defaults };
+      state.optionalFeatureDraft = { ...defaults };
+    }
+
+    renderOptionalFeatures();
+  }
+
+  async function confirmOptionalFeatureToggle(featureKey, newValue) {
+    if (featureKey !== 'redirectionEnabled' || !newValue) {
+      return true;
+    }
+    return showLegalRedirectionWarningModal();
+  }
+
+  async function handleOptionalFeatureToggle(featureKey) {
+    if (state.optionalFeaturesSaving) {
+      return;
+    }
+
+    const nextValue = !normalizeBoolean(state.optionalFeatureDraft[featureKey]);
+    const confirmed = await confirmOptionalFeatureToggle(featureKey, nextValue);
+    if (!confirmed) {
+      return;
+    }
+
+    state.optionalFeatureDraft[featureKey] = nextValue;
+    renderOptionalFeatures();
+  }
+
+  function getLegalPageUrl() {
+    const suffix = `${window.location.search || ''}${window.location.hash || ''}`;
+    try {
+      if (typeof browser !== 'undefined' && browser.runtime && typeof browser.runtime.getURL === 'function') {
+        return browser.runtime.getURL(`html/legal.html${suffix}`);
+      }
+    } catch (e) {
+      // no-op
+    }
+    return `${window.location.pathname}${suffix}`;
+  }
+
+  function getPostReloadLegalPath() {
+    const suffix = `${window.location.search || ''}${window.location.hash || ''}`;
+    return `html/legal.html${suffix}`;
+  }
+
+  async function queueLegalPageForPostReloadOpen() {
+    const queuedPath = getPostReloadLegalPath();
+
+    try {
+      if (browser.runtime && typeof browser.runtime.sendMessage === 'function') {
+        await browser.runtime.sendMessage({
+          function: 'setData',
+          params: [POST_RELOAD_OPEN_URL_STORAGE_KEY, queuedPath]
+        });
+      }
+    } catch (e) {
+      // Fall through and persist directly below.
+    }
+
+    if (browser.storage && browser.storage.local) {
+      await browser.storage.local.set({
+        [POST_RELOAD_OPEN_URL_STORAGE_KEY]: queuedPath
+      });
+      return;
+    }
+
+    throw new Error('Unable to persist post-reload legal page URL.');
+  }
+
+  async function saveOptionalFeatures() {
+    if (state.optionalFeaturesSaving || !hasOptionalFeatureChanges()) {
+      return;
+    }
+
+    state.optionalFeaturesSaving = true;
+    renderOptionalFeatures();
+
+    try {
+      if (typeof browser === 'undefined' || !browser.runtime || typeof browser.runtime.sendMessage !== 'function') {
+        throw new Error('Browser runtime messaging unavailable.');
+      }
+
+      await Promise.all(OPTIONAL_FEATURES.map(({ key }) => {
+        return browser.runtime.sendMessage({
+          function: 'setData',
+          params: [key, normalizeBoolean(state.optionalFeatureDraft[key])]
+        });
+      }));
+
+      await queueLegalPageForPostReloadOpen();
+
+      await browser.runtime.sendMessage({
+        function: 'saveOnExit',
+        params: []
+      });
+
+      state.optionalFeatureValues = { ...state.optionalFeatureDraft };
+      renderOptionalFeatures();
+      showNotification(i18n('status_save_successful', 'Settings saved.'), 'success');
+
+      try {
+        await browser.runtime.sendMessage({
+          function: 'reload',
+          params: []
+        });
+      } catch (e) {
+        if (typeof browser.runtime.reload === 'function') {
+          browser.runtime.reload();
+        }
+      }
+    } catch (e) {
+      showNotification(
+        i18n(
+          'legal_optional_features_save_failed',
+          'Failed to save the optional feature changes.'
+        ),
+        'error'
+      );
+    } finally {
+      state.optionalFeaturesSaving = false;
+      renderOptionalFeatures();
+    }
   }
 
   async function getStoredConsentState() {
@@ -1398,11 +1682,15 @@ ${htmlContent}
     const welcomeNextBtn = $('welcomeNextBtn');
     if (welcomeNextBtn) {
       welcomeNextBtn.addEventListener('click', () => {
+        const optionalFeaturesHeader = $('optionalFeaturesSectionHeader');
+        const optionalFeaturesCard = $('optionalFeaturesSectionCard');
         const privacyHeader = $('privacySectionHeader');
         const privacyCard = $('privacySectionCard');
         const licenseHeader = $('licenseSectionHeader');
         const licenseCard = $('licenseSectionCard');
 
+        if (optionalFeaturesHeader) optionalFeaturesHeader.style.display = 'none';
+        if (optionalFeaturesCard) optionalFeaturesCard.style.display = 'none';
         if (privacyHeader) privacyHeader.style.display = '';
         if (privacyCard) privacyCard.style.display = '';
         if (licenseHeader) licenseHeader.style.display = '';
@@ -1452,7 +1740,69 @@ ${htmlContent}
       if (event.key === 'Escape' && $('withdrawConsentModal')?.classList.contains('show')) {
         hideWithdrawConsentModal();
       }
+
+      if (event.key === 'Escape' && $('legalRedirectionWarningModal')?.classList.contains('show')) {
+        resolveLegalRedirectionWarningModal(false);
+      }
     });
+
+    const legalRedirectionWarningModal = $('legalRedirectionWarningModal');
+    if (legalRedirectionWarningModal) {
+      legalRedirectionWarningModal.addEventListener('click', (event) => {
+        if (event.target === legalRedirectionWarningModal) {
+          resolveLegalRedirectionWarningModal(false);
+        }
+      });
+    }
+
+    const legalRedirectionWarningClose = $('legalRedirectionWarningModalClose');
+    if (legalRedirectionWarningClose) {
+      legalRedirectionWarningClose.addEventListener('click', () => {
+        resolveLegalRedirectionWarningModal(false);
+      });
+    }
+
+    const legalRedirectionWarningCancel = $('legalRedirectionWarningCancel');
+    if (legalRedirectionWarningCancel) {
+      legalRedirectionWarningCancel.addEventListener('click', () => {
+        resolveLegalRedirectionWarningModal(false);
+      });
+    }
+
+    const legalRedirectionWarningContinue = $('legalRedirectionWarningContinue');
+    if (legalRedirectionWarningContinue) {
+      legalRedirectionWarningContinue.addEventListener('click', () => {
+        resolveLegalRedirectionWarningModal(true);
+      });
+    }
+
+    const legalRedirectionWarningAudit = $('legalRedirectionWarningAudit');
+    if (legalRedirectionWarningAudit) {
+      legalRedirectionWarningAudit.addEventListener('click', openAuditPageFromLegal);
+    }
+
+    OPTIONAL_FEATURES.forEach(({ key, toggleId }) => {
+      const toggle = $(toggleId);
+      if (!toggle) {
+        return;
+      }
+
+      toggle.addEventListener('click', () => {
+        handleOptionalFeatureToggle(key);
+      });
+
+      toggle.addEventListener('keydown', (event) => {
+        if (event.key === ' ' || event.key === 'Enter') {
+          event.preventDefault();
+          handleOptionalFeatureToggle(key);
+        }
+      });
+    });
+
+    const optionalFeatureSaveBtn = $('optionalFeatureSaveBtn');
+    if (optionalFeatureSaveBtn) {
+      optionalFeatureSaveBtn.addEventListener('click', saveOptionalFeatures);
+    }
 
 
 
@@ -1475,6 +1825,19 @@ ${htmlContent}
             refreshConsentUI().catch(() => {
               updateSettingsButtonVisibility(false);
             });
+          }
+
+          const optionalFeatureKeys = OPTIONAL_FEATURES.filter(({ key }) => Object.prototype.hasOwnProperty.call(changes, key));
+          if (optionalFeatureKeys.length > 0) {
+            const hadPendingChanges = hasOptionalFeatureChanges();
+            optionalFeatureKeys.forEach(({ key }) => {
+              const newValue = normalizeBoolean(changes[key] && changes[key].newValue);
+              state.optionalFeatureValues[key] = newValue;
+              if (!hadPendingChanges) {
+                state.optionalFeatureDraft[key] = newValue;
+              }
+            });
+            renderOptionalFeatures();
           }
         });
       }
@@ -1572,6 +1935,7 @@ ${htmlContent}
       initializePrivacyVersionSelector();
       initializeTheme();
       bindEventListeners();
+      await loadOptionalFeatures();
       await refreshConsentUI();
       
       // Load content files
@@ -1599,6 +1963,7 @@ ${htmlContent}
         initializePrivacyVersionSelector();
         initializeTheme();
         bindEventListeners();
+        await loadOptionalFeatures();
         await refreshConsentUI();
         state.isInitialized = true;
       } catch (fallbackError) {

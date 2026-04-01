@@ -820,6 +820,25 @@
             margin-bottom: 0;
         }
 
+        .modal-body ul {
+            margin: 0 0 14px 18px;
+            padding: 0;
+            color: var(--text-secondary);
+        }
+
+        .modal-body li {
+            margin-bottom: 8px;
+        }
+
+        .warning-inline-banner {
+            margin: 0 0 16px 0;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: color-mix(in srgb, var(--button-danger) 10%, var(--bg-primary) 90%);
+            color: var(--text-primary);
+        }
+
         .modal-actions {
             display: flex;
             justify-content: flex-end;
@@ -884,6 +903,113 @@
             flex-wrap: wrap;
         }
 
+        .optional-features-intro {
+            margin: 0 0 18px 0;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .feature-toggle-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .feature-toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            margin-bottom: 0;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-toggle-switch {
+            width: 36px;
+            height: 18px;
+            border: none;
+            border-radius: 9px;
+            background: var(--toggle-bg);
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            flex-shrink: 0;
+            appearance: none;
+        }
+
+        .feature-toggle-switch::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 1px 3px var(--shadow-color);
+            transition: transform 0.2s ease;
+        }
+
+        .feature-toggle-switch.active {
+            background: var(--toggle-active);
+        }
+
+        .feature-toggle-switch.active::before {
+            transform: translateX(18px);
+        }
+
+        .feature-toggle-switch:focus {
+            outline: 2px solid var(--input-focus);
+            outline-offset: 2px;
+        }
+
+        .feature-toggle-switch:disabled {
+            cursor: not-allowed;
+            opacity: 0.65;
+        }
+
+        .feature-toggle-meta {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .feature-toggle-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin: 0 0 2px 0;
+        }
+
+        .feature-toggle-description {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 11px;
+            line-height: 1.3;
+        }
+
+        .optional-features-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .optional-features-note {
+            margin: 0;
+            color: var(--text-muted);
+            line-height: 1.5;
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .optional-features-note.pending {
+            color: var(--text-secondary);
+        }
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -922,6 +1048,15 @@
                 flex-direction: column;
                 align-items: stretch;
                 gap: 16px;
+            }
+
+            .feature-toggle-row {
+                padding: 12px;
+            }
+
+            .optional-features-actions {
+                flex-direction: column;
+                align-items: stretch;
             }
 
   
@@ -980,6 +1115,46 @@
             <div class="button-group">
                 <a id="openSettingsBtn" href="/html/settings.html" class="btn btn-primary" data-i18n="openSettings"></a>
                 <button id="welcomeNextBtn" class="btn btn-secondary" type="button" data-i18n="welcome_next_button"></button>
+            </div>
+        </div>
+
+        <h2 id="optionalFeaturesSectionHeader" class="section-header" data-i18n="legal_optional_features_heading">Disabled Features You May Want to Enable</h2>
+        <div id="optionalFeaturesSectionCard" class="card">
+            <p class="optional-features-intro" data-i18n="legal_optional_features_description">
+                These optional protections start disabled by default. Turn on the ones you want, then save and reload Linkumori.
+            </p>
+
+            <div class="feature-toggle-list">
+                <div class="feature-toggle-row">
+                    <button id="legalSearchLinkFixEnabledToggle" class="feature-toggle-switch" type="button" role="switch" aria-checked="false" aria-labelledby="legalSearchLinkFixEnabledTitle" aria-describedby="legalSearchLinkFixEnabledDescription"></button>
+                    <div class="feature-toggle-meta">
+                        <h3 id="legalSearchLinkFixEnabledTitle" class="feature-toggle-title" data-i18n="search_link_fix_enabled">Search Link Fix</h3>
+                        <p id="legalSearchLinkFixEnabledDescription" class="feature-toggle-description" data-i18n="search_link_fix_enabled_description">Enable Linkumori's search-result link cleanup for supported search engines.</p>
+                    </div>
+                </div>
+
+                <div class="feature-toggle-row">
+                    <button id="legalRedirectionEnabledToggle" class="feature-toggle-switch" type="button" role="switch" aria-checked="false" aria-labelledby="legalRedirectionEnabledTitle" aria-describedby="legalRedirectionEnabledDescription"></button>
+                    <div class="feature-toggle-meta">
+                        <h3 id="legalRedirectionEnabledTitle" class="feature-toggle-title" data-i18n="redirection_enabled">Redirection</h3>
+                        <p id="legalRedirectionEnabledDescription" class="feature-toggle-description" data-i18n="redirection_enabled_description">Allow advanced redirection cleaning for supported rules. This can change how some links behave.</p>
+                    </div>
+                </div>
+
+                <div class="feature-toggle-row">
+                    <button id="legalETagFilteringToggle" class="feature-toggle-switch" type="button" role="switch" aria-checked="false" aria-labelledby="legalETagFilteringTitle" aria-describedby="legalETagFilteringDescription"></button>
+                    <div class="feature-toggle-meta">
+                        <h3 id="legalETagFilteringTitle" class="feature-toggle-title" data-i18n="eTag_filtering_enabled">ETag Filtering</h3>
+                        <p id="legalETagFilteringDescription" class="feature-toggle-description" data-i18n="eTag_filtering_enabled_description">Filter ETag-based tracking where supported so cached resources reveal less identifying information.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="optional-features-actions">
+                <p id="optionalFeaturesNote" class="optional-features-note" data-i18n="legal_optional_features_note">
+                    Changes are saved only when you use the button on the right.
+                </p>
+                <button id="optionalFeatureSaveBtn" class="btn btn-primary" type="button" disabled data-i18n="legal_optional_features_save_button">Save and reload Linkumori</button>
             </div>
         </div>
 
@@ -1060,6 +1235,35 @@
             </div>
             <div class="modal-actions">
                 <button id="withdrawConsentModalAcknowledge" class="btn btn-secondary" type="button" data-i18n="legal_consent_withdraw_modal_close"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="legalRedirectionWarningModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="legalRedirectionWarningModalTitle" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="legalRedirectionWarningModalTitle" class="modal-title" data-i18n="redirection_warning_modal_title"></h2>
+                <button id="legalRedirectionWarningModalClose" class="modal-close" type="button" data-i18n-aria="redirection_warning_modal_cancel" aria-label="">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="warning-inline-banner">
+                    <strong data-i18n="redirection_warning_modal_advanced_warning"></strong>
+                </div>
+                <p data-i18n="redirection_warning_modal_main_warning"></p>
+                <p data-i18n="redirection_warning_modal_recommendation"></p>
+                <h3 class="feature-toggle-title" data-i18n="redirection_warning_modal_risks_title"></h3>
+                <ul>
+                    <li data-i18n="redirection_warning_modal_risk_1"></li>
+                    <li data-i18n="redirection_warning_modal_risk_2"></li>
+                    <li data-i18n="redirection_warning_modal_risk_3"></li>
+                    <li data-i18n="redirection_warning_modal_risk_4"></li>
+                </ul>
+                <p data-i18n="redirection_warning_modal_final_warning"></p>
+            </div>
+            <div class="modal-actions">
+                <button id="legalRedirectionWarningCancel" class="btn btn-secondary" type="button" data-i18n="redirection_warning_modal_cancel"></button>
+                <button id="legalRedirectionWarningAudit" class="btn btn-secondary" type="button" data-i18n="setting_html_audit_button"></button>
+                <button id="legalRedirectionWarningContinue" class="btn btn-danger" type="button" data-i18n="redirection_warning_modal_continue"></button>
             </div>
         </div>
     </div>

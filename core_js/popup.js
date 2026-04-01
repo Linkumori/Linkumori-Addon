@@ -109,6 +109,54 @@ const POPUP_CONSENT_TEXT_KEYS = {
     description: 'popup_consent_description',
     checkbox: 'popup_consent_checkbox'
 };
+
+function getPopupI18n() {
+    return (typeof globalThis !== 'undefined' && globalThis.LinkumoriI18n) ? globalThis.LinkumoriI18n : null;
+}
+
+function getBrowserI18nMessage(key, substitutions) {
+    try {
+        if (
+            typeof browser !== 'undefined' &&
+            browser.i18n &&
+            typeof browser.i18n.getMessage === 'function'
+        ) {
+            return browser.i18n.getMessage(key, substitutions) || '';
+        }
+    } catch (error) {
+    }
+
+    return '';
+}
+
+function waitForPopupI18n() {
+    const i18n = getPopupI18n();
+    if (!i18n || typeof i18n.ready !== 'function') {
+        return Promise.resolve(null);
+    }
+
+    return i18n.ready().then(() => i18n).catch(() => null);
+}
+
+function getPopupI18nMessage(key, substitutions, fallback = '') {
+    const i18n = getPopupI18n();
+    if (
+        i18n &&
+        typeof i18n.getMessage === 'function' &&
+        typeof i18n.isReady === 'function' &&
+        i18n.isReady()
+    ) {
+        return i18n.getMessage(key, substitutions) || fallback || `[${key}]`;
+    }
+
+    const browserMessage = getBrowserI18nMessage(key, substitutions);
+    if (browserMessage) {
+        return browserMessage;
+    }
+
+    return fallback || `[${key}]`;
+}
+
 function getPopupConsentPolicyVersion() {
     const version = Number(globalThis.Linkumoriversion);
     if (!Number.isInteger(version) || version <= 0) {
@@ -668,7 +716,7 @@ async function handleDynamicWhitelistToggle() {
  * Update dynamic whitelist button text and visibility
  */
 async function updateDynamicWhitelistButton() {
-        await LinkumoriI18n.ready(); // wait for translations
+    await waitForPopupI18n();
 
     const button = document.getElementById('singledynamicwhitelistunwhitelistbutton');
     
@@ -682,7 +730,11 @@ async function updateDynamicWhitelistButton() {
     if (!domain) {
         // Show button with generic text as fallback
         button.style.display = 'block';
-        const fallbackText = LinkumoriI18n.getMessage('addcurrentdomain_to_whitelist');
+        const fallbackText = getPopupI18nMessage(
+            'addcurrentdomain_to_whitelist',
+            undefined,
+            'Add current domain to whitelist'
+        );
         const unavailableTitle = getLocalizedText(
             'popup_dynamic_whitelist_unavailable_title',
             'Cannot detect domain for this page'
@@ -710,11 +762,11 @@ async function updateDynamicWhitelistButton() {
     
     // Create descriptive button text with action and domain prominently displayed
     let buttonText = '';
-   if (isWhitelisted) {
-    buttonText = LinkumoriI18n.getMessage('removeDomainFromWhitelist', [displayDomain]);
-} else {
-    buttonText = LinkumoriI18n.getMessage('addDomainToWhitelist', [displayDomain]);
-}
+    if (isWhitelisted) {
+        buttonText = getPopupI18nMessage('removeDomainFromWhitelist', [displayDomain], `Remove ${displayDomain} from whitelist`);
+    } else {
+        buttonText = getPopupI18nMessage('addDomainToWhitelist', [displayDomain], `Add ${displayDomain} to whitelist`);
+    }
     
     // Update button properties
     button.textContent = buttonText;
@@ -991,12 +1043,13 @@ function formatLocalizedNumber(value, options = {}) {
         return '0';
     }
 
-    if (typeof LinkumoriI18n !== 'undefined' && LinkumoriI18n) {
-        if (typeof LinkumoriI18n.formatNumber === 'function') {
-            return LinkumoriI18n.formatNumber(numericValue, options);
+    const i18n = getPopupI18n();
+    if (i18n) {
+        if (typeof i18n.formatNumber === 'function') {
+            return i18n.formatNumber(numericValue, options);
         }
-        if (typeof LinkumoriI18n.localizeNumbers === 'function') {
-            return LinkumoriI18n.localizeNumbers(numericValue.toLocaleString(undefined, options));
+        if (typeof i18n.localizeNumbers === 'function') {
+            return i18n.localizeNumbers(numericValue.toLocaleString(undefined, options));
         }
     }
 
@@ -1206,6 +1259,19 @@ function init() {
     logBundledRulesStatus();
 }
 
+function applyLoadedPopupState() {
+    setSwitchButton("globalStatus", "globalStatus");
+    setSwitchButton("tabcounter", "badgedStatus");
+    setSwitchButton("logging", "loggingStatus");
+    setSwitchButton("statistics", "statisticsStatus");
+    updateStatisticsWithLocalization();
+    changeVisibility('globalStatus', 'globalStatus');
+    changeVisibility('tabcounter', 'badgedStatus');
+    changeVisibility('logging', 'loggingStatus');
+    changeVisibility('statistics', 'statisticsStatus');
+    renderTemporaryPauseState();
+}
+
 /**
 * FIXED: Better statistics calculation with LinkumoriI18n localization
 */
@@ -1245,7 +1311,7 @@ function changeStatistics() {
         const localizedPercentage = formatLocalizedNumber(percentage, { maximumFractionDigits: 1 });
 
         // Get localized percentage symbol
-        const percentageSymbol = LinkumoriI18n.getMessage('percentage_symbol') || '%';
+        const percentageSymbol = getPopupI18nMessage('percentage_symbol', undefined, '%');
 
         // Update elements with localized numbers
         element.textContent = localizedCleaned;
@@ -1265,9 +1331,10 @@ function changeStatistics() {
  * Uses promise-based approach with LinkumoriI18n.ready().then() for consistency
  */
 function updateStatisticsWithLocalization() {
-    if (LinkumoriI18n && !LinkumoriI18n.isReady()) {
+    const i18n = getPopupI18n();
+    if (i18n && typeof i18n.isReady === 'function' && !i18n.isReady() && typeof i18n.ready === 'function') {
         // Use promise-based approach
-        LinkumoriI18n.ready().then(() => {
+        i18n.ready().then(() => {
             changeStatistics();
         }).catch(error => {
             console.error('Error waiting for LinkumoriI18n:', error);
@@ -1501,8 +1568,10 @@ async function resetGlobalCounter() {
         const originalBg = resetBtn.style.backgroundColor;
         
         // Use promise-based approach for localized feedback
-        LinkumoriI18n.ready().then(() => {
-            resetBtn.textContent = LinkumoriI18n.getMessage('statistics_reset_success') || originalText;
+        waitForPopupI18n().then((i18n) => {
+            resetBtn.textContent = (i18n && typeof i18n.getMessage === 'function')
+                ? (i18n.getMessage('statistics_reset_success') || originalText)
+                : originalText;
         }).catch(() => {
             resetBtn.textContent = originalText;
         });
@@ -1621,7 +1690,12 @@ function getGlobalVariable(varName) {
 */
 (async function initializePopup() {
     try {
-        await initializePopupConsentGate();
+        const i18nReadyPromise = waitForPopupI18n();
+        const consentGatePromise = initializePopupConsentGate().catch(() => {});
+
+        // Paint the popup immediately with defaults and fast browser.i18n text.
+        init();
+        setText();
         
         // FIXED: Load data with better error handling - don't fail completely if some data can't be loaded
         const dataPromises = [
@@ -1671,12 +1745,6 @@ function getGlobalVariable(varName) {
                 return [];
             })
         ];
-        
-        // Wait for all data loading attempts (all will resolve even if they fail)
-        await Promise.all(dataPromises);
-        
-        // ALWAYS initialize the UI, even with default values
-        init();
         
         // Set up event handlers
         const resetBtn = document.getElementById('reset_counter_btn');
@@ -1769,20 +1837,23 @@ function getGlobalVariable(varName) {
         }
         
         
-        // Update dynamic buttons after all setup is complete
-        try {
-            await updateAllDynamicButtons();
-        } catch (buttonError) {
-            // Still try to show the button even if update fails
-            const button = document.getElementById('singledynamicwhitelistunwhitelistbutton');
-            if (button) {
-                button.style.display = 'block';
-                const fallbackText = getLocalizedText('addcurrentdomain_to_whitelist', 'Add current domain to whitelist');
-                button.textContent = fallbackText;
-                button.setAttribute('title', fallbackText);
-                button.setAttribute('aria-label', fallbackText);
+        // Hydrate stored state without blocking first render.
+        Promise.all(dataPromises).then(async () => {
+            applyLoadedPopupState();
+
+            try {
+                await updateAllDynamicButtons();
+            } catch (buttonError) {
+                const button = document.getElementById('singledynamicwhitelistunwhitelistbutton');
+                if (button) {
+                    button.style.display = 'block';
+                    const fallbackText = getLocalizedText('addcurrentdomain_to_whitelist', 'Add current domain to whitelist');
+                    button.textContent = fallbackText;
+                    button.setAttribute('title', fallbackText);
+                    button.setAttribute('aria-label', fallbackText);
+                }
             }
-        }
+        }).catch(() => {});
         
         // Also try updating after a short delay to ensure everything is ready
         setTimeout(async () => {
@@ -1792,20 +1863,17 @@ function getGlobalVariable(varName) {
             }
         }, 500);
         
-        // Wait for LinkumoriI18n to be ready, then set text and update statistics with localization
-        LinkumoriI18n.ready().then(() => {
+        // Re-apply text once LinkumoriI18n finishes loading the preferred language.
+        i18nReadyPromise.then(() => {
             setText();
-            
-            // Update statistics with proper localization after LinkumoriI18n is ready
             updateStatisticsWithLocalization();
+            renderTemporaryPauseState();
         }).catch(error => {
-            console.error('Error waiting for LinkumoriI18n:', error);
-            // Set text and statistics without localization as fallback
             setText();
             changeStatistics();
         });
 
-        
+        await consentGatePromise;
     } catch (error) {
         
         // EMERGENCY FALLBACK: Initialize with defaults and basic UI
@@ -1821,7 +1889,8 @@ function getGlobalVariable(varName) {
         // Still try to initialize basic UI
         try {
             init();
-            LinkumoriI18n.ready().then(() => {
+            setText();
+            waitForPopupI18n().then(() => {
                 setText();
                 // Even in fallback, try to update statistics with localization
                 updateStatisticsWithLocalization();
@@ -1921,8 +1990,9 @@ function setText() {
             // Wait a bit for the version to be set by write_version.js
             setTimeout(() => {
                 const version = versionElement.textContent || 'Unknown';
-                const localizedVersion = (LinkumoriI18n && typeof LinkumoriI18n.localizeNumbers === 'function')
-                    ? LinkumoriI18n.localizeNumbers(version)
+                const i18n = getPopupI18n();
+                const localizedVersion = (i18n && typeof i18n.localizeNumbers === 'function')
+                    ? i18n.localizeNumbers(version)
                     : version;
                 versionElement.textContent = localizedVersion;
                 licenseVersionElement.textContent = localizedVersion;
@@ -2103,10 +2173,7 @@ function getFallbackText(attribute, id) {
 */
 function translate(key) {
     try {
-        if (LinkumoriI18n && LinkumoriI18n.isReady()) {
-            return LinkumoriI18n.getMessage(key) || `[${key}]`;
-        }
-        return `[${key}]`; // Fallback if not ready
+        return getPopupI18nMessage(key, undefined, `[${key}]`);
     } catch (error) {
         return `[${key}]`;
     }

@@ -94,6 +94,7 @@ var hasPendingSaves = false;
 var pendingSaves = new Set();
 const POPUP_CONSENT_STORAGE_KEY = 'popupConsentAccepted';
 const POPUP_CONSENT_VERSION_STORAGE_KEY = 'popupConsentPolicyVersionAccepted';
+const POST_RELOAD_OPEN_URL_STORAGE_KEY = 'postReloadOpenUrl';
 var clearurlsStarted = false;
 
 var tempVerificationCache = {
@@ -821,7 +822,12 @@ function storageAsJSON() {
     
     Object.entries(storage).forEach(([key, value]) => {
         // Skip ClearURLsData, linkumori-theme and dataHash from export
-        if (key !== 'ClearURLsData' && key !== 'linkumori-theme' && key !== 'dataHash') {
+        if (
+            key !== 'ClearURLsData' &&
+            key !== 'linkumori-theme' &&
+            key !== 'dataHash' &&
+            key !== POST_RELOAD_OPEN_URL_STORAGE_KEY
+        ) {
             json[key] = storageDataAsString(key);
         }
     });
@@ -2052,6 +2058,32 @@ function hasPopupConsentForStartup() {
     return false;
 }
 
+function consumePostReloadOpenUrl() {
+    const queuedUrl = typeof storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] === 'string'
+        ? storage[POST_RELOAD_OPEN_URL_STORAGE_KEY].trim()
+        : '';
+
+    if (!queuedUrl) {
+        return;
+    }
+
+    storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] = '';
+    browser.storage.local.set({
+        [POST_RELOAD_OPEN_URL_STORAGE_KEY]: ''
+    }).catch(() => {});
+
+    const safeUrl = queuedUrl.startsWith('html/') ? queuedUrl : '';
+    if (!safeUrl) {
+        return;
+    }
+
+    if (browser.tabs && typeof browser.tabs.create === 'function') {
+        browser.tabs.create({
+            url: safeUrl,
+        }).catch(() => {});
+    }
+}
+
 function startClearurlsIfConsentGranted() {
     if (clearurlsStarted) {
         return true;
@@ -2073,6 +2105,7 @@ function startClearurlsIfConsentGranted() {
 function genesis() {
     browser.storage.local.get(null).then((items) => {
         initStorage(items);
+        consumePostReloadOpenUrl();
 
         loadBundledRules().then(() => {
             startClearurlsIfConsentGranted();
@@ -2307,6 +2340,7 @@ function initSettings() {
     storage.custom_rules = { providers: {} };
     storage.popupConsentAccepted = false;
     storage.popupConsentPolicyVersionAccepted = 0;
+    storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] = '';
     
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xml_dtd", "xmlhttprequest", "xslt"];
         storage.pingRequestTypes = ["ping", "beacon"];
