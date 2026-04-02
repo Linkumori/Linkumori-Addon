@@ -1,0 +1,4113 @@
+{
+  "aboutPageTitle": {
+    "message": "Linkumori - О программе",
+    "description": "Title for the about/legal page"
+  },
+  "active_bundled_providers_label": {
+    "message": "Активных встроенных провайдеров:",
+    "description": "Label for active bundled providers count."
+  },
+  "active_remote_providers_label": {
+    "message": "Активных удалённых провайдеров:",
+    "description": "Label for active remote providers count."
+  },
+  "addDomainToWhitelist": {
+    "message": "Добавить $1 в белый список",
+    "description": "Button label to add a domain to the whitelist. $1 is replaced with the domain."
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "Добавить текущий домен в белый список",
+    "description": "Button label to add the current domain to the whitelist."
+  },
+  "appearance_settings_title": {
+    "message": "Настройки внешнего вида",
+    "description": "Title for the appearance settings section"
+  },
+  "badge_color_description": {
+    "message": "Выберите цвет значка расширения, который показывает количество очищенных параметров на каждой странице.",
+    "description": "Description text explaining what the badge color setting does"
+  },
+  "badge_color_label": {
+    "message": "Цвет значка",
+    "description": "Label for the badge color picker"
+  },
+  "badge_preview_label": {
+    "message": "Предпросмотр",
+    "description": "Label for the badge preview section"
+  },
+  "blocked_html_body": {
+    "message": "Этот сайт был заблокирован дополнением <b>Linkumori (Clean URLS)</b>, поскольку мы определили его как рекламный и/или отслеживающий сервис. Чтобы посетить этот сайт, вам необходимо временно отключить дополнение или отключить блокировку доменов в настройках Linkumori (Clean URLS). После этого вы можете нажать на кнопку ниже, чтобы загрузить страницу.",
+    "description": "This string is used as body on the blocked site page."
+  },
+  "blocked_html_button": {
+    "message": "Перейти на страницу",
+    "description": "This string is used as button on the blocked site page."
+  },
+  "blocked_html_title": {
+    "message": "Этот сайт был заблокирован <b>Linkumori (Clean URLS)</b>",
+    "description": "This string is used as title on the blocked site page."
+  },
+  "built_in_rules_enabled": {
+    "message": "Включить встроенные правила",
+    "description": "Label for the toggle that enables or disables bundled built-in rules"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "Использовать встроенные правила Linkumori/ClearURLs. Отключите эту опцию, чтобы использовать только удалённые и/или пользовательские правила.",
+    "description": "Description for the toggle that controls bundled built-in rules"
+  },
+  "bundled_rules_description": {
+    "message": "Linkumori использует встроенные и пользовательские правила для определения и удаления отслеживающих параметров из URL. Эти правила автоматически обновляются для обеспечения эффективной защиты от новейших методов отслеживания.",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "Информация о правилах",
+    "description": "Title for the Rules Information section."
+  },
+  "button_cancel": {
+    "message": "Отмена"
+  },
+  "button_close": {
+    "message": "Закрыть",
+    "description": "Close button text for FAQ modal"
+  },
+  "button_confirm": {
+    "message": "Подтвердить",
+    "description": "Generic confirm button text for modal dialogs"
+  },
+  "modal_alert_title": {
+    "message": "Уведомление",
+    "description": "Default title for alert-style modal dialogs"
+  },
+  "modal_confirm_title": {
+    "message": "Подтверждение",
+    "description": "Default title for confirm-style modal dialogs"
+  },
+  "modal_prompt_title": {
+    "message": "Требуется ввод",
+    "description": "Default title for prompt-style modal dialogs"
+  },
+  "button_delete": {
+    "message": "Удалить"
+  },
+  "button_exit": {
+    "message": "Выход",
+    "description": "Button text for exiting the editor"
+  },
+  "button_save": {
+    "message": "Сохранить"
+  },
+  "cleanUrlsButton": {
+    "message": "Очистить URL",
+    "description": "Text for the button that initiates URL cleaning."
+  },
+  "cleanUrlsToolHeader": {
+    "message": "Инструмент очистки URL Linkumori",
+    "description": "The main header of the URL cleaning tool."
+  },
+  "cleanUrlsToolTitle": {
+    "message": "Расширенный инструмент очистки URL Linkumori",
+    "description": "The title of the URL cleaning tool page."
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "Очищенные URL появятся здесь...",
+    "description": "Placeholder text for the cleaned URLs textarea."
+  },
+  "cleanedUrlsTitle": {
+    "message": "Очищенные URL",
+    "description": "Title for the cleaned URLs section."
+  },
+  "clipboard_copy_link": {
+    "message": "Скопировать чистый адрес ссылки",
+    "description": "This string is used in the context menu to copy clean links."
+  },
+  "color_picker_cancel": {
+    "message": "Отмена",
+    "description": "Cancel button in color picker"
+  },
+  "color_picker_clear": {
+    "message": "Очистить",
+    "description": "Clear button in color picker"
+  },
+  "color_picker_save": {
+    "message": "Сохранить",
+    "description": "Save button in color picker"
+  },
+  "composition_breakdown_label": {
+    "message": "Состав:",
+    "description": "Label for bundled vs custom percentage breakdown."
+  },
+  "configs_switch_statistics": {
+    "message": "Статистика",
+    "description": "This string is used as name for the statistics switch button on the popup page."
+  },
+  "confirm_reset_settings": {
+    "message": "Вы уверены, что хотите сбросить все настройки к значениям по умолчанию?",
+    "description": "Confirmation message before resetting settings."
+  },
+  "confirmation_error_template": {
+    "message": "Фраза не совпадает. Введите точно: \"%s\"",
+    "description": "Template for error message with placeholder for localized phrase"
+  },
+  "confirmation_error_text": {
+    "message": "Фраза не совпадает. Введите точно: \"Я принимаю полную ответственность\"",
+    "description": "Error message for incorrect confirmation phrase"
+  },
+  "confirmation_final_text": {
+    "message": "Я подтверждаю, что владею/управляю этими серверами и принимаю на себя полную ответственность за их использование. Эта функция предоставляется «как есть» без каких-либо гарантий. Я имею законное право дать согласие на это соглашение.",
+    "description": "Final warning text in confirmation modal"
+  },
+  "confirmation_input_label": {
+    "message": "Введите фразу здесь:",
+    "description": "Label for confirmation input field"
+  },
+  "confirmation_modal_cancel": {
+    "message": "Отмена",
+    "description": "Cancel button text in confirmation modal"
+  },
+  "confirmation_modal_confirm": {
+    "message": "Подтвердить и включить удалённые URL",
+    "description": "Confirm button text in confirmation modal"
+  },
+  "confirmation_modal_text": {
+    "message": "Чтобы продолжить, введите следующую фразу подтверждения точно так, как показано:",
+    "description": "Instruction text for confirmation modal"
+  },
+  "confirmation_modal_title": {
+    "message": "Подтвердите понимание",
+    "description": "Title for confirmation modal"
+  },
+  "context_menu_enabled": {
+    "message": "Показывать пункт в контекстном меню",
+    "description": "This string is used toggle the context menu entry to copy clean links."
+  },
+  "context_menu_enabled_description": {
+    "message": "Добавить опции Linkumori в контекстное меню.",
+    "description": "Description for the context menu toggle."
+  },
+  "copyFailed": {
+    "message": "Не удалось скопировать!",
+    "description": "Toast message when copy action fails"
+  },
+  "copyText": {
+    "message": "Копировать",
+    "description": "Button text for copy action"
+  },
+  "copyUrlsButton": {
+    "message": "Копировать результаты",
+    "description": "Text for the button that copies cleaned URLs."
+  },
+  "copy_urls_empty": {
+    "message": "Нет URL для копирования.",
+    "description": "Message when attempting to copy but the output URL area is empty."
+  },
+  "copy_urls_fail": {
+    "message": "Не удалось скопировать URL.",
+    "description": "Error message when copying URLs to clipboard fails in the cleaning tool."
+  },
+  "copy_urls_success": {
+    "message": "URL скопированы в буфер обмена!",
+    "description": "Success message when URLs are copied to clipboard in the cleaning tool."
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "Добавить нового провайдера"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "Добавить провайдера"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "Расширенный редактор JSON"
+  },
+  "customRulesEditor_builtin": {
+    "message": "Встроенный:"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "Полный провайдер (блокирует весь домен)"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "Вы уверены, что хотите удалить провайдера \"$1\"?"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "Вы уверены, что хотите удалить всех $1 провайдеров?"
+  },
+  "customRulesEditor_copy": {
+    "message": "копировать"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "Создать первого провайдера"
+  },
+  "customRulesEditor_custom": {
+    "message": "Пользовательский:"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "Пользовательские провайдеры"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "Удалить все"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "Не удалось удалить всех провайдеров"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "Удалить текущего провайдера"
+  },
+  "customRulesEditor_description": {
+    "message": "Создавайте и управляйте пользовательскими правилами очистки URL для сайтов, не охваченных встроенными провайдерами."
+  },
+  "customRulesEditor_disabled": {
+    "message": "Отключено:"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "Исключения доменов"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "Шаблоны доменов"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "Простые шаблоны доменов (нельзя использовать с URL-шаблоном). Форматы: example.com, *.example.com, ||example.com^, ||*.example.com^. Один шаблон на строку.",
+    "description": "Help text for domain patterns field"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "Шаблоны доменов"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||example.com^\n||*.subdomain.com^\n"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "Требуется хотя бы один шаблон домена"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "Перенаправления доменов"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "Дублировать"
+  },
+  "customRulesEditor_editName": {
+    "message": "Редактировать имя"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "Редактировать провайдера"
+  },
+  "customRulesEditor_editing": {
+    "message": "Редактирование: $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "Шаблоны доменов не могут быть пустыми"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "Не удалось применить правила"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "Применить правила"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "Правила применены"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "Перезагрузить расширение, чтобы немедленно применить все правила"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "Исключения (URL для исключения)"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "Выйти из редактора и вернуться к списку провайдеров",
+    "description": "Tooltip text for the exit button in the custom rules editor"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "Не удалось экспортировать правила"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "Экспортировать пользовательские правила в файл"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "Не удалось сохранить провайдера"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "Принудительное перенаправление"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "HTTP-методы",
+    "description": "Label for HTTP methods field"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "Это заменит все существующие пользовательские правила. Продолжить?"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "Не удалось импортировать правила: $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "Импортировать пользовательские правила из файла"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "Неверный шаблон домена: {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "Неверная структура файла: отсутствует объект providers"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "Неверный regex шаблона URL: $1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "Ошибка JSON: $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "Здесь появится JSON..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "Требуется содержимое JSON"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "Нажатие на urlPattern удаляет domainPatterns, и наоборот."
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "Добавить поле в JSON"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "Пользовательские правила",
+    "description": "Navigation label for custom rules view"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "Белый список",
+    "description": "Navigation label for whitelist view"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "В файле не найдено провайдеров"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "Редактор пользовательских правил и управление белым списком"
+  },
+  "customRulesEditor_patternType": {
+    "message": "Тип шаблона"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "Выберите, как сопоставлять URL для этого провайдера"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "Пожалуйста, выберите тип шаблона"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "Провайдер \"$1\" не может иметь одновременно urlPattern и domainPatterns"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "У провайдера \"$1\" пустые шаблоны доменов"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "У провайдера \"$1\" отсутствует urlPattern"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "Провайдер \"$1\" должен иметь либо urlPattern, либо domainPatterns"
+  },
+  "customRulesEditor_providerName": {
+    "message": "Имя провайдера *"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "Провайдер с таким именем уже существует"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "Уникальный идентификатор для этого провайдера (например, \"example.com\", \"mysite\")"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "например, example.com, mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "Имя провайдера обязательно"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "Сырые правила (regex-шаблоны)"
+  },
+  "customRulesEditor_redirections": {
+    "message": "Перенаправления (шаблоны перенаправлений)"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "Реферальный маркетинг"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "Типы ресурсов"
+  },
+  "customRulesEditor_rules": {
+    "message": "Правила (параметры URL для удаления)"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "Состояние правил"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "Сохранить провайдера"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "Сохранить текущего провайдера"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "Выберите провайдера для редактирования"
+  },
+  "customRulesEditor_title": {
+    "message": "Редактор пользовательских правил - ClearURLs"
+  },
+  "customRulesEditor_total": {
+    "message": "Всего:"
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "У вас есть несохранённые изменения. Продолжить без сохранения?"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "URL-шаблон *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "URL-шаблон и шаблоны доменов не могут использоваться вместе"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "Регулярное выражение для сопоставления URL"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "URL-шаблон (regex)"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "Требуется либо URL-шаблон, либо шаблоны доменов"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "URL-шаблон обязателен"
+  },
+  "customRulesEditor_welcome": {
+    "message": "Добро пожаловать в редактор пользовательских правил"
+  },
+  "custom_providers_label": {
+    "message": "Пользовательских провайдеров:",
+    "description": "Label for custom providers count."
+  },
+  "customrules": {
+    "message": "Пользовательские правила"
+  },
+  "datatable_empty_table": {
+    "message": "Нет данных в таблице",
+    "description": "DataTables empty table message"
+  },
+  "datatable_info": {
+    "message": "Показано с _START_ по _END_ из _TOTAL_ записей",
+    "description": "DataTables pagination info"
+  },
+  "datatable_info_empty": {
+    "message": "Показано 0 из 0 записей",
+    "description": "DataTables info when no data"
+  },
+  "datatable_showing_all": {
+    "message": "Показаны все $1 записей",
+    "description": "Info message when showing all entries. $1=total count"
+  },
+  "datatable_showing_entries": {
+    "message": "Показаны записи с $1 по $2 из $3",
+    "description": "Pagination info showing current range. $1=start, $2=end, $3=total"
+  },
+  "datatable_zero_records": {
+    "message": "Совпадающих записей не найдено",
+    "description": "DataTables no search results message"
+  },
+  "domain_blocking_enabled": {
+    "message": "Разрешить блокировку доменов (может вызвать проблемы на сайтах, не допускающих блокировщики рекламы)",
+    "description": "This string is used as label for the domain blocking switch"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "Блокировать запросы к определённым доменам.",
+    "description": "Description for the domain blocking toggle."
+  },
+  "downloadFailed": {
+    "message": "Не удалось скачать!",
+    "description": "Toast message when download action fails"
+  },
+  "downloadText": {
+    "message": "Скачать",
+    "description": "Button text for download action"
+  },
+  "eTag_filtering_enabled": {
+    "message": "Фильтровать заголовки ETag из запросов",
+    "description": "This string is used as label for the ETag header filtering switch"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "Удалять заголовки ETag для предотвращения отслеживания.",
+    "description": "Description for the ETag filtering toggle."
+  },
+  "eTag_filtering_log": {
+    "message": "Заголовок ETag был удалён из этого запроса",
+    "description": "This string is used on ETag header filtering in the Linkumori (Clean URLS) log."
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "Не удалось получить текущий домен",
+    "description": "Error message when the current domain cannot be determined."
+  },
+  "error_loading_data": {
+    "message": "Не удалось загрузить данные журнала. Пожалуйста, обновите страницу.",
+    "description": "Error message when log data cannot be loaded from storage"
+  },
+  "error_rendering_table": {
+    "message": "Ошибка отображения данных таблицы",
+    "description": "Error message when table fails to render"
+  },
+  "extension_description": {
+    "message": "Удаляет отслеживающие элементы из URL.",
+    "description": "Extension description (max. 132 characters)"
+  },
+  "fallback_rules_loaded": {
+    "message": "возможно, соответствующее встроенное правило повреждено или не загружено должным образом. Вместо него загружены резервные правила."
+  },
+  "faq_caution": {
+    "message": "Осторожно:",
+    "description": "Label for cautions in FAQ"
+  },
+  "faq_common_mistakes": {
+    "message": "Каких распространённых ошибок следует избегать?",
+    "description": "FAQ question about common mistakes"
+  },
+  "faq_complete_provider": {
+    "message": "Что делает completeProvider?",
+    "description": "FAQ question about completeProvider"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "Если установлено значение true, completeProvider помечает соответствующие запросы для блокировки. Фактическая блокировка происходит только тогда, когда включена глобальная настройка «Блокировка доменов». Если false, вы можете использовать обычные правила, исключения и перенаправления.",
+    "description": "FAQ answer explaining completeProvider"
+  },
+  "faq_complete_provider_usage": {
+    "message": "Большинство пользовательских правил должны устанавливать это значение в false и вместо этого использовать специальные правила удаления параметров.",
+    "description": "FAQ guidance on completeProvider usage"
+  },
+  "faq_complete_provider_warning": {
+    "message": "Если включена блокировка доменов, это может заблокировать полный доступ к соответствующим URL.",
+    "description": "FAQ warning about completeProvider"
+  },
+  "faq_complex_example": {
+    "message": "Покажите сложный пример провайдера",
+    "description": "FAQ question requesting complex example"
+  },
+  "faq_complex_example_explanation": {
+    "message": "Этот провайдер удаляет отслеживающие параметры и фрагменты, обрабатывает перенаправления, но защищает страницы API, входа в систему и оформления заказа от изменений.",
+    "description": "FAQ explanation of complex example"
+  },
+  "faq_complex_example_intro": {
+    "message": "Вот расширенный провайдер с перенаправлениями и исключениями:",
+    "description": "FAQ intro to complex example"
+  },
+  "faq_custom_rules_note": {
+    "message": "Пользовательские правила выполняются вместе со встроенными правилами и могут переопределять импортированные записи встроенных/удалённых провайдеров по имени.",
+    "description": "Note about custom rules precedence"
+  },
+  "faq_default_note": {
+    "message": "По умолчанию:",
+    "description": "Label for default behavior notes in FAQ"
+  },
+  "faq_domain_exceptions": {
+    "message": "Что такое исключения доменов?",
+    "description": "FAQ question about domain exceptions"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "Исключения доменов работают как обычные исключения, но используют более простой формат шаблона домена вместо регулярного выражения. Они позволяют исключить определённые домены или поддомены из обработки.",
+    "description": "FAQ explanation of domain exceptions"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "Исключения доменов используют те же шаблоны, что и шаблоны доменов, но проще, чем regex-исключения.",
+    "description": "FAQ tip about domain exceptions"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ - Соответствие имени хоста для example.com и его поддоменов",
+    "description": "FAQ explanation of AdBlock domain pattern"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - Подстановочный знак имени хоста; каждый * соответствует одной метке (сегменту точки)",
+    "description": "FAQ explanation of AdBlock wildcard pattern"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "example.com - Простое сопоставление подстроки с полным URL (может также совпадать внутри более длинных имён хостов/путей)",
+    "description": "FAQ explanation of basic domain pattern"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.example.*^ - Соответствует поддоменам с подстановочными TLD, включая многосоставные TLD (a.example.co.uk)",
+    "description": "FAQ explanation of full wildcard pattern"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||example.*^ - Соответствует домену с подстановочными TLD, включая многосоставные TLD (example.co.uk, example.gov.in)",
+    "description": "FAQ explanation of TLD wildcard domain pattern"
+  },
+  "faq_domain_pattern_types": {
+    "message": "Типы шаблонов доменов:",
+    "description": "FAQ section title for domain pattern types"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com - Подстановочное regex-сопоставление с полным URL, не строгое сопоставление только имени хоста",
+    "description": "FAQ explanation of wildcard domain pattern"
+  },
+  "faq_domain_patterns": {
+    "message": "Шаблоны доменов против URL-шаблонов",
+    "description": "FAQ question about domain patterns vs URL patterns"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "Шаблоны доменов поддерживают простые токены и формы в стиле AdBlock. Поведение сопоставления зависит от синтаксиса (некоторые формы проверяют имя хоста, другие сопоставляются с полной строкой URL):",
+    "description": "FAQ explanation of domain patterns"
+  },
+  "faq_domain_redirections": {
+    "message": "Что такое перенаправления доменов?",
+    "description": "FAQ question about domain redirections"
+  },
+  "faq_domain_redirections_example": {
+    "message": "redirect.example.com$redirect=https://target.com перенаправит все URL с redirect.example.com на https://target.com",
+    "description": "FAQ example of domain redirections"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "Перенаправления доменов используют шаблоны доменов для обнаружения URL-адресов перенаправления и извлечения целевого назначения. Они поддерживают специальный синтаксис $redirect= для простого сопоставления перенаправлений.",
+    "description": "FAQ explanation of domain redirections"
+  },
+  "faq_example": {
+    "message": "Пример:",
+    "description": "Label for examples in FAQ"
+  },
+  "faq_exceptions": {
+    "message": "Как работают исключения?",
+    "description": "FAQ question about exceptions"
+  },
+  "faq_exceptions_explanation": {
+    "message": "Исключения — это regex-шаблоны, которые соответствуют URL, где обработка не должна выполняться. Если URL соответствует исключению, все остальные правила игнорируются.",
+    "description": "FAQ explanation of exceptions"
+  },
+  "faq_exceptions_usage": {
+    "message": "Используйте исключения, чтобы защитить страницы входа, конечные точки API или другие конфиденциальные URL от изменений.",
+    "description": "FAQ guidance on exceptions usage"
+  },
+  "faq_force_redirection": {
+    "message": "Когда следует использовать forceRedirection?",
+    "description": "FAQ question about forceRedirection"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "Некоторые веб-сайты манипулируют ссылками с помощью JavaScript, предотвращая обычные перенаправления. forceRedirection записывает URL непосредственно в главный фрейм браузера.",
+    "description": "FAQ explanation of forceRedirection"
+  },
+  "faq_force_redirection_usage": {
+    "message": "Включите это для таких сайтов, как Google, которые используют обработчики onClick вместо прямых атрибутов href.",
+    "description": "FAQ guidance on forceRedirection usage"
+  },
+  "faq_force_redirection_warning": {
+    "message": "Используйте только тогда, когда обычные перенаправления не работают, так как этот метод более навязчив.",
+    "description": "FAQ warning about forceRedirection"
+  },
+  "faq_how_providers_work": {
+    "message": "Как работают провайдеры?",
+    "description": "FAQ question about how providers work"
+  },
+  "faq_http_methods": {
+    "message": "Что такое HTTP-методы?",
+    "description": "FAQ question about HTTP methods"
+  },
+  "faq_http_methods_common": {
+    "message": "Распространённые HTTP-методы:",
+    "description": "FAQ section title for common HTTP methods"
+  },
+  "faq_http_methods_delete": {
+    "message": "DELETE - операции удаления",
+    "description": "FAQ list item for DELETE method"
+  },
+  "faq_http_methods_explanation": {
+    "message": "HTTP-методы позволяют применять правила только к определённым типам HTTP-запросов (GET, POST, PUT, DELETE и т.д.). Это даёт вам контроль над тем, какие методы запросов активируют ваши правила.",
+    "description": "FAQ explanation of HTTP methods"
+  },
+  "faq_http_methods_get": {
+    "message": "GET - стандартные запросы веб-страниц",
+    "description": "FAQ list item for GET method"
+  },
+  "faq_http_methods_head": {
+    "message": "HEAD - запросы только заголовков",
+    "description": "FAQ list item for HEAD method"
+  },
+  "faq_http_methods_options": {
+    "message": "OPTIONS - предварительные CORS-запросы",
+    "description": "FAQ list item for OPTIONS method"
+  },
+  "faq_http_methods_post": {
+    "message": "POST - отправка форм и вызовы API",
+    "description": "FAQ list item for POST method"
+  },
+  "faq_http_methods_put": {
+    "message": "PUT - операции обновления",
+    "description": "FAQ list item for PUT method"
+  },
+  "faq_http_methods_tip": {
+    "message": "Оставьте пустым, чтобы применять ко всем HTTP-методам, или укажите только те методы, которые хотите задействовать.",
+    "description": "FAQ tip about HTTP methods"
+  },
+  "faq_import_benefit_quick": {
+    "message": "Быстрая настройка — не нужно вручную создавать сложные шаблоны",
+    "description": "FAQ benefit of quick setup via import"
+  },
+  "faq_import_benefit_search": {
+    "message": "Поиск и фильтрация, чтобы найти именно то, что нужно",
+    "description": "FAQ benefit of search functionality"
+  },
+  "faq_import_benefit_tested": {
+    "message": "Предварительно протестированные правила, которые, как известно, работают правильно",
+    "description": "FAQ benefit of tested rules via import"
+  },
+  "faq_import_benefit_updates": {
+    "message": "Лёгкое обновление правил с новыми провайдерами",
+    "description": "FAQ benefit of easy updates via import"
+  },
+  "faq_list_feature_actions": {
+    "message": "Редактируйте, дублируйте или удаляйте провайдеры одним щелчком мыши",
+    "description": "FAQ feature of quick actions"
+  },
+  "faq_list_feature_overview": {
+    "message": "Быстрый обзор всех провайдеров с ключевой статистикой",
+    "description": "FAQ feature of provider overview"
+  },
+  "faq_list_feature_search": {
+    "message": "Поиск провайдеров по имени для быстрого нахождения нужных",
+    "description": "FAQ feature of provider search"
+  },
+  "faq_list_feature_stats": {
+    "message": "Просмотр количества правил и типов шаблонов с первого взгляда",
+    "description": "FAQ feature of statistics display"
+  },
+  "faq_mistake_broad": {
+    "message": "Слишком широкий urlPattern (соответствует нежелательным сайтам)",
+    "description": "FAQ common mistake about broad patterns"
+  },
+  "faq_mistake_complete": {
+    "message": "Установка completeProvider в true, если вы действительно не хотите заблокировать сайт",
+    "description": "FAQ common mistake about completeProvider"
+  },
+  "faq_mistake_escape": {
+    "message": "Забыли экранировать специальные символы regex в шаблонах",
+    "description": "FAQ common mistake about escaping regex"
+  },
+  "faq_mistake_exceptions": {
+    "message": "Не добавляете исключения для важных функций",
+    "description": "FAQ common mistake about missing exceptions"
+  },
+  "faq_mistake_testing": {
+    "message": "Не тестируете правила тщательно перед развёртыванием",
+    "description": "FAQ common mistake about insufficient testing"
+  },
+  "faq_note": {
+    "message": "Примечание:",
+    "description": "Label for important notes in FAQ"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "Оба поля могут присутствовать в данных, но urlPattern имеет приоритет. Шаблоны доменов используются только тогда, когда urlPattern пуст. Сопоставление доменов учитывает PSL, включая обработку регистрируемых доменов и поддержку многосоставных TLD.",
+    "description": "FAQ note about pattern exclusivity"
+  },
+  "faq_perf_combine": {
+    "message": "Объединяйте несколько похожих шаблонов в одно регулярное выражение",
+    "description": "FAQ performance tip about combining patterns"
+  },
+  "faq_perf_limit": {
+    "message": "Ограничьте количество провайдеров тем, что вам действительно нужно",
+    "description": "FAQ performance tip about limiting providers"
+  },
+  "faq_perf_review": {
+    "message": "Регулярно просматривайте и удаляйте неиспользуемые правила",
+    "description": "FAQ performance tip about regular review"
+  },
+  "faq_perf_simple": {
+    "message": "По возможности используйте простые правила вместо сложных rawRules",
+    "description": "FAQ performance tip about simple rules"
+  },
+  "faq_perf_specific": {
+    "message": "Сделайте urlPattern максимально конкретным",
+    "description": "FAQ performance tip about specific patterns"
+  },
+  "faq_performance_tips": {
+    "message": "Как оптимизировать производительность?",
+    "description": "FAQ question about performance optimization"
+  },
+  "faq_provider_example": {
+    "message": "Например, провайдер «Google» будет обрабатывать все сервисы Google с правилами для удаления отслеживающих параметров из результатов поиска, ссылок YouTube и т.д.",
+    "description": "FAQ example of provider usage"
+  },
+  "faq_provider_import": {
+    "message": "Как импортировать провайдеров из правил?",
+    "description": "FAQ question about provider import feature"
+  },
+  "faq_provider_import_benefits": {
+    "message": "Преимущества импорта:",
+    "description": "FAQ section title for import benefits"
+  },
+  "faq_provider_import_explanation": {
+    "message": "Функция импорта провайдеров позволяет быстро добавлять провайдеров из встроенного каталога правил. Нажмите кнопку «Импорт из правил», чтобы просмотреть и выбрать провайдеров.",
+    "description": "FAQ explanation of provider import feature"
+  },
+  "faq_provider_import_tip": {
+    "message": "Вы можете импортировать несколько провайдеров одновременно, выбрав их и нажав «Импортировать».",
+    "description": "FAQ tip about provider import"
+  },
+  "faq_provider_list": {
+    "message": "Как эффективно управлять моими провайдерами?",
+    "description": "FAQ question about provider list management"
+  },
+  "faq_provider_list_explanation": {
+    "message": "Представление «Список провайдеров» даёт вам быстрый обзор всех пользовательских провайдеров. Вы можете искать, редактировать, дублировать или удалять провайдеров, не открывая каждого по отдельности.",
+    "description": "FAQ explanation of provider list feature"
+  },
+  "faq_provider_list_features": {
+    "message": "Возможности списка провайдеров:",
+    "description": "FAQ section title for provider list features"
+  },
+  "faq_provider_list_tip": {
+    "message": "Откройте список провайдеров на панели инструментов редактора, чтобы просматривать и управлять провайдерами.",
+    "description": "FAQ tip about provider list"
+  },
+  "faq_providers_explanation": {
+    "message": "Провайдеры — это логические единицы, которые группируют несколько правил под одним URL-шаблоном. Каждый провайдер нацелен на определённый веб-сайт или сервис и содержит все правила, необходимые для очистки URL из этого источника.",
+    "description": "FAQ answer explaining providers"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "Прямые regex-шаблоны, применяемые ко всему URL. Используйте для сложных шаблонов, которые не вписываются в стандартный формат параметров.",
+    "description": "FAQ explanation of rawRules"
+  },
+  "faq_raw_rules_title": {
+    "message": "Сырые правила:",
+    "description": "FAQ section title for rawRules explanation"
+  },
+  "faq_raw_rules_usage": {
+    "message": "Используйте rawRules для фрагментов, сегментов пути или сложных шаблонов параметров.",
+    "description": "FAQ guidance on rawRules usage"
+  },
+  "faq_redirections": {
+    "message": "Как работают перенаправления?",
+    "description": "FAQ question about redirections"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com становится https://target.com",
+    "description": "FAQ example of redirection process"
+  },
+  "faq_redirections_explanation": {
+    "message": "Перенаправления извлекают реальный целевой URL из сервисов перенаправления. Первая захваченная группа в regex становится новым URL.",
+    "description": "FAQ explanation of redirections"
+  },
+  "faq_redirections_process": {
+    "message": "Захваченный URL автоматически декодируется с помощью decodeURIComponent() и заменяет исходный URL.",
+    "description": "FAQ explanation of redirection processing"
+  },
+  "faq_referral_default": {
+    "message": "Реферальный маркетинг по умолчанию отключён, поэтому эти параметры будут удалены, если пользователь явно не разрешит их.",
+    "description": "FAQ note about referralMarketing default behavior"
+  },
+  "faq_referral_explanation": {
+    "message": "Параметры реферального маркетинга помогают создателям контента зарабатывать комиссионные. Эти параметры удаляются только тогда, когда пользователь отключил поддержку реферального маркетинга в настройках.",
+    "description": "FAQ explanation of referralMarketing"
+  },
+  "faq_referral_marketing": {
+    "message": "Что такое referralMarketing?",
+    "description": "FAQ question about referralMarketing"
+  },
+  "faq_resource_types": {
+    "message": "Что такое типы ресурсов?",
+    "description": "FAQ question about resource types"
+  },
+  "faq_resource_types_common": {
+    "message": "Распространённые типы ресурсов:",
+    "description": "FAQ section title for common resource types"
+  },
+  "faq_resource_types_explanation": {
+    "message": "Типы ресурсов позволяют применять правила только к определённым типам веб-запросов (изображения, скрипты, основные страницы и т.д.). Это даёт вам точный контроль над тем, когда применяются правила.",
+    "description": "FAQ explanation of resource types"
+  },
+  "faq_resource_types_tip": {
+    "message": "Оставьте пустым, чтобы применять ко всем типам ресурсов, или укажите только те типы, которые хотите задействовать.",
+    "description": "FAQ tip about resource types"
+  },
+  "faq_rt_font": {
+    "message": "font - веб-шрифты (.woff, .ttf и т.д.)",
+    "description": "FAQ resource type font"
+  },
+  "faq_rt_image": {
+    "message": "image - изображения и картинки",
+    "description": "FAQ resource type image"
+  },
+  "faq_rt_imageset": {
+    "message": "imageset - наборы изображений для адаптивных изображений",
+    "description": "FAQ resource type imageset"
+  },
+  "faq_rt_main_frame": {
+    "message": "main_frame - основная веб-страница",
+    "description": "FAQ resource type main_frame"
+  },
+  "faq_rt_media": {
+    "message": "media - аудио и видео файлы",
+    "description": "FAQ resource type media"
+  },
+  "faq_rt_object": {
+    "message": "object - встроенные объекты (Flash, плагины)",
+    "description": "FAQ resource type object"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "object_subrequest - запросы, выполняемые встроенными объектами",
+    "description": "FAQ resource type object_subrequest"
+  },
+  "faq_rt_other": {
+    "message": "other - другие типы, не указанные выше",
+    "description": "FAQ resource type other"
+  },
+  "faq_rt_script": {
+    "message": "script - JavaScript файлы",
+    "description": "FAQ resource type script"
+  },
+  "faq_rt_stylesheet": {
+    "message": "stylesheet - CSS файлы",
+    "description": "FAQ resource type stylesheet"
+  },
+  "faq_rt_sub_frame": {
+    "message": "sub_frame - встроенные iframe",
+    "description": "FAQ resource type sub_frame"
+  },
+  "faq_rt_websocket": {
+    "message": "websocket - WebSocket-соединения",
+    "description": "FAQ resource type websocket"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "xml_dtd - определения типов документов XML",
+    "description": "FAQ resource type xml_dtd"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "xmlhttprequest - AJAX-запросы",
+    "description": "FAQ resource type xmlhttprequest"
+  },
+  "faq_rt_xslt": {
+    "message": "xslt - файлы преобразований XSLT",
+    "description": "FAQ resource type xslt"
+  },
+  "faq_rules_converted": {
+    "message": "Пример: \"utm_source\" соответствует точно; \"utm_.*\" соответствует utm_source и utm_campaign. Сначала разрешаются исключения/правила с областью действия Linkumori, затем нормальные/regex правила выполняются только для несовпадающих ключей.",
+    "description": "FAQ examples for rules key matching"
+  },
+  "faq_rules_explanation": {
+    "message": "Правила соответствуют ключам параметров запроса и ключам хеш-фрагментов. Используйте простые имена (точный ключ), regex (более широкое соответствие) или правила с областью действия Linkumori, такие как ||example.com^$removeparam=..., для targeting конкретных доменов.",
+    "description": "FAQ explanation of rules"
+  },
+  "faq_rules_title": {
+    "message": "Правила:",
+    "description": "FAQ section title for rules explanation"
+  },
+  "faq_rules_vs_raw": {
+    "message": "В чем разница между rules и rawRules?",
+    "description": "FAQ question about rules vs rawRules"
+  },
+  "faq_section_advanced": {
+    "message": "Расширенные возможности",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_basics": {
+    "message": "Основы",
+    "description": "FAQ section title for basic questions"
+  },
+  "faq_section_examples": {
+    "message": "Примеры",
+    "description": "FAQ section title for examples"
+  },
+  "faq_section_new_features": {
+    "message": "Расширенные возможности",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_properties": {
+    "message": "Свойства провайдера",
+    "description": "FAQ section title for provider properties"
+  },
+  "faq_section_tips": {
+    "message": "Советы и лучшие практики",
+    "description": "FAQ section title for tips and best practices"
+  },
+  "faq_simple_example": {
+    "message": "Покажите простой пример провайдера",
+    "description": "FAQ question requesting simple example"
+  },
+  "faq_simple_example_explanation": {
+    "message": "Это удаляет идентификаторы кликов Facebook и параметры UTM, но сохраняет партнёрские ссылки, если пользователь разрешает реферальный маркетинг.",
+    "description": "FAQ explanation of simple example"
+  },
+  "faq_simple_example_intro": {
+    "message": "Вот базовый провайдер, который удаляет отслеживающие параметры с вымышленного сайта покупок:",
+    "description": "FAQ intro to simple example"
+  },
+  "faq_test_backup": {
+    "message": "Экспортируйте свои правила перед внесением серьёзных изменений",
+    "description": "FAQ tip about backing up rules"
+  },
+  "faq_test_exceptions": {
+    "message": "Всегда добавляйте исключения для критических страниц (вход, оформление заказа, API)",
+    "description": "FAQ tip about adding exceptions"
+  },
+  "faq_test_regex": {
+    "message": "Тестируйте regex-шаблоны с помощью онлайн-инструментов, таких как regex101.com",
+    "description": "FAQ tip about testing regex patterns"
+  },
+  "faq_test_reload": {
+    "message": "Используйте кнопку «Применить правила», чтобы перезагрузить изменения без перезапуска браузера",
+    "description": "FAQ tip about enforcing rules"
+  },
+  "faq_test_small": {
+    "message": "Начинайте с простых правил и постепенно усложняйте",
+    "description": "FAQ tip about starting small"
+  },
+  "faq_testing_tips": {
+    "message": "Как тестировать мои пользовательские правила?",
+    "description": "FAQ question about testing tips"
+  },
+  "faq_tip": {
+    "message": "Совет:",
+    "description": "Label for tips in FAQ"
+  },
+  "faq_title": {
+    "message": "Часто задаваемые вопросы",
+    "description": "FAQ button text and modal title"
+  },
+  "faq_url_pattern": {
+    "message": "Что такое urlPattern?",
+    "description": "FAQ question about urlPattern"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "urlPattern — это регулярное выражение, которому должен соответствовать каждый URL, на который должны влиять правила провайдера. Он определяет, какие веб-сайты должен обрабатывать этот провайдер.",
+    "description": "FAQ answer explaining urlPattern"
+  },
+  "faq_url_pattern_structure": {
+    "message": "Типичная структура охватывает: протокол + поддомен + домен + TLD + каталоги + параметры",
+    "description": "FAQ explanation of urlPattern structure"
+  },
+  "faq_url_pattern_tip": {
+    "message": "Используйте онлайн-тестеры regex для проверки шаблонов перед добавлением.",
+    "description": "FAQ tip for testing urlPattern"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "URL-шаблоны используют полное регулярное выражение для точного контроля над тем, какие URL соответствуют:",
+    "description": "FAQ explanation of URL patterns"
+  },
+  "faq_use_domain_patterns": {
+    "message": "Используйте шаблоны доменов для более простого сопоставления имени хоста/пути без написания полного urlPattern regex.",
+    "description": "FAQ guidance for using domain patterns"
+  },
+  "faq_use_url_patterns": {
+    "message": "Используйте URL-шаблоны для сложного сопоставления (конкретные пути, параметры запроса и т.д.)",
+    "description": "FAQ guidance for using URL patterns"
+  },
+  "faq_warning": {
+    "message": "Предупреждение:",
+    "description": "Label for warnings in FAQ"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "Что такое пользовательские правила?",
+    "description": "FAQ question about custom rules"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "Пользовательские правила позволяют создавать собственные шаблоны очистки URL для веб-сайтов, не охваченных встроенными правилами. Они следуют той же структуре, что и основной каталог, но управляются отдельно.",
+    "description": "FAQ answer explaining custom rules"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "Когда что использовать:",
+    "description": "FAQ section title for pattern usage guidance"
+  },
+  "feature1": {
+    "message": "Встроенная очистка URL с упором на конфиденциальность включена по умолчанию"
+  },
+  "feature2": {
+    "message": "Поддержка пользовательских правил для контроля на уровне провайдера и шаблона"
+  },
+  "feature3": {
+    "message": "Поддержка белого списка для пропуска очистки для выбранных доменов"
+  },
+  "feature4": {
+    "message": "Удалённые правила и режим перегрузки для продвинутых настроек"
+  },
+  "feature_toggles_title": {
+    "message": "Настройки функций",
+    "description": "Title for the Feature Settings section."
+  },
+  "fileEmptyError": {
+    "message": "Файл пуст или нечитаем",
+    "description": "Error shown when a legal/privacy file is empty or unreadable"
+  },
+  "general_settings_title": {
+    "message": "Общие настройки",
+    "description": "Title for the General Settings section."
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "Встроенные правила загружены (отсутствует хеш)",
+    "description": "Status when bundled rules loaded after hash URL was missing"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "Использование встроенных правил (резерв)",
+    "description": "Status when fell back to bundled rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "Кэшированные удалённые + пользовательские правила (ошибка встроенных)",
+    "description": "Status when using cached remote rules with custom rules after bundled failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "Кэшированные удалённые + пользовательские правила (ошибка удалённых)",
+    "description": "Status when using cached remote rules with custom rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "Кэшированные удалённые + пользовательские правила (нет URL хеша)",
+    "description": "Status when using cached remote rules with custom rules, hash URL missing"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "Кэшированные удалённые правила (ошибка встроенных)",
+    "description": "Status when using cached remote rules after bundled rules failed"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "Кэшированные удалённые правила (ошибка удалённых)",
+    "description": "Status when using cached remote rules after current remote fetch failed"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "Кэшированные удалённые правила (нет URL хеша)",
+    "description": "Status when using cached remote rules because hash URL is missing"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "Кэшированные удалённые + встроенные правила объединены",
+    "description": "Status when overload mode merges cached remote rules with built-in rules"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "Кэшированные удалённые + встроенные правила объединены с пользовательскими правилами",
+    "description": "Status when overload mode merges cached remote and built-in rules, then custom rules"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "Используются только пользовательские правила",
+    "description": "Status when built-in rules are disabled and only custom rules are active"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "Встроенные правила отключены и не найдено пользовательских правил",
+    "description": "Status when built-in rules are disabled and there are no custom rules to load"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "Использование минимальных правил (ошибка удалённых)",
+    "description": "Status when using fallback rules after remote failure"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "Требуется URL хеша",
+    "description": "Status when remote URL is configured but hash URL is missing"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "Удалённые + встроенные правила объединены",
+    "description": "Status when remote and built-in rules are merged successfully"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "Удалённые + встроенные правила объединены с пользовательскими правилами",
+    "description": "Status when overload mode is active and custom rules are merged"
+  },
+  "hashStatus_remote_failed": {
+    "message": "Ошибка удалённых правил",
+    "description": "Status when remote rules failed verification or loading"
+  },
+  "hashStatus_remote_verified": {
+    "message": "Удалённые правила проверены",
+    "description": "Status when remote rules have been successfully verified"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "Удалённые правила загружены и пользовательские правила объединены",
+    "description": "Message shown when remote rules are loaded and custom rules are merged"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
+  },
+  "headerTitle": {
+    "message": "Linkumori",
+    "description": "Header title for the extension"
+  },
+  "history_listener_enabled": {
+    "message": "Предотвращать внедрение отслеживания через API истории",
+    "description": "This string is used as name for the history API listener label."
+  },
+  "history_listener_enabled_description": {
+    "message": "Отслеживать и очищать URL в истории браузера.",
+    "description": "Description for the history listener toggle."
+  },
+  "search_link_fix_enabled": {
+    "message": "Исправление ссылок результатов поиска",
+    "description": "Label for the combined Google and Yandex content script toggle"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "Включить скрипты содержимого Google и Yandex, которые удаляют отслеживание перенаправлений из ссылок результатов поиска.",
+    "description": "Description for the combined search result content script toggle"
+  },
+  "google_link_fix_enabled": {
+    "message": "Исправление ссылок Google",
+    "description": "Label for the Google content script toggle"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "Включить скрипт содержимого Google, который удаляет отслеживание перенаправлений из ссылок результатов Google.",
+    "description": "Description for the Google content script toggle"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "Исправление ссылок Yandex",
+    "description": "Label for the Yandex content script toggle"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "Включить скрипт содержимого Yandex, который удаляет отслеживание перенаправлений из ссылок результатов Yandex.",
+    "description": "Description for the Yandex content script toggle"
+  },
+  "import_invalid_format": {
+    "message": "Неверный формат файла или повреждённые данные",
+    "description": "Error message for invalid file format"
+  },
+  "import_parse_error": {
+    "message": "Не удалось разобрать файл. Пожалуйста, проверьте формат файла.",
+    "description": "Error message when file parsing fails"
+  },
+  "import_read_error": {
+    "message": "Не удалось прочитать файл",
+    "description": "Error message when file reading fails"
+  },
+  "inputUrlsDescription": {
+    "message": "С помощью этого инструмента вы можете вставить URL, и ClearURLs очистит их после нажатия на зелёную кнопку. Вы можете вставить несколько URL одновременно, но каждый URL должен быть на отдельной строке.",
+    "description": "Description text for the input URLs section."
+  },
+  "inputUrlsPlaceholder": {
+    "message": "Вставьте ваши URL сюда, по одному на строку...",
+    "description": "Placeholder text for the input URLs textarea."
+  },
+  "inputUrlsTitle": {
+    "message": "Входные URL",
+    "description": "Title for the input URL section."
+  },
+  "language_selector_description": {
+    "message": "Выберите предпочитаемый язык интерфейса, затем нажмите сохранить и перезагрузить. (числа не переводятся)",
+    "description": "Description text for language selector"
+  },
+  "language_selector_label": {
+    "message": "Язык интерфейса",
+    "description": "Label for language selector dropdown"
+  },
+  "licenseCopied": {
+    "message": "Лицензия скопирована!",
+    "description": "Toast message after copying license content"
+  },
+  "licenseDescription": {
+    "message": "Это расширение имеет открытый исходный код и распространяется под лицензией GNU Lesser General Public License.",
+    "description": "Description text for license section"
+  },
+  "licenseDownloaded": {
+    "message": "Лицензия скачана!",
+    "description": "Toast message after downloading license content"
+  },
+  "licenseSection": {
+    "message": "Информация о лицензии",
+    "description": "Section header for license information"
+  },
+  "license_links_title": {
+    "message": "Ссылки",
+    "description": "Title for links section in license"
+  },
+  "license_third_party_title": {
+    "message": "Сторонние компоненты",
+    "description": "Title for third party components section"
+  },
+  "license_title": {
+    "message": "Лицензия",
+    "description": "License section title"
+  },
+  "loadError": {
+    "message": "Ошибка загрузки содержимого",
+    "description": "Error title shown when legal/privacy content fails to load"
+  },
+  "loadingContent": {
+    "message": "Загрузка содержимого...",
+    "description": "Generic loading message for about/legal content areas"
+  },
+  "loadingLicense": {
+    "message": "Загрузка лицензии...",
+    "description": "Loading text for license content"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "Загрузка политики конфиденциальности...",
+    "description": "Loading text for privacy policy content"
+  },
+  "local_hosts_skipping": {
+    "message": "Пропускать URL на локальных хостах (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+    "description": "This string is used as label for the local host skipping switch"
+  },
+  "local_hosts_skipping_description": {
+    "message": "Пропускать очистку для localhost и локальных сетевых адресов.",
+    "description": "Description for the local hosts skipping toggle."
+  },
+  "log_domain_blocked": {
+    "message": "Этот домен заблокирован",
+    "description": "This string is used on blocked domains in the Linkumori (Clean URLS) log."
+  },
+  "log_html_export_button": {
+    "message": "Экспорт",
+    "description": "This string is used for the export button on the log page."
+  },
+  "log_html_export_button_title": {
+    "message": "Экспортировать глобальный журнал",
+    "description": "This string is used as title for the export button on the log page."
+  },
+  "log_html_import_button": {
+    "message": "Импорт",
+    "description": "This string is used for the import button on the log page."
+  },
+  "log_html_import_button_title": {
+    "message": "Импортировать глобальный журнал",
+    "description": "This string is used as title for the import button on the log page."
+  },
+  "log_html_import_error": {
+    "message": "Ошибка импорта файла журнала:",
+    "description": "Error message prefix when import fails"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "Неверный формат файла журнала.",
+    "description": "Error message when imported file is not valid JSON log format"
+  },
+  "log_html_page_title": {
+    "message": "Журнал Linkumori (Clean URLS)",
+    "description": "This string is used as header on the log page."
+  },
+  "log_html_reset_button": {
+    "message": "Сброс",
+    "description": "This string is used for the reset button on the log page."
+  },
+  "log_html_reset_button_title": {
+    "message": "Сбросить глобальный журнал",
+    "description": "This string is used as title for the reset button on the log page."
+  },
+  "log_html_reset_confirm": {
+    "message": "Вы уверены, что хотите сбросить журнал? Это действие нельзя отменить.",
+    "description": "Confirmation dialog when user clicks reset button"
+  },
+  "log_html_search": {
+    "message": "Поиск",
+    "description": "Label for the search input field"
+  },
+  "log_html_search_placeholder": {
+    "message": "Поиск в журналах...",
+    "description": "Placeholder text in the search input field"
+  },
+  "log_html_show_all": {
+    "message": "Все",
+    "description": "Option in entries dropdown to show all entries"
+  },
+  "log_html_show_entries": {
+    "message": "Показывать записей",
+    "description": "Label for the dropdown to select how many entries to show per page"
+  },
+  "log_html_table_head_1": {
+    "message": "До ",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_2": {
+    "message": "После ",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_3": {
+    "message": "Правило",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_4": {
+    "message": "Время",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_5": {
+    "message": "Провайдер",
+    "description": "Column header for matched provider name on the log page."
+  },
+  "log_html_table_head_6": {
+    "message": "Шаблон",
+    "description": "Column header for matched urlPattern/domainPattern on the log page."
+  },
+  "log_html_table_head_7": {
+    "message": "Метод",
+    "description": "Column header for request method and provider methods on the log page."
+  },
+  "log_html_table_head_8": {
+    "message": "Тип ресурса",
+    "description": "Column header for request resource type and provider resource types on the log page."
+  },
+  "log_nav_dashboard": {
+    "message": "Панель управления",
+    "description": "Tab label for dashboard view on log page"
+  },
+  "log_nav_logs": {
+    "message": "Журналы",
+    "description": "Tab label for logs view on log page"
+  },
+  "log_ping_blocked": {
+    "message": "Аудит гиперссылок был заблокирован",
+    "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
+  },
+  "log_provider_pattern_domain": {
+    "message": "domainPattern",
+    "description": "Label for domain pattern provider matching in log entries."
+  },
+  "log_provider_pattern_url": {
+    "message": "urlPattern",
+    "description": "Label for URL pattern provider matching in log entries."
+  },
+  "log_provider_request_method": {
+    "message": "метод",
+    "description": "Label for the current request method in provider match details."
+  },
+  "log_provider_methods": {
+    "message": "методы провайдера",
+    "description": "Label for provider method filters in provider match details."
+  },
+  "log_redirect": {
+    "message": "Этот URL перенаправлен",
+    "description": "This string is used on redirections in the Linkumori (Clean URLS) log."
+  },
+  "log_stats_changed_urls": {
+    "message": "Изменённые URL",
+    "description": "Stats card label for entries where URL changed"
+  },
+  "log_stats_chart_no_data": {
+    "message": "Нет данных для графика",
+    "description": "Empty-state label when no data is available for chart"
+  },
+  "log_stats_chart_reload": {
+    "message": "Перезагрузить",
+    "description": "Button label to reload the stats chart and reset pie filters"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "Перезагрузить график и сбросить фильтры круговой диаграммы",
+    "description": "Tooltip for reload chart button in log dashboard"
+  },
+  "log_stats_chart_title": {
+    "message": "Статистический график",
+    "description": "Title for selectable chart section in log dashboard"
+  },
+  "log_stats_chart_type": {
+    "message": "Тип графика",
+    "description": "Label for chart type selector"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "Круговая",
+    "description": "Option label for pie chart"
+  },
+  "log_stats_count_col": {
+    "message": "Количество",
+    "description": "Column header for count in stats tables"
+  },
+  "log_stats_domain_col": {
+    "message": "Домен",
+    "description": "Column header for domain name in stats"
+  },
+  "log_stats_earliest": {
+    "message": "Самая ранняя",
+    "description": "Stats card label for earliest timestamp"
+  },
+  "log_stats_latest": {
+    "message": "Самая поздняя",
+    "description": "Stats card label for latest timestamp"
+  },
+  "log_stats_no_domains": {
+    "message": "Нет доменов",
+    "description": "Fallback row label when no domains are available in stats"
+  },
+  "log_stats_no_rules": {
+    "message": "Нет правил",
+    "description": "Fallback row label when no rules are available in stats"
+  },
+  "log_stats_no_providers": {
+    "message": "Нет провайдеров",
+    "description": "Fallback row label when no providers are available in stats"
+  },
+  "log_stats_no_methods": {
+    "message": "Нет методов",
+    "description": "Fallback row label when no methods are available in stats"
+  },
+  "log_stats_no_resource_types": {
+    "message": "Нет типов ресурсов",
+    "description": "Fallback row label when no resource types are available in stats"
+  },
+  "log_stats_rule_col": {
+    "message": "Правило",
+    "description": "Column header for rule name in stats"
+  },
+  "log_stats_provider_col": {
+    "message": "Провайдер",
+    "description": "Column header for provider name in stats"
+  },
+  "log_stats_method_col": {
+    "message": "Метод",
+    "description": "Column header for method name in stats"
+  },
+  "log_stats_resource_type_col": {
+    "message": "Тип ресурса",
+    "description": "Column header for resource type in stats"
+  },
+  "log_stats_top_domains": {
+    "message": "Топ доменов",
+    "description": "Stats section title for top domains"
+  },
+  "log_stats_top_providers": {
+    "message": "Топ провайдеров",
+    "description": "Stats section title for top providers"
+  },
+  "log_stats_top_methods": {
+    "message": "Топ методов",
+    "description": "Stats section title for top methods"
+  },
+  "log_stats_top_resource_types": {
+    "message": "Топ типов ресурсов",
+    "description": "Stats section title for top resource types"
+  },
+  "log_stats_top_rules": {
+    "message": "Топ правил",
+    "description": "Stats section title for top rules"
+  },
+  "log_stats_total_entries": {
+    "message": "Всего записей",
+    "description": "Stats card label for total log entries"
+  },
+  "log_stats_unique_domains": {
+    "message": "Уникальных доменов",
+    "description": "Stats card label for unique source domains"
+  },
+  "log_stats_unique_rules": {
+    "message": "Уникальных правил",
+    "description": "Stats card label for unique applied rules"
+  },
+  "log_stats_unique_providers": {
+    "message": "Уникальных провайдеров",
+    "description": "Stats card label for unique providers"
+  },
+  "log_stats_unique_methods": {
+    "message": "Уникальных методов",
+    "description": "Stats card label for unique methods"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "Уникальных типов ресурсов",
+    "description": "Stats card label for unique resource types"
+  },
+  "log_whitelist_bypass": {
+    "message": "Пропущено: домен в белом списке",
+    "description": "This string is used in the log when URL cleaning is skipped because the domain is whitelisted."
+  },
+  "moonIconAlt": {
+    "message": "иконка луны",
+    "description": "Alt text for moon theme icon"
+  },
+  "new_custom_providers_label": {
+    "message": "новых:",
+    "description": "Inline label for new custom provider count."
+  },
+  "nothingToCopy": {
+    "message": "Нечего копировать!",
+    "description": "Toast message when copy action has no content"
+  },
+  "nothingToDownload": {
+    "message": "Нечего скачивать!",
+    "description": "Toast message when download action has no content"
+  },
+  "openSettings": {
+    "message": "Открыть настройки Linkumori"
+  },
+  "overload_mode_enabled": {
+    "message": "Включить режим перегрузки",
+    "description": "Label for toggle that merges built-in and remote rules together"
+  },
+  "overload_mode_enabled_description": {
+    "message": "Если включено, встроенные и удалённые правила загружаются вместе и объединяются перед применением пользовательских правил.",
+    "description": "Description for overload mode toggle"
+  },
+  "overridden_providers_label": {
+    "message": "переопределённых:",
+    "description": "Inline label for overridden provider count."
+  },
+  "overridden_providers_list_label": {
+    "message": "Переопределённые провайдеры:",
+    "description": "Label for overridden provider names list."
+  },
+  "pagination_current_page_aria": {
+    "message": "Текущая страница, страница $1",
+    "description": "Screen reader label for current active page. $1=page number"
+  },
+  "pagination_first": {
+    "message": "Первая",
+    "description": "Button text to go to first page"
+  },
+  "pagination_first_aria": {
+    "message": "Первая страница",
+    "description": "Screen reader label for first page button"
+  },
+  "pagination_last": {
+    "message": "Последняя",
+    "description": "Button text to go to last page"
+  },
+  "pagination_last_aria": {
+    "message": "Последняя страница",
+    "description": "Screen reader label for last page button"
+  },
+  "pagination_next": {
+    "message": "Следующая",
+    "description": "Button text to go to next page"
+  },
+  "pagination_next_aria": {
+    "message": "Следующая страница",
+    "description": "Screen reader label for next page button"
+  },
+  "pagination_page_aria": {
+    "message": "Страница $1",
+    "description": "Screen reader label for numbered page buttons. $1=page number"
+  },
+  "pagination_previous": {
+    "message": "Предыдущая",
+    "description": "Button text to go to previous page"
+  },
+  "pagination_previous_aria": {
+    "message": "Предыдущая страница",
+    "description": "Screen reader label for previous page button"
+  },
+  "percentage_symbol": {
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
+  },
+  "ping_blocking_enabled": {
+    "message": "Блокировать аудит гиперссылок",
+    "description": "This string is used as label for the hyperlink auditing blocking switch"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "Блокировать ping-запросы, используемые для отслеживания.",
+    "description": "Description for the ping blocking toggle."
+  },
+  "popup_consent_accept_button": {
+    "message": "Принять и продолжить",
+    "description": "Button label to accept popup consent gate"
+  },
+  "popup_consent_checkbox": {
+    "message": "Я прочитал и принимаю Политику конфиденциальности и Лицензию.",
+    "description": "Consent checkbox label for popup gate"
+  },
+  "popup_consent_description": {
+    "message": "Пожалуйста, прочитайте Политику конфиденциальности и Лицензию перед использованием этого всплывающего окна. Мы не собираем ваши данные. Все данные хранятся на вашем устройстве и не передаются нам.",
+    "description": "Description for popup consent gate"
+  },
+  "popup_consent_legal_button": {
+    "message": "Прочитать юридическую информацию",
+    "description": "Button label to open legal page from popup consent gate"
+  },
+  "popup_consent_title": {
+    "message": "Требуется согласие",
+    "description": "Title for popup consent gate"
+  },
+  "popup_html_page_title": {
+    "message": "Linkumori",
+    "description": "Popup page title text"
+  },
+  "popup_html_version_label": {
+    "message": "Версия:",
+    "description": "Version label shown in popup license section"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "Подпись дополнения Firefox",
+    "description": "Label shown in popup license section for Firefox add-on signing fingerprint."
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "Подпись дополнения Firefox",
+    "description": "Popup label for Firefox signature value."
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "Недоступно, так как не подписано",
+    "description": "Message shown when the add-on package is unsigned and no Mozilla signing digest is available."
+  },
+  "popup_html_version_label_title": {
+    "message": "Текущая версия расширения",
+    "description": "Tooltip for popup version label"
+  },
+  "popup_html_license_description": {
+    "message": "Просмотрите подробную информацию о лицензии и конфиденциальности, нажав на ссылку «Юридическая информация» ниже.",
+    "description": "Description in popup license section"
+  },
+  "popup_html_license_description_title": {
+    "message": "Информация о лицензии и конфиденциальности",
+    "description": "Tooltip for popup license description"
+  },
+  "popup_html_gpl_link": {
+    "message": "GNU General Public License v3.0",
+    "description": "Popup license link label for GPL v3"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "Открыть текст лицензии GNU GPL v3.0",
+    "description": "Tooltip for GPL link in popup license section"
+  },
+  "popup_html_lgpl_link": {
+    "message": "GNU General Lesser Public License v3.0",
+    "description": "Popup license link label for LGPL v3"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "Открыть текст лицензии GNU LGPL v3.0",
+    "description": "Tooltip for LGPL link in popup license section"
+  },
+  "popup_html_source_code_repository": {
+    "message": "Репозиторий исходного кода",
+    "description": "Popup license link label for source code repository"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "Открыть репозиторий исходного кода",
+    "description": "Tooltip for source code repository link in popup license section"
+  },
+  "popup_html_source_code_releases": {
+    "message": "Релизы исходного кода",
+    "description": "Popup license link label for source code releases"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "Открыть релизы исходного кода",
+    "description": "Tooltip for source code releases link in popup license section"
+  },
+  "popup_html_report_issues": {
+    "message": "Сообщить о проблемах",
+    "description": "Popup license link label for issue tracker"
+  },
+  "popup_html_report_issues_title": {
+    "message": "Открыть трекер проблем",
+    "description": "Tooltip for report issues link in popup license section"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "Репозиторий миграции ClearURLs MV3",
+    "description": "Popup license link label for ClearURLs MV3 migration repo"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "Открыть репозиторий миграции ClearURLs MV3",
+    "description": "Tooltip for ClearURLs migration repository link in popup license section"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "Репозиторий дополнений ClearURLs V1.27.3",
+    "description": "Popup license link label for ClearURLs addon v1.27.3 repo"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "Открыть репозиторий дополнений ClearURLs v1.27.3",
+    "description": "Tooltip for ClearURLs addon repository link in popup license section"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "Linkumori v.",
+    "description": "Footer prefix shown on blocked page before version number"
+  },
+  "legal_consent_notice_default": {
+    "message": "Ознакомьтесь с Политикой конфиденциальности и Лицензией ниже, затем примите их, чтобы продолжить использование Linkumori.",
+    "description": "Default notice text for the legal page consent section"
+  },
+  "legal_consent_notice_update": {
+    "message": "Юридические условия Linkumori обновлены. Ознакомьтесь с Политикой конфиденциальности и Лицензией, затем примите их, чтобы продолжить использование расширения.",
+    "description": "Notice text shown on the legal page after a consent version update"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "Ознакомьтесь с Политикой конфиденциальности и Лицензией ниже, затем примите их, чтобы завершить настройку Linkumori.",
+    "description": "Notice text shown on the legal page during first install"
+  },
+  "legal_consent_notice_import": {
+    "message": "Ознакомьтесь с Политикой конфиденциальности и Лицензией ниже, затем примите их, чтобы завершить миграцию на Linkumori.",
+    "description": "Notice text shown on the legal page during import or migration"
+  },
+  "legal_consent_status_required": {
+    "message": "Требуется согласие. Linkumori приостановлен, пока вы не примете текущие юридические условия.",
+    "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_accepted": {
+    "message": "Согласие принято. Linkumori может работать с текущими юридическими условиями.",
+    "description": "Status message shown when current legal consent is accepted"
+  },
+  "legal_consent_button_accepted": {
+    "message": "Принято",
+    "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_saved": {
+    "message": "Согласие принято.",
+    "description": "Toast shown after saving legal consent"
+  },
+  "legal_consent_save_failed": {
+    "message": "Не удалось сохранить согласие.",
+    "description": "Toast shown when saving legal consent fails"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "Не удалось определить текущую версию политики согласия.",
+    "description": "Error shown when the current consent version is unavailable"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "Как отозвать согласие",
+    "description": "Button label that opens the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "Отзыв согласия осуществляется путём удаления расширения, как объясняется в политике конфиденциальности.",
+    "description": "Short note below the legal page consent controls about withdrawing consent"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "Как отозвать согласие",
+    "description": "Title for the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "Вы можете отозвать своё согласие в любое время, просто удалив расширение или дополнение.",
+    "description": "Introductory text in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "После удаления все данные, локально сохранённые Linkumori на вашем устройстве, будут окончательно и автоматически удалены. С вашей стороны не требуется никаких действий, кроме удаления.",
+    "description": "Data deletion explanation in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "Поскольку Linkumori не передаёт никаких данных на внешние серверы, нет удалённых данных, удаление которых можно было бы запросить.",
+    "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "Закрыть",
+    "description": "Close button label for the withdrawal of consent modal"
+  },
+  "legal_optional_features_heading": {
+    "message": "Отключённые функции, которые вы, возможно, захотите включить",
+    "description": "Heading for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_features_description": {
+    "message": "Эти дополнительные защиты по умолчанию отключены. Включите те, которые хотите, затем сохраните и перезагрузите Linkumori.",
+    "description": "Description for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "Отключено",
+    "description": "Status badge shown when an optional legal-page feature is disabled"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "Включено",
+    "description": "Status badge shown when an optional legal-page feature is enabled"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "Включить при сохранении",
+    "description": "Status badge shown when an optional legal-page feature will be enabled after saving"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "Отключить при сохранении",
+    "description": "Status badge shown when an optional legal-page feature will be disabled after saving"
+  },
+  "legal_optional_features_note": {
+    "message": "Изменения сохраняются только при использовании кнопки справа.",
+    "description": "Initial helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_default": {
+    "message": "Эти функции по умолчанию отключены. Включите любые из них, затем сохраните и перезагрузите Linkumori.",
+    "description": "Default helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "Изменения ожидают сохранения. Сохраните их, чтобы применить и снова открыть эту юридическую страницу.",
+    "description": "Helper note shown when optional legal-page feature changes have not been saved yet"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "Сохранение изменений дополнительных функций и перезагрузка Linkumori.",
+    "description": "Helper note shown while optional legal-page feature changes are being saved"
+  },
+  "legal_optional_features_save_button": {
+    "message": "Сохранить и перезагрузить Linkumori",
+    "description": "Save button label for optional legal-page feature toggles"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "Не удалось сохранить изменения дополнительных функций.",
+    "description": "Error toast shown when optional legal-page feature changes fail to save"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "Значки",
+    "description": "This string is used as name for the badges switch button on the popup page."
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "Фильтр",
+    "description": "This string is used as name for the filter switch button on the popup page."
+  },
+  "popup_html_configs_switch_log": {
+    "message": "Журналирование",
+    "description": "This string is used as name for the logging switch button on the popup page."
+  },
+  "popup_html_log_head": {
+    "message": "Просмотр журналов",
+    "description": "This string is used as name for the log button on the popup page."
+  },
+  "popup_html_settings_button": {
+    "message": "Настройки",
+    "description": "This string is used for the settings button on the popup page."
+  },
+  "popup_html_statistics": {
+    "message": "Статистика",
+    "description": "Toggle label for statistics feature"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "Заблокировано",
+    "description": "This string is used as name for the blocked elements on the popup page."
+  },
+  "popup_html_statistics_elements": {
+    "message": "Элементов",
+    "description": "This string is used as name for the elements on the popup page."
+  },
+  "popup_html_statistics_percentage": {
+    "message": "Процент",
+    "description": "This string is used as name for the percentage of blocked elements on the popup page."
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "Сброс",
+    "description": "This string is used as name for the statistics reset button on the popup page."
+  },
+  "popup_html_tools_button": {
+    "message": "Инструменты",
+    "description": "This string is used for the tools button on the popup page."
+  },
+  "popup_html_tools_button_title": {
+    "message": "Открыть инструменты очистки",
+    "description": "This string is used as a title for the tools button on the popup page."
+  },
+  "popup_html_whitelist_button": {
+    "message": "Белый список",
+    "description": "This string is used for the whitelist button on the popup page."
+  },
+  "popup_nav_license": {
+    "message": "Лицензия",
+    "description": "Navigation label for license section"
+  },
+  "popup_nav_main": {
+    "message": "Главная",
+    "description": "Navigation label for main content section"
+  },
+  "privacyCopied": {
+    "message": "Политика конфиденциальности скопирована!",
+    "description": "Toast message after copying privacy policy content"
+  },
+  "privacyDescription": {
+    "message": "Пожалуйста, ознакомьтесь с нашей политикой конфиденциальности ниже.",
+    "description": "Description text for privacy policy section"
+  },
+  "privacyDownloaded": {
+    "message": "Политика конфиденциальности скачана!",
+    "description": "Toast message after downloading privacy policy content"
+  },
+  "privacyPolicySection": {
+    "message": "Политика конфиденциальности",
+    "description": "Section header for privacy policy"
+  },
+  "privacyVersionDescription": {
+    "message": "Выберите, какой перевод политики конфиденциальности вы хотите увидеть. Обратите внимание, что в настоящее время доступна только английская версия, другие языки могут быть добавлены в будущем.",
+    "description": "Helper description for privacy version selector"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "Английский ",
+    "description": "Option label for global English privacy policy file"
+  },
+  "privacyVersionLabel": {
+    "message": "Политика конфиденциальности ",
+    "description": "Label for selecting English privacy policy version"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "Выбранный файл политики не найден. Вместо него загружена политика конфиденциальности по умолчанию.",
+    "description": "Notification shown when selected privacy version file cannot be loaded"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "Не удалось загрузить карту версий политики конфиденциальности.",
+    "description": "Notification shown when privacy version mapping config cannot be loaded"
+  },
+  "providerImport_bundledRules": {
+    "message": "Активные встроенные/удалённые/пользовательские правила",
+    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  },
+  "providerImport_button": {
+    "message": "Импортировать/отключить провайдеров",
+    "description": "Button text to import selected providers"
+  },
+  "providerImport_clearSelection": {
+    "message": "Очистить",
+    "description": "Button text to clear all selected providers."
+  },
+  "providerImport_complete": {
+    "message": "Полный"
+  },
+  "providerImport_completeProvider": {
+    "message": "Полный провайдер"
+  },
+  "providerImport_completed": {
+    "message": "Импорт завершён!"
+  },
+  "providerImport_confirmExclude": {
+    "message": "Исключить эту сигнатуру провайдера? Соответствующие провайдеры с URL/доменным шаблоном будут скрыты и удалены из пользовательских правил.",
+    "description": "Confirmation shown before excluding a provider signature from import"
+  },
+  "providerImport_disableSelected": {
+    "message": "Отключить выбранные",
+    "description": "Button text to disable selected providers by signature"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "Отключить сигнатуры для $1 выбранного(ых) провайдера(ов)?",
+    "description": "Confirmation before disabling selected providers in batch. $1 is selected count"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "Отключено сигнатур: $1. Удалено соответствующих пользовательских провайдеров: $2.",
+    "description": "Batch disable result. $1 is disabled signature count and $2 removed custom provider count"
+  },
+  "providerImport_disabledClear": {
+    "message": "Очистить все",
+    "description": "Button label to clear all excluded signatures for selected source"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "Очистить все отключённые правила",
+    "description": "Button label to clear all disabled signatures from all sources"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "Очистить все отключённые сигнатуры из всех источников?",
+    "description": "Confirmation before clearing all disabled signatures globally"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "Очистить все отключённые сигнатуры для этого источника?",
+    "description": "Confirmation before clearing disabled signatures for selected source"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "Нет отключённых сигнатур",
+    "description": "Empty state text when no disabled signatures exist for selected source"
+  },
+  "providerImport_disabledRestore": {
+    "message": "Восстановить",
+    "description": "Button label to restore an excluded signature"
+  },
+  "providerImport_disabledTitle": {
+    "message": "Отключённые правила",
+    "description": "Title for disabled provider signature list in provider import sidebar"
+  },
+  "providerImport_domainExceptions": {
+    "message": "Исключения доменов",
+    "description": "Full text for domain exceptions tooltip in provider cards"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "ИД",
+    "description": "Abbreviation for domain exceptions count in provider cards"
+  },
+  "providerImport_domainPatterns": {
+    "message": "Шаблоны доменов",
+    "description": "Full text for domain patterns tooltip in provider cards"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "ШД",
+    "description": "Abbreviation for domain patterns count in provider cards"
+  },
+  "providerImport_domainRedirections": {
+    "message": "Перенаправления доменов",
+    "description": "Full text for domain redirections tooltip in provider cards"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "ПД",
+    "description": "Abbreviation for domain redirections count in provider cards"
+  },
+  "providerImport_exceptions": {
+    "message": "Исключения"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "искл"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "Этот провайдер не имеет URL/доменного шаблона и не может быть исключён по сигнатуре.",
+    "description": "Shown when user tries to exclude a provider without URL/domain patterns"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "Сигнатура провайдера исключена. Удалено $1 соответствующих пользовательских провайдеров.",
+    "description": "Success message after excluding a provider signature. $1 is removed custom count"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(существует в пользовательских)"
+  },
+  "providerImport_failed": {
+    "message": "Не удалось импортировать провайдеров: $1"
+  },
+  "providerImport_import": {
+    "message": "Импортировать выбранные"
+  },
+  "providerImport_importedCount": {
+    "message": "Импортировано: $1 провайдеров"
+  },
+  "providerImport_importing": {
+    "message": "Импорт..."
+  },
+  "providerImport_loading": {
+    "message": "Загрузка провайдеров...",
+    "description": "Displayed while providers are being loaded into the grid."
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "Нет доступных провайдеров для правил $1"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "В правилах $1 не найдено провайдеров"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "Нет правил для импорта"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "Нет URL-шаблона"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "Переопределено: $1 провайдеров"
+  },
+  "providerImport_rawRules": {
+    "message": "Сырые правила",
+    "description": "Full text for raw rules tooltip in provider cards"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "Сырые",
+    "description": "Abbreviation for raw rules count in provider cards"
+  },
+  "providerImport_redirections": {
+    "message": "Перенаправления"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "пер"
+  },
+  "providerImport_referralAbbr": {
+    "message": "Реф",
+    "description": "Abbreviation for referral marketing count in provider cards"
+  },
+  "providerImport_referralMarketing": {
+    "message": "Реферальный маркетинг",
+    "description": "Full text for referral marketing tooltip in provider cards"
+  },
+  "providerImport_rules": {
+    "message": "правила"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "Правила",
+    "description": "Abbreviation for rules count in provider cards"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "Поиск провайдеров...",
+    "description": "Placeholder text in the search input field to filter providers."
+  },
+  "providerImport_selectAll": {
+    "message": "Выбрать все",
+    "description": "Button text to select all providers in the list/grid."
+  },
+  "providerImport_selectedCount": {
+    "message": "Выбрано: $1"
+  },
+  "providerImport_skippedCount": {
+    "message": "Пропущено: $1 провайдеров"
+  },
+  "providerImport_sources": {
+    "message": "Источник правил",
+    "description": "Heading for the sidebar that lists available rule sources."
+  },
+  "providerImport_title": {
+    "message": "Импортировать или отключить провайдеров",
+    "description": "Title of the provider import modal dialog."
+  },
+  "providerList_button": {
+    "message": "Список всех пользовательских провайдеров и поиск",
+    "description": "Button text to open the provider list modal"
+  },
+  "providerList_complete": {
+    "message": "Полный",
+    "description": "Label indicating a provider is a complete provider"
+  },
+  "providerList_confirmDelete": {
+    "message": "Вы уверены, что хотите удалить провайдера \"$1\"?",
+    "description": "Confirmation message when deleting a provider",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "Копия",
+    "description": "Suffix added to provider names when duplicating (e.g., 'Google_Copy')"
+  },
+  "providerList_createFirst": {
+    "message": "Создать первого провайдера",
+    "description": "Button text to create the first provider when none exist"
+  },
+  "providerList_delete": {
+    "message": "Удалить",
+    "description": "Button text to delete a provider"
+  },
+  "providerList_deleteFailed": {
+    "message": "Не удалось удалить провайдера. Пожалуйста, попробуйте снова.",
+    "description": "Error message when provider deletion fails"
+  },
+  "providerList_deleteTooltip": {
+    "message": "Удалить провайдера",
+    "description": "Tooltip text for the delete provider button"
+  },
+  "providerList_duplicate": {
+    "message": "Копировать",
+    "description": "Button text to duplicate/copy a provider"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "Дублировать провайдера",
+    "description": "Tooltip text for the duplicate provider button"
+  },
+  "providerList_edit": {
+    "message": "Редактировать",
+    "description": "Button text to edit a provider"
+  },
+  "providerList_editTooltip": {
+    "message": "Редактировать провайдера",
+    "description": "Tooltip text for the edit provider button"
+  },
+  "providerList_exceptions": {
+    "message": "Исключения",
+    "description": "Label for exceptions count in provider statistics"
+  },
+  "providerList_noProvidersFound": {
+    "message": "Пользовательские провайдеры не найдены.",
+    "description": "Message shown when there are no custom providers to display"
+  },
+  "providerList_noUrlPattern": {
+    "message": "Нет URL-шаблона",
+    "description": "Text shown when a provider has no URL pattern defined"
+  },
+  "providerList_rawRules": {
+    "message": "Сырые правила",
+    "description": "Label for raw rules count in provider statistics"
+  },
+  "providerList_redirections": {
+    "message": "Перенаправления",
+    "description": "Label for redirections count in provider statistics"
+  },
+  "providerList_referral": {
+    "message": "Реферал",
+    "description": "Label for referral marketing count in provider statistics"
+  },
+  "providerList_rules": {
+    "message": "Правила",
+    "description": "Label for rules count in provider statistics"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "Поиск провайдеров...",
+    "description": "Placeholder text for the provider search input"
+  },
+  "providerList_title": {
+    "message": "Все провайдеры",
+    "description": "Title of the provider list modal"
+  },
+  "referral_marketing_enabled": {
+    "message": "Разрешить реферальный маркетинг",
+    "description": "This string is used as label for the referral marketing switch"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "Удалять параметры отслеживания рефералов и партнёров.",
+    "description": "Description for the referral marketing toggle."
+  },
+  "redirection_enabled": {
+    "message": "Включить обход сторонних перенаправлений",
+    "description": "Label for the toggle that enables regex redirections and domain redirections"
+  },
+  "redirection_enabled_description": {
+    "message": "Обходить сторонние промежуточные перенаправления и отслеживающие URL, используя regex-перенаправления и перенаправления доменов из встроенных, удалённых и пользовательских правил. При необходимости сначала проверьте правила, затем используйте редактор пользовательских правил, чтобы редактировать или переопределять их по отдельности.",
+    "description": "Description for the toggle that enables or disables redirection handling"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "Строка $LINE$: ожидается \"ruleURL | hashURL\"",
+    "description": "Validation message when an additional remote rule set line is malformed.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "Строка $LINE$: неверный HTTPS-URL хеша",
+    "description": "Validation message when additional remote hash URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "Строка $LINE$: неверный HTTPS-URL правила",
+    "description": "Validation message when additional remote rule URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "Удалённые правила отключены. Включите переключатель ниже, чтобы настроить URL удалённых правил.",
+    "description": "Description shown when remote rules are disabled"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "Удалённые правила отключены — включите переключатель ниже",
+    "description": "Placeholder text shown when remote rules are disabled"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "Предупреждение безопасности: Gatekeeper отключён. Включите удалённые правила для доступа к полям удалённых URL.",
+    "description": "Alert shown when Gatekeeper is disabled while remote rules are turned off."
+  },
+  "remote_rules_enabled": {
+    "message": "Включить удалённые правила",
+    "description": "Label for the toggle that enables or disables remote rule fetching"
+  },
+  "remote_rules_enabled_description": {
+    "message": "Разрешить расширению получать правила с удалённых серверов. Если отключено, будут использоваться только встроенные правила.",
+    "description": "Description for the remote rules enabled toggle"
+  },
+  "remote_rules_loaded": {
+    "message": "Загружены только удалённые правила",
+    "description": "Message shown when remote rules are loaded"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "Удалённые правила ограничены только самостоятельно размещёнными серверами. Не используйте сторонние URL.",
+    "description": "Notice explaining remote rules restrictions"
+  },
+  "remote_rules_security_notice": {
+    "message": "Предупреждение безопасности: используйте только URL, которыми вы владеете и управляете",
+    "description": "Small security notice near URL fields"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "Ожидается изменение настроек. Нажмите «Сохранить», чтобы применить.",
+    "description": "Status message shown after toggling a setting that will apply when the user clicks Save."
+  },
+  "removeDomainFromWhitelist": {
+    "message": "Удалить $1 из белого списка",
+    "description": "Button label to remove a domain from the whitelist. $1 is replaced with the domain."
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
+  },
+  "rules_author_label": {
+    "message": "Автор:",
+    "description": "Label for the author of the rules dataset"
+  },
+  "rules_composition_label": {
+    "message": "Состав провайдеров:",
+    "description": "Section label for provider composition details."
+  },
+  "rules_disabled_providers_label": {
+    "message": "Отключённых провайдеров:",
+    "description": "Label for the number of disabled provider signatures"
+  },
+  "rules_hash_status_label": {
+    "message": "Состояние загрузки:",
+    "description": "Label for the current loading status of the rules"
+  },
+  "rules_last_updated_label": {
+    "message": "Последнее обновление:",
+    "description": "Label for the last update date of the rules dataset"
+  },
+  "rules_license_label": {
+    "message": "Лицензия:",
+    "description": "Label for the license of the rules dataset"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "Объединённые удалённые правила",
+    "description": "Display name for merged remote rules metadata in settings."
+  },
+  "rules_metadata_section": {
+    "message": "Информация о правилах:",
+    "description": "Section header for rules metadata information"
+  },
+  "rules_name_label": {
+    "message": "Название правил:",
+    "description": "Label for the name of the rules dataset"
+  },
+  "rules_source_bundled": {
+    "message": "Встроенные",
+    "description": "Source text when bundled rules are active."
+  },
+  "rules_source_bundled_fallback": {
+    "message": "Встроенный резерв",
+    "description": "Source text when bundled fallback rules are active."
+  },
+  "rules_source_fallback": {
+    "message": "Резерв",
+    "description": "Source text when minimal fallback rules are active."
+  },
+  "rules_source_label": {
+    "message": "Источник:",
+    "description": "Label for current active rules source."
+  },
+  "rules_source_remote": {
+    "message": "Удалённый",
+    "description": "Source text when remote rules are active."
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "Удалённый + Встроенный (объединены)",
+    "description": "Source text when remote and built-in rules are merged."
+  },
+  "rules_status_active": {
+    "message": "Активен",
+    "description": "Value for active rules status."
+  },
+  "rules_status_error": {
+    "message": "Ошибка загрузки правил",
+    "description": "Value for when rules fail to load."
+  },
+  "rules_status_label": {
+    "message": "Статус:",
+    "description": "Label for rules status."
+  },
+  "rules_status_not_loaded": {
+    "message": "Правила не загружены",
+    "description": "Value for when no rules are loaded."
+  },
+  "rules_total_providers_label": {
+    "message": "Всего провайдеров:",
+    "description": "Label for the total number of rule providers (bundled + custom)"
+  },
+  "rules_total_rules_label": {
+    "message": "Всего правил:",
+    "description": "Label for total rules count."
+  },
+  "rules_version_label": {
+    "message": "Версия правил:",
+    "description": "Label for the version of the rules dataset"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "Чтобы добавить, отредактировать или удалить домены из белого списка ",
+    "description": "Recommendation text in rules information section for whitelist management."
+  },
+  "rules_whitelist_open_editor": {
+    "message": "Нажмите здесь",
+    "description": "Link text to open custom rules editor from rules information section."
+  },
+  "rules_whitelist_total_label": {
+    "message": "Всего доменов в белом списке:",
+    "description": "Label for total whitelist domain count in rules information section."
+  },
+  "save_invalid_hash_url": {
+    "message": "Неверный формат URL хеша",
+    "description": "Validation message when primary hash URL is not a valid URL."
+  },
+  "save_invalid_rule_url": {
+    "message": "Неверный формат URL правила",
+    "description": "Validation message when primary rule URL is not a valid URL."
+  },
+  "save_primary_hash_https_required": {
+    "message": "Основной URL хеша должен использовать HTTPS",
+    "description": "Validation message when primary hash URL is not HTTPS."
+  },
+  "save_primary_remote_pair_required": {
+    "message": "Необходимо указать и основной URL удалённого правила, и URL хеша",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "Основной URL правила должен использовать HTTPS",
+    "description": "Validation message when primary rule URL is not HTTPS."
+  },
+  "security_confirmation_cancelled": {
+    "message": "Подтверждение безопасности отменено",
+    "description": "Status message when user cancels confirmation modal"
+  },
+  "security_confirmation_phrase": {
+    "message": "Я принимаю полную ответственность",
+    "description": "The exact phrase users must type to confirm (can be localized)"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "Требуется подтверждение безопасности",
+    "description": "Placeholder text shown in URL fields before security confirmation"
+  },
+  "security_confirmation_reset": {
+    "message": "Подтверждение безопасности сброшено",
+    "description": "Status message when security confirmation is reset"
+  },
+  "security_confirmation_session_success": {
+    "message": "Подтверждение безопасности успешно",
+    "description": "Message shown when security confirmation is successful"
+  },
+  "security_confirmation_tooltip": {
+    "message": "Требуется подтверждение безопасности — нажмите, чтобы начать",
+    "description": "Tooltip text for the security confirmation icon next to remote URLs"
+  },
+  "security_modal_advanced_warning": {
+    "message": "ПРЕДУПРЕЖДЕНИЕ: Расширенная функция, предназначенная только для самостоятельно размещённых серверов",
+    "description": "Main warning banner text in security modal"
+  },
+  "security_modal_cancel": {
+    "message": "Я не хочу продолжать — Отмена",
+    "description": "Cancel button text in security modal"
+  },
+  "security_modal_cancelled": {
+    "message": "Настройка удалённых URL отменена из соображений безопасности",
+    "description": "Status message when user cancels security modal"
+  },
+  "security_modal_continue": {
+    "message": "Я понимаю риски — Продолжить",
+    "description": "Continue button text in security modal"
+  },
+  "security_modal_final_warning": {
+    "message": "вам следует пересмотреть использование этой функции, если вы не полностью понимаете последствия и связанные с ней риски.",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "Эта функция удалённых правил предназначена исключительно для продвинутых пользователей, которые знают, что делают. Если вы не понимаете, что это значит, пожалуйста, не используйте эту функцию.",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "Если вы добавляете URL в это программное обеспечение для получения JSON-файла и файла хеша, расширение будет подключаться к указанному вами URL для получения удалённого JSON-файла правил или файла хеша каждый раз, когда это расширение включено и загружено в вашем браузере. Каждый раз, когда оно получает файлы на основе определённого вами URL, сервер, на котором размещены такие файлы, как JSON и хеш-файлы, будет получать ваш IP-адрес, а также общую информацию, такую как версия вашего расширения, браузер и версия браузера. Эти данные подпадают под действие политики конфиденциальности соответствующего веб-сайта или веб-сервера (на котором размещены эти файлы).",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "При необходимости ещё раз прочитайте %PRIVACY_POLICY_LINK% перед продолжением.",
+    "description": "Follow-up sentence in the remote rules warning modal with a privacy policy link placeholder"
+  },
+  "security_modal_privacy_title": {
+    "message": "уведомление о конфиденциальности:",
+    "description": "Header for privacy notice section"
+  },
+  "security_modal_recommendation": {
+    "message": "Вместо этого используйте решение только со встроенными правилами, например, встроенными правилами, кроме того, вы можете создавать пользовательские правила вручную.",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "Ваш IP-адрес и информация о браузере будут видны настроенным серверам",
+    "description": "First security risk point"
+  },
+  "security_modal_risk_2": {
+    "message": "Если источник правил скомпрометирован, в ваш браузер могут быть переданы вредоносные правила",
+    "description": "Second security risk point"
+  },
+  "security_modal_risk_3": {
+    "message": "Проверка хеша защищает только от подделки при передаче, а не от вредоносных источников правил",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "Если скомпрометированы и источник правил, и хеш-файл JSON-файлов, у вас нет защиты",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "Риски безопасности:",
+    "description": "Header for security risks section"
+  },
+  "security_modal_title": {
+    "message": "Предупреждение безопасности удалённых правил",
+    "description": "Title for the security disclaimer modal"
+  },
+  "setting_hash_url_description": {
+    "message": "URL файла хеша для проверки правил:",
+    "description": "Description for the custom hash URL input field"
+  },
+  "setting_hash_url_label": {
+    "message": "URL-адрес файла rules.hash (хеш)",
+    "description": "This string is used as name for the rule.hash url label."
+  },
+  "setting_hash_url_mandatory": {
+    "message": "Обязателен для проверки удалённых правил. Должен соответствовать файлу правил для безопасности.",
+    "description": "Description for hash URL field explaining it's mandatory"
+  },
+  "setting_html_export_button": {
+    "message": "Экспорт",
+    "description": "This string is used as name for the export button on the settings page."
+  },
+  "setting_html_export_button_title": {
+    "message": "Экспортировать всё",
+    "description": "This string is used as title for the export button on the settings page."
+  },
+  "setting_html_import_button": {
+    "message": "Импорт",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_import_button_title": {
+    "message": "Импортировать всё",
+    "description": "This string is used as title for the import button on the settings page."
+  },
+  "setting_html_reset_button": {
+    "message": "Сброс",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_reset_button_title": {
+    "message": "Сбросить всё",
+    "description": "This string is used as title for the reset button on the settings page."
+  },
+  "setting_html_audit_button": {
+    "message": "Аудит",
+    "description": "This string is used as name for the audit button on the settings page."
+  },
+  "setting_html_audit_button_title": {
+    "message": "Открыть страницу аудита",
+    "description": "This string is used as title for the audit button on the settings page."
+  },
+  "setting_log_limit_label": {
+    "message": "Ограничить журнал $LIMIT$ записями.",
+    "description": "This string is used as name for the log limit label.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "Лимит журнала (0-5000)",
+    "description": "Label for the log limit input field."
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "Дополнительные удалённые источники, объединённые вместе. Используйте один на строку: <code>ruleURL | hashURL</code>",
+    "description": "Description for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "Дополнительные наборы удалённых правил",
+    "description": "Label for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
+  },
+  "setting_rule_url_description": {
+    "message": "Пользовательский удалённый URL для определений правил",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "URL-адрес файла data.json (правила)",
+    "description": "This string is used as name for the rule url label."
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "Примечание: URL хеша обязателен при использовании удалённых правил для проверки безопасности.",
+    "description": "Note about mandatory hash URL requirement"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Типы запросов</a> (экспертный уровень)",
+    "description": "This string is used as name for the types label."
+  },
+  "settings_html_page_title": {
+    "message": "Настройки Linkumori (Clean URLS)",
+    "description": "This string is used as title on the settings page."
+  },
+  "settings_html_save_button": {
+    "message": "Сохранить и перезагрузить дополнение",
+    "description": "This string is used as name for the save&reload button on the settings page."
+  },
+  "settings_html_save_button_title": {
+    "message": "Сохраняет настройки",
+    "description": "This string is used as title for the save&reload button on the settings page."
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "Импортированный цвет значка — #FFA500. Хотите переключиться на синий Linkumori (#2563EB)?",
+    "description": "Prompt shown during ClearURLs import when old orange badge color is detected."
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "Вы импортируете резервную копию ClearURLs. Linkumori импортирует совместимые настройки и пропустит ClearURLsData. Продолжить?",
+    "description": "Confirmation shown when importing legacy ClearURLs JSON files."
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "Эта резервная копия ClearURLs содержит настройки источника удалённых правил. Хотите включить переключатель удалённых правил сейчас?",
+    "description": "Second confirmation shown for ClearURLs imports when remote rule URLs are present."
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "Переключатель удалённых правил был включён из вашего импорта ClearURLs. Пожалуйста, откройте настройки и нажмите «Сохранить» вручную, чтобы подтвердить окончательную удалённую конфигурацию.",
+    "description": "Notice shown after user enables remote rules during ClearURLs import."
+  },
+  "settings_import_confirm": {
+    "message": "Вы уверены, что хотите импортировать настройки? Это перезапишет ваши текущие"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "Метаданные импорта неполны",
+    "description": "Shown when import metadata is present but missing expected fields."
+  },
+  "settings_import_invalid_file": {
+    "message": "Выбран неверный файл",
+    "description": "Shown when imported settings file is invalid."
+  },
+  "settings_import_invalid_format": {
+    "message": "Неверный формат настроек",
+    "description": "Shown when imported settings data cannot be parsed as expected."
+  },
+  "settings_import_no_data": {
+    "message": "В файле не найдено импортируемых настроек",
+    "description": "Shown when parsed file has no supported settings keys."
+  },
+  "settings_import_no_file": {
+    "message": "Файл не выбран",
+    "description": "Shown when import is triggered without selecting a file."
+  },
+  "settings_import_parse_error": {
+    "message": "Не удалось разобрать файл настроек",
+    "description": "Shown when JSON parsing fails for imported file."
+  },
+  "settings_import_read_error": {
+    "message": "Не удалось прочитать файл настроек",
+    "description": "Shown when browser cannot read the selected file."
+  },
+  "settings_import_wrong_extension": {
+    "message": "Пожалуйста, выберите действительный файл настроек Linkumori/ClearURLs (.json или .conf)",
+    "description": "Shown when imported settings file does not match supported Linkumori or ClearURLs formats."
+  },
+  "settings_imported": {
+    "message": "Настройки успешно импортированы"
+  },
+  "statistics_reset_success": {
+    "message": "Сброс выполнен успешно!",
+    "description": "This string is used as feedback after the statistics have been reset."
+  },
+  "status_builtinOnly": {
+    "message": "Только встроенные правила"
+  },
+  "status_color_picker_failed": {
+    "message": "Не удалось инициализировать палитру цветов",
+    "description": "Error message when color picker fails to load"
+  },
+  "status_customFailed": {
+    "message": "Ошибка пользовательских правил"
+  },
+  "status_customMerged": {
+    "message": "Пользовательские правила объединены (по умолчанию + пользовательские)"
+  },
+  "status_deleteFailed": {
+    "message": "Ошибка удаления"
+  },
+  "status_invalidJson": {
+    "message": "Неверный JSON"
+  },
+  "status_language_changed_success": {
+    "message": "Язык успешно изменён на $1",
+    "description": "Success message when language is changed. $1 is the native language name"
+  },
+  "status_load_settings_failed": {
+    "message": "Не удалось загрузить настройки",
+    "description": "Status message when settings fail to load."
+  },
+  "status_loading": {
+    "message": "Загрузка..."
+  },
+  "status_reset_failed": {
+    "message": "Не удалось сбросить настройки",
+    "description": "Status message when settings reset fails."
+  },
+  "status_reset_successful": {
+    "message": "Настройки успешно сброшены",
+    "description": "Status message shown after settings have been reset."
+  },
+  "status_resetting_settings": {
+    "message": "Сброс настроек...",
+    "description": "Status message shown while settings are being reset."
+  },
+  "status_saveFailed": {
+    "message": "Ошибка сохранения"
+  },
+  "status_save_failed": {
+    "message": "Не удалось сохранить настройки",
+    "description": "Status message when settings save fails."
+  },
+  "status_save_setting_failed": {
+    "message": "Не удалось сохранить настройку $SETTING$",
+    "description": "Error message when a specific toggle setting fails to save.",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "Настройки успешно сохранены",
+    "description": "Status message when settings save is successful."
+  },
+  "status_saved": {
+    "message": "Сохранено!",
+    "description": "Button text after settings are saved."
+  },
+  "status_saving": {
+    "message": "Сохранение...",
+    "description": "Button text while saving settings."
+  },
+  "status_unavailable": {
+    "message": "Статус недоступен"
+  },
+  "status_unknown": {
+    "message": "Неизвестно"
+  },
+  "status_usingCached": {
+    "message": "соответствующее встроенное правило может быть повреждено или не загружено должным образом. Вместо него загружены резервные правила и объединены с пользовательскими правилами."
+  },
+  "status_usingFallback": {
+    "message": "Использование резервных правил"
+  },
+  "status_valid": {
+    "message": "Действительно"
+  },
+  "status_validJson": {
+    "message": "Действительный JSON"
+  },
+  "status_validJsonUnsaved": {
+    "message": "Действительный JSON — не сохранено"
+  },
+  "sunIconAlt": {
+    "message": "иконка солнца",
+    "description": "Alt text for sun theme icon"
+  },
+  "switchToDarkTheme": {
+    "message": "Переключиться на тёмную тему",
+    "description": "ARIA label for theme toggle when current theme is light"
+  },
+  "switchToLightTheme": {
+    "message": "Переключиться на светлую тему",
+    "description": "ARIA label for theme toggle when current theme is dark"
+  },
+  "themeToggleAriaLabel": {
+    "message": "Переключить тему",
+    "description": "ARIA label for the theme toggle button for accessibility."
+  },
+  "theme_description": {
+    "message": "Выберите предпочитаемое оформление темы",
+    "description": "Description text for theme selection"
+  },
+  "theme_name_dark": {
+    "message": "Тёмная",
+    "description": "Name for the dark theme"
+  },
+  "theme_name_icecold": {
+    "message": "Ледяная",
+    "description": "Name for the ice cold theme"
+  },
+  "theme_name_zengray": {
+    "message": "Дзен-серая",
+    "description": "Name for the zen grey theme"
+  },
+  "theme_name_forest": {
+    "message": "Лесная",
+    "description": "Name for the forest theme"
+  },
+  "theme_name_light": {
+    "message": "Светлая",
+    "description": "Name for the light theme"
+  },
+  "theme_name_midnight": {
+    "message": "Полночная",
+    "description": "Name for the midnight theme"
+  },
+  "theme_name_sunset": {
+    "message": "Закатная",
+    "description": "Name for the sunset theme"
+  },
+  "theme_name_legacy": {
+    "message": "Унаследованная",
+    "description": "Name for the legacy ClearURLs-style theme"
+  },
+  "theme_group_light_label": {
+    "message": "Светлый режим",
+    "description": "Label above the light theme cards group"
+  },
+  "theme_group_dark_label": {
+    "message": "Тёмный режим",
+    "description": "Label above the dark theme cards group"
+  },
+  "theme_selection_label": {
+    "message": "Тема",
+    "description": "Label for the theme selection section"
+  },
+  "time_am": {
+    "message": "AM"
+  },
+  "time_am_lower": {
+    "message": "am",
+    "description": "Lowercase AM marker"
+  },
+  "time_pm": {
+    "message": "PM"
+  },
+  "time_pm_lower": {
+    "message": "pm",
+    "description": "Lowercase PM marker"
+  },
+  "number_0": {
+    "message": "0",
+    "description": "Localized digit zero"
+  },
+  "number_1": {
+    "message": "1",
+    "description": "Localized digit one"
+  },
+  "number_2": {
+    "message": "2",
+    "description": "Localized digit two"
+  },
+  "number_3": {
+    "message": "3",
+    "description": "Localized digit three"
+  },
+  "number_4": {
+    "message": "4",
+    "description": "Localized digit four"
+  },
+  "number_5": {
+    "message": "5",
+    "description": "Localized digit five"
+  },
+  "number_6": {
+    "message": "6",
+    "description": "Localized digit six"
+  },
+  "number_7": {
+    "message": "7",
+    "description": "Localized digit seven"
+  },
+  "number_8": {
+    "message": "8",
+    "description": "Localized digit eight"
+  },
+  "number_9": {
+    "message": "9",
+    "description": "Localized digit nine"
+  },
+  "day_0": {
+    "message": "Воскресенье",
+    "description": "Localized weekday name for Sunday"
+  },
+  "day_1": {
+    "message": "Понедельник",
+    "description": "Localized weekday name for Monday"
+  },
+  "day_2": {
+    "message": "Вторник",
+    "description": "Localized weekday name for Tuesday"
+  },
+  "day_3": {
+    "message": "Среда",
+    "description": "Localized weekday name for Wednesday"
+  },
+  "day_4": {
+    "message": "Четверг",
+    "description": "Localized weekday name for Thursday"
+  },
+  "day_5": {
+    "message": "Пятница",
+    "description": "Localized weekday name for Friday"
+  },
+  "day_6": {
+    "message": "Суббота",
+    "description": "Localized weekday name for Saturday"
+  },
+  "month_1": {
+    "message": "Январь",
+    "description": "Localized month name for January"
+  },
+  "month_2": {
+    "message": "Февраль",
+    "description": "Localized month name for February"
+  },
+  "month_3": {
+    "message": "Март",
+    "description": "Localized month name for March"
+  },
+  "month_4": {
+    "message": "Апрель",
+    "description": "Localized month name for April"
+  },
+  "month_5": {
+    "message": "Май",
+    "description": "Localized month name for May"
+  },
+  "month_6": {
+    "message": "Июнь",
+    "description": "Localized month name for June"
+  },
+  "month_7": {
+    "message": "Июль",
+    "description": "Localized month name for July"
+  },
+  "month_8": {
+    "message": "Август",
+    "description": "Localized month name for August"
+  },
+  "month_9": {
+    "message": "Сентябрь",
+    "description": "Localized month name for September"
+  },
+  "month_10": {
+    "message": "Октябрь",
+    "description": "Localized month name for October"
+  },
+  "month_11": {
+    "message": "Ноябрь",
+    "description": "Localized month name for November"
+  },
+  "month_12": {
+    "message": "Декабрь",
+    "description": "Localized month name for December"
+  },
+  "url_field_editable_tooltip": {
+    "message": "Поле доступно для редактирования",
+    "description": "Tooltip shown when security confirmation is already satisfied."
+  },
+  "url_validation_https_recommended": {
+    "message": "Для безопасности рекомендуется HTTPS",
+    "description": "Warning shown when URL is valid but does not use HTTPS."
+  },
+  "url_validation_invalid": {
+    "message": "Неверный формат URL.",
+    "description": "Error message displayed when the URL format is invalid"
+  },
+  "watchdog": {
+    "message": "[Linkumori (Clean URLS)]: Сторожевая система обнаружила проблему и уже выходила из строя $TIMES$ раз.",
+    "description": "This string is used as text for the watchdog",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "Linkumori по умолчанию удаляет отслеживающие параметры из URL и предоставляет расширенные средства управления, когда это необходимо. Ознакомьтесь с функциями ниже, затем перейдите к Политике конфиденциальности и Лицензии."
+  },
+  "welcomeHeading": {
+    "message": "Добро пожаловать в Linkumori"
+  },
+  "welcome_migration_description": {
+    "message": "Ваши настройки ClearURLs были импортированы. Ознакомьтесь с функциями Linkumori ниже, затем перейдите к чтению Политики конфиденциальности и Лицензии.",
+    "description": "Description shown on migration welcome screen."
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "Встроенные правила, ориентированные на конфиденциальность, включены по умолчанию.",
+    "description": "Feature list item describing default bundled rule behavior."
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "Редактор пользовательских правил с управлением на уровне провайдера, импортом/экспортом и управлением правилами.",
+    "description": "Feature list item describing custom rules."
+  },
+  "welcome_migration_feature_overload": {
+    "message": "Режим перегрузки может объединять встроенные и удалённые правила перед применением пользовательских правил.",
+    "description": "Feature list item describing overload mode."
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "Поддержка нескольких источников удалённых правил (пары URL правила + URL хеша).",
+    "description": "Feature list item describing multiple remote sets."
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "Поддержка белого списка для пропуска очистки на выбранных доменах при необходимости.",
+    "description": "Feature list item describing whitelist behavior."
+  },
+  "welcome_migration_heading": {
+    "message": "Миграция ClearURLs завершена",
+    "description": "Main heading on migration welcome screen."
+  },
+  "welcome_migration_open_settings": {
+    "message": "Открыть настройки",
+    "description": "Button label to open settings from migration welcome screen."
+  },
+  "welcome_migration_title": {
+    "message": "Добро пожаловать в Linkumori",
+    "description": "Page title for the migration welcome screen shown after ClearURLs import."
+  },
+  "welcome_next_button": {
+    "message": "Далее: Конфиденциальность и Лицензия",
+    "description": "Button shown in guided welcome mode to continue to privacy and license sections."
+  },
+  "whitelist_add_button": {
+    "message": "Добавить",
+    "description": "Text for the add domain button"
+  },
+  "whitelist_add_failed": {
+    "message": "Не удалось добавить домен в белый список",
+    "description": "Error message when adding domain fails"
+  },
+  "whitelist_added": {
+    "message": "%s добавлен в белый список",
+    "description": "Success message when domain is added. %s is replaced with domain name."
+  },
+  "whitelist_already_exists": {
+    "message": "Домен уже есть в белом списке или недействителен",
+    "description": "Error message when domain already exists or is invalid"
+  },
+  "whitelist_count": {
+    "message": "%d домен(ов) в белом списке",
+    "description": "Text showing number of whitelisted domains. %d is replaced with the count."
+  },
+  "whitelist_empty": {
+    "message": "Нет доменов в белом списке",
+    "description": "Text shown when whitelist is empty"
+  },
+  "whitelist_enter_domain": {
+    "message": "Пожалуйста, введите имя домена",
+    "description": "Error message when trying to add empty domain"
+  },
+  "whitelist_examples_text": {
+    "message": "Примеры: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
+    "description": "Text before domain format examples"
+  },
+  "whitelist_export_button": {
+    "message": "Экспорт",
+    "description": "Button text for exporting whitelist domains"
+  },
+  "whitelist_export_done": {
+    "message": "Белый список успешно экспортирован",
+    "description": "Success message when whitelist export completes"
+  },
+  "whitelist_export_empty": {
+    "message": "Белый список пуст. Нечего экспортировать.",
+    "description": "Info message when user tries to export an empty whitelist"
+  },
+  "whitelist_export_failed": {
+    "message": "Не удалось экспортировать белый список",
+    "description": "Error shown when whitelist export fails"
+  },
+  "whitelist_import_button": {
+    "message": "Импорт",
+    "description": "Button text for importing whitelist domains"
+  },
+  "whitelist_import_done": {
+    "message": "Импортировано %s домен(ов) в белый список",
+    "description": "Success message for whitelist import. %s is replaced with imported domain count"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "Неверный формат белого списка. Используйте массив JSON доменов.",
+    "description": "Error shown when imported whitelist structure is not supported"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "В файле белого списка не найдено действительных доменов",
+    "description": "Error shown when imported whitelist has no valid domain entries"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "Не удалось разобрать файл белого списка",
+    "description": "Error shown when whitelist import file is invalid JSON"
+  },
+  "whitelist_input_placeholder": {
+    "message": "example.com или *.example.com",
+    "description": "Placeholder text for the domain input field"
+  },
+  "whitelist_invalid_format": {
+    "message": "Неверный формат домена. Используйте: example.com или *.example.com",
+    "description": "Error message for invalid domain format"
+  },
+  "whitelist_load_failed": {
+    "message": "Не удалось загрузить белый список",
+    "description": "Error message when whitelist fails to load"
+  },
+  "whitelist_remove_button": {
+    "message": "Удалить",
+    "description": "Text for the remove domain button"
+  },
+  "whitelist_remove_failed": {
+    "message": "Не удалось удалить домен из белого списка",
+    "description": "Error message when removing domain fails"
+  },
+  "whitelist_removed": {
+    "message": "%s удалён из белого списка",
+    "description": "Success message when domain is removed. %s is replaced with domain name."
+  },
+  "whitelist_search_placeholder": {
+    "message": "Поиск доменов в белом списке",
+    "description": "Placeholder text for searching whitelisted domains"
+  },
+  "whitelist_section_description": {
+    "message": "Домены, добавленные сюда, будут пропускать ВСЮ очистку URL. Отслеживающие параметры будут сохранены на этих сайтах.",
+    "description": "Description explaining what the whitelist does"
+  },
+  "whitelist_section_title": {
+    "message": "Белый список доменов",
+    "description": "Title for the whitelist settings section"
+  },
+  "whitelist_update_failed": {
+    "message": "Не удалось обновить белый список",
+    "description": "Error message when updating the whitelist fails."
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "Сбросить глобальную статистику",
+    "description": "This string is used as title for the statistics reset button on the popup page."
+  },
+  "popup_html_log_head_title": {
+    "message": "Открыть журнал",
+    "description": "This string is used as title for the log button on the popup page."
+  },
+  "popup_html_settings_button_title": {
+    "message": "Открыть настройки",
+    "description": "This string is used as a title for the settings button on the popup page."
+  },
+  "license_title_title": {
+    "message": "Информация о лицензии",
+    "description": "Title for the license information link in the popup"
+  },
+  "license_links_title_title": {
+    "message": "Лицензия и авторы",
+    "description": "Title for the license and credits link in the popup"
+  },
+  "popup_nav_main_title": {
+    "message": "Переключиться на основные элементы управления расширением",
+    "description": "Tooltip for main navigation button"
+  },
+  "popup_nav_license_title": {
+    "message": "Переключиться на информацию о лицензии",
+    "description": "Tooltip for license information button"
+  },
+  "customrules_title": {
+    "message": "Пользовательские правила",
+    "description": "Title for the custom rules section"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "Юридическая информация — Политика конфиденциальности и Лицензия",
+    "description": "Title for legal information page opened from popup consent gate"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "Белый список",
+    "description": "Title for HTML content page opened from popup consent gate"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "Отключить Gatekeeper",
+    "description": "Label for toggle that disables gatekeeper protections for remote URL editing"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "Отключить проверки Gatekeeper для редактирования удалённых URL в этом сеансе.",
+    "description": "Description for disable gatekeeper toggle"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "Отключение Gatekeeper включено. Подтверждение безопасности требуется в каждом сеансе настройки.",
+    "description": "Status message shown after enabling disable gatekeeper"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "Отключение Gatekeeper выключено. Существующие доверенные значения можно редактировать без немедленного подтверждения.",
+    "description": "Status message shown after disabling disable gatekeeper"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "Экспорт удалённых URL",
+    "description": "Button text for exporting remote URL configuration only"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "Импорт удалённых URL",
+    "description": "Button text for importing remote URL configuration only"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "Экспорт основных и дополнительных пар удалённых URL",
+    "description": "Tooltip for remote URL export button"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "Импорт основных и дополнительных пар удалённых URL",
+    "description": "Tooltip for remote URL import button"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "Предупреждение о риске отключения Gatekeeper",
+    "description": "Title for the disable gatekeeper risk modal"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "ПРЕДУПРЕЖДЕНИЕ: Расширенная функция, предназначенная только для самостоятельно размещённых серверов",
+    "description": "Top warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "Вы отключаете защиту Gatekeeper для редактирования URL удалённых правил. Эта функция удалённых правил предназначена исключительно для продвинутых пользователей, которые знают, что делают. Если вы не понимаете, что это значит, пожалуйста, не используйте эту функцию.",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "Gatekeeper — это встроенный механизм безопасности, который блокирует прямое редактирование удалённых URL, пока вы не подтвердите предупреждение безопасности и не завершите письменное подтверждение.",
+    "description": "Explains what gatekeeper means in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "Вместо этого используйте решение только со встроенными правилами, например, встроенными правилами, кроме того, вы можете создавать пользовательские правила вручную.",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "уведомление о конфиденциальности:",
+    "description": "Privacy section title in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "Если вы добавляете URL в это программное обеспечение для получения JSON-файла и файла хеша, расширение будет подключаться к указанному вами URL для получения удалённого JSON-файла правил или файла хеша каждый раз, когда это расширение включено и загружено в вашем браузере. Каждый раз, когда оно получает файлы на основе определённого вами URL, сервер, на котором размещены такие файлы, как JSON и хеш-файлы, будет получать ваш IP-адрес, а также общую информацию, такую как версия вашего расширения, браузер и версия браузера. Эти данные подпадают под действие политики конфиденциальности соответствующего веб-сайта или веб-сервера (на котором размещены эти файлы).",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "При необходимости ещё раз прочитайте %PRIVACY_POLICY_LINK% перед продолжением.",
+    "description": "Follow-up sentence in the disable gatekeeper warning modal with a privacy policy link placeholder"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "предупреждение:",
+    "description": "Risks section title in disable gatekeeper modal"
+  },
+  "privacy_policy_link_label": {
+    "message": "Политику конфиденциальности",
+    "description": "Label for privacy policy hyperlinks shown in warning dialogs"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "Расширение будет подключаться к указанному вами URL каждый раз, когда расширение включено и загружено в вашем браузере.",
+    "description": "Risk bullet 1 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "Сервер, на котором размещены удалённые JSON и хеш-файлы, будет получать ваш IP-адрес.",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "Сервер также может получать версию вашего расширения, браузер и версию браузера.",
+    "description": "Risk bullet 3 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "Эти данные подпадают под действие политики конфиденциальности веб-сайта или веб-сервера, на котором размещены эти файлы.",
+    "description": "Risk bullet 4 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "Отключая Gatekeeper, вы увеличиваете риск от небезопасных или скомпрометированных источников удалённых правил. Если вы не понимаете эту функцию, не используйте её. Используйте встроенные правила и, при необходимости, создавайте пользовательские правила вручную.",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "Отмена",
+    "description": "Cancel button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "Продолжить",
+    "description": "Continue button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "Я понимаю риск удалённых правил и отключаю gatekeeper",
+    "description": "Exact phrase user must type to confirm disabling gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "Требуется письменное подтверждение",
+    "description": "Title for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "Чтобы отключить gatekeeper, введите точную фразу подтверждения ниже.",
+    "description": "Instruction text for gatekeeper-specific confirmation modal"
+  },
+  "redirection_warning_modal_title": {
+    "message": "Предупреждение об обходе перенаправлений",
+    "description": "Title for the warning modal shown before enabling redirect bypass."
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "Проверьте правила перенаправления перед включением этой функции.",
+    "description": "Top warning line for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "Эта функция может обходить сторонние промежуточные перенаправления и отслеживающие URL, применяя правила перенаправления, присутствующие в данный момент из встроенных, удалённых и пользовательских источников.",
+    "description": "Main warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "Сначала проверьте правила. Если правило перенаправления слишком широкое или не подходит для вашего просмотра, отредактируйте или переопределите его в редакторе пользовательских правил перед включением этой настройки.",
+    "description": "Recommendation text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "Что проверить",
+    "description": "Risks section title for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "Встроенные, удалённые и пользовательские правила могут влиять на поведение перенаправлений.",
+    "description": "First risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "Широкое правило перенаправления может раскрыть ссылку неожиданным образом.",
+    "description": "Second risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "Последние кэшированные удалённые правила могут измениться при получении новых данных удалённых правил.",
+    "description": "Third risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "Используйте страницу аудита для проверки встроенных правил, итоговых правил, пользовательских правил и последних кэшированных удалённых правил, прежде чем полагаться на эту функцию.",
+    "description": "Fourth risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "Включайте это, только если вы доверяете правилам перенаправлений, присутствующим в данный момент из разных источников. Если вы не понимаете эту функцию, не включайте её. Без включения этой настройки правила обхода перенаправлений не будут применяться.",
+    "description": "Final warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "Отмена",
+    "description": "Cancel button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_continue": {
+    "message": "Продолжить",
+    "description": "Continue button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "Обход перенаправлений остаётся отключённым.",
+    "description": "Status shown when the redirect bypass warning modal is cancelled."
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "Введите точную фразу подтверждения",
+    "description": "Input label for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "Это действие снижает меры защиты для удалённых правил. Продолжайте, только если доверяете своим источникам.",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "Замените значения-заполнители на свои реальные HTTPS URL, затем импортируйте этот файл.",
+    "description": "Template export note 1 for remote URL export JSON"
+  },
+  "remote_urls_template_note_2": {
+    "message": "Primary содержит основную пару URL правила/хеша.",
+    "description": "Template export note 2 for remote URL export JSON"
+  },
+  "remote_urls_template_note_3": {
+    "message": "Additional является необязательным и поддерживает несколько пар URL правила/хеша.",
+    "description": "Template export note 3 for remote URL export JSON"
+  },
+  "remote_urls_template_note_4": {
+    "message": "При необходимости добавляйте или удаляйте объекты в массиве additional.",
+    "description": "Template export note 4 for remote URL export JSON"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "ЗАМЕНИТЬ_НА_ОСНОВНОЙ_URL_ПРАВИЛА",
+    "description": "Placeholder value for primary rule URL in template export JSON"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "ЗАМЕНИТЬ_НА_ОСНОВНОЙ_URL_ХЕША",
+    "description": "Placeholder value for primary hash URL in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "ЗАМЕНИТЬ_НА_ДОПОЛНИТЕЛЬНЫЙ_URL_ПРАВИЛА_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "ЗАМЕНИТЬ_НА_ДОПОЛНИТЕЛЬНЫЙ_URL_ХЕША_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "ЗАМЕНИТЬ_НА_ДОПОЛНИТЕЛЬНЫЙ_URL_ПРАВИЛА_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "ЗАМЕНИТЬ_НА_ДОПОЛНИТЕЛЬНЫЙ_URL_ХЕША_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "ЗАМЕНИТЬ_НА_ДОПОЛНИТЕЛЬНЫЙ_URL_ПРАВИЛА_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "ЗАМЕНИТЬ_НА_ДОПОЛНИТЕЛЬНЫЙ_URL_ХЕША_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
+  },
+  "remote_urls_export_success": {
+    "message": "Конфигурация удалённых URL экспортирована.",
+    "description": "Success status after exporting configured remote URLs"
+  },
+  "remote_urls_template_export_success": {
+    "message": "Шаблон удалённых URL экспортирован. Заполните заполнители и импортируйте.",
+    "description": "Success status after exporting empty remote URL template"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "Конфигурация удалённых URL импортирована и сохранена.",
+    "description": "Success status after importing and saving remote URL configuration"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "Импорт обработан, но сохранить конфигурацию удалённых URL не удалось.",
+    "description": "Error status when import parsing succeeded but saving failed"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "Неверный файл конфигурации удалённых URL.",
+    "description": "Error status when imported remote URL JSON is invalid"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "Не удалось прочитать выбранный файл.",
+    "description": "Error status when file reader fails for remote URL import"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "В файле не найдено действительных пар удалённых URL.",
+    "description": "Error status when no valid pairs are found during remote URL import"
+  },
+  "popup_consent_title_title": {
+    "message": "Требуется согласие",
+    "description": "Title for the legal information section in the popup"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "Включить/выключить основную функциональность",
+    "description": "Title for the button that switches to the filter configuration view in the popup"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "Переключатель производительности журналов расширения, все данные хранятся локально на вашем устройстве",
+    "description": "Title for the button that switches to the statistics view in the popup"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "Переключатель для включения/отключения значка",
+    "description": "Title for the statistics section in the popup"
+  },
+  "configs_switch_statistics_title": {
+    "message": "Переключатель для включения/отключения статистики",
+    "description": "Title for the button that switches to the license and credits view in the popup"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "Элементов",
+    "description": "Title for the statistics section in the popup"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "Заблокировано",
+    "description": "Description for the elements statistic in the popup"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "Процент",
+    "description": "Description for the blocked statistic in the popup"
+  },
+  "audit_html_page_title": {
+    "message": "Аудит правил Linkumori",
+    "description": "Title for the audit page"
+  },
+  "audit_badge_label": {
+    "message": "АУДИТ",
+    "description": "Small badge label in the audit page header"
+  },
+  "audit_section_title": {
+    "message": "Аудит правил",
+    "description": "Main section title for the audit page"
+  },
+  "audit_viewer_title": {
+    "message": "Просмотр источников правил",
+    "description": "Title for the audit source viewer card"
+  },
+  "audit_viewer_description": {
+    "message": "Используйте кнопки источников ниже, чтобы просмотреть встроенные правила, итоговые объединённые правила, пользовательские правила или последние полученные удалённые правила, сохранённые в кэше, в виде сырого JSON.",
+    "description": "Description for the audit source viewer"
+  },
+  "audit_refresh_button": {
+    "message": "Обновить источники",
+    "description": "Refresh button label on the audit page"
+  },
+  "audit_faq_button": {
+    "message": "ЧаВо",
+    "description": "FAQ button label on the audit page"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "Переключить тему",
+    "description": "Accessible label for the theme toggle on the audit page"
+  },
+  "audit_faq_close_aria": {
+    "message": "Закрыть ЧаВо",
+    "description": "Accessible label for the FAQ modal close button"
+  },
+  "audit_source_bundled": {
+    "message": "Встроенные правила",
+    "description": "Button and title for bundled rules audit source"
+  },
+  "audit_source_final": {
+    "message": "Итоговые правила",
+    "description": "Button and title for final merged rules audit source"
+  },
+  "audit_source_custom": {
+    "message": "Пользовательские правила",
+    "description": "Button and title for custom rules audit source"
+  },
+  "audit_source_remote": {
+    "message": "Последние кэшированные удалённые правила",
+    "description": "Button and title for latest cached remote rules audit source"
+  },
+  "audit_source_bundled_description": {
+    "message": "Источник: встроенный файл data/linkumori-clearurls-min.json",
+    "description": "Source description for bundled rules"
+  },
+  "audit_source_final_description": {
+    "message": "Источник: данные времени выполнения ClearURLsData",
+    "description": "Source description for final rules"
+  },
+  "audit_source_custom_description": {
+    "message": "Источник: данные времени выполнения custom_rules",
+    "description": "Source description for custom rules"
+  },
+  "audit_source_remote_description": {
+    "message": "Источник: данные времени выполнения remoteRulescache.data (последние полученные удалённые правила, сохранённые локально в кэше)",
+    "description": "Source description for latest cached remote rules"
+  },
+  "audit_meta_waiting": {
+    "message": "Ожидание...",
+    "description": "Meta text shown before audit data is loaded"
+  },
+  "audit_meta_error": {
+    "message": "Ошибка",
+    "description": "Meta text shown when a selected audit source has an error"
+  },
+  "audit_meta_source_bundled": {
+    "message": "встроенные правила",
+    "description": "Meta label for bundled rules source"
+  },
+  "audit_meta_source_final": {
+    "message": "итоговые правила",
+    "description": "Meta label for final rules source"
+  },
+  "audit_meta_source_custom": {
+    "message": "пользовательские правила",
+    "description": "Meta label for custom rules source"
+  },
+  "audit_meta_source_remote": {
+    "message": "удалённый кэш",
+    "description": "Meta label for latest cached remote rules source"
+  },
+  "audit_meta_template": {
+    "message": "$1 | провайдеров: $2 | символов: $3",
+    "description": "Template for audit source meta information"
+  },
+  "audit_status_loading": {
+    "message": "Загрузка источников аудита...",
+    "description": "Status shown while loading audit sources"
+  },
+  "audit_status_loaded": {
+    "message": "Все источники аудита загружены.",
+    "description": "Status shown when all audit sources load successfully"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "Источники аудита загружены. Последние кэшированные удалённые правила пока недоступны.",
+    "description": "Status shown when audit sources load but remote cache is not yet available"
+  },
+  "audit_status_partial_error": {
+    "message": "Некоторые источники аудита не удалось загрузить. Переключите источники, чтобы просмотреть JSON с ошибкой.",
+    "description": "Status shown when one or more audit sources fail to load"
+  },
+  "audit_status_refresh_failed": {
+    "message": "Не удалось обновить источники аудита.",
+    "description": "Fallback error shown when refreshing audit sources fails"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "Не удалось получить встроенные правила, статус $1",
+    "description": "Error shown when fetching bundled rules fails"
+  },
+  "audit_error_final_missing": {
+    "message": "Среда выполнения не вернула ClearURLsData",
+    "description": "Error shown when final rules are missing from runtime storage"
+  },
+  "audit_error_custom_missing": {
+    "message": "Среда выполнения не вернула custom_rules",
+    "description": "Error shown when custom rules are missing from runtime storage"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "Среда выполнения не вернула remoteRulescache",
+    "description": "Error shown when remote cache is missing from runtime storage"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "Неизвестная ошибка встроенных правил",
+    "description": "Fallback bundled rules error"
+  },
+  "audit_error_unknown_final": {
+    "message": "Неизвестная ошибка итоговых правил",
+    "description": "Fallback final rules error"
+  },
+  "audit_error_unknown_custom": {
+    "message": "Неизвестная ошибка пользовательских правил",
+    "description": "Fallback custom rules error"
+  },
+  "audit_error_unknown_remote": {
+    "message": "Неизвестная ошибка удалённых правил",
+    "description": "Fallback remote rules error"
+  },
+  "audit_remote_unavailable": {
+    "message": "Кэшированные удалённые правила пока недоступны",
+    "description": "Message shown when remote cache has not been populated yet"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "Полезная нагрузка кэшированных удалённых правил пока недоступна",
+    "description": "Message shown when remote cache exists but has no data payload"
+  },
+  "audit_faq_modal_title": {
+    "message": "ЧаВо по аудиту",
+    "description": "Title for the audit FAQ modal"
+  },
+  "audit_faq_intro": {
+    "message": "Эти примечания описывают поля провайдера, которые clearurls.js фактически считывает при построении и применении правил.",
+    "description": "Intro text for the audit FAQ modal"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "Как выполнить аудит провайдера?",
+    "description": "FAQ title for auditing a provider"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p>Откройте источник в просмотрщике, найдите провайдера внутри <span class=\"faq-code\">providers</span> и проверьте ключи в этом объекте провайдера.</p><p>Используйте <span class=\"faq-code\">Встроенные правила</span> для проверки поставляемых правил, <span class=\"faq-code\">Итоговые правила</span> для проверки объединённого результата времени выполнения, <span class=\"faq-code\">Пользовательские правила</span> для проверки пользовательских переопределений и <span class=\"faq-code\">Последние кэшированные удалённые правила</span> для проверки последней полученной удалённой полезной нагрузки, сохранённой в кэше.</p>",
+    "description": "FAQ body for auditing a provider"
+  },
+  "audit_faq_override_title": {
+    "message": "Как включить, отключить, импортировать, редактировать или переопределять отдельные правила?",
+    "description": "FAQ title for custom rule editing and overrides"
+  },
+  "audit_faq_override_body": {
+    "message": "<p>Используйте редактор пользовательских правил, когда вам нужен контроль над каждым правилом. Это место, где вы можете импортировать правила как пользовательские, редактировать поля провайдера и сохранять собственную версию провайдера.</p><p>Вы можете использовать его для включения или отключения отдельных провайдеров или отдельных правил, превращая импортированного или отредактированного провайдера в свою пользовательскую версию. Затем эта пользовательская версия объединяется в правила времени выполнения.</p><p>Вы также можете индивидуально переопределять встроенные и удалённые правила. Проверьте <span class=\"faq-code\">Встроенные правила</span> или <span class=\"faq-code\">Последние кэшированные удалённые правила</span>, чтобы найти нужного провайдера, затем проверьте <span class=\"faq-code\">Пользовательские правила</span> и <span class=\"faq-code\">Итоговые правила</span>, чтобы убедиться, что ваша правка или переопределение вступили в силу.</p><p>Если вы импортируете набор правил в редактор пользовательских правил, вы можете оставить только нужные части, отключить ненужные и отредактировать провайдера так, чтобы итоговый объединённый вывод вел себя так, как вы задумали.</p>",
+    "description": "FAQ body for custom rule editing and overrides"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "Что такое urlPattern?",
+    "description": "FAQ title for urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPattern</span> — это regex, который определяет, соответствует ли провайдер URL.</p><p>Если у провайдера есть <span class=\"faq-code\">urlPattern</span>, ClearURLs сначала использует этот regex. В clearurls.js он превращается в реальный RegExp с помощью <span class=\"faq-code\">setURLPattern()</span>.</p>",
+    "description": "FAQ body for urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "Что такое domainPatterns?",
+    "description": "FAQ title for domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> — это сопоставитель на основе доменов, используемый, когда провайдер не полагается на <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURLs сохраняет их с помощью <span class=\"faq-code\">setURLDomainPattern()</span>, а затем проверяет их с помощью логики сопоставления доменов вместо regex-сопоставления URL.</p>",
+    "description": "FAQ body for domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "Что такое rules, rawRules и referralMarketing?",
+    "description": "FAQ title for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">rules</span> — это имена параметров или имена фрагментов, которые следует удалить из URL.</p><p><span class=\"faq-code\">rawRules</span> — это regex-замены, применяемые непосредственно ко всей строке URL перед очисткой запроса.</p><p><span class=\"faq-code\">referralMarketing</span> также обрабатывается как удаляемые параметры, но фактическое их использование зависит от глобальной настройки реферального маркетинга.</p>",
+    "description": "FAQ body for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "Что такое exceptions и domainExceptions?",
+    "description": "FAQ title for exceptions and domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\">exceptions</span> — это regex-шаблоны, которые предотвращают воздействие провайдера на соответствующие URL.</p><p><span class=\"faq-code\">domainExceptions</span> делают то же самое с сопоставлением на основе доменов вместо regex-сопоставления URL.</p><p>Если исключение совпадает, провайдер пропускается, даже если его основной шаблон совпал первым.</p>",
+    "description": "FAQ body for exceptions and domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "Что такое redirections и domainRedirections?",
+    "description": "FAQ title for redirections and domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\">redirections</span> — это распаковщики на основе regex. Обычно они захватывают реальный целевой URL в группе 1, и ClearURLs перенаправляет на это захваченное значение.</p><p><span class=\"faq-code\">domainRedirections</span> — это правила перенаправления в стиле доменов. В этой кодовой базе они проверяются на наличие записей вида <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Если сначала совпадает regex-перенаправление, оно выигрывает. Если нет, ClearURLs затем проверяет перенаправления доменов.</p>",
+    "description": "FAQ body for redirections and domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "Что такое methods и resourceTypes?",
+    "description": "FAQ title for methods and resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "<p><span class=\"faq-code\">methods</span> ограничивают провайдера определёнными HTTP-методами, такими как <span class=\"faq-code\">GET</span> или <span class=\"faq-code\">POST</span>. Если методы не указаны, разрешены все методы.</p><p><span class=\"faq-code\">resourceTypes</span> ограничивают провайдера типами ресурсов webRequest, такими как <span class=\"faq-code\">main_frame</span>, <span class=\"faq-code\">sub_frame</span> или <span class=\"faq-code\">xmlhttprequest</span>.</p><p>Если типы ресурсов не указаны, ClearURLs использует глобально разрешённые типы запросов из настроек.</p>",
+    "description": "FAQ body for methods and resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "Что такое completeProvider и forceRedirection?",
+    "description": "FAQ title for completeProvider and forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\">completeProvider</span> превращает провайдера в блокирующего. В clearurls.js это означает, что провайдер может отменять соответствующие запросы, когда включена блокировка доменов.</p><p><span class=\"faq-code\">forceRedirection</span> делает перенаправление более агрессивным. Когда перенаправление найдено в запросе <span class=\"faq-code\">main_frame</span>, ClearURLs может обновить вкладку браузера напрямую, вместо того чтобы возвращать обычный ответ перенаправления.</p>",
+    "description": "FAQ body for completeProvider and forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "Какие поля провайдера использует здесь clearurls.js?",
+    "description": "FAQ title for the list of provider fields used by clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p>Путь построения провайдера в этой ветке считывает следующие ключи: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span> и <span class=\"faq-code\">resourceTypes</span>.</p><p>При аудите поведения самое важное место для проверки — <span class=\"faq-code\">Итоговые правила</span>, потому что они показывают объединённый результат после объединения встроенных, удалённых и пользовательских источников.</p>",
+    "description": "FAQ body for the list of provider fields used by clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "Временная пауза",
+    "description": "Auto-added i18n key: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "Пауза 15 мин",
+    "description": "Auto-added i18n key: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "Пауза 1 час",
+    "description": "Auto-added i18n key: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "До перезапуска",
+    "description": "Auto-added i18n key: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "Возобновить сейчас",
+    "description": "Auto-added i18n key: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "Активен",
+    "description": "Auto-added i18n key: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "Приостановлено до перезапуска браузера",
+    "description": "Auto-added i18n key: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "Приостановлено (осталось %s)",
+    "description": "Auto-added i18n key: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "Не удалось обновить состояние временной паузы.",
+    "description": "Auto-added i18n key: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "Не удалось возобновить очистку.",
+    "description": "Auto-added i18n key: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "меньше минуты",
+    "description": "Auto-added i18n key: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "мин",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "ч",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "Состояние удалённых правил",
+    "description": "Auto-added i18n key: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "Обновить сейчас",
+    "description": "Auto-added i18n key: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "Последняя попытка получения:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "Последнее успешное получение:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "Последняя проверка хеша:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "Последняя причина сбоя:",
+    "description": "Auto-added i18n key: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "Текущее состояние хеша:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "Н/Д",
+    "description": "Auto-added i18n key: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "Нет",
+    "description": "Auto-added i18n key: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "неизвестно",
+    "description": "Auto-added i18n key: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "Обновление...",
+    "description": "Auto-added i18n key: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "Обновление удалённых правил завершено.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "Не удалось обновить удалённые правила.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "Лаборатория тестирования правил",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "Лаборатория тестирования правил",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "Вставьте URL, чтобы увидеть состояние до/после очистки и первый совпавший провайдер/правило.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "Запустить тест",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "Тестирование...",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "Сначала введите URL.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "Тест правила не удался.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "Совпадение найдено, очистка выполнена успешно.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "Для этого URL изменения не применены.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "Требуется URL",
+    "description": "Auto-added i18n key: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "Неверный формат URL",
+    "description": "Auto-added i18n key: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "Тест правила не удался",
+    "description": "Auto-added i18n key: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "Переключить тему",
+    "description": "ARIA label for popup theme toggle button"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "Определение домена...",
+    "description": "Temporary label shown while popup detects current tab domain for whitelist button"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "Добавление %s...",
+    "description": "Whitelist button loading label when adding domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "Удаление %s...",
+    "description": "Whitelist button loading label when removing domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "Не удаётся определить домен для этой страницы",
+    "description": "Tooltip for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "Кнопка белого списка отключена, так как у этой страницы нет поддерживаемого домена",
+    "description": "ARIA label for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_pause_15m_title": {
+    "message": "Временно приостановить очистку на 15 минут",
+    "description": "Tooltip and ARIA label for the 15-minute temporary pause button in popup"
+  },
+  "popup_pause_1h_title": {
+    "message": "Временно приостановить очистку на 1 час",
+    "description": "Tooltip and ARIA label for the 1-hour temporary pause button in popup"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "Приостановить очистку до перезапуска браузера",
+    "description": "Tooltip and ARIA label for the pause-until-restart button in popup"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "Возобновить очистку URL сейчас",
+    "description": "Tooltip and ARIA label for the resume-now button in popup"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "Временно приостановить очистку URL",
+    "description": "Tooltip for temporary pause section title in popup"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "Всего элементов, обработанных на текущей странице",
+    "description": "Tooltip for popup total elements label"
+  },
+  "popup_consent_description_title": {
+    "message": "Прочтите это перед принятием",
+    "description": "Tooltip for popup consent description"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "Подтвердите, что вы прочитали и принимаете",
+    "description": "Tooltip for popup consent checkbox label"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "Принять согласие и разблокировать всплывающее окно",
+    "description": "Tooltip for popup consent accept button"
+  },
+  "license_third_party_title_title": {
+    "message": "Информация о сторонних компонентах",
+    "description": "Tooltip for third-party section title"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "Аннотация подписи дополнения Firefox",
+    "description": "Tooltip for Firefox signature title label"
+  },
+  "invalid_date_label": {
+    "message": "Неверная дата",
+    "description": "Fallback text when a date value cannot be parsed."
+  },
+  "log_i18n_load_failed": {
+    "message": "Не удалось загрузить интернационализацию. Некоторые функции могут работать неправильно.",
+    "description": "Error message shown when log page translations fail to load."
+  },
+  "log_html_sort_oldest_first": {
+    "message": "Нажмите, чтобы показать сначала самые старые",
+    "description": "Tooltip for log timestamp sort button when currently newest-first."
+  },
+  "log_html_sort_newest_first": {
+    "message": "Нажмите, чтобы показать сначала самые новые",
+    "description": "Tooltip for log timestamp sort button when currently oldest-first."
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "Закрыть лабораторию тестирования правил",
+    "description": "ARIA label for closing the Rule Test Lab modal."
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "Входной URL",
+    "description": "Label for input URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "Выходной URL",
+    "description": "Label for output URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "Изменён",
+    "description": "Label indicating whether URL was changed in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "Совпавший провайдер",
+    "description": "Label for matched provider in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "Совпавшее правило",
+    "description": "Label for matched rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "Тип шаблона",
+    "description": "Label for pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "Значение шаблона",
+    "description": "Label for pattern value in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "Действие",
+    "description": "Label for matched action in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "Необязательный параметр для тестирования (например, utm_source или ref=abc)",
+    "description": "Placeholder for optional parameter probe input in Rule Test Lab."
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "Тестируемый параметр",
+    "description": "Label for tested parameter probe in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "Совпавшее исключение",
+    "description": "Label for matched URL regex exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "Совпавшее исключение домена",
+    "description": "Label for matched domain exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "Совпавшее перенаправление",
+    "description": "Label for matched regex redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "Совпавшее перенаправление домена",
+    "description": "Label for matched domain redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "Совпавший regex правила",
+    "description": "Label for matched standard rule regex in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "Совпавшее сырое правило",
+    "description": "Label for matched raw rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "Совпавшее реферальное правило",
+    "description": "Label for matched referral marketing rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "Совпавшее правило $removeparam",
+    "description": "Label for matched $removeparam rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "Совпавшее исключение @@$removeparam",
+    "description": "Label for matched @@$removeparam exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "Полный провайдер",
+    "description": "Label for completeProvider boolean in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "Нет",
+    "description": "Fallback value in Rule Test Lab output when there is no value."
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "Да",
+    "description": "Boolean true label in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "Нет",
+    "description": "Boolean false label in Rule Test Lab output."
+  },
+  "color_picket_clear": {
+    "message": "Очистить",
+    "description": "Clear button in color picker."
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "Применить правила",
+    "description": "Legacy/alias label for enforcing custom rules."
+  },
+  "log_stats_chart_type_bar": {
+    "message": "Столбчатая диаграмма",
+    "description": "Label for the bar chart option."
+  },
+  "log_stats_chart_type_line": {
+    "message": "Линейный график",
+    "description": "Label for the line chart option."
+  },
+  "log_stats_daily_activity": {
+    "message": "Ежедневная активность (последние 14 дней)",
+    "description": "Stats section title for daily activity chart/table."
+  },
+  "log_stats_date_col": {
+    "message": "Дата",
+    "description": "Header for the date column in daily stats table."
+  },
+  "log_stats_entries_col": {
+    "message": "Записи",
+    "description": "Header for the entries column in daily stats table."
+  },
+  "log_stats_no_activity": {
+    "message": "Нет активности",
+    "description": "Fallback row label when no daily stats data is available."
+  }
+}
