@@ -185,6 +185,108 @@
 
 ---
 
+##### French (`_locales/fr/messages.json`)
+
+**Based on:** ClearURLs English messages.json
+
+**Original English source:** https://github.com/ClearURLs/Addon/blob/master/_locales/en/messages.json
+
+| Role | Author |
+|------|--------|
+| **Original** | ClearURLs Team |
+| **French Translation** | © 2026 Subham Mahesh |
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+---
+
+##### Spanish (`_locales/es/messages.json`)
+
+**Based on:** ClearURLs English messages.json
+
+**Original English source:** https://github.com/ClearURLs/Addon/blob/master/_locales/en/messages.json
+
+| Role | Author |
+|------|--------|
+| **Original** | ClearURLs Team |
+| **Spanish Translation** | © 2026 Subham Mahesh |
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+---
+
+##### Hungarian (`_locales/hu/messages.json`)
+
+**Based on:** ClearURLs English messages.json
+
+**Original English source:** https://github.com/ClearURLs/Addon/blob/master/_locales/en/messages.json
+
+| Role | Author |
+|------|--------|
+| **Original** | ClearURLs Team |
+| **Hungarian Translation** | © 2026 Subham Mahesh |
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+---
+
+##### Russian (`_locales/ru/messages.json`)
+
+**Based on:** ClearURLs English messages.json
+
+**Original English source:** https://github.com/ClearURLs/Addon/blob/master/_locales/en/messages.json
+
+| Role | Author |
+|------|--------|
+| **Original** | ClearURLs Team |
+| **Russian Translation** | © 2026 Subham Mahesh |
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+---
+
+##### Italian (`_locales/it/messages.json`)
+
+**Based on:** ClearURLs English messages.json
+
+**Original English source:** https://github.com/ClearURLs/Addon/blob/master/_locales/en/messages.json
+
+| Role | Author |
+|------|--------|
+| **Original** | ClearURLs Team |
+| **Italian Translation** | © 2026 Subham Mahesh |
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+---
+
+##### Indonesian (`_locales/id/messages.json`)
+
+**Based on:** ClearURLs English messages.json
+
+**Original English source:** https://github.com/ClearURLs/Addon/blob/master/_locales/en/messages.json
+
+| Role | Author |
+|------|--------|
+| **Original** | ClearURLs Team |
+| **Indonesian Translation** | © 2026 Subham Mahesh |
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+---
+
 ## 3. Third-Party Components (Non-ClearURLs)
 
 ### 3.1 Unmodified Third-Party Components
