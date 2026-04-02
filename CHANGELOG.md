@@ -10,6 +10,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v15.0] - 2026-04-02 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v14.0...linkumori-v15.0))
+### Added
+- Introduce Hungarian language (`2026-04-02`, hash: [`35ad3fa`](https://github.com/Linkumori/Linkumori-Addon/commit/35ad3fa))
+
+### Changed
+- Add French (`2026-04-02`, hash: [`e253572`](https://github.com/Linkumori/Linkumori-Addon/commit/e253572))
+- Add Italian (`2026-04-02`, hash: [`dcade46`](https://github.com/Linkumori/Linkumori-Addon/commit/dcade46))
+- Add es translation (`2026-04-02`, hash: [`4887eb0`](https://github.com/Linkumori/Linkumori-Addon/commit/4887eb0))
+- Add indonesian and updated template.md (`2026-04-03`, hash: [`cd89036`](https://github.com/Linkumori/Linkumori-Addon/commit/cd89036))
+- Add russian (`2026-04-02`, hash: [`797d270`](https://github.com/Linkumori/Linkumori-Addon/commit/797d270))
+
 ## [v14.0] - 2026-04-02 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v13.0...linkumori-v14.0))
 ### Added
 - Introduce arabic language (`2026-04-02`, hash: [`5d01e04`](https://github.com/Linkumori/Linkumori-Addon/commit/5d01e04))
