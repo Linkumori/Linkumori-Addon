@@ -1,0 +1,4113 @@
+{
+  "aboutPageTitle": {
+    "message": "Linkumori - 概要",
+    "description": "Title for the about/legal page"
+  },
+  "active_bundled_providers_label": {
+    "message": "アクティブなバンドルプロバイダー:",
+    "description": "Label for active bundled providers count."
+  },
+  "active_remote_providers_label": {
+    "message": "アクティブなリモートプロバイダー:",
+    "description": "Label for active remote providers count."
+  },
+  "addDomainToWhitelist": {
+    "message": "$1をホワイトリストに追加",
+    "description": "Button label to add a domain to the whitelist. $1 is replaced with the domain."
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "現在のドメインをホワイトリストに追加",
+    "description": "Button label to add the current domain to the whitelist."
+  },
+  "appearance_settings_title": {
+    "message": "外観設定",
+    "description": "Title for the appearance settings section"
+  },
+  "badge_color_description": {
+    "message": "各ページでクリーンアップされたパラメータ数を表示する拡張機能バッジの色を選択します。",
+    "description": "Description text explaining what the badge color setting does"
+  },
+  "badge_color_label": {
+    "message": "バッジの色",
+    "description": "Label for the badge color picker"
+  },
+  "badge_preview_label": {
+    "message": "プレビュー",
+    "description": "Label for the badge preview section"
+  },
+  "blocked_html_body": {
+    "message": "このサイトは<b>Linkumori (Clean URLS)</b>アドオンによってブロックされました。このサイトを広告またはトラッキングサービスと識別したためです。このサイトを訪問するには、アドオンを一時的に無効にするか、Linkumori (Clean URLS)設定でドメインブロッキングを無効にする必要があります。その後、下のボタンをクリックしてページを読み込むことができます。",
+    "description": "This string is used as body on the blocked site page."
+  },
+  "blocked_html_button": {
+    "message": "ページを表示",
+    "description": "This string is used as button on the blocked site page."
+  },
+  "blocked_html_title": {
+    "message": "このサイトは<b>Linkumori (Clean URLS)</b>によってブロックされました",
+    "description": "This string is used as title on the blocked site page."
+  },
+  "built_in_rules_enabled": {
+    "message": "組み込みルールを有効にする",
+    "description": "Label for the toggle that enables or disables bundled built-in rules"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "バンドルされたLinkumori/ClearURLsルールを使用します。これを無効にすると、リモートルールやカスタムルールのみで実行されます。",
+    "description": "Description for the toggle that controls bundled built-in rules"
+  },
+  "bundled_rules_description": {
+    "message": "Linkumoriはバンドルされたルールとカスタムルールを使用して、URLからトラッキングパラメータを識別して削除します。これらのルールは自動的に更新され、最新のトラッキング手法に対する効果的な保護を保証します。",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "ルール情報",
+    "description": "Title for the Rules Information section."
+  },
+  "button_cancel": {
+    "message": "キャンセル"
+  },
+  "button_close": {
+    "message": "閉じる",
+    "description": "Close button text for FAQ modal"
+  },
+  "button_confirm": {
+    "message": "確認",
+    "description": "Generic confirm button text for modal dialogs"
+  },
+  "modal_alert_title": {
+    "message": "通知",
+    "description": "Default title for alert-style modal dialogs"
+  },
+  "modal_confirm_title": {
+    "message": "確認",
+    "description": "Default title for confirm-style modal dialogs"
+  },
+  "modal_prompt_title": {
+    "message": "入力が必要です",
+    "description": "Default title for prompt-style modal dialogs"
+  },
+  "button_delete": {
+    "message": "削除"
+  },
+  "button_exit": {
+    "message": "終了",
+    "description": "Button text for exiting the editor"
+  },
+  "button_save": {
+    "message": "保存"
+  },
+  "cleanUrlsButton": {
+    "message": "URLをクリーンアップ",
+    "description": "Text for the button that initiates URL cleaning."
+  },
+  "cleanUrlsToolHeader": {
+    "message": "Linkumori URLクリーンツール",
+    "description": "The main header of the URL cleaning tool."
+  },
+  "cleanUrlsToolTitle": {
+    "message": "Linkumori 高度なURLクリーンツール",
+    "description": "The title of the URL cleaning tool page."
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "クリーンアップされたURLがここに表示されます...",
+    "description": "Placeholder text for the cleaned URLs textarea."
+  },
+  "cleanedUrlsTitle": {
+    "message": "クリーンアップされたURL",
+    "description": "Title for the cleaned URLs section."
+  },
+  "clipboard_copy_link": {
+    "message": "クリーンなリンクの場所をコピー",
+    "description": "This string is used in the context menu to copy clean links."
+  },
+  "color_picker_cancel": {
+    "message": "キャンセル",
+    "description": "Cancel button in color picker"
+  },
+  "color_picker_clear": {
+    "message": "クリア",
+    "description": "Clear button in color picker"
+  },
+  "color_picker_save": {
+    "message": "保存",
+    "description": "Save button in color picker"
+  },
+  "composition_breakdown_label": {
+    "message": "構成:",
+    "description": "Label for bundled vs custom percentage breakdown."
+  },
+  "configs_switch_statistics": {
+    "message": "統計",
+    "description": "This string is used as name for the statistics switch button on the popup page."
+  },
+  "confirm_reset_settings": {
+    "message": "すべての設定をデフォルトにリセットしてもよろしいですか？",
+    "description": "Confirmation message before resetting settings."
+  },
+  "confirmation_error_template": {
+    "message": "フレーズが一致しません。「%s」と正確に入力してください。",
+    "description": "Template for error message with placeholder for localized phrase"
+  },
+  "confirmation_error_text": {
+    "message": "フレーズが一致しません。「I accept full responsibility」と正確に入力してください。",
+    "description": "Error message for incorrect confirmation phrase"
+  },
+  "confirmation_final_text": {
+    "message": "私はこれらのサーバーを所有/管理しており、その使用に関するすべての責任を負うことを確認します。この機能は「現状有姿」で保証なしに提供されます。私は法的にこの契約に同意することができます。",
+    "description": "Final warning text in confirmation modal"
+  },
+  "confirmation_input_label": {
+    "message": "ここにフレーズを入力してください:",
+    "description": "Label for confirmation input field"
+  },
+  "confirmation_modal_cancel": {
+    "message": "キャンセル",
+    "description": "Cancel button text in confirmation modal"
+  },
+  "confirmation_modal_confirm": {
+    "message": "確認してリモートURLを有効にする",
+    "description": "Confirm button text in confirmation modal"
+  },
+  "confirmation_modal_text": {
+    "message": "続行するには、次の確認フレーズを表示されているとおりに正確に入力してください:",
+    "description": "Instruction text for confirmation modal"
+  },
+  "confirmation_modal_title": {
+    "message": "理解の確認",
+    "description": "Title for confirmation modal"
+  },
+  "context_menu_enabled": {
+    "message": "コンテキストメニュー項目を表示",
+    "description": "This string is used toggle the context menu entry to copy clean links."
+  },
+  "context_menu_enabled_description": {
+    "message": "Linkumoriのオプションを右クリックメニューに追加します。",
+    "description": "Description for the context menu toggle."
+  },
+  "copyFailed": {
+    "message": "コピーに失敗しました！",
+    "description": "Toast message when copy action fails"
+  },
+  "copyText": {
+    "message": "コピー",
+    "description": "Button text for copy action"
+  },
+  "copyUrlsButton": {
+    "message": "結果をコピー",
+    "description": "Text for the button that copies cleaned URLs."
+  },
+  "copy_urls_empty": {
+    "message": "コピーするURLがありません。",
+    "description": "Message when attempting to copy but the output URL area is empty."
+  },
+  "copy_urls_fail": {
+    "message": "URLのコピーに失敗しました。",
+    "description": "Error message when copying URLs to clipboard fails in the cleaning tool."
+  },
+  "copy_urls_success": {
+    "message": "URLをクリップボードにコピーしました！",
+    "description": "Success message when URLs are copied to clipboard in the cleaning tool."
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "新しいプロバイダーを追加"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "プロバイダーを追加"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "高度なJSONエディター"
+  },
+  "customRulesEditor_builtin": {
+    "message": "組み込み:"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "完全なプロバイダー（ドメイン全体をブロック）"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "プロバイダー「$1」を削除してもよろしいですか？"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "$1個のプロバイダーをすべて削除してもよろしいですか？"
+  },
+  "customRulesEditor_copy": {
+    "message": "コピー"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "最初のプロバイダーを作成"
+  },
+  "customRulesEditor_custom": {
+    "message": "カスタム:"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "カスタムプロバイダー"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "すべて削除"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "すべてのプロバイダーの削除に失敗しました"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "現在のプロバイダーを削除"
+  },
+  "customRulesEditor_description": {
+    "message": "組み込みプロバイダーでカバーされていないウェブサイト向けのカスタムURLクリーンアップルールを作成および管理します。"
+  },
+  "customRulesEditor_disabled": {
+    "message": "無効:"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "ドメイン例外"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "ドメインパターン"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "シンプルなドメインパターン（URLパターンとは併用できません）。形式: example.com, *.example.com, ||example.com^, ||*.example.com^。1行に1つのパターン。",
+    "description": "Help text for domain patterns field"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "ドメインパターン"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||example.com^\n||*.subdomain.com^\n"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "少なくとも1つのドメインパターンが必要です"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "ドメインリダイレクト"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "複製"
+  },
+  "customRulesEditor_editName": {
+    "message": "名前を編集"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "プロバイダーを編集"
+  },
+  "customRulesEditor_editing": {
+    "message": "編集中: $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "ドメインパターンを空にすることはできません"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "ルールの強制に失敗しました"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "ルールを強制"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "ルールを強制しました"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "拡張機能をリロードして、すべてのルールを即座に適用します"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "例外（除外するURL）"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "エディターを終了してプロバイダーリストに戻る",
+    "description": "Tooltip text for the exit button in the custom rules editor"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "ルールのエクスポートに失敗しました"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "カスタムルールをファイルにエクスポート"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "プロバイダーの保存に失敗しました"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "リダイレクトを強制"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "HTTPメソッド",
+    "description": "Label for HTTP methods field"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "これにより、既存のカスタムルールがすべて置き換えられます。続行しますか？"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "ルールのインポートに失敗しました: $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "ファイルからカスタムルールをインポート"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "無効なドメインパターン: {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "無効なファイル構造: providersオブジェクトがありません"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "無効なURLパターン正規表現: $1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "JSONエラー: $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "JSONがここに表示されます..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "JSONコンテンツが必要です"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "urlPatternをクリックするとdomainPatternsが削除され、その逆も同様です。"
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "JSONにフィールドを追加"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "カスタムルール",
+    "description": "Navigation label for custom rules view"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "ホワイトリスト",
+    "description": "Navigation label for whitelist view"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "ファイル内にプロバイダーが見つかりません"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "カスタムルールエディターとホワイトリスト管理"
+  },
+  "customRulesEditor_patternType": {
+    "message": "パターンタイプ"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "このプロバイダーのURLマッチ方法を選択してください"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "パターンタイプを選択してください"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "プロバイダー「$1」はurlPatternとdomainPatternsの両方を持つことはできません"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "プロバイダー「$1」のドメインパターンが空です"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "プロバイダー「$1」にurlPatternがありません"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "プロバイダー「$1」にはurlPatternまたはdomainPatternsが必要です"
+  },
+  "customRulesEditor_providerName": {
+    "message": "プロバイダー名 *"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "この名前のプロバイダーは既に存在します"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "このプロバイダーの一意識別子（例: \"example.com\", \"mysite\"）"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "例: example.com, mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "プロバイダー名は必須です"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "生ルール（正規表現パターン）"
+  },
+  "customRulesEditor_redirections": {
+    "message": "リダイレクト（リダイレクトパターン）"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "紹介マーケティング"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "リソースタイプ"
+  },
+  "customRulesEditor_rules": {
+    "message": "ルール（削除するURLパラメータ）"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "ルールステータス"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "プロバイダーを保存"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "現在のプロバイダーを保存"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "編集するプロバイダーを選択"
+  },
+  "customRulesEditor_title": {
+    "message": "カスタムルールエディター - ClearURLs"
+  },
+  "customRulesEditor_total": {
+    "message": "合計:"
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "保存されていない変更があります。保存せずに続行しますか？"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "URLパターン *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "URLパターンとドメインパターンは併用できません"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "URLを照合するための正規表現"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "URLパターン（正規表現）"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "URLパターンまたはドメインパターンが必要です"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "URLパターンは必須です"
+  },
+  "customRulesEditor_welcome": {
+    "message": "カスタムルールエディターへようこそ"
+  },
+  "custom_providers_label": {
+    "message": "カスタムプロバイダー:",
+    "description": "Label for custom providers count."
+  },
+  "customrules": {
+    "message": "カスタムルール"
+  },
+  "datatable_empty_table": {
+    "message": "テーブルにデータがありません",
+    "description": "DataTables empty table message"
+  },
+  "datatable_info": {
+    "message": "_TOTAL_ エントリ中 _START_ から _END_ まで表示",
+    "description": "DataTables pagination info"
+  },
+  "datatable_info_empty": {
+    "message": "0 エントリ中 0 から 0 まで表示",
+    "description": "DataTables info when no data"
+  },
+  "datatable_showing_all": {
+    "message": "全$1エントリを表示",
+    "description": "Info message when showing all entries. $1=total count"
+  },
+  "datatable_showing_entries": {
+    "message": "$1 から $2 までを表示（全 $3 エントリ中）",
+    "description": "Pagination info showing current range. $1=start, $2=end, $3=total"
+  },
+  "datatable_zero_records": {
+    "message": "該当するレコードが見つかりません",
+    "description": "DataTables no search results message"
+  },
+  "domain_blocking_enabled": {
+    "message": "ドメインブロッキングを許可（広告ブロッカーを許可しないページで問題が発生する可能性があります）",
+    "description": "This string is used as label for the domain blocking switch"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "特定のドメインへのリクエストをブロックします。",
+    "description": "Description for the domain blocking toggle."
+  },
+  "downloadFailed": {
+    "message": "ダウンロードに失敗しました！",
+    "description": "Toast message when download action fails"
+  },
+  "downloadText": {
+    "message": "ダウンロード",
+    "description": "Button text for download action"
+  },
+  "eTag_filtering_enabled": {
+    "message": "リクエストからETagヘッダーをフィルタリング",
+    "description": "This string is used as label for the ETag header filtering switch"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "トラッキングを防ぐためにETagヘッダーを削除します。",
+    "description": "Description for the ETag filtering toggle."
+  },
+  "eTag_filtering_log": {
+    "message": "ETagヘッダーがこのリクエストから削除されました",
+    "description": "This string is used on ETag header filtering in the Linkumori (Clean URLS) log."
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "現在のドメインを取得できません",
+    "description": "Error message when the current domain cannot be determined."
+  },
+  "error_loading_data": {
+    "message": "ログデータの読み込みに失敗しました。ページを更新してください。",
+    "description": "Error message when log data cannot be loaded from storage"
+  },
+  "error_rendering_table": {
+    "message": "テーブルデータのレンダリング中にエラーが発生しました",
+    "description": "Error message when table fails to render"
+  },
+  "extension_description": {
+    "message": "URLからトラッキング要素を削除します。",
+    "description": "Extension description (max. 132 characters)"
+  },
+  "fallback_rules_loaded": {
+    "message": "該当するバンドルルールが破損しているか、正しくロードされていない可能性があります。代わりにフォールバックルールがロードされました。"
+  },
+  "faq_caution": {
+    "message": "注意:",
+    "description": "Label for cautions in FAQ"
+  },
+  "faq_common_mistakes": {
+    "message": "避けるべき一般的な間違いは何ですか？",
+    "description": "FAQ question about common mistakes"
+  },
+  "faq_complete_provider": {
+    "message": "completeProviderは何をしますか？",
+    "description": "FAQ question about completeProvider"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "trueに設定すると、completeProviderは一致するリクエストをブロック対象としてマークします。実際のブロックは、グローバル設定「ドメインブロッキング」が有効な場合にのみ発生します。falseの場合、通常のルール、例外、リダイレクトを使用できます。",
+    "description": "FAQ answer explaining completeProvider"
+  },
+  "faq_complete_provider_usage": {
+    "message": "ほとんどのカスタムルールはこれをfalseに設定し、代わりに特定のパラメータ削除ルールを使用する必要があります。",
+    "description": "FAQ guidance on completeProvider usage"
+  },
+  "faq_complete_provider_warning": {
+    "message": "ドメインブロッキングが有効な場合、一致するURLへの完全なアクセスをブロックする可能性があります。",
+    "description": "FAQ warning about completeProvider"
+  },
+  "faq_complex_example": {
+    "message": "複雑なプロバイダーの例を見せてください",
+    "description": "FAQ question requesting complex example"
+  },
+  "faq_complex_example_explanation": {
+    "message": "このプロバイダーはトラッキングパラメータとフラグメントを削除し、リダイレクトを処理しますが、API、ログイン、チェックアウトページを変更から保護します。",
+    "description": "FAQ explanation of complex example"
+  },
+  "faq_complex_example_intro": {
+    "message": "以下は、リダイレクトと例外を含む高度なプロバイダーです:",
+    "description": "FAQ intro to complex example"
+  },
+  "faq_custom_rules_note": {
+    "message": "カスタムルールは組み込みルールと一緒に実行され、名前によってインポートされたバンドル/リモートプロバイダーエントリを上書きできます。",
+    "description": "Note about custom rules precedence"
+  },
+  "faq_default_note": {
+    "message": "デフォルト:",
+    "description": "Label for default behavior notes in FAQ"
+  },
+  "faq_domain_exceptions": {
+    "message": "ドメイン例外とは何ですか？",
+    "description": "FAQ question about domain exceptions"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "ドメイン例外は通常の例外と同様に機能しますが、正規表現の代わりに、より単純なドメインパターン形式を使用します。特定のドメインまたはサブドメインを処理から除外できます。",
+    "description": "FAQ explanation of domain exceptions"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "ドメイン例外はドメインパターンと同じパターンを使用しますが、正規表現の例外よりも単純です。",
+    "description": "FAQ tip about domain exceptions"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ - example.comとそのサブドメインのホスト名マッチ",
+    "description": "FAQ explanation of AdBlock domain pattern"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - ホスト名ワイルドカード; 各 * は1つのラベル（ドットセグメント）に一致します",
+    "description": "FAQ explanation of AdBlock wildcard pattern"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "example.com - 完全なURLに対する単純な部分文字列マッチ（長いホスト名/パス内でも一致する可能性があります）",
+    "description": "FAQ explanation of basic domain pattern"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.example.*^ - ワイルドカードTLDを使用したサブドメインとのマッチ、複数部分のTLDを含む（a.example.co.uk）",
+    "description": "FAQ explanation of full wildcard pattern"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||example.*^ - ワイルドカードTLDを使用したドメインとのマッチ、複数部分のTLDを含む（example.co.uk, example.gov.in）",
+    "description": "FAQ explanation of TLD wildcard domain pattern"
+  },
+  "faq_domain_pattern_types": {
+    "message": "ドメインパターンのタイプ:",
+    "description": "FAQ section title for domain pattern types"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com - 完全なURLに対するワイルドカード正規表現マッチ、厳密なホスト名のみのマッチではありません",
+    "description": "FAQ explanation of wildcard domain pattern"
+  },
+  "faq_domain_patterns": {
+    "message": "ドメインパターンとURLパターン",
+    "description": "FAQ question about domain patterns vs URL patterns"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "ドメインパターンは、シンプルなトークンとAdBlock形式をサポートします。マッチ動作は構文によって異なります（一部の形式はホスト名をチェックし、他の形式は完全なURL文字列とマッチします）:",
+    "description": "FAQ explanation of domain patterns"
+  },
+  "faq_domain_redirections": {
+    "message": "ドメインリダイレクトとは何ですか？",
+    "description": "FAQ question about domain redirections"
+  },
+  "faq_domain_redirections_example": {
+    "message": "redirect.example.com$redirect=https://target.com は、redirect.example.com からのすべてのURLを https://target.com にリダイレクトします",
+    "description": "FAQ example of domain redirections"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "ドメインリダイレクトはドメインパターンを使用してリダイレクトURLを検出し、ターゲット先を抽出します。シンプルなリダイレクトマッピングのために特別な $redirect= 構文をサポートしています。",
+    "description": "FAQ explanation of domain redirections"
+  },
+  "faq_example": {
+    "message": "例:",
+    "description": "Label for examples in FAQ"
+  },
+  "faq_exceptions": {
+    "message": "例外はどのように機能しますか？",
+    "description": "FAQ question about exceptions"
+  },
+  "faq_exceptions_explanation": {
+    "message": "例外は、処理を行わないURLに一致する正規表現パターンです。URLが例外に一致する場合、他のすべてのルールは無視されます。",
+    "description": "FAQ explanation of exceptions"
+  },
+  "faq_exceptions_usage": {
+    "message": "例外を使用して、ログインページ、APIエンドポイント、その他の機密URLを変更から保護します。",
+    "description": "FAQ guidance on exceptions usage"
+  },
+  "faq_force_redirection": {
+    "message": "forceRedirectionはいつ使用すればよいですか？",
+    "description": "FAQ question about forceRedirection"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "一部のウェブサイトはJavaScriptを介してリンクを操作し、通常のリダイレクトを妨げます。forceRedirectionはURLをブラウザのメインフレームに直接書き込みます。",
+    "description": "FAQ explanation of forceRedirection"
+  },
+  "faq_force_redirection_usage": {
+    "message": "直接のhref属性の代わりにonClickハンドラーを使用するGoogleなどのウェブサイトでは、これを有効にしてください。",
+    "description": "FAQ guidance on forceRedirection usage"
+  },
+  "faq_force_redirection_warning": {
+    "message": "この方法はより侵入的であるため、通常のリダイレクトが失敗した場合にのみ使用してください。",
+    "description": "FAQ warning about forceRedirection"
+  },
+  "faq_how_providers_work": {
+    "message": "プロバイダーはどのように機能しますか？",
+    "description": "FAQ question about how providers work"
+  },
+  "faq_http_methods": {
+    "message": "HTTPメソッドとは何ですか？",
+    "description": "FAQ question about HTTP methods"
+  },
+  "faq_http_methods_common": {
+    "message": "一般的なHTTPメソッド:",
+    "description": "FAQ section title for common HTTP methods"
+  },
+  "faq_http_methods_delete": {
+    "message": "DELETE - 削除操作",
+    "description": "FAQ list item for DELETE method"
+  },
+  "faq_http_methods_explanation": {
+    "message": "HTTPメソッドを使用すると、特定のタイプのHTTPリクエスト（GET、POST、PUT、DELETEなど）にのみルールを適用できます。これにより、どのリクエストメソッドがルールをトリガーするかを制御できます。",
+    "description": "FAQ explanation of HTTP methods"
+  },
+  "faq_http_methods_get": {
+    "message": "GET - 標準的なウェブページリクエスト",
+    "description": "FAQ list item for GET method"
+  },
+  "faq_http_methods_head": {
+    "message": "HEAD - ヘッダーのみのリクエスト",
+    "description": "FAQ list item for HEAD method"
+  },
+  "faq_http_methods_options": {
+    "message": "OPTIONS - CORSプリフライトリクエスト",
+    "description": "FAQ list item for OPTIONS method"
+  },
+  "faq_http_methods_post": {
+    "message": "POST - フォーム送信とAPIコール",
+    "description": "FAQ list item for POST method"
+  },
+  "faq_http_methods_put": {
+    "message": "PUT - 更新操作",
+    "description": "FAQ list item for PUT method"
+  },
+  "faq_http_methods_tip": {
+    "message": "空のままにするとすべてのHTTPメソッドに適用され、ターゲットにしたいメソッドのみを指定します。",
+    "description": "FAQ tip about HTTP methods"
+  },
+  "faq_import_benefit_quick": {
+    "message": "クイックセットアップ - 複雑なパターンを手動で作成する必要がありません",
+    "description": "FAQ benefit of quick setup via import"
+  },
+  "faq_import_benefit_search": {
+    "message": "検索とフィルタリングで必要なものを正確に見つけられます",
+    "description": "FAQ benefit of search functionality"
+  },
+  "faq_import_benefit_tested": {
+    "message": "正しく機能することが確認されている事前テスト済みのルール",
+    "description": "FAQ benefit of tested rules via import"
+  },
+  "faq_import_benefit_updates": {
+    "message": "新しいプロバイダーでルールを簡単に最新の状態に保てます",
+    "description": "FAQ benefit of easy updates via import"
+  },
+  "faq_list_feature_actions": {
+    "message": "ワンクリックでプロバイダーの編集、複製、削除",
+    "description": "FAQ feature of quick actions"
+  },
+  "faq_list_feature_overview": {
+    "message": "主要な統計情報を含むすべてのプロバイダーのクイック概要",
+    "description": "FAQ feature of provider overview"
+  },
+  "faq_list_feature_search": {
+    "message": "名前でプロバイダーを検索して特定のものをすばやく見つける",
+    "description": "FAQ feature of provider search"
+  },
+  "faq_list_feature_stats": {
+    "message": "ルール数とパターンタイプを一目で確認",
+    "description": "FAQ feature of statistics display"
+  },
+  "faq_mistake_broad": {
+    "message": "urlPatternが広すぎる（意図しないサイトにマッチする）",
+    "description": "FAQ common mistake about broad patterns"
+  },
+  "faq_mistake_complete": {
+    "message": "本当にサイトをブロックしたい場合を除き、completeProviderをtrueに設定する",
+    "description": "FAQ common mistake about completeProvider"
+  },
+  "faq_mistake_escape": {
+    "message": "パターン内の特殊な正規表現文字のエスケープを忘れる",
+    "description": "FAQ common mistake about escaping regex"
+  },
+  "faq_mistake_exceptions": {
+    "message": "重要な機能のための例外を追加しない",
+    "description": "FAQ common mistake about missing exceptions"
+  },
+  "faq_mistake_testing": {
+    "message": "デプロイ前にルールを徹底的にテストしない",
+    "description": "FAQ common mistake about insufficient testing"
+  },
+  "faq_note": {
+    "message": "注:",
+    "description": "Label for important notes in FAQ"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "両方のフィールドがデータに存在する可能性がありますが、urlPatternが優先されます。ドメインパターンはurlPatternが空の場合にのみ使用されます。ドメインマッチングはPSL対応であり、登録可能なドメインの処理と複数部分のTLDサポートを含みます。",
+    "description": "FAQ note about pattern exclusivity"
+  },
+  "faq_perf_combine": {
+    "message": "複数の類似したパターンを1つの正規表現に結合する",
+    "description": "FAQ performance tip about combining patterns"
+  },
+  "faq_perf_limit": {
+    "message": "プロバイダーの数を実際に必要な数に制限する",
+    "description": "FAQ performance tip about limiting providers"
+  },
+  "faq_perf_review": {
+    "message": "定期的に未使用のルールを確認してクリーンアップする",
+    "description": "FAQ performance tip about regular review"
+  },
+  "faq_perf_simple": {
+    "message": "可能な場合は複雑なrawRulesの代わりにシンプルなルールを使用する",
+    "description": "FAQ performance tip about simple rules"
+  },
+  "faq_perf_specific": {
+    "message": "urlPatternをできるだけ具体的にする",
+    "description": "FAQ performance tip about specific patterns"
+  },
+  "faq_performance_tips": {
+    "message": "パフォーマンスを最適化するにはどうすればよいですか？",
+    "description": "FAQ question about performance optimization"
+  },
+  "faq_provider_example": {
+    "message": "たとえば、「Google」プロバイダーは、検索結果、YouTubeリンクなどからトラッキングパラメータを削除するルールを使用して、すべてのGoogleサービスを処理します。",
+    "description": "FAQ example of provider usage"
+  },
+  "faq_provider_import": {
+    "message": "ルールからプロバイダーをインポートするにはどうすればよいですか？",
+    "description": "FAQ question about provider import feature"
+  },
+  "faq_provider_import_benefits": {
+    "message": "インポートの利点:",
+    "description": "FAQ section title for import benefits"
+  },
+  "faq_provider_import_explanation": {
+    "message": "プロバイダーインポート機能を使用すると、組み込みのルールカタログからプロバイダーをすばやく追加できます。「ルールからインポート」ボタンをクリックして、プロバイダーを参照して選択します。",
+    "description": "FAQ explanation of provider import feature"
+  },
+  "faq_provider_import_tip": {
+    "message": "プロバイダーを選択して「インポート」をクリックすると、複数のプロバイダーを一度にインポートできます。",
+    "description": "FAQ tip about provider import"
+  },
+  "faq_provider_list": {
+    "message": "プロバイダーを効率的に管理するにはどうすればよいですか？",
+    "description": "FAQ question about provider list management"
+  },
+  "faq_provider_list_explanation": {
+    "message": "プロバイダーリストビューでは、すべてのカスタムプロバイダーのクイック概要を確認できます。各プロバイダーを個別に開かなくても、検索、編集、複製、削除ができます。",
+    "description": "FAQ explanation of provider list feature"
+  },
+  "faq_provider_list_features": {
+    "message": "プロバイダーリストの機能:",
+    "description": "FAQ section title for provider list features"
+  },
+  "faq_provider_list_tip": {
+    "message": "エディターツールバーからプロバイダーリストを開いて、プロバイダーを参照および管理します。",
+    "description": "FAQ tip about provider list"
+  },
+  "faq_providers_explanation": {
+    "message": "プロバイダーは、複数のルールを同じURLパターンの下にグループ化する論理ユニットです。各プロバイダーは特定のウェブサイトまたはサービスをターゲットとし、そのソースからURLをクリーンアップするために必要なすべてのルールを含んでいます。",
+    "description": "FAQ answer explaining providers"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "URL全体に適用される直接の正規表現パターン。標準のパラメータ形式に適合しない複雑なパターンに使用します。",
+    "description": "FAQ explanation of rawRules"
+  },
+  "faq_raw_rules_title": {
+    "message": "生ルール:",
+    "description": "FAQ section title for rawRules explanation"
+  },
+  "faq_raw_rules_usage": {
+    "message": "フラグメント、パスセグメント、または複雑なパラメータパターンにはrawRulesを使用します。",
+    "description": "FAQ guidance on rawRules usage"
+  },
+  "faq_redirections": {
+    "message": "リダイレクトはどのように機能しますか？",
+    "description": "FAQ question about redirections"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com は https://target.com になります",
+    "description": "FAQ example of redirection process"
+  },
+  "faq_redirections_explanation": {
+    "message": "リダイレクトは、リダイレクトサービスから実際の宛先URLを抽出します。正規表現の最初のキャプチャグループが新しいURLになります。",
+    "description": "FAQ explanation of redirections"
+  },
+  "faq_redirections_process": {
+    "message": "キャプチャされたURLはdecodeURIComponent()で自動的にデコードされ、元のURLと置き換えられます。",
+    "description": "FAQ explanation of redirection processing"
+  },
+  "faq_referral_default": {
+    "message": "紹介マーケティングはデフォルトで無効になっているため、ユーザーが明示的に許可しない限り、これらのパラメータは削除されます。",
+    "description": "FAQ note about referralMarketing default behavior"
+  },
+  "faq_referral_explanation": {
+    "message": "紹介マーケティングパラメータは、コンテンツクリエイターがコミッションを獲得するのに役立ちます。これらのパラメータは、ユーザーが設定で紹介マーケティングサポートを無効にした場合にのみ削除されます。",
+    "description": "FAQ explanation of referralMarketing"
+  },
+  "faq_referral_marketing": {
+    "message": "referralMarketingとは何ですか？",
+    "description": "FAQ question about referralMarketing"
+  },
+  "faq_resource_types": {
+    "message": "リソースタイプとは何ですか？",
+    "description": "FAQ question about resource types"
+  },
+  "faq_resource_types_common": {
+    "message": "一般的なリソースタイプ:",
+    "description": "FAQ section title for common resource types"
+  },
+  "faq_resource_types_explanation": {
+    "message": "リソースタイプを使用すると、特定のタイプのウェブリクエスト（画像、スクリプト、メインページなど）にのみルールを適用できます。これにより、ルールをいつ適用するかを細かく制御できます。",
+    "description": "FAQ explanation of resource types"
+  },
+  "faq_resource_types_tip": {
+    "message": "空のままにするとすべてのリソースタイプに適用され、ターゲットにしたいタイプのみを指定します。",
+    "description": "FAQ tip about resource types"
+  },
+  "faq_rt_font": {
+    "message": "font - ウェブフォント（.woff、.ttfなど）",
+    "description": "FAQ resource type font"
+  },
+  "faq_rt_image": {
+    "message": "image - 画像と写真",
+    "description": "FAQ resource type image"
+  },
+  "faq_rt_imageset": {
+    "message": "imageset - レスポンシブ画像のための画像セット",
+    "description": "FAQ resource type imageset"
+  },
+  "faq_rt_main_frame": {
+    "message": "main_frame - メインのウェブページ",
+    "description": "FAQ resource type main_frame"
+  },
+  "faq_rt_media": {
+    "message": "media - オーディオおよびビデオファイル",
+    "description": "FAQ resource type media"
+  },
+  "faq_rt_object": {
+    "message": "object - 埋め込みオブジェクト（Flash、プラグイン）",
+    "description": "FAQ resource type object"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "object_subrequest - 埋め込みオブジェクトによって行われるリクエスト",
+    "description": "FAQ resource type object_subrequest"
+  },
+  "faq_rt_other": {
+    "message": "other - 上記以外のその他のタイプ",
+    "description": "FAQ resource type other"
+  },
+  "faq_rt_script": {
+    "message": "script - JavaScriptファイル",
+    "description": "FAQ resource type script"
+  },
+  "faq_rt_stylesheet": {
+    "message": "stylesheet - CSSファイル",
+    "description": "FAQ resource type stylesheet"
+  },
+  "faq_rt_sub_frame": {
+    "message": "sub_frame - 埋め込まれたiframe",
+    "description": "FAQ resource type sub_frame"
+  },
+  "faq_rt_websocket": {
+    "message": "websocket - WebSocket接続",
+    "description": "FAQ resource type websocket"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "xml_dtd - XML文書型定義",
+    "description": "FAQ resource type xml_dtd"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "xmlhttprequest - AJAXリクエスト",
+    "description": "FAQ resource type xmlhttprequest"
+  },
+  "faq_rt_xslt": {
+    "message": "xslt - XSLT変換ファイル",
+    "description": "FAQ resource type xslt"
+  },
+  "faq_rules_converted": {
+    "message": "例: \"utm_source\" は正確にマッチ; \"utm_.*\" は utm_source と utm_campaign にマッチ。スコープ付きLinkumoriの例外/ルールが最初に解決され、その後、通常/正規表現ルールは一致しないキーに対してのみ実行されます。",
+    "description": "FAQ examples for rules key matching"
+  },
+  "faq_rules_explanation": {
+    "message": "ルールはクエリパラメータキーとハッシュフラグメントキーにマッチします。シンプルな名前（完全なキー）、正規表現（より広いマッチ）、または ||example.com^$removeparam=... のようなスコープ付きLinkumoriルールを使用して特定のドメインをターゲットにします。",
+    "description": "FAQ explanation of rules"
+  },
+  "faq_rules_title": {
+    "message": "ルール:",
+    "description": "FAQ section title for rules explanation"
+  },
+  "faq_rules_vs_raw": {
+    "message": "ルールとrawRulesの違いは何ですか？",
+    "description": "FAQ question about rules vs rawRules"
+  },
+  "faq_section_advanced": {
+    "message": "高度な機能",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_basics": {
+    "message": "基本",
+    "description": "FAQ section title for basic questions"
+  },
+  "faq_section_examples": {
+    "message": "例",
+    "description": "FAQ section title for examples"
+  },
+  "faq_section_new_features": {
+    "message": "高度な機能",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_properties": {
+    "message": "プロバイダーのプロパティ",
+    "description": "FAQ section title for provider properties"
+  },
+  "faq_section_tips": {
+    "message": "ヒントとベストプラクティス",
+    "description": "FAQ section title for tips and best practices"
+  },
+  "faq_simple_example": {
+    "message": "シンプルなプロバイダーの例を見せてください",
+    "description": "FAQ question requesting simple example"
+  },
+  "faq_simple_example_explanation": {
+    "message": "これはFacebookのクリックIDとUTMパラメータを削除しますが、ユーザーが紹介マーケティングを許可している場合はアフィリエイトリンクを保持します。",
+    "description": "FAQ explanation of simple example"
+  },
+  "faq_simple_example_intro": {
+    "message": "以下は、架空のショッピングサイトからトラッキングパラメータを削除する基本的なプロバイダーです:",
+    "description": "FAQ intro to simple example"
+  },
+  "faq_test_backup": {
+    "message": "大きな変更を加える前にルールをエクスポートしてください",
+    "description": "FAQ tip about backing up rules"
+  },
+  "faq_test_exceptions": {
+    "message": "クリティカルなページ（ログイン、チェックアウト、API）には常に例外を追加してください",
+    "description": "FAQ tip about adding exceptions"
+  },
+  "faq_test_regex": {
+    "message": "regex101.comなどのオンラインツールを使用して正規表現パターンをテストしてください",
+    "description": "FAQ tip about testing regex patterns"
+  },
+  "faq_test_reload": {
+    "message": "「ルールを強制」ボタンを使用して、ブラウザを再起動せずに変更をリロードします",
+    "description": "FAQ tip about enforcing rules"
+  },
+  "faq_test_small": {
+    "message": "シンプルなルールから始めて、徐々に複雑さを追加してください",
+    "description": "FAQ tip about starting small"
+  },
+  "faq_testing_tips": {
+    "message": "カスタムルールをどのようにテストすればよいですか？",
+    "description": "FAQ question about testing tips"
+  },
+  "faq_tip": {
+    "message": "ヒント:",
+    "description": "Label for tips in FAQ"
+  },
+  "faq_title": {
+    "message": "よくある質問",
+    "description": "FAQ button text and modal title"
+  },
+  "faq_url_pattern": {
+    "message": "urlPatternとは何ですか？",
+    "description": "FAQ question about urlPattern"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "urlPatternは、プロバイダーのルールの影響を受けるすべてのURLにマッチしなければならない正規表現です。このプロバイダーがどのウェブサイトを処理するかを定義します。",
+    "description": "FAQ answer explaining urlPattern"
+  },
+  "faq_url_pattern_structure": {
+    "message": "典型的な構造は以下をカバーします: プロトコル + サブドメイン + ドメイン + TLD + ディレクトリ + パラメータ",
+    "description": "FAQ explanation of urlPattern structure"
+  },
+  "faq_url_pattern_tip": {
+    "message": "オンラインの正規表現テスターを使用して、パターンを追加する前に検証してください。",
+    "description": "FAQ tip for testing urlPattern"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "URLパターンは完全な正規表現を使用して、どのURLが一致するかを正確に制御します:",
+    "description": "FAQ explanation of URL patterns"
+  },
+  "faq_use_domain_patterns": {
+    "message": "完全なurlPattern正規表現を記述せずに、より単純なホスト名/パスマッチングを行うにはドメインパターンを使用してください。",
+    "description": "FAQ guidance for using domain patterns"
+  },
+  "faq_use_url_patterns": {
+    "message": "複雑なマッチング（特定のパス、クエリパラメータなど）にはURLパターンを使用してください。",
+    "description": "FAQ guidance for using URL patterns"
+  },
+  "faq_warning": {
+    "message": "警告:",
+    "description": "Label for warnings in FAQ"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "カスタムルールとは何ですか？",
+    "description": "FAQ question about custom rules"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "カスタムルールを使用すると、組み込みルールでカバーされていないウェブサイト用に独自のURLクリーンアップパターンを作成できます。これらはメインカタログと同じ構造に従いますが、個別に管理されます。",
+    "description": "FAQ answer explaining custom rules"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "どちらを使用するか:",
+    "description": "FAQ section title for pattern usage guidance"
+  },
+  "feature1": {
+    "message": "プライバシー重視の組み込みURLクリーニングがデフォルトで有効"
+  },
+  "feature2": {
+    "message": "プロバイダーおよびパターンごとの制御が可能なカスタムルールサポート"
+  },
+  "feature3": {
+    "message": "選択したドメインのクリーニングをバイパスするホワイトリストサポート"
+  },
+  "feature4": {
+    "message": "高度なセットアップのためのリモートルールとオーバーロードモード"
+  },
+  "feature_toggles_title": {
+    "message": "機能設定",
+    "description": "Title for the Feature Settings section."
+  },
+  "fileEmptyError": {
+    "message": "ファイルが空であるか読み取れません",
+    "description": "Error shown when a legal/privacy file is empty or unreadable"
+  },
+  "general_settings_title": {
+    "message": "一般設定",
+    "description": "Title for the General Settings section."
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "組み込みルールが読み込まれました（ハッシュが見つかりません）",
+    "description": "Status when bundled rules loaded after hash URL was missing"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "組み込みルールを使用中（フォールバック）",
+    "description": "Status when fell back to bundled rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "キャッシュされたリモート + カスタムルール（組み込み失敗）",
+    "description": "Status when using cached remote rules with custom rules after bundled failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "キャッシュされたリモート + カスタムルール（リモート失敗）",
+    "description": "Status when using cached remote rules with custom rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "キャッシュされたリモート + カスタムルール（ハッシュURLなし）",
+    "description": "Status when using cached remote rules with custom rules, hash URL missing"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "キャッシュされたリモートルール（組み込み失敗）",
+    "description": "Status when using cached remote rules after bundled rules failed"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "キャッシュされたリモートルール（リモート失敗）",
+    "description": "Status when using cached remote rules after current remote fetch failed"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "キャッシュされたリモートルール（ハッシュURLなし）",
+    "description": "Status when using cached remote rules because hash URL is missing"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "キャッシュされたリモート + 組み込みルールをマージ",
+    "description": "Status when overload mode merges cached remote rules with built-in rules"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "キャッシュされたリモート + 組み込みルールをマージし、カスタムルールと結合",
+    "description": "Status when overload mode merges cached remote and built-in rules, then custom rules"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "カスタムルールのみを使用中",
+    "description": "Status when built-in rules are disabled and only custom rules are active"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "組み込みルールが無効で、カスタムルールが見つかりません",
+    "description": "Status when built-in rules are disabled and there are no custom rules to load"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "最小限のルールを使用中（リモート失敗）",
+    "description": "Status when using fallback rules after remote failure"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "ハッシュURLが必要です",
+    "description": "Status when remote URL is configured but hash URL is missing"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "リモート + 組み込みルールをマージ",
+    "description": "Status when remote and built-in rules are merged successfully"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "リモート + 組み込みルールをマージし、カスタムルールと結合",
+    "description": "Status when overload mode is active and custom rules are merged"
+  },
+  "hashStatus_remote_failed": {
+    "message": "リモートルールが失敗しました",
+    "description": "Status when remote rules failed verification or loading"
+  },
+  "hashStatus_remote_verified": {
+    "message": "リモートルールが検証されました",
+    "description": "Status when remote rules have been successfully verified"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "リモートルールが読み込まれ、カスタムルールがマージされました",
+    "description": "Message shown when remote rules are loaded and custom rules are merged"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
+  },
+  "headerTitle": {
+    "message": "Linkumori",
+    "description": "Header title for the extension"
+  },
+  "history_listener_enabled": {
+    "message": "履歴APIを介したトラッキング注入を防ぐ",
+    "description": "This string is used as name for the history API listener label."
+  },
+  "history_listener_enabled_description": {
+    "message": "ブラウザの履歴内のURLを監視してクリーンアップします。",
+    "description": "Description for the history listener toggle."
+  },
+  "search_link_fix_enabled": {
+    "message": "検索結果リンクの修正",
+    "description": "Label for the combined Google and Yandex content script toggle"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "検索結果リンクからリダイレクトトラッキングを削除するGoogleおよびYandexのコンテンツスクリプトを有効にします。",
+    "description": "Description for the combined search result content script toggle"
+  },
+  "google_link_fix_enabled": {
+    "message": "Googleリンク修正",
+    "description": "Label for the Google content script toggle"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "Googleの検索結果リンクからリダイレクトトラッキングを削除するGoogleコンテンツスクリプトを有効にします。",
+    "description": "Description for the Google content script toggle"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "Yandexリンク修正",
+    "description": "Label for the Yandex content script toggle"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "Yandexの検索結果リンクからリダイレクトトラッキングを削除するYandexコンテンツスクリプトを有効にします。",
+    "description": "Description for the Yandex content script toggle"
+  },
+  "import_invalid_format": {
+    "message": "無効なファイル形式または破損したデータ",
+    "description": "Error message for invalid file format"
+  },
+  "import_parse_error": {
+    "message": "ファイルの解析に失敗しました。ファイル形式を確認してください。",
+    "description": "Error message when file parsing fails"
+  },
+  "import_read_error": {
+    "message": "ファイルの読み取りに失敗しました",
+    "description": "Error message when file reading fails"
+  },
+  "inputUrlsDescription": {
+    "message": "このツールを使用するとURLを貼り付けることができ、緑色のボタンをクリックするとClearURLsがURLをクリーンアップします。一度に複数のURLを貼り付けることができますが、各URLは別々の行に配置する必要があります。",
+    "description": "Description text for the input URLs section."
+  },
+  "inputUrlsPlaceholder": {
+    "message": "ここにURLを1行ずつ貼り付けてください...",
+    "description": "Placeholder text for the input URLs textarea."
+  },
+  "inputUrlsTitle": {
+    "message": "入力URL",
+    "description": "Title for the input URL section."
+  },
+  "language_selector_description": {
+    "message": "インターフェースの希望言語を選択し、保存してリロードをクリックしてください。（数字は翻訳されません）",
+    "description": "Description text for language selector"
+  },
+  "language_selector_label": {
+    "message": "インターフェース言語",
+    "description": "Label for language selector dropdown"
+  },
+  "licenseCopied": {
+    "message": "ライセンスをコピーしました！",
+    "description": "Toast message after copying license content"
+  },
+  "licenseDescription": {
+    "message": "この拡張機能はオープンソースであり、GNU Lesser General Public Licenseの下でライセンスされています。",
+    "description": "Description text for license section"
+  },
+  "licenseDownloaded": {
+    "message": "ライセンスをダウンロードしました！",
+    "description": "Toast message after downloading license content"
+  },
+  "licenseSection": {
+    "message": "ライセンス情報",
+    "description": "Section header for license information"
+  },
+  "license_links_title": {
+    "message": "リンク",
+    "description": "Title for links section in license"
+  },
+  "license_third_party_title": {
+    "message": "サードパーティコンポーネント",
+    "description": "Title for third party components section"
+  },
+  "license_title": {
+    "message": "ライセンス",
+    "description": "License section title"
+  },
+  "loadError": {
+    "message": "コンテンツの読み込み中にエラーが発生しました",
+    "description": "Error title shown when legal/privacy content fails to load"
+  },
+  "loadingContent": {
+    "message": "コンテンツを読み込み中...",
+    "description": "Generic loading message for about/legal content areas"
+  },
+  "loadingLicense": {
+    "message": "ライセンスを読み込み中...",
+    "description": "Loading text for license content"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "プライバシーポリシーを読み込み中...",
+    "description": "Loading text for privacy policy content"
+  },
+  "local_hosts_skipping": {
+    "message": "ローカルホスト上のURLをスキップ（10.0.0.0/8、172.16.0.0/12、192.168.0.0/16、100.64.0.0/10、169.254.0.0/16、127.0.0.1、localhost）",
+    "description": "This string is used as label for the local host skipping switch"
+  },
+  "local_hosts_skipping_description": {
+    "message": "localhostとローカルネットワークアドレスのクリーニングをスキップします。",
+    "description": "Description for the local hosts skipping toggle."
+  },
+  "log_domain_blocked": {
+    "message": "このドメインはブロックされています",
+    "description": "This string is used on blocked domains in the Linkumori (Clean URLS) log."
+  },
+  "log_html_export_button": {
+    "message": "エクスポート",
+    "description": "This string is used for the export button on the log page."
+  },
+  "log_html_export_button_title": {
+    "message": "グローバルログをエクスポート",
+    "description": "This string is used as title for the export button on the log page."
+  },
+  "log_html_import_button": {
+    "message": "インポート",
+    "description": "This string is used for the import button on the log page."
+  },
+  "log_html_import_button_title": {
+    "message": "グローバルログをインポート",
+    "description": "This string is used as title for the import button on the log page."
+  },
+  "log_html_import_error": {
+    "message": "ログファイルのインポート中にエラーが発生しました:",
+    "description": "Error message prefix when import fails"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "無効なログファイル形式です。",
+    "description": "Error message when imported file is not valid JSON log format"
+  },
+  "log_html_page_title": {
+    "message": "Linkumori (Clean URLS) のログ",
+    "description": "This string is used as header on the log page."
+  },
+  "log_html_reset_button": {
+    "message": "リセット",
+    "description": "This string is used for the reset button on the log page."
+  },
+  "log_html_reset_button_title": {
+    "message": "グローバルログをリセット",
+    "description": "This string is used as title for the reset button on the log page."
+  },
+  "log_html_reset_confirm": {
+    "message": "ログをリセットしてもよろしいですか？この操作は元に戻せません。",
+    "description": "Confirmation dialog when user clicks reset button"
+  },
+  "log_html_search": {
+    "message": "検索",
+    "description": "Label for the search input field"
+  },
+  "log_html_search_placeholder": {
+    "message": "ログを検索...",
+    "description": "Placeholder text in the search input field"
+  },
+  "log_html_show_all": {
+    "message": "すべて",
+    "description": "Option in entries dropdown to show all entries"
+  },
+  "log_html_show_entries": {
+    "message": "表示件数",
+    "description": "Label for the dropdown to select how many entries to show per page"
+  },
+  "log_html_table_head_1": {
+    "message": "前 ",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_2": {
+    "message": "後 ",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_3": {
+    "message": "ルール",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_4": {
+    "message": "時間",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_5": {
+    "message": "プロバイダー",
+    "description": "Column header for matched provider name on the log page."
+  },
+  "log_html_table_head_6": {
+    "message": "パターン",
+    "description": "Column header for matched urlPattern/domainPattern on the log page."
+  },
+  "log_html_table_head_7": {
+    "message": "メソッド",
+    "description": "Column header for request method and provider methods on the log page."
+  },
+  "log_html_table_head_8": {
+    "message": "リソースタイプ",
+    "description": "Column header for request resource type and provider resource types on the log page."
+  },
+  "log_nav_dashboard": {
+    "message": "ダッシュボード",
+    "description": "Tab label for dashboard view on log page"
+  },
+  "log_nav_logs": {
+    "message": "ログ",
+    "description": "Tab label for logs view on log page"
+  },
+  "log_ping_blocked": {
+    "message": "このハイパーリンク監査はブロックされました",
+    "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
+  },
+  "log_provider_pattern_domain": {
+    "message": "domainPattern",
+    "description": "Label for domain pattern provider matching in log entries."
+  },
+  "log_provider_pattern_url": {
+    "message": "urlPattern",
+    "description": "Label for URL pattern provider matching in log entries."
+  },
+  "log_provider_request_method": {
+    "message": "メソッド",
+    "description": "Label for the current request method in provider match details."
+  },
+  "log_provider_methods": {
+    "message": "プロバイダーメソッド",
+    "description": "Label for provider method filters in provider match details."
+  },
+  "log_redirect": {
+    "message": "このURLはリダイレクトされます",
+    "description": "This string is used on redirections in the Linkumori (Clean URLS) log."
+  },
+  "log_stats_changed_urls": {
+    "message": "変更されたURL",
+    "description": "Stats card label for entries where URL changed"
+  },
+  "log_stats_chart_no_data": {
+    "message": "グラフデータがありません",
+    "description": "Empty-state label when no data is available for chart"
+  },
+  "log_stats_chart_reload": {
+    "message": "再読み込み",
+    "description": "Button label to reload the stats chart and reset pie filters"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "グラフを再読み込みし、円グラフのフィルタをリセット",
+    "description": "Tooltip for reload chart button in log dashboard"
+  },
+  "log_stats_chart_title": {
+    "message": "統計グラフ",
+    "description": "Title for selectable chart section in log dashboard"
+  },
+  "log_stats_chart_type": {
+    "message": "グラフタイプ",
+    "description": "Label for chart type selector"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "円グラフ",
+    "description": "Option label for pie chart"
+  },
+  "log_stats_count_col": {
+    "message": "カウント",
+    "description": "Column header for count in stats tables"
+  },
+  "log_stats_domain_col": {
+    "message": "ドメイン",
+    "description": "Column header for domain name in stats"
+  },
+  "log_stats_earliest": {
+    "message": "最も古い",
+    "description": "Stats card label for earliest timestamp"
+  },
+  "log_stats_latest": {
+    "message": "最も新しい",
+    "description": "Stats card label for latest timestamp"
+  },
+  "log_stats_no_domains": {
+    "message": "ドメインなし",
+    "description": "Fallback row label when no domains are available in stats"
+  },
+  "log_stats_no_rules": {
+    "message": "ルールなし",
+    "description": "Fallback row label when no rules are available in stats"
+  },
+  "log_stats_no_providers": {
+    "message": "プロバイダーなし",
+    "description": "Fallback row label when no providers are available in stats"
+  },
+  "log_stats_no_methods": {
+    "message": "メソッドなし",
+    "description": "Fallback row label when no methods are available in stats"
+  },
+  "log_stats_no_resource_types": {
+    "message": "リソースタイプなし",
+    "description": "Fallback row label when no resource types are available in stats"
+  },
+  "log_stats_rule_col": {
+    "message": "ルール",
+    "description": "Column header for rule name in stats"
+  },
+  "log_stats_provider_col": {
+    "message": "プロバイダー",
+    "description": "Column header for provider name in stats"
+  },
+  "log_stats_method_col": {
+    "message": "メソッド",
+    "description": "Column header for method name in stats"
+  },
+  "log_stats_resource_type_col": {
+    "message": "リソースタイプ",
+    "description": "Column header for resource type in stats"
+  },
+  "log_stats_top_domains": {
+    "message": "トップドメイン",
+    "description": "Stats section title for top domains"
+  },
+  "log_stats_top_providers": {
+    "message": "トッププロバイダー",
+    "description": "Stats section title for top providers"
+  },
+  "log_stats_top_methods": {
+    "message": "トップメソッド",
+    "description": "Stats section title for top methods"
+  },
+  "log_stats_top_resource_types": {
+    "message": "トップリソースタイプ",
+    "description": "Stats section title for top resource types"
+  },
+  "log_stats_top_rules": {
+    "message": "トップルール",
+    "description": "Stats section title for top rules"
+  },
+  "log_stats_total_entries": {
+    "message": "総エントリ数",
+    "description": "Stats card label for total log entries"
+  },
+  "log_stats_unique_domains": {
+    "message": "ユニークドメイン",
+    "description": "Stats card label for unique source domains"
+  },
+  "log_stats_unique_rules": {
+    "message": "ユニークルール",
+    "description": "Stats card label for unique applied rules"
+  },
+  "log_stats_unique_providers": {
+    "message": "ユニークプロバイダー",
+    "description": "Stats card label for unique providers"
+  },
+  "log_stats_unique_methods": {
+    "message": "ユニークメソッド",
+    "description": "Stats card label for unique methods"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "ユニークリソースタイプ",
+    "description": "Stats card label for unique resource types"
+  },
+  "log_whitelist_bypass": {
+    "message": "スキップされました: ドメインはホワイトリストに登録されています",
+    "description": "This string is used in the log when URL cleaning is skipped because the domain is whitelisted."
+  },
+  "moonIconAlt": {
+    "message": "月アイコン",
+    "description": "Alt text for moon theme icon"
+  },
+  "new_custom_providers_label": {
+    "message": "新規:",
+    "description": "Inline label for new custom provider count."
+  },
+  "nothingToCopy": {
+    "message": "コピーするものはありません！",
+    "description": "Toast message when copy action has no content"
+  },
+  "nothingToDownload": {
+    "message": "ダウンロードするものはありません！",
+    "description": "Toast message when download action has no content"
+  },
+  "openSettings": {
+    "message": "Linkumori設定を開く"
+  },
+  "overload_mode_enabled": {
+    "message": "オーバーロードモードを有効にする",
+    "description": "Label for toggle that merges built-in and remote rules together"
+  },
+  "overload_mode_enabled_description": {
+    "message": "有効にすると、組み込みルールとリモートルールが一緒に読み込まれ、カスタムルールを適用する前にマージされます。",
+    "description": "Description for overload mode toggle"
+  },
+  "overridden_providers_label": {
+    "message": "上書き済み:",
+    "description": "Inline label for overridden provider count."
+  },
+  "overridden_providers_list_label": {
+    "message": "上書きされたプロバイダー:",
+    "description": "Label for overridden provider names list."
+  },
+  "pagination_current_page_aria": {
+    "message": "現在のページ、$1ページ",
+    "description": "Screen reader label for current active page. $1=page number"
+  },
+  "pagination_first": {
+    "message": "最初",
+    "description": "Button text to go to first page"
+  },
+  "pagination_first_aria": {
+    "message": "最初のページ",
+    "description": "Screen reader label for first page button"
+  },
+  "pagination_last": {
+    "message": "最後",
+    "description": "Button text to go to last page"
+  },
+  "pagination_last_aria": {
+    "message": "最後のページ",
+    "description": "Screen reader label for last page button"
+  },
+  "pagination_next": {
+    "message": "次へ",
+    "description": "Button text to go to next page"
+  },
+  "pagination_next_aria": {
+    "message": "次のページ",
+    "description": "Screen reader label for next page button"
+  },
+  "pagination_page_aria": {
+    "message": "$1ページ",
+    "description": "Screen reader label for numbered page buttons. $1=page number"
+  },
+  "pagination_previous": {
+    "message": "前へ",
+    "description": "Button text to go to previous page"
+  },
+  "pagination_previous_aria": {
+    "message": "前のページ",
+    "description": "Screen reader label for previous page button"
+  },
+  "percentage_symbol": {
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
+  },
+  "ping_blocking_enabled": {
+    "message": "ハイパーリンク監査をブロック",
+    "description": "This string is used as label for the hyperlink auditing blocking switch"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "トラッキングに使用されるpingリクエストをブロックします。",
+    "description": "Description for the ping blocking toggle."
+  },
+  "popup_consent_accept_button": {
+    "message": "同意して続行",
+    "description": "Button label to accept popup consent gate"
+  },
+  "popup_consent_checkbox": {
+    "message": "プライバシーポリシーとライセンスを読み、同意します。",
+    "description": "Consent checkbox label for popup gate"
+  },
+  "popup_consent_description": {
+    "message": "このポップアップを使用する前に、プライバシーポリシーとライセンスをお読みください。当社はお客様のデータを収集しません。すべてのデータはお客様のデバイスに保存され、当社に送信されることはありません。",
+    "description": "Description for popup consent gate"
+  },
+  "popup_consent_legal_button": {
+    "message": "法的情報を読む",
+    "description": "Button label to open legal page from popup consent gate"
+  },
+  "popup_consent_title": {
+    "message": "同意が必要です",
+    "description": "Title for popup consent gate"
+  },
+  "popup_html_page_title": {
+    "message": "Linkumori",
+    "description": "Popup page title text"
+  },
+  "popup_html_version_label": {
+    "message": "バージョン:",
+    "description": "Version label shown in popup license section"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "Firefoxアドオン署名",
+    "description": "Label shown in popup license section for Firefox add-on signing fingerprint."
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "Firefoxアドオン署名",
+    "description": "Popup label for Firefox signature value."
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "署名されていないため利用できません",
+    "description": "Message shown when the add-on package is unsigned and no Mozilla signing digest is available."
+  },
+  "popup_html_version_label_title": {
+    "message": "現在の拡張機能バージョン",
+    "description": "Tooltip for popup version label"
+  },
+  "popup_html_license_description": {
+    "message": "以下の「法的情報」リンクをクリックすると、詳細なライセンスおよびプライバシー情報が表示されます。",
+    "description": "Description in popup license section"
+  },
+  "popup_html_license_description_title": {
+    "message": "ライセンスおよびプライバシー情報",
+    "description": "Tooltip for popup license description"
+  },
+  "popup_html_gpl_link": {
+    "message": "GNU General Public License v3.0",
+    "description": "Popup license link label for GPL v3"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "GNU GPL v3.0ライセンス文を開く",
+    "description": "Tooltip for GPL link in popup license section"
+  },
+  "popup_html_lgpl_link": {
+    "message": "GNU General Lesser Public License v3.0",
+    "description": "Popup license link label for LGPL v3"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "GNU LGPL v3.0ライセンス文を開く",
+    "description": "Tooltip for LGPL link in popup license section"
+  },
+  "popup_html_source_code_repository": {
+    "message": "ソースコードリポジトリ",
+    "description": "Popup license link label for source code repository"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "ソースコードリポジトリを開く",
+    "description": "Tooltip for source code repository link in popup license section"
+  },
+  "popup_html_source_code_releases": {
+    "message": "ソースコードリリース",
+    "description": "Popup license link label for source code releases"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "ソースコードリリースを開く",
+    "description": "Tooltip for source code releases link in popup license section"
+  },
+  "popup_html_report_issues": {
+    "message": "問題を報告",
+    "description": "Popup license link label for issue tracker"
+  },
+  "popup_html_report_issues_title": {
+    "message": "問題トラッカーを開く",
+    "description": "Tooltip for report issues link in popup license section"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "ClearURLs MV3移行リポジトリ",
+    "description": "Popup license link label for ClearURLs MV3 migration repo"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "ClearURLs MV3移行リポジトリを開く",
+    "description": "Tooltip for ClearURLs migration repository link in popup license section"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "ClearURLsアドオン V1.27.3 リポジトリ",
+    "description": "Popup license link label for ClearURLs addon v1.27.3 repo"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "ClearURLsアドオン v1.27.3リポジトリを開く",
+    "description": "Tooltip for ClearURLs addon repository link in popup license section"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "Linkumori v.",
+    "description": "Footer prefix shown on blocked page before version number"
+  },
+  "legal_consent_notice_default": {
+    "message": "以下のプライバシーポリシーとライセンスを確認し、同意してLinkumoriの使用を続行してください。",
+    "description": "Default notice text for the legal page consent section"
+  },
+  "legal_consent_notice_update": {
+    "message": "Linkumoriの法的条件が更新されました。プライバシーポリシーとライセンスを確認し、同意して拡張機能の使用を続行してください。",
+    "description": "Notice text shown on the legal page after a consent version update"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "以下のプライバシーポリシーとライセンスを確認し、同意してLinkumoriのセットアップを完了してください。",
+    "description": "Notice text shown on the legal page during first install"
+  },
+  "legal_consent_notice_import": {
+    "message": "以下のプライバシーポリシーとライセンスを確認し、同意してLinkumoriへの移行を完了してください。",
+    "description": "Notice text shown on the legal page during import or migration"
+  },
+  "legal_consent_status_required": {
+    "message": "同意が必要です。現在の法的条件に同意するまで、Linkumoriは一時停止されています。",
+    "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_accepted": {
+    "message": "同意されました。Linkumoriは現在の法的条件で実行できます。",
+    "description": "Status message shown when current legal consent is accepted"
+  },
+  "legal_consent_button_accepted": {
+    "message": "同意済み",
+    "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_saved": {
+    "message": "同意されました。",
+    "description": "Toast shown after saving legal consent"
+  },
+  "legal_consent_save_failed": {
+    "message": "同意の保存に失敗しました。",
+    "description": "Toast shown when saving legal consent fails"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "現在の同意ポリシーのバージョンを判別できません。",
+    "description": "Error shown when the current consent version is unavailable"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "同意の撤回方法",
+    "description": "Button label that opens the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "同意の撤回は、プライバシーポリシーで説明されているように、拡張機能をアンインストールすることで行われます。",
+    "description": "Short note below the legal page consent controls about withdrawing consent"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "同意の撤回方法",
+    "description": "Title for the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "拡張機能またはアドオンをアンインストールするだけで、いつでも同意を撤回できます。",
+    "description": "Introductory text in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "アンインストール時に、Linkumoriによってデバイスにローカル保存されたすべてのデータは、完全かつ自動的に削除されます。アンインストール以外の操作は必要ありません。",
+    "description": "Data deletion explanation in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "Linkumoriは外部サーバーにデータを送信しないため、削除を要求するリモートデータはありません。",
+    "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "閉じる",
+    "description": "Close button label for the withdrawal of consent modal"
+  },
+  "legal_optional_features_heading": {
+    "message": "無効になっている機能（有効にしたい場合があります）",
+    "description": "Heading for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_features_description": {
+    "message": "これらのオプション保護はデフォルトで無効になっています。必要なものをオンにして、Linkumoriを保存してリロードしてください。",
+    "description": "Description for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "無効",
+    "description": "Status badge shown when an optional legal-page feature is disabled"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "有効",
+    "description": "Status badge shown when an optional legal-page feature is enabled"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "保存時に有効化",
+    "description": "Status badge shown when an optional legal-page feature will be enabled after saving"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "保存時に無効化",
+    "description": "Status badge shown when an optional legal-page feature will be disabled after saving"
+  },
+  "legal_optional_features_note": {
+    "message": "変更は、右側のボタンを使用した場合にのみ保存されます。",
+    "description": "Initial helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_default": {
+    "message": "これらの機能はデフォルトで無効になっています。必要なものをオンにして、Linkumoriを保存してリロードしてください。",
+    "description": "Default helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "変更が保留中です。保存して適用し、この法的ページを再度開いてください。",
+    "description": "Helper note shown when optional legal-page feature changes have not been saved yet"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "オプション機能の変更を保存し、Linkumoriをリロードしています。",
+    "description": "Helper note shown while optional legal-page feature changes are being saved"
+  },
+  "legal_optional_features_save_button": {
+    "message": "保存してLinkumoriをリロード",
+    "description": "Save button label for optional legal-page feature toggles"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "オプション機能の変更の保存に失敗しました。",
+    "description": "Error toast shown when optional legal-page feature changes fail to save"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "バッジ",
+    "description": "This string is used as name for the badges switch button on the popup page."
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "フィルタ",
+    "description": "This string is used as name for the filter switch button on the popup page."
+  },
+  "popup_html_configs_switch_log": {
+    "message": "ロギング",
+    "description": "This string is used as name for the logging switch button on the popup page."
+  },
+  "popup_html_log_head": {
+    "message": "ログを表示",
+    "description": "This string is used as name for the log button on the popup page."
+  },
+  "popup_html_settings_button": {
+    "message": "設定",
+    "description": "This string is used for the settings button on the popup page."
+  },
+  "popup_html_statistics": {
+    "message": "統計",
+    "description": "Toggle label for statistics feature"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "ブロック済み",
+    "description": "This string is used as name for the blocked elements on the popup page."
+  },
+  "popup_html_statistics_elements": {
+    "message": "要素",
+    "description": "This string is used as name for the elements on the popup page."
+  },
+  "popup_html_statistics_percentage": {
+    "message": "パーセンテージ",
+    "description": "This string is used as name for the percentage of blocked elements on the popup page."
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "リセット",
+    "description": "This string is used as name for the statistics reset button on the popup page."
+  },
+  "popup_html_tools_button": {
+    "message": "ツール",
+    "description": "This string is used for the tools button on the popup page."
+  },
+  "popup_html_tools_button_title": {
+    "message": "クリーニングツールを開く",
+    "description": "This string is used as a title for the tools button on the popup page."
+  },
+  "popup_html_whitelist_button": {
+    "message": "ホワイトリスト",
+    "description": "This string is used for the whitelist button on the popup page."
+  },
+  "popup_nav_license": {
+    "message": "ライセンス",
+    "description": "Navigation label for license section"
+  },
+  "popup_nav_main": {
+    "message": "メイン",
+    "description": "Navigation label for main content section"
+  },
+  "privacyCopied": {
+    "message": "プライバシーポリシーをコピーしました！",
+    "description": "Toast message after copying privacy policy content"
+  },
+  "privacyDescription": {
+    "message": "以下のプライバシーポリシーをご確認ください。",
+    "description": "Description text for privacy policy section"
+  },
+  "privacyDownloaded": {
+    "message": "プライバシーポリシーをダウンロードしました！",
+    "description": "Toast message after downloading privacy policy content"
+  },
+  "privacyPolicySection": {
+    "message": "プライバシーポリシー",
+    "description": "Section header for privacy policy"
+  },
+  "privacyVersionDescription": {
+    "message": "表示するプライバシーポリシーの翻訳を選択してください。現時点では英語版のみが利用可能であり、他の言語は将来的に追加される可能性があります。",
+    "description": "Helper description for privacy version selector"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "英語 ",
+    "description": "Option label for global English privacy policy file"
+  },
+  "privacyVersionLabel": {
+    "message": "プライバシーポリシー ",
+    "description": "Label for selecting English privacy policy version"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "選択されたポリシーファイルが見つかりませんでした。代わりにデフォルトのプライバシーポリシーが読み込まれました。",
+    "description": "Notification shown when selected privacy version file cannot be loaded"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "プライバシーポリシーのバージョンマップの読み込みに失敗しました。",
+    "description": "Notification shown when privacy version mapping config cannot be loaded"
+  },
+  "providerImport_bundledRules": {
+    "message": "アクティブなバンドル/リモート/カスタムルール",
+    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  },
+  "providerImport_button": {
+    "message": "プロバイダーをインポート/無効化",
+    "description": "Button text to import selected providers"
+  },
+  "providerImport_clearSelection": {
+    "message": "クリア",
+    "description": "Button text to clear all selected providers."
+  },
+  "providerImport_complete": {
+    "message": "完了"
+  },
+  "providerImport_completeProvider": {
+    "message": "完全なプロバイダー"
+  },
+  "providerImport_completed": {
+    "message": "インポートが完了しました！"
+  },
+  "providerImport_confirmExclude": {
+    "message": "このプロバイダーシグネチャを除外しますか？一致するURL/ドメインパターンのプロバイダーは非表示になり、カスタムルールから削除されます。",
+    "description": "Confirmation shown before excluding a provider signature from import"
+  },
+  "providerImport_disableSelected": {
+    "message": "選択を無効化",
+    "description": "Button text to disable selected providers by signature"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "選択された$1個のプロバイダーのシグネチャを無効にしますか？",
+    "description": "Confirmation before disabling selected providers in batch. $1 is selected count"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "無効化されたシグネチャ: $1。削除された一致するカスタムプロバイダー: $2。",
+    "description": "Batch disable result. $1 is disabled signature count and $2 removed custom provider count"
+  },
+  "providerImport_disabledClear": {
+    "message": "すべてクリア",
+    "description": "Button label to clear all excluded signatures for selected source"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "無効なルールをすべてクリア",
+    "description": "Button label to clear all disabled signatures from all sources"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "すべてのソースから無効なシグネチャをすべてクリアしますか？",
+    "description": "Confirmation before clearing all disabled signatures globally"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "このソースの無効なシグネチャをすべてクリアしますか？",
+    "description": "Confirmation before clearing disabled signatures for selected source"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "無効なシグネチャはありません",
+    "description": "Empty state text when no disabled signatures exist for selected source"
+  },
+  "providerImport_disabledRestore": {
+    "message": "復元",
+    "description": "Button label to restore an excluded signature"
+  },
+  "providerImport_disabledTitle": {
+    "message": "無効なルール",
+    "description": "Title for disabled provider signature list in provider import sidebar"
+  },
+  "providerImport_domainExceptions": {
+    "message": "ドメイン例外",
+    "description": "Full text for domain exceptions tooltip in provider cards"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "DE",
+    "description": "Abbreviation for domain exceptions count in provider cards"
+  },
+  "providerImport_domainPatterns": {
+    "message": "ドメインパターン",
+    "description": "Full text for domain patterns tooltip in provider cards"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "DP",
+    "description": "Abbreviation for domain patterns count in provider cards"
+  },
+  "providerImport_domainRedirections": {
+    "message": "ドメインリダイレクト",
+    "description": "Full text for domain redirections tooltip in provider cards"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "DR",
+    "description": "Abbreviation for domain redirections count in provider cards"
+  },
+  "providerImport_exceptions": {
+    "message": "例外"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "exc"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "このプロバイダーにはURL/ドメインパターンがなく、シグネチャによって除外できません。",
+    "description": "Shown when user tries to exclude a provider without URL/domain patterns"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "プロバイダーシグネチャを除外しました。$1個の一致するカスタムプロバイダーを削除しました。",
+    "description": "Success message after excluding a provider signature. $1 is removed custom count"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(カスタムに存在)"
+  },
+  "providerImport_failed": {
+    "message": "プロバイダーのインポートに失敗しました: $1"
+  },
+  "providerImport_import": {
+    "message": "選択をインポート"
+  },
+  "providerImport_importedCount": {
+    "message": "インポート済み: $1 プロバイダー"
+  },
+  "providerImport_importing": {
+    "message": "インポート中..."
+  },
+  "providerImport_loading": {
+    "message": "プロバイダーを読み込み中...",
+    "description": "Displayed while providers are being loaded into the grid."
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "$1ルールで利用可能なプロバイダーはありません"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "$1ルールにプロバイダーが見つかりません"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "インポート可能なルールはありません"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "URLパターンなし"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "上書き済み: $1 プロバイダー"
+  },
+  "providerImport_rawRules": {
+    "message": "生ルール",
+    "description": "Full text for raw rules tooltip in provider cards"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "生",
+    "description": "Abbreviation for raw rules count in provider cards"
+  },
+  "providerImport_redirections": {
+    "message": "リダイレクト"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "red"
+  },
+  "providerImport_referralAbbr": {
+    "message": "紹介",
+    "description": "Abbreviation for referral marketing count in provider cards"
+  },
+  "providerImport_referralMarketing": {
+    "message": "紹介マーケティング",
+    "description": "Full text for referral marketing tooltip in provider cards"
+  },
+  "providerImport_rules": {
+    "message": "ルール"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "ルール",
+    "description": "Abbreviation for rules count in provider cards"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "プロバイダーを検索...",
+    "description": "Placeholder text in the search input field to filter providers."
+  },
+  "providerImport_selectAll": {
+    "message": "すべて選択",
+    "description": "Button text to select all providers in the list/grid."
+  },
+  "providerImport_selectedCount": {
+    "message": "$1 選択済み"
+  },
+  "providerImport_skippedCount": {
+    "message": "スキップ: $1 プロバイダー"
+  },
+  "providerImport_sources": {
+    "message": "ルールソース",
+    "description": "Heading for the sidebar that lists available rule sources."
+  },
+  "providerImport_title": {
+    "message": "プロバイダーのインポートまたは無効化",
+    "description": "Title of the provider import modal dialog."
+  },
+  "providerList_button": {
+    "message": "すべてのカスタムプロバイダーを一覧表示して検索",
+    "description": "Button text to open the provider list modal"
+  },
+  "providerList_complete": {
+    "message": "完了",
+    "description": "Label indicating a provider is a complete provider"
+  },
+  "providerList_confirmDelete": {
+    "message": "プロバイダー「$1」を削除してもよろしいですか？",
+    "description": "Confirmation message when deleting a provider",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "コピー",
+    "description": "Suffix added to provider names when duplicating (e.g., 'Google_Copy')"
+  },
+  "providerList_createFirst": {
+    "message": "最初のプロバイダーを作成",
+    "description": "Button text to create the first provider when none exist"
+  },
+  "providerList_delete": {
+    "message": "削除",
+    "description": "Button text to delete a provider"
+  },
+  "providerList_deleteFailed": {
+    "message": "プロバイダーの削除に失敗しました。もう一度お試しください。",
+    "description": "Error message when provider deletion fails"
+  },
+  "providerList_deleteTooltip": {
+    "message": "プロバイダーを削除",
+    "description": "Tooltip text for the delete provider button"
+  },
+  "providerList_duplicate": {
+    "message": "コピー",
+    "description": "Button text to duplicate/copy a provider"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "プロバイダーを複製",
+    "description": "Tooltip text for the duplicate provider button"
+  },
+  "providerList_edit": {
+    "message": "編集",
+    "description": "Button text to edit a provider"
+  },
+  "providerList_editTooltip": {
+    "message": "プロバイダーを編集",
+    "description": "Tooltip text for the edit provider button"
+  },
+  "providerList_exceptions": {
+    "message": "例外",
+    "description": "Label for exceptions count in provider statistics"
+  },
+  "providerList_noProvidersFound": {
+    "message": "カスタムプロバイダーが見つかりません。",
+    "description": "Message shown when there are no custom providers to display"
+  },
+  "providerList_noUrlPattern": {
+    "message": "URLパターンなし",
+    "description": "Text shown when a provider has no URL pattern defined"
+  },
+  "providerList_rawRules": {
+    "message": "生ルール",
+    "description": "Label for raw rules count in provider statistics"
+  },
+  "providerList_redirections": {
+    "message": "リダイレクト",
+    "description": "Label for redirections count in provider statistics"
+  },
+  "providerList_referral": {
+    "message": "紹介",
+    "description": "Label for referral marketing count in provider statistics"
+  },
+  "providerList_rules": {
+    "message": "ルール",
+    "description": "Label for rules count in provider statistics"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "プロバイダーを検索...",
+    "description": "Placeholder text for the provider search input"
+  },
+  "providerList_title": {
+    "message": "すべてのプロバイダー",
+    "description": "Title of the provider list modal"
+  },
+  "referral_marketing_enabled": {
+    "message": "紹介マーケティングを許可",
+    "description": "This string is used as label for the referral marketing switch"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "紹介およびアフィリエイトトラッキングパラメータを削除します。",
+    "description": "Description for the referral marketing toggle."
+  },
+  "redirection_enabled": {
+    "message": "サードパーティリダイレクトのバイパスを有効にする",
+    "description": "Label for the toggle that enables regex redirections and domain redirections"
+  },
+  "redirection_enabled_description": {
+    "message": "バンドル、リモート、カスタムルールからの正規表現リダイレクトとドメインリダイレクトを使用して、サードパーティの中間リダイレクトおよびトラッキングURLをバイパスします。必要に応じて最初にルールを監査し、カスタムルールエディタを使用して個別に編集または上書きします。",
+    "description": "Description for the toggle that enables or disables redirection handling"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "$LINE$行: 「ruleURL | hashURL」が必要です",
+    "description": "Validation message when an additional remote rule set line is malformed.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "$LINE$行: 無効なHTTPSハッシュURLです",
+    "description": "Validation message when additional remote hash URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "$LINE$行: 無効なHTTPSルールURLです",
+    "description": "Validation message when additional remote rule URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "リモートルールは無効になっています。以下のトグルを有効にしてリモートルールのURLを設定してください。",
+    "description": "Description shown when remote rules are disabled"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "リモートルールは無効です - 有効にするには下のトグルをオンにしてください",
+    "description": "Placeholder text shown when remote rules are disabled"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "セキュリティアラート: Gatekeeperが無効になっています。リモートURLフィールドにアクセスするには、リモートルールを有効にしてください。",
+    "description": "Alert shown when Gatekeeper is disabled while remote rules are turned off."
+  },
+  "remote_rules_enabled": {
+    "message": "リモートルールを有効にする",
+    "description": "Label for the toggle that enables or disables remote rule fetching"
+  },
+  "remote_rules_enabled_description": {
+    "message": "拡張機能がリモートサーバーからルールを取得することを許可します。無効にすると、バンドルされたルールのみが使用されます。",
+    "description": "Description for the remote rules enabled toggle"
+  },
+  "remote_rules_loaded": {
+    "message": "リモートルールのみ読み込み済み",
+    "description": "Message shown when remote rules are loaded"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "リモートルールは自己ホスト型サーバーのみに制限されています。サードパーティのURLは使用しないでください。",
+    "description": "Notice explaining remote rules restrictions"
+  },
+  "remote_rules_security_notice": {
+    "message": "セキュリティ通知: 所有および管理するURLのみを使用してください",
+    "description": "Small security notice near URL fields"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "設定の変更が保留中です。適用するには「保存」をクリックしてください。",
+    "description": "Status message shown after toggling a setting that will apply when the user clicks Save."
+  },
+  "removeDomainFromWhitelist": {
+    "message": "$1をホワイトリストから削除",
+    "description": "Button label to remove a domain from the whitelist. $1 is replaced with the domain."
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
+  },
+  "rules_author_label": {
+    "message": "著者:",
+    "description": "Label for the author of the rules dataset"
+  },
+  "rules_composition_label": {
+    "message": "プロバイダー構成:",
+    "description": "Section label for provider composition details."
+  },
+  "rules_disabled_providers_label": {
+    "message": "無効なプロバイダー:",
+    "description": "Label for the number of disabled provider signatures"
+  },
+  "rules_hash_status_label": {
+    "message": "ロードステータス:",
+    "description": "Label for the current loading status of the rules"
+  },
+  "rules_last_updated_label": {
+    "message": "最終更新:",
+    "description": "Label for the last update date of the rules dataset"
+  },
+  "rules_license_label": {
+    "message": "ライセンス:",
+    "description": "Label for the license of the rules dataset"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "マージされたリモートルール",
+    "description": "Display name for merged remote rules metadata in settings."
+  },
+  "rules_metadata_section": {
+    "message": "ルール情報:",
+    "description": "Section header for rules metadata information"
+  },
+  "rules_name_label": {
+    "message": "ルール名:",
+    "description": "Label for the name of the rules dataset"
+  },
+  "rules_source_bundled": {
+    "message": "バンドル",
+    "description": "Source text when bundled rules are active."
+  },
+  "rules_source_bundled_fallback": {
+    "message": "バンドルフォールバック",
+    "description": "Source text when bundled fallback rules are active."
+  },
+  "rules_source_fallback": {
+    "message": "フォールバック",
+    "description": "Source text when minimal fallback rules are active."
+  },
+  "rules_source_label": {
+    "message": "ソース:",
+    "description": "Label for current active rules source."
+  },
+  "rules_source_remote": {
+    "message": "リモート",
+    "description": "Source text when remote rules are active."
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "リモート + 組み込み (マージ済み)",
+    "description": "Source text when remote and built-in rules are merged."
+  },
+  "rules_status_active": {
+    "message": "アクティブ",
+    "description": "Value for active rules status."
+  },
+  "rules_status_error": {
+    "message": "ルールの読み込みエラー",
+    "description": "Value for when rules fail to load."
+  },
+  "rules_status_label": {
+    "message": "ステータス:",
+    "description": "Label for rules status."
+  },
+  "rules_status_not_loaded": {
+    "message": "ルールが読み込まれていません",
+    "description": "Value for when no rules are loaded."
+  },
+  "rules_total_providers_label": {
+    "message": "総プロバイダー数:",
+    "description": "Label for the total number of rule providers (bundled + custom)"
+  },
+  "rules_total_rules_label": {
+    "message": "総ルール数:",
+    "description": "Label for total rules count."
+  },
+  "rules_version_label": {
+    "message": "ルールバージョン:",
+    "description": "Label for the version of the rules dataset"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "ホワイトリストドメインを追加、編集、または削除するには ",
+    "description": "Recommendation text in rules information section for whitelist management."
+  },
+  "rules_whitelist_open_editor": {
+    "message": "ここをクリック",
+    "description": "Link text to open custom rules editor from rules information section."
+  },
+  "rules_whitelist_total_label": {
+    "message": "ホワイトリストドメイン総数:",
+    "description": "Label for total whitelist domain count in rules information section."
+  },
+  "save_invalid_hash_url": {
+    "message": "無効なハッシュURL形式",
+    "description": "Validation message when primary hash URL is not a valid URL."
+  },
+  "save_invalid_rule_url": {
+    "message": "無効なルールURL形式",
+    "description": "Validation message when primary rule URL is not a valid URL."
+  },
+  "save_primary_hash_https_required": {
+    "message": "プライマリハッシュURLはHTTPSを使用する必要があります",
+    "description": "Validation message when primary hash URL is not HTTPS."
+  },
+  "save_primary_remote_pair_required": {
+    "message": "プライマリリモートルールURLとハッシュURLの両方を指定する必要があります",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "プライマリルールURLはHTTPSを使用する必要があります",
+    "description": "Validation message when primary rule URL is not HTTPS."
+  },
+  "security_confirmation_cancelled": {
+    "message": "セキュリティ確認がキャンセルされました",
+    "description": "Status message when user cancels confirmation modal"
+  },
+  "security_confirmation_phrase": {
+    "message": "私は全責任を負います",
+    "description": "The exact phrase users must type to confirm (can be localized)"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "セキュリティ確認が必要です",
+    "description": "Placeholder text shown in URL fields before security confirmation"
+  },
+  "security_confirmation_reset": {
+    "message": "セキュリティ確認がリセットされました",
+    "description": "Status message when security confirmation is reset"
+  },
+  "security_confirmation_session_success": {
+    "message": "セキュリティ確認に成功しました",
+    "description": "Message shown when security confirmation is successful"
+  },
+  "security_confirmation_tooltip": {
+    "message": "セキュリティ確認が必要です - クリックして開始",
+    "description": "Tooltip text for the security confirmation icon next to remote URLs"
+  },
+  "security_modal_advanced_warning": {
+    "message": "警告: 自己ホスト型サーバーのみを対象とした高度な機能",
+    "description": "Main warning banner text in security modal"
+  },
+  "security_modal_cancel": {
+    "message": "続行したくない - キャンセル",
+    "description": "Cancel button text in security modal"
+  },
+  "security_modal_cancelled": {
+    "message": "セキュリティ上の理由からリモートURL設定をキャンセルしました",
+    "description": "Status message when user cancels security modal"
+  },
+  "security_modal_continue": {
+    "message": "リスクを理解しています - 続行",
+    "description": "Continue button text in security modal"
+  },
+  "security_modal_final_warning": {
+    "message": "関連する影響とリスクを完全に理解していない場合は、この機能の使用を再検討する必要があります。",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "このリモートルール機能は、自分が何をしているかを理解している上級ユーザー専用に設計されています。これが何を意味するのかわからない場合は、この機能を使用しないでください。",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "JSONファイルとハッシュファイルを取得するためにこのソフトウェアにURLを追加すると、この拡張機能がブラウザで有効化されてロードされるたびに、拡張機能は指定されたURLに接続してリモートルールJSONファイルまたはハッシュファイルを取得します。定義されたURLに基づいてファイルを取得するたびに、JSONやハッシュなどのファイルをホストしているサーバーは、お客様のIPアドレスとともに、拡張機能のバージョン、ブラウザ、ブラウザバージョンなどの一般情報を受け取ります。このデータは、問題のウェブサイトまたはウェブサーバー（それらのファイルがホストされている場所）のプライバシーポリシーの対象となります。",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "必要に応じて、続行する前に%PRIVACY_POLICY_LINK%をもう一度お読みください。",
+    "description": "Follow-up sentence in the remote rules warning modal with a privacy policy link placeholder"
+  },
+  "security_modal_privacy_title": {
+    "message": "プライバシー通知:",
+    "description": "Header for privacy notice section"
+  },
+  "security_modal_recommendation": {
+    "message": "代わりに、組み込みルールのみのソリューション（組み込みルールなど）を使用し、さらにカスタムルールを手動で作成できます。",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "お客様のIPアドレスとブラウザ情報が設定されたサーバーに公開されます",
+    "description": "First security risk point"
+  },
+  "security_modal_risk_2": {
+    "message": "ルールソースが侵害された場合、悪意のあるルールがブラウザに提供される可能性があります",
+    "description": "Second security risk point"
+  },
+  "security_modal_risk_3": {
+    "message": "ハッシュ検証は転送中の改ざんからのみ保護し、悪意のあるルールソースからは保護しません",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "ルールソースとJSONファイルのハッシュファイルの両方が侵害された場合、保護はありません",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "セキュリティリスク:",
+    "description": "Header for security risks section"
+  },
+  "security_modal_title": {
+    "message": "リモートルールセキュリティ警告",
+    "description": "Title for the security disclaimer modal"
+  },
+  "setting_hash_url_description": {
+    "message": "ルール検証のためのハッシュファイルURL:",
+    "description": "Description for the custom hash URL input field"
+  },
+  "setting_hash_url_label": {
+    "message": "rules.hashファイルのURL（ハッシュ）",
+    "description": "This string is used as name for the rule.hash url label."
+  },
+  "setting_hash_url_mandatory": {
+    "message": "リモートルールの検証に必要です。セキュリティのため、ルールファイルと一致している必要があります。",
+    "description": "Description for hash URL field explaining it's mandatory"
+  },
+  "setting_html_export_button": {
+    "message": "エクスポート",
+    "description": "This string is used as name for the export button on the settings page."
+  },
+  "setting_html_export_button_title": {
+    "message": "すべてをエクスポート",
+    "description": "This string is used as title for the export button on the settings page."
+  },
+  "setting_html_import_button": {
+    "message": "インポート",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_import_button_title": {
+    "message": "すべてをインポート",
+    "description": "This string is used as title for the import button on the settings page."
+  },
+  "setting_html_reset_button": {
+    "message": "リセット",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_reset_button_title": {
+    "message": "すべてをリセット",
+    "description": "This string is used as title for the reset button on the settings page."
+  },
+  "setting_html_audit_button": {
+    "message": "監査",
+    "description": "This string is used as name for the audit button on the settings page."
+  },
+  "setting_html_audit_button_title": {
+    "message": "監査ページを開く",
+    "description": "This string is used as title for the audit button on the settings page."
+  },
+  "setting_log_limit_label": {
+    "message": "ログを$LIMIT$エントリに制限します。",
+    "description": "This string is used as name for the log limit label.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "ログ制限（0-5000）",
+    "description": "Label for the log limit input field."
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "一緒にマージされる追加のリモートソース。1行に1つずつ使用します: <code>ruleURL | hashURL</code>",
+    "description": "Description for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "追加のリモートルールセット",
+    "description": "Label for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
+  },
+  "setting_rule_url_description": {
+    "message": "ルール定義のためのカスタムリモートURL",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "data.jsonファイルのURL（ルール）",
+    "description": "This string is used as name for the rule url label."
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "注: セキュリティ検証のためにリモートルールを使用する場合、ハッシュURLは必須です。",
+    "description": "Note about mandatory hash URL requirement"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>リクエストタイプ</a>（エキスパートレベル）",
+    "description": "This string is used as name for the types label."
+  },
+  "settings_html_page_title": {
+    "message": "Linkumori (Clean URLS) 設定",
+    "description": "This string is used as title on the settings page."
+  },
+  "settings_html_save_button": {
+    "message": "保存してアドオンをリロード",
+    "description": "This string is used as name for the save&reload button on the settings page."
+  },
+  "settings_html_save_button_title": {
+    "message": "設定を保存",
+    "description": "This string is used as title for the save&reload button on the settings page."
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "インポートされたバッジの色は #FFA500 です。Linkumoriのブルー（#2563EB）に切り替えますか？",
+    "description": "Prompt shown during ClearURLs import when old orange badge color is detected."
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "ClearURLsのバックアップをインポートしています。Linkumoriは互換性のある設定をインポートし、ClearURLsDataをスキップします。続行しますか？",
+    "description": "Confirmation shown when importing legacy ClearURLs JSON files."
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "このClearURLsバックアップにはリモートルールソース設定が含まれています。今すぐリモートルールのトグルを有効にしますか？",
+    "description": "Second confirmation shown for ClearURLs imports when remote rule URLs are present."
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "リモートルールのトグルはClearURLsのインポートから有効になりました。設定を開き、手動で「保存」をクリックして最終的なリモート設定を確認してください。",
+    "description": "Notice shown after user enables remote rules during ClearURLs import."
+  },
+  "settings_import_confirm": {
+    "message": "設定をインポートしてもよろしいですか？これにより現在の設定が上書きされます"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "インポートメタデータが不完全です",
+    "description": "Shown when import metadata is present but missing expected fields."
+  },
+  "settings_import_invalid_file": {
+    "message": "無効なファイルが選択されました",
+    "description": "Shown when imported settings file is invalid."
+  },
+  "settings_import_invalid_format": {
+    "message": "無効な設定形式です",
+    "description": "Shown when imported settings data cannot be parsed as expected."
+  },
+  "settings_import_no_data": {
+    "message": "ファイルにインポート可能な設定が見つかりません",
+    "description": "Shown when parsed file has no supported settings keys."
+  },
+  "settings_import_no_file": {
+    "message": "ファイルが選択されていません",
+    "description": "Shown when import is triggered without selecting a file."
+  },
+  "settings_import_parse_error": {
+    "message": "設定ファイルの解析に失敗しました",
+    "description": "Shown when JSON parsing fails for imported file."
+  },
+  "settings_import_read_error": {
+    "message": "設定ファイルの読み取りに失敗しました",
+    "description": "Shown when browser cannot read the selected file."
+  },
+  "settings_import_wrong_extension": {
+    "message": "有効なLinkumori/ClearURLs設定ファイル（.json または .conf）を選択してください",
+    "description": "Shown when imported settings file does not match supported Linkumori or ClearURLs formats."
+  },
+  "settings_imported": {
+    "message": "設定が正常にインポートされました"
+  },
+  "statistics_reset_success": {
+    "message": "リセット成功！",
+    "description": "This string is used as feedback after the statistics have been reset."
+  },
+  "status_builtinOnly": {
+    "message": "組み込みルールのみ"
+  },
+  "status_color_picker_failed": {
+    "message": "カラーピッカーの初期化に失敗しました",
+    "description": "Error message when color picker fails to load"
+  },
+  "status_customFailed": {
+    "message": "カスタムルールが失敗しました"
+  },
+  "status_customMerged": {
+    "message": "カスタムルールがマージされました（デフォルト + カスタム）"
+  },
+  "status_deleteFailed": {
+    "message": "削除に失敗しました"
+  },
+  "status_invalidJson": {
+    "message": "無効なJSON"
+  },
+  "status_language_changed_success": {
+    "message": "言語が$1に正常に変更されました",
+    "description": "Success message when language is changed. $1 is the native language name"
+  },
+  "status_load_settings_failed": {
+    "message": "設定の読み込みに失敗しました",
+    "description": "Status message when settings fail to load."
+  },
+  "status_loading": {
+    "message": "読み込み中..."
+  },
+  "status_reset_failed": {
+    "message": "設定のリセットに失敗しました",
+    "description": "Status message when settings reset fails."
+  },
+  "status_reset_successful": {
+    "message": "設定が正常にリセットされました",
+    "description": "Status message shown after settings have been reset."
+  },
+  "status_resetting_settings": {
+    "message": "設定をリセット中...",
+    "description": "Status message shown while settings are being reset."
+  },
+  "status_saveFailed": {
+    "message": "保存に失敗しました"
+  },
+  "status_save_failed": {
+    "message": "設定の保存に失敗しました",
+    "description": "Status message when settings save fails."
+  },
+  "status_save_setting_failed": {
+    "message": "設定$SETTING$の保存に失敗しました",
+    "description": "Error message when a specific toggle setting fails to save.",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "設定が正常に保存されました",
+    "description": "Status message when settings save is successful."
+  },
+  "status_saved": {
+    "message": "保存されました！",
+    "description": "Button text after settings are saved."
+  },
+  "status_saving": {
+    "message": "保存中...",
+    "description": "Button text while saving settings."
+  },
+  "status_unavailable": {
+    "message": "ステータスは利用できません"
+  },
+  "status_unknown": {
+    "message": "不明"
+  },
+  "status_usingCached": {
+    "message": "該当するバンドルルールが破損しているか、正しくロードされていない可能性があります。代わりにフォールバックルールがロードされ、カスタムルールとマージされました。"
+  },
+  "status_usingFallback": {
+    "message": "フォールバックルールを使用中"
+  },
+  "status_valid": {
+    "message": "有効"
+  },
+  "status_validJson": {
+    "message": "有効なJSON"
+  },
+  "status_validJsonUnsaved": {
+    "message": "有効なJSON - 未保存"
+  },
+  "sunIconAlt": {
+    "message": "太陽アイコン",
+    "description": "Alt text for sun theme icon"
+  },
+  "switchToDarkTheme": {
+    "message": "ダークテーマに切り替え",
+    "description": "ARIA label for theme toggle when current theme is light"
+  },
+  "switchToLightTheme": {
+    "message": "ライトテーマに切り替え",
+    "description": "ARIA label for theme toggle when current theme is dark"
+  },
+  "themeToggleAriaLabel": {
+    "message": "テーマを切り替え",
+    "description": "ARIA label for the theme toggle button for accessibility."
+  },
+  "theme_description": {
+    "message": "好みのテーマの外観を選択してください",
+    "description": "Description text for theme selection"
+  },
+  "theme_name_dark": {
+    "message": "ダーク",
+    "description": "Name for the dark theme"
+  },
+  "theme_name_icecold": {
+    "message": "アイスコールド",
+    "description": "Name for the ice cold theme"
+  },
+  "theme_name_zengray": {
+    "message": "ゼングレー",
+    "description": "Name for the zen grey theme"
+  },
+  "theme_name_forest": {
+    "message": "フォレスト",
+    "description": "Name for the forest theme"
+  },
+  "theme_name_light": {
+    "message": "ライト",
+    "description": "Name for the light theme"
+  },
+  "theme_name_midnight": {
+    "message": "ミッドナイト",
+    "description": "Name for the midnight theme"
+  },
+  "theme_name_sunset": {
+    "message": "サンセット",
+    "description": "Name for the sunset theme"
+  },
+  "theme_name_legacy": {
+    "message": "レガシー",
+    "description": "Name for the legacy ClearURLs-style theme"
+  },
+  "theme_group_light_label": {
+    "message": "ライトモード",
+    "description": "Label above the light theme cards group"
+  },
+  "theme_group_dark_label": {
+    "message": "ダークモード",
+    "description": "Label above the dark theme cards group"
+  },
+  "theme_selection_label": {
+    "message": "テーマ",
+    "description": "Label for the theme selection section"
+  },
+  "time_am": {
+    "message": "午前"
+  },
+  "time_am_lower": {
+    "message": "午前",
+    "description": "Lowercase AM marker"
+  },
+  "time_pm": {
+    "message": "午後"
+  },
+  "time_pm_lower": {
+    "message": "午後",
+    "description": "Lowercase PM marker"
+  },
+  "number_0": {
+    "message": "0",
+    "description": "Localized digit zero"
+  },
+  "number_1": {
+    "message": "1",
+    "description": "Localized digit one"
+  },
+  "number_2": {
+    "message": "2",
+    "description": "Localized digit two"
+  },
+  "number_3": {
+    "message": "3",
+    "description": "Localized digit three"
+  },
+  "number_4": {
+    "message": "4",
+    "description": "Localized digit four"
+  },
+  "number_5": {
+    "message": "5",
+    "description": "Localized digit five"
+  },
+  "number_6": {
+    "message": "6",
+    "description": "Localized digit six"
+  },
+  "number_7": {
+    "message": "7",
+    "description": "Localized digit seven"
+  },
+  "number_8": {
+    "message": "8",
+    "description": "Localized digit eight"
+  },
+  "number_9": {
+    "message": "9",
+    "description": "Localized digit nine"
+  },
+  "day_0": {
+    "message": "日曜日",
+    "description": "Localized weekday name for Sunday"
+  },
+  "day_1": {
+    "message": "月曜日",
+    "description": "Localized weekday name for Monday"
+  },
+  "day_2": {
+    "message": "火曜日",
+    "description": "Localized weekday name for Tuesday"
+  },
+  "day_3": {
+    "message": "水曜日",
+    "description": "Localized weekday name for Wednesday"
+  },
+  "day_4": {
+    "message": "木曜日",
+    "description": "Localized weekday name for Thursday"
+  },
+  "day_5": {
+    "message": "金曜日",
+    "description": "Localized weekday name for Friday"
+  },
+  "day_6": {
+    "message": "土曜日",
+    "description": "Localized weekday name for Saturday"
+  },
+  "month_1": {
+    "message": "1月",
+    "description": "Localized month name for January"
+  },
+  "month_2": {
+    "message": "2月",
+    "description": "Localized month name for February"
+  },
+  "month_3": {
+    "message": "3月",
+    "description": "Localized month name for March"
+  },
+  "month_4": {
+    "message": "4月",
+    "description": "Localized month name for April"
+  },
+  "month_5": {
+    "message": "5月",
+    "description": "Localized month name for May"
+  },
+  "month_6": {
+    "message": "6月",
+    "description": "Localized month name for June"
+  },
+  "month_7": {
+    "message": "7月",
+    "description": "Localized month name for July"
+  },
+  "month_8": {
+    "message": "8月",
+    "description": "Localized month name for August"
+  },
+  "month_9": {
+    "message": "9月",
+    "description": "Localized month name for September"
+  },
+  "month_10": {
+    "message": "10月",
+    "description": "Localized month name for October"
+  },
+  "month_11": {
+    "message": "11月",
+    "description": "Localized month name for November"
+  },
+  "month_12": {
+    "message": "12月",
+    "description": "Localized month name for December"
+  },
+  "url_field_editable_tooltip": {
+    "message": "フィールドは編集可能です",
+    "description": "Tooltip shown when security confirmation is already satisfied."
+  },
+  "url_validation_https_recommended": {
+    "message": "セキュリティのためHTTPSをお勧めします",
+    "description": "Warning shown when URL is valid but does not use HTTPS."
+  },
+  "url_validation_invalid": {
+    "message": "無効なURL形式です。",
+    "description": "Error message displayed when the URL format is invalid"
+  },
+  "watchdog": {
+    "message": "[Linkumori (Clean URLS)]: ウォッチドッグが問題を検出し、すでに$TIMES$回失敗しています。",
+    "description": "This string is used as text for the watchdog",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "LinkumoriはデフォルトでURLからトラッキングパラメータを削除し、必要に応じて高度な制御を提供します。以下の機能を確認し、プライバシーポリシーとライセンスに進んでください。"
+  },
+  "welcomeHeading": {
+    "message": "Linkumoriへようこそ"
+  },
+  "welcome_migration_description": {
+    "message": "ClearURLsの設定がインポートされました。以下のLinkumori機能を確認し、プライバシーポリシーとライセンスをお読みください。",
+    "description": "Description shown on migration welcome screen."
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "プライバシー重視の組み込みルールがデフォルトで有効です。",
+    "description": "Feature list item describing default bundled rule behavior."
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "プロバイダーレベルの制御、インポート/エクスポート、ルール管理が可能なカスタムルールエディター。",
+    "description": "Feature list item describing custom rules."
+  },
+  "welcome_migration_feature_overload": {
+    "message": "オーバーロードモードでは、カスタムルールを適用する前にバンドルルールとリモートルールをマージできます。",
+    "description": "Feature list item describing overload mode."
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "複数のリモートルールソースをサポート（ルールURL + ハッシュURLのペア）。",
+    "description": "Feature list item describing multiple remote sets."
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "必要に応じて選択したドメインのクリーニングをバイパスするホワイトリストサポート。",
+    "description": "Feature list item describing whitelist behavior."
+  },
+  "welcome_migration_heading": {
+    "message": "ClearURLsの移行が完了しました",
+    "description": "Main heading on migration welcome screen."
+  },
+  "welcome_migration_open_settings": {
+    "message": "設定を開く",
+    "description": "Button label to open settings from migration welcome screen."
+  },
+  "welcome_migration_title": {
+    "message": "Linkumoriへようこそ",
+    "description": "Page title for the migration welcome screen shown after ClearURLs import."
+  },
+  "welcome_next_button": {
+    "message": "次へ: プライバシーとライセンス",
+    "description": "Button shown in guided welcome mode to continue to privacy and license sections."
+  },
+  "whitelist_add_button": {
+    "message": "追加",
+    "description": "Text for the add domain button"
+  },
+  "whitelist_add_failed": {
+    "message": "ホワイトリストへのドメイン追加に失敗しました",
+    "description": "Error message when adding domain fails"
+  },
+  "whitelist_added": {
+    "message": "%sをホワイトリストに追加しました",
+    "description": "Success message when domain is added. %s is replaced with domain name."
+  },
+  "whitelist_already_exists": {
+    "message": "ドメインは既にホワイトリストに存在するか、無効です",
+    "description": "Error message when domain already exists or is invalid"
+  },
+  "whitelist_count": {
+    "message": "%d個のドメインがホワイトリストに登録されています",
+    "description": "Text showing number of whitelisted domains. %d is replaced with the count."
+  },
+  "whitelist_empty": {
+    "message": "ホワイトリストに登録されているドメインはありません",
+    "description": "Text shown when whitelist is empty"
+  },
+  "whitelist_enter_domain": {
+    "message": "ドメイン名を入力してください",
+    "description": "Error message when trying to add empty domain"
+  },
+  "whitelist_examples_text": {
+    "message": "例: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
+    "description": "Text before domain format examples"
+  },
+  "whitelist_export_button": {
+    "message": "エクスポート",
+    "description": "Button text for exporting whitelist domains"
+  },
+  "whitelist_export_done": {
+    "message": "ホワイトリストを正常にエクスポートしました",
+    "description": "Success message when whitelist export completes"
+  },
+  "whitelist_export_empty": {
+    "message": "ホワイトリストは空です。エクスポートするものはありません。",
+    "description": "Info message when user tries to export an empty whitelist"
+  },
+  "whitelist_export_failed": {
+    "message": "ホワイトリストのエクスポートに失敗しました",
+    "description": "Error shown when whitelist export fails"
+  },
+  "whitelist_import_button": {
+    "message": "インポート",
+    "description": "Button text for importing whitelist domains"
+  },
+  "whitelist_import_done": {
+    "message": "%s個のドメインをホワイトリストにインポートしました",
+    "description": "Success message for whitelist import. %s is replaced with imported domain count"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "無効なホワイトリスト形式です。ドメインのJSON配列を使用してください。",
+    "description": "Error shown when imported whitelist structure is not supported"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "ホワイトリストファイルに有効なドメインが見つかりません",
+    "description": "Error shown when imported whitelist has no valid domain entries"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "ホワイトリストファイルの解析に失敗しました",
+    "description": "Error shown when whitelist import file is invalid JSON"
+  },
+  "whitelist_input_placeholder": {
+    "message": "example.com または *.example.com",
+    "description": "Placeholder text for the domain input field"
+  },
+  "whitelist_invalid_format": {
+    "message": "無効なドメイン形式です。example.com または *.example.com を使用してください。",
+    "description": "Error message for invalid domain format"
+  },
+  "whitelist_load_failed": {
+    "message": "ホワイトリストの読み込みに失敗しました",
+    "description": "Error message when whitelist fails to load"
+  },
+  "whitelist_remove_button": {
+    "message": "削除",
+    "description": "Text for the remove domain button"
+  },
+  "whitelist_remove_failed": {
+    "message": "ホワイトリストからのドメイン削除に失敗しました",
+    "description": "Error message when removing domain fails"
+  },
+  "whitelist_removed": {
+    "message": "%sをホワイトリストから削除しました",
+    "description": "Success message when domain is removed. %s is replaced with domain name."
+  },
+  "whitelist_search_placeholder": {
+    "message": "ホワイトリストドメインを検索",
+    "description": "Placeholder text for searching whitelisted domains"
+  },
+  "whitelist_section_description": {
+    "message": "ここに追加されたドメインは、すべてのURLクリーニングをバイパスします。これらのサイトではトラッキングパラメータが保持されます。",
+    "description": "Description explaining what the whitelist does"
+  },
+  "whitelist_section_title": {
+    "message": "ドメインホワイトリスト",
+    "description": "Title for the whitelist settings section"
+  },
+  "whitelist_update_failed": {
+    "message": "ホワイトリストの更新に失敗しました",
+    "description": "Error message when updating the whitelist fails."
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "グローバル統計をリセット",
+    "description": "This string is used as title for the statistics reset button on the popup page."
+  },
+  "popup_html_log_head_title": {
+    "message": "ログを開く",
+    "description": "This string is used as title for the log button on the popup page."
+  },
+  "popup_html_settings_button_title": {
+    "message": "設定を開く",
+    "description": "This string is used as a title for the settings button on the popup page."
+  },
+  "license_title_title": {
+    "message": "ライセンス情報",
+    "description": "Title for the license information link in the popup"
+  },
+  "license_links_title_title": {
+    "message": "ライセンスとクレジット",
+    "description": "Title for the license and credits link in the popup"
+  },
+  "popup_nav_main_title": {
+    "message": "拡張機能のメインコントロールに切り替え",
+    "description": "Tooltip for main navigation button"
+  },
+  "popup_nav_license_title": {
+    "message": "ライセンス情報に切り替え",
+    "description": "Tooltip for license information button"
+  },
+  "customrules_title": {
+    "message": "カスタムルール",
+    "description": "Title for the custom rules section"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "法的情報 - プライバシーポリシーとライセンス",
+    "description": "Title for legal information page opened from popup consent gate"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "ホワイトリスト",
+    "description": "Title for HTML content page opened from popup consent gate"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "ゲートキーパーを無効にする",
+    "description": "Label for toggle that disables gatekeeper protections for remote URL editing"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "このセッションフローでのリモートURL編集に対するゲートキーパーチェックを無効にします。",
+    "description": "Description for disable gatekeeper toggle"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "ゲートキーパー無効化が有効になりました。設定セッションごとにセキュリティ確認が必要です。",
+    "description": "Status message shown after enabling disable gatekeeper"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "ゲートキーパー無効化が無効になりました。既存の信頼された値は即時確認なしで編集できます。",
+    "description": "Status message shown after disabling disable gatekeeper"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "リモートURLをエクスポート",
+    "description": "Button text for exporting remote URL configuration only"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "リモートURLをインポート",
+    "description": "Button text for importing remote URL configuration only"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "プライマリおよび追加のリモートURLペアをエクスポート",
+    "description": "Tooltip for remote URL export button"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "プライマリおよび追加のリモートURLペアをインポート",
+    "description": "Tooltip for remote URL import button"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "ゲートキーパー無効化リスク警告",
+    "description": "Title for the disable gatekeeper risk modal"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "警告: 自己ホスト型サーバーのみを対象とした高度な機能",
+    "description": "Top warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "リモートルールのURL編集に対するゲートキーパー保護を無効にしようとしています。このリモートルール機能は、自分が何をしているかを理解している上級ユーザー専用に設計されています。これが何を意味するのかわからない場合は、この機能を使用しないでください。",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "ゲートキーパーは、セキュリティ警告を確認し、タイプによる確認を完了するまで、直接のリモートURL編集をブロックする組み込みのセキュリティフローです。",
+    "description": "Explains what gatekeeper means in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "代わりに、組み込みルールのみのソリューション（組み込みルールなど）を使用し、さらにカスタムルールを手動で作成できます。",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "プライバシー通知:",
+    "description": "Privacy section title in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "JSONファイルとハッシュファイルを取得するためにこのソフトウェアにURLを追加すると、この拡張機能がブラウザで有効化されてロードされるたびに、拡張機能は指定されたURLに接続してリモートルールJSONファイルまたはハッシュファイルを取得します。定義されたURLに基づいてファイルを取得するたびに、JSONやハッシュなどのファイルをホストしているサーバーは、お客様のIPアドレスとともに、拡張機能のバージョン、ブラウザ、ブラウザバージョンなどの一般情報を受け取ります。このデータは、問題のウェブサイトまたはウェブサーバー（それらのファイルがホストされている場所）のプライバシーポリシーの対象となります。",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "必要に応じて、続行する前に%PRIVACY_POLICY_LINK%をもう一度お読みください。",
+    "description": "Follow-up sentence in the disable gatekeeper warning modal with a privacy policy link placeholder"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "警告通知:",
+    "description": "Risks section title in disable gatekeeper modal"
+  },
+  "privacy_policy_link_label": {
+    "message": "プライバシーポリシー",
+    "description": "Label for privacy policy hyperlinks shown in warning dialogs"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "拡張機能は、拡張機能が有効化されてブラウザにロードされるたびに、指定されたURLに接続します。",
+    "description": "Risk bullet 1 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "リモートのJSONおよびハッシュファイルをホストしているサーバーは、お客様のIPアドレスを受け取ります。",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "サーバーは、お客様の拡張機能のバージョン、ブラウザ、ブラウザバージョンも受け取る可能性があります。",
+    "description": "Risk bullet 3 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "そのデータは、それらのファイルをホストしているウェブサイトまたはウェブサーバーのプライバシーポリシーの対象となります。",
+    "description": "Risk bullet 4 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "ゲートキーパーを無効にすると、安全でない、または侵害されたリモートルールソースからのリスクが高まります。この機能を理解できない場合は、使用しないでください。組み込みルールを使用し、オプションでカスタムルールを手動で作成してください。",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "キャンセル",
+    "description": "Cancel button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "続行",
+    "description": "Continue button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "リモートルールのリスクを理解し、ゲートキーパーを無効にします",
+    "description": "Exact phrase user must type to confirm disabling gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "タイプ確認が必要です",
+    "description": "Title for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "ゲートキーパーを無効にするには、以下の確認フレーズを正確に入力してください。",
+    "description": "Instruction text for gatekeeper-specific confirmation modal"
+  },
+  "redirection_warning_modal_title": {
+    "message": "リダイレクトバイパス警告",
+    "description": "Title for the warning modal shown before enabling redirect bypass."
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "この機能を有効にする前にリダイレクトルールを確認してください。",
+    "description": "Top warning line for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "この機能は、バンドル、リモート、およびカスタムソースから現在存在するリダイレクトルールを適用することにより、サードパーティの中間リダイレクトおよびトラッキングURLをバイパスできます。",
+    "description": "Main warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "最初にルールを監査してください。リダイレクトルールが広すぎる場合や閲覧に適さない場合は、この設定を有効にする前にカスタムルールエディターで編集または上書きしてください。",
+    "description": "Recommendation text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "確認事項",
+    "description": "Risks section title for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "バンドルルール、リモートルール、カスタムルールのすべてがリダイレクト動作に寄与する可能性があります。",
+    "description": "First risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "広範なリダイレクトルールは、予期しない方法でリンクを展開する可能性があります。",
+    "description": "Second risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "新しいリモートルールデータが取得されると、最新のキャッシュされたリモートルールが変更される可能性があります。",
+    "description": "Third risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "この機能に依存する前に、監査ページを使用してバンドルルール、最終ルール、カスタムルール、および最新のキャッシュされたリモートルールを検査してください。",
+    "description": "Fourth risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "さまざまなソースから現在存在するリダイレクトルールを信頼できる場合にのみ、これを有効にしてください。この機能を理解できない場合は、有効にしないでください。この設定を有効にしないと、リダイレクトバイパスルールは適用されません。",
+    "description": "Final warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "キャンセル",
+    "description": "Cancel button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_continue": {
+    "message": "続行",
+    "description": "Continue button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "リダイレクトバイパスは無効のままです。",
+    "description": "Status shown when the redirect bypass warning modal is cancelled."
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "正確な確認フレーズを入力してください",
+    "description": "Input label for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "この操作により、リモートルールに対する保護が低下します。ソースを信頼できる場合にのみ続行してください。",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "プレースホルダーの値を実際のHTTPS URLに置き換えてから、このファイルをインポートしてください。",
+    "description": "Template export note 1 for remote URL export JSON"
+  },
+  "remote_urls_template_note_2": {
+    "message": "Primaryには、メインのルール/ハッシュURLペアが含まれています。",
+    "description": "Template export note 2 for remote URL export JSON"
+  },
+  "remote_urls_template_note_3": {
+    "message": "Additionalはオプションであり、複数のルール/ハッシュURLペアをサポートしています。",
+    "description": "Template export note 3 for remote URL export JSON"
+  },
+  "remote_urls_template_note_4": {
+    "message": "必要に応じて、additional配列内のオブジェクトを追加または削除してください。",
+    "description": "Template export note 4 for remote URL export JSON"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "プライマリルールURLに置き換えてください",
+    "description": "Placeholder value for primary rule URL in template export JSON"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "プライマリハッシュURLに置き換えてください",
+    "description": "Placeholder value for primary hash URL in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "追加ルールURL_1に置き換えてください",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "追加ハッシュURL_1に置き換えてください",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "追加ルールURL_2に置き換えてください",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "追加ハッシュURL_2に置き換えてください",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "追加ルールURL_3に置き換えてください",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "追加ハッシュURL_3に置き換えてください",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
+  },
+  "remote_urls_export_success": {
+    "message": "リモートURL設定をエクスポートしました。",
+    "description": "Success status after exporting configured remote URLs"
+  },
+  "remote_urls_template_export_success": {
+    "message": "リモートURLテンプレートをエクスポートしました。プレースホルダーを入力してインポートしてください。",
+    "description": "Success status after exporting empty remote URL template"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "リモートURL設定をインポートして保存しました。",
+    "description": "Success status after importing and saving remote URL configuration"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "インポートは解析されましたが、リモートURL設定の保存に失敗しました。",
+    "description": "Error status when import parsing succeeded but saving failed"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "無効なリモートURL設定ファイルです。",
+    "description": "Error status when imported remote URL JSON is invalid"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "選択したファイルを読み取れませんでした。",
+    "description": "Error status when file reader fails for remote URL import"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "ファイル内に有効なリモートURLペアが見つかりませんでした。",
+    "description": "Error status when no valid pairs are found during remote URL import"
+  },
+  "popup_consent_title_title": {
+    "message": "同意が必要です",
+    "description": "Title for the legal information section in the popup"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "メイン機能のオン/オフを切り替え",
+    "description": "Title for the button that switches to the filter configuration view in the popup"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "拡張機能のログパフォーマンスの切り替え、すべてのデータはお客様のデバイスにローカル保存されます",
+    "description": "Title for the button that switches to the statistics view in the popup"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "バッジアイコンのオン/オフ切り替え",
+    "description": "Title for the statistics section in the popup"
+  },
+  "configs_switch_statistics_title": {
+    "message": "統計のオン/オフ切り替え",
+    "description": "Title for the button that switches to the license and credits view in the popup"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "要素",
+    "description": "Title for the statistics section in the popup"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "ブロック済み",
+    "description": "Description for the elements statistic in the popup"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "パーセンテージ",
+    "description": "Description for the blocked statistic in the popup"
+  },
+  "audit_html_page_title": {
+    "message": "Linkumori ルール監査",
+    "description": "Title for the audit page"
+  },
+  "audit_badge_label": {
+    "message": "監査",
+    "description": "Small badge label in the audit page header"
+  },
+  "audit_section_title": {
+    "message": "ルール監査",
+    "description": "Main section title for the audit page"
+  },
+  "audit_viewer_title": {
+    "message": "ルールソースビューア",
+    "description": "Title for the audit source viewer card"
+  },
+  "audit_viewer_description": {
+    "message": "以下のソースボタンを使用して、バンドルルール、最終マージルール、カスタムルール、またはキャッシュに保存された最新の取得済みリモートルールを生のJSONとして検査します。",
+    "description": "Description for the audit source viewer"
+  },
+  "audit_refresh_button": {
+    "message": "ソースを更新",
+    "description": "Refresh button label on the audit page"
+  },
+  "audit_faq_button": {
+    "message": "FAQ",
+    "description": "FAQ button label on the audit page"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "テーマを切り替え",
+    "description": "Accessible label for the theme toggle on the audit page"
+  },
+  "audit_faq_close_aria": {
+    "message": "FAQを閉じる",
+    "description": "Accessible label for the FAQ modal close button"
+  },
+  "audit_source_bundled": {
+    "message": "バンドルルール",
+    "description": "Button and title for bundled rules audit source"
+  },
+  "audit_source_final": {
+    "message": "最終ルール",
+    "description": "Button and title for final merged rules audit source"
+  },
+  "audit_source_custom": {
+    "message": "カスタムルール",
+    "description": "Button and title for custom rules audit source"
+  },
+  "audit_source_remote": {
+    "message": "最新のキャッシュ済みリモートルール",
+    "description": "Button and title for latest cached remote rules audit source"
+  },
+  "audit_source_bundled_description": {
+    "message": "ソース: バンドルファイル data/linkumori-clearurls-min.json",
+    "description": "Source description for bundled rules"
+  },
+  "audit_source_final_description": {
+    "message": "ソース: ランタイムストレージ ClearURLsData",
+    "description": "Source description for final rules"
+  },
+  "audit_source_custom_description": {
+    "message": "ソース: ランタイムストレージ custom_rules",
+    "description": "Source description for custom rules"
+  },
+  "audit_source_remote_description": {
+    "message": "ソース: ランタイムストレージ remoteRulescache.data (ローカルにキャッシュされた最新の取得済みリモートルール)",
+    "description": "Source description for latest cached remote rules"
+  },
+  "audit_meta_waiting": {
+    "message": "待機中...",
+    "description": "Meta text shown before audit data is loaded"
+  },
+  "audit_meta_error": {
+    "message": "エラー",
+    "description": "Meta text shown when a selected audit source has an error"
+  },
+  "audit_meta_source_bundled": {
+    "message": "バンドルルール",
+    "description": "Meta label for bundled rules source"
+  },
+  "audit_meta_source_final": {
+    "message": "最終ルール",
+    "description": "Meta label for final rules source"
+  },
+  "audit_meta_source_custom": {
+    "message": "カスタムルール",
+    "description": "Meta label for custom rules source"
+  },
+  "audit_meta_source_remote": {
+    "message": "リモートキャッシュ",
+    "description": "Meta label for latest cached remote rules source"
+  },
+  "audit_meta_template": {
+    "message": "$1 | プロバイダー: $2 | 文字数: $3",
+    "description": "Template for audit source meta information"
+  },
+  "audit_status_loading": {
+    "message": "監査ソースを読み込み中...",
+    "description": "Status shown while loading audit sources"
+  },
+  "audit_status_loaded": {
+    "message": "すべての監査ソースが読み込まれました。",
+    "description": "Status shown when all audit sources load successfully"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "監査ソースは読み込まれました。最新のキャッシュされたリモートルールはまだ利用できません。",
+    "description": "Status shown when audit sources load but remote cache is not yet available"
+  },
+  "audit_status_partial_error": {
+    "message": "一部の監査ソースの読み込みに失敗しました。ソースを切り替えてエラーJSONを検査してください。",
+    "description": "Status shown when one or more audit sources fail to load"
+  },
+  "audit_status_refresh_failed": {
+    "message": "監査ソースの更新に失敗しました。",
+    "description": "Fallback error shown when refreshing audit sources fails"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "バンドルルールの取得に失敗しました（ステータス $1）",
+    "description": "Error shown when fetching bundled rules fails"
+  },
+  "audit_error_final_missing": {
+    "message": "ランタイムが ClearURLsData を返しませんでした",
+    "description": "Error shown when final rules are missing from runtime storage"
+  },
+  "audit_error_custom_missing": {
+    "message": "ランタイムが custom_rules を返しませんでした",
+    "description": "Error shown when custom rules are missing from runtime storage"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "ランタイムが remoteRulescache を返しませんでした",
+    "description": "Error shown when remote cache is missing from runtime storage"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "不明なバンドルルールエラー",
+    "description": "Fallback bundled rules error"
+  },
+  "audit_error_unknown_final": {
+    "message": "不明な最終ルールエラー",
+    "description": "Fallback final rules error"
+  },
+  "audit_error_unknown_custom": {
+    "message": "不明なカスタムルールエラー",
+    "description": "Fallback custom rules error"
+  },
+  "audit_error_unknown_remote": {
+    "message": "不明なリモートルールエラー",
+    "description": "Fallback remote rules error"
+  },
+  "audit_remote_unavailable": {
+    "message": "キャッシュされたリモートルールはまだ利用できません",
+    "description": "Message shown when remote cache has not been populated yet"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "キャッシュされたリモートルールのペイロードはまだ利用できません",
+    "description": "Message shown when remote cache exists but has no data payload"
+  },
+  "audit_faq_modal_title": {
+    "message": "監査FAQ",
+    "description": "Title for the audit FAQ modal"
+  },
+  "audit_faq_intro": {
+    "message": "これらの注意事項は、clearurls.jsがルールを構築および適用する際に実際に読み取るプロバイダーフィールドを説明しています。",
+    "description": "Intro text for the audit FAQ modal"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "プロバイダーを監査するにはどうすればよいですか？",
+    "description": "FAQ title for auditing a provider"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p>ビューアでソースを開き、<span class=\"faq-code\">providers</span>内のプロバイダーを見つけ、そのプロバイダーオブジェクトのキーを検査します。</p><p>提供されているルールを検査するには<span class=\"faq-code\">バンドルルール</span>、ランタイムのマージ結果を検査するには<span class=\"faq-code\">最終ルール</span>、ユーザーの上書きを検査するには<span class=\"faq-code\">カスタムルール</span>、キャッシュに保存された最新の取得済みリモートペイロードを検査するには<span class=\"faq-code\">最新のキャッシュ済みリモートルール</span>を使用します。</p>",
+    "description": "FAQ body for auditing a provider"
+  },
+  "audit_faq_override_title": {
+    "message": "個々のルールを有効化、無効化、インポート、編集、または上書きするにはどうすればよいですか？",
+    "description": "FAQ title for custom rule editing and overrides"
+  },
+  "audit_faq_override_body": {
+    "message": "<p>ルールごとの制御が必要な場合は、カスタムルールエディターを使用してください。そこでは、ルールをカスタムルールとしてインポートし、プロバイダーフィールドを編集し、独自のバージョンのプロバイダーを保存できます。</p><p>インポートまたは編集したプロバイダーをカスタムバージョンに変換することで、個々のプロバイダーまたは個々のルールコンテンツを有効または無効にできます。そのカスタムバージョンはランタイムルールにマージされます。</p><p>バンドルルールとリモートルールを個別に上書きすることもできます。<span class=\"faq-code\">バンドルルール</span>または<span class=\"faq-code\">最新のキャッシュ済みリモートルール</span>を監査して目的のプロバイダーを見つけ、<span class=\"faq-code\">カスタムルール</span>と<span class=\"faq-code\">最終ルール</span>を検査して、カスタム編集または上書きが有効になっていることを確認します。</p><p>ルールセットをカスタムルールエディターにインポートする場合は、必要な部分のみを保持し、不要な部分を無効にし、最終的なマージ出力が意図したとおりに動作するようにプロバイダーを編集できます。</p>",
+    "description": "FAQ body for custom rule editing and overrides"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "urlPatternとは何ですか？",
+    "description": "FAQ title for urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPattern</span>は、プロバイダーがURLに一致するかどうかを決定するために使用される正規表現です。</p><p>プロバイダーに<span class=\"faq-code\">urlPattern</span>がある場合、ClearURLsは最初にその正規表現を使用します。clearurls.jsでは、これは<span class=\"faq-code\">setURLPattern()</span>によって実際のRegExpに変換されます。</p>",
+    "description": "FAQ body for urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "domainPatternsとは何ですか？",
+    "description": "FAQ title for domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\">domainPatterns</span>は、プロバイダーが<span class=\"faq-code\">urlPattern</span>に依存しない場合に使用されるドメインベースのマッチャーです。</p><p>ClearURLsはこれらを<span class=\"faq-code\">setURLDomainPattern()</span>で保存し、正規表現のURLマッチングではなくドメインマッチングロジックでチェックします。</p>",
+    "description": "FAQ body for domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "rules、rawRules、referralMarketingとは何ですか？",
+    "description": "FAQ title for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">rules</span>は、URLから削除する必要があるパラメータ名またはフラグメント名です。</p><p><span class=\"faq-code\">rawRules</span>は、クエリのクリーンアップ前にURL文字列全体に直接適用される正規表現置換です。</p><p><span class=\"faq-code\">referralMarketing</span>も削除可能なパラメータのように扱われますが、実際に使用されるかどうかはグローバルな紹介マーケティング設定によって異なります。</p>",
+    "description": "FAQ body for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "exceptionsとdomainExceptionsとは何ですか？",
+    "description": "FAQ title for exceptions and domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\">exceptions</span>は、一致するURLに対するプロバイダーの動作を停止させる正規表現パターンです。</p><p><span class=\"faq-code\">domainExceptions</span>は、正規表現のURLマッチングではなくドメインベースのマッチングで同じことを行います。</p><p>例外が一致すると、メインパターンが最初に一致した場合でもプロバイダーはバイパスされます。</p>",
+    "description": "FAQ body for exceptions and domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "redirectionsとdomainRedirectionsとは何ですか？",
+    "description": "FAQ title for redirections and domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\">redirections</span>は正規表現ベースのアンラッパーです。通常、実際の宛先URLをグループ1でキャプチャし、ClearURLsはそのキャプチャされた値にリダイレクトします。</p><p><span class=\"faq-code\">domainRedirections</span>はドメインスタイルのリダイレクトルールです。このコードベースでは、<span class=\"faq-code\">pattern $redirect= target</span>の形式のエントリがないかチェックされます。</p><p>最初に正規表現リダイレクトが一致した場合、それが優先されます。一致しない場合、ClearURLsは次にドメインリダイレクトをチェックします。</p>",
+    "description": "FAQ body for redirections and domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "methodsとresourceTypesとは何ですか？",
+    "description": "FAQ title for methods and resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "<p><span class=\"faq-code\">methods</span>は、プロバイダーを<span class=\"faq-code\">GET</span>や<span class=\"faq-code\">POST</span>などの特定のHTTPメソッドに制限します。メソッドがリストされていない場合、すべてのメソッドが許可されます。</p><p><span class=\"faq-code\">resourceTypes</span>は、プロバイダーを<span class=\"faq-code\">main_frame</span>、<span class=\"faq-code\">sub_frame</span>、<span class=\"faq-code\">xmlhttprequest</span>などのwebRequestリソースタイプに制限します。</p><p>リソースタイプがリストされていない場合、ClearURLsは設定からのグローバルに許可されたリクエストタイプにフォールバックします。</p>",
+    "description": "FAQ body for methods and resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "completeProviderとforceRedirectionとは何ですか？",
+    "description": "FAQ title for completeProvider and forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\">completeProvider</span>はプロバイダーをブロックプロバイダーに変えます。clearurls.jsでは、ドメインブロッキングが有効な場合、プロバイダーが一致するリクエストをキャンセルできることを意味します。</p><p><span class=\"faq-code\">forceRedirection</span>はリダイレクトをより積極的にします。<span class=\"faq-code\">main_frame</span>リクエストでリダイレクトが見つかると、ClearURLsは通常のリダイレクト応答を返す代わりにブラウザタブを直接更新できます。</p>",
+    "description": "FAQ body for completeProvider and forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "clearurls.jsはここでどのプロバイダーフィールドを使用しますか？",
+    "description": "FAQ title for the list of provider fields used by clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p>このブランチのプロバイダー構築パスは、次のキーを読み取ります: <span class=\"faq-code\">completeProvider</span>、<span class=\"faq-code\">forceRedirection</span>、<span class=\"faq-code\">urlPattern</span>、<span class=\"faq-code\">domainPatterns</span>、<span class=\"faq-code\">rules</span>、<span class=\"faq-code\">rawRules</span>、<span class=\"faq-code\">referralMarketing</span>、<span class=\"faq-code\">exceptions</span>、<span class=\"faq-code\">domainExceptions</span>、<span class=\"faq-code\">redirections</span>、<span class=\"faq-code\">domainRedirections</span>、<span class=\"faq-code\">methods</span>、<span class=\"faq-code\">resourceTypes</span>。</p><p>動作を監査する場合、最も重要なチェック箇所は<span class=\"faq-code\">最終ルール</span>です。これは、バンドル、リモート、カスタムソースが結合された後のマージ結果を示すためです。</p>",
+    "description": "FAQ body for the list of provider fields used by clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "一時停止",
+    "description": "Auto-added i18n key: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "15分間一時停止",
+    "description": "Auto-added i18n key: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "1時間一時停止",
+    "description": "Auto-added i18n key: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "再起動まで",
+    "description": "Auto-added i18n key: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "今すぐ再開",
+    "description": "Auto-added i18n key: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "アクティブ",
+    "description": "Auto-added i18n key: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "ブラウザ再起動まで一時停止中",
+    "description": "Auto-added i18n key: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "一時停止中（残り %s）",
+    "description": "Auto-added i18n key: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "一時停止状態の更新に失敗しました。",
+    "description": "Auto-added i18n key: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "クリーニングの再開に失敗しました。",
+    "description": "Auto-added i18n key: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "1分未満",
+    "description": "Auto-added i18n key: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "分",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "時間",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "リモートルールの健全性",
+    "description": "Auto-added i18n key: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "今すぐ更新",
+    "description": "Auto-added i18n key: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "最終取得試行:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "最終成功取得:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "最終ハッシュ検証:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "最終失敗理由:",
+    "description": "Auto-added i18n key: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "現在のハッシュステータス:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "該当なし",
+    "description": "Auto-added i18n key: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "なし",
+    "description": "Auto-added i18n key: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "不明",
+    "description": "Auto-added i18n key: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "更新中...",
+    "description": "Auto-added i18n key: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "リモートルールの更新が完了しました。",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "リモートルールの更新に失敗しました。",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "ルールテストラボ",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "ルールテストラボ",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "URLを貼り付けて、クリーニング前後と最初に一致したプロバイダー/ルールを確認します。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "テストを実行",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "テスト中...",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "最初にURLを入力してください。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "ルールテストに失敗しました。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "一致し、正常にクリーンアップされました。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "このURLには変更が適用されませんでした。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "URLが必要です",
+    "description": "Auto-added i18n key: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "無効なURL形式",
+    "description": "Auto-added i18n key: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "ルールテストに失敗しました",
+    "description": "Auto-added i18n key: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "テーマを切り替え",
+    "description": "ARIA label for popup theme toggle button"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "ドメインを検出中...",
+    "description": "Temporary label shown while popup detects current tab domain for whitelist button"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "%s を追加中...",
+    "description": "Whitelist button loading label when adding domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "%s を削除中...",
+    "description": "Whitelist button loading label when removing domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "このページのドメインを検出できません",
+    "description": "Tooltip for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "このページにはサポートされているドメインがないため、ホワイトリストボタンは無効です",
+    "description": "ARIA label for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_pause_15m_title": {
+    "message": "クリーニングを15分間一時停止",
+    "description": "Tooltip and ARIA label for the 15-minute temporary pause button in popup"
+  },
+  "popup_pause_1h_title": {
+    "message": "クリーニングを1時間一時停止",
+    "description": "Tooltip and ARIA label for the 1-hour temporary pause button in popup"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "ブラウザを再起動するまでクリーニングを一時停止",
+    "description": "Tooltip and ARIA label for the pause-until-restart button in popup"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "URLクリーニングを今すぐ再開",
+    "description": "Tooltip and ARIA label for the resume-now button in popup"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "URLクリーニングを一時停止",
+    "description": "Tooltip for temporary pause section title in popup"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "現在のページで処理された要素の総数",
+    "description": "Tooltip for popup total elements label"
+  },
+  "popup_consent_description_title": {
+    "message": "同意する前にこれを読んでください",
+    "description": "Tooltip for popup consent description"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "読み、同意したことを確認",
+    "description": "Tooltip for popup consent checkbox label"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "同意してポップアップのロックを解除",
+    "description": "Tooltip for popup consent accept button"
+  },
+  "license_third_party_title_title": {
+    "message": "サードパーティコンポーネント情報",
+    "description": "Tooltip for third-party section title"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "Firefoxアドオン署名ダイジェスト",
+    "description": "Tooltip for Firefox signature title label"
+  },
+  "invalid_date_label": {
+    "message": "無効な日付",
+    "description": "Fallback text when a date value cannot be parsed."
+  },
+  "log_i18n_load_failed": {
+    "message": "国際化の読み込みに失敗しました。一部の機能が正しく動作しない可能性があります。",
+    "description": "Error message shown when log page translations fail to load."
+  },
+  "log_html_sort_oldest_first": {
+    "message": "クリックで古い順に表示",
+    "description": "Tooltip for log timestamp sort button when currently newest-first."
+  },
+  "log_html_sort_newest_first": {
+    "message": "クリックで新しい順に表示",
+    "description": "Tooltip for log timestamp sort button when currently oldest-first."
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "ルールテストラボを閉じる",
+    "description": "ARIA label for closing the Rule Test Lab modal."
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "入力URL",
+    "description": "Label for input URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "出力URL",
+    "description": "Label for output URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "変更済み",
+    "description": "Label indicating whether URL was changed in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "一致したプロバイダー",
+    "description": "Label for matched provider in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "一致したルール",
+    "description": "Label for matched rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "パターンタイプ",
+    "description": "Label for pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "パターン値",
+    "description": "Label for pattern value in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "アクション",
+    "description": "Label for matched action in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "テストするオプションパラメータ（例: utm_source または ref=abc）",
+    "description": "Placeholder for optional parameter probe input in Rule Test Lab."
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "テストされたパラメータ",
+    "description": "Label for tested parameter probe in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "一致した例外",
+    "description": "Label for matched URL regex exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "一致したドメイン例外",
+    "description": "Label for matched domain exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "一致したリダイレクト",
+    "description": "Label for matched regex redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "一致したドメインリダイレクト",
+    "description": "Label for matched domain redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "一致したルール正規表現",
+    "description": "Label for matched standard rule regex in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "一致した生ルール",
+    "description": "Label for matched raw rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "一致した紹介ルール",
+    "description": "Label for matched referral marketing rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "一致した$removeparamルール",
+    "description": "Label for matched $removeparam rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "一致した@@$removeparam例外",
+    "description": "Label for matched @@$removeparam exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "完全なプロバイダー",
+    "description": "Label for completeProvider boolean in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "なし",
+    "description": "Fallback value in Rule Test Lab output when there is no value."
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "はい",
+    "description": "Boolean true label in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "いいえ",
+    "description": "Boolean false label in Rule Test Lab output."
+  },
+  "color_picket_clear": {
+    "message": "クリア",
+    "description": "Clear button in color picker."
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "ルールを強制",
+    "description": "Legacy/alias label for enforcing custom rules."
+  },
+  "log_stats_chart_type_bar": {
+    "message": "棒グラフ",
+    "description": "Label for the bar chart option."
+  },
+  "log_stats_chart_type_line": {
+    "message": "折れ線グラフ",
+    "description": "Label for the line chart option."
+  },
+  "log_stats_daily_activity": {
+    "message": "日別アクティビティ（過去14日間）",
+    "description": "Stats section title for daily activity chart/table."
+  },
+  "log_stats_date_col": {
+    "message": "日付",
+    "description": "Header for the date column in daily stats table."
+  },
+  "log_stats_entries_col": {
+    "message": "エントリ",
+    "description": "Header for the entries column in daily stats table."
+  },
+  "log_stats_no_activity": {
+    "message": "アクティビティなし",
+    "description": "Fallback row label when no daily stats data is available."
+  }
+}
