@@ -157,6 +157,55 @@ function getPopupI18nMessage(key, substitutions, fallback = '') {
     return fallback || `[${key}]`;
 }
 
+function getPopupLanguageCode() {
+    const i18n = getPopupI18n();
+    try {
+        if (i18n && typeof i18n.getUILanguage === 'function') {
+            return i18n.getUILanguage() || 'en';
+        }
+        if (i18n && typeof i18n.getCurrentLanguage === 'function') {
+            const currentLanguage = i18n.getCurrentLanguage();
+            return currentLanguage?.code || 'en';
+        }
+    } catch (error) {
+    }
+    return 'en';
+}
+
+function applyPopupLanguageLayout() {
+    const languageCode = getPopupLanguageCode();
+    const normalizedLanguage = String(languageCode || 'en').replace('_', '-');
+    const baseLanguage = normalizedLanguage.split('-')[0].toLowerCase();
+    const isRtl = ['ar', 'fa', 'he', 'ur'].includes(baseLanguage);
+
+    document.documentElement.lang = normalizedLanguage;
+    document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+
+    requestAnimationFrame(() => {
+        const adaptiveElements = Array.from(document.querySelectorAll([
+            '.nav-item',
+            '.toggle-label',
+            '.pause-title',
+            '.pause-status',
+            '.pause-buttons button',
+            '.button-group button',
+            '.popup-consent-card button',
+            '.popup-consent-card span'
+        ].join(',')));
+
+        const hasLongLabels = adaptiveElements.some((item) => {
+            const isVisible = item.offsetParent !== null || item.getClientRects().length > 0;
+            if (!isVisible) {
+                return false;
+            }
+            const text = (item.textContent || '').trim();
+            return text.length > 28;
+        });
+
+        document.body.classList.toggle('popup-long-text', hasLongLabels);
+    });
+}
+
 function getPopupConsentPolicyVersion() {
     const version = Number(globalThis.Linkumoriversion);
     if (!Number.isInteger(version) || version <= 0) {
@@ -657,6 +706,7 @@ async function handleDynamicWhitelistToggle() {
         button.setAttribute('title', loadingText);
         button.setAttribute('aria-label', loadingText);
         button.disabled = true;
+        applyPopupLanguageLayout();
     }
     
     // Update local state immediately for instant UI response
@@ -747,6 +797,7 @@ async function updateDynamicWhitelistButton() {
         button.disabled = true;
         button.setAttribute('title', unavailableTitle);
         button.setAttribute('aria-label', unavailableAria);
+        applyPopupLanguageLayout();
         return;
     }
 
@@ -782,6 +833,8 @@ async function updateDynamicWhitelistButton() {
     } else {
         button.classList.add('not-whitelisted');
     }
+
+    applyPopupLanguageLayout();
     
     // Set helpful tooltip with current status
 
@@ -1100,16 +1153,19 @@ function renderTemporaryPauseState() {
 
     if (!temporaryPauseState || !temporaryPauseState.isPaused) {
         statusEl.textContent = translate('popup_pause_status_active');
+        applyPopupLanguageLayout();
         return;
     }
 
     if (temporaryPauseState.mode === 'until_restart') {
         statusEl.textContent = translate('popup_pause_status_until_restart');
+        applyPopupLanguageLayout();
         return;
     }
 
     const remainingText = formatPauseRemaining(temporaryPauseState.remainingMs);
     statusEl.textContent = translate('popup_pause_status_timed').replace('%s', remainingText);
+    applyPopupLanguageLayout();
 }
 
 async function setTemporaryPause(minutes = null) {
@@ -1763,6 +1819,7 @@ function getGlobalVariable(varName) {
             dynamicWhitelistBtn.textContent = detectingText;
             dynamicWhitelistBtn.setAttribute('title', detectingText);
             dynamicWhitelistBtn.setAttribute('aria-label', detectingText);
+            applyPopupLanguageLayout();
         }
         
         // Set up toggle switches
@@ -1851,6 +1908,7 @@ function getGlobalVariable(varName) {
                     button.textContent = fallbackText;
                     button.setAttribute('title', fallbackText);
                     button.setAttribute('aria-label', fallbackText);
+                    applyPopupLanguageLayout();
                 }
             }
         }).catch(() => {});
@@ -1986,6 +2044,8 @@ function setText() {
         // Set license version (get from manifest or version element)
         const versionElement = document.getElementById('version');
         const licenseVersionElement = document.getElementById('license_version');
+        const nameElement = document.getElementById('name');
+        const licenseNameElement = document.getElementById('license_name');
         if (versionElement && licenseVersionElement) {
             // Wait a bit for the version to be set by write_version.js
             setTimeout(() => {
@@ -1996,10 +2056,18 @@ function setText() {
                     : version;
                 versionElement.textContent = localizedVersion;
                 licenseVersionElement.textContent = localizedVersion;
+                if (nameElement && licenseNameElement) {
+                    licenseNameElement.textContent = nameElement.textContent || '';
+                    if (nameElement.getAttribute('title')) {
+                        licenseNameElement.setAttribute('title', nameElement.getAttribute('title'));
+                    }
+                }
+                applyPopupLanguageLayout();
             }, 100);
         }
 
         updateFirefoxSignatureDisplay();
+        applyPopupLanguageLayout();
         
     } catch (error) {
         // Don't fail completely if text setting fails

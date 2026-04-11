@@ -166,13 +166,304 @@ let applyCustomRulesView = null;
  * @returns {string} Localized number string
  */
 function getLocalizedNumber(number) {
-    // Direct conversion using LinkumoriI18n only
-    return LinkumoriI18n ? LinkumoriI18n.localizeNumbers(number) : number.toString();
+    try {
+        if (typeof LinkumoriI18n !== 'undefined') {
+            if (typeof LinkumoriI18n.formatNumber === 'function') {
+                return LinkumoriI18n.formatNumber(number, { maximumFractionDigits: 0 });
+            }
+            if (typeof LinkumoriI18n.localizeNumbers === 'function') {
+                return LinkumoriI18n.localizeNumbers(String(number));
+            }
+        }
+    } catch (_) {
+    }
+    return String(number);
 }
 
 // i18n helper function
 function i18n(key, ...substitutions) {
     return (LinkumoriI18n && LinkumoriI18n.getMessage(key, substitutions)) || key;
+}
+
+const JSON_TEXTMATE_GRAMMAR = Object.freeze({
+    name: 'JSON',
+    scopeName: 'source.json',
+    fileTypes: Object.freeze(['json']),
+    patterns: Object.freeze([
+        { include: '#object' },
+        { include: '#array' },
+        { include: '#string' },
+        { include: '#number' },
+        { include: '#constant' },
+        { include: '#punctuation' },
+        { include: '#invalid' }
+    ]),
+    repository: Object.freeze({
+        object: Object.freeze({
+            name: 'meta.structure.dictionary.json',
+            begin: '\\{',
+            beginCaptures: Object.freeze({
+                0: Object.freeze({ name: 'punctuation.definition.dictionary.begin.json' })
+            }),
+            end: '\\}',
+            endCaptures: Object.freeze({
+                0: Object.freeze({ name: 'punctuation.definition.dictionary.end.json' })
+            }),
+            patterns: Object.freeze([
+                { include: '#property' },
+                { include: '#array' },
+                { include: '#string' },
+                { include: '#number' },
+                { include: '#constant' },
+                { include: '#punctuation' },
+                { include: '#invalid' }
+            ])
+        }),
+        array: Object.freeze({
+            name: 'meta.structure.array.json',
+            begin: '\\[',
+            beginCaptures: Object.freeze({
+                0: Object.freeze({ name: 'punctuation.definition.array.begin.json' })
+            }),
+            end: '\\]',
+            endCaptures: Object.freeze({
+                0: Object.freeze({ name: 'punctuation.definition.array.end.json' })
+            }),
+            patterns: Object.freeze([
+                { include: '#object' },
+                { include: '#array' },
+                { include: '#string' },
+                { include: '#number' },
+                { include: '#constant' },
+                { include: '#punctuation' },
+                { include: '#invalid' }
+            ])
+        }),
+        property: Object.freeze({
+            name: 'meta.object-literal.key.json',
+            begin: '"',
+            beginCaptures: Object.freeze({
+                0: Object.freeze({ name: 'punctuation.definition.string.begin.json' })
+            }),
+            end: '"\\s*(?=:)',
+            endCaptures: Object.freeze({
+                0: Object.freeze({ name: 'punctuation.definition.string.end.json' })
+            }),
+            contentName: 'entity.name.tag.json',
+            patterns: Object.freeze([{ include: '#escape' }])
+        }),
+        string: Object.freeze({
+            name: 'string.quoted.double.json',
+            begin: '"',
+            beginCaptures: Object.freeze({
+                0: Object.freeze({ name: 'punctuation.definition.string.begin.json' })
+            }),
+            end: '"',
+            endCaptures: Object.freeze({
+                0: Object.freeze({ name: 'punctuation.definition.string.end.json' })
+            }),
+            patterns: Object.freeze([{ include: '#escape' }])
+        }),
+        escape: Object.freeze({
+            name: 'constant.character.escape.json',
+            match: '\\\\(?:["\\\\/bfnrt]|u[0-9a-fA-F]{4})'
+        }),
+        number: Object.freeze({
+            name: 'constant.numeric.json',
+            match: '-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?'
+        }),
+        constant: Object.freeze({
+            name: 'constant.language.json',
+            match: '\\b(?:true|false|null)\\b'
+        }),
+        punctuation: Object.freeze({
+            name: 'punctuation.separator.dictionary.pair.json',
+            match: '[{}\\[\\]:,]'
+        }),
+        invalid: Object.freeze({
+            name: 'invalid.illegal.unexpected-token.json',
+            match: '\\S'
+        })
+    })
+});
+
+function getJsonTextMateRule(ruleName) {
+    return JSON_TEXTMATE_GRAMMAR.repository[ruleName] || null;
+}
+
+function getJsonTextMateScope(ruleName, fieldName = 'name', fallback = 'source.json') {
+    const rule = getJsonTextMateRule(ruleName);
+    return (rule && rule[fieldName]) || fallback;
+}
+
+function getJsonTextMateCaptureScope(ruleName, fieldName, fallback) {
+    const rule = getJsonTextMateRule(ruleName);
+    return (rule && rule[fieldName] && rule[fieldName][0] && rule[fieldName][0].name) || fallback;
+}
+
+function getJsonTextMateClass(scopeName) {
+    switch (scopeName) {
+        case 'entity.name.tag.json':
+            return 'tm-json-key';
+        case 'string.quoted.double.json':
+            return 'tm-json-string';
+        case 'constant.character.escape.json':
+            return 'tm-json-escape';
+        case 'constant.numeric.json':
+            return 'tm-json-number';
+        case 'constant.language.json':
+            return 'tm-json-constant';
+        case 'punctuation.definition.string.begin.json':
+        case 'punctuation.definition.string.end.json':
+        case 'punctuation.definition.dictionary.json':
+        case 'punctuation.definition.dictionary.begin.json':
+        case 'punctuation.definition.dictionary.end.json':
+        case 'punctuation.definition.array.begin.json':
+        case 'punctuation.definition.array.end.json':
+        case 'punctuation.separator.dictionary.pair.json':
+            return 'tm-json-punctuation';
+        case 'invalid.illegal.json':
+        case 'invalid.illegal.unexpected-token.json':
+            return 'tm-json-invalid';
+        default:
+            return 'tm-json-text';
+    }
+}
+
+function wrapJsonTextMateToken(value, scopeName) {
+    const className = getJsonTextMateClass(scopeName);
+    return `<span class="tm-json ${className}" data-tm-scope="${scopeName}">${escapeHtml(value)}</span>`;
+}
+
+function renderJsonTextMateStringContent(value, scopeName) {
+    const className = getJsonTextMateClass(scopeName);
+    const escapeScope = getJsonTextMateScope('escape', 'name', 'constant.character.escape.json');
+    let html = '';
+    for (let i = 0; i < value.length; i++) {
+        if (value[i] === '\\' && i + 1 < value.length) {
+            html += wrapJsonTextMateToken(value.slice(i, i + 2), escapeScope);
+            i++;
+        } else {
+            html += escapeHtml(value[i]);
+        }
+    }
+    return `<span class="tm-json ${className}" data-tm-scope="${scopeName}">${html}</span>`;
+}
+
+function renderJsonTextMateString(value, ruleName) {
+    const rule = getJsonTextMateRule(ruleName) || getJsonTextMateRule('string');
+    const contentScope = rule.contentName || rule.name || 'string.quoted.double.json';
+    const beginScope = getJsonTextMateCaptureScope(ruleName, 'beginCaptures', 'punctuation.definition.string.begin.json');
+    const endScope = getJsonTextMateCaptureScope(ruleName, 'endCaptures', 'punctuation.definition.string.end.json');
+    const hasClosingQuote = value.length > 1 && value[value.length - 1] === '"';
+    const contentEnd = hasClosingQuote ? value.length - 1 : value.length;
+
+    let html = wrapJsonTextMateToken(value[0], beginScope);
+    if (contentEnd > 1) {
+        html += renderJsonTextMateStringContent(value.slice(1, contentEnd), contentScope);
+    }
+    if (hasClosingQuote) {
+        html += wrapJsonTextMateToken(value[value.length - 1], endScope);
+    }
+    return html;
+}
+
+function readJsonStringEnd(text, start) {
+    let index = start + 1;
+    while (index < text.length) {
+        const character = text[index];
+        if (character === '\\') {
+            index += 2;
+            continue;
+        }
+        if (character === '"') {
+            return index + 1;
+        }
+        index++;
+    }
+    return index;
+}
+
+function isJsonPropertyName(text, stringEnd) {
+    let index = stringEnd;
+    while (index < text.length && /\s/.test(text[index])) {
+        index++;
+    }
+    return text[index] === ':';
+}
+
+function highlightJsonWithTextMateGrammar(text) {
+    if (!text) {
+        return ' ';
+    }
+
+    let html = '';
+    let index = 0;
+
+    while (index < text.length) {
+        const character = text[index];
+
+        if (/\s/.test(character)) {
+            html += escapeHtml(character);
+            index++;
+            continue;
+        }
+
+        if (character === '"') {
+            const end = readJsonStringEnd(text, index);
+            const value = text.slice(index, end);
+            const ruleName = isJsonPropertyName(text, end) ? 'property' : 'string';
+            html += renderJsonTextMateString(value, ruleName);
+            index = end;
+            continue;
+        }
+
+        const rest = text.slice(index);
+        const numberRule = getJsonTextMateRule('number');
+        const numberMatch = rest.match(new RegExp(`^${numberRule.match}`));
+        if (numberMatch) {
+            html += wrapJsonTextMateToken(numberMatch[0], numberRule.name);
+            index += numberMatch[0].length;
+            continue;
+        }
+
+        const constantRule = getJsonTextMateRule('constant');
+        const constantMatch = rest.match(new RegExp(`^${constantRule.match}`));
+        if (constantMatch) {
+            html += wrapJsonTextMateToken(constantMatch[0], constantRule.name);
+            index += constantMatch[0].length;
+            continue;
+        }
+
+        const punctuationRule = getJsonTextMateRule('punctuation');
+        if (new RegExp(`^${punctuationRule.match}$`).test(character)) {
+            html += wrapJsonTextMateToken(character, punctuationRule.name);
+            index++;
+            continue;
+        }
+
+        html += wrapJsonTextMateToken(character, getJsonTextMateScope('invalid', 'name', 'invalid.illegal.json'));
+        index++;
+    }
+
+    return html;
+}
+
+function syncJsonTextMateScroll(jsonEditor) {
+    const highlightLayer = document.getElementById('json-editor-highlight');
+    if (!jsonEditor || !highlightLayer) {
+        return;
+    }
+    highlightLayer.style.transform = `translate(${-jsonEditor.scrollLeft}px, ${-jsonEditor.scrollTop}px)`;
+}
+
+function updateJsonTextMateHighlighting(jsonEditor = document.getElementById('json-editor')) {
+    const highlightLayer = document.getElementById('json-editor-highlight');
+    if (!jsonEditor || !highlightLayer) {
+        return;
+    }
+    highlightLayer.innerHTML = highlightJsonWithTextMateGrammar(jsonEditor.value);
+    syncJsonTextMateScroll(jsonEditor);
 }
 
 function modalAlert(message) {
@@ -1366,9 +1657,9 @@ function createProviderListItemHTML(providerName, provider) {
     if (referralCount > 0) stats.push(`${getLocalizedNumber(referralCount)} ${i18n('providerList_referral')}`);
     if (exceptionsCount > 0) stats.push(`${getLocalizedNumber(exceptionsCount)} ${i18n('providerList_exceptions')}`);
     if (redirectionsCount > 0) stats.push(`${getLocalizedNumber(redirectionsCount)} ${i18n('providerList_redirections')}`);
-    if (domainPatternsCount > 0) stats.push(`${getLocalizedNumber(domainPatternsCount)} Domain Patterns`);
-    if (domainExceptionsCount > 0) stats.push(`${getLocalizedNumber(domainExceptionsCount)} Domain Exceptions`);
-    if (domainRedirectionsCount > 0) stats.push(`${getLocalizedNumber(domainRedirectionsCount)} Domain Redirections`);
+    if (domainPatternsCount > 0) stats.push(`${getLocalizedNumber(domainPatternsCount)} ${i18n('customRulesEditor_domainPatterns')}`);
+    if (domainExceptionsCount > 0) stats.push(`${getLocalizedNumber(domainExceptionsCount)} ${i18n('customRulesEditor_domainExceptions')}`);
+    if (domainRedirectionsCount > 0) stats.push(`${getLocalizedNumber(domainRedirectionsCount)} ${i18n('customRulesEditor_domainRedirections')}`);
     if (provider.completeProvider) stats.push(i18n('providerList_complete'));
     
     return `
@@ -1484,7 +1775,7 @@ async function deleteAllProvidersFromPanel() {
     const total = Object.keys(customRules.providers).length;
     if (total === 0) return;
 
-    const confirmationText = i18n('customRulesEditor_confirmDeleteAll', String(total));
+    const confirmationText = i18n('customRulesEditor_confirmDeleteAll', getLocalizedNumber(total));
     const confirmed = await modalConfirm(confirmationText);
     if (!confirmed) {
         return;
@@ -1713,7 +2004,7 @@ function renderDisabledRulesPageContent() {
                 <div class="provider-disabled-section">
                     <div class="provider-disabled-title-row">
                         <h5 class="provider-disabled-title">${escapeHtml(sectionTitle(key))}</h5>
-                        <span class="provider-disabled-count-badge">${grouped[key].length}</span>
+                        <span class="provider-disabled-count-badge">${getLocalizedNumber(grouped[key].length)}</span>
                     </div>
                     <ul class="provider-disabled-list">${items}</ul>
                 </div>
@@ -1723,8 +2014,8 @@ function renderDisabledRulesPageContent() {
     setHTMLContent(container, `
         <div class="disabled-rules-content">
             <div class="disabled-rules-meta">
-                <span>${escapeHtml(i18n('customRulesEditor_total'))}: <strong>${totalDisabled}</strong></span>
-                <span>${escapeHtml(i18n('providerImport_sources'))}: <strong>${sources.length}</strong></span>
+                <span>${escapeHtml(i18n('customRulesEditor_total'))}: <strong>${getLocalizedNumber(totalDisabled)}</strong></span>
+                <span>${escapeHtml(i18n('providerImport_sources'))}: <strong>${getLocalizedNumber(sources.length)}</strong></span>
             </div>
             ${sections}
         </div>
@@ -2969,7 +3260,10 @@ function createProviderEditorHTML(provider) {
                     <div class="json-key-toolbar-help">${i18n('customRulesEditor_jsonToolbarHelp')}</div>
                 </div>
                 <div class="json-editor-content">
-                    <textarea class="json-editor-textarea" id="json-editor" placeholder="${i18n('customRulesEditor_jsonPlaceholder')}">${JSON.stringify(provider, null, 2)}</textarea>
+                    <div class="json-textmate-input-shell">
+                        <pre class="json-highlight-layer" id="json-editor-highlight" aria-hidden="true"></pre>
+                        <textarea class="json-editor-textarea" id="json-editor" placeholder="${i18n('customRulesEditor_jsonPlaceholder')}" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off">${JSON.stringify(provider, null, 2)}</textarea>
+                    </div>
                     <div id="json-validation" style="display: none;"></div>
                 </div>
             </div>
@@ -2984,6 +3278,8 @@ function setupProviderEditorEvents() {
     const jsonEditor = document.getElementById('json-editor');
     if (jsonEditor) {
         jsonEditor.addEventListener('input', handleJsonEditorInput);
+        jsonEditor.addEventListener('scroll', () => syncJsonTextMateScroll(jsonEditor));
+        updateJsonTextMateHighlighting(jsonEditor);
     }
     if (editorContent) {
         editorContent.removeEventListener('click', handleJsonKeyButtonClick);
@@ -2994,6 +3290,7 @@ function setupProviderEditorEvents() {
 }
 
 function handleJsonEditorInput() {
+    updateJsonTextMateHighlighting();
     validateAndUpdateJSON();
     syncPatternEditorFromJson();
 }
@@ -3078,6 +3375,7 @@ function applyPatternEditorToJson() {
     }
 
     jsonEditor.value = JSON.stringify(provider, null, 2);
+    updateJsonTextMateHighlighting(jsonEditor);
     validateAndUpdateJSON();
 }
 
@@ -3189,6 +3487,7 @@ function addJsonFieldIfMissing(key) {
     }
 
     jsonEditor.value = JSON.stringify(provider, null, 2);
+    updateJsonTextMateHighlighting(jsonEditor);
     if (validation) {
         validation.style.display = 'none';
     }
@@ -3207,10 +3506,12 @@ function validateAndUpdateJSON() {
 
     try {
         JSON.parse(jsonEditor.value);
+        updateJsonTextMateHighlighting(jsonEditor);
         validation.style.display = 'none';
         hasUnsavedChanges = true;
         updateEditorStatus('valid', i18n('status_validJsonUnsaved'));
     } catch (error) {
+        updateJsonTextMateHighlighting(jsonEditor);
         validation.style.display = 'block';
         validation.className = 'json-editor-error';
         validation.textContent = i18n('customRulesEditor_jsonError', error.message);

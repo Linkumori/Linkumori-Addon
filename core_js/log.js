@@ -110,6 +110,23 @@ function localizeNumber(number) {
     }
 }
 
+function localizePercent(value, maximumFractionDigits = 1) {
+    try {
+        const numericValue = Number(value);
+        const percentSymbol = translate('percentage_symbol') || '%';
+        if (typeof LinkumoriI18n !== 'undefined' && LinkumoriI18n.isReady()) {
+            const formattedValue = typeof LinkumoriI18n.formatNumber === 'function'
+                ? LinkumoriI18n.formatNumber(numericValue, { maximumFractionDigits })
+                : LinkumoriI18n.localizeNumbers(numericValue.toFixed(maximumFractionDigits));
+            return `${formattedValue}${percentSymbol}`;
+        }
+        return `${numericValue.toFixed(maximumFractionDigits)}${percentSymbol}`;
+    } catch (error) {
+        console.warn('Percentage localization error:', error);
+        return `${String(value)}${translate('percentage_symbol') || '%'}`;
+    }
+}
+
 function modalAlert(message) {
     if (window.LinkumoriModal && typeof window.LinkumoriModal.alert === 'function') {
         return window.LinkumoriModal.alert(message);
@@ -330,7 +347,10 @@ function toDate(time) {
     }
     
     // Fallback also handles conversion
-    return new Date(target).toLocaleString();
+    const fallback = new Date(target).toLocaleString();
+    return window.LinkumoriI18n && typeof LinkumoriI18n.localizeNumbers === 'function'
+        ? LinkumoriI18n.localizeNumbers(fallback)
+        : fallback;
 }
 
 function normalizeProviderDomainPatterns(providerData) {
@@ -876,7 +896,10 @@ function formatStatsDateKey(dateKey) {
         return LinkumoriI18n.formatDate(asMillis, 'DD/MM/YYYY');
     }
 
-    return new Date(asMillis).toLocaleDateString();
+    const fallback = new Date(asMillis).toLocaleDateString();
+    return window.LinkumoriI18n && typeof LinkumoriI18n.localizeNumbers === 'function'
+        ? LinkumoriI18n.localizeNumbers(fallback)
+        : fallback;
 }
 
 function renderStatsRows(tbodyId, rows, emptyLabel = '', localizeFirstColumnAsDate = false) {
@@ -976,8 +999,8 @@ function drawPieChart(ctx, width, height, labels, values) {
         ctx.fillStyle = color;
         ctx.fillRect(legendX, legendY, 10, 10);
         ctx.fillStyle = getThemeColor('--text-primary', '#f8fafc');
-        const percent = ((values[index] / total) * 100).toFixed(1);
-        ctx.fillText(`${label} (${percent}%)`, legendX + 16, legendY + 9);
+        const percent = localizePercent((values[index] / total) * 100, 1);
+        ctx.fillText(`${label} (${percent})`, legendX + 16, legendY + 9);
 
         const rowY = legendY - 2;
         regions.push({
@@ -1475,7 +1498,7 @@ function initializeApplication() {
                 } catch (fallbackError) {
                     showLoading(false);
                     handleError(fallbackError);
-                    showErrorMessage('Error rendering table');
+                    showErrorMessage(translate('error_rendering_table'));
                 }
             });
         }, 10);
@@ -1554,14 +1577,14 @@ function initializeApplication() {
                 });
                 
                 // DataTables accessibility attributes
-                pageButton.setAttribute('aria-label', translate('pagination_page_aria', [page]));
+                pageButton.setAttribute('aria-label', translate('pagination_page_aria', [localizeNumber(page)]));
                 pageButton.setAttribute('data-dt-idx', page);
                 
                 if (page === window.currentPage) {
                     pageButton.classList.add('active');
                     pageButton.disabled = true;
                     pageButton.setAttribute('aria-current', 'page');
-                    pageButton.setAttribute('aria-label', translate('pagination_current_page_aria', [page]));
+                    pageButton.setAttribute('aria-label', translate('pagination_current_page_aria', [localizeNumber(page)]));
                 }
                 paginationControls.appendChild(pageButton);
             }
@@ -1652,7 +1675,7 @@ function initializeApplication() {
             LinkumoriI18n.ready().then(() => {
                 showErrorMessage(translate('error_loading_data'));
             }).catch(() => {
-                showErrorMessage('Error loading data');
+                showErrorMessage(translate('error_loading_data'));
             });
         });
 }

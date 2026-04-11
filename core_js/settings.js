@@ -134,21 +134,44 @@ function modalConfirm(message) {
  * @returns {string} Localized number string
  */
 function getLocalizedNumber(number) {
-    // Direct conversion using LinkumoriI18n only
-    return LinkumoriI18n.localizeNumbers(number);
+    try {
+        if (typeof LinkumoriI18n !== 'undefined') {
+            if (typeof LinkumoriI18n.formatNumber === 'function') {
+                return LinkumoriI18n.formatNumber(number, { maximumFractionDigits: 0 });
+            }
+            if (typeof LinkumoriI18n.localizeNumbers === 'function') {
+                return LinkumoriI18n.localizeNumbers(String(number));
+            }
+        }
+    } catch (_) {
+    }
+    return String(number);
 }
 
 /**
- * FIXED: Get localized percentage string using LinkumoriI18n only
- * @param {number} percentage - Percentage number (without % symbol)
+ * Get localized percentage string using LinkumoriI18n.
+ * @param {number} percentage - Percentage number without the percent symbol
  * @returns {string} Localized percentage with symbol
  */
-    // Direct conversion using LinkumoriI18n only
 function getLocalizedPercentage(percentage) {
-    // Direct conversion using LinkumoriI18n only
-    const localizedNumber = LinkumoriI18n.localizeNumbers(percentage);
-    const percentageSymbol = LinkumoriI18n.getMessage('percentage_symbol') || '%';
+    let localizedNumber = String(percentage);
+    try {
+        if (typeof LinkumoriI18n !== 'undefined') {
+            if (typeof LinkumoriI18n.formatNumber === 'function') {
+                localizedNumber = LinkumoriI18n.formatNumber(percentage, { maximumFractionDigits: 1 });
+            } else if (typeof LinkumoriI18n.localizeNumbers === 'function') {
+                localizedNumber = LinkumoriI18n.localizeNumbers(String(percentage));
+            }
+        }
+    } catch (_) {
+        localizedNumber = String(percentage);
+    }
+    const percentageSymbol = translate('percentage_symbol') || '%';
     return localizedNumber + percentageSymbol;
+}
+
+function stripTrailingLabelColon(label) {
+    return String(label || '').replace(/[:：]\s*$/, '');
 }
 
 /**
@@ -232,7 +255,7 @@ function startInitialization() {
                 }, 100);
             })
             .catch(error => {
-                showStatus('Failed to load settings', 'error');
+                showStatus(translate('status_load_settings_failed'), 'error');
                 setTimeout(() => {
                     settings["badged_color"] = '#FFA500';
                     refreshColorDisplay();
@@ -1910,7 +1933,7 @@ function parseRemoteRuleSetsFromText(textValue) {
         const separator = line.indexOf('|');
         if (separator === -1) {
             const template = translate('remote_rule_sets_error_expected_pair');
-            errors.push(template.replace('$LINE$', String(index + 1)));
+            errors.push(template.replace('$LINE$', getLocalizedNumber(index + 1)));
             return;
         }
 
@@ -1919,13 +1942,13 @@ function parseRemoteRuleSetsFromText(textValue) {
 
         if (!isValidURL(ruleURL) || !ruleURL.startsWith('https://')) {
             const template = translate('remote_rule_sets_error_invalid_rule_url');
-            errors.push(template.replace('$LINE$', String(index + 1)));
+            errors.push(template.replace('$LINE$', getLocalizedNumber(index + 1)));
             return;
         }
 
         if (!isValidURL(hashURL) || !hashURL.startsWith('https://')) {
             const template = translate('remote_rule_sets_error_invalid_hash_url');
-            errors.push(template.replace('$LINE$', String(index + 1)));
+            errors.push(template.replace('$LINE$', getLocalizedNumber(index + 1)));
             return;
         }
 
@@ -2845,9 +2868,26 @@ function formatHealthTimestamp(value) {
     }
 
     try {
-        return new Date(value).toLocaleString();
+        if (window.LinkumoriI18n?.isReady()) {
+            if (typeof LinkumoriI18n.formatDateTime === 'function') {
+                return LinkumoriI18n.formatDateTime(value, {
+                    dateStyle: 'short',
+                    timeStyle: 'medium'
+                });
+            }
+            if (typeof LinkumoriI18n.formatDate === 'function') {
+                return LinkumoriI18n.formatDate(value, 'DD/MM/YYYY, HH:mm:ss');
+            }
+        }
+
+        const fallback = new Date(value).toLocaleString();
+        return typeof LinkumoriI18n !== 'undefined' && typeof LinkumoriI18n.localizeNumbers === 'function'
+            ? LinkumoriI18n.localizeNumbers(fallback)
+            : fallback;
     } catch (error) {
-        return String(value);
+        return typeof LinkumoriI18n !== 'undefined' && typeof LinkumoriI18n.localizeNumbers === 'function'
+            ? LinkumoriI18n.localizeNumbers(String(value))
+            : String(value);
     }
 }
 
@@ -3249,7 +3289,9 @@ function displayBundledRulesInfo() {
                         const compositionBreakdownLabel = translate('composition_breakdown_label');
                         const bundledPercentage = getLocalizedPercentage(mergeStats.mergeRatio.bundledPercentage);
                         const customPercentage = getLocalizedPercentage(mergeStats.mergeRatio.customPercentage);
-                        html += `<br><strong>${compositionBreakdownLabel}</strong> ${bundledPercentage} Base, ${customPercentage} Custom`;
+                        const basePercentageLabel = stripTrailingLabelColon(baseProvidersLabel);
+                        const customPercentageLabel = stripTrailingLabelColon(customProvidersLabel);
+                        html += `<br><strong>${compositionBreakdownLabel}</strong> ${bundledPercentage} ${basePercentageLabel}, ${customPercentage} ${customPercentageLabel}`;
                     }
                 }
                 // Note: When there are no custom rules, we don't show additional breakdown

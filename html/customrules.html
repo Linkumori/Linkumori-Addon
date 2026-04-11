@@ -1151,6 +1151,63 @@
             position: relative;
         }
 
+        .json-textmate-input-shell {
+            position: relative;
+            min-height: 400px;
+            background: var(--code-bg);
+            overflow: hidden;
+        }
+
+        .json-highlight-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            box-sizing: border-box;
+            min-width: 100%;
+            margin: 0;
+            padding: 16px;
+            overflow: visible;
+            pointer-events: none;
+            white-space: pre;
+            tab-size: 4;
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--code-text);
+        }
+
+        .tm-json-key {
+            color: var(--code-keyword);
+        }
+
+        .tm-json-string {
+            color: var(--code-string);
+        }
+
+        .tm-json-number {
+            color: var(--code-number);
+        }
+
+        .tm-json-constant {
+            color: var(--button-info);
+        }
+
+        .tm-json-punctuation {
+            color: var(--text-muted);
+        }
+
+        .tm-json-escape {
+            color: var(--code-comment);
+            font-weight: 600;
+        }
+
+        .tm-json-invalid {
+            color: var(--button-danger);
+            text-decoration: underline;
+            text-decoration-style: wavy;
+        }
+
         .json-key-toolbar {
             padding: 12px;
             border-bottom: 1px solid var(--editor-border);
@@ -1240,10 +1297,13 @@
         }
 
         .json-editor-textarea {
+            position: relative;
+            z-index: 1;
+            display: block;
             width: 100%;
             height: 400px;
-            background: var(--code-bg);
-            color: var(--code-text);
+            background: transparent;
+            color: transparent;
             border: none;
             padding: 16px;
             font-family: "Old-Country-Nobility", serif;
@@ -1251,6 +1311,22 @@
             line-height: 1.5;
             resize: vertical;
             outline: none;
+            overflow: auto;
+            white-space: pre;
+            tab-size: 4;
+            caret-color: var(--code-text);
+            -webkit-text-fill-color: transparent;
+        }
+
+        .json-editor-textarea::selection {
+            background: rgba(96, 165, 250, 0.35);
+            -webkit-text-fill-color: transparent;
+        }
+
+        .json-editor-textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 1;
+            -webkit-text-fill-color: var(--text-muted);
         }
 
         .json-editor-error {
@@ -2406,6 +2482,14 @@
 
             .json-editor-textarea {
                 height: 300px;
+                font-size: 11px;
+            }
+
+            .json-textmate-input-shell {
+                min-height: 300px;
+            }
+
+            .json-highlight-layer {
                 font-size: 11px;
             }
 
