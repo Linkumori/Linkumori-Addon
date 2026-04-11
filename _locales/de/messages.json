@@ -270,7 +270,7 @@
     "message": "Domain-Muster"
   },
   "customRulesEditor_domainPatternsPlaceholder": {
-    "message": "||example.com^\n||*.subdomain.com^\n"
+    "message": "||example.com^\n||*.subdomain.com^"
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "Mindestens ein Domain-Muster ist erforderlich"
@@ -367,7 +367,7 @@
   },
   "customRulesEditor_nav_whitelist": {
     "message": "Whitelist",
-    "description": "Navigationsbezeichnung für die Whitelist-Ansicht"
+    "description": "Navigation label for whitelist view"
   },
   "customRulesEditor_noProvidersInFile": {
     "message": "Keine Anbieter in der Datei gefunden"
@@ -463,7 +463,7 @@
     "message": "Entweder URL-Muster oder Domain-Muster ist erforderlich"
   },
   "customRulesEditor_urlPatternPlaceholder": {
-    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?Beispiel\\.com"
   },
   "customRulesEditor_urlPatternRequired": {
     "message": "URL-Muster ist erforderlich"
@@ -1051,7 +1051,7 @@
   },
   "faq_title": {
     "message": "FAQ",
-    "description": "FAQ-Button-Text und Modaltitel"
+    "description": "FAQ button text and modal title"
   },
   "faq_url_pattern": {
     "message": "Was ist urlPattern?",
@@ -1199,11 +1199,11 @@
   },
   "hash_url_placeholder": {
     "message": "https://example.com/hash.txt",
-    "description": "Platzhaltertext für das Hash-URL-Feld nach Bestätigung"
+    "description": "Placeholder text for hash URL field after confirmation"
   },
   "headerTitle": {
     "message": "Linkumori",
-    "description": "Header-Titel für die Erweiterung"
+    "description": "Header title for the extension"
   },
   "history_listener_enabled": {
     "message": "Tracking-Injektion über History-API verhindern",
@@ -1287,7 +1287,7 @@
   },
   "license_links_title": {
     "message": "Links",
-    "description": "Titel für den Link-Bereich in der Lizenz"
+    "description": "Title for links section in license"
   },
   "license_third_party_title": {
     "message": "Drittanbieter-Komponenten",
@@ -1414,12 +1414,12 @@
     "description": "Spaltenüberschrift für Anfrage-Ressourcentyp und Anbieter-Ressourcentypen auf der Log-Seite."
   },
   "log_nav_dashboard": {
-    "message": "Dashboard",
-    "description": "Registerkartenbezeichnung für die Dashboard-Ansicht auf der Log-Seite"
+    "message": "Armaturenbrett",
+    "description": "Tab label for dashboard view on log page"
   },
   "log_nav_logs": {
-    "message": "Logs",
-    "description": "Registerkartenbezeichnung für die Log-Ansicht auf der Log-Seite"
+    "message": "Protokolle",
+    "description": "Tab label for logs view on log page"
   },
   "log_ping_blocked": {
     "message": "Dieses Hyperlink-Auditing wurde blockiert",
@@ -1427,11 +1427,11 @@
   },
   "log_provider_pattern_domain": {
     "message": "domainPattern",
-    "description": "Bezeichnung für domainPattern-Anbieterabgleich in Log-Einträgen."
+    "description": "Label for domain pattern provider matching in log entries."
   },
   "log_provider_pattern_url": {
-    "message": "urlPattern",
-    "description": "Bezeichnung für urlPattern-Anbieterabgleich in Log-Einträgen."
+    "message": "URLPattern",
+    "description": "Label for URL pattern provider matching in log entries."
   },
   "log_provider_request_method": {
     "message": "Methode",
@@ -1479,7 +1479,7 @@
   },
   "log_stats_domain_col": {
     "message": "Domain",
-    "description": "Spaltenüberschrift für Domainnamen in Statistiken"
+    "description": "Column header for domain name in stats"
   },
   "log_stats_earliest": {
     "message": "Frühester",
@@ -1650,7 +1650,7 @@
   },
   "percentage_symbol": {
     "message": "%",
-    "description": "Symbol, das in dieser Sprache für Prozentsätze verwendet wird"
+    "description": "Symbol used for percentages in this language"
   },
   "ping_blocking_enabled": {
     "message": "Hyperlink-Auditing blockieren",
@@ -1682,11 +1682,11 @@
   },
   "popup_html_page_title": {
     "message": "Linkumori",
-    "description": "Seitentitel des Popups"
+    "description": "Popup page title text"
   },
   "popup_html_version_label": {
     "message": "Version:",
-    "description": "Versionsbezeichnung im Lizenzbereich des Popups"
+    "description": "Version label shown in popup license section"
   },
   "popup_html_firefox_signature_label": {
     "message": "Firefox-Add-on-Signatur",
@@ -1713,16 +1713,16 @@
     "description": "Tooltip für die Lizenzbeschreibung im Popup"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0",
-    "description": "Popup-Lizenzlink für GPL v3"
+    "message": "GNU General Public License",
+    "description": "Popup license link label for GPL v3"
   },
   "popup_html_gpl_link_title": {
     "message": "GNU GPL v3.0-Lizenztext öffnen",
     "description": "Tooltip für den GPL-Link im Popup-Lizenzbereich"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0",
-    "description": "Popup-Lizenzlink für LGPL v3"
+    "message": "GNU General Public License",
+    "description": "Popup license link label for LGPL v3"
   },
   "popup_html_lgpl_link_title": {
     "message": "GNU LGPL v3.0-Lizenztext öffnen",
@@ -1770,7 +1770,7 @@
   },
   "siteblocked_footer_prefix": {
     "message": "Linkumori v.",
-    "description": "Footer-Präfix auf der Blockierungsseite vor der Versionsnummer"
+    "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
     "message": "Bitte lesen Sie die Datenschutzerklärung und die Lizenz unten und akzeptieren Sie sie, um Linkumori weiter zu verwenden.",
@@ -1894,7 +1894,7 @@
   },
   "popup_html_configs_switch_filter": {
     "message": "Filter",
-    "description": "Dieser String wird als Name für den Filter-Umschaltknopf auf der Popup-Seite verwendet."
+    "description": "This string is used as name for the filter switch button on the popup page."
   },
   "popup_html_configs_switch_log": {
     "message": "Protokollierung",
@@ -1928,46 +1928,6 @@
     "message": "Zurücksetzen",
     "description": "Dieser String wird als Name für den Statistik-Zurücksetzen-Button auf der Popup-Seite verwendet."
   },
-  "popup_html_statistics_reset_button_title": {
-    "message": "Globale Statistiken zurücksetzen",
-    "description": "Dieser String wird als Titel für den Statistik-Zurücksetzen-Button auf der Popup-Seite verwendet."
-  },
-  "popup_html_log_head_title": {
-    "message": "Protokoll öffnen",
-    "description": "Dieser String wird als Titel für den Log-Button auf der Popup-Seite verwendet."
-  },
-  "popup_html_settings_button_title": {
-    "message": "Einstellungen öffnen",
-    "description": "Dieser String wird als Titel für den Einstellungen-Button auf der Popup-Seite verwendet."
-  },
-  "license_title_title": {
-    "message": "Lizenzinformationen",
-    "description": "Titel für den Link zu Lizenzinformationen im Popup"
-  },
-  "license_links_title_title": {
-    "message": "Lizenz und Danksagungen",
-    "description": "Titel für den Link zu Lizenz und Danksagungen im Popup"
-  },
-  "popup_nav_main_title": {
-    "message": "Zu den Hauptsteuerungen der Erweiterung wechseln",
-    "description": "Tooltip für die Hauptnavigation-Schaltfläche"
-  },
-  "popup_nav_license_title": {
-    "message": "Zu den Lizenzinformationen wechseln",
-    "description": "Tooltip für die Lizenz-Navigationsschaltfläche"
-  },
-  "customrules_title": {
-    "message": "Benutzerdefinierte Regeln",
-    "description": "Titel für den Abschnitt mit benutzerdefinierten Regeln"
-  },
-  "popup_consent_legal_button_title": {
-    "message": "Rechtliche Informationen – Datenschutzerklärung und Lizenz",
-    "description": "Titel für die Rechtsinformationsseite, die aus der Popup-Zustimmungsabfrage geöffnet wird"
-  },
-  "popup_html_whitelist_button_title": {
-    "message": "Whitelist",
-    "description": "Titel für die HTML-Inhaltsseite, die aus der Popup-Zustimmungsabfrage geöffnet wird"
-  },
   "popup_html_tools_button": {
     "message": "Werkzeuge",
     "description": "Dieser String wird für den Werkzeuge-Button auf der Popup-Seite verwendet."
@@ -1978,7 +1938,7 @@
   },
   "popup_html_whitelist_button": {
     "message": "Whitelist",
-    "description": "Dieser String wird für den Whitelist-Button auf der Popup-Seite verwendet."
+    "description": "This string is used for the whitelist button on the popup page."
   },
   "popup_nav_license": {
     "message": "Lizenz(License)",
@@ -2390,7 +2350,7 @@
   },
   "rule_url_placeholder": {
     "message": "https://example.com/rules.json",
-    "description": "Platzhaltertext für das Regel-URL-Feld nach Bestätigung"
+    "description": "Placeholder text for rule URL field after confirmation"
   },
   "rules_author_label": {
     "message": "Autor:",
@@ -2437,8 +2397,8 @@
     "description": "Quelltext, wenn integrierte Fallback-Regeln aktiv sind."
   },
   "rules_source_fallback": {
-    "message": "Fallback",
-    "description": "Quelltext, wenn minimale Fallback-Regeln aktiv sind."
+    "message": "Zurückgreifen",
+    "description": "Source text when minimal fallback rules are active."
   },
   "rules_source_label": {
     "message": "Quelle:",
@@ -2461,8 +2421,8 @@
     "description": "Wert, wenn das Laden der Regeln fehlschlägt."
   },
   "rules_status_label": {
-    "message": "Status:",
-    "description": "Bezeichnung für den Regelstatus."
+    "message": "Familienstand:",
+    "description": "Label for rules status."
   },
   "rules_status_not_loaded": {
     "message": "Keine Regeln geladen",
@@ -2637,8 +2597,8 @@
     "description": "Dieser String wird als Titel für den Reset-Button auf der Einstellungsseite verwendet."
   },
   "setting_html_audit_button": {
-    "message": "Audit",
-    "description": "Dieser String wird als Name für den Audit-Button auf der Einstellungsseite verwendet."
+    "message": "Prüfung",
+    "description": "This string is used as name for the audit button on the settings page."
   },
   "setting_html_audit_button_title": {
     "message": "Öffnet die Audit-Seite",
@@ -2668,7 +2628,7 @@
   },
   "setting_remote_rule_sets_placeholder": {
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
-    "description": "Platzhalter für zusätzliche entfernte Regelsatzeinträge."
+    "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
     "message": "Benutzerdefinierte Remote-URL für Regeldefinitionen",
@@ -2913,58 +2873,58 @@
     "description": "Bezeichnung für den Designauswahlbereich"
   },
   "time_am": {
-    "message": "AM"
+    "message": "BIN"
   },
   "time_am_lower": {
-    "message": "am",
-    "description": "Kleingeschriebene AM-Markierung"
+    "message": "Bin",
+    "description": "Lowercase AM marker"
   },
   "time_pm": {
-    "message": "PM"
+    "message": "PN"
   },
   "time_pm_lower": {
-    "message": "pm",
-    "description": "Kleingeschriebene PM-Markierung"
+    "message": "Uhr",
+    "description": "Lowercase PM marker"
   },
   "number_0": {
     "message": "0",
-    "description": "Lokalisierte Ziffer null"
+    "description": "Localized digit zero"
   },
   "number_1": {
     "message": "1",
-    "description": "Lokalisierte Ziffer eins"
+    "description": "Localized digit one"
   },
   "number_2": {
-    "message": "2",
-    "description": "Lokalisierte Ziffer zwei"
+    "message": "2(",
+    "description": "Localized digit two"
   },
   "number_3": {
     "message": "3",
-    "description": "Lokalisierte Ziffer drei"
+    "description": "Localized digit three"
   },
   "number_4": {
     "message": "4",
-    "description": "Lokalisierte Ziffer vier"
+    "description": "Localized digit four"
   },
   "number_5": {
     "message": "5",
-    "description": "Lokalisierte Ziffer fünf"
+    "description": "Localized digit five"
   },
   "number_6": {
     "message": "6",
-    "description": "Lokalisierte Ziffer sechs"
+    "description": "Localized digit six"
   },
   "number_7": {
     "message": "7",
-    "description": "Lokalisierte Ziffer sieben"
+    "description": "Localized digit seven"
   },
   "number_8": {
     "message": "8",
-    "description": "Lokalisierte Ziffer acht"
+    "description": "Localized digit eight"
   },
   "number_9": {
     "message": "9",
-    "description": "Lokalisierte Ziffer neun"
+    "description": "Localized digit nine"
   },
   "day_0": {
     "message": "Sonntag",
@@ -3008,7 +2968,7 @@
   },
   "month_4": {
     "message": "April",
-    "description": "Lokalisierter Monatsname April"
+    "description": "Localized month name for April"
   },
   "month_5": {
     "message": "Mai",
@@ -3024,11 +2984,11 @@
   },
   "month_8": {
     "message": "August",
-    "description": "Lokalisierter Monatsname August"
+    "description": "Localized month name for August"
   },
   "month_9": {
     "message": "September",
-    "description": "Lokalisierter Monatsname September"
+    "description": "Localized month name for September"
   },
   "month_10": {
     "message": "Oktober",
@@ -3036,7 +2996,7 @@
   },
   "month_11": {
     "message": "November",
-    "description": "Lokalisierter Monatsname November"
+    "description": "Localized month name for November"
   },
   "month_12": {
     "message": "Dezember",
@@ -3218,6 +3178,46 @@
     "message": "Fehler beim Aktualisieren der Whitelist",
     "description": "Fehlermeldung, wenn die Aktualisierung der Whitelist fehlschlägt."
   },
+  "popup_html_statistics_reset_button_title": {
+    "message": "Globale Statistiken zurücksetzen",
+    "description": "Dieser String wird als Titel für den Statistik-Zurücksetzen-Button auf der Popup-Seite verwendet."
+  },
+  "popup_html_log_head_title": {
+    "message": "Protokoll öffnen",
+    "description": "Dieser String wird als Titel für den Log-Button auf der Popup-Seite verwendet."
+  },
+  "popup_html_settings_button_title": {
+    "message": "Einstellungen öffnen",
+    "description": "Dieser String wird als Titel für den Einstellungen-Button auf der Popup-Seite verwendet."
+  },
+  "license_title_title": {
+    "message": "Lizenzinformationen",
+    "description": "Titel für den Link zu Lizenzinformationen im Popup"
+  },
+  "license_links_title_title": {
+    "message": "Lizenz und Danksagungen",
+    "description": "Titel für den Link zu Lizenz und Danksagungen im Popup"
+  },
+  "popup_nav_main_title": {
+    "message": "Zu den Hauptsteuerungen der Erweiterung wechseln",
+    "description": "Tooltip für die Hauptnavigation-Schaltfläche"
+  },
+  "popup_nav_license_title": {
+    "message": "Zu den Lizenzinformationen wechseln",
+    "description": "Tooltip für die Lizenz-Navigationsschaltfläche"
+  },
+  "customrules_title": {
+    "message": "Benutzerdefinierte Regeln",
+    "description": "Titel für den Abschnitt mit benutzerdefinierten Regeln"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "Rechtliche Informationen – Datenschutzerklärung und Lizenz",
+    "description": "Titel für die Rechtsinformationsseite, die aus der Popup-Zustimmungsabfrage geöffnet wird"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "Whitelist",
+    "description": "Title for HTML content page opened from popup consent gate"
+  },
   "disable_gatekeeper_enabled": {
     "message": "Gatekeeper deaktivieren",
     "description": "Bezeichnung für den Schalter, der Gatekeeper-Schutz für Remote-URL-Bearbeitung deaktiviert"
@@ -3255,60 +3255,60 @@
     "description": "Titel für das Risikomodal beim Deaktivieren des Gatekeepers"
   },
   "disable_gatekeeper_modal_advanced_warning": {
-    "message": "WARNING: Advanced Feature Intended Only for Self-Hosted Servers",
-    "description": "Oberer Warnhinweis im Gatekeeper-Deaktivierungsmodal"
+    "message": "WARNUNG: Erweiterte Funktion nur für selbstgehostete Server vorgesehen",
+    "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This remote rules feature is designed exclusively for advanced users who know what they are doing. If you do not have an idea of what this means, please do not use this feature.",
-    "description": "Hauptwarntext im Gatekeeper-Deaktivierungsmodal"
+    "message": "Sie deaktivieren den Gatekeeper-Schutz für die Remote-Bearbeitung von Regel-URLs. Diese Remote-Regelfunktion ist ausschließlich für fortgeschrittene Benutzer gedacht, die wissen, was sie tun. Wenn Sie nicht wissen, was das bedeutet, nutzen Sie diese Funktion bitte nicht.",
+    "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
-    "message": "Gatekeeper is the built-in safety flow that blocks direct remote URL edits until you acknowledge the security warning and complete typed confirmation.",
-    "description": "Erklärt die Bedeutung von Gatekeeper im Gatekeeper-Deaktivierungsmodal"
+    "message": "Gatekeeper ist der integrierte Sicherheitsablauf, der direkte Remote-URL-Änderungen blockiert, bis Sie die Sicherheitswarnung bestätigen und die eingegebene Bestätigung abschließen.",
+    "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Instead use for built-in rules only solution like built-in rules additionally you can create custom rules manually.",
-    "description": "Empfehlungstext im Gatekeeper-Deaktivierungsmodal"
+    "message": "Verwenden Sie stattdessen für integrierte Regeln nur Lösungen wie integrierte Regeln. Darüber hinaus können Sie benutzerdefinierte Regeln manuell erstellen.",
+    "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
-    "message": "warning notice:",
-    "description": "Titel des Datenschutzabschnitts im Gatekeeper-Deaktivierungsmodal"
+    "message": "Warnhinweis:",
+    "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a URL to this software for fetching a JSON file and hash file, the extension will connect to your designated URL to fetch the remote rule JSON file or hash file every time this extension is enabled and loaded in your browser. Each time it fetches files based on your defined URL, the server hosting files like the JSON and hash files will receive your IP address as well as general information such as your extension version, browser, and browser version. This data is subject to the privacy policy of the website or web server (where hosted those files) in question.",
-    "description": "Text des Datenschutzabschnitts im Gatekeeper-Deaktivierungsmodal"
+    "message": "Wenn Sie dieser Software eine URL zum Abrufen einer JSON-Datei und einer Hash-Datei hinzufügen, stellt die Erweiterung jedes Mal eine Verbindung zu Ihrer angegebenen URL her, um die JSON-Datei oder Hash-Datei der Remote-Regel abzurufen, wenn diese Erweiterung aktiviert und in Ihren Browser geladen wird. Jedes Mal, wenn Dateien basierend auf Ihrer definierten URL abgerufen werden, erhält der Server, der Dateien wie JSON- und Hash-Dateien hostet, Ihre IP-Adresse sowie allgemeine Informationen wie Ihre Erweiterungsversion, Ihren Browser und Ihre Browserversion. Diese Daten unterliegen den Datenschutzrichtlinien der jeweiligen Website oder des Webservers (auf dem diese Dateien gehostet werden).",
+    "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Lesen Sie die %PRIVACY_POLICY_LINK% bei Bedarf erneut, bevor Sie fortfahren.",
     "description": "Zusätzlicher Satz im Gatekeeper-Deaktivierungsmodal mit Platzhalter für den Link zur Datenschutzerklärung"
   },
   "disable_gatekeeper_modal_risks_title": {
-    "message": "warning notice:",
-    "description": "Titel des Risikoabschnitts im Gatekeeper-Deaktivierungsmodal"
+    "message": "Warnhinweis:",
+    "description": "Risks section title in disable gatekeeper modal"
   },
   "privacy_policy_link_label": {
     "message": "Datenschutzerklärung",
     "description": "Beschriftung für Links zur Datenschutzerklärung in Warnhinweisen"
   },
   "disable_gatekeeper_modal_risk_1": {
-    "message": "The extension will connect to your designated URL every time the extension is enabled and loaded in your browser.",
-    "description": "Risikoaufzählung 1 im Gatekeeper-Deaktivierungsmodal"
+    "message": "Die Erweiterung stellt jedes Mal eine Verbindung zu Ihrer angegebenen URL her, wenn die Erweiterung aktiviert und in Ihren Browser geladen wird.",
+    "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON and hash files will receive your IP address.",
-    "description": "Risikoaufzählung 2 im Gatekeeper-Deaktivierungsmodal"
+    "message": "Der Server, der Remote-JSON- und Hash-Dateien hostet, erhält Ihre IP-Adresse.",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
-    "message": "The server may also receive your extension version, browser, and browser version.",
-    "description": "Risikoaufzählung 3 im Gatekeeper-Deaktivierungsmodal"
+    "message": "Der Server empfängt möglicherweise auch Ihre Erweiterungsversion, Ihren Browser und Ihre Browserversion.",
+    "description": "Risk bullet 3 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_4": {
-    "message": "That data is subject to the privacy policy of the website or web server hosting those files.",
-    "description": "Risikoaufzählung 4 im Gatekeeper-Deaktivierungsmodal"
+    "message": "Diese Daten unterliegen den Datenschutzrichtlinien der Website oder des Webservers, auf dem diese Dateien gehostet werden.",
+    "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. If you do not understand this feature, do not use it. Use built-in rules and optionally create custom rules manually.",
-    "description": "Abschließender Warntext im Gatekeeper-Deaktivierungsmodal"
+    "message": "Durch die Deaktivierung von Gatekeeper erhöhen Sie das Risiko durch unsichere oder kompromittierte Remote-Regelquellen. Wenn Sie diese Funktion nicht verstehen, verwenden Sie sie nicht. Verwenden Sie integrierte Regeln und erstellen Sie optional benutzerdefinierte Regeln manuell.",
+    "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Abbrechen",
@@ -3408,35 +3408,35 @@
   },
   "remote_urls_template_primary_rule_placeholder": {
     "message": "REPLACE_WITH_PRIMARY_RULE_URL",
-    "description": "Platzhalterwert für primäre Regel-URL im Template-Export-JSON"
+    "description": "Placeholder value for primary rule URL in template export JSON"
   },
   "remote_urls_template_primary_hash_placeholder": {
     "message": "REPLACE_WITH_PRIMARY_HASH_URL",
-    "description": "Platzhalterwert für primäre Hash-URL im Template-Export-JSON"
+    "description": "Placeholder value for primary hash URL in template export JSON"
   },
   "remote_urls_template_additional_rule_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_1",
-    "description": "Platzhalterwert für zusätzliche Regel-URL 1 im Template-Export-JSON"
+    "message": "ERSETZEN_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
   },
   "remote_urls_template_additional_hash_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_1",
-    "description": "Platzhalterwert für zusätzliche Hash-URL 1 im Template-Export-JSON"
+    "message": "ERSETZEN_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
   },
   "remote_urls_template_additional_rule_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_2",
-    "description": "Platzhalterwert für zusätzliche Regel-URL 2 im Template-Export-JSON"
+    "message": "ERSETZEN_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
   },
   "remote_urls_template_additional_hash_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_2",
-    "description": "Platzhalterwert für zusätzliche Hash-URL 2 im Template-Export-JSON"
+    "message": "ERSETZEN_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
   },
   "remote_urls_template_additional_rule_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_3",
-    "description": "Platzhalterwert für zusätzliche Regel-URL 3 im Template-Export-JSON"
+    "message": "ERSETZEN_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
   },
   "remote_urls_template_additional_hash_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_3",
-    "description": "Platzhalterwert für zusätzliche Hash-URL 3 im Template-Export-JSON"
+    "message": "ERSETZEN_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
   },
   "remote_urls_export_success": {
     "message": "Remote-URL-Konfiguration exportiert.",
@@ -3499,27 +3499,27 @@
     "description": "Beschreibung für die Blockiert-Statistik im Popup"
   },
   "audit_html_page_title": {
-    "message": "Linkumori Rules Audit",
+    "message": "Linkumori-Regelprüfung",
     "description": "Title for the audit page"
   },
   "audit_badge_label": {
-    "message": "AUDIT",
+    "message": "PRÜFUNG",
     "description": "Small badge label in the audit page header"
   },
   "audit_section_title": {
-    "message": "Rules Audit",
+    "message": "Regelprüfung",
     "description": "Main section title for the audit page"
   },
   "audit_viewer_title": {
-    "message": "Rules Source Viewer",
+    "message": "Regelquellen-Viewer",
     "description": "Title for the audit source viewer card"
   },
   "audit_viewer_description": {
-    "message": "Use the source buttons below to inspect bundled rules, final merged rules, custom rules, or the latest fetched remote rules stored in cache as raw JSON.",
+    "message": "Verwenden Sie die Quellschaltflächen unten, um gebündelte Regeln, endgültig zusammengeführte Regeln, benutzerdefinierte Regeln oder die zuletzt abgerufenen Remote-Regeln zu überprüfen, die als Roh-JSON im Cache gespeichert sind.",
     "description": "Description for the audit source viewer"
   },
   "audit_refresh_button": {
-    "message": "Refresh Sources",
+    "message": "Quellen aktualisieren",
     "description": "Refresh button label on the audit page"
   },
   "audit_faq_button": {
@@ -3527,219 +3527,219 @@
     "description": "FAQ button label on the audit page"
   },
   "audit_theme_toggle_aria": {
-    "message": "Toggle theme",
+    "message": "Thema umschalten",
     "description": "Accessible label for the theme toggle on the audit page"
   },
   "audit_faq_close_aria": {
-    "message": "Close FAQ",
+    "message": "FAQ schließen",
     "description": "Accessible label for the FAQ modal close button"
   },
   "audit_source_bundled": {
-    "message": "Bundled Rules",
+    "message": "Gebündelte Regeln",
     "description": "Button and title for bundled rules audit source"
   },
   "audit_source_final": {
-    "message": "Final Rules",
+    "message": "Letzte Regeln",
     "description": "Button and title for final merged rules audit source"
   },
   "audit_source_custom": {
-    "message": "Custom Rules",
+    "message": "Benutzerdefinierte Regeln",
     "description": "Button and title for custom rules audit source"
   },
   "audit_source_remote": {
-    "message": "Latest Cached Remote Rules",
+    "message": "Neueste zwischengespeicherte Remote-Regeln",
     "description": "Button and title for latest cached remote rules audit source"
   },
   "audit_source_bundled_description": {
-    "message": "Source: bundled file data/linkumori-clearurls-min.json",
+    "message": "Quelle: gebündelte Datei data/linkumori-clearurls-min.json",
     "description": "Source description for bundled rules"
   },
   "audit_source_final_description": {
-    "message": "Source: runtime storage ClearURLsData",
+    "message": "Quelle: Laufzeitspeicher ClearURLsData",
     "description": "Source description for final rules"
   },
   "audit_source_custom_description": {
-    "message": "Source: runtime storage custom_rules",
+    "message": "Quelle: Laufzeitspeicher custom_rules",
     "description": "Source description for custom rules"
   },
   "audit_source_remote_description": {
-    "message": "Source: runtime storage remoteRulescache.data (latest fetched remote rules cached locally)",
+    "message": "Quelle: Laufzeitspeicher remoteRulescache.data (zuletzt abgerufene Remote-Regeln lokal zwischengespeichert)",
     "description": "Source description for latest cached remote rules"
   },
   "audit_meta_waiting": {
-    "message": "Waiting...",
+    "message": "Warten...",
     "description": "Meta text shown before audit data is loaded"
   },
   "audit_meta_error": {
-    "message": "Error",
+    "message": "Fehler",
     "description": "Meta text shown when a selected audit source has an error"
   },
   "audit_meta_source_bundled": {
-    "message": "bundled rules",
+    "message": "gebündelte Regeln",
     "description": "Meta label for bundled rules source"
   },
   "audit_meta_source_final": {
-    "message": "final rules",
+    "message": "letzte Regeln",
     "description": "Meta label for final rules source"
   },
   "audit_meta_source_custom": {
-    "message": "custom rules",
+    "message": "benutzerdefinierte Regeln",
     "description": "Meta label for custom rules source"
   },
   "audit_meta_source_remote": {
-    "message": "remote cache",
+    "message": "Remote-Cache",
     "description": "Meta label for latest cached remote rules source"
   },
   "audit_meta_template": {
-    "message": "$1 | providers: $2 | chars: $3",
+    "message": "$1 | Anbieter: $2 | Zeichen: $3",
     "description": "Template for audit source meta information"
   },
   "audit_status_loading": {
-    "message": "Loading audit sources...",
+    "message": "Prüfquellen werden geladen...",
     "description": "Status shown while loading audit sources"
   },
   "audit_status_loaded": {
-    "message": "All audit sources loaded.",
+    "message": "Alle Prüfquellen geladen.",
     "description": "Status shown when all audit sources load successfully"
   },
   "audit_status_remote_unavailable": {
-    "message": "Audit sources loaded. Latest cached remote rules are not available yet.",
+    "message": "Prüfquellen geladen. Die neuesten zwischengespeicherten Remote-Regeln sind noch nicht verfügbar.",
     "description": "Status shown when audit sources load but remote cache is not yet available"
   },
   "audit_status_partial_error": {
-    "message": "Some audit sources failed to load. Switch sources to inspect the error JSON.",
+    "message": "Einige Prüfquellen konnten nicht geladen werden. Wechseln Sie die Quelle, um den Fehler-JSON zu überprüfen.",
     "description": "Status shown when one or more audit sources fail to load"
   },
   "audit_status_refresh_failed": {
-    "message": "Failed to refresh audit sources.",
+    "message": "Die Aktualisierung der Prüfquellen ist fehlgeschlagen.",
     "description": "Fallback error shown when refreshing audit sources fails"
   },
   "audit_error_bundled_fetch": {
-    "message": "Bundled rules fetch failed with status $1",
+    "message": "Der Abruf der gebündelten Regeln ist mit dem Status $1 fehlgeschlagen",
     "description": "Error shown when fetching bundled rules fails"
   },
   "audit_error_final_missing": {
-    "message": "Runtime did not return ClearURLsData",
+    "message": "Die Laufzeit hat ClearURLsData nicht zurückgegeben",
     "description": "Error shown when final rules are missing from runtime storage"
   },
   "audit_error_custom_missing": {
-    "message": "Runtime did not return custom_rules",
+    "message": "Die Laufzeit hat keine „custom_rules“ zurückgegeben",
     "description": "Error shown when custom rules are missing from runtime storage"
   },
   "audit_error_remote_cache_missing": {
-    "message": "Runtime did not return remoteRulescache",
+    "message": "Die Laufzeit hat remoteRulescache nicht zurückgegeben",
     "description": "Error shown when remote cache is missing from runtime storage"
   },
   "audit_error_unknown_bundled": {
-    "message": "Unknown bundled rules error",
+    "message": "Unbekannter Fehler bei gebündelten Regeln",
     "description": "Fallback bundled rules error"
   },
   "audit_error_unknown_final": {
-    "message": "Unknown final rules error",
+    "message": "Unbekannter Fehler bei den endgültigen Regeln",
     "description": "Fallback final rules error"
   },
   "audit_error_unknown_custom": {
-    "message": "Unknown custom rules error",
+    "message": "Unbekannter Fehler bei benutzerdefinierten Regeln",
     "description": "Fallback custom rules error"
   },
   "audit_error_unknown_remote": {
-    "message": "Unknown remote rules error",
+    "message": "Unbekannter Remote-Regelfehler",
     "description": "Fallback remote rules error"
   },
   "audit_remote_unavailable": {
-    "message": "No cached remote rules available yet",
+    "message": "Es sind noch keine zwischengespeicherten Remote-Regeln verfügbar",
     "description": "Message shown when remote cache has not been populated yet"
   },
   "audit_remote_payload_unavailable": {
-    "message": "No cached remote rules payload available yet",
+    "message": "Es sind noch keine zwischengespeicherten Payloads für Remote-Regeln verfügbar",
     "description": "Message shown when remote cache exists but has no data payload"
   },
   "audit_faq_modal_title": {
-    "message": "Audit FAQ",
+    "message": "Audit-FAQ",
     "description": "Title for the audit FAQ modal"
   },
   "audit_faq_intro": {
-    "message": "These notes describe the provider fields that clearurls.js actually reads when it builds and applies rules.",
+    "message": "Diese Hinweise beschreiben die Anbieterfelder, die clearurls.js tatsächlich liest, wenn es Regeln erstellt und anwendet.",
     "description": "Intro text for the audit FAQ modal"
   },
   "audit_faq_audit_provider_title": {
-    "message": "How do I audit a provider?",
+    "message": "Wie auditiere ich einen Anbieter?",
     "description": "FAQ title for auditing a provider"
   },
   "audit_faq_audit_provider_body": {
-    "message": "<p>Open a source in the viewer, find the provider inside <span class=\"faq-code\">providers</span>, and inspect the keys on that provider object.</p><p>Use <span class=\"faq-code\">Bundled Rules</span> to inspect the shipped rules, <span class=\"faq-code\">Final Rules</span> to inspect the merged runtime result, <span class=\"faq-code\">Custom Rules</span> to inspect user overrides, and <span class=\"faq-code\">Latest Cached Remote Rules</span> to inspect the most recently fetched remote payload saved in cache.</p>",
+    "message": "<p>Öffnen Sie eine Quelle im Viewer, suchen Sie den Anbieter in <span class=\"faq-code\">providers</span> und überprüfen Sie die Schlüssel für dieses Anbieterobjekt Rules</span> zum Überprüfen des zusammengeführten Laufzeitergebnisses, <span class=\"faq-code\">Custom Rules</span> zum Überprüfen von Benutzerüberschreibungen und <span class=\"faq-code\">Latest Cached Remote Rules</span> zum Überprüfen der zuletzt abgerufenen Remote-Nutzlast, die im Cache gespeichert ist",
     "description": "FAQ body for auditing a provider"
   },
   "audit_faq_override_title": {
-    "message": "How do I enable, disable, import, edit, or override individual rules?",
+    "message": "Wie aktiviere, deaktiviere, importiere, bearbeite oder überschreibe ich einzelne Regeln?",
     "description": "FAQ title for custom rule editing and overrides"
   },
   "audit_faq_override_body": {
-    "message": "<p>Use the Custom Rules Editor when you want rule-by-rule control. That is the place where you can import rules as custom rules, edit provider fields, and save your own version of a provider.</p><p>You can use it to enable or disable individual providers or individual rule content by turning the imported or edited provider into your custom version. That custom version is then merged into the runtime rules.</p><p>You can also override bundled rules and remote rules individually. Audit <span class=\"faq-code\">Bundled Rules</span> or <span class=\"faq-code\">Latest Cached Remote Rules</span> to find the provider you want, then inspect <span class=\"faq-code\">Custom Rules</span> and <span class=\"faq-code\">Final Rules</span> to confirm your custom edit or override is taking effect.</p><p>If you import a ruleset into the Custom Rules Editor, you can keep only the parts you want, disable the parts you do not want, and edit the provider so the final merged output behaves the way you intend.</p>",
+    "message": "<p>Verwenden Sie den Editor für benutzerdefinierte Regeln, wenn Sie eine Regel-für-Regel-Steuerung wünschen. Das ist der Ort, an dem Sie Regeln als benutzerdefinierte Regeln importieren, Anbieterfelder bearbeiten und Ihre eigene Version eines Anbieters speichern können. Diese benutzerdefinierte Version wird dann in die Laufzeitregeln eingefügt.</p><p>Sie können gebündelte Regeln und Remote-Regeln auch einzeln überschreiben. Prüfen Sie <span class=\"faq-code\">Bundled Rules</span> oder <span class=\"faq-code\">Latest Cached Remote Rules</span>, um den gewünschten Anbieter zu finden, und überprüfen Sie dann effect.</p><p>Wenn Sie einen Regelsatz in den Editor für benutzerdefinierte Regeln importieren, können Sie nur die gewünschten Teile behalten, die nicht gewünschten Teile deaktivieren und den Anbieter bearbeiten, damit sich die endgültige zusammengeführte Ausgabe wie gewünscht verhält.</p>",
     "description": "FAQ body for custom rule editing and overrides"
   },
   "audit_faq_url_pattern_title": {
-    "message": "What is urlPattern?",
+    "message": "Was ist URLPattern?",
     "description": "FAQ title for urlPattern"
   },
   "audit_faq_url_pattern_body": {
-    "message": "<p><span class=\"faq-code\">urlPattern</span> is the regex used to decide whether a provider matches a URL.</p><p>If a provider has <span class=\"faq-code\">urlPattern</span>, ClearURLs uses that regex first. In clearurls.js, this is turned into a real RegExp by <span class=\"faq-code\">setURLPattern()</span>.</p>",
+    "message": "<p><span class=\"faq-code\">urlPattern</span> ist der reguläre Ausdruck, der verwendet wird, um zu entscheiden, ob ein Anbieter mit einer URL übereinstimmt. In clearurls.js wird dies durch <span class=\"faq-code\">setURLPattern()</span>.</p> in einen echten RegExp umgewandelt",
     "description": "FAQ body for urlPattern"
   },
   "audit_faq_domain_patterns_title": {
-    "message": "What is domainPatterns?",
+    "message": "Was sind DomainPatterns?",
     "description": "FAQ title for domainPatterns"
   },
   "audit_faq_domain_patterns_body": {
-    "message": "<p><span class=\"faq-code\">domainPatterns</span> is the domain-based matcher used when a provider does not rely on <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURLs stores these with <span class=\"faq-code\">setURLDomainPattern()</span> and then checks them with domain matching logic instead of regex URL matching.</p>",
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> ist der domänenbasierte Matcher, der verwendet wird, wenn ein Anbieter sich nicht auf <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURLs verlässt, speichert diese mit <span class=\"faq-code\">setURLDomainPattern()</span> und überprüft sie dann mit der Domain-Matching-Logik anstelle des regulären URL-Matchings.</p>",
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "What are rules, rawRules, and referralMarketing?",
+    "message": "Was sind Regeln, RawRules und ReferralMarketing?",
     "description": "FAQ title for rules, rawRules, and referralMarketing"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> are parameter names or fragment names that should be removed from the URL.</p><p><span class=\"faq-code\">rawRules</span> are regex replacements applied directly to the whole URL string before query cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> is treated like removable parameters too, but whether they are actually used depends on the global referral-marketing setting.</p>",
+    "message": "<p><span class=\"faq-code\">rules</span> sind Parameternamen oder Fragmentnamen, die aus der URL entfernt werden sollten cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> wird ebenfalls wie entfernbare Parameter behandelt, aber ob sie tatsächlich verwendet werden, hängt von der globalen Empfehlungsmarketing-Einstellung ab.</p>",
     "description": "FAQ body for rules, rawRules, and referralMarketing"
   },
   "audit_faq_exceptions_title": {
-    "message": "What are exceptions and domainExceptions?",
+    "message": "Was sind Ausnahmen und DomainExceptions?",
     "description": "FAQ title for exceptions and domainExceptions"
   },
   "audit_faq_exceptions_body": {
-    "message": "<p><span class=\"faq-code\">exceptions</span> are regex patterns that stop a provider from acting on matching URLs.</p><p><span class=\"faq-code\">domainExceptions</span> do the same thing with domain-based matching instead of URL regex matching.</p><p>If an exception matches, the provider is bypassed even if its main pattern matched first.</p>",
+    "message": "<p><span class=\"faq-code\">Exceptions</span> sind Regex-Muster, die einen Anbieter daran hindern, auf übereinstimmende URLs zu reagieren Matching.</p><p>Wenn eine Ausnahme übereinstimmt, wird der Anbieter umgangen, auch wenn sein Hauptmuster zuerst übereinstimmte.</p>",
     "description": "FAQ body for exceptions and domainExceptions"
   },
   "audit_faq_redirections_title": {
-    "message": "What are redirections and domainRedirections?",
+    "message": "Was sind Weiterleitungen und DomainRedirections?",
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> are regex-based unwrappers. They usually capture the real destination URL in group 1, and ClearURLs redirects to that captured value.</p><p><span class=\"faq-code\">domainRedirections</span> are domain-style redirect rules. In this codebase they are checked for entries shaped like <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>If a regex redirection matches first, that wins. If not, ClearURLs checks domain redirections next.</p>",
+    "message": "<p><span class=\"faq-code\">redirections</span> sind Regex-basierte Unwrapper. Sie erfassen normalerweise die tatsächliche Ziel-URL in Gruppe 1 und ClearURLs leitet zu diesem erfassten Wert weiter. In dieser Codebasis werden sie auf Einträge der Form <span class=\"faq-code\">pattern $redirect= target</span>.</p><p> überprüft. Wenn eine Regex-Umleitung zuerst übereinstimmt, gewinnt diese. Wenn nicht, prüft ClearURLs die Domänenumleitungen next.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
-    "message": "What are methods and resourceTypes?",
+    "message": "Was sind Methoden und Ressourcentypen?",
     "description": "FAQ title for methods and resourceTypes"
   },
   "audit_faq_methods_resources_body": {
-    "message": "<p><span class=\"faq-code\">methods</span> restrict a provider to specific HTTP methods such as <span class=\"faq-code\">GET</span> or <span class=\"faq-code\">POST</span>. If no methods are listed, all methods are allowed.</p><p><span class=\"faq-code\">resourceTypes</span> restrict a provider to webRequest resource types such as <span class=\"faq-code\">main_frame</span>, <span class=\"faq-code\">sub_frame</span>, or <span class=\"faq-code\">xmlhttprequest</span>.</p><p>If no resource types are listed, ClearURLs falls back to the global allowed request types from settings.</p>",
+    "message": "<p><span class=\"faq-code\">methods</span> beschränken einen Anbieter auf bestimmte HTTP-Methoden wie <span class=\"faq-code\">GET</span> oder <span class=\"faq-code\">POST</span>. Wenn keine Methoden aufgeführt sind, sind alle Methoden zulässig <span class=\"faq-code\">xmlhttprequest</span>.</p><p>Wenn keine Ressourcentypen aufgeführt sind, greift ClearURLs auf die global zulässigen Anforderungstypen aus den Einstellungen zurück.</p>",
     "description": "FAQ body for methods and resourceTypes"
   },
   "audit_faq_complete_force_title": {
-    "message": "What are completeProvider and forceRedirection?",
+    "message": "Was sind CompleteProvider und ForceRedirection?",
     "description": "FAQ title for completeProvider and forceRedirection"
   },
   "audit_faq_complete_force_body": {
-    "message": "<p><span class=\"faq-code\">completeProvider</span> turns the provider into a blocking provider. In clearurls.js, that means the provider can cancel matching requests when domain blocking is enabled.</p><p><span class=\"faq-code\">forceRedirection</span> makes a redirect more aggressive. When a redirection is found on a <span class=\"faq-code\">main_frame</span> request, ClearURLs can update the browser tab directly instead of returning a normal redirect response.</p>",
+    "message": "<p><span class=\"faq-code\">completeProvider</span> verwandelt den Anbieter in einen blockierenden Anbieter. In clearurls.js bedeutet das, dass der Anbieter Matching-Anfragen abbrechen kann, wenn die Domänenblockierung aktiviert ist. Wenn eine Umleitung bei einer <span class=\"faq-code\">main_frame</span>-Anfrage gefunden wird, kann ClearURLs die Browser-Registerkarte direkt aktualisieren, anstatt eine normale Umleitungsantwort zurückzugeben.</p>",
     "description": "FAQ body for completeProvider and forceRedirection"
   },
   "audit_faq_fields_title": {
-    "message": "Which provider fields does clearurls.js use here?",
+    "message": "Welche Anbieterfelder verwendet clearurls.js hier?",
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>The provider-building path in this branch reads these keys: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, and <span class=\"faq-code\">resourceTypes</span>.</p><p>When auditing behavior, the most important place to check is <span class=\"faq-code\">Final Rules</span>, because that shows the merged result after bundled, remote, and custom sources have been combined.</p>",
+    "message": "<p>Der Provider-Building-Pfad in diesem Zweig liest diese Schlüssel: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">resourceTypes</span>.</p><p>Beim Überwachen des Verhaltens ist <span class=\"faq-code\">Final Rules</span> der wichtigste zu überprüfende Ort, da dort das zusammengeführte Ergebnis angezeigt wird, nachdem gebündelte, Remote- und benutzerdefinierte Quellen kombiniert wurden.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {

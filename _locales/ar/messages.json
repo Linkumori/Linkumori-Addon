@@ -270,7 +270,7 @@
     "message": "أنماط النطاق"
   },
   "customRulesEditor_domainPatternsPlaceholder": {
-    "message": "||example.com^\n||*.subdomain.com^\n"
+    "message": "||example.com^\n||*.subdomain.com^"
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "مطلوب نمط نطاق واحد على الأقل"
@@ -463,7 +463,7 @@
     "message": "مطلوب إما نمط URL أو أنماط النطاق"
   },
   "customRulesEditor_urlPatternPlaceholder": {
-    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+    "message": "^https? :\\/\\/(? :[ a - z0 -9 -]+\\. )*?example\\.com"
   },
   "customRulesEditor_urlPatternRequired": {
     "message": "نمط URL مطلوب"
@@ -1199,11 +1199,11 @@
   },
   "hash_url_placeholder": {
     "message": "https://example.com/hash.txt",
-    "description": "نص placeholder لحقل رابط التجزئة بعد التأكيد"
+    "description": "Placeholder text for hash URL field after confirmation"
   },
   "headerTitle": {
-    "message": "Linkumori",
-    "description": "عنوان رأس الامتداد"
+    "message": "لينكوموري",
+    "description": "Header title for the extension"
   },
   "history_listener_enabled": {
     "message": "منع حقن التتبع عبر واجهة برمجة تطبيقات السجل",
@@ -1427,11 +1427,11 @@
   },
   "log_provider_pattern_domain": {
     "message": "domainPattern",
-    "description": "تسمية لمطابقة مزود نمط النطاق في إدخالات السجل."
+    "description": "Label for domain pattern provider matching in log entries."
   },
   "log_provider_pattern_url": {
     "message": "urlPattern",
-    "description": "تسمية لمطابقة مزود نمط URL في إدخالات السجل."
+    "description": "Label for URL pattern provider matching in log entries."
   },
   "log_provider_request_method": {
     "message": "الطريقة",
@@ -1649,8 +1649,8 @@
     "description": "تسمية قارئ الشاشة لزر الصفحة السابقة"
   },
   "percentage_symbol": {
-    "message": "%",
-    "description": "الرمز المستخدم للنسب المئوية في هذه اللغة"
+    "message": "نسبة مئوية (%)",
+    "description": "Symbol used for percentages in this language"
   },
   "ping_blocking_enabled": {
     "message": "حظر تدقيق الارتباط التشعبي",
@@ -1681,8 +1681,8 @@
     "description": "عنوان بوابة موافقة النافذة المنبثقة"
   },
   "popup_html_page_title": {
-    "message": "Linkumori",
-    "description": "نص عنوان صفحة النافذة المنبثقة"
+    "message": "لينكوموري",
+    "description": "Popup page title text"
   },
   "popup_html_version_label": {
     "message": "الإصدار:",
@@ -2054,30 +2054,30 @@
     "description": "النص الكامل لتلميح أداة استثناءات النطاق في بطاقات المزود"
   },
   "providerImport_domainExceptionsAbbr": {
-    "message": "DE",
-    "description": "اختصار لعدد استثناءات النطاق في بطاقات المزود"
+    "message": "دي",
+    "description": "Abbreviation for domain exceptions count in provider cards"
   },
   "providerImport_domainPatterns": {
     "message": "أنماط النطاق",
     "description": "النص الكامل لتلميح أداة أنماط النطاق في بطاقات المزود"
   },
   "providerImport_domainPatternsAbbr": {
-    "message": "DP",
-    "description": "اختصار لعدد أنماط النطاق في بطاقات المزود"
+    "message": "موانئ دبي",
+    "description": "Abbreviation for domain patterns count in provider cards"
   },
   "providerImport_domainRedirections": {
     "message": "إعادة توجيه النطاق",
     "description": "النص الكامل لتلميح أداة إعادة توجيه النطاق في بطاقات المزود"
   },
   "providerImport_domainRedirectionsAbbr": {
-    "message": "DR",
-    "description": "اختصار لعدد عمليات إعادة توجيه النطاق في بطاقات المزود"
+    "message": "دكتور",
+    "description": "Abbreviation for domain redirections count in provider cards"
   },
   "providerImport_exceptions": {
     "message": "استثناءات"
   },
   "providerImport_exceptionsAbbr": {
-    "message": "exc"
+    "message": "باستثناء"
   },
   "providerImport_excludeNoPattern": {
     "message": "هذا المزود ليس لديه نمط URL/نطاق ولا يمكن استبعاده حسب التوقيع.",
@@ -2133,7 +2133,7 @@
     "message": "إعادة توجيه"
   },
   "providerImport_redirectionsAbbr": {
-    "message": "red"
+    "message": "أحمر"
   },
   "providerImport_referralAbbr": {
     "message": "إحالة",
@@ -2350,7 +2350,7 @@
   },
   "rule_url_placeholder": {
     "message": "https://example.com/rules.json",
-    "description": "نص placeholder لحقل رابط القاعدة بعد التأكيد"
+    "description": "Placeholder text for rule URL field after confirmation"
   },
   "rules_author_label": {
     "message": "المؤلف:",
@@ -2628,7 +2628,7 @@
   },
   "setting_remote_rule_sets_placeholder": {
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
-    "description": "نص placeholder لإدخالات مجموعة القواعد البعيدة الإضافية."
+    "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
     "message": "رابط بعيد مخصص لتعريفات القواعد",
@@ -3407,36 +3407,36 @@
     "description": "ملاحظة تصدير القالب 4 لتصدير JSON لعنوان URL البعيد"
   },
   "remote_urls_template_primary_rule_placeholder": {
-    "message": "REPLACE_WITH_PRIMARY_RULE_URL",
-    "description": "قيمة العنصر النائب لرابط القاعدة الأساسي في JSON لقالب التصدير"
+    "message": "استبدال_WITH_PRIMARY_RULE_URL",
+    "description": "Placeholder value for primary rule URL in template export JSON"
   },
   "remote_urls_template_primary_hash_placeholder": {
-    "message": "REPLACE_WITH_PRIMARY_HASH_URL",
-    "description": "قيمة العنصر النائب لرابط التجزئة الأساسي في JSON لقالب التصدير"
+    "message": "استبدال_WITH_PRIMARY_HASH_URL",
+    "description": "Placeholder value for primary hash URL in template export JSON"
   },
   "remote_urls_template_additional_rule_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_1",
-    "description": "قيمة العنصر النائب لرابط القاعدة الإضافي 1 في JSON لقالب التصدير"
+    "message": "استبدال_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
   },
   "remote_urls_template_additional_hash_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_1",
-    "description": "قيمة العنصر النائب لرابط التجزئة الإضافي 1 في JSON لقالب التصدير"
+    "message": "استبدال_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
   },
   "remote_urls_template_additional_rule_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_2",
-    "description": "قيمة العنصر النائب لرابط القاعدة الإضافي 2 في JSON لقالب التصدير"
+    "message": "استبدال_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
   },
   "remote_urls_template_additional_hash_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_2",
-    "description": "قيمة العنصر النائب لرابط التجزئة الإضافي 2 في JSON لقالب التصدير"
+    "message": "استبدال_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
   },
   "remote_urls_template_additional_rule_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_3",
-    "description": "قيمة العنصر النائب لرابط القاعدة الإضافي 3 في JSON لقالب التصدير"
+    "message": "استبدال_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
   },
   "remote_urls_template_additional_hash_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_3",
-    "description": "قيمة العنصر النائب لرابط التجزئة الإضافي 3 في JSON لقالب التصدير"
+    "message": "استبدال_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
   },
   "remote_urls_export_success": {
     "message": "تم تصدير تكوين URL البعيد.",
@@ -3860,7 +3860,7 @@
   },
   "customRulesEditor_ruleTestLab_input_placeholder": {
     "message": "https://example.com/?utm_source=newsletter",
-    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_input_placeholder"
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
   },
   "customRulesEditor_ruleTestLab_run": {
     "message": "تشغيل الاختبار",

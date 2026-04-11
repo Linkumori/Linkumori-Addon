@@ -270,7 +270,7 @@
     "message": "Padrões de domínio"
   },
   "customRulesEditor_domainPatternsPlaceholder": {
-    "message": "||example.com^\n||*.subdomain.com^\n"
+    "message": "||exemplo.com^\n||*.subdomínio.com^"
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "É necessário pelo menos um padrão de domínio"
@@ -463,7 +463,7 @@
     "message": "É necessário um Padrão de URL ou Padrões de domínio"
   },
   "customRulesEditor_urlPatternPlaceholder": {
-    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?exemplo\\.com"
   },
   "customRulesEditor_urlPatternRequired": {
     "message": "O Padrão de URL é obrigatório"
@@ -1426,11 +1426,11 @@
     "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
   },
   "log_provider_pattern_domain": {
-    "message": "domainPattern",
+    "message": "domínioPadrão",
     "description": "Label for domain pattern provider matching in log entries."
   },
   "log_provider_pattern_url": {
-    "message": "urlPattern",
+    "message": "urlPadrão",
     "description": "Label for URL pattern provider matching in log entries."
   },
   "log_provider_request_method": {
@@ -1713,7 +1713,7 @@
     "description": "Tooltip for popup license description"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0",
+    "message": "Licença Pública Geral GNU v3.0",
     "description": "Popup license link label for GPL v3"
   },
   "popup_html_gpl_link_title": {
@@ -1721,7 +1721,7 @@
     "description": "Tooltip for GPL link in popup license section"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0",
+    "message": "Licença Pública Menor Geral GNU v3.0",
     "description": "Popup license link label for LGPL v3"
   },
   "popup_html_lgpl_link_title": {
@@ -2077,7 +2077,7 @@
     "message": "Exceções"
   },
   "providerImport_exceptionsAbbr": {
-    "message": "exc"
+    "message": "ex"
   },
   "providerImport_excludeNoPattern": {
     "message": "Este fornecedor não tem padrão de URL/domínio e não pode ser excluído por assinatura.",
@@ -2133,10 +2133,10 @@
     "message": "Redirecionamentos"
   },
   "providerImport_redirectionsAbbr": {
-    "message": "red"
+    "message": "vermelho"
   },
   "providerImport_referralAbbr": {
-    "message": "Ref",
+    "message": "Referência",
     "description": "Abbreviation for referral marketing count in provider cards"
   },
   "providerImport_referralMarketing": {
@@ -2873,17 +2873,17 @@
     "description": "Label for the theme selection section"
   },
   "time_am": {
-    "message": "AM"
+    "message": "SOU"
   },
   "time_am_lower": {
-    "message": "am",
+    "message": "sou",
     "description": "Lowercase AM marker"
   },
   "time_pm": {
     "message": "PM"
   },
   "time_pm_lower": {
-    "message": "pm",
+    "message": "tarde",
     "description": "Lowercase PM marker"
   },
   "number_0": {
@@ -3523,7 +3523,7 @@
     "description": "Refresh button label on the audit page"
   },
   "audit_faq_button": {
-    "message": "FAQ",
+    "message": "Perguntas frequentes",
     "description": "FAQ button label on the audit page"
   },
   "audit_theme_toggle_aria": {
@@ -3823,7 +3823,7 @@
     "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
   },
   "settings_remote_health_na": {
-    "message": "N/A",
+    "message": "N / D",
     "description": "Auto-added i18n key: settings_remote_health_na"
   },
   "settings_remote_health_none": {

@@ -219,7 +219,7 @@
     "message": "Domeinpatronen"
   },
   "customRulesEditor_domainPatternsPlaceholder": {
-    "message": "||example.com^\n||*.subdomain.com^\n"
+    "message": "||voorbeeld.com^\n||*.subdomein.com^"
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "Minstens één domeinpatroon is vereist"
@@ -408,7 +408,7 @@
     "message": "URL-patroon of domeinpatronen zijn vereist"
   },
   "customRulesEditor_urlPatternPlaceholder": {
-    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?voorbeeld\\.com"
   },
   "customRulesEditor_urlPatternRequired": {
     "message": "URL-patroon is verplicht"
@@ -849,7 +849,8 @@
     "message": "Hoe moet ik mijn aangepaste regels testen?"
   },
   "faq_tip": {
-    "message": "Tip:"
+    "message": "Tip:",
+    "description": "Label for tips in FAQ"
   },
   "faq_title": {
     "message": "Veelgestelde vragen"
@@ -966,10 +967,12 @@
     "message": "Externe regels geladen en aangepaste regels samengevoegd"
   },
   "hash_url_placeholder": {
-    "message": "https://example.com/hash.txt"
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
   },
   "headerTitle": {
-    "message": "Linkumori"
+    "message": "Linkumori",
+    "description": "Header title for the extension"
   },
   "history_listener_enabled": {
     "message": "Voorkom traceringsinjectie via geschiedenis-API"
@@ -1032,7 +1035,8 @@
     "message": "Licentie-informatie"
   },
   "license_links_title": {
-    "message": "Links"
+    "message": "Koppelingen",
+    "description": "Title for links section in license"
   },
   "license_third_party_title": {
     "message": "Componenten van derden"
@@ -1128,7 +1132,8 @@
     "message": "Brontype"
   },
   "log_nav_dashboard": {
-    "message": "Dashboard"
+    "message": "Dashboard",
+    "description": "Tab label for dashboard view on log page"
   },
   "log_nav_logs": {
     "message": "Logboeken"
@@ -1137,10 +1142,12 @@
     "message": "Deze hyperlink-audit is geblokkeerd"
   },
   "log_provider_pattern_domain": {
-    "message": "domainPattern"
+    "message": "domeinPatroon",
+    "description": "Label for domain pattern provider matching in log entries."
   },
   "log_provider_pattern_url": {
-    "message": "urlPattern"
+    "message": "urlPatroon",
+    "description": "Label for URL pattern provider matching in log entries."
   },
   "log_provider_request_method": {
     "message": "methode"
@@ -1305,7 +1312,8 @@
     "message": "Vorige pagina"
   },
   "percentage_symbol": {
-    "message": "%"
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
   },
   "ping_blocking_enabled": {
     "message": "Hyperlink-audit blokkeren"
@@ -1329,7 +1337,8 @@
     "message": "Toestemming vereist"
   },
   "popup_html_page_title": {
-    "message": "Linkumori"
+    "message": "Linkumori",
+    "description": "Popup page title text"
   },
   "popup_html_version_label": {
     "message": "Versie:"
@@ -1353,13 +1362,15 @@
     "message": "Licentie- en privacy-informatie"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0"
+    "message": "GNU Algemene Publieke Licentie v3.0",
+    "description": "Popup license link label for GPL v3"
   },
   "popup_html_gpl_link_title": {
     "message": "Open GNU GPL v3.0-licentietekst"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "GNU Algemene Kleinere Publieke Licentie v3.0",
+    "description": "Popup license link label for LGPL v3"
   },
   "popup_html_lgpl_link_title": {
     "message": "Open GNU LGPL v3.0-licentietekst"
@@ -1395,7 +1406,8 @@
     "message": "Open ClearURLs-add-on v1.27.3-repository"
   },
   "siteblocked_footer_prefix": {
-    "message": "Linkumori v."
+    "message": "Linkumori v.",
+    "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
     "message": "Bekijk het Privacybeleid en de Licentie hieronder en accepteer deze om door te gaan met het gebruik van Linkumori."
@@ -1485,10 +1497,12 @@
     "message": "Opslaan van wijzigingen aan optionele functies mislukt."
   },
   "popup_html_configs_switch_badges": {
-    "message": "Badges"
+    "message": "Insignes",
+    "description": "This string is used as name for the badges switch button on the popup page."
   },
   "popup_html_configs_switch_filter": {
-    "message": "Filter"
+    "message": "Filter",
+    "description": "This string is used as name for the filter switch button on the popup page."
   },
   "popup_html_configs_switch_log": {
     "message": "Logboekregistratie"
@@ -1509,7 +1523,8 @@
     "message": "Elementen"
   },
   "popup_html_statistics_percentage": {
-    "message": "Percentage"
+    "message": "Percentage",
+    "description": "This string is used as name for the percentage of blocked elements on the popup page."
   },
   "popup_html_statistics_reset_button": {
     "message": "Resetten"
@@ -1617,7 +1632,8 @@
     "message": "Domeinpatronen"
   },
   "providerImport_domainPatternsAbbr": {
-    "message": "DP"
+    "message": "DP",
+    "description": "Abbreviation for domain patterns count in provider cards"
   },
   "providerImport_domainRedirections": {
     "message": "Domeinomleidingen"
@@ -1683,7 +1699,8 @@
     "message": "oml"
   },
   "providerImport_referralAbbr": {
-    "message": "Ref"
+    "message": "Ref",
+    "description": "Abbreviation for referral marketing count in provider cards"
   },
   "providerImport_referralMarketing": {
     "message": "Referralmarketing"
@@ -1764,7 +1781,8 @@
     "message": "Omleidingen"
   },
   "providerList_referral": {
-    "message": "Referral"
+    "message": "Verwijzing",
+    "description": "Label for referral marketing count in provider statistics"
   },
   "providerList_rules": {
     "message": "Regels"
@@ -1827,7 +1845,8 @@
     "message": "$1 verwijderen uit witte lijst"
   },
   "rule_url_placeholder": {
-    "message": "https://example.com/rules.json"
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
   },
   "rules_author_label": {
     "message": "Auteur:"
@@ -1881,7 +1900,8 @@
     "message": "Fout bij laden regels"
   },
   "rules_status_label": {
-    "message": "Status:"
+    "message": "Status:",
+    "description": "Label for rules status."
   },
   "rules_status_not_loaded": {
     "message": "Geen regels geladen"
@@ -2013,7 +2033,8 @@
     "message": "Reset alles"
   },
   "setting_html_audit_button": {
-    "message": "Audit"
+    "message": "Controle",
+    "description": "This string is used as name for the audit button on the settings page."
   },
   "setting_html_audit_button_title": {
     "message": "Open de auditpagina"
@@ -2031,7 +2052,8 @@
     "message": "Extra externe regelsets"
   },
   "setting_remote_rule_sets_placeholder": {
-    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
     "message": "Aangepaste externe URL voor regeldefinities"
@@ -2211,7 +2233,8 @@
     "message": "Zonsondergang"
   },
   "theme_name_legacy": {
-    "message": "Legacy"
+    "message": "Nalatenschap",
+    "description": "Name for the legacy ClearURLs-style theme"
   },
   "theme_group_light_label": {
     "message": "Lichte modus"
@@ -2223,46 +2246,58 @@
     "message": "Thema"
   },
   "time_am": {
-    "message": "AM"
+    "message": "BEN"
   },
   "time_am_lower": {
-    "message": "am"
+    "message": "ben",
+    "description": "Lowercase AM marker"
   },
   "time_pm": {
-    "message": "PM"
+    "message": "P.M"
   },
   "time_pm_lower": {
-    "message": "pm"
+    "message": "p.m",
+    "description": "Lowercase PM marker"
   },
   "number_0": {
-    "message": "0"
+    "message": "0",
+    "description": "Localized digit zero"
   },
   "number_1": {
-    "message": "1"
+    "message": "1",
+    "description": "Localized digit one"
   },
   "number_2": {
-    "message": "2"
+    "message": "2",
+    "description": "Localized digit two"
   },
   "number_3": {
-    "message": "3"
+    "message": "3",
+    "description": "Localized digit three"
   },
   "number_4": {
-    "message": "4"
+    "message": "4",
+    "description": "Localized digit four"
   },
   "number_5": {
-    "message": "5"
+    "message": "5",
+    "description": "Localized digit five"
   },
   "number_6": {
-    "message": "6"
+    "message": "6",
+    "description": "Localized digit six"
   },
   "number_7": {
-    "message": "7"
+    "message": "7",
+    "description": "Localized digit seven"
   },
   "number_8": {
-    "message": "8"
+    "message": "8",
+    "description": "Localized digit eight"
   },
   "number_9": {
-    "message": "9"
+    "message": "9",
+    "description": "Localized digit nine"
   },
   "day_0": {
     "message": "Zondag"
@@ -2295,7 +2330,8 @@
     "message": "Maart"
   },
   "month_4": {
-    "message": "April"
+    "message": "april",
+    "description": "Localized month name for April"
   },
   "month_5": {
     "message": "Mei"
@@ -2310,16 +2346,19 @@
     "message": "Augustus"
   },
   "month_9": {
-    "message": "September"
+    "message": "september",
+    "description": "Localized month name for September"
   },
   "month_10": {
     "message": "Oktober"
   },
   "month_11": {
-    "message": "November"
+    "message": "November",
+    "description": "Localized month name for November"
   },
   "month_12": {
-    "message": "December"
+    "message": "December",
+    "description": "Localized month name for December"
   },
   "url_field_editable_tooltip": {
     "message": "Veld is bewerkbaar"
@@ -2688,13 +2727,15 @@
     "message": "Geblokkeerd"
   },
   "popup_html_statistics_percentage_title": {
-    "message": "Percentage"
+    "message": "Percentage",
+    "description": "Description for the blocked statistic in the popup"
   },
   "audit_html_page_title": {
     "message": "Linkumori-regelaudit"
   },
   "audit_badge_label": {
-    "message": "AUDIT"
+    "message": "CONTROLE",
+    "description": "Small badge label in the audit page header"
   },
   "audit_section_title": {
     "message": "Regelaudit"
@@ -2709,7 +2750,8 @@
     "message": "Bronnen vernieuwen"
   },
   "audit_faq_button": {
-    "message": "FAQ"
+    "message": "Veelgestelde vragen",
+    "description": "FAQ button label on the audit page"
   },
   "audit_theme_toggle_aria": {
     "message": "Thema wisselen"
@@ -2907,7 +2949,8 @@
     "message": "minder dan een minuut"
   },
   "popup_pause_unit_min_short": {
-    "message": "min"
+    "message": "min",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
   },
   "popup_pause_unit_hour_short": {
     "message": "u"
@@ -2961,7 +3004,8 @@
     "message": "Plak een URL om de voor/na-schoonmaak en de eerste overeenkomende aanbieder/regel te zien."
   },
   "customRulesEditor_ruleTestLab_input_placeholder": {
-    "message": "https://example.com/?utm_source=newsletter"
+    "message": "https://example.com/?utm_source=nieuwsbrief",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
   },
   "customRulesEditor_ruleTestLab_run": {
     "message": "Test uitvoeren"

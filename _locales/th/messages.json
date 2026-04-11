@@ -270,7 +270,7 @@
     "message": "รูปแบบโดเมน"
   },
   "customRulesEditor_domainPatternsPlaceholder": {
-    "message": "||example.com^\n||*.subdomain.com^\n"
+    "message": "||example.com^\n||*.โดเมนย่อย.com^"
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "ต้องมีรูปแบบโดเมนอย่างน้อยหนึ่งรูปแบบ"
@@ -1199,11 +1199,11 @@
   },
   "hash_url_placeholder": {
     "message": "https://example.com/hash.txt",
-    "description": "ข้อความตัวยึดสำหรับฟิลด์ URL แฮชหลังการยืนยัน"
+    "description": "Placeholder text for hash URL field after confirmation"
   },
   "headerTitle": {
-    "message": "Linkumori",
-    "description": "ชื่อส่วนหัวสำหรับส่วนขยาย"
+    "message": "ลินกุโมริ",
+    "description": "Header title for the extension"
   },
   "history_listener_enabled": {
     "message": "ป้องกันการฉีดการติดตามผ่าน API ประวัติ",
@@ -1426,20 +1426,20 @@
     "description": "สตริงนี้ใช้สำหรับการตรวจสอบไฮเปอร์ลิงก์ในบันทึกของ Linkumori (Clean URLS)"
   },
   "log_provider_pattern_domain": {
-    "message": "domainPattern",
-    "description": "ป้ายกำกับสำหรับการจับคู่ผู้ให้บริการรูปแบบโดเมนในรายการบันทึก"
+    "message": "รูปแบบโดเมน",
+    "description": "Label for domain pattern provider matching in log entries."
   },
   "log_provider_pattern_url": {
-    "message": "urlPattern",
-    "description": "ป้ายกำกับสำหรับการจับคู่ผู้ให้บริการรูปแบบ URL ในรายการบันทึก"
+    "message": "urlPatern",
+    "description": "Label for URL pattern provider matching in log entries."
   },
   "log_provider_request_method": {
-    "message": "method",
-    "description": "ป้ายกำกับสำหรับวิธีการขอปัจจุบันในรายละเอียดการจับคู่ผู้ให้บริการ"
+    "message": "วิธี",
+    "description": "Label for the current request method in provider match details."
   },
   "log_provider_methods": {
-    "message": "provider methods",
-    "description": "ป้ายกำกับสำหรับตัวกรองวิธีการของผู้ให้บริการในรายละเอียดการจับคู่ผู้ให้บริการ"
+    "message": "วิธีการของผู้ให้บริการ",
+    "description": "Label for provider method filters in provider match details."
   },
   "log_redirect": {
     "message": "URL นี้ถูกเปลี่ยนเส้นทาง",
@@ -1650,7 +1650,7 @@
   },
   "percentage_symbol": {
     "message": "%",
-    "description": "สัญลักษณ์ที่ใช้สำหรับเปอร์เซ็นต์ในภาษานี้"
+    "description": "Symbol used for percentages in this language"
   },
   "ping_blocking_enabled": {
     "message": "บล็อกการตรวจสอบไฮเปอร์ลิงก์",
@@ -1681,8 +1681,8 @@
     "description": "ชื่อเรื่องสำหรับประตูยินยอมของป็อปอัพ"
   },
   "popup_html_page_title": {
-    "message": "Linkumori",
-    "description": "ข้อความชื่อเรื่องหน้าป็อปอัพ"
+    "message": "ลินกุโมริ",
+    "description": "Popup page title text"
   },
   "popup_html_version_label": {
     "message": "เวอร์ชัน:",
@@ -1713,16 +1713,16 @@
     "description": "คำแนะนำเครื่องมือสำหรับคำอธิบายใบอนุญาตป็อปอัพ"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0",
-    "description": "ป้ายกำกับลิงก์ใบอนุญาตป็อปอัพสำหรับ GPL v3"
+    "message": "ใบอนุญาตสาธารณะทั่วไปของ GNU v3.0",
+    "description": "Popup license link label for GPL v3"
   },
   "popup_html_gpl_link_title": {
     "message": "เปิดข้อความใบอนุญาต GNU GPL v3.0",
     "description": "คำแนะนำเครื่องมือสำหรับลิงก์ GPL ในส่วนใบอนุญาตป็อปอัพ"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0",
-    "description": "ป้ายกำกับลิงก์ใบอนุญาตป็อปอัพสำหรับ LGPL v3"
+    "message": "ใบอนุญาตสาธารณะเลสเซอร์ทั่วไปของ GNU v3.0",
+    "description": "Popup license link label for LGPL v3"
   },
   "popup_html_lgpl_link_title": {
     "message": "เปิดข้อความใบอนุญาต GNU LGPL v3.0",
@@ -1769,8 +1769,8 @@
     "description": "คำแนะนำเครื่องมือสำหรับลิงก์ที่เก็บส่วนเสริม ClearURLs ในส่วนใบอนุญาตป็อปอัพ"
   },
   "siteblocked_footer_prefix": {
-    "message": "Linkumori v.",
-    "description": "คำนำส่วนท้ายที่แสดงในหน้าถูกบล็อกก่อนหมายเลขเวอร์ชัน"
+    "message": "ลินกุโมริ วี.",
+    "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
     "message": "โปรดตรวจสอบนโยบายความเป็นส่วนตัวและใบอนุญาตด้านล่าง จากนั้นยอมรับเพื่อใช้งาน Linkumori ต่อไป",
@@ -2350,7 +2350,7 @@
   },
   "rule_url_placeholder": {
     "message": "https://example.com/rules.json",
-    "description": "ข้อความตัวยึดสำหรับฟิลด์ URL กฎหลังการยืนยัน"
+    "description": "Placeholder text for rule URL field after confirmation"
   },
   "rules_author_label": {
     "message": "ผู้แต่ง:",
@@ -2628,7 +2628,7 @@
   },
   "setting_remote_rule_sets_placeholder": {
     "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
-    "description": "ข้อความตัวยึดสำหรับรายการชุดกฎระยะไกลเพิ่มเติม"
+    "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
     "message": "URL ระยะไกลที่กำหนดเองสำหรับคำจำกัดความของกฎ",
@@ -2873,58 +2873,58 @@
     "description": "ป้ายกำกับสำหรับส่วนการเลือกธีม"
   },
   "time_am": {
-    "message": "AM"
+    "message": "เช้า"
   },
   "time_am_lower": {
-    "message": "am",
-    "description": "ตัวระบุ AM ตัวพิมพ์เล็ก"
+    "message": "เช้า",
+    "description": "Lowercase AM marker"
   },
   "time_pm": {
-    "message": "PM"
+    "message": "น"
   },
   "time_pm_lower": {
-    "message": "pm",
-    "description": "ตัวระบุ PM ตัวพิมพ์เล็ก"
+    "message": "น",
+    "description": "Lowercase PM marker"
   },
   "number_0": {
     "message": "0",
-    "description": "เลขศูนย์ที่แปล"
+    "description": "Localized digit zero"
   },
   "number_1": {
     "message": "1",
-    "description": "เลขหนึ่งที่แปล"
+    "description": "Localized digit one"
   },
   "number_2": {
     "message": "2",
-    "description": "เลขสองที่แปล"
+    "description": "Localized digit two"
   },
   "number_3": {
     "message": "3",
-    "description": "เลขสามที่แปล"
+    "description": "Localized digit three"
   },
   "number_4": {
     "message": "4",
-    "description": "เลขสี่ที่แปล"
+    "description": "Localized digit four"
   },
   "number_5": {
     "message": "5",
-    "description": "เลขห้าที่แปล"
+    "description": "Localized digit five"
   },
   "number_6": {
     "message": "6",
-    "description": "เลขหกที่แปล"
+    "description": "Localized digit six"
   },
   "number_7": {
     "message": "7",
-    "description": "เลขเจ็ดที่แปล"
+    "description": "Localized digit seven"
   },
   "number_8": {
     "message": "8",
-    "description": "เลขแปดที่แปล"
+    "description": "Localized digit eight"
   },
   "number_9": {
     "message": "9",
-    "description": "เลขเก้าที่แปล"
+    "description": "Localized digit nine"
   },
   "day_0": {
     "message": "วันอาทิตย์",
@@ -3407,36 +3407,36 @@
     "description": "หมายเหตุเทมเพลตการส่งออก 4 สำหรับการส่งออก JSON URL ระยะไกล"
   },
   "remote_urls_template_primary_rule_placeholder": {
-    "message": "REPLACE_WITH_PRIMARY_RULE_URL",
-    "description": "ค่าตัวยึดตำแหน่งสำหรับ URL กฎหลักในการส่งออก JSON เทมเพลต"
+    "message": "แทนที่_WITH_PRIMARY_RULE_URL",
+    "description": "Placeholder value for primary rule URL in template export JSON"
   },
   "remote_urls_template_primary_hash_placeholder": {
-    "message": "REPLACE_WITH_PRIMARY_HASH_URL",
-    "description": "ค่าตัวยึดตำแหน่งสำหรับ URL แฮชหลักในการส่งออก JSON เทมเพลต"
+    "message": "แทนที่_WITH_PRIMARY_HASH_URL",
+    "description": "Placeholder value for primary hash URL in template export JSON"
   },
   "remote_urls_template_additional_rule_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_1",
-    "description": "ค่าตัวยึดตำแหน่งสำหรับ URL กฎเพิ่มเติม 1 ในการส่งออก JSON เทมเพลต"
+    "message": "แทนที่_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
   },
   "remote_urls_template_additional_hash_placeholder_1": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_1",
-    "description": "ค่าตัวยึดตำแหน่งสำหรับ URL แฮชเพิ่มเติม 1 ในการส่งออก JSON เทมเพลต"
+    "message": "แทนที่_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
   },
   "remote_urls_template_additional_rule_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_2",
-    "description": "ค่าตัวยึดตำแหน่งสำหรับ URL กฎเพิ่มเติม 2 ในการส่งออก JSON เทมเพลต"
+    "message": "แทนที่_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
   },
   "remote_urls_template_additional_hash_placeholder_2": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_2",
-    "description": "ค่าตัวยึดตำแหน่งสำหรับ URL แฮชเพิ่มเติม 2 ในการส่งออก JSON เทมเพลต"
+    "message": "แทนที่_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
   },
   "remote_urls_template_additional_rule_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_3",
-    "description": "ค่าตัวยึดตำแหน่งสำหรับ URL กฎเพิ่มเติม 3 ในการส่งออก JSON เทมเพลต"
+    "message": "แทนที่_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
   },
   "remote_urls_template_additional_hash_placeholder_3": {
-    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_3",
-    "description": "ค่าตัวยึดตำแหน่งสำหรับ URL แฮชเพิ่มเติม 3 ในการส่งออก JSON เทมเพลต"
+    "message": "แทนที่_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
   },
   "remote_urls_export_success": {
     "message": "ส่งออกการกำหนดค่า URL ระยะไกลแล้ว",
@@ -3860,7 +3860,7 @@
   },
   "customRulesEditor_ruleTestLab_input_placeholder": {
     "message": "https://example.com/?utm_source=newsletter",
-    "description": "คีย์ i18n ที่เพิ่มอัตโนมัติ: customRulesEditor_ruleTestLab_input_placeholder"
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
   },
   "customRulesEditor_ruleTestLab_run": {
     "message": "รันทดสอบ",

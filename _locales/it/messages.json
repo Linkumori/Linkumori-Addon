@@ -270,7 +270,7 @@
     "message": "Pattern di dominio"
   },
   "customRulesEditor_domainPatternsPlaceholder": {
-    "message": "||example.com^\n||*.subdomain.com^\n"
+    "message": "||esempio.com^\n||*.sottodominio.com^"
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "È richiesto almeno un pattern di dominio"
@@ -366,7 +366,7 @@
     "description": "Navigation label for custom rules view"
   },
   "customRulesEditor_nav_whitelist": {
-    "message": "Whitelist",
+    "message": "Lista bianca",
     "description": "Navigation label for whitelist view"
   },
   "customRulesEditor_noProvidersInFile": {
@@ -463,7 +463,7 @@
     "message": "È richiesto Pattern URL o Pattern di dominio"
   },
   "customRulesEditor_urlPatternPlaceholder": {
-    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?esempio\\.com"
   },
   "customRulesEditor_urlPatternRequired": {
     "message": "Il Pattern URL è obbligatorio"
@@ -1050,7 +1050,7 @@
     "description": "Label for tips in FAQ"
   },
   "faq_title": {
-    "message": "FAQ",
+    "message": "Domande frequenti",
     "description": "FAQ button text and modal title"
   },
   "faq_url_pattern": {
@@ -1198,7 +1198,7 @@
     "description": "Message shown when remote rules are loaded and custom rules are merged"
   },
   "hash_url_placeholder": {
-    "message": "https://example.com/hash.txt",
+    "message": "https://esempio.com/hash.txt",
     "description": "Placeholder text for hash URL field after confirmation"
   },
   "headerTitle": {
@@ -1398,11 +1398,11 @@
     "description": "This string is used as table title on the log page."
   },
   "log_html_table_head_5": {
-    "message": "Provider",
+    "message": "Fornitore",
     "description": "Column header for matched provider name on the log page."
   },
   "log_html_table_head_6": {
-    "message": "Pattern",
+    "message": "Modello",
     "description": "Column header for matched urlPattern/domainPattern on the log page."
   },
   "log_html_table_head_7": {
@@ -1414,7 +1414,7 @@
     "description": "Column header for request resource type and provider resource types on the log page."
   },
   "log_nav_dashboard": {
-    "message": "Dashboard",
+    "message": "Pannello di controllo",
     "description": "Tab label for dashboard view on log page"
   },
   "log_nav_logs": {
@@ -1426,11 +1426,11 @@
     "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
   },
   "log_provider_pattern_domain": {
-    "message": "domainPattern",
+    "message": "dominioModello",
     "description": "Label for domain pattern provider matching in log entries."
   },
   "log_provider_pattern_url": {
-    "message": "urlPattern",
+    "message": "URLPattern",
     "description": "Label for URL pattern provider matching in log entries."
   },
   "log_provider_request_method": {
@@ -1514,7 +1514,7 @@
     "description": "Column header for rule name in stats"
   },
   "log_stats_provider_col": {
-    "message": "Provider",
+    "message": "Fornitore",
     "description": "Column header for provider name in stats"
   },
   "log_stats_method_col": {
@@ -1713,7 +1713,7 @@
     "description": "Tooltip for popup license description"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0",
+    "message": "Licenza pubblica generale GNU v3.0",
     "description": "Popup license link label for GPL v3"
   },
   "popup_html_gpl_link_title": {
@@ -1721,7 +1721,7 @@
     "description": "Tooltip for GPL link in popup license section"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0",
+    "message": "Licenza pubblica generale minore GNU v3.0",
     "description": "Popup license link label for LGPL v3"
   },
   "popup_html_lgpl_link_title": {
@@ -1769,7 +1769,7 @@
     "description": "Tooltip for ClearURLs addon repository link in popup license section"
   },
   "siteblocked_footer_prefix": {
-    "message": "Linkumori v.",
+    "message": "Linkumori c.",
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
@@ -1937,7 +1937,7 @@
     "description": "This string is used as a title for the tools button on the popup page."
   },
   "popup_html_whitelist_button": {
-    "message": "Whitelist",
+    "message": "Lista bianca",
     "description": "This string is used for the whitelist button on the popup page."
   },
   "popup_nav_license": {
@@ -2136,7 +2136,7 @@
     "message": "rin"
   },
   "providerImport_referralAbbr": {
-    "message": "Ref",
+    "message": "Rif",
     "description": "Abbreviation for referral marketing count in provider cards"
   },
   "providerImport_referralMarketing": {
@@ -2247,7 +2247,7 @@
     "description": "Label for redirections count in provider statistics"
   },
   "providerList_referral": {
-    "message": "Referral",
+    "message": "Rinvio",
     "description": "Label for referral marketing count in provider statistics"
   },
   "providerList_rules": {
@@ -2397,7 +2397,7 @@
     "description": "Source text when bundled fallback rules are active."
   },
   "rules_source_fallback": {
-    "message": "Fallback",
+    "message": "Ricaderci",
     "description": "Source text when minimal fallback rules are active."
   },
   "rules_source_label": {
@@ -2857,7 +2857,7 @@
     "description": "Name for the sunset theme"
   },
   "theme_name_legacy": {
-    "message": "Legacy",
+    "message": "Eredità",
     "description": "Name for the legacy ClearURLs-style theme"
   },
   "theme_group_light_label": {
@@ -2873,10 +2873,10 @@
     "description": "Label for the theme selection section"
   },
   "time_am": {
-    "message": "AM"
+    "message": "SONO"
   },
   "time_am_lower": {
-    "message": "am",
+    "message": "Sono",
     "description": "Lowercase AM marker"
   },
   "time_pm": {
@@ -3215,7 +3215,7 @@
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
-    "message": "Whitelist",
+    "message": "Lista bianca",
     "description": "Title for HTML content page opened from popup consent gate"
   },
   "disable_gatekeeper_enabled": {
@@ -3503,7 +3503,7 @@
     "description": "Title for the audit page"
   },
   "audit_badge_label": {
-    "message": "AUDIT",
+    "message": "VERIFICA",
     "description": "Small badge label in the audit page header"
   },
   "audit_section_title": {
@@ -3523,7 +3523,7 @@
     "description": "Refresh button label on the audit page"
   },
   "audit_faq_button": {
-    "message": "FAQ",
+    "message": "Domande frequenti",
     "description": "FAQ button label on the audit page"
   },
   "audit_theme_toggle_aria": {
@@ -3791,7 +3791,7 @@
     "description": "Auto-added i18n key: popup_pause_unit_min_short"
   },
   "popup_pause_unit_hour_short": {
-    "message": "h",
+    "message": "H",
     "description": "Auto-added i18n key: popup_pause_unit_hour_short"
   },
   "settings_remote_health_title": {
@@ -4075,7 +4075,7 @@
     "description": "Boolean true label in Rule Test Lab output."
   },
   "customRulesEditor_ruleTestLab_value_false": {
-    "message": "No",
+    "message": "NO",
     "description": "Boolean false label in Rule Test Lab output."
   },
   "color_picket_clear": {

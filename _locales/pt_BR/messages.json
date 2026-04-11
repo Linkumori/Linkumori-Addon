@@ -219,7 +219,7 @@
     "message": "Padrões de domínio"
   },
   "customRulesEditor_domainPatternsPlaceholder": {
-    "message": "||example.com^\n||*.subdomain.com^\n"
+    "message": "||exemplo.com^\n||*.subdomínio.com^"
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "Pelo menos um padrão de domínio é necessário"
@@ -408,7 +408,7 @@
     "message": "É necessário um Padrão de URL ou Padrões de domínio"
   },
   "customRulesEditor_urlPatternPlaceholder": {
-    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?exemplo\\.com"
   },
   "customRulesEditor_urlPatternRequired": {
     "message": "O Padrão de URL é obrigatório"
@@ -966,10 +966,12 @@
     "message": "Regras remotas carregadas e regras personalizadas mescladas"
   },
   "hash_url_placeholder": {
-    "message": "https://example.com/hash.txt"
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
   },
   "headerTitle": {
-    "message": "Linkumori"
+    "message": "Linkumori",
+    "description": "Header title for the extension"
   },
   "history_listener_enabled": {
     "message": "Prevenir injeção de rastreamento via API de histórico"
@@ -1032,7 +1034,8 @@
     "message": "Informações da licença"
   },
   "license_links_title": {
-    "message": "Links"
+    "message": "Ligações",
+    "description": "Title for links section in license"
   },
   "license_third_party_title": {
     "message": "Componentes de terceiros"
@@ -1131,16 +1134,19 @@
     "message": "Painel"
   },
   "log_nav_logs": {
-    "message": "Logs"
+    "message": "Registros",
+    "description": "Tab label for logs view on log page"
   },
   "log_ping_blocked": {
     "message": "Esta auditoria de hyperlink foi bloqueada"
   },
   "log_provider_pattern_domain": {
-    "message": "domainPattern"
+    "message": "domínioPadrão",
+    "description": "Label for domain pattern provider matching in log entries."
   },
   "log_provider_pattern_url": {
-    "message": "urlPattern"
+    "message": "urlPadrão",
+    "description": "Label for URL pattern provider matching in log entries."
   },
   "log_provider_request_method": {
     "message": "método"
@@ -1305,7 +1311,8 @@
     "message": "Página anterior"
   },
   "percentage_symbol": {
-    "message": "%"
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
   },
   "ping_blocking_enabled": {
     "message": "Bloquear auditoria de hyperlink"
@@ -1329,7 +1336,8 @@
     "message": "Consentimento necessário"
   },
   "popup_html_page_title": {
-    "message": "Linkumori"
+    "message": "Linkumori",
+    "description": "Popup page title text"
   },
   "popup_html_version_label": {
     "message": "Versão:"
@@ -1353,13 +1361,15 @@
     "message": "Informações de licença e privacidade"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0"
+    "message": "Licença Pública Geral GNU v3.0",
+    "description": "Popup license link label for GPL v3"
   },
   "popup_html_gpl_link_title": {
     "message": "Abrir texto da licença GNU GPL v3.0"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "Licença Pública Menor Geral GNU v3.0",
+    "description": "Popup license link label for LGPL v3"
   },
   "popup_html_lgpl_link_title": {
     "message": "Abrir texto da licença GNU LGPL v3.0"
@@ -1395,7 +1405,8 @@
     "message": "Abrir repositório de complementos ClearURLs v1.27.3"
   },
   "siteblocked_footer_prefix": {
-    "message": "Linkumori v."
+    "message": "Linkumori v.",
+    "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
     "message": "Revise a Política de Privacidade e a Licença abaixo e aceite para continuar usando o Linkumori."
@@ -1629,7 +1640,7 @@
     "message": "Exceções"
   },
   "providerImport_exceptionsAbbr": {
-    "message": "exc"
+    "message": "ex"
   },
   "providerImport_excludeNoPattern": {
     "message": "Este provedor não tem padrão de URL/domínio e não pode ser excluído por assinatura."
@@ -1680,10 +1691,11 @@
     "message": "Redirecionamentos"
   },
   "providerImport_redirectionsAbbr": {
-    "message": "red"
+    "message": "vermelho"
   },
   "providerImport_referralAbbr": {
-    "message": "Ref"
+    "message": "Referência",
+    "description": "Abbreviation for referral marketing count in provider cards"
   },
   "providerImport_referralMarketing": {
     "message": "Marketing de indicação"
@@ -1827,7 +1839,8 @@
     "message": "Remover $1 da lista de permissões"
   },
   "rule_url_placeholder": {
-    "message": "https://example.com/rules.json"
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
   },
   "rules_author_label": {
     "message": "Autor:"
@@ -1863,7 +1876,8 @@
     "message": "Fallback empacotado"
   },
   "rules_source_fallback": {
-    "message": "Fallback"
+    "message": "Cair pra trás",
+    "description": "Source text when minimal fallback rules are active."
   },
   "rules_source_label": {
     "message": "Fonte:"
@@ -1881,7 +1895,8 @@
     "message": "Erro ao carregar regras"
   },
   "rules_status_label": {
-    "message": "Status:"
+    "message": "Status:",
+    "description": "Label for rules status."
   },
   "rules_status_not_loaded": {
     "message": "Nenhuma regra carregada"
@@ -2031,7 +2046,8 @@
     "message": "Conjuntos de regras remotas adicionais"
   },
   "setting_remote_rule_sets_placeholder": {
-    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
     "message": "URL remota personalizada para definições de regras"
@@ -2223,46 +2239,58 @@
     "message": "Tema"
   },
   "time_am": {
-    "message": "AM"
+    "message": "SOU"
   },
   "time_am_lower": {
-    "message": "am"
+    "message": "sou",
+    "description": "Lowercase AM marker"
   },
   "time_pm": {
     "message": "PM"
   },
   "time_pm_lower": {
-    "message": "pm"
+    "message": "tarde",
+    "description": "Lowercase PM marker"
   },
   "number_0": {
-    "message": "0"
+    "message": "0",
+    "description": "Localized digit zero"
   },
   "number_1": {
-    "message": "1"
+    "message": "1",
+    "description": "Localized digit one"
   },
   "number_2": {
-    "message": "2"
+    "message": "2",
+    "description": "Localized digit two"
   },
   "number_3": {
-    "message": "3"
+    "message": "3",
+    "description": "Localized digit three"
   },
   "number_4": {
-    "message": "4"
+    "message": "4",
+    "description": "Localized digit four"
   },
   "number_5": {
-    "message": "5"
+    "message": "5",
+    "description": "Localized digit five"
   },
   "number_6": {
-    "message": "6"
+    "message": "6",
+    "description": "Localized digit six"
   },
   "number_7": {
-    "message": "7"
+    "message": "7",
+    "description": "Localized digit seven"
   },
   "number_8": {
-    "message": "8"
+    "message": "8",
+    "description": "Localized digit eight"
   },
   "number_9": {
-    "message": "9"
+    "message": "9",
+    "description": "Localized digit nine"
   },
   "day_0": {
     "message": "Domingo"
@@ -2709,7 +2737,8 @@
     "message": "Atualizar fontes"
   },
   "audit_faq_button": {
-    "message": "FAQ"
+    "message": "Perguntas frequentes",
+    "description": "FAQ button label on the audit page"
   },
   "audit_theme_toggle_aria": {
     "message": "Alternar tema"
@@ -2907,10 +2936,12 @@
     "message": "menos de um minuto"
   },
   "popup_pause_unit_min_short": {
-    "message": "min"
+    "message": "min",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
   },
   "popup_pause_unit_hour_short": {
-    "message": "h"
+    "message": "h",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
   },
   "settings_remote_health_title": {
     "message": "Integridade das regras remotas"
@@ -2934,7 +2965,8 @@
     "message": "Status atual do hash:"
   },
   "settings_remote_health_na": {
-    "message": "N/A"
+    "message": "N / D",
+    "description": "Auto-added i18n key: settings_remote_health_na"
   },
   "settings_remote_health_none": {
     "message": "Nenhum"
@@ -2961,7 +2993,8 @@
     "message": "Cole um URL para ver o antes/depois da limpeza e o primeiro provedor/regra correspondente."
   },
   "customRulesEditor_ruleTestLab_input_placeholder": {
-    "message": "https://example.com/?utm_source=newsletter"
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
   },
   "customRulesEditor_ruleTestLab_run": {
     "message": "Executar teste"

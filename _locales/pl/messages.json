@@ -219,7 +219,7 @@
     "message": "Wzorce domenowe"
   },
   "customRulesEditor_domainPatternsPlaceholder": {
-    "message": "||example.com^\n||*.subdomain.com^\n"
+    "message": "||przykład.com^\n||*.subdomena.com^"
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "Wymagany co najmniej jeden wzorzec domenowy"
@@ -966,10 +966,12 @@
     "message": "Reguły zdalne załadowane i reguły niestandardowe scalone"
   },
   "hash_url_placeholder": {
-    "message": "https://example.com/hash.txt"
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
   },
   "headerTitle": {
-    "message": "Linkumori"
+    "message": "Linkumoriego",
+    "description": "Header title for the extension"
   },
   "history_listener_enabled": {
     "message": "Zapobiegaj wstrzykiwaniu śledzenia przez API historii"
@@ -1137,10 +1139,12 @@
     "message": "Ten audyt hiperłącza został zablokowany"
   },
   "log_provider_pattern_domain": {
-    "message": "domainPattern"
+    "message": "domenaWzór",
+    "description": "Label for domain pattern provider matching in log entries."
   },
   "log_provider_pattern_url": {
-    "message": "urlPattern"
+    "message": "urlWzór",
+    "description": "Label for URL pattern provider matching in log entries."
   },
   "log_provider_request_method": {
     "message": "metoda"
@@ -1305,7 +1309,8 @@
     "message": "Poprzednia strona"
   },
   "percentage_symbol": {
-    "message": "%"
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
   },
   "ping_blocking_enabled": {
     "message": "Blokuj audyt hiperłączy"
@@ -1329,7 +1334,8 @@
     "message": "Wymagana zgoda"
   },
   "popup_html_page_title": {
-    "message": "Linkumori"
+    "message": "Linkumoriego",
+    "description": "Popup page title text"
   },
   "popup_html_version_label": {
     "message": "Wersja:"
@@ -1353,13 +1359,15 @@
     "message": "Informacje o licencji i prywatności"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0"
+    "message": "Powszechna Licencja Publiczna GNU v3.0",
+    "description": "Popup license link label for GPL v3"
   },
   "popup_html_gpl_link_title": {
     "message": "Otwórz tekst licencji GNU GPL v3.0"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "GNU General Lesser Public License v3.0",
+    "description": "Popup license link label for LGPL v3"
   },
   "popup_html_lgpl_link_title": {
     "message": "Otwórz tekst licencji GNU LGPL v3.0"
@@ -1395,7 +1403,8 @@
     "message": "Otwórz repozytorium dodatków ClearURLs v1.27.3"
   },
   "siteblocked_footer_prefix": {
-    "message": "Linkumori v."
+    "message": "Linkumori w.",
+    "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
     "message": "Zapoznaj się z Polityką prywatności i Licencją poniżej, a następnie zaakceptuj, aby kontynuować korzystanie z Linkumori."
@@ -1827,7 +1836,8 @@
     "message": "Usuń $1 z białej listy"
   },
   "rule_url_placeholder": {
-    "message": "https://example.com/rules.json"
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
   },
   "rules_author_label": {
     "message": "Autor:"
@@ -1881,7 +1891,8 @@
     "message": "Błąd ładowania reguł"
   },
   "rules_status_label": {
-    "message": "Status:"
+    "message": "Status:",
+    "description": "Label for rules status."
   },
   "rules_status_not_loaded": {
     "message": "Nie załadowano reguł"
@@ -2031,7 +2042,8 @@
     "message": "Dodatkowe zestawy reguł zdalnych"
   },
   "setting_remote_rule_sets_placeholder": {
-    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
     "message": "Niestandardowy zdalny adres URL dla definicji reguł"
@@ -2223,46 +2235,58 @@
     "message": "Motyw"
   },
   "time_am": {
-    "message": "AM"
+    "message": "JESTEM"
   },
   "time_am_lower": {
-    "message": "am"
+    "message": "jestem",
+    "description": "Lowercase AM marker"
   },
   "time_pm": {
-    "message": "PM"
+    "message": "PO POŁUDNIU"
   },
   "time_pm_lower": {
-    "message": "pm"
+    "message": "po południu",
+    "description": "Lowercase PM marker"
   },
   "number_0": {
-    "message": "0"
+    "message": "0",
+    "description": "Localized digit zero"
   },
   "number_1": {
-    "message": "1"
+    "message": "1",
+    "description": "Localized digit one"
   },
   "number_2": {
-    "message": "2"
+    "message": "2",
+    "description": "Localized digit two"
   },
   "number_3": {
-    "message": "3"
+    "message": "3",
+    "description": "Localized digit three"
   },
   "number_4": {
-    "message": "4"
+    "message": "4",
+    "description": "Localized digit four"
   },
   "number_5": {
-    "message": "5"
+    "message": "5",
+    "description": "Localized digit five"
   },
   "number_6": {
-    "message": "6"
+    "message": "6",
+    "description": "Localized digit six"
   },
   "number_7": {
-    "message": "7"
+    "message": "7",
+    "description": "Localized digit seven"
   },
   "number_8": {
-    "message": "8"
+    "message": "8",
+    "description": "Localized digit eight"
   },
   "number_9": {
-    "message": "9"
+    "message": "9",
+    "description": "Localized digit nine"
   },
   "day_0": {
     "message": "Niedziela"
@@ -2907,7 +2931,8 @@
     "message": "mniej niż minuta"
   },
   "popup_pause_unit_min_short": {
-    "message": "min"
+    "message": "min",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
   },
   "popup_pause_unit_hour_short": {
     "message": "godz"
@@ -2961,7 +2986,8 @@
     "message": "Wklej adres URL, aby zobaczyć stan przed/po czyszczeniu oraz pierwszego pasującego dostawcę/regułę."
   },
   "customRulesEditor_ruleTestLab_input_placeholder": {
-    "message": "https://example.com/?utm_source=newsletter"
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
   },
   "customRulesEditor_ruleTestLab_run": {
     "message": "Uruchom test"

@@ -219,7 +219,7 @@
     "message": "Шаблони доменів"
   },
   "customRulesEditor_domainPatternsPlaceholder": {
-    "message": "||example.com^\n||*.subdomain.com^\n"
+    "message": "||example.com^\n||*.subdomain.com^"
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "Потрібен принаймні один шаблон домену"
@@ -966,10 +966,12 @@
     "message": "Віддалені правила завантажено та власні правила об’єднано"
   },
   "hash_url_placeholder": {
-    "message": "https://example.com/hash.txt"
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
   },
   "headerTitle": {
-    "message": "Linkumori"
+    "message": "Лінкуморі",
+    "description": "Header title for the extension"
   },
   "history_listener_enabled": {
     "message": "Запобігати впровадженню стеження через API історії"
@@ -1137,10 +1139,12 @@
     "message": "Цей аудит гіперпосилань було заблоковано"
   },
   "log_provider_pattern_domain": {
-    "message": "domainPattern"
+    "message": "шаблон домену",
+    "description": "Label for domain pattern provider matching in log entries."
   },
   "log_provider_pattern_url": {
-    "message": "urlPattern"
+    "message": "urlPattern",
+    "description": "Label for URL pattern provider matching in log entries."
   },
   "log_provider_request_method": {
     "message": "метод"
@@ -1305,7 +1309,8 @@
     "message": "Попередня сторінка"
   },
   "percentage_symbol": {
-    "message": "%"
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
   },
   "ping_blocking_enabled": {
     "message": "Блокувати аудит гіперпосилань"
@@ -1329,7 +1334,8 @@
     "message": "Потрібна згода"
   },
   "popup_html_page_title": {
-    "message": "Linkumori"
+    "message": "Лінкуморі",
+    "description": "Popup page title text"
   },
   "popup_html_version_label": {
     "message": "Версія:"
@@ -1353,13 +1359,15 @@
     "message": "Інформація про ліцензію та конфіденційність"
   },
   "popup_html_gpl_link": {
-    "message": "GNU General Public License v3.0"
+    "message": "GNU General Public License v3.0",
+    "description": "Popup license link label for GPL v3"
   },
   "popup_html_gpl_link_title": {
     "message": "Відкрити текст ліцензії GNU GPL v3.0"
   },
   "popup_html_lgpl_link": {
-    "message": "GNU General Lesser Public License v3.0"
+    "message": "GNU General Lesser Public License v3.0",
+    "description": "Popup license link label for LGPL v3"
   },
   "popup_html_lgpl_link_title": {
     "message": "Відкрити текст ліцензії GNU LGPL v3.0"
@@ -1395,7 +1403,8 @@
     "message": "Відкрити репозиторій доповнень ClearURLs v1.27.3"
   },
   "siteblocked_footer_prefix": {
-    "message": "Linkumori v."
+    "message": "Лінкуморі проти",
+    "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
     "message": "Ознайомтеся з Політикою конфіденційності та Ліцензією нижче, а потім прийміть їх, щоб продовжити використання Linkumori."
@@ -1827,7 +1836,8 @@
     "message": "Видалити $1 з білого списку"
   },
   "rule_url_placeholder": {
-    "message": "https://example.com/rules.json"
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
   },
   "rules_author_label": {
     "message": "Автор:"
@@ -2031,7 +2041,8 @@
     "message": "Додаткові набори віддалених правил"
   },
   "setting_remote_rule_sets_placeholder": {
-    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt"
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
     "message": "Власна віддалена URL-адреса для визначень правил"
@@ -2235,34 +2246,44 @@
     "message": "пп"
   },
   "number_0": {
-    "message": "0"
+    "message": "0",
+    "description": "Localized digit zero"
   },
   "number_1": {
-    "message": "1"
+    "message": "1",
+    "description": "Localized digit one"
   },
   "number_2": {
-    "message": "2"
+    "message": "2",
+    "description": "Localized digit two"
   },
   "number_3": {
-    "message": "3"
+    "message": "3",
+    "description": "Localized digit three"
   },
   "number_4": {
-    "message": "4"
+    "message": "4",
+    "description": "Localized digit four"
   },
   "number_5": {
-    "message": "5"
+    "message": "5",
+    "description": "Localized digit five"
   },
   "number_6": {
-    "message": "6"
+    "message": "6",
+    "description": "Localized digit six"
   },
   "number_7": {
-    "message": "7"
+    "message": "7",
+    "description": "Localized digit seven"
   },
   "number_8": {
-    "message": "8"
+    "message": "8",
+    "description": "Localized digit eight"
   },
   "number_9": {
-    "message": "9"
+    "message": "9",
+    "description": "Localized digit nine"
   },
   "day_0": {
     "message": "Неділя"
@@ -2961,7 +2982,8 @@
     "message": "Вставте URL, щоб побачити стан до/після очищення та перший збіг провайдера/правила."
   },
   "customRulesEditor_ruleTestLab_input_placeholder": {
-    "message": "https://example.com/?utm_source=newsletter"
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
   },
   "customRulesEditor_ruleTestLab_run": {
     "message": "Запустити тест"
