@@ -1800,13 +1800,31 @@
     "message": "Ignore redirecionamentos intermediários de terceiros e URLs de rastreamento usando redirecionamentos regex e redirecionamentos de domínio de regras empacotadas, remotas e personalizadas. Audite as regras primeiro se necessário e use o Editor de Regras Personalizadas para editá-las ou substituí-las individualmente."
   },
   "remote_rule_sets_error_expected_pair": {
-    "message": "Linha $LINE$: esperado \"ruleURL | hashURL\""
+    "message": "Linha $LINE$: esperado \"ruleURL | hashURL\"",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_hash_url": {
-    "message": "Linha $LINE$: URL de hash HTTPS inválido"
+    "message": "Linha $LINE$: URL de hash HTTPS inválido",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_rule_url": {
-    "message": "Linha $LINE$: URL de regra HTTPS inválido"
+    "message": "Linha $LINE$: URL de regra HTTPS inválido",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rules_disabled_description": {
     "message": "Regras remotas estão desabilitadas. Ative a opção abaixo para configurar URLs de regras remotas."
@@ -2034,7 +2052,13 @@
     "message": "Abrir a página de auditoria"
   },
   "setting_log_limit_label": {
-    "message": "Limitar o log a $LIMIT$ entradas."
+    "message": "Limitar o log a $LIMIT$ entradas.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
   },
   "setting_log_limit_label_with_range": {
     "message": "Limite de log (0-5000)"
@@ -2158,7 +2182,13 @@
     "message": "Falha ao salvar configurações"
   },
   "status_save_setting_failed": {
-    "message": "Falha ao salvar a configuração $SETTING$"
+    "message": "Falha ao salvar a configuração $SETTING$",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
   },
   "status_save_successful": {
     "message": "Configurações salvas com sucesso"
@@ -2359,7 +2389,13 @@
     "message": "Formato de URL inválido."
   },
   "watchdog": {
-    "message": "[Linkumori (Clean URLS)]: O watchdog detectou um problema e já falhou $TIMES$ vezes."
+    "message": "[Linkumori (Clean URLS)]: O watchdog detectou um problema e já falhou $TIMES$ vezes.",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
   },
   "welcomeDescription": {
     "message": "O Linkumori remove parâmetros de rastreamento de URLs por padrão e oferece controles avançados quando necessário. Revise os recursos abaixo e prossiga para a Política de Privacidade e Licença."

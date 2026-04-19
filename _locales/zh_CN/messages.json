@@ -1788,13 +1788,31 @@
     "message": "通过使用来自捆绑、远程和自定义规则的正则表达式重定向和域名重定向，绕过第三方中间人重定向和追踪 URL。如有必要，请先审计规则，然后使用自定义规则编辑器单独编辑或覆盖它们。"
   },
   "remote_rule_sets_error_expected_pair": {
-    "message": "第 $LINE$ 行：应为“ruleURL | hashURL”"
+    "message": "第 $LINE$ 行：应为“ruleURL | hashURL”",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_hash_url": {
-    "message": "第 $LINE$ 行：无效的 HTTPS 哈希 URL"
+    "message": "第 $LINE$ 行：无效的 HTTPS 哈希 URL",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_rule_url": {
-    "message": "第 $LINE$ 行：无效的 HTTPS 规则 URL"
+    "message": "第 $LINE$ 行：无效的 HTTPS 规则 URL",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rules_disabled_description": {
     "message": "远程规则已禁用。启用下面的开关以配置远程规则 URL。"
@@ -2019,7 +2037,13 @@
     "message": "打开审计页面"
   },
   "setting_log_limit_label": {
-    "message": "将日志限制为 $LIMIT$ 条条目。"
+    "message": "将日志限制为 $LIMIT$ 条条目。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
   },
   "setting_log_limit_label_with_range": {
     "message": "日志限制（0-5000）"
@@ -2142,7 +2166,13 @@
     "message": "保存设置失败"
   },
   "status_save_setting_failed": {
-    "message": "保存 $SETTING$ 设置失败"
+    "message": "保存 $SETTING$ 设置失败",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
   },
   "status_save_successful": {
     "message": "设置已成功保存"
@@ -2331,7 +2361,13 @@
     "message": "无效的 URL 格式。"
   },
   "watchdog": {
-    "message": "[Linkumori (Clean URLS)]：监视器检测到问题，并且已失败 $TIMES$ 次。"
+    "message": "[Linkumori (Clean URLS)]：监视器检测到问题，并且已失败 $TIMES$ 次。",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
   },
   "welcomeDescription": {
     "message": "Linkumori 默认会从 URL 中移除追踪参数，并在需要时为您提供高级控制。请查看以下功能，然后继续阅读隐私政策和许可证。"

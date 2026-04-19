@@ -1797,13 +1797,31 @@
     "message": "Обходити сторонні проміжні перенаправлення та відстежувальні URL, використовуючи regex-перенаправлення та перенаправлення доменів із вбудованих, віддалених та власних правил. За потреби спочатку перевірте правила, а потім використовуйте редактор власних правил, щоб редагувати або перевизначати їх окремо."
   },
   "remote_rule_sets_error_expected_pair": {
-    "message": "Рядок $LINE$: очікується \"ruleURL | hashURL\""
+    "message": "Рядок $LINE$: очікується \"ruleURL | hashURL\"",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_hash_url": {
-    "message": "Рядок $LINE$: недійсний HTTPS-URL хеша"
+    "message": "Рядок $LINE$: недійсний HTTPS-URL хеша",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_rule_url": {
-    "message": "Рядок $LINE$: недійсний HTTPS-URL правила"
+    "message": "Рядок $LINE$: недійсний HTTPS-URL правила",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rules_disabled_description": {
     "message": "Віддалені правила вимкнено. Увімкніть перемикач нижче, щоб налаштувати URL віддалених правил."
@@ -2029,7 +2047,13 @@
     "message": "Відкрити сторінку аудиту"
   },
   "setting_log_limit_label": {
-    "message": "Обмежити журнал $LIMIT$ записами."
+    "message": "Обмежити журнал $LIMIT$ записами.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
   },
   "setting_log_limit_label_with_range": {
     "message": "Ліміт журналу (0-5000)"
@@ -2153,7 +2177,13 @@
     "message": "Не вдалося зберегти налаштування"
   },
   "status_save_setting_failed": {
-    "message": "Не вдалося зберегти налаштування $SETTING$"
+    "message": "Не вдалося зберегти налаштування $SETTING$",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
   },
   "status_save_successful": {
     "message": "Налаштування успішно збережено"
@@ -2352,7 +2382,13 @@
     "message": "Недійсний формат URL."
   },
   "watchdog": {
-    "message": "[Linkumori (Clean URLS)]: Сторожова система виявила проблему та вже виходила з ладу $TIMES$ разів."
+    "message": "[Linkumori (Clean URLS)]: Сторожова система виявила проблему та вже виходила з ладу $TIMES$ разів.",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
   },
   "welcomeDescription": {
     "message": "Linkumori за замовчуванням видаляє параметри стеження з URL і надає розширені засоби керування, коли це необхідно. Ознайомтеся з функціями нижче, а потім перейдіть до Політики конфіденційності та Ліцензії."

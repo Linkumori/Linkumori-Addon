@@ -29,6 +29,7 @@
  * - Enhanced UI with provider cards and filtering
  * - Added provider list and disabled-rules full-page flows
  * - Fully internationalized (i18n) provider list/editor interface
+ * - Added TextMate-style JSON syntax highlighting for the advanced editor
  *
  * ============================================================
  * SVG ICON ATTRIBUTIONS
@@ -88,8 +89,9 @@
  * MODIFICATION HISTORY
  * ============================================================
  * 2025-06-14   Subham Mahesh   File created
- * 2025-08-21   Subham Mahesh   Apache-licensed Google SVGs modified
- * 2025-09-05   Subham Mahesh   Apache-licensed Google SVGs modified
+ * 2025-08-21   Subham Mahesh   Google Material icon assets updated
+ * 2025-09-05   Subham Mahesh   Google Material icon assets updated
+ * 2026-04-19   Subham Mahesh   Added JSON editor highlighting; updated icon attribution wording
  *
  * Note: Due to inline constraints, subsequent modifications may
  * not appear here. To view the full history, run:
@@ -462,7 +464,12 @@ function updateJsonTextMateHighlighting(jsonEditor = document.getElementById('js
     if (!jsonEditor || !highlightLayer) {
         return;
     }
-    highlightLayer.innerHTML = highlightJsonWithTextMateGrammar(jsonEditor.value);
+    const parser = new DOMParser();
+    const highlightDoc = parser.parseFromString(
+        `<pre>${highlightJsonWithTextMateGrammar(jsonEditor.value)}</pre>`,
+        'text/html'
+    );
+    highlightLayer.replaceChildren(...highlightDoc.body.firstElementChild.childNodes);
     syncJsonTextMateScroll(jsonEditor);
 }
 

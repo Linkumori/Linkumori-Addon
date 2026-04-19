@@ -28,7 +28,7 @@
 | Category | Files |
 |----------|-------| 
 | **JavaScript** | `external_js/IP-Ranger.js`<br>`external_js/linkumori-i18n.js`<br>`external_js/theme_bootstrap.js`<br>`external_js/theme_favicon.js`<br>`core_js/clipboard-helper.js`<br>`core_js/about.js`<br>`core_js/consent_config.js`<br>`core_js/content_script_manager.js`<br>`core_js/audit.js`<br>`core_js/modal_dialog.js` |
-| **HTML** | `html/legal.html` |
+| **HTML** | - |
 | **CSS** | `css/settings.css`<br>`css/siteBlockedAlert.css` |
 | **Icons (PNG)** | `img/icon16.png`<br>`img/icon19.png`<br>`img/icon20.png`<br>`img/icon24.png`<br>`img/icon30.png`<br>`img/icon32.png`<br>`img/icon38.png`<br>`img/icon48.png`<br>`img/icon64.png`<br>`img/icon96.png`<br>`img/icon128.png`<br>`img/icon128_gray.png` |
 | **Icons (SVG)** | `img/linkumori_icon_disabled.svg`<br>`img/linkumori_icons.svg`<br>`img/linkumori_icon_theme_dark.svg`<br>`img/linkumori_icon_theme_light.svg`<br>`img/linkumori_icon_theme_icecold.svg`<br>`img/linkumori_icon_theme_midnight.svg`<br>`img/linkumori_icon_theme_sunset.svg`<br>`img/linkumori_icon_theme_legacy.svg`<br>`img/linkumori_icon_theme_legacy_disabled.svg` |
@@ -41,6 +41,30 @@
 **License:** GNU Lesser General Public License (LGPL) v3.0 or later
 
 {{LICENSE:LGPL-3.0}}
+
+### 1.3 Legal Page (`html/legal.html`)
+
+**Title:** Linkumori - Legal Page
+
+**Copyright:** © 2025-2026 Subham Mahesh
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+**External File References (Google Material Icons - Apache License 2.0, Unmodified)**
+
+| Icon | Source | License | Copyright |
+|------|--------|---------|-----------|
+| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+
+**Google Material Icons Information:**
+- **Source:** <https://fonts.google.com/icons>
+- **License:** Apache License 2.0
+- **Documentation:** <https://developers.google.com/fonts/docs/material_icons#licensing>
+
+{{LICENSE:APACHE-2.0}}
 
 ---
 
@@ -96,7 +120,7 @@
 | Category | Files |
 |----------|-------|
 | **Core JavaScript** | `core_js/badgedHandler.js`<br>`core_js/historyListener.js`<br>`core_js/settings.js`<br>`core_js/watchdog.js`<br>`core_js/cleaning_tool.js`<br>`core_js/log.js`<br>`core_js/siteBlockedAlert.js`<br>`core_js/write_version.js`<br>`core_js/context_menu.js`<br>`core_js/message_handler.js`<br>`core_js/storage.js`<br>`core_js/eTagFilter.js`<br>`core_js/popup.js`<br>`core_js/tools.js`<br>`core_js/pureCleaning.js`<br>`./clearurls.js` |
-| **HTML** | `html/popup.html`<br>`html/log.html`<br>`html/cleaningTool.html`<br>`html/siteBlockedAlert.html` |
+| **HTML** | `html/log.html`<br>`html/siteBlockedAlert.html` |
 | **Other** | `linkumori-cli-tool.js`<br>`linkumori-clearurls-min.json`<br>`manifest.json` |
 
 #### 2.3.2 Original Copyright
@@ -115,7 +139,58 @@
 
 {{LICENSE:LGPL-3.0}}
 
-#### 2.3.4 Localization Credits
+#### 2.3.4 Popup Page (`html/popup.html`)
+
+**Based On:** ClearURLs Popup Page
+
+**Original Copyright:** © 2017-2025 Kevin Röbert
+**Modified By:** © 2025-2026 Subham Mahesh
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+**External File References (Google Material Icons - Apache License 2.0, Unmodified)**
+
+| Icon | Source | License | Copyright |
+|------|--------|---------|-----------|
+| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Paintbrush Icon | `../LinkumorI_HTML_SVG/paintbrush.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+
+**Google Material Icons Information:**
+- **Source:** <https://fonts.google.com/icons>
+- **License:** Apache License 2.0
+- **Documentation:** <https://developers.google.com/fonts/docs/material_icons#licensing>
+
+{{LICENSE:APACHE-2.0}}
+
+#### 2.3.5 Cleaning Tool Page (`html/cleaningTool.html`)
+
+**Based On:** ClearURLs Cleaning Tool Page
+
+**Original Copyright:** © 2017-2025 Kevin Röbert
+**Modified By:** © 2025-2026 Subham Mahesh
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+**External File References (Google Material Icons - Apache License 2.0, Unmodified)**
+
+| Icon | Source | License | Copyright |
+|------|--------|---------|-----------|
+| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+
+**Google Material Icons Information:**
+- **Source:** <https://fonts.google.com/icons>
+- **License:** Apache License 2.0
+- **Documentation:** <https://developers.google.com/fonts/docs/material_icons#licensing>
+
+{{LICENSE:APACHE-2.0}}
+
+#### 2.3.6 Localization Credits
 
 ##### English (`_locales/en/messages.json`)
 
@@ -1205,19 +1280,19 @@ This file is part of LINKUMORI.
 
 {{LICENSE:APACHE-2.0}}
 
-**External File References (Feather Icons - MIT License)**
+**External File References (Google Material Icons - Apache License 2.0, Unmodified)**
 
 | Icon | Source | License | Copyright |
 |------|--------|---------|-----------|
-| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | MIT | © 2013-2017 Cole Bemis |
-| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | MIT | © 2013-2017 Cole Bemis |
+| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
 
-**Feather Icons Information:**
-- **Source:** <https://feathericons.com/>
-- **License:** MIT License
-- **Copyright:** © 2013-2017 Cole Bemis
+**Google Material Icons Information:**
+- **Source:** <https://fonts.google.com/icons>
+- **License:** Apache License 2.0
+- **Documentation:** <https://developers.google.com/fonts/docs/material_icons#licensing>
 
-{{LICENSE:MIT}}
+{{LICENSE:APACHE-2.0}}
 
 **Feature Modifications:**
 
@@ -1269,20 +1344,20 @@ External File References:
 
 | Icon | Source | License | Copyright |
 |------|--------|---------|-----------|
-| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | MIT | © 2013-2017 Cole Bemis |
-| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | MIT | © 2013-2017 Cole Bemis |
+| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
 | Warning Icon | `../LinkumorI_HTML_SVG/warning.svg` | Apache-2.0 | Google Material Icons |
 | Confirmation Icon | `../LinkumorI_HTML_SVG/lucid-user-round-key.svg` | ISC License (includes Feather-derived MIT portions) | Lucide Contributors and Cole Bemis |
 
 
-**Sun Icon and Moon Icon**
+**Sun Icon and Moon Icon (Unmodified)**
 
-**Feather Icons Information:**
-- **Source:** <https://feathericons.com/>
-- **License:** MIT License
-- **Copyright:** © 2013-2017 Cole Bemis
+**Google Material Icons Information:**
+- **Source:** <https://fonts.google.com/icons>
+- **License:** Apache License 2.0
+- **Documentation:** <https://developers.google.com/fonts/docs/material_icons#licensing>
 
-{{LICENSE:MIT}}
+{{LICENSE:APACHE-2.0}}
 
 **Confirmation Icon Lucide Icons Information:**
 - **Source:** <https://lucide.dev/icons/user-round-key>
@@ -1346,19 +1421,19 @@ Modification history notice:
 
 {{LICENSE:APACHE-2.0}}
 
-**External File References (Feather Icons - MIT License)**
+**External File References (Google Material Icons - Apache License 2.0, Unmodified)**
 
 | Icon | Source | License | Copyright |
 |------|--------|---------|-----------|
-| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | MIT | © 2013-2017 Cole Bemis |
-| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | MIT | © 2013-2017 Cole Bemis |
+| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
 
-**Feather Icons Information:**
-- **Source:** <https://feathericons.com/>
-- **License:** MIT License
-- **Copyright:** © 2013-2017 Cole Bemis
+**Google Material Icons Information:**
+- **Source:** <https://fonts.google.com/icons>
+- **License:** Apache License 2.0
+- **Documentation:** <https://developers.google.com/fonts/docs/material_icons#licensing>
 
-{{LICENSE:MIT}}
+{{LICENSE:APACHE-2.0}}
 
 ---
 

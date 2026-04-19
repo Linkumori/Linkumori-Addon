@@ -1806,13 +1806,31 @@
     "message": "Omzeil omleidingen van derden en tracerings-URL's met behulp van regex-omleidingen en domeinomleidingen uit gebundelde, externe en aangepaste regels. Controleer indien nodig eerst de regels en gebruik vervolgens de aangepaste regelseditor om ze afzonderlijk te bewerken of te overschrijven."
   },
   "remote_rule_sets_error_expected_pair": {
-    "message": "Regel $LINE$: \"ruleURL | hashURL\" verwacht"
+    "message": "Regel $LINE$: \"ruleURL | hashURL\" verwacht",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_hash_url": {
-    "message": "Regel $LINE$: ongeldige HTTPS-hash-URL"
+    "message": "Regel $LINE$: ongeldige HTTPS-hash-URL",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_rule_url": {
-    "message": "Regel $LINE$: ongeldige HTTPS-regel-URL"
+    "message": "Regel $LINE$: ongeldige HTTPS-regel-URL",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rules_disabled_description": {
     "message": "Externe regels zijn uitgeschakeld. Schakel de onderstaande schakelaar in om externe regel-URL's te configureren."
@@ -2040,7 +2058,13 @@
     "message": "Open de auditpagina"
   },
   "setting_log_limit_label": {
-    "message": "Beperk het logboek tot $LIMIT$ items."
+    "message": "Beperk het logboek tot $LIMIT$ items.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
   },
   "setting_log_limit_label_with_range": {
     "message": "Logboeklimiet (0-5000)"
@@ -2164,7 +2188,13 @@
     "message": "Instellingen opslaan mislukt"
   },
   "status_save_setting_failed": {
-    "message": "Instelling $SETTING$ opslaan mislukt"
+    "message": "Instelling $SETTING$ opslaan mislukt",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
   },
   "status_save_successful": {
     "message": "Instellingen succesvol opgeslagen"
@@ -2370,7 +2400,13 @@
     "message": "Ongeldig URL-formaat."
   },
   "watchdog": {
-    "message": "[Linkumori (Clean URLS)]: De watchdog heeft een probleem gedetecteerd en is al $TIMES$ keer mislukt."
+    "message": "[Linkumori (Clean URLS)]: De watchdog heeft een probleem gedetecteerd en is al $TIMES$ keer mislukt.",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
   },
   "welcomeDescription": {
     "message": "Linkumori verwijdert standaard traceringsparameters uit URL's en biedt geavanceerde bedieningselementen wanneer nodig. Bekijk de onderstaande functies en ga verder naar het Privacybeleid en de Licentie."

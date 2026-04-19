@@ -1797,13 +1797,31 @@
     "message": "Pomiń pośrednie przekierowania stron trzecich i śledzące adresy URL, używając przekierowań regex i przekierowań domenowych z reguł pakietowych, zdalnych i niestandardowych. W razie potrzeby najpierw przeprowadź audyt reguł, a następnie użyj edytora reguł niestandardowych, aby edytować lub zastąpić je indywidualnie."
   },
   "remote_rule_sets_error_expected_pair": {
-    "message": "Linia $LINE$: oczekiwano \"ruleURL | hashURL\""
+    "message": "Linia $LINE$: oczekiwano \"ruleURL | hashURL\"",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_hash_url": {
-    "message": "Linia $LINE$: nieprawidłowy adres URL hasza HTTPS"
+    "message": "Linia $LINE$: nieprawidłowy adres URL hasza HTTPS",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rule_sets_error_invalid_rule_url": {
-    "message": "Linia $LINE$: nieprawidłowy adres URL reguły HTTPS"
+    "message": "Linia $LINE$: nieprawidłowy adres URL reguły HTTPS",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
   "remote_rules_disabled_description": {
     "message": "Reguły zdalne są wyłączone. Włącz poniższy przełącznik, aby skonfigurować adresy URL reguł zdalnych."
@@ -2030,7 +2048,13 @@
     "message": "Otwórz stronę audytu"
   },
   "setting_log_limit_label": {
-    "message": "Ogranicz dziennik do $LIMIT$ wpisów."
+    "message": "Ogranicz dziennik do $LIMIT$ wpisów.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
   },
   "setting_log_limit_label_with_range": {
     "message": "Limit dziennika (0-5000)"
@@ -2154,7 +2178,13 @@
     "message": "Zapisywanie ustawień nie powiodło się"
   },
   "status_save_setting_failed": {
-    "message": "Nie udało się zapisać ustawienia $SETTING$"
+    "message": "Nie udało się zapisać ustawienia $SETTING$",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
   },
   "status_save_successful": {
     "message": "Ustawienia zostały pomyślnie zapisane"
@@ -2355,7 +2385,13 @@
     "message": "Nieprawidłowy format adresu URL."
   },
   "watchdog": {
-    "message": "[Linkumori (Clean URLS)]: Watchdog wykrył problem i już $TIMES$ razy uległ awarii."
+    "message": "[Linkumori (Clean URLS)]: Watchdog wykrył problem i już $TIMES$ razy uległ awarii.",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
   },
   "welcomeDescription": {
     "message": "Linkumori domyślnie usuwa parametry śledzące z adresów URL i zapewnia zaawansowaną kontrolę, gdy jest to potrzebne. Zapoznaj się z funkcjami poniżej, a następnie przejdź do Polityki prywatności i Licencji."
