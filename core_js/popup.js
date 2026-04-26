@@ -137,6 +137,15 @@ function getPopupI18nMessage(key, substitutions, fallback = '') {
     return `[${key}]`;
 }
 
+function isPopupI18nReady() {
+    const i18n = getPopupI18n();
+    return !!(
+        i18n &&
+        typeof i18n.isReady === 'function' &&
+        i18n.isReady()
+    );
+}
+
 function getPopupLanguageCode() {
     const i18n = getPopupI18n();
     try {
@@ -227,9 +236,13 @@ async function hasPopupConsent(policyVersion) {
         const storedSignature = typeof result[POPUP_CONSENT_SIGNATURE_STORAGE_KEY] === 'string'
             ? result[POPUP_CONSENT_SIGNATURE_STORAGE_KEY]
             : '';
-        const currentSignature = getCurrentConsentSignature();
 
         if (accepted && acceptedVersion === policyVersion) {
+            if (!isPopupI18nReady()) {
+                return true;
+            }
+
+            const currentSignature = getCurrentConsentSignature();
             if (storedSignature !== currentSignature) {
                 await browser.storage.local.set({
                     [POPUP_CONSENT_SIGNATURE_STORAGE_KEY]: currentSignature
@@ -302,11 +315,11 @@ async function initializePopupConsentGate() {
     consentCheckbox.checked = false;
     consentAcceptButton.disabled = true;
 
-    consentCheckbox.addEventListener('change', () => {
+    consentCheckbox.onchange = () => {
         consentAcceptButton.disabled = !consentCheckbox.checked;
-    });
+    };
 
-    consentAcceptButton.addEventListener('click', async () => {
+    consentAcceptButton.onclick = async () => {
         if (!consentCheckbox.checked) {
             return;
         }
@@ -323,7 +336,7 @@ async function initializePopupConsentGate() {
         } catch (error) {
             consentAcceptButton.disabled = false;
         }
-    });
+    };
 }
 
 
@@ -1732,9 +1745,7 @@ function getGlobalVariable(varName) {
 (async function initializePopup() {
     try {
         const i18nReadyPromise = waitForPopupI18n();
-        const consentGatePromise = i18nReadyPromise
-            .then(() => initializePopupConsentGate())
-            .catch(() => initializePopupConsentGate().catch(() => {}));
+        const consentGatePromise = initializePopupConsentGate().catch(() => {});
 
         // Paint the popup immediately, then refresh when LinkumoriI18n is ready.
         init();
@@ -1913,6 +1924,7 @@ function getGlobalVariable(varName) {
             setText();
             updateStatisticsWithLocalization();
             renderTemporaryPauseState();
+            initializePopupConsentGate().catch(() => {});
         }).catch(error => {
             setText();
             changeStatistics();

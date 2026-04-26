@@ -38,6 +38,10 @@ Place the following license files in this directory:
   - Download from: https://raw.githubusercontent.com/spdx/license-list-data/main/text/Unlicense.txt
   - Or from: https://unlicense.org/
 
+- **MarkedJS.txt** - MarkedJS and bundled Markdown attribution notice
+  - Source from bundled project notice: external_js/marked.js
+  - Or maintain as a local project notice file in licenses/MarkedJS.txt
+
 ## How to Use
 
 1. Download each license file from the official sources listed above
@@ -47,9 +51,10 @@ Place the following license files in this directory:
 
 ## Note
 
-These license files are NOT distributed with the build tool. You must download them
+Most license files are NOT distributed with the build tool. You must download them
 yourself from the official sources to ensure you have the most current and accurate
-license text.
+license text. MarkedJS.txt is a project-specific notice file and should be kept
+in sync with the bundled external_js/marked.js notice block.
 
 The build script will read these files and embed them into your project's copyright
 documentation when you run the build process.

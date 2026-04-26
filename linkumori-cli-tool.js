@@ -125,7 +125,8 @@ class LinkumoriCLI {
         'CC0-1.0': 'licenses/CC0-1.0.txt',
         'MPL-2.0': 'licenses/MPL-2.0.txt',
         'ISC': 'licenses/ISC.txt',
-        'UNLICENSE': 'licenses/unlicense.txt'
+        'UNLICENSE': 'licenses/unlicense.txt',
+        'MARKEDJS': 'licenses/MarkedJS.txt'
       },
       cache: {}
     };
@@ -646,6 +647,12 @@ class LinkumoriCLI {
 
 {{LICENSE:UNLICENSE}}
 
+### 2.8 MarkedJS License Notice
+
+**Type:** Project-specific third-party attribution notice
+
+{{LICENSE:MARKEDJS}}
+
 ---
 
 **Document Generated:** {{CURRENT-TIME-WITH-DEVICE-TIME-ZONE}}
@@ -659,6 +666,7 @@ class LinkumoriCLI {
       this.info('Edit this template with your actual copyright information');
       this.info('Available placeholders:');
       this.info('  {{LICENSE:TYPE}} - Embeds license text');
+      this.info('  {{LICENSE:MARKEDJS}} - Embeds the MarkedJS attribution notice');
       this.info('  {{CURRENT-TIME-WITH-DEVICE-TIME-ZONE}} - Current timestamp with timezone');
       this.info('Then run build to generate the full documentation');
     } catch (error) {
@@ -718,6 +726,10 @@ Place the following license files in this directory:
   - Download from: https://raw.githubusercontent.com/spdx/license-list-data/main/text/Unlicense.txt
   - Or from: https://unlicense.org/
 
+- **MarkedJS.txt** - MarkedJS and bundled Markdown attribution notice
+  - Source from bundled project notice: external_js/marked.js
+  - Or maintain as a local project notice file in licenses/MarkedJS.txt
+
 ## How to Use
 
 1. Download each license file from the official sources listed above
@@ -727,9 +739,10 @@ Place the following license files in this directory:
 
 ## Note
 
-These license files are NOT distributed with the build tool. You must download them
+Most license files are NOT distributed with the build tool. You must download them
 yourself from the official sources to ensure you have the most current and accurate
-license text.
+license text. MarkedJS.txt is a project-specific notice file and should be kept
+in sync with the bundled external_js/marked.js notice block.
 
 The build script will read these files and embed them into your project's copyright
 documentation when you run the build process.
@@ -3631,6 +3644,7 @@ coverage/**
     this.log('     - licenses/MPL-2.0.txt', 'dim');
     this.log('     - licenses/ISC.txt', 'dim');
     this.log('     - licenses/unlicense.txt', 'dim');
+    this.log('     - licenses/MarkedJS.txt', 'dim');
     this.log('  4. Build process will read and embed them automatically', 'dim');
     
     this.log('\nCopyright Template Placeholders:', 'cyan');
@@ -3643,6 +3657,7 @@ coverage/**
     this.log('  - {{LICENSE:MPL-2.0}}                 - Embeds MPL 2.0 license text', 'dim');
     this.log('  - {{LICENSE:ISC}}                     - Embeds ISC license text', 'dim');
     this.log('  - {{LICENSE:UNLICENSE}}               - Embeds The Unlicense text', 'dim');
+    this.log('  - {{LICENSE:MARKEDJS}}                - Embeds the MarkedJS attribution notice', 'dim');
     this.log('  - {{CURRENT-TIME-WITH-DEVICE-TIME-ZONE}} - Current timestamp with timezone', 'dim');
     this.log('  Example: 2025-02-08 14:30:45 UTC+05:30 (Asia/Kolkata)', 'dim');
     

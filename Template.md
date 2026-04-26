@@ -1250,7 +1250,41 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.2.5 Custom Rules Editor & Settings
+#### 3.2.5 Marked.js
+
+**Files:**
+- `external_js/marked.js`
+
+**Used By:**
+- `html/legal.html`
+- `core_js/about.js`
+
+##### Original Project and Complete Upstream Notice
+
+**Upstream Project:** Marked
+**Repository:** <https://github.com/markedjs/marked>
+**Bundled Version:** 18.0.2
+
+`external_js/marked.js` includes the complete upstream notice for:
+- the Marked contribution license agreement,
+- the Marked MIT license notice, and
+- the bundled Markdown copyright and redistribution notice.
+
+{{LICENSE:MARKEDJS}}
+
+##### Linkumori Modifications
+
+**Modified By:** © 2025-2026 Subham Mahesh
+
+**Modification Summary:** Reworked into the bundled Linkumori Markdown parser used for rendering Markdown content in the legal/about flows, with local integration and in-file modification history notice.
+
+**License for Modified Portions:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+---
+
+#### 3.2.6 Custom Rules Editor & Settings
 
 **Files:**
 - `core_js/custom_rules_editor.js`
@@ -1258,7 +1292,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 - `html/settings.html`
 - `html/audit.html`
 
-##### 3.2.5.1 Custom Rules Editor (`html/customrules.html`)
+##### 3.2.6.1 Custom Rules Editor (`html/customrules.html`)
 
 **Title:** LINKUMORI - Custom Rules Editor (i18n) with Provider Import Feature and Provider List Modal
 
@@ -1324,7 +1358,7 @@ The following enhancements have been implemented:
 - Added provider list and disabled-rules full-page flows
 - Fully internationalized (i18n) provider list/editor interface
 
-##### 3.2.5.2 Settings Page (`html/settings.html`)
+##### 3.2.6.2 Settings Page (`html/settings.html`)
 
 **Based On:** Linkumori Settings Page / ClearURLs Settings Page
 
@@ -1401,7 +1435,7 @@ Copyright (c) 2013-2026 Cole Bemis
 
 {{LICENSE:APACHE-2.0}}
 
-##### 3.2.5.3 Audit Page (`html/audit.html`)
+##### 3.2.6.3 Audit Page (`html/audit.html`)
 
 **Title:** Linkumori Audit Page
 
@@ -1454,7 +1488,7 @@ Modification history notice:
 
 ---
 
-##### 3.2.5.4 Custom Rules Editor Script (`core_js/custom_rules_editor.js`)
+##### 3.2.6.4 Custom Rules Editor Script (`core_js/custom_rules_editor.js`)
 
 **Copyright:** © 2025-2026 Subham Mahesh
 
@@ -1493,7 +1527,7 @@ All embedded SVG icons are Modified Google Material SVG Icons (Apache License 2.
 
 ---
 
-#### 3.2.6 PublicSuffixList Parser
+#### 3.2.7 PublicSuffixList Parser
 
 **File:** `external_js/publicsuffixlist.js`
 
@@ -1531,7 +1565,7 @@ documented in-file in `external_js/publicsuffixlist.js`.
 
 ---
 
-#### 3.2.7 Public Suffix List Data
+#### 3.2.8 Public Suffix List Data
 
 **File:** `data/public_suffix_list.dat`
 
