@@ -1,7 +1,7 @@
 /*!
  * Linkumori Markdown Parser
  * Based on marked 18.0.2 — https://github.com/markedjs/marked
- * Modified by Subham Mahesh, 2025–2026
+ * Modified by Subham Mahesh, 2026
  *
  * ============================================================
  * ORIGINAL LICENSE START
