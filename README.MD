@@ -104,6 +104,11 @@ https://raw.githubusercontent.com/Linkumori/Linkumori-Addon/main/data/linkumori-
 
 You can also load your own rule sources or disable any rule you don't want.
 
+For syntax and compatibility details, see [INTEROPERABILITY.md](INTEROPERABILITY.md) for:
+- the ClearURLs provider format
+- Linkumori's ClearURLs-compatible extensions
+- the supported subset of uBlock Origin / AdGuard `removeparam` and `queryprune` rules
+
 ---
 
 ## Install
