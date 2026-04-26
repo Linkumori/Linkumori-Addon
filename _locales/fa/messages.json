@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori از قوانین همراه و قوانین سفارشی برای شناسایی و حذف پارامترهای ردیابی از URL ها استفاده می کند. این قوانین به طور خودکار به روز می شوند تا از محافظت مؤثر در برابر آخرین روش های ردیابی اطمینان حاصل شود.",
+    "message": "Linkumori از دو دسته قانون استفاده می‌کند: Linkumori (ClearURLs 2.0) قوانین JSON برای ارائه‌دهندگان بومی و Linkumori ClearURLs برای برنامه افزودنی محبوب Filter $removeparam لیست. هر دسته به طور جداگانه شمارش می شود.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "قانون راه دور اولیه و URL های هش هر دو باید ارائه شوند",
+    "message": "هش اولیه URL فقط زمانی مورد نیاز است که قانون اولیه URL به قوانین Linkumori (ClearURLs 2.0) JSON اشاره کند.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "اگر به طور کامل پیامدها و خطرات مربوط به آن را درک نمی کنید، باید در استفاده از این ویژگی تجدید نظر کنید.",
+    "message": "اگر به طور کامل نمی دانید منبع شما یک مجموعه قوانین 98765000156789 (ClearURLs 2.0) JSON است یا یک لیست Linkumori ClearURLs 2.0، باید در استفاده از قوانین راه دور تجدید نظر کنید.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "این ویژگی قوانین از راه دور منحصراً برای کاربران پیشرفته ای طراحی شده است که می دانند چه کاری انجام می دهند. اگر نمی دانید این به چه معناست، لطفاً از این ویژگی استفاده نکنید.",
+    "message": "این ویژگی قوانین از راه دور برای کاربران پیشرفته ای طراحی شده است که فرمت منبع بارگیری را درک می کنند. Linkumori (ClearURLs 2.0) JSON قوانین راه دور به یک هش منطبق URL برای تأیید نیاز دارند. Linkumori URL لیست های قابلیت همکاری فیلتر را می توان بدون هش URL بارگیری کرد و به طور جداگانه ذخیره می شود.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "اگر یک URL برای واکشی یک فایل JSON و فایل هش به این نرم افزار اضافه کنید، پسوند به URL تعیین شده شما متصل می شود تا هر بار که این برنامه افزودنی فعال و در مرورگر شما بارگیری می شود، فایل JSON قانون راه دور یا فایل هش را واکشی کند. هر بار که فایل ها را بر اساس URL تعریف شده شما واکشی می کند، فایل های میزبان سرور مانند JSON و فایل های هش آدرس IP شما و همچنین اطلاعات کلی مانند نسخه برنامه افزودنی، مرورگر و نسخه مرورگر شما را دریافت خواهند کرد. این داده‌ها مشمول سیاست حفظ حریم خصوصی وب‌سایت یا سرور وب (جایی که آن فایل‌ها میزبانی می‌شوند) مورد نظر است.",
+    "message": "اگر یک قانون راه دور URL اضافه کنید، برنامه افزودنی به سرور تعیین‌شده شما متصل می‌شود تا یک مجموعه قوانین Linkumori (ClearURLs 2.0) JSON، فایل هش آن هنگام پیکربندی a0298789 واکشی شود. URL لیست قابلیت همکاری فیلتر. هر واکشی ممکن است آدرس IP شما و اطلاعات کلی مانند نسخه برنامه افزودنی، مرورگر و نسخه مرورگر را در اختیار سرور میزبان قرار دهد. این داده ها مشمول سیاست حفظ حریم خصوصی آن وب سایت یا وب سرور است.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "در عوض فقط از راه حل هایی مانند قوانین داخلی برای قوانین داخلی استفاده کنید، همچنین می توانید قوانین سفارشی را به صورت دستی ایجاد کنید.",
+    "message": "از قوانین داخلی استفاده کنید مگر اینکه به منبع راه دور اعتماد داشته باشید و آن را کنترل کنید. برای قوانین Linkumori (ClearURLs 2.0) JSON، یک هش منطبق با URL ارائه دهید. برای لیست های فیلتر قابلیت همکاری، هش URL را خالی بگذارید.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "راستی‌آزمایی هش فقط در برابر دستکاری انتقال محافظت می‌کند، نه منابع قوانین مخرب",
+    "message": "تأیید هش فقط برای قوانین Linkumori (ClearURLs 2.0) JSON اعمال می شود. از دستکاری انتقال محافظت می کند، نه منابع قوانین مخرب.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "اگر هم منبع قانون و هم فایل هش فایل‌های json به خطر بیفتد، هیچ محافظتی ندارید",
+    "message": "لیست های فیلتر قابلیت همکاری از تأیید هش استفاده نمی کنند، بنابراین اعتماد به منبع URL بسیار مهم است.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "برای تأیید قانون از راه دور مورد نیاز است. برای امنیت باید با فایل قوانین مطابقت داشته باشد.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "برای قوانین راه دور ClearURLs JSON مورد نیاز است. لیست فیلترهای ردیابی پسوند محبوب URL را خالی بگذارید.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "صادرات",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "منابع راه دور اضافی با هم ادغام شدند. از یک در هر خط استفاده کنید: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "منابع راه دور اضافی با هم ادغام شدند. از <code>ruleURL | hashURL</code> برای ClearURLs JSON یا فقط از <code>ruleURL</code> برای لیست های پیگیری محبوب URL استفاده کنید.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "مجموعه قوانین از راه دور اضافی",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "URL از راه دور سفارشی برای تعاریف قوانین",
+    "message": "کنترل از راه دور سفارشی URL برای ClearURLs قوانین JSON یا فیلترهای ردیابی پسوند محبوب URL",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "توجه: هنگام استفاده از قوانین راه دور برای تأیید امنیتی، URL هش اجباری است.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "توجه: هش URL فقط برای قوانین راه دور ClearURLs JSON اجباری است. لیست های ردیابی پسوند محبوب URL به طور جداگانه به عنوان فیلترهای Linkumori URL ذخیره می شوند.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'> انواع درخواست </a> (سطح متخصص)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "شما در حال غیرفعال کردن محافظت‌های Gatekeeper برای ویرایش URL قانون راه دور هستید. این ویژگی قوانین از راه دور منحصراً برای کاربران پیشرفته ای طراحی شده است که می دانند چه کاری انجام می دهند. اگر نمی دانید این به چه معناست، لطفاً از این ویژگی استفاده نکنید.",
+    "message": "شما در حال غیرفعال کردن Gatekeeper حفاظت ها برای ویرایش قانون راه دور URL هستید. این ویژگی می‌تواند Linkumori (ClearURLs 2.0) JSON قوانین را با تأیید هش بارگیری کند، یا Linkumori URL لیست‌های قابلیت همکاری فیلتر را بدون دارای قابلیت تأیید اعتبار بارگیری کند. فقط در صورتی ادامه دهید که متوجه شده باشید کدام فرمت را پیکربندی می کنید.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "در عوض فقط از راه حل هایی مانند قوانین داخلی برای قوانین داخلی استفاده کنید، همچنین می توانید قوانین سفارشی را به صورت دستی ایجاد کنید.",
+    "message": "Gatekeeper را فعال نگه دارید مگر اینکه به منابع راه دور خود اعتماد و کنترل کنید. قوانین JSON باید شامل یک هش مطابق با URL باشد. لیست های قابلیت همکاری عمداً هش URL را خالی می گذارند.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "اگر یک URL برای واکشی یک فایل JSON و فایل هش به این نرم افزار اضافه کنید، پسوند به URL تعیین شده شما متصل می شود تا هر بار که این برنامه افزودنی فعال و در مرورگر شما بارگیری می شود، فایل JSON قانون راه دور یا فایل هش را واکشی کند. هر بار که فایل ها را بر اساس URL تعریف شده شما واکشی می کند، فایل های میزبان سرور مانند JSON و فایل های هش آدرس IP شما و همچنین اطلاعات کلی مانند نسخه برنامه افزودنی، مرورگر و نسخه مرورگر شما را دریافت خواهند کرد. این داده‌ها مشمول سیاست حفظ حریم خصوصی وب‌سایت یا سرور وب (جایی که آن فایل‌ها میزبانی می‌شوند) مورد نظر است.",
+    "message": "اگر یک قانون راه دور URL اضافه کنید، برنامه افزودنی به سرور تعیین‌شده شما متصل می‌شود تا یک مجموعه قوانین Linkumori (ClearURLs 2.0) JSON، فایل هش آن هنگام پیکربندی a0298789 واکشی شود. URL لیست قابلیت همکاری فیلتر. هر واکشی ممکن است آدرس IP شما و اطلاعات کلی مانند نسخه برنامه افزودنی، مرورگر و نسخه مرورگر را در اختیار سرور میزبان قرار دهد. این داده ها مشمول سیاست حفظ حریم خصوصی آن وب سایت یا وب سرور است.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "سرور میزبان JSON راه دور و فایل های هش آدرس IP شما را دریافت می کند.",
+    "message": "سرور میزبان JSON از راه دور، فایل‌های فیلتر هش یا قابلیت همکاری آدرس IP شما را دریافت می‌کند.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "با غیرفعال کردن Gatekeeper، خطر منابع قوانین راه دور ناامن یا در معرض خطر را افزایش می دهید. اگر این ویژگی را درک نمی کنید، از آن استفاده نکنید. از قوانین داخلی استفاده کنید و به صورت اختیاری قوانین سفارشی را به صورت دستی ایجاد کنید.",
+    "message": "با غیرفعال کردن Gatekeeper، خطر منابع قوانین راه دور ناامن یا در معرض خطر را افزایش می دهید. تأیید هش فقط از Linkumori (ClearURLs 2.0) JSON بارگیری قانون محافظت می کند. برای لیست های قابلیت همکاری اعمال نمی شود.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "این اقدام حفاظت از قوانین راه دور را کاهش می دهد. فقط در صورتی ادامه دهید که به منابع خود اعتماد دارید.",
+    "message": "این اقدام حفاظت از قوانین راه دور را کاهش می دهد. فقط در صورتی ادامه دهید که به JSON و منابع فیلتر قابلیت همکاری خود اعتماد دارید.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "بدون فعالیت",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL فیلترها (تعامل پذیری):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON قوانین:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON اطلاعات قوانین:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "قوانین فیلتر URL:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL منابع فیلتر:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "وضعیت قانون:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "وضعیت هش:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "وضعیت فیلتر Linkumori URL:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "بارگیری شد"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "تا حدی بارگذاری شده است"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "همه منابع شکست خوردند"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "هیچ منبع فیلتر URL بدون هش پیکربندی نشده است"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "قوانین راه دور غیرفعال است"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "بارگذاری نشده است"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "خالی"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "مورد نیاز نیست"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL فیلترها"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL فیلتر"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "ادغام شده Linkumori URL فیلترها"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "قوانین سفارشی Linkumori URL"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "تجزیه کننده فیلتر Linkumori URL در دسترس نیست"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "قوانین سفارشی Linkumori URL ناموفق بود"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL منبع(های) فیلتر ناموفق بود"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "فایل فیلتر URL از راه دور خالی است"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL واکشی فیلتر انجام نشد"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "خطای فیلتر ناشناخته URL"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "همه Linkumori URL منابع فیلتر ناموفق بودند"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "فیلتر ردیابی پسوند محبوب URL"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "قوانین پشتیبانی شده Linkumori قابلیت همکاری $removeparam یافت نشد"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL قابلیت همکاری فیلتر"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori منبع فیلتر قابلیت همکاری"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL قوانین"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori قوانین سفارشی URL"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "قوانین پسوند محبوب $removeparam یا $queryprune را در اینجا اضافه کنید. این قوانین به طور جداگانه از ClearURLs ارائه دهندگان سفارشی ذخیره می شوند و در Linkumori URL فیلترها ادغام می شوند."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "اعتبار سنجی"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "قوانین سفارشی Linkumori URL پیکربندی نشده است."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 قانون(های) پشتیبانی شده، $2 پشتیبانی نشده نادیده گرفته شده، $3 تکراری نادیده گرفته شده است."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "اعتبارسنجی ناموفق بود"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "قوانین Linkumori URL ذخیره و بارگذاری مجدد شد."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "ذخیره انجام نشد"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "قوانین پشتیبانی شده پس از تأیید در اینجا ظاهر می شوند."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "تجزیه کننده فیلتر Linkumori URL در دسترس نیست."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL فیلترها (تعامل پذیری)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL وضعیت"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "قوانین زمان اجرا"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "قوانین سفارشی"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL هش"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\nقانون(های) زمان اجرا $2\n$3 قانون(های) سفارشی"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "بستن Linkumori قوانین سفارشی URL"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "قوانین Linkumori URL چیست؟"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "قوانین Linkumori URL ردیابی پسوند محبوب هستند. URL خطوط فیلتر متمرکز بر $removeparam. آنها زمانی مفید هستند که بخواهید به جای ایجاد 987678500r، دستور لیست فیلتر را مستقیماً جایگذاری کنید. JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "پسوند محبوب از راه دور URL فیلتر می کند و این قوانین سفارشی نیازی به تأیید هش ندارند. آنها پس از تجزیه در LinkumoriURLsData جدا از ClearURLsData ذخیره می شوند."
   }
 }

@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori uses bundled rules and custom rules to identify and remove tracking parameters from URLs. These rules are automatically updated to ensure effective protection against the latest tracking methods.",
+    "message": "Linkumori uses two rule categories: Linkumori (ClearURLs 2.0) JSON rules for native providers, and Linkumori URL Filter interoperability rules for popular extension $removeparam lists. Each category is counted separately.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2368,6 +2368,34 @@
     "message": "Load Status:",
     "description": "Label for the current loading status of the rules"
   },
+  "linkumori_url_rules_section": {
+    "message": "Linkumori URL Filters (Interoperability):",
+    "description": "Section header for popular extension URL filter rules in settings"
+  },
+  "clearurls_json_rules_section": {
+    "message": "Linkumori (ClearURLs 2.0) JSON Rules:",
+    "description": "Section header for native ClearURLs JSON rule statistics in settings"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "message": "Linkumori (ClearURLs 2.0) JSON Rules Information:",
+    "description": "Section header for native ClearURLs JSON rule metadata in settings"
+  },
+  "linkumori_url_rules_count_label": {
+    "message": "URL filter rules:",
+    "description": "Label for the number of Linkumori URL filter rules"
+  },
+  "linkumori_url_sources_count_label": {
+    "message": "URL filter sources:",
+    "description": "Label for the number of Linkumori URL filter sources"
+  },
+  "linkumori_url_rule_status_label": {
+    "message": "Rule Status:",
+    "description": "Label for Linkumori URL filter load status"
+  },
+  "linkumori_url_hash_status_label": {
+    "message": "Hash Status:",
+    "description": "Label for Linkumori URL filter hash status"
+  },
   "rules_last_updated_label": {
     "message": "Last Updated:",
     "description": "Label for the last update date of the rules dataset"
@@ -2465,7 +2493,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Primary remote rule and hash URLs must both be provided",
+    "message": "Primary hash URL is required only when the primary rule URL points to Linkumori (ClearURLs 2.0) JSON rules.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2541,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "you should reconsider using this feature if you do not fully understand the implications and risks involved.",
+    "message": "You should reconsider using remote rules if you do not fully understand whether your source is a Linkumori (ClearURLs 2.0) JSON ruleset or a Linkumori URL Filter interoperability list.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "This remote rules feature is designed exclusively for advanced users who know what they are doing. If you do not have an idea of what this means, please do not use this feature.",
+    "message": "This remote rules feature is designed for advanced users who understand the source format they are loading. Linkumori (ClearURLs 2.0) JSON remote rules require a matching hash URL for verification. Linkumori URL Filter interoperability lists can be loaded without a hash URL and are stored separately.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "If you add a URL to this software for fetching a JSON file and hash file, the extension will connect to your designated URL to fetch the remote rule JSON file or hash file every time this extension is enabled and loaded in your browser. Each time it fetches files based on your defined URL, the server hosting files like the JSON and hash files will receive your IP address as well as general information such as your extension version, browser, and browser version. This data is subject to the privacy policy of the website or web server (where hosted those files) in question.",
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch either a Linkumori (ClearURLs 2.0) JSON ruleset, its hash file when configured, or a Linkumori URL Filter interoperability list. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2561,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Instead use for built-in rules only solution like built-in rules additionally you can create custom rules manually.",
+    "message": "Use built-in rules unless you trust and control the remote source. For Linkumori (ClearURLs 2.0) JSON rules, provide a matching hash URL. For interoperability filter lists, leave the hash URL empty.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2573,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "Hash verification only protects against transmission tampering, not malicious rule sources",
+    "message": "Hash verification applies to Linkumori (ClearURLs 2.0) JSON rules only; it protects against transmission tampering, not malicious rule sources.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "If both rule source and hash file of json files are compromised, you have no protection",
+    "message": "Interoperability filter lists do not use hash verification, so trust in the source URL is especially important.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2597,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Required for remote rule verification. Must match the rules file for security.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "Required for ClearURLs JSON remote rules. Leave empty for popular extension URL tracking filter lists.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "Export",
@@ -2619,8 +2647,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Additional remote sources merged together. Use one per line: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "Additional remote sources merged together. Use <code>ruleURL | hashURL</code> for ClearURLs JSON, or only <code>ruleURL</code> for popular extension URL tracking lists.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "Additional Remote Rule Sets",
@@ -2631,7 +2659,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Custom remote URL for rule definitions",
+    "message": "Custom remote URL for ClearURLs JSON rules or popular extension URL tracking filters",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2667,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Note: Hash URL is mandatory when using remote rules for security verification.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "Note: Hash URL is mandatory only for ClearURLs JSON remote rules. Popular extension URL tracking lists are stored separately as Linkumori URL filters.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
@@ -3259,7 +3287,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This remote rules feature is designed exclusively for advanced users who know what they are doing. If you do not have an idea of what this means, please do not use this feature.",
+    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load Linkumori (ClearURLs 2.0) JSON rules with hash verification, or Linkumori URL Filter interoperability lists without hash verification. Proceed only if you understand which format you are configuring.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3295,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Instead use for built-in rules only solution like built-in rules additionally you can create custom rules manually.",
+    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. JSON rules should include a matching hash URL; interoperability lists intentionally leave the hash URL empty.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3303,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "If you add a URL to this software for fetching a JSON file and hash file, the extension will connect to your designated URL to fetch the remote rule JSON file or hash file every time this extension is enabled and loaded in your browser. Each time it fetches files based on your defined URL, the server hosting files like the JSON and hash files will receive your IP address as well as general information such as your extension version, browser, and browser version. This data is subject to the privacy policy of the website or web server (where hosted those files) in question.",
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch either a Linkumori (ClearURLs 2.0) JSON ruleset, its hash file when configured, or a Linkumori URL Filter interoperability list. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3323,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "The server hosting remote JSON and hash files will receive your IP address.",
+    "message": "The server hosting remote JSON, hash, or interoperability filter files will receive your IP address.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3335,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. If you do not understand this feature, do not use it. Use built-in rules and optionally create custom rules manually.",
+    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects only Linkumori (ClearURLs 2.0) JSON rule downloads. It does not apply to interoperability lists.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3415,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your sources.",
+    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your JSON and interoperability filter sources.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -3822,6 +3850,102 @@
     "message": "Current hash status:",
     "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
   },
+  "settings_remote_health_linkumori_url_status_label": {
+    "message": "Linkumori URL filter status:",
+    "description": "Status label for hashless popular extension Linkumori URL filters"
+  },
+  "linkumori_url_status_loaded": {
+    "message": "Loaded",
+    "description": "Linkumori URL filter rule status"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "message": "Partially loaded",
+    "description": "Linkumori URL filter rule status"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "message": "All sources failed",
+    "description": "Linkumori URL filter rule status"
+  },
+  "linkumori_url_status_no_sources": {
+    "message": "No hashless URL filter sources configured",
+    "description": "Linkumori URL filter rule status"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "message": "Remote rules disabled",
+    "description": "Linkumori URL filter rule status"
+  },
+  "linkumori_url_status_not_loaded": {
+    "message": "Not loaded",
+    "description": "Linkumori URL filter rule status"
+  },
+  "linkumori_url_status_empty": {
+    "message": "Empty",
+    "description": "Linkumori URL filter rule status"
+  },
+  "linkumori_url_hash_not_required": {
+    "message": "not required",
+    "description": "Hash status for popular extension URL filter lists"
+  },
+  "linkumori_url_filter_name": {
+    "message": "Linkumori URL Filters",
+    "description": "Display name for Linkumori URL filter interoperability rules."
+  },
+  "linkumori_url_filter_single_name": {
+    "message": "Linkumori URL Filter",
+    "description": "Display name for a single Linkumori URL filter source."
+  },
+  "linkumori_url_filter_merged_name": {
+    "message": "Merged Linkumori URL Filters",
+    "description": "Display name when multiple Linkumori URL filter sources are merged."
+  },
+  "linkumori_url_filter_custom_name": {
+    "message": "Custom Linkumori URL Rules",
+    "description": "Display name for custom Linkumori URL filter rules."
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "message": "Linkumori URL filter parser is unavailable",
+    "description": "Error when the Linkumori URL filter parser is unavailable."
+  },
+  "linkumori_url_filter_custom_failed": {
+    "message": "Custom Linkumori URL rules failed",
+    "description": "Error when custom Linkumori URL rules cannot be parsed."
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "message": "$1 URL filter source(s) failed",
+    "description": "Summary of failed Linkumori URL filter sources."
+  },
+  "linkumori_url_filter_remote_empty": {
+    "message": "Remote URL filter file is empty",
+    "description": "Error when a remote Linkumori URL filter file is empty."
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "message": "Linkumori URL filter fetch failed",
+    "description": "Error when fetching Linkumori URL filters fails."
+  },
+  "linkumori_url_filter_unknown_error": {
+    "message": "Unknown URL filter error",
+    "description": "Fallback error for Linkumori URL filters."
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "message": "All Linkumori URL filter sources failed",
+    "description": "Error when all Linkumori URL filter sources fail."
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "message": "popular extension URL tracking filter",
+    "description": "Log pattern value for Linkumori URL filter interoperability."
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "message": "No supported Linkumori interoperability $removeparam rules found",
+    "description": "Error when a filter list has no supported Linkumori URL filter rules."
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "message": "Linkumori URL Filter Interoperability",
+    "description": "Parser metadata name for Linkumori URL filter interoperability."
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "message": "Linkumori interoperability filter source",
+    "description": "Parser metadata author for Linkumori URL filter interoperability."
+  },
   "settings_remote_health_na": {
     "message": "N/A",
     "description": "Auto-added i18n key: settings_remote_health_na"
@@ -4109,5 +4233,97 @@
   "log_stats_no_activity": {
     "message": "No activity",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumoriUrlRules_button": {
+    "message": "Linkumori URL Rules",
+    "description": "Button that opens the custom Linkumori URL filter modal."
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "message": "Linkumori Custom URL Rules",
+    "description": "Title for the custom Linkumori URL rules modal."
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "message": "Add popular extension $removeparam or $queryprune rules here. These rules are stored separately from ClearURLs custom providers and are merged into Linkumori URL Filters.",
+    "description": "Description for the custom Linkumori URL rules modal."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source",
+    "description": "Placeholder for custom Linkumori URL filter rules."
+  },
+  "linkumoriUrlRules_validate": {
+    "message": "Validate",
+    "description": "Button label for validating custom Linkumori URL rules."
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "message": "No custom Linkumori URL rules configured.",
+    "description": "Validation message for an empty Linkumori URL rules editor."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "message": "$1 supported rule(s), $2 unsupported skipped, $3 duplicate skipped.",
+    "description": "Validation success summary for Linkumori URL rules."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "message": "Validation failed",
+    "description": "Validation failure prefix for Linkumori URL rules."
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "message": "Saved and reloaded Linkumori URL rules.",
+    "description": "Success message after saving Linkumori URL custom rules."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "message": "Save failed",
+    "description": "Failure message after saving Linkumori URL custom rules."
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "message": "Supported rules will appear here after validation.",
+    "description": "Empty preview message for Linkumori URL custom rules."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "message": "Linkumori URL filter parser is unavailable.",
+    "description": "Error shown when the popular extension URL filter parser script is missing."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "message": "Linkumori (ClearURLs 2.0)",
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor."
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "message": "Linkumori URL Filters (Interoperability)",
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor."
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "message": "Linkumori URL Status",
+    "description": "Status label for Linkumori URL rules in the custom rules editor."
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "message": "Runtime Rules",
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor."
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "message": "Custom Rules",
+    "description": "Label for custom Linkumori URL rules in the custom rules editor."
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "message": "Linkumori URL Hash",
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor."
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "message": "$1\n$2 runtime rule(s)\n$3 custom rule(s)",
+    "description": "Rules status summary for Linkumori URL rules."
+  },
+  "linkumoriUrlRules_close_aria": {
+    "message": "Close Linkumori custom URL rules",
+    "description": "Accessible label for closing the Linkumori URL rules modal."
+  },
+  "faq_linkumori_url_rules": {
+    "message": "What are Linkumori URL rules?",
+    "description": "FAQ question for Linkumori URL custom rules."
+  },
+  "faq_linkumori_url_rules_answer": {
+    "message": "Linkumori URL rules are popular extension tracking URL filter lines focused on $removeparam. They are useful when you want to paste filter-list syntax directly instead of creating ClearURLs provider JSON.",
+    "description": "FAQ answer explaining Linkumori URL custom rules."
+  },
+  "faq_linkumori_url_rules_note": {
+    "message": "Remote popular extension URL filters and these custom rules do not need hash verification. They are stored in LinkumoriURLsData after parsing, separate from ClearURLsData.",
+    "description": "FAQ note for Linkumori URL custom rules."
   }
 }

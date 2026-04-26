@@ -124,7 +124,8 @@ class LinkumoriCLI {
         'APACHE-2.0': 'licenses/APACHE-2.0.txt',
         'CC0-1.0': 'licenses/CC0-1.0.txt',
         'MPL-2.0': 'licenses/MPL-2.0.txt',
-        'ISC': 'licenses/ISC.txt'
+        'ISC': 'licenses/ISC.txt',
+        'UNLICENSE': 'licenses/unlicense.txt'
       },
       cache: {}
     };
@@ -633,6 +634,18 @@ class LinkumoriCLI {
 
 {{LICENSE:ISC}}
 
+### 2.6 Mozilla Public License 2.0
+
+**Type:** File-level copyleft open source license
+
+{{LICENSE:MPL-2.0}}
+
+### 2.7 The Unlicense
+
+**Type:** Public domain dedication
+
+{{LICENSE:UNLICENSE}}
+
 ---
 
 **Document Generated:** {{CURRENT-TIME-WITH-DEVICE-TIME-ZONE}}
@@ -700,6 +713,10 @@ Place the following license files in this directory:
 - **ISC.txt** - ISC License
   - Download from: https://opensource.org/licenses/ISC
   - Or from: https://choosealicense.com/licenses/isc/
+
+- **unlicense.txt** - The Unlicense
+  - Download from: https://raw.githubusercontent.com/spdx/license-list-data/main/text/Unlicense.txt
+  - Or from: https://unlicense.org/
 
 ## How to Use
 
@@ -3611,7 +3628,9 @@ coverage/**
     this.log('     - licenses/LGPL-3.0.txt', 'dim');
     this.log('     - licenses/APACHE-2.0.txt', 'dim');
     this.log('     - licenses/CC0-1.0.txt', 'dim');
+    this.log('     - licenses/MPL-2.0.txt', 'dim');
     this.log('     - licenses/ISC.txt', 'dim');
+    this.log('     - licenses/unlicense.txt', 'dim');
     this.log('  4. Build process will read and embed them automatically', 'dim');
     
     this.log('\nCopyright Template Placeholders:', 'cyan');
@@ -3621,7 +3640,9 @@ coverage/**
     this.log('  - {{LICENSE:LGPL-3.0}}                - Embeds LGPL 3.0 license text', 'dim');
     this.log('  - {{LICENSE:APACHE-2.0}}              - Embeds Apache 2.0 license text', 'dim');
     this.log('  - {{LICENSE:CC0-1.0}}                 - Embeds CC0 1.0 license text', 'dim');
+    this.log('  - {{LICENSE:MPL-2.0}}                 - Embeds MPL 2.0 license text', 'dim');
     this.log('  - {{LICENSE:ISC}}                     - Embeds ISC license text', 'dim');
+    this.log('  - {{LICENSE:UNLICENSE}}               - Embeds The Unlicense text', 'dim');
     this.log('  - {{CURRENT-TIME-WITH-DEVICE-TIME-ZONE}} - Current timestamp with timezone', 'dim');
     this.log('  Example: 2025-02-08 14:30:45 UTC+05:30 (Asia/Kolkata)', 'dim');
     

@@ -156,6 +156,10 @@ let providerImportModal, providerImportBtn;
 let disabledRulesView, disabledRulesBtn;
 let providerListView, providerListBtn; // Provider list page view elements
 let ruleTestModal = null;
+let linkumoriURLRulesModal = null;
+let linkumoriURLRulesTextarea = null;
+let linkumoriURLRulesStatus = null;
+let linkumoriURLRulesPreview = null;
 let applyCustomRulesView = null;
 
 // ============================================================================
@@ -184,7 +188,7 @@ function getLocalizedNumber(number) {
 
 // i18n helper function
 function i18n(key, ...substitutions) {
-    return (LinkumoriI18n && LinkumoriI18n.getMessage(key, substitutions)) || key;
+    return LinkumoriI18n.getMessage(key, substitutions);
 }
 
 const JSON_TEXTMATE_GRAMMAR = Object.freeze({
@@ -584,6 +588,34 @@ function getHashStatusText(hashStatus) {
     }
 
     return statusText;
+}
+
+function getLinkumoriURLStatusText(status) {
+    switch (status) {
+        case 'loaded':
+            return i18n('linkumori_url_status_loaded');
+        case 'partially_loaded':
+            return i18n('linkumori_url_status_partially_loaded');
+        case 'all_sources_failed':
+            return i18n('linkumori_url_status_all_sources_failed');
+        case 'no_hashless_sources':
+            return i18n('linkumori_url_status_no_sources');
+        case 'remote_disabled':
+            return i18n('linkumori_url_status_remote_disabled');
+        case 'empty':
+            return i18n('linkumori_url_status_empty');
+        case 'not_loaded':
+            return i18n('linkumori_url_status_not_loaded');
+        default:
+            return status || i18n('status_unknown');
+    }
+}
+
+function getLinkumoriURLHashStatusText(status) {
+    if (status === 'not_required') {
+        return i18n('linkumori_url_hash_not_required');
+    }
+    return status || i18n('status_unknown');
 }
 
 function setHTMLContent(element, html) {
@@ -1438,6 +1470,7 @@ function initializeApp() {
     setupDisabledRulesPage();
     setupProviderImport();
     setupProviderListModal(); // NEW: Setup provider list modal
+    setupLinkumoriURLRulesModal();
     setupEventListeners();
     setupWhitelistUI();
     loadWhitelist();
@@ -1476,6 +1509,10 @@ function initializeEditor() {
     providerListView = document.getElementById('provider-list-view');
     providerListBtn = document.getElementById('provider-list-btn');
     ruleTestModal = document.getElementById('rule-test-modal');
+    linkumoriURLRulesModal = document.getElementById('linkumori-url-rules-modal');
+    linkumoriURLRulesTextarea = document.getElementById('linkumori-url-rules-textarea');
+    linkumoriURLRulesStatus = document.getElementById('linkumori-url-rules-status-message');
+    linkumoriURLRulesPreview = document.getElementById('linkumori-url-rules-preview');
 }
 
 // ============================================================================
@@ -2614,6 +2651,196 @@ function hideFAQModal() {
     }
 }
 
+function normalizeLinkumoriURLCustomRulesValue(value) {
+    if (!value) {
+        return { rules: [] };
+    }
+    if (typeof value === 'string') {
+        try {
+            return normalizeLinkumoriURLCustomRulesValue(JSON.parse(value));
+        } catch (_) {
+            return { rules: value.split(/\r?\n/).map(line => line.trim()).filter(Boolean) };
+        }
+    }
+    if (Array.isArray(value)) {
+        return { rules: value.map(line => String(line || '').trim()).filter(Boolean) };
+    }
+    if (Array.isArray(value.rules)) {
+        return { rules: value.rules.map(line => String(line || '').trim()).filter(Boolean) };
+    }
+    return { rules: [] };
+}
+
+function getLinkumoriURLRulesText() {
+    return (linkumoriURLRulesTextarea?.value || '')
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean)
+        .join('\n');
+}
+
+function parseLinkumoriURLRulesText(text) {
+    if (!text.trim()) {
+        return {
+            metadata: {
+                supportedRuleCount: 0,
+                skippedUnsupportedRuleCount: 0,
+                skippedDuplicateRuleCount: 0
+            },
+            rules: []
+        };
+    }
+
+    if (!globalThis.LinkumoriURLFilterInteroperability ||
+        typeof globalThis.LinkumoriURLFilterInteroperability.parseFilterList !== 'function') {
+        throw new Error(i18n('linkumoriUrlRules_parserUnavailable'));
+    }
+
+    return globalThis.LinkumoriURLFilterInteroperability.parseFilterList(text, 'customrules-editor');
+}
+
+function renderLinkumoriURLRulesValidation(result, error = null) {
+    if (!linkumoriURLRulesStatus || !linkumoriURLRulesPreview) {
+        return;
+    }
+
+    if (error) {
+        linkumoriURLRulesStatus.textContent = `${i18n('linkumoriUrlRules_validationFailed')}: ${error.message || error}`;
+        linkumoriURLRulesPreview.textContent = '';
+        return;
+    }
+
+    const metadata = result?.metadata || {};
+    const supported = Number(metadata.supportedRuleCount || result?.rules?.length || 0);
+    const unsupported = Number(metadata.skippedUnsupportedRuleCount || 0);
+    const duplicate = Number(metadata.skippedDuplicateRuleCount || 0);
+    linkumoriURLRulesStatus.textContent = supported > 0
+        ? i18n('linkumoriUrlRules_validationSuccess', getLocalizedNumber(supported), getLocalizedNumber(unsupported), getLocalizedNumber(duplicate))
+        : i18n('linkumoriUrlRules_validationEmpty');
+
+    const previewRules = Array.isArray(result?.rules) ? result.rules.slice(0, 25) : [];
+    linkumoriURLRulesPreview.textContent = previewRules.length > 0
+        ? previewRules.join('\n')
+        : i18n('linkumoriUrlRules_previewEmpty');
+}
+
+function validateLinkumoriURLRulesFromUI() {
+    try {
+        const result = parseLinkumoriURLRulesText(getLinkumoriURLRulesText());
+        renderLinkumoriURLRulesValidation(result);
+        return result;
+    } catch (error) {
+        renderLinkumoriURLRulesValidation(null, error);
+        return null;
+    }
+}
+
+async function showLinkumoriURLRulesModal() {
+    if (!linkumoriURLRulesModal) {
+        return;
+    }
+
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: 'getData',
+            params: ['linkumori_url_custom_rules']
+        });
+        const customData = normalizeLinkumoriURLCustomRulesValue(response?.response);
+        if (linkumoriURLRulesTextarea) {
+            linkumoriURLRulesTextarea.value = customData.rules.join('\n');
+        }
+    } catch (_) {
+        if (linkumoriURLRulesTextarea) {
+            linkumoriURLRulesTextarea.value = '';
+        }
+    }
+
+    validateLinkumoriURLRulesFromUI();
+    linkumoriURLRulesModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => linkumoriURLRulesTextarea?.focus(), 0);
+}
+
+function hideLinkumoriURLRulesModal() {
+    if (!linkumoriURLRulesModal) {
+        return;
+    }
+    linkumoriURLRulesModal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+async function saveLinkumoriURLRulesFromUI() {
+    const result = validateLinkumoriURLRulesFromUI();
+    if (!result) {
+        return;
+    }
+
+    const rules = getLinkumoriURLRulesText()
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean);
+
+    try {
+        await browser.runtime.sendMessage({
+            function: 'setData',
+            params: ['linkumori_url_custom_rules', JSON.stringify({ rules })]
+        });
+        const reloadResponse = await browser.runtime.sendMessage({
+            function: 'reloadLinkumoriURLFilters'
+        });
+        if (reloadResponse?.error) {
+            throw new Error(reloadResponse.error);
+        }
+        if (linkumoriURLRulesStatus) {
+            linkumoriURLRulesStatus.textContent = i18n('linkumoriUrlRules_saveSuccess');
+        }
+        await updateRulesStatus();
+    } catch (error) {
+        if (linkumoriURLRulesStatus) {
+            linkumoriURLRulesStatus.textContent = `${i18n('linkumoriUrlRules_saveFailed')}: ${error.message || error}`;
+        }
+    }
+}
+
+function setupLinkumoriURLRulesModal() {
+    const openBtn = document.getElementById('linkumori-url-rules-btn');
+    const closeBtn = document.getElementById('linkumori-url-rules-modal-close');
+    const dismissBtn = document.getElementById('linkumori-url-rules-modal-dismiss');
+    const validateBtn = document.getElementById('linkumori-url-rules-validate-btn');
+    const saveBtn = document.getElementById('linkumori-url-rules-save-btn');
+
+    if (openBtn) {
+        openBtn.addEventListener('click', showLinkumoriURLRulesModal);
+    }
+    if (closeBtn) {
+        closeBtn.addEventListener('click', hideLinkumoriURLRulesModal);
+    }
+    if (dismissBtn) {
+        dismissBtn.addEventListener('click', hideLinkumoriURLRulesModal);
+    }
+    if (validateBtn) {
+        validateBtn.addEventListener('click', validateLinkumoriURLRulesFromUI);
+    }
+    if (saveBtn) {
+        saveBtn.addEventListener('click', saveLinkumoriURLRulesFromUI);
+    }
+    if (linkumoriURLRulesTextarea) {
+        linkumoriURLRulesTextarea.addEventListener('input', validateLinkumoriURLRulesFromUI);
+    }
+    if (linkumoriURLRulesModal) {
+        linkumoriURLRulesModal.addEventListener('click', function(e) {
+            if (e.target === linkumoriURLRulesModal) {
+                hideLinkumoriURLRulesModal();
+            }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && linkumoriURLRulesModal.classList.contains('show')) {
+                hideLinkumoriURLRulesModal();
+            }
+        });
+    }
+}
+
 // ============================================================================
 // MAIN EDITOR FUNCTIONALITY
 // ============================================================================
@@ -3032,6 +3259,40 @@ async function updateRulesStatus() {
                 mergeStatusElement.textContent = statusText;
             }
         }
+
+        const [linkumoriDataResponse, linkumoriCustomResponse] = await Promise.all([
+            browser.runtime.sendMessage({
+                function: "getData",
+                params: ['LinkumoriURLsData']
+            }),
+            browser.runtime.sendMessage({
+                function: "getData",
+                params: ['linkumori_url_custom_rules']
+            })
+        ]);
+
+        const linkumoriData = linkumoriDataResponse?.response || {};
+        const linkumoriMetadata = linkumoriData.metadata || {};
+        const linkumoriCustom = normalizeLinkumoriURLCustomRulesValue(linkumoriCustomResponse?.response);
+        const linkumoriStatusElement = document.getElementById('linkumori-url-rule-status');
+        const linkumoriRuntimeCountElement = document.getElementById('linkumori-url-runtime-count');
+        const linkumoriCustomCountElement = document.getElementById('linkumori-url-custom-count');
+        const linkumoriHashElement = document.getElementById('linkumori-url-hash-status');
+        const runtimeCount = Number(linkumoriMetadata.supportedRuleCount || (Array.isArray(linkumoriData.rules) ? linkumoriData.rules.length : 0));
+        const customRuleCount = linkumoriCustom.rules.length;
+
+        if (linkumoriStatusElement) {
+            linkumoriStatusElement.textContent = getLinkumoriURLStatusText(linkumoriMetadata.ruleStatus || linkumoriMetadata.status);
+        }
+        if (linkumoriRuntimeCountElement) {
+            linkumoriRuntimeCountElement.textContent = getLocalizedNumber(runtimeCount);
+        }
+        if (linkumoriCustomCountElement) {
+            linkumoriCustomCountElement.textContent = getLocalizedNumber(customRuleCount);
+        }
+        if (linkumoriHashElement) {
+            linkumoriHashElement.textContent = getLinkumoriURLHashStatusText(linkumoriMetadata.hashStatus);
+        }
     } catch (error) {
         // Set fallback values with localized question marks
         const customCountElement = document.getElementById('custom-count');
@@ -3039,12 +3300,20 @@ async function updateRulesStatus() {
         const totalCountElement = document.getElementById('total-count');
         const disabledCountElement = document.getElementById('disabled-count');
         const mergeStatusElement = document.getElementById('merge-status');
+        const linkumoriStatusElement = document.getElementById('linkumori-url-rule-status');
+        const linkumoriRuntimeCountElement = document.getElementById('linkumori-url-runtime-count');
+        const linkumoriCustomCountElement = document.getElementById('linkumori-url-custom-count');
+        const linkumoriHashElement = document.getElementById('linkumori-url-hash-status');
         
         if (customCountElement) customCountElement.textContent = '?';
         if (builtinCountElement) builtinCountElement.textContent = '?';
         if (totalCountElement) totalCountElement.textContent = '?';
         if (disabledCountElement) disabledCountElement.textContent = '?';
         if (mergeStatusElement) mergeStatusElement.textContent = i18n('status_unavailable');
+        if (linkumoriStatusElement) linkumoriStatusElement.textContent = i18n('status_unavailable');
+        if (linkumoriRuntimeCountElement) linkumoriRuntimeCountElement.textContent = '?';
+        if (linkumoriCustomCountElement) linkumoriCustomCountElement.textContent = '?';
+        if (linkumoriHashElement) linkumoriHashElement.textContent = i18n('status_unavailable');
     }
 }
 

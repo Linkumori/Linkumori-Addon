@@ -27,7 +27,7 @@
 
 | Category | Files |
 |----------|-------| 
-| **JavaScript** | `external_js/IP-Ranger.js`<br>`external_js/linkumori-i18n.js`<br>`external_js/theme_bootstrap.js`<br>`external_js/theme_favicon.js`<br>`core_js/clipboard-helper.js`<br>`core_js/about.js`<br>`core_js/consent_config.js`<br>`core_js/content_script_manager.js`<br>`core_js/audit.js`<br>`core_js/modal_dialog.js` |
+| **JavaScript** | `external_js/IP-Ranger.js`<br>`external_js/linkumori-i18n.js`<br>`external_js/theme_bootstrap.js`<br>`external_js/theme_favicon.js`<br>`core_js/clipboard-helper.js`<br>`core_js/about.js`<br>`core_js/consent_config.js`<br>`core_js/content_script_manager.js`<br>`core_js/audit.js`<br>`core_js/modal_dialog.js`<br>`core_js/linkumori_biditrie.js`<br>`core_js/linkumori_hntrie.js`<br>`core_js/linkumori_regex_tokens.js`<br>`core_js/linkumori_url_filter_interoperability.js`<br>`core_js/linkumori_url_filter_runtime.js` |
 | **HTML** | - |
 | **CSS** | `css/settings.css`<br>`css/siteBlockedAlert.css` |
 | **Icons (PNG)** | `img/icon16.png`<br>`img/icon19.png`<br>`img/icon20.png`<br>`img/icon24.png`<br>`img/icon30.png`<br>`img/icon32.png`<br>`img/icon38.png`<br>`img/icon48.png`<br>`img/icon64.png`<br>`img/icon96.png`<br>`img/icon128.png`<br>`img/icon128_gray.png` |
@@ -54336,6 +54336,47 @@ third-party archives.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+
+---
+
+#### 3.1.2 RegexAnalyzer
+
+**File:** `external_js/regex_analyzer.js`
+
+**Upstream Project:** RegexAnalyzer
+**Repository:** <https://github.com/foo123/RegexAnalyzer>
+**Source File:** <https://github.com/foo123/RegexAnalyzer/blob/master/src/js/Regex.js>
+
+**Copyright:** Public domain dedication by the upstream author(s)
+**License:** The Unlicense
+
+
+
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org/>
 
 
 ---

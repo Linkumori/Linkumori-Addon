@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori menggunakan peraturan yang digabungkan dan peraturan tersuai untuk mengenal pasti dan mengalih keluar parameter penjejakan daripada URL. Peraturan ini dikemas kini secara automatik untuk memastikan perlindungan berkesan terhadap kaedah penjejakan terkini.",
+    "message": "Linkumori menggunakan dua kategori peraturan: Linkumori (ClearURLs 2.0) JSON peraturan untuk pembekal asli dan Linkumori 9876708 peraturan sambungan yang popular $removeparam senarai. Setiap kategori dikira secara berasingan.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Peraturan jauh utama dan URL cincang mesti disediakan",
+    "message": "Cincang utama URL hanya diperlukan apabila peraturan utama URL menunjukkan kepada Linkumori (ClearURLs 2.0) JSON peraturan.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "anda harus mempertimbangkan semula menggunakan ciri ini jika anda tidak memahami sepenuhnya implikasi dan risiko yang terlibat.",
+    "message": "Anda harus mempertimbangkan semula menggunakan peraturan jauh jika anda tidak memahami sepenuhnya sama ada sumber anda ialah Linkumori (ClearURLs 2.0) JSON set peraturan atau Linkumori 98768500456789 senarai kebolehoperasian penapis.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "Ciri peraturan jauh ini direka khusus untuk pengguna lanjutan yang tahu perkara yang mereka lakukan. Jika anda tidak mempunyai idea tentang maksud ini, sila jangan gunakan ciri ini.",
+    "message": "Ciri peraturan jauh ini direka untuk pengguna lanjutan yang memahami format sumber yang mereka muatkan. Linkumori (ClearURLs 2.0) JSON peraturan jauh memerlukan cincangan yang sepadan URL untuk pengesahan. Linkumori URL Senarai kebolehoperasian penapis boleh dimuatkan tanpa cincang URL dan disimpan secara berasingan.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "Jika anda menambahkan URL pada perisian ini untuk mengambil fail JSON dan fail cincang, sambungan akan bersambung ke URL yang anda tetapkan untuk mengambil fail JSON peraturan jauh atau fail cincang setiap kali sambungan ini didayakan dan dimuatkan dalam penyemak imbas anda. Setiap kali ia mengambil fail berdasarkan URL yang anda tentukan, fail pengehosan pelayan seperti fail JSON dan cincang akan menerima alamat IP anda serta maklumat umum seperti versi sambungan, penyemak imbas dan versi penyemak imbas anda. Data ini tertakluk kepada dasar privasi tapak web atau pelayan web (di mana fail tersebut dihoskan) yang dipersoalkan.",
+    "message": "Jika anda menambah peraturan jauh URL, sambungan akan bersambung ke pelayan yang anda tetapkan untuk mengambil sama ada Linkumori (ClearURLs 2.0) JSON set peraturan, fail cincangnya apabila dikonfigurasikan atau 9892565. URL Senarai kebolehoperasian penapis. Setiap pengambilan mungkin mendedahkan alamat IP anda dan maklumat umum seperti versi sambungan, penyemak imbas dan versi penyemak imbas kepada pelayan pengehosan. Data ini tertakluk kepada dasar privasi tapak web atau pelayan web tersebut.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Sebaliknya gunakan untuk peraturan terbina dalam sahaja penyelesaian seperti peraturan terbina dalam tambahan pula anda boleh membuat peraturan tersuai secara manual.",
+    "message": "Gunakan peraturan terbina dalam melainkan anda mempercayai dan mengawal sumber jauh. Untuk peraturan Linkumori (ClearURLs 2.0) JSON, sediakan cincangan yang sepadan URL. Untuk senarai penapis kebolehoperasian, biarkan cincang URL kosong.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "Pengesahan cincang hanya melindungi daripada gangguan penghantaran, bukan sumber peraturan berniat jahat",
+    "message": "Pengesahan cincang digunakan pada peraturan Linkumori (ClearURLs 2.0) JSON sahaja; ia melindungi daripada gangguan penghantaran, bukan sumber peraturan yang berniat jahat.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Jika kedua-dua sumber peraturan dan fail cincang fail json terjejas, anda tidak mempunyai perlindungan",
+    "message": "Senarai penapis kebolehkendalian tidak menggunakan pengesahan cincang, jadi kepercayaan kepada sumber URL amat penting.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Diperlukan untuk pengesahan peraturan jauh. Mesti sepadan dengan fail peraturan untuk keselamatan.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "Diperlukan untuk ClearURLs JSON peraturan jauh. Biarkan kosong untuk senarai penapis penjejakan sambungan popular URL.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "Eksport",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Sumber jauh tambahan digabungkan bersama. Gunakan satu setiap baris: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "Sumber jauh tambahan digabungkan bersama. Gunakan <code>ruleURL | hashURL</code> untuk ClearURLs JSON atau hanya <code>ruleURL</code> untuk senarai penjejakan sambungan popular URL.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "Set Peraturan Jauh Tambahan",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "URL jauh tersuai untuk definisi peraturan",
+    "message": "Alat jauh tersuai URL untuk ClearURLs JSON peraturan atau sambungan popular URL penapis penjejakan",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Nota: URL Cincang adalah wajib apabila menggunakan peraturan jauh untuk pengesahan keselamatan.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "Nota: Hash URL adalah wajib hanya untuk ClearURLs JSON peraturan jauh. Sambungan popular URL senarai penjejakan disimpan secara berasingan sebagai penapis Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Jenis permintaan</a> (peringkat pakar)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Anda melumpuhkan perlindungan Gatekeeper untuk pengeditan URL peraturan jauh. Ciri peraturan jauh ini direka khusus untuk pengguna lanjutan yang tahu perkara yang mereka lakukan. Jika anda tidak mempunyai idea tentang maksud ini, sila jangan gunakan ciri ini.",
+    "message": "Anda melumpuhkan perlindungan Gatekeeper untuk pengeditan peraturan jauh URL. Ciri ini boleh memuatkan Linkumori (ClearURLs 2.0) JSON peraturan dengan pengesahan cincang atau Linkumori URL Senarai kebolehoperasian penapis tanpa hash. Teruskan hanya jika anda memahami format yang anda konfigurasikan.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Sebaliknya gunakan untuk peraturan terbina dalam sahaja penyelesaian seperti peraturan terbina dalam tambahan pula anda boleh membuat peraturan tersuai secara manual.",
+    "message": "Pastikan Gatekeeper didayakan melainkan anda mempercayai dan mengawal sumber jauh anda. Peraturan JSON hendaklah mengandungi cincangan yang sepadan URL; senarai kesalingoperasian sengaja membiarkan cincangan URL kosong.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Jika anda menambahkan URL pada perisian ini untuk mengambil fail JSON dan fail cincang, sambungan akan bersambung ke URL yang anda tetapkan untuk mengambil fail JSON peraturan jauh atau fail cincang setiap kali sambungan ini didayakan dan dimuatkan dalam penyemak imbas anda. Setiap kali ia mengambil fail berdasarkan URL yang anda tentukan, fail pengehosan pelayan seperti fail JSON dan cincang akan menerima alamat IP anda serta maklumat umum seperti versi sambungan, penyemak imbas dan versi penyemak imbas anda. Data ini tertakluk kepada dasar privasi tapak web atau pelayan web (di mana fail tersebut dihoskan) yang dipersoalkan.",
+    "message": "Jika anda menambah peraturan jauh URL, sambungan akan bersambung ke pelayan yang anda tetapkan untuk mengambil sama ada Linkumori (ClearURLs 2.0) JSON set peraturan, fail cincangnya apabila dikonfigurasikan atau 9892565. URL Senarai kebolehoperasian penapis. Setiap pengambilan mungkin mendedahkan alamat IP anda dan maklumat umum seperti versi sambungan, penyemak imbas dan versi penyemak imbas kepada pelayan pengehosan. Data ini tertakluk kepada dasar privasi tapak web atau pelayan web tersebut.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Pelayan yang mengehos fail JSON dan cincang jauh akan menerima alamat IP anda.",
+    "message": "Fail penapis jauh JSON, cincang atau kebolehoperasian pelayan akan menerima alamat IP anda.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Dengan melumpuhkan Gatekeeper, anda meningkatkan risiko daripada sumber peraturan jauh yang tidak selamat atau terjejas. Jika anda tidak memahami ciri ini, jangan gunakannya. Gunakan peraturan terbina dalam dan buat peraturan tersuai secara manual secara pilihan.",
+    "message": "Dengan melumpuhkan Gatekeeper, anda meningkatkan risiko daripada sumber peraturan jauh yang tidak selamat atau terjejas. Pengesahan cincang hanya melindungi muat turun peraturan Linkumori (ClearURLs 2.0) JSON. Ia tidak terpakai pada senarai kebolehoperasian.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Tindakan ini mengurangkan perlindungan untuk peraturan jauh. Teruskan hanya jika anda mempercayai sumber anda.",
+    "message": "Tindakan ini mengurangkan perlindungan untuk peraturan jauh. Teruskan hanya jika anda mempercayai JSON dan sumber penapis kebolehoperasian anda.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "Tiada aktiviti",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Penapis (Saling kendali):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Peraturan:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Maklumat Peraturan:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL peraturan penapis:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL sumber penapis:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Status Peraturan:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Status Hash:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL status penapis:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "dimuatkan"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Separa dimuatkan"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Semua sumber gagal"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Tiada sumber penapis URL tanpa hash dikonfigurasikan"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Peraturan jauh dilumpuhkan"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Tidak dimuatkan"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "kosong"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "tidak diperlukan"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Penapis"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Penapis"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Bercantum Linkumori URL Penapis"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Peraturan Linkumori URL Tersuai"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL penghurai penapis tidak tersedia"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Peraturan tersuai Linkumori URL gagal"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL sumber penapis gagal"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Fail penapis jauh URL kosong"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL pengambilan penapis gagal"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Ralat penapis URL tidak diketahui"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Semua Linkumori URL sumber penapis gagal"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "sambungan popular URL penapis penjejakan"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Tiada kebolehoperasian Linkumori disokong $removeparam peraturan ditemui"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Kebolehoperasian Penapis"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori sumber penapis kebolehoperasian"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Peraturan"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Peraturan URL Tersuai"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Tambahkan sambungan popular $removeparam atau $queryprune peraturan di sini. Peraturan ini disimpan secara berasingan daripada ClearURLs pembekal tersuai dan digabungkan menjadi Linkumori URL Penapis."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Sahkan"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Tiada peraturan tersuai Linkumori URL dikonfigurasikan."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 peraturan yang disokong, $2 tidak disokong dilangkau, $3 pendua dilangkau."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Pengesahan gagal"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Disimpan dan dimuat semula Linkumori URL peraturan."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Simpan gagal"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Peraturan yang disokong akan dipaparkan di sini selepas pengesahan."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL penghurai penapis tidak tersedia."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Penapis (Saling Kendalian)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Status"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Peraturan Masa Jalan"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Peraturan Tersuai"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hash"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 peraturan masa jalan\n$3 peraturan tersuai"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Tutup Linkumori adat URL peraturan"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Apakah peraturan Linkumori URL?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL peraturan ialah penjejakan sambungan yang popular URL baris penapis yang difokuskan pada $removeparam. Ia berguna apabila anda ingin menampal sintaks senarai penapis secara langsung dan bukannya membuat 9876500056779 penyedia 98765000056769."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Penapis sambungan popular jauh URL dan peraturan tersuai ini tidak memerlukan pengesahan cincang. Ia disimpan dalam LinkumoriURLsData selepas menghuraikan, berasingan daripada ClearURLsData."
   }
 }

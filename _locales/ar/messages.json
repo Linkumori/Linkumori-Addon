@@ -56,8 +56,8 @@
     "description": "وصف لمفتاح التبديل الذي يتحكم في القواعد المضمنة"
   },
   "bundled_rules_description": {
-    "message": "يستخدم Linkumori قواعد مضمنة وقواعد مخصصة لتحديد وإزالة معلمات التتبع من عناوين URL. يتم تحديث هذه القواعد تلقائيًا لضمان حماية فعالة ضد أحدث طرق التتبع.",
-    "description": "وصف قسم القواعد المضمنة."
+    "message": "Linkumori يستخدم فئتين من القواعد: Linkumori (ClearURLs 2.0) JSON قواعد للموفرين الأصليين، وLinkumori URL تصفية قواعد قابلية التشغيل التفاعلي للامتداد الشائع $removeparam قوائم. يتم احتساب كل فئة على حدة.",
+    "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
     "message": "معلومات القواعد",
@@ -2465,8 +2465,8 @@
     "description": "رسالة التحقق عندما لا يكون رابط التجزئة الأساسي HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "يجب تقديم كل من رابط القاعدة البعيدة الأساسي ورابط التجزئة",
-    "description": "رسالة التحقق عند تعيين واحد فقط من رابط القاعدة/التجزئة الأساسي."
+    "message": "التجزئة الأساسية URL مطلوبة فقط عندما تشير القاعدة الأساسية URL إلى Linkumori (ClearURLs 2.0) JSON القواعد.",
+    "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
     "message": "يجب أن يستخدم رابط القاعدة الأساسي HTTPS",
@@ -2513,16 +2513,16 @@
     "description": "نص زر المتابعة في النافذة الأمنية"
   },
   "security_modal_final_warning": {
-    "message": "يجب عليك إعادة النظر في استخدام هذه الميزة إذا كنت لا تفهم تمامًا الآثار والمخاطر التي تنطوي عليها.",
-    "description": "رسالة التحذير النهائية في النافذة الأمنية"
+    "message": "يجب عليك إعادة النظر في استخدام القواعد البعيدة إذا لم تكن تفهم بشكل كامل ما إذا كان المصدر هو Linkumori (ClearURLs 2.0) JSON مجموعة قواعد أو Linkumori URL قائمة قابلية التشغيل التفاعلي للمرشح.",
+    "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "تم تصميم ميزة القواعد البعيدة هذه حصريًا للمستخدمين المتقدمين الذين يعرفون ما يفعلونه. إذا لم تكن لديك فكرة عما يعنيه هذا، يرجى عدم استخدام هذه الميزة.",
-    "description": "النص التحذيري الرئيسي الذي يشرح الغرض والمخاطر"
+    "message": "تم تصميم ميزة القواعد عن بعد هذه للمستخدمين المتقدمين الذين يفهمون تنسيق المصدر الذي يقومون بتحميله. Linkumori (ClearURLs 2.0) JSON تتطلب القواعد البعيدة تجزئة مطابقة URL للتحقق. Linkumori URL يمكن تحميل قوائم قابلية التشغيل التفاعلي للمرشح بدون تجزئة URL ويتم تخزينها بشكل منفصل.",
+    "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "إذا قمت بإضافة عنوان URL إلى هذا البرنامج لجلب ملف JSON وملف تجزئة، فسيتصل الامتداد بعنوان URL الذي حددته لجلب ملف JSON للقاعدة البعيدة أو ملف التجزئة في كل مرة يتم فيها تمكين هذا الامتداد وتحميله في متصفحك. في كل مرة يتم فيها جلب الملفات بناءً على عنوان URL المحدد الخاص بك، سيتلقى الخادم الذي يستضيف ملفات مثل JSON وملفات التجزئة عنوان IP الخاص بك بالإضافة إلى معلومات عامة مثل إصدار الامتداد والمتصفح وإصدار المتصفح. تخضع هذه البيانات لسياسة الخصوصية لموقع الويب أو خادم الويب (الذي يستضيف تلك الملفات) المعني.",
-    "description": "إشعار الخصوصية الذي يشرح سياسة جمع البيانات"
+    "message": "إذا قمت بإضافة قاعدة بعيدة URL، فسوف يتصل الامتداد بالخادم المعين لديك لجلب مجموعة قواعد Linkumori (ClearURLs 2.0) JSON أو ملف التجزئة الخاص به عند تكوينه، أو Linkumori URL قائمة قابلية التشغيل التفاعلي للتصفية. قد تؤدي كل عملية جلب إلى كشف عنوان IP الخاص بك والمعلومات العامة مثل إصدار الامتداد والمتصفح وإصدار المتصفح لخادم الاستضافة. تخضع هذه البيانات لسياسة الخصوصية الخاصة بهذا الموقع أو خادم الويب.",
+    "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
     "message": "اقرأ %PRIVACY_POLICY_LINK% مرة أخرى قبل المتابعة إذا لزم الأمر.",
@@ -2533,8 +2533,8 @@
     "description": "عنوان قسم إشعار الخصوصية"
   },
   "security_modal_recommendation": {
-    "message": "بدلاً من ذلك، استخدم حلاً للقواعد المضمنة فقط مثل القواعد المضمنة، بالإضافة إلى ذلك يمكنك إنشاء قواعد مخصصة يدويًا.",
-    "description": "توصية لاستخدام القواعد المضمنة بدلاً من ذلك"
+    "message": "استخدم القواعد المضمنة إلا إذا كنت تثق في المصدر البعيد وتتحكم فيه. بالنسبة لقواعد Linkumori (ClearURLs 2.0) JSON، قم بتوفير تجزئة مطابقة URL. بالنسبة لقوائم عوامل تصفية التشغيل التفاعلي، اترك التجزئة URL فارغة.",
+    "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
     "message": "سيتعرض عنوان IP الخاص بك ومعلومات المتصفح للخوادم التي تم تكوينها",
@@ -2545,12 +2545,12 @@
     "description": "النقطة الثانية لمخاطر الأمان"
   },
   "security_modal_risk_3": {
-    "message": "يحمي التحقق من التجزئة فقط من العبث بالإرسال، وليس من مصادر القواعد الضارة",
-    "description": "النقطة الثالثة لمخاطر الأمان"
+    "message": "ينطبق التحقق من التجزئة على قواعد Linkumori (ClearURLs 2.0) JSON فقط؛ فهو يحمي من التلاعب بالإرسال، وليس من مصادر القواعد الضارة.",
+    "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "إذا تم اختراق كل من مصدر القاعدة وملف التجزئة لملفات JSON، فلن يكون لديك حماية",
-    "description": "النقطة الرابعة لمخاطر الأمان"
+    "message": "لا تستخدم قوائم عوامل تصفية التشغيل التفاعلي التحقق من التجزئة، لذا فإن الثقة في المصدر URL مهمة بشكل خاص.",
+    "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
     "message": "المخاطر الأمنية:",
@@ -2569,8 +2569,8 @@
     "description": "يُستخدم هذا النص كاسم لتسمية رابط rule.hash."
   },
   "setting_hash_url_mandatory": {
-    "message": "مطلوب للتحقق من القاعدة البعيدة. يجب أن يتطابق مع ملف القواعد للأمان.",
-    "description": "وصف لحقل URL للتجزئة يشرح أنه إلزامي"
+    "message": "مطلوب لقواعد ClearURLs JSON عن بعد. اتركه فارغًا لقوائم تصفية التتبع ذات الامتداد الشائع URL.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "تصدير",
@@ -2619,8 +2619,8 @@
     "description": "تسمية لحقل إدخال حد السجل."
   },
   "setting_remote_rule_sets_description": {
-    "message": "مصادر بعيدة إضافية مدمجة معًا. استخدم واحدًا لكل سطر: <code>ruleURL | hashURL</code>",
-    "description": "وصف لأزواج رابط القاعدة + التجزئة البعيدة الإضافية."
+    "message": "تم دمج المصادر البعيدة الإضافية معًا. استخدم <code>ruleURL | hashURL</code> لـ ClearURLs JSON، أو <code>ruleURL</code> فقط لقوائم التتبع ذات الامتداد الشائع URL.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "مجموعات القواعد البعيدة الإضافية",
@@ -2631,16 +2631,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "رابط بعيد مخصص لتعريفات القواعد",
-    "description": "وصف لحقل إدخال رابط القاعدة المخصص"
+    "message": "جهاز التحكم عن بعد المخصص URL لقواعد ClearURLs JSON أو الامتداد الشائع URL مرشحات التتبع",
+    "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
     "message": "الرابط إلى ملف data.json (القواعد)",
     "description": "يُستخدم هذا النص كاسم لتسمية رابط القاعدة."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "ملاحظة: رابط التجزئة إلزامي عند استخدام القواعد البعيدة للتحقق الأمني.",
-    "description": "ملاحظة حول متطلبات رابط التجزئة الإلزامية"
+    "message": "ملحوظة: التجزئة URL إلزامية فقط للقواعد البعيدة ClearURLs JSON. يتم تخزين قوائم التتبع ذات الامتداد الشائع URL بشكل منفصل كمرشحات Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>أنواع الطلبات</a> (مستوى خبير)",
@@ -3259,24 +3259,24 @@
     "description": "نص لافتة التحذير العلوية في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "أنت تقوم بتعطيل حماية Gatekeeper لتحرير عنوان URL للقاعدة البعيدة. تم تصميم ميزة القواعد البعيدة هذه حصريًا للمستخدمين المتقدمين الذين يعرفون ما يفعلونه. إذا لم تكن لديك فكرة عما يعنيه هذا، يرجى عدم استخدام هذه الميزة.",
-    "description": "النص التحذيري الرئيسي في نافذة تعطيل Gatekeeper"
+    "message": "أنت تقوم بتعطيل حماية Gatekeeper لتحرير القاعدة عن بعد URL. يمكن لهذه الميزة تحميل قواعد Linkumori (ClearURLs 2.0) JSON مع التحقق من التجزئة، أو Linkumori URL تصفية قوائم التشغيل التفاعلي دون التحقق من التجزئة. تابع فقط إذا فهمت التنسيق الذي تقوم بتكوينه.",
+    "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper هو تدفق الأمان المدمج الذي يمنع تحريرات URL البعيدة المباشرة حتى تقر بإشعار الأمان وتكمل التأكيد المكتوب.",
     "description": "يشرح ما يعنيه Gatekeeper في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "بدلاً من ذلك، استخدم حلاً للقواعد المضمنة فقط مثل القواعد المضمنة، بالإضافة إلى ذلك يمكنك إنشاء قواعد مخصصة يدويًا.",
-    "description": "نص توصية في نافذة تعطيل Gatekeeper"
+    "message": "احتفظ بتمكين Gatekeeper إلا إذا كنت تثق في مصادرك البعيدة وتتحكم فيها. يجب أن تتضمن قواعد JSON تجزئة مطابقة URL؛ قوائم التشغيل البيني تترك التجزئة URL فارغة عن عمد.",
+    "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "إشعار تحذيري:",
     "description": "عنوان قسم الخصوصية في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "إذا قمت بإضافة عنوان URL إلى هذا البرنامج لجلب ملف JSON وملف تجزئة، فسيتصل الامتداد بعنوان URL الذي حددته لجلب ملف JSON للقاعدة البعيدة أو ملف التجزئة في كل مرة يتم فيها تمكين هذا الامتداد وتحميله في متصفحك. في كل مرة يتم فيها جلب الملفات بناءً على عنوان URL المحدد الخاص بك، سيتلقى الخادم الذي يستضيف ملفات مثل JSON وملفات التجزئة عنوان IP الخاص بك بالإضافة إلى معلومات عامة مثل إصدار الامتداد والمتصفح وإصدار المتصفح. تخضع هذه البيانات لسياسة الخصوصية لموقع الويب أو خادم الويب (الذي يستضيف تلك الملفات) المعني.",
-    "description": "نص قسم الخصوصية في نافذة تعطيل Gatekeeper"
+    "message": "إذا قمت بإضافة قاعدة بعيدة URL، فسوف يتصل الامتداد بالخادم المعين لديك لجلب مجموعة قواعد Linkumori (ClearURLs 2.0) JSON أو ملف التجزئة الخاص به عند تكوينه، أو Linkumori URL قائمة قابلية التشغيل التفاعلي للتصفية. قد تؤدي كل عملية جلب إلى كشف عنوان IP الخاص بك والمعلومات العامة مثل إصدار الامتداد والمتصفح وإصدار المتصفح لخادم الاستضافة. تخضع هذه البيانات لسياسة الخصوصية الخاصة بهذا الموقع أو خادم الويب.",
+    "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "اقرأ %PRIVACY_POLICY_LINK% مرة أخرى قبل المتابعة إذا لزم الأمر.",
@@ -3295,8 +3295,8 @@
     "description": "النقطة الأولى للمخاطر في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "سيتلقى الخادم الذي يستضيف ملفات JSON وملفات التجزئة البعيدة عنوان IP الخاص بك.",
-    "description": "النقطة الثانية للمخاطر في نافذة تعطيل Gatekeeper"
+    "message": "سيتلقى الخادم الذي يستضيف ملفات JSON أو التجزئة أو مرشح قابلية التشغيل التفاعلي عنوانك IP.",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "قد يتلقى الخادم أيضًا إصدار الامتداد والمتصفح وإصدار المتصفح.",
@@ -3307,8 +3307,8 @@
     "description": "النقطة الرابعة للمخاطر في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "من خلال تعطيل Gatekeeper، فإنك تزيد من مخاطر مصادر القواعد البعيدة غير الآمنة أو المخترقة. إذا كنت لا تفهم هذه الميزة، فلا تستخدمها. استخدم القواعد المضمنة وقم بإنشاء قواعد مخصصة يدويًا بشكل اختياري.",
-    "description": "نص لافتة التحذير النهائية في نافذة تعطيل Gatekeeper"
+    "message": "من خلال تعطيل Gatekeeper، فإنك تزيد من المخاطر الناجمة عن مصادر القواعد البعيدة غير الآمنة أو المعرضة للخطر. التحقق من التجزئة يحمي فقط Linkumori (ClearURLs 2.0) JSON تنزيلات القاعدة. ولا ينطبق على قوائم التشغيل التفاعلي.",
+    "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "إلغاء",
@@ -3387,8 +3387,8 @@
     "description": "تسمية الإدخال لنافذة التأكيد الخاصة بـ Gatekeeper"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "يقلل هذا الإجراء من الضمانات للقواعد البعيدة. تابع فقط إذا كنت تثق في مصادرك.",
-    "description": "نص التحذير النهائي لنافذة التأكيد الخاصة بـ Gatekeeper"
+    "message": "يقلل هذا الإجراء من ضمانات القواعد البعيدة. تابع فقط إذا كنت تثق في JSON ومصادر تصفية التشغيل التفاعلي.",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
     "message": "استبدل قيم العناصر النائبة بعناوين URL HTTPS الحقيقية الخاصة بك، ثم قم باستيراد هذا الملف.",
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "لا يوجد نشاط",
     "description": "تسمية صف احتياطي عندما لا تتوفر بيانات إحصائيات يومية."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL المرشحات (قابلية التشغيل البيني):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON القواعد:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON معلومات القواعد:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL قواعد التصفية:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL مصادر التصفية:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "حالة القاعدة:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "حالة التجزئة:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL حالة التصفية:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "محملة"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "محملة جزئيا"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "جميع المصادر فاشلة"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "لم يتم تكوين مصادر تصفية URL بدون تجزئة"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "تم تعطيل القواعد عن بعد"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "لم يتم تحميلها"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "فارغ"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "غير مطلوب"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL مرشحات"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL مرشح"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "مرشحات مدمجة Linkumori URL"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "قواعد مخصصة Linkumori URL"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL محلل التصفية غير متوفر"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "فشلت القواعد المخصصة Linkumori URL"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL فشل مصدر (مصادر) التصفية"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "ملف التصفية البعيد URL فارغ"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL فشل جلب عامل التصفية"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "خطأ في التصفية URL غير معروف"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "فشلت جميع مصادر التصفية Linkumori URL"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "الامتداد الشائع URL مرشح التتبع"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "لم يتم العثور على قواعد Linkumori لقابلية التشغيل التفاعلي $removeparam المدعومة"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL قابلية التشغيل البيني للتصفية"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori مصدر عامل تصفية التشغيل البيني"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL القواعد"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori قواعد مخصصة URL"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "أضف القواعد الشائعة $removeparam أو $queryprune هنا. يتم تخزين هذه القواعد بشكل منفصل عن موفري الخدمة المخصصين ClearURLs ويتم دمجها في عوامل التصفية Linkumori URL."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "التحقق من صحة"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "لم يتم تكوين قواعد Linkumori URL المخصصة."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 القاعدة (القواعد) المدعومة، $2 تم تخطيها غير المدعومة، $3 تم تخطي التكرارات."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "فشل التحقق من الصحة"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "تم الحفظ وإعادة التحميل Linkumori URL القواعد."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "فشل الحفظ"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "ستظهر القواعد المدعومة هنا بعد التحقق من الصحة."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL محلل التصفية غير متوفر."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL المرشحات (قابلية التشغيل البيني)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL الحالة"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "قواعد وقت التشغيل"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "القواعد المخصصة"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL التجزئة"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 قاعدة (قواعد) وقت التشغيل\n$3 القواعد المخصصة"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "إغلاق Linkumori قواعد URL المخصصة"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "ما هي قواعد Linkumori URL؟"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "قواعد Linkumori URL هي خطوط تتبع امتدادات شائعة URL تركز على $removeparam. وهي مفيدة عندما تريد لصق بناء جملة قائمة عوامل التصفية مباشرة بدلاً من إنشاء موفر ClearURLs JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "لا تحتاج مرشحات الامتداد الشائع عن بعد URL وهذه القواعد المخصصة إلى التحقق من التجزئة. يتم تخزينها في LinkumoriURLsData بعد التحليل، منفصلة عن ClearURLsData."
   }
 }

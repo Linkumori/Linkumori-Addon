@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori משתמש בכללים מוכללים ובכללים מותאמים אישית כדי לזהות ולהסיר פרמטרי מעקב מכתובות URL. הכללים מתעדכנים אוטומטית כדי להבטיח הגנה אפקטיבית מפני שיטות המעקב העדכניות ביותר.",
+    "message": "Linkumori משתמש בשתי קטגוריות כללים: Linkumori (ClearURLs 2.0) JSON כללים לספקים מקומיים, ו Linkumori URL סינון כללי יכולת פעולה הדדית עבור רשימות הרחבה פופולריות $removeparam. כל קטגוריה נספרת בנפרד.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "יש לספק גם את כתובת הכלל המרוחק הראשית וגם את כתובת ה-hash",
+    "message": "חשיש ראשי URL נדרש רק כאשר הכלל העיקרי URL מצביע על Linkumori (ClearURLs 2.0) JSON כללים.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "עליך לשקול מחדש שימוש בתכונה זו אם אינך מבין במלואן את ההשלכות והסיכונים הכרוכים בכך.",
+    "message": "עליך לשקול מחדש את השימוש בכללים מרחוק אם אינך מבין אם המקור שלך הוא Linkumori (ClearURLs 2.0) JSON או Linkumori URL רשימת הפעלה הדדית של מסנן.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "תכונת הכללים המרוחקים הזו מיועדת אך ורק למשתמשים מתקדמים שיודעים מה הם עושים. אם אין לך מושג מה זה אומר, אנא אל תשתמש בתכונה זו.",
+    "message": "תכונת כללים מרוחקים זו מיועדת למשתמשים מתקדמים שמבינים את פורמט המקור שהם טוענים. Linkumori (ClearURLs 2.0) JSON כללים מרוחקים דורשים Hash תואם URL לאימות. Linkumori ניתן לטעון רשימות הפעלה הדדית של מסנן URL ללא חשיש URL והן מאוחסנות בנפרד.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "אם תוסיף כתובת URL לתוכנה זו עבור אחזור קובץ JSON וקובץ hash, התוסף יתחבר לכתובת ה-URL שייעדת כדי לאחזר את קובץ ה-JSON של הכלל המרוחק או קובץ ה-hash בכל פעם שהתוסף מופעל ונטען בדפדפן שלך. בכל פעם שהוא מאחזר קבצים על סמך כתובת ה-URL שהגדרת, השרת המארח קבצים כמו קבצי JSON ו-hash יקבל את כתובת ה-IP שלך וכן מידע כללי כגון גרסת התוסף שלך, הדפדפן וגרסת הדפדפן. נתונים אלה כפופים למדיניות הפרטיות של האתר או שרת האינטרנט (שבו מאוחסנים קבצים אלה) הנדון.",
+    "message": "אם תוסיפו כלל מרוחק URL, התוסף יתחבר לשרת הייעודי שלכם כדי להביא לקבוצת כללים Linkumori (ClearURLs 2.0) JSON, לקובץ ה - hash שלו כאשר הוא מוגדר, או Linkumori URL סינון רשימת יכולת פעולה הדדית. כל אחזור עשוי לחשוף את כתובת IP שלכם ומידע כללי כגון גרסת הרחבה, דפדפן וגרסת דפדפן לשרת האירוח. נתונים אלה כפופים למדיניות הפרטיות של אותו אתר או שרת אינטרנט.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "במקום זאת, השתמש בפתרון מבוסס כללים מובנים בלבד כמו כללים מובנים בנוסף תוכל ליצור כללים מותאמים אישית באופן ידני.",
+    "message": "השתמש בכללים מובנים, אלא אם כן אתה סומך על המקור המרוחק ושולט בו. עבור Linkumori (ClearURLs 2.0) JSON כללים, יש לספק חשיש תואם URL. עבור רשימות מסננים לפעולה הדדית, השאר את הגיבוב URL ריק.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "אימות hash מגן רק מפני שיבוש בשידור, לא מפני מקורות כללים זדוניים",
+    "message": "אימות Hash חל על Linkumori (ClearURLs 2.0) JSON כללים בלבד; הוא מגן מפני שיבוש שידור, לא מפני מקורות כלל זדוניים.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "אם גם מקור הכלל וגם קובץ ה-hash של קבצי JSON נפגעים, אין לך הגנה",
+    "message": "רשימות מסנן יכולת פעולה הדדית אינן משתמשות באימות גיבוב, לכן אמון במקור URL חשוב במיוחד.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "נדרש לאימות כלל מרוחק. חייב להתאים לקובץ הכללים למען האבטחה.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "נדרשים ClearURLs JSON כללים מרוחקים. השאר ריק עבור סיומת פופולרית URL רשימות מסנני מעקב.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "ייצא",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "מקורות מרוחקים נוספים שממוזגים יחד. השתמש אחד בשורה: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "מקורות מרוחקים נוספים התמזגו יחד. השתמש ב - <code>ruleURL | hashURL</code> עבור ClearURLs JSON, או רק <code>ruleURL</code> עבור סיומת פופולרית URL רשימות מעקב.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "קבוצות כללים מרוחקים נוספות",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "כתובת URL מותאמת אישית מרוחקת להגדרות כלל",
+    "message": "URL מרחוק מותאם אישית עבור ClearURLs JSON כללים או סיומת פופולרית URL מסנני מעקב",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "הערה: כתובת hash URL היא חובה בעת שימוש בכללים מרוחקים לצורך אימות אבטחה.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "הערה: חשיש URL הוא חובה רק עבור ClearURLs JSON כללים מרוחקים. שלוחה פופולרית URL רשימות מעקב מאוחסנות בנפרד כמסננים Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>סוגי בקשות</a> (רמת מומחה)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "אתה משבית את הגנות ה-Gatekeeper עבור עריכת כתובות URL מרוחקות. תכונת הכללים המרוחקים הזו מיועדת אך ורק למשתמשים מתקדמים שיודעים מה הם עושים. אם אין לך מושג מה זה אומר, אנא אל תשתמש בתכונה זו.",
+    "message": "אתה משבית Gatekeeper הגנות לעריכה מרחוק של כלל URL. תכונה זו יכולה לטעון Linkumori (ClearURLs 2.0) JSON כללים עם אימות גיבוב, או Linkumori URL רשימות פעולה הדדית של סינון ללא אימות גיבוב. המשך רק אם אתה מבין איזה פורמט אתה מגדיר.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "במקום זאת, השתמש בפתרון מבוסס כללים מובנים בלבד כמו כללים מובנים בנוסף תוכל ליצור כללים מותאמים אישית באופן ידני.",
+    "message": "השאר את Gatekeeper מופעל אלא אם כן אתה סומך על המקורות המרוחקים שלך ושולט בהם. JSON כללים צריכים לכלול חשיש תואם URL; רשימות יכולת פעולה הדדית משאירות את הגיבוב URL ריק בכוונה.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "אם תוסיף כתובת URL לתוכנה זו עבור אחזור קובץ JSON וקובץ hash, התוסף יתחבר לכתובת ה-URL שייעדת כדי לאחזר את קובץ ה-JSON של הכלל המרוחק או קובץ ה-hash בכל פעם שהתוסף מופעל ונטען בדפדפן שלך. בכל פעם שהוא מאחזר קבצים על סמך כתובת ה-URL שהגדרת, השרת המארח קבצים כמו קבצי JSON ו-hash יקבל את כתובת ה-IP שלך וכן מידע כללי כגון גרסת התוסף שלך, הדפדפן וגרסת הדפדפן. נתונים אלה כפופים למדיניות הפרטיות של האתר או שרת האינטרנט (שבו מאוחסנים קבצים אלה) הנדון.",
+    "message": "אם תוסיפו כלל מרוחק URL, התוסף יתחבר לשרת הייעודי שלכם כדי להביא לקבוצת כללים Linkumori (ClearURLs 2.0) JSON, לקובץ ה - hash שלו כאשר הוא מוגדר, או Linkumori URL סינון רשימת יכולת פעולה הדדית. כל אחזור עשוי לחשוף את כתובת IP שלכם ומידע כללי כגון גרסת הרחבה, דפדפן וגרסת דפדפן לשרת האירוח. נתונים אלה כפופים למדיניות הפרטיות של אותו אתר או שרת אינטרנט.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "השרת המארח קבצי JSON ו-hash מרוחקים יקבל את כתובת ה-IP שלך.",
+    "message": "השרת המארח את קבצי המסנן המרוחקים JSON, Hash או interoperability יקבל את הכתובת שלכם IP.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "על ידי השבתת Gatekeeper, אתה מגדיל את הסיכון ממקורות כללים מרוחקים לא בטוחים או פגומים. אם אינך מבין תכונה זו, אל תשתמש בה. השתמש בכללים מובנים וצור כללים מותאמים אישית באופן ידני לפי הצורך.",
+    "message": "על ידי השבתת Gatekeeper, אתם מגבירים את הסיכון ממקורות כלל מרחוק לא בטוחים או בסכנה. אימות גיבוב מגן רק על Linkumori (ClearURLs 2.0) JSON הורדות כלל. זה לא חל על רשימות פעולה הדדית.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "פעולה זו מפחיתה אמצעי הגנה עבור כללים מרוחקים. המשך רק אם אתה סומך על המקורות שלך.",
+    "message": "פעולה זו מפחיתה את אמצעי ההגנה לכללים מרחוק. המשך רק אם אתה בוטח במקורות הסינון JSON ו - interoperability שלך.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "אין פעילות",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL מסננים (יכולת פעולה הדדית):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON כללים:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON מידע על כללים:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL כללי סינון:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL מקורות סינון:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "מצב הכלל:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "סטטוס חשיש:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL סטטוס מסנן:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "הדף נטען"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "נטען חלקית"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "כל המקורות נכשלו"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "לא הוגדרו מקורות מסנן URL של hashless"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "כללים מרוחקים מושבתים"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "לא נטען"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ריק"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "לא נדרש"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL מסננים"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL מסנן"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "ממוזג Linkumori URL מסננים"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "כללים מותאמים אישית Linkumori URL"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "מנתח המסננים Linkumori URL אינו זמין"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Linkumori URL כללים מותאמים אישית נכשלו"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL סינון מקורות נכשל"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "קובץ המסנן של השלט URL ריק"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "הבאת מסנן Linkumori URL נכשלה"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "שגיאת מסנן URL לא ידועה"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "כל מקורות המסנן Linkumori URL נכשלו"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "תוסף פופולרי URL מסנן מעקב"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "לא נמצאו כללי פעולה הדדית Linkumori נתמכים"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL יכולת פעולה הדדית של מסנן"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "מקור מסנן יכולת פעולה הדדית Linkumori"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL כללים"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori כללים מותאמים אישית URL"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "כאן מוסיפים את הכללים הפופולריים $removeparam או $queryprune. כללים אלה מאוחסנים בנפרד מ ClearURLs ספקים מותאמים אישית ומוזגים לתוך Linkumori URL מסננים."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "אימות"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "לא הוגדרו כללים מותאמים אישית Linkumori URL."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 כללים נתמכים, $2 כללים שלא נתמכים, $3 כפולים."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "האימות נכשל"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "כללי Linkumori URL נשמרו והוטענו מחדש."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "השמירה נכשלה"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "הכללים הנתמכים יופיעו כאן לאחר האימות."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "מנתח המסננים Linkumori URL אינו זמין."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL מסננים (יכולת פעולה הדדית)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL סטטוס"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "כללי זמן ריצה"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "כללים מותאמים אישית"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL חשיש"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\nכלל/י זמן ריצה $2\n$3 כללים מותאמים אישית"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "סגור Linkumori כללים מותאמים אישית URL"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "מהם כללי Linkumori URL?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL כללים הם מעקב פופולרי אחר סיומות URL קווי סינון המתמקדים ב - $removeparam. הם שימושיים כאשר אתה רוצה להדביק תחביר של רשימת סינון ישירות במקום ליצור ClearURLs ספק JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "תוסף פופולרי מרחוק URL מסננים וכללים מותאמים אישית אלה אינם דורשים אימות hash. הם מאוחסנים ב LinkumoriURLsData לאחר ניתוח, בנפרד מ ClearURLsData."
   }
 }

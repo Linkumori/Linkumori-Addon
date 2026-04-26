@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori URLs પરથી ટ્રેકિંગ પરિમાણોને ઓળખવા અને દૂર કરવા માટે બંડલ નિયમો અને કસ્ટમ નિયમોનો ઉપયોગ કરે છે. નવીનતમ ટ્રેકિંગ પદ્ધતિઓ સામે અસરકારક રક્ષણની ખાતરી કરવા માટે આ નિયમો આપમેળે અપડેટ થાય છે.",
+    "message": "Linkumori બે નિયમ શ્રેણીઓનો ઉપયોગ કરે છે: Linkumori (ClearURLs 2.0) મૂળ પ્રદાતાઓ માટે JSON નિયમો, અને Linkumori Linkumori લોકપ્રિયતા માટે Linkumori $removeparam યાદીઓ. દરેક શ્રેણી અલગથી ગણવામાં આવે છે.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "પ્રાથમિક રિમોટ નિયમ અને હેશ URL બંને પ્રદાન કરવા આવશ્યક છે",
+    "message": "પ્રાથમિક હેશ URL ત્યારે જ જરૂરી છે જ્યારે પ્રાથમિક નિયમ URL Linkumori (ClearURLs 2.0) JSON નિયમોને પોઈન્ટ કરે.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "જો તમે તેમાં સામેલ અસરો અને જોખમોને સંપૂર્ણપણે સમજી શકતા નથી, તો તમારે આ સુવિધાનો ઉપયોગ કરવા પર પુનર્વિચાર કરવો જોઈએ.",
+    "message": "જો તમે તમારો સ્રોત Linkumori (ClearURLs 2.0) JSON રૂલ્સેટ અથવા Linkumori Linkumori Linkumori Linkumori છે કે કેમ તે સંપૂર્ણપણે સમજી શકતા નથી, તો તમારે રિમોટ નિયમોનો ઉપયોગ કરીને પુનર્વિચાર કરવો જોઈએ.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "આ રિમોટ રૂલ્સ ફીચર ફક્ત અદ્યતન વપરાશકર્તાઓ માટે જ ડિઝાઇન કરવામાં આવ્યું છે જેઓ જાણે છે કે તેઓ શું કરી રહ્યાં છે. જો તમને આનો અર્થ શું છે તેનો ખ્યાલ નથી, તો કૃપા કરીને આ સુવિધાનો ઉપયોગ કરશો નહીં.",
+    "message": "આ રિમોટ રૂલ્સ ફીચર અદ્યતન વપરાશકર્તાઓ માટે રચાયેલ છે જેઓ તેઓ લોડ કરી રહ્યાં છે તે સ્ત્રોત ફોર્મેટને સમજે છે. Linkumori (ClearURLs 2.0) JSON રિમોટ નિયમોને ચકાસણી માટે મેચિંગ હેશ URL જરૂરી છે. Linkumori URL ફિલ્ટર ઇન્ટરઓપરેબિલિટી સૂચિઓ હેશ URL વગર લોડ કરી શકાય છે અને અલગથી સંગ્રહિત થાય છે.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "જો તમે JSON ફાઇલ અને હેશ ફાઇલને આનયન કરવા માટે આ સૉફ્ટવેરમાં URL ઉમેરો છો, તો દર વખતે જ્યારે આ એક્સ્ટેંશન સક્ષમ અને તમારા બ્રાઉઝરમાં લોડ થાય ત્યારે રિમોટ નિયમ JSON ફાઇલ અથવા હેશ ફાઇલને લાવવા માટે એક્સટેન્શન તમારા નિયુક્ત URL સાથે કનેક્ટ થશે. દરેક વખતે જ્યારે તે તમારા નિર્ધારિત URL પર આધારિત ફાઇલો મેળવે છે, ત્યારે સર્વર હોસ્ટિંગ ફાઇલો જેમ કે JSON અને હેશ ફાઇલો તમારું IP સરનામું તેમજ સામાન્ય માહિતી જેમ કે તમારું એક્સ્ટેંશન સંસ્કરણ, બ્રાઉઝર અને બ્રાઉઝર સંસ્કરણ પ્રાપ્ત કરશે. આ ડેટા વેબસાઈટ અથવા વેબ સર્વરની ગોપનીયતા નીતિને આધીન છે (જ્યાં તે ફાઈલો હોસ્ટ કરી છે) પ્રશ્નમાં છે.",
+    "message": "જો તમે રિમોટ નિયમ URL ઉમેરો છો, તો એક્સ્ટેંશન તમારા નિયુક્ત સર્વર સાથે Linkumori (ClearURLs 2.0) JSON રૂલ્સેટ, તેની હેશ કરેલી ફાઇલ અથવા રૂપરેખાંકિત કરવા માટે કનેક્ટ થશે. URL ફિલ્ટર ઇન્ટરઓપરેબિલિટી સૂચિ. દરેક આનયન તમારું IP સરનામું અને સામાન્ય માહિતી જેમ કે એક્સ્ટેંશન વર્ઝન, બ્રાઉઝર અને બ્રાઉઝર વર્ઝનને હોસ્ટિંગ સર્વર પર એક્સપોઝ કરી શકે છે. આ ડેટા તે વેબસાઇટ અથવા વેબ સર્વરની ગોપનીયતા નીતિને આધીન છે.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "તેના બદલે બિલ્ટ-ઇન નિયમો માટે જ ઉપયોગ કરો જેમ કે બિલ્ટ-ઇન નિયમો ઉપરાંત તમે જાતે જ કસ્ટમ નિયમો બનાવી શકો છો.",
+    "message": "બિલ્ટ-ઇન નિયમોનો ઉપયોગ કરો જ્યાં સુધી તમે રિમોટ સ્રોત પર વિશ્વાસ અને નિયંત્રણ ન કરો. Linkumori (ClearURLs 2.0) JSON નિયમો માટે, મેચિંગ હેશ URL પ્રદાન કરો. ઇન્ટરઓપરેબિલિટી ફિલ્ટર સૂચિઓ માટે, હેશ 98765004587 છોડો.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "હેશ વેરિફિકેશન માત્ર ટ્રાન્સમિશન ટેમ્પરિંગ સામે રક્ષણ આપે છે, દૂષિત નિયમ સ્ત્રોતોથી નહીં",
+    "message": "હેશ વેરિફિકેશન ફક્ત Linkumori (ClearURLs 2.0) JSON નિયમો પર લાગુ થાય છે; તે ટ્રાન્સમિશન ટેમ્પરિંગ સામે રક્ષણ આપે છે, દૂષિત નિયમ સ્ત્રોતોથી નહીં.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "જો json ફાઇલોના નિયમ સ્ત્રોત અને હેશ ફાઇલ બંને સાથે ચેડા કરવામાં આવ્યા હોય, તો તમારી પાસે કોઈ સુરક્ષા નથી",
+    "message": "ઇન્ટરઓપરેબિલિટી ફિલ્ટર સૂચિઓ હેશ વેરિફિકેશનનો ઉપયોગ કરતી નથી, તેથી સ્ત્રોત URL પર વિશ્વાસ રાખવો ખાસ કરીને મહત્વપૂર્ણ છે.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "રિમોટ નિયમ ચકાસણી માટે જરૂરી છે. સુરક્ષા માટે નિયમોની ફાઇલ સાથે મેળ ખાતી હોવી જોઈએ.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "ClearURLs JSON રિમોટ નિયમો માટે જરૂરી છે. લોકપ્રિય એક્સ્ટેંશન URL ટ્રેકિંગ ફિલ્ટર સૂચિઓ માટે ખાલી છોડો.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "નિકાસ કરો",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "વધારાના દૂરસ્થ સ્ત્રોતો એકસાથે મર્જ થયા. લાઇન દીઠ એકનો ઉપયોગ કરો: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "વધારાના દૂરસ્થ સ્ત્રોતો એકસાથે મર્જ થયા. 987650056789 ClearURLs JSON માટે અથવા લોકપ્રિય એક્સટેન્શન URL ટ્રેકિંગ લિસ્ટ માટે માત્ર <code>ruleURL</code> નો ઉપયોગ કરો.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "વધારાના રિમોટ નિયમ સેટ",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "નિયમ વ્યાખ્યાઓ માટે કસ્ટમ રીમોટ URL",
+    "message": "987650056789 JSON નિયમો અથવા લોકપ્રિય એક્સટેન્શન URL ટ્રેકિંગ ફિલ્ટર્સ માટે કસ્ટમ રિમોટ URL",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "નોંધ: સુરક્ષા ચકાસણી માટે રિમોટ નિયમોનો ઉપયોગ કરતી વખતે હેશ URL ફરજિયાત છે.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "નોંધ: હેશ URL ફક્ત ClearURLs JSON રિમોટ નિયમો માટે ફરજિયાત છે. લોકપ્રિય એક્સ્ટેંશન URL ટ્રેકિંગ સૂચિઓ Linkumori URL ફિલ્ટર્સ તરીકે અલગથી સંગ્રહિત થાય છે.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>વિનંતી પ્રકારો</a> (નિષ્ણાત સ્તર)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "તમે દૂરસ્થ નિયમ URL સંપાદન માટે ગેટકીપર સુરક્ષાને અક્ષમ કરી રહ્યાં છો. આ રિમોટ રૂલ્સ ફીચર ફક્ત અદ્યતન વપરાશકર્તાઓ માટે જ ડિઝાઇન કરવામાં આવ્યું છે જેઓ જાણે છે કે તેઓ શું કરી રહ્યાં છે. જો તમને આનો અર્થ શું છે તેનો ખ્યાલ નથી, તો કૃપા કરીને આ સુવિધાનો ઉપયોગ કરશો નહીં.",
+    "message": "તમે રિમોટ નિયમ URL સંપાદન માટે Gatekeeper સુરક્ષાને અક્ષમ કરી રહ્યાં છો. આ સુવિધા હેશ વેરિફિકેશન સાથે Linkumori (ClearURLs 2.0) JSON નિયમો અથવા Linkumori URL ફિલ્ટર ઇન્ટરઓપરેબિલિટી સૂચિઓ વિના લોડ કરી શકે છે. જો તમે સમજો કે તમે કયું ફોર્મેટ ગોઠવી રહ્યાં છો તો જ આગળ વધો.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "તેના બદલે બિલ્ટ-ઇન નિયમો માટે જ ઉપયોગ કરો જેમ કે બિલ્ટ-ઇન નિયમો ઉપરાંત તમે જાતે જ કસ્ટમ નિયમો બનાવી શકો છો.",
+    "message": "Gatekeeper સક્ષમ રાખો સિવાય કે તમે તમારા રિમોટ સ્ત્રોત પર વિશ્વાસ કરો અને નિયંત્રિત કરો. JSON નિયમોમાં મેચિંગ હેશ URL શામેલ હોવું જોઈએ; ઇન્ટરઓપરેબિલિટી સૂચિઓ ઇરાદાપૂર્વક હેશ URL ખાલી છોડી દે છે.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "જો તમે JSON ફાઇલ અને હેશ ફાઇલને આનયન કરવા માટે આ સૉફ્ટવેરમાં URL ઉમેરો છો, તો દર વખતે જ્યારે આ એક્સ્ટેંશન સક્ષમ અને તમારા બ્રાઉઝરમાં લોડ થાય ત્યારે રિમોટ નિયમ JSON ફાઇલ અથવા હેશ ફાઇલને લાવવા માટે એક્સટેન્શન તમારા નિયુક્ત URL સાથે કનેક્ટ થશે. દરેક વખતે જ્યારે તે તમારા નિર્ધારિત URL પર આધારિત ફાઇલો મેળવે છે, ત્યારે સર્વર હોસ્ટિંગ ફાઇલો જેમ કે JSON અને હેશ ફાઇલો તમારું IP સરનામું તેમજ સામાન્ય માહિતી જેમ કે તમારું એક્સ્ટેંશન સંસ્કરણ, બ્રાઉઝર અને બ્રાઉઝર સંસ્કરણ પ્રાપ્ત કરશે. આ ડેટા વેબસાઈટ અથવા વેબ સર્વરની ગોપનીયતા નીતિને આધીન છે (જ્યાં તે ફાઈલો હોસ્ટ કરી છે) પ્રશ્નમાં છે.",
+    "message": "જો તમે રિમોટ નિયમ URL ઉમેરો છો, તો એક્સ્ટેંશન તમારા નિયુક્ત સર્વર સાથે Linkumori (ClearURLs 2.0) JSON રૂલ્સેટ, તેની હેશ કરેલી ફાઇલ અથવા રૂપરેખાંકિત કરવા માટે કનેક્ટ થશે. URL ફિલ્ટર ઇન્ટરઓપરેબિલિટી સૂચિ. દરેક આનયન તમારું IP સરનામું અને સામાન્ય માહિતી જેમ કે એક્સ્ટેંશન વર્ઝન, બ્રાઉઝર અને બ્રાઉઝર વર્ઝનને હોસ્ટિંગ સર્વર પર એક્સપોઝ કરી શકે છે. આ ડેટા તે વેબસાઇટ અથવા વેબ સર્વરની ગોપનીયતા નીતિને આધીન છે.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "રિમોટ JSON અને હેશ ફાઇલોને હોસ્ટ કરતું સર્વર તમારું IP સરનામું પ્રાપ્ત કરશે.",
+    "message": "રિમોટ JSON, હેશ અથવા ઇન્ટરઓપરેબિલિટી ફિલ્ટર ફાઇલોને હોસ્ટ કરતું સર્વર તમારું IP સરનામું પ્રાપ્ત કરશે.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "ગેટકીપરને અક્ષમ કરીને, તમે અસુરક્ષિત અથવા ચેડા કરાયેલા રિમોટ નિયમ સ્ત્રોતોથી જોખમમાં વધારો કરો છો. જો તમે આ સુવિધાને સમજી શકતા નથી, તો તેનો ઉપયોગ કરશો નહીં. બિલ્ટ-ઇન નિયમોનો ઉપયોગ કરો અને વૈકલ્પિક રીતે મેન્યુઅલી કસ્ટમ નિયમો બનાવો.",
+    "message": "Gatekeeper ને અક્ષમ કરીને, તમે અસુરક્ષિત અથવા સમાધાન કરેલ રિમોટ નિયમ સ્ત્રોતોથી જોખમ વધારશો. હેશ વેરિફિકેશન માત્ર Linkumori (ClearURLs 2.0) JSON નિયમ ડાઉનલોડ્સને સુરક્ષિત કરે છે. તે ઇન્ટરઓપરેબિલિટી સૂચિઓ પર લાગુ પડતું નથી.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "આ ક્રિયા રિમોટ નિયમો માટે સલામતી ઘટાડે છે. જો તમને તમારા સ્ત્રોતો પર વિશ્વાસ હોય તો જ આગળ વધો.",
+    "message": "આ ક્રિયા રિમોટ નિયમો માટે સલામતી ઘટાડે છે. જો તમને તમારા JSON અને ઇન્ટરઓપરેબિલિટી ફિલ્ટર સ્ત્રોતો પર વિશ્વાસ હોય તો જ આગળ વધો.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "કોઈ પ્રવૃત્તિ નથી",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL ફિલ્ટર્સ (ઇન્ટરઓપરેબિલિટી):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON નિયમો:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON નિયમોની માહિતી:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL ફિલ્ટર નિયમો:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL ફિલ્ટર સ્ત્રોતો:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "નિયમ સ્થિતિ:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "હેશ સ્થિતિ:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL ફિલ્ટર સ્થિતિ:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "લોડ"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "આંશિક રીતે લોડ"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "બધા સ્ત્રોત નિષ્ફળ ગયા"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "કોઈ હેશલેસ URL ફિલ્ટર સ્ત્રોત ગોઠવેલ નથી"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "દૂરસ્થ નિયમો અક્ષમ છે"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "લોડ નથી"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ખાલી"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "જરૂરી નથી"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL ફિલ્ટર્સ"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL ફિલ્ટર"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "મર્જ કરેલ Linkumori URL ફિલ્ટર્સ"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "કસ્ટમ Linkumori URL નિયમો"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL ફિલ્ટર પાર્સર અનુપલબ્ધ છે"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "કસ્ટમ Linkumori URL નિયમો નિષ્ફળ"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL ફિલ્ટર સ્ત્રોત(ઓ) નિષ્ફળ"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "રિમોટ URL ફિલ્ટર ફાઇલ ખાલી છે"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL ફિલ્ટર આનયન નિષ્ફળ થયું"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "અજ્ઞાત URL ફિલ્ટર ભૂલ"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "બધા Linkumori URL ફિલ્ટર સ્ત્રોત નિષ્ફળ"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "લોકપ્રિય એક્સ્ટેંશન URL ટ્રેકિંગ ફિલ્ટર"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "કોઈ સપોર્ટેડ નથી Linkumori ઇન્ટરઓપરેબિલિટી $removeparam નિયમો મળ્યા"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL ફિલ્ટર ઇન્ટરઓપરેબિલિટી"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori ઇન્ટરઓપરેબિલિટી ફિલ્ટર સ્ત્રોત"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL નિયમો"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori કસ્ટમ URL નિયમો"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "લોકપ્રિય એક્સટેન્શન $removeparam અથવા $queryprune નિયમો અહીં ઉમેરો. આ નિયમો ClearURLs કસ્ટમ પ્રદાતાઓથી અલગથી સંગ્રહિત છે અને Linkumori URL ફિલ્ટર્સમાં મર્જ કરવામાં આવ્યા છે."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "માન્ય કરો"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "કોઈ કસ્ટમ Linkumori URL નિયમો ગોઠવેલા નથી."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 સમર્થિત નિયમ(ઓ), $2 અસમર્થિત છોડવામાં આવ્યાં, $3 ડુપ્લિકેટ છોડ્યાં."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "માન્યતા નિષ્ફળ"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "સાચવેલા અને ફરીથી લોડ કર્યા Linkumori URL નિયમો."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "સાચવવાનું નિષ્ફળ થયું"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "માન્યતા પછી સમર્થિત નિયમો અહીં દેખાશે."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL ફિલ્ટર પાર્સર અનુપલબ્ધ છે."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL ફિલ્ટર્સ (ઇન્ટરઓપરેબિલિટી)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL સ્ટેટસ"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "રનટાઇમ નિયમો"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "કસ્ટમ નિયમો"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL હેશ"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 રનટાઇમ નિયમ(ઓ)\n$3 કસ્ટમ નિયમ(ઓ)"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "બંધ કરો Linkumori કસ્ટમ URL નિયમો"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Linkumori URL નિયમો શું છે?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL નિયમો લોકપ્રિય એક્સ્ટેંશન ટ્રેકિંગ URL ફિલ્ટર લાઇન છે જે $removeparam પર કેન્દ્રિત છે. જ્યારે તમે ફિલ્ટર-સૂચિ વાક્યરચના પેસ્ટ કરવા માંગતા હોવ ત્યારે તે ઉપયોગી છે JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "રિમોટ લોકપ્રિય એક્સ્ટેંશન URL ફિલ્ટર્સ અને આ કસ્ટમ નિયમોને હેશ વેરિફિકેશનની જરૂર નથી. તેઓ ClearURLsData થી અલગ, પદચ્છેદન પછી LinkumoriURLsData માં સંગ્રહિત થાય છે."
   }
 }

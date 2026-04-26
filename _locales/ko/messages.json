@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori는 번들 규칙과 사용자 지정 규칙을 사용하여 URL에서 추적 매개변수를 식별하고 제거합니다. 이러한 규칙은 자동으로 업데이트되어 최신 추적 방법에 대한 효과적인 보호를 보장합니다.",
+    "message": "Linkumori는 두 가지 규칙 범주를 사용합니다. 기본 공급자에 대한 Linkumori (ClearURLs 2.0) JSON 규칙 및 Linkumori URL 널리 사용되는 확장에 대한 필터 상호 운용성 규칙 $removeparam 목록. 각 카테고리는 별도로 계산됩니다.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "기본 원격 규칙 URL과 해시 URL을 모두 제공해야 합니다",
+    "message": "기본 해시 URL는 기본 규칙 URL가 Linkumori(ClearURLs 2.0) JSON 규칙을 가리키는 경우에만 필요합니다.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "관련 영향과 위험을 완전히 이해하지 못하는 경우 이 기능의 사용을 재고해야 합니다.",
+    "message": "소스가 Linkumori (ClearURLs 2.0) JSON 규칙 세트인지 아니면 Linkumori URL 필터 상호 운용성 목록인지 완전히 이해하지 못하는 경우 원격 규칙 사용을 다시 고려해야 합니다.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "이 원격 규칙 기능은 자신이 무엇을 하고 있는지 아는 고급 사용자만을 위해 설계되었습니다. 이것이 무엇을 의미하는지 모르겠다면 이 기능을 사용하지 마십시오.",
+    "message": "이 원격 규칙 기능은 로드 중인 소스 형식을 이해하는 고급 사용자를 위해 설계되었습니다. Linkumori (ClearURLs 2.0) JSON 원격 규칙에는 확인을 위해 일치하는 해시 URL가 필요합니다. Linkumori URL 필터 상호 운용성 목록은 해시 URL 없이 로드될 수 있으며 별도로 저장됩니다.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "JSON 파일과 해시 파일을 가져오기 위해 이 소프트웨어에 URL을 추가하면, 이 확장 프로그램이 브라우저에서 활성화되고 로드될 때마다 확장 프로그램은 지정된 URL에 연결하여 원격 규칙 JSON 파일 또는 해시 파일을 가져옵니다. 정의된 URL에 따라 파일을 가져올 때마다 JSON 및 해시 파일을 호스팅하는 서버는 귀하의 IP 주소와 확장 프로그램 버전, 브라우저 및 브라우저 버전과 같은 일반 정보를 받게 됩니다. 이 데이터는 문제의 웹사이트 또는 웹 서버(해당 파일이 호스팅되는 위치)의 개인정보처리방침의 적용을 받습니다.",
+    "message": "원격 규칙 URL를 추가하면 확장 프로그램은 지정된 서버에 연결하여 Linkumori (ClearURLs 2.0) JSON 규칙 세트, 구성된 해당 해시 파일 또는 Linkumori를 가져옵니다. URL 필터 상호 운용성 목록입니다. 각 가져오기는 귀하의 IP 주소와 확장 버전, 브라우저 및 브라우저 버전과 같은 일반 정보를 호스팅 서버에 노출시킬 수 있습니다. 이 데이터에는 해당 웹사이트나 웹 서버의 개인정보 보호정책이 적용됩니다.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "대신 내장 규칙만 사용하는 솔루션(예: 내장 규칙)을 사용하고 추가로 사용자 지정 규칙을 수동으로 만들 수 있습니다.",
+    "message": "원격 소스를 신뢰하고 제어하지 않는 한 기본 제공 규칙을 사용하십시오. Linkumori(ClearURLs 2.0) JSON 규칙의 경우 일치하는 해시 URL를 제공합니다. 상호 운용성 필터 목록의 경우 해시 URL를 비워 둡니다.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "해시 검증은 전송 중 변조로부터만 보호할 뿐 악의적인 규칙 소스로부터는 보호하지 않습니다",
+    "message": "해시 확인은 Linkumori(ClearURLs 2.0) JSON 규칙에만 적용됩니다. 악의적인 규칙 소스가 아닌 전송 변조로부터 보호합니다.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "규칙 소스와 JSON 파일의 해시 파일이 모두 손상되면 보호를 받을 수 없습니다",
+    "message": "상호 운용성 필터 목록은 해시 확인을 사용하지 않으므로 소스 URL에 대한 신뢰가 특히 중요합니다.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "원격 규칙 검증에 필요합니다. 보안을 위해 규칙 파일과 일치해야 합니다.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "ClearURLs JSON 원격 규칙에 필요합니다. 인기 있는 확장 프로그램 URL 추적 필터 목록을 보려면 비워 두세요.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "내보내기",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "함께 병합되는 추가 원격 소스. 한 줄에 하나씩 사용하세요: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "추가 원격 소스가 함께 병합되었습니다. ClearURLs JSON에는 <code>ruleURL | hashURL</code>를 사용하고, 널리 사용되는 확장 프로그램 URL 추적 목록에는 <code>ruleURL</code>만 사용하세요.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "추가 원격 규칙 세트",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "규칙 정의를 위한 사용자 지정 원격 URL",
+    "message": "ClearURLs JSON 규칙 또는 널리 사용되는 확장 프로그램 URL 추적 필터용 사용자 정의 원격 URL",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "참고: 보안 검증을 위해 원격 규칙을 사용할 때 해시 URL은 필수입니다.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "참고: 해시 URL는 ClearURLs JSON 원격 규칙에만 필수입니다. 인기 확장자 URL 추적 목록은 Linkumori URL 필터로 별도로 저장됩니다.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/ko/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>요청 유형</a> (전문가 수준)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "원격 규칙 URL 편집에 대한 게이트키퍼 보호 기능을 비활성화하려고 합니다. 이 원격 규칙 기능은 자신이 무엇을 하고 있는지 아는 고급 사용자만을 위해 설계되었습니다. 이것이 무엇을 의미하는지 모르겠다면 이 기능을 사용하지 마십시오.",
+    "message": "원격 규칙 URL 편집에 대한 Gatekeeper 보호를 비활성화합니다. 이 기능은 해시 확인을 통해 Linkumori(ClearURLs 2.0) JSON 규칙을 로드하거나 해시 확인 없이 Linkumori URL 필터 상호 운용성 목록을 로드할 수 있습니다. 구성하려는 형식을 이해한 경우에만 진행하십시오.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "대신 내장 규칙만 사용하는 솔루션(예: 내장 규칙)을 사용하고 추가로 사용자 지정 규칙을 수동으로 만들 수 있습니다.",
+    "message": "원격 소스를 신뢰하고 제어하지 않는 한 Gatekeeper를 활성화된 상태로 유지하세요. JSON 규칙에는 일치하는 해시 URL가 포함되어야 합니다. 상호 운용성 목록은 의도적으로 해시 URL를 비워 둡니다.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "JSON 파일과 해시 파일을 가져오기 위해 이 소프트웨어에 URL을 추가하면, 이 확장 프로그램이 브라우저에서 활성화되고 로드될 때마다 확장 프로그램은 지정된 URL에 연결하여 원격 규칙 JSON 파일 또는 해시 파일을 가져옵니다. 정의된 URL에 따라 파일을 가져올 때마다 JSON 및 해시 파일을 호스팅하는 서버는 귀하의 IP 주소와 확장 프로그램 버전, 브라우저 및 브라우저 버전과 같은 일반 정보를 받게 됩니다. 이 데이터는 문제의 웹사이트 또는 웹 서버(해당 파일이 호스팅되는 위치)의 개인정보처리방침의 적용을 받습니다.",
+    "message": "원격 규칙 URL를 추가하면 확장 프로그램은 지정된 서버에 연결하여 Linkumori (ClearURLs 2.0) JSON 규칙 세트, 구성된 해당 해시 파일 또는 Linkumori를 가져옵니다. URL 필터 상호 운용성 목록입니다. 각 가져오기는 귀하의 IP 주소와 확장 버전, 브라우저 및 브라우저 버전과 같은 일반 정보를 호스팅 서버에 노출시킬 수 있습니다. 이 데이터에는 해당 웹사이트나 웹 서버의 개인정보 보호정책이 적용됩니다.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "원격 JSON 및 해시 파일을 호스팅하는 서버는 귀하의 IP 주소를 받게 됩니다.",
+    "message": "원격 JSON, 해시 또는 상호 운용성 필터 파일을 호스팅하는 서버는 IP 주소를 수신합니다.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "게이트키퍼를 비활성화하면 안전하지 않거나 손상된 원격 규칙 소스로 인한 위험이 증가합니다. 이 기능을 이해하지 못하면 사용하지 마십시오. 내장 규칙을 사용하고 선택적으로 사용자 지정 규칙을 수동으로 만드세요.",
+    "message": "Gatekeeper를 비활성화하면 안전하지 않거나 손상된 원격 규칙 소스로 인한 위험이 증가합니다. 해시 확인은 Linkumori(ClearURLs 2.0) JSON 규칙 다운로드만 보호합니다. 상호 운용성 목록에는 적용되지 않습니다.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "이 작업은 원격 규칙에 대한 보호 기능을 감소시킵니다. 소스를 신뢰하는 경우에만 계속하세요.",
+    "message": "이 작업은 원격 규칙에 대한 보호 조치를 감소시킵니다. JSON 및 상호 운용성 필터 소스를 신뢰하는 경우에만 진행하세요.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "활동 없음",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL 필터(상호 운용성):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON 규칙:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON 규칙 정보:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL 필터 규칙:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL 필터 소스:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "규칙 상태:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "해시 상태:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL 필터 상태:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "짐을 실은"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "부분적으로 로드됨"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "모든 소스가 실패했습니다."
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "해시리스 URL 필터 소스가 구성되지 않았습니다."
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "원격 규칙이 비활성화되었습니다."
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "로드되지 않음"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "비어 있는"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "필요하지 않음"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL 필터"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL 필터"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "병합됨 Linkumori URL 필터"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "사용자 정의 Linkumori URL 규칙"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL 필터 파서를 사용할 수 없습니다."
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "사용자 정의 Linkumori URL 규칙이 실패했습니다."
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL 필터 소스 실패"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "원격 URL 필터 파일이 비어 있습니다."
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL 필터 가져오기 실패"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "알 수 없는 URL 필터 오류"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "모든 Linkumori URL 필터 소스 실패"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "인기 확장 프로그램 URL 추적 필터"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "지원되는 Linkumori 상호 운용성 $removeparam 규칙을 찾을 수 없습니다."
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL 필터 상호 운용성"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori 상호 운용성 필터 소스"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL 규칙"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori 사용자 정의 URL 규칙"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "여기에 널리 사용되는 확장 $removeparam 또는 $queryprune 규칙을 추가하세요. 이러한 규칙은 ClearURLs 사용자 지정 공급자와 별도로 저장되며 Linkumori URL 필터에 병합됩니다."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "검증"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "사용자 정의 Linkumori URL 규칙이 구성되지 않았습니다."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 지원되는 규칙, $2 지원되지 않음 건너뛰기, $3 중복 건너뛰기."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "검증 실패"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Linkumori URL 규칙을 저장하고 다시 로드했습니다."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "저장 실패"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "확인 후 지원되는 규칙이 여기에 표시됩니다."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL 필터 파서를 사용할 수 없습니다."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL 필터(상호 운용성)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL 상태"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "런타임 규칙"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "맞춤 규칙"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL 해시"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 런타임 규칙\n$3 맞춤 규칙"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Linkumori 맞춤 URL 규칙 닫기"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Linkumori URL 규칙은 무엇입니까?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL 규칙은 $removeparam에 초점을 맞춘 URL 필터 줄을 추적하는 인기 있는 확장 프로그램입니다. ClearURLs 공급자 JSON를 만드는 대신 필터 목록 구문을 직접 붙여넣으려는 경우에 유용합니다."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "원격 인기 확장 URL 필터와 이러한 사용자 정의 규칙에는 해시 확인이 필요하지 않습니다. 구문 분석 후 ClearURLsData와 별도로 LinkumoriURLsData에 저장됩니다."
   }
 }

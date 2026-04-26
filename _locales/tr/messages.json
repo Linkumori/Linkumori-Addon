@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori, URL'lerdeki izleme parametrelerini tanımlamak ve kaldırmak için paketlenmiş kuralları ve özel kuralları kullanır. Bu kurallar, en son izleme yöntemlerine karşı etkili koruma sağlamak için otomatik olarak güncellenir.",
+    "message": "Linkumori iki kural kategorisi kullanır: Yerel sağlayıcılar için Linkumori (ClearURLs 2.0) JSON kuralları ve popüler uzantılar için Linkumori URL filtre birlikte çalışabilirlik kuralları $removeparam listeleri. Her kategori ayrı ayrı sayılır.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Hem birincil uzak kural hem de hash URL'leri sağlanmalıdır",
+    "message": "Birincil karma URL yalnızca birincil kural URL Linkumori (ClearURLs 2.0) JSON kurallarına işaret ettiğinde gereklidir.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "eğer ilgili sonuçları ve riskleri tam olarak anlamıyorsanız bu özelliği kullanmayı tekrar düşünmelisiniz.",
+    "message": "Kaynağınızın Linkumori (ClearURLs 2.0) JSON kural kümesi mi yoksa Linkumori URL Filtre birlikte çalışabilirlik listesi mi olduğunu tam olarak anlamıyorsanız uzak kuralları kullanmayı yeniden düşünmelisiniz.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "Bu uzak kurallar özelliği, yalnızca ne yaptığını bilen gelişmiş kullanıcılar için tasarlanmıştır. Bunun ne anlama geldiği hakkında bir fikriniz yoksa, lütfen bu özelliği kullanmayın.",
+    "message": "Bu uzak kurallar özelliği, yükledikleri kaynak biçimini anlayan ileri düzey kullanıcılar için tasarlanmıştır. Linkumori (ClearURLs 2.0) JSON uzak kurallar, doğrulama için URL eşleşen karma değerini gerektirir. Linkumori URL Filtre birlikte çalışabilirlik listeleri, URL karma değeri olmadan yüklenebilir ve ayrı olarak depolanır.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "Bu yazılıma bir JSON dosyası ve hash dosyası almak için bir URL eklerseniz, uzantı, bu uzantı tarayıcınızda her etkinleştirildiğinde ve yüklendiğinde uzak kural JSON dosyasını veya hash dosyasını almak için belirlediğiniz URL'ye bağlanacaktır. Tanımladığınız URL'ye dayalı olarak her dosya alışında, JSON ve hash dosyaları gibi dosyaları barındıran sunucu, IP adresinizin yanı sıra uzantı sürümünüz, tarayıcınız ve tarayıcı sürümünüz gibi genel bilgileri alacaktır. Bu veriler, ilgili web sitesinin veya web sunucusunun (bu dosyaların barındırıldığı yer) gizlilik politikasına tabidir.",
+    "message": "URL uzak kuralını eklerseniz, uzantı, Linkumori (ClearURLs 2.0) JSON kural kümesini, yapılandırıldığında karma dosyasını veya Linkumori'u almak için belirlenen sunucunuza bağlanacaktır. URL Birlikte çalışabilirlik listesini filtreleyin. Her getirme, IP adresinizi ve uzantı sürümü, tarayıcı ve tarayıcı sürümü gibi genel bilgilerinizi barındırma sunucusuna gösterebilir. Bu veriler söz konusu web sitesinin veya web sunucusunun gizlilik politikasına tabidir.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Bunun yerine, yerleşik kurallar gibi yalnızca yerleşik kuralları kullanın, ayrıca manuel olarak özel kurallar oluşturabilirsiniz.",
+    "message": "Uzak kaynağa güvenmediğiniz ve onu kontrol etmediğiniz sürece yerleşik kuralları kullanın. Linkumori (ClearURLs 2.0) JSON kuralları için, eşleşen bir URL karma değeri sağlayın. Birlikte çalışabilirlik filtre listeleri için, URL karma değerini boş bırakın.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "Hash doğrulaması yalnızca iletim kurcalamasına karşı korur, kötü amaçlı kural kaynaklarına karşı değil",
+    "message": "Hash doğrulaması yalnızca Linkumori (ClearURLs 2.0) JSON kuralları için geçerlidir; kötü niyetli kural kaynaklarına değil, iletimin kurcalanmasına karşı koruma sağlar.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Hem kural kaynağı hem de JSON dosyalarının hash dosyası tehlikeye girerse, hiçbir korumanız yoktur",
+    "message": "Birlikte çalışabilirlik filtre listeleri karma doğrulamayı kullanmadığından URL kaynağına güvenmek özellikle önemlidir.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Uzak kural doğrulaması için gereklidir. Güvenlik için kural dosyasıyla eşleşmelidir.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "ClearURLs JSON uzak kuralları için gereklidir. Popüler uzantı URL izleme filtresi listeleri için boş bırakın.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "Dışa Aktar",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Birlikte birleştirilmiş ek uzak kaynaklar. Satır başına bir tane kullanın: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "Ek uzak kaynaklar bir araya getirildi. ClearURLs JSON için <code>ruleURL | hashURL</code>'u veya popüler URL izleme listeleri uzantısı için yalnızca <code>ruleURL</code>'u kullanın.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "Ek Uzak Kural Kümeleri",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Kural tanımları için özel uzak URL",
+    "message": "ClearURLs JSON kuralları için özel uzaktan kumanda URL veya popüler uzantı URL izleme filtreleri",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Not: Uzak kurallar kullanılırken güvenlik doğrulaması için Hash URL'si zorunludur.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "Not: Hash URL yalnızca ClearURLs JSON uzak kuralları için zorunludur. Popüler uzantı URL izleme listeleri, Linkumori URL filtreleri olarak ayrı olarak saklanır.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>İstek türleri</a> (uzman seviyesi)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Uzak kural URL'lerini düzenleme için Gatekeeper korumalarını devre dışı bırakıyorsunuz. Bu uzak kurallar özelliği, yalnızca ne yaptığını bilen gelişmiş kullanıcılar için tasarlanmıştır. Bunun ne anlama geldiği hakkında bir fikriniz yoksa, lütfen bu özelliği kullanmayın.",
+    "message": "Uzaktan kural URL düzenleme için Gatekeeper korumasını devre dışı bırakıyorsunuz. Bu özellik, karma doğrulaması ile Linkumori (ClearURLs 2.0) JSON kuralını yükleyebilir veya karma doğrulaması olmadan Linkumori URL birlikte çalışabilirlik listelerini filtreleyebilir. Yalnızca hangi formatı yapılandırdığınızı anlıyorsanız devam edin.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Bunun yerine, yerleşik kurallar gibi yalnızca yerleşik kuralları kullanın, ayrıca manuel olarak özel kurallar oluşturabilirsiniz.",
+    "message": "Uzak kaynaklarınıza güvenmediğiniz ve onları kontrol etmediğiniz sürece Gatekeeper'u etkin tutun. JSON kuralları eşleşen bir URL karma değerini içermelidir; birlikte çalışabilirlik listeleri URL karma değerini kasıtlı olarak boş bırakıyor.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Bu yazılıma bir JSON dosyası ve hash dosyası almak için bir URL eklerseniz, uzantı, bu uzantı tarayıcınızda her etkinleştirildiğinde ve yüklendiğinde uzak kural JSON dosyasını veya hash dosyasını almak için belirlediğiniz URL'ye bağlanacaktır. Tanımladığınız URL'ye dayalı olarak her dosya alışında, JSON ve hash dosyaları gibi dosyaları barındıran sunucu, IP adresinizin yanı sıra uzantı sürümünüz, tarayıcınız ve tarayıcı sürümünüz gibi genel bilgileri alacaktır. Bu veriler, ilgili web sitesinin veya web sunucusunun (bu dosyaların barındırıldığı yer) gizlilik politikasına tabidir.",
+    "message": "URL uzak kuralını eklerseniz, uzantı, Linkumori (ClearURLs 2.0) JSON kural kümesini, yapılandırıldığında karma dosyasını veya Linkumori'u almak için belirlenen sunucunuza bağlanacaktır. URL Birlikte çalışabilirlik listesini filtreleyin. Her getirme, IP adresinizi ve uzantı sürümü, tarayıcı ve tarayıcı sürümü gibi genel bilgilerinizi barındırma sunucusuna gösterebilir. Bu veriler söz konusu web sitesinin veya web sunucusunun gizlilik politikasına tabidir.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Uzak JSON ve hash dosyalarını barındıran sunucu, IP adresinizi alacaktır.",
+    "message": "Uzak JSON, karma veya birlikte çalışabilirlik filtre dosyalarını barındıran sunucu, IP adresinizi alacaktır.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Gatekeeper'ı devre dışı bırakarak, güvenli olmayan veya tehlikeye girmiş uzak kural kaynaklarından kaynaklanan riski artırırsınız. Bu özelliği anlamıyorsanız, kullanmayın. Yerleşik kuralları kullanın ve isteğe bağlı olarak manuel olarak özel kurallar oluşturun.",
+    "message": "Gatekeeper'u devre dışı bırakarak güvenli olmayan veya güvenliği ihlal edilmiş uzak kural kaynaklarından kaynaklanan riski artırırsınız. Karma doğrulama yalnızca Linkumori (ClearURLs 2.0) JSON kural indirmelerini korur. Birlikte çalışabilirlik listeleri için geçerli değildir.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Bu işlem, uzak kurallar için korumaları azaltır. Yalnızca kaynaklarınıza güveniyorsanız devam edin.",
+    "message": "Bu eylem, uzak kurallara yönelik korumaları azaltır. Yalnızca JSON ve birlikte çalışabilirlik filtre kaynaklarınıza güveniyorsanız devam edin.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "Aktivite yok",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Filtreler (Birlikte Çalışabilirlik):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Kurallar:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Kural Bilgileri:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL filtre kuralları:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL filtre kaynakları:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Kural Durumu:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Karma Durumu:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL filtre durumu:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Yüklendi"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Kısmen yüklü"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Tüm kaynaklar başarısız oldu"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Karmasız URL filtre kaynağı yapılandırılmadı"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Uzak kurallar devre dışı bırakıldı"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Yüklenmedi"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Boş"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "gerekli değil"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Filtreler"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Filtre"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Birleştirilmiş Linkumori URL Filtreler"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Özel Linkumori URL Kuralları"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL filtre ayrıştırıcısı kullanılamıyor"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Özel Linkumori URL kuralları başarısız oldu"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL filtre kaynakları başarısız oldu"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Uzak URL filtre dosyası boş"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL filtre getirme işlemi başarısız oldu"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Bilinmeyen URL filtre hatası"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Linkumori URL filtre kaynaklarının tümü başarısız oldu"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "popüler uzantı URL izleme filtresi"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Desteklenen Linkumori birlikte çalışabilirlik $removeparam kuralı bulunamadı"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Filtre Birlikte Çalışabilirliği"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori birlikte çalışabilirlik filtresi kaynağı"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Kurallar"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Özel URL Kuralları"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Popüler uzantı $removeparam veya $queryprune kurallarını buraya ekleyin. Bu kurallar ClearURLs özel sağlayıcılardan ayrı olarak depolanır ve Linkumori URL Filtrelerle birleştirilir."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Doğrula"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Özel Linkumori URL kuralı yapılandırılmadı."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 desteklenen kural(lar), $2 desteklenmeyen atlandı, $3 kopya atlandı."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Doğrulama başarısız oldu"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Linkumori URL kuralları kaydedildi ve yeniden yüklendi."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Kaydetme başarısız oldu"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Desteklenen kurallar doğrulamadan sonra burada görünecektir."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL filtre ayrıştırıcısı kullanılamıyor."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Filtreler (Birlikte Çalışabilirlik)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Durum"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Çalışma Zamanı Kuralları"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Özel Kurallar"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hash"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 çalışma zamanı kuralı(ları)\n$3 özel kural(lar)"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Linkumori özel URL kurallarını kapat"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Linkumori URL kuralları nelerdir?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL kuralları, $removeparam'a odaklanan URL filtre satırlarını izleyen popüler uzantılardır. ClearURLs sağlayıcısı JSON oluşturmak yerine filtre listesi söz dizimini doğrudan yapıştırmak istediğinizde kullanışlıdırlar."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Uzak popüler uzantı URL filtreleri ve bu özel kuralların karma doğrulaması gerekmez. Ayrıştırma sonrasında LinkumoriURLsData'da, ClearURLsData'dan ayrı olarak depolanırlar."
   }
 }

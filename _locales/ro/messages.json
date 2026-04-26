@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori folosește reguli grupate și reguli personalizate pentru a identifica și elimina parametrii de urmărire din adresele URL. Aceste reguli sunt actualizate automat pentru a asigura o protecție eficientă împotriva celor mai recente metode de urmărire.",
+    "message": "Linkumori folosește două categorii de reguli: Linkumori (ClearURLs 2.0) JSON reguli pentru furnizorii nativi și Linkumori Linkumori pentru regulile populare de interoperabilitate de filtru $removeparam liste. Fiecare categorie este luată în considerare separat.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Trebuie furnizate ambele adrese URL de regulă la distanță principală și hash",
+    "message": "Hash primar URL este necesar numai atunci când regula principală URL indică Linkumori (ClearURLs 2.0) JSON.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "ar trebui să vă reconsiderați utilizarea acestei funcții dacă nu înțelegeți pe deplin implicațiile și riscurile implicate.",
+    "message": "Ar trebui să vă reconsiderați utilizarea regulilor de la distanță dacă nu înțelegeți pe deplin dacă sursa dvs. este un set de reguli Linkumori (ClearURLs 2.0) JSON sau o listă de interoperabilitate Linkumori URL.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "Această funcție de reguli la distanță este concepută exclusiv pentru utilizatorii avansați care știu ce fac. Dacă nu aveți o idee despre ce înseamnă acest lucru, vă rugăm să nu utilizați această funcție.",
+    "message": "Această funcție de reguli la distanță este concepută pentru utilizatorii avansați care înțeleg formatul sursă pe care îl încarcă. Linkumori (ClearURLs 2.0) JSON regulile de la distanță necesită un hash de potrivire URL pentru verificare. Linkumori URL Listele de interoperabilitate ale filtrelor pot fi încărcate fără hash URL și sunt stocate separat.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "Dacă adăugați o adresă URL la acest software pentru a prelua un fișier JSON și un fișier hash, extensia se va conecta la adresa URL desemnată de dvs. pentru a prelua fișierul JSON cu regulile de la distanță sau fișierul hash de fiecare dată când această extensie este activată și încărcată în browser. De fiecare dată când preia fișiere pe baza adresei URL definite, serverul care găzduiește fișiere precum fișierele JSON și hash va primi adresa dvs. IP, precum și informații generale, cum ar fi versiunea extensiei, browserul și versiunea browserului. Aceste date sunt supuse politicii de confidențialitate a site-ului web sau a serverului web (unde sunt găzduite acele fișiere) în cauză.",
+    "message": "Dacă adăugați o regulă la distanță URL, extensia se va conecta la serverul dvs. desemnat pentru a prelua fie un set de reguli Linkumori (ClearURLs 2.0) JSON, fie fișierul hash atunci când este configurat, fie un 987650056789 2.0 URL Lista de interoperabilitate a filtrelor. Fiecare preluare poate expune adresa dvs. IP și informații generale, cum ar fi versiunea extensiei, browserul și versiunea browserului, către serverul de găzduire. Aceste date sunt supuse politicii de confidențialitate a acelui site web sau server web.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "În schimb, utilizați numai pentru regulile încorporate soluții precum regulile încorporate, în plus, puteți crea reguli personalizate manual.",
+    "message": "Utilizați regulile încorporate, cu excepția cazului în care aveți încredere și controlați sursa de la distanță. Pentru regulile Linkumori (ClearURLs 2.0) JSON, furnizați un hash potrivit URL. Pentru listele de filtre de interoperabilitate, lăsați hash 98765004567 gol.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "Verificarea hash protejează numai împotriva falsificării transmisiei, nu a surselor de reguli rău intenționate",
+    "message": "Verificarea hash se aplică numai regulilor Linkumori (ClearURLs 2.0) JSON; protejează împotriva falsificării transmisiei, nu a surselor de reguli rău intenționate.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Dacă atât sursa regulilor, cât și fișierul hash al fișierelor json sunt compromise, nu aveți protecție",
+    "message": "Listele de filtre de interoperabilitate nu folosesc verificarea hash, așa că încrederea în sursa URL este deosebit de importantă.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Necesar pentru verificarea regulilor de la distanță. Trebuie să se potrivească cu fișierul de reguli pentru securitate.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "Necesar pentru regulile de la distanță ClearURLs JSON. Lăsați necompletat pentru extensia populară URL liste de filtre de urmărire.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "Export",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Surse suplimentare de la distanță au fost îmbinate. Folosiți unul pe rând: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "Surse suplimentare de la distanță au fost îmbinate. Folosiți <code>ruleURL | hashURL</code> pentru ClearURLs JSON sau numai <code>ruleURL</code> pentru extensia populară URL.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "Seturi suplimentare de reguli de la distanță",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Adresă URL la distanță personalizată pentru definițiile regulilor",
+    "message": "Telecomanda personalizată URL pentru regulile ClearURLs JSON sau extensia populară URL filtre de urmărire",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Notă: URL-ul hash este obligatoriu atunci când utilizați regulile de la distanță pentru verificarea securității.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "Notă: Hash URL este obligatoriu numai pentru regulile de la distanță ClearURLs JSON. Listele de urmărire cu extensia populară URL sunt stocate separat ca filtre Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Tipuri de cereri</a> (nivel de expert)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Dezactivați protecțiile Gatekeeper pentru editarea adreselor URL ale regulilor de la distanță. Această funcție de reguli la distanță este concepută exclusiv pentru utilizatorii avansați care știu ce fac. Dacă nu aveți o idee despre ce înseamnă acest lucru, vă rugăm să nu utilizați această funcție.",
+    "message": "Dezactivați protecția Gatekeeper pentru editarea regulii de la distanță URL. Această caracteristică poate încărca regulile Linkumori (ClearURLs 2.0) JSON cu verificare hash sau Linkumori URL Listele de verificare a interoperabilității filtrelor fără hash. Continuați numai dacă înțelegeți ce format configurați.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "În schimb, utilizați numai pentru regulile încorporate soluții precum regulile încorporate, în plus, puteți crea reguli personalizate manual.",
+    "message": "Păstrați Gatekeeper activat, cu excepția cazului în care aveți încredere și controlați sursele de la distanță. regulile JSON ar trebui să includă un hash potrivit URL; Listele de interoperabilitate lasă în mod intenționat hash-ul URL gol.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Dacă adăugați o adresă URL la acest software pentru a prelua un fișier JSON și un fișier hash, extensia se va conecta la adresa URL desemnată de dvs. pentru a prelua fișierul JSON cu regulile de la distanță sau fișierul hash de fiecare dată când această extensie este activată și încărcată în browser. De fiecare dată când preia fișiere pe baza adresei URL definite, serverul care găzduiește fișiere precum fișierele JSON și hash va primi adresa dvs. IP, precum și informații generale, cum ar fi versiunea extensiei, browserul și versiunea browserului. Aceste date sunt supuse politicii de confidențialitate a site-ului web sau a serverului web (unde sunt găzduite acele fișiere) în cauză.",
+    "message": "Dacă adăugați o regulă la distanță URL, extensia se va conecta la serverul dvs. desemnat pentru a prelua fie un set de reguli Linkumori (ClearURLs 2.0) JSON, fie fișierul hash atunci când este configurat, fie un 987650056789 2.0 URL Lista de interoperabilitate a filtrelor. Fiecare preluare poate expune adresa dvs. IP și informații generale, cum ar fi versiunea extensiei, browserul și versiunea browserului, către serverul de găzduire. Aceste date sunt supuse politicii de confidențialitate a acelui site web sau server web.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Serverul care găzduiește fișiere JSON și hash la distanță va primi adresa dvs. IP.",
+    "message": "Serverul care găzduiește fișierele de la distanță JSON, hash sau interoperabilitate va primi adresa dvs. IP.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Prin dezactivarea Gatekeeper, creșteți riscul din surse nesigure sau compromise de reguli de la distanță. Dacă nu înțelegeți această caracteristică, nu o utilizați. Utilizați regulile încorporate și, opțional, creați manual reguli personalizate.",
+    "message": "Dezactivând Gatekeeper, creșteți riscul din surse nesigure sau compromise de reguli de la distanță. Verificarea hash protejează numai Linkumori (ClearURLs 2.0) JSON descărcări de reguli. Nu se aplică listelor de interoperabilitate.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Această acțiune reduce garanțiile pentru regulile de la distanță. Continuați doar dacă aveți încredere în sursele dvs.",
+    "message": "Această acțiune reduce garanțiile pentru regulile de la distanță. Continuați numai dacă aveți încredere în sursele dvs. de filtrare JSON și interoperabilitate.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "Nicio activitate",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Filtre (interoperabilitate):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Reguli:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Informații despre reguli:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL reguli de filtrare:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL surse de filtrare:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Statutul regulii:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Stare hash:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL stare filtru:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Încărcat"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Încărcat parțial"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Toate sursele au eșuat"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Nu au fost configurate surse de filtrare URL fără hash"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Regulile de la distanță sunt dezactivate"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Nu este încărcat"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Gol"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "nu este necesar"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Filtre"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Filtru"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Filtre combinate Linkumori URL"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Personalizat Linkumori URL Reguli"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL filtrul de analiză nu este disponibil"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Regulile personalizate Linkumori URL au eșuat"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL surse de filtru eșuate"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Fișierul de filtru de la distanță URL este gol"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL preluarea filtrului a eșuat"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Eroare de filtru URL necunoscută"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Toate sursele de filtrare Linkumori URL au eșuat"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "extensia populară URL filtru de urmărire"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Nu s-au găsit reguli de interoperabilitate Linkumori acceptate $removeparam"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Interoperabilitate filtru"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori sursa filtru de interoperabilitate"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Reguli"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Personalizat URL Reguli"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Adăugați regulile populare ale extensiei $removeparam sau $queryprune aici. Aceste reguli sunt stocate separat de furnizorii personalizați ClearURLs și sunt îmbinate în Linkumori URL Filtre."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Valida"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Nu au fost configurate reguli personalizate Linkumori URL."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 reguli acceptate, $2 neacceptate ignorate, $3 duplicat omis."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Validarea a eșuat"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Regulile salvate și reîncărcate Linkumori URL."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Salvarea nu a reușit"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Regulile acceptate vor apărea aici după validare."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL filtrul de analiză nu este disponibil."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Filtre (interoperabilitate)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Stare"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Reguli de rulare"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Reguli personalizate"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hash"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 reguli de rulare\n$3 reguli personalizate"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Închideți regulile personalizate Linkumori URL"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Care sunt regulile Linkumori URL?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL regulile sunt populare de urmărire a extensiilor URL linii de filtrare concentrate pe $removeparam. Sunt utile atunci când doriți să inserați direct sintaxa listei de filtre în loc să creați 985765900 JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Extensia populară de la distanță URL filtre și aceste reguli personalizate nu necesită verificare hash. Ele sunt stocate în LinkumoriURLsData după parsare, separat de ClearURLsData."
   }
 }

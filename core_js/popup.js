@@ -114,21 +114,6 @@ function getPopupI18n() {
     return (typeof globalThis !== 'undefined' && globalThis.LinkumoriI18n) ? globalThis.LinkumoriI18n : null;
 }
 
-function getBrowserI18nMessage(key, substitutions) {
-    try {
-        if (
-            typeof browser !== 'undefined' &&
-            browser.i18n &&
-            typeof browser.i18n.getMessage === 'function'
-        ) {
-            return browser.i18n.getMessage(key, substitutions) || '';
-        }
-    } catch (error) {
-    }
-
-    return '';
-}
-
 function waitForPopupI18n() {
     const i18n = getPopupI18n();
     if (!i18n || typeof i18n.ready !== 'function') {
@@ -146,15 +131,10 @@ function getPopupI18nMessage(key, substitutions, fallback = '') {
         typeof i18n.isReady === 'function' &&
         i18n.isReady()
     ) {
-        return i18n.getMessage(key, substitutions) || fallback || `[${key}]`;
+        return i18n.getMessage(key, substitutions);
     }
 
-    const browserMessage = getBrowserI18nMessage(key, substitutions);
-    if (browserMessage) {
-        return browserMessage;
-    }
-
-    return fallback || `[${key}]`;
+    return `[${key}]`;
 }
 
 function getPopupLanguageCode() {
@@ -216,9 +196,9 @@ function getPopupConsentPolicyVersion() {
 
 function getCurrentConsentSignature() {
     const consentPayload = {
-        title: browser.i18n.getMessage(POPUP_CONSENT_TEXT_KEYS.title) || '',
-        description: browser.i18n.getMessage(POPUP_CONSENT_TEXT_KEYS.description) || '',
-        checkbox: browser.i18n.getMessage(POPUP_CONSENT_TEXT_KEYS.checkbox) || ''
+        title: getPopupI18nMessage(POPUP_CONSENT_TEXT_KEYS.title),
+        description: getPopupI18nMessage(POPUP_CONSENT_TEXT_KEYS.description),
+        checkbox: getPopupI18nMessage(POPUP_CONSENT_TEXT_KEYS.checkbox)
     };
 
     const normalized = JSON.stringify(consentPayload).toLowerCase().trim();
@@ -249,11 +229,16 @@ async function hasPopupConsent(policyVersion) {
             : '';
         const currentSignature = getCurrentConsentSignature();
 
-        if (accepted && acceptedVersion === policyVersion && storedSignature === currentSignature) {
+        if (accepted && acceptedVersion === policyVersion) {
+            if (storedSignature !== currentSignature) {
+                await browser.storage.local.set({
+                    [POPUP_CONSENT_SIGNATURE_STORAGE_KEY]: currentSignature
+                });
+            }
             return true;
         }
 
-        // Policy version/text changed or signature missing: revoke old consent and re-ask.
+        // Policy version changed: revoke old consent and re-ask.
         if (accepted) {
             await browser.storage.local.set({
                 [POPUP_CONSENT_STORAGE_KEY]: false,
@@ -1747,9 +1732,11 @@ function getGlobalVariable(varName) {
 (async function initializePopup() {
     try {
         const i18nReadyPromise = waitForPopupI18n();
-        const consentGatePromise = initializePopupConsentGate().catch(() => {});
+        const consentGatePromise = i18nReadyPromise
+            .then(() => initializePopupConsentGate())
+            .catch(() => initializePopupConsentGate().catch(() => {}));
 
-        // Paint the popup immediately with defaults and fast browser.i18n text.
+        // Paint the popup immediately, then refresh when LinkumoriI18n is ready.
         init();
         setText();
         

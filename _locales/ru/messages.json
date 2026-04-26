@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori использует встроенные и пользовательские правила для определения и удаления отслеживающих параметров из URL. Эти правила автоматически обновляются для обеспечения эффективной защиты от новейших методов отслеживания.",
+    "message": "Linkumori использует две категории правил: Linkumori (ClearURLs 2.0) JSON правила для собственных поставщиков и Linkumori URL Правила совместимости фильтров для популярного расширения. $removeparam списков. Каждая категория считается отдельно.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Необходимо указать и основной URL удалённого правила, и URL хеша",
+    "message": "Первичный хеш URL требуется только в том случае, если основное правило URL указывает на правила Linkumori (ClearURLs 2.0) JSON.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "вам следует пересмотреть использование этой функции, если вы не полностью понимаете последствия и связанные с ней риски.",
+    "message": "Вам следует пересмотреть использование удаленных правил, если вы не до конца понимаете, является ли ваш источник набором правил Linkumori (ClearURLs 2.0) JSON или списком совместимых фильтров Linkumori URL.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "Эта функция удалённых правил предназначена исключительно для продвинутых пользователей, которые знают, что делают. Если вы не понимаете, что это значит, пожалуйста, не используйте эту функцию.",
+    "message": "Эта функция удаленных правил предназначена для опытных пользователей, которые понимают загружаемый исходный формат. Linkumori (ClearURLs 2.0) JSON Для удаленных правил требуется соответствующий хэш URL для проверки. Linkumori URL Списки совместимости фильтров можно загружать без хеша URL и хранить отдельно.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "Если вы добавляете URL в это программное обеспечение для получения JSON-файла и файла хеша, расширение будет подключаться к указанному вами URL для получения удалённого JSON-файла правил или файла хеша каждый раз, когда это расширение включено и загружено в вашем браузере. Каждый раз, когда оно получает файлы на основе определённого вами URL, сервер, на котором размещены такие файлы, как JSON и хеш-файлы, будет получать ваш IP-адрес, а также общую информацию, такую как версия вашего расширения, браузер и версия браузера. Эти данные подпадают под действие политики конфиденциальности соответствующего веб-сайта или веб-сервера (на котором размещены эти файлы).",
+    "message": "Если вы добавите удаленное правило URL, расширение подключится к назначенному вами серверу для получения либо набора правил Linkumori (ClearURLs 2.0) JSON, его хэш-файла при настройке, либо Linkumori. URL Список совместимости фильтров. При каждой загрузке хост-серверу может быть предоставлен ваш адрес IP и общая информация, такая как версия расширения, браузер и версия браузера. На эти данные распространяется политика конфиденциальности этого веб-сайта или веб-сервера.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Вместо этого используйте решение только со встроенными правилами, например, встроенными правилами, кроме того, вы можете создавать пользовательские правила вручную.",
+    "message": "Используйте встроенные правила, если вы не доверяете удаленному источнику и не контролируете его. Для правил Linkumori (ClearURLs 2.0) JSON укажите соответствующий хэш URL. Для списков фильтров совместимости оставьте хеш URL пустым.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "Проверка хеша защищает только от подделки при передаче, а не от вредоносных источников правил",
+    "message": "Проверка хеша применяется только к правилам Linkumori (ClearURLs 2.0) JSON; он защищает от фальсификации передачи, а не от вредоносных источников правил.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Если скомпрометированы и источник правил, и хеш-файл JSON-файлов, у вас нет защиты",
+    "message": "Списки фильтров совместимости не используют проверку хеша, поэтому доверие к источнику URL особенно важно.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Обязателен для проверки удалённых правил. Должен соответствовать файлу правил для безопасности.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "Требуется для удаленных правил ClearURLs JSON. Оставьте пустым для списков фильтров отслеживания популярного расширения URL.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "Экспорт",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Дополнительные удалённые источники, объединённые вместе. Используйте один на строку: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "Дополнительные удаленные источники объединены воедино. Используйте <code>ruleURL | hashURL</code> для ClearURLs JSON или только <code>ruleURL</code> для списков отслеживания популярного расширения URL.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "Дополнительные наборы удалённых правил",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Пользовательский удалённый URL для определений правил",
+    "message": "Пользовательский пульт URL для ClearURLs JSON правил или популярного расширения URL фильтров отслеживания",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Примечание: URL хеша обязателен при использовании удалённых правил для проверки безопасности.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "Примечание. Хэш URL является обязательным только для удаленных правил ClearURLs JSON. Списки отслеживания популярного расширения URL хранятся отдельно в виде фильтров Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Типы запросов</a> (экспертный уровень)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Вы отключаете защиту Gatekeeper для редактирования URL удалённых правил. Эта функция удалённых правил предназначена исключительно для продвинутых пользователей, которые знают, что делают. Если вы не понимаете, что это значит, пожалуйста, не используйте эту функцию.",
+    "message": "Вы отключаете защиту Gatekeeper для удаленного редактирования правила URL. Эта функция может загружать Linkumori (ClearURLs 2.0) JSON правил с проверкой хеша или Linkumori URL Фильтровать списки совместимости без проверки хеша. Продолжайте, только если вы понимаете, какой формат вы настраиваете.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Вместо этого используйте решение только со встроенными правилами, например, встроенными правилами, кроме того, вы можете создавать пользовательские правила вручную.",
+    "message": "Оставьте Gatekeeper включенным, если вы не доверяете и не контролируете свои удаленные источники. Правила JSON должны включать соответствующий хеш URL; В списках совместимости хэш URL намеренно оставлен пустым.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Если вы добавляете URL в это программное обеспечение для получения JSON-файла и файла хеша, расширение будет подключаться к указанному вами URL для получения удалённого JSON-файла правил или файла хеша каждый раз, когда это расширение включено и загружено в вашем браузере. Каждый раз, когда оно получает файлы на основе определённого вами URL, сервер, на котором размещены такие файлы, как JSON и хеш-файлы, будет получать ваш IP-адрес, а также общую информацию, такую как версия вашего расширения, браузер и версия браузера. Эти данные подпадают под действие политики конфиденциальности соответствующего веб-сайта или веб-сервера (на котором размещены эти файлы).",
+    "message": "Если вы добавите удаленное правило URL, расширение подключится к назначенному вами серверу для получения либо набора правил Linkumori (ClearURLs 2.0) JSON, его хэш-файла при настройке, либо Linkumori. URL Список совместимости фильтров. При каждой загрузке хост-серверу может быть предоставлен ваш адрес IP и общая информация, такая как версия расширения, браузер и версия браузера. На эти данные распространяется политика конфиденциальности этого веб-сайта или веб-сервера.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Сервер, на котором размещены удалённые JSON и хеш-файлы, будет получать ваш IP-адрес.",
+    "message": "Сервер, на котором размещены файлы удаленного JSON, хэша или фильтра совместимости, получит ваш адрес IP.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Отключая Gatekeeper, вы увеличиваете риск от небезопасных или скомпрометированных источников удалённых правил. Если вы не понимаете эту функцию, не используйте её. Используйте встроенные правила и, при необходимости, создавайте пользовательские правила вручную.",
+    "message": "Отключив Gatekeeper, вы увеличиваете риск использования небезопасных или скомпрометированных удаленных источников правил. Проверка хеша защищает только Linkumori (ClearURLs 2.0) JSON загрузок правил. Это не относится к спискам совместимости.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Это действие снижает меры защиты для удалённых правил. Продолжайте, только если доверяете своим источникам.",
+    "message": "Это действие снижает защиту удаленных правил. Продолжайте, только если вы доверяете своему номеру JSON и источникам фильтров совместимости.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "Нет активности",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Фильтры (совместимость):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Правила:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Информация о правилах:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL Правила фильтра:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL Источники фильтров:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Статус правила:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Хэш-статус:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL Статус фильтра:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Загружено"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Частично загружен"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Все источники не работают"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Не настроены источники безхэш-фильтра URL."
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Удаленные правила отключены"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Не загружено"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Пустой"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "не требуется"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Фильтры"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Фильтр"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Объединены Linkumori URL Фильтры"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Пользовательские Linkumori URL Правила"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL Парсер фильтров недоступен."
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Пользовательские Linkumori URL правила не выполнены."
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL Источник(и) фильтра не удалось"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Файл удаленного фильтра URL пуст."
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL Ошибка загрузки фильтра"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Неизвестная ошибка фильтра URL."
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Все источники фильтра Linkumori URL не удались."
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "фильтр отслеживания популярного расширения URL"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Не найдено поддерживаемых правил совместимости Linkumori $removeparam"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Совместимость фильтров"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori Источник фильтра совместимости"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Правила"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Пользовательские URL Правила"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Добавьте сюда правила популярного расширения $removeparam или $queryprune. Эти правила хранятся отдельно от ClearURLs пользовательских поставщиков и объединяются в Linkumori URL Фильтры."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Подтвердить"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Пользовательские правила Linkumori URL не настроены."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 поддерживаемых правил, $2 неподдерживаемых пропущено, $3 дубликатов пропущено."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Проверка не удалась"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Сохранил и перезагрузил Linkumori URL правил."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Сохранить не удалось"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Поддерживаемые правила появятся здесь после проверки."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL Парсер фильтра недоступен."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Фильтры (совместимость)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Статус"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Правила выполнения"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Пользовательские правила"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Хэш"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 правила времени выполнения\n$3 специальные правила"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Закрыть Linkumori пользовательские URL правила"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Какие правила Linkumori URL?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL правила являются популярным расширением отслеживания URL строк фильтра, ориентированных на $removeparam. Они полезны, если вы хотите вставить синтаксис списка фильтров напрямую вместо создания ClearURLs поставщика JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Удаленные фильтры популярного расширения URL, и эти пользовательские правила не требуют проверки хеша. После анализа они сохраняются по адресу LinkumoriURLsData, отдельно от ClearURLsData."
   }
 }

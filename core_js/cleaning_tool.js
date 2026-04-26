@@ -168,7 +168,7 @@ function showCopyStatus(message) {
 }
 
 /**
-* Translate a string with LinkumoriI18n or fallback to browser.i18n API.
+* Translate a string with LinkumoriI18n.
 *
 * @param {string} string Name of the attribute used for localization
 */

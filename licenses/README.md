@@ -34,6 +34,10 @@ Place the following license files in this directory:
   - Download from: https://opensource.org/licenses/ISC
   - Or from: https://choosealicense.com/licenses/isc/
 
+- **unlicense.txt** - The Unlicense
+  - Download from: https://raw.githubusercontent.com/spdx/license-list-data/main/text/Unlicense.txt
+  - Or from: https://unlicense.org/
+
 ## How to Use
 
 1. Download each license file from the official sources listed above

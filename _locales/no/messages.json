@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori bruker sammensatte regler og tilpassede regler for å identifisere og fjerne sporingsparametere fra nettadresser. Disse reglene oppdateres automatisk for å sikre effektiv beskyttelse mot de nyeste sporingsmetodene.",
+    "message": "Linkumori bruker to regelkategorier: Linkumori (ClearURLs 2.0) JSON regler for opprinnelige leverandører, og Linkumori 98767 regler for interoperabilitet for filtrering $removeparam lister. Hver kategori telles separat.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Primær ekstern regel og hash-URL-er må begge oppgis",
+    "message": "Primær hash URL kreves bare når primærregelen URL peker på Linkumori (ClearURLs 2.0) JSON regler.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "du bør vurdere å bruke denne funksjonen på nytt hvis du ikke fullt ut forstår implikasjonene og risikoene som er involvert.",
+    "message": "Du bør revurdere å bruke eksterne regler hvis du ikke helt forstår om kilden din er en Linkumori (ClearURLs 2.0) JSON regelsett eller en Linkumori 987650045679 Filter interoperabilitetsliste.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "Denne eksterne regelfunksjonen er designet eksklusivt for avanserte brukere som vet hva de gjør. Hvis du ikke har en ide om hva dette betyr, vennligst ikke bruk denne funksjonen.",
+    "message": "Denne eksterne regelfunksjonen er designet for avanserte brukere som forstår kildeformatet de laster inn. Linkumori (ClearURLs 2.0) JSON eksterne regler krever en samsvarende hash URL for bekreftelse. Linkumori URL Filterinteroperabilitetslister kan lastes inn uten en hash URL og lagres separat.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "Hvis du legger til en URL til denne programvaren for å hente en JSON-fil og hash-fil, vil utvidelsen kobles til den angitte URL-en for å hente JSON-filen eller hashfilen for ekstern regel hver gang denne utvidelsen aktiveres og lastes inn i nettleseren din. Hver gang den henter filer basert på din definerte URL, vil serverens vertsfiler som JSON- og hash-filene motta IP-adressen din samt generell informasjon som utvidelsesversjon, nettleser- og nettleserversjon. Disse dataene er underlagt personvernreglene til den aktuelle nettsiden eller webserveren (der disse filene er vert).",
+    "message": "Hvis du legger til en ekstern regel URL, vil utvidelsen koble til den angitte serveren for å hente enten en Linkumori (ClearURLs 2.0) JSON regelsett, hash-filen når den er konfigurert, eller en 9876500090285766589028765 URL Filter interoperabilitetsliste. Hver henting kan eksponere IP-adressen din og generell informasjon som utvidelsesversjon, nettleser- og nettleserversjon for vertsserveren. Disse dataene er underlagt personvernreglene til den nettsiden eller webserveren.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Bruk i stedet for innebygde regler eneste løsning som innebygde regler i tillegg kan du opprette egendefinerte regler manuelt.",
+    "message": "Bruk innebygde regler med mindre du stoler på og kontrollerer den eksterne kilden. For Linkumori (ClearURLs 2.0) JSON regler, oppgi en samsvarende hash URL. For interoperabilitetsfilterlister, la hashen URL stå tom.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "Hash-verifisering beskytter bare mot overføringsmanipulering, ikke ondsinnede regelkilder",
+    "message": "Hash-verifisering gjelder kun for Linkumori (ClearURLs 2.0) JSON regler; den beskytter mot overføringsmanipulering, ikke ondsinnede regelkilder.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Hvis både regelkilden og hashfilen for json-filer er kompromittert, har du ingen beskyttelse",
+    "message": "Interoperabilitetsfilterlister bruker ikke hash-verifisering, så tillit til kilden URL er spesielt viktig.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Nødvendig for ekstern regelverifisering. Må samsvare med regelfilen for sikkerhet.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "Nødvendig for ClearURLs JSON eksterne regler. La det stå tomt for den populære utvidelsen URL sporingsfilterlister.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "Eksport",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Ytterligere eksterne kilder slått sammen. Bruk én per linje: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "Ytterligere eksterne kilder slått sammen. Bruk <code>ruleURL | hashURL</code> for ClearURLs JSON, eller bare <code>ruleURL</code> for populær utvidelse URL sporingslister.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "Ytterligere eksterne regelsett",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Egendefinert ekstern URL for regeldefinisjoner",
+    "message": "Egendefinert fjernkontroll URL for ClearURLs JSON regler eller populær utvidelse URL sporingsfiltre",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Merk: Hash URL er obligatorisk når du bruker eksterne regler for sikkerhetsverifisering.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "Merk: Hash URL er obligatorisk bare for ClearURLs JSON eksterne regler. Populær utvidelse URL sporingslister lagres separat som Linkumori URL filtre.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Forespørselstyper</a> (ekspertnivå)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Du deaktiverer gatekeeper-beskyttelse for redigering av ekstern regel-URL. Denne eksterne regelfunksjonen er designet eksklusivt for avanserte brukere som vet hva de gjør. Hvis du ikke har en ide om hva dette betyr, vennligst ikke bruk denne funksjonen.",
+    "message": "Du deaktiverer Gatekeeper-beskyttelse for redigering av ekstern regel URL. Denne funksjonen kan laste Linkumori (ClearURLs 2.0) JSON regler med hash-verifisering, eller Linkumori URL Filter interoperabilitetslister uten hash-verifiseringslister. Fortsett bare hvis du forstår hvilket format du konfigurerer.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Bruk i stedet for innebygde regler eneste løsning som innebygde regler i tillegg kan du opprette egendefinerte regler manuelt.",
+    "message": "Hold Gatekeeper aktivert med mindre du stoler på og kontrollerer eksterne kilder. JSON-regler bør inkludere en samsvarende hash URL; interoperabilitetslister lar hashen URL være tom.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Hvis du legger til en URL til denne programvaren for å hente en JSON-fil og hash-fil, vil utvidelsen kobles til den angitte URL-en for å hente JSON-filen eller hashfilen for ekstern regel hver gang denne utvidelsen aktiveres og lastes inn i nettleseren din. Hver gang den henter filer basert på din definerte URL, vil serverens vertsfiler som JSON- og hash-filene motta IP-adressen din samt generell informasjon som utvidelsesversjon, nettleser- og nettleserversjon. Disse dataene er underlagt personvernreglene til den aktuelle nettsiden eller webserveren (der disse filene er vert).",
+    "message": "Hvis du legger til en ekstern regel URL, vil utvidelsen koble til den angitte serveren for å hente enten en Linkumori (ClearURLs 2.0) JSON regelsett, hash-filen når den er konfigurert, eller en 9876500090285766589028765 URL Filter interoperabilitetsliste. Hver henting kan eksponere IP-adressen din og generell informasjon som utvidelsesversjon, nettleser- og nettleserversjon for vertsserveren. Disse dataene er underlagt personvernreglene til den nettsiden eller webserveren.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Serveren som er vert for eksterne JSON- og hash-filer vil motta IP-adressen din.",
+    "message": "Serveren som er vert for eksterne JSON, hash- eller interoperabilitetsfilterfiler vil motta IP-adressen din.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Ved å deaktivere Gatekeeper øker du risikoen fra usikre eller kompromitterte eksterne regelkilder. Hvis du ikke forstår denne funksjonen, ikke bruk den. Bruk innebygde regler og lag eventuelt egendefinerte regler manuelt.",
+    "message": "Ved å deaktivere Gatekeeper øker du risikoen fra usikre eller kompromitterte eksterne regelkilder. Hash-verifisering beskytter bare Linkumori (ClearURLs 2.0) JSON regelnedlastinger. Det gjelder ikke interoperabilitetslister.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Denne handlingen reduserer sikkerhetstiltak for eksterne regler. Fortsett bare hvis du stoler på kildene dine.",
+    "message": "Denne handlingen reduserer sikkerhetstiltak for eksterne regler. Fortsett bare hvis du stoler på JSON og interoperabilitetsfilterkildene.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "Ingen aktivitet",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Filtre (interoperabilitet):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Regler:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Reglerinformasjon:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL filterregler:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL filterkilder:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Regelstatus:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Hash-status:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL filterstatus:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Lastet"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Delvis lastet"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Alle kilder mislyktes"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Ingen hashless URL filterkilder konfigurert"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Eksterne regler er deaktivert"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Ikke lastet"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Tømme"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "ikke nødvendig"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Filtre"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Filter"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Sammenslått Linkumori URL Filtre"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Egendefinerte Linkumori URL regler"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL filterparser er utilgjengelig"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Egendefinerte Linkumori URL-regler mislyktes"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL filterkilde(r) mislyktes"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Ekstern URL filterfil er tom"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL filterhenting mislyktes"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Ukjent URL filterfeil"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Alle Linkumori URL filterkilder mislyktes"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "populær utvidelse URL sporingsfilter"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Ingen støttede Linkumori interoperabilitet $removeparam regler funnet"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Filterinteroperabilitet"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori interoperabilitetsfilterkilde"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Regler"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Egendefinerte URL regler"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Legg til den populære utvidelsen $removeparam eller $queryprune regler her. Disse reglene lagres separat fra ClearURLs tilpassede leverandører og slås sammen til Linkumori URL filtre."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Bekreft"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Ingen egendefinerte Linkumori URL regler konfigurert."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 støttede regler, $2 ustøttede hoppet over, $3 duplikat hoppet over."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Validering mislyktes"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Lagret og lastet inn på nytt Linkumori URL regler."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Lagring mislyktes"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Støttede regler vil vises her etter validering."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL filterparser er utilgjengelig."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Filtre (interoperabilitet)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Status"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Kjøretidsregler"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Egendefinerte regler"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hash"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 kjøretidsregel(er)\n$3 egendefinerte regler"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Lukk Linkumori tilpassede URL regler"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Hva er Linkumori URL regler?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL regler er populære utvidelsessporing URL filterlinjer fokusert på $removeparam. De er nyttige når du vil lime inn filterlistesyntaks direkte i stedet for å lage 987675000r JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Ekstern populær utvidelse URL filtre og disse egendefinerte reglene trenger ikke hash-verifisering. De lagres i LinkumoriURLsData etter parsing, atskilt fra ClearURLsData."
   }
 }

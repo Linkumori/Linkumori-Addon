@@ -42,7 +42,8 @@
     "message": "Use as regras empacotadas do Linkumori/ClearURLs. Desative para executar apenas com regras remotas e/ou personalizadas."
   },
   "bundled_rules_description": {
-    "message": "O Linkumori usa regras empacotadas e personalizadas para identificar e remover parâmetros de rastreamento de URLs. Essas regras são atualizadas automaticamente para garantir proteção eficaz contra os métodos de rastreamento mais recentes."
+    "message": "Linkumori usa duas categorias de regras: Linkumori (ClearURLs 2.0) JSON regras para provedores nativos e Linkumori URL Filtrar regras de interoperabilidade para extensões populares $removeparam listas. Cada categoria é contada separadamente.",
+    "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
     "message": "Informações das regras"
@@ -1947,7 +1948,8 @@
     "message": "O URL de hash primário deve usar HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "Ambos o URL de regra remota primário e o URL de hash devem ser fornecidos"
+    "message": "O hash primário URL é necessário somente quando a regra primária URL aponta para as regras Linkumori (ClearURLs 2.0) JSON.",
+    "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
     "message": "O URL de regra primário deve usar HTTPS"
@@ -1983,13 +1985,16 @@
     "message": "Entendo os riscos - Continuar"
   },
   "security_modal_final_warning": {
-    "message": "você deve reconsiderar o uso deste recurso se não entender completamente as implicações e os riscos envolvidos."
+    "message": "Você deve reconsiderar o uso de regras remotas se não entender completamente se sua origem é um conjunto de regras Linkumori (ClearURLs 2.0) JSON ou uma lista de interoperabilidade de filtros Linkumori URL.",
+    "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "Este recurso de regras remotas é projetado exclusivamente para usuários avançados que sabem o que estão fazendo. Se você não tem ideia do que isso significa, não use este recurso."
+    "message": "Este recurso de regras remotas foi projetado para usuários avançados que entendem o formato de origem que estão carregando. Linkumori (ClearURLs 2.0) JSON regras remotas exigem um hash correspondente URL para verificação. Linkumori URL As listas de interoperabilidade de filtros podem ser carregadas sem um hash URL e são armazenadas separadamente.",
+    "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "Se você adicionar um URL a este software para buscar um arquivo JSON e um arquivo de hash, a extensão se conectará ao URL designado para buscar o arquivo JSON de regras remotas ou o arquivo de hash sempre que esta extensão estiver habilitada e carregada em seu navegador. Cada vez que busca arquivos com base no URL definido, o servidor que hospeda arquivos como JSON e hash receberá seu endereço IP, bem como informações gerais como versão da extensão, navegador e versão do navegador. Esses dados estão sujeitos à política de privacidade do site ou servidor web (onde esses arquivos estão hospedados) em questão."
+    "message": "Se você adicionar uma regra remota URL, a extensão se conectará ao servidor designado para buscar um conjunto de regras Linkumori (ClearURLs 2.0) JSON, seu arquivo hash quando configurado ou um Linkumori URL Filtrar lista de interoperabilidade. Cada busca pode expor seu endereço IP e informações gerais, como versão da extensão, navegador e versão do navegador, ao servidor de hospedagem. Estes dados estão sujeitos à política de privacidade desse site ou servidor web.",
+    "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
     "message": "Leia a %PRIVACY_POLICY_LINK% novamente antes de continuar, se necessário."
@@ -1998,7 +2003,8 @@
     "message": "aviso de privacidade:"
   },
   "security_modal_recommendation": {
-    "message": "Em vez disso, use uma solução apenas com regras internas, como regras internas; além disso, você pode criar regras personalizadas manualmente."
+    "message": "Use regras internas, a menos que você confie e controle a fonte remota. Para regras Linkumori (ClearURLs 2.0) JSON, forneça um hash correspondente URL. Para listas de filtros de interoperabilidade, deixe o hash URL vazio.",
+    "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
     "message": "Seu endereço IP e informações do navegador serão expostos aos servidores configurados"
@@ -2007,10 +2013,12 @@
     "message": "Se a fonte da regra for comprometida, regras maliciosas podem ser fornecidas ao seu navegador"
   },
   "security_modal_risk_3": {
-    "message": "A verificação de hash protege apenas contra adulteração durante a transmissão, não contra fontes de regras maliciosas"
+    "message": "A verificação de hash se aplica apenas às regras Linkumori (ClearURLs 2.0) JSON; ele protege contra adulteração de transmissão e não contra fontes de regras maliciosas.",
+    "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Se tanto a fonte da regra quanto o arquivo de hash dos arquivos JSON forem comprometidos, você não terá proteção"
+    "message": "As listas de filtros de interoperabilidade não usam verificação de hash, portanto, a confiança na fonte URL é especialmente importante.",
+    "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
     "message": "Riscos de segurança:"
@@ -2025,7 +2033,8 @@
     "message": "O URL do arquivo rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Necessário para verificação de regras remotas. Deve corresponder ao arquivo de regras por segurança."
+    "message": "Obrigatório para regras remotas ClearURLs JSON. Deixe em branco para listas de filtros de rastreamento de extensão popular URL.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "Exportar"
@@ -2064,7 +2073,8 @@
     "message": "Limite de log (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Fontes remotas adicionais mescladas. Use uma por linha: <code>ruleURL | hashURL</code>"
+    "message": "Fontes remotas adicionais fundidas. Use <code>ruleURL | hashURL</code> para ClearURLs JSON ou apenas <code>ruleURL</code> para listas de rastreamento de extensão popular URL.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "Conjuntos de regras remotas adicionais"
@@ -2074,13 +2084,15 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "URL remota personalizada para definições de regras"
+    "message": "Controle remoto personalizado URL para ClearURLs JSON regras ou extensão popular URL filtros de rastreamento",
+    "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
     "message": "O URL do arquivo data.json (regras)"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Nota: O URL de hash é obrigatório ao usar regras remotas para verificação de segurança."
+    "message": "Observação: o hash URL é obrigatório apenas para regras remotas ClearURLs JSON. As listas de rastreamento da extensão popular URL são armazenadas separadamente como filtros Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/pt-BR/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Tipos de requisição</a> (nível especialista)"
@@ -2575,19 +2587,22 @@
     "message": "AVISO: Recurso avançado destinado apenas a servidores auto-hospedados"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Você está desabilitando as proteções do Gatekeeper para edição de URLs de regras remotas. Este recurso de regras remotas é projetado exclusivamente para usuários avançados que sabem o que estão fazendo. Se você não tem ideia do que isso significa, não use este recurso."
+    "message": "Você está desativando as proteções Gatekeeper para edição remota da regra URL. Este recurso pode carregar regras Linkumori (ClearURLs 2.0) JSON com verificação de hash ou Linkumori URL Filtrar listas de interoperabilidade sem verificação de hash. Prossiga somente se você entender qual formato está configurando.",
+    "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "O Gatekeeper é o fluxo de segurança integrado que bloqueia edições diretas de URL remota até que você reconheça o aviso de segurança e complete a confirmação digitada."
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Em vez disso, use uma solução apenas com regras internas, como regras internas; além disso, você pode criar regras personalizadas manualmente."
+    "message": "Mantenha Gatekeeper ativado, a menos que você confie e controle suas fontes remotas. As regras JSON devem incluir um hash correspondente URL; as listas de interoperabilidade deixam intencionalmente o hash URL vazio.",
+    "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "aviso de privacidade:"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Se você adicionar um URL a este software para buscar um arquivo JSON e um arquivo de hash, a extensão se conectará ao URL designado para buscar o arquivo JSON de regras remotas ou o arquivo de hash sempre que esta extensão estiver habilitada e carregada em seu navegador. Cada vez que busca arquivos com base no URL definido, o servidor que hospeda arquivos como JSON e hash receberá seu endereço IP, bem como informações gerais como versão da extensão, navegador e versão do navegador. Esses dados estão sujeitos à política de privacidade do site ou servidor web (onde esses arquivos estão hospedados) em questão."
+    "message": "Se você adicionar uma regra remota URL, a extensão se conectará ao servidor designado para buscar um conjunto de regras Linkumori (ClearURLs 2.0) JSON, seu arquivo hash quando configurado ou um Linkumori URL Filtrar lista de interoperabilidade. Cada busca pode expor seu endereço IP e informações gerais, como versão da extensão, navegador e versão do navegador, ao servidor de hospedagem. Estes dados estão sujeitos à política de privacidade desse site ou servidor web.",
+    "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Leia a %PRIVACY_POLICY_LINK% novamente antes de continuar, se necessário."
@@ -2602,7 +2617,8 @@
     "message": "A extensão se conectará ao URL designado sempre que a extensão estiver habilitada e carregada em seu navegador."
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "O servidor que hospeda os arquivos JSON e hash remotos receberá seu endereço IP."
+    "message": "O servidor que hospeda arquivos remotos JSON, hash ou filtro de interoperabilidade receberá seu endereço IP.",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "O servidor também pode receber sua versão da extensão, navegador e versão do navegador."
@@ -2611,7 +2627,8 @@
     "message": "Esses dados estão sujeitos à política de privacidade do site ou servidor web que hospeda esses arquivos."
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Ao desabilitar o Gatekeeper, você aumenta o risco de fontes de regras remotas inseguras ou comprometidas. Se você não entende este recurso, não o use. Use regras internas e, opcionalmente, crie regras personalizadas manualmente."
+    "message": "Ao desabilitar Gatekeeper, você aumenta o risco de fontes de regras remotas inseguras ou comprometidas. A verificação de hash protege apenas downloads de regras Linkumori (ClearURLs 2.0) JSON. Não se aplica a listas de interoperabilidade.",
+    "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Cancelar"
@@ -2671,7 +2688,8 @@
     "message": "Digite a frase de confirmação exata"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Esta ação reduz as salvaguardas para regras remotas. Prossiga apenas se confiar em suas fontes."
+    "message": "Esta ação reduz as salvaguardas para regras remotas. Prossiga somente se você confiar em suas fontes de filtro JSON e de interoperabilidade.",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
     "message": "Substitua os valores de espaço reservado pelos seus URLs HTTPS reais e importe este arquivo."
@@ -3217,5 +3235,221 @@
   },
   "log_stats_no_activity": {
     "message": "Nenhuma atividade"
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Filtros (Interoperabilidade):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Regras:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Informações sobre regras:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL regras de filtro:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL fontes de filtro:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Status da regra:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Status de hash:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL status do filtro:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Carregado"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Parcialmente carregado"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Todas as fontes falharam"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Nenhuma fonte de filtro URL sem hash configurada"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Regras remotas desativadas"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Não carregado"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Vazio"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "não é obrigatório"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL filtros"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Filtro"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Linkumori URL filtros mesclados"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Regras personalizadas Linkumori URL"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL o analisador de filtro não está disponível"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Falha nas regras personalizadas Linkumori URL"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL fonte(s) de filtro falharam"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "O arquivo de filtro remoto URL está vazio"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL falha na busca do filtro"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Erro de filtro desconhecido URL"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Todas as fontes de filtro Linkumori URL falharam"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "extensão popular URL filtro de rastreamento"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Nenhuma regra de interoperabilidade Linkumori suportada $removeparam encontrada"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori interoperabilidade de URL filtros"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Fonte de filtro de interoperabilidade Linkumori"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Regras"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Regras personalizadas URL"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Adicione as regras populares de extensão $removeparam ou $queryprune aqui. Essas regras são armazenadas separadamente dos provedores personalizados ClearURLs e mescladas nos filtros Linkumori URL."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Validar"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Nenhuma regra personalizada Linkumori URL configurada."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 regras suportadas, $2 ignoradas não suportadas, $3 duplicadas ignoradas."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Falha na validação"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Salvos e recarregados Linkumori URL regras."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Falha ao salvar"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "As regras suportadas aparecerão aqui após a validação."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL o analisador de filtro não está disponível."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Filtros (Interoperabilidade)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Estado"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Regras de tempo de execução"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Regras personalizadas"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hash"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 regras de tempo de execução\n$3 regras personalizadas"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Fechar Linkumori regras personalizadas URL"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Quais são as regras Linkumori URL?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "As regras Linkumori URL são linhas de filtro de rastreamento de extensão populares URL focadas em $removeparam. Elas são úteis quando você deseja colar a sintaxe da lista de filtros diretamente em vez de criar o provedor ClearURLs JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Os filtros de extensão remota popular URL e essas regras personalizadas não precisam de verificação de hash. Eles são armazenados em LinkumoriURLsData após a análise, separados de ClearURLsData."
   }
 }

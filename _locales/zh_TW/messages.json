@@ -56,8 +56,8 @@
     "description": "控制內建規則的切換按鈕的描述。"
   },
   "bundled_rules_description": {
-    "message": "Linkumori 使用內建規則和自定義規則來識別並移除 URL 中的追蹤參數。這些規則會自動更新，以確保有效防止最新的追蹤方法。",
-    "description": "關於內建規則的部分描述。"
+    "message": "Linkumori 使用兩個規則類別：Linkumori (ClearURLs 2.0) JSON 用於本機提供程序的規則，以及 Linkumori 987用於流行擴展的過濾互通性規則$removeparam 列出。每個類別單獨計算。",
+    "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
     "message": "規則資訊",
@@ -2297,8 +2297,8 @@
     "description": "當主要哈希 URL 未使用 HTTPS 時，顯示的驗證訊息。"
   },
   "save_primary_remote_pair_required": {
-    "message": "主要遠端規則和哈希 URL 都必須提供",
-    "description": "當只有主要規則/哈希 URL 中的一個設定時，顯示的驗證訊息。"
+    "message": "只有當主規則 URL 指向 Linkumori (ClearURLs 2.0) JSON 規則時，才需要主哈希 URL。",
+    "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
     "message": "主要規則 URL 必須使用 HTTPS",
@@ -2345,16 +2345,16 @@
     "description": "安全性視窗中的繼續按鈕文字。"
   },
   "security_modal_final_warning": {
-    "message": "如果您不完全理解其涉及的含義和風險，請重新考慮使用此功能。",
-    "description": "安全模態框中的最終警告信息"
+    "message": "如果您不完全了解您的來源是 Linkumori (ClearURLs 2.0) JSON 規則集還是 Linkumori URL 篩選器遠端操作性清單應重新考慮使用功能性清單。",
+    "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "此遠程規則功能專為高級用戶設計，這些用戶清楚地知道自己在做什麼。如果您不了解其含義，請不要使用此功能。",
-    "description": "主要警告文本，解釋目的和風險"
+    "message": "此遠端規則功能專為了解正在載入的來源格式的進階使用者而設計。 Linkumori (ClearURLs 2.0) JSON 遠端規則需要匹配的雜湊值 URL 進行驗證。 Linkumori URL 無需哈希即可載入過濾器互通性清單 URL 並單獨儲存。",
+    "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "如果您在此軟件中添加一個URL，用於獲取JSON文件和哈希文件，則每當您在瀏覽器中啟用並加載此擴展程序時，該擴展程序將連接到您指定的URL以獲取遠程規則JSON文件或哈希文件。每次它根據您定義的URL獲取文件時，託管這些文件的服務器（例如JSON和哈希文件）將接收您的IP地址以及一般信息，如您的擴展程序版本、瀏覽器和瀏覽器版本。這些數據受相關網站或Web服務器（託管這些文件的地方）的隱私政策約束。",
-    "description": "隱私聲明，解釋數據收集策略"
+    "message": "如果您新增遠端規則 URL，擴充功能將連接到您指定的伺服器以取得 Linkumori (ClearURLs 2.0) JSON 規則集、其配置後的雜湊檔案或 98789695676969過濾器互通性列表。每次提取都可能會向託管伺服器公開您的 IP 地址和一般信息，例如擴展程序版本、瀏覽器和瀏覽器版本。該資料受該網站或網路伺服器的隱私權政策的約束。",
+    "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
     "message": "如果需要，請在繼續之前再次閱讀 %PRIVACY_POLICY_LINK%。",
@@ -2365,8 +2365,8 @@
     "description": "隱私聲明部分的標題"
   },
   "security_modal_recommendation": {
-    "message": "建議僅使用內置規則解決方案。此外，您還可以手動創建自定義規則。",
-    "description": "建議使用內置規則而不是遠程規則"
+    "message": "使用內建規則，除非您信任並控制遠端來源。對於 Linkumori (ClearURLs 2.0) JSON 規則，請提供匹配的雜湊值 URL。對於互通性篩選器列表，請將雜湊值 URL 留空。",
+    "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
     "message": "您的IP地址和瀏覽器信息將暴露給配置的服務器。",
@@ -2377,12 +2377,12 @@
     "description": "第二個安全風險點"
   },
   "security_modal_risk_3": {
-    "message": "哈希驗證僅能防止傳輸篡改，而不能防禦惡意規則源。",
-    "description": "第三個安全風險點"
+    "message": "雜湊驗證僅適用於 Linkumori (ClearURLs 2.0) JSON 規則；它可以防止傳輸篡改，而不是惡意規則來源。",
+    "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "如果JSON文件的規則源和哈希文件都被破壞，您將沒有任何保護。",
-    "description": "第四個安全風險點"
+    "message": "互通性過濾器清單不使用雜湊驗證，因此對來源 URL 的信任尤為重要。",
+    "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
     "message": "安全風險：",
@@ -2401,8 +2401,8 @@
     "description": "此字符串用作 rules.hash URL 標籤的名稱。"
   },
   "setting_hash_url_mandatory": {
-    "message": "對於遠程規則驗證是必需的。必須與規則文件匹配以確保安全。",
-    "description": "哈希URL字段的描述，解釋其為必填項"
+    "message": "ClearURLs JSON 遠端規則必需。對於流行的擴展 URL 追蹤過濾器列表，將其留空。",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "導出",
@@ -2451,8 +2451,8 @@
     "description": "日誌限制輸入字段的標籤。"
   },
   "setting_remote_rule_sets_description": {
-    "message": "合併在一起的其他遠程源。每行一個：<code>規則URL | 哈希URL</code>",
-    "description": "其他遠程規則+哈希 URL 組合的描述。"
+    "message": "其他遠端來源合併在一起。使用 <code>ruleURL | hashURL</code> 表示 ClearURLs JSON，或僅使用 <code>ruleURL</code> 表示常用擴充功能 URL 追蹤清單。",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "其他遠程規則集",
@@ -2463,16 +2463,16 @@
     "description": "其他遠程規則集條目的占位符。"
   },
   "setting_rule_url_description": {
-    "message": "自定義遠程 URL，用於規則定義",
-    "description": "自定義規則 URL 輸入字段的描述"
+    "message": "自訂遠端 URL 用於 ClearURLs JSON 規則或流行擴充 URL 追蹤過濾器",
+    "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
     "message": "data.json 文件的 URL (規則)",
     "description": "此字符串用作規則 URL 標籤的名稱。"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "注意：使用遠端規則進行安全驗證時，必須提供哈希 URL。",
-    "description": "關於強制要求哈希 URL 的說明"
+    "message": "注意：雜湊值 URL 僅對於 ClearURLs JSON 遠端規則是必需的。流行的擴充功能 URL 追蹤清單單獨儲存為 Linkumori URL 過濾器。",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>請求類型</a> (專家級)",
@@ -3091,24 +3091,24 @@
     "description": "「禁用 Gatekeeper」彈窗頂部警告橫幅文字"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "您正在禁用 Gatekeeper 的保護，用於編輯遠端規則 URL。此遠端規則功能專為了解其用途的進階使用者設計。如果您不清楚這意味著什麼，請不要使用此功能。",
-    "description": "「禁用 Gatekeeper」彈窗的主要警告文字"
+    "message": "您正在停用遠端規則 URL 編輯的 Gatekeeper 保護。此功能可以載入帶有雜湊驗證的 Linkumori (ClearURLs 2.0) JSON 規則，或不帶哈希驗證的 Linkumori URL9 互操作性清單篩選。僅當您了解要配置的格式時才能繼續。",
+    "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper 是一個內建的安全機制，它會阻止直接編輯遠端 URL，直到您確認安全警告並完成輸入確認。",
     "description": "說明「禁用 Gatekeeper」彈窗中 Gatekeeper 的含義"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "建議使用內建規則方案。此外，您可以手動建立自訂規則。",
-    "description": "「禁用 Gatekeeper」彈窗中的建議文字"
+    "message": "除非您信任並控制遠端來源，否則請保持啟用 Gatekeeper。 JSON 規則應包含符合的雜湊值 URL；互通性清單有意將雜湊值 URL 留空。",
+    "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "警告提示：",
     "description": "「禁用 Gatekeeper」彈窗中隱私權部分的標題"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "如果您將 URL 添加到此軟體以用於抓取 JSON 檔案和雜湊檔案，則該擴充功能會連接到您指定的 URL，以便每次啟用並在您的瀏覽器中載入該擴充功能時，從遠端抓取規則 JSON 檔案或雜湊檔案。 每次它根據您定義的 URL 抓取檔案時，託管這些檔案（例如 JSON 和雜湊檔案）的伺服器也會接收到您的 IP 位址以及一般資訊，例如您的擴充功能版本、瀏覽器和瀏覽器版本。 此資料受該網站或網路伺服器（其中託管這些檔案）的隱私權政策約束。",
-    "description": "「禁用 Gatekeeper」彈窗中隱私權部分的內容"
+    "message": "如果您新增遠端規則 URL，擴充功能將連接到您指定的伺服器以取得 Linkumori (ClearURLs 2.0) JSON 規則集、其配置後的雜湊檔案或 98789695676969過濾器互通性列表。每次提取都可能會向託管伺服器公開您的 IP 地址和一般信息，例如擴展程序版本、瀏覽器和瀏覽器版本。該資料受該網站或網路伺服器的隱私權政策的約束。",
+    "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "如果需要，請在繼續之前再次閱讀 %PRIVACY_POLICY_LINK%。",
@@ -3127,8 +3127,8 @@
     "description": "「禁用 Gatekeeper」彈窗中風險項目 1"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "託管遠端 JSON 和雜湊檔案的伺服器將接收您的 IP 位址。",
-    "description": "「禁用 Gatekeeper」彈窗中風險項目 2"
+    "message": "託管遠端 JSON、雜湊或互通性過濾器檔案的伺服器將收到您的 IP 位址。",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "該伺服器也可能接收到您的擴充功能版本、瀏覽器和瀏覽器版本。",
@@ -3139,8 +3139,8 @@
     "description": "「禁用 Gatekeeper」彈窗中風險項目 4"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "透過禁用 Gatekeeper，您會增加來自不安全或已損毀的遠端規則來源的風險。 如果您不了解此功能，請勿使用它。 請使用內建規則，並可選擇手動建立自訂規則。",
-    "description": "「禁用 Gatekeeper」彈窗中最終警告橫幅文字"
+    "message": "透過停用 Gatekeeper，您會增加不安全或受損的遠端規則來源的風險。雜湊驗證僅保護 Linkumori (ClearURLs 2.0) JSON 規則下載。它不適用於互通性列表。",
+    "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "取消",
@@ -3219,8 +3219,8 @@
     "description": "適用於 Gatekeeper 的特定確認彈窗中的輸入標籤"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "此操作會減少遠端規則的安全措施。 僅當您信任您的來源時才繼續。",
-    "description": "適用於 Gatekeeper 的特定確認彈窗中的最終警告文字"
+    "message": "此操作減少了遠端規則的保障措施。僅當您信任 JSON 和互通性過濾器來源時才繼續。",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
     "message": "將佔位符值替換為您的實際 HTTPS URL，然後匯入此檔案。",
@@ -4112,5 +4112,221 @@
   "customRulesEditor_ruleTestLab_value_false": {
     "message": "否",
     "description": "規則測試實驗室輸出中的布林假值文字。"
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL 過濾器（互通性）："
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON 規則："
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON 規則資訊："
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL過濾規則："
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL 篩選來源："
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "規則狀態："
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "哈希狀態："
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL 過濾器狀態："
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "已載入"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "部分載入"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "所有來源都失敗"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "未配置 hashless URL 過濾源"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "遠端規則已停用"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "未載入"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "空的"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "不需要"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL 過濾器"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL 過濾器"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "合併 Linkumori URL 過濾器"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "定制Linkumori URL規則"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL 過濾器解析器不可用"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "自訂 Linkumori URL 規則失敗"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL 過濾源失敗"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "遠端URL過濾文件為空"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL 篩選器取得失敗"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "未知 URL 過濾器錯誤"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "所有 Linkumori URL 過濾源失敗"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "流行擴充 URL 追蹤過濾器"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "未找到受支援的 Linkumori 互通性 $removeparam 規則"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL 過濾器互通性"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori 互通過濾源"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL 規則"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori 定制 URL 規則"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "在此新增常用分機 $removeparam 或 $queryprune 規則。這些規則與 ClearURLs 自訂提供者分開存儲，並合併到 Linkumori URL 過濾器中。"
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "證實"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "未配置自訂 Linkumori URL 規則。"
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 支援的規則，$2 不支援的跳過，$3 重複的跳過。"
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "驗證失敗"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "已儲存並重新載入 Linkumori URL 規則。"
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "保存失敗"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "驗證後，支援的規則將顯示在此。"
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL 過濾器解析器不可用。"
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL 過濾器（互通性）"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL 狀態"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "運行時規則"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "自訂規則"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL 哈希"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 運行時規則\n$3 自訂規則"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "關閉Linkumori客製URL規則"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Linkumori URL 規則是什麼？"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL 規則是流行的擴展跟踪 URL 過濾器行，重點關注 $removeparam。當您想要直接貼上過濾器清單語法而不是建立 ClearURLs 提供者 JSON 時，它們非常有用。"
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "遠端流行擴充URL過濾器和這些自訂規則不需要雜湊驗證。解析後它們儲存在LinkumoriURLsData中，與ClearURLsData分開。"
   }
 }

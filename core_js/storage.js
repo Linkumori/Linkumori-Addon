@@ -105,6 +105,10 @@ var tempVerificationCache = {
 let temporaryPauseUntilBrowserRestart = false;
 const IMPORT_EXCLUSIONS_KEY = 'customrules_import_exclusions';
 
+function linkumoriStorageI18n(key, substitutions = []) {
+    return globalThis.LinkumoriI18n.getMessage(key, substitutions);
+}
+
 function ensureRemoteRulesHealthShape() {
     const current = storage.remoteRulesHealth;
     if (!current || typeof current !== 'object' || Array.isArray(current)) {
@@ -185,6 +189,11 @@ function recordHashVerification(verification, ruleURL = null, hashURL = null) {
 function getRemoteRulesHealth() {
     ensureRemoteRulesHealthShape();
     const pauseState = getTemporaryPauseState();
+    const linkumoriURLsData = storage.LinkumoriURLsData || {};
+    const linkumoriURLsMetadata = linkumoriURLsData.metadata || {};
+    const linkumoriRuleCount = Array.isArray(linkumoriURLsData.rules) ? linkumoriURLsData.rules.length : 0;
+    const linkumoriRuleStatus = linkumoriURLsMetadata.ruleStatus ||
+        (linkumoriRuleCount > 0 ? 'loaded' : (linkumoriURLsMetadata.status || 'not_loaded'));
     return {
         ...storage.remoteRulesHealth,
         hashStatus: storage.hashStatus || 'unknown',
@@ -193,6 +202,17 @@ function getRemoteRulesHealth() {
         isCacheUsed: !!tempVerificationCache.isCacheUsed,
         lastVerification: tempVerificationCache.lastVerification || null,
         remoteRulesEnabled: !!storage.remoteRulesEnabled,
+        linkumoriURLsStatus: linkumoriURLsMetadata.status || linkumoriURLsMetadata.source || 'not_loaded',
+        linkumoriURLsRuleStatus: linkumoriRuleStatus,
+        linkumoriURLsHashStatus: linkumoriURLsMetadata.hashStatus || 'not_required',
+        linkumoriURLsRuleCount: linkumoriRuleCount,
+        linkumoriURLsSourceCount: Number(linkumoriURLsMetadata.sourceCount || 0),
+        linkumoriURLsFailedSourceCount: Number(linkumoriURLsMetadata.failedSourceCount || 0),
+        linkumoriURLsUnsupportedRuleCount: Number(linkumoriURLsMetadata.skippedUnsupportedRuleCount || 0),
+        linkumoriURLsDuplicateRuleCount: Number(linkumoriURLsMetadata.skippedDuplicateRuleCount || 0),
+        linkumoriURLsLastFetchAttemptAt: linkumoriURLsMetadata.lastFetchAttemptAt || null,
+        linkumoriURLsLastFetchSuccessAt: linkumoriURLsMetadata.lastFetchSuccessAt || null,
+        linkumoriURLsFailureReason: linkumoriURLsMetadata.lastFailureReason || null,
         temporaryPause: pauseState
     };
 }
@@ -397,7 +417,7 @@ function filterProvidersByDisabledSignatures(providers, disabledSignatures) {
     };
 }
 
-function normalizeRemoteRuleSetEntry(entry) {
+function normalizeRemoteRuleSetEntry(entry, requireHash = true) {
     if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
         return null;
     }
@@ -405,7 +425,11 @@ function normalizeRemoteRuleSetEntry(entry) {
     const ruleURL = typeof entry.ruleURL === 'string' ? entry.ruleURL.trim() : '';
     const hashURL = typeof entry.hashURL === 'string' ? entry.hashURL.trim() : '';
 
-    if (!isValidRuleURL(ruleURL) || !isValidRuleURL(hashURL)) {
+    if (!isValidRuleURL(ruleURL)) {
+        return null;
+    }
+
+    if (requireHash && !isValidRuleURL(hashURL)) {
         return null;
     }
 
@@ -432,7 +456,7 @@ function getConfiguredRemoteRuleSets() {
 
     if (Array.isArray(storage.remoteRuleSets)) {
         storage.remoteRuleSets.forEach(entry => {
-            const normalized = normalizeRemoteRuleSetEntry(entry);
+            const normalized = normalizeRemoteRuleSetEntry(entry, true);
             if (!normalized) {
                 return;
             }
@@ -448,6 +472,38 @@ function getConfiguredRemoteRuleSets() {
     }
 
     return remoteRuleSets;
+}
+
+function getConfiguredLinkumoriURLFilterURLs() {
+    if (!storage.remoteRulesEnabled) {
+        return [];
+    }
+
+    const urls = [];
+    const dedupe = new Set();
+    const addURL = (ruleURL, hashURL = '') => {
+        const cleanRuleURL = typeof ruleURL === 'string' ? ruleURL.trim() : '';
+        const cleanHashURL = typeof hashURL === 'string' ? hashURL.trim() : '';
+        if (!isValidRuleURL(cleanRuleURL) || cleanHashURL) {
+            return;
+        }
+        if (dedupe.has(cleanRuleURL)) {
+            return;
+        }
+        dedupe.add(cleanRuleURL);
+        urls.push(cleanRuleURL);
+    };
+
+    addURL(storage.ruleURL, storage.hashURL);
+
+    if (Array.isArray(storage.remoteRuleSets)) {
+        storage.remoteRuleSets.forEach(entry => {
+            if (!entry || typeof entry !== 'object') return;
+            addURL(entry.ruleURL, entry.hashURL);
+        });
+    }
+
+    return urls;
 }
 
 function mergeRemoteProviderGroup(providerGroup) {
@@ -945,8 +1001,16 @@ function storageDataAsString(key) {
                 return JSON.stringify({ providers: {} });
             }
             return JSON.stringify(minifiedRules);
+        case "linkumori_url_custom_rules":
+            try {
+                return JSON.stringify(value && typeof value === 'object' ? value : { rules: [] });
+            } catch (e) {
+                return JSON.stringify({ rules: [] });
+            }
         case "remoteRulescache":
             try { return JSON.stringify(value); } catch (e) { return JSON.stringify(null); }
+        case "LinkumoriURLsData":
+            try { return JSON.stringify(value); } catch (e) { return JSON.stringify({ format: 'linkumori-url-filter-interoperability', rules: [] }); }
         case "types":
             return value.toString();
         default:
@@ -1069,6 +1133,256 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
     }, true);
 
     return cachedData;
+}
+
+function saveEmptyLinkumoriURLsData(status = 'empty') {
+    storage.LinkumoriURLsData = {
+        metadata: {
+            name: linkumoriStorageI18n('linkumori_url_filter_name'),
+            source: 'linkumori_urls_empty',
+            status,
+            ruleStatus: status,
+            hashStatus: 'not_required',
+            sourceCount: 0,
+            supportedRuleCount: 0,
+            skippedUnsupportedRuleCount: 0,
+            skippedDuplicateRuleCount: 0
+        },
+        format: 'linkumori-url-filter-interoperability',
+        rules: []
+    };
+    saveOnDisk(['LinkumoriURLsData']);
+    return storage.LinkumoriURLsData;
+}
+
+function parseLinkumoriURLCustomRulesData() {
+    const customData = storage.linkumori_url_custom_rules || { rules: [] };
+    const rawRules = Array.isArray(customData.rules)
+        ? customData.rules
+        : (typeof customData === 'string' ? customData.split(/\r?\n/) : []);
+    const text = rawRules
+        .map(rule => typeof rule === 'string' ? rule.trim() : '')
+        .filter(Boolean)
+        .join('\n');
+
+    if (!text) {
+        return null;
+    }
+
+    if (!globalThis.LinkumoriURLFilterInteroperability ||
+        typeof globalThis.LinkumoriURLFilterInteroperability.parseFilterList !== 'function') {
+        throw new Error(linkumoriStorageI18n('linkumori_url_filter_parser_unavailable'));
+    }
+
+    const parsed = globalThis.LinkumoriURLFilterInteroperability.parseFilterList(text, 'linkumori_url_custom_rules');
+    parsed.metadata = {
+        ...(parsed.metadata || {}),
+        name: linkumoriStorageI18n('linkumori_url_filter_custom_name'),
+        source: 'linkumori_urls_custom',
+        sourceURL: 'linkumori_url_custom_rules',
+        status: 'loaded',
+        ruleStatus: 'loaded',
+        hashStatus: 'not_required',
+        lastFetchAttemptAt: null,
+        lastFetchSuccessAt: null
+    };
+    return parsed;
+}
+
+function getLinkumoriURLCustomSource() {
+    try {
+        const parsed = parseLinkumoriURLCustomRulesData();
+        if (!parsed) {
+            return null;
+        }
+        return {
+            url: 'linkumori_url_custom_rules',
+            data: parsed
+        };
+    } catch (error) {
+        return {
+            url: 'linkumori_url_custom_rules',
+            error: error?.message || linkumoriStorageI18n('linkumori_url_filter_custom_failed')
+        };
+    }
+}
+
+function mergeLinkumoriURLFilterSources(successfulSources, failedSources = []) {
+    const rules = [];
+    const seen = new Set();
+    let skippedUnsupportedRuleCount = 0;
+    let skippedDuplicateRuleCount = 0;
+    let lastFetchAttemptAt = null;
+    let lastFetchSuccessAt = null;
+
+    successfulSources.forEach(source => {
+        const sourceRules = Array.isArray(source.data?.rules) ? source.data.rules : [];
+        skippedUnsupportedRuleCount += Number(source.data?.metadata?.skippedUnsupportedRuleCount || 0);
+        skippedDuplicateRuleCount += Number(source.data?.metadata?.skippedDuplicateRuleCount || 0);
+        lastFetchAttemptAt = source.data?.metadata?.lastFetchAttemptAt || lastFetchAttemptAt;
+        lastFetchSuccessAt = source.data?.metadata?.lastFetchSuccessAt || lastFetchSuccessAt;
+
+        sourceRules.forEach(rule => {
+            if (seen.has(rule)) {
+                skippedDuplicateRuleCount++;
+                return;
+            }
+            seen.add(rule);
+            rules.push(rule);
+        });
+    });
+
+    return {
+        metadata: {
+            name: successfulSources.length > 1
+                ? linkumoriStorageI18n('linkumori_url_filter_merged_name')
+                : (successfulSources[0]?.data?.metadata?.name || linkumoriStorageI18n('linkumori_url_filter_single_name')),
+            source: successfulSources.length > 1 ? 'linkumori_urls_merged' : (successfulSources[0]?.data?.metadata?.source || 'linkumori_urls_remote'),
+            status: failedSources.length > 0 ? 'partially_loaded' : 'loaded',
+            ruleStatus: failedSources.length > 0 ? 'partially_loaded' : 'loaded',
+            hashStatus: 'not_required',
+            sourceURL: successfulSources.length > 1 ? 'multiple' : successfulSources[0]?.url || null,
+            sourceCount: successfulSources.length,
+            failedSourceCount: failedSources.length,
+            supportedRuleCount: rules.length,
+            skippedUnsupportedRuleCount,
+            skippedDuplicateRuleCount,
+            lastFetchAttemptAt,
+            lastFetchSuccessAt,
+            lastFailureReason: failedSources.length > 0
+                ? linkumoriStorageI18n('linkumori_url_filter_sources_failed_count', [String(failedSources.length)])
+                : null,
+            remoteSources: successfulSources.map(source => ({
+                ruleURL: source.url,
+                supportedRuleCount: Array.isArray(source.data?.rules) ? source.data.rules.length : 0
+            })),
+            failedSources
+        },
+        format: 'linkumori-url-filter-interoperability',
+        rules
+    };
+}
+
+async function fetchLinkumoriURLFilter(url) {
+    const fetchedAt = new Date().toISOString();
+    recordRemoteFetchAttempt(url, null);
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            cache: 'no-store'
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const text = await response.text();
+        if (!text || text.trim().length === 0) {
+            throw new Error(linkumoriStorageI18n('linkumori_url_filter_remote_empty'));
+        }
+        if (!globalThis.LinkumoriURLFilterInteroperability ||
+            typeof globalThis.LinkumoriURLFilterInteroperability.parseFilterList !== 'function') {
+            throw new Error(linkumoriStorageI18n('linkumori_url_filter_parser_unavailable'));
+        }
+
+        const parsed = globalThis.LinkumoriURLFilterInteroperability.parseFilterList(text, url);
+        recordRemoteFetchSuccess(url, null);
+        parsed.metadata = {
+            ...(parsed.metadata || {}),
+            status: 'loaded',
+            ruleStatus: 'loaded',
+            hashStatus: 'not_required',
+            lastFetchAttemptAt: fetchedAt,
+            lastFetchSuccessAt: new Date().toISOString()
+        };
+        return parsed;
+    } catch (error) {
+        recordRemoteFetchFailure(error?.message || linkumoriStorageI18n('linkumori_url_filter_fetch_failed'), 'linkumori_url_filter_fetch', url, null);
+        throw error;
+    }
+}
+
+async function loadLinkumoriURLFilters() {
+    const customSource = getLinkumoriURLCustomSource();
+    const successful = [];
+    const failed = [];
+
+    if (customSource) {
+        if (customSource.data) {
+            successful.push(customSource);
+        } else {
+            failed.push({
+                ruleURL: customSource.url,
+                error: customSource.error || linkumoriStorageI18n('linkumori_url_filter_custom_failed')
+            });
+        }
+    }
+
+    const urls = getConfiguredLinkumoriURLFilterURLs();
+    if (!storage.remoteRulesEnabled || urls.length === 0) {
+        if (successful.length > 0) {
+            storage.LinkumoriURLsData = mergeLinkumoriURLFilterSources(successful, failed);
+            if (!storage.remoteRulesEnabled) {
+                storage.LinkumoriURLsData.metadata.remoteStatus = 'remote_disabled';
+            } else {
+                storage.LinkumoriURLsData.metadata.remoteStatus = 'no_hashless_sources';
+            }
+            saveOnDisk(['LinkumoriURLsData']);
+            return storage.LinkumoriURLsData;
+        }
+
+        const emptyStatus = !storage.remoteRulesEnabled ? 'remote_disabled' : 'no_hashless_sources';
+        const empty = saveEmptyLinkumoriURLsData(emptyStatus);
+        if (failed.length > 0) {
+            empty.metadata.failedSources = failed;
+            empty.metadata.failedSourceCount = failed.length;
+            empty.metadata.lastFailureReason = failed[0]?.error || linkumoriStorageI18n('linkumori_url_filter_custom_failed');
+            saveOnDisk(['LinkumoriURLsData']);
+        }
+        return empty;
+    }
+
+    const results = await Promise.allSettled(urls.map(async url => ({
+        url,
+        data: await fetchLinkumoriURLFilter(url)
+    })));
+
+    results.forEach((result, index) => {
+        const url = urls[index];
+        if (result.status === 'fulfilled') {
+            successful.push(result.value);
+        } else {
+            failed.push({
+                ruleURL: url,
+                error: result.reason?.message || linkumoriStorageI18n('linkumori_url_filter_unknown_error')
+            });
+        }
+    });
+
+    if (successful.length === 0) {
+        const empty = saveEmptyLinkumoriURLsData('all_sources_failed');
+        empty.metadata.failedSources = failed;
+        empty.metadata.failedSourceCount = failed.length;
+        empty.metadata.lastFailureReason = failed[0]?.error || linkumoriStorageI18n('linkumori_url_filter_all_sources_failed');
+        saveOnDisk(['LinkumoriURLsData']);
+        return empty;
+    }
+
+    storage.LinkumoriURLsData = mergeLinkumoriURLFilterSources(successful, failed);
+    saveOnDisk(['LinkumoriURLsData']);
+    return storage.LinkumoriURLsData;
+}
+
+function reloadLinkumoriURLFilters() {
+    return loadLinkumoriURLFilters().then((data) => {
+        let appliedLive = false;
+        if (typeof globalThis.updateLinkumoriURLFilterRuntimeData === 'function') {
+            appliedLive = !!globalThis.updateLinkumoriURLFilterRuntimeData();
+        }
+        return {
+            data,
+            appliedLive
+        };
+    });
 }
 
 function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
@@ -1276,10 +1590,18 @@ function loadBundledRules() {
     }
 
     if (!areValidRemoteURLsPresent()) {
+        const hasLinkumoriURLFilters = getConfiguredLinkumoriURLFilterURLs().length > 0;
         storage.hashStatus = "no_remote_urls";
         storage.hashValidationStatus = 'not_applicable';
         tempVerificationCache.isRemoteVerified = false;
-        recordRemoteFetchFailure('No valid remote rule/hash URL pairs configured', 'invalid_remote_urls');
+        if (hasLinkumoriURLFilters) {
+            updateRemoteRulesHealth({
+                lastFailureReason: null,
+                lastFailureStage: null
+            }, true);
+        } else {
+            recordRemoteFetchFailure('No valid remote rule/hash URL pairs configured', 'invalid_remote_urls');
+        }
 
         if (storage.builtInRulesEnabled === false) {
             storage.hashStatus = "custom_only_loaded";
@@ -1933,10 +2255,13 @@ function mergeCustomRules(bundledRules) {
 }
 
 function reloadCustomRules() {
-    return loadBundledRules().then(() => {
+    return loadBundledRules().then(() => loadLinkumoriURLFilters()).then(() => {
         let appliedLive = false;
         if (typeof globalThis.updateProviderData === 'function') {
             appliedLive = !!globalThis.updateProviderData();
+        }
+        if (typeof globalThis.updateLinkumoriURLFilterRuntimeData === 'function') {
+            globalThis.updateLinkumoriURLFilterRuntimeData();
         }
         
         return {
@@ -2102,19 +2427,44 @@ function startClearurlsIfConsentGranted() {
     return false;
 }
 
+function initLinkumoriPublicSuffixList() {
+    const pslService = globalThis.linkumoriPsl || null;
+    if (!pslService || typeof pslService.init !== 'function') {
+        return Promise.resolve(false);
+    }
+
+    if (pslService.status === 'ready') {
+        return Promise.resolve(true);
+    }
+
+    return pslService.init({
+        dataPath: 'data/public_suffix_list.dat',
+        runtimeAPI: browser.runtime
+    }).then(() => true).catch(error => {
+        console.warn('[Linkumori] Public suffix list initialization failed:', error);
+        return false;
+    });
+}
+
 function genesis() {
     browser.storage.local.get(null).then((items) => {
         initStorage(items);
         consumePostReloadOpenUrl();
 
-        loadBundledRules().then(() => {
+        initLinkumoriPublicSuffixList().then(() => loadBundledRules()).then(() => loadLinkumoriURLFilters()).then(() => {
             startClearurlsIfConsentGranted();
+            if (hasPopupConsentForStartup() && typeof globalThis.startLinkumoriURLFilterRuntime === 'function') {
+                globalThis.startLinkumoriURLFilterRuntime();
+            }
             changeIcon();
             contextMenuStart();
             historyListenerStart();
             
         }).catch(error => {
             startClearurlsIfConsentGranted();
+            if (hasPopupConsentForStartup() && typeof globalThis.startLinkumoriURLFilterRuntime === 'function') {
+                globalThis.startLinkumoriURLFilterRuntime();
+            }
             changeIcon();
             contextMenuStart();
             historyListenerStart();
@@ -2133,6 +2483,7 @@ function getEntireData() {
 function setData(key, value) {
     switch (key) {
         case "ClearURLsData":
+        case "LinkumoriURLsData":
         case "log":
             if (typeof value === 'string') {
                 storage[key] = JSON.parse(value);
@@ -2141,6 +2492,7 @@ function setData(key, value) {
             }
             break;
         case "custom_rules":
+        case "linkumori_url_custom_rules":
             if (typeof value === 'string') {
                 storage[key] = JSON.parse(value);
             } else {
@@ -2191,7 +2543,7 @@ function setData(key, value) {
 
             const dedupe = new Set();
             storage[key] = parsed
-                .map(normalizeRemoteRuleSetEntry)
+                .map(entry => normalizeRemoteRuleSetEntry(entry, false))
                 .filter(entry => {
                     if (!entry) {
                         return false;
@@ -2290,6 +2642,19 @@ function initStorage(items) {
 
 function initSettings() {
     storage.ClearURLsData = [];
+    storage.LinkumoriURLsData = {
+        metadata: {
+            name: linkumoriStorageI18n('linkumori_url_filter_name'),
+            source: 'linkumori_urls_empty',
+            status: 'not_loaded',
+            ruleStatus: 'not_loaded',
+            hashStatus: 'not_required',
+            sourceCount: 0,
+            supportedRuleCount: 0
+        },
+        format: 'linkumori-url-filter-interoperability',
+        rules: []
+    };
     storage.dataHash = "";
     storage.builtInRulesEnabled = true;
     storage.remoteRulesEnabled = false;
@@ -2338,6 +2703,7 @@ function initSettings() {
     storage.watchDogErrorCount = 0;
     storage.userWhitelist = [];
     storage.custom_rules = { providers: {} };
+    storage.linkumori_url_custom_rules = { rules: [] };
     storage.popupConsentAccepted = false;
     storage.popupConsentPolicyVersionAccepted = 0;
     storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] = '';
@@ -2611,6 +2977,9 @@ browser.storage.onChanged.addListener((changes, areaName) => {
 
     if (hasPopupConsentForStartup()) {
         startClearurlsIfConsentGranted();
+        if (typeof globalThis.startLinkumoriURLFilterRuntime === 'function') {
+            globalThis.startLinkumoriURLFilterRuntime();
+        }
     }
 });
 

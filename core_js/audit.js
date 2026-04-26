@@ -82,11 +82,7 @@ const sourceState = {
 };
 
 function translate(key, ...placeholders) {
-    try {
-        return LinkumoriI18n.getMessage(key, placeholders) || '';
-    } catch (error) {
-        return '';
-    }
+    return LinkumoriI18n.getMessage(key, placeholders);
 }
 
 function setHTMLContent(element, html) {

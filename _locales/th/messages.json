@@ -56,8 +56,8 @@
     "description": "คำอธิบายสำหรับสวิตช์ที่ควบคุมกฎในตัวแบบรวม"
   },
   "bundled_rules_description": {
-    "message": "Linkumori ใช้กฎแบบรวมและกฎที่กำหนดเองเพื่อระบุและลบพารามิเตอร์การติดตามจาก URL กฎเหล่านี้จะถูกอัปเดตโดยอัตโนมัติเพื่อให้การป้องกันมีประสิทธิภาพต่อวิธีการติดตามล่าสุด",
-    "description": "คำอธิบายสำหรับส่วนกฎแบบรวม"
+    "message": "Linkumori ใช้กฎสองประเภท: Linkumori (ClearURLs 2.0) กฎ JSON สำหรับผู้ให้บริการดั้งเดิม และ Linkumori URL กรองกฎการทำงานร่วมกันสำหรับส่วนขยายยอดนิยม $removeparam รายการ แต่ละหมวดหมู่จะถูกนับแยกกัน",
+    "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
     "message": "ข้อมูลกฎ",
@@ -2465,8 +2465,8 @@
     "description": "ข้อความตรวจสอบความถูกต้องเมื่อ URL แฮชหลักไม่ใช่ HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "ต้องระบุทั้ง URL กฎระยะไกลหลักและ URL แฮช",
-    "description": "ข้อความตรวจสอบความถูกต้องเมื่อตั้งค่า URL กฎ/แฮชเพียงอย่างใดอย่างหนึ่ง"
+    "message": "ต้องใช้แฮชหลัก URL เฉพาะเมื่อกฎหลัก URL ชี้ไปที่กฎ Linkumori (ClearURLs 2.0) JSON",
+    "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
     "message": "URL กฎหลักต้องใช้ HTTPS",
@@ -2513,16 +2513,16 @@
     "description": "ข้อความปุ่มดำเนินการต่อในโมดัลความปลอดภัย"
   },
   "security_modal_final_warning": {
-    "message": "คุณควรพิจารณาใหม่ในการใช้ฟีเจอร์นี้หากคุณไม่เข้าใจความหมายและความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้",
-    "description": "ข้อความเตือนสุดท้ายในโมดัลความปลอดภัย"
+    "message": "คุณควรพิจารณาใหม่โดยใช้กฎระยะไกลถ้าคุณไม่เข้าใจว่าแหล่งที่มาของคุณคือชุดกฎ Linkumori (ClearURLs 2.0) JSON หรือรายการการทำงานร่วมกันของตัวกรอง Linkumori URL",
+    "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "ฟีเจอร์กฎระยะไกลนี้ออกแบบมาเฉพาะสำหรับผู้ใช้ขั้นสูงที่รู้ว่ากำลังทำอะไร หากคุณไม่มีความคิดว่าหมายความว่าอย่างไร โปรดอย่าใช้ฟีเจอร์นี้",
-    "description": "ข้อความเตือนหลักอธิบายวัตถุประสงค์และความเสี่ยง"
+    "message": "คุณลักษณะกฎระยะไกลนี้ได้รับการออกแบบมาสำหรับผู้ใช้ขั้นสูงที่เข้าใจรูปแบบต้นฉบับที่พวกเขากำลังโหลด Linkumori (ClearURLs 2.0) JSON กฎระยะไกลจำเป็นต้องมีแฮชที่ตรงกัน URL สำหรับการตรวจสอบ Linkumori URL รายการการทำงานร่วมกันของตัวกรองสามารถโหลดได้โดยไม่มีแฮช URL และจัดเก็บแยกต่างหาก",
+    "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "หากคุณเพิ่ม URL ลงในซอฟต์แวร์นี้เพื่อดึงไฟล์ JSON และไฟล์แฮช ส่วนขยายจะเชื่อมต่อกับ URL ที่คุณกำหนดเพื่อดึงไฟล์ JSON กฎระยะไกลหรือไฟล์แฮชทุกครั้งที่เปิดใช้งานและโหลดส่วนขยายนี้ในเบราว์เซอร์ของคุณ ทุกครั้งที่ดึงไฟล์ตาม URL ที่คุณกำหนด เซิร์ฟเวอร์ที่โฮสต์ไฟล์เช่น JSON และแฮชจะได้รับที่อยู่ IP ของคุณ รวมถึงข้อมูลทั่วไปเช่น เวอร์ชันส่วนขยาย, เบราว์เซอร์, และเวอร์ชันเบราว์เซอร์ ข้อมูลนี้อยู่ภายใต้นโยบายความเป็นส่วนตัวของเว็บไซต์หรือเว็บเซิร์ฟเวอร์ (ที่โฮสต์ไฟล์เหล่านั้น) ดังกล่าว",
-    "description": "ประกาศความเป็นส่วนตัวอธิบายนโยบายการเก็บรวบรวมข้อมูล"
+    "message": "หากคุณเพิ่มกฎระยะไกล URL ส่วนขยายจะเชื่อมต่อกับเซิร์ฟเวอร์ที่คุณกำหนดเพื่อดึงชุดกฎ Linkumori (ClearURLs 2.0) JSON ไฟล์แฮชเมื่อกำหนดค่า หรือ Linkumori URL รายการการทำงานร่วมกันของตัวกรอง การดึงข้อมูลแต่ละครั้งอาจเปิดเผยที่อยู่ IP ของคุณและข้อมูลทั่วไป เช่น เวอร์ชันส่วนขยาย เบราว์เซอร์ และเวอร์ชันของเบราว์เซอร์ ไปยังเซิร์ฟเวอร์โฮสต์ ข้อมูลนี้อยู่ภายใต้นโยบายความเป็นส่วนตัวของเว็บไซต์หรือเว็บเซิร์ฟเวอร์นั้น",
+    "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
     "message": "อ่าน %PRIVACY_POLICY_LINK% อีกครั้งก่อนดำเนินการต่อหากจำเป็น",
@@ -2533,8 +2533,8 @@
     "description": "ส่วนหัวสำหรับส่วนประกาศความเป็นส่วนตัว"
   },
   "security_modal_recommendation": {
-    "message": "ใช้เฉพาะกฎในตัวแทน หรือคุณสามารถสร้างกฎที่กำหนดเองด้วยตนเอง",
-    "description": "คำแนะนำให้ใช้กฎในตัวแทน"
+    "message": "ใช้กฎในตัว เว้นแต่คุณจะเชื่อถือและควบคุมแหล่งข้อมูลระยะไกล สำหรับกฎ Linkumori (ClearURLs 2.0) JSON ให้ระบุแฮชที่ตรงกัน URL สำหรับรายการตัวกรองความสามารถในการทำงานร่วมกัน ให้ปล่อยแฮช URL ว่างไว้",
+    "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
     "message": "ที่อยู่ IP และข้อมูลเบราว์เซอร์ของคุณจะถูกเปิดเผยต่อเซิร์ฟเวอร์ที่กำหนดค่า",
@@ -2545,12 +2545,12 @@
     "description": "จุดความเสี่ยงด้านความปลอดภัยข้อที่สอง"
   },
   "security_modal_risk_3": {
-    "message": "การตรวจสอบแฮชป้องกันเฉพาะการงัดแงะการส่งข้อมูล ไม่ใช่แหล่งที่มาของกฎที่เป็นอันตราย",
-    "description": "จุดความเสี่ยงด้านความปลอดภัยข้อที่สาม"
+    "message": "การตรวจสอบแฮชใช้กับกฎ Linkumori (ClearURLs 2.0) JSON เท่านั้น โดยจะป้องกันการปลอมแปลงการส่งข้อมูล ไม่ใช่แหล่งที่มาของกฎที่เป็นอันตราย",
+    "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "หากทั้งแหล่งที่มาของกฎและไฟล์แฮชของไฟล์ JSON ถูกบุกรุก คุณจะไม่มีการป้องกัน",
-    "description": "จุดความเสี่ยงด้านความปลอดภัยข้อที่สี่"
+    "message": "รายการตัวกรองการทำงานร่วมกันไม่ได้ใช้การตรวจสอบแฮช ดังนั้นการเชื่อถือแหล่งที่มา URL จึงมีความสำคัญอย่างยิ่ง",
+    "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
     "message": "ความเสี่ยงด้านความปลอดภัย:",
@@ -2569,8 +2569,8 @@
     "description": "สตริงนี้ใช้เป็นชื่อสำหรับป้ายกำกับ URL rule.hash"
   },
   "setting_hash_url_mandatory": {
-    "message": "จำเป็นสำหรับการตรวจสอบกฎระยะไกล ต้องตรงกับไฟล์กฎเพื่อความปลอดภัย",
-    "description": "คำอธิบายสำหรับฟิลด์ URL แฮชอธิบายว่าจำเป็น"
+    "message": "จำเป็นสำหรับกฎระยะไกล ClearURLs JSON เว้นว่างไว้สำหรับรายการตัวกรองการติดตามส่วนขยายยอดนิยม URL",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "ส่งออก",
@@ -2619,8 +2619,8 @@
     "description": "ป้ายกำกับสำหรับฟิลด์ป้อนข้อมูลขีดจำกัดบันทึก"
   },
   "setting_remote_rule_sets_description": {
-    "message": "แหล่งข้อมูลระยะไกลเพิ่มเติมที่รวมกัน ใช้หนึ่งรายการต่อบรรทัด: <code>ruleURL | hashURL</code>",
-    "description": "คำอธิบายสำหรับคู่ URL กฎ+แฮชระยะไกลเพิ่มเติม"
+    "message": "รวมแหล่งข้อมูลระยะไกลเพิ่มเติมเข้าด้วยกัน ใช้ <code>ruleURL | hashURL</code> สำหรับ ClearURLs JSON หรือเพียง <code>ruleURL</code> สำหรับส่วนขยายยอดนิยม URL รายการติดตาม",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "ชุดกฎระยะไกลเพิ่มเติม",
@@ -2631,16 +2631,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "URL ระยะไกลที่กำหนดเองสำหรับคำจำกัดความของกฎ",
-    "description": "คำอธิบายสำหรับฟิลด์ป้อนข้อมูล URL กฎที่กำหนดเอง"
+    "message": "รีโมทแบบกำหนดเอง URL สำหรับ ClearURLs JSON กฎหรือส่วนขยายยอดนิยม URL ตัวกรองการติดตาม",
+    "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
     "message": "URL ของไฟล์ data.json (กฎ)",
     "description": "สตริงนี้ใช้เป็นชื่อสำหรับป้ายกำกับ URL กฎ"
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "หมายเหตุ: จำเป็นต้องมี URL แฮชเมื่อใช้กฎระยะไกลเพื่อการตรวจสอบความปลอดภัย",
-    "description": "หมายเหตุเกี่ยวกับข้อกำหนด URL แฮช"
+    "message": "หมายเหตุ: จำเป็นต้องมีแฮช URL สำหรับกฎระยะไกล ClearURLs JSON เท่านั้น รายการติดตามส่วนขยายยอดนิยม URL จะถูกจัดเก็บแยกต่างหากเป็นตัวกรอง Linkumori URL",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>ประเภทคำขอ</a> (ระดับผู้เชี่ยวชาญ)",
@@ -3259,24 +3259,24 @@
     "description": "ข้อความแบนเนอร์คำเตือนด้านบนในโมดัลปิดใช้งาน Gatekeeper"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "คุณกำลังปิดการป้องกัน Gatekeeper สำหรับการแก้ไข URL กฎระยะไกล ฟีเจอร์กฎระยะไกลนี้ออกแบบมาเฉพาะสำหรับผู้ใช้ขั้นสูงที่รู้ว่ากำลังทำอะไร หากคุณไม่มีความคิดว่าหมายความว่าอย่างไร โปรดอย่าใช้ฟีเจอร์นี้",
-    "description": "ข้อความเตือนหลักในโมดัลปิดใช้งาน Gatekeeper"
+    "message": "คุณกำลังปิดใช้งานการป้องกัน Gatekeeper สำหรับการแก้ไขกฎระยะไกล URL คุณลักษณะนี้สามารถโหลดกฎ Linkumori (ClearURLs 2.0) JSON พร้อมการตรวจสอบแฮช หรือ Linkumori URL กรองรายการการทำงานร่วมกันโดยไม่ต้องตรวจสอบแฮช ดำเนินการต่อเมื่อคุณเข้าใจว่าคุณกำลังกำหนดค่ารูปแบบใด",
+    "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper คือโฟลว์ความปลอดภัยในตัวที่บล็อกการแก้ไข URL ระยะไกลโดยตรงจนกว่าคุณจะรับทราบคำเตือนด้านความปลอดภัยและยืนยันด้วยการพิมพ์",
     "description": "อธิบายความหมายของ Gatekeeper ในโมดัลปิดใช้งาน Gatekeeper"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "ใช้เฉพาะกฎในตัวแทน หรือคุณสามารถสร้างกฎที่กำหนดเองด้วยตนเอง",
-    "description": "ข้อความแนะนำในโมดัลปิดใช้งาน Gatekeeper"
+    "message": "เปิดใช้งาน Gatekeeper ไว้ เว้นแต่คุณจะเชื่อถือและควบคุมแหล่งข้อมูลระยะไกลของคุณ กฎ JSON ควรมีแฮชที่ตรงกัน URL รายการความสามารถในการทำงานร่วมกันตั้งใจปล่อยให้แฮช URL ว่างเปล่า",
+    "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "ประกาศคำเตือน:",
     "description": "หัวข้อส่วนความเป็นส่วนตัวในโมดัลปิดใช้งาน Gatekeeper"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "หากคุณเพิ่ม URL ลงในซอฟต์แวร์นี้เพื่อดึงไฟล์ JSON และไฟล์แฮช ส่วนขยายจะเชื่อมต่อกับ URL ที่คุณกำหนดเพื่อดึงไฟล์ JSON กฎระยะไกลหรือไฟล์แฮชทุกครั้งที่เปิดใช้งานและโหลดส่วนขยายนี้ในเบราว์เซอร์ของคุณ ทุกครั้งที่ดึงไฟล์ตาม URL ที่คุณกำหนด เซิร์ฟเวอร์ที่โฮสต์ไฟล์เช่น JSON และแฮชจะได้รับที่อยู่ IP ของคุณ รวมถึงข้อมูลทั่วไปเช่น เวอร์ชันส่วนขยาย, เบราว์เซอร์, และเวอร์ชันเบราว์เซอร์ ข้อมูลนี้อยู่ภายใต้นโยบายความเป็นส่วนตัวของเว็บไซต์หรือเว็บเซิร์ฟเวอร์ (ที่โฮสต์ไฟล์เหล่านั้น) ดังกล่าว",
-    "description": "เนื้อหาส่วนความเป็นส่วนตัวในโมดัลปิดใช้งาน Gatekeeper"
+    "message": "หากคุณเพิ่มกฎระยะไกล URL ส่วนขยายจะเชื่อมต่อกับเซิร์ฟเวอร์ที่คุณกำหนดเพื่อดึงชุดกฎ Linkumori (ClearURLs 2.0) JSON ไฟล์แฮชเมื่อกำหนดค่า หรือ Linkumori URL รายการการทำงานร่วมกันของตัวกรอง การดึงข้อมูลแต่ละครั้งอาจเปิดเผยที่อยู่ IP ของคุณและข้อมูลทั่วไป เช่น เวอร์ชันส่วนขยาย เบราว์เซอร์ และเวอร์ชันของเบราว์เซอร์ ไปยังเซิร์ฟเวอร์โฮสต์ ข้อมูลนี้อยู่ภายใต้นโยบายความเป็นส่วนตัวของเว็บไซต์หรือเว็บเซิร์ฟเวอร์นั้น",
+    "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "อ่าน %PRIVACY_POLICY_LINK% อีกครั้งก่อนดำเนินการต่อหากจำเป็น",
@@ -3295,8 +3295,8 @@
     "description": "หัวข้อย่อยความเสี่ยง 1 ในโมดัลปิดใช้งาน Gatekeeper"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "เซิร์ฟเวอร์ที่โฮสต์ไฟล์ JSON และแฮชระยะไกลจะได้รับที่อยู่ IP ของคุณ",
-    "description": "หัวข้อย่อยความเสี่ยง 2 ในโมดัลปิดใช้งาน Gatekeeper"
+    "message": "เซิร์ฟเวอร์ที่โฮสต์ไฟล์ระยะไกล JSON, แฮช หรือตัวกรองการทำงานร่วมกันจะได้รับที่อยู่ IP ของคุณ",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "เซิร์ฟเวอร์อาจได้รับเวอร์ชันส่วนขยาย, เบราว์เซอร์, และเวอร์ชันเบราว์เซอร์ของคุณ",
@@ -3307,8 +3307,8 @@
     "description": "หัวข้อย่อยความเสี่ยง 4 ในโมดัลปิดใช้งาน Gatekeeper"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "การปิดใช้งาน Gatekeeper จะเพิ่มความเสี่ยงจากแหล่งที่มากฎระยะไกลที่ไม่ปลอดภัยหรือถูกบุกรุก หากคุณไม่เข้าใจฟีเจอร์นี้ อย่าใช้ ใช้กฎในตัวและสร้างกฎที่กำหนดเองด้วยตนเองตามต้องการ",
-    "description": "ข้อความเตือนสุดท้ายในโมดัลปิดใช้งาน Gatekeeper"
+    "message": "ด้วยการปิดใช้งาน Gatekeeper คุณจะเพิ่มความเสี่ยงจากแหล่งที่มาของกฎระยะไกลที่ไม่ปลอดภัยหรือถูกบุกรุก การตรวจสอบแฮชจะป้องกันการดาวน์โหลดกฎ Linkumori (ClearURLs 2.0) JSON เท่านั้น ใช้ไม่ได้กับรายการการทำงานร่วมกัน",
+    "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "ยกเลิก",
@@ -3387,8 +3387,8 @@
     "description": "ป้ายกำกับอินพุตสำหรับโมดัลยืนยันเฉพาะ Gatekeeper"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "การดำเนินการนี้ลดมาตรการป้องกันสำหรับกฎระยะไกล ดำเนินการต่อเฉพาะเมื่อคุณเชื่อถือแหล่งที่มาของคุณ",
-    "description": "ข้อความเตือนสุดท้ายสำหรับโมดัลยืนยันเฉพาะ Gatekeeper"
+    "message": "การดำเนินการนี้จะช่วยลดการป้องกันสำหรับกฎระยะไกล ดำเนินการต่อเมื่อคุณเชื่อถือ JSON และแหล่งที่มาของตัวกรองความสามารถในการทำงานร่วมกันเท่านั้น",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
     "message": "แทนที่ค่าตัวยึดตำแหน่งด้วย URL HTTPS จริงของคุณ จากนั้นนำเข้าไฟล์นี้",
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "ไม่มีกิจกรรม",
     "description": "ป้ายกำกับแถวสำรองเมื่อไม่มีข้อมูลสถิติรายวัน"
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL ตัวกรอง (การทำงานร่วมกัน):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON กฎ:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON ข้อมูลกฎ:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "กฎตัวกรอง URL:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL แหล่งที่มาของตัวกรอง:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "สถานะกฎ:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "สถานะแฮช:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL สถานะตัวกรอง:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "โหลดแล้ว"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "โหลดแล้วบางส่วน"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "แหล่งที่มาทั้งหมดล้มเหลว"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ไม่มีการกำหนดค่าแหล่งตัวกรอง URL แบบไม่แฮช"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ปิดใช้งานกฎระยะไกลแล้ว"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ไม่โหลด"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ว่างเปล่า"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "ไม่จำเป็น"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL ตัวกรอง"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL ตัวกรอง"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "รวม Linkumori URL ตัวกรอง"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "กำหนดเอง Linkumori URL กฎ"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL ตัวแยกวิเคราะห์ตัวกรองไม่พร้อมใช้งาน"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "กฎ Linkumori URL แบบกำหนดเองล้มเหลว"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL แหล่งตัวกรองล้มเหลว"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "ไฟล์ตัวกรองระยะไกล URL ว่างเปล่า"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL การดึงข้อมูลตัวกรองล้มเหลว"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "ข้อผิดพลาดตัวกรอง URL ที่ไม่รู้จัก"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "แหล่งตัวกรอง Linkumori URL ทั้งหมดล้มเหลว"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "ส่วนขยายยอดนิยม URL ตัวกรองการติดตาม"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "ไม่พบกฎการทำงานร่วมกันของ Linkumori ที่สนับสนุน $removeparam"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL การทำงานร่วมกันของตัวกรอง"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori แหล่งที่มาของตัวกรองการทำงานร่วมกัน"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL กฎ"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori กฎ URL แบบกำหนดเอง"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "เพิ่มกฎส่วนขยายยอดนิยม $removeparam หรือ $queryprune ที่นี่ กฎเหล่านี้จะถูกจัดเก็บแยกต่างหากจากผู้ให้บริการแบบกำหนดเอง ClearURLs และรวมเข้ากับตัวกรอง Linkumori URL"
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "ตรวจสอบความถูกต้อง"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "ไม่มีการกำหนดค่ากฎ Linkumori URL แบบกำหนดเอง"
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "กฎที่รองรับ $1, $2 ไม่รองรับการข้าม, $3 ซ้ำกันถูกข้าม"
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "การตรวจสอบความถูกต้องล้มเหลว"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "บันทึกและโหลดกฎ Linkumori URL ใหม่แล้ว"
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "บันทึกล้มเหลว"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "กฎที่รองรับจะปรากฏที่นี่หลังจากการตรวจสอบความถูกต้อง"
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL ตัวแยกวิเคราะห์ตัวกรองไม่พร้อมใช้งาน"
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL ตัวกรอง (การทำงานร่วมกัน)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL สถานะ"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "กฎรันไทม์"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "กฎที่กำหนดเอง"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL แฮช"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\nกฎรันไทม์ $2\nกฎที่กำหนดเอง $3"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "ปิดกฎ URL แบบกำหนดเอง Linkumori"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "กฎ Linkumori URL คืออะไร"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "กฎ Linkumori URL เป็นส่วนขยายยอดนิยมที่ติดตามบรรทัดตัวกรอง URL ที่เน้นไปที่ $removeparam ซึ่งมีประโยชน์เมื่อคุณต้องการวางไวยากรณ์รายการตัวกรองโดยตรงแทนที่จะสร้างผู้ให้บริการ ClearURLs JSON"
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "ตัวกรองส่วนขยายยอดนิยมระยะไกล URL และกฎที่กำหนดเองเหล่านี้ไม่จำเป็นต้องมีการตรวจสอบแฮช พวกเขาจะถูกเก็บไว้ใน LinkumoriURLsData หลังจากแยกวิเคราะห์ แยกจาก ClearURLsData"
   }
 }

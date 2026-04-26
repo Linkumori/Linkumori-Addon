@@ -1931,14 +1931,8 @@ function parseRemoteRuleSetsFromText(textValue) {
 
     lines.forEach((line, index) => {
         const separator = line.indexOf('|');
-        if (separator === -1) {
-            const template = translate('remote_rule_sets_error_expected_pair');
-            errors.push(template.replace('$LINE$', getLocalizedNumber(index + 1)));
-            return;
-        }
-
-        const ruleURL = line.slice(0, separator).trim();
-        const hashURL = line.slice(separator + 1).trim();
+        const ruleURL = separator === -1 ? line.trim() : line.slice(0, separator).trim();
+        const hashURL = separator === -1 ? '' : line.slice(separator + 1).trim();
 
         if (!isValidURL(ruleURL) || !ruleURL.startsWith('https://')) {
             const template = translate('remote_rule_sets_error_invalid_rule_url');
@@ -1946,7 +1940,7 @@ function parseRemoteRuleSetsFromText(textValue) {
             return;
         }
 
-        if (!isValidURL(hashURL) || !hashURL.startsWith('https://')) {
+        if (hashURL && (!isValidURL(hashURL) || !hashURL.startsWith('https://'))) {
             const template = translate('remote_rule_sets_error_invalid_hash_url');
             errors.push(template.replace('$LINE$', getLocalizedNumber(index + 1)));
             return;
@@ -1971,7 +1965,7 @@ function formatAdditionalRemoteRuleSets(remoteRuleSets) {
 
     return remoteRuleSets
         .slice(1)
-        .map(set => `${set.ruleURL} | ${set.hashURL}`)
+        .map(set => set.hashURL ? `${set.ruleURL} | ${set.hashURL}` : set.ruleURL)
         .join('\n');
 }
 
@@ -2003,11 +1997,20 @@ function getRemoteUrlConfigurationFromInputs() {
     const hashURLInput = document.querySelector('input[name=hashURL]');
     const remoteRuleSetsInput = document.querySelector('textarea[name=remoteRuleSets]');
 
-    const primaryRuleURL = ruleURLInput ? ruleURLInput.value.trim() : '';
-    const primaryHashURL = hashURLInput ? hashURLInput.value.trim() : '';
-    const additionalText = remoteRuleSetsInput ? remoteRuleSetsInput.value.trim() : '';
+    let primaryRuleURL = ruleURLInput ? ruleURLInput.value.trim() : '';
+    let primaryHashURL = hashURLInput ? hashURLInput.value.trim() : '';
+    let additionalText = remoteRuleSetsInput ? remoteRuleSetsInput.value.trim() : '';
 
-    if ((primaryRuleURL && !primaryHashURL) || (!primaryRuleURL && primaryHashURL)) {
+    if (!primaryRuleURL && !primaryHashURL && !additionalText && Array.isArray(settings.remoteRuleSets)) {
+        const firstSet = normalizeRemoteRulePair(settings.remoteRuleSets[0]);
+        if (firstSet) {
+            primaryRuleURL = firstSet.ruleURL;
+            primaryHashURL = firstSet.hashURL;
+        }
+        additionalText = formatAdditionalRemoteRuleSets(settings.remoteRuleSets);
+    }
+
+    if (!primaryRuleURL && primaryHashURL) {
         return { error: translate('save_primary_remote_pair_required') };
     }
 
@@ -2015,7 +2018,7 @@ function getRemoteUrlConfigurationFromInputs() {
         if (!isValidURL(primaryRuleURL) || !primaryRuleURL.startsWith('https://')) {
             return { error: translate('save_primary_rule_https_required') };
         }
-        if (!isValidURL(primaryHashURL) || !primaryHashURL.startsWith('https://')) {
+        if (primaryHashURL && (!isValidURL(primaryHashURL) || !primaryHashURL.startsWith('https://'))) {
             return { error: translate('save_primary_hash_https_required') };
         }
     }
@@ -2037,7 +2040,7 @@ function getRemoteUrlConfigurationFromInputs() {
     });
 
     return {
-        primary: primaryRuleURL && primaryHashURL
+        primary: primaryRuleURL
             ? { ruleURL: primaryRuleURL, hashURL: primaryHashURL }
             : null,
         additional
@@ -2048,12 +2051,16 @@ function normalizeRemoteRulePair(entry) {
     if (typeof entry === 'string') {
         const separator = entry.indexOf('|');
         if (separator === -1) {
-            return null;
+            entry = {
+                ruleURL: entry.trim(),
+                hashURL: ''
+            };
+        } else {
+            entry = {
+                ruleURL: entry.slice(0, separator).trim(),
+                hashURL: entry.slice(separator + 1).trim()
+            };
         }
-        entry = {
-            ruleURL: entry.slice(0, separator).trim(),
-            hashURL: entry.slice(separator + 1).trim()
-        };
     }
 
     if (!entry || typeof entry !== 'object') {
@@ -2065,13 +2072,13 @@ function normalizeRemoteRulePair(entry) {
     if (!ruleURL && !hashURL) {
         return null;
     }
-    if (!ruleURL || !hashURL) {
+    if (!ruleURL) {
         return null;
     }
     if (!isValidURL(ruleURL) || !ruleURL.startsWith('https://')) {
         return null;
     }
-    if (!isValidURL(hashURL) || !hashURL.startsWith('https://')) {
+    if (hashURL && (!isValidURL(hashURL) || !hashURL.startsWith('https://'))) {
         return null;
     }
 
@@ -2738,7 +2745,7 @@ function save() {
         urlValidationPassed = false;
     }
 
-    if ((ruleURLValue && !hashURLValue) || (!ruleURLValue && hashURLValue)) {
+    if (!ruleURLValue && hashURLValue) {
         showStatus(translate('save_primary_remote_pair_required'), 'error');
         urlValidationPassed = false;
     }
@@ -2768,7 +2775,7 @@ function save() {
     const remoteRuleSetsToSave = [];
     const dedupe = new Set();
 
-    if (ruleURLValue && hashURLValue) {
+    if (ruleURLValue) {
         const primaryKey = `${ruleURLValue}|||${hashURLValue}`;
         dedupe.add(primaryKey);
         remoteRuleSetsToSave.push({ ruleURL: ruleURLValue, hashURL: hashURLValue });
@@ -2984,14 +2991,40 @@ function getLocalizedHashStatus(status) {
     return statusText;
 }
 
+function getLocalizedLinkumoriURLRuleStatus(status) {
+    if (!status || typeof status !== 'string') {
+        return translate('settings_remote_health_unknown');
+    }
+
+    switch (status) {
+        case 'loaded':
+            return translate('linkumori_url_status_loaded');
+        case 'partially_loaded':
+            return translate('linkumori_url_status_partially_loaded');
+        case 'all_sources_failed':
+            return translate('linkumori_url_status_all_sources_failed');
+        case 'no_hashless_sources':
+            return translate('linkumori_url_status_no_sources');
+        case 'remote_disabled':
+            return translate('linkumori_url_status_remote_disabled');
+        case 'not_loaded':
+            return translate('linkumori_url_status_not_loaded');
+        case 'empty':
+            return translate('linkumori_url_status_empty');
+        default:
+            return status;
+    }
+}
+
 function renderRemoteRulesHealth(health) {
     const fetchAttemptEl = document.getElementById('remoteHealthFetchAttempt');
     const fetchSuccessEl = document.getElementById('remoteHealthFetchSuccess');
     const hashVerificationEl = document.getElementById('remoteHealthHashVerification');
     const failureReasonEl = document.getElementById('remoteHealthFailureReason');
     const hashStatusEl = document.getElementById('remoteHealthHashStatus');
+    const linkumoriURLStatusEl = document.getElementById('remoteHealthLinkumoriURLStatus');
 
-    if (!fetchAttemptEl || !fetchSuccessEl || !hashVerificationEl || !failureReasonEl || !hashStatusEl) {
+    if (!fetchAttemptEl || !fetchSuccessEl || !hashVerificationEl || !failureReasonEl || !hashStatusEl || !linkumoriURLStatusEl) {
         return;
     }
 
@@ -2999,10 +3032,36 @@ function renderRemoteRulesHealth(health) {
     fetchAttemptEl.textContent = formatHealthTimestamp(payload.lastFetchAttemptAt);
     fetchSuccessEl.textContent = formatHealthTimestamp(payload.lastFetchSuccessAt);
     hashVerificationEl.textContent = formatHealthTimestamp(payload.lastHashVerificationAt);
+    const linkumoriRuleCount = Number(payload.linkumoriURLsRuleCount || 0);
+    const linkumoriSourceCount = Number(payload.linkumoriURLsSourceCount || 0);
+    const linkumoriFailedCount = Number(payload.linkumoriURLsFailedSourceCount || 0);
+    const linkumoriUnsupportedCount = Number(payload.linkumoriURLsUnsupportedRuleCount || 0);
+    const linkumoriDuplicateCount = Number(payload.linkumoriURLsDuplicateRuleCount || 0);
+
     failureReasonEl.textContent = payload.lastFailureReason || translate('settings_remote_health_none');
-    hashStatusEl.textContent = getLocalizedHashStatus(
+
+    const hashStatusText = getLocalizedHashStatus(
         payload.hashStatus || translate('settings_remote_health_unknown')
     );
+    hashStatusEl.textContent = hashStatusText;
+
+    let linkumoriStatusText = getLocalizedLinkumoriURLRuleStatus(
+        payload.linkumoriURLsRuleStatus || payload.linkumoriURLsStatus || 'not_loaded'
+    );
+    if (linkumoriRuleCount > 0) {
+        linkumoriStatusText += `: ${getLocalizedNumber(linkumoriRuleCount)} rules from ${getLocalizedNumber(linkumoriSourceCount)} source(s)`;
+        if (linkumoriFailedCount > 0) {
+            linkumoriStatusText += `, ${getLocalizedNumber(linkumoriFailedCount)} source(s) failed`;
+        }
+        if (linkumoriUnsupportedCount > 0) {
+            linkumoriStatusText += `, ${getLocalizedNumber(linkumoriUnsupportedCount)} unsupported rule(s) skipped`;
+        }
+        if (linkumoriDuplicateCount > 0) {
+            linkumoriStatusText += `, ${getLocalizedNumber(linkumoriDuplicateCount)} duplicate rule(s) skipped`;
+        }
+        linkumoriStatusText += `, hash ${payload.linkumoriURLsHashStatus === 'not_required' ? translate('linkumori_url_hash_not_required') : payload.linkumoriURLsHashStatus}`;
+    }
+    linkumoriURLStatusEl.textContent = linkumoriStatusText;
 }
 
 async function loadRemoteRulesHealth() {
@@ -3036,6 +3095,55 @@ async function refreshRemoteRulesNowFromSettings() {
     refreshButton.textContent = translate('settings_remote_health_refreshing');
 
     try {
+        const ruleURLInput = document.querySelector('input[name=ruleURL]');
+        const hashURLInput = document.querySelector('input[name=hashURL]');
+        const remoteRuleSetsInput = document.querySelector('textarea[name=remoteRuleSets]');
+        const ruleURLValue = ruleURLInput ? ruleURLInput.value.trim() : '';
+        const hashURLValue = hashURLInput ? hashURLInput.value.trim() : '';
+        const remoteRuleSetsTextValue = remoteRuleSetsInput ? remoteRuleSetsInput.value.trim() : '';
+        const parsedRemoteSets = parseRemoteRuleSetsFromText(remoteRuleSetsTextValue);
+
+        if (parsedRemoteSets.errors.length > 0) {
+            showStatus(parsedRemoteSets.errors[0], 'error');
+            return;
+        }
+        if (ruleURLValue && (!isValidURL(ruleURLValue) || !ruleURLValue.startsWith('https://'))) {
+            showStatus(translate('save_primary_rule_https_required'), 'error');
+            return;
+        }
+        if (hashURLValue && (!isValidURL(hashURLValue) || !hashURLValue.startsWith('https://'))) {
+            showStatus(translate('save_primary_hash_https_required'), 'error');
+            return;
+        }
+        if (!ruleURLValue && hashURLValue) {
+            showStatus(translate('save_primary_remote_pair_required'), 'error');
+            return;
+        }
+
+        const remoteRuleSetsToSave = [];
+        const dedupe = new Set();
+        if (ruleURLValue) {
+            const primaryKey = `${ruleURLValue}|||${hashURLValue}`;
+            dedupe.add(primaryKey);
+            remoteRuleSetsToSave.push({ ruleURL: ruleURLValue, hashURL: hashURLValue });
+        }
+        parsedRemoteSets.remoteRuleSets.forEach(set => {
+            const key = `${set.ruleURL}|||${set.hashURL}`;
+            if (!dedupe.has(key)) {
+                dedupe.add(key);
+                remoteRuleSetsToSave.push(set);
+            }
+        });
+
+        await Promise.all([
+            saveData('ruleURL', ruleURLValue),
+            saveData('hashURL', hashURLValue),
+            saveData('remoteRuleSets', remoteRuleSetsToSave)
+        ]);
+        settings.ruleURL = ruleURLValue;
+        settings.hashURL = hashURLValue;
+        settings.remoteRuleSets = remoteRuleSetsToSave;
+
         const response = await browser.runtime.sendMessage({
             function: "refreshRemoteRulesNow",
             params: []
@@ -3176,8 +3284,12 @@ function displayBundledRulesInfo() {
         browser.runtime.sendMessage({
             function: "getCustomRulesStats",
             params: []
+        }),
+        browser.runtime.sendMessage({
+            function: "getData",
+            params: ["LinkumoriURLsData"]
         })
-    ]).then(([rulesResponse, metadataResponse, customRulesResponse, hashStatusResponse, sourceInfoResponse, mergeStatsResponse, whitelistResponse, customStatsResponse]) => {
+    ]).then(([rulesResponse, metadataResponse, customRulesResponse, hashStatusResponse, sourceInfoResponse, mergeStatsResponse, whitelistResponse, customStatsResponse, linkumoriURLsResponse]) => {
         const rulesData = rulesResponse.response;
         const metadata = metadataResponse.response;
         const customRules = customRulesResponse.response;
@@ -3186,6 +3298,9 @@ function displayBundledRulesInfo() {
         const mergeStats = mergeStatsResponse.response || {};
         const whitelist = Array.isArray(whitelistResponse.response) ? whitelistResponse.response : [];
         const customStats = customStatsResponse && customStatsResponse.response ? customStatsResponse.response : {};
+        const linkumoriURLsData = linkumoriURLsResponse && linkumoriURLsResponse.response ? linkumoriURLsResponse.response : {};
+        const linkumoriURLsMetadata = linkumoriURLsData.metadata || {};
+        const linkumoriURLRuleCount = Array.isArray(linkumoriURLsData.rules) ? linkumoriURLsData.rules.length : 0;
         const statusElement = document.getElementById('bundled_rules_status');
         
         const statusLabel = translate('rules_status_label');
@@ -3201,9 +3316,11 @@ function displayBundledRulesInfo() {
                 const totalRulesLabel = translate('rules_total_rules_label');
                 const disabledProvidersLabel = translate('rules_disabled_providers_label');
                 const disabledProvidersCount = getLocalizedNumber(customStats.disabledProviders || mergeStats.disabledProviders || 0);
+                const clearURLsSectionLabel = translate('clearurls_json_rules_section');
                 
                 // Build basic info HTML with localized numbers
                 let html = `
+                    <strong>${clearURLsSectionLabel}</strong><br>
                     <strong>${statusLabel}</strong> ${statusActive}<br>
                     <strong>${totalProvidersLabel}</strong> ${getLocalizedNumber(providerCount)}<br>
                     <strong>${totalRulesLabel}</strong> ${getLocalizedNumber(ruleCount)}<br>
@@ -3249,8 +3366,41 @@ function displayBundledRulesInfo() {
                             html += `<br><strong>${sourceLabel}</strong> ${sourceText}`;
                             break;
                         default:
-                            html += `<br><strong>${sourceLabel}</strong> ${sourceText}`;
+                    html += `<br><strong>${sourceLabel}</strong> ${sourceText}`;
                     }
+                }
+
+                if (linkumoriURLRuleCount > 0 || linkumoriURLsMetadata.status) {
+                    const sectionLabel = translate('linkumori_url_rules_section');
+                    const countLabel = translate('linkumori_url_rules_count_label');
+                    const sourceCountLabel = translate('linkumori_url_sources_count_label');
+                    const statusLabelText = translate('linkumori_url_rule_status_label');
+                    const hashLabel = translate('linkumori_url_hash_status_label');
+                    const sourceCount = Number(linkumoriURLsMetadata.sourceCount || 0);
+                    const failedSourceCount = Number(linkumoriURLsMetadata.failedSourceCount || 0);
+                    const unsupportedCount = Number(linkumoriURLsMetadata.skippedUnsupportedRuleCount || 0);
+                    const duplicateCount = Number(linkumoriURLsMetadata.skippedDuplicateRuleCount || 0);
+                    const ruleStatus = getLocalizedLinkumoriURLRuleStatus(
+                        linkumoriURLsMetadata.ruleStatus || linkumoriURLsMetadata.status || 'not_loaded'
+                    );
+                    const hashStatus = linkumoriURLsMetadata.hashStatus === 'not_required'
+                        ? translate('linkumori_url_hash_not_required')
+                        : (linkumoriURLsMetadata.hashStatus || translate('settings_remote_health_unknown'));
+
+                    html += `<br><br><strong>${sectionLabel}</strong><br>`;
+                    html += `<strong>${statusLabelText}</strong> ${ruleStatus}<br>`;
+                    html += `<strong>${countLabel}</strong> ${getLocalizedNumber(linkumoriURLRuleCount)}<br>`;
+                    html += `<strong>${sourceCountLabel}</strong> ${getLocalizedNumber(sourceCount)}`;
+                    if (failedSourceCount > 0) {
+                        html += `, ${getLocalizedNumber(failedSourceCount)} source(s) failed`;
+                    }
+                    if (unsupportedCount > 0) {
+                        html += `<br>${getLocalizedNumber(unsupportedCount)} unsupported rule(s) skipped`;
+                    }
+                    if (duplicateCount > 0) {
+                        html += `<br>${getLocalizedNumber(duplicateCount)} duplicate rule(s) skipped`;
+                    }
+                    html += `<br><strong>${hashLabel}</strong> ${hashStatus}`;
                 }
                 
                 // ENHANCED: Add provider composition breakdown with localized numbers (only when there are custom rules)
@@ -3318,7 +3468,7 @@ function displayBundledRulesInfo() {
                         ? translate('rules_metadata_name_remote_merged')
                         : (metadata?.name || unknownText);
                     
-                    html += `<br><br><strong>${translate('rules_metadata_section')}</strong><br>`;
+                    html += `<br><br><strong>${translate('clearurls_json_rules_metadata_section')}</strong><br>`;
                     html += `<strong>${rulesNameLabel}</strong> ${displayedMetadataName}<br>`;
                     if (!isMergedRemoteMetadata) {
                         html += `<strong>${rulesVersionLabel}</strong> ${metadata.version || unknownText}<br>`;
@@ -3742,6 +3892,7 @@ setElementText('remote_rules_enabled_description', 'remote_rules_enabled_descrip
     setElementText('remoteHealthHashVerificationLabel', 'settings_remote_health_hash_verification_label');
     setElementText('remoteHealthFailureReasonLabel', 'settings_remote_health_failure_reason_label');
     setElementText('remoteHealthHashStatusLabel', 'settings_remote_health_hash_status_label');
+    setElementText('remoteHealthLinkumoriURLStatusLabel', 'settings_remote_health_linkumori_url_status_label');
     
     // Set appropriate placeholders - always locked initially (never persisted)
     const ruleURLInput = document.getElementById('ruleURL');
@@ -3920,14 +4071,10 @@ function setElementTooltip(id, translationKey) {
  * Translate a string with the i18n API.
  * @param {string} string - Name of the attribute used for localization
  * @param {...(string|number)} placeholders - Array of placeholders
- * @returns {string} Translated string or empty string if translation fails
+ * @returns {string} Translated string
  */
 function translate(string, ...placeholders) {
-    try {
-        return LinkumoriI18n.getMessage(string, placeholders) || '';
-    } catch (error) {
-        return '';
-    }
+    return LinkumoriI18n.getMessage(string, placeholders);
 }
 
 /**

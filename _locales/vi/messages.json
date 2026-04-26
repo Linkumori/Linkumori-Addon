@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linkumori sử dụng các quy tắc đi kèm và quy tắc tùy chỉnh để xác định và xóa các tham số theo dõi khỏi URL. Các quy tắc này được cập nhật tự động để đảm bảo bảo vệ hiệu quả trước các phương pháp theo dõi mới nhất.",
+    "message": "Linkumori sử dụng hai loại quy tắc: Linkumori (ClearURLs 2.0) JSON quy tắc cho nhà cung cấp gốc và Linkumori URL Lọc quy tắc tương tác cho tiện ích mở rộng phổ biến $removeparam danh sách. Mỗi loại được tính riêng.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Cả quy tắc từ xa chính và URL băm đều phải được cung cấp",
+    "message": "Băm chính URL chỉ được yêu cầu khi quy tắc chính URL trỏ đến quy tắc Linkumori (ClearURLs 2.0) JSON.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "bạn nên xem xét lại việc sử dụng tính năng này nếu bạn không hiểu hết những tác động và rủi ro liên quan.",
+    "message": "Bạn nên xem xét lại việc sử dụng các quy tắc từ xa nếu bạn không hiểu đầy đủ liệu nguồn của bạn là bộ quy tắc ClearURLs 2.0) JSON hay một danh sách khả năng tương tác bộ lọc Linkumori URL.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "Tính năng quy tắc từ xa này được thiết kế dành riêng cho người dùng nâng cao biết họ đang làm gì. Nếu bạn không biết điều này có nghĩa là gì, vui lòng không sử dụng tính năng này.",
+    "message": "Tính năng quy tắc từ xa này được thiết kế dành cho người dùng nâng cao hiểu được định dạng nguồn mà họ đang tải. Linkumori (ClearURLs 2.0) JSON quy tắc từ xa yêu cầu hàm băm phù hợp URL để xác minh. Linkumori URL Danh sách khả năng tương tác của bộ lọc có thể được tải mà không cần hàm băm URL và được lưu trữ riêng.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "Nếu bạn thêm URL vào phần mềm này để tìm nạp tệp JSON và tệp băm, thì tiện ích mở rộng sẽ kết nối với URL được chỉ định của bạn để tìm nạp tệp JSON hoặc tệp băm quy tắc từ xa mỗi khi tiện ích mở rộng này được bật và tải trong trình duyệt của bạn. Mỗi lần nó tìm nạp các tệp dựa trên URL đã xác định của bạn, máy chủ lưu trữ các tệp như JSON và tệp băm sẽ nhận được địa chỉ IP cũng như thông tin chung như phiên bản tiện ích mở rộng, trình duyệt và phiên bản trình duyệt của bạn. Dữ liệu này tuân theo chính sách quyền riêng tư của trang web hoặc máy chủ web (nơi lưu trữ các tệp đó) được đề cập.",
+    "message": "Nếu bạn thêm quy tắc từ xa URL, tiện ích mở rộng sẽ kết nối với máy chủ được chỉ định của bạn để tìm nạp bộ quy tắc Linkumori (ClearURLs 2.0) JSON, tệp băm của nó khi được định cấu hình hoặc Linkumori URL Danh sách khả năng tương tác của bộ lọc. Mỗi lần tìm nạp có thể hiển thị địa chỉ IP của bạn và thông tin chung như phiên bản tiện ích mở rộng, trình duyệt và phiên bản trình duyệt tới máy chủ lưu trữ. Dữ liệu này tuân theo chính sách quyền riêng tư của trang web hoặc máy chủ web đó.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Thay vào đó, chỉ sử dụng giải pháp cho các quy tắc tích hợp như quy tắc tích hợp, ngoài ra, bạn có thể tạo quy tắc tùy chỉnh theo cách thủ công.",
+    "message": "Sử dụng các quy tắc tích hợp trừ khi bạn tin tưởng và kiểm soát nguồn từ xa. Đối với các quy tắc Linkumori (ClearURLs 2.0) JSON, hãy cung cấp hàm băm phù hợp URL. Đối với danh sách bộ lọc khả năng tương tác, hãy để trống hàm băm URL.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "Xác minh băm chỉ bảo vệ chống giả mạo đường truyền chứ không phải các nguồn quy tắc độc hại",
+    "message": "Xác minh băm chỉ áp dụng cho các quy tắc Linkumori (ClearURLs 2.0) JSON; nó bảo vệ chống giả mạo đường truyền chứ không phải các nguồn quy tắc độc hại.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Nếu cả nguồn quy tắc và tệp băm của tệp json đều bị xâm phạm, bạn sẽ không được bảo vệ",
+    "message": "Danh sách bộ lọc khả năng tương tác không sử dụng xác minh hàm băm, vì vậy sự tin cậy vào nguồn URL là đặc biệt quan trọng.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Cần thiết để xác minh quy tắc từ xa. Phải khớp với tệp quy tắc để bảo mật.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "Cần thiết cho ClearURLs JSON quy tắc từ xa. Để trống cho danh sách bộ lọc theo dõi tiện ích mở rộng phổ biến URL.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "Xuất khẩu",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Các nguồn từ xa bổ sung được hợp nhất với nhau. Sử dụng một cái trên mỗi dòng: <code>ruleURL | bămURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "Các nguồn từ xa bổ sung được hợp nhất với nhau. Sử dụng <code>ruleURL | hashURL</code> cho ClearURLs JSON hoặc chỉ <code>ruleURL</code> cho danh sách theo dõi tiện ích mở rộng phổ biến URL.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "Bộ quy tắc từ xa bổ sung",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "URL từ xa tùy chỉnh cho định nghĩa quy tắc",
+    "message": "Điều khiển từ xa tùy chỉnh URL cho ClearURLs JSON quy tắc hoặc bộ lọc theo dõi tiện ích mở rộng phổ biến URL",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Lưu ý: URL băm là bắt buộc khi sử dụng quy tắc từ xa để xác minh bảo mật.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "Lưu ý: Hash URL chỉ bắt buộc đối với các quy tắc từ xa ClearURLs JSON. Danh sách theo dõi tiện ích mở rộng phổ biến URL được lưu trữ riêng biệt dưới dạng bộ lọc Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Loại yêu cầu</a> (cấp chuyên gia)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Bạn đang tắt tính năng bảo vệ của Gatekeeper để chỉnh sửa URL quy tắc từ xa. Tính năng quy tắc từ xa này được thiết kế dành riêng cho người dùng nâng cao biết họ đang làm gì. Nếu bạn không biết điều này có nghĩa là gì, vui lòng không sử dụng tính năng này.",
+    "message": "Bạn đang vô hiệu hóa các biện pháp bảo vệ Gatekeeper để chỉnh sửa quy tắc URL từ xa. Tính năng này có thể tải Linkumori (ClearURLs 2.0) JSON quy tắc có xác minh hàm băm hoặc Linkumori URL Lọc danh sách khả năng tương tác mà không cần xác minh hàm băm. Chỉ tiếp tục nếu bạn hiểu định dạng bạn đang định cấu hình.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Thay vào đó, chỉ sử dụng giải pháp cho các quy tắc tích hợp như quy tắc tích hợp, ngoài ra, bạn có thể tạo quy tắc tùy chỉnh theo cách thủ công.",
+    "message": "Luôn bật Gatekeeper trừ khi bạn tin tưởng và kiểm soát các nguồn từ xa của mình. Các quy tắc JSON phải bao gồm hàm băm phù hợp URL; danh sách khả năng tương tác cố tình để trống hàm băm URL.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Nếu bạn thêm URL vào phần mềm này để tìm nạp tệp JSON và tệp băm, thì tiện ích mở rộng sẽ kết nối với URL được chỉ định của bạn để tìm nạp tệp JSON hoặc tệp băm quy tắc từ xa mỗi khi tiện ích mở rộng này được bật và tải trong trình duyệt của bạn. Mỗi lần nó tìm nạp các tệp dựa trên URL đã xác định của bạn, máy chủ lưu trữ các tệp như JSON và tệp băm sẽ nhận được địa chỉ IP cũng như thông tin chung như phiên bản tiện ích mở rộng, trình duyệt và phiên bản trình duyệt của bạn. Dữ liệu này tuân theo chính sách quyền riêng tư của trang web hoặc máy chủ web (nơi lưu trữ các tệp đó) được đề cập.",
+    "message": "Nếu bạn thêm quy tắc từ xa URL, tiện ích mở rộng sẽ kết nối với máy chủ được chỉ định của bạn để tìm nạp bộ quy tắc Linkumori (ClearURLs 2.0) JSON, tệp băm của nó khi được định cấu hình hoặc Linkumori URL Danh sách khả năng tương tác của bộ lọc. Mỗi lần tìm nạp có thể hiển thị địa chỉ IP của bạn và thông tin chung như phiên bản tiện ích mở rộng, trình duyệt và phiên bản trình duyệt tới máy chủ lưu trữ. Dữ liệu này tuân theo chính sách quyền riêng tư của trang web hoặc máy chủ web đó.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Máy chủ lưu trữ các tệp băm và JSON từ xa sẽ nhận được địa chỉ IP của bạn.",
+    "message": "Máy chủ lưu trữ các tệp bộ lọc JSON, hàm băm hoặc khả năng tương tác từ xa sẽ nhận được địa chỉ IP của bạn.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Bằng cách vô hiệu hóa Gatekeeper, bạn sẽ tăng rủi ro từ các nguồn quy tắc từ xa không an toàn hoặc bị xâm phạm. Nếu bạn không hiểu tính năng này, đừng sử dụng nó. Sử dụng các quy tắc tích hợp và tùy ý tạo quy tắc tùy chỉnh theo cách thủ công.",
+    "message": "Bằng cách vô hiệu hóa Gatekeeper, bạn sẽ tăng rủi ro từ các nguồn quy tắc từ xa không an toàn hoặc bị xâm phạm. Xác minh băm chỉ bảo vệ Linkumori (ClearURLs 2.0) JSON lượt tải xuống quy tắc. Nó không áp dụng cho danh sách khả năng tương tác.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Hành động này làm giảm các biện pháp bảo vệ cho các quy tắc từ xa. Chỉ tiếp tục nếu bạn tin tưởng vào nguồn của mình.",
+    "message": "Hành động này làm giảm các biện pháp bảo vệ cho các quy tắc từ xa. Chỉ tiếp tục nếu bạn tin cậy các nguồn bộ lọc JSON và khả năng tương tác của mình.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "Không có hoạt động",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Bộ lọc (Khả năng tương tác):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Quy tắc:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Thông tin quy tắc:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "Quy tắc lọc URL:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "Nguồn bộ lọc URL:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Trạng thái quy tắc:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Trạng thái băm:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Trạng thái bộ lọc Linkumori URL:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Đã tải"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Đã tải một phần"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Tất cả các nguồn đều thất bại"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Chưa định cấu hình nguồn bộ lọc URL không cần băm"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Đã tắt quy tắc từ xa"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Chưa tải"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Trống"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "không bắt buộc"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Bộ lọc"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Bộ lọc"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Đã hợp nhất Linkumori URL Bộ lọc"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Tùy chỉnh Linkumori URL Quy tắc"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL bộ lọc phân tích cú pháp không có sẵn"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Quy tắc tùy chỉnh Linkumori URL không thành công"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL (các) nguồn bộ lọc không thành công"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Tệp bộ lọc URL từ xa trống"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL tìm nạp bộ lọc không thành công"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Lỗi bộ lọc URL không xác định"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Tất cả các nguồn bộ lọc Linkumori URL đều không thành công"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "bộ lọc theo dõi tiện ích mở rộng phổ biến URL"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Không tìm thấy quy tắc Linkumori được hỗ trợ $removeparam"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Khả năng tương tác của bộ lọc"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Nguồn bộ lọc tương tác Linkumori"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Quy tắc"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Tùy chỉnh URL Quy tắc"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Thêm quy tắc tiện ích mở rộng phổ biến $removeparam hoặc $queryprune tại đây. Các quy tắc này được lưu trữ riêng biệt với ClearURLs nhà cung cấp tùy chỉnh và được hợp nhất vào Bộ lọc Linkumori URL."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Xác thực"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Không có quy tắc Linkumori URL tùy chỉnh nào được định cấu hình."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 quy tắc được hỗ trợ, $2 không được hỗ trợ bị bỏ qua, $3 trùng lặp bị bỏ qua."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Xác thực không thành công"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Đã lưu và tải lại các quy tắc Linkumori URL."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Lưu không thành công"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Các quy tắc được hỗ trợ sẽ xuất hiện ở đây sau khi xác thực."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Trình phân tích cú pháp bộ lọc Linkumori URL không khả dụng."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Bộ lọc (Khả năng tương tác)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Trạng thái"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Quy tắc thời gian chạy"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Quy tắc tùy chỉnh"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Băm"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 quy tắc thời gian chạy\n$3 (các) quy tắc tùy chỉnh"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Đóng Linkumori tùy chỉnh URL quy tắc"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Quy tắc Linkumori URL là gì?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Quy tắc Linkumori URL là các dòng bộ lọc theo dõi tiện ích mở rộng phổ biến URL tập trung vào $removeparam. Chúng rất hữu ích khi bạn muốn dán trực tiếp cú pháp danh sách bộ lọc thay vì tạo ClearURLs nhà cung cấp JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Bộ lọc tiện ích mở rộng phổ biến từ xa URL và các quy tắc tùy chỉnh này không cần xác minh hàm băm. Chúng được lưu trữ trong LinkumoriURLsData sau khi phân tích cú pháp, tách biệt với ClearURLsData."
   }
 }

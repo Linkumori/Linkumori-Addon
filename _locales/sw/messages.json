@@ -56,7 +56,7 @@
     "description": "Description for the toggle that controls bundled built-in rules"
   },
   "bundled_rules_description": {
-    "message": "Linumori hutumia sheria zilizounganishwa na sheria maalum ili kutambua na kuondoa vigezo vya ufuatiliaji kutoka kwa URL. Sheria hizi husasishwa kiotomatiki ili kuhakikisha ulinzi bora dhidi ya mbinu za hivi punde za ufuatiliaji.",
+    "message": "Linkumori hutumia kategoria mbili za sheria: Linkumori (ClearURLs 2.0) JSON sheria kwa watoa huduma asilia, na Linkumori ClearURLs 2.0) JSON sheria kwa watoa huduma asilia, na Linkumori 9876750055 sheria za upanuzi maarufu $removeparam orodha. Kila kitengo kinahesabiwa tofauti.",
     "description": "Description for the bundled rules section."
   },
   "bundled_rules_section_title": {
@@ -2465,7 +2465,7 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Sheria ya msingi ya mbali na URL za heshi lazima zote zitolewe",
+    "message": "Hashi ya msingi URL inahitajika tu wakati kanuni ya msingi URL inaelekeza Linkumori (ClearURLs 2.0) JSON sheria.",
     "description": "Validation message when only one of primary rule/hash URL is set."
   },
   "save_primary_rule_https_required": {
@@ -2513,15 +2513,15 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "unapaswa kufikiria upya kutumia kipengele hiki ikiwa huelewi kikamilifu athari na hatari zinazohusika.",
+    "message": "Unapaswa kufikiria upya kutumia sheria za mbali ikiwa huelewi kikamilifu ikiwa chanzo chako ni Linkumori (ClearURLs 2.0) JSON au Linkumori 987650045678 orodha ya uendeshaji wa Filter.",
     "description": "Final warning message in security modal"
   },
   "security_modal_main_warning": {
-    "message": "Kipengele hiki cha sheria za mbali kimeundwa mahususi kwa watumiaji wa hali ya juu ambao wanajua wanachofanya. Ikiwa huna wazo la maana ya hii, tafadhali usitumie kipengele hiki.",
+    "message": "Kipengele hiki cha sheria za mbali kimeundwa kwa watumiaji wa hali ya juu wanaoelewa umbizo la chanzo wanachopakia. Linkumori (ClearURLs 2.0) JSON sheria za mbali zinahitaji heshi inayolingana URL kwa uthibitishaji. Linkumori URL Orodha za vichujio vya mwingiliano zinaweza kupakiwa bila heshi URL na huhifadhiwa kando.",
     "description": "Main warning text explaining the purpose and risks"
   },
   "security_modal_privacy_text": {
-    "message": "Ukiongeza URL kwenye programu hii kwa ajili ya kuleta faili ya JSON na faili ya heshi, kiendelezi kitaunganishwa kwenye URL uliyochagua ili kuleta kanuni ya mbali ya faili ya JSON au faili ya hashi kila wakati kiendelezi hiki kinapowashwa na kupakiwa kwenye kivinjari chako. Kila wakati inapoleta faili kulingana na URL uliyobainisha, seva inayopangisha faili kama vile JSON na faili za hashi itapokea anwani yako ya IP pamoja na maelezo ya jumla kama vile toleo lako la kiendelezi, kivinjari na toleo la kivinjari. Data hii inategemea sera ya faragha ya tovuti au seva ya wavuti (ambapo imepangishwa faili hizo) zinazohusika.",
+    "message": "Ukiongeza sheria ya mbali URL, kiendelezi kitaunganishwa kwenye seva yako uliyochagua ili kuleta Linkumori (ClearURLs 2.0) JSON, faili yake ya hashi inaposanidiwa908760,90875,987689. URL Chuja orodha ya mwingiliano. Kila uchotaji unaweza kufichua anwani yako ya IP na maelezo ya jumla kama vile toleo la kiendelezi, kivinjari na toleo la kivinjari kwa seva inayopangisha. Data hii inategemea sera ya faragha ya tovuti hiyo au seva ya wavuti.",
     "description": "Privacy notice explaining data collection policy"
   },
   "security_modal_privacy_link_text": {
@@ -2533,7 +2533,7 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Badala yake tumia kwa sheria zilizojengwa ndani suluhisho pekee kama sheria zilizojumuishwa unaweza kuunda sheria maalum mwenyewe.",
+    "message": "Tumia sheria zilizojumuishwa isipokuwa unaamini na kudhibiti chanzo cha mbali. Kwa Linkumori (ClearURLs 2.0) JSON sheria, toa heshi inayolingana URL. Kwa orodha za vichujio vya mwingiliano, acha heshi URL tupu.",
     "description": "Recommendation to use built-in rules instead"
   },
   "security_modal_risk_1": {
@@ -2545,11 +2545,11 @@
     "description": "Second security risk point"
   },
   "security_modal_risk_3": {
-    "message": "Uthibitishaji wa hashi hulinda tu dhidi ya upotoshaji wa utumaji, sio vyanzo vya sheria hasidi",
+    "message": "Uthibitishaji wa Hash unatumika kwa Linkumori (ClearURLs 2.0) JSON sheria pekee; inalinda dhidi ya upotoshaji wa maambukizi, sio vyanzo vya sheria hasidi.",
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Ikiwa chanzo cha sheria na faili ya hashi ya faili za json zimeathiriwa, huna ulinzi",
+    "message": "Orodha za vichujio vya mwingiliano hazitumii uthibitishaji wa hashi, kwa hivyo kuamini chanzo URL ni muhimu sana.",
     "description": "Fourth security risk point"
   },
   "security_modal_risks_title": {
@@ -2569,8 +2569,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Inahitajika kwa uthibitishaji wa kanuni za mbali. Lazima ilingane na faili ya sheria kwa usalama.",
-    "description": "Description for hash URL field explaining it's mandatory"
+    "message": "Inahitajika kwa ClearURLs JSON sheria za mbali. Ondoka tupu kwa orodha za vichungi vya ufuatiliaji maarufu URL.",
+    "description": "Description for hash URL field explaining when it is required"
   },
   "setting_html_export_button": {
     "message": "Hamisha",
@@ -2619,8 +2619,8 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Vyanzo vya ziada vya mbali vimeunganishwa pamoja. Tumia moja kwa kila mstari: <code>ruleURL | hashURL</code>",
-    "description": "Description for additional remote rule+hash URL pairs."
+    "message": "Vyanzo vya ziada vya mbali vimeunganishwa pamoja. Tumia <code>ruleURL | hashURL</code> kwa ClearURLs JSON, au <code>ruleURL</code> pekee kwa orodha za ufuatiliaji maarufu URL.",
+    "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
     "message": "Seti Ziada za Kanuni za Mbali",
@@ -2631,7 +2631,7 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "URL maalum ya mbali kwa ufafanuzi wa kanuni",
+    "message": "Kidhibiti cha mbali maalum URL kwa ClearURLs JSON sheria au kiendelezi maarufu URL vichujio vya kufuatilia",
     "description": "Description for the custom rule URL input field"
   },
   "setting_rule_url_label": {
@@ -2639,8 +2639,8 @@
     "description": "This string is used as name for the rule url label."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Kumbuka: URL ya Hash ni ya lazima unapotumia sheria za mbali kwa uthibitishaji wa usalama.",
-    "description": "Note about mandatory hash URL requirement"
+    "message": "Kumbuka: Hash URL ni ya lazima kwa ClearURLs JSON sheria za mbali pekee. Orodha maarufu za ufuatiliaji URL zimehifadhiwa kando kama vichujio Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Omba aina</a> (kiwango cha utaalamu)",
@@ -3259,7 +3259,7 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Unazima ulinzi wa Mlinda lango kwa uhariri wa URL wa kanuni za mbali. Kipengele hiki cha sheria za mbali kimeundwa mahususi kwa watumiaji wa hali ya juu ambao wanajua wanachofanya. Ikiwa huna wazo la maana ya hii, tafadhali usitumie kipengele hiki.",
+    "message": "Unazima ulinzi wa Gatekeeper kwa sheria ya mbali URL kuhariri. Kipengele hiki kinaweza kupakia Linkumori (ClearURLs 2.0) JSON sheria na uthibitishaji wa heshi, au Linkumori URL Vichujio vya utengamano vya hashi. Endelea tu ikiwa unaelewa ni umbizo gani unasanidi.",
     "description": "Main warning text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
@@ -3267,7 +3267,7 @@
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Badala yake tumia kwa sheria zilizojengwa ndani suluhisho pekee kama sheria zilizojumuishwa unaweza kuunda sheria maalum mwenyewe.",
+    "message": "Weka Gatekeeper ikiwa imewashwa isipokuwa kama unaamini na kudhibiti vyanzo vyako vya mbali. Sheria za JSON zinapaswa kujumuisha heshi inayolingana URL; orodha za mwingiliano huacha kwa makusudi hashi URL tupu.",
     "description": "Recommendation text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_title": {
@@ -3275,7 +3275,7 @@
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Ukiongeza URL kwenye programu hii kwa ajili ya kuleta faili ya JSON na faili ya heshi, kiendelezi kitaunganishwa kwenye URL uliyochagua ili kuleta kanuni ya mbali ya faili ya JSON au faili ya hashi kila wakati kiendelezi hiki kinapowashwa na kupakiwa kwenye kivinjari chako. Kila wakati inapoleta faili kulingana na URL uliyobainisha, seva inayopangisha faili kama vile JSON na faili za hashi itapokea anwani yako ya IP pamoja na maelezo ya jumla kama vile toleo lako la kiendelezi, kivinjari na toleo la kivinjari. Data hii inategemea sera ya faragha ya tovuti au seva ya wavuti (ambapo imepangishwa faili hizo) zinazohusika.",
+    "message": "Ukiongeza sheria ya mbali URL, kiendelezi kitaunganishwa kwenye seva yako uliyochagua ili kuleta Linkumori (ClearURLs 2.0) JSON, faili yake ya hashi inaposanidiwa908760,90875,987689. URL Chuja orodha ya mwingiliano. Kila uchotaji unaweza kufichua anwani yako ya IP na maelezo ya jumla kama vile toleo la kiendelezi, kivinjari na toleo la kivinjari kwa seva inayopangisha. Data hii inategemea sera ya faragha ya tovuti hiyo au seva ya wavuti.",
     "description": "Privacy section body in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_link_text": {
@@ -3295,7 +3295,7 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Seva inayopangisha JSON ya mbali na faili za hashi zitapokea anwani yako ya IP.",
+    "message": "Seva inayopangisha JSON, hashi, au faili za vichujio vya utengamano zitapokea anwani yako ya IP.",
     "description": "Risk bullet 2 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_3": {
@@ -3307,7 +3307,7 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Kwa kuzima Mlinda lango, unaongeza hatari kutoka kwa vyanzo vya sheria vya mbali visivyo salama au vilivyoathiriwa. Ikiwa huelewi kipengele hiki, usitumie. Tumia sheria zilizojumuishwa na uunda kwa hiari sheria maalum.",
+    "message": "Kwa kuzima Gatekeeper, unaongeza hatari kutoka kwa vyanzo vya sheria za mbali visivyo salama au vilivyoathiriwa. Uthibitishaji wa Hash hulinda Linkumori (ClearURLs 2.0) JSON pekee. Haitumiki kwa orodha za mwingiliano.",
     "description": "Final warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_cancel": {
@@ -3387,7 +3387,7 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Hatua hii inapunguza ulinzi kwa sheria za mbali. Endelea tu ikiwa unaamini vyanzo vyako.",
+    "message": "Hatua hii inapunguza ulinzi kwa sheria za mbali. Endelea tu ikiwa unaamini JSON yako na vyanzo vya vichujio vya ushirikiano.",
     "description": "Final warning text for gatekeeper-specific confirmation modal"
   },
   "remote_urls_template_note_1": {
@@ -4109,5 +4109,221 @@
   "log_stats_no_activity": {
     "message": "Hakuna shughuli",
     "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Vichujio (Kuingiliana):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Kanuni:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Taarifa za Sheria:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL sheria za chujio:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL vyanzo vya chujio:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Hali ya Sheria:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Hali ya Hash:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL hali ya kichujio:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Imepakiwa"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Imepakiwa kwa kiasi"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Vyanzo vyote vimeshindwa"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Hakuna vyanzo vya vichujio vya URL visivyo na haraka vilivyosanidiwa"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Sheria za mbali zimezimwa"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Haijapakiwa"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Tupu"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "haihitajiki"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Vichujio"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Kichujio"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Vichujio vilivyounganishwa Linkumori URL"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Custom Linkumori URL Kanuni"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL kichanganuzi cha chujio hakipatikani"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Sheria maalum Linkumori URL zilishindwa"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL chanzo cha kichujio kimeshindwa"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Faili ya kichujio ya URL ya mbali ni tupu"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL uchotaji wa chujio umeshindwa"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Hitilafu ya kichujio cha URL isiyojulikana"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Vyanzo vyote vya vichungi Linkumori URL vimeshindwa"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "ugani maarufu URL kichujio cha kufuatilia"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Haitumiki Linkumori $removeparam sheria zinazotumika"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Kichujio Muingiliano"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori chanzo cha kichujio cha ushirikiano"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Kanuni"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Custom URL Kanuni"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Ongeza ugani maarufu $removeparam au sheria $queryprune hapa. Sheria hizi huhifadhiwa kando na watoa huduma maalum ClearURLs na huunganishwa katika Vichujio Linkumori URL."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Thibitisha"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Hakuna sheria maalum za Linkumori URL zilizosanidiwa."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 sheria zinazotumika, $2 ambazo hazitumiki zimerukwa, $3 nakala rudufu."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Uthibitishaji haukufaulu"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Imehifadhiwa na kupakiwa upya Linkumori URL sheria."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Imeshindwa kuhifadhi"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Sheria zinazotumika zitaonekana hapa baada ya kuthibitishwa."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL kichanganuzi cha kichujio hakipatikani."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Vichujio (Kuingiliana)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hali"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Sheria za Wakati wa Runtia"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Sheria Maalum"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hash"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\nSheria za wakati wa $2\n$3 sheria maalum"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Funga Linkumori sheria maalum URL"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Sheria za Linkumori URL ni zipi?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL sheria ni maarufu ugani kufuatilia URL chujio mistari kulenga $removeparam. Ni muhimu wakati unataka kubandika sintaksia filter-orodha moja kwa moja badala ya kuunda 98765009 provider5778 provider JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Vichungi vya ugani maarufu wa mbali URL na sheria hizi maalum hazihitaji uthibitishaji wa hashi. Zimehifadhiwa katika LinkumoriURLsData baada ya kuchanganua, tofauti na ClearURLsData."
   }
 }

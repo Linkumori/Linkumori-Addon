@@ -68,6 +68,7 @@
   ],
   "background": {
     "scripts": [
+      "external_js/linkumori-i18n.js",
       "core_js/message_handler.js",
       "external_js/IP-Ranger.js",
       "external_js/sha256.js",
@@ -78,13 +79,18 @@
       "core_js/pureCleaning.js",
       "core_js/context_menu.js",
       "core_js/historyListener.js",
+      "core_js/linkumori_biditrie.js",
+      "core_js/linkumori_hntrie.js",
+      "external_js/regex_analyzer.js",
+      "core_js/linkumori_regex_tokens.js",
+      "core_js/linkumori_url_filter_interoperability.js",
       "clearurls.js",
+      "core_js/linkumori_url_filter_runtime.js",
       "core_js/storage.js",
       "core_js/content_script_manager.js",
       "core_js/watchdog.js",
       "core_js/eTagFilter.js",
       "external_js/decode-uri-component.js",
-      "external_js/linkumori-i18n.js",
       "core_js/consent_config.js"
     ]
   },

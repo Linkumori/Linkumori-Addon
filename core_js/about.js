@@ -571,14 +571,18 @@
       const storedSignature = typeof result[CONSENT_SIGNATURE_STORAGE_KEY] === 'string'
         ? result[CONSENT_SIGNATURE_STORAGE_KEY]
         : '';
+      const hasAcceptedCurrentVersion = accepted &&
+        currentVersion !== null &&
+        acceptedVersion === currentVersion;
+
+      if (hasAcceptedCurrentVersion && storedSignature !== currentSignature) {
+        await browser.storage.local.set({
+          [CONSENT_SIGNATURE_STORAGE_KEY]: currentSignature
+        });
+      }
 
       return {
-        accepted: Boolean(
-          accepted &&
-          currentVersion !== null &&
-          acceptedVersion === currentVersion &&
-          storedSignature === currentSignature
-        ),
+        accepted: Boolean(hasAcceptedCurrentVersion),
         currentVersion,
         canAccept: currentVersion !== null
       };
