@@ -93,8 +93,8 @@
  *
  * DESCRIPTION
  * -----------
- * Keeps page favicon aligned with the active Linkumori theme.
- *
+ * * Rewritten in clean, readable vanilla JavaScript.
+
  * ============================================================
  * MODIFICATION HISTORY
  * ============================================================
