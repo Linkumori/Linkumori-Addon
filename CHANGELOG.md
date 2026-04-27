@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v33.0] - 2026-04-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v32.0...linkumori-v33.0))
+### Changed
+- Add new file for performance (`2026-04-27`, hash: [`484fb7b`](https://github.com/Linkumori/Linkumori-Addon/commit/484fb7b))
+- Generated rules JSON minified (`2026-04-27`, hash: [`484fb7b`](https://github.com/Linkumori/Linkumori-Addon/commit/484fb7b))
+
 ## [v32.0] - 2026-04-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v31.0...linkumori-v32.0))
 ### Changed
 - Resolve date (`2026-04-26`, hash: [`5eb230d`](https://github.com/Linkumori/Linkumori-Addon/commit/5eb230d))
