@@ -10,6 +10,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v32.0] - 2026-04-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v31.0...linkumori-v32.0))
+### Changed
+- Resolve date (`2026-04-26`, hash: [`5eb230d`](https://github.com/Linkumori/Linkumori-Addon/commit/5eb230d))
+- Update author file (`2026-04-26`, hash: [`297301f`](https://github.com/Linkumori/Linkumori-Addon/commit/297301f))
+- We meged two runtime into one webrequest listner (`2026-04-26`, hash: [`b683108`](https://github.com/Linkumori/Linkumori-Addon/commit/b683108))
+
+### Fixed
+- Resolve information (`2026-04-26`, hash: [`860cdd2`](https://github.com/Linkumori/Linkumori-Addon/commit/860cdd2))
+
+### Documentation
+- Document Linkumori interoperability rules (`2026-04-26`, hash: [`9aad0de`](https://github.com/Linkumori/Linkumori-Addon/commit/9aad0de))
+
 ## [v31.0] - 2026-04-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v30.0...linkumori-v31.0))
 ### Added
 - Introduce MarkedJS legal notices and fix popup consent flash (`2026-04-26`, hash: [`d2f4cb1`](https://github.com/Linkumori/Linkumori-Addon/commit/d2f4cb1))
