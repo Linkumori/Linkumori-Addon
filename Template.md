@@ -1265,16 +1265,13 @@ http://www.apache.org/licenses/LICENSE-2.0
 **Repository:** <https://github.com/markedjs/marked>
 **Bundled Version:** 18.0.2
 
-`external_js/marked.js` includes the complete upstream notice for:
-- the Marked contribution license agreement,
-- the Marked MIT license notice, and
-- the bundled Markdown copyright and redistribution notice.
+`external_js/marked.js` 
 
 {{LICENSE:MARKEDJS}}
 
 ##### Linkumori Modifications
 
-**Modified By:** © 2025-2026 Subham Mahesh
+**Modified By:** © 2026 Subham Mahesh
 
 **Modification Summary:** Reworked into the bundled Linkumori Markdown parser used for rendering Markdown content in the legal/about flows, with local integration and in-file modification history notice.
 
