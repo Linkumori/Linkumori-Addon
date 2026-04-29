@@ -10,6 +10,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v36.0] - 2026-04-29 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v35.0...linkumori-v36.0))
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-04-29`, hash: [`1a582bf`](https://github.com/Linkumori/Linkumori-Addon/commit/1a582bf))
+
+### Performance
+- Optimizeize URL filtering and externalize CLI URLs (`2026-04-29`, hash: [`4791ceb`](https://github.com/Linkumori/Linkumori-Addon/commit/4791ceb))
+
+### Documentation
+- Docs updated legal documentation (`2026-04-29`, hash: [`1a582bf`](https://github.com/Linkumori/Linkumori-Addon/commit/1a582bf))
+
 ## [v35.0] - 2026-04-27 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v34.0...linkumori-v35.0))
 ### Changed
 - Update Template.md (`2026-04-27`, hash: [`ecab753`](https://github.com/Linkumori/Linkumori-Addon/commit/ecab753))
