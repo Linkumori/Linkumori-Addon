@@ -415,11 +415,33 @@ function pushUniqueLinkumoriURLFilterRules(target, seen, source) {
 }
 
 function getLinkumoriURLFilterHostname(rawUrl) {
-    try {
-        return new URL(rawUrl).hostname.toLowerCase();
-    } catch (e) {
-        return '';
+    const source = String(rawUrl || '');
+    const schemeIndex = source.indexOf('://');
+    if (schemeIndex === -1) return '';
+
+    let start = schemeIndex + 3;
+    const end = source.length;
+    const atIndex = source.indexOf('@', start);
+    const firstPathIndex = source.slice(start).search(/[/?#]/);
+    const authorityEnd = firstPathIndex === -1 ? end : start + firstPathIndex;
+    if (atIndex !== -1 && atIndex < authorityEnd) {
+        start = atIndex + 1;
     }
+
+    let hostEnd = authorityEnd;
+    if (source.charAt(start) === '[') {
+        const bracketEnd = source.indexOf(']', start + 1);
+        if (bracketEnd !== -1 && bracketEnd < authorityEnd) {
+            hostEnd = bracketEnd + 1;
+        }
+    } else {
+        const colonIndex = source.indexOf(':', start);
+        if (colonIndex !== -1 && colonIndex < authorityEnd) {
+            hostEnd = colonIndex;
+        }
+    }
+
+    return String(source.slice(start, hostEnd) || '').toLowerCase().replace(/\.$/, '').trim();
 }
 
 function getLinkumoriURLFilterCandidates(buckets, name) {
@@ -461,7 +483,7 @@ function addLinkumoriURLFilterURLTokens(tokens, rawUrl) {
 function addLinkumoriURLFilterParamTokens(tokens, entries) {
     if (!Array.isArray(entries)) return;
     entries.forEach(entry => {
-        const name = String(entry && entry.name ? entry.name : '');
+        const name = String(entry && (entry.rawName || entry.name) ? (entry.rawName || entry.name) : '');
         if (!name) return;
         tokens.add('p:' + name.toLowerCase());
         tokens.add('pc:' + name);
@@ -505,14 +527,6 @@ function getLinkumoriURLFilterRequestCandidates(buckets, requestTokens) {
     return candidates;
 }
 
-function safeDecodeLinkumoriURLFilterComponent(value) {
-    try {
-        return decodeURIComponent(String(value || '').replace(/\+/g, '%20'));
-    } catch (e) {
-        return String(value || '');
-    }
-}
-
 function splitLinkumoriURLFilterURL(rawUrl) {
     const url = String(rawUrl || '');
     const hashIndex = url.indexOf('#');
@@ -548,8 +562,10 @@ function parseLinkumoriURLFilterQuery(query) {
         return {
             index,
             raw: segment,
-            name: safeDecodeLinkumoriURLFilterComponent(rawName),
-            value: safeDecodeLinkumoriURLFilterComponent(rawValue)
+            rawName,
+            rawValue,
+            name: rawName,
+            value: rawValue
         };
     });
 }
@@ -562,10 +578,12 @@ function buildLinkumoriURLFilterURL(parts, queryEntries) {
 function getLinkumoriURLFilterTargetMatcher(requestDetails) {
     const parser = globalThis.LinkumoriURLFilterInteroperability;
     const cache = new Map();
-    const hostname = getLinkumoriURLFilterHostname(requestDetails.url);
     const requestContext = parser && typeof parser.createRequestMatchContext === 'function'
         ? parser.createRequestMatchContext(requestDetails.url, requestDetails)
         : null;
+    const hostname = requestContext && requestContext.targetHost
+        ? requestContext.targetHost
+        : getLinkumoriURLFilterHostname(requestDetails.url);
 
     return rule => {
         const key = rule && rule.raw ? rule.raw : String(rule);
@@ -645,7 +663,7 @@ function createLinkumoriURLFilterCandidatePlan(ruleCandidates, exceptionCandidat
     return plan;
 }
 
-function findLinkumoriURLFilterDecision(name, value, candidatePlan) {
+function findLinkumoriURLFilterDecision(name, value, rawName, rawValue, candidatePlan) {
     const parser = globalThis.LinkumoriURLFilterInteroperability;
     if (!parser || typeof parser.matchesParameter !== 'function') {
         return { remove: false, rule: null, exception: null };
@@ -655,6 +673,8 @@ function findLinkumoriURLFilterDecision(name, value, candidatePlan) {
         candidatePlan.importantRules,
         name,
         value,
+        rawName,
+        rawValue,
         parser
     );
     if (importantRule) {
@@ -665,6 +685,8 @@ function findLinkumoriURLFilterDecision(name, value, candidatePlan) {
         candidatePlan.normalExceptions,
         name,
         value,
+        rawName,
+        rawValue,
         parser
     );
     if (exception) {
@@ -675,6 +697,8 @@ function findLinkumoriURLFilterDecision(name, value, candidatePlan) {
         candidatePlan.normalRules,
         name,
         value,
+        rawName,
+        rawValue,
         parser
     );
     return {
@@ -684,16 +708,16 @@ function findLinkumoriURLFilterDecision(name, value, candidatePlan) {
     };
 }
 
-function findLinkumoriURLFilterMatchedRule(candidates, name, value, parser) {
+function findLinkumoriURLFilterMatchedRule(candidates, name, value, rawName, rawValue, parser) {
     const directRule = candidates.find(rule => {
-        return !rule.negate && parser.matchesParameter(rule, name, value);
+        return !rule.negate && parser.matchesParameter(rule, name, value, rawName, rawValue);
     });
     if (directRule) return directRule;
 
     const negatedRules = candidates.filter(rule => rule.negate);
     if (negatedRules.length === 0) return null;
 
-    return negatedRules.every(rule => parser.matchesParameter(rule, name, value))
+    return negatedRules.every(rule => parser.matchesParameter(rule, name, value, rawName, rawValue))
         ? negatedRules[0]
         : null;
 }
@@ -706,6 +730,8 @@ function cleanLinkumoriURLFilterQueryEntries(entries, candidatePlan) {
         const decision = findLinkumoriURLFilterDecision(
             entry.name,
             entry.value,
+            entry.rawName,
+            entry.rawValue,
             candidatePlan
         );
         if (decision.remove) {
@@ -729,9 +755,7 @@ function cleanLinkumoriURLFilterURL(requestDetails) {
         return { changed: false, url: requestDetails.url, matchedRule: null };
     }
 
-    try {
-        new URL(requestDetails.url);
-    } catch (e) {
+    if (typeof requestDetails.url !== 'string' || requestDetails.url.indexOf('?') === -1) {
         return { changed: false, url: requestDetails.url, matchedRule: null };
     }
 
@@ -752,10 +776,29 @@ function cleanLinkumoriURLFilterURL(requestDetails) {
         exceptionCandidates,
         matchesTarget
     );
+    if (
+        candidatePlan.importantRules.length === 0 &&
+        candidatePlan.normalRules.length === 0 &&
+        candidatePlan.normalExceptions.length === 0
+    ) {
+        return {
+            changed: false,
+            url: requestDetails.url,
+            matchedRule: null
+        };
+    }
+
     const queryResult = cleanLinkumoriURLFilterQueryEntries(
         queryEntries,
         candidatePlan
     );
+    if (!queryResult.changed) {
+        return {
+            changed: false,
+            url: requestDetails.url,
+            matchedRule: null
+        };
+    }
 
     let nextHash = parts.hash;
 
@@ -763,9 +806,8 @@ function cleanLinkumoriURLFilterURL(requestDetails) {
         { base: parts.base, hash: nextHash },
         queryResult.entries
     );
-    const changed = queryResult.changed;
     return {
-        changed,
+        changed: true,
         url: nextUrl,
         matchedRule: queryResult.matchedRule
     };

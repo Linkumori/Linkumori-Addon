@@ -95,11 +95,33 @@
     }
 
     function getHostname(url) {
-        try {
-            return new URL(url).hostname.toLowerCase();
-        } catch (e) {
-            return '';
+        const source = String(url || '');
+        const schemeIndex = source.indexOf('://');
+        if (schemeIndex === -1) return '';
+
+        let start = schemeIndex + 3;
+        const end = source.length;
+        const atIndex = source.indexOf('@', start);
+        const firstPathIndex = source.slice(start).search(/[/?#]/);
+        const authorityEnd = firstPathIndex === -1 ? end : start + firstPathIndex;
+        if (atIndex !== -1 && atIndex < authorityEnd) {
+            start = atIndex + 1;
         }
+
+        let hostEnd = authorityEnd;
+        if (source.charAt(start) === '[') {
+            const bracketEnd = source.indexOf(']', start + 1);
+            if (bracketEnd !== -1 && bracketEnd < authorityEnd) {
+                hostEnd = bracketEnd + 1;
+            }
+        } else {
+            const colonIndex = source.indexOf(':', start);
+            if (colonIndex !== -1 && colonIndex < authorityEnd) {
+                hostEnd = colonIndex;
+            }
+        }
+
+        return normalizeHostname(source.slice(start, hostEnd));
     }
 
     function collectUniqueHostnames(urls) {

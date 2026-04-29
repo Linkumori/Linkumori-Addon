@@ -32,7 +32,7 @@
 | **CSS** | `css/settings.css`<br>`css/siteBlockedAlert.css` |
 | **Icons (PNG)** | `img/icon16.png`<br>`img/icon19.png`<br>`img/icon20.png`<br>`img/icon24.png`<br>`img/icon30.png`<br>`img/icon32.png`<br>`img/icon38.png`<br>`img/icon48.png`<br>`img/icon64.png`<br>`img/icon96.png`<br>`img/icon128.png`<br>`img/icon128_gray.png` |
 | **Icons (SVG)** | `img/linkumori_icon_disabled.svg`<br>`img/linkumori_icons.svg`<br>`img/linkumori_icon_theme_dark.svg`<br>`img/linkumori_icon_theme_light.svg`<br>`img/linkumori_icon_theme_icecold.svg`<br>`img/linkumori_icon_theme_midnight.svg`<br>`img/linkumori_icon_theme_sunset.svg`<br>`img/linkumori_icon_theme_legacy.svg`<br>`img/linkumori_icon_theme_legacy_disabled.svg` |
-| **Data** | `data/custom-rules.json`<br>`data/privacy-policy-map.json` |
+| **Data** | `data/custom-rules.json`<br>`data/privacy-policy-map.json`<br>`data/url-config.json` |
 
 ### 1.2 Copyright & License
 
@@ -1712,20 +1712,44 @@ If the source code you received already contains `COMMIT_HISTORY.md`, you do not
 
 > **Reproducible Builds — Two Offline Prompts:**
 > During a build the CLI presents two separate online/offline choices. Select **offline**
-> for both if your goal is a binary-exact build from source:
+> for both if your goal is a binary-exact build from source. Recipients and end users
+> should choose **offline** for both prompts.
 >
 > 1. **Rules source** ("Choose a merge mode") — select **offline** to use the bundled
 >    `downloaded-official-rules.json` shipped with this source package instead of
->    downloading the latest ClearURLs rules from GitHub.
+>    downloading ClearURLs rules from the URL configured in `data/url-config.json`.
 >
 > 2. **PSL source** ("Choose PSL mode") — select **offline** to use the bundled local
->    Public Suffix List (PSL) file instead of fetching the latest PSL data from the network.
+>    Public Suffix List (PSL) file instead of fetching PSL data from the URL configured
+>    in `data/url-config.json`.
 >
 > Selecting **online** for either prompt fetches live data that may differ from what was
 > used in the official release, producing a build that is functionally equivalent but not
 > binary-identical.
 >
 > This applies to both the unsigned and signed build paths.
+
+> **Online Mode and URL Configuration:**
+> The source package includes `data/url-config.json` so the URLs used by online mode are
+> visible and configurable outside the CLI source code. This JSON file is provided for
+> transparency and maintainer/developer convenience. It is not an endorsement,
+> recommendation, warranty, or instruction that recipients should contact the listed
+> services.
+>
+> Before running online mode, review `data/url-config.json` and edit or replace it with
+> your own chosen configuration. Online mode should be used only by maintainers,
+> developers, packagers, distributors, or advanced recipients who control the physical
+> and virtual layers of the configured endpoint infrastructure, or who have independently
+> verified and accepted those endpoints. "Physical layer" includes the hardware, hosting,
+> network, and operational control behind an endpoint. "Virtual layer" includes the
+> software, services, operating systems, access controls, logs, and data served by that
+> endpoint.
+>
+> Because the CLI is a tool and the URLs are configurable, any online-mode request is your
+> responsibility. The default configuration may refer to services such as GitHub and the
+> Public Suffix List website, but Linkumori does not operate those services and does not
+> guarantee their availability, behavior, privacy practices, terms, content, security,
+> correctness, or continued operation.
 
 ## Requirements
 
@@ -1734,6 +1758,10 @@ Install [Node.js (current version)](https://nodejs.org/en/download/current) or [
 
 ### web-ext (required)
 `web-ext` is a Node-based application used to build and sign the extension.
+Linkumori is not affiliated with, endorsed by, sponsored by, or operated by Mozilla.
+`web-ext` is an external dependency that you must install, update, and configure manually.
+If you choose to run a signed build, `web-ext` submits your extension package and API
+credentials to Mozilla's signing service under Mozilla's terms.
 
 Install with Homebrew:
 ```bash
@@ -1811,14 +1839,16 @@ The CLI runs the following steps automatically:
 
 - **Step 0/6 — PSL prompt:** "Choose PSL mode"
   - Select **`2) Offline`** to use the bundled local PSL file (binary-exact build).
-  - Select `1) Online` to download the latest PSL from the network (not binary-exact).
+  - Select `1) Online` to download PSL data from the URL configured in `data/url-config.json` (not binary-exact).
+  - Before selecting online, review and make `data/url-config.json` your own configuration.
   - *(Prompt only appears if a local PSL file already exists. If none exists, online is used automatically.)*
 
 - **Step 1/6:** Generates copyright documentation.
 
 - **Step 2/6 — Rules prompt:** "Choose a merge mode"
   - Select **`2) Offline`** to use the bundled `downloaded-official-rules.json` (binary-exact build).
-  - Select `1) Online` to download the latest ClearURLs rules from GitHub (not binary-exact).
+  - Select `1) Online` to download ClearURLs rules from the URL configured in `data/url-config.json` (not binary-exact).
+  - Before selecting online, review and make `data/url-config.json` your own configuration.
   - *(Prompt only appears if a local rules file already exists. If none exists, online is used automatically.)*
 
 - **Step 3/6:** Builds the Old Country Nobility font (`Old-Country-Nobility.sfd` → `.ttf`) using FontForge.
@@ -1849,6 +1879,9 @@ node linkumori-cli-tool.js build offline
 - Log in to [addons.mozilla.org](https://addons.mozilla.org)
 - Go to: **Tools → Manage API Keys**
 - Generate your JWT issuer (`WEB_EXT_API_KEY`) and secret (`WEB_EXT_API_SECRET`)
+
+Linkumori is not affiliated with Mozilla. This step uses Mozilla services through the
+external `web-ext` tool that you install and configure yourself.
 
 ### 2. Setup Project and Configure Credentials
 

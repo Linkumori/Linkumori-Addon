@@ -143,11 +143,21 @@
 
                 current += ch;
 
-                if (ch === '=' && next === '/') {
-                    current += '/';
+                if (
+                    ch === '=' &&
+                    (
+                        next === '/' ||
+                        (
+                            next === '~' &&
+                            i + 2 < text.length &&
+                            text.charAt(i + 2) === '/'
+                        )
+                    )
+                ) {
+                    current += next === '~' ? '~/' : '/';
                     inRegex = true;
                     escaped = false;
-                    i++;
+                    i += next === '~' ? 2 : 1;
                 }
                 continue;
             }
@@ -458,6 +468,7 @@
 
         if (!removeValue) {
             parsed.removeAll = true;
+            parsed.canonical = canonicalizeRemoveParamRule(parsed);
             return parsed;
         }
 
@@ -472,12 +483,12 @@
             parsed.regexParam = regexParam;
         } else if (value.startsWith('|')) {
             try {
-                parsed.regexParam = new RegExp('^' + escapeRegExp(safeDecode(value.slice(1))), 'i');
+                parsed.regexParam = new RegExp('^' + escapeRegExp(value.slice(1)), 'i');
             } catch (e) {
                 return null;
             }
         } else {
-            const literal = safeDecode(value);
+            const literal = value;
             parsed.literalParam = literal;
         }
 
@@ -541,11 +552,33 @@
     }
 
     function getHostname(url) {
-        try {
-            return new URL(url).hostname.toLowerCase();
-        } catch (e) {
-            return '';
+        const source = String(url || '');
+        const schemeIndex = source.indexOf('://');
+        if (schemeIndex === -1) return '';
+
+        let start = schemeIndex + 3;
+        const end = source.length;
+        const atIndex = source.indexOf('@', start);
+        const firstPathIndex = source.slice(start).search(/[/?#]/);
+        const authorityEnd = firstPathIndex === -1 ? end : start + firstPathIndex;
+        if (atIndex !== -1 && atIndex < authorityEnd) {
+            start = atIndex + 1;
         }
+
+        let hostEnd = authorityEnd;
+        if (source.charAt(start) === '[') {
+            const bracketEnd = source.indexOf(']', start + 1);
+            if (bracketEnd !== -1 && bracketEnd < authorityEnd) {
+                hostEnd = bracketEnd + 1;
+            }
+        } else {
+            const colonIndex = source.indexOf(':', start);
+            if (colonIndex !== -1 && colonIndex < authorityEnd) {
+                hostEnd = colonIndex;
+            }
+        }
+
+        return normalizeHostname(source.slice(start, hostEnd));
     }
 
     function normalizeHostname(hostname) {
@@ -1094,15 +1127,18 @@
         );
     }
 
-    function matchesParameter(rule, name, value = '') {
+    function matchesParameter(rule, name, value = '', rawName = null, rawValue = null) {
         if (!rule || !name) return false;
         if (rule.removeAll) return true;
 
-        const normalizedName = String(name || '');
-        const normalizedPair = `${String(name || '')}=${String(value || '')}`;
+        const normalizedName = String(rawName !== null ? rawName : name || '');
         let matched = false;
 
         if (rule.regexParam) {
+            const normalizedValue = rawValue !== null
+                ? safeDecode(rawValue)
+                : String(value || '');
+            const normalizedPair = `${normalizedName}=${normalizedValue}`;
             rule.regexParam.lastIndex = 0;
             matched = rule.regexParam.test(normalizedPair);
         } else if (rule.literalParam !== null) {

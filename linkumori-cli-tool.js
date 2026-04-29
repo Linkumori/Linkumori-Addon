@@ -87,7 +87,8 @@ const config = {
   licenseTemplateFile: 'Template.md',
   licenseOutputFile: 'License.md',
   licenseOutputDir: './',
-  noticeFile: './data/NOTICE.md'
+  noticeFile: './data/NOTICE.md',
+  urlConfigFile: './data/url-config.json'
 };
 
 class LinkumoriCLI {
@@ -104,16 +105,19 @@ class LinkumoriCLI {
       officialRulesFile: 'data/official-rules.json',
       outputBaseName: 'linkumori',
       downloadedOfficialFile: 'data/downloaded-official-rules.json',
-      officialRulesUrl: 'https://raw.githubusercontent.com/ClearURLs/Rules/refs/heads/master/data.min.json',
-      officialHashUrl: 'https://raw.githubusercontent.com/ClearURLs/Rules/refs/heads/gh-pages/rules.min.hash',
+      officialRulesUrl: null,
+      officialHashUrl: null,
       officialHashCacheFile: 'data/downloaded-official-rules.min.hash'
     };
 
     // PSL updater configuration
     this.pslConfig = {
-      listUrl: 'https://publicsuffix.org/list/public_suffix_list.dat',
+      listUrl: null,
+      projectUrl: null,
       localFile: 'data/public_suffix_list.dat'
     };
+
+    this.loadUrlConfig();
 
     // License fetcher configuration - now uses local files
     this.licenseConfig = {
@@ -130,6 +134,43 @@ class LinkumoriCLI {
       },
       cache: {}
     };
+  }
+
+  mergeConfig(target, source) {
+    if (!source || typeof source !== 'object') return;
+    Object.entries(source).forEach(([key, value]) => {
+      if (value && typeof value === 'object' && !Array.isArray(value)) {
+        if (!target[key] || typeof target[key] !== 'object') {
+          target[key] = {};
+        }
+        this.mergeConfig(target[key], value);
+        return;
+      }
+      if (value !== undefined && value !== null) {
+        target[key] = value;
+      }
+    });
+  }
+
+  loadUrlConfig() {
+    let parsed;
+    try {
+      const content = fs.readFileSync(config.urlConfigFile, 'utf8');
+      parsed = JSON.parse(content);
+    } catch (error) {
+      throw new Error(`Unable to load URL config from ${config.urlConfigFile}: ${error.message}`);
+    }
+
+    this.mergeConfig(this.clearurlsConfig, parsed.clearurls);
+    this.mergeConfig(this.pslConfig, parsed.publicSuffixList);
+  }
+
+  requireConfiguredUrl(value, configPath) {
+    const url = String(value || '').trim();
+    if (!/^https?:\/\//i.test(url)) {
+      throw new Error(`Missing or invalid URL config "${configPath}" in ${config.urlConfigFile}`);
+    }
+    return url;
   }
 
   printLicenseBanner() {
@@ -805,7 +846,7 @@ documentation when you run the build process.
     };
   }
 
-  // Fetch official rules from GitHub or local file
+  // Fetch official rules from configured URL or local file
   async fetchOfficialRules(useOffline = false) {
     if (useOffline) {
       // Use downloaded-official-rules.json
@@ -829,8 +870,11 @@ documentation when you run the build process.
         throw new Error(`Error reading offline rules file: ${error.message}`);
       }
     } else {
-      // Fetch from GitHub
-      const url = this.clearurlsConfig.officialRulesUrl;
+      // Fetch from configured URL
+      const url = this.requireConfiguredUrl(
+        this.clearurlsConfig.officialRulesUrl,
+        'clearurls.officialRulesUrl'
+      );
       this.info(`📥 Fetching latest official rules from: ${url}`);
       
       try {
@@ -851,17 +895,20 @@ documentation when you run the build process.
         this.success(`✅ Official rules downloaded and saved as: ${this.clearurlsConfig.downloadedOfficialFile}`);
         
         const rules = JSON.parse(data);
-        this.success(`✅ Loaded ${Object.keys(rules.providers).length} official providers from GitHub`);
+        this.success(`✅ Loaded ${Object.keys(rules.providers).length} official providers from configured URL`);
         return rules;
       } catch (error) {
-        throw new Error(`Error fetching official rules from GitHub: ${error.message}`);
+        throw new Error(`Error fetching official rules from configured URL: ${error.message}`);
       }
     }
   }
 
-  // Fetch official rules hash from GitHub
+  // Fetch official rules hash from configured URL
   async fetchOfficialRulesHash() {
-    const hashUrl = this.clearurlsConfig.officialHashUrl;
+    const hashUrl = this.requireConfiguredUrl(
+      this.clearurlsConfig.officialHashUrl,
+      'clearurls.officialHashUrl'
+    );
     this.info(`🔐 Fetching official rules hash from: ${hashUrl}`);
 
     try {
@@ -878,7 +925,7 @@ documentation when you run the build process.
       this.success(`✅ Fetched official hash: ${hash}`);
       return hash;
     } catch (error) {
-      throw new Error(`Error fetching official hash from GitHub: ${error.message}`);
+      throw new Error(`Error fetching official hash from configured URL: ${error.message}`);
     }
   }
 
@@ -895,7 +942,10 @@ documentation when you run the build process.
 
     let useOffline = false;
     const localFile = this.pslConfig.localFile;
-    const onlineUrl = this.pslConfig.listUrl;
+    const onlineUrl = this.requireConfiguredUrl(
+      this.pslConfig.listUrl,
+      'publicSuffixList.listUrl'
+    );
 
     const localExists = (() => {
       try {
@@ -917,7 +967,7 @@ documentation when you run the build process.
       this.info(`   Last modified: ${new Date(stats.mtime).toLocaleString()}`);
       this.log('');
       this.log('Choose PSL mode:', 'cyan');
-      this.log('  1) 🌐 Online  – Download latest PSL data (recommended) Read legal document https://publicsuffix.org/ ', 'white');
+      this.log(`  1) 🌐 Online  – Download latest PSL data (recommended) Read legal document ${this.pslConfig.projectUrl || onlineUrl} `, 'white');
       this.log('  2) 💾 Offline – Use existing local PSL file', 'white');
       this.log('');
       process.stdout.write('Enter your choice (1 or 2, default=1): ');
@@ -2068,7 +2118,7 @@ This directory contains files generated by the ClearURLs Custom Rules Builder sc
 
 The ClearURLs Custom Rules Builder performs the following operations:
 
-1. **Fetches Official Rules**: Downloads the latest official ClearURLs rules from the GitHub repository
+1. **Fetches Official Rules**: Downloads the latest official ClearURLs rules from the configured URL in data/url-config.json
 2. **Loads Custom Rules**: Reads your custom URL cleaning rules from a local JSON file
 3. **Merges Providers**: Intelligently combines providers that share the same URL pattern to optimize performance
    - **Official Name Priority**: When merging, official provider names are preserved over custom ones
@@ -2198,11 +2248,12 @@ ${currentBuildInfo}`;
 
 
   this.log(
-    '  1) 🌐 Online  – Download the latest rules from GitHub (recommended)',
+    `  1) 🌐 Online  – Download the latest rules from configured URL (recommended): ${this.clearurlsConfig.officialRulesUrl || 'not configured'}`,
     'white'
   );
   this.log(
-    '  Please read the GitHub Privacy Policy and Terms of Service before continuing:\n' +
+    '  Please review the upstream host Privacy Policy and Terms of Service before continuing.\n' +
+    '  Default ClearURLs upstream policy documents:\n' +
     '     https://docs.github.com/en/site-policy/privacy-policies\n' +
     '     https://docs.github.com/en/site-policy/github-terms/github-terms-of-service',
     'yellow'
@@ -2227,7 +2278,7 @@ ${currentBuildInfo}`;
                 useOffline = true;
                 this.info('💾 Selected: Offline mode - using local file');
               } else {
-                this.info('🌐 Selected: Online mode - downloading latest from GitHub');
+                this.info('🌐 Selected: Online mode - downloading latest from configured URL');
               }
             } else {
               this.info('🌐 Non-interactive mode: auto-selecting online download');
@@ -3666,7 +3717,7 @@ coverage/**
     this.log('  - Prompt appears whenever offline file exists', 'dim');
     this.log('  - Shows file age and last modified date', 'dim');
     this.log('  - 🌐 Online Mode (default):', 'dim');
-    this.log('    Downloads latest official rules from GitHub', 'dim');
+    this.log(`    Downloads latest official rules from configured URL (${config.urlConfigFile})`, 'dim');
     this.log('    Saves as data/downloaded-official-rules.json', 'dim');
     this.log('    Merges with your custom-rules.json', 'dim');
     this.log('  - 💾 Offline Mode:', 'dim');
