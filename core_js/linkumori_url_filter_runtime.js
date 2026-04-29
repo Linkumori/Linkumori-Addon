@@ -345,6 +345,7 @@ function rebuildLinkumoriURLFilterRuntimeData() {
 
 function shouldRunLinkumoriURLFilterRuntime(requestDetails) {
     if (!storage || !storage.globalStatus) return false;
+    if (storage.linkumoriInteroperabilityMode === false) return false;
     if (!requestDetails || typeof requestDetails.url !== 'string') return false;
     if (!/^https?:\/\//i.test(requestDetails.url)) return false;
     if (linkumoriURLFilterRuntime.rules.length === 0 && linkumoriURLFilterRuntime.exceptions.length === 0) return false;

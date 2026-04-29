@@ -2570,6 +2570,7 @@ function setData(key, value) {
         case "remoteRulesEnabled":
         case "overloadModeEnabled":
         case "builtInRulesEnabled":
+        case "linkumoriInteroperabilityMode":
         case "redirectionEnabled":
             storage[key] = value === true || value === "true";
             break;
@@ -2657,6 +2658,7 @@ function initSettings() {
     };
     storage.dataHash = "";
     storage.builtInRulesEnabled = true;
+    storage.linkumoriInteroperabilityMode = true;
     storage.remoteRulesEnabled = false;
     storage.disableGatekeeper = false;
     storage.overloadModeEnabled = false;

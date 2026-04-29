@@ -2605,6 +2605,9 @@ Quit()
 
   // Build ignore patterns
   getIgnorePatterns() {
+    const normalizeIgnorePath = (pattern) => pattern.replace(/\\/g, '/').replace(/^\.\//, '');
+    const urlConfigPattern = normalizeIgnorePath(config.urlConfigFile);
+
     try {
       const content = fs.readFileSync(config.buildIgnoreFile, 'utf8');
       const patterns = content.split('\n')
@@ -2620,11 +2623,15 @@ Quit()
           expandedPatterns.push(dirPattern);
         }
       }
+
+      if (!expandedPatterns.map(normalizeIgnorePath).includes(urlConfigPattern)) {
+        expandedPatterns.push(urlConfigPattern);
+      }
       
       return expandedPatterns;
     } catch {
       this.warning('No .build-ignore file found, using defaults');
-      return [];
+      return [urlConfigPattern];
     }
   }
 
@@ -2924,6 +2931,7 @@ Old-Country-Nobility/Old-Country-Nobility.sfd
 # Data Files (keep built files, exclude sources)
 data/downloaded-official-rules.json
 data/custom-rules.json
+data/url-config.json
 downloaded-official-rules.min.hash
 # Build Tools
 .build-ignore

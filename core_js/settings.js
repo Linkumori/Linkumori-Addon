@@ -83,9 +83,10 @@ const {
     normalizeTheme
 } = globalThis.LinkumoriTheme;
 const LIGHT_THEME_OPTIONS = new Set(['light', 'icecold', 'sunset']);
-const DARK_THEME_OPTIONS = new Set(['dark', 'zengray', 'legacy']);
+const DARK_THEME_OPTIONS = new Set(['dark', 'midnight', 'legacy']);
 const themeSelectionState = {
     initialized: false,
+    handlersBound: false,
     currentTheme: DEFAULT_THEME,
     currentMode: 'dark',
     preferredLight: 'light',
@@ -1570,11 +1571,9 @@ function initializeTheme() {
         
         // Initialize theme cards
         const themeCards = document.querySelectorAll('.theme-card');
-        
-        if (themeCards.length > 0) {
+
+        if (themeCards.length > 0 && !themeSelectionState.handlersBound) {
             themeCards.forEach(card => {
-                if (card.dataset.themeBound === '1') return;
-                card.dataset.themeBound = '1';
                 // Add click handler
                 card.addEventListener('click', async () => {
                     const newTheme = normalizeTheme(card.dataset.theme);
@@ -1606,6 +1605,8 @@ function initializeTheme() {
                     }
                 });
             });
+
+            themeSelectionState.handlersBound = true;
         }
         
         // Theme toggle handler (cycles between user-selected light and dark themes)
@@ -1638,9 +1639,32 @@ browser.storage.onChanged.addListener((changes, namespace) => {
             changes[THEME_STORAGE_KEY] ||
             changes[LIGHT_THEME_STORAGE_KEY] ||
             changes[DARK_THEME_STORAGE_KEY] ||
-            changes[LAST_DARK_THEME_STORAGE_KEY] ||
-            changes['globalStatus']
+            changes[LAST_DARK_THEME_STORAGE_KEY]
         ) {
+            const currentThemeChange = changes[THEME_STORAGE_KEY];
+            const lightThemeChange = changes[LIGHT_THEME_STORAGE_KEY];
+            const darkThemeChange = changes[DARK_THEME_STORAGE_KEY];
+            const lastDarkThemeChange = changes[LAST_DARK_THEME_STORAGE_KEY];
+
+            if (lightThemeChange) {
+                themeSelectionState.preferredLight = normalizeTheme(lightThemeChange.newValue || 'light');
+                themeSelectionState.pendingLight = themeSelectionState.preferredLight;
+            }
+
+            if (darkThemeChange || lastDarkThemeChange) {
+                const nextDarkTheme = (darkThemeChange && darkThemeChange.newValue) ||
+                    (lastDarkThemeChange && lastDarkThemeChange.newValue) ||
+                    DEFAULT_THEME;
+                themeSelectionState.preferredDark = normalizeTheme(nextDarkTheme);
+                themeSelectionState.pendingDark = themeSelectionState.preferredDark;
+            }
+
+            if (currentThemeChange) {
+                document.documentElement.setAttribute('data-theme', normalizeTheme(currentThemeChange.newValue || DEFAULT_THEME));
+            }
+
+            initializeTheme();
+        } else if (changes['globalStatus']) {
             initializeTheme();
         }
     }
@@ -2339,6 +2363,7 @@ function setupToggleSwitches() {
         { id: 'remoteRulesEnabled', storageKey: 'remoteRulesEnabled' },
         { id: 'disableGatekeeper', storageKey: 'disableGatekeeper' },
         { id: 'builtInRulesEnabled', storageKey: 'builtInRulesEnabled' },
+        { id: 'linkumoriInteroperabilityMode', storageKey: 'linkumoriInteroperabilityMode' },
         { id: 'overloadModeEnabled', storageKey: 'overloadModeEnabled' }
 
     ];
@@ -2724,6 +2749,7 @@ function save() {
         { id: 'remoteRulesEnabled', key: 'remoteRulesEnabled' },
         { id: 'disableGatekeeper', key: 'disableGatekeeper' },
         { id: 'builtInRulesEnabled', key: 'builtInRulesEnabled' },
+        { id: 'linkumoriInteroperabilityMode', key: 'linkumoriInteroperabilityMode' },
         { id: 'overloadModeEnabled', key: 'overloadModeEnabled' }
     ];
     const toggleValues = {};
@@ -3232,7 +3258,8 @@ async function getData() {
             loadData("pingBlocking"),
             loadData("redirectionEnabled"),
             loadData("eTagFiltering"),
-            loadData("builtInRulesEnabled")
+            loadData("builtInRulesEnabled"),
+            loadData("linkumoriInteroperabilityMode")
         ]);
 
         if (settings.remoteRulesEnabled) {
@@ -4007,6 +4034,8 @@ setElementText('language_selector_description', 'language_selector_description')
     setElementText('eTag_filtering_enabled_description', 'eTag_filtering_enabled_description');
     setElementText('built_in_rules_enabled', 'built_in_rules_enabled');
     setElementText('built_in_rules_enabled_description', 'built_in_rules_enabled_description');
+    setElementText('linkumori_interoperability_mode_enabled', 'linkumori_interoperability_mode_enabled');
+    setElementText('linkumori_interoperability_mode_enabled_description', 'linkumori_interoperability_mode_enabled_description');
     setElementText('overload_mode_enabled', 'overload_mode_enabled');
     setElementText('overload_mode_enabled_description', 'overload_mode_enabled_description');
     
