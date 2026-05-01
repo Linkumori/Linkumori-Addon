@@ -144,6 +144,7 @@ const {
     normalizeTheme
 } = globalThis.LinkumoriTheme;
 let importExclusionsBySource = {};
+let linkumoriURLDisabledRules = [];
 let userWhitelist = [];
 let whitelistSearchTerm = '';
 let whitelistStatusTimer = null;
@@ -717,6 +718,58 @@ function getSignatureLabel(signature) {
     return signature;
 }
 
+function getRuleSourceLabel(source) {
+    if (source === 'bundled') {
+        return i18n('providerImport_bundledRules');
+    }
+    if (source === 'linkumori-data') {
+        return i18n('providerImport_linkumoriData');
+    }
+    return source;
+}
+
+function getRuleSourceType(source) {
+    return availableRuleSources[source]?.type || 'providers';
+}
+
+function getLinkumoriURLRuleKey(rule) {
+    return String(rule || '').trim();
+}
+
+function normalizeLinkumoriURLDisabledRulesValue(value) {
+    if (!value) return [];
+    if (typeof value === 'string') {
+        try {
+            return normalizeLinkumoriURLDisabledRulesValue(JSON.parse(value));
+        } catch (_) {
+            return value.split(/\r?\n/).map(rule => rule.trim()).filter(Boolean);
+        }
+    }
+    if (Array.isArray(value)) {
+        return [...new Set(value.map(rule => String(rule || '').trim()).filter(Boolean))];
+    }
+    return [];
+}
+
+async function loadLinkumoriURLDisabledRules() {
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: 'getData',
+            params: ['linkumori_url_disabled_rules']
+        });
+        linkumoriURLDisabledRules = normalizeLinkumoriURLDisabledRulesValue(response?.response);
+    } catch (_) {
+        linkumoriURLDisabledRules = [];
+    }
+}
+
+async function saveLinkumoriURLDisabledRules() {
+    await browser.runtime.sendMessage({
+        function: 'setData',
+        params: ['linkumori_url_disabled_rules', JSON.stringify(linkumoriURLDisabledRules)]
+    });
+}
+
 async function removeExcludedSignature(source, signature) {
     const excludedSet = getExcludedSignaturesForSource(source);
     if (!excludedSet.has(signature)) {
@@ -757,7 +810,10 @@ function renderImportDisabledList() {
         return;
     }
 
-    const signatures = Array.from(getExcludedSignaturesForSource(currentRuleSource));
+    const isLinkumoriURLSource = getRuleSourceType(currentRuleSource) === 'linkumori-url-rules';
+    const signatures = isLinkumoriURLSource
+        ? linkumoriURLDisabledRules.slice()
+        : Array.from(getExcludedSignaturesForSource(currentRuleSource));
     const hasItems = signatures.length > 0;
     listEl.replaceChildren();
     emptyEl.style.display = hasItems ? 'none' : '';
@@ -776,11 +832,17 @@ function renderImportDisabledList() {
         const restoreBtn = li.querySelector('.provider-disabled-restore-btn');
         if (restoreBtn) {
             restoreBtn.addEventListener('click', async () => {
-                await removeExcludedSignature(currentRuleSource, signature);
+                if (isLinkumoriURLSource) {
+                    linkumoriURLDisabledRules = linkumoriURLDisabledRules.filter(rule => rule !== signature);
+                    await saveLinkumoriURLDisabledRules();
+                    await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
+                } else {
+                    await removeExcludedSignature(currentRuleSource, signature);
+                    await reloadRulesAfterExclusionChange();
+                }
                 renderImportDisabledList();
                 loadProvidersForSource(currentRuleSource);
                 updateSourceCounts();
-                await reloadRulesAfterExclusionChange();
             });
         }
 
@@ -890,6 +952,30 @@ async function disableSelectedProviders() {
     const countText = getLocalizedNumber(selectedNames.length);
     const confirmed = await modalConfirm(i18n('providerImport_disableSelectedConfirm', countText));
     if (!confirmed) {
+        return;
+    }
+
+    if (getRuleSourceType(currentRuleSource) === 'linkumori-url-rules') {
+        const disabledSet = new Set(linkumoriURLDisabledRules);
+        let disabledCount = 0;
+        selectedNames.forEach(rule => {
+            const normalizedRule = getLinkumoriURLRuleKey(rule);
+            if (normalizedRule && !disabledSet.has(normalizedRule)) {
+                disabledSet.add(normalizedRule);
+                disabledCount++;
+            }
+        });
+
+        linkumoriURLDisabledRules = Array.from(disabledSet);
+        selectedProviders.clear();
+        await saveLinkumoriURLDisabledRules();
+        await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
+        updateSelectionCount();
+        renderImportDisabledList();
+        loadProvidersForSource(currentRuleSource);
+        updateSourceCounts();
+        await updateRulesStatus();
+        await modalAlert(i18n('providerImport_disableSelectedResult', getLocalizedNumber(disabledCount), getLocalizedNumber(0)));
         return;
     }
 
@@ -1880,11 +1966,17 @@ function setupProviderImport() {
             if (!confirmed) {
                 return;
             }
-            await clearExcludedSignatures(currentRuleSource);
+            if (getRuleSourceType(currentRuleSource) === 'linkumori-url-rules') {
+                linkumoriURLDisabledRules = [];
+                await saveLinkumoriURLDisabledRules();
+                await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
+            } else {
+                await clearExcludedSignatures(currentRuleSource);
+                await reloadRulesAfterExclusionChange();
+            }
             renderImportDisabledList();
             loadProvidersForSource(currentRuleSource);
             updateSourceCounts();
-            await reloadRulesAfterExclusionChange();
         });
     }
     
@@ -1895,16 +1987,19 @@ function setupProviderImport() {
         }
     });
     
-    // Source selection
-    const sourceItems = document.querySelectorAll('.provider-source-item');
-    sourceItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const source = this.dataset.source;
+    const sourceList = providerImportModal.querySelector('.provider-source-list');
+    if (sourceList) {
+        sourceList.addEventListener('click', function(e) {
+            const item = e.target.closest('.provider-source-item');
+            if (!item || !sourceList.contains(item)) {
+                return;
+            }
+            const source = item.dataset.source;
             if (source) {
                 selectRuleSource(source);
             }
         });
-    });
+    }
     
     // Search functionality
     const searchInput = document.getElementById('provider-search');
@@ -1959,6 +2054,7 @@ function setupDisabledRulesViewEvents() {
 async function showDisabledRulesPage() {
     if (!disabledRulesView) return;
     await loadImportExclusions();
+    await loadLinkumoriURLDisabledRules();
     renderDisabledRulesPageContent();
     switchCustomRulesView('disabled-rules');
 }
@@ -1973,14 +2069,18 @@ function hideDisabledRulesPage() {
 
 async function clearAllDisabledRules() {
     const sources = Object.keys(importExclusionsBySource);
-    if (sources.length === 0) return;
+    const hasLinkumoriURLDisabledRules = linkumoriURLDisabledRules.length > 0;
+    if (sources.length === 0 && !hasLinkumoriURLDisabledRules) return;
     const confirmed = await modalConfirm(i18n('providerImport_disabledClearAllConfirm'));
     if (!confirmed) {
         return;
     }
 
     importExclusionsBySource = {};
+    linkumoriURLDisabledRules = [];
     await saveImportExclusions();
+    await saveLinkumoriURLDisabledRules();
+    await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
     await reloadRulesAfterExclusionChange();
     updateSourceCounts();
     renderDisabledRulesPageContent();
@@ -1991,6 +2091,9 @@ function renderDisabledRulesPageContent() {
     if (!container) return;
 
     const sources = Object.keys(importExclusionsBySource).sort((a, b) => a.localeCompare(b));
+    if (linkumoriURLDisabledRules.length > 0 && !sources.includes('linkumori-data')) {
+        sources.push('linkumori-data');
+    }
     if (sources.length === 0) {
         setHTMLContent(container, `
             <div class="provider-list-empty">
@@ -2001,16 +2104,23 @@ function renderDisabledRulesPageContent() {
     }
 
     const totalDisabled = sources.reduce((sum, source) => {
+        if (source === 'linkumori-data') {
+            return sum + linkumoriURLDisabledRules.length;
+        }
         const list = importExclusionsBySource[source];
         return sum + (Array.isArray(list) ? list.length : 0);
     }, 0);
 
     const entries = [];
     sources.forEach(source => {
-        const signatures = (importExclusionsBySource[source] || []).slice().sort((a, b) => a.localeCompare(b));
+        const signatures = (source === 'linkumori-data'
+            ? linkumoriURLDisabledRules
+            : (importExclusionsBySource[source] || [])).slice().sort((a, b) => a.localeCompare(b));
         signatures.forEach(signature => {
             let kind = 'other';
-            if (typeof signature === 'string' && signature.startsWith('url:')) {
+            if (source === 'linkumori-data') {
+                kind = 'linkumoriURL';
+            } else if (typeof signature === 'string' && signature.startsWith('url:')) {
                 kind = 'urlPattern';
             } else if (typeof signature === 'string' && signature.startsWith('domain:')) {
                 kind = 'domainPatterns';
@@ -2022,13 +2132,15 @@ function renderDisabledRulesPageContent() {
     const grouped = {
         urlPattern: entries.filter(item => item.kind === 'urlPattern'),
         domainPatterns: entries.filter(item => item.kind === 'domainPatterns'),
+        linkumoriURL: entries.filter(item => item.kind === 'linkumoriURL'),
         other: entries.filter(item => item.kind === 'other')
     };
 
-    const sectionOrder = ['urlPattern', 'domainPatterns', 'other'];
+    const sectionOrder = ['urlPattern', 'domainPatterns', 'linkumoriURL', 'other'];
     const sectionTitle = (key) => {
         if (key === 'urlPattern') return i18n('customRulesEditor_urlPattern');
         if (key === 'domainPatterns') return i18n('customRulesEditor_domainPatterns');
+        if (key === 'linkumoriURL') return i18n('providerImport_linkumoriData');
         return i18n('customRulesEditor_rules');
     };
 
@@ -2039,7 +2151,7 @@ function renderDisabledRulesPageContent() {
             const items = grouped[key].map(({ source, signature }) => `
                 <li class="provider-disabled-item" data-source="${escapeHtml(source)}" data-signature="${escapeHtml(signature)}">
                     <span class="provider-disabled-signature" title="${escapeHtml(signature)}">${escapeHtml(getSignatureLabel(signature))}</span>
-                    ${showSourceLabel ? `<span class="provider-disabled-source">${escapeHtml(source)}</span>` : ''}
+                    ${showSourceLabel ? `<span class="provider-disabled-source">${escapeHtml(getRuleSourceLabel(source))}</span>` : ''}
                     <button type="button" class="btn btn-sm btn-primary disabled-rules-restore-btn">${i18n('providerImport_disabledRestore')}</button>
                 </li>
             `).join('');
@@ -2073,8 +2185,14 @@ function renderDisabledRulesPageContent() {
             const signature = item.dataset.signature;
             if (!source || !signature) return;
 
-            await removeExcludedSignature(source, signature);
-            await reloadRulesAfterExclusionChange();
+            if (source === 'linkumori-data') {
+                linkumoriURLDisabledRules = linkumoriURLDisabledRules.filter(rule => rule !== signature);
+                await saveLinkumoriURLDisabledRules();
+                await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
+            } else {
+                await removeExcludedSignature(source, signature);
+                await reloadRulesAfterExclusionChange();
+            }
             updateSourceCounts();
             renderDisabledRulesPageContent();
 
@@ -2139,8 +2257,22 @@ function hideProviderImportModal() {
  */
 async function loadAvailableRuleSources() {
     try {
-        // Load bundled rules only
-        availableRuleSources.bundled = await loadBundledRulesForImport();
+        const [bundledResult, linkumoriDataResult] = await Promise.allSettled([
+            loadBundledRulesForImport(),
+            loadExistingLinkumoriDataForImport()
+        ]);
+
+        availableRuleSources.bundled = bundledResult.status === 'fulfilled'
+            ? bundledResult.value
+            : { metadata: { name: 'Bundled Rules', source: 'bundled' }, providers: {} };
+        availableRuleSources['linkumori-data'] = linkumoriDataResult.status === 'fulfilled'
+            ? linkumoriDataResult.value
+            : {
+                metadata: { name: 'Linkumori Data', source: 'linkumori_urls_data' },
+                format: 'linkumori-url-filter-interoperability',
+                type: 'linkumori-url-rules',
+                rules: []
+            };
         
         // Update source counts
         updateSourceCounts();
@@ -2181,16 +2313,62 @@ async function loadBundledRulesForImport() {
     }
 }
 
+async function loadExistingLinkumoriDataForImport() {
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: "getExistingLinkumoriDataForImport"
+        });
+
+        if (response && response.response && Array.isArray(response.response.rules)) {
+            return response.response;
+        }
+    } catch (_) {
+    }
+
+    try {
+        const fallbackResponse = await browser.runtime.sendMessage({
+            function: "getData",
+            params: ['LinkumoriURLsData']
+        });
+        if (fallbackResponse && fallbackResponse.response && Array.isArray(fallbackResponse.response.rules)) {
+            return {
+                ...(fallbackResponse.response || {}),
+                type: 'linkumori-url-rules'
+            };
+        }
+    } catch (_) {
+    }
+
+    return {
+        metadata: {
+            name: 'Linkumori Data',
+            source: 'linkumori_urls_data'
+        },
+        format: 'linkumori-url-filter-interoperability',
+        type: 'linkumori-url-rules',
+        rules: []
+    };
+}
+
 /**
  * Update source counts in the sidebar
  */
 function updateSourceCounts() {
     const bundledCount = document.getElementById('bundled-count');
+    const linkumoriDataCount = document.getElementById('linkumori-data-count');
     
     if (bundledCount && availableRuleSources.bundled) {
         const bundledProviders = Object.values(availableRuleSources.bundled.providers || {});
         const visibleCount = bundledProviders.filter(provider => !isProviderExcluded('bundled', provider)).length;
         bundledCount.textContent = getLocalizedNumber(visibleCount);
+    }
+    if (linkumoriDataCount && availableRuleSources['linkumori-data']) {
+        const linkumoriRules = Array.isArray(availableRuleSources['linkumori-data'].rules)
+            ? availableRuleSources['linkumori-data'].rules
+            : [];
+        const disabled = new Set(linkumoriURLDisabledRules);
+        const visibleCount = linkumoriRules.filter(rule => !disabled.has(getLinkumoriURLRuleKey(rule))).length;
+        linkumoriDataCount.textContent = getLocalizedNumber(visibleCount);
     }
 }
 
@@ -2227,8 +2405,13 @@ function loadProvidersForSource(source) {
     if (!providerGrid) return;
     
     const rules = availableRuleSources[source];
+    if (getRuleSourceType(source) === 'linkumori-url-rules') {
+        loadLinkumoriURLRulesForSource(source, providerGrid);
+        return;
+    }
+
     if (!rules || !rules.providers) {
-        showProviderImportError(i18n('providerImport_noProvidersAvailable', source));
+        showProviderImportError(i18n('providerImport_noProvidersAvailable', getRuleSourceLabel(source)));
         return;
     }
     
@@ -2240,7 +2423,7 @@ function loadProvidersForSource(source) {
     if (providerNames.length === 0) {
         setHTMLContent(providerGrid, `
             <div class="provider-loading">
-                <span>${i18n('providerImport_noProvidersFound', source)}</span>
+                <span>${i18n('providerImport_noProvidersFound', getRuleSourceLabel(source))}</span>
             </div>
         `);
         return;
@@ -2278,6 +2461,69 @@ function loadProvidersForSource(source) {
         }
 
     });
+}
+
+function loadLinkumoriURLRulesForSource(source, providerGrid) {
+    const sourceData = availableRuleSources[source];
+    const disabled = new Set(linkumoriURLDisabledRules);
+    const rules = Array.isArray(sourceData?.rules)
+        ? sourceData.rules.map(rule => String(rule || '').trim()).filter(Boolean)
+        : [];
+    const visibleRules = rules.filter(rule => !disabled.has(rule));
+
+    if (visibleRules.length === 0) {
+        setHTMLContent(providerGrid, `
+            <div class="provider-loading">
+                <span>${i18n('providerImport_noProvidersFound', getRuleSourceLabel(source))}</span>
+            </div>
+        `);
+        return;
+    }
+
+    const cards = visibleRules.map(rule => createLinkumoriURLRuleCard(rule, source)).join('');
+    setHTMLContent(providerGrid, cards);
+
+    providerGrid.querySelectorAll('.provider-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (e.target.type === 'checkbox') return;
+            toggleProviderSelection(this.dataset.provider);
+        });
+
+        const checkbox = card.querySelector('.provider-card-checkbox');
+        if (checkbox) {
+            checkbox.addEventListener('change', function(e) {
+                e.stopPropagation();
+                if (this.checked) {
+                    addProviderToSelection(card.dataset.provider);
+                } else {
+                    removeProviderFromSelection(card.dataset.provider);
+                }
+            });
+        }
+    });
+}
+
+function createLinkumoriURLRuleCard(rule, source) {
+    const safeRule = getLinkumoriURLRuleKey(rule);
+    let modifierText = '';
+    const dollarIndex = safeRule.indexOf('$');
+    if (dollarIndex !== -1) {
+        modifierText = safeRule.slice(dollarIndex + 1);
+    }
+
+    return `
+        <div class="provider-card" data-provider="${escapeHtml(safeRule)}" data-source="${escapeHtml(source)}">
+            <div class="provider-card-header">
+                <h4 class="provider-card-name" title="${escapeHtml(safeRule)}">${escapeHtml(i18n('linkumori_url_filter_single_name'))}</h4>
+                <input type="checkbox" class="provider-card-checkbox">
+            </div>
+            <div class="provider-card-url" title="${escapeHtml(safeRule)}">${escapeHtml(safeRule)}</div>
+            <div class="provider-card-stats">
+                <span class="provider-card-stat">${escapeHtml(i18n('linkumoriUrlRules_statusLabel'))}</span>
+                ${modifierText ? `<span class="provider-card-stat" title="${escapeHtml(modifierText)}">${escapeHtml(modifierText.split(',')[0])}</span>` : ''}
+            </div>
+        </div>
+    `;
 }
 
 /**
@@ -2458,6 +2704,11 @@ async function confirmProviderImport() {
     
     try {
         const rules = availableRuleSources[currentRuleSource];
+        if (getRuleSourceType(currentRuleSource) === 'linkumori-url-rules') {
+            await confirmLinkumoriURLRuleImport(importConfirmBtn);
+            return;
+        }
+
         if (!rules || !rules.providers) {
             throw new Error(i18n('providerImport_noRulesAvailable'));
         }
@@ -2523,6 +2774,55 @@ async function confirmProviderImport() {
             importConfirmBtn.disabled = false;
             importConfirmBtn.textContent = i18n('providerImport_import');
         }
+    }
+}
+
+async function confirmLinkumoriURLRuleImport(importConfirmBtn) {
+    const selectedRules = Array.from(selectedProviders)
+        .map(rule => getLinkumoriURLRuleKey(rule))
+        .filter(Boolean);
+    if (selectedRules.length === 0) {
+        return;
+    }
+
+    const response = await browser.runtime.sendMessage({
+        function: 'getData',
+        params: ['linkumori_url_custom_rules']
+    });
+    const customData = normalizeLinkumoriURLCustomRulesValue(response?.response);
+    const existing = new Set(customData.rules);
+    let importedCount = 0;
+    let skippedCount = 0;
+
+    selectedRules.forEach(rule => {
+        if (existing.has(rule)) {
+            skippedCount++;
+            return;
+        }
+        existing.add(rule);
+        importedCount++;
+    });
+
+    await browser.runtime.sendMessage({
+        function: 'setData',
+        params: ['linkumori_url_custom_rules', JSON.stringify({ rules: Array.from(existing) })]
+    });
+    await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
+    await updateRulesStatus();
+    hideProviderImportModal();
+
+    const messageLines = [
+        i18n('providerImport_completed'),
+        i18n('providerImport_importedRulesCount', getLocalizedNumber(importedCount))
+    ];
+    if (skippedCount > 0) {
+        messageLines.push(i18n('providerImport_skippedRulesCount', getLocalizedNumber(skippedCount)));
+    }
+    await modalAlert(messageLines.join('\n'));
+
+    if (importConfirmBtn) {
+        importConfirmBtn.disabled = false;
+        importConfirmBtn.textContent = i18n('providerImport_import');
     }
 }
 
@@ -3034,6 +3334,15 @@ function renderRuleTestResult(result) {
         `${i18n('customRulesEditor_ruleTestLab_field_matchedReferralMarketing')}: ${result.matchedReferralMarketing || noValue}`,
         `${i18n('customRulesEditor_ruleTestLab_field_matchedRemoveParamRule')}: ${result.matchedRemoveParamRule || noValue}`,
         `${i18n('customRulesEditor_ruleTestLab_field_matchedRemoveParamException')}: ${result.matchedRemoveParamException || noValue}`,
+        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLChanged')}: ${
+            result.linkumoriURLChanged
+                ? i18n('customRulesEditor_ruleTestLab_value_true')
+                : i18n('customRulesEditor_ruleTestLab_value_false')
+        }`,
+        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLOutput')}: ${result.linkumoriURLOutput || noValue}`,
+        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule')}: ${result.linkumoriURLMatchedRule || noValue}`,
+        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLPatternType')}: ${result.linkumoriURLPatternType || noValue}`,
+        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLAction')}: ${result.linkumoriURLAction || noValue}`,
         `${i18n('customRulesEditor_ruleTestLab_field_completeProvider')}: ${
             typeof result.completeProvider === 'boolean'
                 ? (result.completeProvider
@@ -4252,12 +4561,32 @@ function duplicateProvider(providerName) {
  */
 async function exportCustomRules() {
     try {
-        const blob = new Blob([JSON.stringify(customRules, null, 2)], { type: 'application/json' });
+        let linkumoriURLCustomRules = { rules: [] };
+        try {
+            const response = await browser.runtime.sendMessage({
+                function: 'getData',
+                params: ['linkumori_url_custom_rules']
+            });
+            linkumoriURLCustomRules = normalizeLinkumoriURLCustomRulesValue(response?.response);
+        } catch (_) {
+        }
+
+        const exportData = {
+            format: 'linkumori-custom-rules-export',
+            version: 1,
+            exportedAt: new Date().toISOString(),
+            clearurlsCustomRules: {
+                providers: customRules.providers || {}
+            },
+            linkumoriURLCustomRules
+        };
+
+        const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         
         browser.downloads.download({
             url: url,
-            filename: 'clearurls_custom_rules.json',
+            filename: 'linkumori_custom_rules.json',
             saveAs: true
         }).then(() => {
             // Success
@@ -4265,7 +4594,7 @@ async function exportCustomRules() {
             // Fallback for browsers that don't support downloads API
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'clearurls_custom_rules.json';
+            a.download = 'linkumori_custom_rules.json';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -4274,6 +4603,97 @@ async function exportCustomRules() {
         
     } catch (error) {
         await modalAlert(i18n('customRulesEditor_exportFailed'));
+    }
+}
+
+function getProvidersFromImportedCustomRules(imported) {
+    if (!imported || typeof imported !== 'object' || Array.isArray(imported)) {
+        return null;
+    }
+
+    const candidates = [
+        imported.clearurlsCustomRules,
+        imported.custom_rules,
+        imported.customRules,
+        imported
+    ];
+
+    for (const candidate of candidates) {
+        if (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) {
+            continue;
+        }
+        if (candidate.providers && typeof candidate.providers === 'object' && !Array.isArray(candidate.providers)) {
+            return candidate.providers;
+        }
+    }
+
+    const reservedKeys = new Set([
+        'format',
+        'version',
+        'exportedAt',
+        'clearurlsCustomRules',
+        'linkumoriURLCustomRules',
+        'custom_rules',
+        'customRules',
+        'linkumori_url_custom_rules'
+    ]);
+    const keys = Object.keys(imported).filter(key => !reservedKeys.has(key));
+    if (keys.length > 0 && keys.every(key => typeof imported[key] === 'object' && imported[key] !== null && !Array.isArray(imported[key]))) {
+        return keys.reduce((providers, key) => {
+            providers[key] = imported[key];
+            return providers;
+        }, {});
+    }
+
+    return null;
+}
+
+function getLinkumoriURLRulesFromImportedCustomRules(imported) {
+    if (!imported || typeof imported !== 'object') {
+        return null;
+    }
+
+    const candidates = [
+        imported.linkumoriURLCustomRules,
+        imported.linkumori_url_custom_rules,
+        imported.LinkumoriURLCustomRules
+    ];
+
+    for (const candidate of candidates) {
+        if (candidate === undefined || candidate === null) {
+            continue;
+        }
+        return normalizeLinkumoriURLCustomRulesValue(candidate).rules;
+    }
+
+    return null;
+}
+
+function validateImportedProviders(providersData) {
+    if (!providersData || Object.keys(providersData).length === 0) {
+        throw new Error(i18n('customRulesEditor_noProvidersInFile'));
+    }
+
+    for (const [name, provider] of Object.entries(providersData)) {
+        if (!provider.urlPattern && (!provider.domainPatterns || provider.domainPatterns.length === 0)) {
+            throw new Error(i18n('customRulesEditor_providerMissingUrlPatternOrDomainPatterns', name));
+        }
+
+        if (provider.urlPattern && provider.domainPatterns && provider.domainPatterns.length > 0) {
+            throw new Error(i18n('customRulesEditor_providerHasBothPatternTypes', name));
+        }
+
+        if (provider.urlPattern) {
+            new RegExp(provider.urlPattern);
+        }
+
+        if (provider.domainPatterns && provider.domainPatterns.length > 0) {
+            for (const pattern of provider.domainPatterns) {
+                if (!pattern || pattern.trim() === '') {
+                    throw new Error(i18n('customRulesEditor_providerHasEmptyDomainPattern', name) || `Provider "${name}" has empty domain patterns`);
+                }
+            }
+        }
     }
 }
 
@@ -4288,62 +4708,47 @@ async function handleFileImport(e) {
     reader.onload = async function(event) {
         try {
             const imported = JSON.parse(event.target.result);
-            
-            // Flexible structure validation - handle different formats
-            let providersData;
-            if (imported.providers && typeof imported.providers === 'object') {
-                // Standard format: {providers: {...}}
-                providersData = imported.providers;
-            } else if (typeof imported === 'object' && !Array.isArray(imported)) {
-                // Direct providers format: {provider1: {...}, provider2: {...}}
-                // Check if it looks like a providers object
-                const keys = Object.keys(imported);
-                if (keys.length > 0 && keys.every(key => typeof imported[key] === 'object' && imported[key] !== null)) {
-                    providersData = imported;
-                } else {
-                    throw new Error(i18n('customRulesEditor_invalidFileStructure'));
-                }
-            } else {
+
+            if (!imported || typeof imported !== 'object' || Array.isArray(imported)) {
                 throw new Error(i18n('customRulesEditor_invalidFileStructure'));
             }
-            
-            // Additional validation - ensure we have at least one provider
-            if (!providersData || Object.keys(providersData).length === 0) {
-                throw new Error(i18n('customRulesEditor_noProvidersInFile'));
+
+            const providersData = getProvidersFromImportedCustomRules(imported);
+            const linkumoriURLRules = getLinkumoriURLRulesFromImportedCustomRules(imported);
+
+            const hasProviderRules = providersData && Object.keys(providersData).length > 0;
+            const hasLinkumoriURLRules = linkumoriURLRules !== null;
+
+            if (!hasProviderRules && !hasLinkumoriURLRules) {
+                throw new Error(i18n('customRulesEditor_invalidFileStructure'));
             }
-            
-            // Validate each provider
-            for (const [name, provider] of Object.entries(providersData)) {
-                // Either urlPattern or domainPatterns must be present
-                if (!provider.urlPattern && (!provider.domainPatterns || provider.domainPatterns.length === 0)) {
-                    throw new Error(i18n('customRulesEditor_providerMissingUrlPatternOrDomainPatterns', name));
-                }
-                
-                // Validate mutual exclusivity
-                if (provider.urlPattern && provider.domainPatterns && provider.domainPatterns.length > 0) {
-                    throw new Error(i18n('customRulesEditor_providerHasBothPatternTypes', name));
-                }
-                
-                // Validate regex if urlPattern exists
-                if (provider.urlPattern) {
-                    new RegExp(provider.urlPattern);
-                }
-                
-                // Validate domain patterns if they exist
-                if (provider.domainPatterns && provider.domainPatterns.length > 0) {
-                    for (const pattern of provider.domainPatterns) {
-                        if (!pattern || pattern.trim() === '') {
-                            throw new Error(i18n('customRulesEditor_providerHasEmptyDomainPattern', name) || `Provider "${name}" has empty domain patterns`);
-                        }
-                    }
-                }
+
+            if (hasProviderRules) {
+                validateImportedProviders(providersData);
+            }
+
+            if (linkumoriURLRules !== null && linkumoriURLRules.length > 0) {
+                parseLinkumoriURLRulesText(linkumoriURLRules.join('\n'));
             }
             
             const confirmed = await modalConfirm(i18n('customRulesEditor_importConfirm'));
             if (confirmed) {
-                // Ensure we always save in the standard format
-                customRules = { providers: providersData };
-                saveCustomRules();
+                if (hasProviderRules) {
+                    customRules = { providers: providersData };
+                    await saveCustomRules();
+                }
+
+                if (linkumoriURLRules !== null) {
+                    await browser.runtime.sendMessage({
+                        function: 'setData',
+                        params: ['linkumori_url_custom_rules', JSON.stringify({ rules: linkumoriURLRules })]
+                    });
+                    await browser.runtime.sendMessage({
+                        function: 'reloadLinkumoriURLFilters'
+                    });
+                }
+
+                await updateRulesStatus();
                 updateUI();
                 showEmptyState();
             }

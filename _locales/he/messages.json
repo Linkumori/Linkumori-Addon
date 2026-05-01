@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "פעולה זו תחליף את כל הכללים המותאמים אישית הקיימים. להמשיך?"
+    "message": "פעולה זו תחליף את קטגוריות הכללים המותאמים אישית הכלולות בקובץ. להמשיך?"
   },
   "customRulesEditor_importFailed": {
     "message": "ייבוא הכללים נכשל: $1"
@@ -349,7 +349,7 @@
     "message": "תבנית דומיין לא חוקית: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "מבנה קובץ לא חוקי: חסר אובייקט providers"
+    "message": "מבנה קובץ לא חוקי: חסרים ספקי ClearURLs או כללי URL מותאמים אישית של Linkumori"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "ביטוי רגולרי URL Pattern לא חוקי: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "יובאו: $1 ספקים"
   },
+  "providerImport_importedRulesCount": {
+    "message": "יובאו: $1 כללים",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "מייבא..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "כללי תאימות קיימים של Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "טוען ספקים...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "דולגו: $1 ספקים"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "דולגו: $1 כללים",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "מקור כללים",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "תוסף פופולרי מרחוק URL מסננים וכללים מותאמים אישית אלה אינם דורשים אימות hash. הם מאוחסנים ב LinkumoriURLsData לאחר ניתוח, בנפרד מ ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "התאימות השתנתה",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "כתובת URL של פלט התאימות",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "כלל תאימות תואם",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "סוג תבנית תאימות",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "פעולת תאימות",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

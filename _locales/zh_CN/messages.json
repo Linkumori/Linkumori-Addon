@@ -283,7 +283,7 @@
     "message": "HTTP 方法"
   },
   "customRulesEditor_importConfirm": {
-    "message": "这将替换所有现有的自定义规则。继续吗？"
+    "message": "这将替换文件中包含的自定义规则类别。要继续吗？"
   },
   "customRulesEditor_importFailed": {
     "message": "导入规则失败：$1"
@@ -295,7 +295,7 @@
     "message": "无效的域名模式：{0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "无效的文件结构：缺少 providers 对象"
+    "message": "文件结构无效：缺少 ClearURLs 提供者或 Linkumori URL 自定义规则"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "无效的 URL 模式正则表达式：$1"
@@ -1656,8 +1656,16 @@
   "providerImport_importedCount": {
     "message": "已导入：$1 个提供者"
   },
+  "providerImport_importedRulesCount": {
+    "message": "已导入：$1 条规则",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "正在导入..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "现有 Linkumori 互操作规则",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "正在加载提供者..."
@@ -1712,6 +1720,10 @@
   },
   "providerImport_skippedCount": {
     "message": "已跳过：$1 个提供者"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "已跳过：$1 条规则",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "规则来源"
@@ -3424,5 +3436,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "远程流行扩展URL过滤器和这些自定义规则不需要哈希验证。解析后它们存储在LinkumoriURLsData中，与ClearURLsData分开。"
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "互操作已更改",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "互操作输出 URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "匹配的互操作规则",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "互操作模式类型",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "互操作操作",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

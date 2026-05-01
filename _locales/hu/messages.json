@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Ez felülírja az összes meglévő egyéni szabályt. Folytatod?"
+    "message": "Ez lecseréli a fájlban szereplő egyéni szabálykategóriákat. Folytatja?"
   },
   "customRulesEditor_importFailed": {
     "message": "Szabályok importálása sikertelen: $1"
@@ -349,7 +349,7 @@
     "message": "Érvénytelen tartomány minta: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Érvénytelen fájlszerkezet: hiányzó 'providers' objektum"
+    "message": "Érvénytelen fájlszerkezet: hiányoznak a ClearURLs szolgáltatók vagy a Linkumori URL egyéni szabályai"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Érvénytelen URL minta regex: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Importált: $1 szolgáltató"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importálva: $1 szabály",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importálás..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Meglévő Linkumori interoperabilitási szabályok",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Szolgáltatók betöltése...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Kihagyott: $1 szolgáltató"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Kihagyva: $1 szabály",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Szabályforrás",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "A távoli népszerű URL-es kiterjesztésű szűrők és ezek az egyéni szabályok nem igényelnek hash-ellenőrzést. Az elemzést követően a LinkumoriURLsData-ben tárolódnak, külön a ClearURLsData-től."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilitás módosítva",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Interoperabilitási kimeneti URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Egyező interoperabilitási szabály",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Interoperabilitási mintatípus",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Interoperabilitási művelet",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

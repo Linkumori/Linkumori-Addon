@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "ಇದು ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಎಲ್ಲಾ ಕಸ್ಟಮ್ ನಿಯಮಗಳನ್ನು ಬದಲಾಯಿಸುತ್ತದೆ. ಮುಂದುವರಿಸುವುದೇ?"
+    "message": "ಇದು ಫೈಲ್‌ನಲ್ಲಿ ಸೇರಿಸಲಾದ ಕಸ್ಟಮ್ ನಿಯಮ ವರ್ಗಗಳನ್ನು ಬದಲಾಯಿಸುತ್ತದೆ. ಮುಂದುವರಿಸಬೇಕೇ?"
   },
   "customRulesEditor_importFailed": {
     "message": "ನಿಯಮಗಳನ್ನು ಆಮದು ಮಾಡಿಕೊಳ್ಳಲು ವಿಫಲವಾಗಿದೆ: $1"
@@ -349,7 +349,7 @@
     "message": "ಅಮಾನ್ಯ ಡೊಮೇನ್ ಮಾದರಿ: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "ಅಮಾನ್ಯವಾದ ಫೈಲ್ ರಚನೆ: ಪೂರೈಕೆದಾರರ ಆಬ್ಜೆಕ್ಟ್ ಕಾಣೆಯಾಗಿದೆ"
+    "message": "ಅಮಾನ್ಯ ಫೈಲ್ ರಚನೆ: ClearURLs ಪೂರೈಕೆದಾರರು ಅಥವಾ Linkumori URL ಕಸ್ಟಮ್ ನಿಯಮಗಳು ಕಾಣೆಯಾಗಿವೆ"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "ಅಮಾನ್ಯವಾದ URL ಪ್ಯಾಟರ್ನ್ ರಿಜೆಕ್ಸ್: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "ಆಮದು ಮಾಡಲಾಗಿದೆ: $1 ಪೂರೈಕೆದಾರರು"
   },
+  "providerImport_importedRulesCount": {
+    "message": "ಆಮದು ಮಾಡಲಾಗಿದೆ: $1 ನಿಯಮಗಳು",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "ಆಮದು ಮಾಡಲಾಗುತ್ತಿದೆ..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ Linkumori ಪರಸ್ಪರ ಕಾರ್ಯಸಾಧ್ಯತಾ ನಿಯಮಗಳು",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "ಪೂರೈಕೆದಾರರನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "ಸ್ಕಿಪ್ ಮಾಡಲಾಗಿದೆ: $1 ಪೂರೈಕೆದಾರರು"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "ಬಿಟ್ಟುಬಿಡಲಾಗಿದೆ: $1 ನಿಯಮಗಳು",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "ನಿಯಮದ ಮೂಲ",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "ರಿಮೋಟ್ ಜನಪ್ರಿಯ ವಿಸ್ತರಣೆ URL ಫಿಲ್ಟರ್‌ಗಳು ಮತ್ತು ಈ ಕಸ್ಟಮ್ ನಿಯಮಗಳಿಗೆ ಹ್ಯಾಶ್ ಪರಿಶೀಲನೆ ಅಗತ್ಯವಿಲ್ಲ. ಪಾರ್ಸಿಂಗ್ ಮಾಡಿದ ನಂತರ ಅವುಗಳನ್ನು LinkumoriURLsData ರಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ, ClearURLsData ರಿಂದ ಪ್ರತ್ಯೇಕವಾಗಿ."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "ಪರಸ್ಪರ ಕಾರ್ಯಸಾಧ್ಯತೆ ಬದಲಾಗಿದೆ",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "ಪರಸ್ಪರ ಕಾರ್ಯಸಾಧ್ಯತಾ ಔಟ್‌ಪುಟ್ URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "ಹೊಂದಿದ ಪರಸ್ಪರ ಕಾರ್ಯಸಾಧ್ಯತಾ ನಿಯಮ",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "ಪರಸ್ಪರ ಕಾರ್ಯಸಾಧ್ಯತಾ ಮಾದರಿ ಪ್ರಕಾರ",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "ಪರಸ್ಪರ ಕಾರ್ಯಸಾಧ್ಯತಾ ಕ್ರಿಯೆ",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

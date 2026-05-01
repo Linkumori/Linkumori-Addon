@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Tím se nahradí všechna stávající vlastní pravidla. Pokračovat?"
+    "message": "Tím se nahradí kategorie vlastních pravidel obsažené v souboru. Pokračovat?"
   },
   "customRulesEditor_importFailed": {
     "message": "Nepodařilo se importovat pravidla: $1"
@@ -349,7 +349,7 @@
     "message": "Neplatný vzor domény: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Neplatná struktura souboru: chybí objekt poskytovatelů"
+    "message": "Neplatná struktura souboru: chybí poskytovatelé ClearURLs nebo vlastní pravidla Linkumori URL"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Neplatný regulární výraz vzoru adresy URL: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Importováno: poskytovatelé $1"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importováno: $1 pravidel",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Import..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Stávající pravidla interoperability Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Načítání poskytovatelů...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Vynecháno: poskytovatelé $1"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Přeskočeno: $1 pravidel",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Zdroj pravidla",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Vzdálené oblíbené rozšíření URL filtruje a tato vlastní pravidla nevyžadují ověření hash. Po analýze jsou uloženy v LinkumoriURLsData, odděleně od ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilita změněna",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Výstupní URL interoperability",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Odpovídající pravidlo interoperability",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Typ vzoru interoperability",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Akce interoperability",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

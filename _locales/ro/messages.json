@@ -335,7 +335,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Aceasta va înlocui toate regulile personalizate existente. Continua?"
+    "message": "Aceasta va înlocui categoriile de reguli personalizate incluse în fișier. Continuați?"
   },
   "customRulesEditor_importFailed": {
     "message": "Regulile nu au fost importate: $1"
@@ -347,7 +347,7 @@
     "message": "Model de domeniu nevalid: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Structura fișierului nevalidă: obiectul furnizorilor lipsă"
+    "message": "Structură de fișier nevalidă: lipsesc furnizorii ClearURLs sau regulile URL personalizate Linkumori"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Execuție regulată a modelului URL nevalid: $1"
@@ -2105,8 +2105,16 @@
   "providerImport_importedCount": {
     "message": "Importat: furnizori $1"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importate: $1 reguli",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Se importă..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Reguli de interoperabilitate Linkumori existente",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Se încarcă furnizorii...",
@@ -2169,6 +2177,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Omis: furnizori $1"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Omis: $1 reguli",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Sursa regulii",
@@ -4331,5 +4343,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Extensia populară de la distanță URL filtre și aceste reguli personalizate nu necesită verificare hash. Ele sunt stocate în LinkumoriURLsData după parsare, separat de ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilitate modificată",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "URL de ieșire pentru interoperabilitate",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Regulă de interoperabilitate potrivită",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Tip de model de interoperabilitate",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Acțiune de interoperabilitate",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

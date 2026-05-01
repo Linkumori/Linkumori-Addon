@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "આ તમામ હાલના કસ્ટમ નિયમોને બદલશે. ચાલુ રાખીએ?"
+    "message": "આ ફાઇલમાં સામેલ કસ્ટમ નિયમ શ્રેણીઓને બદલી દેશે. ચાલુ રાખવું?"
   },
   "customRulesEditor_importFailed": {
     "message": "નિયમો આયાત કરવામાં નિષ્ફળ: $1"
@@ -349,7 +349,7 @@
     "message": "અમાન્ય ડોમેન પેટર્ન: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "અમાન્ય ફાઇલ માળખું: પ્રદાતા ઑબ્જેક્ટ ખૂટે છે"
+    "message": "અમાન્ય ફાઇલ માળખું: ClearURLs પ્રદાતાઓ અથવા Linkumori URL કસ્ટમ નિયમો ગુમ છે"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "અમાન્ય URL પેટર્ન રેગેક્સ: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "આયાત કરેલ: $1 પ્રદાતાઓ"
   },
+  "providerImport_importedRulesCount": {
+    "message": "આયાત થયાં: $1 નિયમો",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "આયાત કરી રહ્યું છે..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "હાલના Linkumori આંતરસંચાલન નિયમો",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "પ્રદાતાઓ લોડ કરી રહ્યું છે...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "છોડ્યું: $1 પ્રદાતાઓ"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "છોડી દેવાયા: $1 નિયમો",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "નિયમ સ્ત્રોત",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "રિમોટ લોકપ્રિય એક્સ્ટેંશન URL ફિલ્ટર્સ અને આ કસ્ટમ નિયમોને હેશ વેરિફિકેશનની જરૂર નથી. તેઓ ClearURLsData થી અલગ, પદચ્છેદન પછી LinkumoriURLsData માં સંગ્રહિત થાય છે."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "આંતરસંચાલન બદલાયું",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "આંતરસંચાલન આઉટપુટ URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "મેળ ખાતો આંતરસંચાલન નિયમ",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "આંતરસંચાલન પેટર્ન પ્રકાર",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "આંતરસંચાલન ક્રિયા",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

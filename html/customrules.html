@@ -1926,6 +1926,71 @@
             font-family: "Old-Country-Nobility", serif;
         }
 
+        #provider-import-modal .provider-import-disabled-section {
+            margin-top: 14px;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+        }
+
+        #provider-import-modal .provider-disabled-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        #provider-import-modal .provider-disabled-title {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-primary);
+            font-family: "Old-Country-Nobility", serif;
+        }
+
+        #provider-import-modal .provider-disabled-empty {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        #provider-import-modal .provider-disabled-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 190px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        #provider-import-modal .provider-disabled-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 8px;
+            padding: 7px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--bg-secondary);
+        }
+
+        #provider-import-modal .provider-disabled-signature {
+            overflow-wrap: anywhere;
+            color: var(--text-secondary);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+            font-size: 10px;
+            line-height: 1.35;
+        }
+
+        #provider-import-modal .provider-disabled-restore-btn {
+            min-height: 28px;
+            padding: 5px 8px;
+            font-size: 11px;
+        }
+
         #disabled-rules-view .provider-disabled-section {
             margin: 0;
             padding: 12px;
@@ -3224,6 +3289,18 @@ admin.example.com
                     <div class="provider-source-item active" data-source="bundled">
                         <span data-i18n="providerImport_bundledRules"></span>
                         <span class="provider-source-count" id="bundled-count"></span>
+                    </div>
+                    <div class="provider-source-item" data-source="linkumori-data">
+                        <span data-i18n="providerImport_linkumoriData"></span>
+                        <span class="provider-source-count" id="linkumori-data-count"></span>
+                    </div>
+                    <div class="provider-disabled-section provider-import-disabled-section">
+                        <div class="provider-disabled-title-row">
+                            <h5 class="provider-disabled-title" data-i18n="providerImport_disabledTitle"></h5>
+                            <button type="button" class="btn btn-sm btn-secondary" id="provider-import-disabled-clear-btn" data-i18n="providerImport_disabledClear"></button>
+                        </div>
+                        <p class="provider-disabled-empty" id="provider-import-disabled-empty" data-i18n="providerImport_disabledEmpty"></p>
+                        <ul class="provider-disabled-list" id="provider-import-disabled-list"></ul>
                     </div>
                 </div>
 

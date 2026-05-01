@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "ഇത് നിലവിലുള്ള എല്ലാ ഇഷ്‌ടാനുസൃത നിയമങ്ങളും മാറ്റിസ്ഥാപിക്കും. തുടരണോ?"
+    "message": "ഇത് ഫയലിൽ ഉൾപ്പെടുത്തിയിരിക്കുന്ന ഇഷ്ടാനുസൃത നിയമ വിഭാഗങ്ങൾ മാറ്റിസ്ഥാപിക്കും. തുടരണമോ?"
   },
   "customRulesEditor_importFailed": {
     "message": "നിയമങ്ങൾ ഇറക്കുമതി ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു: $1"
@@ -349,7 +349,7 @@
     "message": "അസാധുവായ ഡൊമെയ്ൻ പാറ്റേൺ: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "അസാധുവായ ഫയൽ ഘടന: നഷ്‌ടമായ ദാതാക്കളുടെ ഒബ്‌ജക്റ്റ്"
+    "message": "അസാധുവായ ഫയൽ ഘടന: ClearURLs ദാതാക്കളോ Linkumori URL ഇഷ്ടാനുസൃത നിയമങ്ങളോ കാണുന്നില്ല"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "അസാധുവായ URL പാറ്റേൺ റീജക്സ്: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "ഇറക്കുമതി ചെയ്തത്: $1 ദാതാക്കൾ"
   },
+  "providerImport_importedRulesCount": {
+    "message": "ഇറക്കുമതി ചെയ്തു: $1 നിയമങ്ങൾ",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "ഇറക്കുമതി ചെയ്യുന്നു..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "നിലവിലുള്ള Linkumori ഇന്ററോപ്പറബിലിറ്റി നിയമങ്ങൾ",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "ദാതാക്കളെ ലോഡുചെയ്യുന്നു...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "ഒഴിവാക്കി: $1 ദാതാക്കൾ"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "ഒഴിവാക്കി: $1 നിയമങ്ങൾ",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "റൂൾ ഉറവിടം",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "വിദൂര ജനപ്രിയ വിപുലീകരണം URL ഫിൽട്ടറുകൾക്കും ഈ ഇഷ്‌ടാനുസൃത നിയമങ്ങൾക്കും ഹാഷ് പരിശോധന ആവശ്യമില്ല. അവ LinkumoriURLsData എന്ന നമ്പറിൽ ClearURLsData എന്നതിൽ നിന്ന് വേർതിരിച്ച് പാഴ്‌സ് ചെയ്‌ത ശേഷം സംഭരിക്കുന്നു."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "ഇന്ററോപ്പറബിലിറ്റി മാറി",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "ഇന്ററോപ്പറബിലിറ്റി ഔട്ട്‌പുട്ട് URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "പൊരുത്തപ്പെട്ട ഇന്ററോപ്പറബിലിറ്റി നിയമം",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "ഇന്ററോപ്പറബിലിറ്റി പാറ്റേൺ തരം",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "ഇന്ററോപ്പറബിലിറ്റി നടപടി",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

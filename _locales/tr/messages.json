@@ -335,7 +335,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Bu, mevcut tüm özel kuralların yerini alacak. Devam etmek istiyor musunuz?"
+    "message": "Bu, dosyada bulunan özel kural kategorilerini değiştirecek. Devam edilsin mi?"
   },
   "customRulesEditor_importFailed": {
     "message": "Kurallar içe aktarılamadı: $1"
@@ -347,7 +347,7 @@
     "message": "Geçersiz etki alanı kalıbı: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Geçersiz dosya yapısı: providers nesnesi eksik"
+    "message": "Geçersiz dosya yapısı: ClearURLs sağlayıcıları veya Linkumori URL özel kuralları eksik"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Geçersiz URL Kalıbı regex'i: $1"
@@ -2105,8 +2105,16 @@
   "providerImport_importedCount": {
     "message": "İçe aktarılan: $1 sağlayıcı"
   },
+  "providerImport_importedRulesCount": {
+    "message": "İçe aktarıldı: $1 kural",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "İçe aktarılıyor..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Mevcut Linkumori Birlikte Çalışabilirlik Kuralları",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Sağlayıcılar yükleniyor...",
@@ -2169,6 +2177,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Atlanan: $1 sağlayıcı"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Atlandı: $1 kural",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Kural Kaynağı",
@@ -4331,5 +4343,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Uzak popüler uzantı URL filtreleri ve bu özel kuralların karma doğrulaması gerekmez. Ayrıştırma sonrasında LinkumoriURLsData'da, ClearURLsData'dan ayrı olarak depolanırlar."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Birlikte Çalışabilirlik Değişti",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Birlikte Çalışabilirlik Çıkış URL’si",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Eşleşen Birlikte Çalışabilirlik Kuralı",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Birlikte Çalışabilirlik Desen Türü",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Birlikte Çalışabilirlik Eylemi",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

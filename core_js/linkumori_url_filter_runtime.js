@@ -842,6 +842,28 @@ function handleLinkumoriURLFilterRequest(requestDetails) {
     return { redirectUrl: result.url };
 }
 
+function traceLinkumoriURLFilterRuleTest(url, requestOverrides = {}) {
+    const requestDetails = {
+        url,
+        method: 'GET',
+        type: 'main_frame',
+        tabId: -1,
+        frameId: 0,
+        parentFrameId: -1,
+        ...requestOverrides
+    };
+
+    const result = cleanLinkumoriURLFilterURL(requestDetails);
+    return {
+        input: url,
+        output: result.url || url,
+        changed: !!result.changed && result.url !== url,
+        matchedRule: result.matchedRule || null,
+        patternType: result.matchedRule ? 'LinkumoriURLsData' : null,
+        action: result.changed ? 'removeparam' : null
+    };
+}
+
 function startLinkumoriURLFilterRuntime() {
     rebuildLinkumoriURLFilterRuntimeData();
 
@@ -856,3 +878,4 @@ function startLinkumoriURLFilterRuntime() {
 globalThis.startLinkumoriURLFilterRuntime = startLinkumoriURLFilterRuntime;
 globalThis.updateLinkumoriURLFilterRuntimeData = rebuildLinkumoriURLFilterRuntimeData;
 globalThis.handleLinkumoriURLFilterRequest = handleLinkumoriURLFilterRequest;
+globalThis.traceLinkumoriURLFilterRuleTest = traceLinkumoriURLFilterRuleTest;

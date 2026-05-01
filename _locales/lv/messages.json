@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Tas aizstās visus esošos pielāgotos noteikumus. Vai turpināt?"
+    "message": "Tas aizstās failā iekļautās pielāgoto kārtulu kategorijas. Vai turpināt?"
   },
   "customRulesEditor_importFailed": {
     "message": "Neizdevās importēt noteikumus: $1"
@@ -349,7 +349,7 @@
     "message": "Nederīgs domēna modelis: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Nederīga faila struktūra: trūkst nodrošinātāja objekta"
+    "message": "Nederīga faila struktūra: trūkst ClearURLs nodrošinātāju vai Linkumori URL pielāgoto kārtulu"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Nederīgs URL modeļa regulārais formulējums: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Importētie: $1 nodrošinātāji"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importētas: $1 kārtulas",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Notiek importēšana..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Esošās Linkumori sadarbspējas kārtulas",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Notiek pakalpojumu sniedzēju ielāde...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Izlaists: $1 nodrošinātāji"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Izlaistas: $1 kārtulas",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Noteikumu avots",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Attālinātajiem populārajiem paplašinājuma URL filtriem un šiem pielāgotajiem noteikumiem nav nepieciešama jaukšanas pārbaude. Pēc parsēšanas tie tiek glabāti mapē LinkumoriURLsData, atsevišķi no ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Sadarbspēja mainīta",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Sadarbspējas izvades URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Atbilstošā sadarbspējas kārtula",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Sadarbspējas modeļa tips",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Sadarbspējas darbība",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

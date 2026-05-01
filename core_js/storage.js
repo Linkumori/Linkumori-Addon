@@ -104,6 +104,7 @@ var tempVerificationCache = {
 };
 let temporaryPauseUntilBrowserRestart = false;
 const IMPORT_EXCLUSIONS_KEY = 'customrules_import_exclusions';
+const LINKUMORI_URL_DISABLED_RULES_KEY = 'linkumori_url_disabled_rules';
 
 function linkumoriStorageI18n(key, substitutions = []) {
     return globalThis.LinkumoriI18n.getMessage(key, substitutions);
@@ -1210,8 +1211,12 @@ function getLinkumoriURLCustomSource() {
 function mergeLinkumoriURLFilterSources(successfulSources, failedSources = []) {
     const rules = [];
     const seen = new Set();
+    const disabledRules = new Set(Array.isArray(storage[LINKUMORI_URL_DISABLED_RULES_KEY])
+        ? storage[LINKUMORI_URL_DISABLED_RULES_KEY].map(rule => String(rule || '').trim()).filter(Boolean)
+        : []);
     let skippedUnsupportedRuleCount = 0;
     let skippedDuplicateRuleCount = 0;
+    let disabledRuleCount = 0;
     let lastFetchAttemptAt = null;
     let lastFetchSuccessAt = null;
 
@@ -1223,6 +1228,10 @@ function mergeLinkumoriURLFilterSources(successfulSources, failedSources = []) {
         lastFetchSuccessAt = source.data?.metadata?.lastFetchSuccessAt || lastFetchSuccessAt;
 
         sourceRules.forEach(rule => {
+            if (disabledRules.has(rule)) {
+                disabledRuleCount++;
+                return;
+            }
             if (seen.has(rule)) {
                 skippedDuplicateRuleCount++;
                 return;
@@ -1245,6 +1254,7 @@ function mergeLinkumoriURLFilterSources(successfulSources, failedSources = []) {
             sourceCount: successfulSources.length,
             failedSourceCount: failedSources.length,
             supportedRuleCount: rules.length,
+            disabledRuleCount,
             skippedUnsupportedRuleCount,
             skippedDuplicateRuleCount,
             lastFetchAttemptAt,
@@ -1578,6 +1588,44 @@ async function fetchBundledRulesRaw() {
     }
 
     return rawRulesData;
+}
+
+function normalizeRulesForProviderImport(rulesData, fallbackName, fallbackSource) {
+    const providers = (rulesData && typeof rulesData === 'object' && rulesData.providers && typeof rulesData.providers === 'object')
+        ? rulesData.providers
+        : {};
+    const metadata = (rulesData && typeof rulesData === 'object' && rulesData.metadata && typeof rulesData.metadata === 'object')
+        ? rulesData.metadata
+        : {};
+
+    return {
+        ...rulesData,
+        metadata: {
+            ...metadata,
+            name: metadata.name || fallbackName,
+            source: metadata.source || fallbackSource
+        },
+        providers
+    };
+}
+
+async function getBundledRulesOnly() {
+    const bundledRules = await fetchBundledRulesRaw();
+    return normalizeRulesForProviderImport(bundledRules, 'Bundled Rules', 'bundled');
+}
+
+function getExistingLinkumoriDataForImport() {
+    const data = storage.LinkumoriURLsData || {};
+    return {
+        metadata: {
+            ...(data.metadata || {}),
+            name: data.metadata?.name || 'Linkumori URL Filters',
+            source: data.metadata?.source || 'linkumori_urls_data'
+        },
+        format: 'linkumori-url-filter-interoperability',
+        type: 'linkumori-url-rules',
+        rules: Array.isArray(data.rules) ? data.rules : []
+    };
 }
 
 function loadBundledRules() {
@@ -2499,6 +2547,22 @@ function setData(key, value) {
                 storage[key] = value;
             }
             break;
+        case "linkumori_url_disabled_rules":
+            if (typeof value === 'string') {
+                try {
+                    const parsed = JSON.parse(value);
+                    storage[key] = Array.isArray(parsed)
+                        ? parsed.map(rule => String(rule || '').trim()).filter(Boolean)
+                        : [];
+                } catch (_) {
+                    storage[key] = value.split(/\r?\n/).map(rule => rule.trim()).filter(Boolean);
+                }
+            } else if (Array.isArray(value)) {
+                storage[key] = value.map(rule => String(rule || '').trim()).filter(Boolean);
+            } else {
+                storage[key] = [];
+            }
+            break;
         case "userWhitelist":
             if (typeof value === 'string') {
                 try {
@@ -2706,6 +2770,7 @@ function initSettings() {
     storage.userWhitelist = [];
     storage.custom_rules = { providers: {} };
     storage.linkumori_url_custom_rules = { rules: [] };
+    storage.linkumori_url_disabled_rules = [];
     storage.popupConsentAccepted = false;
     storage.popupConsentPolicyVersionAccepted = 0;
     storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] = '';

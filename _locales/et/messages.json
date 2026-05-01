@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "See asendab kõik olemasolevad kohandatud reeglid. Kas jätkata?"
+    "message": "See asendab failis sisalduvad kohandatud reeglite kategooriad. Kas jätkata?"
   },
   "customRulesEditor_importFailed": {
     "message": "Reeglite importimine ebaõnnestus: $1"
@@ -349,7 +349,7 @@
     "message": "Kehtetu domeeni muster: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Kehtetu failistruktuur: pakkujate objekt puudub"
+    "message": "Vigane failistruktuur: puuduvad ClearURLs-i pakkujad või Linkumori URL-i kohandatud reeglid"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Kehtetu URL-i mustri regex: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Imporditud: $1 pakkujad"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Imporditud: $1 reeglit",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importimine..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Olemasolevad Linkumori koostalitlusreeglid",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Pakkujate laadimine...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Vahele jäetud: $1 pakkujad"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Vahele jäetud: $1 reeglit",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Reegli allikas",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Populaarse laiendi URL filtrid ja need kohandatud reeglid ei vaja räsi kinnitamist. Need salvestatakse pärast sõelumist kausta LinkumoriURLsData, eraldi numbrist ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Koostalitlus muudetud",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Koostalitluse väljund-URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Sobitatud koostalitlusreegel",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Koostalitlusmustri tüüp",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Koostalitluse toiming",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

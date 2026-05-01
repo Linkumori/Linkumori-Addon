@@ -283,7 +283,7 @@
     "message": "HTTP-методи"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Це замінить усі наявні власні правила. Продовжити?"
+    "message": "Це замінить категорії користувацьких правил, включені у файл. Продовжити?"
   },
   "customRulesEditor_importFailed": {
     "message": "Не вдалося імпортувати правила: $1"
@@ -295,7 +295,7 @@
     "message": "Недійсний шаблон домену: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Недійсна структура файлу: відсутній об’єкт providers"
+    "message": "Недійсна структура файлу: відсутні постачальники ClearURLs або користувацькі правила URL Linkumori"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Недійсний regex шаблону URL: $1"
@@ -1665,8 +1665,16 @@
   "providerImport_importedCount": {
     "message": "Імпортовано: $1 провайдерів"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Імпортовано: $1 правил",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Імпорт..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Наявні правила сумісності Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Завантаження провайдерів..."
@@ -1721,6 +1729,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Пропущено: $1 провайдерів"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Пропущено: $1 правил",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Джерело правил"
@@ -3446,5 +3458,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Віддалене популярне розширення URL фільтрує, і ці спеціальні правила не потребують перевірки хешу. Після аналізу вони зберігаються в LinkumoriURLsData окремо від ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Сумісність змінено",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Вихідна URL-адреса сумісності",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Збігле правило сумісності",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Тип шаблону сумісності",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Дія сумісності",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

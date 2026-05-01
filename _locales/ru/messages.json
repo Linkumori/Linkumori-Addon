@@ -335,7 +335,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Это заменит все существующие пользовательские правила. Продолжить?"
+    "message": "Это заменит категории пользовательских правил, включенные в файл. Продолжить?"
   },
   "customRulesEditor_importFailed": {
     "message": "Не удалось импортировать правила: $1"
@@ -347,7 +347,7 @@
     "message": "Неверный шаблон домена: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Неверная структура файла: отсутствует объект providers"
+    "message": "Недопустимая структура файла: отсутствуют поставщики ClearURLs или пользовательские правила URL Linkumori"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Неверный regex шаблона URL: $1"
@@ -2105,8 +2105,16 @@
   "providerImport_importedCount": {
     "message": "Импортировано: $1 провайдеров"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Импортировано: $1 правил",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Импорт..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Существующие правила совместимости Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Загрузка провайдеров...",
@@ -2169,6 +2177,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Пропущено: $1 провайдеров"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Пропущено: $1 правил",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Источник правил",
@@ -4331,5 +4343,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Удаленные фильтры популярного расширения URL, и эти пользовательские правила не требуют проверки хеша. После анализа они сохраняются по адресу LinkumoriURLsData, отдельно от ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Совместимость изменена",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Выходной URL совместимости",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Совпавшее правило совместимости",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Тип шаблона совместимости",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Действие совместимости",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

@@ -335,7 +335,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Điều này sẽ thay thế tất cả các quy tắc tùy chỉnh hiện có. Tiếp tục?"
+    "message": "Thao tác này sẽ thay thế các danh mục quy tắc tùy chỉnh có trong tệp. Tiếp tục?"
   },
   "customRulesEditor_importFailed": {
     "message": "Không thể nhập quy tắc: $1"
@@ -347,7 +347,7 @@
     "message": "Mẫu tên miền không hợp lệ: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Cấu trúc tệp không hợp lệ: thiếu đối tượng nhà cung cấp"
+    "message": "Cấu trúc tệp không hợp lệ: thiếu nhà cung cấp ClearURLs hoặc quy tắc URL tùy chỉnh của Linkumori"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Biểu thức chính quy mẫu URL không hợp lệ: $1"
@@ -2105,8 +2105,16 @@
   "providerImport_importedCount": {
     "message": "Đã nhập: nhà cung cấp $1"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Đã nhập: $1 quy tắc",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Đang nhập khẩu..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Quy tắc tương tác Linkumori hiện có",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Đang tải nhà cung cấp...",
@@ -2169,6 +2177,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Đã bỏ qua: nhà cung cấp $1"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Đã bỏ qua: $1 quy tắc",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Nguồn quy tắc",
@@ -4331,5 +4343,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Bộ lọc tiện ích mở rộng phổ biến từ xa URL và các quy tắc tùy chỉnh này không cần xác minh hàm băm. Chúng được lưu trữ trong LinkumoriURLsData sau khi phân tích cú pháp, tách biệt với ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Tương tác đã thay đổi",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "URL đầu ra tương tác",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Quy tắc tương tác khớp",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Loại mẫu tương tác",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Hành động tương tác",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

@@ -335,7 +335,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "ఇది ఇప్పటికే ఉన్న అన్ని అనుకూల నియమాలను భర్తీ చేస్తుంది. కొనసాగించాలా?"
+    "message": "ఇది ఫైల్‌లో ఉన్న కస్టమ్ నియమాల వర్గాలను భర్తీ చేస్తుంది. కొనసాగించాలా?"
   },
   "customRulesEditor_importFailed": {
     "message": "నియమాలను దిగుమతి చేయడంలో విఫలమైంది: $1"
@@ -347,7 +347,7 @@
     "message": "చెల్లని డొమైన్ నమూనా: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "చెల్లని ఫైల్ నిర్మాణం: ప్రొవైడర్ల ఆబ్జెక్ట్ లేదు"
+    "message": "చెల్లని ఫైల్ నిర్మాణం: ClearURLs ప్రొవైడర్లు లేదా Linkumori URL కస్టమ్ నియమాలు లేవు"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "చెల్లని URL నమూనా రీజెక్స్: $1"
@@ -2105,8 +2105,16 @@
   "providerImport_importedCount": {
     "message": "దిగుమతి చేయబడింది: $1 ప్రొవైడర్లు"
   },
+  "providerImport_importedRulesCount": {
+    "message": "దిగుమతి చేయబడింది: $1 నియమాలు",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "దిగుమతి చేస్తోంది..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "ఉన్న Linkumori ఇంటర్‌ఆపరబిలిటీ నియమాలు",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "ప్రొవైడర్‌లను లోడ్ చేస్తోంది...",
@@ -2169,6 +2177,10 @@
   },
   "providerImport_skippedCount": {
     "message": "దాటవేయబడింది: $1 ప్రొవైడర్లు"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "దాటవేయబడింది: $1 నియమాలు",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "నియమ మూలం",
@@ -4331,5 +4343,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "రిమోట్ జనాదరణ పొందిన పొడిగింపు URL ఫిల్టర్‌లు మరియు ఈ అనుకూల నియమాలకు హాష్ ధృవీకరణ అవసరం లేదు. పార్సింగ్ తర్వాత అవి LinkumoriURLsDataలో నిల్వ చేయబడతాయి, ClearURLsData నుండి వేరుగా ఉంటాయి."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "ఇంటర్‌ఆపరబిలిటీ మారింది",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "ఇంటర్‌ఆపరబిలిటీ అవుట్‌పుట్ URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "సరిపోలిన ఇంటర్‌ఆపరబిలిటీ నియమం",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "ఇంటర్‌ఆపరబిలిటీ నమూనా రకం",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "ఇంటర్‌ఆపరబిలిటీ చర్య",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

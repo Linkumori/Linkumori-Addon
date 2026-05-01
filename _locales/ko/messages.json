@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "이 작업은 기존의 모든 사용자 지정 규칙을 대체합니다. 계속하시겠습니까?"
+    "message": "파일에 포함된 사용자 지정 규칙 범주가 대체됩니다. 계속하시겠습니까?"
   },
   "customRulesEditor_importFailed": {
     "message": "규칙 가져오기 실패: $1"
@@ -349,7 +349,7 @@
     "message": "잘못된 도메인 패턴: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "잘못된 파일 구조: providers 개체 누락"
+    "message": "잘못된 파일 구조: ClearURLs 제공자 또는 Linkumori URL 사용자 지정 규칙이 없습니다"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "잘못된 URL 패턴 정규식: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "가져옴: $1개 제공자"
   },
+  "providerImport_importedRulesCount": {
+    "message": "가져옴: $1개 규칙",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "가져오는 중..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "기존 Linkumori 상호 운용성 규칙",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "제공자 로드 중...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "건너뜀: $1개 제공자"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "건너뜀: $1개 규칙",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "규칙 소스",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "원격 인기 확장 URL 필터와 이러한 사용자 정의 규칙에는 해시 확인이 필요하지 않습니다. 구문 분석 후 ClearURLsData와 별도로 LinkumoriURLsData에 저장됩니다."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "상호 운용성 변경됨",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "상호 운용성 출력 URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "일치한 상호 운용성 규칙",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "상호 운용성 패턴 유형",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "상호 운용성 작업",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

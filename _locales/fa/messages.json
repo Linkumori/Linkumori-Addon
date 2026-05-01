@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "این جایگزین همه قوانین سفارشی موجود می شود. ادامه دهید؟"
+    "message": "این کار دسته‌های قوانین سفارشی موجود در فایل را جایگزین می‌کند. ادامه می‌دهید؟"
   },
   "customRulesEditor_importFailed": {
     "message": "وارد کردن قوانین انجام نشد: $1"
@@ -349,7 +349,7 @@
     "message": "الگوی دامنه نامعتبر: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "ساختار فایل نامعتبر: شی ارائه دهندگان از دست رفته است"
+    "message": "ساختار فایل نامعتبر است: ارائه‌دهندگان ClearURLs یا قوانین سفارشی Linkumori URL وجود ندارند"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Regex الگوی URL نامعتبر: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "وارد شده: ارائه دهندگان $1"
   },
+  "providerImport_importedRulesCount": {
+    "message": "وارد شد: $1 قانون",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "واردات..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "قوانین تعامل‌پذیری موجود Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "در حال بارگیری ارائه دهندگان...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "نادیده گرفته شده: ارائه دهندگان $1"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "رد شد: $1 قانون",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "منبع قانون",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "پسوند محبوب از راه دور URL فیلتر می کند و این قوانین سفارشی نیازی به تأیید هش ندارند. آنها پس از تجزیه در LinkumoriURLsData جدا از ClearURLsData ذخیره می شوند."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "تعامل‌پذیری تغییر کرد",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "نشانی خروجی تعامل‌پذیری",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "قانون تعامل‌پذیری منطبق",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "نوع الگوی تعامل‌پذیری",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "اقدام تعامل‌پذیری",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

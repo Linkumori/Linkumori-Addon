@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "এটি বিদ্যমান সমস্ত কাস্টম নিয়ম প্রতিস্থাপন করবে । চালিয়ে যাবেন?"
+    "message": "এটি ফাইলে থাকা কাস্টম নিয়মের বিভাগগুলি প্রতিস্থাপন করবে। চালিয়ে যাবেন?"
   },
   "customRulesEditor_importFailed": {
     "message": "নিয়ম আমদানি করতে ব্যর্থ: $1"
@@ -349,7 +349,7 @@
     "message": "অবৈধ ডোমেন প্যাটার্ন: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "অকার্যকর ফাইল কাঠামো: সরবরাহকারীর অবজেক্ট অনুপস্থিত"
+    "message": "অবৈধ ফাইল কাঠামো: ClearURLs প্রদানকারী বা Linkumori URL কাস্টম নিয়ম অনুপস্থিত"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "অবৈধ URL প্যাটার্ন regex: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "আমদানিকৃত: $1 প্রদানকারী"
   },
+  "providerImport_importedRulesCount": {
+    "message": "আমদানি হয়েছে: $1 নিয়ম",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "ইম্পোর্ট করা হচ্ছে..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "বিদ্যমান Linkumori আন্তঃকার্যকারিতা নিয়ম",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "সরবরাহকারী লোড করা হচ্ছে...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "এড়িয়ে গেছেন: $1 প্রদানকারী"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "এড়িয়ে গেছে: $1 নিয়ম",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "নিয়মের উৎস",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "দূরবর্তী জনপ্রিয় এক্সটেনশন URL ফিল্টার এবং এই কাস্টম নিয়মগুলির হ্যাশ যাচাইকরণের প্রয়োজন নেই। ClearURLsData থেকে আলাদা করে পার্স করার পর এগুলি LinkumoriURLsData এ সংরক্ষণ করা হয়।"
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "আন্তঃকার্যকারিতা পরিবর্তিত হয়েছে",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "আন্তঃকার্যকারিতা আউটপুট URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "মিলেছে এমন আন্তঃকার্যকারিতা নিয়ম",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "আন্তঃকার্যকারিতা প্যাটার্নের ধরন",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "আন্তঃকার্যকারিতা ক্রিয়া",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

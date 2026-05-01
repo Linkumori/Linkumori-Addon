@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Ini akan mengganti semua aturan khusus yang ada. Lanjutkan?"
+    "message": "Ini akan mengganti kategori aturan khusus yang disertakan dalam file. Lanjutkan?"
   },
   "customRulesEditor_importFailed": {
     "message": "Gagal mengimpor aturan: $1"
@@ -349,7 +349,7 @@
     "message": "Pola domain tidak valid: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Struktur file tidak valid: objek 'providers' hilang"
+    "message": "Struktur file tidak valid: penyedia ClearURLs atau aturan khusus Linkumori URL tidak ada"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Regex Pola URL tidak valid: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Diimpor: $1 penyedia"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Diimpor: $1 aturan",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Mengimpor..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Aturan Interoperabilitas Linkumori yang Ada",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Memuat penyedia...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Dilewati: $1 penyedia"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Dilewati: $1 aturan",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Sumber Aturan",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Filter ekstensi populer jarak jauh URL dan aturan khusus ini tidak memerlukan verifikasi hash. Mereka disimpan di LinkumoriURLsData setelah penguraian, terpisah dari ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilitas Berubah",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "URL Keluaran Interoperabilitas",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Aturan Interoperabilitas yang Cocok",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Jenis Pola Interoperabilitas",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Tindakan Interoperabilitas",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

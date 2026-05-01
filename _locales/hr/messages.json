@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Ovo će zamijeniti sva postojeća prilagođena pravila. Nastaviti?"
+    "message": "Ovo će zamijeniti kategorije prilagođenih pravila uključene u datoteku. Nastaviti?"
   },
   "customRulesEditor_importFailed": {
     "message": "Uvoz pravila nije uspio: $1"
@@ -349,7 +349,7 @@
     "message": "Nevažeći uzorak domene: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Nevažeća struktura datoteke: nedostaje objekt pružatelja usluga"
+    "message": "Nevažeća struktura datoteke: nedostaju ClearURLs pružatelji ili prilagođena pravila Linkumori URL-a"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Nevažeći regularni izraz uzorka URL-a: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Uvezeno: $1 pružatelji usluga"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Uvezeno: $1 pravila",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Uvoz..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Postojeća pravila interoperabilnosti Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Učitavanje pružatelja...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Preskočeno: $1 pružatelji usluga"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Preskočeno: $1 pravila",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Izvor pravila",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Udaljeno popularno proširenje URL filtrira i ova prilagođena pravila ne trebaju hash provjeru. Oni su pohranjeni u LinkumoriURLsData nakon analize, odvojeno od ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilnost promijenjena",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Izlazni URL interoperabilnosti",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Podudarno pravilo interoperabilnosti",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Vrsta uzorka interoperabilnosti",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Radnja interoperabilnosti",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

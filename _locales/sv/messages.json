@@ -335,7 +335,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Detta kommer att ersätta alla befintliga anpassade regler. Fortsätta?"
+    "message": "Detta ersätter de anpassade regelkategorierna som ingår i filen. Fortsätta?"
   },
   "customRulesEditor_importFailed": {
     "message": "Import av regler misslyckades: $1"
@@ -347,7 +347,7 @@
     "message": "Ogiltigt domänmönster: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Ogiltig filstruktur: providers-objekt saknas"
+    "message": "Ogiltig filstruktur: ClearURLs-leverantörer eller anpassade Linkumori URL-regler saknas"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Ogiltigt URL-mönster regex: $1"
@@ -2105,8 +2105,16 @@
   "providerImport_importedCount": {
     "message": "Importerade: $1 leverantörer"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importerade: $1 regler",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importerar..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Befintliga Linkumori-interoperabilitetsregler",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Laddar leverantörer...",
@@ -2169,6 +2177,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Hoppade över: $1 leverantörer"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Överhoppade: $1 regler",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Regelkälla",
@@ -4331,5 +4343,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Populära fjärrtillägg URL filter och dessa anpassade regler behöver inte hashverifiering. De lagras i LinkumoriURLsData efter analys, separat från ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilitet ändrad",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Interoperabilitet utdata-URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Matchad interoperabilitetsregel",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Interoperabilitetsmönstertyp",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Interoperabilitetsåtgärd",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

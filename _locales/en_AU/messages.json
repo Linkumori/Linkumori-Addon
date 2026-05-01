@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "This will replace all existing custom rules. Continue?"
+    "message": "This will replace the custom rule categories included in the file. Continue?"
   },
   "customRulesEditor_importFailed": {
     "message": "Failed to import rules: $1"
@@ -349,7 +349,7 @@
     "message": "Invalid domain pattern: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Invalid file structure: missing providers object"
+    "message": "Invalid file structure: missing ClearURLs providers or Linkumori URL custom rules"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Invalid URL Pattern regex: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Imported: $1 providers"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Imported: $1 rules",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importing..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Existing Linkumori Interoperability Rules",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Loading providers...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Skipped: $1 providers"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Skipped: $1 rules",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Rule Source",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "message": "Remote popular extension URL filters and these custom rules do not need hash verification. They are stored in LinkumoriURLsData after parsing, separate from ClearURLsData.",
     "description": "FAQ note for Linkumori URL custom rules."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperability Changed",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Interoperability Output URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Interoperability Matched Rule",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Interoperability Pattern Type",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Interoperability Action",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

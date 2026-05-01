@@ -337,7 +337,7 @@
     "description": "Libellé pour le champ des méthodes HTTP"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Cela remplacera toutes les règles personnalisées existantes. Continuer ?"
+    "message": "Cela remplacera les catégories de règles personnalisées incluses dans le fichier. Continuer ?"
   },
   "customRulesEditor_importFailed": {
     "message": "Échec de l'importation des règles : $1"
@@ -349,7 +349,7 @@
     "message": "Modèle de domaine invalide : {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Structure de fichier invalide : objet 'providers' manquant"
+    "message": "Structure de fichier non valide : fournisseurs ClearURLs ou règles d’URL Linkumori personnalisées manquants"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Expression régulière du modèle d'URL invalide : $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Importés : $1 fournisseurs"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importées : $1 règles",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importation en cours..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Règles d’interopérabilité Linkumori existantes",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Chargement des fournisseurs...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Ignorés : $1 fournisseurs"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Ignorées : $1 règles",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Source des règles",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Les filtres de l'extension populaire à distance URL et ces règles personnalisées ne nécessitent pas de vérification de hachage. Ils sont stockés dans LinkumoriURLsData après analyse, distincts de ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interopérabilité modifiée",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "URL de sortie d’interopérabilité",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Règle d’interopérabilité correspondante",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Type de modèle d’interopérabilité",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Action d’interopérabilité",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

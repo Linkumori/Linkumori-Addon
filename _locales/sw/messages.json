@@ -335,7 +335,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Hii itachukua nafasi ya sheria zote za desturi zilizopo. Ungependa kuendelea?"
+    "message": "Hii itabadilisha aina za kanuni maalum zilizojumuishwa kwenye faili. Uendelee?"
   },
   "customRulesEditor_importFailed": {
     "message": "Imeshindwa kuleta sheria: $1"
@@ -347,7 +347,7 @@
     "message": "Mchoro wa kikoa si sahihi: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Muundo wa faili usio sahihi: kitu kinachokosekana kwa watoa huduma"
+    "message": "Muundo wa faili si sahihi: watoa huduma wa ClearURLs au kanuni maalum za Linkumori URL hazipo"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Muundo batili wa URL regex: $1"
@@ -2105,8 +2105,16 @@
   "providerImport_importedCount": {
     "message": "Zilizoingizwa: watoa huduma wa $1"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Imeingizwa: kanuni $1",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Inaleta..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Kanuni Zilizopo za Ushirikiano wa Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Inapakia watoa huduma...",
@@ -2169,6 +2177,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Imerukwa: watoa huduma wa $1"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Imerukwa: kanuni $1",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Chanzo cha Kanuni",
@@ -4331,5 +4343,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Vichungi vya ugani maarufu wa mbali URL na sheria hizi maalum hazihitaji uthibitishaji wa hashi. Zimehifadhiwa katika LinkumoriURLsData baada ya kuchanganua, tofauti na ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Ushirikiano Umebadilika",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "URL ya Matokeo ya Ushirikiano",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Kanuni ya Ushirikiano Iliyolingana",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Aina ya Muundo wa Ushirikiano",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Kitendo cha Ushirikiano",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "これにより、既存のカスタムルールがすべて置き換えられます。続行しますか？"
+    "message": "これにより、ファイルに含まれるカスタムルールカテゴリが置き換えられます。続行しますか？"
   },
   "customRulesEditor_importFailed": {
     "message": "ルールのインポートに失敗しました: $1"
@@ -349,7 +349,7 @@
     "message": "無効なドメインパターン: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "無効なファイル構造: providersオブジェクトがありません"
+    "message": "無効なファイル構造: ClearURLs プロバイダーまたは Linkumori URL カスタムルールがありません"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "無効なURLパターン正規表現: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "インポート済み: $1 プロバイダー"
   },
+  "providerImport_importedRulesCount": {
+    "message": "インポート済み: $1 件のルール",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "インポート中..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "既存の Linkumori 相互運用性ルール",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "プロバイダーを読み込み中...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "スキップ: $1 プロバイダー"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "スキップ済み: $1 件のルール",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "ルールソース",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "リモートの一般的な拡張機能 URL フィルターとこれらのカスタム ルールはハッシュ検証を必要としません。これらは、解析後に ClearURLsData とは別に LinkumoriURLsData に保存されます。"
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "相互運用性の変更",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "相互運用性の出力 URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "一致した相互運用性ルール",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "相互運用性パターンタイプ",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "相互運用性アクション",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

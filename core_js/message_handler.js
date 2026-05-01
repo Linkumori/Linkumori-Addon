@@ -101,6 +101,12 @@ function handleMessage(request, sender, sendResponse)
                 
             case "mergeCustomRules":
                 return handleMergeCustomRules(request);
+
+            case "getBundledRulesOnly":
+                return handleGetBundledRulesOnly();
+
+            case "getExistingLinkumoriDataForImport":
+                return handleGetExistingLinkumoriDataForImport();
                 
             default:
                 // Handle regular function calls
@@ -146,6 +152,59 @@ function handleGetData(request) {
     }
 }
 
+function handleGetBundledRulesOnly() {
+    try {
+        if (typeof window.getBundledRulesOnly === 'function') {
+            return window.getBundledRulesOnly().then(result => ({
+                response: result,
+                success: true
+            })).catch(error => ({
+                response: null,
+                success: false,
+                error: error.message
+            }));
+        }
+
+        return Promise.resolve({
+            response: null,
+            success: false,
+            error: 'getBundledRulesOnly function not found'
+        });
+    } catch (error) {
+        return Promise.resolve({
+            response: null,
+            success: false,
+            error: error.message
+        });
+    }
+}
+
+function handleGetExistingLinkumoriDataForImport() {
+    try {
+        if (typeof window.getExistingLinkumoriDataForImport === 'function') {
+            return Promise.resolve({
+                response: window.getExistingLinkumoriDataForImport(),
+                success: true
+            });
+        }
+
+        const fallback = (typeof window.getData === 'function')
+            ? window.getData('LinkumoriURLsData') || { rules: [] }
+            : { rules: [] };
+
+        return Promise.resolve({
+            response: fallback,
+            success: true
+        });
+    } catch (error) {
+        return Promise.resolve({
+            response: { rules: [] },
+            success: false,
+            error: error.message
+        });
+    }
+}
+
 /**
  * Handle setData requests with enhanced error handling and auto-save
  */
@@ -166,7 +225,7 @@ function handleSetData(request) {
             window.setData(key, value);
             
             // Auto-save to disk for important data
-            if (['custom_rules', 'linkumori_url_custom_rules', 'userWhitelist', 'ClearURLsData', 'LinkumoriURLsData'].includes(key)) {
+            if (['custom_rules', 'linkumori_url_custom_rules', 'linkumori_url_disabled_rules', 'userWhitelist', 'ClearURLsData', 'LinkumoriURLsData'].includes(key)) {
                 if (typeof window.saveOnDisk === 'function') {
                     try {
                         window.saveOnDisk([key]);
@@ -408,6 +467,8 @@ if (typeof module !== 'undefined' && module.exports) {
         handleReloadCustomRules,
         handleGetCustomRulesStats,
         handleMergeCustomRules,
+        handleGetBundledRulesOnly,
+        handleGetExistingLinkumoriDataForImport,
         handleRegularFunction
     };
 }

@@ -337,7 +337,7 @@
     "description": "تسمية لحقل طرق HTTP"
   },
   "customRulesEditor_importConfirm": {
-    "message": "سيؤدي هذا إلى استبدال جميع القواعد المخصصة الحالية. هل تريد المتابعة؟"
+    "message": "سيؤدي هذا إلى استبدال فئات القواعد المخصصة المضمنة في الملف. هل تريد المتابعة؟"
   },
   "customRulesEditor_importFailed": {
     "message": "فشل استيراد القواعد: $1"
@@ -349,7 +349,7 @@
     "message": "نمط نطاق غير صالح: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "بنية ملف غير صالحة: كائن providers مفقود"
+    "message": "بنية الملف غير صالحة: كائن موفري ClearURLs أو قواعد Linkumori URL المخصصة مفقودة"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "نمط URL Regex غير صالح: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "تم الاستيراد: $1 مزودًا"
   },
+  "providerImport_importedRulesCount": {
+    "message": "تم الاستيراد: $1 قاعدة",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "جاري الاستيراد..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "قواعد توافق Linkumori الحالية",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "جاري تحميل المزودين...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "تم التخطي: $1 مزودًا"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "تم التخطي: $1 قاعدة",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "مصدر القاعدة",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "لا تحتاج مرشحات الامتداد الشائع عن بعد URL وهذه القواعد المخصصة إلى التحقق من التجزئة. يتم تخزينها في LinkumoriURLsData بعد التحليل، منفصلة عن ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "تغيّر التوافق",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "عنوان URL الناتج من التوافق",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "قاعدة التوافق المطابقة",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "نوع نمط التوافق",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "إجراء التوافق",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

@@ -335,7 +335,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Ово ће заменити сва постојећа прилагођена правила. Наставити?"
+    "message": "Ово ће заменити категорије прилагођених правила укључене у датотеку. Наставити?"
   },
   "customRulesEditor_importFailed": {
     "message": "Увоз правила није успео: КСКСТКНКСКС0КСКСТКНКСКС"
@@ -347,7 +347,7 @@
     "message": "Неважећи образац домена: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Неважећа структура датотеке: недостаје објекат добављача"
+    "message": "Неважећа структура датотеке: недостају ClearURLs добављачи или прилагођена правила Linkumori URL-а"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Неважећи регуларни израз УРЛ узорка: КСКСТКНКСКС0КСКСТКНКСКС"
@@ -2105,8 +2105,16 @@
   "providerImport_importedCount": {
     "message": "Увезено: КСКСТКНКСКС0КСКСТКНКСКС добављачи"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Увезено: $1 правила",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Увоз..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Постојећа правила интероперабилности Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Учитавање добављача...",
@@ -2169,6 +2177,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Прескочено: КСКСТКНКСКС0КСКСТКНКСКС добављачи"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Прескочено: $1 правила",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Извор правила",
@@ -4331,5 +4343,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Удаљено популарно проширење URL филтери и овим прилагођеним правилима није потребна хеш верификација. Они се чувају у LinkumoriURLsData након рашчлањивања, одвојено од ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Интероперабилност промењена",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Излазни URL интероперабилности",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Подударајуће правило интероперабилности",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Тип обрасца интероперабилности",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Радња интероперабилности",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

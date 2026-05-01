@@ -337,7 +337,7 @@
     "description": "Bezeichnung für das Feld HTTP-Methoden"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Dies wird alle vorhandenen benutzerdefinierten Regeln ersetzen. Fortfahren?"
+    "message": "Dadurch werden die im Datei enthaltenen Kategorien benutzerdefinierter Regeln ersetzt. Fortfahren?"
   },
   "customRulesEditor_importFailed": {
     "message": "Fehler beim Importieren der Regeln: $1"
@@ -349,7 +349,7 @@
     "message": "Ungültiges Domain-Muster: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Ungültige Dateistruktur: providers-Objekt fehlt"
+    "message": "Ungültige Dateistruktur: ClearURLs-Anbieter oder benutzerdefinierte Linkumori-URL-Regeln fehlen"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Ungültiger URL-Muster-Regex: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Importiert: $1 Anbieter"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importiert: $1 Regeln",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importiere..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Vorhandene Linkumori-Interoperabilitätsregeln",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Lade Anbieter...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Übersprungen: $1 Anbieter"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Übersprungen: $1 Regeln",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Regelquelle",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Remote-Filter für die beliebte Erweiterung URL und diese benutzerdefinierten Regeln erfordern keine Hash-Überprüfung. Sie werden nach dem Parsen unter LinkumoriURLsData gespeichert, getrennt von ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilität geändert",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Interoperabilitäts-Ausgabe-URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Übereinstimmende Interoperabilitätsregel",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Interoperabilitäts-Mustertyp",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Interoperabilitätsaktion",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Tai pakeis visas esamas tinkintas taisykles. Tęsti?"
+    "message": "Tai pakeis faile įtrauktas pasirinktinių taisyklių kategorijas. Tęsti?"
   },
   "customRulesEditor_importFailed": {
     "message": "Nepavyko importuoti taisyklių: $1"
@@ -349,7 +349,7 @@
     "message": "Neteisingas domeno šablonas: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Netinkama failo struktūra: trūksta teikėjų objekto"
+    "message": "Netinkama failo struktūra: trūksta ClearURLs teikėjų arba Linkumori URL pasirinktinių taisyklių"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Netinkamas URL šablono reguliarusis reiškinys: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Importuota: $1 teikėjai"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importuota: $1 taisyklės",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importuojama..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Esamos Linkumori sąveikumo taisyklės",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Įkeliami teikėjai...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Praleista: $1 teikėjai"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Praleista: $1 taisyklės",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Taisyklės šaltinis",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Nuotolinis populiarus plėtinys URL filtrai ir šios tinkintos taisyklės nereikia tikrinti maišos. Išnagrinėjus jie saugomi LinkumoriURLsData, atskirai nuo ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Sąveikumas pakeistas",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Sąveikumo išvesties URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Atitikusi sąveikumo taisyklė",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Sąveikumo šablono tipas",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Sąveikumo veiksmas",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

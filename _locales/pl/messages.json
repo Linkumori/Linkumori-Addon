@@ -283,7 +283,7 @@
     "message": "Metody HTTP"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Spowoduje to zastąpienie wszystkich istniejących reguł niestandardowych. Kontynuować?"
+    "message": "Spowoduje to zastąpienie kategorii reguł niestandardowych zawartych w pliku. Kontynuować?"
   },
   "customRulesEditor_importFailed": {
     "message": "Importowanie reguł nie powiodło się: $1"
@@ -295,7 +295,7 @@
     "message": "Nieprawidłowy wzorzec domenowy: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Nieprawidłowa struktura pliku: brak obiektu providers"
+    "message": "Nieprawidłowa struktura pliku: brakuje dostawców ClearURLs lub niestandardowych reguł URL Linkumori"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Nieprawidłowe wyrażenie regularne wzorca URL: $1"
@@ -1665,8 +1665,16 @@
   "providerImport_importedCount": {
     "message": "Zaimportowano: $1 dostawców"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Zaimportowano: $1 reguł",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importowanie..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Istniejące reguły interoperacyjności Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Ładowanie dostawców..."
@@ -1721,6 +1729,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Pominięto: $1 dostawców"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Pominięto: $1 reguł",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Źródło reguł"
@@ -3450,5 +3462,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Zdalne popularne filtry rozszerzeń URL i te niestandardowe reguły nie wymagają weryfikacji skrótu. Są one przechowywane w LinkumoriURLsData po przeanalizowaniu, oddzielnie od ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperacyjność zmieniona",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Wyjściowy URL interoperacyjności",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Dopasowana reguła interoperacyjności",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Typ wzorca interoperacyjności",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Działanie interoperacyjności",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

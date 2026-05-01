@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Això substituirà totes les regles personalitzades existents. Continuar?"
+    "message": "Això substituirà les categories de regles personalitzades incloses al fitxer. Voleu continuar?"
   },
   "customRulesEditor_importFailed": {
     "message": "No s'han pogut importar les regles: $1"
@@ -349,7 +349,7 @@
     "message": "Patró de domini no vàlid: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Estructura de fitxers no vàlida: falta l'objecte de proveïdors"
+    "message": "Estructura de fitxer no vàlida: falten proveïdors de ClearURLs o regles personalitzades d’URL de Linkumori"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Expressió regular del patró d'URL no vàlid: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Importat: $1 proveïdors"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importades: $1 regles",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importació..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Regles d’interoperabilitat de Linkumori existents",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "S'estan carregant els proveïdors...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Omet: $1 proveïdors"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Omeses: $1 regles",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Origen de la regla",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Els filtres de l'extensió popular remota URL i aquestes regles personalitzades no necessiten verificació hash. S'emmagatzemen a LinkumoriURLsData després de l'anàlisi, a part de ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilitat modificada",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "URL de sortida d’interoperabilitat",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Regla d’interoperabilitat coincident",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Tipus de patró d’interoperabilitat",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Acció d’interoperabilitat",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

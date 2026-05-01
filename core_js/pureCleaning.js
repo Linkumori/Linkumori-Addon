@@ -360,11 +360,19 @@ function runRuleTestLab(inputUrl, testParamRaw = '') {
 
     try {
         const result = pureCleaningTrace(effectiveUrl, normalizedTestParam);
+        const linkumoriURLResult = typeof globalThis.traceLinkumoriURLFilterRuleTest === 'function'
+            ? globalThis.traceLinkumoriURLFilterRuleTest(effectiveUrl, {
+                method: 'GET',
+                type: 'main_frame'
+            })
+            : null;
+        const linkumoriURLChanged = !!(linkumoriURLResult && linkumoriURLResult.changed);
+
         return {
             success: true,
             input: effectiveUrl,
             output: result.after,
-            changed: result.changed,
+            changed: result.changed || linkumoriURLChanged,
             matchedProvider: result.matchedProvider,
             matchedRule: result.matchedRule,
             patternType: result.patternType,
@@ -379,6 +387,11 @@ function runRuleTestLab(inputUrl, testParamRaw = '') {
             matchedReferralMarketing: result.matchedReferralMarketing,
             matchedRemoveParamRule: result.matchedRemoveParamRule,
             matchedRemoveParamException: result.matchedRemoveParamException,
+            linkumoriURLChanged,
+            linkumoriURLOutput: linkumoriURLResult?.output || null,
+            linkumoriURLMatchedRule: linkumoriURLResult?.matchedRule || null,
+            linkumoriURLPatternType: linkumoriURLResult?.patternType || null,
+            linkumoriURLAction: linkumoriURLResult?.action || null,
             testedParam: result.testedParam,
             completeProvider: result.completeProvider,
             steps: result.trace

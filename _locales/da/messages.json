@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Dette vil erstatte alle eksisterende tilpassede regler. Fortsætte?"
+    "message": "Dette erstatter de brugerdefinerede regelkategorier, der er inkluderet i filen. Vil du fortsætte?"
   },
   "customRulesEditor_importFailed": {
     "message": "Kunne ikke importere regler: $1"
@@ -349,7 +349,7 @@
     "message": "Ugyldigt domænemønster: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Ugyldig filstruktur: manglende udbyderobjekt"
+    "message": "Ugyldig filstruktur: mangler ClearURLs-udbydere eller brugerdefinerede Linkumori URL-regler"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Ugyldigt webadressemønster regex: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Importeret: $1 udbydere"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Importeret: $1 regler",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importerer..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Eksisterende Linkumori-interoperabilitetsregler",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Indlæser udbydere...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Sprang over: $1-udbydere"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Sprunget over: $1 regler",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Regelkilde",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Ekstern populær udvidelse URL filtre, og disse tilpassede regler behøver ikke hash-bekræftelse. De gemmes i LinkumoriURLsData efter parsing, adskilt fra ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilitet ændret",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Interoperabilitet output-URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Matchet interoperabilitetsregel",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Interoperabilitetsmønstertype",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Interoperabilitetshandling",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

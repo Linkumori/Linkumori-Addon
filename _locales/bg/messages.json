@@ -337,7 +337,7 @@
     "description": "Label for HTTP methods field"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Това ще замени всички съществуващи персонализирани правила. Продължаване?"
+    "message": "Това ще замени категориите персонализирани правила, включени във файла. Продължаване?"
   },
   "customRulesEditor_importFailed": {
     "message": "Неуспешно импортиране на правила: $1"
@@ -349,7 +349,7 @@
     "message": "Невалиден модел на домейн: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Невалидна файлова структура: липсващ обект на доставчици"
+    "message": "Невалидна структура на файла: липсват доставчици на ClearURLs или персонализирани правила за Linkumori URL"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Невалиден регулярен израз на образец на URL: $1"
@@ -2107,8 +2107,16 @@
   "providerImport_importedCount": {
     "message": "Импортирани: $1 доставчици"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Импортирани: $1 правила",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Импортиране..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Съществуващи правила за оперативна съвместимост на Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Доставчиците се зареждат...",
@@ -2171,6 +2179,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Пропуснати: $1 доставчици"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Пропуснати: $1 правила",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Източник на правило",
@@ -4333,5 +4345,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Отдалеченото популярно разширение URL филтрира и тези персонализирани правила не се нуждаят от хеш проверка. Те се съхраняват в LinkumoriURLsData след анализиране, отделно от ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Оперативната съвместимост е променена",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Изходен URL за оперативна съвместимост",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Съвпадащо правило за оперативна съвместимост",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Тип шаблон за оперативна съвместимост",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Действие за оперативна съвместимост",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }

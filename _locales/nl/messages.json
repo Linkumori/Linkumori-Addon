@@ -283,7 +283,7 @@
     "message": "HTTP-methoden"
   },
   "customRulesEditor_importConfirm": {
-    "message": "Dit zal alle bestaande aangepaste regels vervangen. Doorgaan?"
+    "message": "Dit vervangt de categorieën met aangepaste regels die in het bestand staan. Doorgaan?"
   },
   "customRulesEditor_importFailed": {
     "message": "Importeren van regels mislukt: $1"
@@ -295,7 +295,7 @@
     "message": "Ongeldig domeinpatroon: {0}"
   },
   "customRulesEditor_invalidFileStructure": {
-    "message": "Ongeldige bestandsstructuur: providers-object ontbreekt"
+    "message": "Ongeldige bestandsstructuur: ClearURLs-providers of aangepaste Linkumori URL-regels ontbreken"
   },
   "customRulesEditor_invalidUrlPattern": {
     "message": "Ongeldig URL-patroon regex: $1"
@@ -1672,8 +1672,16 @@
   "providerImport_importedCount": {
     "message": "Geïmporteerd: $1 aanbieders"
   },
+  "providerImport_importedRulesCount": {
+    "message": "Geïmporteerd: $1 regels",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
   "providerImport_importing": {
     "message": "Importeren..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Bestaande Linkumori-interoperabiliteitsregels",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Aanbieders laden..."
@@ -1729,6 +1737,10 @@
   },
   "providerImport_skippedCount": {
     "message": "Overgeslagen: $1 aanbieders"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Overgeslagen: $1 regels",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Regelbron"
@@ -3468,5 +3480,25 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Externe populaire extensie URL-filters en deze aangepaste regels hebben geen hash-verificatie nodig. Ze worden na parsering opgeslagen in LinkumoriURLsData, gescheiden van ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabiliteit gewijzigd",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Interoperabiliteit uitvoer-URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Overeenkomende interoperabiliteitsregel",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Type interoperabiliteitspatroon",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Interoperabiliteitsactie",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   }
 }
