@@ -93,6 +93,7 @@ var linkumoriURLPatternFallbackProviders = [];
 var linkumoriURLPatternFallbackBitset = null;
 var linkumoriURLPatternBitsetWords = 0;
 var linkumoriURLPatternAutomaton = null;
+var linkumoriURLPatternScratchBitset = null;
 var pslSupport = {
     status: 'idle',
     parser: null,
@@ -116,86 +117,26 @@ function getLinkumoriURLPatternAnalyzerToken(regexSource) {
     }
 }
 
-function getLinkumoriURLPatternHeuristicTokens(regexSource) {
-    const source = String(regexSource || '').toLowerCase();
-    if (!source || source === '.*') return [];
-
-    function unescapeLiteral(input) {
-        return String(input || '')
-            .replace(/\\([\\./_-])/g, '$1')
-            .replace(/\\\\/g, '\\')
-            .replace(/^\.+|\.+$/g, '');
-    }
-
-    function addToken(tokens, token) {
-        const normalized = unescapeLiteral(token)
-            .replace(/[^a-z0-9._/%-]+/g, '')
-            .replace(/^\.+|\.+$/g, '')
-            .toLowerCase();
-        if (normalized.length >= 3) tokens.add(normalized);
-    }
-
-    function splitRegexAlternatives(input) {
-        const alternatives = [];
-        let current = '';
-        let escaped = false;
-        for (let i = 0; i < input.length; i++) {
-            const ch = input.charAt(i);
-            if (escaped) {
-                current += '\\' + ch;
-                escaped = false;
-                continue;
-            }
-            if (ch === '\\') {
-                escaped = true;
-                continue;
-            }
-            if (ch === '|') {
-                alternatives.push(current);
-                current = '';
-                continue;
-            }
-            current += ch;
-        }
-        if (escaped) current += '\\';
-        alternatives.push(current);
-        return alternatives;
-    }
-
-    function literalPrefix(input) {
-        const match = String(input || '').match(/^((?:\\[./_-]|[a-z0-9._/%-])+)/i);
-        return match ? match[1] : '';
-    }
-
-    const tokens = new Set();
-    const afterLazyWildcard = /\*\?((?:\\[./_-]|[a-z0-9_-])+)/gi;
-    let match;
-    while ((match = afterLazyWildcard.exec(source)) !== null) {
-        addToken(tokens, match[1]);
-    }
-
-    const afterProtocol = /\^?https\??:\\?\/\\?\/((?:\\[./_-]|[a-z0-9_-])+)/gi;
-    while ((match = afterProtocol.exec(source)) !== null) {
-        addToken(tokens, match[1]);
-    }
-
-    const lazyAlternative = /\*\?\((?:\?:)?([^()]+)\)((?:\\[./_-]|[a-z0-9._/%-])*)/gi;
-    while ((match = lazyAlternative.exec(source)) !== null) {
-        const suffix = literalPrefix(match[2]);
-        for (const alternative of splitRegexAlternatives(match[1])) {
-            const literal = literalPrefix(alternative);
-            if (!literal) continue;
-            addToken(tokens, literal + suffix);
-        }
-    }
-
-    return Array.from(tokens).sort((left, right) => right.length - left.length);
-}
-
 function getLinkumoriURLPatternAnalyzerTokens(regexSource) {
+    if (
+        globalThis.LinkumoriRegexTokens &&
+        typeof globalThis.LinkumoriRegexTokens.extractURLPatternTokensFromRegex === 'function'
+    ) {
+        try {
+            const tokens = globalThis.LinkumoriRegexTokens.extractURLPatternTokensFromRegex(regexSource);
+            if (Array.isArray(tokens) && tokens.length > 0) {
+                return tokens
+                    .filter(token => typeof token === 'string' && token)
+                    .map(token => token.toLowerCase());
+            }
+        } catch (e) {
+            // Fall through to the single-token parser path below.
+        }
+    }
+
     const analyzerToken = getLinkumoriURLPatternAnalyzerToken(regexSource);
     if (analyzerToken) return [analyzerToken];
-    return getLinkumoriURLPatternHeuristicTokens(regexSource);
+    return [];
 }
 
 function getSerializedLinkumoriURLPatternTokens(providerName, urlPatternSource) {
@@ -216,9 +157,7 @@ function getSerializedLinkumoriURLPatternTokens(providerName, urlPatternSource) 
             .map(token => token.toLowerCase());
     }
 
-    return typeof entry.token === 'string' && entry.token
-        ? [entry.token.toLowerCase()]
-        : [];
+    return [];
 }
 
 function getLinkumoriDomainPatternAnalyzerToken(domainPattern) {
@@ -1875,6 +1814,7 @@ function start() {
         linkumoriURLPatternFallbackBitset = null;
         linkumoriURLPatternBitsetWords = 0;
         linkumoriURLPatternAutomaton = null;
+        linkumoriURLPatternScratchBitset = null;
         linkumoriURLPatternAnalyzerStats.total = 0;
         linkumoriURLPatternAnalyzerStats.tokenized = 0;
         linkumoriURLPatternAnalyzerStats.skippedRegexTests = 0;
@@ -1970,6 +1910,7 @@ function start() {
     function convertURLPatternProviderIndexToBitsets() {
         linkumoriURLPatternBitsetWords = Math.max(1, Math.ceil(providers.length / 32));
         linkumoriURLPatternFallbackBitset = createLinkumoriProviderBitset();
+        linkumoriURLPatternScratchBitset = createLinkumoriProviderBitset();
 
         for (const provider of linkumoriURLPatternFallbackProviders) {
             addLinkumoriProviderToBitset(linkumoriURLPatternFallbackBitset, provider);
@@ -1984,15 +1925,20 @@ function start() {
         }
     }
 
-    function getURLPatternCandidateProviders(url) {
+    function forEachURLPatternCandidateProvider(url, callback) {
         if (!linkumoriURLPatternAutomaton || !linkumoriURLPatternProviderIndex || linkumoriURLPatternProviderIndex.size === 0) {
-            return providers;
+            for (let i = 0; i < providers.length; i++) {
+                callback(providers[i]);
+            }
+            return providers.length;
         }
 
-        const candidateBits = linkumoriURLPatternFallbackBitset
-            ? new Uint32Array(linkumoriURLPatternFallbackBitset)
-            : createLinkumoriProviderBitset();
-        const candidates = [];
+        const candidateBits = linkumoriURLPatternScratchBitset || createLinkumoriProviderBitset();
+        if (linkumoriURLPatternFallbackBitset) {
+            candidateBits.set(linkumoriURLPatternFallbackBitset);
+        } else {
+            candidateBits.fill(0);
+        }
 
         const lowerUrl = String(url || '').toLowerCase();
         let node = linkumoriURLPatternAutomaton;
@@ -2012,6 +1958,7 @@ function start() {
             }
         }
 
+        let candidateCount = 0;
         for (let wordIndex = 0; wordIndex < candidateBits.length; wordIndex++) {
             let word = candidateBits[wordIndex];
             while (word !== 0) {
@@ -2019,15 +1966,16 @@ function start() {
                 const bitIndex = 31 - Math.clz32(bit);
                 const providerIndex = (wordIndex << 5) + bitIndex;
                 if (providerIndex < providers.length) {
-                    candidates.push(providers[providerIndex]);
+                    candidateCount++;
+                    callback(providers[providerIndex]);
                 }
                 word ^= bit;
             }
         }
 
-        linkumoriURLPatternAnalyzerStats.indexedCandidates += Math.max(0, candidates.length - linkumoriURLPatternFallbackProviders.length);
+        linkumoriURLPatternAnalyzerStats.indexedCandidates += Math.max(0, candidateCount - linkumoriURLPatternFallbackProviders.length);
         linkumoriURLPatternAnalyzerStats.fallbackCandidates += linkumoriURLPatternFallbackProviders.length;
-        return candidates;
+        return candidateCount;
     }
 
     function initializeProviders() {
@@ -2505,13 +2453,12 @@ function start() {
                 return {cancel: true};
             }
 
-            const candidateProviders = getURLPatternCandidateProviders(request.url);
-            linkumoriURLPatternAnalyzerStats.skippedRegexTests += Math.max(0, providers.length - candidateProviders.length);
+            let providerResponse = null;
+            const candidateProviderCount = forEachURLPatternCandidateProvider(request.url, provider => {
+                if (providerResponse) return;
 
-            for (let i = 0; i < candidateProviders.length; i++) {
-                const provider = candidateProviders[i];
-                if (!provider.matchMethod(request)) continue;
-                if (!provider.matchResourceType(request)) continue;
+                if (!provider.matchMethod(request)) return;
+                if (!provider.matchResourceType(request)) return;
                 if (provider.matchURL(request.url)) {
                     result = removeFieldsFormURL(provider, request.url, false, request);
                 }
@@ -2520,12 +2467,14 @@ function start() {
                     if (provider.shouldForceRedirect() &&
                         request.type === 'main_frame') {
                         browser.tabs.update(request.tabId, {url: result.url}).catch(handleError);
-                        return {cancel: true};
+                        providerResponse = {cancel: true};
+                        return;
                     }
 
-                    return {
+                    providerResponse = {
                         redirectUrl: result.url
                     };
+                    return;
                 }
 
                 if (result.cancel) {
@@ -2533,20 +2482,26 @@ function start() {
                         const blockingPage = browser.runtime.getURL("html/siteBlockedAlert.html?source=" + encodeURIComponent(request.url));
                         browser.tabs.update(request.tabId, {url: blockingPage}).catch(handleError);
 
-                        return {cancel: true};
+                        providerResponse = {cancel: true};
+                        return;
                     } else {
-                        return {
+                        providerResponse = {
                             redirectUrl: siteBlockedAlert
                         };
+                        return;
                     }
                 }
 
                 if (result.changes) {
-                    return {
+                    providerResponse = {
                         redirectUrl: result.url
                     };
+                    return;
                 }
-            }
+            });
+            linkumoriURLPatternAnalyzerStats.skippedRegexTests += Math.max(0, providers.length - candidateProviderCount);
+
+            if (providerResponse) return providerResponse;
 
             if (typeof globalThis.handleLinkumoriURLFilterRequest === 'function') {
                 return globalThis.handleLinkumoriURLFilterRequest(request);

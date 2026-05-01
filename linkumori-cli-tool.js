@@ -1744,214 +1744,37 @@ ${commit.message}
       filename: 'core_js/linkumori_regex_tokens.js'
     });
 
-    return (regexSource) => {
+    const extractToken = (regexSource) => {
       try {
         return String(context.LinkumoriRegexTokens.extractBestTokenFromRegex(regexSource) || '').toLowerCase();
       } catch {
         return '';
       }
     };
-  }
 
-  loadPublicSuffixTokenNormalizer() {
-    if (this.publicSuffixTokenNormalizer) {
-      return this.publicSuffixTokenNormalizer;
-    }
-
-    try {
-      const context = {
-        console,
-        module: { exports: {} },
-        globalThis: null
-      };
-      context.globalThis = context;
-
-      vm.runInNewContext(fs.readFileSync('external_js/light-punycode.js', 'utf8'), context, {
-        filename: 'external_js/light-punycode.js'
-      });
-      vm.runInNewContext(fs.readFileSync('external_js/publicsuffixlist.js', 'utf8'), context, {
-        filename: 'external_js/publicsuffixlist.js'
-      });
-
-      const pslService = context.module.exports?.linkumoriPsl || context.linkumoriPsl;
-      if (!pslService || !pslService.parser || typeof pslService.parser.parse !== 'function') {
-        throw new Error('PSL parser unavailable');
+    extractToken.extractURLPatternTokensFromRegex = (regexSource) => {
+      try {
+        const tokens = context.LinkumoriRegexTokens.extractURLPatternTokensFromRegex(regexSource);
+        return Array.isArray(tokens)
+          ? tokens.filter(token => typeof token === 'string' && token).map(token => token.toLowerCase())
+          : [];
+      } catch {
+        return [];
       }
-
-      const pslText = fs.readFileSync(this.pslConfig.localFile, 'utf8');
-      const toAscii = value => context.punycode.toASCII(String(value || ''));
-      pslService.parser.parse(pslText, toAscii);
-      pslService.status = 'ready';
-
-      this.publicSuffixTokenNormalizer = token => {
-        const normalized = String(token || '').toLowerCase().replace(/^\.+|\.+$/g, '');
-        if (!normalized.includes('.')) return normalized;
-
-        const parsed = pslService.parse(normalized, {
-          extractHostname: false,
-          mixedInputs: false,
-          detectIp: true,
-          validateHostname: false
-        });
-        if (!parsed || !parsed.domain) return normalized;
-        if (parsed.tld && normalized === parsed.tld) return '';
-        return normalized;
-      };
-    } catch {
-      this.publicSuffixTokenNormalizer = token => String(token || '').toLowerCase().replace(/^\.+|\.+$/g, '');
-    }
-
-    return this.publicSuffixTokenNormalizer;
-  }
-
-  createURLPatternHeuristicTokens(regexSource) {
-    const source = String(regexSource || '').toLowerCase();
-    if (!source || source === '.*') return [];
-    const normalizeWithPsl = this.loadPublicSuffixTokenNormalizer();
-
-    const unescapeLiteral = input => String(input || '')
-      .replace(/\\([\\./_-])/g, '$1')
-      .replace(/\\\\/g, '\\')
-      .replace(/^\.+|\.+$/g, '');
-
-    const tokens = new Set();
-    const addToken = token => {
-      let normalized = unescapeLiteral(token)
-        .replace(/[^a-z0-9._/%-]+/g, '')
-        .replace(/^\.+|\.+$/g, '')
-        .toLowerCase();
-      normalized = normalizeWithPsl(normalized);
-      if (normalized.length >= 3) tokens.add(normalized);
     };
 
-    const splitRegexAlternatives = input => {
-      const alternatives = [];
-      let current = '';
-      let escaped = false;
-      for (let i = 0; i < input.length; i++) {
-        const ch = input.charAt(i);
-        if (escaped) {
-          current += '\\' + ch;
-          escaped = false;
-          continue;
-        }
-        if (ch === '\\') {
-          escaped = true;
-          continue;
-        }
-        if (ch === '|') {
-          alternatives.push(current);
-          current = '';
-          continue;
-        }
-        current += ch;
-      }
-      if (escaped) current += '\\';
-      alternatives.push(current);
-      return alternatives;
-    };
-
-    const literalPrefix = input => {
-      const match = String(input || '').match(/^((?:\\[./_-]|[a-z0-9._/%-])+)/i);
-      return match ? match[1] : '';
-    };
-
-    const readGroupAt = (input, openIndex) => {
-      let depth = 0;
-      let escaped = false;
-      let body = '';
-      for (let i = openIndex; i < input.length; i++) {
-        const ch = input.charAt(i);
-        if (escaped) {
-          if (depth > 0) body += '\\' + ch;
-          escaped = false;
-          continue;
-        }
-        if (ch === '\\') {
-          escaped = true;
-          continue;
-        }
-        if (ch === '(') {
-          if (depth > 0) body += ch;
-          depth++;
-          continue;
-        }
-        if (ch === ')') {
-          depth--;
-          if (depth === 0) {
-            return {
-              body: body.startsWith('?:') ? body.slice(2) : body,
-              end: i + 1
-            };
-          }
-          body += ch;
-          continue;
-        }
-        if (depth > 0) body += ch;
-      }
-      return null;
-    };
-
-    const splitTopLevelAlternatives = input => {
-      const alternatives = [];
-      let current = '';
-      let depth = 0;
-      let escaped = false;
-      for (let i = 0; i < input.length; i++) {
-        const ch = input.charAt(i);
-        if (escaped) {
-          current += '\\' + ch;
-          escaped = false;
-          continue;
-        }
-        if (ch === '\\') {
-          escaped = true;
-          continue;
-        }
-        if (ch === '(') depth++;
-        if (ch === ')') depth = Math.max(0, depth - 1);
-        if (ch === '|' && depth === 0) {
-          alternatives.push(current);
-          current = '';
-          continue;
-        }
-        current += ch;
-      }
-      if (escaped) current += '\\';
-      alternatives.push(current);
-      return alternatives;
-    };
-
-    const afterLazyWildcard = /\*\?((?:\\[./_-]|[a-z0-9_-])+)/gi;
-    let match;
-    while ((match = afterLazyWildcard.exec(source)) !== null) {
-      addToken(match[1]);
-    }
-
-    const afterProtocol = /\^?https\??:\\?\/\\?\/((?:\\[./_-]|[a-z0-9_-])+)/gi;
-    while ((match = afterProtocol.exec(source)) !== null) {
-      addToken(match[1]);
-    }
-
-    for (let i = 0; i < source.length - 3; i++) {
-      if (source.charAt(i) !== '*' || source.charAt(i + 1) !== '?' || source.charAt(i + 2) !== '(') continue;
-      const group = readGroupAt(source, i + 2);
-      if (!group || !group.body.includes('|')) continue;
-      const suffix = literalPrefix(source.slice(group.end));
-      for (const alternative of splitTopLevelAlternatives(group.body)) {
-        const literal = literalPrefix(alternative);
-        if (!literal) continue;
-        addToken(literal + suffix);
-      }
-    }
-
-    return Array.from(tokens).sort((left, right) => right.length - left.length);
+    return extractToken;
   }
 
   createURLPatternTokens(regexSource, extractToken) {
+    if (extractToken && typeof extractToken.extractURLPatternTokensFromRegex === 'function') {
+      const parserTokens = extractToken.extractURLPatternTokensFromRegex(regexSource);
+      if (parserTokens.length > 0) return parserTokens;
+    }
+
     const analyzerToken = extractToken(regexSource);
     if (analyzerToken) return [analyzerToken];
-    return this.createURLPatternHeuristicTokens(regexSource);
+    return [];
   }
 
   parseFilterRegexLiteralSource(value) {
@@ -2091,11 +1914,9 @@ ${commit.message}
         tokens = [];
       }
 
-      const token = tokens[0] || '';
       if (tokens.length > 0) tokenizedProviderCount++;
       entries[providerName] = {
         urlPattern: provider.urlPattern,
-        token,
         tokens
       };
     }
@@ -2188,8 +2009,9 @@ ${commit.message}
 
     const seen = new Set(urls);
     for (const matcher of matchers) {
-      if (!matcher.token || seen.size >= 80) continue;
-      const hostToken = matcher.token.replace(/[^a-z0-9-]/g, '');
+      const primaryToken = Array.isArray(matcher.tokens) ? matcher.tokens[0] : '';
+      if (!primaryToken || seen.size >= 80) continue;
+      const hostToken = primaryToken.replace(/[^a-z0-9-]/g, '');
       if (!hostToken || hostToken.length < 2) continue;
       [
         `https://www.${hostToken}.com/path?utm_source=bench&fbclid=x`,
@@ -2214,7 +2036,7 @@ ${commit.message}
       for (const url of urls) {
         const lowerUrl = url.toLowerCase();
         for (const matcher of matchers) {
-          const tokens = Array.isArray(matcher.tokens) ? matcher.tokens : (matcher.token ? [matcher.token] : []);
+          const tokens = Array.isArray(matcher.tokens) ? matcher.tokens : [];
           if (
             useAnalyzerPrefilter &&
             tokens.length > 0 &&
@@ -2249,7 +2071,7 @@ ${commit.message}
     };
 
     for (const matcher of matchers) {
-      const tokens = Array.isArray(matcher.tokens) ? matcher.tokens : (matcher.token ? [matcher.token] : []);
+      const tokens = Array.isArray(matcher.tokens) ? matcher.tokens : [];
       if (tokens.length === 0) {
         fallback.push(matcher);
         continue;
@@ -2280,6 +2102,7 @@ ${commit.message}
       fallback,
       fallbackBitset,
       words,
+      scratchBitset: createBitset(),
       automaton: this.createURLPatternAhoCorasickAutomaton(tokenIndex)
     };
   }
@@ -2323,11 +2146,13 @@ ${commit.message}
     return root;
   }
 
-  getURLPatternIndexedCandidates(reverseIndex, url) {
-    const candidateBits = reverseIndex.fallbackBitset
-      ? new Uint32Array(reverseIndex.fallbackBitset)
-      : new Uint32Array(reverseIndex.words || 1);
-    const candidates = [];
+  markURLPatternIndexedCandidateBits(reverseIndex, url) {
+    const candidateBits = reverseIndex.scratchBitset || new Uint32Array(reverseIndex.words || 1);
+    if (reverseIndex.fallbackBitset) {
+      candidateBits.set(reverseIndex.fallbackBitset);
+    } else {
+      candidateBits.fill(0);
+    }
 
     const root = reverseIndex.automaton;
     let node = root;
@@ -2351,6 +2176,13 @@ ${commit.message}
       }
     }
 
+    return candidateBits;
+  }
+
+  forEachURLPatternIndexedCandidate(reverseIndex, url, callback) {
+    const candidateBits = this.markURLPatternIndexedCandidateBits(reverseIndex, url);
+    let candidateCount = 0;
+
     for (let wordIndex = 0; wordIndex < candidateBits.length; wordIndex++) {
       let word = candidateBits[wordIndex];
       while (word !== 0) {
@@ -2358,13 +2190,14 @@ ${commit.message}
         const bitIndex = 31 - Math.clz32(bit);
         const matcherIndex = (wordIndex << 5) + bitIndex;
         if (matcherIndex < reverseIndex.matchers.length) {
-          candidates.push(reverseIndex.matchers[matcherIndex]);
+          candidateCount++;
+          callback(reverseIndex.matchers[matcherIndex]);
         }
         word ^= bit;
       }
     }
 
-    return candidates;
+    return candidateCount;
   }
 
   runURLPatternIndexedLoop(matchers, urls, rounds, reverseIndex) {
@@ -2374,17 +2207,16 @@ ${commit.message}
 
     for (let round = 0; round < rounds; round++) {
       for (const url of urls) {
-        const candidates = this.getURLPatternIndexedCandidates(reverseIndex, url);
-        skippedRegexTests += Math.max(0, matchers.length - candidates.length);
-        for (const matcher of candidates) {
+        const candidateCount = this.forEachURLPatternIndexedCandidate(reverseIndex, url, matcher => {
           if (matcher.alwaysMatches) {
             matches++;
-            continue;
+            return;
           }
           regexTests++;
           matcher.regex.lastIndex = 0;
           if (matcher.regex.test(url)) matches++;
-        }
+        });
+        skippedRegexTests += Math.max(0, matchers.length - candidateCount);
       }
     }
 
@@ -2421,7 +2253,7 @@ ${commit.message}
     let skippedRegexTests = 0;
 
     for (const matcher of matchers) {
-      const tokens = Array.isArray(matcher.tokens) ? matcher.tokens : (matcher.token ? [matcher.token] : []);
+      const tokens = Array.isArray(matcher.tokens) ? matcher.tokens : [];
       if (
         useAnalyzerPrefilter &&
         tokens.length > 0 &&
@@ -2445,22 +2277,23 @@ ${commit.message}
   }
 
   matchURLPatternIndexedRequest(matchers, reverseIndex, url) {
-    const candidates = this.getURLPatternIndexedCandidates(reverseIndex, url);
     let matches = 0;
+    let regexTests = 0;
 
-    for (const matcher of candidates) {
+    const candidateCount = this.forEachURLPatternIndexedCandidate(reverseIndex, url, matcher => {
       if (matcher.alwaysMatches) {
         matches++;
-        continue;
+        return;
       }
+      regexTests++;
       matcher.regex.lastIndex = 0;
       if (matcher.regex.test(url)) matches++;
-    }
+    });
 
     return {
       matches,
-      regexTests: candidates.filter(matcher => !matcher.alwaysMatches).length,
-      skippedRegexTests: Math.max(0, matchers.length - candidates.length)
+      regexTests,
+      skippedRegexTests: Math.max(0, matchers.length - candidateCount)
     };
   }
 
@@ -2578,9 +2411,8 @@ ${commit.message}
       try {
         const regex = new RegExp(provider.urlPattern, 'i');
         const tokens = this.createURLPatternTokens(regex.source || provider.urlPattern, extractToken);
-        const token = tokens[0] || '';
         const alwaysMatches = regex.source === '.*' || provider.urlPattern === '.*';
-        matchers.push({ name, regex, token, tokens, alwaysMatches, index: matchers.length });
+        matchers.push({ name, regex, tokens, alwaysMatches, index: matchers.length });
       } catch {
         // Invalid regexes are reported by lint-rules; the benchmark skips them.
       }

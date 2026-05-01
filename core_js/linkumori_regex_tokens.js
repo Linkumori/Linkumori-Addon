@@ -63,6 +63,7 @@
     'use strict';
 
     const MIN_TOKEN_LENGTH = 2;
+    const MIN_URL_PATTERN_TOKEN_LENGTH = 3;
     const BAD_TOKENS = new Set([
         'com', 'www', 'http', 'https', 'net', 'org', 'html', 'php',
         'true', 'false', 'null', 'jpg', 'png', 'gif', 'css', 'js'
@@ -93,6 +94,65 @@
             if (left.length !== right.length) return right.length - left.length;
             return left < right ? -1 : left > right ? 1 : 0;
         })[0];
+    }
+
+    function sortTokens(tokens) {
+        return Array.from(new Set(tokens)).sort((left, right) => {
+            if (left.length !== right.length) return right.length - left.length;
+            return left < right ? -1 : left > right ? 1 : 0;
+        });
+    }
+
+    function normalizeURLRegexLiteralToken(input) {
+        let normalized = String(input || '')
+            .replace(/[^a-z0-9._/%:-]+/gi, '')
+            .replace(/^\.+|\.+$/g, '')
+            .toLowerCase();
+        if (!normalized) return '';
+
+        normalized = normalized
+            .replace(/^(?:[a-z]+:)?\/\//, '')
+            .replace(/^[^/?#@]+@/, '');
+
+        const hostPortPath = normalized.match(/^([^/?#]+)([/?#].*)?$/);
+        if (!hostPortPath) return normalized;
+
+        const hostPort = hostPortPath[1];
+        const path = hostPortPath[2] || '';
+        const portMatch = hostPort.match(/^(.+):(\d{2,5})$/);
+        const host = portMatch ? portMatch[1] : hostPort;
+        if (!host || host === 'localhost') return normalized;
+
+        const ipv4 = host.match(/^\d{1,3}(?:\.\d{1,3}){3}$/);
+        if (ipv4) return normalized;
+
+        if (host.includes('.')) {
+            const labels = host.split('.');
+            const hostLabelPattern = /^[a-z0-9](?:[-_]*[a-z0-9])*$/;
+            const tldPattern = /^(?:[a-z]{2,}|xn--[a-z0-9-]{2,})$/;
+            if (
+                labels.some(label => !hostLabelPattern.test(label)) ||
+                !tldPattern.test(labels[labels.length - 1])
+            ) {
+                return '';
+            }
+        }
+
+        return host + path;
+    }
+
+    function tokensFromURLRegexLiteral(value) {
+        const normalized = normalizeURLRegexLiteralToken(value);
+        if (
+            normalized.length >= MIN_URL_PATTERN_TOKEN_LENGTH &&
+            /[a-z0-9]/.test(normalized) &&
+            !BAD_TOKENS.has(normalized)
+        ) {
+            return [normalized];
+        }
+
+        return splitTokens(value)
+            .filter(token => token.length >= MIN_URL_PATTERN_TOKEN_LENGTH);
     }
 
     function tokenizableLiteralFromNode(node) {
@@ -155,12 +215,93 @@
         }
     }
 
+    function requiredURLPatternTokensFromNode(node) {
+        if (!node || typeof node !== 'object') return [];
+
+        switch (node.type) {
+            case 1: { // Sequence
+                const tokens = [];
+                node.val.forEach(child => {
+                    tokens.push(...requiredURLPatternTokensFromNode(child));
+                });
+                return sortTokens(tokens);
+            }
+            case 2: { // Alternation
+                const alternatives = Array.isArray(node.val) ? node.val : [];
+                if (alternatives.length === 0) return [];
+
+                const tokens = [];
+                for (let i = 0; i < alternatives.length; i++) {
+                    const alternativeTokens = requiredURLPatternTokensFromNode(alternatives[i]);
+                    if (alternativeTokens.length === 0) return [];
+                    tokens.push(...alternativeTokens);
+                }
+                return sortTokens(tokens);
+            }
+            case 4: { // Group
+                const flags = node.flags || {};
+                if (
+                    flags.NegativeLookAhead === 1 ||
+                    flags.NegativeLookBehind === 1 ||
+                    flags.LookAhead === 1 ||
+                    flags.LookBehind === 1
+                ) {
+                    return [];
+                }
+                return requiredURLPatternTokensFromNode(node.val);
+            }
+            case 16: { // Quantifier
+                const flags = node.flags || {};
+                if (flags.min !== undefined && flags.min < 1) return [];
+                return requiredURLPatternTokensFromNode(node.val);
+            }
+            case 64: { // HexChar
+                const flags = node.flags || {};
+                return tokensFromURLRegexLiteral(flags.Char || '');
+            }
+            case 1024: // String
+                return tokensFromURLRegexLiteral(node.val);
+            case 128: { // Special
+                const flags = node.flags || {};
+                if (
+                    flags.MatchStart === 1 ||
+                    flags.MatchEnd === 1 ||
+                    flags.MatchWordBoundary === 1 ||
+                    flags.MatchNonWordBoundary === 1
+                ) {
+                    return [];
+                }
+                return [];
+            }
+            case 8: // CharacterGroup
+            case 32: // UnicodeChar
+            case 256: // Characters
+            case 512: // CharacterRange
+            case 2048: // Comment
+            default:
+                return [];
+        }
+    }
+
+    function extractURLPatternTokensFromRegex(regexSource) {
+        const Regex = globalThis.Regex;
+        if (!Regex || typeof Regex.Analyzer !== 'function') return [];
+
+        try {
+            const tree = Regex.Analyzer(String(regexSource || ''), false).tree();
+            return requiredURLPatternTokensFromNode(tree);
+        } catch (e) {
+            return [];
+        }
+    }
+
     function collectTokensFromText(text) {
         return splitTokens(text);
     }
 
     globalThis.LinkumoriRegexTokens = {
         extractBestTokenFromRegex,
+        extractURLPatternTokensFromRegex,
         collectTokensFromText,
         isTokenChar
     };
