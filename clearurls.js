@@ -90,6 +90,8 @@ var linkumoriURLPatternAnalyzerStats = {
 };
 var linkumoriURLPatternProviderIndex = new Map();
 var linkumoriURLPatternFallbackProviders = [];
+var linkumoriURLPatternFallbackBitset = null;
+var linkumoriURLPatternBitsetWords = 0;
 var linkumoriURLPatternAutomaton = null;
 var pslSupport = {
     status: 'idle',
@@ -114,7 +116,89 @@ function getLinkumoriURLPatternAnalyzerToken(regexSource) {
     }
 }
 
-function getSerializedLinkumoriURLPatternToken(providerName, urlPatternSource) {
+function getLinkumoriURLPatternHeuristicTokens(regexSource) {
+    const source = String(regexSource || '').toLowerCase();
+    if (!source || source === '.*') return [];
+
+    function unescapeLiteral(input) {
+        return String(input || '')
+            .replace(/\\([\\./_-])/g, '$1')
+            .replace(/\\\\/g, '\\')
+            .replace(/^\.+|\.+$/g, '');
+    }
+
+    function addToken(tokens, token) {
+        const normalized = unescapeLiteral(token)
+            .replace(/[^a-z0-9._/%-]+/g, '')
+            .replace(/^\.+|\.+$/g, '')
+            .toLowerCase();
+        if (normalized.length >= 3) tokens.add(normalized);
+    }
+
+    function splitRegexAlternatives(input) {
+        const alternatives = [];
+        let current = '';
+        let escaped = false;
+        for (let i = 0; i < input.length; i++) {
+            const ch = input.charAt(i);
+            if (escaped) {
+                current += '\\' + ch;
+                escaped = false;
+                continue;
+            }
+            if (ch === '\\') {
+                escaped = true;
+                continue;
+            }
+            if (ch === '|') {
+                alternatives.push(current);
+                current = '';
+                continue;
+            }
+            current += ch;
+        }
+        if (escaped) current += '\\';
+        alternatives.push(current);
+        return alternatives;
+    }
+
+    function literalPrefix(input) {
+        const match = String(input || '').match(/^((?:\\[./_-]|[a-z0-9._/%-])+)/i);
+        return match ? match[1] : '';
+    }
+
+    const tokens = new Set();
+    const afterLazyWildcard = /\*\?((?:\\[./_-]|[a-z0-9_-])+)/gi;
+    let match;
+    while ((match = afterLazyWildcard.exec(source)) !== null) {
+        addToken(tokens, match[1]);
+    }
+
+    const afterProtocol = /\^?https\??:\\?\/\\?\/((?:\\[./_-]|[a-z0-9_-])+)/gi;
+    while ((match = afterProtocol.exec(source)) !== null) {
+        addToken(tokens, match[1]);
+    }
+
+    const lazyAlternative = /\*\?\((?:\?:)?([^()]+)\)((?:\\[./_-]|[a-z0-9._/%-])*)/gi;
+    while ((match = lazyAlternative.exec(source)) !== null) {
+        const suffix = literalPrefix(match[2]);
+        for (const alternative of splitRegexAlternatives(match[1])) {
+            const literal = literalPrefix(alternative);
+            if (!literal) continue;
+            addToken(tokens, literal + suffix);
+        }
+    }
+
+    return Array.from(tokens).sort((left, right) => right.length - left.length);
+}
+
+function getLinkumoriURLPatternAnalyzerTokens(regexSource) {
+    const analyzerToken = getLinkumoriURLPatternAnalyzerToken(regexSource);
+    if (analyzerToken) return [analyzerToken];
+    return getLinkumoriURLPatternHeuristicTokens(regexSource);
+}
+
+function getSerializedLinkumoriURLPatternTokens(providerName, urlPatternSource) {
     const selfie = storage &&
         storage.ClearURLsData &&
         storage.ClearURLsData.metadata &&
@@ -123,10 +207,18 @@ function getSerializedLinkumoriURLPatternToken(providerName, urlPatternSource) {
     if (!entries || typeof entries !== 'object') return '';
 
     const entry = entries[providerName];
-    if (!entry || typeof entry !== 'object') return '';
-    if (entry.urlPattern !== urlPatternSource) return '';
+    if (!entry || typeof entry !== 'object') return [];
+    if (entry.urlPattern !== urlPatternSource) return [];
 
-    return typeof entry.token === 'string' ? entry.token.toLowerCase() : '';
+    if (Array.isArray(entry.tokens)) {
+        return entry.tokens
+            .filter(token => typeof token === 'string' && token)
+            .map(token => token.toLowerCase());
+    }
+
+    return typeof entry.token === 'string' && entry.token
+        ? [entry.token.toLowerCase()]
+        : [];
 }
 
 function getLinkumoriDomainPatternAnalyzerToken(domainPattern) {
@@ -246,6 +338,25 @@ function createLinkumoriURLPatternAutomaton(tokenToProviders) {
 
     root.fail = root;
     return root;
+}
+
+function createLinkumoriProviderBitset() {
+    return new Uint32Array(linkumoriURLPatternBitsetWords || 1);
+}
+
+function addLinkumoriProviderToBitset(bitset, provider) {
+    if (!bitset || !provider || typeof provider.getProviderIndex !== 'function') return;
+    const index = provider.getProviderIndex();
+    if (index < 0) return;
+    bitset[index >>> 5] |= (1 << (index & 31));
+}
+
+function orLinkumoriProviderBitset(target, source) {
+    if (!target || !source) return;
+    const length = Math.min(target.length, source.length);
+    for (let i = 0; i < length; i++) {
+        target[i] |= source[i];
+    }
 }
 
 function normalizeAsciiHostname(value) {
@@ -1761,6 +1872,8 @@ function start() {
         providers = [];
         linkumoriURLPatternProviderIndex = new Map();
         linkumoriURLPatternFallbackProviders = [];
+        linkumoriURLPatternFallbackBitset = null;
+        linkumoriURLPatternBitsetWords = 0;
         linkumoriURLPatternAutomaton = null;
         linkumoriURLPatternAnalyzerStats.total = 0;
         linkumoriURLPatternAnalyzerStats.tokenized = 0;
@@ -1831,6 +1944,7 @@ function start() {
             indexProviderForURLPattern(providers[p]);
         }
 
+        convertURLPatternProviderIndexToBitsets();
         linkumoriURLPatternAutomaton = createLinkumoriURLPatternAutomaton(linkumoriURLPatternProviderIndex);
     }
 
@@ -1853,19 +1967,32 @@ function start() {
         }
     }
 
+    function convertURLPatternProviderIndexToBitsets() {
+        linkumoriURLPatternBitsetWords = Math.max(1, Math.ceil(providers.length / 32));
+        linkumoriURLPatternFallbackBitset = createLinkumoriProviderBitset();
+
+        for (const provider of linkumoriURLPatternFallbackProviders) {
+            addLinkumoriProviderToBitset(linkumoriURLPatternFallbackBitset, provider);
+        }
+
+        for (const [token, providerList] of linkumoriURLPatternProviderIndex.entries()) {
+            const bitset = createLinkumoriProviderBitset();
+            for (const provider of providerList) {
+                addLinkumoriProviderToBitset(bitset, provider);
+            }
+            linkumoriURLPatternProviderIndex.set(token, bitset);
+        }
+    }
+
     function getURLPatternCandidateProviders(url) {
         if (!linkumoriURLPatternAutomaton || !linkumoriURLPatternProviderIndex || linkumoriURLPatternProviderIndex.size === 0) {
             return providers;
         }
 
-        const seen = new Set();
+        const candidateBits = linkumoriURLPatternFallbackBitset
+            ? new Uint32Array(linkumoriURLPatternFallbackBitset)
+            : createLinkumoriProviderBitset();
         const candidates = [];
-
-        for (const provider of linkumoriURLPatternFallbackProviders) {
-            if (!provider || seen.has(provider)) continue;
-            seen.add(provider);
-            candidates.push(provider);
-        }
 
         const lowerUrl = String(url || '').toLowerCase();
         let node = linkumoriURLPatternAutomaton;
@@ -1881,17 +2008,23 @@ function start() {
             if (node.outputs.length === 0) continue;
 
             for (let o = 0; o < node.outputs.length; o++) {
-                const bucket = node.outputs[o];
-                for (let b = 0; b < bucket.length; b++) {
-                    const provider = bucket[b];
-                    if (!provider || seen.has(provider)) continue;
-                    seen.add(provider);
-                    candidates.push(provider);
-                }
+                orLinkumoriProviderBitset(candidateBits, node.outputs[o]);
             }
         }
 
-        candidates.sort((left, right) => left.getProviderIndex() - right.getProviderIndex());
+        for (let wordIndex = 0; wordIndex < candidateBits.length; wordIndex++) {
+            let word = candidateBits[wordIndex];
+            while (word !== 0) {
+                const bit = word & -word;
+                const bitIndex = 31 - Math.clz32(bit);
+                const providerIndex = (wordIndex << 5) + bitIndex;
+                if (providerIndex < providers.length) {
+                    candidates.push(providers[providerIndex]);
+                }
+                word ^= bit;
+            }
+        }
+
         linkumoriURLPatternAnalyzerStats.indexedCandidates += Math.max(0, candidates.length - linkumoriURLPatternFallbackProviders.length);
         linkumoriURLPatternAnalyzerStats.fallbackCandidates += linkumoriURLPatternFallbackProviders.length;
         return candidates;
@@ -1995,7 +2128,8 @@ function start() {
         let name = _name;
         let urlPattern;
         let urlPatternSource = '';
-        let urlPatternAnalyzerToken = '';
+        let urlPatternAnalyzerTokens = [];
+        let urlPatternAlwaysMatches = false;
         let domainPatternAnalyzerTokens = [];
         let providerIndex = 0;
         let domainPatterns = [];
@@ -2039,12 +2173,14 @@ function start() {
         };
 
         this.getURLPatternAnalyzerToken = function () {
-            return urlPatternAnalyzerToken;
+            return urlPatternAnalyzerTokens[0] || '';
         };
 
         this.getURLPatternAnalyzerTokens = function () {
             const tokens = [];
-            if (urlPatternAnalyzerToken) tokens.push(urlPatternAnalyzerToken);
+            for (const token of urlPatternAnalyzerTokens) {
+                if (token) tokens.push(token);
+            }
             for (const token of domainPatternAnalyzerTokens) {
                 if (token) tokens.push(token);
             }
@@ -2054,11 +2190,16 @@ function start() {
         this.setURLPattern = function (urlPatterns) {
             urlPatternSource = urlPatterns || '';
             urlPattern = new RegExp(urlPatterns, "i");
-            urlPatternAnalyzerToken =
-                getSerializedLinkumoriURLPatternToken(name, urlPatternSource) ||
-                getLinkumoriURLPatternAnalyzerToken(urlPattern.source || urlPatternSource);
+            urlPatternAlwaysMatches = urlPattern.source === '.*' || urlPatternSource === '.*';
+            urlPatternAnalyzerTokens =
+                getSerializedLinkumoriURLPatternTokens(name, urlPatternSource);
+            if (urlPatternAnalyzerTokens.length === 0) {
+                urlPatternAnalyzerTokens =
+                    getLinkumoriURLPatternAnalyzerTokens(urlPattern.source || urlPatternSource);
+            }
+            urlPatternAnalyzerTokens = [...new Set(urlPatternAnalyzerTokens)];
             linkumoriURLPatternAnalyzerStats.total++;
-            if (urlPatternAnalyzerToken) linkumoriURLPatternAnalyzerStats.tokenized++;
+            if (urlPatternAnalyzerTokens.length > 0) linkumoriURLPatternAnalyzerStats.tokenized++;
         };
 
         this.setURLDomainPattern = function (patterns) {
@@ -2079,6 +2220,7 @@ function start() {
 
         this.testURLPattern = function (url) {
             if (!urlPattern) return false;
+            if (urlPatternAlwaysMatches) return true;
 
             linkumoriURLPatternAnalyzerStats.regexTests++;
             urlPattern.lastIndex = 0;
