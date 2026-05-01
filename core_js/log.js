@@ -371,25 +371,99 @@ function logMatchDomainPattern(url, patterns) {
     if (typeof patterns === 'string') patterns = [patterns];
     if (!Array.isArray(patterns) || patterns.length === 0) return false;
 
+    function escapeRegexChar(char) {
+        return /[\\^$.*+?()[\]{}|]/.test(char) ? ('\\' + char) : char;
+    }
+
+    function linkumoriTokensToRegexSource(input) {
+        let output = '';
+        for (let i = 0; i < input.length; i++) {
+            const ch = input.charAt(i);
+            if (ch === '*') {
+                output += '.*';
+            } else if (ch === '^') {
+                output += '(?:[^0-9A-Za-z_\\-.%]|$)';
+            } else {
+                output += escapeRegexChar(ch);
+            }
+        }
+        return output;
+    }
+
+    function compileTailRegex(tail) {
+        let raw = String(tail || '');
+        let startAnchor = false;
+        let endAnchor = false;
+
+        if (raw.startsWith('|')) {
+            startAnchor = true;
+            raw = raw.slice(1);
+        }
+        if (raw.endsWith('|')) {
+            endAnchor = true;
+            raw = raw.slice(0, -1);
+        }
+
+        return new RegExp(
+            (startAnchor ? '^' : '') + linkumoriTokensToRegexSource(raw) + (endAnchor ? '$' : ''),
+            'i'
+        );
+    }
+
+    function firstSpecialIndex(input) {
+        const slashIndex = input.indexOf('/');
+        const caretIndex = input.indexOf('^');
+        const pipeIndex = input.indexOf('|');
+
+        let index = -1;
+        if (slashIndex !== -1) index = slashIndex;
+        if (caretIndex !== -1 && (index === -1 || caretIndex < index)) index = caretIndex;
+        if (pipeIndex !== -1 && (index === -1 || pipeIndex < index)) index = pipeIndex;
+        return index;
+    }
+
+    function isSimpleHostExpression(input) {
+        return /^[a-z0-9*.-]+$/i.test(input);
+    }
+
+    function parseRegexLiteral(value) {
+        const text = String(value || '').trim();
+        if (!text.startsWith('/')) return null;
+
+        let escaped = false;
+        for (let i = 1; i < text.length; i++) {
+            const ch = text.charAt(i);
+            if (escaped) {
+                escaped = false;
+                continue;
+            }
+            if (ch === '\\') {
+                escaped = true;
+                continue;
+            }
+            if (ch === '/') {
+                const source = text.slice(1, i);
+                const flags = text.slice(i + 1).replace(/[^dgimsuvy]/g, '');
+                try {
+                    return new RegExp(source, flags.includes('i') ? flags : flags + 'i');
+                } catch (e) {
+                    return null;
+                }
+            }
+        }
+
+        return null;
+    }
+
     try {
         const urlObj = new URL(url);
         const hostname = urlObj.hostname.toLowerCase();
-        const pathname = urlObj.pathname;
+        const pathTarget = (urlObj.pathname + urlObj.search + urlObj.hash).toLowerCase();
         const fullUrl = url.toLowerCase();
 
         return patterns.some((pattern) => {
             if (!pattern) return false;
             const p = String(pattern).trim();
-
-            if (p.startsWith('||') && p.includes('/') && !p.endsWith('^')) {
-                const urlPart = p.slice(2);
-                const slashIndex = urlPart.indexOf('/');
-                const domainPart = urlPart.slice(0, slashIndex).toLowerCase();
-                const pathPart = urlPart.slice(slashIndex);
-                const domainMatches = hostname === domainPart || hostname.endsWith(`.${domainPart}`);
-                const pathMatches = pathname.startsWith(pathPart);
-                return domainMatches && pathMatches;
-            }
 
             const wildcardDomainToRegex = (patternValue) => {
                 let regexPattern = patternValue.replace(/\./g, '\\.');
@@ -432,35 +506,53 @@ function logMatchDomainPattern(url, patterns) {
                 return wwwMatch;
             };
 
-            if (p.startsWith('||') && p.endsWith('^')) {
-                const domain = p.slice(2, -1).toLowerCase().trim();
-                if (domain.includes('*')) {
-                    const rootTldOnly = domain.endsWith('.*') && !domain.startsWith('*.');
-                    if (rootTldOnly) return matchRootDomainWildcardTld(hostname, domain);
-                    return new RegExp(wildcardDomainToRegex(domain), 'i').test(hostname);
+            const structuredDomainAnchorMatch = (patternValue) => {
+                const body = String(patternValue || '').slice(2).trim();
+                if (!body) return false;
+
+                const specialIndex = firstSpecialIndex(body);
+                const hostExpression = specialIndex === -1 ? body : body.slice(0, specialIndex);
+                const tail = specialIndex === -1 ? '' : body.slice(specialIndex);
+                if (!hostExpression || !isSimpleHostExpression(hostExpression)) return null;
+
+                const domain = hostExpression.toLowerCase().trim();
+                const domainForMatching = domain.endsWith('.') && !domain.endsWith('..')
+                    ? domain.slice(0, -1) + '.*'
+                    : domain;
+
+                if (domainForMatching.includes('*')) {
+                    const rootTldOnly = domainForMatching.endsWith('.*') && !domainForMatching.startsWith('*.');
+                    if (rootTldOnly) {
+                        if (!matchRootDomainWildcardTld(hostname, domainForMatching)) return false;
+                    } else if (!new RegExp(wildcardDomainToRegex(domainForMatching), 'i').test(hostname)) {
+                        return false;
+                    }
+                } else if (hostname !== domainForMatching && !hostname.endsWith(`.${domainForMatching}`)) {
+                    return false;
                 }
-                return hostname === domain || hostname.endsWith(`.${domain}`);
-            }
+
+                let rest = tail;
+                if (rest.startsWith('^')) {
+                    rest = rest.slice(1);
+                }
+                if (!rest) return true;
+
+                if (rest.startsWith('/') && !/[|*^]/.test(rest)) {
+                    return pathTarget.startsWith(rest.toLowerCase());
+                }
+
+                return compileTailRegex(rest.toLowerCase()).test(pathTarget);
+            };
 
             if (p.startsWith('||')) {
-                const hostPattern = p.slice(2).trim();
-                if (!hostPattern.includes('/')) {
-                    if (hostPattern.includes('*')) {
-                        const rootTldOnly = hostPattern.endsWith('.*') && !hostPattern.startsWith('*.');
-                        if (rootTldOnly) return matchRootDomainWildcardTld(hostname, hostPattern);
-                        return new RegExp(wildcardDomainToRegex(hostPattern), 'i').test(hostname);
-                    }
-                    const normalized = hostPattern.toLowerCase();
-                    return hostname === normalized || hostname.endsWith(`.${normalized}`);
-                }
+                const structured = structuredDomainAnchorMatch(p);
+                if (structured !== null) return structured;
             }
 
-            if (p.includes('*')) {
-                const regexPattern = p.replace(/\./g, '\\.').replace(/\*/g, '.*');
-                return new RegExp(regexPattern, 'i').test(fullUrl);
-            }
+            const regexLiteral = parseRegexLiteral(p);
+            if (regexLiteral) return regexLiteral.test(fullUrl);
 
-            return fullUrl.includes(p.toLowerCase());
+            return new RegExp(linkumoriTokensToRegexSource(p), 'i').test(fullUrl);
         });
     } catch (e) {
         return false;

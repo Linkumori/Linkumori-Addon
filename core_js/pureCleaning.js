@@ -149,11 +149,23 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '') {
     }
 
     for (const domainRedirection of domainRedirections) {
-        if (!domainRedirection || !domainRedirection.includes('$redirect=')) continue;
-        const [pattern] = domainRedirection.split('$redirect=');
-        if (pattern && matchDomainPattern(url, [pattern.trim()])) {
-            diagnostics.matchedDomainRedirection = domainRedirection;
-            break;
+        if (!domainRedirection) continue;
+
+        if (typeof parseFilterDomainRedirection === 'function') {
+            const parsed = parseFilterDomainRedirection(domainRedirection);
+            if (parsed && !parsed.isException && parsed.pattern && matchDomainPattern(url, [parsed.pattern])) {
+                diagnostics.matchedDomainRedirection = domainRedirection;
+                break;
+            }
+            continue;
+        }
+
+        if (domainRedirection.includes('$redirect=')) {
+            const [pattern] = domainRedirection.split('$redirect=');
+            if (pattern && matchDomainPattern(url, [pattern.trim()])) {
+                diagnostics.matchedDomainRedirection = domainRedirection;
+                break;
+            }
         }
     }
 
@@ -162,14 +174,23 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '') {
         const fields = urlObject.searchParams;
         const fragments = extractFragments(urlObject);
         const candidateParams = new Set();
+        const candidateParamPairs = [];
 
         if (diagnostics.testedParam) {
             const eqIndex = diagnostics.testedParam.indexOf('=');
             const key = (eqIndex === -1 ? diagnostics.testedParam : diagnostics.testedParam.slice(0, eqIndex)).trim();
+            const value = eqIndex === -1 ? '' : diagnostics.testedParam.slice(eqIndex + 1);
             if (key) candidateParams.add(key.toLowerCase());
+            if (key) candidateParamPairs.push([key, value]);
         }
-        for (const field of fields.keys()) candidateParams.add(String(field || '').toLowerCase());
-        for (const fragment of fragments.keys()) candidateParams.add(String(fragment || '').toLowerCase());
+        for (const [field, value] of fields.entries()) {
+            candidateParams.add(String(field || '').toLowerCase());
+            candidateParamPairs.push([field, value]);
+        }
+        for (const [fragment, value] of fragments.entries()) {
+            candidateParams.add(String(fragment || '').toLowerCase());
+            candidateParamPairs.push([fragment, value]);
+        }
 
         const matchesParamRule = (rule) => {
             try {
@@ -215,8 +236,8 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '') {
             const activeMatchedRules = evaluateLinkumoriRemoveParamRules(url, activeRules, null);
             const activeMatchedExceptions = evaluateLinkumoriRemoveParamRules(url, activeExceptions, null);
 
-            for (const param of candidateParams) {
-                const decision = resolveLinkumoriParamDecision(param, activeMatchedRules, activeMatchedExceptions);
+            for (const [param, value] of candidateParamPairs) {
+                const decision = resolveLinkumoriParamDecision(param, activeMatchedRules, activeMatchedExceptions, value);
                 if (decision.handled && decision.remove && !diagnostics.matchedRemoveParamRule) {
                     diagnostics.matchedRemoveParamRule = decision.matchedRule || '$removeparam';
                 }

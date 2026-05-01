@@ -248,6 +248,60 @@ function matchRootDomainWildcardTldWithPsl(hostnameValue, pattern) {
     return prefix === base || prefix === ('www.' + base);
 }
 
+function parseFilterRegexLiteral(value) {
+    const text = String(value || '').trim();
+    if (!text.startsWith('/')) return null;
+
+    let escaped = false;
+    for (let i = 1; i < text.length; i++) {
+        const ch = text.charAt(i);
+        if (escaped) {
+            escaped = false;
+            continue;
+        }
+        if (ch === '\\') {
+            escaped = true;
+            continue;
+        }
+        if (ch === '/') {
+            const source = text.slice(1, i);
+            const flags = text.slice(i + 1).replace(/[^dgimsuvy]/g, '');
+            try {
+                return new RegExp(source, flags.includes('i') ? flags : flags + 'i');
+            } catch (e) {
+                return null;
+            }
+        }
+    }
+
+    return null;
+}
+
+function findLinkumoriModifierStart(ruleText) {
+    const text = String(ruleText || '');
+    if (!text) return -1;
+
+    if (text.startsWith('/')) {
+        let escaped = false;
+        for (let i = 1; i < text.length; i++) {
+            const ch = text.charAt(i);
+            if (escaped) {
+                escaped = false;
+                continue;
+            }
+            if (ch === '\\') {
+                escaped = true;
+                continue;
+            }
+            if (ch === '/') {
+                return text.charAt(i + 1) === '$' ? i + 1 : text.indexOf('$', i + 1);
+            }
+        }
+    }
+
+    return text.indexOf('$');
+}
+
 // Tracks tab/frame URLs so that subrequests from a whitelisted page context
 // can be skipped even if the subrequest URL itself is not whitelisted.
 var requestContextManager = {
@@ -571,6 +625,12 @@ function matchDomainPattern(url, patterns) {
         }
 
         let raw = cacheKey;
+        const literalRegex = parseFilterRegexLiteral(raw);
+        if (literalRegex) {
+            linkumoriPatternRegexCache.set(cacheKey, literalRegex);
+            return literalRegex;
+        }
+
         let domainAnchor = false;
         let startAnchor = false;
         let endAnchor = false;
@@ -657,7 +717,11 @@ function matchDomainPattern(url, patterns) {
         if (pslSupport.status !== 'ready') return false;
 
         const normalizedHost = normalizeAsciiHostname(hostname);
-        const normalizedPattern = normalizeAsciiHostname(pattern);
+        const rawPattern = String(pattern || '').trim().toLowerCase();
+        const trailingDotWildcardTld = rawPattern.endsWith('.') && !rawPattern.endsWith('..');
+        const normalizedPattern = trailingDotWildcardTld
+            ? rawPattern.slice(0, -1) + '.*'
+            : normalizeAsciiHostname(pattern);
         if (!normalizedHost || !normalizedPattern) return false;
 
         const hostParsed = parseHostnameWithPsl(normalizedHost);
@@ -668,7 +732,9 @@ function matchDomainPattern(url, patterns) {
         if (!corePattern) return false;
 
         const wildcardTld = corePattern.endsWith('.*');
-        const basePattern = wildcardTld ? corePattern.slice(0, -2) : corePattern;
+        const basePattern = corePattern.endsWith('.*')
+            ? corePattern.slice(0, -2)
+            : corePattern;
         if (!basePattern) return false;
 
         if (wildcardTld && wildcardSubdomain) {
@@ -676,7 +742,7 @@ function matchDomainPattern(url, patterns) {
         }
 
         if (wildcardTld) {
-            return matchRootDomainWildcardTldWithPsl(normalizedHost, corePattern);
+            return matchRootDomainWildcardTldWithPsl(normalizedHost, basePattern + '.*');
         }
 
         const patternParsed = parseHostnameWithPsl(basePattern);
@@ -805,6 +871,122 @@ function splitLinkumoriModifiers(modifiersText) {
     return parts;
 }
 
+function parseFilterDomainRedirection(ruleText) {
+    const rawRule = String(ruleText || '').trim();
+    if (!rawRule || rawRule.startsWith('!') || rawRule.startsWith('[')) return null;
+
+    let candidate = rawRule;
+    let isException = false;
+    if (candidate.startsWith('@@')) {
+        isException = true;
+        candidate = candidate.slice(2);
+    }
+
+    const modifierStart = findLinkumoriModifierStart(candidate);
+    if (modifierStart === -1) return null;
+
+    const pattern = candidate.slice(0, modifierStart).trim() || '*';
+    const modifiers = splitLinkumoriModifiers(candidate.slice(modifierStart + 1));
+    let redirectTarget = null;
+    let hasRedirect = false;
+
+    modifiers.forEach((modifier) => {
+        const normalized = modifier.toLowerCase();
+        if (
+            normalized === 'redirect' ||
+            normalized === 'redirect-rule' ||
+            normalized.startsWith('redirect=') ||
+            normalized.startsWith('redirect-rule=') ||
+            normalized.startsWith('rewrite=')
+        ) {
+            hasRedirect = true;
+            if (modifier.includes('=')) {
+                redirectTarget = modifier.slice(modifier.indexOf('=') + 1).trim();
+                const priorityIndex = redirectTarget.lastIndexOf(':');
+                if (priorityIndex > -1 && /^\d+$/.test(redirectTarget.slice(priorityIndex + 1))) {
+                    redirectTarget = redirectTarget.slice(0, priorityIndex);
+                }
+            }
+        }
+    });
+
+    if (!hasRedirect) return null;
+
+    return {
+        raw: rawRule,
+        isException,
+        pattern,
+        redirectTarget: redirectTarget || null
+    };
+}
+
+function analyzeRemoveParamRegex(regexSource) {
+    const source = String(regexSource || '');
+    const RegexAnalyzer = globalThis.Regex;
+
+    if (!RegexAnalyzer || typeof RegexAnalyzer.Analyzer !== 'function') {
+        return {
+            ok: true,
+            token: ''
+        };
+    }
+
+    try {
+        RegexAnalyzer.Analyzer(source, false).tree();
+    } catch (e) {
+        return {
+            ok: false,
+            token: ''
+        };
+    }
+
+    return {
+        ok: true,
+        token: globalThis.LinkumoriRegexTokens &&
+            typeof globalThis.LinkumoriRegexTokens.extractBestTokenFromRegex === 'function'
+            ? globalThis.LinkumoriRegexTokens.extractBestTokenFromRegex(source)
+            : ''
+    };
+}
+
+function parseRemoveParamRegex(value) {
+    const text = String(value || '').trim();
+    if (!text.startsWith('/')) return null;
+
+    let escaped = false;
+    for (let i = 1; i < text.length; i++) {
+        const ch = text.charAt(i);
+        if (escaped) {
+            escaped = false;
+            continue;
+        }
+        if (ch === '\\') {
+            escaped = true;
+            continue;
+        }
+        if (ch === '/') {
+            const source = text.slice(1, i);
+            const rawFlags = text.slice(i + 1);
+            const flags = rawFlags.includes('i') ? 'i' : '';
+            const analysis = analyzeRemoveParamRegex(source);
+            if (!analysis.ok) return null;
+
+            try {
+                return {
+                    regex: new RegExp(source, flags),
+                    source,
+                    flags,
+                    token: analysis.token
+                };
+            } catch (e) {
+                return null;
+            }
+        }
+    }
+
+    return null;
+}
+
 function parseLinkumoriRemoveParamRule(ruleText) {
     const rawRule = String(ruleText || '').trim();
     if (!rawRule) return null;
@@ -817,7 +999,7 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         candidate = candidate.slice(2);
     }
 
-    const modifierStart = candidate.indexOf('$');
+    const modifierStart = findLinkumoriModifierStart(candidate);
     if (modifierStart === -1) return null;
 
     const patternPart = candidate.slice(0, modifierStart).trim();
@@ -831,7 +1013,12 @@ function parseLinkumoriRemoveParamRule(ruleText) {
 
     for (const token of modifiers) {
         const normalized = token.toLowerCase();
-        if (normalized === 'removeparam' || normalized.startsWith('removeparam=')) {
+        if (
+            normalized === 'removeparam' ||
+            normalized.startsWith('removeparam=') ||
+            normalized === 'queryprune' ||
+            normalized.startsWith('queryprune=')
+        ) {
             removeParamToken = token;
             continue;
         }
@@ -874,13 +1061,13 @@ function parseLinkumoriRemoveParamRule(ruleText) {
             value = value.slice(1).trim();
         }
 
-        const regexMatch = value.match(/^\/(.+)\/([gimsuy]*)$/i);
-        if (regexMatch) {
-            try {
-                parsed.regexParam = new RegExp(regexMatch[1], regexMatch[2] || 'i');
-            } catch (e) {
-                parsed.regexParam = null;
-            }
+        const parsedRegex = parseRemoveParamRegex(value);
+        if (parsedRegex) {
+            parsed.regexParam = parsedRegex.regex;
+            parsed.regexSource = parsedRegex.source;
+            parsed.regexToken = parsedRegex.token;
+        } else if (value.startsWith('/')) {
+            return null;
         } else {
             parsed.literalParam = value.toLowerCase();
         }
@@ -935,14 +1122,14 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null)
 
     if (linkumoriRule.includeDomains.length > 0) {
         const hasIncluded = linkumoriRule.includeDomains.some((pattern) => {
-            return matchWhitelistHostnamePattern(urlHost, pattern);
+            return matchFilterDomainModifierHostname(urlHost, pattern);
         });
         if (!hasIncluded) return false;
     }
 
     if (linkumoriRule.excludeDomains.length > 0) {
         const hasExcluded = linkumoriRule.excludeDomains.some((pattern) => {
-            return matchWhitelistHostnamePattern(urlHost, pattern);
+            return matchFilterDomainModifierHostname(urlHost, pattern);
         });
         if (hasExcluded) return false;
     }
@@ -964,15 +1151,31 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null)
     return true;
 }
 
-function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName) {
+function matchFilterDomainModifierHostname(hostname, pattern) {
+    const normalizedHost = normalizeAsciiHostname(hostname);
+    const rawPattern = String(pattern || '').trim().toLowerCase();
+    if (!normalizedHost || !rawPattern) return false;
+
+    const regex = parseFilterRegexLiteral(rawPattern);
+    if (regex) return regex.test(normalizedHost);
+
+    const domainPattern = '||' + rawPattern;
+    return matchDomainPattern('https://' + normalizedHost + '/', [domainPattern]) ||
+        matchDomainPattern('http://' + normalizedHost + '/', [domainPattern]);
+}
+
+function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, fieldValue = '') {
     if (!linkumoriRule || !fieldName) return false;
     if (linkumoriRule.removeAll) return true;
 
     const paramName = String(fieldName).toLowerCase();
+    const paramValue = String(fieldValue || '').toLowerCase();
+    const normalizedParamPair = paramName + '=' + paramValue;
     let matched = false;
 
     if (linkumoriRule.regexParam) {
-        matched = linkumoriRule.regexParam.test(paramName);
+        linkumoriRule.regexParam.lastIndex = 0;
+        matched = linkumoriRule.regexParam.test(normalizedParamPair);
     } else if (linkumoriRule.literalParam !== null) {
         matched = paramName === linkumoriRule.literalParam;
     }
@@ -986,7 +1189,7 @@ function evaluateLinkumoriRemoveParamRules(fullUrl, rules, request = null) {
     });
 }
 
-function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions) {
+function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions, fieldValue = '') {
     const normalizedFieldName = String(fieldName || '').toLowerCase();
     if (!normalizedFieldName) {
         return {
@@ -997,7 +1200,7 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
     }
 
     const matchedException = (activeExceptions || []).find((linkumoriRule) => {
-        return linkumoriRemoveParamMatchesName(linkumoriRule, normalizedFieldName);
+        return linkumoriRemoveParamMatchesName(linkumoriRule, normalizedFieldName, fieldValue);
     });
 
     if (matchedException) {
@@ -1009,7 +1212,7 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
     }
 
     const matchedRule = (activeRules || []).find((linkumoriRule) => {
-        return linkumoriRemoveParamMatchesName(linkumoriRule, normalizedFieldName);
+        return linkumoriRemoveParamMatchesName(linkumoriRule, normalizedFieldName, fieldValue);
     });
 
     if (matchedRule) {
@@ -1213,16 +1416,17 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             request
         );
         const linkumoriDecisionCache = new Map();
-        const getLinkumoriDecision = (paramName) => {
-            const cacheKey = String(paramName || '').toLowerCase();
+        const getLinkumoriDecision = (paramName, paramValue = '') => {
+            const cacheKey = String(paramName || '').toLowerCase() + '\x00' + String(paramValue || '').toLowerCase();
             if (linkumoriDecisionCache.has(cacheKey)) {
                 return linkumoriDecisionCache.get(cacheKey);
             }
 
             const decision = resolveLinkumoriParamDecision(
-                cacheKey,
+                paramName,
                 activeLinkumoriRules,
-                activeLinkumoriExceptions
+                activeLinkumoriExceptions,
+                paramValue
             );
             linkumoriDecisionCache.set(cacheKey, decision);
             return decision;
@@ -1288,31 +1492,51 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             let localChange = false;
             let matchedRuleForLog = null;
 
-            const fieldsToDelete = [];
-            for (const field of fields.keys()) {
-                const decision = getLinkumoriDecision(field);
+            const fieldsToKeepByDeletedName = new Map();
+            const fieldNamesWithRemoval = new Set();
+            for (const [field, value] of fields.entries()) {
+                if (!fieldsToKeepByDeletedName.has(field)) {
+                    fieldsToKeepByDeletedName.set(field, []);
+                }
+                const decision = getLinkumoriDecision(field, value);
                 if (decision.remove) {
-                    fieldsToDelete.push(field);
+                    fieldNamesWithRemoval.add(field);
                     localChange = true;
                     if (!matchedRuleForLog && decision.matchedRule) {
                         matchedRuleForLog = decision.matchedRule;
                     }
+                } else {
+                    fieldsToKeepByDeletedName.get(field).push(value);
                 }
             }
-            fieldsToDelete.forEach((field) => fields.delete(field));
+            fieldNamesWithRemoval.forEach((field) => {
+                const valuesToKeep = fieldsToKeepByDeletedName.get(field) || [];
+                fields.delete(field);
+                valuesToKeep.forEach((value) => fields.append(field, value));
+            });
 
-            const fragmentsToDelete = [];
-            for (const fragment of fragments.keys()) {
-                const decision = getLinkumoriDecision(fragment);
+            const fragmentsToKeepByDeletedName = new Map();
+            const fragmentNamesWithRemoval = new Set();
+            for (const [fragment, value] of fragments.entries()) {
+                if (!fragmentsToKeepByDeletedName.has(fragment)) {
+                    fragmentsToKeepByDeletedName.set(fragment, []);
+                }
+                const decision = getLinkumoriDecision(fragment, value);
                 if (decision.remove) {
-                    fragmentsToDelete.push(fragment);
+                    fragmentNamesWithRemoval.add(fragment);
                     localChange = true;
                     if (!matchedRuleForLog && decision.matchedRule) {
                         matchedRuleForLog = decision.matchedRule;
                     }
+                } else {
+                    fragmentsToKeepByDeletedName.get(fragment).push(value);
                 }
             }
-            fragmentsToDelete.forEach((fragment) => fragments.delete(fragment));
+            fragmentNamesWithRemoval.forEach((fragment) => {
+                const valuesToKeep = fragmentsToKeepByDeletedName.get(fragment) || [];
+                fragments.delete(fragment);
+                valuesToKeep.forEach((value) => fragments.append(fragment, value));
+            });
 
             if (localChange) {
                 changes = true;
@@ -1788,13 +2012,24 @@ function start() {
             }
             
             if (!re && enabled_domain_redirections.length > 0) {
+                const matchingRedirectExceptions = enabled_domain_redirections
+                    .map(parseFilterDomainRedirection)
+                    .filter((rule) => rule && rule.isException && matchDomainPattern(url, [rule.pattern]));
+
                 for (const domainRedirection of enabled_domain_redirections) {
-                    if (domainRedirection.includes('$redirect=')) {
-                        const [pattern, redirectTarget] = domainRedirection.split('$redirect=');
-                        if (matchDomainPattern(url, [pattern.trim()])) {
-                            re = redirectTarget;
-                            break;
-                        }
+                    const parsedDomainRedirection = parseFilterDomainRedirection(domainRedirection);
+                    if (!parsedDomainRedirection || parsedDomainRedirection.isException) continue;
+
+                    if (
+                        parsedDomainRedirection.redirectTarget &&
+                        matchDomainPattern(url, [parsedDomainRedirection.pattern]) &&
+                        !matchingRedirectExceptions.some((exceptionRule) => {
+                            return !exceptionRule.redirectTarget ||
+                                exceptionRule.redirectTarget === parsedDomainRedirection.redirectTarget;
+                        })
+                    ) {
+                        re = parsedDomainRedirection.redirectTarget;
+                        break;
                     }
                 }
             }
