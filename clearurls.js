@@ -129,6 +129,70 @@ function getSerializedLinkumoriURLPatternToken(providerName, urlPatternSource) {
     return typeof entry.token === 'string' ? entry.token.toLowerCase() : '';
 }
 
+function getLinkumoriDomainPatternAnalyzerToken(domainPattern) {
+    const pattern = String(domainPattern || '').trim().toLowerCase();
+    if (!pattern) return '';
+
+    const regex = parseFilterRegexLiteral(pattern);
+    if (regex) {
+        return getLinkumoriURLPatternAnalyzerToken(regex.source);
+    }
+
+    let raw = pattern;
+    if (raw.startsWith('||')) raw = raw.slice(2);
+    else if (raw.startsWith('|')) raw = raw.slice(1);
+    if (raw.endsWith('|')) raw = raw.slice(0, -1);
+
+    const candidates = raw
+        .split(/[\*\^|/]+/)
+        .map(part => part.replace(/\\([\\^$.*+?()[\]{}|/])/g, '$1'))
+        .map(part => part.replace(/[^a-z0-9._%-]+/g, ''))
+        .map(part => part.replace(/^\.+|\.+$/g, ''))
+        .filter(part => part.length >= 3);
+
+    if (candidates.length === 0) return '';
+
+    candidates.sort((left, right) => {
+        const dotDelta = Number(right.includes('.')) - Number(left.includes('.'));
+        if (dotDelta !== 0) return dotDelta;
+        return right.length - left.length;
+    });
+
+    return candidates[0].toLowerCase();
+}
+
+function getSerializedLinkumoriDomainPatternTokens(providerName, domainPatterns) {
+    const selfie = storage &&
+        storage.ClearURLsData &&
+        storage.ClearURLsData.metadata &&
+        storage.ClearURLsData.metadata.domainPatternSelfie;
+    const entries = selfie && selfie.entries;
+    if (!entries || typeof entries !== 'object') return [];
+
+    const entry = entries[providerName];
+    if (!entry || typeof entry !== 'object' || !Array.isArray(entry.tokens)) return [];
+
+    const normalizedPatterns = Array.isArray(domainPatterns)
+        ? domainPatterns.map(pattern => String(pattern || ''))
+        : [];
+    const serializedPatterns = Array.isArray(entry.domainPatterns)
+        ? entry.domainPatterns.map(pattern => String(pattern || ''))
+        : [];
+
+    if (
+        normalizedPatterns.length !== serializedPatterns.length ||
+        normalizedPatterns.some((pattern, index) => pattern !== serializedPatterns[index])
+    ) {
+        return [];
+    }
+
+    return entry.tokens
+        .filter(item => item && typeof item.domainPattern === 'string' && typeof item.token === 'string')
+        .filter(item => normalizedPatterns.includes(item.domainPattern))
+        .map(item => item.token.toLowerCase())
+        .filter(Boolean);
+}
+
 function collectLinkumoriURLPatternRequestTokens(url) {
     if (
         globalThis.LinkumoriRegexTokens &&
@@ -1771,19 +1835,22 @@ function start() {
     }
 
     function indexProviderForURLPattern(provider) {
-        const token = provider && typeof provider.getURLPatternAnalyzerToken === 'function'
-            ? provider.getURLPatternAnalyzerToken()
-            : '';
+        const tokens = provider && typeof provider.getURLPatternAnalyzerTokens === 'function'
+            ? provider.getURLPatternAnalyzerTokens()
+            : [];
 
-        if (!token) {
+        if (!Array.isArray(tokens) || tokens.length === 0) {
             linkumoriURLPatternFallbackProviders.push(provider);
             return;
         }
 
-        if (!linkumoriURLPatternProviderIndex.has(token)) {
-            linkumoriURLPatternProviderIndex.set(token, []);
+        for (const token of tokens) {
+            if (!token) continue;
+            if (!linkumoriURLPatternProviderIndex.has(token)) {
+                linkumoriURLPatternProviderIndex.set(token, []);
+            }
+            linkumoriURLPatternProviderIndex.get(token).push(provider);
         }
-        linkumoriURLPatternProviderIndex.get(token).push(provider);
     }
 
     function getURLPatternCandidateProviders(url) {
@@ -1929,6 +1996,7 @@ function start() {
         let urlPattern;
         let urlPatternSource = '';
         let urlPatternAnalyzerToken = '';
+        let domainPatternAnalyzerTokens = [];
         let providerIndex = 0;
         let domainPatterns = [];
         let enabled_rules = {};
@@ -1974,6 +2042,15 @@ function start() {
             return urlPatternAnalyzerToken;
         };
 
+        this.getURLPatternAnalyzerTokens = function () {
+            const tokens = [];
+            if (urlPatternAnalyzerToken) tokens.push(urlPatternAnalyzerToken);
+            for (const token of domainPatternAnalyzerTokens) {
+                if (token) tokens.push(token);
+            }
+            return [...new Set(tokens)];
+        };
+
         this.setURLPattern = function (urlPatterns) {
             urlPatternSource = urlPatterns || '';
             urlPattern = new RegExp(urlPatterns, "i");
@@ -1986,6 +2063,18 @@ function start() {
 
         this.setURLDomainPattern = function (patterns) {
             domainPatterns = patterns || [];
+            domainPatternAnalyzerTokens =
+                getSerializedLinkumoriDomainPatternTokens(name, domainPatterns);
+
+            if (domainPatternAnalyzerTokens.length === 0) {
+                domainPatternAnalyzerTokens = domainPatterns
+                    .map(pattern => getLinkumoriDomainPatternAnalyzerToken(pattern))
+                    .filter(Boolean);
+            }
+
+            domainPatternAnalyzerTokens = [...new Set(domainPatternAnalyzerTokens)];
+            linkumoriURLPatternAnalyzerStats.total++;
+            if (domainPatternAnalyzerTokens.length > 0) linkumoriURLPatternAnalyzerStats.tokenized++;
         };
 
         this.testURLPattern = function (url) {

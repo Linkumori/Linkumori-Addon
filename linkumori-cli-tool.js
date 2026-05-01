@@ -1753,6 +1753,61 @@ ${commit.message}
     };
   }
 
+  parseFilterRegexLiteralSource(value) {
+    const text = String(value || '').trim();
+    if (!text.startsWith('/')) return null;
+
+    let escaped = false;
+    for (let i = 1; i < text.length; i++) {
+      const ch = text.charAt(i);
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (ch === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (ch === '/') {
+        return text.slice(1, i);
+      }
+    }
+
+    return null;
+  }
+
+  createDomainPatternToken(domainPattern, extractRegexToken = null) {
+    const pattern = String(domainPattern || '').trim().toLowerCase();
+    if (!pattern) return '';
+
+    const regexSource = this.parseFilterRegexLiteralSource(pattern);
+    if (regexSource && typeof extractRegexToken === 'function') {
+      return extractRegexToken(regexSource);
+    }
+
+    let raw = pattern;
+    if (raw.startsWith('||')) raw = raw.slice(2);
+    else if (raw.startsWith('|')) raw = raw.slice(1);
+    if (raw.endsWith('|')) raw = raw.slice(0, -1);
+
+    const candidates = raw
+      .split(/[\*\^|/]+/)
+      .map(part => part.replace(/\\([\\^$.*+?()[\]{}|/])/g, '$1'))
+      .map(part => part.replace(/[^a-z0-9._%-]+/g, ''))
+      .map(part => part.replace(/^\.+|\.+$/g, ''))
+      .filter(part => part.length >= 3);
+
+    if (candidates.length === 0) return '';
+
+    candidates.sort((left, right) => {
+      const dotDelta = Number(right.includes('.')) - Number(left.includes('.'));
+      if (dotDelta !== 0) return dotDelta;
+      return right.length - left.length;
+    });
+
+    return candidates[0].toLowerCase();
+  }
+
   loadLZ4Codec() {
     const context = {
       Buffer,
@@ -1849,6 +1904,51 @@ ${commit.message}
       rulesVersion: rulesData?.metadata?.version || null,
       providerCount: Object.keys(entries).length,
       tokenizedProviderCount,
+      entries
+    };
+  }
+
+  createDomainPatternSelfie(rulesData) {
+    const extractRegexToken = this.loadRegexAnalyzerTokenExtractor();
+    const providers = rulesData && rulesData.providers && typeof rulesData.providers === 'object'
+      ? rulesData.providers
+      : {};
+    const entries = {};
+    let tokenizedPatternCount = 0;
+    let tokenizedProviderCount = 0;
+
+    for (const [providerName, provider] of Object.entries(providers)) {
+      const domainPatterns = Array.isArray(provider?.domainPatterns)
+        ? provider.domainPatterns.filter(pattern => typeof pattern === 'string' && pattern.trim())
+        : [];
+
+      if (domainPatterns.length === 0) continue;
+
+      const tokens = domainPatterns.map(domainPattern => {
+        const token = this.createDomainPatternToken(domainPattern, extractRegexToken);
+        if (token) tokenizedPatternCount++;
+        return {
+          domainPattern,
+          token
+        };
+      });
+
+      if (tokens.some(item => item.token)) tokenizedProviderCount++;
+      entries[providerName] = {
+        domainPatterns,
+        tokens
+      };
+    }
+
+    return {
+      format: 'linkumori-domain-pattern-selfie',
+      version: 1,
+      generatedAt: new Date().toISOString(),
+      rulesVersion: rulesData?.metadata?.version || null,
+      providerCount: Object.keys(entries).length,
+      tokenizedProviderCount,
+      patternCount: Object.values(entries).reduce((total, entry) => total + entry.domainPatterns.length, 0),
+      tokenizedPatternCount,
       entries
     };
   }
@@ -2308,7 +2408,7 @@ ${commit.message}
   }
 
   async serializeURLPatternSelfie(rulesFile = null) {
-    this.section('🧊 URL Pattern Selfie Serializer');
+    this.section('🧊 Pattern Token Selfie Serializer');
 
     rulesFile = this.resolveRulesFile(rulesFile);
     this.info(`📂 Target file: ${rulesFile}`);
@@ -2333,13 +2433,16 @@ ${commit.message}
 
     data.metadata = data.metadata && typeof data.metadata === 'object' ? data.metadata : {};
     data.metadata.urlPatternSelfie = this.createURLPatternSelfie(data);
+    data.metadata.domainPatternSelfie = this.createDomainPatternSelfie(data);
 
     const output = this.formatMinifiedOutput(data);
     const outputFile = rulesFile.endsWith('.lz4') ? rulesFile : `${rulesFile}.lz4`;
     const lz4Stats = this.writeLZ4CompressedContent(output, outputFile);
 
     const selfie = data.metadata.urlPatternSelfie;
+    const domainSelfie = data.metadata.domainPatternSelfie;
     this.success(`Serialized ${selfie.tokenizedProviderCount}/${selfie.providerCount} URL pattern tokens into metadata.`);
+    this.success(`Serialized ${domainSelfie.tokenizedPatternCount}/${domainSelfie.patternCount} domain pattern tokens into metadata.`);
     this.success(`Updated ${lz4Stats.outputFile} (${((1 - lz4Stats.ratio) * 100).toFixed(1)}% smaller than JSON)`);
     return true;
   }
@@ -2929,7 +3032,11 @@ this.info(
               let minifiedFileExists = false;
               try {
                 fs.statSync(compressedOutputFile);
-                minifiedFileExists = true;
+                const cachedRules = JSON.parse(this.readMaybeLZ4Text(compressedOutputFile));
+                minifiedFileExists = Boolean(
+                  cachedRules?.metadata?.urlPatternSelfie &&
+                  cachedRules?.metadata?.domainPatternSelfie
+                );
               } catch {
                 minifiedFileExists = false;
               }
@@ -2988,6 +3095,7 @@ this.info(
       const minifiedRules = this.minifyRules(mergedRules);
       const linkumoriMinified = this.createLinkumoriJSON(minifiedRules);
       linkumoriMinified.metadata.urlPatternSelfie = this.createURLPatternSelfie(linkumoriMinified);
+      linkumoriMinified.metadata.domainPatternSelfie = this.createDomainPatternSelfie(linkumoriMinified);
       const minifiedOutputContent = this.formatMinifiedOutput(linkumoriMinified);
       const lz4Stats = this.writeLZ4CompressedContent(minifiedOutputContent, compressedOutputFile);
       this.success(`🗜️ LZ4 rules saved to: ${lz4Stats.outputFile}`);
@@ -4275,7 +4383,7 @@ coverage/**
     this.log('  lint-rules            Lint ClearURLs rules, including .lz4 output', 'white');
     this.log('  lint-clearurls        Alias for lint-rules', 'white');
     this.log('  compress-lz4          Create a Linkumori LZ4 copy of a JSON file', 'white');
-    this.log('  serialize-url-patterns Precompute urlPattern analyzer tokens into rules metadata', 'white');
+    this.log('  serialize-url-patterns Precompute urlPattern/domainPatterns tokens into rules metadata', 'white');
     this.log('  benchmark-url-patterns Compare direct urlPattern regex speed with RegexAnalyzer prefiltering', 'white');
     this.log('  unminify              Unminify ClearURLs rules to readable JSON', 'white');
     this.log('  commit-history        Create formatted markdown of git commit history', 'white');
