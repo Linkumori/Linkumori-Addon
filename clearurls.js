@@ -80,6 +80,17 @@ var os;
 var initializationComplete = false;
 var linkumoriPatternRegexCache = new Map();
 var clearurlsWebRequestHandler = null;
+var linkumoriURLPatternAnalyzerStats = {
+    total: 0,
+    tokenized: 0,
+    skippedRegexTests: 0,
+    regexTests: 0,
+    indexedCandidates: 0,
+    fallbackCandidates: 0
+};
+var linkumoriURLPatternProviderIndex = new Map();
+var linkumoriURLPatternFallbackProviders = [];
+var linkumoriURLPatternAutomaton = null;
 var pslSupport = {
     status: 'idle',
     parser: null,
@@ -87,6 +98,91 @@ var pslSupport = {
     loadPromise: null,
     error: null
 };
+
+function getLinkumoriURLPatternAnalyzerToken(regexSource) {
+    if (
+        !globalThis.LinkumoriRegexTokens ||
+        typeof globalThis.LinkumoriRegexTokens.extractBestTokenFromRegex !== 'function'
+    ) {
+        return '';
+    }
+
+    try {
+        return String(globalThis.LinkumoriRegexTokens.extractBestTokenFromRegex(regexSource) || '').toLowerCase();
+    } catch (e) {
+        return '';
+    }
+}
+
+function getSerializedLinkumoriURLPatternToken(providerName, urlPatternSource) {
+    const selfie = storage &&
+        storage.ClearURLsData &&
+        storage.ClearURLsData.metadata &&
+        storage.ClearURLsData.metadata.urlPatternSelfie;
+    const entries = selfie && selfie.entries;
+    if (!entries || typeof entries !== 'object') return '';
+
+    const entry = entries[providerName];
+    if (!entry || typeof entry !== 'object') return '';
+    if (entry.urlPattern !== urlPatternSource) return '';
+
+    return typeof entry.token === 'string' ? entry.token.toLowerCase() : '';
+}
+
+function collectLinkumoriURLPatternRequestTokens(url) {
+    if (
+        globalThis.LinkumoriRegexTokens &&
+        typeof globalThis.LinkumoriRegexTokens.collectTokensFromText === 'function'
+    ) {
+        return globalThis.LinkumoriRegexTokens.collectTokensFromText(url);
+    }
+
+    return String(url || '')
+        .toLowerCase()
+        .split(/[^%0-9a-z]+/)
+        .filter(token => token.length >= 2);
+}
+
+function createLinkumoriURLPatternAutomaton(tokenToProviders) {
+    const root = { next: new Map(), fail: null, outputs: [] };
+
+    for (const [token, providerList] of tokenToProviders.entries()) {
+        if (!token) continue;
+        let node = root;
+        for (let i = 0; i < token.length; i++) {
+            const ch = token.charAt(i);
+            if (!node.next.has(ch)) {
+                node.next.set(ch, { next: new Map(), fail: root, outputs: [] });
+            }
+            node = node.next.get(ch);
+        }
+        node.outputs.push(providerList);
+    }
+
+    const queue = [];
+    for (const child of root.next.values()) {
+        child.fail = root;
+        queue.push(child);
+    }
+
+    while (queue.length > 0) {
+        const current = queue.shift();
+        for (const [ch, child] of current.next.entries()) {
+            let fail = current.fail;
+            while (fail && fail !== root && !fail.next.has(ch)) {
+                fail = fail.fail;
+            }
+            child.fail = fail && fail.next.has(ch) ? fail.next.get(ch) : root;
+            if (child.fail.outputs.length > 0) {
+                child.outputs = child.outputs.concat(child.fail.outputs);
+            }
+            queue.push(child);
+        }
+    }
+
+    root.fail = root;
+    return root;
+}
 
 function normalizeAsciiHostname(value) {
     const host = String(value || '').trim().toLowerCase();
@@ -1599,6 +1695,15 @@ function start() {
         }
 
         providers = [];
+        linkumoriURLPatternProviderIndex = new Map();
+        linkumoriURLPatternFallbackProviders = [];
+        linkumoriURLPatternAutomaton = null;
+        linkumoriURLPatternAnalyzerStats.total = 0;
+        linkumoriURLPatternAnalyzerStats.tokenized = 0;
+        linkumoriURLPatternAnalyzerStats.skippedRegexTests = 0;
+        linkumoriURLPatternAnalyzerStats.regexTests = 0;
+        linkumoriURLPatternAnalyzerStats.indexedCandidates = 0;
+        linkumoriURLPatternAnalyzerStats.fallbackCandidates = 0;
 
         for (let p = 0; p < prvKeys.length; p++) {
             providers.push(new Provider(prvKeys[p], data.providers[prvKeys[p]].getOrDefault('completeProvider', false),
@@ -1657,7 +1762,72 @@ function start() {
             for (let rt = 0; rt < resourceTypes.length; rt++) {
                 providers[p].addResourceType(resourceTypes[rt]);
             }
+
+            providers[p].setProviderIndex(p);
+            indexProviderForURLPattern(providers[p]);
         }
+
+        linkumoriURLPatternAutomaton = createLinkumoriURLPatternAutomaton(linkumoriURLPatternProviderIndex);
+    }
+
+    function indexProviderForURLPattern(provider) {
+        const token = provider && typeof provider.getURLPatternAnalyzerToken === 'function'
+            ? provider.getURLPatternAnalyzerToken()
+            : '';
+
+        if (!token) {
+            linkumoriURLPatternFallbackProviders.push(provider);
+            return;
+        }
+
+        if (!linkumoriURLPatternProviderIndex.has(token)) {
+            linkumoriURLPatternProviderIndex.set(token, []);
+        }
+        linkumoriURLPatternProviderIndex.get(token).push(provider);
+    }
+
+    function getURLPatternCandidateProviders(url) {
+        if (!linkumoriURLPatternAutomaton || !linkumoriURLPatternProviderIndex || linkumoriURLPatternProviderIndex.size === 0) {
+            return providers;
+        }
+
+        const seen = new Set();
+        const candidates = [];
+
+        for (const provider of linkumoriURLPatternFallbackProviders) {
+            if (!provider || seen.has(provider)) continue;
+            seen.add(provider);
+            candidates.push(provider);
+        }
+
+        const lowerUrl = String(url || '').toLowerCase();
+        let node = linkumoriURLPatternAutomaton;
+
+        for (let i = 0; i < lowerUrl.length; i++) {
+            const ch = lowerUrl.charAt(i);
+            while (node !== linkumoriURLPatternAutomaton && !node.next.has(ch)) {
+                node = node.fail;
+            }
+            if (node.next.has(ch)) {
+                node = node.next.get(ch);
+            }
+            if (node.outputs.length === 0) continue;
+
+            for (let o = 0; o < node.outputs.length; o++) {
+                const bucket = node.outputs[o];
+                for (let b = 0; b < bucket.length; b++) {
+                    const provider = bucket[b];
+                    if (!provider || seen.has(provider)) continue;
+                    seen.add(provider);
+                    candidates.push(provider);
+                }
+            }
+        }
+
+        candidates.sort((left, right) => left.getProviderIndex() - right.getProviderIndex());
+        linkumoriURLPatternAnalyzerStats.indexedCandidates += Math.max(0, candidates.length - linkumoriURLPatternFallbackProviders.length);
+        linkumoriURLPatternAnalyzerStats.fallbackCandidates += linkumoriURLPatternFallbackProviders.length;
+        return candidates;
     }
 
     function initializeProviders() {
@@ -1758,6 +1928,8 @@ function start() {
         let name = _name;
         let urlPattern;
         let urlPatternSource = '';
+        let urlPatternAnalyzerToken = '';
+        let providerIndex = 0;
         let domainPatterns = [];
         let enabled_rules = {};
         let disabled_rules = {};
@@ -1790,17 +1962,42 @@ function start() {
             return name;
         };
 
+        this.setProviderIndex = function (index) {
+            providerIndex = Number(index) || 0;
+        };
+
+        this.getProviderIndex = function () {
+            return providerIndex;
+        };
+
+        this.getURLPatternAnalyzerToken = function () {
+            return urlPatternAnalyzerToken;
+        };
+
         this.setURLPattern = function (urlPatterns) {
             urlPatternSource = urlPatterns || '';
             urlPattern = new RegExp(urlPatterns, "i");
+            urlPatternAnalyzerToken =
+                getSerializedLinkumoriURLPatternToken(name, urlPatternSource) ||
+                getLinkumoriURLPatternAnalyzerToken(urlPattern.source || urlPatternSource);
+            linkumoriURLPatternAnalyzerStats.total++;
+            if (urlPatternAnalyzerToken) linkumoriURLPatternAnalyzerStats.tokenized++;
         };
 
         this.setURLDomainPattern = function (patterns) {
             domainPatterns = patterns || [];
         };
 
+        this.testURLPattern = function (url) {
+            if (!urlPattern) return false;
+
+            linkumoriURLPatternAnalyzerStats.regexTests++;
+            urlPattern.lastIndex = 0;
+            return urlPattern.test(url);
+        };
+
         this.getAppliedPatternForUrl = function (url) {
-            if (urlPattern && urlPattern.test(url)) {
+            if (urlPattern && this.testURLPattern(url)) {
                 return {
                     providerName: name,
                     patternType: 'urlPattern',
@@ -1833,7 +2030,7 @@ function start() {
 
         this.matchURL = function (url) {
             if (urlPattern) {
-                return urlPattern.test(url) && !(this.matchException(url));
+                return this.testURLPattern(url) && !(this.matchException(url));
             } else if (domainPatterns.length > 0) {
                 return matchDomainPattern(url, domainPatterns) && !(this.matchException(url));
             }
@@ -2077,15 +2274,19 @@ function start() {
                 return {cancel: true};
             }
 
-            for (let i = 0; i < providers.length; i++) {
-                if (!providers[i].matchMethod(request)) continue;
-                if (!providers[i].matchResourceType(request)) continue;
-                if (providers[i].matchURL(request.url)) {
-                    result = removeFieldsFormURL(providers[i], request.url, false, request);
+            const candidateProviders = getURLPatternCandidateProviders(request.url);
+            linkumoriURLPatternAnalyzerStats.skippedRegexTests += Math.max(0, providers.length - candidateProviders.length);
+
+            for (let i = 0; i < candidateProviders.length; i++) {
+                const provider = candidateProviders[i];
+                if (!provider.matchMethod(request)) continue;
+                if (!provider.matchResourceType(request)) continue;
+                if (provider.matchURL(request.url)) {
+                    result = removeFieldsFormURL(provider, request.url, false, request);
                 }
 
                 if (result.redirect) {
-                    if (providers[i].shouldForceRedirect() &&
+                    if (provider.shouldForceRedirect() &&
                         request.type === 'main_frame') {
                         browser.tabs.update(request.tabId, {url: result.url}).catch(handleError);
                         return {cancel: true};

@@ -62,6 +62,7 @@
  */
 import { spawn } from 'child_process';
 import fs from 'fs';
+import vm from 'vm';
 
 // Terminal colors and formatting
 const colors = {
@@ -1489,12 +1490,12 @@ documentation when you run the build process.
     return `{\n  "metadata": ${metadataInline},\n  "providers": {${providersBlock}  }\n}\n`;
   }
 
-  // Unminify rules from minified JSON file
+  // Unminify rules from compressed/minified rules file
   async unminifyClearURLs(options = {}) {
     this.section('📤 Unminifying ClearURLs Rules');
 
     const {
-      inputFile = `data/${this.clearurlsConfig.outputBaseName}-clearurls-min.json`,
+      inputFile = `data/${this.clearurlsConfig.outputBaseName}-clearurls-min.json.lz4`,
       outputFile = `data/${this.clearurlsConfig.outputBaseName}-clearurls.json`
     } = options;
 
@@ -1503,15 +1504,15 @@ documentation when you run the build process.
       try {
         fs.statSync(inputFile);
       } catch {
-        this.error(`❌ Minified file not found: ${inputFile}`);
-        this.info('Build the ClearURLs rules first to create the minified file.');
+        this.error(`❌ LZ4 rules file not found: ${inputFile}`);
+        this.info('Build the ClearURLs rules first to create the compressed rules file.');
         return false;
       }
 
-      this.info(`📂 Reading minified file: ${inputFile}`);
+      this.info(`📂 Reading rules file: ${inputFile}`);
 
-      // Read and parse minified file
-      const minifiedContent = fs.readFileSync(inputFile, 'utf8');
+      // Read and parse compressed/minified file
+      const minifiedContent = this.readMaybeLZ4Text(inputFile);
       const minifiedData = JSON.parse(minifiedContent);
 
       // Write unminified version with pretty formatting
@@ -1521,7 +1522,7 @@ documentation when you run the build process.
       const outputSize = new TextEncoder().encode(JSON.stringify(minifiedData, null, 2)).length;
 
       this.success(`✅ Unminified rules saved to: ${outputFile}`);
-      this.info(`📊 Minified size: ${Math.round(inputSize / 1024)}KB`);
+      this.info(`📊 JSON payload size: ${Math.round(inputSize / 1024)}KB`);
       this.info(`📊 Unminified size: ${Math.round(outputSize / 1024)}KB`);
       this.info(`📈 Size increase: ${Math.round((outputSize - inputSize) / 1024)}KB (${(((outputSize - inputSize) / inputSize) * 100).toFixed(1)}%)`);
 
@@ -1727,17 +1728,633 @@ ${commit.message}
     };
   }
 
+  loadRegexAnalyzerTokenExtractor() {
+    const context = {
+      console,
+      globalThis: null,
+      self: null
+    };
+    context.globalThis = context;
+    context.self = context;
+
+    vm.runInNewContext(fs.readFileSync('external_js/regex_analyzer.js', 'utf8'), context, {
+      filename: 'external_js/regex_analyzer.js'
+    });
+    vm.runInNewContext(fs.readFileSync('core_js/linkumori_regex_tokens.js', 'utf8'), context, {
+      filename: 'core_js/linkumori_regex_tokens.js'
+    });
+
+    return (regexSource) => {
+      try {
+        return String(context.LinkumoriRegexTokens.extractBestTokenFromRegex(regexSource) || '').toLowerCase();
+      } catch {
+        return '';
+      }
+    };
+  }
+
+  loadLZ4Codec() {
+    const context = {
+      Buffer,
+      TextDecoder,
+      TextEncoder,
+      Uint8Array,
+      module: { exports: {} },
+      globalThis: null
+    };
+    context.globalThis = context;
+
+    vm.runInNewContext(fs.readFileSync('external_js/linkumori_lz4_block.js', 'utf8'), context, {
+      filename: 'external_js/linkumori_lz4_block.js'
+    });
+
+    return context.module.exports || context.LinkumoriLZ4;
+  }
+
+  writeLZ4CompressedFile(inputFile, outputFile = `${inputFile}.lz4`) {
+    const codec = this.loadLZ4Codec();
+    const input = fs.readFileSync(inputFile);
+    const compressed = codec.compress(input);
+    fs.writeFileSync(outputFile, compressed);
+
+    return {
+      outputFile,
+      inputSize: input.length,
+      outputSize: compressed.length,
+      ratio: input.length > 0 ? compressed.length / input.length : 1
+    };
+  }
+
+  writeLZ4CompressedContent(content, outputFile) {
+    const codec = this.loadLZ4Codec();
+    const input = Buffer.from(String(content || ''), 'utf8');
+    const compressed = codec.compress(input);
+    fs.writeFileSync(outputFile, compressed);
+
+    return {
+      outputFile,
+      inputSize: input.length,
+      outputSize: compressed.length,
+      ratio: input.length > 0 ? compressed.length / input.length : 1
+    };
+  }
+
+  readMaybeLZ4Text(filePath) {
+    if (String(filePath || '').endsWith('.lz4')) {
+      const codec = this.loadLZ4Codec();
+      return codec.decompressToString(fs.readFileSync(filePath));
+    }
+
+    return fs.readFileSync(filePath, 'utf8');
+  }
+
+  resolveRulesFile(preferredFile = null) {
+    if (preferredFile && fs.existsSync(preferredFile)) return preferredFile;
+    if (preferredFile) return preferredFile;
+
+    return 'data/linkumori-clearurls-min.json.lz4';
+  }
+
+  createURLPatternSelfie(rulesData) {
+    const extractToken = this.loadRegexAnalyzerTokenExtractor();
+    const providers = rulesData && rulesData.providers && typeof rulesData.providers === 'object'
+      ? rulesData.providers
+      : {};
+    const entries = {};
+    let tokenizedProviderCount = 0;
+
+    for (const [providerName, provider] of Object.entries(providers)) {
+      if (!provider || typeof provider.urlPattern !== 'string' || !provider.urlPattern.trim()) {
+        continue;
+      }
+
+      let token = '';
+      try {
+        token = extractToken(new RegExp(provider.urlPattern, 'i').source);
+      } catch {
+        token = '';
+      }
+
+      if (token) tokenizedProviderCount++;
+      entries[providerName] = {
+        urlPattern: provider.urlPattern,
+        token
+      };
+    }
+
+    return {
+      format: 'linkumori-url-pattern-selfie',
+      version: 1,
+      generatedAt: new Date().toISOString(),
+      rulesVersion: rulesData?.metadata?.version || null,
+      providerCount: Object.keys(entries).length,
+      tokenizedProviderCount,
+      entries
+    };
+  }
+
+  loadClearURLsProviderEntries(rulesFile) {
+    const raw = this.readMaybeLZ4Text(rulesFile);
+    const data = JSON.parse(raw);
+    if (!data || typeof data !== 'object' || Array.isArray(data)) {
+      throw new Error('Root must be a JSON object');
+    }
+
+    const providersObj = data.providers && typeof data.providers === 'object' && !Array.isArray(data.providers)
+      ? data.providers
+      : data;
+
+    return Object.entries(providersObj).filter(([, provider]) => {
+      return provider && typeof provider === 'object';
+    });
+  }
+
+  createURLPatternBenchmarkUrls(matchers) {
+    const urls = [
+      'https://example.com/page?utm_source=newsletter&fbclid=1&keep=1',
+      'https://www.google.com/search?q=linkumori&ved=abc&ei=xyz&source=web',
+      'https://www.amazon.com/dp/B09V3KXJPB?tag=ref-20&pd_rd_r=abc&qid=1234',
+      'https://youtu.be/example?si=share-token&feature=shared',
+      'https://www.facebook.com/story.php?hc_ref=abc&keep=1',
+      'https://news.ycombinator.com/item?id=12345&utm_medium=email',
+      'https://developer.mozilla.org/en-US/docs/Web/JavaScript?ref=sidebar',
+      'https://subdomain.not-a-rule.invalid/path?random=1',
+      'http://localhost:8080/test?utm_campaign=dev',
+      'https://xn--bcher-kva.example/path?utm_source=idn'
+    ];
+
+    const seen = new Set(urls);
+    for (const matcher of matchers) {
+      if (!matcher.token || seen.size >= 80) continue;
+      const hostToken = matcher.token.replace(/[^a-z0-9-]/g, '');
+      if (!hostToken || hostToken.length < 2) continue;
+      [
+        `https://www.${hostToken}.com/path?utm_source=bench&fbclid=x`,
+        `https://${hostToken}.example/search?q=bench&ved=abc`
+      ].forEach(url => {
+        if (!seen.has(url)) {
+          seen.add(url);
+          urls.push(url);
+        }
+      });
+    }
+
+    return urls;
+  }
+
+  runURLPatternLoop(matchers, urls, rounds, useAnalyzerPrefilter) {
+    let matches = 0;
+    let regexTests = 0;
+    let skippedRegexTests = 0;
+
+    for (let round = 0; round < rounds; round++) {
+      for (const url of urls) {
+        const lowerUrl = url.toLowerCase();
+        for (const matcher of matchers) {
+          if (useAnalyzerPrefilter && matcher.token && !lowerUrl.includes(matcher.token)) {
+            skippedRegexTests++;
+            continue;
+          }
+
+          regexTests++;
+          matcher.regex.lastIndex = 0;
+          if (matcher.regex.test(url)) matches++;
+        }
+      }
+    }
+
+    return { matches, regexTests, skippedRegexTests };
+  }
+
+  createURLPatternReverseIndex(matchers) {
+    const tokenIndex = new Map();
+    const fallback = [];
+
+    for (const matcher of matchers) {
+      if (!matcher.token) {
+        fallback.push(matcher);
+        continue;
+      }
+      if (!tokenIndex.has(matcher.token)) tokenIndex.set(matcher.token, []);
+      tokenIndex.get(matcher.token).push(matcher);
+    }
+
+    return {
+      tokenIndex,
+      fallback,
+      automaton: this.createURLPatternAhoCorasickAutomaton(tokenIndex)
+    };
+  }
+
+  createURLPatternAhoCorasickAutomaton(tokenIndex) {
+    const root = { next: new Map(), fail: null, outputs: [] };
+
+    for (const [token, matchers] of tokenIndex.entries()) {
+      let node = root;
+      for (const ch of token) {
+        if (!node.next.has(ch)) {
+          node.next.set(ch, { next: new Map(), fail: root, outputs: [] });
+        }
+        node = node.next.get(ch);
+      }
+      node.outputs.push(matchers);
+    }
+
+    const queue = [];
+    for (const child of root.next.values()) {
+      child.fail = root;
+      queue.push(child);
+    }
+
+    while (queue.length > 0) {
+      const current = queue.shift();
+      for (const [ch, child] of current.next.entries()) {
+        let fail = current.fail;
+        while (fail && fail !== root && !fail.next.has(ch)) {
+          fail = fail.fail;
+        }
+        child.fail = fail && fail.next.has(ch) ? fail.next.get(ch) : root;
+        if (child.fail.outputs.length > 0) {
+          child.outputs = child.outputs.concat(child.fail.outputs);
+        }
+        queue.push(child);
+      }
+    }
+
+    root.fail = root;
+    return root;
+  }
+
+  getURLPatternIndexedCandidates(reverseIndex, url) {
+    const seen = new Set();
+    const candidates = [];
+
+    for (const matcher of reverseIndex.fallback) {
+      if (seen.has(matcher)) continue;
+      seen.add(matcher);
+      candidates.push(matcher);
+    }
+
+    const root = reverseIndex.automaton;
+    let node = root;
+    const lowerUrl = String(url || '').toLowerCase();
+
+    for (let i = 0; i < lowerUrl.length; i++) {
+      const ch = lowerUrl.charAt(i);
+      while (node !== root && !node.next.has(ch)) {
+        node = node.fail;
+      }
+      if (node.next.has(ch)) {
+        node = node.next.get(ch);
+      }
+      if (node.outputs.length === 0) continue;
+
+      for (const bucket of node.outputs) {
+        for (const matcher of bucket) {
+          if (seen.has(matcher)) continue;
+          seen.add(matcher);
+          candidates.push(matcher);
+        }
+      }
+    }
+
+    candidates.sort((left, right) => left.index - right.index);
+    return candidates;
+  }
+
+  runURLPatternIndexedLoop(matchers, urls, rounds, reverseIndex) {
+    let matches = 0;
+    let regexTests = 0;
+    let skippedRegexTests = 0;
+
+    for (let round = 0; round < rounds; round++) {
+      for (const url of urls) {
+        const candidates = this.getURLPatternIndexedCandidates(reverseIndex, url);
+        skippedRegexTests += Math.max(0, matchers.length - candidates.length);
+        for (const matcher of candidates) {
+          regexTests++;
+          matcher.regex.lastIndex = 0;
+          if (matcher.regex.test(url)) matches++;
+        }
+      }
+    }
+
+    return { matches, regexTests, skippedRegexTests };
+  }
+
+  loadURLPatternBenchmarkUrlsFromFile(urlsFile) {
+    const lines = fs.readFileSync(urlsFile, 'utf8')
+      .split(/\r?\n/)
+      .map(line => line.trim())
+      .filter(line => line && !line.startsWith('#'));
+    const seen = new Set();
+    const urls = [];
+
+    for (const line of lines) {
+      try {
+        const url = new URL(line);
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') continue;
+        if (seen.has(url.href)) continue;
+        seen.add(url.href);
+        urls.push(url.href);
+      } catch {
+        // Ignore malformed sample lines.
+      }
+    }
+
+    return urls;
+  }
+
+  matchURLPatternRequest(matchers, url, useAnalyzerPrefilter) {
+    const lowerUrl = url.toLowerCase();
+    let matches = 0;
+    let regexTests = 0;
+    let skippedRegexTests = 0;
+
+    for (const matcher of matchers) {
+      if (useAnalyzerPrefilter && matcher.token && !lowerUrl.includes(matcher.token)) {
+        skippedRegexTests++;
+        continue;
+      }
+
+      regexTests++;
+      matcher.regex.lastIndex = 0;
+      if (matcher.regex.test(url)) matches++;
+    }
+
+    return { matches, regexTests, skippedRegexTests };
+  }
+
+  matchURLPatternIndexedRequest(matchers, reverseIndex, url) {
+    const candidates = this.getURLPatternIndexedCandidates(reverseIndex, url);
+    let matches = 0;
+
+    for (const matcher of candidates) {
+      matcher.regex.lastIndex = 0;
+      if (matcher.regex.test(url)) matches++;
+    }
+
+    return {
+      matches,
+      regexTests: candidates.length,
+      skippedRegexTests: Math.max(0, matchers.length - candidates.length)
+    };
+  }
+
+  quantile(sorted, q) {
+    if (!sorted.length) return 0;
+    const index = Math.min(sorted.length - 1, Math.ceil(sorted.length * q) - 1);
+    return sorted[index];
+  }
+
+  measureURLPatternLatency(matchers, urls, rounds, useAnalyzerPrefilter) {
+    const samples = [];
+    let matches = 0;
+    let regexTests = 0;
+    let skippedRegexTests = 0;
+
+    for (let round = 0; round < rounds; round++) {
+      for (const url of urls) {
+        const start = process.hrtime.bigint();
+        const result = this.matchURLPatternRequest(matchers, url, useAnalyzerPrefilter);
+        const elapsedMs = Number(process.hrtime.bigint() - start) / 1e6;
+        samples.push(elapsedMs);
+        matches += result.matches;
+        regexTests += result.regexTests;
+        skippedRegexTests += result.skippedRegexTests;
+      }
+    }
+
+    samples.sort((left, right) => left - right);
+    const totalMs = samples.reduce((sum, value) => sum + value, 0);
+
+    return {
+      samples: samples.length,
+      matches,
+      regexTests,
+      skippedRegexTests,
+      totalMs,
+      avgMs: samples.length ? totalMs / samples.length : 0,
+      p50Ms: this.quantile(samples, 0.50),
+      p95Ms: this.quantile(samples, 0.95),
+      p99Ms: this.quantile(samples, 0.99),
+      maxMs: samples[samples.length - 1] || 0
+    };
+  }
+
+  measureURLPatternIndexedLatency(matchers, reverseIndex, urls, rounds) {
+    const samples = [];
+    let matches = 0;
+    let regexTests = 0;
+    let skippedRegexTests = 0;
+
+    for (let round = 0; round < rounds; round++) {
+      for (const url of urls) {
+        const start = process.hrtime.bigint();
+        const result = this.matchURLPatternIndexedRequest(matchers, reverseIndex, url);
+        const elapsedMs = Number(process.hrtime.bigint() - start) / 1e6;
+        samples.push(elapsedMs);
+        matches += result.matches;
+        regexTests += result.regexTests;
+        skippedRegexTests += result.skippedRegexTests;
+      }
+    }
+
+    samples.sort((left, right) => left - right);
+    const totalMs = samples.reduce((sum, value) => sum + value, 0);
+
+    return {
+      samples: samples.length,
+      matches,
+      regexTests,
+      skippedRegexTests,
+      totalMs,
+      avgMs: samples.length ? totalMs / samples.length : 0,
+      p50Ms: this.quantile(samples, 0.50),
+      p95Ms: this.quantile(samples, 0.95),
+      p99Ms: this.quantile(samples, 0.99),
+      maxMs: samples[samples.length - 1] || 0
+    };
+  }
+
+  async benchmarkURLPatterns(rulesFile = null, roundsArg = null, urlsFile = null) {
+    this.section('⚡ URL Pattern Regex Analyzer Benchmark');
+
+    rulesFile = this.resolveRulesFile(rulesFile);
+    const rounds = Math.max(1, Number.parseInt(roundsArg || '1000', 10) || 1000);
+
+    this.info(`📂 Target file: ${rulesFile}`);
+    this.info(`🔁 Rounds: ${rounds}`);
+
+    if (!fs.existsSync(rulesFile)) {
+      this.error(`❌ Rules file not found: ${rulesFile}`);
+      return false;
+    }
+
+    let extractToken;
+    try {
+      extractToken = this.loadRegexAnalyzerTokenExtractor();
+    } catch (e) {
+      this.error(`❌ Could not load RegexAnalyzer: ${e.message}`);
+      return false;
+    }
+
+    let providerEntries;
+    try {
+      providerEntries = this.loadClearURLsProviderEntries(rulesFile);
+    } catch (e) {
+      this.error(`❌ Could not read rules: ${e.message}`);
+      return false;
+    }
+
+    const matchers = [];
+    const compileStart = process.hrtime.bigint();
+    for (const [name, provider] of providerEntries) {
+      if (typeof provider.urlPattern !== 'string' || !provider.urlPattern.trim()) continue;
+
+      try {
+        const regex = new RegExp(provider.urlPattern, 'i');
+        const token = extractToken(regex.source || provider.urlPattern);
+        matchers.push({ name, regex, token, index: matchers.length });
+      } catch {
+        // Invalid regexes are reported by lint-rules; the benchmark skips them.
+      }
+    }
+    const compileMs = Number(process.hrtime.bigint() - compileStart) / 1e6;
+
+    if (matchers.length === 0) {
+      this.warning('No valid urlPattern entries found to benchmark.');
+      return false;
+    }
+
+    const tokenized = matchers.filter(matcher => matcher.token).length;
+    const reverseIndex = this.createURLPatternReverseIndex(matchers);
+    let urls;
+    let corpusLabel = 'synthetic';
+    if (urlsFile) {
+      if (!fs.existsSync(urlsFile)) {
+        this.error(`❌ URL sample file not found: ${urlsFile}`);
+        return false;
+      }
+      urls = this.loadURLPatternBenchmarkUrlsFromFile(urlsFile);
+      corpusLabel = urlsFile;
+      if (urls.length === 0) {
+        this.error(`❌ URL sample file has no valid http(s) URLs: ${urlsFile}`);
+        return false;
+      }
+    } else {
+      urls = this.createURLPatternBenchmarkUrls(matchers);
+    }
+
+    this.info(`🧩 URL patterns: ${matchers.length}`);
+    this.info(`🔎 Analyzer tokens: ${tokenized}/${matchers.length} (${((tokenized / matchers.length) * 100).toFixed(1)}%)`);
+    this.info(`🌐 URL corpus: ${corpusLabel}`);
+    this.info(`🌐 URL sample size: ${urls.length}`);
+    this.info(`⏱️ Compile + analyze time: ${compileMs.toFixed(2)}ms`);
+
+    this.runURLPatternLoop(matchers, urls, 5, false);
+    this.runURLPatternLoop(matchers, urls, 5, true);
+    this.runURLPatternIndexedLoop(matchers, urls, 5, reverseIndex);
+
+    const directStart = process.hrtime.bigint();
+    const direct = this.runURLPatternLoop(matchers, urls, rounds, false);
+    const directMs = Number(process.hrtime.bigint() - directStart) / 1e6;
+
+    const analyzerStart = process.hrtime.bigint();
+    const analyzer = this.runURLPatternLoop(matchers, urls, rounds, true);
+    const analyzerMs = Number(process.hrtime.bigint() - analyzerStart) / 1e6;
+
+    const indexedStart = process.hrtime.bigint();
+    const indexed = this.runURLPatternIndexedLoop(matchers, urls, rounds, reverseIndex);
+    const indexedMs = Number(process.hrtime.bigint() - indexedStart) / 1e6;
+
+    if (direct.matches !== analyzer.matches || direct.matches !== indexed.matches) {
+      this.error(`❌ Match mismatch: direct=${direct.matches}, analyzer=${analyzer.matches}, indexed=${indexed.matches}`);
+      return false;
+    }
+
+    const speedup = analyzerMs > 0 ? directMs / analyzerMs : 0;
+    const indexedSpeedup = indexedMs > 0 ? directMs / indexedMs : 0;
+    const skippedPercent = analyzer.skippedRegexTests + analyzer.regexTests > 0
+      ? (analyzer.skippedRegexTests / (analyzer.skippedRegexTests + analyzer.regexTests)) * 100
+      : 0;
+    const indexedSkippedPercent = indexed.skippedRegexTests + indexed.regexTests > 0
+      ? (indexed.skippedRegexTests / (indexed.skippedRegexTests + indexed.regexTests)) * 100
+      : 0;
+
+    this.success('Analyzer and indexed matching returned the same results as direct regex matching.');
+    this.log('');
+    this.log('Results:', 'cyan');
+    this.log(`  Direct regex matching       : ${directMs.toFixed(2)}ms (${direct.regexTests.toLocaleString()} regex tests)`, 'white');
+    this.log(`  Analyzer token prefilter    : ${analyzerMs.toFixed(2)}ms (${analyzer.regexTests.toLocaleString()} regex tests)`, 'white');
+    this.log(`  Regex tests skipped         : ${analyzer.skippedRegexTests.toLocaleString()} (${skippedPercent.toFixed(1)}%)`, 'white');
+    this.log(`  Speed comparison            : ${speedup.toFixed(2)}x ${speedup >= 1 ? 'faster' : 'slower'}`, speedup >= 1 ? 'green' : 'yellow');
+    this.log(`  Indexed candidate matching  : ${indexedMs.toFixed(2)}ms (${indexed.regexTests.toLocaleString()} regex tests)`, 'white');
+    this.log(`  Indexed regex tests skipped : ${indexed.skippedRegexTests.toLocaleString()} (${indexedSkippedPercent.toFixed(1)}%)`, 'white');
+    this.log(`  Indexed speed comparison    : ${indexedSpeedup.toFixed(2)}x ${indexedSpeedup >= 1 ? 'faster' : 'slower'}`, indexedSpeedup >= 1 ? 'green' : 'yellow');
+
+    const latencyRounds = Math.min(rounds, 1000);
+    const directLatency = this.measureURLPatternLatency(matchers, urls, latencyRounds, false);
+    const analyzerLatency = this.measureURLPatternLatency(matchers, urls, latencyRounds, true);
+    const indexedLatency = this.measureURLPatternIndexedLatency(matchers, reverseIndex, urls, latencyRounds);
+
+    this.log('');
+    this.log(`Per-request latency (${latencyRounds.toLocaleString()} round${latencyRounds === 1 ? '' : 's'}, one sample = one URL against all providers):`, 'cyan');
+    this.log(`  Direct p50/p95/p99/avg      : ${directLatency.p50Ms.toFixed(4)}ms / ${directLatency.p95Ms.toFixed(4)}ms / ${directLatency.p99Ms.toFixed(4)}ms / ${directLatency.avgMs.toFixed(4)}ms`, 'white');
+    this.log(`  Analyzer p50/p95/p99/avg    : ${analyzerLatency.p50Ms.toFixed(4)}ms / ${analyzerLatency.p95Ms.toFixed(4)}ms / ${analyzerLatency.p99Ms.toFixed(4)}ms / ${analyzerLatency.avgMs.toFixed(4)}ms`, 'white');
+    this.log(`  Indexed p50/p95/p99/avg     : ${indexedLatency.p50Ms.toFixed(4)}ms / ${indexedLatency.p95Ms.toFixed(4)}ms / ${indexedLatency.p99Ms.toFixed(4)}ms / ${indexedLatency.avgMs.toFixed(4)}ms`, 'white');
+
+    return true;
+  }
+
+  async serializeURLPatternSelfie(rulesFile = null) {
+    this.section('🧊 URL Pattern Selfie Serializer');
+
+    rulesFile = this.resolveRulesFile(rulesFile);
+    this.info(`📂 Target file: ${rulesFile}`);
+
+    if (!fs.existsSync(rulesFile)) {
+      this.error(`❌ Rules file not found: ${rulesFile}`);
+      return false;
+    }
+
+    let data;
+    try {
+      data = JSON.parse(this.readMaybeLZ4Text(rulesFile));
+    } catch (e) {
+      this.error(`❌ Could not parse rules file: ${e.message}`);
+      return false;
+    }
+
+    if (!data || typeof data !== 'object' || !data.providers || typeof data.providers !== 'object') {
+      this.error('❌ Rules file must be wrapped format with a providers object');
+      return false;
+    }
+
+    data.metadata = data.metadata && typeof data.metadata === 'object' ? data.metadata : {};
+    data.metadata.urlPatternSelfie = this.createURLPatternSelfie(data);
+
+    const output = this.formatMinifiedOutput(data);
+    const outputFile = rulesFile.endsWith('.lz4') ? rulesFile : `${rulesFile}.lz4`;
+    const lz4Stats = this.writeLZ4CompressedContent(output, outputFile);
+
+    const selfie = data.metadata.urlPatternSelfie;
+    this.success(`Serialized ${selfie.tokenizedProviderCount}/${selfie.providerCount} URL pattern tokens into metadata.`);
+    this.success(`Updated ${lz4Stats.outputFile} (${((1 - lz4Stats.ratio) * 100).toFixed(1)}% smaller than JSON)`);
+    return true;
+  }
+
   // Lint a ClearURLs rules JSON file by replaying clearurls.js logic.
   // Accepts both formats:
   //   • flat  { providerName: { urlPattern, rules, ... }, ... }  ← custom-rules.json
-  //   • wrapped { providers: { providerName: {...}, ... } }       ← linkumori-clearurls-min.json
+  //   • wrapped { providers: { providerName: {...}, ... } }       ← linkumori-clearurls-min.json.lz4
   async lintClearURLsRules(rulesFile = null) {
     this.section('🔍 ClearURLs Rules Linter');
 
     // ── 0. File selection prompt ──────────────────────────────────────────────
     if (rulesFile === null) {
       const customFile  = 'data/custom-rules.json';
-      const builtFile   = 'data/linkumori-clearurls-min.json';
+      const builtFile   = this.resolveRulesFile();
       const customExists = fs.existsSync(customFile);
       const builtExists  = fs.existsSync(builtFile);
 
@@ -1781,7 +2398,7 @@ ${commit.message}
     // ── 2. JSON parse ─────────────────────────────────────────────────────────
     let data;
     try {
-      const raw = fs.readFileSync(rulesFile, 'utf8');
+      const raw = this.readMaybeLZ4Text(rulesFile);
       data = JSON.parse(raw);
     } catch (err) {
       this.error(`❌ JSON parse error: ${err.message}`);
@@ -2080,7 +2697,7 @@ ${commit.message}
 
 ### Generated Files
 
-${outputFiles.map(file => `- \`${file}\` - ${file.includes('-min.') ? 'Minified' : 'Standard'} merged rules with Linkumori metadata v${version}`).join('\n')}
+${outputFiles.map(file => `- \`${file}\` - Compressed merged rules with Linkumori metadata v${version}`).join('\n')}
 
 ### Build Summary
 
@@ -2123,7 +2740,7 @@ The ClearURLs Custom Rules Builder performs the following operations:
 3. **Merges Providers**: Intelligently combines providers that share the same URL pattern to optimize performance
    - **Official Name Priority**: When merging, official provider names are preserved over custom ones
 4. **Adds Linkumori Metadata**: Includes project metadata, automatic versioning (${version}), and repository information
-5. **Generates Output**: Creates both regular and minified versions of the merged ruleset
+5. **Generates Output**: Creates the compressed LZ4 bundled ruleset
 6. **Deduplication**: Removes duplicate rules within merged providers
 7. **Validation**: Ensures all custom rules have proper structure and required fields
 
@@ -2195,6 +2812,7 @@ ${currentBuildInfo}`;
     } = options;
 
     const minifiedOutputFile = `data/${outputBase}-clearurls-min.json`;
+    const compressedOutputFile = `${minifiedOutputFile}.lz4`;
     
     try {
       // Ensure data directory exists
@@ -2310,7 +2928,7 @@ this.info(
               const cachedOfficialHash = this.readSavedOfficialRulesHash();
               let minifiedFileExists = false;
               try {
-                fs.statSync(minifiedOutputFile);
+                fs.statSync(compressedOutputFile);
                 minifiedFileExists = true;
               } catch {
                 minifiedFileExists = false;
@@ -2318,7 +2936,7 @@ this.info(
 
               if (cachedOfficialHash && cachedOfficialHash === remoteOfficialHash && minifiedFileExists) {
                 this.success('✅ Online mode selected and official hash unchanged.');
-                this.info(`⏭️  Skipping rebuild: ${minifiedOutputFile}`);
+                this.info(`⏭️  Skipping rebuild: ${compressedOutputFile}`);
                 return true;
               }
             }
@@ -2369,9 +2987,10 @@ this.info(
       // Create and save minified version
       const minifiedRules = this.minifyRules(mergedRules);
       const linkumoriMinified = this.createLinkumoriJSON(minifiedRules);
+      linkumoriMinified.metadata.urlPatternSelfie = this.createURLPatternSelfie(linkumoriMinified);
       const minifiedOutputContent = this.formatMinifiedOutput(linkumoriMinified);
-      fs.writeFileSync(minifiedOutputFile, minifiedOutputContent);
-      this.success(`💾 Minified rules saved to: ${minifiedOutputFile}`);
+      const lz4Stats = this.writeLZ4CompressedContent(minifiedOutputContent, compressedOutputFile);
+      this.success(`🗜️ LZ4 rules saved to: ${lz4Stats.outputFile}`);
       
       // Calculate statistics
       const optimizedCount = officialCount + customCount - finalCount;
@@ -2387,7 +3006,7 @@ this.info(
       };
       
       // Create/update NOTICE.md file
-      const outputFiles = [minifiedOutputFile];
+      const outputFiles = [lz4Stats.outputFile];
       const generatedVersion = linkumoriMinified.metadata.version;
       this.createNoticeFile(outputFiles, stats, generatedVersion);
 
@@ -2403,7 +3022,8 @@ this.info(
       this.info(`🔄 Final merged: ${finalCount}`);
       this.info(`⚡ Optimization: ${optimizedCount} providers merged (${efficiency}% efficiency gain)`);
       this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} added`);
-      this.info(`📁 Minified file: ${Math.round(minifiedSize / 1024)}KB`);
+      this.info(`📁 JSON payload size: ${Math.round(minifiedSize / 1024)}KB (not written to disk)`);
+      this.info(`🗜️ LZ4 file: ${Math.round(lz4Stats.outputSize / 1024)}KB (${((1 - lz4Stats.ratio) * 100).toFixed(1)}% smaller)`);
       this.info(`📋 Documentation: ${config.noticeFile}`);
       
       return true;
@@ -3121,11 +3741,11 @@ coverage/**
     // ClearURLs status
     this.section('ClearURLs Rules Status');
     try {
-      const stat = fs.statSync('data/linkumori-clearurls-min.json');
+      const stat = fs.statSync('data/linkumori-clearurls-min.json.lz4');
       const sizeKB = Math.round(stat.size / 1024);
-      this.success(`Minified rules available (${sizeKB}KB)`);
+      this.success(`LZ4 rules available (${sizeKB}KB)`);
     } catch {
-      this.warning('Minified rules not found (run build to generate)');
+      this.warning('LZ4 rules not found (run clearurls)');
     }
 
     try {
@@ -3168,7 +3788,7 @@ coverage/**
     const clearurlsFiles = [
       'data/downloaded-official-rules.json',
       'data/downloaded-official-rules.min.hash',
-      'data/linkumori-clearurls-min.json',
+      'data/linkumori-clearurls-min.json.lz4',
       'data/linkumori-clearurls.json'
     ];
     
@@ -3294,7 +3914,7 @@ coverage/**
       { key: '4', name: 'Run Development Mode', action: () => this.runDev() },
       { key: '5', name: 'Lint Extension', action: () => this.lint() },
       { key: '6', name: 'Build Old Country Nobility Font Only', action: () => this.buildOldCountryNobilityFont() },
-      { key: '7', name: 'Build ClearURLs Rules Only (Minified)', action: () => this.buildCustomClearURLs() },
+      { key: '7', name: 'Build ClearURLs Rules Only (LZ4)', action: () => this.buildCustomClearURLs() },
       { key: '8', name: 'Generate Icon PNG Files from SVG', action: () => this.generateIcons() },
       { key: 'n', name: 'Unminify ClearURLs Rules', action: () => this.unminifyClearURLs() },
       { key: 'r', name: 'Lint  Rules ', action: () => this.lintClearURLsRules() },
@@ -3542,6 +4162,26 @@ coverage/**
           // pass explicit path if given; null triggers the interactive prompt
           await this.lintClearURLsRules(args[1] || null);
           break;
+        case 'compress-lz4':
+          if (!args[1]) {
+            this.error('Missing input file. Example: node linkumori-cli-tool.js compress-lz4 data/linkumori-clearurls.json');
+            process.exit(1);
+          }
+          {
+            const stats = this.writeLZ4CompressedFile(args[1], args[2] || `${args[1]}.lz4`);
+            this.success(`LZ4 compressed file saved to: ${stats.outputFile}`);
+            this.info(`Input: ${stats.inputSize} bytes`);
+            this.info(`Output: ${stats.outputSize} bytes (${((1 - stats.ratio) * 100).toFixed(1)}% smaller)`);
+          }
+          break;
+        case 'serialize-url-patterns':
+        case 'selfie-url-patterns':
+          await this.serializeURLPatternSelfie(args[1] || null);
+          break;
+        case 'benchmark-url-patterns':
+        case 'bench-url-patterns':
+          await this.benchmarkURLPatterns(args[1] || null, args[2] || null, args[3] || null);
+          break;
         case 'unminify':
         case 'unminify-clearurls':
           await this.unminifyClearURLs();
@@ -3630,10 +4270,13 @@ coverage/**
     this.log('  dev, run              Run in development mode', 'white');
     this.log('  lint                  Lint extension code', 'white');
     this.log('  fonts                 Build Old Country Nobility Font only', 'white');
-    this.log('  clearurls             Build ClearURLs minified rules only', 'white');
+    this.log('  clearurls             Build ClearURLs LZ4 rules only', 'white');
     this.log('  icons                 Generate icon PNG files from SVG sources', 'white');
-    this.log('  lint-rules            Lint linkumori-clearurls-min.json (regex + smoke tests)', 'white');
+    this.log('  lint-rules            Lint ClearURLs rules, including .lz4 output', 'white');
     this.log('  lint-clearurls        Alias for lint-rules', 'white');
+    this.log('  compress-lz4          Create a Linkumori LZ4 copy of a JSON file', 'white');
+    this.log('  serialize-url-patterns Precompute urlPattern analyzer tokens into rules metadata', 'white');
+    this.log('  benchmark-url-patterns Compare direct urlPattern regex speed with RegexAnalyzer prefiltering', 'white');
     this.log('  unminify              Unminify ClearURLs rules to readable JSON', 'white');
     this.log('  commit-history        Create formatted markdown of git commit history', 'white');
     this.log('  clearurls-template    Create custom rules template', 'white');
@@ -3661,6 +4304,9 @@ coverage/**
     this.log('  bun run linkumori-cli-bun-merged.js clearurls', 'dim');
     this.log('  bun run linkumori-cli-bun-merged.js icons', 'dim');
     this.log('  bun run linkumori-cli-bun-merged.js lint-rules', 'dim');
+    this.log('  bun run linkumori-cli-bun-merged.js compress-lz4 data/linkumori-clearurls.json', 'dim');
+    this.log('  bun run linkumori-cli-bun-merged.js serialize-url-patterns data/linkumori-clearurls-min.json.lz4', 'dim');
+    this.log('  bun run linkumori-cli-bun-merged.js benchmark-url-patterns data/linkumori-clearurls-min.json.lz4 1000 urls.txt', 'dim');
     this.log('  bun run linkumori-cli-bun-merged.js unminify', 'dim');
     this.log('  bun run linkumori-cli-bun-merged.js commit-history', 'dim');
     this.log('  bun run linkumori-cli-bun-merged.js release', 'dim');
@@ -3673,7 +4319,7 @@ coverage/**
     this.log('  - Offline/Online ClearURLs mode selection (interactive)', 'white');
     this.log('  - Superior ClearURLs provider merging logic', 'white');
     this.log('  - Official provider name prioritization', 'white');
-    this.log('  - Minified-only ClearURLs output (with unminify option)', 'white');
+    this.log('  - LZ4-only ClearURLs output (JSON payload generated in memory)', 'white');
     this.log('  - Git commit history markdown generator', 'white');
     this.log('  - Automatic NOTICE.md creation and updating', 'white');
     this.log('  - Detailed build statistics and reporting', 'white');
@@ -3739,14 +4385,14 @@ coverage/**
     this.log('  - Prioritizes official ClearURLs provider names', 'dim');
     this.log('  - Merges providers with identical URL patterns', 'dim');
     this.log('  - Deduplicates all rules within merged providers', 'dim');
-    this.log('  - Generates ONLY minified output (use unminify command for readable version)', 'dim');
+    this.log('  - Generates ONLY compressed LZ4 output for bundled rules', 'dim');
     this.log('  - Generates detailed statistics and documentation', 'dim');
     this.log('  - Creates/updates NOTICE.md with build history', 'dim');
     this.log('  - Uses automatic version numbering (dd.mm.yyyy.HHMM)', 'dim');
 
     this.log('\nUnminify ClearURLs:', 'cyan');
     this.log('  The unminify command:', 'white');
-    this.log('  - Reads linkumori-clearurls-min.json', 'dim');
+    this.log('  - Reads linkumori-clearurls-min.json.lz4 by default', 'dim');
     this.log('  - Creates linkumori-clearurls.json with pretty formatting', 'dim');
     this.log('  - Shows size comparison and expansion details', 'dim');
     this.log('  - Useful for debugging and manual rule inspection', 'dim');
@@ -3756,7 +4402,7 @@ coverage/**
     this.log('  Default target: data/custom-rules.json', 'white');
     this.log('  Auto-detects both JSON formats:', 'dim');
     this.log('    • Flat  { providerName: {...} }          ← custom-rules.json', 'dim');
-    this.log('    • Wrapped { providers: { ... } }         ← linkumori-clearurls-min.json', 'dim');
+    this.log('    • Wrapped { providers: { ... } }         ← linkumori-clearurls-min.json.lz4', 'dim');
     this.log('  Checks per provider:', 'dim');
     this.log('    - urlPattern compiles as a valid JS regex', 'dim');
     this.log('    - rules / rawRules / referralMarketing / exceptions all compile', 'dim');
@@ -3768,7 +4414,13 @@ coverage/**
     this.log('    Tests are skipped (not failed) when no provider in the file matches', 'dim');
     this.log('  Optional path argument:', 'dim');
     this.log('    bun linkumori-cli-tool.js lint-rules data/custom-rules.json', 'dim');
-    this.log('    bun linkumori-cli-tool.js lint-rules data/linkumori-clearurls-min.json', 'dim');
+    this.log('    bun linkumori-cli-tool.js lint-rules data/linkumori-clearurls-min.json.lz4', 'dim');
+
+    this.log('\nURL Pattern Benchmark:', 'cyan');
+    this.log('  Compares provider urlPattern matching with and without RegexAnalyzer token prefiltering.', 'white');
+    this.log('  Verifies both paths produce the same match count before reporting speed.', 'dim');
+    this.log('  Optional args: rules file, rounds.', 'dim');
+    this.log('    bun linkumori-cli-tool.js benchmark-url-patterns data/linkumori-clearurls-min.json.lz4 1000 urls.txt', 'dim');
 
     this.log('\nCommit History Generator:', 'cyan');
     this.log('  The commit-history command creates a formatted markdown file with:', 'white');

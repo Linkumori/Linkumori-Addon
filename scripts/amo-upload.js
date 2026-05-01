@@ -58,7 +58,7 @@
 
 
 
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, unlinkSync, existsSync } from "fs";
 import { execSync } from "child_process";
 
 const version = JSON.parse(readFileSync("manifest.json", "utf8")).version;
@@ -99,18 +99,28 @@ const metadata = {
 writeFileSync("version-metadata.json", JSON.stringify(metadata, null, 2));
 console.log(`Release notes for v${version}:\n${releaseNotes}\n`);
 
+// Create source code zip from all git-tracked files
+const sourceZip = "source-code.zip";
+console.log("Creating source code zip from git-tracked files...");
+execSync(`git archive --format=zip HEAD -o ${sourceZip}`, { stdio: "inherit" });
+
 // Sign and upload to AMO
 const artifact = artifacts[0];
-console.log(`Uploading ${artifact} (v${version}) to AMO...`);
+console.log(`Uploading ${artifact} (v${version}) to AMO with source code...`);
 
-execSync(
-  `web-ext sign \
-    --source-dir . \
-    --artifacts-dir web-ext-artifacts \
-    --channel ${process.env.WEB_EXT_CHANNEL} \
-    --api-key ${process.env.WEB_EXT_API_KEY} \
-    --api-secret ${process.env.WEB_EXT_API_SECRET} \
-    --amo-metadata ./version-metadata.json \
-    --approval-timeout 0`,
-  { stdio: "inherit" }
-);
+try {
+  execSync(
+    `web-ext sign \
+      --source-dir . \
+      --artifacts-dir web-ext-artifacts \
+      --channel ${process.env.WEB_EXT_CHANNEL} \
+      --api-key ${process.env.WEB_EXT_API_KEY} \
+      --api-secret ${process.env.WEB_EXT_API_SECRET} \
+      --amo-metadata ./version-metadata.json \
+      --upload-source-code ./${sourceZip} \
+      --approval-timeout 0`,
+    { stdio: "inherit" }
+  );
+} finally {
+  if (existsSync(sourceZip)) unlinkSync(sourceZip);
+}

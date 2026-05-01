@@ -27,7 +27,7 @@
 
 | Category | Files |
 |----------|-------| 
-| **JavaScript** | `external_js/IP-Ranger.js`<br>`external_js/linkumori-i18n.js`<br>`external_js/theme_bootstrap.js`<br>`external_js/theme_favicon.js`<br>`core_js/clipboard-helper.js`<br>`core_js/about.js`<br>`core_js/consent_config.js`<br>`core_js/content_script_manager.js`<br>`core_js/audit.js`<br>`core_js/modal_dialog.js`<br>`core_js/linkumori_biditrie.js`<br>`core_js/linkumori_hntrie.js`<br>`core_js/linkumori_filtering_context.js`<br>`core_js/linkumori_regex_tokens.js`<br>`core_js/linkumori_url_filter_interoperability.js`<br>`core_js/linkumori_url_filter_runtime.js` |
+| **JavaScript** | `external_js/IP-Ranger.js`<br>`external_js/linkumori-i18n.js`<br>`external_js/linkumori_lz4_block.js`<br>`external_js/theme_bootstrap.js`<br>`external_js/theme_favicon.js`<br>`core_js/clipboard-helper.js`<br>`core_js/about.js`<br>`core_js/consent_config.js`<br>`core_js/content_script_manager.js`<br>`core_js/audit.js`<br>`core_js/modal_dialog.js`<br>`core_js/linkumori_biditrie.js`<br>`core_js/linkumori_hntrie.js`<br>`core_js/linkumori_filtering_context.js`<br>`core_js/linkumori_regex_tokens.js`<br>`core_js/linkumori_url_filter_interoperability.js`<br>`core_js/linkumori_url_filter_runtime.js` |
 | **HTML** | - |
 | **CSS** | `css/settings.css`<br>`css/siteBlockedAlert.css` |
 | **Icons (PNG)** | `img/icon16.png`<br>`img/icon19.png`<br>`img/icon20.png`<br>`img/icon24.png`<br>`img/icon30.png`<br>`img/icon32.png`<br>`img/icon38.png`<br>`img/icon48.png`<br>`img/icon64.png`<br>`img/icon96.png`<br>`img/icon128.png`<br>`img/icon128_gray.png` |
@@ -3647,7 +3647,7 @@ please read <https://www.gnu.org/licenses/why-not-lgpl.html>.
 |----------|-------|
 | **Core JavaScript** | `core_js/badgedHandler.js`<br>`core_js/historyListener.js`<br>`core_js/settings.js`<br>`core_js/watchdog.js`<br>`core_js/cleaning_tool.js`<br>`core_js/log.js`<br>`core_js/siteBlockedAlert.js`<br>`core_js/write_version.js`<br>`core_js/context_menu.js`<br>`core_js/message_handler.js`<br>`core_js/storage.js`<br>`core_js/eTagFilter.js`<br>`core_js/popup.js`<br>`core_js/tools.js`<br>`core_js/pureCleaning.js`<br>`./clearurls.js` |
 | **HTML** | `html/log.html`<br>`html/siteBlockedAlert.html` |
-| **Other** | `linkumori-cli-tool.js`<br>`linkumori-clearurls-min.json`<br>`manifest.json` |
+| **Other** | `linkumori-cli-tool.js`<br>`linkumori-clearurls-min.json.lz4`<br>`manifest.json` |
 
 #### 2.3.2 Original Copyright
 

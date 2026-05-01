@@ -1565,18 +1565,40 @@ function fetchRemoteHash(hashUrl, ruleURLForHealth = null) {
 }
 
 async function fetchBundledRulesRaw() {
-    const rulesURL = browser.runtime.getURL('data/linkumori-clearurls-min.json');
-    const response = await fetch(rulesURL);
-    if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText} - Rules file not accessible`);
+    const payload = await fetchBundledRulesText();
+    const rawRulesData = JSON.parse(payload.text);
+    validateBundledRulesData(rawRulesData);
+    return rawRulesData;
+}
+
+async function fetchBundledRulesText() {
+    const compressedURL = browser.runtime.getURL('data/linkumori-clearurls-min.json.lz4');
+    if (
+        !globalThis.LinkumoriLZ4 ||
+        typeof globalThis.LinkumoriLZ4.decompressToString !== 'function'
+    ) {
+        throw new Error('Linkumori LZ4 decoder is not available');
     }
 
-    const data = await response.text();
-    if (!data || data.trim().length === 0) {
-        throw new Error('Rules file is empty or contains no data');
+    const compressedResponse = await fetch(compressedURL);
+    if (!compressedResponse.ok) {
+        throw new Error(`HTTP ${compressedResponse.status}: ${compressedResponse.statusText} - LZ4 rules file not accessible`);
     }
 
-    const rawRulesData = JSON.parse(data);
+    const compressedBytes = new Uint8Array(await compressedResponse.arrayBuffer());
+    const text = globalThis.LinkumoriLZ4.decompressToString(compressedBytes);
+    if (!text || text.trim().length === 0) {
+        throw new Error('LZ4 rules file is empty after decompression');
+    }
+    validateBundledRulesData(JSON.parse(text));
+
+    return {
+        text,
+        source: 'bundled_lz4'
+    };
+}
+
+function validateBundledRulesData(rawRulesData) {
     if (!rawRulesData || typeof rawRulesData !== 'object') {
         throw new Error('Rules file does not contain a valid object');
     }
@@ -1586,8 +1608,6 @@ async function fetchBundledRulesRaw() {
     if (Object.keys(rawRulesData.providers).length === 0) {
         throw new Error('No providers found in rules file');
     }
-
-    return rawRulesData;
 }
 
 function normalizeRulesForProviderImport(rulesData, fallbackName, fallbackSource) {
@@ -1798,26 +1818,9 @@ function loadBundledRulesInternal(isFallback = false) {
         return loadCustomOnlyRules();
     }
 
-    const rulesURL = browser.runtime.getURL('data/linkumori-clearurls-min.json');
-    
-    return fetch(rulesURL)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText} - Rules file not accessible`);
-            }
-            return response.text();
-        })
-        .then(async data => {
-            if (!data || data.trim().length === 0) {
-                throw new Error('Rules file is empty or contains no data');
-            }
-            
-            let rawRulesData;
-            try {
-                rawRulesData = JSON.parse(data);
-            } catch (parseError) {
-                throw new Error(`Invalid JSON in rules file: ${parseError.message}`);
-            }
+    return fetchBundledRulesRaw()
+        .then(async rawRulesData => {
+            validateBundledRulesData(rawRulesData);
             
             if (!rawRulesData || typeof rawRulesData !== 'object') {
                 throw new Error('Rules file does not contain a valid object');
