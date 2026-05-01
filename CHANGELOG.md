@@ -10,6 +10,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v38.0] - 2026-05-01 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v37.0...linkumori-v38.0))
+### Added
+- Introduce LZ4 compression for rules bundle and Aho-Corasick URL pattern index (`2026-05-01`, hash: [`4c0255f`](https://github.com/Linkumori/Linkumori-Addon/commit/4c0255f))
+- Introduce Linkumori interoperability custom rule support (`2026-05-01`, hash: [`cc2f55a`](https://github.com/Linkumori/Linkumori-Addon/commit/cc2f55a))
+
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-05-01`, hash: [`4c0255f`](https://github.com/Linkumori/Linkumori-Addon/commit/4c0255f))
+- Generated rules JSON minified (`2026-05-01`, hash: [`4c0255f`](https://github.com/Linkumori/Linkumori-Addon/commit/4c0255f))
+- Support HTTP normalization in clearurls (`2026-05-01`, hash: [`060911e`](https://github.com/Linkumori/Linkumori-Addon/commit/060911e))
+
 ## [v37.0] - 2026-04-30 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v36.0...linkumori-v37.0))
 ### Added
 - Introduce interoperability mode toggle (`2026-04-29`, hash: [`fcce060`](https://github.com/Linkumori/Linkumori-Addon/commit/fcce060))
