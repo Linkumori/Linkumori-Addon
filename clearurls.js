@@ -2115,6 +2115,12 @@ function start() {
             return providerIndex;
         };
 
+        this.getPatternSpecificityLength = function () {
+            if (urlPatternSource) return urlPatternSource.length;
+            if (domainPatterns.length > 0) return domainPatterns.join('').length;
+            return 0;
+        };
+
         this.getURLPatternAnalyzerTokens = function () {
             const tokens = [];
             for (const token of urlPatternAnalyzerTokens) {
@@ -2444,53 +2450,70 @@ function start() {
                 return {cancel: true};
             }
 
-            let providerResponse = null;
+            // Collect all candidates that match URL, method, and resource type.
+            // Sort by specificity so more specific providers apply first.
+            // Then chain: pass URL through every matching provider (0/1 per provider),
+            // accumulating all param stripping. Redirect/cancel are still terminal.
+            const matchedProviders = [];
             const candidateProviderCount = forEachURLPatternCandidateProvider(request.url, provider => {
-                if (providerResponse) return;
-
                 if (!provider.matchMethod(request)) return;
                 if (!provider.matchResourceType(request)) return;
                 if (provider.matchURL(request.url)) {
-                    result = removeFieldsFormURL(provider, request.url, false, request);
+                    matchedProviders.push(provider);
                 }
+            });
+            linkumoriURLPatternAnalyzerStats.skippedRegexTests += Math.max(0, providers.length - candidateProviderCount);
+
+            matchedProviders.sort((a, b) =>
+                b.getPatternSpecificityLength() - a.getPatternSpecificityLength()
+            );
+
+            let providerResponse = null;
+            let currentUrl = request.url;
+            let anyChanges = false;
+
+            for (const provider of matchedProviders) {
+                result = removeFieldsFormURL(provider, currentUrl, false, request);
 
                 if (result.redirect) {
                     if (provider.shouldForceRedirect() &&
                         request.type === 'main_frame') {
                         browser.tabs.update(request.tabId, {url: result.url}).catch(handleError);
                         providerResponse = {cancel: true};
-                        return;
+                        break;
                     }
-
                     providerResponse = {
                         redirectUrl: result.url
                     };
-                    return;
+                    break;
                 }
 
                 if (result.cancel) {
                     if (request.type === 'main_frame') {
-                        const blockingPage = browser.runtime.getURL("html/siteBlockedAlert.html?source=" + encodeURIComponent(request.url));
+                        const blockingPage = browser.runtime.getURL("html/siteBlockedAlert.html?source=" + encodeURIComponent(currentUrl));
                         browser.tabs.update(request.tabId, {url: blockingPage}).catch(handleError);
-
                         providerResponse = {cancel: true};
-                        return;
+                        break;
                     } else {
                         providerResponse = {
                             redirectUrl: siteBlockedAlert
                         };
-                        return;
+                        break;
                     }
                 }
 
                 if (result.changes) {
-                    providerResponse = {
-                        redirectUrl: result.url
-                    };
-                    return;
+                    currentUrl = result.url;
+                    anyChanges = true;
+                    // continue — let remaining providers strip their params too
                 }
-            });
-            linkumoriURLPatternAnalyzerStats.skippedRegexTests += Math.max(0, providers.length - candidateProviderCount);
+            }
+
+            if (!providerResponse && anyChanges) {
+                providerResponse = {
+                    redirectUrl: currentUrl
+                };
+            }
 
             if (providerResponse) return providerResponse;
 
