@@ -63,6 +63,128 @@
 import { spawn } from 'child_process';
 import fs from 'fs';
 import vm from 'vm';
+function parseRegexAST(source) {
+  const src = String(source || '');
+  let pos = 0;
+
+  function parseDisjunction() {
+    const alts = [parseAlternative()];
+    while (pos < src.length && src[pos] === '|') {
+      pos++;
+      alts.push(parseAlternative());
+    }
+    return alts.length === 1 ? alts[0] : { type: 'disjunction', body: alts };
+  }
+
+  function parseAlternative() {
+    const terms = [];
+    while (pos < src.length && src[pos] !== '|' && src[pos] !== ')') {
+      const term = parseTerm();
+      if (term) terms.push(term);
+      else break;
+    }
+    return { type: 'alternative', body: terms };
+  }
+
+  function parseTerm() {
+    const atom = parseAtom();
+    if (!atom) return null;
+    return applyQuantifier(atom);
+  }
+
+  function applyQuantifier(atom) {
+    if (pos >= src.length) return atom;
+    const ch = src[pos];
+    let min = 1;
+    if (ch === '*') { min = 0; pos++; }
+    else if (ch === '+') { min = 1; pos++; }
+    else if (ch === '?') { min = 0; pos++; }
+    else if (ch === '{') {
+      const m = src.slice(pos).match(/^\{(\d+)(?:,\d*)?\}/);
+      if (m) { min = parseInt(m[1], 10); pos += m[0].length; }
+      else return atom;
+    } else {
+      return atom;
+    }
+    if (pos < src.length && src[pos] === '?') pos++; // lazy modifier
+    return { type: 'quantifier', min, body: [atom] };
+  }
+
+  function parseAtom() {
+    if (pos >= src.length || src[pos] === '|' || src[pos] === ')') return null;
+    const ch = src[pos];
+
+    if (ch === '.') {
+      const range = [pos, pos + 1];
+      pos++;
+      return { type: 'dot', range };
+    }
+
+    if (ch === '^' || ch === '$') {
+      pos++;
+      return { type: 'anchor' };
+    }
+
+    if (ch === '[') {
+      pos++;
+      if (pos < src.length && src[pos] === '^') pos++;
+      if (pos < src.length && src[pos] === ']') pos++; // literal ] as first char
+      while (pos < src.length && src[pos] !== ']') {
+        if (src[pos] === '\\') pos++;
+        pos++;
+      }
+      if (pos < src.length) pos++;
+      return { type: 'characterClass' };
+    }
+
+    if (ch === '(') {
+      pos++;
+      if (pos < src.length && src[pos] === '?') {
+        pos++;
+        if (pos < src.length) {
+          if (src[pos] === ':' || src[pos] === '=' || src[pos] === '!') {
+            pos++;
+          } else if (src[pos] === '<') {
+            pos++;
+            if (pos < src.length && (src[pos] === '=' || src[pos] === '!')) {
+              pos++;
+            } else {
+              while (pos < src.length && src[pos] !== '>') pos++;
+              if (pos < src.length) pos++;
+            }
+          }
+        }
+      }
+      const inner = parseDisjunction();
+      if (pos < src.length && src[pos] === ')') pos++;
+      return { type: 'group', body: [inner] };
+    }
+
+    if (ch === '\\') {
+      pos++;
+      if (pos >= src.length) return { type: 'escape' };
+      const esc = src[pos++];
+      if (esc === 'b' || esc === 'B') return { type: 'anchor' };
+      if (esc === 'x') { pos += 2; return { type: 'escape' }; }
+      if (esc === 'u') {
+        if (pos < src.length && src[pos] === '{') {
+          while (pos < src.length && src[pos] !== '}') pos++;
+          if (pos < src.length) pos++;
+        } else {
+          pos += 4;
+        }
+        return { type: 'escape' };
+      }
+      if (/[wWdDsSnrtvfpP0-9]/.test(esc)) return { type: 'escape' };
+      return { type: 'value', kind: 'symbol', codePoint: esc.codePointAt(0) };
+    }
+
+    pos++;
+    return { type: 'value', kind: 'symbol', codePoint: ch.codePointAt(0) };
+  }
+
+  return parseDisjunction();
+}
 
 // Terminal colors and formatting
 const colors = {
@@ -1754,16 +1876,254 @@ ${commit.message}
 
     extractToken.extractURLPatternTokensFromRegex = (regexSource) => {
       try {
-        const tokens = context.LinkumoriRegexTokens.extractURLPatternTokensFromRegex(regexSource);
-        return Array.isArray(tokens)
-          ? tokens.filter(token => typeof token === 'string' && token).map(token => token.toLowerCase())
-          : [];
+        return this.extractURLPatternTokensWithRegjs(regexSource);
       } catch {
         return [];
       }
     };
 
     return extractToken;
+  }
+
+  parseRegjsSource(regexSource) {
+    return parseRegexAST(String(regexSource || ''));
+  }
+
+  isRegjsHostLiteralChar(node) {
+    return Boolean(
+      node &&
+      node.type === 'value' &&
+      (node.kind === 'symbol' || node.kind === 'identifier') &&
+      Number.isFinite(node.codePoint) &&
+      /^[a-z0-9-]$/i.test(String.fromCodePoint(node.codePoint))
+    );
+  }
+
+  collectRegjsURLLiteralDotRepairs(node, repairs) {
+    if (!node || typeof node !== 'object') return;
+
+    if (node.type === 'alternative' && Array.isArray(node.body)) {
+      for (let i = 1; i < node.body.length - 1; i++) {
+        const current = node.body[i];
+        if (
+          current &&
+          current.type === 'dot' &&
+          this.isRegjsHostLiteralChar(node.body[i - 1]) &&
+          this.isRegjsHostLiteralChar(node.body[i + 1])
+        ) {
+          repairs.push(current.range);
+        }
+      }
+    }
+
+    switch (node.type) {
+      case 'alternative':
+        node.body.forEach(child => this.collectRegjsURLLiteralDotRepairs(child, repairs));
+        break;
+      case 'disjunction':
+      case 'group':
+      case 'quantifier':
+        if (Array.isArray(node.body)) {
+          node.body.forEach(child => this.collectRegjsURLLiteralDotRepairs(child, repairs));
+        }
+        break;
+    }
+  }
+
+  repairURLPatternLiteralDots(urlPattern) {
+    const pattern = String(urlPattern || '');
+    if (!pattern || !pattern.includes('.')) {
+      return { pattern, repairedCount: 0 };
+    }
+
+    try {
+      const regexSource = new RegExp(pattern, 'i').source;
+      const ast = this.parseRegjsSource(regexSource);
+      const repairs = [];
+      this.collectRegjsURLLiteralDotRepairs(ast, repairs);
+      if (repairs.length === 0) return { pattern, repairedCount: 0 };
+
+      let repairedPattern = regexSource;
+      for (const [start, end] of repairs.sort((left, right) => right[0] - left[0])) {
+        repairedPattern = repairedPattern.slice(0, start) + '\\.' + repairedPattern.slice(end);
+      }
+
+      return {
+        pattern: repairedPattern,
+        repairedCount: repairs.length
+      };
+    } catch {
+      return { pattern, repairedCount: 0 };
+    }
+  }
+
+  repairProviderURLPatternsWithRegjs(providers) {
+    if (!providers || typeof providers !== 'object') return 0;
+    let repairedProviderCount = 0;
+
+    for (const provider of Object.values(providers)) {
+      if (!provider || typeof provider.urlPattern !== 'string') continue;
+
+      const repaired = this.repairURLPatternLiteralDots(provider.urlPattern);
+      if (repaired.repairedCount > 0 && repaired.pattern !== provider.urlPattern) {
+        provider.urlPattern = repaired.pattern;
+        repairedProviderCount++;
+      }
+    }
+
+    return repairedProviderCount;
+  }
+
+  regjsQuantifierMinimum(node) {
+    const quantifier = node || {};
+    if (!quantifier || typeof quantifier !== 'object') return 1;
+    return Number.isFinite(quantifier.min) ? quantifier.min : 1;
+  }
+
+  addRegjsURLPatternLiteralTokens(tokens, literalSequences) {
+    for (const literal of literalSequences) {
+      for (const token of this.tokensFromURLPatternLiteral(literal)) {
+        if (token) tokens.add(token);
+      }
+    }
+  }
+
+  tokensFromURLPatternLiteral(value) {
+    let normalized = String(value || '')
+      .replace(/[^a-z0-9._/%:-]+/gi, '')
+      .replace(/^\.+|\.+$/g, '')
+      .toLowerCase();
+    if (!normalized) return [];
+
+    normalized = normalized
+      .replace(/^(?:[a-z]+:)?\/\//, '')
+      .replace(/^[^/?#@]+@/, '');
+
+    const hostPortPath = normalized.match(/^([^/?#]+)([/?#].*)?$/);
+    if (hostPortPath) {
+      const hostPort = hostPortPath[1];
+      const path = hostPortPath[2] || '';
+      const portMatch = hostPort.match(/^(.+):(\d{2,5})$/);
+      const host = portMatch ? portMatch[1] : hostPort;
+
+      if (host && host !== 'localhost' && !/^\d{1,3}(?:\.\d{1,3}){3}$/.test(host) && host.includes('.')) {
+        const labels = host.split('.');
+        const hostLabelPattern = /^[a-z0-9](?:[-_]*[a-z0-9])*$/;
+        const tldPattern = /^(?:[a-z]{2,}|xn--[a-z0-9-]{2,})$/;
+        if (
+          labels.some(label => !hostLabelPattern.test(label)) ||
+          !tldPattern.test(labels[labels.length - 1])
+        ) {
+          normalized = '';
+        } else {
+          normalized = host + path;
+        }
+      }
+    }
+
+    if (
+      normalized.length >= 3 &&
+      /[a-z0-9]/.test(normalized) &&
+      !['com', 'www', 'http', 'https', 'net', 'org', 'html', 'php'].includes(normalized)
+    ) {
+      return [normalized];
+    }
+
+    return String(value || '')
+      .split(/[^%0-9A-Za-z]+/)
+      .map(token => token.toLowerCase())
+      .filter(token => token.length >= 3 && !['com', 'www', 'http', 'https', 'net', 'org', 'html', 'php'].includes(token));
+  }
+
+  regjsNodeLiteralChar(node) {
+    if (
+      !node ||
+      node.type !== 'value' ||
+      (node.kind !== 'symbol' && node.kind !== 'identifier') ||
+      !Number.isFinite(node.codePoint)
+    ) {
+      return null;
+    }
+
+    return String.fromCodePoint(node.codePoint);
+  }
+
+  regjsRequiredLiteralSequences(node) {
+    if (!node || typeof node !== 'object') return null;
+
+    switch (node.type) {
+      case 'alternative': {
+        let sequences = [''];
+        const tokens = new Set();
+
+        const flush = () => {
+          this.addRegjsURLPatternLiteralTokens(tokens, sequences);
+          sequences = [''];
+        };
+
+        for (const child of node.body || []) {
+          const childSequences = this.regjsRequiredLiteralSequences(child);
+          if (childSequences === null) {
+            flush();
+            continue;
+          }
+          if (childSequences.length === 0) continue;
+
+          const next = [];
+          for (const prefix of sequences) {
+            for (const suffix of childSequences) {
+              next.push(prefix + suffix);
+              if (next.length > 64) break;
+            }
+            if (next.length > 64) break;
+          }
+          sequences = next;
+        }
+
+        flush();
+        return Array.from(tokens);
+      }
+      case 'disjunction': {
+        const alternatives = Array.isArray(node.body) ? node.body : [];
+        const tokens = [];
+        for (const alternative of alternatives) {
+          const alternativeTokens = this.regjsRequiredLiteralSequences(alternative);
+          if (!alternativeTokens || alternativeTokens.length === 0) return null;
+          tokens.push(...alternativeTokens);
+        }
+        return tokens;
+      }
+      case 'group':
+        return this.regjsRequiredLiteralSequences({ type: 'alternative', body: node.body || [] });
+      case 'quantifier':
+        return this.regjsQuantifierMinimum(node) < 1
+          ? []
+          : this.regjsRequiredLiteralSequences({ type: 'alternative', body: node.body || [] });
+      case 'anchor':
+        return [];
+      case 'value': {
+        const literal = this.regjsNodeLiteralChar(node);
+        return literal === null ? null : [literal];
+      }
+      default:
+        return null;
+    }
+  }
+
+  extractURLPatternTokensWithRegjs(regexSource) {
+    const source = String(regexSource || '');
+    if (!source || source === '.*') return [];
+
+    const ast = this.parseRegjsSource(source);
+    const tokens = this.regjsRequiredLiteralSequences(ast);
+    if (!Array.isArray(tokens)) return [];
+
+    return Array.from(new Set(tokens))
+      .filter(Boolean)
+      .sort((left, right) => {
+        if (left.length !== right.length) return right.length - left.length;
+        return left < right ? -1 : left > right ? 1 : 0;
+      });
   }
 
   createURLPatternTokens(regexSource, extractToken) {
@@ -3179,6 +3539,10 @@ this.info(
       
       // Use bundled+remote style merge logic for official + custom sources
       const mergedProviders = this.mergeOfficialWithCustomRules(officialRules, customRules);
+      const repairedURLPatternCount = this.repairProviderURLPatternsWithRegjs(mergedProviders);
+      if (repairedURLPatternCount > 0) {
+        this.info(`🧩 Repaired ${repairedURLPatternCount} URL pattern literal dot(s)`);
+      }
       
       const mergedRules = {
         ...officialRules,

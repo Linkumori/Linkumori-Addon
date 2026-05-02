@@ -129,13 +129,8 @@ function getLinkumoriURLPatternAnalyzerTokens(regexSource) {
                     .filter(token => typeof token === 'string' && token)
                     .map(token => token.toLowerCase());
             }
-        } catch (e) {
-            // Fall through to the single-token parser path below.
-        }
+        } catch (e) {}
     }
-
-    const analyzerToken = getLinkumoriURLPatternAnalyzerToken(regexSource);
-    if (analyzerToken) return [analyzerToken];
     return [];
 }
 
@@ -145,7 +140,7 @@ function getSerializedLinkumoriURLPatternTokens(providerName, urlPatternSource) 
         storage.ClearURLsData.metadata &&
         storage.ClearURLsData.metadata.urlPatternSelfie;
     const entries = selfie && selfie.entries;
-    if (!entries || typeof entries !== 'object') return '';
+    if (!entries || typeof entries !== 'object') return [];
 
     const entry = entries[providerName];
     if (!entry || typeof entry !== 'object') return [];
@@ -2118,10 +2113,6 @@ function start() {
 
         this.getProviderIndex = function () {
             return providerIndex;
-        };
-
-        this.getURLPatternAnalyzerToken = function () {
-            return urlPatternAnalyzerTokens[0] || '';
         };
 
         this.getURLPatternAnalyzerTokens = function () {
