@@ -10,6 +10,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v39.0] - 2026-05-02 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v38.0...linkumori-v39.0))
+### Changed
+- Add more correctes in speed and remove duplicate index tokens (`2026-05-01`, hash: [`9f394df`](https://github.com/Linkumori/Linkumori-Addon/commit/9f394df))
+- Downloaded latest public suffix list from upstream (`2026-05-01`, hash: [`9f394df`](https://github.com/Linkumori/Linkumori-Addon/commit/9f394df))
+
+### Performance
+- **clearurls**: Index URL patterns with serialized token bitmaps (`2026-05-01`, hash: [`c98330d`](https://github.com/Linkumori/Linkumori-Addon/commit/c98330d))
+- **clearurls**: Serialize domain pattern tokens for indexed matching (`2026-05-01`, hash: [`9aa1398`](https://github.com/Linkumori/Linkumori-Addon/commit/9aa1398))
+
+### Removed
+- Remove duplicated token logic instead index only used tokens (`2026-05-02`, hash: [`e2f83cf`](https://github.com/Linkumori/Linkumori-Addon/commit/e2f83cf))
+
 ## [v38.0] - 2026-05-01 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v37.0...linkumori-v38.0))
 ### Added
 - Introduce LZ4 compression for rules bundle and Aho-Corasick URL pattern index (`2026-05-01`, hash: [`4c0255f`](https://github.com/Linkumori/Linkumori-Addon/commit/4c0255f))
