@@ -109,48 +109,25 @@
             .toLowerCase();
         if (!cleaned) return '';
 
-        // RFC 3986 §3.1: scheme = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
-        // Regex literals extracted from regex AST may begin with "://" when the
-        // scheme letters were consumed by a sibling node (e.g. "https?" → "http"
-        // consumed, leaving "://host"). Prepend a dummy ALPHA so the RFC 3986
-        // Appendix B parser can recognise the authority component.
-        const toParse = /^:\/\//.test(cleaned) ? 'x' + cleaned : cleaned;
+        // Normalise to an absolute URL the WHATWG URL constructor can parse.
+        // Regex AST literals arrive in three incomplete forms:
+        //   "://host/path"  — scheme letters consumed by sibling AST node (e.g. "https?")
+        //   "//host/path"   — protocol-relative
+        //   "host/path"     — no scheme at all
+        let toParse;
+        if (/^:\/\//.test(cleaned))                       toParse = 'x' + cleaned;
+        else if (/^\/\//.test(cleaned))                   toParse = 'x:' + cleaned;
+        else if (!/^[a-z][a-z0-9+.-]*:\/\//i.test(cleaned)) toParse = 'x://' + cleaned;
+        else                                              toParse = cleaned;
 
-        // RFC 3986 Appendix B — canonical URI-reference parser
-        const m = toParse.match(/^(?:([^:/?#]+):)?(?:\/\/([^/?#]*))?([^?#]*)(?:\?([^#]*))?(?:#(.*))?$/);
-        if (!m) return '';
+        let url;
+        try { url = new URL(toParse); } catch { return ''; }
 
-        const authority = m[2]; // RFC 3986 §3.2
-        const path      = m[3]; // RFC 3986 §3.3
-
-        let host;
-        if (authority !== undefined) {
-            // RFC 3986 §3.2.1 — strip userinfo
-            const afterUserinfo = authority.replace(/^[^@]+@/, '');
-            // RFC 3986 §3.2.3 — strip port
-            host = afterUserinfo.replace(/:\d*$/, '');
-        } else {
-            // No authority component — treat leading path segment as potential host
-            host = (path || '').split(/[/?#]/)[0];
-        }
-
+        const host = url.hostname;
         if (!host || host === 'localhost') return '';
-
-        // Reject raw IPv4 literals — not useful as substring tokens
-        if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(host)) return '';
-
-        if (host.includes('.')) {
-            const labels = host.split('.');
-            const hostLabelPattern = /^[a-z0-9](?:[-_]*[a-z0-9])*$/;
-            const tldPattern = /^(?:[a-z]{2,}|xn--[a-z0-9-]{2,})$/;
-            if (
-                labels.some(label => !hostLabelPattern.test(label)) ||
-                !tldPattern.test(labels[labels.length - 1])
-            ) {
-                return '';
-            }
-        }
-
+        // Reject raw IPv4 literals and bare numeric segments (AST splits 192\.168\.1\.1
+        // into separate nodes, each arriving as a single-label numeric hostname)
+        if (/^\d+$/.test(host) || /^\d{1,3}(?:\.\d{1,3}){3}$/.test(host)) return '';
         return host;
     }
 
@@ -163,6 +140,11 @@
         ) {
             return [normalized];
         }
+
+        // Suppress numeric-only values: IPv4 literals and bare octets (the AST splits
+        // 192\.168\.1\.1 into separate String nodes, each arriving all-numeric).
+        const stripped = String(value || '').replace(/[^a-z0-9.]+/gi, '').toLowerCase();
+        if (/^[\d.]+$/.test(stripped)) return [];
 
         return splitTokens(value)
             .filter(token => token.length >= MIN_URL_PATTERN_TOKEN_LENGTH);
