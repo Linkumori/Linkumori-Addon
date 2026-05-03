@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v41.0] - 2026-05-03 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v40.0...linkumori-v41.0))
+### Changed
+- Release v41.0 (hash: `172d264`).
+- Updated files:
+  - `manifest.json`
+
 ## [v40.0] - 2026-05-02 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v39.0...linkumori-v40.0))
 ### Fixed
 - Chain all matching providers for cumulative parameter stripping (`2026-05-02`, hash: [`8eea825`](https://github.com/Linkumori/Linkumori-Addon/commit/8eea825))
