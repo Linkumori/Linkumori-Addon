@@ -2203,9 +2203,6 @@ function mergeCustomRules(bundledRules) {
             };
 
             if (!customRules || activeCustomProviderCount === 0) {
-                if (!filteredBundledRules.metadata?.urlPatternSelfie) {
-                    injectTokenSelfiesIntoData(filteredBundledRules);
-                }
                 storage.ClearURLsData = filteredBundledRules;
                 storage.mergeStats = {
                     source: bundledRules?.metadata?.source || 'bundled',
@@ -2375,7 +2372,6 @@ function mergeCustomRules(bundledRules) {
                 if (bundledRules.metadata) {
                     mergedRules.metadata = { ...bundledRules.metadata };
                 }
-                injectTokenSelfiesIntoData(mergedRules);
 
                 // Compute stats
                 const bundledProviderNames = baseEntries.map(entry => entry.name);
@@ -2413,9 +2409,10 @@ function mergeCustomRules(bundledRules) {
                 }
             }
             
+            injectTokenSelfiesIntoData(storage.ClearURLsData);
             saveOnDisk(['ClearURLsData', 'dataHash', 'hashStatus', 'mergeStats']);
             resolve(storage.ClearURLsData);
-            
+
         } catch (error) {
             storage.ClearURLsData = bundledRules;
             storage.dataHash = "bundled-fallback-" + Date.now();

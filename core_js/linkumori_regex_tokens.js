@@ -104,27 +104,40 @@
     }
 
     function normalizeURLRegexLiteralToken(input) {
-        let normalized = String(input || '')
-            .replace(/[^a-z0-9._/%:-]+/gi, '')
-            .replace(/^\.+|\.+$/g, '')
+        const cleaned = String(input || '')
+            .replace(/[^a-z0-9._/%:@!$&'()*+,;=?#[\]~-]+/gi, '')
             .toLowerCase();
-        if (!normalized) return '';
+        if (!cleaned) return '';
 
-        normalized = normalized
-            .replace(/^(?:[a-z]+:)?\/\//, '')
-            .replace(/^[^/?#@]+@/, '');
+        // RFC 3986 §3.1: scheme = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
+        // Regex literals extracted from regex AST may begin with "://" when the
+        // scheme letters were consumed by a sibling node (e.g. "https?" → "http"
+        // consumed, leaving "://host"). Prepend a dummy ALPHA so the RFC 3986
+        // Appendix B parser can recognise the authority component.
+        const toParse = /^:\/\//.test(cleaned) ? 'x' + cleaned : cleaned;
 
-        const hostPortPath = normalized.match(/^([^/?#]+)([/?#].*)?$/);
-        if (!hostPortPath) return normalized;
+        // RFC 3986 Appendix B — canonical URI-reference parser
+        const m = toParse.match(/^(?:([^:/?#]+):)?(?:\/\/([^/?#]*))?([^?#]*)(?:\?([^#]*))?(?:#(.*))?$/);
+        if (!m) return '';
 
-        const hostPort = hostPortPath[1];
-        const path = hostPortPath[2] || '';
-        const portMatch = hostPort.match(/^(.+):(\d{2,5})$/);
-        const host = portMatch ? portMatch[1] : hostPort;
-        if (!host || host === 'localhost') return normalized;
+        const authority = m[2]; // RFC 3986 §3.2
+        const path      = m[3]; // RFC 3986 §3.3
 
-        const ipv4 = host.match(/^\d{1,3}(?:\.\d{1,3}){3}$/);
-        if (ipv4) return normalized;
+        let host;
+        if (authority !== undefined) {
+            // RFC 3986 §3.2.1 — strip userinfo
+            const afterUserinfo = authority.replace(/^[^@]+@/, '');
+            // RFC 3986 §3.2.3 — strip port
+            host = afterUserinfo.replace(/:\d*$/, '');
+        } else {
+            // No authority component — treat leading path segment as potential host
+            host = (path || '').split(/[/?#]/)[0];
+        }
+
+        if (!host || host === 'localhost') return '';
+
+        // Reject raw IPv4 literals — not useful as substring tokens
+        if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(host)) return '';
 
         if (host.includes('.')) {
             const labels = host.split('.');
@@ -138,7 +151,7 @@
             }
         }
 
-        return host + path;
+        return host;
     }
 
     function tokensFromURLRegexLiteral(value) {
