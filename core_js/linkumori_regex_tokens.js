@@ -123,7 +123,9 @@
         let url;
         try { url = new URL(toParse); } catch { return ''; }
 
-        const host = url.hostname;
+        // WHATWG URL keeps trailing dots on non-special scheme hosts (e.g. "shopee."
+        // from the AST literal of "shopee\.(com|...)") — strip them.
+        const host = url.hostname.replace(/\.+$/, '');
         if (!host || host === 'localhost') return '';
         // Reject raw IPv4 literals and bare numeric segments (AST splits 192\.168\.1\.1
         // into separate nodes, each arriving as a single-label numeric hostname)
