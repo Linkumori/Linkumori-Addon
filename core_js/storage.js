@@ -1945,6 +1945,134 @@ function getEnhancedFallbackRules() {
     };
 }
 
+function parseFilterRegexLiteralSourceForSelfie(value) {
+    const text = String(value || '').trim();
+    if (!text.startsWith('/')) return null;
+    let escaped = false;
+    for (let i = 1; i < text.length; i++) {
+        const ch = text.charAt(i);
+        if (escaped) { escaped = false; continue; }
+        if (ch === '\\') { escaped = true; continue; }
+        if (ch === '/') return text.slice(1, i);
+    }
+    return null;
+}
+
+function createURLPatternTokensForSelfie(regexSource) {
+    const rt = globalThis.LinkumoriRegexTokens;
+    if (rt && typeof rt.extractURLPatternTokensFromRegex === 'function') {
+        try {
+            const tokens = rt.extractURLPatternTokensFromRegex(regexSource);
+            if (Array.isArray(tokens) && tokens.length > 0) return tokens;
+        } catch (e) {}
+    }
+    if (rt && typeof rt.extractBestTokenFromRegex === 'function') {
+        try {
+            const single = String(rt.extractBestTokenFromRegex(regexSource) || '').toLowerCase();
+            if (single) return [single];
+        } catch (e) {}
+    }
+    return [];
+}
+
+function createDomainPatternTokenForSelfie(domainPattern) {
+    const pattern = String(domainPattern || '').trim().toLowerCase();
+    if (!pattern) return '';
+    const regexSource = parseFilterRegexLiteralSourceForSelfie(pattern);
+    if (regexSource) {
+        const rt = globalThis.LinkumoriRegexTokens;
+        if (rt && typeof rt.extractBestTokenFromRegex === 'function') {
+            try {
+                return String(rt.extractBestTokenFromRegex(regexSource) || '').toLowerCase();
+            } catch (e) {}
+        }
+        return '';
+    }
+    let raw = pattern;
+    if (raw.startsWith('||')) raw = raw.slice(2);
+    else if (raw.startsWith('|')) raw = raw.slice(1);
+    if (raw.endsWith('|')) raw = raw.slice(0, -1);
+    const candidates = raw
+        .split(/[\*\^|/]+/)
+        .map(part => part.replace(/\\([\\^$.*+?()[\]{}|/])/g, '$1'))
+        .map(part => part.replace(/[^a-z0-9._%-]+/g, ''))
+        .map(part => part.replace(/^\.+|\.+$/g, ''))
+        .filter(part => part.length >= 3);
+    if (candidates.length === 0) return '';
+    candidates.sort((left, right) => {
+        const dotDelta = Number(right.includes('.')) - Number(left.includes('.'));
+        if (dotDelta !== 0) return dotDelta;
+        return right.length - left.length;
+    });
+    return candidates[0].toLowerCase();
+}
+
+function generateURLPatternSelfie(rulesData) {
+    const providers = rulesData?.providers && typeof rulesData.providers === 'object' ? rulesData.providers : {};
+    const entries = {};
+    let tokenizedProviderCount = 0;
+    for (const [providerName, provider] of Object.entries(providers)) {
+        if (!provider || typeof provider.urlPattern !== 'string' || !provider.urlPattern.trim()) continue;
+        let tokens = [];
+        try {
+            tokens = createURLPatternTokensForSelfie(new RegExp(provider.urlPattern, 'i').source);
+        } catch (e) {
+            tokens = [];
+        }
+        if (tokens.length > 0) tokenizedProviderCount++;
+        entries[providerName] = { urlPattern: provider.urlPattern, tokens };
+    }
+    return {
+        format: 'linkumori-url-pattern-selfie',
+        version: 1,
+        generatedAt: new Date().toISOString(),
+        rulesVersion: rulesData?.metadata?.version || null,
+        providerCount: Object.keys(entries).length,
+        tokenizedProviderCount,
+        entries
+    };
+}
+
+function generateDomainPatternSelfie(rulesData) {
+    const providers = rulesData?.providers && typeof rulesData.providers === 'object' ? rulesData.providers : {};
+    const entries = {};
+    let tokenizedPatternCount = 0;
+    let tokenizedProviderCount = 0;
+    for (const [providerName, provider] of Object.entries(providers)) {
+        const domainPatterns = Array.isArray(provider?.domainPatterns)
+            ? provider.domainPatterns.filter(pattern => typeof pattern === 'string' && pattern.trim())
+            : [];
+        if (domainPatterns.length === 0) continue;
+        const tokens = domainPatterns.map(domainPattern => {
+            const token = createDomainPatternTokenForSelfie(domainPattern);
+            if (token) tokenizedPatternCount++;
+            return { domainPattern, token };
+        });
+        if (tokens.some(item => item.token)) tokenizedProviderCount++;
+        entries[providerName] = { domainPatterns, tokens };
+    }
+    return {
+        format: 'linkumori-domain-pattern-selfie',
+        version: 1,
+        generatedAt: new Date().toISOString(),
+        rulesVersion: rulesData?.metadata?.version || null,
+        providerCount: Object.keys(entries).length,
+        tokenizedProviderCount,
+        patternCount: Object.values(entries).reduce((total, entry) => total + entry.domainPatterns.length, 0),
+        tokenizedPatternCount,
+        entries
+    };
+}
+
+function injectTokenSelfiesIntoData(data) {
+    if (!data || typeof data !== 'object') return data;
+    const metadata = data.metadata && typeof data.metadata === 'object' ? data.metadata : {};
+    metadata.urlPatternSelfie = generateURLPatternSelfie(data);
+    metadata.domainPatternSelfie = generateDomainPatternSelfie(data);
+    data.metadata = metadata;
+    return data;
+}
+
 function loadCustomOnlyRules() {
     return new Promise(async (resolve) => {
         try {
@@ -1976,10 +2104,10 @@ function loadCustomOnlyRules() {
                 providerCount
             };
 
-            storage.ClearURLsData = {
+            storage.ClearURLsData = injectTokenSelfiesIntoData({
                 metadata: storage.rulesMetadata,
                 providers: filteredCustom.providers
-            };
+            });
 
             storage.mergeStats = {
                 bundledProviders: 0,
@@ -2075,6 +2203,9 @@ function mergeCustomRules(bundledRules) {
             };
 
             if (!customRules || activeCustomProviderCount === 0) {
+                if (!filteredBundledRules.metadata?.urlPatternSelfie) {
+                    injectTokenSelfiesIntoData(filteredBundledRules);
+                }
                 storage.ClearURLsData = filteredBundledRules;
                 storage.mergeStats = {
                     source: bundledRules?.metadata?.source || 'bundled',
@@ -2242,9 +2373,10 @@ function mergeCustomRules(bundledRules) {
                 };
                 
                 if (bundledRules.metadata) {
-                    mergedRules.metadata = bundledRules.metadata;
+                    mergedRules.metadata = { ...bundledRules.metadata };
                 }
-                
+                injectTokenSelfiesIntoData(mergedRules);
+
                 // Compute stats
                 const bundledProviderNames = baseEntries.map(entry => entry.name);
                 const customProviderNames = customEntries.map(entry => entry.name);
