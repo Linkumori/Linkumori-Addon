@@ -130,6 +130,16 @@
         // Reject raw IPv4 literals and bare numeric segments (AST splits 192\.168\.1\.1
         // into separate nodes, each arriving as a single-label numeric hostname)
         if (/^\d+$/.test(host) || /^\d{1,3}(?:\.\d{1,3}){3}$/.test(host)) return '';
+
+        // Use PSL to resolve to the registered domain (eTLD+1) when available.
+        // e.g. "seller.shopee.com" → "shopee.com", "services.addons.mozilla.org" → "mozilla.org"
+        // Falls back to the raw host when PSL is not loaded or returns nothing (e.g. bare "shopee").
+        const psl = globalThis.publicSuffixList;
+        if (psl && typeof psl.getDomain === 'function') {
+            const registered = psl.getDomain(host);
+            if (registered) return registered;
+        }
+
         return host;
     }
 
