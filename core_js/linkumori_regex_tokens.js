@@ -239,17 +239,24 @@
                 });
                 return sortTokens(tokens);
             }
-            case 2: { // Alternation
+            case 2: { // Alternation — only tokens present in ALL branches are required
                 const alternatives = Array.isArray(node.val) ? node.val : [];
                 if (alternatives.length === 0) return [];
 
-                const tokens = [];
+                let intersection = null;
                 for (let i = 0; i < alternatives.length; i++) {
-                    const alternativeTokens = requiredURLPatternTokensFromNode(alternatives[i]);
-                    if (alternativeTokens.length === 0) return [];
-                    tokens.push(...alternativeTokens);
+                    const branchTokens = requiredURLPatternTokensFromNode(alternatives[i]);
+                    if (branchTokens.length === 0) return [];
+                    if (intersection === null) {
+                        intersection = new Set(branchTokens);
+                    } else {
+                        for (const token of intersection) {
+                            if (!branchTokens.includes(token)) intersection.delete(token);
+                        }
+                        if (intersection.size === 0) return [];
+                    }
                 }
-                return sortTokens(tokens);
+                return sortTokens(Array.from(intersection || []));
             }
             case 4: { // Group
                 const flags = node.flags || {};
