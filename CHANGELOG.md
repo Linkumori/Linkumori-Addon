@@ -12,6 +12,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Legacy changelog entries below are preserved from the original ClearURLs project -->
 
+## [Unreleased]
+### Changed
+- No unreleased commit entries.
+
+## [v56.0] - 2026-05-06
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-05-06`, hash: [`48e5aad`](https://github.com/Linkumori/Linkumori-Addon/commit/48e5aad))
+- Downloaded latest public suffix list from upstream (`2026-05-07`, hash: [`192873b`](https://github.com/Linkumori/Linkumori-Addon/commit/192873b))
+- Downloaded latest rules for ClearURLs (`2026-05-06`, hash: [`48e5aad`](https://github.com/Linkumori/Linkumori-Addon/commit/48e5aad))
+- Linkumori release (`2026-05-07`, hash: [`192873b`](https://github.com/Linkumori/Linkumori-Addon/commit/192873b))
+- Update manifest.json (`2026-05-07`, hash: [`7987ad1`](https://github.com/Linkumori/Linkumori-Addon/commit/7987ad1))
+
 ## [1.XX.0] - 2022-XX-XX
 
 ### Compatibility note
