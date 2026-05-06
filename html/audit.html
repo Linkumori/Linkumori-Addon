@@ -1,0 +1,390 @@
+<!--
+  ============================================================
+  Linkumori — audit.html
+  ============================================================
+  Copyright (c) 2025–2026 Subham Mahesh
+
+  This program is free software: you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation, either
+  version 3 of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this program. If not, see
+  <http://www.gnu.org/licenses/>.
+
+  ============================================================
+  SVG ICON ATTRIBUTIONS
+  ============================================================
+
+  EMBEDDED ICONS — Google Material Icons (Modified)
+  --------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+  Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+
+  - FAQ/Help Icon  — derivative of svg/material_icon/help_faq.svg
+                     Modified by Subham Mahesh, 2026-03-04
+                     Original:  width=24, height=24, fill=#e3e3e3,
+                                viewBox="0 -960 960 960", path unchanged
+                     Embedded:  width=16, height=16 (via CSS),
+                                fill=currentColor, viewBox unchanged,
+                                path unchanged
+
+  - Close Icon     — derivative of svg/material_icon/close_24dp_E3E3E3.svg
+                     Modified by Subham Mahesh, 2026-03-04
+                     Original:  width=24, height=24, fill=#e3e3e3,
+                                viewBox="0 0 24 24", X design in 24×24
+                     Embedded:  width=16, height=16 (via CSS),
+                                fill=currentColor,
+                                viewBox="0 -960 960 960",
+                                path redrawn in 960×960 coordinate space
+
+  EXTERNAL FILE REFERENCES — Google Material Icons (Unmodified)
+  -------------------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+  Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+
+  - Sun Icon  — ../LinkumorI_HTML_SVG/sun.svg
+                 Unmodified local Material icon SVG used for the theme toggle
+  - Moon Icon — ../LinkumorI_HTML_SVG/moon.svg
+                 Unmodified local Material icon SVG used for the theme toggle
+
+  ============================================================
+  MODIFICATION HISTORY
+  ============================================================
+  2025-06-14   Subham Mahesh   File created
+  2026-03-04   Subham Mahesh   Embedded Google Material Icons added
+  2026-04-19   Subham Mahesh   Updated theme-toggle icon attribution
+
+  Note: Due to inline constraints, subsequent modifications may
+  not appear here. To view the full history, run:
+
+    node linkumori-cli-tool.js
+
+  Select "Generate Commit History" to produce a Markdown file
+  listing all modifications by file, author, and date.
+
+  IMPORTANT NOTES
+  ---------------
+  - git clone is required before running "Generate Commit History";
+    otherwise commit history generation will not work.
+  - Older modifications may not appear in the generated
+    COMMIT_HISTORY.md.
+  - If a file's inline notice is limited, check for a separate
+    file-specific notice and COMMIT_HISTORY.md; if neither exists,
+    treat the inline notice as the final modification record.
+  - If a separate file-specific notice is provided, check the
+    file's inline notice and COMMIT_HISTORY.md; if neither exists,
+    treat the separate notice as the final modification record.
+  - Review individual modified source files for earlier notices.
+  - Some files may not contain notices within the file itself or
+    may not be listed in COMMIT_HISTORY.md; a separate notice
+    file may be provided instead.
+  - Not all source files have been modified, but review notices
+    in all source files and any separate notice files (.md or .txt).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n="audit_html_page_title"></title>
+    <script src="../external_js/theme_bootstrap.js"></script>
+    <script src="../external_js/theme_favicon.js"></script>
+    <link rel="stylesheet" href="../css/settings.css">
+    <style>
+        .audit-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .audit-card-header .toggle-title {
+            margin-bottom: 4px;
+        }
+
+        .audit-meta {
+            color: var(--text-muted);
+            font-size: 12px;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .audit-json {
+            min-height: 60vh;
+            max-height: 70vh;
+            overflow: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            line-height: 1.5;
+        }
+
+        .audit-json.is-error {
+            color: var(--button-danger);
+        }
+
+        .audit-toolbar {
+            margin-top: 0;
+        }
+
+        .audit-toolbar .btn {
+            align-self: center;
+        }
+
+        .audit-view-controls {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .audit-view-btn.active {
+            background: var(--button-primary);
+            color: #ffffff;
+        }
+
+        .faq-item {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 12px 14px;
+            color: var(--text-primary);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item[open] summary {
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-answer {
+            padding: 12px 14px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .faq-answer p {
+            margin: 0 0 10px;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-code {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            color: var(--text-primary);
+        }
+
+        .audit-faq-button svg,
+        .audit-modal-close svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .audit-modal {
+            display: none;
+        }
+
+        .audit-modal .modal-container {
+            border-color: var(--button-primary);
+            max-width: 920px;
+        }
+
+        .audit-modal .modal-header {
+            background: var(--button-primary);
+            justify-content: space-between;
+        }
+
+        .audit-modal-close {
+            min-height: 32px;
+            padding: 8px 10px;
+        }
+
+        .audit-modal .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 980px) {
+            .audit-card-header {
+                flex-direction: column;
+            }
+
+            .audit-meta {
+                text-align: left;
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
+                <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
+                    fill="none"
+                    stroke="var(--logo-accent)"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+                <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35"
+                    fill="none"
+                    stroke="var(--logo-accent)"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+                <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28"
+                    fill="var(--logo-accent)"/>
+            </svg>
+            <div class="header-text">
+                <h1 id="auditPageTitle"></h1>
+                <span class="version-badge" id="auditBadgeLabel"></span>
+            </div>
+        </div>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="">
+            <img id="auditSunIcon" src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon">
+            <img id="auditMoonIcon" src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon">
+        </button>
+    </div>
+
+    <div class="container">
+        <div id="statusMessage" class="status-message"></div>
+
+        <h2 class="section-header" id="auditSectionTitle"></h2>
+        <div class="card">
+            <div class="toggle-title" id="auditViewerTitle"></div>
+            <div class="field-description" id="auditViewerDescription"></div>
+            <div class="button-group audit-toolbar">
+                <button id="refreshButton" class="btn btn-primary" type="button"></button>
+                <button id="openFaqButton" class="btn btn-secondary audit-faq-button" type="button" aria-haspopup="dialog" aria-controls="faqModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true">
+                        <path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+                    </svg>
+                    <span id="openFaqButtonText"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="audit-card-header">
+                <div>
+                    <div class="toggle-title" id="viewerTitle"></div>
+                    <div class="field-description" id="viewerSource"></div>
+                    <div class="audit-view-controls">
+                        <button class="btn btn-secondary audit-view-btn active" id="sourceButtonBundled" type="button" data-source="bundled"></button>
+                        <button class="btn btn-secondary audit-view-btn" id="sourceButtonFinal" type="button" data-source="final"></button>
+                        <button class="btn btn-secondary audit-view-btn" id="sourceButtonCustom" type="button" data-source="custom"></button>
+                        <button class="btn btn-secondary audit-view-btn" id="sourceButtonRemote" type="button" data-source="remote"></button>
+                    </div>
+                </div>
+                <div id="viewerMeta" class="audit-meta"></div>
+            </div>
+            <pre id="viewerJson" class="form-input audit-json">{}</pre>
+        </div>
+
+        <div id="faqModal" class="modal-overlay audit-modal" role="dialog" aria-modal="true" aria-labelledby="faqModalTitle" style="display: none;">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <div class="header-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="logo" aria-hidden="true">
+                            <path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+                        </svg>
+                        <h2 id="faqModalTitle" class="modal-title"></h2>
+                    </div>
+                    <button id="closeFaqButton" class="btn btn-secondary audit-modal-close" type="button" aria-label="">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true">
+                            <path d="m251.33-200-51.33-51.33L428.67-480 200-708.67 251.33-760 480-531.33 708.67-760 760-708.67 531.33-480 760-251.33 708.67-200 480-428.67 251.33-200Z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <p class="field-description" id="faqIntro"></p>
+            <details class="faq-item" open>
+                <summary id="faqAuditProviderTitle"></summary>
+                <div class="faq-answer" id="faqAuditProviderBody"></div>
+            </details>
+
+            <details class="faq-item">
+                <summary id="faqOverrideTitle"></summary>
+                <div class="faq-answer" id="faqOverrideBody"></div>
+            </details>
+
+            <details class="faq-item">
+                <summary id="faqUrlPatternTitle"></summary>
+                <div class="faq-answer" id="faqUrlPatternBody"></div>
+            </details>
+
+            <details class="faq-item">
+                <summary id="faqDomainPatternsTitle"></summary>
+                <div class="faq-answer" id="faqDomainPatternsBody"></div>
+            </details>
+
+            <details class="faq-item">
+                <summary id="faqRulesTitle"></summary>
+                <div class="faq-answer" id="faqRulesBody"></div>
+            </details>
+
+            <details class="faq-item">
+                <summary id="faqExceptionsTitle"></summary>
+                <div class="faq-answer" id="faqExceptionsBody"></div>
+            </details>
+
+            <details class="faq-item">
+                <summary id="faqRedirectionsTitle"></summary>
+                <div class="faq-answer" id="faqRedirectionsBody"></div>
+            </details>
+
+            <details class="faq-item">
+                <summary id="faqMethodsResourcesTitle"></summary>
+                <div class="faq-answer" id="faqMethodsResourcesBody"></div>
+            </details>
+
+            <details class="faq-item">
+                <summary id="faqCompleteForceTitle"></summary>
+                <div class="faq-answer" id="faqCompleteForceBody"></div>
+            </details>
+
+            <details class="faq-item">
+                <summary id="faqFieldsTitle"></summary>
+                <div class="faq-answer" id="faqFieldsBody"></div>
+            </details>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../external_js/linkumori-i18n.js"></script>
+    <script src="../external_js/linkumori_lz4_block.js"></script>
+    <script src="../core_js/audit.js"></script>
+</body>
+</html>

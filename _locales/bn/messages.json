@@ -1,0 +1,4464 @@
+{
+  "aboutPageTitle": {
+    "message": "Linkumori - সম্পর্কে",
+    "description": "Title for the about/legal page"
+  },
+  "active_bundled_providers_label": {
+    "message": "সক্রিয় বান্ডেল প্রদানকারী:",
+    "description": "Label for active bundled providers count."
+  },
+  "active_remote_providers_label": {
+    "message": "অ্যাক্টিভ রিমোট প্রোভাইডার:",
+    "description": "Label for active remote providers count."
+  },
+  "addDomainToWhitelist": {
+    "message": "হোয়াইটলিস্টে $1 যোগ করুন",
+    "description": "Button label to add a domain to the whitelist. $1 is replaced with the domain."
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "হোয়াইটলিস্টে বর্তমান ডোমেন যুক্ত করুন",
+    "description": "Button label to add the current domain to the whitelist."
+  },
+  "appearance_settings_title": {
+    "message": "চেহারা সেটিংস",
+    "description": "Title for the appearance settings section"
+  },
+  "badge_color_description": {
+    "message": "এক্সটেনশন ব্যাজের জন্য রঙ নির্বাচন করুন যা প্রতিটি পৃষ্ঠায় পরিষ্কার করা প্যারামিটারের সংখ্যা দেখায় ।",
+    "description": "Description text explaining what the badge color setting does"
+  },
+  "badge_color_label": {
+    "message": "ব্যাজ কালার",
+    "description": "Label for the badge color picker"
+  },
+  "badge_preview_label": {
+    "message": "পূর্বরুপ",
+    "description": "Label for the badge preview section"
+  },
+  "blocked_html_body": {
+    "message": "এই সাইটটি <b>Linkumori (ক্লিন ইউআরএল) </b> অ্যাড-অন দ্বারা অবরুদ্ধ করা হয়েছিল, কারণ আমরা এই সাইটটিকে একটি বিজ্ঞাপন এবং/অথবা ট্র্যাকিং পরিষেবা হিসাবে চিহ্নিত করি । এই সাইটটি দেখার জন্য, আপনাকে অবশ্যই সাময়িকভাবে লিঙ্কুমোরি (ক্লিন ইউআরএল) সেটিংসে অ্যাড-অন বা ডোমেন ব্লকিং নিষ্ক্রিয় করতে হবে । এর পরে আপনি পৃষ্ঠাটি লোড করতে নিচের বোতামে ক্লিক করতে পারেন ।",
+    "description": "This string is used as body on the blocked site page."
+  },
+  "blocked_html_button": {
+    "message": "ভিজিট পৃষ্ঠা",
+    "description": "This string is used as button on the blocked site page."
+  },
+  "blocked_html_title": {
+    "message": "এই সাইটটি <b>Linkumori (ক্লিন URL) </b> দ্বারা অবরুদ্ধ করা হয়েছিল",
+    "description": "This string is used as title on the blocked site page."
+  },
+  "built_in_rules_enabled": {
+    "message": "অন্তর্নির্মিত নিয়ম সক্ষম করুন",
+    "description": "Label for the toggle that enables or disables bundled built-in rules"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "বান্ডিল করা Linkumori/ClearURLs নিয়মগুলি ব্যবহার করুন । শুধুমাত্র দূরবর্তী নিয়ম এবং/অথবা কাস্টম নিয়মের সাথে এটি চালানোর জন্য এটি অক্ষম করুন ।",
+    "description": "Description for the toggle that controls bundled built-in rules"
+  },
+  "linkumori_interoperability_mode_enabled": {
+    "message": "Linkumori আন্তঃকার্যক্ষমতা মোড",
+    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
+  },
+  "linkumori_interoperability_mode_enabled_description": {
+    "message": "নেটিভ Linkumori/ClearURLs JSON নিয়মের পাশাপাশি সামঞ্জস্যপূর্ণ $removeparam তালিকাসহ Linkumori URL Filter আন্তঃকার্যক্ষমতা নিয়ম প্রয়োগ করুন।",
+    "description": "Description for the Linkumori interoperability mode toggle"
+  },
+  "bundled_rules_description": {
+    "message": "Linkumori দুটি নিয়ম বিভাগ ব্যবহার করে: Linkumori (ClearURLs 2.0) ClearURLs JSON নেটিভ প্রোভাইডারদের জন্য নিয়ম এবং Linkumori 98765000356789 Linkumori Linkumori $removeparam তালিকা। প্রতিটি বিভাগ পৃথকভাবে গণনা করা হয়।",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "নিয়মের তথ্য",
+    "description": "Title for the Rules Information section."
+  },
+  "button_cancel": {
+    "message": "বাতিল করুন"
+  },
+  "button_close": {
+    "message": "বন্ধ",
+    "description": "Close button text for FAQ modal"
+  },
+  "button_confirm": {
+    "message": "নিশ্চিত করুন",
+    "description": "Generic confirm button text for modal dialogs"
+  },
+  "modal_alert_title": {
+    "message": "বিজ্ঞপ্তি",
+    "description": "Default title for alert-style modal dialogs"
+  },
+  "modal_confirm_title": {
+    "message": "নিশ্চিত করুন",
+    "description": "Default title for confirm-style modal dialogs"
+  },
+  "modal_prompt_title": {
+    "message": "প্রয়োজনীয় ইনপুট:",
+    "description": "Default title for prompt-style modal dialogs"
+  },
+  "button_delete": {
+    "message": "মুছুন"
+  },
+  "button_exit": {
+    "message": "বের হয়ে যান",
+    "description": "Button text for exiting the editor"
+  },
+  "button_save": {
+    "message": "সংরক্ষণ করুন"
+  },
+  "cleanUrlsButton": {
+    "message": "পরিষ্কার ইউআরএল",
+    "description": "Text for the button that initiates URL cleaning."
+  },
+  "cleanUrlsToolHeader": {
+    "message": "Linkumori ক্লিন ইউআরএল টুল",
+    "description": "The main header of the URL cleaning tool."
+  },
+  "cleanUrlsToolTitle": {
+    "message": "Linkumori অ্যাডভান্সড URL ক্লিনিং টুল",
+    "description": "The title of the URL cleaning tool page."
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "পরিষ্কার করা ইউআরএলগুলি এখানে উপস্থিত হবে...",
+    "description": "Placeholder text for the cleaned URLs textarea."
+  },
+  "cleanedUrlsTitle": {
+    "message": "পরিষ্কারের ইউআরএল",
+    "description": "Title for the cleaned URLs section."
+  },
+  "clipboard_copy_link": {
+    "message": "লিঙ্কের অবস্থান পরিষ্কার করুন কপি করুন",
+    "description": "This string is used in the context menu to copy clean links."
+  },
+  "color_picker_cancel": {
+    "message": "বাতিল করুন",
+    "description": "Cancel button in color picker"
+  },
+  "color_picker_clear": {
+    "message": "সরিয়ে ফেলুন",
+    "description": "Clear button in color picker"
+  },
+  "color_picker_save": {
+    "message": "সংরক্ষণ করুন",
+    "description": "Save button in color picker"
+  },
+  "composition_breakdown_label": {
+    "message": "গঠন",
+    "description": "Label for bundled vs custom percentage breakdown."
+  },
+  "configs_switch_statistics": {
+    "message": "পরিসংখ্যান",
+    "description": "This string is used as name for the statistics switch button on the popup page."
+  },
+  "confirm_reset_settings": {
+    "message": "আপনি কি নিশ্চিত যে আপনি সমস্ত সেটিংস ডিফল্টে রিসেট করতে চান?",
+    "description": "Confirmation message before resetting settings."
+  },
+  "confirmation_error_template": {
+    "message": "বাক্যাংশটি মিলছে না । অনুগ্রহ করে ঠিক টাইপ করুন: \"%s\"",
+    "description": "Template for error message with placeholder for localized phrase"
+  },
+  "confirmation_error_text": {
+    "message": "বাক্যাংশটি মিলছে না । অনুগ্রহ করে ঠিক টাইপ করুন: \"আমি সম্পূর্ণ দায়িত্ব গ্রহণ করি\"",
+    "description": "Error message for incorrect confirmation phrase"
+  },
+  "confirmation_final_text": {
+    "message": "আমি এই সার্ভারগুলির মালিকানা/নিয়ন্ত্রণ নিশ্চিত করি এবং তাদের ব্যবহারের জন্য সমস্ত দায়িত্ব স্বীকার করি । এই ফিচারটি ওয়ারেন্টি ছাড়াই \"যেমন আছে\" প্রদান করা হয় । আমি আইনত এই চুক্তিতে সম্মতি দিতে সক্ষম ।",
+    "description": "Final warning text in confirmation modal"
+  },
+  "confirmation_input_label": {
+    "message": "এখানে বাক্যাংশটি টাইপ করুন:",
+    "description": "Label for confirmation input field"
+  },
+  "confirmation_modal_cancel": {
+    "message": "বাতিল করুন",
+    "description": "Cancel button text in confirmation modal"
+  },
+  "confirmation_modal_confirm": {
+    "message": "রিমোট ইউআরএলগুলি নিশ্চিত করুন এবং সক্ষম করুন",
+    "description": "Confirm button text in confirmation modal"
+  },
+  "confirmation_modal_text": {
+    "message": "এগিয়ে যেতে, অনুগ্রহ করে নিচের নিশ্চিতকরণ বাক্যাংশটি ঠিক যেমন দেখানো হয়েছে:",
+    "description": "Instruction text for confirmation modal"
+  },
+  "confirmation_modal_title": {
+    "message": "আপনার বোধগম্যতা নিশ্চিত করুন",
+    "description": "Title for confirmation modal"
+  },
+  "context_menu_enabled": {
+    "message": "প্রসঙ্গ মেনু এন্ট্রি প্রদর্শন করুন",
+    "description": "This string is used toggle the context menu entry to copy clean links."
+  },
+  "context_menu_enabled_description": {
+    "message": "ডান-ক্লিক মেনুতে Linkumori বিকল্প যোগ করুন ।",
+    "description": "Description for the context menu toggle."
+  },
+  "copyFailed": {
+    "message": "অনুলিপি করতে ব্যর্থ হয়েছে!",
+    "description": "Toast message when copy action fails"
+  },
+  "copyText": {
+    "message": "কপি করুন",
+    "description": "Button text for copy action"
+  },
+  "copyUrlsButton": {
+    "message": "ফলাফল কপি করুন",
+    "description": "Text for the button that copies cleaned URLs."
+  },
+  "copy_urls_empty": {
+    "message": "অনুলিপি করার জন্য কোনও ইউআরএল নেই ।",
+    "description": "Message when attempting to copy but the output URL area is empty."
+  },
+  "copy_urls_fail": {
+    "message": "ইউআরএল অনুলিপি করতে ব্যর্থ হয়েছে ।",
+    "description": "Error message when copying URLs to clipboard fails in the cleaning tool."
+  },
+  "copy_urls_success": {
+    "message": "ক্লিপবোর্ড-এ কপি করা হয়েছে",
+    "description": "Success message when URLs are copied to clipboard in the cleaning tool."
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "নতুন সরবরাহকারী যোগ করুন"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "সরবরাহকারী যোগ করুন"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "উন্নত JSON সম্পাদক"
+  },
+  "customRulesEditor_builtin": {
+    "message": "অন্তর্ভুক্ত"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "সম্পূর্ণ সরবরাহকারী (সম্পূর্ণ ডোমেন ব্লক করুন)"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "আপনি কি \"$1\" প্রদানকারীকে মুছে ফেলার বিষয়ে নিশ্চিত?"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "আপনি কি নিশ্চিত যে আপনি সমস্ত $1 প্রদানকারীদের মুছে ফেলতে চান?"
+  },
+  "customRulesEditor_copy": {
+    "message": "কপি করুন"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "আপনার প্রথম সরবরাহকারী তৈরি করুন"
+  },
+  "customRulesEditor_custom": {
+    "message": "কাস্টম:"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "কাস্টম সরবরাহকারী"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "&amp; সব মুছে ফেলো"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "সমস্ত প্রদানকারীকে মুছে ফেলতে ব্যর্থ হয়েছে"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "বর্তমান প্রদানকারীকে মুছুন"
+  },
+  "customRulesEditor_description": {
+    "message": "অন্তর্নির্মিত সরবরাহকারীদের আওতাভুক্ত নয় এমন ওয়েবসাইটগুলির জন্য কাস্টম URL পরিষ্কারের নিয়ম তৈরি করুন এবং পরিচালনা করুন ।"
+  },
+  "customRulesEditor_disabled": {
+    "message": "নিষ্ক্রিয়"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "ডোমেন ব্যতিক্রম"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "ডোমেন প্যাটার্ন"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "সহজ ডোমেন প্যাটার্ন (URL প্যাটার্নের সাথে ব্যবহার করা যাবে না) । ফর্ম্যাট: example.com, *.example.com, ||example.com^, ||*.example.com^ প্রতি লাইনে এক প্যাটার্ন ।",
+    "description": "Help text for domain patterns field"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "ডোমেন প্যাটার্ন"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||example.com^\n||*.subdomain.com^"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "কমপক্ষে একটি ডোমেন প্যাটার্ন প্রয়োজন"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "ডোমেন পুনঃনির্দেশ"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "ডুপ্লিকেট"
+  },
+  "customRulesEditor_editName": {
+    "message": "নাম সংশোধন করুন"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "সরবরাহকারী সম্পাদনা করুন"
+  },
+  "customRulesEditor_editing": {
+    "message": "সম্পাদনা: $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "ডোমেন প্যাটার্নগুলি খালি রাখা যাবে না"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "কার্যকর করতে ব্যর্থ হয়েছে"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "নিয়ম প্রয়োগ করুন"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "নিয়ম প্রয়োগ করা হয়েছে"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "অবিলম্বে সমস্ত নিয়ম প্রয়োগ করতে এক্সটেনশন পুনরায় লোড করুন"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "ব্যতিক্রম (বাদ দেওয়ার জন্য URL)"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "সম্পাদক থেকে প্রস্থান করুন এবং প্রদানকারীর তালিকায় ফিরে যান",
+    "description": "Tooltip text for the exit button in the custom rules editor"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "নিয়ম রফতানি করতে ব্যর্থ হয়েছে"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "ফাইলে কাস্টম নিয়ম রপ্তানি করুন"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "প্রদানকারীকে সেভ করতে ব্যর্থ হয়েছে"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "ফোর্স রিডাইরেকশন"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "HTTP পদ্ধতি",
+    "description": "Label for HTTP methods field"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "এটি ফাইলে থাকা কাস্টম নিয়মের বিভাগগুলি প্রতিস্থাপন করবে। চালিয়ে যাবেন?"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "নিয়ম আমদানি করতে ব্যর্থ: $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "ফাইল থেকে কাস্টম নিয়ম আমদানি করুন"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "অবৈধ ডোমেন প্যাটার্ন: {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "অবৈধ ফাইল কাঠামো: ClearURLs প্রদানকারী বা Linkumori URL কাস্টম নিয়ম অনুপস্থিত"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "অবৈধ URL প্যাটার্ন regex: $1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "JSON ত্রুটি: $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "JSON এখানে উপস্থিত হবে..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "JSON বিষয়বস্তু প্রয়োজন"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "UrlPattern-এ ক্লিক করলে domainPatterns সরিয়ে যায় এবং এর বিপরীতে ।"
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "JSON-এ ক্ষেত্র যোগ করুন"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "কাস্টম নিয়ম",
+    "description": "Navigation label for custom rules view"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "পরিচ্ছন্ন তলিকা",
+    "description": "Navigation label for whitelist view"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "ফাইলে কোনও সরবরাহকারী পাওয়া যায়নি"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "কাস্টম রুলস এডিটর এবং হোয়াইটলিস্ট ম্যানেজমেন্ট"
+  },
+  "customRulesEditor_patternType": {
+    "message": "প্যাটার্নের ধরন"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "এই প্রদানকারীর জন্য ইউআরএলগুলির সাথে কীভাবে মিলবে তা চয়ন করুন"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "অনুগ্রহ করে একটি প্যাটার্ন টাইপ নির্বাচন করুন"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "প্রদানকারী \"$1\" -এর urlPattern এবং domainPatterns উভয়ই থাকতে পারে না"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "সরবরাহকারী \"$1\" এর খালি ডোমেন প্যাটার্ন রয়েছে"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "প্রদানকারী \"$1\" urlPattern অনুপস্থিত"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "সরবরাহকারী \"$1\" অবশ্যই urlPattern বা domainPatterns থাকতে হবে"
+  },
+  "customRulesEditor_providerName": {
+    "message": "প্রদানকারীর নাম"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "এই নামের একজন সরবরাহকারী ইতিমধ্যে বিদ্যমান"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "এই প্রদানকারীর জন্য অনন্য শনাক্তকারী (যেমন, \"example.com\", \"mysite\")"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "যেমন, example.com, mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "প্রদানকারীর নাম আবশ্যক"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "কাঁচা নিয়ম (রেজেক্স প্যাটার্ন)"
+  },
+  "customRulesEditor_redirections": {
+    "message": "রিডাইরেক্টেশন (রিডাইরেক্ট প্যাটার্ন)"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "রেফারেল মার্কেটিং"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "রিসোর্সের প্রকারভেদ"
+  },
+  "customRulesEditor_rules": {
+    "message": "নিয়মাবলী (অপসারণের জন্য URL প্যারামিটার)"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "নিয়মের স্থিতি"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "প্রদানকারীকে সেভ করুন"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "বর্তমান প্রদানকারীকে সেভ করুন"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "এডিট করার জন্য একজন প্রদানকারী নির্বাচন করুন"
+  },
+  "customRulesEditor_title": {
+    "message": "কাস্টম রুলস এডিটর - ক্লিয়ারআরএল"
+  },
+  "customRulesEditor_total": {
+    "message": "সর্বমোট:"
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "আপনার অসংরক্ষিত পরিবর্তন হয়েছে । সাশ্রয় না করে চালিয়ে যাবেন?"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "ইউআরএল প্যাটার্ন *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "ইউআরএল প্যাটার্ন এবং ডোমেন প্যাটার্ন একসাথে ব্যবহার করা যাবে না"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "ইউআরএল মেলানোর জন্য নিয়মিত অভিব্যক্তি"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "ইউআরএল প্যাটার্ন (Regex)"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "হয় URL প্যাটার্ন বা ডোমেন প্যাটার্ন প্রয়োজন"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^HTTPS?:\\/\\/(?:[a-z0-9-]+\\.)*?উদাহরণ\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "ইউআরএল প্যাটার্ন প্রয়োজন"
+  },
+  "customRulesEditor_welcome": {
+    "message": "কাস্টম রুলস এডিটরে স্বাগতম"
+  },
+  "custom_providers_label": {
+    "message": "কাস্টম সরবরাহকারী:",
+    "description": "Label for custom providers count."
+  },
+  "customrules": {
+    "message": "কাস্টম নিয়ম"
+  },
+  "datatable_empty_table": {
+    "message": "টেবিলে কোন ডেটা উপলব্ধ নেই",
+    "description": "DataTables empty table message"
+  },
+  "datatable_info": {
+    "message": "_START_ থেকে _END_ এর _TOTAL_ এন্ট্রি দেখানো হচ্ছে",
+    "description": "DataTables pagination info"
+  },
+  "datatable_info_empty": {
+    "message": "0 টি এন্ট্রির 0 থেকে 0 দেখানো হচ্ছে",
+    "description": "DataTables info when no data"
+  },
+  "datatable_showing_all": {
+    "message": "সমস্ত $1 এন্ট্রি দেখানো হচ্ছে",
+    "description": "Info message when showing all entries. $1=total count"
+  },
+  "datatable_showing_entries": {
+    "message": "$1 থেকে $2 এর $3 এন্ট্রি দেখানো হচ্ছে",
+    "description": "Pagination info showing current range. $1=start, $2=end, $3=total"
+  },
+  "datatable_zero_records": {
+    "message": "কোনও মিলের রেকর্ড পাওয়া যায়নি",
+    "description": "DataTables no search results message"
+  },
+  "domain_blocking_enabled": {
+    "message": "ডোমেন ব্লক করার অনুমতি দিন (এমন পৃষ্ঠাগুলিতে সমস্যা হতে পারে যা অ্যাডব্লকারদের অনুমতি দেয় না)",
+    "description": "This string is used as label for the domain blocking switch"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "নির্দিষ্ট ডোমেনগুলিতে অনুরোধগুলি ব্লক করুন ।",
+    "description": "Description for the domain blocking toggle."
+  },
+  "downloadFailed": {
+    "message": "ডাউনলোড করতে ব্যর্থ হয়েছে!",
+    "description": "Toast message when download action fails"
+  },
+  "downloadText": {
+    "message": "ডাউনলোড করুন",
+    "description": "Button text for download action"
+  },
+  "eTag_filtering_enabled": {
+    "message": "অনুরোধগুলি থেকে ETag হেডার ফিল্টার করে",
+    "description": "This string is used as label for the ETag header filtering switch"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "ট্র্যাকিং প্রতিরোধ করতে ETag হেডারগুলি সরান ।",
+    "description": "Description for the ETag filtering toggle."
+  },
+  "eTag_filtering_log": {
+    "message": "ETag হেডারটি এই অনুরোধ থেকে সরানো হয়েছে",
+    "description": "This string is used on ETag header filtering in the Linkumori (Clean URLS) log."
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "বর্তমান ডোমেন পেতে অক্ষম",
+    "description": "Error message when the current domain cannot be determined."
+  },
+  "error_loading_data": {
+    "message": "লগ ডেটা লোড করতে ব্যর্থ হয়েছে । অনুগ্রহ করে পৃষ্ঠাটি রিফ্রেশ করুন ।",
+    "description": "Error message when log data cannot be loaded from storage"
+  },
+  "error_rendering_table": {
+    "message": "টেবিল ডেটা রেন্ডার করতে ত্রুটি",
+    "description": "Error message when table fails to render"
+  },
+  "extension_description": {
+    "message": "ইউআরএল থেকে ট্র্যাকিং উপাদানগুলি সরান ।",
+    "description": "Extension description (max. 132 characters)"
+  },
+  "fallback_rules_loaded": {
+    "message": "বান্ডেল নিয়ম সম্পর্কিত দুর্নীতিগ্রস্ত হতে পারে বা সঠিকভাবে লোড করা হয়নি । পরিবর্তে ফলব্যাক নিয়মগুলি লোড করা হয়েছে ।"
+  },
+  "faq_caution": {
+    "message": "সতর্কতা ",
+    "description": "Label for cautions in FAQ"
+  },
+  "faq_common_mistakes": {
+    "message": "এড়ানোর জন্য সাধারণ ভুলগুলি কী কী?",
+    "description": "FAQ question about common mistakes"
+  },
+  "faq_complete_provider": {
+    "message": "CompleteProvider কী করে?",
+    "description": "FAQ question about completeProvider"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "সত্যতে সেট করা হলে, ব্লক করার জন্য সরবরাহকারীর সাথে মিলে যাওয়া অনুরোধগুলি সম্পূর্ণ করুন । প্রকৃত ব্লকিং তখনই ঘটে যখন বিশ্বব্যাপী \"ডোমেন ব্লকিং\" সেটিং সক্ষম থাকে । মিথ্যা হলে, আপনি সাধারণ নিয়ম, ব্যতিক্রম এবং পুনঃনির্দেশ ব্যবহার করতে পারেন ।",
+    "description": "FAQ answer explaining completeProvider"
+  },
+  "faq_complete_provider_usage": {
+    "message": "বেশিরভাগ কাস্টম নিয়মগুলি এটিকে মিথ্যাতে সেট করা উচিত এবং এর পরিবর্তে নির্দিষ্ট প্যারামিটার অপসারণের নিয়ম ব্যবহার করা উচিত ।",
+    "description": "FAQ guidance on completeProvider usage"
+  },
+  "faq_complete_provider_warning": {
+    "message": "ডোমেন ব্লকিং সক্ষম থাকলে, এটি মেলানো URLগুলির জন্য সম্পূর্ণ অ্যাক্সেস ব্লক করতে পারে ।",
+    "description": "FAQ warning about completeProvider"
+  },
+  "faq_complex_example": {
+    "message": "আমাকে একটি জটিল প্রদানকারীর উদাহরণ দেখান",
+    "description": "FAQ question requesting complex example"
+  },
+  "faq_complex_example_explanation": {
+    "message": "এই প্রদানকারী ট্র্যাকিং প্যারামিটার এবং টুকরাগুলি সরিয়ে দেয়, পুনঃনির্দেশগুলি পরিচালনা করে, তবে API, লগইন এবং চেকআউট পৃষ্ঠাগুলিকে পরিবর্তন থেকে রক্ষা করে ।",
+    "description": "FAQ explanation of complex example"
+  },
+  "faq_complex_example_intro": {
+    "message": "এখানে রিডাইরেক্টেশন এবং ব্যতিক্রম সহ একজন উন্নত প্রদানকারী আছেন:",
+    "description": "FAQ intro to complex example"
+  },
+  "faq_custom_rules_note": {
+    "message": "কাস্টম নিয়মগুলি অন্তর্নির্মিত নিয়মগুলির সাথে একসাথে চলে এবং নাম অনুসারে আমদানি করা বান্ডিল/রিমোট প্রদানকারীর এন্ট্রিগুলিকে ওভাররাইড করতে পারে ।",
+    "description": "Note about custom rules precedence"
+  },
+  "faq_default_note": {
+    "message": "ডিফল্ট: @ label: listbox",
+    "description": "Label for default behavior notes in FAQ"
+  },
+  "faq_domain_exceptions": {
+    "message": "ডোমেন ব্যতিক্রমগুলি কী কী?",
+    "description": "FAQ question about domain exceptions"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "ডোমেন ব্যতিক্রমগুলি নিয়মিত ব্যতিক্রমগুলির মতো কাজ করে তবে রেজেক্সের পরিবর্তে সহজ ডোমেন প্যাটার্ন ফর্ম্যাটটি ব্যবহার করুন । তারা আপনাকে প্রক্রিয়াকরণ থেকে নির্দিষ্ট ডোমেন বা সাবডোমেন বাদ দেওয়ার অনুমতি দেয় ।",
+    "description": "FAQ explanation of domain exceptions"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "ডোমেন ব্যতিক্রমগুলি ডোমেন প্যাটার্নের মতো একই প্যাটার্ন ব্যবহার করে তবে রেজেক্স ব্যতিক্রমগুলির চেয়ে সহজ ।",
+    "description": "FAQ tip about domain exceptions"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ - example.com এবং এর সাবডোমেনের জন্য হোস্টনেম ম্যাচ",
+    "description": "FAQ explanation of AdBlock domain pattern"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - হোস্টনাম ওয়াইল্ডকার্ড; প্রতিটি * একটি লেবেলের সাথে মেলে (বিন্দু বিভাগ)",
+    "description": "FAQ explanation of AdBlock wildcard pattern"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "example.com - সম্পূর্ণ ইউআরএলে সহজ সাবস্ট্রিং ম্যাচ (দীর্ঘ হোস্টনাম/পথের ভিতরেও মিলতে পারে)",
+    "description": "FAQ explanation of basic domain pattern"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.example.*^ - মাল্টি-পার্ট টিএলডি সহ ওয়াইল্ডকার্ড টিএলডি সহ সাবডোমেন মেলে (a.example.co.uk)",
+    "description": "FAQ explanation of full wildcard pattern"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||উদাহরণ ।*^ - মাল্টি-পার্ট টিএলডি সহ ওয়াইল্ডকার্ড টিএলডিগুলির সাথে ডোমেনটি মেলে (example.co.uk, example.gov.in)",
+    "description": "FAQ explanation of TLD wildcard domain pattern"
+  },
+  "faq_domain_pattern_types": {
+    "message": "ডোমেন প্যাটার্নের ধরন:",
+    "description": "FAQ section title for domain pattern types"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com - ওয়াইল্ডকার্ড রেজেক্স ম্যাচ সম্পূর্ণ ইউআরএলে, কঠোর হোস্টনেম-কেবল মিলছে না",
+    "description": "FAQ explanation of wildcard domain pattern"
+  },
+  "faq_domain_patterns": {
+    "message": "ডোমেন প্যাটার্নস বনাম ইউআরএল প্যাটার্নস",
+    "description": "FAQ question about domain patterns vs URL patterns"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "ডোমেন প্যাটার্নগুলি সহজ টোকেন এবং অ্যাডব্লক-স্টাইল ফর্মগুলিকে সমর্থন করে । ম্যাচিং আচরণ সিনট্যাক্সের উপর নির্ভর করে (কিছু ফর্ম হোস্টনাম চেক করে, অন্যরা সম্পূর্ণ URL স্ট্রিংয়ের সাথে মেলে):",
+    "description": "FAQ explanation of domain patterns"
+  },
+  "faq_domain_redirections": {
+    "message": "ডোমেন রিডাইরেক্টেশন কী?",
+    "description": "FAQ question about domain redirections"
+  },
+  "faq_domain_redirections_example": {
+    "message": "redirect.example.com$redirect=https://target.com redirect.example.com থেকে https://target.com-এ সমস্ত URL পুনঃনির্দেশিত করবে",
+    "description": "FAQ example of domain redirections"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "ডোমেন রিডাইরেক্টেশনগুলি পুনঃনির্দেশ URLগুলি সনাক্ত করতে এবং লক্ষ্য গন্তব্য নিষ্কাশন করতে ডোমেন প্যাটার্ন ব্যবহার করে । তারা সাধারণ রিডাইরেক্ট ম্যাপিংয়ের জন্য বিশেষ $রিডাইরেক্ট= সিনট্যাক্স সমর্থন করে ।",
+    "description": "FAQ explanation of domain redirections"
+  },
+  "faq_example": {
+    "message": "উদাহরণ:",
+    "description": "Label for examples in FAQ"
+  },
+  "faq_exceptions": {
+    "message": "ব্যতিক্রমগুলি কীভাবে কাজ করে?",
+    "description": "FAQ question about exceptions"
+  },
+  "faq_exceptions_explanation": {
+    "message": "ব্যতিক্রমগুলি হল রেজেক্স প্যাটার্ন যা ইউআরএলগুলির সাথে মেলে যেখানে কোনও প্রক্রিয়াকরণ করা উচিত নয় । যদি কোনও ইউআরএল কোনও ব্যতিক্রমের সাথে মেলে তবে অন্যান্য সমস্ত নিয়ম উপেক্ষা করা হয় ।",
+    "description": "FAQ explanation of exceptions"
+  },
+  "faq_exceptions_usage": {
+    "message": "লগইন পৃষ্ঠা, এপিআই এন্ডপয়েন্ট বা অন্যান্য সংবেদনশীল ইউআরএলগুলিকে পরিবর্তন করা থেকে রক্ষা করতে ব্যতিক্রমগুলি ব্যবহার করুন ।",
+    "description": "FAQ guidance on exceptions usage"
+  },
+  "faq_force_redirection": {
+    "message": "কখন আমার ফোর্স রিডাইরেকশন ব্যবহার করা উচিত?",
+    "description": "FAQ question about forceRedirection"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "কিছু ওয়েবসাইট জাভাস্ক্রিপ্টের মাধ্যমে লিঙ্কগুলি ম্যানিপুলেট করে, স্বাভাবিক পুনঃনির্দেশগুলি প্রতিরোধ করে । ফোর্স রিডাইরেকশন সরাসরি ব্রাউজারের প্রধান ফ্রেমে ইউআরএল লিখে ।",
+    "description": "FAQ explanation of forceRedirection"
+  },
+  "faq_force_redirection_usage": {
+    "message": "সরাসরি href বৈশিষ্ট্যের পরিবর্তে onClick হ্যান্ডলার ব্যবহার করে এমন Google এর মতো ওয়েবসাইটগুলির জন্য এটি সক্ষম করুন ।",
+    "description": "FAQ guidance on forceRedirection usage"
+  },
+  "faq_force_redirection_warning": {
+    "message": "সাধারণ রিডাইরেক্টেশন ব্যর্থ হলে শুধুমাত্র ব্যবহার করুন, কারণ এই পদ্ধতিটি আরও অনুপ্রবেশকারী ।",
+    "description": "FAQ warning about forceRedirection"
+  },
+  "faq_how_providers_work": {
+    "message": "সরবরাহকারীরা কীভাবে কাজ করে?",
+    "description": "FAQ question about how providers work"
+  },
+  "faq_http_methods": {
+    "message": "HTTP পদ্ধতিগুলি কী কী?",
+    "description": "FAQ question about HTTP methods"
+  },
+  "faq_http_methods_common": {
+    "message": "সাধারণ HTTP পদ্ধতি:",
+    "description": "FAQ section title for common HTTP methods"
+  },
+  "faq_http_methods_delete": {
+    "message": "মুছুন - অপারেশন মুছুন",
+    "description": "FAQ list item for DELETE method"
+  },
+  "faq_http_methods_explanation": {
+    "message": "HTTP পদ্ধতি আপনাকে শুধুমাত্র নির্দিষ্ট ধরনের HTTP অনুরোধের জন্য নিয়ম প্রয়োগ করার অনুমতি দেয় (GET, POST, POT, DELETE, ইত্যাদি) । এটি আপনাকে নিয়ন্ত্রণ দেয় যে কোন রিকোয়েস্ট পদ্ধতিগুলি আপনার নিয়মগুলিকে ট্রিগার করে ।",
+    "description": "FAQ explanation of HTTP methods"
+  },
+  "faq_http_methods_get": {
+    "message": "GET - স্ট্যান্ডার্ড ওয়েব পেজ রিকোয়েস্ট",
+    "description": "FAQ list item for GET method"
+  },
+  "faq_http_methods_head": {
+    "message": "হেডার - শুধুমাত্র শিরোনামের অনুরোধ",
+    "description": "FAQ list item for HEAD method"
+  },
+  "faq_http_methods_options": {
+    "message": "বিকল্প - Preflight CORS রিকোয়েস্ট",
+    "description": "FAQ list item for OPTIONS method"
+  },
+  "faq_http_methods_post": {
+    "message": "পোস্ট - ফর্ম জমা এবং API কল",
+    "description": "FAQ list item for POST method"
+  },
+  "faq_http_methods_put": {
+    "message": "রাখুন - অপারেশন আপডেট করুন",
+    "description": "FAQ list item for PUT method"
+  },
+  "faq_http_methods_tip": {
+    "message": "সমস্ত HTTP পদ্ধতিতে প্রয়োগ করতে খালি রাখুন, অথবা আপনি যে পদ্ধতিগুলি লক্ষ্য করতে চান তা নির্দিষ্ট করুন ।",
+    "description": "FAQ tip about HTTP methods"
+  },
+  "faq_import_benefit_quick": {
+    "message": "দ্রুত সেটআপ - ম্যানুয়ালি জটিল প্যাটার্ন তৈরি করার প্রয়োজন নেই",
+    "description": "FAQ benefit of quick setup via import"
+  },
+  "faq_import_benefit_search": {
+    "message": "আপনার যা প্রয়োজন ঠিক তা খুঁজে পেতে অনুসন্ধান করুন এবং ফিল্টার করুন",
+    "description": "FAQ benefit of search functionality"
+  },
+  "faq_import_benefit_tested": {
+    "message": "প্রাক-পরীক্ষিত নিয়ম যা সঠিকভাবে কাজ করতে পরিচিত",
+    "description": "FAQ benefit of tested rules via import"
+  },
+  "faq_import_benefit_updates": {
+    "message": "নতুন প্রদানকারীর সাথে নিয়মগুলি আপডেট রাখা সহজ",
+    "description": "FAQ benefit of easy updates via import"
+  },
+  "faq_list_feature_actions": {
+    "message": "একক ক্লিকের মাধ্যমে প্রদানকারীদের সম্পাদনা, সদৃশ বা মুছে ফেলুন",
+    "description": "FAQ feature of quick actions"
+  },
+  "faq_list_feature_overview": {
+    "message": "মূল পরিসংখ্যান সহ সমস্ত প্রদানকারীর দ্রুত ওভারভিউ",
+    "description": "FAQ feature of provider overview"
+  },
+  "faq_list_feature_search": {
+    "message": "নির্দিষ্টগুলি দ্রুত খুঁজে পেতে নাম অনুসারে প্রদানকারীদের অনুসন্ধান করুন",
+    "description": "FAQ feature of provider search"
+  },
+  "faq_list_feature_stats": {
+    "message": "এক নজরে নিয়ম গণনা এবং প্যাটার্নের ধরন দেখুন",
+    "description": "FAQ feature of statistics display"
+  },
+  "faq_mistake_broad": {
+    "message": "UrlPattern খুব বিস্তৃত করা (অনিচ্ছাকৃত সাইটগুলির সাথে মিলে যাওয়া)",
+    "description": "FAQ common mistake about broad patterns"
+  },
+  "faq_mistake_complete": {
+    "message": "আপনি যদি সত্যিই সাইটটি ব্লক করতে না চান তবে সম্পূর্ণ প্রদানকারীকে সত্যে সেট করা হচ্ছে",
+    "description": "FAQ common mistake about completeProvider"
+  },
+  "faq_mistake_escape": {
+    "message": "প্যাটার্নগুলিতে বিশেষ রেজেক্স অক্ষরগুলি এড়াতে ভুলে যাওয়া",
+    "description": "FAQ common mistake about escaping regex"
+  },
+  "faq_mistake_exceptions": {
+    "message": "গুরুত্বপূর্ণ কার্যকারিতার জন্য ব্যতিক্রম যোগ করা হচ্ছে না",
+    "description": "FAQ common mistake about missing exceptions"
+  },
+  "faq_mistake_testing": {
+    "message": "মোতায়েনের আগে নিয়মগুলি পুঙ্খানুপুঙ্খভাবে পরীক্ষা না করা",
+    "description": "FAQ common mistake about insufficient testing"
+  },
+  "faq_note": {
+    "message": "জ্ঞাতব্য:",
+    "description": "Label for important notes in FAQ"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "উভয় ক্ষেত্র ডেটাতে উপস্থিত থাকতে পারে, তবে urlPattern অগ্রাধিকার পায় । ডোমেন প্যাটার্নগুলি কেবল তখনই ব্যবহৃত হয় যখন urlPattern খালি থাকে । রেজিস্ট্রেবল ডোমেন হ্যান্ডলিং এবং মাল্টি-পার্ট টিএলডি সমর্থন সহ ডোমেন ম্যাচিং পিএসএল-সচেতন ।",
+    "description": "FAQ note about pattern exclusivity"
+  },
+  "faq_perf_combine": {
+    "message": "একাধিক অনুরূপ নিদর্শনগুলিকে একটি regex এ একত্রিত করুন",
+    "description": "FAQ performance tip about combining patterns"
+  },
+  "faq_perf_limit": {
+    "message": "আপনার প্রকৃত প্রয়োজনের মধ্যে প্রদানকারীর সংখ্যা সীমাবদ্ধ করুন",
+    "description": "FAQ performance tip about limiting providers"
+  },
+  "faq_perf_review": {
+    "message": "অব্যবহৃত নিয়মগুলি নিয়মিত পর্যালোচনা করুন এবং পরিষ্কার করুন",
+    "description": "FAQ performance tip about regular review"
+  },
+  "faq_perf_simple": {
+    "message": "যেখানে সম্ভব জটিল কাঁচামালের পরিবর্তে সহজ নিয়ম ব্যবহার করুন",
+    "description": "FAQ performance tip about simple rules"
+  },
+  "faq_perf_specific": {
+    "message": "UrlPattern-কে যথাসম্ভব সুনির্দিষ্ট করুন",
+    "description": "FAQ performance tip about specific patterns"
+  },
+  "faq_performance_tips": {
+    "message": "আমি কীভাবে পারফরম্যান্স অপ্টিমাইজ করতে পারি?",
+    "description": "FAQ question about performance optimization"
+  },
+  "faq_provider_example": {
+    "message": "উদাহরণস্বরূপ, একটি \"Google\" প্রদানকারী অনুসন্ধান ফলাফল, YouTube লিঙ্ক ইত্যাদি থেকে ট্র্যাকিং প্যারামিটারগুলি সরাতে নিয়ম সহ সমস্ত Google পরিষেবা পরিচালনা করবে ।",
+    "description": "FAQ example of provider usage"
+  },
+  "faq_provider_import": {
+    "message": "আমি কীভাবে নিয়ম থেকে সরবরাহকারীকে আমদানি করব?",
+    "description": "FAQ question about provider import feature"
+  },
+  "faq_provider_import_benefits": {
+    "message": "আমদানির সুবিধা:",
+    "description": "FAQ section title for import benefits"
+  },
+  "faq_provider_import_explanation": {
+    "message": "প্রোভাইডার ইম্পোর্ট ফিচারটি আপনাকে বিল্ট-ইন নিয়ম ক্যাটালগ থেকে দ্রুত সরবরাহকারী যোগ করতে দেয় । ব্রাউজ করতে এবং সরবরাহকারী নির্বাচন করতে 'নিয়ম থেকে আমদানি করুন' বোতামে ক্লিক করুন ।",
+    "description": "FAQ explanation of provider import feature"
+  },
+  "faq_provider_import_tip": {
+    "message": "আপনি একাধিক সরবরাহকারী নির্বাচন করে এবং আমদানি ক্লিক করে একবারে আমদানি করতে পারেন ।",
+    "description": "FAQ tip about provider import"
+  },
+  "faq_provider_list": {
+    "message": "আমি কীভাবে আমার প্রদানকারীদের দক্ষতার সাথে পরিচালনা করব?",
+    "description": "FAQ question about provider list management"
+  },
+  "faq_provider_list_explanation": {
+    "message": "প্রোভাইডার লিস্ট ভিউ আপনাকে সমস্ত কাস্টম প্রদানকারীর একটি দ্রুত ওভারভিউ দেয় । আপনি পৃথকভাবে প্রতিটি খোলা ছাড়াই প্রদানকারীদের অনুসন্ধান, সম্পাদনা, সদৃশ বা মুছে ফেলতে পারেন ।",
+    "description": "FAQ explanation of provider list feature"
+  },
+  "faq_provider_list_features": {
+    "message": "প্রোভাইডারের তালিকার বৈশিষ্ট্যগুলি:",
+    "description": "FAQ section title for provider list features"
+  },
+  "faq_provider_list_tip": {
+    "message": "প্রদানকারীদের ব্রাউজ এবং পরিচালনা করতে এডিটর টুলবার থেকে প্রদানকারীর তালিকা খুলুন ।",
+    "description": "FAQ tip about provider list"
+  },
+  "faq_providers_explanation": {
+    "message": "প্রদানকারীরা লজিক্যাল ইউনিট যা একই URL প্যাটার্নের অধীনে একাধিক নিয়মকে গ্রুপ করে । প্রতিটি প্রদানকারী একটি নির্দিষ্ট ওয়েবসাইট বা পরিষেবা লক্ষ্য করে এবং সেই উত্স থেকে URLগুলি পরিষ্কার করার জন্য প্রয়োজনীয় সমস্ত নিয়ম রয়েছে ।",
+    "description": "FAQ answer explaining providers"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "পুরো ইউআরএলে সরাসরি রেজেক্স প্যাটার্ন প্রয়োগ করা হয়েছে । জটিল নকশার জন্য ব্যবহার করুন যা স্ট্যান্ডার্ড প্যারামিটার বিন্যাসের সাথে মানানসই নয় ।",
+    "description": "FAQ explanation of rawRules"
+  },
+  "faq_raw_rules_title": {
+    "message": "RAW নিয়মাবলী:",
+    "description": "FAQ section title for rawRules explanation"
+  },
+  "faq_raw_rules_usage": {
+    "message": "টুকরা, পাথ সেগমেন্ট বা জটিল প্যারামিটার প্যাটার্নের জন্য rawRules ব্যবহার করুন ।",
+    "description": "FAQ guidance on rawRules usage"
+  },
+  "faq_redirections": {
+    "message": "রিডাইরেক্টেশন কীভাবে কাজ করে?",
+    "description": "FAQ question about redirections"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com হয়ে যায় https://target.com",
+    "description": "FAQ example of redirection process"
+  },
+  "faq_redirections_explanation": {
+    "message": "রিডাইরেক্টেশনগুলি রিডাইরেক্ট পরিষেবাগুলি থেকে আসল গন্তব্য URL বের করে । রেজেক্সের প্রথম ক্যাপচার গ্রুপটি নতুন ইউআরএল হয়ে যায় ।",
+    "description": "FAQ explanation of redirections"
+  },
+  "faq_redirections_process": {
+    "message": "ক্যাপচার করা ইউআরএলটি স্বয়ংক্রিয়ভাবে decodeURIComponent () দিয়ে ডিকোড করা হয় এবং মূল ইউআরএলটি প্রতিস্থাপন করে ।",
+    "description": "FAQ explanation of redirection processing"
+  },
+  "faq_referral_default": {
+    "message": "রেফারেল মার্কেটিং ডিফল্টরূপে অক্ষম করা হয়, তাই ব্যবহারকারী দ্বারা স্পষ্টভাবে অনুমোদিত না হলে এই প্যারামিটারগুলি সরানো হবে ।",
+    "description": "FAQ note about referralMarketing default behavior"
+  },
+  "faq_referral_explanation": {
+    "message": "রেফারেল মার্কেটিং প্যারামিটার কন্টেন্ট নির্মাতাদের কমিশন অর্জনে সহায়তা করে । এই প্যারামিটারগুলি কেবল তখনই সরানো হয় যখন ব্যবহারকারী সেটিংসে রেফারেল মার্কেটিং সমর্থন অক্ষম করেন ।",
+    "description": "FAQ explanation of referralMarketing"
+  },
+  "faq_referral_marketing": {
+    "message": "রেফারেলমার্কেটিং কী?",
+    "description": "FAQ question about referralMarketing"
+  },
+  "faq_resource_types": {
+    "message": "রিসোর্সের প্রকারগুলি কী কী?",
+    "description": "FAQ question about resource types"
+  },
+  "faq_resource_types_common": {
+    "message": "সাধারণ রিসোর্সের ধরন:",
+    "description": "FAQ section title for common resource types"
+  },
+  "faq_resource_types_explanation": {
+    "message": "রিসোর্সের ধরন আপনাকে শুধুমাত্র নির্দিষ্ট ধরনের ওয়েব রিকোয়েস্টে (ছবি, স্ক্রিপ্ট, প্রধান পৃষ্ঠা, ইত্যাদি) নিয়ম প্রয়োগ করার অনুমতি দেয় । এটি আপনাকে নিয়মগুলি কখন প্রয়োগ করা হয় তার উপর সূক্ষ্ম নিয়ন্ত্রণ দেয় ।",
+    "description": "FAQ explanation of resource types"
+  },
+  "faq_resource_types_tip": {
+    "message": "সমস্ত রিসোর্স প্রকারের জন্য প্রয়োগ করতে খালি রাখুন, অথবা আপনি যে ধরনের লক্ষ্য নির্ধারণ করতে চান তা নির্দিষ্ট করুন ।",
+    "description": "FAQ tip about resource types"
+  },
+  "faq_rt_font": {
+    "message": "ফন্ট - ওয়েব ফন্ট (.woff, .ttf, ইত্যাদি)",
+    "description": "FAQ resource type font"
+  },
+  "faq_rt_image": {
+    "message": "ছবি - ছবি এবং ছবি",
+    "description": "FAQ resource type image"
+  },
+  "faq_rt_imageset": {
+    "message": "imageset - প্রতিক্রিয়াশীল ছবির জন্য চিত্র সেট",
+    "description": "FAQ resource type imageset"
+  },
+  "faq_rt_main_frame": {
+    "message": "main_frame - প্রধান ওয়েবপৃষ্ঠা",
+    "description": "FAQ resource type main_frame"
+  },
+  "faq_rt_media": {
+    "message": "মিডিয়া - অডিও এবং ভিডিও ফাইল",
+    "description": "FAQ resource type media"
+  },
+  "faq_rt_object": {
+    "message": "অবজেক্ট - এমবেডেড অবজেক্ট (ফ্ল্যাশ, প্লাগইন)",
+    "description": "FAQ resource type object"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "object_subrequest - এমবেডেড অবজেক্টের অনুরোধ",
+    "description": "FAQ resource type object_subrequest"
+  },
+  "faq_rt_other": {
+    "message": "অন্যান্য - অন্যান্য প্রকার যা উপরে কভার করা হয়নি",
+    "description": "FAQ resource type other"
+  },
+  "faq_rt_script": {
+    "message": "স্ক্রিপ্ট - জাভাস্ক্রিপ্ট ফাইল",
+    "description": "FAQ resource type script"
+  },
+  "faq_rt_stylesheet": {
+    "message": "স্টাইলশীট - CSS ফাইল",
+    "description": "FAQ resource type stylesheet"
+  },
+  "faq_rt_sub_frame": {
+    "message": "sub_frame - এমবেডেড আইফ্রেম",
+    "description": "FAQ resource type sub_frame"
+  },
+  "faq_rt_websocket": {
+    "message": "ওয়েবসকেট - ওয়েবসকেট সংযোগ",
+    "description": "FAQ resource type websocket"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "xml_dtd - XML ডকুমেন্টের প্রকারের সংজ্ঞা",
+    "description": "FAQ resource type xml_dtd"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "xmlhttprequest - AJAX অনুরোধ",
+    "description": "FAQ resource type xmlhttprequest"
+  },
+  "faq_rt_xslt": {
+    "message": "xslt - XSLT রূপান্তর ফাইল",
+    "description": "FAQ resource type xslt"
+  },
+  "faq_rules_converted": {
+    "message": "উদাহরণ: \"utm_source\" ঠিক মেলে; \"utm_.*\" utm_source এবং utm_campaign এর সাথে মেলে । স্কোপ করা Linkumori ব্যতিক্রম/নিয়মগুলি প্রথমে সমাধান করা হয়, তারপরে সাধারণ/regex নিয়মগুলি কেবল তুলনাহীন কীগুলির জন্য চলে ।",
+    "description": "FAQ examples for rules key matching"
+  },
+  "faq_rules_explanation": {
+    "message": "নিয়ম ম্যাচ ক্যোয়ারী প্যারামিটার কী এবং হ্যাশ ফ্র্যাগমেন্ট কী । নির্দিষ্ট ডোমেনগুলি লক্ষ্য করতে সাধারণ নাম (সঠিক কী), রেজেক্স (বৃহত্তর ম্যাচিং), বা লিঙ্কুমোরি স্কোপড নিয়মগুলি ব্যবহার করুন যেমন ||example.com^$ removeparam =... ।",
+    "description": "FAQ explanation of rules"
+  },
+  "faq_rules_title": {
+    "message": "নিয়মাবলি:",
+    "description": "FAQ section title for rules explanation"
+  },
+  "faq_rules_vs_raw": {
+    "message": "নিয়ম এবং rawRules এর মধ্যে পার্থক্য কী?",
+    "description": "FAQ question about rules vs rawRules"
+  },
+  "faq_section_advanced": {
+    "message": "উন্নত বৈশিষ্ট্য",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_basics": {
+    "message": "বেসিক",
+    "description": "FAQ section title for basic questions"
+  },
+  "faq_section_examples": {
+    "message": "উদাহরণ",
+    "description": "FAQ section title for examples"
+  },
+  "faq_section_new_features": {
+    "message": "উন্নত বৈশিষ্ট্য",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_properties": {
+    "message": "প্রদানকারীর বৈশিষ্ট্য",
+    "description": "FAQ section title for provider properties"
+  },
+  "faq_section_tips": {
+    "message": "টিপস এবং সব থেকে ভাল অনুশীলন",
+    "description": "FAQ section title for tips and best practices"
+  },
+  "faq_simple_example": {
+    "message": "আমাকে একটি সহজ প্রদানকারীর উদাহরণ দেখান",
+    "description": "FAQ question requesting simple example"
+  },
+  "faq_simple_example_explanation": {
+    "message": "এটি ফেসবুক ক্লিক আইডি এবং ইউটিএম প্যারামিটারগুলি সরিয়ে দেয়, তবে ব্যবহারকারী যদি রেফারেল বিপণনের অনুমতি দেয় তবে অনুমোদিত লিঙ্কগুলি সংরক্ষণ করে ।",
+    "description": "FAQ explanation of simple example"
+  },
+  "faq_simple_example_intro": {
+    "message": "এখানে একটি মৌলিক সরবরাহকারী রয়েছে যা একটি কাল্পনিক শপিং সাইট থেকে ট্র্যাকিং প্যারামিটারগুলি সরিয়ে দেয়:",
+    "description": "FAQ intro to simple example"
+  },
+  "faq_test_backup": {
+    "message": "বড় পরিবর্তন করার আগে আপনার নিয়মগুলি এক্সপোর্ট করুন",
+    "description": "FAQ tip about backing up rules"
+  },
+  "faq_test_exceptions": {
+    "message": "সর্বদা সমালোচনামূলক পৃষ্ঠাগুলির জন্য ব্যতিক্রম যোগ করুন (লগইন, চেকআউট, API)",
+    "description": "FAQ tip about adding exceptions"
+  },
+  "faq_test_regex": {
+    "message": "Regex101.com এর মতো অনলাইন সরঞ্জাম ব্যবহার করে regex প্যাটার্নগুলি পরীক্ষা করুন",
+    "description": "FAQ tip about testing regex patterns"
+  },
+  "faq_test_reload": {
+    "message": "ব্রাউজারটি পুনরায় চালু না করে পরিবর্তনগুলি পুনরায় লোড করতে \"নিয়ম প্রয়োগ করুন\" বোতামটি ব্যবহার করুন",
+    "description": "FAQ tip about enforcing rules"
+  },
+  "faq_test_small": {
+    "message": "সহজ নিয়ম দিয়ে শুরু করুন এবং ধীরে ধীরে জটিলতা যোগ করুন",
+    "description": "FAQ tip about starting small"
+  },
+  "faq_testing_tips": {
+    "message": "আমি কীভাবে আমার কাস্টম নিয়ম পরীক্ষা করব?",
+    "description": "FAQ question about testing tips"
+  },
+  "faq_tip": {
+    "message": "পরামর্শ:",
+    "description": "Label for tips in FAQ"
+  },
+  "faq_title": {
+    "message": "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী",
+    "description": "FAQ button text and modal title"
+  },
+  "faq_url_pattern": {
+    "message": "UrlPattern কী?",
+    "description": "FAQ question about urlPattern"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "UrlPattern একটি নিয়মিত অভিব্যক্তি যা অবশ্যই প্রদানকারীর নিয়ম দ্বারা প্রভাবিত হওয়া প্রতিটি URL এর সাথে মিলতে হবে । এটি এই প্রদানকারীর কোন ওয়েবসাইটগুলি পরিচালনা করা উচিত তা নির্ধারণ করে ।",
+    "description": "FAQ answer explaining urlPattern"
+  },
+  "faq_url_pattern_structure": {
+    "message": "সাধারণ কাঠামো জুড়ে রয়েছে: প্রোটোকল + সাবডোমেন + ডোমেন + টিএলডি + ডিরেক্টরি + প্যারামিটার",
+    "description": "FAQ explanation of urlPattern structure"
+  },
+  "faq_url_pattern_tip": {
+    "message": "আপনার প্যাটার্নগুলি যোগ করার আগে যাচাই করতে অনলাইন রেজেক্স পরীক্ষক ব্যবহার করুন ।",
+    "description": "FAQ tip for testing urlPattern"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "ইউআরএল প্যাটার্নগুলি কোন ইউআরএলগুলির সাথে মেলে তার উপর সুনির্দিষ্ট নিয়ন্ত্রণের জন্য সম্পূর্ণ রেজেক্স ব্যবহার করে:",
+    "description": "FAQ explanation of URL patterns"
+  },
+  "faq_use_domain_patterns": {
+    "message": "সম্পূর্ণ urlPattern regex না লিখে সহজ হোস্টনাম/পাথ ম্যাচিংয়ের জন্য ডোমেন প্যাটার্ন ব্যবহার করুন ।",
+    "description": "FAQ guidance for using domain patterns"
+  },
+  "faq_use_url_patterns": {
+    "message": "জটিল মিলের জন্য ইউআরএল প্যাটার্ন ব্যবহার করুন (নির্দিষ্ট পাথ, ক্যোয়ারী প্যারামিটার ইত্যাদি)",
+    "description": "FAQ guidance for using URL patterns"
+  },
+  "faq_warning": {
+    "message": "সাবধানবাণী",
+    "description": "Label for warnings in FAQ"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "কাস্টম নিয়মগুলি কী কী?",
+    "description": "FAQ question about custom rules"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "কাস্টম নিয়ম আপনাকে অন্তর্নির্মিত নিয়মের আওতাভুক্ত নয় এমন ওয়েবসাইটগুলির জন্য আপনার নিজস্ব URL পরিষ্কারের প্যাটার্ন তৈরি করতে দেয় । তারা মূল ক্যাটালগের মতো একই কাঠামো অনুসরণ করে তবে আলাদাভাবে পরিচালিত হয় ।",
+    "description": "FAQ answer explaining custom rules"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "কখন ব্যবহার করবেন:",
+    "description": "FAQ section title for pattern usage guidance"
+  },
+  "feature1": {
+    "message": "ডিফল্টরূপে অন্তর্নির্মিত গোপনীয়তা-কেন্দ্রিক URL পরিষ্কার সক্ষম করা হয়েছে"
+  },
+  "feature2": {
+    "message": "প্রতি-প্রদানকারী এবং প্রতি-প্যাটার্ন নিয়ন্ত্রণের জন্য কাস্টম রুলস সহায়তা"
+  },
+  "feature3": {
+    "message": "নির্বাচিত ডোমেনগুলির জন্য পরিষ্কারের বাইপাস করার জন্য হোয়াইটলিস্ট সহায়তা"
+  },
+  "feature4": {
+    "message": "উন্নত সেটআপের জন্য দূরবর্তী নিয়ম এবং ওভারলোড মোড"
+  },
+  "feature_toggles_title": {
+    "message": "ফিচার সেটিংস",
+    "description": "Title for the Feature Settings section."
+  },
+  "fileEmptyError": {
+    "message": "ফাইলটি খালি বা পাঠযোগ্য নয়",
+    "description": "Error shown when a legal/privacy file is empty or unreadable"
+  },
+  "general_settings_title": {
+    "message": "সাধারণ সেটিংস",
+    "description": "Title for the General Settings section."
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "বিল্ট-ইন নিয়মগুলি লোড করা হয়েছে (হ্যাশ অনুপস্থিত)",
+    "description": "Status when bundled rules loaded after hash URL was missing"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "বিল্ট-ইন নিয়ম ব্যবহার করা (ফলব্যাক)",
+    "description": "Status when fell back to bundled rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "ক্যাশে রিমোট + কাস্টম নিয়ম (বান্ডেল ব্যর্থ হয়েছে)",
+    "description": "Status when using cached remote rules with custom rules after bundled failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "ক্যাশে রিমোট + কাস্টম নিয়ম (দূরবর্তী ব্যর্থ)",
+    "description": "Status when using cached remote rules with custom rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "ক্যাশ রিমোট + কাস্টম নিয়ম (কোন হ্যাশ URL নেই)",
+    "description": "Status when using cached remote rules with custom rules, hash URL missing"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "ক্যাশে দূরবর্তী নিয়ম (বান্ডেল ব্যর্থ হয়েছে)",
+    "description": "Status when using cached remote rules after bundled rules failed"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "ক্যাশে দূরবর্তী নিয়ম (দূরবর্তী ব্যর্থ)",
+    "description": "Status when using cached remote rules after current remote fetch failed"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "ক্যাশে দূরবর্তী নিয়ম (কোন হ্যাশ URL নেই)",
+    "description": "Status when using cached remote rules because hash URL is missing"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "ক্যাশ রিমোট + বিল্ট-ইন নিয়মগুলি মার্জ করা হয়েছে",
+    "description": "Status when overload mode merges cached remote rules with built-in rules"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "ক্যাশ রিমোট + বিল্ট-ইন নিয়মগুলি কাস্টম নিয়মের সাথে মার্জ করা হয়েছে",
+    "description": "Status when overload mode merges cached remote and built-in rules, then custom rules"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "শুধুমাত্র কাস্টম নিয়ম ব্যবহার করে",
+    "description": "Status when built-in rules are disabled and only custom rules are active"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "অন্তর্নির্মিত নিয়মগুলি অক্ষম করা হয়েছে এবং কোনও কাস্টম নিয়ম পাওয়া যায়নি",
+    "description": "Status when built-in rules are disabled and there are no custom rules to load"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "ন্যূনতম নিয়ম ব্যবহার করে (দূরবর্তী ব্যর্থ)",
+    "description": "Status when using fallback rules after remote failure"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "হ্যাশ ইউআরএল প্রয়োজন",
+    "description": "Status when remote URL is configured but hash URL is missing"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "দূরবর্তী + অন্তর্নির্মিত নিয়মগুলি মার্জ করা হয়েছে",
+    "description": "Status when remote and built-in rules are merged successfully"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "রিমোট + বিল্ট-ইন নিয়মগুলি কাস্টম নিয়মের সাথে মার্জ করা হয়েছে",
+    "description": "Status when overload mode is active and custom rules are merged"
+  },
+  "hashStatus_remote_failed": {
+    "message": "দূরবর্তী নিয়ম ব্যর্থ হয়েছে",
+    "description": "Status when remote rules failed verification or loading"
+  },
+  "hashStatus_remote_verified": {
+    "message": "দূরবর্তী নিয়ম যাচাই করা হয়েছে",
+    "description": "Status when remote rules have been successfully verified"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "দূরবর্তী নিয়মগুলি লোড করা এবং কাস্টম নিয়মগুলি মার্জ করা হয়েছে",
+    "description": "Message shown when remote rules are loaded and custom rules are merged"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
+  },
+  "headerTitle": {
+    "message": "লিঙ্কুমোরি",
+    "description": "Header title for the extension"
+  },
+  "history_listener_enabled": {
+    "message": "ইতিহাস API-এর মাধ্যমে ইনজেকশন ট্র্যাকিং প্রতিরোধ করুন",
+    "description": "This string is used as name for the history API listener label."
+  },
+  "history_listener_enabled_description": {
+    "message": "ব্রাউজারের ইতিহাসে URLগুলি নিরীক্ষণ এবং পরিষ্কার করুন ।",
+    "description": "Description for the history listener toggle."
+  },
+  "search_link_fix_enabled": {
+    "message": "অনুসন্ধান ফলাফল লিঙ্ক ফিক্স",
+    "description": "Label for the combined Google and Yandex content script toggle"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "Google এবং Yandex সামগ্রী স্ক্রিপ্টগুলি সক্ষম করুন যা অনুসন্ধান ফলাফল লিঙ্কগুলি থেকে পুনঃনির্দেশ ট্র্যাকিং সরিয়ে দেয় ।",
+    "description": "Description for the combined search result content script toggle"
+  },
+  "google_link_fix_enabled": {
+    "message": "Google লিঙ্ক ফিক্স",
+    "description": "Label for the Google content script toggle"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "Google ফলাফল লিঙ্কগুলি থেকে রিডাইরেক্ট ট্র্যাকিং অপসারণ করে এমন Google সামগ্রী স্ক্রিপ্ট সক্ষম করুন ।",
+    "description": "Description for the Google content script toggle"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "Yandex লিঙ্ক ফিক্স",
+    "description": "Label for the Yandex content script toggle"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "Yandex ফলাফল লিঙ্ক থেকে রিডাইরেক্ট ট্র্যাকিং অপসারণ করে এমন Yandex কন্টেন্ট স্ক্রিপ্ট সক্ষম করুন ।",
+    "description": "Description for the Yandex content script toggle"
+  },
+  "import_invalid_format": {
+    "message": "অকার্যকর ফাইল ফর্ম্যাট বা দূষিত ডেটা",
+    "description": "Error message for invalid file format"
+  },
+  "import_parse_error": {
+    "message": "ফাইল পার্স করতে ব্যর্থ হয়েছে । অনুগ্রহ করে ফাইল ফর্ম্যাটটি পরীক্ষা করুন ।",
+    "description": "Error message when file parsing fails"
+  },
+  "import_read_error": {
+    "message": "ফাইল পড়তে ব্যর্থ হয়েছে",
+    "description": "Error message when file reading fails"
+  },
+  "inputUrlsDescription": {
+    "message": "এই সরঞ্জামের সাহায্যে আপনি ইউআরএলগুলিতে পেস্ট করতে পারেন এবং ক্লিয়ারআরএলগুলি সবুজ বোতামে ক্লিক করার পরে ইউআরএলগুলি পরিষ্কার করবে । আপনি একবারে একাধিক ইউআরএল পেস্ট করতে পারেন, তবে প্রতিটি ইউআরএল অবশ্যই একটি পৃথক লাইনে থাকতে হবে ।",
+    "description": "Description text for the input URLs section."
+  },
+  "inputUrlsPlaceholder": {
+    "message": "এখানে আপনার ইউআরএলগুলি পেস্ট করুন, প্রতি লাইনে একটি...",
+    "description": "Placeholder text for the input URLs textarea."
+  },
+  "inputUrlsTitle": {
+    "message": "ইনপুট ইউআরএল",
+    "description": "Title for the input URL section."
+  },
+  "language_selector_description": {
+    "message": "ইন্টারফেসের জন্য আপনার পছন্দের ভাষা নির্বাচন করুন । এবং সেভ করুন এবং পুনরায় লোড করুন-এ ক্লিক করুন ।(নম্বরটি অনুবাদ করা হয়নি)",
+    "description": "Description text for language selector"
+  },
+  "language_selector_label": {
+    "message": "ইন্টারফেস ভাষা",
+    "description": "Label for language selector dropdown"
+  },
+  "licenseCopied": {
+    "message": "লাইসেন্স কপি করা হয়েছে!",
+    "description": "Toast message after copying license content"
+  },
+  "licenseDescription": {
+    "message": "এই এক্সটেনশনটি ওপেন সোর্স এবং গ্নু লেসার জেনারেল পাবলিক লাইসেন্সের অধীনে লাইসেন্সকৃত ।",
+    "description": "Description text for license section"
+  },
+  "licenseDownloaded": {
+    "message": "লাইসেন্স ডাউনলোড করা হয়েছে!",
+    "description": "Toast message after downloading license content"
+  },
+  "licenseSection": {
+    "message": "লাইসেন্স সংক্রান্ত তথ্য প্রদর্শিত হোক",
+    "description": "Section header for license information"
+  },
+  "license_links_title": {
+    "message": "লিঙ্কসমূহ",
+    "description": "Title for links section in license"
+  },
+  "license_third_party_title": {
+    "message": "তৃতীয় পক্ষের উপাদান",
+    "description": "Title for third party components section"
+  },
+  "license_title": {
+    "message": "লাইসেন্স:",
+    "description": "License section title"
+  },
+  "loadError": {
+    "message": "বিষয়বস্তু লোড করার সময় ত্রুটি",
+    "description": "Error title shown when legal/privacy content fails to load"
+  },
+  "loadingContent": {
+    "message": "সামগ্রী লোড হচ্ছে...",
+    "description": "Generic loading message for about/legal content areas"
+  },
+  "loadingLicense": {
+    "message": "লাইসেন্স লোড হচ্ছে...",
+    "description": "Loading text for license content"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "গোপনীয়তা নীতি লোড করা হচ্ছে...",
+    "description": "Loading text for privacy policy content"
+  },
+  "local_hosts_skipping": {
+    "message": "স্থানীয় হোস্টে URLগুলি এড়িয়ে যান (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+    "description": "This string is used as label for the local host skipping switch"
+  },
+  "local_hosts_skipping_description": {
+    "message": "লোকালহোস্ট এবং স্থানীয় নেটওয়ার্কের ঠিকানার জন্য পরিষ্কার করা এড়িয়ে চলুন ।",
+    "description": "Description for the local hosts skipping toggle."
+  },
+  "log_domain_blocked": {
+    "message": "এই ডোমেনটি অবরুদ্ধ",
+    "description": "This string is used on blocked domains in the Linkumori (Clean URLS) log."
+  },
+  "log_html_export_button": {
+    "message": "রপ্তানি ",
+    "description": "This string is used for the export button on the log page."
+  },
+  "log_html_export_button_title": {
+    "message": "গ্লোবাল লগ এক্সপোর্ট করুন",
+    "description": "This string is used as title for the export button on the log page."
+  },
+  "log_html_import_button": {
+    "message": "ইম্পোর্ট করুন",
+    "description": "This string is used for the import button on the log page."
+  },
+  "log_html_import_button_title": {
+    "message": "গ্লোবাল লগ ইম্পোর্ট করুন",
+    "description": "This string is used as title for the import button on the log page."
+  },
+  "log_html_import_error": {
+    "message": "লগ ফাইল আমদানি করতে ত্রুটি:",
+    "description": "Error message prefix when import fails"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "অবৈধ ফাইল ফরম্যাট",
+    "description": "Error message when imported file is not valid JSON log format"
+  },
+  "log_html_page_title": {
+    "message": "Linkumori থেকে লগ ইন করুন (পরিষ্কার URL)",
+    "description": "This string is used as header on the log page."
+  },
+  "log_html_reset_button": {
+    "message": "রিসেট",
+    "description": "This string is used for the reset button on the log page."
+  },
+  "log_html_reset_button_title": {
+    "message": "গ্লোবাল লগ রিসেট করুন",
+    "description": "This string is used as title for the reset button on the log page."
+  },
+  "log_html_reset_confirm": {
+    "message": "আপনি কি নিশ্চিত যে আপনি লগটি রিসেট করতে চান? এই ক্রিয়াটি পূর্বাবস্থায় ফেরানো যাবে না ।",
+    "description": "Confirmation dialog when user clicks reset button"
+  },
+  "log_html_search": {
+    "message": "খোঁজ",
+    "description": "Label for the search input field"
+  },
+  "log_html_search_placeholder": {
+    "message": "লগ অনুসন্ধান করুন...",
+    "description": "Placeholder text in the search input field"
+  },
+  "log_html_show_all": {
+    "message": "সব",
+    "description": "Option in entries dropdown to show all entries"
+  },
+  "log_html_show_entries": {
+    "message": "এন্ট্রিগুলি দেখান",
+    "description": "Label for the dropdown to select how many entries to show per page"
+  },
+  "log_html_table_head_1": {
+    "message": "আগে",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_2": {
+    "message": "উপস্থিতি",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_3": {
+    "message": "বিধি",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_4": {
+    "message": "সময়",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_5": {
+    "message": "সরবরাহকারী",
+    "description": "Column header for matched provider name on the log page."
+  },
+  "log_html_table_head_6": {
+    "message": "প্যাটার্ন",
+    "description": "Column header for matched urlPattern/domainPattern on the log page."
+  },
+  "log_html_table_head_7": {
+    "message": "পদ্ধতি ",
+    "description": "Column header for request method and provider methods on the log page."
+  },
+  "log_html_table_head_8": {
+    "message": "সম্পদের ধরন",
+    "description": "Column header for request resource type and provider resource types on the log page."
+  },
+  "log_nav_dashboard": {
+    "message": "ড্যাশবোর্ড",
+    "description": "Tab label for dashboard view on log page"
+  },
+  "log_nav_logs": {
+    "message": "লগ",
+    "description": "Tab label for logs view on log page"
+  },
+  "log_ping_blocked": {
+    "message": "এই হাইপারলিঙ্ক অডিটিং ব্লক করা হয়েছিল",
+    "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
+  },
+  "log_provider_pattern_domain": {
+    "message": "ডোমেন প্যাটার্ন",
+    "description": "Label for domain pattern provider matching in log entries."
+  },
+  "log_provider_pattern_url": {
+    "message": "url প্যাটার্ন",
+    "description": "Label for URL pattern provider matching in log entries."
+  },
+  "log_provider_request_method": {
+    "message": "পদ্ধতি ",
+    "description": "Label for the current request method in provider match details."
+  },
+  "log_provider_methods": {
+    "message": "প্রদানকারীর পদ্ধতি",
+    "description": "Label for provider method filters in provider match details."
+  },
+  "log_redirect": {
+    "message": "এই URL টি পুনঃনির্দেশিত করা হয়েছে",
+    "description": "This string is used on redirections in the Linkumori (Clean URLS) log."
+  },
+  "log_stats_changed_urls": {
+    "message": "পরিবর্তিত ইউআরএল",
+    "description": "Stats card label for entries where URL changed"
+  },
+  "log_stats_chart_no_data": {
+    "message": "কোনো চার্ট ডেটা নেই",
+    "description": "Empty-state label when no data is available for chart"
+  },
+  "log_stats_chart_reload": {
+    "message": "রিলোড",
+    "description": "Button label to reload the stats chart and reset pie filters"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "চার্ট পুনরায় লোড করুন এবং পাই ফিল্টারগুলি রিসেট করুন",
+    "description": "Tooltip for reload chart button in log dashboard"
+  },
+  "log_stats_chart_title": {
+    "message": "পরিসংখ্যান চার্ট",
+    "description": "Title for selectable chart section in log dashboard"
+  },
+  "log_stats_chart_type": {
+    "message": "চার্টের ধরন",
+    "description": "Label for chart type selector"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "পাই",
+    "description": "Option label for pie chart"
+  },
+  "log_stats_count_col": {
+    "message": "সংখ্যা",
+    "description": "Column header for count in stats tables"
+  },
+  "log_stats_domain_col": {
+    "message": "\n\t\t\t\tডোমেইন\t\t\t",
+    "description": "Column header for domain name in stats"
+  },
+  "log_stats_earliest": {
+    "message": "প্রাচীনতম",
+    "description": "Stats card label for earliest timestamp"
+  },
+  "log_stats_latest": {
+    "message": "সাম্প্রতিকতম",
+    "description": "Stats card label for latest timestamp"
+  },
+  "log_stats_no_domains": {
+    "message": "কোনও ডোমেন নেই",
+    "description": "Fallback row label when no domains are available in stats"
+  },
+  "log_stats_no_rules": {
+    "message": "কোন নিয়ম নেই.",
+    "description": "Fallback row label when no rules are available in stats"
+  },
+  "log_stats_no_providers": {
+    "message": "কোনও সরবরাহকারী নেই",
+    "description": "Fallback row label when no providers are available in stats"
+  },
+  "log_stats_no_methods": {
+    "message": "কোন পদ্ধতি নেই",
+    "description": "Fallback row label when no methods are available in stats"
+  },
+  "log_stats_no_resource_types": {
+    "message": "কোন রিসোর্সের ধরন নেই",
+    "description": "Fallback row label when no resource types are available in stats"
+  },
+  "log_stats_rule_col": {
+    "message": "বিধি",
+    "description": "Column header for rule name in stats"
+  },
+  "log_stats_provider_col": {
+    "message": "সরবরাহকারী",
+    "description": "Column header for provider name in stats"
+  },
+  "log_stats_method_col": {
+    "message": "পদ্ধতি ",
+    "description": "Column header for method name in stats"
+  },
+  "log_stats_resource_type_col": {
+    "message": "সম্পদের ধরন",
+    "description": "Column header for resource type in stats"
+  },
+  "log_stats_top_domains": {
+    "message": "শীর্ষ ডোমেইন",
+    "description": "Stats section title for top domains"
+  },
+  "log_stats_top_providers": {
+    "message": "শীর্ষ সরবরাহকারী",
+    "description": "Stats section title for top providers"
+  },
+  "log_stats_top_methods": {
+    "message": "শীর্ষ পদ্ধতি",
+    "description": "Stats section title for top methods"
+  },
+  "log_stats_top_resource_types": {
+    "message": "শীর্ষ রিসোর্সের প্রকারভেদ",
+    "description": "Stats section title for top resource types"
+  },
+  "log_stats_top_rules": {
+    "message": "শীর্ষ নিয়ম",
+    "description": "Stats section title for top rules"
+  },
+  "log_stats_total_entries": {
+    "message": "মোট এন্ট্রি",
+    "description": "Stats card label for total log entries"
+  },
+  "log_stats_unique_domains": {
+    "message": "অনন্য ডোমেন",
+    "description": "Stats card label for unique source domains"
+  },
+  "log_stats_unique_rules": {
+    "message": "অনন্য নিয়মাবলী",
+    "description": "Stats card label for unique applied rules"
+  },
+  "log_stats_unique_providers": {
+    "message": "অনন্য সরবরাহকারী",
+    "description": "Stats card label for unique providers"
+  },
+  "log_stats_unique_methods": {
+    "message": "অনন্য পদ্ধতি",
+    "description": "Stats card label for unique methods"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "অনন্য রিসোর্সের ধরন",
+    "description": "Stats card label for unique resource types"
+  },
+  "log_whitelist_bypass": {
+    "message": "বাদ দেওয়া হয়েছে: ডোমেনটি সাদা তালিকাভুক্ত",
+    "description": "This string is used in the log when URL cleaning is skipped because the domain is whitelisted."
+  },
+  "moonIconAlt": {
+    "message": "চাঁদের আইকন",
+    "description": "Alt text for moon theme icon"
+  },
+  "new_custom_providers_label": {
+    "message": "নতুন",
+    "description": "Inline label for new custom provider count."
+  },
+  "nothingToCopy": {
+    "message": "কপি করতে কিছুই নেই",
+    "description": "Toast message when copy action has no content"
+  },
+  "nothingToDownload": {
+    "message": "ডাউনলোড করার মতো কিছু নেই!",
+    "description": "Toast message when download action has no content"
+  },
+  "openSettings": {
+    "message": "লিঙ্কুমোরি সেটিংস খুলুন"
+  },
+  "overload_mode_enabled": {
+    "message": "ওভারলোড মোড সক্ষম করুন",
+    "description": "Label for toggle that merges built-in and remote rules together"
+  },
+  "overload_mode_enabled_description": {
+    "message": "যখন সক্ষম করা হয়, অন্তর্নির্মিত এবং দূরবর্তী নিয়মগুলি কাস্টম নিয়মগুলি প্রয়োগ করার আগে একসাথে লোড করা হয় এবং মার্জ করা হয় ।",
+    "description": "Description for overload mode toggle"
+  },
+  "overridden_providers_label": {
+    "message": "পূনর্স্থাপন করা হয়েছে",
+    "description": "Inline label for overridden provider count."
+  },
+  "overridden_providers_list_label": {
+    "message": "ওভাররাইড করা সরবরাহকারী:",
+    "description": "Label for overridden provider names list."
+  },
+  "pagination_current_page_aria": {
+    "message": "বর্তমান পৃষ্ঠা, পৃষ্ঠা $1",
+    "description": "Screen reader label for current active page. $1=page number"
+  },
+  "pagination_first": {
+    "message": "প্রথম",
+    "description": "Button text to go to first page"
+  },
+  "pagination_first_aria": {
+    "message": "প্রথম পৃষ্ঠা",
+    "description": "Screen reader label for first page button"
+  },
+  "pagination_last": {
+    "message": "শেষ",
+    "description": "Button text to go to last page"
+  },
+  "pagination_last_aria": {
+    "message": "শেষ পৃষ্ঠা",
+    "description": "Screen reader label for last page button"
+  },
+  "pagination_next": {
+    "message": "পরবর্তী",
+    "description": "Button text to go to next page"
+  },
+  "pagination_next_aria": {
+    "message": "পরবর্তী পৃষ্ঠা",
+    "description": "Screen reader label for next page button"
+  },
+  "pagination_page_aria": {
+    "message": "পৃষ্ঠা $1",
+    "description": "Screen reader label for numbered page buttons. $1=page number"
+  },
+  "pagination_previous": {
+    "message": "পূর্ববর্তী",
+    "description": "Button text to go to previous page"
+  },
+  "pagination_previous_aria": {
+    "message": "আগের পেজ",
+    "description": "Screen reader label for previous page button"
+  },
+  "percentage_symbol": {
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
+  },
+  "ping_blocking_enabled": {
+    "message": "হাইপারলিঙ্ক অডিটিং ব্লক করুন",
+    "description": "This string is used as label for the hyperlink auditing blocking switch"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "ট্র্যাকিংয়ের জন্য ব্যবহৃত পিং অনুরোধগুলি ব্লক করুন ।",
+    "description": "Description for the ping blocking toggle."
+  },
+  "popup_consent_accept_button": {
+    "message": "গ্রহণ করুন এবং চালিয়ে যান",
+    "description": "Button label to accept popup consent gate"
+  },
+  "popup_consent_checkbox": {
+    "message": "আমি গোপনীয়তা নীতি এবং লাইসেন্স পড়েছি এবং গ্রহণ করেছি ।",
+    "description": "Consent checkbox label for popup gate"
+  },
+  "popup_consent_description": {
+    "message": "এই পপআপটি ব্যবহার করার আগে অনুগ্রহ করে গোপনীয়তা নীতি এবং লাইসেন্স পড়ুন । আমরা আপনার ডেটা সংগ্রহ করি না । সমস্ত ডেটা আপনার ডিভাইসে সংরক্ষণ করা হয় এবং আমাদের কাছে প্রেরণ করা হয় না ।",
+    "description": "Description for popup consent gate"
+  },
+  "popup_consent_legal_button": {
+    "message": "আইনি পড়ুন",
+    "description": "Button label to open legal page from popup consent gate"
+  },
+  "popup_consent_title": {
+    "message": "সম্মতি প্রয়োজন",
+    "description": "Title for popup consent gate"
+  },
+  "popup_html_page_title": {
+    "message": "লিঙ্কুমোরি",
+    "description": "Popup page title text"
+  },
+  "popup_html_version_label": {
+    "message": "সংস্করণ:",
+    "description": "Version label shown in popup license section"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "ফায়ারফক্স অ্যাড-অন স্বাক্ষর",
+    "description": "Label shown in popup license section for Firefox add-on signing fingerprint."
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "ফায়ারফক্স অ্যাড-অন স্বাক্ষর",
+    "description": "Popup label for Firefox signature value."
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "এটি স্বাক্ষরিত না হওয়ার কারণে অনুপলব্ধ",
+    "description": "Message shown when the add-on package is unsigned and no Mozilla signing digest is available."
+  },
+  "popup_html_version_label_title": {
+    "message": "বর্তমান এক্সটেনশন সংস্করণ",
+    "description": "Tooltip for popup version label"
+  },
+  "popup_html_license_description": {
+    "message": "নিচের লিগ্যাল লিঙ্কে ক্লিক করে লাইসেন্স এবং গোপনীয়তার বিস্তারিত তথ্য দেখুন ।",
+    "description": "Description in popup license section"
+  },
+  "popup_html_license_description_title": {
+    "message": "লাইসেন্স এবং গোপনীয়তার তথ্য",
+    "description": "Tooltip for popup license description"
+  },
+  "popup_html_gpl_link": {
+    "message": "জিএনইউ সাধারণ পাবলিক লাইসেন্সঃ",
+    "description": "Popup license link label for GPL v3"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "GNU GPL v3.0 লাইসেন্স টেক্সট খুলুন",
+    "description": "Tooltip for GPL link in popup license section"
+  },
+  "popup_html_lgpl_link": {
+    "message": "গ্নু জেনারেল লেসার পাবলিক লাইসেন্স v3.0",
+    "description": "Popup license link label for LGPL v3"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "GNU LGPL v3.0 লাইসেন্স টেক্সট খুলুন",
+    "description": "Tooltip for LGPL link in popup license section"
+  },
+  "popup_html_source_code_repository": {
+    "message": "সোর্স কোড রিপোজিটরি",
+    "description": "Popup license link label for source code repository"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "ওপেন সোর্স কোড রিপোজিটরি",
+    "description": "Tooltip for source code repository link in popup license section"
+  },
+  "popup_html_source_code_releases": {
+    "message": "সোর্স কোড রিলিজ",
+    "description": "Popup license link label for source code releases"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "ওপেন সোর্স কোড রিলিজ",
+    "description": "Tooltip for source code releases link in popup license section"
+  },
+  "popup_html_report_issues": {
+    "message": "ইস্যু রিপোর্ট করুন",
+    "description": "Popup license link label for issue tracker"
+  },
+  "popup_html_report_issues_title": {
+    "message": "সমস্যা অনুসরণ",
+    "description": "Tooltip for report issues link in popup license section"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "ClearURLs MV3 মাইগ্রেশন রিপোজিটরি",
+    "description": "Popup license link label for ClearURLs MV3 migration repo"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "ClearURLs MV3 মাইগ্রেশন রিপোজিটরি খুলুন",
+    "description": "Tooltip for ClearURLs migration repository link in popup license section"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "ClearURLs অ্যাডঅনস V1.27.3 রিপোজিটরি",
+    "description": "Popup license link label for ClearURLs addon v1.27.3 repo"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "ClearURLs Addon v1.27.3 রিপোজিটরি খুলুন",
+    "description": "Tooltip for ClearURLs addon repository link in popup license section"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "লিঙ্কুমোরি v .",
+    "description": "Footer prefix shown on blocked page before version number"
+  },
+  "legal_consent_notice_default": {
+    "message": "নীচে গোপনীয়তা নীতি এবং লাইসেন্স পর্যালোচনা করুন, তারপরে Linkumori ব্যবহার চালিয়ে যেতে সম্মত হন ।",
+    "description": "Default notice text for the legal page consent section"
+  },
+  "legal_consent_notice_update": {
+    "message": "Linkumori আইনি শর্তাবলী আপডেট করা হয়েছে । গোপনীয়তা নীতি এবং লাইসেন্স পর্যালোচনা করুন, তারপরে এক্সটেনশানটি ব্যবহার চালিয়ে যেতে সম্মত হন ।",
+    "description": "Notice text shown on the legal page after a consent version update"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "নীচে গোপনীয়তা নীতি এবং লাইসেন্স পর্যালোচনা করুন, তারপরে Linkumori সেটআপ শেষ করতে সম্মত হন ।",
+    "description": "Notice text shown on the legal page during first install"
+  },
+  "legal_consent_notice_import": {
+    "message": "নীচে গোপনীয়তা নীতি এবং লাইসেন্স পর্যালোচনা করুন, তারপরে লিঙ্কুমোরিতে মাইগ্রেট করা শেষ করতে সম্মত হন ।",
+    "description": "Notice text shown on the legal page during import or migration"
+  },
+  "legal_consent_status_required": {
+    "message": "সম্মতি প্রয়োজন । আপনি বর্তমান আইনি শর্তাবলী গ্রহণ না করা পর্যন্ত Linkumori স্থগিত করা হয় ।",
+    "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_accepted": {
+    "message": "সম্মতি গৃহীত হয়েছে । Linkumori বর্তমান আইনি শর্তাবলীর সাথে চলতে পারে ।",
+    "description": "Status message shown when current legal consent is accepted"
+  },
+  "legal_consent_button_accepted": {
+    "message": "গৃহীত",
+    "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_saved": {
+    "message": "সম্মতি গৃহীত হয়েছে ।",
+    "description": "Toast shown after saving legal consent"
+  },
+  "legal_consent_save_failed": {
+    "message": "সম্মতি সংরক্ষণ করতে ব্যর্থ হয়েছে ।",
+    "description": "Toast shown when saving legal consent fails"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "বর্তমান সম্মতি নীতি সংস্করণ নির্ধারণ করতে অক্ষম ।",
+    "description": "Error shown when the current consent version is unavailable"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "কীভাবে সম্মতি প্রত্যাহার করবেন",
+    "description": "Button label that opens the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "গোপনীয়তা নীতিতে বর্ণিত এক্সটেনশানটি আনইনস্টল করে সম্মতি প্রত্যাহার করা হয় ।",
+    "description": "Short note below the legal page consent controls about withdrawing consent"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "কীভাবে সম্মতি প্রত্যাহার করবেন",
+    "description": "Title for the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "আপনি এক্সটেনশন বা অ্যাড-অন আনইনস্টল করে যে কোনও সময় আপনার সম্মতি প্রত্যাহার করতে পারেন ।",
+    "description": "Introductory text in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "আনইনস্টল করার পরে, আপনার ডিভাইসে Linkumori দ্বারা স্থানীয়ভাবে সঞ্চিত সমস্ত ডেটা স্থায়ীভাবে এবং স্বয়ংক্রিয়ভাবে মুছে ফেলা হয় । আপনার পক্ষ থেকে আনইনস্টল করার বাইরে কোনও পদক্ষেপের প্রয়োজন নেই ।",
+    "description": "Data deletion explanation in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "যেহেতু লিংকুমোরি বহিরাগত সার্ভারগুলিতে কোনও ডেটা প্রেরণ করে না, তাই মুছে ফেলার অনুরোধ করার জন্য কোনও দূরবর্তী ডেটা নেই ।",
+    "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "বন্ধ",
+    "description": "Close button label for the withdrawal of consent modal"
+  },
+  "legal_optional_features_heading": {
+    "message": "আপনি সক্ষম করতে চাইতে পারেন এমন অক্ষম বৈশিষ্ট্যগুলি",
+    "description": "Heading for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_features_description": {
+    "message": "এই ঐচ্ছিক সুরক্ষাগুলি ডিফল্টরূপে অক্ষম করা শুরু করে । আপনি যা চান তা চালু করুন, তারপরে Linkumori সেভ করুন এবং পুনরায় লোড করুন ।",
+    "description": "Description for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "নিষ্ক্রিয়",
+    "description": "Status badge shown when an optional legal-page feature is disabled"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "সক্রিয়",
+    "description": "Status badge shown when an optional legal-page feature is enabled"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "সেভ করতে সক্ষম করুন",
+    "description": "Status badge shown when an optional legal-page feature will be enabled after saving"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "সেভ করতে অক্ষম করুন",
+    "description": "Status badge shown when an optional legal-page feature will be disabled after saving"
+  },
+  "legal_optional_features_note": {
+    "message": "আপনি যখন ডানদিকে বোতামটি ব্যবহার করেন তখনই পরিবর্তনগুলি সংরক্ষণ করা হয় ।",
+    "description": "Initial helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_default": {
+    "message": "এই বৈশিষ্ট্যগুলি ডিফল্টরূপে অক্ষম করা হয়েছে । আপনি যা চান তা চালু করুন, তারপরে Linkumori সেভ করুন এবং পুনরায় লোড করুন ।",
+    "description": "Default helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "পরিবর্তনগুলি মুলতুবি রয়েছে ৷ সেগুলি প্রয়োগ করতে এবং এই আইনি পৃষ্ঠাটি পুনরায় খুলতে সংরক্ষণ করুন ৷",
+    "description": "Helper note shown when optional legal-page feature changes have not been saved yet"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "আপনার ঐচ্ছিক বৈশিষ্ট্য পরিবর্তনগুলি সংরক্ষণ করা এবং Linkumori পুনরায় লোড করা ।",
+    "description": "Helper note shown while optional legal-page feature changes are being saved"
+  },
+  "legal_optional_features_save_button": {
+    "message": "Linkumori সেভ করুন এবং পুনরায় লোড করুন",
+    "description": "Save button label for optional legal-page feature toggles"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "ঐচ্ছিক ফিচার পরিবর্তনগুলি সংরক্ষণ করতে ব্যর্থ হয়েছে ।",
+    "description": "Error toast shown when optional legal-page feature changes fail to save"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "ব্যাজ",
+    "description": "This string is used as name for the badges switch button on the popup page."
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "ফিল্টার",
+    "description": "This string is used as name for the filter switch button on the popup page."
+  },
+  "popup_html_configs_switch_log": {
+    "message": "লগিং",
+    "description": "This string is used as name for the logging switch button on the popup page."
+  },
+  "popup_html_log_head": {
+    "message": "কার্যবিবরণী দেখাও",
+    "description": "This string is used as name for the log button on the popup page."
+  },
+  "popup_html_settings_button": {
+    "message": "সেটিংস",
+    "description": "This string is used for the settings button on the popup page."
+  },
+  "popup_html_statistics": {
+    "message": "পরিসংখ্যান",
+    "description": "Toggle label for statistics feature"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "অবরুদ্ধ",
+    "description": "This string is used as name for the blocked elements on the popup page."
+  },
+  "popup_html_statistics_elements": {
+    "message": "পারমাণবিক ক্ষয়ের মাধ্যমে যে শক্তি নিসৃত হয়, তাকে ক্ষয় শক্তি বলে ।",
+    "description": "This string is used as name for the elements on the popup page."
+  },
+  "popup_html_statistics_percentage": {
+    "message": "শতকরা হার",
+    "description": "This string is used as name for the percentage of blocked elements on the popup page."
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "রিসেট",
+    "description": "This string is used as name for the statistics reset button on the popup page."
+  },
+  "popup_html_tools_button": {
+    "message": "সরঞ্জামসমূহ",
+    "description": "This string is used for the tools button on the popup page."
+  },
+  "popup_html_tools_button_title": {
+    "message": "ক্লিনিং টুল খুলুন",
+    "description": "This string is used as a title for the tools button on the popup page."
+  },
+  "popup_html_whitelist_button": {
+    "message": "পরিচ্ছন্ন তলিকা",
+    "description": "This string is used for the whitelist button on the popup page."
+  },
+  "popup_nav_license": {
+    "message": "লাইসেন্স:",
+    "description": "Navigation label for license section"
+  },
+  "popup_nav_main": {
+    "message": "মূল",
+    "description": "Navigation label for main content section"
+  },
+  "privacyCopied": {
+    "message": "গোপনীয়তা নীতি অনুলিপি করা হয়েছে!",
+    "description": "Toast message after copying privacy policy content"
+  },
+  "privacyDescription": {
+    "message": "অনুগ্রহ করে নিচে আমাদের গোপনীয়তা নীতি পর্যালোচনা করুন ।",
+    "description": "Description text for privacy policy section"
+  },
+  "privacyDownloaded": {
+    "message": "গোপনীয়তা নীতি ডাউনলোড করা হয়েছে!",
+    "description": "Toast message after downloading privacy policy content"
+  },
+  "privacyPolicySection": {
+    "message": "ব্যক্তিগত গোপনীয়তার নীতি",
+    "description": "Section header for privacy policy"
+  },
+  "privacyVersionDescription": {
+    "message": "আপনি কোন গোপনীয়তা নীতির অনুবাদ দেখতে চান তা চয়ন করুন । দয়া করে মনে রাখবেন যে বর্তমানে শুধুমাত্র ইংরেজি সংস্করণ পাওয়া যায় এবং ভবিষ্যতে অন্যান্য ভাষা যোগ করা যেতে পারে ।",
+    "description": "Helper description for privacy version selector"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "English",
+    "description": "Option label for global English privacy policy file"
+  },
+  "privacyVersionLabel": {
+    "message": "ব্যক্তিগত গোপনীয়তার নীতি",
+    "description": "Label for selecting English privacy policy version"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "নির্বাচিত নীতি ফাইল পাওয়া যায়নি । পরিবর্তে ডিফল্ট গোপনীয়তা নীতি লোড করা হয়েছে ।",
+    "description": "Notification shown when selected privacy version file cannot be loaded"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "গোপনীয়তা নীতি সংস্করণ মানচিত্র লোড করতে ব্যর্থ হয়েছে ।",
+    "description": "Notification shown when privacy version mapping config cannot be loaded"
+  },
+  "providerImport_bundledRules": {
+    "message": "সক্রিয় বান্ডিল/রিমোট রুলস/কাস্টম রুলস",
+    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  },
+  "providerImport_button": {
+    "message": "সরবরাহকারী আমদানি/নিষ্ক্রিয় করুন",
+    "description": "Button text to import selected providers"
+  },
+  "providerImport_clearSelection": {
+    "message": "সরিয়ে ফেলুন",
+    "description": "Button text to clear all selected providers."
+  },
+  "providerImport_complete": {
+    "message": "সম্পন্ন করুন"
+  },
+  "providerImport_completeProvider": {
+    "message": "প্রদানকারীকে সম্পূর্ণ করুন"
+  },
+  "providerImport_completed": {
+    "message": "ইম্পোর্ট সম্পন্ন হয়েছে!"
+  },
+  "providerImport_confirmExclude": {
+    "message": "এই প্রদানকারীর স্বাক্ষর বাদ দেবেন? ইউআরএল/ডোমেন প্যাটার্ন সরবরাহকারীদের মেলানো কাস্টম নিয়ম থেকে লুকানো এবং সরানো হবে ।",
+    "description": "Confirmation shown before excluding a provider signature from import"
+  },
+  "providerImport_disableSelected": {
+    "message": "নির্বাচিত অক্ষম করুন",
+    "description": "Button text to disable selected providers by signature"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "$1 নির্বাচিত প্রদানকারীর(গুলি) জন্য স্বাক্ষর অক্ষম করবেন?",
+    "description": "Confirmation before disabling selected providers in batch. $1 is selected count"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "অক্ষম স্বাক্ষর: $1. ম্যাচিং কাস্টম সরবরাহকারীগুলি সরানো হয়েছে: $2 ।",
+    "description": "Batch disable result. $1 is disabled signature count and $2 removed custom provider count"
+  },
+  "providerImport_disabledClear": {
+    "message": "সব পরিষ্কার করুন",
+    "description": "Button label to clear all excluded signatures for selected source"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "সমস্ত প্রতিবন্ধী নিয়ম সাফ করুন",
+    "description": "Button label to clear all disabled signatures from all sources"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "সমস্ত উত্স থেকে সমস্ত অক্ষম স্বাক্ষর সাফ করবেন?",
+    "description": "Confirmation before clearing all disabled signatures globally"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "এই উত্সের জন্য সমস্ত অক্ষম স্বাক্ষর সাফ করবেন?",
+    "description": "Confirmation before clearing disabled signatures for selected source"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "কোনও অক্ষম স্বাক্ষর নেই",
+    "description": "Empty state text when no disabled signatures exist for selected source"
+  },
+  "providerImport_disabledRestore": {
+    "message": "পুনঃস্থাপন করুন",
+    "description": "Button label to restore an excluded signature"
+  },
+  "providerImport_disabledTitle": {
+    "message": "প্রতিবন্ধী নিয়মাবলী",
+    "description": "Title for disabled provider signature list in provider import sidebar"
+  },
+  "providerImport_domainExceptions": {
+    "message": "ডোমেন ব্যতিক্রম",
+    "description": "Full text for domain exceptions tooltip in provider cards"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "ডি",
+    "description": "Abbreviation for domain exceptions count in provider cards"
+  },
+  "providerImport_domainPatterns": {
+    "message": "ডোমেন প্যাটার্ন",
+    "description": "Full text for domain patterns tooltip in provider cards"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "ডিপি",
+    "description": "Abbreviation for domain patterns count in provider cards"
+  },
+  "providerImport_domainRedirections": {
+    "message": "ডোমেন পুনঃনির্দেশ",
+    "description": "Full text for domain redirections tooltip in provider cards"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "ড.",
+    "description": "Abbreviation for domain redirections count in provider cards"
+  },
+  "providerImport_exceptions": {
+    "message": "ব্যতিক্রম"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "exc"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "এই প্রদানকারীর কোনও URL/ডোমেন প্যাটার্ন নেই এবং স্বাক্ষর দ্বারা বাদ দেওয়া যাবে না ।",
+    "description": "Shown when user tries to exclude a provider without URL/domain patterns"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "প্রদানকারীর স্বাক্ষর বাদ দেওয়া হয়েছে । $1 ম্যাচিং কাস্টম প্রদানকারী(গুলি) সরানো হয়েছে ।",
+    "description": "Success message after excluding a provider signature. $1 is removed custom count"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(রীতিনীতিতে বিদ্যমান)"
+  },
+  "providerImport_failed": {
+    "message": "সরবরাহকারী আমদানি করতে ব্যর্থ: $1"
+  },
+  "providerImport_import": {
+    "message": "নির্বাচিত যোগ করো"
+  },
+  "providerImport_importedCount": {
+    "message": "আমদানিকৃত: $1 প্রদানকারী"
+  },
+  "providerImport_importedRulesCount": {
+    "message": "আমদানি হয়েছে: $1 নিয়ম",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_importing": {
+    "message": "ইম্পোর্ট করা হচ্ছে..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "বিদ্যমান Linkumori আন্তঃকার্যকারিতা নিয়ম",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
+  },
+  "providerImport_loading": {
+    "message": "সরবরাহকারী লোড করা হচ্ছে...",
+    "description": "Displayed while providers are being loaded into the grid."
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "$1 বিধিগুলির জন্য কোনও সরবরাহকারী উপলব্ধ নেই"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "$1 বিধিগুলিতে কোনও সরবরাহকারী পাওয়া যায়নি"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "আমদানির জন্য কোনও নিয়ম উপলব্ধ নেই"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "কোনও URL প্যাটার্ন নেই"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "ওভাররাইট করা হয়েছে: $1 প্রদানকারী"
+  },
+  "providerImport_rawRules": {
+    "message": "কাঁচা নিয়ম",
+    "description": "Full text for raw rules tooltip in provider cards"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "কাঁচা",
+    "description": "Abbreviation for raw rules count in provider cards"
+  },
+  "providerImport_redirections": {
+    "message": "পুনঃনির্দেশ"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "রেড"
+  },
+  "providerImport_referralAbbr": {
+    "message": "সুত্র",
+    "description": "Abbreviation for referral marketing count in provider cards"
+  },
+  "providerImport_referralMarketing": {
+    "message": "রেফারেল মার্কেটিং",
+    "description": "Full text for referral marketing tooltip in provider cards"
+  },
+  "providerImport_rules": {
+    "message": "নিয়মাবলি"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "নিয়মাবলী",
+    "description": "Abbreviation for rules count in provider cards"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "সরবরাহকারী অনুসন্ধান করুন...",
+    "description": "Placeholder text in the search input field to filter providers."
+  },
+  "providerImport_selectAll": {
+    "message": "সবগুলো নির্বাচন করুন",
+    "description": "Button text to select all providers in the list/grid."
+  },
+  "providerImport_selectedCount": {
+    "message": "$1 নির্বাচিত"
+  },
+  "providerImport_skippedCount": {
+    "message": "এড়িয়ে গেছেন: $1 প্রদানকারী"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "এড়িয়ে গেছে: $1 নিয়ম",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_sources": {
+    "message": "নিয়মের উৎস",
+    "description": "Heading for the sidebar that lists available rule sources."
+  },
+  "providerImport_title": {
+    "message": "সরবরাহকারী আমদানি করুন বা অক্ষম করুন",
+    "description": "Title of the provider import modal dialog."
+  },
+  "providerList_button": {
+    "message": "সমস্ত কাস্টম প্রদানকারীর তালিকা এবং অনুসন্ধান করুন",
+    "description": "Button text to open the provider list modal"
+  },
+  "providerList_complete": {
+    "message": "সম্পন্ন করুন",
+    "description": "Label indicating a provider is a complete provider"
+  },
+  "providerList_confirmDelete": {
+    "message": "আপনি কি \"$1\" সরবরাহকারী মুছে ফেলার বিষয়ে নিশ্চিত?",
+    "description": "Confirmation message when deleting a provider",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "কপি করুন",
+    "description": "Suffix added to provider names when duplicating (e.g., 'Google_Copy')"
+  },
+  "providerList_createFirst": {
+    "message": "প্রথম সরবরাহকারী তৈরি করুন",
+    "description": "Button text to create the first provider when none exist"
+  },
+  "providerList_delete": {
+    "message": "মুছুন",
+    "description": "Button text to delete a provider"
+  },
+  "providerList_deleteFailed": {
+    "message": "প্রদানকারীকে মুছে ফেলতে ব্যর্থ হয়েছে । অনুগ্রহ করে আবার চেষ্টা করুন ।",
+    "description": "Error message when provider deletion fails"
+  },
+  "providerList_deleteTooltip": {
+    "message": "সরবরাহকারী মুছুন",
+    "description": "Tooltip text for the delete provider button"
+  },
+  "providerList_duplicate": {
+    "message": "কপি করুন",
+    "description": "Button text to duplicate/copy a provider"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "ডুপ্লিকেট সরবরাহকারী",
+    "description": "Tooltip text for the duplicate provider button"
+  },
+  "providerList_edit": {
+    "message": "এডিট করুন",
+    "description": "Button text to edit a provider"
+  },
+  "providerList_editTooltip": {
+    "message": "সরবরাহকারী সম্পাদনা করুন",
+    "description": "Tooltip text for the edit provider button"
+  },
+  "providerList_exceptions": {
+    "message": "ব্যতিক্রম",
+    "description": "Label for exceptions count in provider statistics"
+  },
+  "providerList_noProvidersFound": {
+    "message": "কোনও কাস্টম সরবরাহকারী পাওয়া যায়নি ।",
+    "description": "Message shown when there are no custom providers to display"
+  },
+  "providerList_noUrlPattern": {
+    "message": "কোনও URL প্যাটার্ন নেই",
+    "description": "Text shown when a provider has no URL pattern defined"
+  },
+  "providerList_rawRules": {
+    "message": "কাঁচা নিয়ম",
+    "description": "Label for raw rules count in provider statistics"
+  },
+  "providerList_redirections": {
+    "message": "পুনঃনির্দেশ",
+    "description": "Label for redirections count in provider statistics"
+  },
+  "providerList_referral": {
+    "message": "রেফারেল",
+    "description": "Label for referral marketing count in provider statistics"
+  },
+  "providerList_rules": {
+    "message": "নিয়মাবলী",
+    "description": "Label for rules count in provider statistics"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "সরবরাহকারী অনুসন্ধান করুন...",
+    "description": "Placeholder text for the provider search input"
+  },
+  "providerList_title": {
+    "message": "সমস্ত সরবরাহকারী",
+    "description": "Title of the provider list modal"
+  },
+  "referral_marketing_enabled": {
+    "message": "রেফারেল মার্কেটিংয়ের অনুমতি দিন",
+    "description": "This string is used as label for the referral marketing switch"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "রেফারেল এবং অ্যাফিলিয়েট ট্র্যাকিং প্যারামিটারগুলি সরান ।",
+    "description": "Description for the referral marketing toggle."
+  },
+  "redirection_enabled": {
+    "message": "তৃতীয় পক্ষের রিডাইরেক্ট বাইপাস সক্ষম করুন",
+    "description": "Label for the toggle that enables regex redirections and domain redirections"
+  },
+  "redirection_enabled_description": {
+    "message": "বান্ডেল, রিমোট এবং কাস্টম নিয়ম থেকে রেজেক্স রিডাইরেক্টেশন এবং ডোমেন রিডাইরেক্টেশন ব্যবহার করে তৃতীয় পক্ষের মধ্যস্থতাকারী ইউআরএলগুলি পুনঃনির্দেশ এবং ট্র্যাকিং বাইপাস করুন । প্রয়োজন হলে প্রথমে অডিট নিয়মগুলি, তারপরে সেগুলি পৃথকভাবে সম্পাদনা বা ওভাররাইড করতে কাস্টম রুলস এডিটর ব্যবহার করুন ।",
+    "description": "Description for the toggle that enables or disables redirection handling"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "লাইন $LINE$: প্রত্যাশিত \"RuleURL | HashURL\"",
+    "description": "Validation message when an additional remote rule set line is malformed.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "লাইন $LINE$: অবৈধ HTTPS হ্যাশ URL",
+    "description": "Validation message when additional remote hash URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "লাইন $LINE$: অবৈধ HTTPS নিয়ম URL",
+    "description": "Validation message when additional remote rule URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "দূরবর্তী নিয়ম অক্ষম করা আছে । রিমোট রুল ইউআরএল কনফিগার করতে নীচের টগলটি সক্ষম করুন ।",
+    "description": "Description shown when remote rules are disabled"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "রিমোট রুলস নিষ্ক্রিয় করা হয়েছে - সক্রিয় করতে নিচে টগল করুন",
+    "description": "Placeholder text shown when remote rules are disabled"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "নিরাপত্তা সতর্কতা: গেটকিপার অক্ষম । রিমোট ইউআরএল ক্ষেত্রগুলি অ্যাক্সেস করতে রিমোট রুলস সক্ষম করুন ।",
+    "description": "Alert shown when Gatekeeper is disabled while remote rules are turned off."
+  },
+  "remote_rules_enabled": {
+    "message": "রিমোট রুলস সক্ষম করুন",
+    "description": "Label for the toggle that enables or disables remote rule fetching"
+  },
+  "remote_rules_enabled_description": {
+    "message": "রিমোট সার্ভার থেকে নিয়ম আনতে এক্সটেনশনটিকে অনুমতি দিন । নিষ্ক্রিয় করা হলে, শুধুমাত্র বান্ডিল করা নিয়ম ব্যবহার করা হবে ।",
+    "description": "Description for the remote rules enabled toggle"
+  },
+  "remote_rules_loaded": {
+    "message": "শুধুমাত্র দূরবর্তী নিয়মগুলি লোড করা হয়েছে",
+    "description": "Message shown when remote rules are loaded"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "দূরবর্তী নিয়ম শুধুমাত্র স্ব-হোস্ট করা সার্ভারগুলিতে সীমাবদ্ধ । তৃতীয় পক্ষের ইউআরএল ব্যবহার করবেন না ।",
+    "description": "Notice explaining remote rules restrictions"
+  },
+  "remote_rules_security_notice": {
+    "message": "নিরাপত্তা বিজ্ঞপ্তি: শুধুমাত্র নিজের মালিকানাধীন URL ব্যবহার করুন এবং নিয়ন্ত্রণ করুন",
+    "description": "Small security notice near URL fields"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "সেটিংস পরিবর্তন মুলতুবি রয়েছে । আবেদন করতে সেভ ক্লিক করুন ।",
+    "description": "Status message shown after toggling a setting that will apply when the user clicks Save."
+  },
+  "removeDomainFromWhitelist": {
+    "message": "হোয়াইটলিস্ট থেকে $1 সরান",
+    "description": "Button label to remove a domain from the whitelist. $1 is replaced with the domain."
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
+  },
+  "rules_author_label": {
+    "message": "অপশন ",
+    "description": "Label for the author of the rules dataset"
+  },
+  "rules_composition_label": {
+    "message": "প্রদানকারীর গঠন:",
+    "description": "Section label for provider composition details."
+  },
+  "rules_disabled_providers_label": {
+    "message": "প্রতিবন্ধী প্রদানকারী:",
+    "description": "Label for the number of disabled provider signatures"
+  },
+  "rules_hash_status_label": {
+    "message": "লোডের স্ট্যাটাস:",
+    "description": "Label for the current loading status of the rules"
+  },
+  "rules_last_updated_label": {
+    "message": "সর্বশেষ সংষ্করণ:",
+    "description": "Label for the last update date of the rules dataset"
+  },
+  "rules_license_label": {
+    "message": "লাইসেন্স:",
+    "description": "Label for the license of the rules dataset"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "মার্জড রিমোট রুলস",
+    "description": "Display name for merged remote rules metadata in settings."
+  },
+  "rules_metadata_section": {
+    "message": "নিয়মের তথ্য:",
+    "description": "Section header for rules metadata information"
+  },
+  "rules_name_label": {
+    "message": "নিয়মের নাম:",
+    "description": "Label for the name of the rules dataset"
+  },
+  "rules_source_bundled": {
+    "message": "বান্ডিল করা",
+    "description": "Source text when bundled rules are active."
+  },
+  "rules_source_bundled_fallback": {
+    "message": "বান্ডিল ফলব্যাক",
+    "description": "Source text when bundled fallback rules are active."
+  },
+  "rules_source_fallback": {
+    "message": "ফলব্যাক",
+    "description": "Source text when minimal fallback rules are active."
+  },
+  "rules_source_label": {
+    "message": "সূত্র:",
+    "description": "Label for current active rules source."
+  },
+  "rules_source_remote": {
+    "message": "দূরবর্তী",
+    "description": "Source text when remote rules are active."
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "রিমোট + বিল্ট-ইন (মার্জ করা)",
+    "description": "Source text when remote and built-in rules are merged."
+  },
+  "rules_status_active": {
+    "message": "সক্রিয়",
+    "description": "Value for active rules status."
+  },
+  "rules_status_error": {
+    "message": "নিয়ম লোড করার সময় ত্রুটি",
+    "description": "Value for when rules fail to load."
+  },
+  "rules_status_label": {
+    "message": "স্ট্যাটাস:",
+    "description": "Label for rules status."
+  },
+  "rules_status_not_loaded": {
+    "message": "কোনও নিয়ম লোড করা হয়নি",
+    "description": "Value for when no rules are loaded."
+  },
+  "rules_total_providers_label": {
+    "message": "মোট সরবরাহকারী:",
+    "description": "Label for the total number of rule providers (bundled + custom)"
+  },
+  "rules_total_rules_label": {
+    "message": "মোট নিয়ম:",
+    "description": "Label for total rules count."
+  },
+  "rules_version_label": {
+    "message": "নিয়মের সংস্করণ:",
+    "description": "Label for the version of the rules dataset"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "হোয়াইটলিস্ট ডোমেন যুক্ত করতে, সম্পাদনা করতে বা অপসারণ করতে",
+    "description": "Recommendation text in rules information section for whitelist management."
+  },
+  "rules_whitelist_open_editor": {
+    "message": "এখানে ক্লিক করুন",
+    "description": "Link text to open custom rules editor from rules information section."
+  },
+  "rules_whitelist_total_label": {
+    "message": "মোট হোয়াইটলিস্ট ডোমেন:",
+    "description": "Label for total whitelist domain count in rules information section."
+  },
+  "save_invalid_hash_url": {
+    "message": "অকার্যকর হ্যাশ URL ফর্ম্যাট",
+    "description": "Validation message when primary hash URL is not a valid URL."
+  },
+  "save_invalid_rule_url": {
+    "message": "অবৈধ নিয়ম URL ফর্ম্যাট",
+    "description": "Validation message when primary rule URL is not a valid URL."
+  },
+  "save_primary_hash_https_required": {
+    "message": "প্রাথমিক হ্যাশ ইউআরএল অবশ্যই HTTPS ব্যবহার করতে হবে",
+    "description": "Validation message when primary hash URL is not HTTPS."
+  },
+  "save_primary_remote_pair_required": {
+    "message": "প্রাথমিক হ্যাশ URL শুধুমাত্র তখনই প্রয়োজন যখন প্রাথমিক নিয়ম URL পয়েন্ট করে Linkumori (ClearURLs 2.0) JSON নিয়মে।",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "প্রাথমিক নিয়ম ইউআরএল অবশ্যই HTTPS ব্যবহার করতে হবে",
+    "description": "Validation message when primary rule URL is not HTTPS."
+  },
+  "security_confirmation_cancelled": {
+    "message": "নিরাপত্তা নিশ্চিতকরণ বাতিল করা হয়েছে",
+    "description": "Status message when user cancels confirmation modal"
+  },
+  "security_confirmation_phrase": {
+    "message": "আমি সম্পূর্ণ দায়িত্ব স্বীকার করি",
+    "description": "The exact phrase users must type to confirm (can be localized)"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "নিরাপত্তা নিশ্চিতকরণ প্রয়োজন",
+    "description": "Placeholder text shown in URL fields before security confirmation"
+  },
+  "security_confirmation_reset": {
+    "message": "নিরাপত্তা নিশ্চিতকরণ রিসেট করা হয়েছে",
+    "description": "Status message when security confirmation is reset"
+  },
+  "security_confirmation_session_success": {
+    "message": "নিরাপত্তা নিশ্চিতকরণ সফল হয়েছে",
+    "description": "Message shown when security confirmation is successful"
+  },
+  "security_confirmation_tooltip": {
+    "message": "নিরাপত্তা নিশ্চিতকরণ প্রয়োজন - শুরু করতে ক্লিক করুন",
+    "description": "Tooltip text for the security confirmation icon next to remote URLs"
+  },
+  "security_modal_advanced_warning": {
+    "message": "সতর্কতা: উন্নত ফিচারটি শুধুমাত্র স্ব-হোস্ট করা সার্ভারের জন্য",
+    "description": "Main warning banner text in security modal"
+  },
+  "security_modal_cancel": {
+    "message": "আমি এগিয়ে যেতে চাই না - বাতিল করুন",
+    "description": "Cancel button text in security modal"
+  },
+  "security_modal_cancelled": {
+    "message": "সুরক্ষার জন্য দূরবর্তী URL কনফিগারেশন বাতিল করা হয়েছে",
+    "description": "Status message when user cancels security modal"
+  },
+  "security_modal_continue": {
+    "message": "আমি ঝুঁকি বুঝি - চালিয়ে যান",
+    "description": "Continue button text in security modal"
+  },
+  "security_modal_final_warning": {
+    "message": "আপনার উত্স একটি Linkumori (ClearURLs 2.0) JSON রুলসেট বা একটি Linkumori Linkumori 98765000256789 Linkumori Linkumori রুলসেট কিনা তা পুরোপুরি বুঝতে না পারলে আপনার দূরবর্তী নিয়মগুলি ব্যবহার করে পুনর্বিবেচনা করা উচিত৷",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "এই দূরবর্তী নিয়ম বৈশিষ্ট্যটি উন্নত ব্যবহারকারীদের জন্য ডিজাইন করা হয়েছে যারা তারা লোড করা উৎস বিন্যাস বোঝেন। Linkumori (ClearURLs 2.0) JSON দূরবর্তী নিয়ম যাচাইয়ের জন্য একটি ম্যাচিং হ্যাশ URL প্রয়োজন৷ Linkumori URL ফিল্টার ইন্টারঅপারেবিলিটি তালিকা URL হ্যাশ ছাড়া লোড করা যেতে পারে এবং আলাদাভাবে সংরক্ষণ করা হয়।",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "আপনি যদি একটি দূরবর্তী নিয়ম URL যোগ করেন, এক্সটেনশনটি আপনার মনোনীত সার্ভারের সাথে সংযুক্ত হবে একটি Linkumori (ClearURLs 2.0) JSON রুলসেট, এর হ্যাশ ফাইল, যখন a Linkumori আনতে URL ফিল্টার ইন্টারঅপারেবিলিটি তালিকা। প্রতিটি ফেচ হোস্টিং সার্ভারে আপনার IP ঠিকানা এবং এক্সটেনশন সংস্করণ, ব্রাউজার এবং ব্রাউজার সংস্করণের মতো সাধারণ তথ্য প্রকাশ করতে পারে। এই ডেটা সেই ওয়েবসাইট বা ওয়েব সার্ভারের গোপনীয়তা নীতির সাপেক্ষে।",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "প্রয়োজন হলে চালিয়ে যাওয়ার আগে আবার %PRIVACY_POLICY_LINK% পড়ুন ।",
+    "description": "Follow-up sentence in the remote rules warning modal with a privacy policy link placeholder"
+  },
+  "security_modal_privacy_title": {
+    "message": "সতর্কতা বিজ্ঞপ্তি:",
+    "description": "Header for privacy notice section"
+  },
+  "security_modal_recommendation": {
+    "message": "বিল্ট-ইন নিয়মগুলি ব্যবহার করুন যদি না আপনি দূরবর্তী উত্সকে বিশ্বাস করেন এবং নিয়ন্ত্রণ করেন। Linkumori (ClearURLs 2.0) JSON নিয়মের জন্য, একটি ম্যাচিং হ্যাশ URL প্রদান করুন। ইন্টারঅপারেবিলিটি ফিল্টার তালিকার জন্য, হ্যাশ ত্যাগ করুন 98765004587।",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "আপনার আইপি ঠিকানা এবং ব্রাউজারের তথ্য কনফিগার করা সার্ভারের কাছে উন্মুক্ত করা হবে",
+    "description": "First security risk point"
+  },
+  "security_modal_risk_2": {
+    "message": "যদি নিয়মের উত্সের সাথে আপোস করা হয়, আপনার ব্রাউজারে দূষিত নিয়মগুলি পরিবেশিত হতে পারে",
+    "description": "Second security risk point"
+  },
+  "security_modal_risk_3": {
+    "message": "হ্যাশ যাচাইকরণ শুধুমাত্র Linkumori (ClearURLs 2.0) JSON নিয়মে প্রযোজ্য; এটি ট্রান্সমিশন টেম্পারিং থেকে রক্ষা করে, দূষিত নিয়ম উত্স নয়।",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "ইন্টারঅপারেবিলিটি ফিল্টার তালিকা হ্যাশ যাচাইকরণ ব্যবহার করে না, তাই উৎস URL-এ বিশ্বাস করা বিশেষভাবে গুরুত্বপূর্ণ।",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "নিরাপত্তার ঝুঁকি",
+    "description": "Header for security risks section"
+  },
+  "security_modal_title": {
+    "message": "রিমোট রুলস সিকিউরিটি ওয়ার্নিং",
+    "description": "Title for the security disclaimer modal"
+  },
+  "setting_hash_url_description": {
+    "message": "নিয়ম যাচাইয়ের জন্য হ্যাশ ফাইল URL:",
+    "description": "Description for the custom hash URL input field"
+  },
+  "setting_hash_url_label": {
+    "message": "Rules.hash ফাইলের url (হ্যাশ)",
+    "description": "This string is used as name for the rule.hash url label."
+  },
+  "setting_hash_url_mandatory": {
+    "message": "ClearURLs JSON দূরবর্তী নিয়মের জন্য প্রয়োজন। জনপ্রিয় এক্সটেনশন URL ট্র্যাকিং ফিল্টার তালিকার জন্য খালি ছেড়ে দিন।",
+    "description": "Description for hash URL field explaining when it is required"
+  },
+  "setting_html_export_button": {
+    "message": "রপ্তানি ",
+    "description": "This string is used as name for the export button on the settings page."
+  },
+  "setting_html_export_button_title": {
+    "message": "সবকিছু এক্সপোর্ট করুন",
+    "description": "This string is used as title for the export button on the settings page."
+  },
+  "setting_html_import_button": {
+    "message": "ইম্পোর্ট করুন",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_import_button_title": {
+    "message": "সবকিছু আমদানি করে",
+    "description": "This string is used as title for the import button on the settings page."
+  },
+  "setting_html_reset_button": {
+    "message": "রিসেট",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_reset_button_title": {
+    "message": "সবকিছু রিসেট করুন",
+    "description": "This string is used as title for the reset button on the settings page."
+  },
+  "setting_html_audit_button": {
+    "message": "অডিট",
+    "description": "This string is used as name for the audit button on the settings page."
+  },
+  "setting_html_audit_button_title": {
+    "message": "অডিট পৃষ্ঠা খুলুন",
+    "description": "This string is used as title for the audit button on the settings page."
+  },
+  "setting_log_limit_label": {
+    "message": "লগটিকে $LIMIT$ এন্ট্রিতে সীমাবদ্ধ করুন ।",
+    "description": "This string is used as name for the log limit label.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "লগ লিমিট (0-5000)",
+    "description": "Label for the log limit input field."
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "অতিরিক্ত দূরবর্তী উত্স একত্রিত করা হয়েছে. 987650056789 ClearURLs JSON, অথবা জনপ্রিয় এক্সটেনশন URL ট্র্যাকিং তালিকার জন্য শুধুমাত্র <code>ruleURL</code> ব্যবহার করুন।",
+    "description": "Description for additional remote rule sources."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "অতিরিক্ত রিমোট রুল সেট",
+    "description": "Label for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
+  },
+  "setting_rule_url_description": {
+    "message": "987650056789 JSON নিয়ম বা জনপ্রিয় এক্সটেনশন URL ট্র্যাকিং ফিল্টারগুলির জন্য কাস্টম রিমোট URL",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "Data.json ফাইলের url (নিয়ম) অথবা .txt (জনপ্রিয় জন্য)",
+    "description": "This string is used as name for the rule url label."
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "দ্রষ্টব্য: হ্যাশ URL শুধুমাত্র ClearURLs JSON দূরবর্তী নিয়মের জন্য বাধ্যতামূলক। জনপ্রিয় এক্সটেনশন URL ট্র্যাকিং তালিকাগুলি আলাদাভাবে Linkumori URL ফিল্টার হিসাবে সংরক্ষণ করা হয়।",
+    "description": "Note about when hash URL is mandatory"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (বিশেষজ্ঞ স্তর)",
+    "description": "This string is used as name for the types label."
+  },
+  "settings_html_page_title": {
+    "message": "লিংকুমোরি (ক্লিন ইউআরএল) সেটিংস",
+    "description": "This string is used as title on the settings page."
+  },
+  "settings_html_save_button": {
+    "message": "অ্যাড-অন সংরক্ষণ করুন এবং পুনরায় লোড করুন",
+    "description": "This string is used as name for the save&reload button on the settings page."
+  },
+  "settings_html_save_button_title": {
+    "message": "সেটিংস সেভ করুন",
+    "description": "This string is used as title for the save&reload button on the settings page."
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "আমদানিকৃত ব্যাজ রঙ হল #FFA500 । আপনি কি লিঙ্কুমোরি ব্লু (# 2563EB) -এ স্যুইচ করতে চান?",
+    "description": "Prompt shown during ClearURLs import when old orange badge color is detected."
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "আপনি একটি ক্লিয়ারআরএল ব্যাকআপ আমদানি করছেন । Linkumori সামঞ্জস্যপূর্ণ সেটিংস আমদানি করবে এবং ClearURLsData এড়িয়ে যাবে । চালিয়ে যাবেন?",
+    "description": "Confirmation shown when importing legacy ClearURLs JSON files."
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "এই ClearURLs ব্যাকআপে রিমোট রুল সোর্স সেটিংস অন্তর্ভুক্ত রয়েছে । আপনি কি এখন রিমোট রুলস চালু করতে চান?",
+    "description": "Second confirmation shown for ClearURLs imports when remote rule URLs are present."
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "আপনার ClearURLs আমদানি থেকে রিমোট রুলস টগল সক্ষম করা হয়েছিল । অনুগ্রহ করে সেটিংস খুলুন এবং আপনার চূড়ান্ত দূরবর্তী কনফিগারেশন নিশ্চিত করতে ম্যানুয়ালি সেভ করুন ক্লিক করুন ।",
+    "description": "Notice shown after user enables remote rules during ClearURLs import."
+  },
+  "settings_import_confirm": {
+    "message": "আপনি কি নিশ্চিত যে আপনি সেটিংস আমদানি করতে চান? এটি আপনার বর্তমানকে ওভাররাইট করবে"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "মেটাডেটা আমদানি অসম্পূর্ণ",
+    "description": "Shown when import metadata is present but missing expected fields."
+  },
+  "settings_import_invalid_file": {
+    "message": "বেছে নেওয়া ফাইলটি বৈধ নয়",
+    "description": "Shown when imported settings file is invalid."
+  },
+  "settings_import_invalid_format": {
+    "message": "অবৈধ সেটিংস ফর্ম্যাট",
+    "description": "Shown when imported settings data cannot be parsed as expected."
+  },
+  "settings_import_no_data": {
+    "message": "ফাইলটিতে কোনও আমদানিযোগ্য সেটিংস পাওয়া যায় নি",
+    "description": "Shown when parsed file has no supported settings keys."
+  },
+  "settings_import_no_file": {
+    "message": "নির্বাচিত কোন ফাইল",
+    "description": "Shown when import is triggered without selecting a file."
+  },
+  "settings_import_parse_error": {
+    "message": "সেটিংস ফাইল পার্স করতে ব্যর্থ হয়েছে",
+    "description": "Shown when JSON parsing fails for imported file."
+  },
+  "settings_import_read_error": {
+    "message": "সেটিংস ফাইল পড়তে ব্যর্থ হয়েছে",
+    "description": "Shown when browser cannot read the selected file."
+  },
+  "settings_import_wrong_extension": {
+    "message": "অনুগ্রহ করে একটি বৈধ Linkumori/ClearURLs সেটিংস ফাইল নির্বাচন করুন (.json বা .conf)",
+    "description": "Shown when imported settings file does not match supported Linkumori or ClearURLs formats."
+  },
+  "settings_imported": {
+    "message": "সেটিংস সফলভাবে আমদানি করা হয়েছে"
+  },
+  "statistics_reset_success": {
+    "message": "রিসেট সফল করুন!",
+    "description": "This string is used as feedback after the statistics have been reset."
+  },
+  "status_builtinOnly": {
+    "message": "শুধুমাত্র অন্তর্নির্মিত নিয়ম"
+  },
+  "status_color_picker_failed": {
+    "message": "রং বাছাইকারী শুরু করতে ব্যর্থ হয়েছে",
+    "description": "Error message when color picker fails to load"
+  },
+  "status_customFailed": {
+    "message": "কাস্টম নিয়ম ব্যর্থ হয়েছে"
+  },
+  "status_customMerged": {
+    "message": "কাস্টম নিয়মগুলি মার্জ করা হয়েছে (ডিফল্ট + কাস্টম)"
+  },
+  "status_deleteFailed": {
+    "message": "মোছা ব্যর্থ"
+  },
+  "status_invalidJson": {
+    "message": "অবৈধ JSON"
+  },
+  "status_language_changed_success": {
+    "message": "ভাষা সফলভাবে $1 এ পরিবর্তিত হয়েছে",
+    "description": "Success message when language is changed. $1 is the native language name"
+  },
+  "status_load_settings_failed": {
+    "message": "সেটিংস লোড করতে ব্যর্থ হয়েছে",
+    "description": "Status message when settings fail to load."
+  },
+  "status_loading": {
+    "message": "বোঝাই..."
+  },
+  "status_reset_failed": {
+    "message": "সেটিংস রিসেট করতে ব্যর্থ হয়েছে",
+    "description": "Status message when settings reset fails."
+  },
+  "status_reset_successful": {
+    "message": "সেটিংস সফলভাবে রিসেট করা হয়েছে",
+    "description": "Status message shown after settings have been reset."
+  },
+  "status_resetting_settings": {
+    "message": "সেটিংস রিসেট করা হচ্ছে...",
+    "description": "Status message shown while settings are being reset."
+  },
+  "status_saveFailed": {
+    "message": "ফাইল সংরক্ষণ করো"
+  },
+  "status_save_failed": {
+    "message": "সেটিংস সংরক্ষণ করতে ব্যর্থ হয়েছে।",
+    "description": "Status message when settings save fails."
+  },
+  "status_save_setting_failed": {
+    "message": "$SETTING$ সেটিং সংরক্ষণ করতে ব্যর্থ হয়েছে",
+    "description": "Error message when a specific toggle setting fails to save.",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "ভাষার বিন্যাস সফলভাবে সংরক্ষিত হয়েছে",
+    "description": "Status message when settings save is successful."
+  },
+  "status_saved": {
+    "message": "সংরক্ষণ হয়েছে",
+    "description": "Button text after settings are saved."
+  },
+  "status_saving": {
+    "message": "সেভ করা হচ্ছে...",
+    "description": "Button text while saving settings."
+  },
+  "status_unavailable": {
+    "message": "স্ট্যাটাস পাওয়া যাচ্ছে না"
+  },
+  "status_unknown": {
+    "message": "অজানা"
+  },
+  "status_usingCached": {
+    "message": "বান্ডেল নিয়ম সম্পর্কিত দুর্নীতিগ্রস্ত হতে পারে বা সঠিকভাবে লোড করা হয়নি । পরিবর্তে ফলব্যাক নিয়মগুলি লোড করা হয়েছে এবং কাস্টম নিয়মের সাথে একত্রিত করা হয়েছে ।"
+  },
+  "status_usingFallback": {
+    "message": "ফলব্যাক নিয়ম ব্যবহার করা"
+  },
+  "status_valid": {
+    "message": "বৈধ"
+  },
+  "status_validJson": {
+    "message": "বৈধ JSON"
+  },
+  "status_validJsonUnsaved": {
+    "message": "বৈধ JSON - অসংরক্ষিত"
+  },
+  "sunIconAlt": {
+    "message": "সূর্য আইকন",
+    "description": "Alt text for sun theme icon"
+  },
+  "switchToDarkTheme": {
+    "message": "ডার্ক থিমে স্যুইচ করুন",
+    "description": "ARIA label for theme toggle when current theme is light"
+  },
+  "switchToLightTheme": {
+    "message": "হালকা থিমে স্যুইচ করুন",
+    "description": "ARIA label for theme toggle when current theme is dark"
+  },
+  "themeToggleAriaLabel": {
+    "message": "থিম টগল করুন",
+    "description": "ARIA label for the theme toggle button for accessibility."
+  },
+  "theme_description": {
+    "message": "আপনার পছন্দের থিমের চেহারা বেছে নিন",
+    "description": "Description text for theme selection"
+  },
+  "theme_name_dark": {
+    "message": "অন্ধকার",
+    "description": "Name for the dark theme"
+  },
+  "theme_name_icecold": {
+    "message": "বরফ ঠান্ডা",
+    "description": "Name for the ice cold theme"
+  },
+  "theme_name_zengray": {
+    "message": "জেন গ্রে",
+    "description": "Name for the zen grey theme"
+  },
+  "theme_name_forest": {
+    "message": "\n\t\t\t\tঅরণ্য\t\t\t",
+    "description": "Name for the forest theme"
+  },
+  "theme_name_light": {
+    "message": "আলো",
+    "description": "Name for the light theme"
+  },
+  "theme_name_midnight": {
+    "message": "মধ্যরাত",
+    "description": "Name for the midnight theme"
+  },
+  "theme_name_sunset": {
+    "message": "সূর্যাস্ত",
+    "description": "Name for the sunset theme"
+  },
+  "theme_name_legacy": {
+    "message": "উত্তরাধিকার",
+    "description": "Name for the legacy ClearURLs-style theme"
+  },
+  "theme_group_light_label": {
+    "message": "হালকা মোড",
+    "description": "Label above the light theme cards group"
+  },
+  "theme_group_dark_label": {
+    "message": "ডার্ক মোড",
+    "description": "Label above the dark theme cards group"
+  },
+  "theme_selection_label": {
+    "message": "থিম",
+    "description": "Label for the theme selection section"
+  },
+  "time_am": {
+    "message": "পূর্বাহ্ণ"
+  },
+  "time_am_lower": {
+    "message": "পূর্বাহ্ণ",
+    "description": "Lowercase AM marker"
+  },
+  "time_pm": {
+    "message": "অপরাহ্ন"
+  },
+  "time_pm_lower": {
+    "message": "অপরাহ্ন (pm)",
+    "description": "Lowercase PM marker"
+  },
+  "number_0": {
+    "message": "0",
+    "description": "Localized digit zero"
+  },
+  "number_1": {
+    "message": "1",
+    "description": "Localized digit one"
+  },
+  "number_2": {
+    "message": "2",
+    "description": "Localized digit two"
+  },
+  "number_3": {
+    "message": "3",
+    "description": "Localized digit three"
+  },
+  "number_4": {
+    "message": "4",
+    "description": "Localized digit four"
+  },
+  "number_5": {
+    "message": "5",
+    "description": "Localized digit five"
+  },
+  "number_6": {
+    "message": "6",
+    "description": "Localized digit six"
+  },
+  "number_7": {
+    "message": "7",
+    "description": "Localized digit seven"
+  },
+  "number_8": {
+    "message": "8",
+    "description": "Localized digit eight"
+  },
+  "number_9": {
+    "message": "9",
+    "description": "Localized digit nine"
+  },
+  "day_0": {
+    "message": "রবিবার",
+    "description": "Localized weekday name for Sunday"
+  },
+  "day_1": {
+    "message": "সোমবার",
+    "description": "Localized weekday name for Monday"
+  },
+  "day_2": {
+    "message": "মঙ্গলবার",
+    "description": "Localized weekday name for Tuesday"
+  },
+  "day_3": {
+    "message": "বুধবার",
+    "description": "Localized weekday name for Wednesday"
+  },
+  "day_4": {
+    "message": "বৃহস্পতিবার",
+    "description": "Localized weekday name for Thursday"
+  },
+  "day_5": {
+    "message": "শুক্রবার",
+    "description": "Localized weekday name for Friday"
+  },
+  "day_6": {
+    "message": "শনিবার",
+    "description": "Localized weekday name for Saturday"
+  },
+  "month_1": {
+    "message": "জানুয়ারী",
+    "description": "Localized month name for January"
+  },
+  "month_2": {
+    "message": "ফেব্রুয়ারি",
+    "description": "Localized month name for February"
+  },
+  "month_3": {
+    "message": "মার্চ",
+    "description": "Localized month name for March"
+  },
+  "month_4": {
+    "message": "এপ্রিল",
+    "description": "Localized month name for April"
+  },
+  "month_5": {
+    "message": "মে ",
+    "description": "Localized month name for May"
+  },
+  "month_6": {
+    "message": "জুন",
+    "description": "Localized month name for June"
+  },
+  "month_7": {
+    "message": "জুলাই",
+    "description": "Localized month name for July"
+  },
+  "month_8": {
+    "message": "অগাস্ট",
+    "description": "Localized month name for August"
+  },
+  "month_9": {
+    "message": "সেপ্টেম্বর",
+    "description": "Localized month name for September"
+  },
+  "month_10": {
+    "message": "অক্টোবর",
+    "description": "Localized month name for October"
+  },
+  "month_11": {
+    "message": "নভেম্বর",
+    "description": "Localized month name for November"
+  },
+  "month_12": {
+    "message": "ডিসেম্বর",
+    "description": "Localized month name for December"
+  },
+  "url_field_editable_tooltip": {
+    "message": "ক্ষেত্রটি সম্পাদনাযোগ্য",
+    "description": "Tooltip shown when security confirmation is already satisfied."
+  },
+  "url_validation_https_recommended": {
+    "message": "নিরাপত্তার জন্য HTTPS সুপারিশ করা হয়",
+    "description": "Warning shown when URL is valid but does not use HTTPS."
+  },
+  "url_validation_invalid": {
+    "message": "অবৈধ URL ফর্ম্যাট ।",
+    "description": "Error message displayed when the URL format is invalid"
+  },
+  "watchdog": {
+    "message": "[Linkumori (Clean URLS)]: ওয়াচডগ একটি সমস্যা সনাক্ত করেছে এবং ইতিমধ্যে $TIMES$ বার ব্যর্থ হয়েছে ।",
+    "description": "This string is used as text for the watchdog",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "Linkumori ডিফল্টভাবে URLগুলি থেকে ট্র্যাকিং প্যারামিটারগুলি সরিয়ে দেয় এবং প্রয়োজনে আপনাকে উন্নত নিয়ন্ত্রণ দেয় । নিচের বৈশিষ্ট্যগুলি পর্যালোচনা করুন, তারপরে গোপনীয়তা নীতি এবং লাইসেন্সে যান ।"
+  },
+  "welcomeHeading": {
+    "message": "Linkumori-এ স্বাগতম"
+  },
+  "welcome_migration_description": {
+    "message": "আপনার ClearURL সেটিংস আমদানি করা হয়েছিল । নীচে লিঙ্কুমোরি বৈশিষ্ট্যগুলি পর্যালোচনা করুন, তারপরে গোপনীয়তা নীতি এবং লাইসেন্স পড়া চালিয়ে যান ।",
+    "description": "Description shown on migration welcome screen."
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "অন্তর্নির্মিত গোপনীয়তা-কেন্দ্রিক নিয়ম ডিফল্টরূপে সক্ষম ।",
+    "description": "Feature list item describing default bundled rule behavior."
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "সরবরাহকারী-স্তরের নিয়ন্ত্রণ, আমদানি/রফতানি এবং নিয়ম পরিচালনার সাথে কাস্টম রুলস এডিটর ।",
+    "description": "Feature list item describing custom rules."
+  },
+  "welcome_migration_feature_overload": {
+    "message": "কাস্টম নিয়ম প্রয়োগ করার আগে ওভারলোড মোড বান্ডিল এবং দূরবর্তী নিয়মগুলি একত্রিত করতে পারে ।",
+    "description": "Feature list item describing overload mode."
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "একাধিক দূরবর্তী নিয়ম উত্স সমর্থিত (নিয়ম URL + হ্যাশ URL জোড়া) ।",
+    "description": "Feature list item describing multiple remote sets."
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "প্রয়োজন হলে নির্বাচিত ডোমেনগুলিতে পরিষ্কারের বাইপাস করতে হোয়াইটলিস্ট সহায়তা ।",
+    "description": "Feature list item describing whitelist behavior."
+  },
+  "welcome_migration_heading": {
+    "message": "ClearURLs মাইগ্রেশন সম্পন্ন হয়েছে",
+    "description": "Main heading on migration welcome screen."
+  },
+  "welcome_migration_open_settings": {
+    "message": "সেটিংস খুলুন",
+    "description": "Button label to open settings from migration welcome screen."
+  },
+  "welcome_migration_title": {
+    "message": "Linkumori-এ স্বাগতম",
+    "description": "Page title for the migration welcome screen shown after ClearURLs import."
+  },
+  "welcome_next_button": {
+    "message": "পরবর্তী: গোপনীয়তা এবং লাইসেন্স",
+    "description": "Button shown in guided welcome mode to continue to privacy and license sections."
+  },
+  "whitelist_add_button": {
+    "message": "যোগ করুন",
+    "description": "Text for the add domain button"
+  },
+  "whitelist_add_failed": {
+    "message": "হোয়াইটলিস্টে ডোমেন যোগ করতে ব্যর্থ হয়েছে",
+    "description": "Error message when adding domain fails"
+  },
+  "whitelist_added": {
+    "message": "হোয়াইটলিস্টে %s যোগ করা হয়েছে",
+    "description": "Success message when domain is added. %s is replaced with domain name."
+  },
+  "whitelist_already_exists": {
+    "message": "ইতিমধ্যে হোয়াইটলিস্টে বা অবৈধ ডোমেন",
+    "description": "Error message when domain already exists or is invalid"
+  },
+  "whitelist_count": {
+    "message": "%d ডোমেন(গুলি) হোয়াইটলিস্টেড",
+    "description": "Text showing number of whitelisted domains. %d is replaced with the count."
+  },
+  "whitelist_empty": {
+    "message": "হোয়াইটলিস্টযুক্ত কোনও ডোমেন নেই",
+    "description": "Text shown when whitelist is empty"
+  },
+  "whitelist_enter_domain": {
+    "message": "অনুগ্রহ করে একটি নাম লিখুন",
+    "description": "Error message when trying to add empty domain"
+  },
+  "whitelist_examples_text": {
+    "message": "উদাহরণ: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>NXX",
+    "description": "Text before domain format examples"
+  },
+  "whitelist_export_button": {
+    "message": "রপ্তানি ",
+    "description": "Button text for exporting whitelist domains"
+  },
+  "whitelist_export_done": {
+    "message": "হোয়াইটলিস্ট সফলভাবে রফতানি করা হয়েছে",
+    "description": "Success message when whitelist export completes"
+  },
+  "whitelist_export_empty": {
+    "message": "হোয়াইটলিস্ট খালি । রপ্তানি করার মতো কিছু নেই ।",
+    "description": "Info message when user tries to export an empty whitelist"
+  },
+  "whitelist_export_failed": {
+    "message": "হোয়াইটলিস্ট রপ্তানি করতে ব্যর্থ হয়েছে",
+    "description": "Error shown when whitelist export fails"
+  },
+  "whitelist_import_button": {
+    "message": "ইম্পোর্ট করুন",
+    "description": "Button text for importing whitelist domains"
+  },
+  "whitelist_import_done": {
+    "message": "হোয়াইটলিস্টে %s ডোমেন(গুলি) আমদানি করা হয়েছে",
+    "description": "Success message for whitelist import. %s is replaced with imported domain count"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "অবৈধ হোয়াইটলিস্ট ফর্ম্যাট । ডোমেনের একটি JSON অ্যারে ব্যবহার করুন ।",
+    "description": "Error shown when imported whitelist structure is not supported"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "হোয়াইটলিস্ট ফাইলে কোনও বৈধ ডোমেন পাওয়া যায়নি",
+    "description": "Error shown when imported whitelist has no valid domain entries"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "হোয়াইটলিস্ট ফাইল পার্স করতে ব্যর্থ হয়েছে",
+    "description": "Error shown when whitelist import file is invalid JSON"
+  },
+  "whitelist_input_placeholder": {
+    "message": "example.com বা *.example.com",
+    "description": "Placeholder text for the domain input field"
+  },
+  "whitelist_invalid_format": {
+    "message": "অবৈধ ডোমেন ফর্ম্যাট । ব্যবহার করুন: example.com বা *.example.com",
+    "description": "Error message for invalid domain format"
+  },
+  "whitelist_load_failed": {
+    "message": "হোয়াইটলিস্ট লোড করতে ব্যর্থ হয়েছে",
+    "description": "Error message when whitelist fails to load"
+  },
+  "whitelist_remove_button": {
+    "message": "সরান",
+    "description": "Text for the remove domain button"
+  },
+  "whitelist_remove_failed": {
+    "message": "হোয়াইটলিস্ট থেকে ডোমেন সরাতে ব্যর্থ হয়েছে",
+    "description": "Error message when removing domain fails"
+  },
+  "whitelist_removed": {
+    "message": "হোয়াইটলিস্ট থেকে %s সরানো হয়েছে",
+    "description": "Success message when domain is removed. %s is replaced with domain name."
+  },
+  "whitelist_search_placeholder": {
+    "message": "হোয়াইটলিস্টযুক্ত ডোমেনগুলি অনুসন্ধান করুন",
+    "description": "Placeholder text for searching whitelisted domains"
+  },
+  "whitelist_section_description": {
+    "message": "এখানে যোগ করা ডোমেনগুলি সমস্ত ইউআরএল পরিষ্কারের বাইপাস করবে । ট্র্যাকিং প্যারামিটারগুলি এই সাইটগুলিতে সংরক্ষণ করা হবে ।",
+    "description": "Description explaining what the whitelist does"
+  },
+  "whitelist_section_title": {
+    "message": "ডোমেন হোয়াইটলিস্ট",
+    "description": "Title for the whitelist settings section"
+  },
+  "whitelist_update_failed": {
+    "message": "হোয়াইটলিস্ট আপডেট করতে ব্যর্থ হয়েছে",
+    "description": "Error message when updating the whitelist fails."
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "বিশ্বব্যাপী পরিসংখ্যান রিসেট করুন",
+    "description": "This string is used as title for the statistics reset button on the popup page."
+  },
+  "popup_html_log_head_title": {
+    "message": "লগ খুলুন",
+    "description": "This string is used as title for the log button on the popup page."
+  },
+  "popup_html_settings_button_title": {
+    "message": "সেটিংস খুলুন",
+    "description": "This string is used as a title for the settings button on the popup page."
+  },
+  "license_title_title": {
+    "message": "লাইসেন্স সংক্রান্ত তথ্য প্রদর্শিত হোক",
+    "description": "Title for the license information link in the popup"
+  },
+  "license_links_title_title": {
+    "message": "লাইসেন্স এবং ক্রেডিট",
+    "description": "Title for the license and credits link in the popup"
+  },
+  "popup_nav_main_title": {
+    "message": "প্রধান এক্সটেনশান কন্ট্রোলগুলিতে স্যুইচ করুন",
+    "description": "Tooltip for main navigation button"
+  },
+  "popup_nav_license_title": {
+    "message": "লাইসেন্সের তথ্যে স্যুইচ করুন",
+    "description": "Tooltip for license information button"
+  },
+  "customrules_title": {
+    "message": "কাস্টম নিয়ম",
+    "description": "Title for the custom rules section"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "আইনি তথ্য - গোপনীয়তা নীতি এবং লাইসেন্স",
+    "description": "Title for legal information page opened from popup consent gate"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "পরিচ্ছন্ন তলিকা",
+    "description": "Title for HTML content page opened from popup consent gate"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "গেটকিপার অক্ষম করুন",
+    "description": "Label for toggle that disables gatekeeper protections for remote URL editing"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "এই সেশন প্রবাহে দূরবর্তী URL সম্পাদনার জন্য গেটকিপার চেক অক্ষম করুন ।",
+    "description": "Description for disable gatekeeper toggle"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "গেটকিপার সক্ষম অক্ষম করুন । প্রতিটি সেটিংস সেশনে সুরক্ষা নিশ্চিতকরণ প্রয়োজন ।",
+    "description": "Status message shown after enabling disable gatekeeper"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "গেটকিপার অক্ষম করুন । বিদ্যমান বিশ্বস্ত মানগুলি অবিলম্বে নিশ্চিতকরণ ছাড়াই সম্পাদনা করা যেতে পারে ।",
+    "description": "Status message shown after disabling disable gatekeeper"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "দূরবর্তী URLগুলি এক্সপোর্ট করুন",
+    "description": "Button text for exporting remote URL configuration only"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "দূরবর্তী URLগুলি আমদানি করুন",
+    "description": "Button text for importing remote URL configuration only"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "প্রাথমিক এবং অতিরিক্ত দূরবর্তী URL জোড়া রপ্তানি করুন",
+    "description": "Tooltip for remote URL export button"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "প্রাথমিক এবং অতিরিক্ত দূরবর্তী URL জোড়া আমদানি করুন",
+    "description": "Tooltip for remote URL import button"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "গেটকিপারের ঝুঁকি সতর্কতা অক্ষম করুন",
+    "description": "Title for the disable gatekeeper risk modal"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "সতর্কতা: উন্নত ফিচারটি শুধুমাত্র স্ব-হোস্ট করা সার্ভারের জন্য",
+    "description": "Top warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "আপনি দূরবর্তী নিয়ম URL সম্পাদনার জন্য Gatekeeper সুরক্ষা অক্ষম করছেন৷ এই বৈশিষ্ট্যটি Linkumori (ClearURLs 2.0) JSON হ্যাশ যাচাইকরণের সাথে JSON নিয়ম লোড করতে পারে বা Linkumori URL ফিল্টারের আন্তঃ-যাচাইকরণ তালিকা ছাড়াই রয়েছে৷ আপনি কোন ফর্ম্যাটটি কনফিগার করছেন তা বুঝতে পারলেই এগিয়ে যান।",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "গেটকিপার হ 'ল অন্তর্নির্মিত সুরক্ষা প্রবাহ যা আপনি সুরক্ষা সতর্কতা স্বীকার না করা এবং টাইপ করা নিশ্চিতকরণ সম্পূর্ণ না করা পর্যন্ত সরাসরি দূরবর্তী ইউআরএল সম্পাদনাগুলিকে অবরুদ্ধ করে ।",
+    "description": "Explains what gatekeeper means in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "Gatekeeper সক্রিয় রাখুন যদি না আপনি আপনার দূরবর্তী উত্সগুলিকে বিশ্বাস করেন এবং নিয়ন্ত্রণ করেন৷ JSON নিয়মে একটি ম্যাচিং হ্যাশ URL অন্তর্ভুক্ত করা উচিত; ইন্টারঅপারেবিলিটি তালিকা ইচ্ছাকৃতভাবে হ্যাশ URL খালি ছেড়ে দেয়।",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "সতর্কতা বিজ্ঞপ্তি:",
+    "description": "Privacy section title in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "আপনি যদি একটি দূরবর্তী নিয়ম URL যোগ করেন, এক্সটেনশনটি আপনার মনোনীত সার্ভারের সাথে সংযুক্ত হবে একটি Linkumori (ClearURLs 2.0) JSON রুলসেট, এর হ্যাশ ফাইল, যখন a Linkumori আনতে URL ফিল্টার ইন্টারঅপারেবিলিটি তালিকা। প্রতিটি ফেচ হোস্টিং সার্ভারে আপনার IP ঠিকানা এবং এক্সটেনশন সংস্করণ, ব্রাউজার এবং ব্রাউজার সংস্করণের মতো সাধারণ তথ্য প্রকাশ করতে পারে। এই ডেটা সেই ওয়েবসাইট বা ওয়েব সার্ভারের গোপনীয়তা নীতির সাপেক্ষে।",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "প্রয়োজন হলে চালিয়ে যাওয়ার আগে আবার %PRIVACY_POLICY_LINK% পড়ুন ।",
+    "description": "Follow-up sentence in the disable gatekeeper warning modal with a privacy policy link placeholder"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "সতর্কতা বিজ্ঞপ্তি:",
+    "description": "Risks section title in disable gatekeeper modal"
+  },
+  "privacy_policy_link_label": {
+    "message": "ব্যক্তিগত গোপনীয়তার নীতি",
+    "description": "Label for privacy policy hyperlinks shown in warning dialogs"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "এক্সটেনশনটি যখনই আপনার ব্রাউজারে এক্সটেনশানটি সক্ষম এবং লোড করা হবে তখন এক্সটেনশনটি আপনার মনোনীত URL এর সাথে সংযুক্ত হবে ।",
+    "description": "Risk bullet 1 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "সার্ভার হোস্টিং রিমোট JSON, হ্যাশ, বা ইন্টারঅপারেবিলিটি ফিল্টার ফাইলগুলি আপনার IP ঠিকানা পাবে৷",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "সার্ভারটি আপনার এক্সটেনশন সংস্করণ, ব্রাউজার এবং ব্রাউজারের সংস্করণও পেতে পারে ।",
+    "description": "Risk bullet 3 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "সেই ডেটা ওয়েবসাইট বা ওয়েব সার্ভারের সেই ফাইলগুলি হোস্ট করার গোপনীয়তা নীতির সাপেক্ষে ।",
+    "description": "Risk bullet 4 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "Gatekeeper অক্ষম করে, আপনি অনিরাপদ বা আপস করা দূরবর্তী নিয়ম উত্স থেকে ঝুঁকি বাড়ান। হ্যাশ যাচাইকরণ শুধুমাত্র Linkumori (ClearURLs 2.0) JSON নিয়ম ডাউনলোডগুলিকে রক্ষা করে৷ এটি আন্তঃক্রিয়াশীলতা তালিকার ক্ষেত্রে প্রযোজ্য নয়।",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "বাতিল করুন",
+    "description": "Cancel button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "এগিয়ে যান",
+    "description": "Continue button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "আমি দূরবর্তী নিয়মের ঝুঁকি বুঝি এবং গেটকিপার অক্ষম করি",
+    "description": "Exact phrase user must type to confirm disabling gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "নিশ্চিতকরণ",
+    "description": "Title for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "গেটকিপারকে অক্ষম করতে, নীচের সঠিক নিশ্চিতকরণ বাক্যাংশটি টাইপ করুন ।",
+    "description": "Instruction text for gatekeeper-specific confirmation modal"
+  },
+  "redirection_warning_modal_title": {
+    "message": "বাইপাস সতর্কতা পুনঃনির্দেশ করুন",
+    "description": "Title for the warning modal shown before enabling redirect bypass."
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "এই বৈশিষ্ট্যটি সক্ষম করার আগে পুনঃনির্দেশের নিয়মগুলি পর্যালোচনা করুন৷",
+    "description": "Top warning line for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "এই বৈশিষ্ট্যটি বান্ডিল, দূরবর্তী, এবং কাস্টম উত্স থেকে বর্তমানে বিদ্যমান পুনঃনির্দেশ নিয়মগুলি প্রয়োগ করে তৃতীয় পক্ষের মধ্যস্থতাকারী পুনঃনির্দেশ এবং ট্র্যাকিং URLগুলিকে বাইপাস করতে পারে৷",
+    "description": "Main warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "প্রথমে নিয়ম অডিট করুন। যদি একটি পুনঃনির্দেশ নিয়ম খুব বিস্তৃত হয় বা আপনার ব্রাউজিংয়ের জন্য উপযুক্ত না হয়, তাহলে এই সেটিংটি সক্ষম করার আগে কাস্টম নিয়ম সম্পাদকে এটি সম্পাদনা করুন বা ওভাররাইড করুন৷",
+    "description": "Recommendation text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "কি চেক করতে হবে",
+    "description": "Risks section title for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "বান্ডেল করা নিয়ম, দূরবর্তী নিয়ম এবং কাস্টম নিয়ম সবই পুনঃনির্দেশিত আচরণে অবদান রাখতে পারে।",
+    "description": "First risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "একটি বিস্তৃত পুনঃনির্দেশিত নিয়ম একটি লিঙ্ককে এমনভাবে খুলে দিতে পারে যা আপনি আশা করেননি।",
+    "description": "Second risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "নতুন দূরবর্তী নিয়ম ডেটা আনা হলে সর্বশেষ ক্যাশে করা দূরবর্তী নিয়মগুলি পরিবর্তিত হতে পারে৷",
+    "description": "Third risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "এই বৈশিষ্ট্যের উপর নির্ভর করার আগে বান্ডেল করা নিয়ম, চূড়ান্ত নিয়ম, কাস্টম নিয়ম এবং সর্বশেষ ক্যাশে করা রিমোট নিয়মগুলি পরিদর্শন করতে অডিট পৃষ্ঠাটি ব্যবহার করুন।",
+    "description": "Fourth risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "আপনি যদি বিভিন্ন উত্স থেকে বর্তমানে উপস্থিত পুনঃনির্দেশের নিয়মগুলিতে বিশ্বাস করেন তবেই এটি সক্ষম করুন৷ আপনি যদি এই বৈশিষ্ট্যটি বুঝতে না পারেন তবে এটি সক্ষম করবেন না। এই সেটিং সক্ষম না করে, পুনঃনির্দেশ বাইপাস নিয়ম বলবৎ করা হবে না।",
+    "description": "Final warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "বাতিল করুন",
+    "description": "Cancel button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_continue": {
+    "message": "চালিয়ে যান",
+    "description": "Continue button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "রিডাইরেক্ট বাইপাস অক্ষম থাকে।",
+    "description": "Status shown when the redirect bypass warning modal is cancelled."
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "সঠিক নিশ্চিতকরণ বাক্যাংশ টাইপ করুন",
+    "description": "Input label for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "এই ক্রিয়াটি দূরবর্তী নিয়মগুলির জন্য সুরক্ষা হ্রাস করে৷ আপনি যদি আপনার JSON এবং ইন্টারঅপারেবিলিটি ফিল্টার উত্সগুলিতে বিশ্বাস করেন তবেই এগিয়ে যান৷",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "আপনার আসল HTTPS URL এর সাথে স্থানধারক মান প্রতিস্থাপন করুন, তারপর এই ফাইলটি আমদানি করুন।",
+    "description": "Template export note 1 for remote URL export JSON"
+  },
+  "remote_urls_template_note_2": {
+    "message": "প্রাইমারিতে প্রধান নিয়ম/হ্যাশ ইউআরএল পেয়ার থাকে।",
+    "description": "Template export note 2 for remote URL export JSON"
+  },
+  "remote_urls_template_note_3": {
+    "message": "অতিরিক্ত হল ঐচ্ছিক এবং একাধিক নিয়ম/হ্যাশ URL জোড়া সমর্থন করে।",
+    "description": "Template export note 3 for remote URL export JSON"
+  },
+  "remote_urls_template_note_4": {
+    "message": "প্রয়োজনে অতিরিক্ত অ্যারেতে বস্তু যোগ করুন বা সরান।",
+    "description": "Template export note 4 for remote URL export JSON"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "REPLACE_WITH_PRIMARY_RULE_URL",
+    "description": "Placeholder value for primary rule URL in template export JSON"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "REPLACE_WITH_PRIMARY_HASH_URL",
+    "description": "Placeholder value for primary hash URL in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
+  },
+  "remote_urls_export_success": {
+    "message": "দূরবর্তী URL কনফিগারেশন রপ্তানি করা হয়েছে৷",
+    "description": "Success status after exporting configured remote URLs"
+  },
+  "remote_urls_template_export_success": {
+    "message": "দূরবর্তী URL টেমপ্লেট রপ্তানি করা হয়েছে৷ স্থানধারক এবং আমদানি পূরণ করুন.",
+    "description": "Success status after exporting empty remote URL template"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "দূরবর্তী URL কনফিগারেশন আমদানি এবং সংরক্ষিত.",
+    "description": "Success status after importing and saving remote URL configuration"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "আমদানি পার্স করা হয়েছে, কিন্তু দূরবর্তী URL কনফিগারেশন সংরক্ষণ করা ব্যর্থ হয়েছে৷",
+    "description": "Error status when import parsing succeeded but saving failed"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "অবৈধ দূরবর্তী URL কনফিগারেশন ফাইল।",
+    "description": "Error status when imported remote URL JSON is invalid"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "নির্বাচিত ফাইল পড়তে অক্ষম.",
+    "description": "Error status when file reader fails for remote URL import"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "ফাইলটিতে কোনো বৈধ দূরবর্তী URL জোড়া পাওয়া যায়নি।",
+    "description": "Error status when no valid pairs are found during remote URL import"
+  },
+  "popup_consent_title_title": {
+    "message": "সম্মতি প্রয়োজন",
+    "description": "Title for the legal information section in the popup"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "প্রধান কার্যকারিতা চালু/বন্ধ করুন",
+    "description": "Title for the button that switches to the filter configuration view in the popup"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "আপনার ডিভাইসে স্থানীয়ভাবে সঞ্চিত সমস্ত তারিখ লগ এক্সটেনশন কর্মক্ষমতা জন্য স্যুইচ",
+    "description": "Title for the button that switches to the statistics view in the popup"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "অন/অফ ব্যাজ আইকনের জন্য সুইচ করুন",
+    "description": "Title for the statistics section in the popup"
+  },
+  "configs_switch_statistics_title": {
+    "message": "পরিসংখ্যান চালু/বন্ধ করার জন্য সুইচ করুন",
+    "description": "Title for the button that switches to the license and credits view in the popup"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "উপাদান",
+    "description": "Title for the statistics section in the popup"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "অবরুদ্ধ",
+    "description": "Description for the elements statistic in the popup"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "শতাংশ",
+    "description": "Description for the blocked statistic in the popup"
+  },
+  "audit_html_page_title": {
+    "message": "Linkumori নিয়ম নিরীক্ষা",
+    "description": "Title for the audit page"
+  },
+  "audit_badge_label": {
+    "message": "অডিট",
+    "description": "Small badge label in the audit page header"
+  },
+  "audit_section_title": {
+    "message": "নিয়ম নিরীক্ষা",
+    "description": "Main section title for the audit page"
+  },
+  "audit_viewer_title": {
+    "message": "নিয়ম উৎস ভিউয়ার",
+    "description": "Title for the audit source viewer card"
+  },
+  "audit_viewer_description": {
+    "message": "বান্ডিল করা নিয়ম, চূড়ান্ত একত্রিত নিয়ম, কাস্টম নিয়ম, বা কাঁচা JSON হিসাবে ক্যাশে সংরক্ষিত সাম্প্রতিক আনা রিমোট নিয়মগুলি পরিদর্শন করতে নীচের উত্স বোতামগুলি ব্যবহার করুন৷",
+    "description": "Description for the audit source viewer"
+  },
+  "audit_refresh_button": {
+    "message": "রিফ্রেশ সোর্স",
+    "description": "Refresh button label on the audit page"
+  },
+  "audit_faq_button": {
+    "message": "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী",
+    "description": "FAQ button label on the audit page"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "থিম টগল করুন",
+    "description": "Accessible label for the theme toggle on the audit page"
+  },
+  "audit_faq_close_aria": {
+    "message": "FAQ বন্ধ করুন",
+    "description": "Accessible label for the FAQ modal close button"
+  },
+  "audit_source_bundled": {
+    "message": "বান্ডিল করা নিয়ম",
+    "description": "Button and title for bundled rules audit source"
+  },
+  "audit_source_final": {
+    "message": "চূড়ান্ত নিয়ম",
+    "description": "Button and title for final merged rules audit source"
+  },
+  "audit_source_custom": {
+    "message": "কাস্টম নিয়ম",
+    "description": "Button and title for custom rules audit source"
+  },
+  "audit_source_remote": {
+    "message": "সর্বশেষ ক্যাশে রিমোট নিয়ম",
+    "description": "Button and title for latest cached remote rules audit source"
+  },
+  "audit_source_bundled_description": {
+    "message": "উত্স: বান্ডিল ফাইল ডেটা/linkumori-clearurls-min.json",
+    "description": "Source description for bundled rules"
+  },
+  "audit_source_final_description": {
+    "message": "উত্স: রানটাইম স্টোরেজ ClearURLsData",
+    "description": "Source description for final rules"
+  },
+  "audit_source_custom_description": {
+    "message": "উত্স: রানটাইম স্টোরেজ custom_rules",
+    "description": "Source description for custom rules"
+  },
+  "audit_source_remote_description": {
+    "message": "উত্স: রানটাইম স্টোরেজ remoteRulescache.data (স্থানীয়ভাবে ক্যাশে করা সাম্প্রতিক প্রাপ্ত রিমোট নিয়ম)",
+    "description": "Source description for latest cached remote rules"
+  },
+  "audit_meta_waiting": {
+    "message": "অপেক্ষা করছে...",
+    "description": "Meta text shown before audit data is loaded"
+  },
+  "audit_meta_error": {
+    "message": "ত্রুটি",
+    "description": "Meta text shown when a selected audit source has an error"
+  },
+  "audit_meta_source_bundled": {
+    "message": "বান্ডিল নিয়ম",
+    "description": "Meta label for bundled rules source"
+  },
+  "audit_meta_source_final": {
+    "message": "চূড়ান্ত নিয়ম",
+    "description": "Meta label for final rules source"
+  },
+  "audit_meta_source_custom": {
+    "message": "কাস্টম নিয়ম",
+    "description": "Meta label for custom rules source"
+  },
+  "audit_meta_source_remote": {
+    "message": "দূরবর্তী ক্যাশে",
+    "description": "Meta label for latest cached remote rules source"
+  },
+  "audit_meta_template": {
+    "message": "$1 | প্রদানকারী: $2 | অক্ষর: $3",
+    "description": "Template for audit source meta information"
+  },
+  "audit_status_loading": {
+    "message": "অডিট সূত্র লোড হচ্ছে...",
+    "description": "Status shown while loading audit sources"
+  },
+  "audit_status_loaded": {
+    "message": "সমস্ত অডিট উত্স লোড.",
+    "description": "Status shown when all audit sources load successfully"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "অডিট সূত্র লোড. সর্বশেষ ক্যাশে রিমোট নিয়ম এখনও উপলব্ধ নয়.",
+    "description": "Status shown when audit sources load but remote cache is not yet available"
+  },
+  "audit_status_partial_error": {
+    "message": "কিছু অডিট উত্স লোড করতে ব্যর্থ হয়েছে৷ ত্রুটি JSON পরিদর্শন করতে উৎস পরিবর্তন করুন.",
+    "description": "Status shown when one or more audit sources fail to load"
+  },
+  "audit_status_refresh_failed": {
+    "message": "অডিট উত্স রিফ্রেশ করতে ব্যর্থ হয়েছে.",
+    "description": "Fallback error shown when refreshing audit sources fails"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "$1 স্ট্যাটাস সহ বান্ডিল করা নিয়মগুলি আনা ব্যর্থ হয়েছে৷",
+    "description": "Error shown when fetching bundled rules fails"
+  },
+  "audit_error_final_missing": {
+    "message": "রানটাইম ClearURLsData ফেরত দেয়নি",
+    "description": "Error shown when final rules are missing from runtime storage"
+  },
+  "audit_error_custom_missing": {
+    "message": "রানটাইম কাস্টম_রুল ফেরত দেয়নি",
+    "description": "Error shown when custom rules are missing from runtime storage"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "রানটাইম remoteRulescache ফেরত দেয়নি",
+    "description": "Error shown when remote cache is missing from runtime storage"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "অজানা বান্ডিল নিয়ম ত্রুটি",
+    "description": "Fallback bundled rules error"
+  },
+  "audit_error_unknown_final": {
+    "message": "অজানা চূড়ান্ত নিয়ম ত্রুটি",
+    "description": "Fallback final rules error"
+  },
+  "audit_error_unknown_custom": {
+    "message": "অজানা কাস্টম নিয়ম ত্রুটি",
+    "description": "Fallback custom rules error"
+  },
+  "audit_error_unknown_remote": {
+    "message": "অজানা দূরবর্তী নিয়ম ত্রুটি",
+    "description": "Fallback remote rules error"
+  },
+  "audit_remote_unavailable": {
+    "message": "কোন ক্যাশ করা দূরবর্তী নিয়ম এখনও উপলব্ধ",
+    "description": "Message shown when remote cache has not been populated yet"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "কোনো ক্যাশেড রিমোট রুলস পেলোড এখনও উপলব্ধ",
+    "description": "Message shown when remote cache exists but has no data payload"
+  },
+  "audit_faq_modal_title": {
+    "message": "অডিট FAQ",
+    "description": "Title for the audit FAQ modal"
+  },
+  "audit_faq_intro": {
+    "message": "এই নোটগুলি প্রদানকারীর ক্ষেত্রগুলি বর্ণনা করে যা clearurls.js আসলে পড়ে যখন এটি নিয়ম তৈরি করে এবং প্রয়োগ করে।",
+    "description": "Intro text for the audit FAQ modal"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "আমি কিভাবে একটি প্রদানকারী অডিট করব?",
+    "description": "FAQ title for auditing a provider"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p> দর্শকের মধ্যে একটি উৎস খুলুন, <span class=\"faq-code\">providers</span> এর ভিতরে প্রদানকারীকে খুঁজুন এবং সেই প্রদানকারী বস্তুর কীগুলি পরীক্ষা করুন৷ <span class=\"faq-code\"> বান্ডেল করা নিয়মগুলি </span> শিপড নিয়মগুলি পরিদর্শন করার জন্য, <span class=\"faq-code\"> চূড়ান্ত নিয়ম </span> মার্জ করা রানটাইম ফলাফল পরিদর্শন করার জন্য, <span class=\"faq-code\">9 ব্যবহারকারীর ওভাররাইডগুলি পরিদর্শনের জন্য নিয়ম</span>, এবং <span class=\"faq-code\">সর্বশেষ ক্যাশে করা রিমোট রুলস</span> ক্যাশে সংরক্ষিত অতি সম্প্রতি আনা রিমোট পেলোড পরিদর্শন করার জন্য।",
+    "description": "FAQ body for auditing a provider"
+  },
+  "audit_faq_override_title": {
+    "message": "আমি কিভাবে সক্রিয়, নিষ্ক্রিয়, আমদানি, সম্পাদনা, বা পৃথক নিয়ম ওভাররাইড করব?",
+    "description": "FAQ title for custom rule editing and overrides"
+  },
+  "audit_faq_override_body": {
+    "message": "<p> আপনি যখন নিয়ম-কানুন নিয়ন্ত্রণ চান তখন কাস্টম নিয়ম সম্পাদক ব্যবহার করুন। এটি সেই জায়গা যেখানে আপনি কাস্টম নিয়ম হিসাবে নিয়মগুলি আমদানি করতে পারেন, প্রদানকারীর ক্ষেত্রগুলি সম্পাদনা করতে পারেন, এবং একটি প্রদানকারীর আপনার নিজস্ব সংস্করণ সংরক্ষণ করতে পারেন৷</p><p>আপনি আমদানি করা বা সম্পাদিত প্রদানকারীকে আপনার কাস্টম সংস্করণে পরিণত করে পৃথক প্রদানকারী বা পৃথক নিয়ম সামগ্রী সক্ষম বা অক্ষম করতে এটি ব্যবহার করতে পারেন৷ সেই কাস্টম সংস্করণটি রানটাইম নিয়মে মার্জ করা হয়৷ অডিট <span class=\"faq-code\">Bundled Rules</span> বা <span class=\"faq-code\">অত্যাধুনিক ক্যাশেড রিমোট রুলস</span> আপনার পছন্দের প্রদানকারীকে খুঁজে বের করার জন্য, তারপর </span>XXTKNXXXTKNXX9 নিয়ম</span> এবং <span class=\"faq-code\"> চূড়ান্ত নিয়ম</span> নিশ্চিত করতে আপনার কাস্টম সম্পাদনা বা ওভাররাইড কার্যকর হচ্ছে। শুধুমাত্র আপনি যে অংশগুলি চান, যে অংশগুলি আপনি চান না তা নিষ্ক্রিয় করুন এবং প্রদানকারীকে সম্পাদনা করুন যাতে চূড়ান্ত একত্রিত আউটপুট আপনার ইচ্ছা অনুযায়ী আচরণ করে৷</p>",
+    "description": "FAQ body for custom rule editing and overrides"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "urlPattern কি?",
+    "description": "FAQ title for urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPattern</span> হল রেজেক্স হল একটি প্রদানকারী একটি URL এর সাথে মেলে কিনা তা নির্ধারণ করতে ব্যবহৃত হয়। <span class=\"faq-code\">urlPattern</span>, ClearURLs প্রথমে সেই regex ব্যবহার করে। clearurls.js-এ, এটি <span class=\"faq-code\">setURLPattern()</span>.</p> দ্বারা একটি বাস্তব RegExp-এ পরিণত হয়েছে",
+    "description": "FAQ body for urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "ডোমেইন প্যাটার্ন কি?",
+    "description": "FAQ title for domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> হল ডোমেন-ভিত্তিক ম্যাচার যখন কোনও প্রদানকারী নির্ভর করে না <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURL এগুলিকে <span class=\"faq-code\">setURLXTKNXX7XXTKNXXsetURLXTKNXX তারপর চেক করে Regex URL ম্যাচিং এর পরিবর্তে ডোমেন ম্যাচিং লজিক সহ।</p>",
+    "description": "FAQ body for domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "নিয়ম, rawRules এবং রেফারেল মার্কেটিং কি?",
+    "description": "FAQ title for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">rules</span> হল প্যারামিটারের নাম বা খণ্ডের নাম যা থেকে সরানো উচিত URL.</p><p><span class=\"faq-code\">rawRules</span> হল কোয়েরির আগে সম্পূর্ণ URL স্ট্রিংয়ে সরাসরি প্রয়োগ করা রেজেক্স প্রতিস্থাপন cleanup.</p><p><span class=\"faq-code\"> রেফারাল মার্কেটিং</span> কেও অপসারণযোগ্য প্যারামিটারের মতোই বিবেচনা করা হয়, কিন্তু সেগুলি আসলে ব্যবহার করা হবে কিনা তা নির্ভর করে বিশ্বব্যাপী রেফারেল-মার্কেটিং-এর উপর নির্ভর করে।",
+    "description": "FAQ body for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "ব্যতিক্রম এবং ডোমেইন ব্যতিক্রম কি?",
+    "description": "FAQ title for exceptions and domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\">exceptions</span> হল রেজেক্স প্যাটার্ন যা কোনও প্রদানকারীকে ম্যাচিংয়ে কাজ করা থেকে বিরত রাখে URLs.</p><p><span class=\"faq-code\">domainExceptions</span> ইউআরএল রেজেক্স ম্যাচিংয়ের পরিবর্তে ডোমেন-ভিত্তিক ম্যাচিংয়ের সাথে একই জিনিস করে। মেলে, প্রদানকারীকে বাইপাস করা হয় এমনকি যদি এর মূল প্যাটার্নটি প্রথমে মিলে যায়।</p>",
+    "description": "FAQ body for exceptions and domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "পুনঃনির্দেশ এবং ডোমেইনরিডাইরেকশান কি?",
+    "description": "FAQ title for redirections and domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\"> পুনঃনির্দেশ </span> হল রেজেক্স-ভিত্তিক আনর্যাপার৷ তারা সাধারণত গ্রুপ 1-এ আসল গন্তব্য URL ক্যাপচার করে এবং ClearURLগুলি সেই ক্যাপচার করা মানটিতে পুনঃনির্দেশ করে। এই কোডবেসে তারা <span class=\"faq-code\">pattern $redirect= target</span>.</p><p> এর মতো আকৃতির এন্ট্রিগুলির জন্য চেক করা হয় যদি একটি রেজেক্স পুনঃনির্দেশ প্রথমে মেলে, তাহলে সেটি জেতে। যদি না হয়, ClearURLs পরবর্তী ডোমেন পুনঃনির্দেশ চেক করে।</p>",
+    "description": "FAQ body for redirections and domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "পদ্ধতি এবং রিসোর্স টাইপ কি?",
+    "description": "FAQ title for methods and resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "<p><span class=\"faq-code\"> পদ্ধতি </span> একটি প্রদানকারীকে নির্দিষ্ট HTTP পদ্ধতিতে সীমাবদ্ধ করে যেমন XXTKNXX3XXTKNXGETXTKNXX4XXTKNXX বা XXTKNXX5XXTKNXPOST</span>. কোনো পদ্ধতি তালিকাভুক্ত না থাকলে, সমস্ত পদ্ধতি অনুমোদিত। <span class=\"faq-code\">main_frame</span>, <span class=\"faq-code\">sub_frame</span>, অথবা <span class=\"faq-code\">xmlhttprequest</span>.</p><p>যদি কোন রিসোর্স প্রকার তালিকাভুক্ত না হয়, ClearURLs সেটিংস থেকে বিশ্বব্যাপী অনুমোদিত অনুরোধের ধরনগুলিতে ফিরে আসে৷",
+    "description": "FAQ body for methods and resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "CompleteProvider এবং forceRedirection কি?",
+    "description": "FAQ title for completeProvider and forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\">completeProvider</span> প্রদানকারীকে একটি ব্লকিং প্রদানকারীতে পরিণত করে। clearurls.js-এ, এর মানে ডোমেন ব্লকিং সক্ষম হলে প্রদানকারী ম্যাচিং রিকোয়েস্ট বাতিল করতে পারে। যখন একটি <span class=\"faq-code\">main_frame</span> অনুরোধে একটি পুনঃনির্দেশ পাওয়া যায়, তখন ClearURLগুলি একটি সাধারণ পুনঃনির্দেশ প্রতিক্রিয়া ফেরত দেওয়ার পরিবর্তে সরাসরি ব্রাউজার ট্যাব আপডেট করতে পারে৷</p>",
+    "description": "FAQ body for completeProvider and forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "clearurls.js এখানে কোন প্রদানকারী ক্ষেত্র ব্যবহার করে?",
+    "description": "FAQ title for the list of provider fields used by clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p>এই শাখায় প্রদানকারী-বিল্ডিং পাথ এই কীগুলি পড়ে: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\"> জোর পুনঃনির্দেশ XXTKNXX4, XXX <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">রেফারাল মার্কেটিং</span>, <span class=\"faq-code\">TXXTX66XXTKNX</span>17XXTKNXXdomainExceptions</span>, <span class=\"faq-code\">রিডাইরেকশান </span>, XXTKNXX21XXTKNXডোমেন রিডাইরেকশান, <span class=\"faq-code\">23XXTKNXX পদ্ধতি </span>, এবং <span class=\"faq-code\"> রিসোর্স টাইপস</span>.</p>TKNXX, সবচেয়ে গুরুত্বপূর্ণ আচরণের স্থান চেক হল <span class=\"faq-code\"> চূড়ান্ত নিয়ম </span>, কারণ এটি বান্ডিল, দূরবর্তী, এবং কাস্টম উত্স একত্রিত হওয়ার পরে একত্রিত ফলাফল দেখায়৷</p>",
+    "description": "FAQ body for the list of provider fields used by clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "সাময়িক বিরতি",
+    "description": "Auto-added i18n key: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "15 মিনিট বিরতি দিন",
+    "description": "Auto-added i18n key: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "1 ঘন্টা বিরতি দিন",
+    "description": "Auto-added i18n key: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "রিস্টার্ট না হওয়া পর্যন্ত",
+    "description": "Auto-added i18n key: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "এখন আবার শুরু করুন",
+    "description": "Auto-added i18n key: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "সক্রিয়",
+    "description": "Auto-added i18n key: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "ব্রাউজার রিস্টার্ট না হওয়া পর্যন্ত বিরতি দেওয়া হয়েছে",
+    "description": "Auto-added i18n key: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "বিরাম দেওয়া হয়েছে (%s বাকি)",
+    "description": "Auto-added i18n key: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "অস্থায়ী বিরতি অবস্থা আপডেট করতে ব্যর্থ হয়েছে.",
+    "description": "Auto-added i18n key: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "পরিষ্কার করা পুনরায় শুরু করতে ব্যর্থ হয়েছে৷",
+    "description": "Auto-added i18n key: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "এক মিনিটেরও কম",
+    "description": "Auto-added i18n key: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "মিনিট",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "জ",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "দূরবর্তী নিয়ম স্বাস্থ্য",
+    "description": "Auto-added i18n key: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "এখন রিফ্রেশ করুন",
+    "description": "Auto-added i18n key: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "শেষ আনার প্রচেষ্টা:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "শেষ সফল আনা:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "শেষ হ্যাশ যাচাইকরণ:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "শেষ ব্যর্থতার কারণ:",
+    "description": "Auto-added i18n key: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "বর্তমান হ্যাশ অবস্থা:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "লভ্য নেই",
+    "description": "Auto-added i18n key: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "কোনোটিই নয়",
+    "description": "Auto-added i18n key: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "অজানা",
+    "description": "Auto-added i18n key: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "রিফ্রেশ হচ্ছে...",
+    "description": "Auto-added i18n key: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "দূরবর্তী নিয়ম রিফ্রেশ সম্পন্ন হয়েছে.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "দূরবর্তী নিয়ম রিফ্রেশ ব্যর্থ হয়েছে.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "নিয়ম টেস্ট ল্যাব",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "নিয়ম টেস্ট ল্যাব",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "পরিষ্কার করার আগে/পরে এবং প্রথম মিলিত প্রদানকারী/নিয়ম দেখতে একটি URL পেস্ট করুন।",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "পরীক্ষা চালান",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "পরীক্ষা করা হচ্ছে...",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "প্রথমে একটি URL লিখুন।",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "নিয়ম পরীক্ষা ব্যর্থ হয়েছে.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "মিলে গেছে এবং সফলভাবে পরিষ্কার করা হয়েছে।",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "এই URL এর জন্য কোন পরিবর্তন প্রয়োগ করা হয়নি।",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "URL প্রয়োজন",
+    "description": "Auto-added i18n key: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "অবৈধ URL বিন্যাস",
+    "description": "Auto-added i18n key: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "নিয়ম পরীক্ষা ব্যর্থ হয়েছে",
+    "description": "Auto-added i18n key: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "থিম টগল করুন",
+    "description": "ARIA label for popup theme toggle button"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "ডোমেন শনাক্ত করা হচ্ছে...",
+    "description": "Temporary label shown while popup detects current tab domain for whitelist button"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "%s যোগ করা হচ্ছে...",
+    "description": "Whitelist button loading label when adding domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "%s সরানো হচ্ছে...",
+    "description": "Whitelist button loading label when removing domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "এই পৃষ্ঠার জন্য ডোমেন সনাক্ত করতে পারে না৷",
+    "description": "Tooltip for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "শ্বেততালিকা বোতাম নিষ্ক্রিয় কারণ এই পৃষ্ঠায় কোনো সমর্থিত ডোমেন নেই৷",
+    "description": "ARIA label for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_pause_15m_title": {
+    "message": "সাময়িকভাবে 15 মিনিটের জন্য পরিষ্কার করা বন্ধ করুন",
+    "description": "Tooltip and ARIA label for the 15-minute temporary pause button in popup"
+  },
+  "popup_pause_1h_title": {
+    "message": "সাময়িকভাবে 1 ঘন্টার জন্য পরিষ্কার করা বন্ধ করুন",
+    "description": "Tooltip and ARIA label for the 1-hour temporary pause button in popup"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "ব্রাউজার রিস্টার্ট না হওয়া পর্যন্ত পরিষ্কার করা বন্ধ করুন",
+    "description": "Tooltip and ARIA label for the pause-until-restart button in popup"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "এখন ইউআরএল পরিষ্কার করা আবার শুরু করুন",
+    "description": "Tooltip and ARIA label for the resume-now button in popup"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "সাময়িকভাবে ইউআরএল পরিষ্কার করা বন্ধ করুন",
+    "description": "Tooltip for temporary pause section title in popup"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "বর্তমান পৃষ্ঠায় প্রক্রিয়াকৃত মোট উপাদান",
+    "description": "Tooltip for popup total elements label"
+  },
+  "popup_consent_description_title": {
+    "message": "গ্রহণ করার আগে এটি পড়ুন",
+    "description": "Tooltip for popup consent description"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "আপনি পড়েছেন এবং গ্রহণ করেছেন তা নিশ্চিত করুন",
+    "description": "Tooltip for popup consent checkbox label"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "সম্মতি গ্রহণ করুন এবং পপআপ আনলক করুন",
+    "description": "Tooltip for popup consent accept button"
+  },
+  "license_third_party_title_title": {
+    "message": "তৃতীয় পক্ষের উপাদান তথ্য",
+    "description": "Tooltip for third-party section title"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "ফায়ারফক্স অ্যাড-অন স্বাক্ষর ডাইজেস্ট",
+    "description": "Tooltip for Firefox signature title label"
+  },
+  "invalid_date_label": {
+    "message": "অবৈধ তারিখ",
+    "description": "Fallback text when a date value cannot be parsed."
+  },
+  "log_i18n_load_failed": {
+    "message": "আন্তর্জাতিকীকরণ লোড করতে ব্যর্থ হয়েছে৷ কিছু বৈশিষ্ট্য সঠিকভাবে কাজ নাও করতে পারে।",
+    "description": "Error message shown when log page translations fail to load."
+  },
+  "log_html_sort_oldest_first": {
+    "message": "প্রথমে প্রাচীনতম দেখাতে ক্লিক করুন",
+    "description": "Tooltip for log timestamp sort button when currently newest-first."
+  },
+  "log_html_sort_newest_first": {
+    "message": "প্রথম নতুন দেখাতে ক্লিক করুন",
+    "description": "Tooltip for log timestamp sort button when currently oldest-first."
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "নিয়ম পরীক্ষা ল্যাব বন্ধ করুন",
+    "description": "ARIA label for closing the Rule Test Lab modal."
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "ইনপুট URL",
+    "description": "Label for input URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "আউটপুট URL",
+    "description": "Label for output URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "পরিবর্তিত হয়েছে",
+    "description": "Label indicating whether URL was changed in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "মিলিত প্রদানকারী",
+    "description": "Label for matched provider in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "মিলে যাওয়া নিয়ম",
+    "description": "Label for matched rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "প্যাটার্ন টাইপ",
+    "description": "Label for pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "প্যাটার্ন মান",
+    "description": "Label for pattern value in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "অ্যাকশন",
+    "description": "Label for matched action in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "পরীক্ষা করার জন্য ঐচ্ছিক প্যারাম (যেমন utm_source বা ref=abc)",
+    "description": "Placeholder for optional parameter probe input in Rule Test Lab."
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "পরীক্ষিত পরম",
+    "description": "Label for tested parameter probe in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "মিলিত ব্যতিক্রম",
+    "description": "Label for matched URL regex exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "মিলিত ডোমেন ব্যতিক্রম",
+    "description": "Label for matched domain exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "মিলে যাওয়া পুনর্নির্দেশ",
+    "description": "Label for matched regex redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "মিলে যাওয়া ডোমেন পুনঃনির্দেশ",
+    "description": "Label for matched domain redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "মিলিত নিয়ম Regex",
+    "description": "Label for matched standard rule regex in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "মিলেছে কাঁচা নিয়ম",
+    "description": "Label for matched raw rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "মিলিত রেফারেল নিয়ম",
+    "description": "Label for matched referral marketing rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "মিলিত RemoveParam নিয়ম",
+    "description": "Label for matched $removeparam rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "মিলিত RemoveParam ব্যতিক্রম",
+    "description": "Label for matched @@$removeparam exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "সম্পূর্ণ প্রদানকারী",
+    "description": "Label for completeProvider boolean in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "কোনোটিই নয়",
+    "description": "Fallback value in Rule Test Lab output when there is no value."
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "হ্যাঁ",
+    "description": "Boolean true label in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "না",
+    "description": "Boolean false label in Rule Test Lab output."
+  },
+  "color_picket_clear": {
+    "message": "পরিষ্কার",
+    "description": "Clear button in color picker."
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "বিধি প্রয়োগ করুন",
+    "description": "Legacy/alias label for enforcing custom rules."
+  },
+  "log_stats_chart_type_bar": {
+    "message": "বার চার্ট",
+    "description": "Label for the bar chart option."
+  },
+  "log_stats_chart_type_line": {
+    "message": "লাইন চার্ট",
+    "description": "Label for the line chart option."
+  },
+  "log_stats_daily_activity": {
+    "message": "দৈনিক কার্যকলাপ (গত 14 দিন)",
+    "description": "Stats section title for daily activity chart/table."
+  },
+  "log_stats_date_col": {
+    "message": "তারিখ",
+    "description": "Header for the date column in daily stats table."
+  },
+  "log_stats_entries_col": {
+    "message": "এন্ট্রি",
+    "description": "Header for the entries column in daily stats table."
+  },
+  "log_stats_no_activity": {
+    "message": "কোনো কার্যকলাপ নেই",
+    "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL ফিল্টার (ইন্টারঅপারেবিলিটি):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON নিয়ম:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON নিয়মের তথ্য:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL ফিল্টার নিয়ম:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL ফিল্টার উত্স:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "নিয়ম স্থিতি:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "হ্যাশ স্ট্যাটাস:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL ফিল্টার স্ট্যাটাস:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "লোড করা হয়েছে"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "আংশিক লোড"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "সমস্ত উত্স ব্যর্থ হয়েছে"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "কোনো হ্যাশলেস URL ফিল্টার উৎস কনফিগার করা নেই"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "দূরবর্তী নিয়ম নিষ্ক্রিয়"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "লোড করা হয়নি"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "খালি"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "প্রয়োজন নেই"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL ফিল্টার"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL ফিল্টার"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "মার্জ করা হয়েছে Linkumori URL ফিল্টার"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "কাস্টম Linkumori URL নিয়ম"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL ফিল্টার পার্সার অনুপলব্ধ"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "কাস্টম Linkumori URL নিয়ম ব্যর্থ হয়েছে"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL ফিল্টার উৎস(গুলি) ব্যর্থ হয়েছে"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "রিমোট URL ফিল্টার ফাইল খালি"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL ফিল্টার আনা ব্যর্থ হয়েছে"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "অজানা URL ফিল্টার ত্রুটি৷"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "সমস্ত Linkumori URL ফিল্টার উত্স ব্যর্থ হয়েছে"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "জনপ্রিয় এক্সটেনশন URL ট্র্যাকিং ফিল্টার"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "কোন সমর্থিত নয় Linkumori আন্তঃক্রিয়াশীলতা $removeparam নিয়ম পাওয়া গেছে"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL ফিল্টার ইন্টারঅপারেবিলিটি"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori ইন্টারঅপারেবিলিটি ফিল্টার সোর্স"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL নিয়ম"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori কাস্টম URL নিয়ম"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "জনপ্রিয় এক্সটেনশন $removeparam বা $queryprune নিয়ম এখানে যোগ করুন। এই নিয়মগুলি ClearURLs কাস্টম প্রদানকারীদের থেকে আলাদাভাবে সংরক্ষণ করা হয়েছে এবং Linkumori URL ফিল্টারগুলিতে মার্জ করা হয়েছে৷"
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "যাচাই করুন"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "কোন কাস্টম Linkumori URL নিয়ম কনফিগার করা হয়েছে।"
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 সমর্থিত নিয়ম(গুলি), $2 অসমর্থিত বাদ দেওয়া হয়েছে, $3 ডুপ্লিকেট বাদ দেওয়া হয়েছে৷"
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "যাচাইকরণ ব্যর্থ হয়েছে৷"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "সংরক্ষিত এবং পুনরায় লোড Linkumori URL নিয়ম।"
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "সংরক্ষণ ব্যর্থ হয়েছে"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "সমর্থিত নিয়ম বৈধতা পরে এখানে প্রদর্শিত হবে."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL ফিল্টার পার্সার অনুপলব্ধ৷"
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL ফিল্টার (ইন্টারঅপারেবিলিটি)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL স্ট্যাটাস"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "রানটাইম নিয়ম"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "কাস্টম নিয়ম"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL হ্যাশ"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 রানটাইম নিয়ম(গুলি)\n$3 কাস্টম নিয়ম(গুলি)"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "বন্ধ করুন Linkumori কাস্টম URL নিয়ম"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Linkumori URL নিয়ম কি?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL নিয়ম হল জনপ্রিয় এক্সটেনশন ট্র্যাকিং URL ফিল্টার লাইনগুলি $removeparam-এর উপর ফোকাস করে৷ আপনি যখন 90865 তৈরি করার পরিবর্তে সরাসরি ফিল্টার-তালিকা সিনট্যাক্স পেস্ট করতে চান তখন এগুলি কার্যকর হয়৷ JSON।"
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "দূরবর্তী জনপ্রিয় এক্সটেনশন URL ফিল্টার এবং এই কাস্টম নিয়মগুলির হ্যাশ যাচাইকরণের প্রয়োজন নেই। ClearURLsData থেকে আলাদা করে পার্স করার পর এগুলি LinkumoriURLsData এ সংরক্ষণ করা হয়।"
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "আন্তঃকার্যকারিতা পরিবর্তিত হয়েছে",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "আন্তঃকার্যকারিতা আউটপুট URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "মিলেছে এমন আন্তঃকার্যকারিতা নিয়ম",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "আন্তঃকার্যকারিতা প্যাটার্নের ধরন",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "আন্তঃকার্যকারিতা ক্রিয়া",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
+  },
+  "popup_whitelist_state_permanent": {
+    "message": "সাদা তালিকাভুক্ত: $1 — শুধুমাত্র ট্যাবের জন্য আবার ক্লিক করুন",
+    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
+  },
+  "popup_whitelist_state_temporary": {
+    "message": "শুধুমাত্র ট্যাব: $1 — অপসারণ করতে ক্লিক করুন",
+    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
+  },
+  "logger_nav_label": {
+    "message": "লাইভ লগার"
+  },
+  "logger_btn_pause": {
+    "message": "⏸ বিরতি"
+  },
+  "logger_btn_resume": {
+    "message": "▶ পুনরায় শুরু করুন"
+  },
+  "logger_btn_clear": {
+    "message": "🗑 পরিষ্কার"
+  },
+  "logger_btn_autoscroll": {
+    "message": "↕ অটো-স্ক্রোল"
+  },
+  "logger_filter_label": {
+    "message": "ফিল্টার"
+  },
+  "logger_filter_placeholder": {
+    "message": "এন্ট্রি ফিল্টার করুন..."
+  },
+  "logger_tab_filter_label": {
+    "message": "ট্যাব"
+  },
+  "logger_tab_all": {
+    "message": "সব ট্যাব"
+  },
+  "logger_col_time": {
+    "message": "সময়"
+  },
+  "logger_col_action": {
+    "message": "অ্যাকশন"
+  },
+  "logger_col_rule": {
+    "message": "নিয়ম"
+  },
+  "logger_col_provider": {
+    "message": "প্রদানকারী"
+  },
+  "logger_col_pattern": {
+    "message": "প্যাটার্ন"
+  },
+  "logger_col_type": {
+    "message": "টাইপ"
+  },
+  "logger_col_method": {
+    "message": "পদ্ধতি"
+  },
+  "logger_col_url": {
+    "message": "URL"
+  },
+  "logger_status_entries": {
+    "message": "এন্ট্রি"
+  },
+  "logger_empty_state": {
+    "message": "এখনও কোন লগ এন্ট্রি. ব্রাউজিং এই তালিকা পূরণ করবে."
+  },
+  "logger_logging_disabled_banner": {
+    "message": "লগিং অক্ষম আছে — নতুন এন্ট্রি ক্যাপচার করতে সেটিংসে এটি সক্ষম করুন৷"
+  },
+  "logger_detail_title": {
+    "message": "প্রবেশের বিস্তারিত"
+  },
+  "logger_detail_before": {
+    "message": "আগে"
+  },
+  "logger_detail_after": {
+    "message": "পরে"
+  },
+  "logger_detail_rule": {
+    "message": "নিয়ম"
+  },
+  "logger_detail_provider": {
+    "message": "প্রদানকারী"
+  },
+  "logger_detail_pattern": {
+    "message": "প্যাটার্ন"
+  },
+  "logger_detail_type": {
+    "message": "টাইপ"
+  },
+  "logger_detail_method": {
+    "message": "পদ্ধতি"
+  },
+  "logger_detail_time": {
+    "message": "টাইমস্ট্যাম্প"
+  }
+}

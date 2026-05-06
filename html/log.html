@@ -1,0 +1,1452 @@
+<!--
+  ============================================================
+  ClearURLs
+  ============================================================
+  Copyright (c) 2017–2025 Kevin Röbert
+  Modified by Subham Mahesh (c) 2025 (modified parts only)
+
+  This program is free software: you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation, either
+  version 3 of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this program. If not, see
+  <http://www.gnu.org/licenses/>.
+
+  MODIFICATIONS
+  -------------
+  This file is part of the Linkumori extension for Firefox.
+  Modifications by Subham Mahesh remove the dependency on
+  DataTables, jQuery, and Bootstrap, replacing them with a
+  lightweight custom log viewer tailored to the specific needs
+  of the Linkumori extension. Core log display functionality
+  is retained while removing the overhead of those libraries.
+
+  ============================================================
+  MODIFICATION HISTORY
+  ============================================================
+  2025-06-14   Subham Mahesh   First modification
+  2025-08-21   Subham Mahesh   Second modification
+  2025-09-05   Subham Mahesh   Third modification
+
+  Note: Due to inline constraints, subsequent modifications may
+  not appear here. To view the full history, run:
+
+    node linkumori-cli-tool.js
+
+  Select "Generate Commit History" to produce a Markdown file
+  listing all modifications by file, author, and date.
+
+  IMPORTANT NOTES
+  ---------------
+  - git clone is required before running "Generate Commit History";
+    otherwise commit history generation will not work.
+  - Older modifications may not appear in the generated
+    COMMIT_HISTORY.md.
+  - If a file's inline notice is limited, check for a separate
+    file-specific notice and COMMIT_HISTORY.md; if neither exists,
+    treat the inline notice as the final modification record.
+  - If a separate file-specific notice is provided, check the
+    file's inline notice and COMMIT_HISTORY.md; if neither exists,
+    treat the separate notice as the final modification record.
+  - Review individual modified source files for earlier notices.
+  - Some files may not contain notices within the file itself or
+    may not be listed in COMMIT_HISTORY.md; a separate notice
+    file may be provided instead.
+  - Not all source files have been modified, but review notices
+    in all source files and any separate notice files (.md or .txt).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title data-i18n="log_html_page_title">Linkumori Log</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../external_js/theme_bootstrap.js"></script>
+    <script src="../external_js/theme_favicon.js"></script>
+    <style>
+        /* ============================================================
+           FONT
+        ============================================================ */
+        @font-face {
+            font-family: 'Old-Country-Nobility';
+            src: url('../Old-Country-Nobility/Old-Country-Nobility.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* ============================================================
+           THEMES  (canonical from log.html — full pagination vars)
+        ============================================================ */
+
+        /* Midnight (default dark) */
+        :root[data-theme="midnight"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --bg-quaternary: #475569;
+            --button-primary: #2563eb;
+            --button-hover: #3b82f6;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #16a34a;
+            --button-success-hover: #22c55e;
+            --logo-bg: #ffffff;
+            --logo-accent: #2563eb;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.25);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-focus: #3b82f6;
+            --toggle-bg: rgba(255, 255, 255, 0.2);
+            --toggle-active: #2563eb;
+            --pagination-button-bg: #475569;
+            --pagination-button-border: #64748b;
+            --pagination-button-text: #ffffff;
+            --pagination-button-hover-bg: #64748b;
+            --pagination-button-hover-border: #94a3b8;
+            --pagination-button-hover-text: #ffffff;
+            --pagination-button-active-bg: #2563eb;
+            --pagination-button-active-border: #2563eb;
+            --pagination-button-active-text: #ffffff;
+            --pagination-button-disabled-bg: #334155;
+            --pagination-button-disabled-border: #475569;
+            --pagination-button-disabled-text: #94a3b8;
+            --pagination-ellipsis-color: #94a3b8;
+            --pagination-shadow-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Light */
+        :root[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f1f5f9;
+            --bg-tertiary: #e2e8f0;
+            --bg-quaternary: #cbd5e1;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --input-bg: rgba(0, 0, 0, 0.05);
+            --input-border: rgba(0, 0, 0, 0.1);
+            --button-primary: #2563eb;
+            --button-hover: #1e40af;
+            --button-danger: #dc2626;
+            --button-danger-hover: #b91c1c;
+            --button-success: #16a34a;
+            --button-success-hover: #15803d;
+            --input-focus: #1e3a8a;
+            --logo-bg: #2563eb;
+            --logo-accent: #f1f5f9;
+            --toggle-bg: #cbd5e1;
+            --toggle-active: #2563eb;
+            --pagination-button-bg: #e2e8f0;
+            --pagination-button-border: #cbd5e1;
+            --pagination-button-text: #0f172a;
+            --pagination-button-hover-bg: #cbd5e1;
+            --pagination-button-hover-border: #94a3b8;
+            --pagination-button-hover-text: #0f172a;
+            --pagination-button-active-bg: #2563eb;
+            --pagination-button-active-border: #2563eb;
+            --pagination-button-active-text: #ffffff;
+            --pagination-button-disabled-bg: #f1f5f9;
+            --pagination-button-disabled-border: #e2e8f0;
+            --pagination-button-disabled-text: #94a3b8;
+            --pagination-ellipsis-color: #64748b;
+            --pagination-shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ice Cold */
+        :root[data-theme="icecold"] {
+            --bg-primary: #e5eaf5;
+            --bg-secondary: #f3f7fd;
+            --bg-tertiary: #d7e8f6;
+            --bg-quaternary: #a0d2eb;
+            --button-primary: #8458b3;
+            --button-hover: #a28089;
+            --button-danger: #8458b3;
+            --button-danger-hover: #a28089;
+            --button-success: #8458b3;
+            --button-success-hover: #a28089;
+            --logo-bg: #ffffff;
+            --logo-accent: #8458b3;
+            --text-primary: #1f2937;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: rgba(148, 163, 184, 0.35);
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --input-bg: #ffffff;
+            --input-border: rgba(148, 163, 184, 0.45);
+            --input-focus: #8458b3;
+            --toggle-bg: rgba(132, 88, 179, 0.2);
+            --toggle-active: #8458b3;
+            --pagination-button-bg: rgba(160, 210, 235, 0.35);
+            --pagination-button-border: #a0d2eb;
+            --pagination-button-text: #1f2937;
+            --pagination-button-hover-bg: #d7e8f6;
+            --pagination-button-hover-border: #93c5de;
+            --pagination-button-hover-text: #1f2937;
+            --pagination-button-active-bg: #8458b3;
+            --pagination-button-active-border: #8458b3;
+            --pagination-button-active-text: #ffffff;
+            --pagination-button-disabled-bg: rgba(160, 210, 235, 0.2);
+            --pagination-button-disabled-border: rgba(148, 163, 184, 0.35);
+            --pagination-button-disabled-text: #64748b;
+            --pagination-ellipsis-color: #64748b;
+            --pagination-shadow-color: rgba(0, 0, 0, 0.08);
+        }
+
+        /* Zen Grey */
+        :root[data-theme="dark"] {
+            --bg-primary: #0f111a;
+            --bg-secondary: #161a24;
+            --bg-tertiary: #232838;
+            --bg-quaternary: #2f3648;
+            --button-primary: #2f3648;
+            --button-hover: #232838;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #2f3648;
+            --button-success-hover: #232838;
+            --logo-bg: #ffffff;
+            --logo-accent: #2f3648;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.12);
+            --shadow-color: rgba(0, 0, 0, 0.35);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.14);
+            --input-focus: #8ab4e6;
+            --toggle-bg: rgba(47, 54, 72, 0.45);
+            --toggle-active: #2f3648;
+            --pagination-button-bg: #2f3648;
+            --pagination-button-border: #4b5563;
+            --pagination-button-text: #f1f5f9;
+            --pagination-button-hover-bg: #4b5563;
+            --pagination-button-hover-border: #64748b;
+            --pagination-button-hover-text: #f1f5f9;
+            --pagination-button-active-bg: #8ab4e6;
+            --pagination-button-active-border: #8ab4e6;
+            --pagination-button-active-text: #0f111a;
+            --pagination-button-disabled-bg: #232838;
+            --pagination-button-disabled-border: #2f3648;
+            --pagination-button-disabled-text: #94a3b8;
+            --pagination-ellipsis-color: #94a3b8;
+            --pagination-shadow-color: rgba(0, 0, 0, 0.35);
+        }
+
+        /* Sunset Orange */
+        :root[data-theme="sunset"] {
+            --bg-primary: #f5f3f0;
+            --bg-secondary: #fffdfb;
+            --bg-tertiary: #fff6f2;
+            --bg-quaternary: #f76f53;
+            --button-primary: #f76f53;
+            --button-hover: #c85a3e;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #f76f53;
+            --button-success-hover: #c85a3e;
+            --logo-bg: #ffffff;
+            --logo-accent: #f76f53;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --text-muted: #6b6b6b;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow-color: rgba(0, 0, 0, 0.06);
+            --input-bg: rgba(0, 0, 0, 0.04);
+            --input-border: rgba(0, 0, 0, 0.15);
+            --input-focus: #f76f53;
+            --toggle-bg: rgba(0, 0, 0, 0.06);
+            --toggle-active: #f76f53;
+            --pagination-button-bg: rgba(247, 111, 83, 0.1);
+            --pagination-button-border: #f76f53;
+            --pagination-button-text: #1a1a1a;
+            --pagination-button-hover-bg: rgba(247, 111, 83, 0.2);
+            --pagination-button-hover-border: #c85a3e;
+            --pagination-button-hover-text: #1a1a1a;
+            --pagination-button-active-bg: #f76f53;
+            --pagination-button-active-border: #f76f53;
+            --pagination-button-active-text: #ffffff;
+            --pagination-button-disabled-bg: rgba(247, 111, 83, 0.05);
+            --pagination-button-disabled-border: rgba(0, 0, 0, 0.08);
+            --pagination-button-disabled-text: #6b6b6b;
+            --pagination-ellipsis-color: #6b6b6b;
+            --pagination-shadow-color: rgba(0, 0, 0, 0.06);
+        }
+
+        /* Legacy */
+        :root[data-theme="legacy"] {
+            --bg-primary: #212529;
+            --bg-secondary: #343a40;
+            --bg-tertiary: #495057;
+            --bg-quaternary: #6c757d;
+            --button-primary: #FF7800;
+            --button-hover: #FF7800;
+            --button-danger: #dc3545;
+            --button-danger-hover: #c82333;
+            --button-success: #FF7800;
+            --button-success-hover: #FF7800;
+            --logo-bg: #ffffff;
+            --logo-accent: #2563eb;
+            --text-primary: #f8f9fa;
+            --text-secondary: #dee2e6;
+            --text-muted: #adb5bd;
+            --border-color: rgba(255, 255, 255, 0.14);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.2);
+            --input-focus: #FF7800;
+            --toggle-bg: rgba(255, 255, 255, 0.2);
+            --toggle-active: #FF7800;
+            --pagination-button-bg: rgba(255, 120, 0, 0.1);
+            --pagination-button-border: #FF7800;
+            --pagination-button-text: #f8f9fa;
+            --pagination-button-hover-bg: rgba(255, 120, 0, 0.2);
+            --pagination-button-hover-border: #FF7800;
+            --pagination-button-hover-text: #f8f9fa;
+            --pagination-button-active-bg: #FF7800;
+            --pagination-button-active-border: #FF7800;
+            --pagination-button-active-text: #ffffff;
+            --pagination-button-disabled-bg: #495057;
+            --pagination-button-disabled-border: #6c757d;
+            --pagination-button-disabled-text: #adb5bd;
+            --pagination-ellipsis-color: #adb5bd;
+            --pagination-shadow-color: rgba(0, 0, 0, 0.12);
+        }
+
+        /* ============================================================
+           BASE RESET & GLOBAL
+        ============================================================ */
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Old-Country-Nobility";
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            font-size: 14px;
+        }
+
+        /* ============================================================
+           HEADER  (from log.html)
+        ============================================================ */
+        .header {
+            background: var(--bg-secondary);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 4px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            min-height: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        :root[data-theme="legacy"] .logo {
+            background: url("../img/linkumori_icon_theme_legacy.svg") center / contain no-repeat;
+        }
+        :root[data-theme="legacy"] .logo * { opacity: 0; }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .header h1 {
+            color: var(--text-primary);
+            font-size: 16px;
+            margin: 0;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .version-badge {
+            background: var(--button-primary);
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 500;
+            align-self: flex-start;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+           LOGGING DISABLED BANNER  (from logger.html — global position)
+        ============================================================ */
+        #logging-banner {
+            display: none;
+            padding: 7px 20px;
+            background: rgba(245, 158, 11, 0.12);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+            color: #b45309;
+            font-size: 12px;
+            text-align: center;
+        }
+        #logging-banner.visible { display: block; }
+
+        /* ============================================================
+           PAGE CONTAINER
+        ============================================================ */
+        .container {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 20px 24px;
+        }
+
+        /* ============================================================
+           BUTTONS  (log.html canonical — larger, shimmer effect)
+        ============================================================ */
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: "Old-Country-Nobility";
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            min-height: 38px;
+            position: relative;
+            overflow: hidden;
+            line-height: 1.2;
+        }
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+        .btn:hover:before { left: 100%; }
+        .btn:focus { outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); }
+        .btn:active { transform: translateY(0); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .btn-primary { background: var(--button-primary); color: #ffffff; }
+        .btn-primary:hover { background: var(--button-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+
+        .btn-success { background: var(--button-success); color: #ffffff; }
+        .btn-success:hover { background: var(--button-success-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(22,163,74,0.3); }
+
+        .btn-danger { background: var(--button-danger); color: #ffffff; }
+        .btn-danger:hover { background: var(--button-danger-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(220,38,38,0.3); }
+
+        /* btn-secondary — used by Live Logger (auto-scroll, pause-while-paused) */
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .btn-secondary:hover { background: var(--bg-quaternary); transform: translateY(-1px); }
+        .btn-secondary.active { background: var(--button-primary); color: #ffffff; border-color: var(--button-primary); }
+
+        /* file upload wrapper (Logs view → Import) */
+        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; }
+        .file-input-wrapper input[type=file] { position: absolute; left: -9999px; opacity: 0; }
+
+        /* ============================================================
+           VIEW NAVIGATION  (log.html style — now 3 tabs)
+        ============================================================ */
+        .view-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .view-nav-btn {
+            border: 1px solid var(--border-color);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-family: "Old-Country-Nobility";
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .view-nav-btn:hover { background: var(--bg-quaternary); }
+        .view-nav-btn.active {
+            background: var(--button-primary);
+            border-color: var(--button-primary);
+            color: #ffffff;
+        }
+
+        /* View panels */
+        .view-panel { display: none; }
+        .view-panel.active { display: block; }
+
+        /* ============================================================
+           DASHBOARD VIEW STYLES  (from log.html — unchanged)
+        ============================================================ */
+        .stats-dashboard { margin-bottom: 20px; }
+
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .stats-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .stats-label { color: var(--text-muted); font-size: 12px; }
+        .stats-value { color: var(--text-primary); font-size: 22px; font-weight: 700; margin-top: 4px; }
+
+        .stats-panels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .chart-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .chart-head {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 8px; margin-bottom: 10px;
+        }
+        .chart-title { margin: 0; color: var(--text-primary); font-size: 14px; }
+
+        .chart-controls { display: flex; gap: 8px; align-items: center; }
+        .chart-controls label { color: var(--text-secondary); font-size: 12px; }
+
+        .chart-select {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 6px 8px;
+            font-family: "Old-Country-Nobility";
+            font-size: 12px;
+        }
+        .chart-reload-btn { padding: 6px 10px; font-size: 12px; line-height: 1; }
+
+        .chart-wrap {
+            position: relative;
+            width: 100%; height: 280px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .chart-canvas { width: 100%; height: 100%; display: block; }
+        .chart-wrap.is-empty .chart-canvas { opacity: 0.5; }
+
+        .chart-empty {
+            position: absolute; inset: 0;
+            display: none; align-items: center; justify-content: center;
+            text-align: center; padding: 0 12px;
+            color: var(--text-muted); font-size: 13px;
+            font-family: "Old-Country-Nobility"; letter-spacing: 0.2px;
+            pointer-events: none; z-index: 1;
+        }
+        .chart-wrap.is-empty .chart-empty { display: flex; }
+
+        .chart-tooltip {
+            position: absolute; pointer-events: none;
+            background: var(--bg-tertiary); color: var(--text-primary);
+            border: 1px solid var(--border-color); border-radius: 6px;
+            padding: 6px 8px; font-size: 12px; line-height: 1.2;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            white-space: nowrap; opacity: 0;
+            transform: translate(-50%, -120%);
+            transition: opacity 0.12s ease; z-index: 2;
+        }
+
+        .stats-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            padding: 12px;
+        }
+        .stats-panel h3 { margin: 0 0 8px 0; font-size: 14px; color: var(--text-primary); }
+
+        .stats-mini-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        .stats-mini-table th,
+        .stats-mini-table td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 6px 4px; text-align: left; color: var(--text-primary);
+        }
+        .stats-mini-table th { color: var(--text-secondary); font-weight: 600; }
+
+        /* ============================================================
+           SHARED TABLE / BUTTON / CONTAINER STYLES
+           Used identically by both the Logs tab and the Live Logger tab.
+        ============================================================ */
+        .table-container {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .button-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .table-responsive {
+            border-radius: 6px;
+            overflow-x: auto;
+            overflow-y: visible;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 0;
+            width: 100%;
+        }
+        .table-responsive td {
+            word-break: break-all;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        /* Log table — shared by Logs tab and Live Logger tab */
+        .log-table {
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            border: none;
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: auto;
+        }
+        .log-table thead th {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 14px 12px;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+        .log-table thead th.sortable { cursor: pointer; user-select: none; }
+        .log-table thead th.sortable:hover { background: var(--bg-quaternary); }
+
+        .sort-button {
+            display: inline-flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            margin-left: 8px; cursor: pointer;
+            opacity: 0.6; transition: opacity 0.2s;
+        }
+        .sort-button:hover { opacity: 1; }
+        .sort-button.active { opacity: 1; }
+
+        .sort-arrow { width: 0; height: 0; margin: 1px 0; transition: all 0.2s; }
+        .sort-arrow.up  { border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 6px solid var(--text-muted); }
+        .sort-arrow.down{ border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 6px solid var(--text-muted); }
+        .sort-button.active .sort-arrow.up  { border-bottom-color: var(--text-primary); }
+        .sort-button.active .sort-arrow.down{ border-top-color: var(--text-primary); }
+        .sort-button.asc  .sort-arrow.down { opacity: 0.3; }
+        .sort-button.desc .sort-arrow.up   { opacity: 0.3; }
+
+        .log-table tbody td {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 12px 10px;
+            word-wrap: break-word;
+            word-break: break-word;
+            font-size: 13px;
+            line-height: 1.4;
+            vertical-align: top;
+            min-width: 80px;
+        }
+        .log-table tbody tr.empty-row td { text-align: center; color: var(--text-muted); font-style: italic; }
+        .log-table tbody tr:not(.empty-row):hover td { background: var(--bg-tertiary); }
+        .log-table tbody tr.selected td {
+            background: var(--bg-tertiary);
+            outline: 1px solid var(--button-primary);
+        }
+
+        /* Table controls (search + length) */
+        .table-controls {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+        .table-controls .length-control,
+        .table-controls .search-control { display: flex; align-items: center; gap: 8px; }
+        .table-controls label {
+            color: var(--text-primary);
+            font-family: "Old-Country-Nobility";
+            font-size: 13px; font-weight: 500; white-space: nowrap;
+        }
+        .table-controls input,
+        .table-controls select {
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: var(--text-primary);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-family: "Old-Country-Nobility";
+            font-size: 13px;
+        }
+        .search-control input { min-width: 200px; }
+        .length-control select { padding: 6px 8px; min-width: 80px; }
+        .table-controls input:focus, .table-controls select:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        /* Pagination */
+        .pagination-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        .pagination-controls { display: flex; align-items: center; gap: 4px; }
+        .pagination-btn {
+            min-width: 36px; height: 36px; padding: 0 8px;
+            border: 1px solid var(--pagination-button-border);
+            background: var(--pagination-button-bg);
+            color: var(--pagination-button-text);
+            border-radius: 4px; cursor: pointer;
+            display: inline-flex; justify-content: center; align-items: center;
+            font-size: 12px; font-family: 'Old-Country-Nobility'; font-weight: 500;
+            margin: 0 2px; transition: all 0.2s;
+            text-decoration: none; position: relative; overflow: hidden;
+        }
+        .pagination-btn:hover:not(:disabled):not(.active) {
+            background: var(--pagination-button-hover-bg);
+            border-color: var(--pagination-button-hover-border);
+            color: var(--pagination-button-hover-text);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px var(--pagination-shadow-color);
+        }
+        .pagination-btn.active {
+            background: var(--pagination-button-active-bg);
+            border-color: var(--pagination-button-active-border);
+            color: var(--pagination-button-active-text);
+            font-weight: bold; cursor: default;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+        }
+        .pagination-btn:disabled {
+            opacity: 0.6; cursor: not-allowed;
+            background: var(--pagination-button-disabled-bg);
+            border-color: var(--pagination-button-disabled-border);
+            color: var(--pagination-button-disabled-text);
+            transform: none; box-shadow: none;
+        }
+        .pagination-btn:disabled:hover {
+            background: var(--pagination-button-disabled-bg);
+            border-color: var(--pagination-button-disabled-border);
+            color: var(--pagination-button-disabled-text);
+            transform: none; box-shadow: none;
+        }
+        .pagination-ellipsis {
+            min-width: 32px; height: 32px;
+            display: inline-flex; justify-content: center; align-items: center;
+            color: var(--pagination-ellipsis-color); font-size: 12px; margin: 0 2px;
+        }
+        .pagination-controls button {
+            min-width: 32px; height: 32px; padding: 0 8px;
+            border-radius: 4px; cursor: pointer;
+            display: inline-flex; justify-content: center; align-items: center;
+            font-size: 12px; font-family: "Old-Country-Nobility"; transition: all 0.2s;
+        }
+        .pagination-controls span {
+            cursor: default; min-width: 32px; height: 32px; padding: 0 8px;
+            display: inline-flex; justify-content: center; align-items: center;
+            font-size: 12px;
+        }
+
+        /* ============================================================
+           LIVE LOGGER — unique additions only
+           Everything else (table, controls, container) is inherited
+           from the shared rules above.
+        ============================================================ */
+
+        /* Live dot */
+        #live-dot {
+            width: 9px; height: 9px;
+            border-radius: 50%;
+            background: #22c55e;
+            flex-shrink: 0;
+            box-shadow: 0 0 6px #22c55e;
+            animation: pulse 1.5s infinite;
+        }
+        #live-dot.paused       { background: #f59e0b; box-shadow: 0 0 6px #f59e0b; animation: none; }
+        #live-dot.disconnected { background: #ef4444; box-shadow: 0 0 6px #ef4444; animation: none; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.4; }
+        }
+
+        /* Let #log-scroll-container be the sole scroll manager;
+           disable the outer .table-responsive overflow so they don't fight */
+        #logger-view .table-responsive {
+            overflow: visible;
+        }
+
+        /* Scrollable live-log area */
+        #log-scroll-container {
+            max-height: calc(100vh - 420px);
+            min-height: 240px;
+            overflow-x: auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--text-muted) transparent;
+        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+
+        /* ── Logger table: content-driven column sizing ────────────
+           table-layout: auto + width: 100% lets the browser distribute
+           space. We then force compact columns to shrink to their
+           content (white-space: nowrap; width: 1%) and let the URL
+           column absorb the rest.
+        ─────────────────────────────────────────────────────────── */
+        #logger-view .log-table {
+            table-layout: auto;
+            width: 100%;
+            min-width: 640px; /* enables horizontal scroll on small viewports */
+        }
+
+        /* Tighter row style for a live feed */
+        #logger-view .log-table thead th {
+            padding: 9px 10px;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        #logger-view .log-table tbody td {
+            padding: 6px 10px;
+            font-size: 12px;
+            min-width: 0;        /* remove the shared 80px floor */
+            vertical-align: middle;
+            word-break: normal;  /* don't force-break inside compact cells */
+            white-space: nowrap; /* default: cells stay on one line */
+        }
+
+        /* col 1 — Time: shrink to content */
+        #logger-view .log-table th:nth-child(1),
+        #logger-view .log-table td:nth-child(1) { width: 1%; }
+
+        /* col 2 — Action (badge): shrink to content */
+        #logger-view .log-table th:nth-child(2),
+        #logger-view .log-table td:nth-child(2) { width: 1%; }
+
+        /* col 3 — Rule: shrink to content */
+        #logger-view .log-table th:nth-child(3),
+        #logger-view .log-table td:nth-child(3) { width: 1%; }
+
+        /* col 3 — Rule: shrink to content, truncate if very long */
+        #logger-view .log-table th:nth-child(3),
+        #logger-view .log-table td:nth-child(3) {
+            width: 1%;
+            max-width: 160px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* col 4 — Provider: fixed cap, truncate with ellipsis */
+        #logger-view .log-table th:nth-child(4),
+        #logger-view .log-table td:nth-child(4) {
+            max-width: 140px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* col 5 — Pattern: monospace, fixed cap, truncate */
+        #logger-view .log-table th:nth-child(5),
+        #logger-view .log-table td:nth-child(5) {
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* col 6 — Type: shrink to content */
+        #logger-view .log-table th:nth-child(6),
+        #logger-view .log-table td:nth-child(6) { width: 1%; }
+
+        /* col 7 — Method: shrink to content */
+        #logger-view .log-table th:nth-child(7),
+        #logger-view .log-table td:nth-child(7) { width: 1%; }
+
+        /* col 8 — URL: takes all remaining space, shows full URL */
+        #logger-view .log-table th:nth-child(8),
+        #logger-view .log-table td:nth-child(8) {
+            width: auto;
+            min-width: 200px;
+            white-space: normal;
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+
+        /* Status bar — right-aligned entry count inside .table-controls */
+        #status-bar {
+            margin-left: auto;
+            font-size: 12px;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        /* Action colour strips on first cell */
+        tr.action-blocked    td:first-child { border-left: 3px solid #ef4444; }
+        tr.action-allowed    td:first-child { border-left: 3px solid #22c55e; }
+        tr.action-redirected td:first-child { border-left: 3px solid #3b82f6; }
+        tr.action-modified   td:first-child { border-left: 3px solid #f59e0b; }
+        tr.action-info       td:first-child { border-left: 3px solid #94a3b8; }
+
+        /* Action badges */
+        .badge {
+            display: inline-block; padding: 2px 6px; border-radius: 4px;
+            font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+        }
+        .badge-blocked    { background: rgba(239,68,68,0.15);   color: #ef4444; }
+        .badge-allowed    { background: rgba(34,197,94,0.15);   color: #22c55e; }
+        .badge-redirected { background: rgba(59,130,246,0.15);  color: #3b82f6; }
+        .badge-modified   { background: rgba(245,158,11,0.15);  color: #f59e0b; }
+        .badge-info       { background: rgba(148,163,184,0.15); color: #94a3b8; }
+
+        /* Time cell */
+        .cell-time { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+        /* Pattern cell — monospace, muted */
+        .cell-pattern { color: var(--text-muted); font-family: monospace; font-size: 11px; }
+
+        /* Empty state (shown when no live entries) */
+        #empty-state {
+            display: none;
+            flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 10px; padding: 48px 24px;
+            color: var(--text-muted); font-size: 13px;
+        }
+        #empty-state.visible { display: flex; }
+        #empty-state svg { opacity: 0.3; }
+
+        /* Detail panel — row-click expand below the table */
+        #detail-panel {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            margin-top: 16px;
+            max-height: 220px;
+            overflow-y: auto;
+            display: none;
+            scrollbar-width: thin;
+            scrollbar-color: var(--text-muted) transparent;
+        }
+        #detail-panel.open { display: block; }
+
+        #detail-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 14px 6px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        #detail-title { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+        #detail-close {
+            cursor: pointer; font-size: 14px; color: var(--text-muted);
+            background: none; border: none; padding: 0 2px; line-height: 1;
+            font-family: inherit;
+        }
+        #detail-close:hover { color: var(--text-primary); }
+
+        #detail-panel-inner {
+            padding: 10px 14px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+        }
+        .detail-field { display: flex; flex-direction: column; gap: 2px; }
+        .detail-label {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; color: var(--text-muted);
+        }
+        .detail-value {
+            font-size: 12px; color: var(--text-primary);
+            word-break: break-all; font-family: monospace;
+        }
+        .detail-value.url-before { color: #ef4444; }
+        .detail-value.url-after  { color: #22c55e; }
+        .detail-value.url-same   { color: var(--text-secondary); }
+
+        /* ============================================================
+           LOADING OVERLAY  (from log.html)
+        ============================================================ */
+        .loading-overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .loading-overlay.show { opacity: 1; visibility: visible; }
+        .loading-spinner {
+            width: 40px; height: 40px;
+            border: 4px solid var(--border-color);
+            border-top: 4px solid var(--button-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Error toast */
+        .error-message {
+            position: fixed; top: 20px; right: 20px;
+            background: var(--button-danger); color: white;
+            padding: 12px 20px; border-radius: 6px;
+            z-index: 1000; box-shadow: 0 4px 12px rgba(220,38,38,0.3);
+            max-width: 300px; word-wrap: break-word;
+        }
+        @keyframes slideIn  { from { transform: translateX(100%); } to { transform: translateX(0); } }
+        @keyframes slideOut { from { transform: translateX(0); } to { transform: translateX(100%); } }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width: 768px) {
+            .container { padding: 16px 8px; }
+            .header { padding: 10px 16px; min-height: 50px; }
+            .header h1 { font-size: 14px; }
+            .version-badge { font-size: 9px; padding: 2px 5px; }
+            .logo { width: 20px; height: 20px; }
+
+            .button-controls { padding: 12px; gap: 8px; }
+            .btn { font-size: 11px; padding: 8px 12px; min-height: auto; }
+
+            .table-container { padding: 8px; }
+            .table-responsive { overflow-x: visible; border-radius: 4px; }
+            .log-table { min-width: unset; width: 100%; table-layout: fixed; }
+            .log-table thead th { font-size: 11px; padding: 8px 4px; white-space: normal; word-wrap: break-word; line-height: 1.2; }
+            .sort-button { margin-left: 4px; }
+            .sort-arrow { border-width: 3px; }
+            .sort-arrow.up  { border-bottom-width: 5px; }
+            .sort-arrow.down{ border-top-width: 5px; }
+            .log-table tbody td { font-size: 11px; padding: 8px 4px; white-space: normal; line-height: 1.3; }
+
+            .table-controls { flex-direction: column; align-items: stretch; gap: 12px; }
+            .table-controls .search-control, .table-controls .length-control { justify-content: space-between; }
+            .search-control input { min-width: unset; flex-grow: 1; }
+            .pagination-footer { flex-direction: column; gap: 12px; padding-top: 12px; }
+
+            #log-scroll-container { max-height: calc(100vh - 480px); }
+            #detail-panel-inner { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 12px 4px; }
+            .button-controls { padding: 8px; }
+            .btn { font-size: 10px; padding: 6px 8px; }
+            .table-container { padding: 4px; }
+            .log-table thead th { font-size: 10px; padding: 6px 2px; }
+            .log-table tbody td { font-size: 10px; padding: 6px 2px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
+        @media (prefers-contrast: more) {
+            :root { --border-color: rgba(255,255,255,0.4); }
+            :root[data-theme="light"] { --border-color: rgba(0,0,0,0.4); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header ─────────────────────────────────────────────────────── -->
+    <div class="header">
+        <div class="header-content">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
+                <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
+                    fill="none" stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round"/>
+                <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35"
+                    fill="none" stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round"/>
+                <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" fill="var(--logo-accent)"/>
+            </svg>
+            <div class="header-text">
+                <h1 id="page_title" data-i18n="log_html_page_title"></h1>
+                <span class="version-badge" id="version"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Logging disabled banner (Live Logger only) ─────────────────── -->
+    <div id="logging-banner" data-i18n="logger_logging_disabled_banner">
+        Logging is disabled — enable it in Settings to capture new entries.
+    </div>
+
+    <!-- ── Main container ─────────────────────────────────────────────── -->
+    <div class="container">
+
+        <!-- ── Tab navigation ─────────────────────────────────────────── -->
+        <div class="view-nav">
+            <button type="button" id="nav-dashboard" class="view-nav-btn active"
+                    data-i18n="log_nav_dashboard"></button>
+            <button type="button" id="nav-logs" class="view-nav-btn"
+                    data-i18n="log_nav_logs"></button>
+            <button type="button" id="nav-logger" class="view-nav-btn"
+                    data-i18n="logger_nav_label">Live Logger</button>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             TAB 1 · DASHBOARD  (unchanged from log.html)
+        ═══════════════════════════════════════════════════════════ -->
+        <section id="dashboard-view" class="view-panel active">
+            <div class="stats-dashboard">
+                <div class="stats-cards">
+                    <div class="stats-card">
+                        <div class="stats-label" data-i18n="log_stats_total_entries"></div>
+                        <div id="stats-total-entries" class="stats-value">0</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-label" data-i18n="log_stats_changed_urls"></div>
+                        <div id="stats-changed-entries" class="stats-value">0</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-label" data-i18n="log_stats_unique_rules"></div>
+                        <div id="stats-unique-rules" class="stats-value">0</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-label" data-i18n="log_stats_unique_domains"></div>
+                        <div id="stats-unique-domains" class="stats-value">0</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-label" data-i18n="log_stats_unique_providers"></div>
+                        <div id="stats-unique-providers" class="stats-value">0</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-label" data-i18n="log_stats_unique_methods"></div>
+                        <div id="stats-unique-methods" class="stats-value">0</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-label" data-i18n="log_stats_unique_resource_types"></div>
+                        <div id="stats-unique-resource-types" class="stats-value">0</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-label" data-i18n="log_stats_earliest"></div>
+                        <div id="stats-earliest" class="stats-value" style="font-size:12px;">-</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-label" data-i18n="log_stats_latest"></div>
+                        <div id="stats-latest" class="stats-value" style="font-size:12px;">-</div>
+                    </div>
+                </div>
+
+                <div class="chart-panel">
+                    <div class="chart-head">
+                        <h3 class="chart-title" data-i18n="log_stats_chart_title"></h3>
+                        <div class="chart-controls">
+                            <label for="stats-chart-type" data-i18n="log_stats_chart_type"></label>
+                            <select id="stats-chart-type" class="chart-select">
+                                <option value="pie" data-i18n="log_stats_chart_type_pie"></option>
+                            </select>
+                            <button type="button" id="stats-chart-reload"
+                                    class="btn btn-primary chart-reload-btn"
+                                    data-i18n="log_stats_chart_reload"
+                                    data-i18n-title="log_stats_chart_reload_title"></button>
+                        </div>
+                    </div>
+                    <div class="chart-wrap">
+                        <canvas id="stats-chart-canvas" class="chart-canvas"></canvas>
+                        <div id="stats-chart-empty" class="chart-empty"
+                             data-i18n="log_stats_chart_no_data"></div>
+                        <div id="stats-chart-tooltip" class="chart-tooltip"></div>
+                    </div>
+                </div>
+
+                <div class="stats-panels">
+                    <div class="stats-panel">
+                        <h3 data-i18n="log_stats_top_rules"></h3>
+                        <table class="stats-mini-table">
+                            <thead><tr>
+                                <th data-i18n="log_stats_rule_col"></th>
+                                <th data-i18n="log_stats_count_col"></th>
+                            </tr></thead>
+                            <tbody id="stats-top-rules"></tbody>
+                        </table>
+                    </div>
+                    <div class="stats-panel">
+                        <h3 data-i18n="log_stats_top_domains"></h3>
+                        <table class="stats-mini-table">
+                            <thead><tr>
+                                <th data-i18n="log_stats_domain_col"></th>
+                                <th data-i18n="log_stats_count_col"></th>
+                            </tr></thead>
+                            <tbody id="stats-top-domains"></tbody>
+                        </table>
+                    </div>
+                    <div class="stats-panel">
+                        <h3 data-i18n="log_stats_top_providers"></h3>
+                        <table class="stats-mini-table">
+                            <thead><tr>
+                                <th data-i18n="log_stats_provider_col"></th>
+                                <th data-i18n="log_stats_count_col"></th>
+                            </tr></thead>
+                            <tbody id="stats-top-providers"></tbody>
+                        </table>
+                    </div>
+                    <div class="stats-panel">
+                        <h3 data-i18n="log_stats_top_methods"></h3>
+                        <table class="stats-mini-table">
+                            <thead><tr>
+                                <th data-i18n="log_stats_method_col"></th>
+                                <th data-i18n="log_stats_count_col"></th>
+                            </tr></thead>
+                            <tbody id="stats-top-methods"></tbody>
+                        </table>
+                    </div>
+                    <div class="stats-panel">
+                        <h3 data-i18n="log_stats_top_resource_types"></h3>
+                        <table class="stats-mini-table">
+                            <thead><tr>
+                                <th data-i18n="log_stats_resource_type_col"></th>
+                                <th data-i18n="log_stats_count_col"></th>
+                            </tr></thead>
+                            <tbody id="stats-top-resource-types"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             TAB 2 · LOGS (static, paginated)  (unchanged from log.html)
+        ═══════════════════════════════════════════════════════════ -->
+        <section id="logs-view" class="view-panel">
+            <div class="button-controls">
+                <button type="button" id="reset_log_btn" class="btn btn-danger"
+                        data-i18n-title="log_html_reset_button_title">
+                    <span id="reset_log_btn_text" data-i18n="log_html_reset_button"></span>
+                </button>
+                <button type="button" id="export_log_btn" class="btn btn-success"
+                        data-i18n-title="log_html_export_button_title">
+                    <span id="export_log_btn_text" data-i18n="log_html_export_button"></span>
+                </button>
+                <label id="import_log_btn" class="btn btn-success file-input-wrapper"
+                       data-i18n-title="log_html_import_button_title">
+                    <span id="import_log_btn_text" data-i18n="log_html_import_button"></span>
+                    <input type="file" name="file" id="importLog" accept=".json"/>
+                </label>
+            </div>
+
+            <div class="table-container">
+                <div class="table-controls">
+                    <div class="length-control">
+                        <label for="length_select" data-i18n="log_html_show_entries"></label>
+                        <select id="length_select">
+                            <option value="10">10</option>
+                            <option value="25" selected>25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="-1" data-i18n="log_html_show_all"></option>
+                        </select>
+                    </div>
+                    <div class="search-control">
+                        <label for="search_input" data-i18n="log_html_search"></label>
+                        <input type="text" id="search_input"
+                               data-i18n-placeholder="log_html_search_placeholder">
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="log-table" width="100%" id="logTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th id="head_1" data-i18n="log_html_table_head_1"></th>
+                                <th id="head_2" data-i18n="log_html_table_head_2"></th>
+                                <th id="head_3" data-i18n="log_html_table_head_3"></th>
+                                <th id="head_5" data-i18n="log_html_table_head_5"></th>
+                                <th id="head_6" data-i18n="log_html_table_head_6"></th>
+                                <th id="head_7" data-i18n="log_html_table_head_7"></th>
+                                <th id="head_8" data-i18n="log_html_table_head_8"></th>
+                                <th id="head_4" data-i18n="log_html_table_head_4">
+                                    <span class="sort-button" id="time-sort-btn">
+                                        <div class="sort-arrow up"></div>
+                                        <div class="sort-arrow down"></div>
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <!-- Populated by log.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination-footer">
+                    <div id="pagination-info" data-i18n="datatable_info_empty"></div>
+                    <div id="pagination-controls">
+                        <!-- Populated by log.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             TAB 3 · LIVE LOGGER
+             Identical structure to the Logs tab — same classes,
+             same CSS, same visual behaviour. Only the content differs.
+        ═══════════════════════════════════════════════════════════ -->
+        <section id="logger-view" class="view-panel">
+
+            <!-- Toolbar: live-dot + Pause / Clear / Auto-scroll -->
+            <div class="button-controls">
+                <div id="live-dot"></div>
+                <button class="btn btn-primary" id="btn-pause"
+                        data-i18n="logger_btn_pause">⏸ Pause</button>
+                <button class="btn btn-danger"  id="btn-clear"
+                        data-i18n="logger_btn_clear">🗑 Clear</button>
+                <button class="btn btn-secondary" id="btn-scroll"
+                        data-i18n="logger_btn_autoscroll">↕ Auto-scroll</button>
+            </div>
+
+            <div class="table-container">
+                <!-- Filter / tab / entry-count row -->
+                <div class="table-controls">
+                    <div class="search-control">
+                        <label for="filter-input" data-i18n="logger_filter_label">Filter</label>
+                        <input type="search" id="filter-input"
+                               data-i18n-placeholder="logger_filter_placeholder"
+                               placeholder="Filter entries…">
+                    </div>
+                    <div class="length-control">
+                        <label for="tab-filter" data-i18n="logger_tab_filter_label">Tab</label>
+                        <select id="tab-filter">
+                            <option value="all" data-i18n="logger_tab_all">All tabs</option>
+                        </select>
+                    </div>
+                    <span id="status-bar">0 entries</span>
+                </div>
+
+                <!-- Live table wrapped in a scroll container -->
+                <div class="table-responsive">
+                    <div id="log-scroll-container">
+                        <table class="log-table" id="log-table">
+                            <thead>
+                                <tr>
+                                    <th data-i18n="logger_col_time">Time</th>
+                                    <th data-i18n="logger_col_action">Action</th>
+                                    <th data-i18n="logger_col_rule">Rule</th>
+                                    <th data-i18n="logger_col_provider">Provider</th>
+                                    <th data-i18n="logger_col_pattern">Pattern</th>
+                                    <th data-i18n="logger_col_type">Type</th>
+                                    <th data-i18n="logger_col_method">Method</th>
+                                    <th data-i18n="logger_col_url">URL</th>
+                                </tr>
+                            </thead>
+                            <tbody id="log-tbody"></tbody>
+                        </table>
+
+                        <div id="empty-state">
+<span data-i18n="logger_empty_state">
+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer: entry count (mirrors pagination-footer placement) -->
+                <div class="pagination-footer">
+                    <span id="footer-status">0 entries</span>
+                </div>
+            </div>
+
+            <!-- Row detail panel — expands below the table on row click -->
+            <div id="detail-panel">
+                <div id="detail-header">
+                    <span id="detail-title" data-i18n="logger_detail_title">Entry detail</span>
+                    <button id="detail-close">✕</button>
+                </div>
+                <div id="detail-panel-inner"></div>
+            </div>
+
+        </section>
+
+    </div><!-- /.container -->
+
+    <!-- ── Loading overlay ────────────────────────────────────────────── -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- ── Scripts ────────────────────────────────────────────────────── -->
+    <script src="../core_js/modal_dialog.js"></script>
+    <script src="../external_js/linkumori-i18n.js"></script>
+    <script src="../core_js/log.js"></script>
+    <script src="../core_js/write_version.js"></script>
+
+</body>
+</html>

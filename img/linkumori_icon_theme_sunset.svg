@@ -1,0 +1,51 @@
+<!--linkumori_icon_theme_sunset.svg
+
+  Date             | Author
+  20/10/2024       | Subham Mahesh
+  15/11/2024       | Subham Mahesh
+  25/11/2024       | Subham Mahesh
+  21/12/2024       | Subham Mahesh
+  14/06/2025       | Subham Mahesh
+
+ * Due to constraints, later modifications are not tracked inline.
+ * To view the full modification history, run:
+ *
+ *   node linkumori-cli-tool.js
+ *
+ * IMPORTANT NOTES
+
+ * - git clone is required before running "Generate Commit History";
+ *   otherwise commit history generation will not work.
+ * - Older modifications may not appear in the generated
+ *   COMMIT_HISTORY.md.
+ * - If a file's inline notice is limited, check for a separate
+ *   file-specific notice and COMMIT_HISTORY.md; if neither exists,
+ *   treat the inline notice as the final modification record.
+ * - If a separate file-specific notice is provided, check the
+ *   file's inline notice and COMMIT_HISTORY.md; if neither exists,
+ *   treat the separate notice as the final modification record.
+ * - Review individual modified source files for earlier notices.
+ * - Some files may not contain notices within the file itself or
+ *   may not be listed in COMMIT_HISTORY.md; a separate notice
+ *   file may be provided instead.
+ * - Not all source files have been modified, but review notices
+ *   in all source files and any separate notice files (.md or .txt).
+ * Then select "Generate Commit History". This will create a Markdown file
+ * where you can browse who modified which files and on what date.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Linkumori sunset theme icon">
+  <style>
+    .icon-bg { fill: #ffffff; }
+    .icon-stroke {
+      fill: none;
+      stroke: #f76f53;
+      stroke-width: 8;
+      stroke-linecap: round;
+    }
+    .icon-accent { fill: #f76f53; }
+  </style>
+  <circle class="icon-bg" cx="50" cy="50" r="45"/>
+  <path class="icon-stroke" d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"/>
+  <path class="icon-stroke" d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35"/>
+  <polygon class="icon-accent" points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28"/>
+</svg>

@@ -1,0 +1,460 @@
+<!--
+  ============================================================
+  ClearURLs
+  ============================================================
+  Copyright (c) 2017–2025 Kevin Röbert
+  Modified by Subham Mahesh (c) 2025 (modified parts only)
+
+  This program is free software: you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation, either
+  version 3 of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this program. If not, see
+  <http://www.gnu.org/licenses/>.
+
+  Repository: https://github.com/linkumori/linkumori
+
+  MODIFICATIONS
+  -------------
+  - New CSS
+  - New header with SVG logo
+
+  ============================================================
+  SVG ICON ATTRIBUTIONS
+  ============================================================
+
+  EXTERNAL FILE REFERENCES — Google Material Icons (Unmodified)
+  -------------------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+  Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+
+  - Sun Icon  — ../LinkumorI_HTML_SVG/sun.svg
+                 Unmodified local Material icon SVG used for the theme toggle
+  - Moon Icon — ../LinkumorI_HTML_SVG/moon.svg
+                 Unmodified local Material icon SVG used for the theme toggle
+
+  ============================================================
+  MODIFICATION HISTORY
+  ============================================================
+  2025-06-14   Subham Mahesh   First modification
+  2026-04-19   Subham Mahesh   Updated theme-toggle icon attribution
+
+  Note: Due to inline constraints, subsequent modifications may
+  not appear here. To view the full history, run:
+
+    node linkumori-cli-tool.js
+
+  Select "Generate Commit History" to produce a Markdown file
+  listing all modifications by file, author, and date.
+
+  IMPORTANT NOTES
+  ---------------
+  - git clone is required before running "Generate Commit History";
+    otherwise commit history generation will not work.
+  - Older modifications may not appear in the generated
+    COMMIT_HISTORY.md.
+  - If a file's inline notice is limited, check for a separate
+    file-specific notice and COMMIT_HISTORY.md; if neither exists,
+    treat the inline notice as the final modification record.
+  - If a separate file-specific notice is provided, check the
+    file's inline notice and COMMIT_HISTORY.md; if neither exists,
+    treat the separate notice as the final modification record.
+  - Review individual modified source files for earlier notices.
+  - Some files may not contain notices within the file itself or
+    may not be listed in COMMIT_HISTORY.md; a separate notice
+    file may be provided instead.
+  - Not all source files have been modified, but review notices
+    in all source files and any separate notice files (.md or .txt).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="cleanUrlsToolTitle"></title>
+    <script src="../external_js/theme_bootstrap.js"></script>
+    <script src="../external_js/theme_favicon.js"></script>
+    <style>
+           @font-face {
+            font-family: 'Old-Country-Nobility';
+            src: url('../Old-Country-Nobility/Old-Country-Nobility.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+         :root[data-theme="midnight"] {
+            /* Primary Background Colors - Default Dark Theme */
+            --bg-primary: #0f172a;      
+            --bg-secondary: #1e293b;    
+            --bg-tertiary: #334155;     
+            --button-primary: #2563eb;  
+            --button-hover: #3b82f6;    
+            --logo-bg: #ffffff;          
+            --logo-accent: #2563eb; 
+            --text-button-primary: #ffffff;
+            --text-primary: #f8fafc;     
+            --text-secondary: #cbd5e1;  
+            --text-muted: #94a3b8;      
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.25);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-focus: #3b82f6;
+            --theme-icon-filter: brightness(0) invert(1);
+        }
+
+        /* Light theme */
+        :root[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f1f5f9;
+            --bg-tertiary: #2563eb;
+            --text-primary: #334155;
+            --text-button-primary: #ffffff;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --input-bg: rgba(0, 0, 0, 0.05);
+            --input-border: rgba(0, 0, 0, 0.1);
+            --button-primary: #2563eb;
+            --button-hover: #1e40af;      
+            --input-focus: #1e3a8a;
+            --logo-bg: #2563eb;          
+            --logo-accent: #f1f5f9;
+            --theme-icon-filter: brightness(0) saturate(100%);
+        }
+
+        /* Ice Cold theme */
+        :root[data-theme="icecold"] {
+            --bg-primary: #e5eaf5;
+            --bg-secondary: #f3f7fd;
+            --bg-tertiary: #d7e8f6;
+            --button-primary: #8458b3;
+            --button-hover: #a28089;
+            --logo-bg: #ffffff;
+            --logo-accent: #8458b3;
+            --text-button-primary: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: rgba(148, 163, 184, 0.35);
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --input-bg: #ffffff;
+            --input-border: rgba(148, 163, 184, 0.45);
+            --input-focus: #8458b3;
+            --theme-icon-filter: brightness(0) saturate(100%);
+        }
+
+        /* Zen Grey theme */
+        :root[data-theme="dark"] {
+            --bg-primary: #0f111a;
+            --bg-secondary: #161a24;
+            --bg-tertiary: #232838;
+            --button-primary: #2f3648;
+            --button-hover: #232838;
+            --logo-bg: #ffffff;
+            --logo-accent: #2f3648;
+            --text-button-primary: #ffffff;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.12);
+            --shadow-color: rgba(0, 0, 0, 0.35);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.14);
+            --input-focus: #8ab4e6;
+            --theme-icon-filter: brightness(0) invert(1);
+        }
+
+        /* Sunset Orange theme */
+       :root[data-theme="sunset"] {
+    --bg-primary: #f5f3f0;
+    --bg-secondary: #fffdfb;
+    --bg-tertiary: #fff6f2;
+    --button-primary: #f76f53;
+    --button-hover: #c85a3e;
+    --logo-bg: #ffffff;
+    --logo-accent: #f76f53;
+    --text-button-primary: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-muted: #6b6b6b;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.06);
+    --input-bg: rgba(0, 0, 0, 0.04);
+    --input-border: rgba(0, 0, 0, 0.15);
+    --input-focus: #f76f53;
+    --theme-icon-filter: brightness(0) saturate(100%);
+}
+
+        /* Legacy theme */
+        :root[data-theme="legacy"] {
+            --bg-primary: #212529;
+            --bg-secondary: #343a40;
+            --bg-tertiary: #495057;
+            --button-primary: #FF7800;
+            --button-hover: #FF7800;
+            --logo-bg: #ffffff;
+            --logo-accent: #2563eb;
+            --text-button-primary: #ffffff;
+            --text-primary: #f8f9fa;
+            --text-secondary: #dee2e6;
+            --text-muted: #adb5bd;
+            --border-color: rgba(255, 255, 255, 0.14);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.2);
+            --input-focus: #FF7800;
+            --theme-icon-filter: brightness(0) invert(1);
+        }
+        body {
+            margin: 0;
+            font-family: "Old-Country-Nobility";
+            background: var(--bg-primary);
+            transition: background-color 0.2s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: var(--bg-secondary);
+            padding: 12px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            box-shadow: 0 2px 4px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-title {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .header-version {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .logo {
+            width: 24px;
+            height: 24px;
+        }
+
+        :root[data-theme="legacy"] .logo {
+            background: url("../img/linkumori_icon_theme_legacy.svg") center / contain no-repeat;
+        }
+
+        :root[data-theme="legacy"] .logo * {
+            opacity: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle-btn {
+            background: var(--bg-secondary);
+            padding: 6px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 28px;
+            height: 28px;
+            transition: all 0.2s;
+        }
+        .theme-toggle-btn:hover {
+            background: var(--bg-tertiary);
+        }
+        .theme-toggle-btn img {
+            width: 14px;
+            height: 14px;
+            transition: opacity 0.2s;
+            display: block;
+            filter: var(--theme-icon-filter);
+        }
+        .sun-icon {
+            opacity: 0;
+            position: absolute;
+        }
+        .moon-icon {
+            opacity: 1;
+        }
+        :root[data-theme="light"] .sun-icon { opacity: 1; }
+        :root[data-theme="light"] .moon-icon { opacity: 0; }
+
+        .section {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .section-title {
+            color: var(--text-secondary);
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 18px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .url-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 8px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background: var(--input-bg);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 13px;
+            resize: vertical;
+            box-sizing: border-box;
+            margin-bottom: 12px;
+        }
+
+        .url-textarea:focus {
+            outline: none;
+            border-color: var(--input-focus);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: var(--button-primary);
+            color: var(--text-button-primary);
+            border: none;
+            font-family: "Old-Country-Nobility";
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background: var(--button-hover);
+        }
+
+        .copy-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 2px 4px var(--shadow-color);
+            font-size: 13px;
+        }
+
+        /* Add smooth transitions for theme changes */
+        body * {
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">             
+            <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>             
+            <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" 
+                  fill="none" 
+                  stroke="var(--logo-accent)" 
+                  stroke-width="8" 
+                  stroke-linecap="round"/>             
+            <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35" 
+                  fill="none" 
+                  stroke="var(--logo-accent)" 
+                  stroke-width="8" 
+                  stroke-linecap="round"/>             
+            <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" 
+                     fill="var(--logo-accent)"/>         
+        </svg>
+        <div class="header-meta">
+            <h1 id="headerTitle" class="header-title"></h1>
+            <span class="version header-version" id="version"></span>
+        </div>
+        <div class="header-actions">
+
+            <button id="themeToggle" class="theme-toggle-btn" aria-label="" data-i18n-aria="themeToggleAriaLabel">
+                <img id="cleaningToolSunIcon" src="../LinkumorI_HTML_SVG/sun.svg" alt="" width="16" height="16" class="sun-icon">
+                <img id="cleaningToolMoonIcon" src="../LinkumorI_HTML_SVG/moon.svg" alt="" width="16" height="16" class="moon-icon">
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2 id="inputUrlsTitle" class="section-title"></h2>
+            <p id="inputUrlsDescription" class="section-description"></p>
+            <textarea id="inputUrls" class="url-textarea"></textarea>
+        </div>
+    
+        <div class="section">
+            <h2 id="cleanedUrlsTitle" class="section-title"></h2>
+            <textarea id="outputUrls" class="url-textarea" readonly></textarea>
+            <div class="button-group">
+                <button id="cleanUrlsButton"></button>
+                <button id="copyUrlsButton"></button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="copyStatus" class="copy-status"></div>
+
+    <script src="../core_js/cleaning_tool.js"></script>
+        <script src="../external_js/linkumori-i18n.js"></script>
+    <script src="../core_js/write_version.js"></script>
+
+
+</body>
+</html>

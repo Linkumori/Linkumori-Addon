@@ -1,0 +1,4462 @@
+{
+  "aboutPageTitle": {
+    "message": "Linkumori - O programu",
+    "description": "Title for the about/legal page"
+  },
+  "active_bundled_providers_label": {
+    "message": "Aktivni vgrajeni ponudniki:",
+    "description": "Label for active bundled providers count."
+  },
+  "active_remote_providers_label": {
+    "message": "Aktivni oddaljeni ponudniki:",
+    "description": "Label for active remote providers count."
+  },
+  "addDomainToWhitelist": {
+    "message": "Dodaj $1 na beli seznam",
+    "description": "Button label to add a domain to the whitelist. $1 is replaced with the domain."
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "Dodaj trenutno domeno na beli seznam",
+    "description": "Button label to add the current domain to the whitelist."
+  },
+  "appearance_settings_title": {
+    "message": "Nastavitve videza",
+    "description": "Title for the appearance settings section"
+  },
+  "badge_color_description": {
+    "message": "Izberite barvo za značko razširitve, ki prikazuje število očiščenih parametrov na vsaki strani.",
+    "description": "Description text explaining what the badge color setting does"
+  },
+  "badge_color_label": {
+    "message": "Barva značke",
+    "description": "Label for the badge color picker"
+  },
+  "badge_preview_label": {
+    "message": "Predogled",
+    "description": "Label for the badge preview section"
+  },
+  "blocked_html_body": {
+    "message": "To spletno mesto je blokiral dodatek <b>Linkumori (Clean URLS)</b>, ker smo to spletno mesto identificirali kot oglaševalsko in/ali sledilno storitev. Za obisk tega mesta morate začasno deaktivirati dodatek ali onemogočiti blokiranje domen v nastavitvah Linkumori (Clean URLS). Po tem lahko kliknete spodnji gumb za nalaganje strani.",
+    "description": "This string is used as body on the blocked site page."
+  },
+  "blocked_html_button": {
+    "message": "Obišči stran",
+    "description": "This string is used as button on the blocked site page."
+  },
+  "blocked_html_title": {
+    "message": "To spletno mesto je blokiral <b>Linkumori (Clean URLS)</b>",
+    "description": "This string is used as title on the blocked site page."
+  },
+  "built_in_rules_enabled": {
+    "message": "Omogoči vgrajena pravila",
+    "description": "Label for the toggle that enables or disables bundled built-in rules"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "Uporabi vgrajena pravila Linkumori/ClearURLs. Onemogočite to možnost, če želite uporabljati samo oddaljena in/ali lastna pravila.",
+    "description": "Description for the toggle that controls bundled built-in rules"
+  },
+  "linkumori_interoperability_mode_enabled": {
+    "message": "Način interoperabilnosti Linkumori"
+  },
+  "linkumori_interoperability_mode_enabled_description": {
+    "message": "Uporabi pravila interoperabilnosti Linkumori URL Filter, vključno z združljivimi seznami $removeparam, skupaj z izvornimi pravili Linkumori/ClearURLs JSON."
+  },
+  "bundled_rules_description": {
+    "message": "Linkumori uporablja dve kategoriji pravil: Linkumori (ClearURLs 2.0) JSON pravila za domače ponudnike in Linkumori URL pravila interoperabilnosti filtrov za priljubljeno razširitev $removeparam seznami. Vsaka kategorija se šteje posebej.",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "Informacije o pravilih",
+    "description": "Title for the Rules Information section."
+  },
+  "button_cancel": {
+    "message": "Prekliči"
+  },
+  "button_close": {
+    "message": "Zapri",
+    "description": "Close button text for FAQ modal"
+  },
+  "button_confirm": {
+    "message": "Potrdi",
+    "description": "Generic confirm button text for modal dialogs"
+  },
+  "modal_alert_title": {
+    "message": "Obvestilo",
+    "description": "Default title for alert-style modal dialogs"
+  },
+  "modal_confirm_title": {
+    "message": "Potrdi",
+    "description": "Default title for confirm-style modal dialogs"
+  },
+  "modal_prompt_title": {
+    "message": "Vnos zahtevan",
+    "description": "Default title for prompt-style modal dialogs"
+  },
+  "button_delete": {
+    "message": "Izbriši"
+  },
+  "button_exit": {
+    "message": "Izhod",
+    "description": "Button text for exiting the editor"
+  },
+  "button_save": {
+    "message": "Shrani"
+  },
+  "cleanUrlsButton": {
+    "message": "Počisti URL-je",
+    "description": "Text for the button that initiates URL cleaning."
+  },
+  "cleanUrlsToolHeader": {
+    "message": "Orodje Linkumori za čiščenje URL-jev",
+    "description": "The main header of the URL cleaning tool."
+  },
+  "cleanUrlsToolTitle": {
+    "message": "Napredno orodje Linkumori za čiščenje URL-jev",
+    "description": "The title of the URL cleaning tool page."
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "Počiščeni URL-ji bodo prikazani tukaj ...",
+    "description": "Placeholder text for the cleaned URLs textarea."
+  },
+  "cleanedUrlsTitle": {
+    "message": "Počiščeni URL-ji",
+    "description": "Title for the cleaned URLs section."
+  },
+  "clipboard_copy_link": {
+    "message": "Kopiraj lokacijo počiščene povezave",
+    "description": "This string is used in the context menu to copy clean links."
+  },
+  "color_picker_cancel": {
+    "message": "Prekliči",
+    "description": "Cancel button in color picker"
+  },
+  "color_picker_clear": {
+    "message": "Počisti",
+    "description": "Clear button in color picker"
+  },
+  "color_picker_save": {
+    "message": "Shrani",
+    "description": "Save button in color picker"
+  },
+  "composition_breakdown_label": {
+    "message": "Sestava:",
+    "description": "Label for bundled vs custom percentage breakdown."
+  },
+  "configs_switch_statistics": {
+    "message": "Statistika",
+    "description": "This string is used as name for the statistics switch button on the popup page."
+  },
+  "confirm_reset_settings": {
+    "message": "Ali ste prepričani, da želite ponastaviti vse nastavitve na privzete vrednosti?",
+    "description": "Confirmation message before resetting settings."
+  },
+  "confirmation_error_template": {
+    "message": "Besedna zveza se ne ujema. Natančno vnesite: \"%s\"",
+    "description": "Template for error message with placeholder for localized phrase"
+  },
+  "confirmation_error_text": {
+    "message": "Besedna zveza se ne ujema. Natančno vnesite: \"Sprejmem polno odgovornost\"",
+    "description": "Error message for incorrect confirmation phrase"
+  },
+  "confirmation_final_text": {
+    "message": "Potrjujem, da imam v lasti/nadzoru te strežnike in sprejemam vso odgovornost za njihovo uporabo. Ta funkcija je na voljo \"kot je\" brez garancije. Pravno sem sposoben privoliti v to pogodbo.",
+    "description": "Final warning text in confirmation modal"
+  },
+  "confirmation_input_label": {
+    "message": "Vnesite besedno zvezo tukaj:",
+    "description": "Label for confirmation input field"
+  },
+  "confirmation_modal_cancel": {
+    "message": "Prekliči",
+    "description": "Cancel button text in confirmation modal"
+  },
+  "confirmation_modal_confirm": {
+    "message": "Potrdi in omogoči oddaljene URL-je",
+    "description": "Confirm button text in confirmation modal"
+  },
+  "confirmation_modal_text": {
+    "message": "Za nadaljevanje natančno vnesite naslednjo potrditveno besedno zvezo:",
+    "description": "Instruction text for confirmation modal"
+  },
+  "confirmation_modal_title": {
+    "message": "Potrdite svoje razumevanje",
+    "description": "Title for confirmation modal"
+  },
+  "context_menu_enabled": {
+    "message": "Prikaži vnos v kontekstnem meniju",
+    "description": "This string is used toggle the context menu entry to copy clean links."
+  },
+  "context_menu_enabled_description": {
+    "message": "Dodaj možnosti Linkumori v desno-miškin meni.",
+    "description": "Description for the context menu toggle."
+  },
+  "copyFailed": {
+    "message": "Kopiranje ni uspelo!",
+    "description": "Toast message when copy action fails"
+  },
+  "copyText": {
+    "message": "Kopiraj",
+    "description": "Button text for copy action"
+  },
+  "copyUrlsButton": {
+    "message": "Kopiraj rezultate",
+    "description": "Text for the button that copies cleaned URLs."
+  },
+  "copy_urls_empty": {
+    "message": "Ni URL-jev za kopiranje.",
+    "description": "Message when attempting to copy but the output URL area is empty."
+  },
+  "copy_urls_fail": {
+    "message": "Kopiranje URL-jev ni uspelo.",
+    "description": "Error message when copying URLs to clipboard fails in the cleaning tool."
+  },
+  "copy_urls_success": {
+    "message": "URL-ji kopirani v odložišče!",
+    "description": "Success message when URLs are copied to clipboard in the cleaning tool."
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "Dodaj novega ponudnika"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "Dodaj ponudnika"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "Napredni JSON urejevalnik"
+  },
+  "customRulesEditor_builtin": {
+    "message": "Vgrajeno:"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "Celoten ponudnik (blokira celotno domeno)"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "Ali ste prepričani, da želite izbrisati ponudnika \"$1\"?"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "Ali ste prepričani, da želite izbrisati vse $1 ponudnike?"
+  },
+  "customRulesEditor_copy": {
+    "message": "kopiraj"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "Ustvari svojega prvega ponudnika"
+  },
+  "customRulesEditor_custom": {
+    "message": "Po meri:"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "Ponudniki po meri"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "Izbriši vse"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "Brisanje vseh ponudnikov ni uspelo"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "Izbriši trenutnega ponudnika"
+  },
+  "customRulesEditor_description": {
+    "message": "Ustvarjajte in upravljajte lastna pravila za čiščenje URL-jev za spletna mesta, ki niso zajeta v vgrajenih ponudnikih."
+  },
+  "customRulesEditor_disabled": {
+    "message": "Onemogočeno:"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "Izvzetja domen"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "Vzorci domen"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "Preprosti vzorci domen (ne morejo se uporabljati z URL vzorcem). Formati: example.com, *.example.com, ||example.com^, ||*.example.com^ En vzorec na vrstico.",
+    "description": "Help text for domain patterns field"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "Vzorci domen"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||example.com^\n||*.poddomena.com^"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "Potreben je vsaj en vzorec domene"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "Preusmeritve domen"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "Podvoji"
+  },
+  "customRulesEditor_editName": {
+    "message": "Uredi ime"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "Uredi ponudnika"
+  },
+  "customRulesEditor_editing": {
+    "message": "Urejanje: $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "Vzorci domen ne morejo biti prazni"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "Uveljavljanje ni uspelo"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "Uveljavi pravila"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "Pravila uveljavljena"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "Ponovno naloži razširitev, da takoj uveljaviš vsa pravila"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "Izvzetja (URL-ji za izključitev)"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "Zapri urejevalnik in se vrni na seznam ponudnikov",
+    "description": "Tooltip text for the exit button in the custom rules editor"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "Izvoz pravil ni uspel"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "Izvozi pravila po meri v datoteko"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "Shranjevanje ponudnika ni uspelo"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "Vsili preusmeritev"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "HTTP metode",
+    "description": "Label for HTTP methods field"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "To bo zamenjalo kategorije pravil po meri, vključene v datoteko. Nadaljujem?"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "Uvoz pravil ni uspel: $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "Uvozi pravila po meri iz datoteke"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "Neveljaven vzorec domene: {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "Neveljavna struktura datoteke: manjkajo ponudniki ClearURLs ali pravila URL po meri Linkumori"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "Neveljaven regex URL vzorca: $1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "Napaka JSON: $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "JSON se bo prikazal tukaj ..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "Vsebina JSON je zahtevana"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "Klik na urlPattern odstrani domainPatterns in obratno."
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "Dodaj polje v JSON"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "Pravila po meri",
+    "description": "Navigation label for custom rules view"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "Beli seznam",
+    "description": "Navigation label for whitelist view"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "V datoteki ni najdenih ponudnikov"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "Urejevalnik pravil po meri in upravljanje belega seznama"
+  },
+  "customRulesEditor_patternType": {
+    "message": "Vrsta vzorca"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "Izberite, kako naj se URL-ji ujemajo s tem ponudnikom"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "Izberite vrsto vzorca"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "Ponudnik \"$1\" ne more imeti hkrati urlPattern in domainPatterns"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "Ponudnik \"$1\" ima prazne vzorce domen"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "Ponudniku \"$1\" manjka urlPattern"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "Ponudnik \"$1\" mora imeti bodisi urlPattern bodisi domainPatterns"
+  },
+  "customRulesEditor_providerName": {
+    "message": "Ime ponudnika *"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "Ponudnik s tem imenom že obstaja"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "Edinstveni identifikator za tega ponudnika (npr. \"example.com\", \"mysite\")"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "npr. example.com, mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "Ime ponudnika je obvezno"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "Surova pravila (regex vzorci)"
+  },
+  "customRulesEditor_redirections": {
+    "message": "Preusmeritve (vzorci za preusmeritve)"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "Napotitveno trženje"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "Vrste virov"
+  },
+  "customRulesEditor_rules": {
+    "message": "Pravila (parametri URL-ja za odstranitev)"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "Stanje pravil"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "Shrani ponudnika"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "Shrani trenutnega ponudnika"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "Izberite ponudnika za urejanje"
+  },
+  "customRulesEditor_title": {
+    "message": "Urejevalnik pravil po meri - ClearURLs"
+  },
+  "customRulesEditor_total": {
+    "message": "Skupaj:"
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "Imate neshranjene spremembe. Nadaljujte brez shranjevanja?"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "Vzorec URL-ja *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "Vzorca URL in domen ni mogoče uporabljati skupaj"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "Regularni izraz za ujemanje URL-jev"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "Vzorec URL-ja (Regex)"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "Potreben je bodisi URL vzorec bodisi vzorci domen"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "Vzorec URL-ja je obvezen"
+  },
+  "customRulesEditor_welcome": {
+    "message": "Dobrodošli v urejevalniku pravil po meri"
+  },
+  "custom_providers_label": {
+    "message": "Ponudniki po meri:",
+    "description": "Label for custom providers count."
+  },
+  "customrules": {
+    "message": "Pravila po meri"
+  },
+  "datatable_empty_table": {
+    "message": "V tabeli ni na voljo podatkov",
+    "description": "DataTables empty table message"
+  },
+  "datatable_info": {
+    "message": "Prikaz _START_ do _END_ od _TOTAL_ vnosov",
+    "description": "DataTables pagination info"
+  },
+  "datatable_info_empty": {
+    "message": "Prikaz 0 do 0 od 0 vnosov",
+    "description": "DataTables info when no data"
+  },
+  "datatable_showing_all": {
+    "message": "Prikaz vseh $1 vnosov",
+    "description": "Info message when showing all entries. $1=total count"
+  },
+  "datatable_showing_entries": {
+    "message": "Prikaz $1 do $2 od $3 vnosov",
+    "description": "Pagination info showing current range. $1=start, $2=end, $3=total"
+  },
+  "datatable_zero_records": {
+    "message": "Ni ujemajočih se zapisov",
+    "description": "DataTables no search results message"
+  },
+  "domain_blocking_enabled": {
+    "message": "Dovoli blokiranje domen (lahko povzroči težave na straneh, ki ne dovoljujejo AdBlockerjev)",
+    "description": "This string is used as label for the domain blocking switch"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "Blokiraj zahteve na določene domene.",
+    "description": "Description for the domain blocking toggle."
+  },
+  "downloadFailed": {
+    "message": "Prenos ni uspel!",
+    "description": "Toast message when download action fails"
+  },
+  "downloadText": {
+    "message": "Prenesi",
+    "description": "Button text for download action"
+  },
+  "eTag_filtering_enabled": {
+    "message": "Filtriraj ETag glave iz zahtev",
+    "description": "This string is used as label for the ETag header filtering switch"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "Odstrani ETag glave za preprečevanje sledenja.",
+    "description": "Description for the ETag filtering toggle."
+  },
+  "eTag_filtering_log": {
+    "message": "ETag glava je bila odstranjena iz te zahteve",
+    "description": "This string is used on ETag header filtering in the Linkumori (Clean URLS) log."
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "Trenutne domene ni mogoče določiti",
+    "description": "Error message when the current domain cannot be determined."
+  },
+  "error_loading_data": {
+    "message": "Nalaganje podatkov dnevnika ni uspelo. Prosimo, osvežite stran.",
+    "description": "Error message when log data cannot be loaded from storage"
+  },
+  "error_rendering_table": {
+    "message": "Napaka pri prikazu podatkov tabele",
+    "description": "Error message when table fails to render"
+  },
+  "extension_description": {
+    "message": "Odstrani sledilne elemente iz URL-jev.",
+    "description": "Extension description (max. 132 characters)"
+  },
+  "fallback_rules_loaded": {
+    "message": "zadevno vgrajeno pravilo je morda poškodovano ali ni pravilno naloženo. Namesto tega so bila naložena rezervna pravila."
+  },
+  "faq_caution": {
+    "message": "Previdnost:",
+    "description": "Label for cautions in FAQ"
+  },
+  "faq_common_mistakes": {
+    "message": "Katerim pogostim napakam se je treba izogniti?",
+    "description": "FAQ question about common mistakes"
+  },
+  "faq_complete_provider": {
+    "message": "Kaj naredi completeProvider?",
+    "description": "FAQ question about completeProvider"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "Ko je nastavljen na true, completeProvider označi ustrezne zahteve za blokiranje. Dejansko blokiranje se zgodi le, ko je omogočena globalna nastavitev \"Blokiranje domen\". Ko je false, lahko uporabite običajna pravila, izvzetja in preusmeritve.",
+    "description": "FAQ answer explaining completeProvider"
+  },
+  "faq_complete_provider_usage": {
+    "message": "Večina pravil po meri naj bi to nastavila na false in namesto tega uporabila posebna pravila za odstranjevanje parametrov.",
+    "description": "FAQ guidance on completeProvider usage"
+  },
+  "faq_complete_provider_warning": {
+    "message": "Če je omogočeno blokiranje domen, lahko to blokira popoln dostop za ustrezne URL-je.",
+    "description": "FAQ warning about completeProvider"
+  },
+  "faq_complex_example": {
+    "message": "Pokaži mi zapleten primer ponudnika",
+    "description": "FAQ question requesting complex example"
+  },
+  "faq_complex_example_explanation": {
+    "message": "Ta ponudnik odstrani sledilne parametre in fragmente, obravnava preusmeritve, vendar zaščiti API, prijavne in nakupovalne strani pred spreminjanjem.",
+    "description": "FAQ explanation of complex example"
+  },
+  "faq_complex_example_intro": {
+    "message": "Tukaj je napreden ponudnik s preusmeritvami in izvzetji:",
+    "description": "FAQ intro to complex example"
+  },
+  "faq_custom_rules_note": {
+    "message": "Pravila po meri se izvajajo skupaj z vgrajenimi pravili in lahko preglasijo uvožene vgrajene/oddaljene vnose ponudnikov po imenu.",
+    "description": "Note about custom rules precedence"
+  },
+  "faq_default_note": {
+    "message": "Privzeto:",
+    "description": "Label for default behavior notes in FAQ"
+  },
+  "faq_domain_exceptions": {
+    "message": "Kaj so izvzetja domen?",
+    "description": "FAQ question about domain exceptions"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "Izvzetja domen delujejo kot običajna izvzetja, vendar uporabljajo preprostejši vzorec domene namesto regexa. Omogočajo izključitev določenih domen ali poddomen iz obdelave.",
+    "description": "FAQ explanation of domain exceptions"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "Izvzetja domen uporabljajo iste vzorce kot vzorci domen, vendar so preprostejša od regex izvzetij.",
+    "description": "FAQ tip about domain exceptions"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ - Ujemanje imena gostitelja za example.com in njegove poddomene",
+    "description": "FAQ explanation of AdBlock domain pattern"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - Zamenjava v imenu gostitelja; vsaka * se ujema z eno oznako (segment pike)",
+    "description": "FAQ explanation of AdBlock wildcard pattern"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "example.com - Preprosto iskanje podniza v celotnem URL-ju (se lahko ujema tudi znotraj daljših imen gostiteljev/poti)",
+    "description": "FAQ explanation of basic domain pattern"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.example.*^ - Ujemanje poddomen s splošnimi TLD, vključno z večdelneimi TLD (a.example.co.uk)",
+    "description": "FAQ explanation of full wildcard pattern"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||example.*^ - Ujemanje domene s splošnimi TLD, vključno z večdelneimi TLD (example.co.uk, example.gov.in)",
+    "description": "FAQ explanation of TLD wildcard domain pattern"
+  },
+  "faq_domain_pattern_types": {
+    "message": "Vrste vzorcev domen:",
+    "description": "FAQ section title for domain pattern types"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com - Ujemanje s splošnim regexom v celotnem URL-ju, ne samo strogo ujemanje imena gostitelja",
+    "description": "FAQ explanation of wildcard domain pattern"
+  },
+  "faq_domain_patterns": {
+    "message": "Vzorci domen proti vzorcem URL-jev",
+    "description": "FAQ question about domain patterns vs URL patterns"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "Vzorci domen podpirajo preproste simbole in oblike AdBlock. Obnašanje ujemanja je odvisno od sintakse (nekatere oblike preverjajo ime gostitelja, druge se ujemajo s celotnim nizom URL-ja):",
+    "description": "FAQ explanation of domain patterns"
+  },
+  "faq_domain_redirections": {
+    "message": "Kaj so preusmeritve domen?",
+    "description": "FAQ question about domain redirections"
+  },
+  "faq_domain_redirections_example": {
+    "message": "redirect.example.com$redirect=https://target.com bo preusmeril vse URL-je z redirect.example.com na https://target.com",
+    "description": "FAQ example of domain redirections"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "Preusmeritve domen uporabljajo vzorce domen za zaznavanje preusmeritvenih URL-jev in izločitev ciljnega naslova. Podpirajo posebno sintakso $redirect= za preprosto preslikavo preusmeritev.",
+    "description": "FAQ explanation of domain redirections"
+  },
+  "faq_example": {
+    "message": "Primer:",
+    "description": "Label for examples in FAQ"
+  },
+  "faq_exceptions": {
+    "message": "Kako delujejo izvzetja?",
+    "description": "FAQ question about exceptions"
+  },
+  "faq_exceptions_explanation": {
+    "message": "Izvzetja so regex vzorci, ki se ujemajo z URL-ji, kjer ne sme priti do obdelave. Če se URL ujema z izvzetjem, se vsa druga pravila prezrejo.",
+    "description": "FAQ explanation of exceptions"
+  },
+  "faq_exceptions_usage": {
+    "message": "Uporabite izvzetja za zaščito prijavnih strani, API končnih točk ali drugih občutljivih URL-jev pred spreminjanjem.",
+    "description": "FAQ guidance on exceptions usage"
+  },
+  "faq_force_redirection": {
+    "message": "Kdaj naj uporabim forceRedirection?",
+    "description": "FAQ question about forceRedirection"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "Nekatera spletna mesta manipulirajo s povezavami prek JavaScripta, kar preprečuje običajne preusmeritve. forceRedirection zapiše URL neposredno v glavni okvir brskalnika.",
+    "description": "FAQ explanation of forceRedirection"
+  },
+  "faq_force_redirection_usage": {
+    "message": "Omogočite to za spletna mesta, kot je Google, ki uporabljajo onClick obdelovalce namesto neposrednih href atributov.",
+    "description": "FAQ guidance on forceRedirection usage"
+  },
+  "faq_force_redirection_warning": {
+    "message": "Uporabite le, ko običajne preusmeritve ne delujejo, saj je ta metoda bolj vsiljiva.",
+    "description": "FAQ warning about forceRedirection"
+  },
+  "faq_how_providers_work": {
+    "message": "Kako delujejo ponudniki?",
+    "description": "FAQ question about how providers work"
+  },
+  "faq_http_methods": {
+    "message": "Kaj so HTTP metode?",
+    "description": "FAQ question about HTTP methods"
+  },
+  "faq_http_methods_common": {
+    "message": "Pogoste HTTP metode:",
+    "description": "FAQ section title for common HTTP methods"
+  },
+  "faq_http_methods_delete": {
+    "message": "DELETE - Brisanje operacij",
+    "description": "FAQ list item for DELETE method"
+  },
+  "faq_http_methods_explanation": {
+    "message": "HTTP metode vam omogočajo uporabo pravil samo za določene vrste HTTP zahtev (GET, POST, PUT, DELETE itd.). To vam daje nadzor nad tem, katere metode zahtev sprožijo vaša pravila.",
+    "description": "FAQ explanation of HTTP methods"
+  },
+  "faq_http_methods_get": {
+    "message": "GET - Standardne zahteve spletnih strani",
+    "description": "FAQ list item for GET method"
+  },
+  "faq_http_methods_head": {
+    "message": "HEAD - Zahteve samo z glavami",
+    "description": "FAQ list item for HEAD method"
+  },
+  "faq_http_methods_options": {
+    "message": "OPTIONS - Preflight CORS zahteve",
+    "description": "FAQ list item for OPTIONS method"
+  },
+  "faq_http_methods_post": {
+    "message": "POST - Pošiljanje obrazcev in API klici",
+    "description": "FAQ list item for POST method"
+  },
+  "faq_http_methods_put": {
+    "message": "PUT - Posodobitvene operacije",
+    "description": "FAQ list item for PUT method"
+  },
+  "faq_http_methods_tip": {
+    "message": "Pustite prazno za uporabo za vse HTTP metode, ali določite le metode, ki jih želite obravnavati.",
+    "description": "FAQ tip about HTTP methods"
+  },
+  "faq_import_benefit_quick": {
+    "message": "Hitra nastavitev - ni potrebe po ročnem ustvarjanju zapletenih vzorcev",
+    "description": "FAQ benefit of quick setup via import"
+  },
+  "faq_import_benefit_search": {
+    "message": "Iskanje in filtriranje za iskanje točno tistega, kar potrebujete",
+    "description": "FAQ benefit of search functionality"
+  },
+  "faq_import_benefit_tested": {
+    "message": "Predhodno preizkušena pravila, za katera je znano, da pravilno delujejo",
+    "description": "FAQ benefit of tested rules via import"
+  },
+  "faq_import_benefit_updates": {
+    "message": "Enostavno posodabljanje pravil z novimi ponudniki",
+    "description": "FAQ benefit of easy updates via import"
+  },
+  "faq_list_feature_actions": {
+    "message": "Urejanje, podvajanje ali brisanje ponudnikov z enim klikom",
+    "description": "FAQ feature of quick actions"
+  },
+  "faq_list_feature_overview": {
+    "message": "Hiter pregled vseh ponudnikov s ključnimi statistikami",
+    "description": "FAQ feature of provider overview"
+  },
+  "faq_list_feature_search": {
+    "message": "Iskanje ponudnikov po imenu za hitro iskanje določenih",
+    "description": "FAQ feature of provider search"
+  },
+  "faq_list_feature_stats": {
+    "message": "Število pravil in vrste vzorcev na prvi pogled",
+    "description": "FAQ feature of statistics display"
+  },
+  "faq_mistake_broad": {
+    "message": "Preširok urlPattern (ujemanje z nenačrtovanimi mesti)",
+    "description": "FAQ common mistake about broad patterns"
+  },
+  "faq_mistake_complete": {
+    "message": "Nastavitev completeProvider na true, razen če res želite blokirati spletno mesto",
+    "description": "FAQ common mistake about completeProvider"
+  },
+  "faq_mistake_escape": {
+    "message": "Pozaba na ubežne znake posebnih regex znakov v vzorcih",
+    "description": "FAQ common mistake about escaping regex"
+  },
+  "faq_mistake_exceptions": {
+    "message": "Nedodajanje izvzetij za pomembne funkcionalnosti",
+    "description": "FAQ common mistake about missing exceptions"
+  },
+  "faq_mistake_testing": {
+    "message": "Nepreizkušanje pravil temeljito pred uporabo",
+    "description": "FAQ common mistake about insufficient testing"
+  },
+  "faq_note": {
+    "message": "Opomba:",
+    "description": "Label for important notes in FAQ"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "Obe polji sta lahko prisotni v podatkih, vendar ima urlPattern prednost. Vzorci domen se uporabijo le, ko je urlPattern prazen. Ujemanje domen je ozaveščeno o PSL, vključno z obravnavo registriranih domen in podporo za večdelne TLD.",
+    "description": "FAQ note about pattern exclusivity"
+  },
+  "faq_perf_combine": {
+    "message": "Združite več podobnih vzorcev v en regex",
+    "description": "FAQ performance tip about combining patterns"
+  },
+  "faq_perf_limit": {
+    "message": "Omejite število ponudnikov na tiste, ki jih dejansko potrebujete",
+    "description": "FAQ performance tip about limiting providers"
+  },
+  "faq_perf_review": {
+    "message": "Redno pregledujte in čistite neuporabljena pravila",
+    "description": "FAQ performance tip about regular review"
+  },
+  "faq_perf_simple": {
+    "message": "Kjer je mogoče, uporabite preprosta pravila namesto zapletenih rawRules",
+    "description": "FAQ performance tip about simple rules"
+  },
+  "faq_perf_specific": {
+    "message": "Naj bo urlPattern čim bolj specifičen",
+    "description": "FAQ performance tip about specific patterns"
+  },
+  "faq_performance_tips": {
+    "message": "Kako lahko optimiziram zmogljivost?",
+    "description": "FAQ question about performance optimization"
+  },
+  "faq_provider_example": {
+    "message": "Na primer, ponudnik \"Google\" bi obravnaval vse Googlove storitve s pravili za odstranjevanje sledilnih parametrov iz rezultatov iskanja, YouTube povezav itd.",
+    "description": "FAQ example of provider usage"
+  },
+  "faq_provider_import": {
+    "message": "Kako uvozim ponudnike iz pravil?",
+    "description": "FAQ question about provider import feature"
+  },
+  "faq_provider_import_benefits": {
+    "message": "Prednosti uvoza:",
+    "description": "FAQ section title for import benefits"
+  },
+  "faq_provider_import_explanation": {
+    "message": "Funkcija uvoza ponudnikov vam omogoča hitro dodajanje ponudnikov iz kataloga vgrajenih pravil. Kliknite gumb 'Uvozi iz pravil' za brskanje in izbiro ponudnikov.",
+    "description": "FAQ explanation of provider import feature"
+  },
+  "faq_provider_import_tip": {
+    "message": "Naenkrat lahko uvozite več ponudnikov tako, da jih izberete in kliknete Uvozi.",
+    "description": "FAQ tip about provider import"
+  },
+  "faq_provider_list": {
+    "message": "Kako lahko učinkovito upravljam svoje ponudnike?",
+    "description": "FAQ question about provider list management"
+  },
+  "faq_provider_list_explanation": {
+    "message": "Pogled seznama ponudnikov vam daje hiter pregled vseh ponudnikov po meri. Ponudnike lahko iščete, urejate, podvajate ali brišete, ne da bi odprli vsakega posebej.",
+    "description": "FAQ explanation of provider list feature"
+  },
+  "faq_provider_list_features": {
+    "message": "Značilnosti seznama ponudnikov:",
+    "description": "FAQ section title for provider list features"
+  },
+  "faq_provider_list_tip": {
+    "message": "Odprite seznam ponudnikov iz orodne vrstice urejevalnika za brskanje in upravljanje ponudnikov.",
+    "description": "FAQ tip about provider list"
+  },
+  "faq_providers_explanation": {
+    "message": "Ponudniki so logične enote, ki združujejo več pravil pod istim vzorcem URL-ja. Vsak ponudnik cilja na določeno spletno mesto ali storitev in vsebuje vsa pravila, potrebna za čiščenje URL-jev iz tega vira.",
+    "description": "FAQ answer explaining providers"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "Neposredni regex vzorci, uporabljeni na celotnem URL-ju. Uporabite za zapletene vzorce, ki ne ustrezajo standardni obliki parametrov.",
+    "description": "FAQ explanation of rawRules"
+  },
+  "faq_raw_rules_title": {
+    "message": "Surova pravila:",
+    "description": "FAQ section title for rawRules explanation"
+  },
+  "faq_raw_rules_usage": {
+    "message": "Uporabite rawRules za fragmente, segmente poti ali zapletene vzorce parametrov.",
+    "description": "FAQ guidance on rawRules usage"
+  },
+  "faq_redirections": {
+    "message": "Kako delujejo preusmeritve?",
+    "description": "FAQ question about redirections"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com postane https://target.com",
+    "description": "FAQ example of redirection process"
+  },
+  "faq_redirections_explanation": {
+    "message": "Preusmeritve izločijo pravi ciljni URL iz storitev za preusmerjanje. Prva ujeta skupina v regexu postane nov URL.",
+    "description": "FAQ explanation of redirections"
+  },
+  "faq_redirections_process": {
+    "message": "Ujeti URL se samodejno dekodira z decodeURIComponent() in nadomesti prvotni URL.",
+    "description": "FAQ explanation of redirection processing"
+  },
+  "faq_referral_default": {
+    "message": "Napotitveno trženje je privzeto onemogočeno, zato bodo ti parametri odstranjeni, razen če jih uporabnik izrecno dovoli.",
+    "description": "FAQ note about referralMarketing default behavior"
+  },
+  "faq_referral_explanation": {
+    "message": "Parametri napotitvenega trženja pomagajo ustvarjalcem vsebin zaslužiti provizije. Ti parametri so odstranjeni le, kadar je uporabnik onemogočil podporo za napotitveno trženje v nastavitvah.",
+    "description": "FAQ explanation of referralMarketing"
+  },
+  "faq_referral_marketing": {
+    "message": "Kaj je referralMarketing?",
+    "description": "FAQ question about referralMarketing"
+  },
+  "faq_resource_types": {
+    "message": "Kaj so vrste virov?",
+    "description": "FAQ question about resource types"
+  },
+  "faq_resource_types_common": {
+    "message": "Pogoste vrste virov:",
+    "description": "FAQ section title for common resource types"
+  },
+  "faq_resource_types_explanation": {
+    "message": "Vrste virov vam omogočajo uporabo pravil samo za določene vrste spletnih zahtev (slike, skripte, glavne strani itd.). To vam daje natančen nadzor nad tem, kdaj se pravila uporabijo.",
+    "description": "FAQ explanation of resource types"
+  },
+  "faq_resource_types_tip": {
+    "message": "Pustite prazno za uporabo za vse vrste virov, ali določite le tiste, ki jih želite obravnavati.",
+    "description": "FAQ tip about resource types"
+  },
+  "faq_rt_font": {
+    "message": "font - Spletne pisave (.woff, .ttf itd.)",
+    "description": "FAQ resource type font"
+  },
+  "faq_rt_image": {
+    "message": "image - Slike",
+    "description": "FAQ resource type image"
+  },
+  "faq_rt_imageset": {
+    "message": "imageset - Nabori slik za odzivne slike",
+    "description": "FAQ resource type imageset"
+  },
+  "faq_rt_main_frame": {
+    "message": "main_frame - Glavna spletna stran",
+    "description": "FAQ resource type main_frame"
+  },
+  "faq_rt_media": {
+    "message": "media - Avdio in video datoteke",
+    "description": "FAQ resource type media"
+  },
+  "faq_rt_object": {
+    "message": "object - Vdelani predmeti (Flash, vtičniki)",
+    "description": "FAQ resource type object"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "object_subrequest - Zahteve, ki jih pošiljajo vdelani predmeti",
+    "description": "FAQ resource type object_subrequest"
+  },
+  "faq_rt_other": {
+    "message": "other - Druge vrste, ki niso zajete zgoraj",
+    "description": "FAQ resource type other"
+  },
+  "faq_rt_script": {
+    "message": "script - JavaScript datoteke",
+    "description": "FAQ resource type script"
+  },
+  "faq_rt_stylesheet": {
+    "message": "stylesheet - CSS datoteke",
+    "description": "FAQ resource type stylesheet"
+  },
+  "faq_rt_sub_frame": {
+    "message": "sub_frame - Vdelani iframi",
+    "description": "FAQ resource type sub_frame"
+  },
+  "faq_rt_websocket": {
+    "message": "websocket - WebSocket povezave",
+    "description": "FAQ resource type websocket"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "xml_dtd - Definicije vrst dokumentov XML",
+    "description": "FAQ resource type xml_dtd"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "xmlhttprequest - AJAX zahteve",
+    "description": "FAQ resource type xmlhttprequest"
+  },
+  "faq_rt_xslt": {
+    "message": "xslt - XSLT transformacijske datoteke",
+    "description": "FAQ resource type xslt"
+  },
+  "faq_rules_converted": {
+    "message": "Primer: \"utm_source\" se ujema natančno; \"utm_.*\" se ujema z utm_source in utm_campaign. Najprej se razrešijo pravila/izvzetja Linkumori z obsegom, nato se običajna/regex pravila izvedejo le za neujete ključe.",
+    "description": "FAQ examples for rules key matching"
+  },
+  "faq_rules_explanation": {
+    "message": "Pravila se ujemajo s ključi parametrov poizvedbe in ključi fragmentov zgoščene vrednosti. Uporabite preprosta imena (natančen ključ), regex (širše ujemanje) ali pravila Linkumori z obsegom, kot je ||example.com^$removeparam=... za ciljanje na določene domene.",
+    "description": "FAQ explanation of rules"
+  },
+  "faq_rules_title": {
+    "message": "Pravila:",
+    "description": "FAQ section title for rules explanation"
+  },
+  "faq_rules_vs_raw": {
+    "message": "Kakšna je razlika med pravili in rawRules?",
+    "description": "FAQ question about rules vs rawRules"
+  },
+  "faq_section_advanced": {
+    "message": "Napredne funkcije",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_basics": {
+    "message": "Osnove",
+    "description": "FAQ section title for basic questions"
+  },
+  "faq_section_examples": {
+    "message": "Primeri",
+    "description": "FAQ section title for examples"
+  },
+  "faq_section_new_features": {
+    "message": "Napredne funkcije",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_properties": {
+    "message": "Lastnosti ponudnikov",
+    "description": "FAQ section title for provider properties"
+  },
+  "faq_section_tips": {
+    "message": "Nasveti in najboljše prakse",
+    "description": "FAQ section title for tips and best practices"
+  },
+  "faq_simple_example": {
+    "message": "Pokaži mi preprost primer ponudnika",
+    "description": "FAQ question requesting simple example"
+  },
+  "faq_simple_example_explanation": {
+    "message": "To odstrani Facebook klikne ID-je in UTM parametre, vendar ohrani partnerske povezave, če uporabnik dovoli napotitveno trženje.",
+    "description": "FAQ explanation of simple example"
+  },
+  "faq_simple_example_intro": {
+    "message": "Tukaj je osnovni ponudnik, ki odstranjuje sledilne parametre z izmišljenega nakupovalnega mesta:",
+    "description": "FAQ intro to simple example"
+  },
+  "faq_test_backup": {
+    "message": "Izvozi svoja pravila, preden narediš večje spremembe",
+    "description": "FAQ tip about backing up rules"
+  },
+  "faq_test_exceptions": {
+    "message": "Vedno dodaj izvzetja za kritične strani (prijava, nakup, API)",
+    "description": "FAQ tip about adding exceptions"
+  },
+  "faq_test_regex": {
+    "message": "Preizkusite regex vzorce s spletnimi orodji, kot je regex101.com",
+    "description": "FAQ tip about testing regex patterns"
+  },
+  "faq_test_reload": {
+    "message": "Uporabite gumb \"Uveljavi pravila\" za ponovno nalaganje sprememb brez ponovnega zagona brskalnika",
+    "description": "FAQ tip about enforcing rules"
+  },
+  "faq_test_small": {
+    "message": "Začnite s preprostimi pravili in postopoma dodajajte zapletenost",
+    "description": "FAQ tip about starting small"
+  },
+  "faq_testing_tips": {
+    "message": "Kako naj preizkusim svoja pravila po meri?",
+    "description": "FAQ question about testing tips"
+  },
+  "faq_tip": {
+    "message": "Namig:",
+    "description": "Label for tips in FAQ"
+  },
+  "faq_title": {
+    "message": "Pogosta vprašanja (FAQ)",
+    "description": "FAQ button text and modal title"
+  },
+  "faq_url_pattern": {
+    "message": "Kaj je urlPattern?",
+    "description": "FAQ question about urlPattern"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "urlPattern je regularni izraz, ki se mora ujemati z vsakim URL-jem, na katerega naj vplivajo pravila ponudnika. Določa, katera spletna mesta naj ta ponudnik obravnava.",
+    "description": "FAQ answer explaining urlPattern"
+  },
+  "faq_url_pattern_structure": {
+    "message": "Tipična struktura zajema: protokol + poddomena + domena + TLD + mape + parametri",
+    "description": "FAQ explanation of urlPattern structure"
+  },
+  "faq_url_pattern_tip": {
+    "message": "Uporabite spletne preizkuševalnike regexa, da preverite svoje vzorce, preden jih dodate.",
+    "description": "FAQ tip for testing urlPattern"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "Vzorci URL-jev uporabljajo polni regex za natančen nadzor nad tem, kateri URL-ji se ujemajo:",
+    "description": "FAQ explanation of URL patterns"
+  },
+  "faq_use_domain_patterns": {
+    "message": "Uporabite vzorce domen za preprostejše ujemanje imena gostitelja/poti brez pisanja polnega urlPattern regexa.",
+    "description": "FAQ guidance for using domain patterns"
+  },
+  "faq_use_url_patterns": {
+    "message": "Uporabite vzorce URL-jev za zapleteno ujemanje (določene poti, parametri poizvedbe itd.)",
+    "description": "FAQ guidance for using URL patterns"
+  },
+  "faq_warning": {
+    "message": "Opozorilo:",
+    "description": "Label for warnings in FAQ"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "Kaj so pravila po meri?",
+    "description": "FAQ question about custom rules"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "Pravila po meri vam omogočajo, da ustvarite lastne vzorce za čiščenje URL-jev za spletna mesta, ki niso zajeta v vgrajenih pravilih. Sledijo isti strukturi kot glavni katalog, vendar se upravljajo ločeno.",
+    "description": "FAQ answer explaining custom rules"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "Kdaj uporabiti katerega:",
+    "description": "FAQ section title for pattern usage guidance"
+  },
+  "feature1": {
+    "message": "Vgrajeno čiščenje URL-jev, osredotočeno na zasebnost, privzeto omogočeno"
+  },
+  "feature2": {
+    "message": "Podpora za pravila po meri za nadzor na ravni ponudnika in vzorca"
+  },
+  "feature3": {
+    "message": "Podpora belega seznama za obhod čiščenja za izbrane domene"
+  },
+  "feature4": {
+    "message": "Oddaljena pravila in način preobremenitve za napredne nastavitve"
+  },
+  "feature_toggles_title": {
+    "message": "Nastavitve funkcij",
+    "description": "Title for the Feature Settings section."
+  },
+  "fileEmptyError": {
+    "message": "Datoteka je prazna ali neberljiva",
+    "description": "Error shown when a legal/privacy file is empty or unreadable"
+  },
+  "general_settings_title": {
+    "message": "Splošne nastavitve",
+    "description": "Title for the General Settings section."
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "Vgrajena pravila naložena (manjka zgoščena vrednost)",
+    "description": "Status when bundled rules loaded after hash URL was missing"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "Uporaba vgrajenih pravil (rezerva)",
+    "description": "Status when fell back to bundled rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "Predpomnjena oddaljena + pravila po meri (vgrajena niso uspela)",
+    "description": "Status when using cached remote rules with custom rules after bundled failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "Predpomnjena oddaljena + pravila po meri (oddaljena niso uspela)",
+    "description": "Status when using cached remote rules with custom rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "Predpomnjena oddaljena + pravila po meri (ni URL-ja zgoščene vrednosti)",
+    "description": "Status when using cached remote rules with custom rules, hash URL missing"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "Predpomnjena oddaljena pravila (vgrajena niso uspela)",
+    "description": "Status when using cached remote rules after bundled rules failed"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "Predpomnjena oddaljena pravila (oddaljena niso uspela)",
+    "description": "Status when using cached remote rules after current remote fetch failed"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "Predpomnjena oddaljena pravila (ni URL-ja zgoščene vrednosti)",
+    "description": "Status when using cached remote rules because hash URL is missing"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "Predpomnjena oddaljena + vgrajena pravila združena",
+    "description": "Status when overload mode merges cached remote rules with built-in rules"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "Predpomnjena oddaljena + vgrajena pravila združena s pravili po meri",
+    "description": "Status when overload mode merges cached remote and built-in rules, then custom rules"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "Uporaba samo pravil po meri",
+    "description": "Status when built-in rules are disabled and only custom rules are active"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "Vgrajena pravila onemogočena in ni najdenih pravil po meri",
+    "description": "Status when built-in rules are disabled and there are no custom rules to load"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "Uporaba minimalnih pravil (oddaljena niso uspela)",
+    "description": "Status when using fallback rules after remote failure"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "Zahtevan je URL zgoščene vrednosti",
+    "description": "Status when remote URL is configured but hash URL is missing"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "Oddaljena + vgrajena pravila združena",
+    "description": "Status when remote and built-in rules are merged successfully"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "Oddaljena + vgrajena pravila združena s pravili po meri",
+    "description": "Status when overload mode is active and custom rules are merged"
+  },
+  "hashStatus_remote_failed": {
+    "message": "Oddaljena pravila niso uspela",
+    "description": "Status when remote rules failed verification or loading"
+  },
+  "hashStatus_remote_verified": {
+    "message": "Oddaljena pravila preverjena",
+    "description": "Status when remote rules have been successfully verified"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "Oddaljena pravila naložena in pravila po meri združena",
+    "description": "Message shown when remote rules are loaded and custom rules are merged"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
+  },
+  "headerTitle": {
+    "message": "Linkumori",
+    "description": "Header title for the extension"
+  },
+  "history_listener_enabled": {
+    "message": "Prepreči vstavljanje sledenja prek API-ja zgodovine",
+    "description": "This string is used as name for the history API listener label."
+  },
+  "history_listener_enabled_description": {
+    "message": "Spremljaj in čisti URL-je v zgodovini brskalnika.",
+    "description": "Description for the history listener toggle."
+  },
+  "search_link_fix_enabled": {
+    "message": "Popravek povezav v rezultatih iskanja",
+    "description": "Label for the combined Google and Yandex content script toggle"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "Omogoči Google in Yandex vsebinske skripte, ki odstranijo sledilne preusmeritve iz povezav v rezultatih iskanja.",
+    "description": "Description for the combined search result content script toggle"
+  },
+  "google_link_fix_enabled": {
+    "message": "Popravek Googlovih povezav",
+    "description": "Label for the Google content script toggle"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "Omogoči Googlovo vsebinsko skripto, ki odstrani sledilne preusmeritve iz Googlovih povezav rezultatov.",
+    "description": "Description for the Google content script toggle"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "Popravek Yandex povezav",
+    "description": "Label for the Yandex content script toggle"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "Omogoči Yandex vsebinsko skripto, ki odstrani sledilne preusmeritve iz Yandex povezav rezultatov.",
+    "description": "Description for the Yandex content script toggle"
+  },
+  "import_invalid_format": {
+    "message": "Neveljavna oblika datoteke ali poškodovani podatki",
+    "description": "Error message for invalid file format"
+  },
+  "import_parse_error": {
+    "message": "Razčlenjevanje datoteke ni uspelo. Preverite obliko datoteke.",
+    "description": "Error message when file parsing fails"
+  },
+  "import_read_error": {
+    "message": "Branje datoteke ni uspelo",
+    "description": "Error message when file reading fails"
+  },
+  "inputUrlsDescription": {
+    "message": "S tem orodjem lahko prilepite URL-je in jih ClearURLs očisti po kliku na zeleni gumb. Naenkrat lahko prilepite več URL-jev, vendar mora biti vsak URL v svoji vrstici.",
+    "description": "Description text for the input URLs section."
+  },
+  "inputUrlsPlaceholder": {
+    "message": "Tukaj prilepite svoje URL-je, enega na vrstico ...",
+    "description": "Placeholder text for the input URLs textarea."
+  },
+  "inputUrlsTitle": {
+    "message": "Vhodni URL-ji",
+    "description": "Title for the input URL section."
+  },
+  "language_selector_description": {
+    "message": "Izberite želeni jezik vmesnika. Kliknite shrani in ponovno naloži. (številke niso prevedene)",
+    "description": "Description text for language selector"
+  },
+  "language_selector_label": {
+    "message": "Jezik vmesnika",
+    "description": "Label for language selector dropdown"
+  },
+  "licenseCopied": {
+    "message": "Licenca kopirana!",
+    "description": "Toast message after copying license content"
+  },
+  "licenseDescription": {
+    "message": "Ta razširitev je odprtokodna in licencirana pod GNU Lesser General Public License.",
+    "description": "Description text for license section"
+  },
+  "licenseDownloaded": {
+    "message": "Licenca prenesena!",
+    "description": "Toast message after downloading license content"
+  },
+  "licenseSection": {
+    "message": "Informacije o licenci",
+    "description": "Section header for license information"
+  },
+  "license_links_title": {
+    "message": "Povezave",
+    "description": "Title for links section in license"
+  },
+  "license_third_party_title": {
+    "message": "Komponente tretjih oseb",
+    "description": "Title for third party components section"
+  },
+  "license_title": {
+    "message": "Licenca",
+    "description": "License section title"
+  },
+  "loadError": {
+    "message": "Napaka pri nalaganju vsebine",
+    "description": "Error title shown when legal/privacy content fails to load"
+  },
+  "loadingContent": {
+    "message": "Nalaganje vsebine ...",
+    "description": "Generic loading message for about/legal content areas"
+  },
+  "loadingLicense": {
+    "message": "Nalaganje licence ...",
+    "description": "Loading text for license content"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "Nalaganje politike zasebnosti ...",
+    "description": "Loading text for privacy policy content"
+  },
+  "local_hosts_skipping": {
+    "message": "Preskoči URL-je na lokalnih gostiteljih (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+    "description": "This string is used as label for the local host skipping switch"
+  },
+  "local_hosts_skipping_description": {
+    "message": "Preskoči čiščenje za localhost in lokalne omrežne naslove.",
+    "description": "Description for the local hosts skipping toggle."
+  },
+  "log_domain_blocked": {
+    "message": "Ta domena je blokirana",
+    "description": "This string is used on blocked domains in the Linkumori (Clean URLS) log."
+  },
+  "log_html_export_button": {
+    "message": "Izvozi",
+    "description": "This string is used for the export button on the log page."
+  },
+  "log_html_export_button_title": {
+    "message": "Izvozi globalni dnevnik",
+    "description": "This string is used as title for the export button on the log page."
+  },
+  "log_html_import_button": {
+    "message": "Uvozi",
+    "description": "This string is used for the import button on the log page."
+  },
+  "log_html_import_button_title": {
+    "message": "Uvozi globalni dnevnik",
+    "description": "This string is used as title for the import button on the log page."
+  },
+  "log_html_import_error": {
+    "message": "Napaka pri uvozu datoteke dnevnika:",
+    "description": "Error message prefix when import fails"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "Neveljavna oblika datoteke dnevnika.",
+    "description": "Error message when imported file is not valid JSON log format"
+  },
+  "log_html_page_title": {
+    "message": "Dnevnik iz Linkumori (Clean URLS)",
+    "description": "This string is used as header on the log page."
+  },
+  "log_html_reset_button": {
+    "message": "Ponastavi",
+    "description": "This string is used for the reset button on the log page."
+  },
+  "log_html_reset_button_title": {
+    "message": "Ponastavi globalni dnevnik",
+    "description": "This string is used as title for the reset button on the log page."
+  },
+  "log_html_reset_confirm": {
+    "message": "Ali ste prepričani, da želite ponastaviti dnevnik? Tega dejanja ni mogoče razveljaviti.",
+    "description": "Confirmation dialog when user clicks reset button"
+  },
+  "log_html_search": {
+    "message": "Išči",
+    "description": "Label for the search input field"
+  },
+  "log_html_search_placeholder": {
+    "message": "Išči po dnevniku ...",
+    "description": "Placeholder text in the search input field"
+  },
+  "log_html_show_all": {
+    "message": "Vsi",
+    "description": "Option in entries dropdown to show all entries"
+  },
+  "log_html_show_entries": {
+    "message": "Prikaži vnosov",
+    "description": "Label for the dropdown to select how many entries to show per page"
+  },
+  "log_html_table_head_1": {
+    "message": "Pred ",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_2": {
+    "message": "Po ",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_3": {
+    "message": "Pravilo",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_4": {
+    "message": "Čas",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_5": {
+    "message": "Ponudnik",
+    "description": "Column header for matched provider name on the log page."
+  },
+  "log_html_table_head_6": {
+    "message": "Vzorec",
+    "description": "Column header for matched urlPattern/domainPattern on the log page."
+  },
+  "log_html_table_head_7": {
+    "message": "Metoda",
+    "description": "Column header for request method and provider methods on the log page."
+  },
+  "log_html_table_head_8": {
+    "message": "Vrsta vira",
+    "description": "Column header for request resource type and provider resource types on the log page."
+  },
+  "log_nav_dashboard": {
+    "message": "Nadzorna plošča",
+    "description": "Tab label for dashboard view on log page"
+  },
+  "log_nav_logs": {
+    "message": "Dnevniki",
+    "description": "Tab label for logs view on log page"
+  },
+  "log_ping_blocked": {
+    "message": "Ta hiperpovezavna revizija je bila blokirana",
+    "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
+  },
+  "log_provider_pattern_domain": {
+    "message": "domainPattern",
+    "description": "Label for domain pattern provider matching in log entries."
+  },
+  "log_provider_pattern_url": {
+    "message": "urlPattern",
+    "description": "Label for URL pattern provider matching in log entries."
+  },
+  "log_provider_request_method": {
+    "message": "metoda",
+    "description": "Label for the current request method in provider match details."
+  },
+  "log_provider_methods": {
+    "message": "metode ponudnika",
+    "description": "Label for provider method filters in provider match details."
+  },
+  "log_redirect": {
+    "message": "Ta URL je preusmerjen",
+    "description": "This string is used on redirections in the Linkumori (Clean URLS) log."
+  },
+  "log_stats_changed_urls": {
+    "message": "Spremenjeni URL-ji",
+    "description": "Stats card label for entries where URL changed"
+  },
+  "log_stats_chart_no_data": {
+    "message": "Ni podatkov za graf",
+    "description": "Empty-state label when no data is available for chart"
+  },
+  "log_stats_chart_reload": {
+    "message": "Ponovno naloži",
+    "description": "Button label to reload the stats chart and reset pie filters"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "Ponovno naloži graf in ponastavi filtriranje po tortnem grafu",
+    "description": "Tooltip for reload chart button in log dashboard"
+  },
+  "log_stats_chart_title": {
+    "message": "Statistični graf",
+    "description": "Title for selectable chart section in log dashboard"
+  },
+  "log_stats_chart_type": {
+    "message": "Vrsta grafa",
+    "description": "Label for chart type selector"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "Tortni",
+    "description": "Option label for pie chart"
+  },
+  "log_stats_count_col": {
+    "message": "Število",
+    "description": "Column header for count in stats tables"
+  },
+  "log_stats_domain_col": {
+    "message": "Domena",
+    "description": "Column header for domain name in stats"
+  },
+  "log_stats_earliest": {
+    "message": "Najzgodnejši",
+    "description": "Stats card label for earliest timestamp"
+  },
+  "log_stats_latest": {
+    "message": "Najpoznejši",
+    "description": "Stats card label for latest timestamp"
+  },
+  "log_stats_no_domains": {
+    "message": "Ni domen",
+    "description": "Fallback row label when no domains are available in stats"
+  },
+  "log_stats_no_rules": {
+    "message": "Ni pravil",
+    "description": "Fallback row label when no rules are available in stats"
+  },
+  "log_stats_no_providers": {
+    "message": "Ni ponudnikov",
+    "description": "Fallback row label when no providers are available in stats"
+  },
+  "log_stats_no_methods": {
+    "message": "Ni metod",
+    "description": "Fallback row label when no methods are available in stats"
+  },
+  "log_stats_no_resource_types": {
+    "message": "Ni vrst virov",
+    "description": "Fallback row label when no resource types are available in stats"
+  },
+  "log_stats_rule_col": {
+    "message": "Pravilo",
+    "description": "Column header for rule name in stats"
+  },
+  "log_stats_provider_col": {
+    "message": "Ponudnik",
+    "description": "Column header for provider name in stats"
+  },
+  "log_stats_method_col": {
+    "message": "Metoda",
+    "description": "Column header for method name in stats"
+  },
+  "log_stats_resource_type_col": {
+    "message": "Vrsta vira",
+    "description": "Column header for resource type in stats"
+  },
+  "log_stats_top_domains": {
+    "message": "Najboljše domene",
+    "description": "Stats section title for top domains"
+  },
+  "log_stats_top_providers": {
+    "message": "Najboljši ponudniki",
+    "description": "Stats section title for top providers"
+  },
+  "log_stats_top_methods": {
+    "message": "Najboljše metode",
+    "description": "Stats section title for top methods"
+  },
+  "log_stats_top_resource_types": {
+    "message": "Najboljše vrste virov",
+    "description": "Stats section title for top resource types"
+  },
+  "log_stats_top_rules": {
+    "message": "Najboljša pravila",
+    "description": "Stats section title for top rules"
+  },
+  "log_stats_total_entries": {
+    "message": "Skupaj vnosov",
+    "description": "Stats card label for total log entries"
+  },
+  "log_stats_unique_domains": {
+    "message": "Edinstvene domene",
+    "description": "Stats card label for unique source domains"
+  },
+  "log_stats_unique_rules": {
+    "message": "Edinstvena pravila",
+    "description": "Stats card label for unique applied rules"
+  },
+  "log_stats_unique_providers": {
+    "message": "Edinstveni ponudniki",
+    "description": "Stats card label for unique providers"
+  },
+  "log_stats_unique_methods": {
+    "message": "Edinstvene metode",
+    "description": "Stats card label for unique methods"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "Edinstvene vrste virov",
+    "description": "Stats card label for unique resource types"
+  },
+  "log_whitelist_bypass": {
+    "message": "Preskočeno: domena je na belem seznamu",
+    "description": "This string is used in the log when URL cleaning is skipped because the domain is whitelisted."
+  },
+  "moonIconAlt": {
+    "message": "ikona meseca",
+    "description": "Alt text for moon theme icon"
+  },
+  "new_custom_providers_label": {
+    "message": "novo:",
+    "description": "Inline label for new custom provider count."
+  },
+  "nothingToCopy": {
+    "message": "Ničesar za kopirati!",
+    "description": "Toast message when copy action has no content"
+  },
+  "nothingToDownload": {
+    "message": "Ničesar za prenesti!",
+    "description": "Toast message when download action has no content"
+  },
+  "openSettings": {
+    "message": "Odpri nastavitve Linkumori"
+  },
+  "overload_mode_enabled": {
+    "message": "Omogoči način preobremenitve",
+    "description": "Label for toggle that merges built-in and remote rules together"
+  },
+  "overload_mode_enabled_description": {
+    "message": "Ko je omogočeno, se vgrajena in oddaljena pravila naložijo skupaj in združijo, preden se uporabijo pravila po meri.",
+    "description": "Description for overload mode toggle"
+  },
+  "overridden_providers_label": {
+    "message": "preglaseni:",
+    "description": "Inline label for overridden provider count."
+  },
+  "overridden_providers_list_label": {
+    "message": "Preglaseni ponudniki:",
+    "description": "Label for overridden provider names list."
+  },
+  "pagination_current_page_aria": {
+    "message": "Trenutna stran, stran $1",
+    "description": "Screen reader label for current active page. $1=page number"
+  },
+  "pagination_first": {
+    "message": "Prva",
+    "description": "Button text to go to first page"
+  },
+  "pagination_first_aria": {
+    "message": "Prva stran",
+    "description": "Screen reader label for first page button"
+  },
+  "pagination_last": {
+    "message": "Zadnja",
+    "description": "Button text to go to last page"
+  },
+  "pagination_last_aria": {
+    "message": "Zadnja stran",
+    "description": "Screen reader label for last page button"
+  },
+  "pagination_next": {
+    "message": "Naslednja",
+    "description": "Button text to go to next page"
+  },
+  "pagination_next_aria": {
+    "message": "Naslednja stran",
+    "description": "Screen reader label for next page button"
+  },
+  "pagination_page_aria": {
+    "message": "Stran $1",
+    "description": "Screen reader label for numbered page buttons. $1=page number"
+  },
+  "pagination_previous": {
+    "message": "Prejšnja",
+    "description": "Button text to go to previous page"
+  },
+  "pagination_previous_aria": {
+    "message": "Prejšnja stran",
+    "description": "Screen reader label for previous page button"
+  },
+  "percentage_symbol": {
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
+  },
+  "ping_blocking_enabled": {
+    "message": "Blokiraj hiperpovezavno revizijo",
+    "description": "This string is used as label for the hyperlink auditing blocking switch"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "Blokiraj ping zahteve, ki se uporabljajo za sledenje.",
+    "description": "Description for the ping blocking toggle."
+  },
+  "popup_consent_accept_button": {
+    "message": "Sprejmi in nadaljuj",
+    "description": "Button label to accept popup consent gate"
+  },
+  "popup_consent_checkbox": {
+    "message": "Prebral/a sem in sprejemam politiko zasebnosti in licenco.",
+    "description": "Consent checkbox label for popup gate"
+  },
+  "popup_consent_description": {
+    "message": "Pred uporabo tega pojavnega okna preberite politiko zasebnosti in licenco. Vaših podatkov ne zbiramo. Vsi podatki so shranjeni na vaši napravi in se ne prenašajo k nam.",
+    "description": "Description for popup consent gate"
+  },
+  "popup_consent_legal_button": {
+    "message": "Preberi pravne informacije",
+    "description": "Button label to open legal page from popup consent gate"
+  },
+  "popup_consent_title": {
+    "message": "Zahtevano soglasje",
+    "description": "Title for popup consent gate"
+  },
+  "popup_html_page_title": {
+    "message": "Linkumori",
+    "description": "Popup page title text"
+  },
+  "popup_html_version_label": {
+    "message": "Različica:",
+    "description": "Version label shown in popup license section"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "Podpis dodatka Firefox",
+    "description": "Label shown in popup license section for Firefox add-on signing fingerprint."
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "Podpis dodatka Firefox",
+    "description": "Popup label for Firefox signature value."
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "Ni na voljo, ker ni podpisan",
+    "description": "Message shown when the add-on package is unsigned and no Mozilla signing digest is available."
+  },
+  "popup_html_version_label_title": {
+    "message": "Trenutna različica razširitve",
+    "description": "Tooltip for popup version label"
+  },
+  "popup_html_license_description": {
+    "message": "Podrobne informacije o licenci in zasebnosti si oglejte s klikom na spodnjo povezavo Pravne informacije.",
+    "description": "Description in popup license section"
+  },
+  "popup_html_license_description_title": {
+    "message": "Informacije o licenci in zasebnosti",
+    "description": "Tooltip for popup license description"
+  },
+  "popup_html_gpl_link": {
+    "message": "Splošna javna licenca GNU v3.0",
+    "description": "Popup license link label for GPL v3"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "Odpri besedilo GNU GPL v3.0 licence",
+    "description": "Tooltip for GPL link in popup license section"
+  },
+  "popup_html_lgpl_link": {
+    "message": "GNU General Lesser Public License v3.0",
+    "description": "Popup license link label for LGPL v3"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "Odpri besedilo GNU LGPL v3.0 licence",
+    "description": "Tooltip for LGPL link in popup license section"
+  },
+  "popup_html_source_code_repository": {
+    "message": "Skladišče izvorne kode",
+    "description": "Popup license link label for source code repository"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "Odpri skladišče izvorne kode",
+    "description": "Tooltip for source code repository link in popup license section"
+  },
+  "popup_html_source_code_releases": {
+    "message": "Izdaje izvorne kode",
+    "description": "Popup license link label for source code releases"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "Odpri izdaje izvorne kode",
+    "description": "Tooltip for source code releases link in popup license section"
+  },
+  "popup_html_report_issues": {
+    "message": "Prijavi težave",
+    "description": "Popup license link label for issue tracker"
+  },
+  "popup_html_report_issues_title": {
+    "message": "Odpiši sledilnik težav",
+    "description": "Tooltip for report issues link in popup license section"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "Skladišče selitve ClearURLs MV3",
+    "description": "Popup license link label for ClearURLs MV3 migration repo"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "Odpri skladišče selitve ClearURLs MV3",
+    "description": "Tooltip for ClearURLs migration repository link in popup license section"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "Skladišče dodatkov ClearURLs V1.27.3",
+    "description": "Popup license link label for ClearURLs addon v1.27.3 repo"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "Odpri skladišče dodatka ClearURLs v1.27.3",
+    "description": "Tooltip for ClearURLs addon repository link in popup license section"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "Linkumori v.",
+    "description": "Footer prefix shown on blocked page before version number"
+  },
+  "legal_consent_notice_default": {
+    "message": "Preglejte spodnjo politiko zasebnosti in licenco, nato sprejmite za nadaljnjo uporabo Linkumori.",
+    "description": "Default notice text for the legal page consent section"
+  },
+  "legal_consent_notice_update": {
+    "message": "Pravni pogoji Linkumori so bili posodobljeni. Preglejte politiko zasebnosti in licenco, nato sprejmite za nadaljnjo uporabo razširitve.",
+    "description": "Notice text shown on the legal page after a consent version update"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "Preglejte spodnjo politiko zasebnosti in licenco, nato sprejmite za dokončanje nastavitve Linkumori.",
+    "description": "Notice text shown on the legal page during first install"
+  },
+  "legal_consent_notice_import": {
+    "message": "Preglejte spodnjo politiko zasebnosti in licenco, nato sprejmite za dokončanje selitve v Linkumori.",
+    "description": "Notice text shown on the legal page during import or migration"
+  },
+  "legal_consent_status_required": {
+    "message": "Zahtevano soglasje. Linkumori je začasno ustavljen, dokler ne sprejmete trenutnih pravnih pogojev.",
+    "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_accepted": {
+    "message": "Soglasje sprejeto. Linkumori lahko deluje s trenutnimi pravnimi pogoji.",
+    "description": "Status message shown when current legal consent is accepted"
+  },
+  "legal_consent_button_accepted": {
+    "message": "Sprejeto",
+    "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_saved": {
+    "message": "Soglasje sprejeto.",
+    "description": "Toast shown after saving legal consent"
+  },
+  "legal_consent_save_failed": {
+    "message": "Shranjevanje soglasja ni uspelo.",
+    "description": "Toast shown when saving legal consent fails"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "Trenutne različice politike soglasja ni mogoče določiti.",
+    "description": "Error shown when the current consent version is unavailable"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "Kako preklicati soglasje",
+    "description": "Button label that opens the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "Preklic soglasja se izvede z odstranitvijo razširitve, kot je pojasnjeno v politiki zasebnosti.",
+    "description": "Short note below the legal page consent controls about withdrawing consent"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "Kako preklicati soglasje",
+    "description": "Title for the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "Svoje soglasje lahko kadar koli prekličete tako, da preprosto odstranite razširitev ali dodatek.",
+    "description": "Introductory text in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "Po odstranitvi se vsi podatki, ki jih Linkumori lokalno shranjuje na vaši napravi, trajno in samodejno izbrišejo. Od vas ni potrebno nobeno nadaljnje dejanje razen odstranitve.",
+    "description": "Data deletion explanation in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "Ker Linkumori ne prenaša nobenih podatkov na zunanje strežnike, ni oddaljenih podatkov, za katere bi morali zahtevati izbris.",
+    "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "Zapri",
+    "description": "Close button label for the withdrawal of consent modal"
+  },
+  "legal_optional_features_heading": {
+    "message": "Onemogočene funkcije, ki jih morda želite omogočiti",
+    "description": "Heading for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_features_description": {
+    "message": "Te neobvezne zaščite so privzeto izklopljene. Vklopite tiste, ki jih želite, nato shranite in znova naložite Linkumori.",
+    "description": "Description for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "Onemogočeno",
+    "description": "Status badge shown when an optional legal-page feature is disabled"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "Omogočeno",
+    "description": "Status badge shown when an optional legal-page feature is enabled"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "Omogoči ob shranjevanju",
+    "description": "Status badge shown when an optional legal-page feature will be enabled after saving"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "Onemogoči ob shranjevanju",
+    "description": "Status badge shown when an optional legal-page feature will be disabled after saving"
+  },
+  "legal_optional_features_note": {
+    "message": "Spremembe se shranijo šele, ko uporabite gumb na desni.",
+    "description": "Initial helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_default": {
+    "message": "Te funkcije so privzeto onemogočene. Vklopite katere koli želite, nato shranite in znova naložite Linkumori.",
+    "description": "Default helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "Spremembe čakajo. Shranite jih, da jih uveljavite in ponovno odprete to pravno stran.",
+    "description": "Helper note shown when optional legal-page feature changes have not been saved yet"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "Shranjujem vaše spremembe neobveznih funkcij in ponovno nalagam Linkumori.",
+    "description": "Helper note shown while optional legal-page feature changes are being saved"
+  },
+  "legal_optional_features_save_button": {
+    "message": "Shrani in znova naloži Linkumori",
+    "description": "Save button label for optional legal-page feature toggles"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "Shranjevanje sprememb neobveznih funkcij ni uspelo.",
+    "description": "Error toast shown when optional legal-page feature changes fail to save"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "Značke",
+    "description": "This string is used as name for the badges switch button on the popup page."
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "Filter",
+    "description": "This string is used as name for the filter switch button on the popup page."
+  },
+  "popup_html_configs_switch_log": {
+    "message": "Beleženje",
+    "description": "This string is used as name for the logging switch button on the popup page."
+  },
+  "popup_html_log_head": {
+    "message": "Ogled dnevnikov",
+    "description": "This string is used as name for the log button on the popup page."
+  },
+  "popup_html_settings_button": {
+    "message": "Nastavitve",
+    "description": "This string is used for the settings button on the popup page."
+  },
+  "popup_html_statistics": {
+    "message": "Statistika",
+    "description": "Toggle label for statistics feature"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "Blokirano",
+    "description": "This string is used as name for the blocked elements on the popup page."
+  },
+  "popup_html_statistics_elements": {
+    "message": "Elementi",
+    "description": "This string is used as name for the elements on the popup page."
+  },
+  "popup_html_statistics_percentage": {
+    "message": "Odstotek",
+    "description": "This string is used as name for the percentage of blocked elements on the popup page."
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "Ponastavi",
+    "description": "This string is used as name for the statistics reset button on the popup page."
+  },
+  "popup_html_tools_button": {
+    "message": "Orodja",
+    "description": "This string is used for the tools button on the popup page."
+  },
+  "popup_html_tools_button_title": {
+    "message": "Odpri orodja za čiščenje",
+    "description": "This string is used as a title for the tools button on the popup page."
+  },
+  "popup_html_whitelist_button": {
+    "message": "Beli seznam",
+    "description": "This string is used for the whitelist button on the popup page."
+  },
+  "popup_nav_license": {
+    "message": "Licenca",
+    "description": "Navigation label for license section"
+  },
+  "popup_nav_main": {
+    "message": "Glavno",
+    "description": "Navigation label for main content section"
+  },
+  "privacyCopied": {
+    "message": "Politika zasebnosti kopirana!",
+    "description": "Toast message after copying privacy policy content"
+  },
+  "privacyDescription": {
+    "message": "Preglejte našo politiko zasebnosti spodaj.",
+    "description": "Description text for privacy policy section"
+  },
+  "privacyDownloaded": {
+    "message": "Politika zasebnosti prenesena!",
+    "description": "Toast message after downloading privacy policy content"
+  },
+  "privacyPolicySection": {
+    "message": "Politika zasebnosti",
+    "description": "Section header for privacy policy"
+  },
+  "privacyVersionDescription": {
+    "message": "Izberite prevod politike zasebnosti, ki si ga želite ogledati. Upoštevajte, da je trenutno na voljo samo angleška različica, drugi jeziki pa bodo morda dodani v prihodnosti.",
+    "description": "Helper description for privacy version selector"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "English",
+    "description": "Option label for global English privacy policy file"
+  },
+  "privacyVersionLabel": {
+    "message": "Politika zasebnosti ",
+    "description": "Label for selecting English privacy policy version"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "Izbrane datoteke politike ni bilo mogoče najti. Naložena je bila privzeta politika zasebnosti.",
+    "description": "Notification shown when selected privacy version file cannot be loaded"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "Nalaganje zemljevida različic politike zasebnosti ni uspelo.",
+    "description": "Notification shown when privacy version mapping config cannot be loaded"
+  },
+  "providerImport_bundledRules": {
+    "message": "Aktivna vgrajena/oddaljena pravila/pravila po meri",
+    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  },
+  "providerImport_button": {
+    "message": "Uvozi/Onemogoči ponudnike",
+    "description": "Button text to import selected providers"
+  },
+  "providerImport_clearSelection": {
+    "message": "Počisti",
+    "description": "Button text to clear all selected providers."
+  },
+  "providerImport_complete": {
+    "message": "Celoten"
+  },
+  "providerImport_completeProvider": {
+    "message": "Celoten ponudnik"
+  },
+  "providerImport_completed": {
+    "message": "Uvoz končan!"
+  },
+  "providerImport_confirmExclude": {
+    "message": "Izpustite ta podpis ponudnika? Ponudniki z ujemajočim se URL/vzorcem domene bodo skriti in odstranjeni iz pravil po meri.",
+    "description": "Confirmation shown before excluding a provider signature from import"
+  },
+  "providerImport_disableSelected": {
+    "message": "Onemogoči izbrane",
+    "description": "Button text to disable selected providers by signature"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "Onemogoči podpise za $1 izbranega(-ih) ponudnika(-ov)?",
+    "description": "Confirmation before disabling selected providers in batch. $1 is selected count"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "Onemogočenih podpisov: $1. Odstranjenih ujemajočih se ponudnikov po meri: $2.",
+    "description": "Batch disable result. $1 is disabled signature count and $2 removed custom provider count"
+  },
+  "providerImport_disabledClear": {
+    "message": "Počisti vse",
+    "description": "Button label to clear all excluded signatures for selected source"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "Počisti vsa onemogočena pravila",
+    "description": "Button label to clear all disabled signatures from all sources"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "Počistim vsa onemogočena podpise iz vseh virov?",
+    "description": "Confirmation before clearing all disabled signatures globally"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "Počistim vse onemogočene podpise za ta vir?",
+    "description": "Confirmation before clearing disabled signatures for selected source"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "Ni onemogočenih podpisov",
+    "description": "Empty state text when no disabled signatures exist for selected source"
+  },
+  "providerImport_disabledRestore": {
+    "message": "Obnovi",
+    "description": "Button label to restore an excluded signature"
+  },
+  "providerImport_disabledTitle": {
+    "message": "Onemogočena pravila",
+    "description": "Title for disabled provider signature list in provider import sidebar"
+  },
+  "providerImport_domainExceptions": {
+    "message": "Izvzetja domen",
+    "description": "Full text for domain exceptions tooltip in provider cards"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "ID",
+    "description": "Abbreviation for domain exceptions count in provider cards"
+  },
+  "providerImport_domainPatterns": {
+    "message": "Vzorci domen",
+    "description": "Full text for domain patterns tooltip in provider cards"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "VD",
+    "description": "Abbreviation for domain patterns count in provider cards"
+  },
+  "providerImport_domainRedirections": {
+    "message": "Preusmeritve domen",
+    "description": "Full text for domain redirections tooltip in provider cards"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "PD",
+    "description": "Abbreviation for domain redirections count in provider cards"
+  },
+  "providerImport_exceptions": {
+    "message": "Izvzetja"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "izv"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "Ta ponudnik nima vzorca URL/domene in ga ni mogoče izključiti s podpisom.",
+    "description": "Shown when user tries to exclude a provider without URL/domain patterns"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "Podpis ponudnika izključen. Odstranjenih $1 ujemajočih se ponudnikov po meri.",
+    "description": "Success message after excluding a provider signature. $1 is removed custom count"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(obstaja v meri)"
+  },
+  "providerImport_failed": {
+    "message": "Uvoz ponudnikov ni uspel: $1"
+  },
+  "providerImport_import": {
+    "message": "Uvozi izbrane"
+  },
+  "providerImport_importedCount": {
+    "message": "Uvoženih: $1 ponudnikov"
+  },
+  "providerImport_importedRulesCount": {
+    "message": "Uvoženo: $1 pravil",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_importing": {
+    "message": "Uvažam ..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Obstoječa pravila interoperabilnosti Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
+  },
+  "providerImport_loading": {
+    "message": "Nalaganje ponudnikov ...",
+    "description": "Displayed while providers are being loaded into the grid."
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "Za $1 pravila ni na voljo nobenih ponudnikov"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "V $1 pravilih ni najdenih ponudnikov"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "Ni pravil za uvoz"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "Brez vzorca URL-ja"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "Preglasenih: $1 ponudnikov"
+  },
+  "providerImport_rawRules": {
+    "message": "Surova pravila",
+    "description": "Full text for raw rules tooltip in provider cards"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "Surova",
+    "description": "Abbreviation for raw rules count in provider cards"
+  },
+  "providerImport_redirections": {
+    "message": "Preusmeritve"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "pre"
+  },
+  "providerImport_referralAbbr": {
+    "message": "Nap",
+    "description": "Abbreviation for referral marketing count in provider cards"
+  },
+  "providerImport_referralMarketing": {
+    "message": "Napotitveno trženje",
+    "description": "Full text for referral marketing tooltip in provider cards"
+  },
+  "providerImport_rules": {
+    "message": "pravil"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "Pravila",
+    "description": "Abbreviation for rules count in provider cards"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "Išči ponudnike ...",
+    "description": "Placeholder text in the search input field to filter providers."
+  },
+  "providerImport_selectAll": {
+    "message": "Izberi vse",
+    "description": "Button text to select all providers in the list/grid."
+  },
+  "providerImport_selectedCount": {
+    "message": "$1 izbranih"
+  },
+  "providerImport_skippedCount": {
+    "message": "Preskočenih: $1 ponudnikov"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Preskočeno: $1 pravil",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_sources": {
+    "message": "Vir pravil",
+    "description": "Heading for the sidebar that lists available rule sources."
+  },
+  "providerImport_title": {
+    "message": "Uvozi ali onemogoči ponudnike",
+    "description": "Title of the provider import modal dialog."
+  },
+  "providerList_button": {
+    "message": "Seznam vseh ponudnikov po meri in iskanje",
+    "description": "Button text to open the provider list modal"
+  },
+  "providerList_complete": {
+    "message": "Celoten",
+    "description": "Label indicating a provider is a complete provider"
+  },
+  "providerList_confirmDelete": {
+    "message": "Ali ste prepričani, da želite izbrisati ponudnika \"$1\"?",
+    "description": "Confirmation message when deleting a provider",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "Kopija",
+    "description": "Suffix added to provider names when duplicating (e.g., 'Google_Copy')"
+  },
+  "providerList_createFirst": {
+    "message": "Ustvari prvega ponudnika",
+    "description": "Button text to create the first provider when none exist"
+  },
+  "providerList_delete": {
+    "message": "Izbriši",
+    "description": "Button text to delete a provider"
+  },
+  "providerList_deleteFailed": {
+    "message": "Brisanje ponudnika ni uspelo. Poskusite znova.",
+    "description": "Error message when provider deletion fails"
+  },
+  "providerList_deleteTooltip": {
+    "message": "Izbriši ponudnika",
+    "description": "Tooltip text for the delete provider button"
+  },
+  "providerList_duplicate": {
+    "message": "Kopiraj",
+    "description": "Button text to duplicate/copy a provider"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "Podvoji ponudnika",
+    "description": "Tooltip text for the duplicate provider button"
+  },
+  "providerList_edit": {
+    "message": "Uredi",
+    "description": "Button text to edit a provider"
+  },
+  "providerList_editTooltip": {
+    "message": "Uredi ponudnika",
+    "description": "Tooltip text for the edit provider button"
+  },
+  "providerList_exceptions": {
+    "message": "Izvzetja",
+    "description": "Label for exceptions count in provider statistics"
+  },
+  "providerList_noProvidersFound": {
+    "message": "Ni najdenih ponudnikov po meri.",
+    "description": "Message shown when there are no custom providers to display"
+  },
+  "providerList_noUrlPattern": {
+    "message": "Brez vzorca URL-ja",
+    "description": "Text shown when a provider has no URL pattern defined"
+  },
+  "providerList_rawRules": {
+    "message": "Surova pravila",
+    "description": "Label for raw rules count in provider statistics"
+  },
+  "providerList_redirections": {
+    "message": "Preusmeritve",
+    "description": "Label for redirections count in provider statistics"
+  },
+  "providerList_referral": {
+    "message": "Napotitev",
+    "description": "Label for referral marketing count in provider statistics"
+  },
+  "providerList_rules": {
+    "message": "Pravila",
+    "description": "Label for rules count in provider statistics"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "Išči ponudnike ...",
+    "description": "Placeholder text for the provider search input"
+  },
+  "providerList_title": {
+    "message": "Vsi ponudniki",
+    "description": "Title of the provider list modal"
+  },
+  "referral_marketing_enabled": {
+    "message": "Dovoli napotitveno trženje",
+    "description": "This string is used as label for the referral marketing switch"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "Odstrani napotitvene in partnerske sledilne parametre.",
+    "description": "Description for the referral marketing toggle."
+  },
+  "redirection_enabled": {
+    "message": "Omogoči obhod preusmeritev tretjih oseb",
+    "description": "Label for the toggle that enables regex redirections and domain redirections"
+  },
+  "redirection_enabled_description": {
+    "message": "Obidite preusmeritve in sledilne URL-je tretjih oseb z uporabo regex preusmeritev in preusmeritev domen iz vgrajenih, oddaljenih in pravil po meri. Po potrebi najprej preglejte pravila, nato pa uporabite urejevalnik pravil po meri za urejanje ali preglasitev posameznih pravil.",
+    "description": "Description for the toggle that enables or disables redirection handling"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "Vrstica $LINE$: pričakovan \"ruleURL | hashURL\"",
+    "description": "Validation message when an additional remote rule set line is malformed.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "Vrstica $LINE$: neveljaven HTTPS URL zgoščene vrednosti",
+    "description": "Validation message when additional remote hash URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "Vrstica $LINE$: neveljaven HTTPS URL pravila",
+    "description": "Validation message when additional remote rule URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "Oddaljena pravila so onemogočena. Omogočite spodnje stikalo za nastavitev URL-jev oddaljenih pravil.",
+    "description": "Description shown when remote rules are disabled"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "Oddaljena pravila onemogočena - omogočite spodaj",
+    "description": "Placeholder text shown when remote rules are disabled"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "Varnostno opozorilo: Gatekeeper je onemogočen. Omogočite oddaljena pravila za dostop do polj oddaljenih URL-jev.",
+    "description": "Alert shown when Gatekeeper is disabled while remote rules are turned off."
+  },
+  "remote_rules_enabled": {
+    "message": "Omogoči oddaljena pravila",
+    "description": "Label for the toggle that enables or disables remote rule fetching"
+  },
+  "remote_rules_enabled_description": {
+    "message": "Dovoli razširitvi, da pridobi pravila z oddaljenih strežnikov. Ko je onemogočeno, bodo uporabljena samo vgrajena pravila.",
+    "description": "Description for the remote rules enabled toggle"
+  },
+  "remote_rules_loaded": {
+    "message": "Naložena samo oddaljena pravila",
+    "description": "Message shown when remote rules are loaded"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "Oddaljena pravila so omejena samo na samo-gostujoče strežnike. Ne uporabljajte URL-jev tretjih oseb.",
+    "description": "Notice explaining remote rules restrictions"
+  },
+  "remote_rules_security_notice": {
+    "message": "Varnostno obvestilo: Uporabljajte samo URL-je, ki so v vaši lasti in pod nadzorom",
+    "description": "Small security notice near URL fields"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "Sprememba nastavitve čaka. Kliknite Shrani za uveljavitev.",
+    "description": "Status message shown after toggling a setting that will apply when the user clicks Save."
+  },
+  "removeDomainFromWhitelist": {
+    "message": "Odstrani $1 z belega seznama",
+    "description": "Button label to remove a domain from the whitelist. $1 is replaced with the domain."
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
+  },
+  "rules_author_label": {
+    "message": "Avtor:",
+    "description": "Label for the author of the rules dataset"
+  },
+  "rules_composition_label": {
+    "message": "Sestava ponudnikov:",
+    "description": "Section label for provider composition details."
+  },
+  "rules_disabled_providers_label": {
+    "message": "Onemogočeni ponudniki:",
+    "description": "Label for the number of disabled provider signatures"
+  },
+  "rules_hash_status_label": {
+    "message": "Stanje nalaganja:",
+    "description": "Label for the current loading status of the rules"
+  },
+  "rules_last_updated_label": {
+    "message": "Zadnja posodobitev:",
+    "description": "Label for the last update date of the rules dataset"
+  },
+  "rules_license_label": {
+    "message": "Licenca:",
+    "description": "Label for the license of the rules dataset"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "Združena oddaljena pravila",
+    "description": "Display name for merged remote rules metadata in settings."
+  },
+  "rules_metadata_section": {
+    "message": "Informacije o pravilih:",
+    "description": "Section header for rules metadata information"
+  },
+  "rules_name_label": {
+    "message": "Ime pravil:",
+    "description": "Label for the name of the rules dataset"
+  },
+  "rules_source_bundled": {
+    "message": "Vgrajeno",
+    "description": "Source text when bundled rules are active."
+  },
+  "rules_source_bundled_fallback": {
+    "message": "Vgrajena rezerva",
+    "description": "Source text when bundled fallback rules are active."
+  },
+  "rules_source_fallback": {
+    "message": "Rezerva",
+    "description": "Source text when minimal fallback rules are active."
+  },
+  "rules_source_label": {
+    "message": "Vir:",
+    "description": "Label for current active rules source."
+  },
+  "rules_source_remote": {
+    "message": "Oddaljeno",
+    "description": "Source text when remote rules are active."
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "Oddaljeno + vgrajeno (združeno)",
+    "description": "Source text when remote and built-in rules are merged."
+  },
+  "rules_status_active": {
+    "message": "Aktivno",
+    "description": "Value for active rules status."
+  },
+  "rules_status_error": {
+    "message": "Napaka pri nalaganju pravil",
+    "description": "Value for when rules fail to load."
+  },
+  "rules_status_label": {
+    "message": "Stanje:",
+    "description": "Label for rules status."
+  },
+  "rules_status_not_loaded": {
+    "message": "Ni naloženih pravil",
+    "description": "Value for when no rules are loaded."
+  },
+  "rules_total_providers_label": {
+    "message": "Skupaj ponudnikov:",
+    "description": "Label for the total number of rule providers (bundled + custom)"
+  },
+  "rules_total_rules_label": {
+    "message": "Skupaj pravil:",
+    "description": "Label for total rules count."
+  },
+  "rules_version_label": {
+    "message": "Različica pravil:",
+    "description": "Label for the version of the rules dataset"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "Če želite dodati, urediti ali odstraniti domene z belega seznama ",
+    "description": "Recommendation text in rules information section for whitelist management."
+  },
+  "rules_whitelist_open_editor": {
+    "message": "Kliknite tukaj",
+    "description": "Link text to open custom rules editor from rules information section."
+  },
+  "rules_whitelist_total_label": {
+    "message": "Skupaj domen na belem seznamu:",
+    "description": "Label for total whitelist domain count in rules information section."
+  },
+  "save_invalid_hash_url": {
+    "message": "Neveljavna oblika URL-ja zgoščene vrednosti",
+    "description": "Validation message when primary hash URL is not a valid URL."
+  },
+  "save_invalid_rule_url": {
+    "message": "Neveljavna oblika URL-ja pravila",
+    "description": "Validation message when primary rule URL is not a valid URL."
+  },
+  "save_primary_hash_https_required": {
+    "message": "Primarni URL zgoščene vrednosti mora uporabljati HTTPS",
+    "description": "Validation message when primary hash URL is not HTTPS."
+  },
+  "save_primary_remote_pair_required": {
+    "message": "Primarno zgoščevanje URL je potrebno le, če primarno pravilo URL kaže na pravila Linkumori (ClearURLs 2.0) JSON.",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "Primarni URL pravila mora uporabljati HTTPS",
+    "description": "Validation message when primary rule URL is not HTTPS."
+  },
+  "security_confirmation_cancelled": {
+    "message": "Varnostna potrditev preklicana",
+    "description": "Status message when user cancels confirmation modal"
+  },
+  "security_confirmation_phrase": {
+    "message": "Sprejmem polno odgovornost",
+    "description": "The exact phrase users must type to confirm (can be localized)"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "Zahtevana varnostna potrditev",
+    "description": "Placeholder text shown in URL fields before security confirmation"
+  },
+  "security_confirmation_reset": {
+    "message": "Varnostna potrditev je bila ponastavljena",
+    "description": "Status message when security confirmation is reset"
+  },
+  "security_confirmation_session_success": {
+    "message": "Varnostna potrditev uspešna",
+    "description": "Message shown when security confirmation is successful"
+  },
+  "security_confirmation_tooltip": {
+    "message": "Zahtevana varnostna potrditev - kliknite za začetek",
+    "description": "Tooltip text for the security confirmation icon next to remote URLs"
+  },
+  "security_modal_advanced_warning": {
+    "message": "OPOZORILO: Napredna funkcija, namenjena samo samo-gostujočim strežnikom",
+    "description": "Main warning banner text in security modal"
+  },
+  "security_modal_cancel": {
+    "message": "Ne želim nadaljevati - Prekliči",
+    "description": "Cancel button text in security modal"
+  },
+  "security_modal_cancelled": {
+    "message": "Konfiguracija oddaljenega URL-ja preklicana zaradi varnosti",
+    "description": "Status message when user cancels security modal"
+  },
+  "security_modal_continue": {
+    "message": "Razumem tveganja - Nadaljuj",
+    "description": "Continue button text in security modal"
+  },
+  "security_modal_final_warning": {
+    "message": "Ponovno razmislite o uporabi oddaljenih pravil, če ne razumete popolnoma, ali je vaš vir nabor pravil Linkumori (ClearURLs 2.0) JSON ali seznam interoperabilnosti Linkumori URL.",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "Ta funkcija oddaljenih pravil je zasnovana za napredne uporabnike, ki razumejo izvorni format, ki ga nalagajo. Linkumori (ClearURLs 2.0) JSON oddaljena pravila zahtevajo ujemajočo se zgoščeno vrednost URL za preverjanje. Linkumori URL Sezname interoperabilnosti filtrov je mogoče naložiti brez zgoščene vrednosti URL in so shranjeni ločeno.",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "Če dodate oddaljeno pravilo URL, se razširitev poveže z vašim določenim strežnikom, da pridobi nabor pravil Linkumori (ClearURLs 2.0) JSON, njegovo zgoščeno datoteko, ko je konfigurirana, ali Linkumori URL Seznam interoperabilnosti filtrov. Vsako pridobivanje lahko gostiteljskemu strežniku izpostavi vaš naslov IP in splošne informacije, kot so različica razširitve, brskalnik in različica brskalnika. Za te podatke velja politika zasebnosti te spletne strani ali spletnega strežnika.",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "Pred nadaljevanjem po potrebi ponovno preberite %PRIVACY_POLICY_LINK%.",
+    "description": "Follow-up sentence in the remote rules warning modal with a privacy policy link placeholder"
+  },
+  "security_modal_privacy_title": {
+    "message": "obvestilo o zasebnosti:",
+    "description": "Header for privacy notice section"
+  },
+  "security_modal_recommendation": {
+    "message": "Uporabite vgrajena pravila, razen če zaupate oddaljenemu viru in ga nadzirate. Za pravila Linkumori (ClearURLs 2.0) JSON navedite ujemajočo se zgoščeno vrednost URL. Za sezname filtrov interoperabilnosti pustite zgoščeno vrednost URL prazno.",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "Vaš IP naslov in informacije o brskalniku bodo razkriti konfiguriranim strežnikom",
+    "description": "First security risk point"
+  },
+  "security_modal_risk_2": {
+    "message": "Če je vir pravil ogrožen, bi lahko vašemu brskalniku služila zlonamerna pravila",
+    "description": "Second security risk point"
+  },
+  "security_modal_risk_3": {
+    "message": "Preverjanje zgoščevanja velja samo za pravila Linkumori (ClearURLs 2.0) JSON; ščiti pred nepooblaščenimi posegi v prenosu, ne pred zlonamernimi viri pravil.",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "Seznami filtrov interoperabilnosti ne uporabljajo preverjanja zgoščevanja, zato je zaupanje v vir URL še posebej pomembno.",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "Varnostna tveganja:",
+    "description": "Header for security risks section"
+  },
+  "security_modal_title": {
+    "message": "Varnostno opozorilo za oddaljena pravila",
+    "description": "Title for the security disclaimer modal"
+  },
+  "setting_hash_url_description": {
+    "message": "URL zgoščene datoteke za preverjanje pravil:",
+    "description": "Description for the custom hash URL input field"
+  },
+  "setting_hash_url_label": {
+    "message": "URL do datoteke rules.hash (zgoščena vrednost)",
+    "description": "This string is used as name for the rule.hash url label."
+  },
+  "setting_hash_url_mandatory": {
+    "message": "Zahtevano za ClearURLs JSON oddaljena pravila. Pustite prazno za sezname filtrov za sledenje priljubljene razširitve URL.",
+    "description": "Description for hash URL field explaining when it is required"
+  },
+  "setting_html_export_button": {
+    "message": "Izvozi",
+    "description": "This string is used as name for the export button on the settings page."
+  },
+  "setting_html_export_button_title": {
+    "message": "Izvozi vse",
+    "description": "This string is used as title for the export button on the settings page."
+  },
+  "setting_html_import_button": {
+    "message": "Uvozi",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_import_button_title": {
+    "message": "Uvozi vse",
+    "description": "This string is used as title for the import button on the settings page."
+  },
+  "setting_html_reset_button": {
+    "message": "Ponastavi",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_reset_button_title": {
+    "message": "Ponastavi vse",
+    "description": "This string is used as title for the reset button on the settings page."
+  },
+  "setting_html_audit_button": {
+    "message": "Revizija",
+    "description": "This string is used as name for the audit button on the settings page."
+  },
+  "setting_html_audit_button_title": {
+    "message": "Odpri stran za revizijo",
+    "description": "This string is used as title for the audit button on the settings page."
+  },
+  "setting_log_limit_label": {
+    "message": "Omejite dnevnik na $LIMIT$ vnosov.",
+    "description": "This string is used as name for the log limit label.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "Omejitev dnevnika (0-5000)",
+    "description": "Label for the log limit input field."
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "Dodatni oddaljeni viri so združeni. Uporabite <code>ruleURL | hashURL</code> za ClearURLs JSON ali samo <code>ruleURL</code> za sezname sledenja priljubljene razširitve URL.",
+    "description": "Description for additional remote rule sources."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "Dodatni nabori oddaljenih pravil",
+    "description": "Label for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
+  },
+  "setting_rule_url_description": {
+    "message": "Daljinski upravljalnik po meri URL za ClearURLs JSON pravila ali priljubljena razširitev URL filtri za sledenje",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "URL do datoteke data.json (pravila) ali .txt (za priljubljene)",
+    "description": "This string is used as name for the rule url label."
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "Opomba: Zgoščevanje URL je obvezno samo za oddaljena pravila ClearURLs JSON. Seznami sledenja priljubljene razširitve URL so shranjeni ločeno kot filtri Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Vrste zahtev</a> (ravni strokovnjaka)",
+    "description": "This string is used as name for the types label."
+  },
+  "settings_html_page_title": {
+    "message": "Nastavitve Linkumori (Clean URLS)",
+    "description": "This string is used as title on the settings page."
+  },
+  "settings_html_save_button": {
+    "message": "Shrani in znova naloži dodatek",
+    "description": "This string is used as name for the save&reload button on the settings page."
+  },
+  "settings_html_save_button_title": {
+    "message": "Shrani nastavitve",
+    "description": "This string is used as title for the save&reload button on the settings page."
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "Uvožena barva značke je #FFA500. Ali želite preklopiti na Linkumori modro (#2563EB)?",
+    "description": "Prompt shown during ClearURLs import when old orange badge color is detected."
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "Uvažate varnostno kopijo ClearURLs. Linkumori bo uvozil združljive nastavitve in preskočil ClearURLsData. Nadaljujem?",
+    "description": "Confirmation shown when importing legacy ClearURLs JSON files."
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "Ta varnostna kopija ClearURLs vključuje nastavitve oddaljenega vira pravil. Ali želite zdaj omogočiti stikalo Oddaljena pravila?",
+    "description": "Second confirmation shown for ClearURLs imports when remote rule URLs are present."
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "Stikalo Oddaljena pravila je bilo omogočeno iz vašega uvoza ClearURLs. Odprite nastavitve in ročno kliknite Shrani, da potrdite svojo končno oddaljeno konfiguracijo.",
+    "description": "Notice shown after user enables remote rules during ClearURLs import."
+  },
+  "settings_import_confirm": {
+    "message": "Ali ste prepričani, da želite uvoziti nastavitve? To bo prepisalo vaše trenutne"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "Metapodatki uvoza so nepopolni",
+    "description": "Shown when import metadata is present but missing expected fields."
+  },
+  "settings_import_invalid_file": {
+    "message": "Izbrana neveljavna datoteka",
+    "description": "Shown when imported settings file is invalid."
+  },
+  "settings_import_invalid_format": {
+    "message": "Neveljavna oblika nastavitev",
+    "description": "Shown when imported settings data cannot be parsed as expected."
+  },
+  "settings_import_no_data": {
+    "message": "V datoteki ni najdenih nastavitev za uvoz",
+    "description": "Shown when parsed file has no supported settings keys."
+  },
+  "settings_import_no_file": {
+    "message": "Ni izbrane datoteke",
+    "description": "Shown when import is triggered without selecting a file."
+  },
+  "settings_import_parse_error": {
+    "message": "Razčlenjevanje datoteke nastavitev ni uspelo",
+    "description": "Shown when JSON parsing fails for imported file."
+  },
+  "settings_import_read_error": {
+    "message": "Branje datoteke nastavitev ni uspelo",
+    "description": "Shown when browser cannot read the selected file."
+  },
+  "settings_import_wrong_extension": {
+    "message": "Izberite veljavno datoteko nastavitev Linkumori/ClearURLs (.json ali .conf)",
+    "description": "Shown when imported settings file does not match supported Linkumori or ClearURLs formats."
+  },
+  "settings_imported": {
+    "message": "Nastavitve uspešno uvožene"
+  },
+  "statistics_reset_success": {
+    "message": "Ponastavitev uspešna!",
+    "description": "This string is used as feedback after the statistics have been reset."
+  },
+  "status_builtinOnly": {
+    "message": "Samo vgrajena pravila"
+  },
+  "status_color_picker_failed": {
+    "message": "Zagon izbirnika barv ni uspel",
+    "description": "Error message when color picker fails to load"
+  },
+  "status_customFailed": {
+    "message": "Pravila po meri niso uspela"
+  },
+  "status_customMerged": {
+    "message": "Pravila po meri združena (privzeta + meri)"
+  },
+  "status_deleteFailed": {
+    "message": "Brisanje ni uspelo"
+  },
+  "status_invalidJson": {
+    "message": "Neveljaven JSON"
+  },
+  "status_language_changed_success": {
+    "message": "Jezik uspešno spremenjen v $1",
+    "description": "Success message when language is changed. $1 is the native language name"
+  },
+  "status_load_settings_failed": {
+    "message": "Nalaganje nastavitev ni uspelo",
+    "description": "Status message when settings fail to load."
+  },
+  "status_loading": {
+    "message": "Nalaganje ..."
+  },
+  "status_reset_failed": {
+    "message": "Ponastavitev nastavitev ni uspela",
+    "description": "Status message when settings reset fails."
+  },
+  "status_reset_successful": {
+    "message": "Nastavitve uspešno ponastavljene",
+    "description": "Status message shown after settings have been reset."
+  },
+  "status_resetting_settings": {
+    "message": "Ponastavljanje nastavitev ...",
+    "description": "Status message shown while settings are being reset."
+  },
+  "status_saveFailed": {
+    "message": "Shranjevanje ni uspelo"
+  },
+  "status_save_failed": {
+    "message": "Shranjevanje nastavitev ni uspelo",
+    "description": "Status message when settings save fails."
+  },
+  "status_save_setting_failed": {
+    "message": "Shranjevanje nastavitve $SETTING$ ni uspelo",
+    "description": "Error message when a specific toggle setting fails to save.",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "Nastavitve uspešno shranjene",
+    "description": "Status message when settings save is successful."
+  },
+  "status_saved": {
+    "message": "Shranjeno!",
+    "description": "Button text after settings are saved."
+  },
+  "status_saving": {
+    "message": "Shranjevanje ...",
+    "description": "Button text while saving settings."
+  },
+  "status_unavailable": {
+    "message": "Stanje ni na voljo"
+  },
+  "status_unknown": {
+    "message": "Neznano"
+  },
+  "status_usingCached": {
+    "message": "zadevno vgrajeno pravilo je morda poškodovano ali ni pravilno naloženo. Namesto tega so bila naložena rezervna pravila in združena s pravili po meri."
+  },
+  "status_usingFallback": {
+    "message": "Uporaba rezervnih pravil"
+  },
+  "status_valid": {
+    "message": "Veljavno"
+  },
+  "status_validJson": {
+    "message": "Veljaven JSON"
+  },
+  "status_validJsonUnsaved": {
+    "message": "Veljaven JSON - Neshranjen"
+  },
+  "sunIconAlt": {
+    "message": "ikona sonca",
+    "description": "Alt text for sun theme icon"
+  },
+  "switchToDarkTheme": {
+    "message": "Preklopi na temno temo",
+    "description": "ARIA label for theme toggle when current theme is light"
+  },
+  "switchToLightTheme": {
+    "message": "Preklopi na svetlo temo",
+    "description": "ARIA label for theme toggle when current theme is dark"
+  },
+  "themeToggleAriaLabel": {
+    "message": "Preklopi temo",
+    "description": "ARIA label for the theme toggle button for accessibility."
+  },
+  "theme_description": {
+    "message": "Izberite želeni videz teme",
+    "description": "Description text for theme selection"
+  },
+  "theme_name_dark": {
+    "message": "Temna",
+    "description": "Name for the dark theme"
+  },
+  "theme_name_icecold": {
+    "message": "Ledeno mrzla",
+    "description": "Name for the ice cold theme"
+  },
+  "theme_name_zengray": {
+    "message": "Zen siva",
+    "description": "Name for the zen grey theme"
+  },
+  "theme_name_forest": {
+    "message": "Gozd",
+    "description": "Name for the forest theme"
+  },
+  "theme_name_light": {
+    "message": "Svetla",
+    "description": "Name for the light theme"
+  },
+  "theme_name_midnight": {
+    "message": "Polnoč",
+    "description": "Name for the midnight theme"
+  },
+  "theme_name_sunset": {
+    "message": "Sončni zahod",
+    "description": "Name for the sunset theme"
+  },
+  "theme_name_legacy": {
+    "message": "Dedna",
+    "description": "Name for the legacy ClearURLs-style theme"
+  },
+  "theme_group_light_label": {
+    "message": "Svetli način",
+    "description": "Label above the light theme cards group"
+  },
+  "theme_group_dark_label": {
+    "message": "Temni način",
+    "description": "Label above the dark theme cards group"
+  },
+  "theme_selection_label": {
+    "message": "Tema",
+    "description": "Label for the theme selection section"
+  },
+  "time_am": {
+    "message": "DOP"
+  },
+  "time_am_lower": {
+    "message": "dop",
+    "description": "Lowercase AM marker"
+  },
+  "time_pm": {
+    "message": "POP"
+  },
+  "time_pm_lower": {
+    "message": "pop",
+    "description": "Lowercase PM marker"
+  },
+  "number_0": {
+    "message": "0",
+    "description": "Localized digit zero"
+  },
+  "number_1": {
+    "message": "1",
+    "description": "Localized digit one"
+  },
+  "number_2": {
+    "message": "2",
+    "description": "Localized digit two"
+  },
+  "number_3": {
+    "message": "3",
+    "description": "Localized digit three"
+  },
+  "number_4": {
+    "message": "4",
+    "description": "Localized digit four"
+  },
+  "number_5": {
+    "message": "5",
+    "description": "Localized digit five"
+  },
+  "number_6": {
+    "message": "6",
+    "description": "Localized digit six"
+  },
+  "number_7": {
+    "message": "7",
+    "description": "Localized digit seven"
+  },
+  "number_8": {
+    "message": "8",
+    "description": "Localized digit eight"
+  },
+  "number_9": {
+    "message": "9",
+    "description": "Localized digit nine"
+  },
+  "day_0": {
+    "message": "Nedelja",
+    "description": "Localized weekday name for Sunday"
+  },
+  "day_1": {
+    "message": "Ponedeljek",
+    "description": "Localized weekday name for Monday"
+  },
+  "day_2": {
+    "message": "Torek",
+    "description": "Localized weekday name for Tuesday"
+  },
+  "day_3": {
+    "message": "Sreda",
+    "description": "Localized weekday name for Wednesday"
+  },
+  "day_4": {
+    "message": "Četrtek",
+    "description": "Localized weekday name for Thursday"
+  },
+  "day_5": {
+    "message": "Petek",
+    "description": "Localized weekday name for Friday"
+  },
+  "day_6": {
+    "message": "Sobota",
+    "description": "Localized weekday name for Saturday"
+  },
+  "month_1": {
+    "message": "Januar",
+    "description": "Localized month name for January"
+  },
+  "month_2": {
+    "message": "Februar",
+    "description": "Localized month name for February"
+  },
+  "month_3": {
+    "message": "Marec",
+    "description": "Localized month name for March"
+  },
+  "month_4": {
+    "message": "aprila",
+    "description": "Localized month name for April"
+  },
+  "month_5": {
+    "message": "Maj",
+    "description": "Localized month name for May"
+  },
+  "month_6": {
+    "message": "Junij",
+    "description": "Localized month name for June"
+  },
+  "month_7": {
+    "message": "Julij",
+    "description": "Localized month name for July"
+  },
+  "month_8": {
+    "message": "Avgust",
+    "description": "Localized month name for August"
+  },
+  "month_9": {
+    "message": "septembra",
+    "description": "Localized month name for September"
+  },
+  "month_10": {
+    "message": "Oktober",
+    "description": "Localized month name for October"
+  },
+  "month_11": {
+    "message": "novembra",
+    "description": "Localized month name for November"
+  },
+  "month_12": {
+    "message": "decembra",
+    "description": "Localized month name for December"
+  },
+  "url_field_editable_tooltip": {
+    "message": "Polje je mogoče urejati",
+    "description": "Tooltip shown when security confirmation is already satisfied."
+  },
+  "url_validation_https_recommended": {
+    "message": "HTTPS je priporočljiv za varnost",
+    "description": "Warning shown when URL is valid but does not use HTTPS."
+  },
+  "url_validation_invalid": {
+    "message": "Neveljavna oblika URL-ja.",
+    "description": "Error message displayed when the URL format is invalid"
+  },
+  "watchdog": {
+    "message": "[Linkumori (Clean URLS)]: Stražar je zaznal težavo in je že odpovedal $TIMES$ krat.",
+    "description": "This string is used as text for the watchdog",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "Linkumori privzeto odstranjuje sledilne parametre iz URL-jev in vam po potrebi nudi napredne kontrole. Preglejte spodnje funkcije, nato nadaljujte na politiko zasebnosti in licenco."
+  },
+  "welcomeHeading": {
+    "message": "Dobrodošli v Linkumori"
+  },
+  "welcome_migration_description": {
+    "message": "Vaše nastavitve ClearURLs so bile uvožene. Preglejte spodnje funkcije Linkumori, nato nadaljujte z branjem politike zasebnosti in licence.",
+    "description": "Description shown on migration welcome screen."
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "Vgrajena pravila, osredotočena na zasebnost, privzeto omogočena.",
+    "description": "Feature list item describing default bundled rule behavior."
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "Urejevalnik pravil po meri s kontrolo na ravni ponudnika, uvozom/izvozom in upravljanjem pravil.",
+    "description": "Feature list item describing custom rules."
+  },
+  "welcome_migration_feature_overload": {
+    "message": "Način preobremenitve lahko združi vgrajena in oddaljena pravila, preden se uporabijo pravila po meri.",
+    "description": "Feature list item describing overload mode."
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "Podprtih več oddaljenih virov pravil (pari URL pravila + URL zgoščene vrednosti).",
+    "description": "Feature list item describing multiple remote sets."
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "Podpora belega seznama za obhod čiščenja na izbranih domenah, kadar je to potrebno.",
+    "description": "Feature list item describing whitelist behavior."
+  },
+  "welcome_migration_heading": {
+    "message": "Selitev ClearURLs končana",
+    "description": "Main heading on migration welcome screen."
+  },
+  "welcome_migration_open_settings": {
+    "message": "Odpri nastavitve",
+    "description": "Button label to open settings from migration welcome screen."
+  },
+  "welcome_migration_title": {
+    "message": "Dobrodošli v Linkumori",
+    "description": "Page title for the migration welcome screen shown after ClearURLs import."
+  },
+  "welcome_next_button": {
+    "message": "Naprej: Zasebnost in licenca",
+    "description": "Button shown in guided welcome mode to continue to privacy and license sections."
+  },
+  "whitelist_add_button": {
+    "message": "Dodaj",
+    "description": "Text for the add domain button"
+  },
+  "whitelist_add_failed": {
+    "message": "Dodajanje domene na beli seznam ni uspelo",
+    "description": "Error message when adding domain fails"
+  },
+  "whitelist_added": {
+    "message": "Dodano %s na beli seznam",
+    "description": "Success message when domain is added. %s is replaced with domain name."
+  },
+  "whitelist_already_exists": {
+    "message": "Domena je že na belem seznamu ali neveljavna",
+    "description": "Error message when domain already exists or is invalid"
+  },
+  "whitelist_count": {
+    "message": "%d domen(a) na belem seznamu",
+    "description": "Text showing number of whitelisted domains. %d is replaced with the count."
+  },
+  "whitelist_empty": {
+    "message": "Ni domen na belem seznamu",
+    "description": "Text shown when whitelist is empty"
+  },
+  "whitelist_enter_domain": {
+    "message": "Vnesite ime domene",
+    "description": "Error message when trying to add empty domain"
+  },
+  "whitelist_examples_text": {
+    "message": "Primeri: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
+    "description": "Text before domain format examples"
+  },
+  "whitelist_export_button": {
+    "message": "Izvozi",
+    "description": "Button text for exporting whitelist domains"
+  },
+  "whitelist_export_done": {
+    "message": "Beli seznam uspešno izvožen",
+    "description": "Success message when whitelist export completes"
+  },
+  "whitelist_export_empty": {
+    "message": "Beli seznam je prazen. Ničesar za izvoz.",
+    "description": "Info message when user tries to export an empty whitelist"
+  },
+  "whitelist_export_failed": {
+    "message": "Izvoz belega seznama ni uspel",
+    "description": "Error shown when whitelist export fails"
+  },
+  "whitelist_import_button": {
+    "message": "Uvozi",
+    "description": "Button text for importing whitelist domains"
+  },
+  "whitelist_import_done": {
+    "message": "Uvoženih %s domen(a) na beli seznam",
+    "description": "Success message for whitelist import. %s is replaced with imported domain count"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "Neveljavna oblika belega seznama. Uporabite JSON matriko domen.",
+    "description": "Error shown when imported whitelist structure is not supported"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "V datoteki belega seznama ni najdenih veljavnih domen",
+    "description": "Error shown when imported whitelist has no valid domain entries"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "Razčlenjevanje datoteke belega seznama ni uspelo",
+    "description": "Error shown when whitelist import file is invalid JSON"
+  },
+  "whitelist_input_placeholder": {
+    "message": "example.com ali *.example.com",
+    "description": "Placeholder text for the domain input field"
+  },
+  "whitelist_invalid_format": {
+    "message": "Neveljavna oblika domene. Uporabite: example.com ali *.example.com",
+    "description": "Error message for invalid domain format"
+  },
+  "whitelist_load_failed": {
+    "message": "Nalaganje belega seznama ni uspelo",
+    "description": "Error message when whitelist fails to load"
+  },
+  "whitelist_remove_button": {
+    "message": "Odstrani",
+    "description": "Text for the remove domain button"
+  },
+  "whitelist_remove_failed": {
+    "message": "Odstranjevanje domene z belega seznama ni uspelo",
+    "description": "Error message when removing domain fails"
+  },
+  "whitelist_removed": {
+    "message": "Odstranjeno %s z belega seznama",
+    "description": "Success message when domain is removed. %s is replaced with domain name."
+  },
+  "whitelist_search_placeholder": {
+    "message": "Išči po domenah na belem seznamu",
+    "description": "Placeholder text for searching whitelisted domains"
+  },
+  "whitelist_section_description": {
+    "message": "Domene, dodane sem, bodo V CELOTI izpuščene čiščenja URL-jev. Sledilni parametri bodo na teh mestih ohranjeni.",
+    "description": "Description explaining what the whitelist does"
+  },
+  "whitelist_section_title": {
+    "message": "Beli seznam domen",
+    "description": "Title for the whitelist settings section"
+  },
+  "whitelist_update_failed": {
+    "message": "Posodabljanje belega seznama ni uspelo",
+    "description": "Error message when updating the whitelist fails."
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "Ponastavi globalno statistiko",
+    "description": "This string is used as title for the statistics reset button on the popup page."
+  },
+  "popup_html_log_head_title": {
+    "message": "Odpri dnevnik",
+    "description": "This string is used as title for the log button on the popup page."
+  },
+  "popup_html_settings_button_title": {
+    "message": "Odpri nastavitve",
+    "description": "This string is used as a title for the settings button on the popup page."
+  },
+  "license_title_title": {
+    "message": "Informacije o licenci",
+    "description": "Title for the license information link in the popup"
+  },
+  "license_links_title_title": {
+    "message": "Licenca in zasluge",
+    "description": "Title for the license and credits link in the popup"
+  },
+  "popup_nav_main_title": {
+    "message": "Preklopi na glavne kontrole razširitve",
+    "description": "Tooltip for main navigation button"
+  },
+  "popup_nav_license_title": {
+    "message": "Preklopi na informacije o licenci",
+    "description": "Tooltip for license information button"
+  },
+  "customrules_title": {
+    "message": "Pravila po meri",
+    "description": "Title for the custom rules section"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "Pravne informacije - Politika zasebnosti in licenca",
+    "description": "Title for legal information page opened from popup consent gate"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "Beli seznam",
+    "description": "Title for HTML content page opened from popup consent gate"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "Onemogoči Gatekeeper",
+    "description": "Label for toggle that disables gatekeeper protections for remote URL editing"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "Onemogoči preverjanja Gatekeeper za urejanje oddaljenih URL-jev v tej seji.",
+    "description": "Description for disable gatekeeper toggle"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "Onemogoči Gatekeeper omogočen. Varnostna potrditev je zahtevana v vsaki seji nastavitev.",
+    "description": "Status message shown after enabling disable gatekeeper"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "Onemogoči Gatekeeper onemogočen. Obstoječe zaupanja vredne vrednosti je mogoče urejati brez takojšnje potrditve.",
+    "description": "Status message shown after disabling disable gatekeeper"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "Izvozi oddaljene URL-je",
+    "description": "Button text for exporting remote URL configuration only"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "Uvozi oddaljene URL-je",
+    "description": "Button text for importing remote URL configuration only"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "Izvozi primarne in dodatne pare oddaljenih URL-jev",
+    "description": "Tooltip for remote URL export button"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "Uvozi primarne in dodatne pare oddaljenih URL-jev",
+    "description": "Tooltip for remote URL import button"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "Opozorilo o tveganju onemogočanja Gatekeeper",
+    "description": "Title for the disable gatekeeper risk modal"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "OPOZORILO: Napredna funkcija, namenjena samo samo-gostujočim strežnikom",
+    "description": "Top warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "Onemogočate Gatekeeper zaščite za oddaljeno urejanje pravila URL. Ta funkcija lahko naloži pravila Linkumori (ClearURLs 2.0) JSON s preverjanjem zgoščevanja ali Linkumori URL filtrira sezname interoperabilnosti brez preverjanja zgoščevanja. Nadaljujte le, če razumete, katero obliko konfigurirate.",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "Gatekeeper je vgrajeni varnostni tok, ki blokira neposredno urejanje oddaljenih URL-jev, dokler ne potrdite varnostnega opozorila in dokončate vnosa potrditvenega besedila.",
+    "description": "Explains what gatekeeper means in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "Naj bo Gatekeeper omogočen, razen če zaupate svojim oddaljenim virom in jih nadzorujete. Pravila JSON morajo vključevati ujemajočo se zgoščeno vrednost URL; seznami interoperabilnosti namerno puščajo zgoščeno vrednost URL prazno.",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "obvestilo o zasebnosti:",
+    "description": "Privacy section title in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "Če dodate oddaljeno pravilo URL, se razširitev poveže z vašim določenim strežnikom, da pridobi nabor pravil Linkumori (ClearURLs 2.0) JSON, njegovo zgoščeno datoteko, ko je konfigurirana, ali Linkumori URL Seznam interoperabilnosti filtrov. Vsako pridobivanje lahko gostiteljskemu strežniku izpostavi vaš naslov IP in splošne informacije, kot so različica razširitve, brskalnik in različica brskalnika. Za te podatke velja politika zasebnosti te spletne strani ali spletnega strežnika.",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "Pred nadaljevanjem po potrebi ponovno preberite %PRIVACY_POLICY_LINK%.",
+    "description": "Follow-up sentence in the disable gatekeeper warning modal with a privacy policy link placeholder"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "obvestilo o zasebnosti:",
+    "description": "Risks section title in disable gatekeeper modal"
+  },
+  "privacy_policy_link_label": {
+    "message": "Politika zasebnosti",
+    "description": "Label for privacy policy hyperlinks shown in warning dialogs"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "Razširitev se bo povezala z vašim določenim URL-jem vsakič, ko je razširitev omogočena in naložena v vašem brskalniku.",
+    "description": "Risk bullet 1 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "Strežnik, ki gosti oddaljene datoteke JSON, hash ali interoperabilnostne filtrske datoteke, bo prejel vaš naslov IP.",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "Strežnik lahko prejme tudi različico vaše razširitve, brskalnik in različico brskalnika.",
+    "description": "Risk bullet 3 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "Ti podatki so predmet politike zasebnosti spletnega mesta ali spletnega strežnika, ki gosti te datoteke.",
+    "description": "Risk bullet 4 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "Če onemogočite Gatekeeper, povečate tveganje zaradi nevarnih ali ogroženih oddaljenih virov pravil. Preverjanje zgoščevanja ščiti samo Linkumori (ClearURLs 2.0) JSON prenose pravil. Ne velja za sezname interoperabilnosti.",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "Prekliči",
+    "description": "Cancel button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "Nadaljuj",
+    "description": "Continue button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "Razumem tveganje oddaljenih pravil in onemogočam gatekeeper",
+    "description": "Exact phrase user must type to confirm disabling gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "Potrditev z vnosom zahtevana",
+    "description": "Title for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "Če želite onemogočiti gatekeeper, vnesite spodaj natančno potrditveno besedno zvezo.",
+    "description": "Instruction text for gatekeeper-specific confirmation modal"
+  },
+  "redirection_warning_modal_title": {
+    "message": "Opozorilo o obhodu preusmeritev",
+    "description": "Title for the warning modal shown before enabling redirect bypass."
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "Preden omogočite to funkcijo, preglejte pravila preusmeritev.",
+    "description": "Top warning line for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "Ta funkcija lahko obide preusmeritvene in sledilne URL-je tretjih oseb z uporabo trenutno prisotnih pravil preusmeritev iz vgrajenih, oddaljenih in lastnih virov.",
+    "description": "Main warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "Najprej opravite revizijo pravil. Če je pravilo preusmeritve preveč široko ali ni primerno za vaše brskanje, ga uredite ali preglasite v urejevalniku pravil po meri, preden omogočite to nastavitev.",
+    "description": "Recommendation text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "Kaj preveriti",
+    "description": "Risks section title for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "Vgrajena pravila, oddaljena pravila in pravila po meri lahko vsa prispevajo k obnašanju preusmeritev.",
+    "description": "First risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "Široko pravilo preusmeritve lahko razpre povezavo na način, ki ga niste pričakovali.",
+    "description": "Second risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "Zadnje predpomnjena oddaljena pravila se lahko spremenijo, ko se pridobijo novi podatki oddaljenih pravil.",
+    "description": "Third risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "Preden se zanesete na to funkcijo, uporabite stran Revizija za pregled vgrajenih pravil, končnih pravil, pravil po meri in zadnjih predpomnjenih oddaljenih pravil.",
+    "description": "Fourth risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "To omogočite le, če zaupate trenutno prisotnim pravilom preusmeritev iz različnih virov. Če te funkcije ne razumete, je ne omogočite. Brez omogočanja te nastavitve pravila za obhod preusmeritev ne bodo uveljavljena.",
+    "description": "Final warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "Prekliči",
+    "description": "Cancel button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_continue": {
+    "message": "Nadaljuj",
+    "description": "Continue button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "Obhod preusmeritev ostane onemogočen.",
+    "description": "Status shown when the redirect bypass warning modal is cancelled."
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "Vnesite natančno potrditveno besedno zvezo",
+    "description": "Input label for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "To dejanje zmanjša zaščitne ukrepe za oddaljena pravila. Nadaljujte samo, če zaupate svojemu JSON in virom filtrov interoperabilnosti.",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "Zamenjajte ogradne vrednosti s svojimi resničnimi HTTPS URL-ji, nato uvozite to datoteko.",
+    "description": "Template export note 1 for remote URL export JSON"
+  },
+  "remote_urls_template_note_2": {
+    "message": "Primary vsebuje glavni par URL-jev pravila/zgoščene vrednosti.",
+    "description": "Template export note 2 for remote URL export JSON"
+  },
+  "remote_urls_template_note_3": {
+    "message": "Additional je neobvezen in podpira več parov URL-jev pravila/zgoščene vrednosti.",
+    "description": "Template export note 3 for remote URL export JSON"
+  },
+  "remote_urls_template_note_4": {
+    "message": "Po potrebi dodajte ali odstranite objekte v matriki additional.",
+    "description": "Template export note 4 for remote URL export JSON"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "ZAMENJAJ_Z_GLAVNIM_URL_JOM_PRAVILA",
+    "description": "Placeholder value for primary rule URL in template export JSON"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "ZAMENJAJ_Z_GLAVNIM_URL_JOM_ZGOŠČENE_VREDNOSTI",
+    "description": "Placeholder value for primary hash URL in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "ZAMENJAJ_Z_DODATNIM_URL_JOM_PRAVILA_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "ZAMENJAJ_Z_DODATNIM_URL_JOM_ZGOŠČENE_VREDNOSTI_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "ZAMENJAJ_Z_DODATNIM_URL_JOM_PRAVILA_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "ZAMENJAJ_Z_DODATNIM_URL_JOM_ZGOŠČENE_VREDNOSTI_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "ZAMENJAJ_Z_DODATNIM_URL_JOM_PRAVILA_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "ZAMENJAJ_Z_DODATNIM_URL_JOM_ZGOŠČENE_VREDNOSTI_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
+  },
+  "remote_urls_export_success": {
+    "message": "Konfiguracija oddaljenih URL-jev izvožena.",
+    "description": "Success status after exporting configured remote URLs"
+  },
+  "remote_urls_template_export_success": {
+    "message": "Predloga oddaljenih URL-jev izvožena. Izpolnite ogradne vrednosti in uvozite.",
+    "description": "Success status after exporting empty remote URL template"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "Konfiguracija oddaljenih URL-jev uvožena in shranjena.",
+    "description": "Success status after importing and saving remote URL configuration"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "Uvoz razčlenjen, vendar shranjevanje konfiguracije oddaljenih URL-jev ni uspelo.",
+    "description": "Error status when import parsing succeeded but saving failed"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "Neveljavna konfiguracijska datoteka oddaljenih URL-jev.",
+    "description": "Error status when imported remote URL JSON is invalid"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "Izbrane datoteke ni mogoče prebrati.",
+    "description": "Error status when file reader fails for remote URL import"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "V datoteki ni bilo najdenih veljavnih parov oddaljenih URL-jev.",
+    "description": "Error status when no valid pairs are found during remote URL import"
+  },
+  "popup_consent_title_title": {
+    "message": "Zahtevano soglasje",
+    "description": "Title for the legal information section in the popup"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "Preklopi vklop/izklop glavne funkcionalnosti",
+    "description": "Title for the button that switches to the filter configuration view in the popup"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "Preklopi za dnevnike, vsi podatki shranjeni lokalno na vaši napravi",
+    "description": "Title for the button that switches to the statistics view in the popup"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "Preklopi vklop/izklop ikone značke",
+    "description": "Title for the statistics section in the popup"
+  },
+  "configs_switch_statistics_title": {
+    "message": "Preklopi vklop/izklop statistike",
+    "description": "Title for the button that switches to the license and credits view in the popup"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "Elementi",
+    "description": "Title for the statistics section in the popup"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "Blokirano",
+    "description": "Description for the elements statistic in the popup"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "Odstotek",
+    "description": "Description for the blocked statistic in the popup"
+  },
+  "audit_html_page_title": {
+    "message": "Revizija pravil Linkumori",
+    "description": "Title for the audit page"
+  },
+  "audit_badge_label": {
+    "message": "REVIZIJA",
+    "description": "Small badge label in the audit page header"
+  },
+  "audit_section_title": {
+    "message": "Revizija pravil",
+    "description": "Main section title for the audit page"
+  },
+  "audit_viewer_title": {
+    "message": "Pregledovalnik virov pravil",
+    "description": "Title for the audit source viewer card"
+  },
+  "audit_viewer_description": {
+    "message": "Uporabite spodnje gumbe virov za pregled vgrajenih pravil, končnih združenih pravil, pravil po meri ali zadnjih pridobljenih oddaljenih pravil, shranjenih v predpomnilniku, kot surovi JSON.",
+    "description": "Description for the audit source viewer"
+  },
+  "audit_refresh_button": {
+    "message": "Osveži vire",
+    "description": "Refresh button label on the audit page"
+  },
+  "audit_faq_button": {
+    "message": "Pogosta vprašanja",
+    "description": "FAQ button label on the audit page"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "Preklopi temo",
+    "description": "Accessible label for the theme toggle on the audit page"
+  },
+  "audit_faq_close_aria": {
+    "message": "Zapri pogosta vprašanja",
+    "description": "Accessible label for the FAQ modal close button"
+  },
+  "audit_source_bundled": {
+    "message": "Vgrajena pravila",
+    "description": "Button and title for bundled rules audit source"
+  },
+  "audit_source_final": {
+    "message": "Končna pravila",
+    "description": "Button and title for final merged rules audit source"
+  },
+  "audit_source_custom": {
+    "message": "Pravila po meri",
+    "description": "Button and title for custom rules audit source"
+  },
+  "audit_source_remote": {
+    "message": "Zadnja predpomnjena oddaljena pravila",
+    "description": "Button and title for latest cached remote rules audit source"
+  },
+  "audit_source_bundled_description": {
+    "message": "Vir: vgrajena datoteka data/linkumori-clearurls-min.json",
+    "description": "Source description for bundled rules"
+  },
+  "audit_source_final_description": {
+    "message": "Vir: podatki ClearURLsData v času izvajanja",
+    "description": "Source description for final rules"
+  },
+  "audit_source_custom_description": {
+    "message": "Vir: podatki custom_rules v času izvajanja",
+    "description": "Source description for custom rules"
+  },
+  "audit_source_remote_description": {
+    "message": "Vir: remoteRulescache.data v času izvajanja (zadnja pridobljena oddaljena pravila, shranjena lokalno v predpomnilniku)",
+    "description": "Source description for latest cached remote rules"
+  },
+  "audit_meta_waiting": {
+    "message": "Čakanje ...",
+    "description": "Meta text shown before audit data is loaded"
+  },
+  "audit_meta_error": {
+    "message": "Napaka",
+    "description": "Meta text shown when a selected audit source has an error"
+  },
+  "audit_meta_source_bundled": {
+    "message": "vgrajena pravila",
+    "description": "Meta label for bundled rules source"
+  },
+  "audit_meta_source_final": {
+    "message": "končna pravila",
+    "description": "Meta label for final rules source"
+  },
+  "audit_meta_source_custom": {
+    "message": "pravila po meri",
+    "description": "Meta label for custom rules source"
+  },
+  "audit_meta_source_remote": {
+    "message": "oddaljeni predpomnilnik",
+    "description": "Meta label for latest cached remote rules source"
+  },
+  "audit_meta_template": {
+    "message": "$1 | ponudnikov: $2 | znakov: $3",
+    "description": "Template for audit source meta information"
+  },
+  "audit_status_loading": {
+    "message": "Nalaganje virov za revizijo ...",
+    "description": "Status shown while loading audit sources"
+  },
+  "audit_status_loaded": {
+    "message": "Vsi viri za revizijo naloženi.",
+    "description": "Status shown when all audit sources load successfully"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "Viri za revizijo naloženi. Zadnja predpomnjena oddaljena pravila še niso na voljo.",
+    "description": "Status shown when audit sources load but remote cache is not yet available"
+  },
+  "audit_status_partial_error": {
+    "message": "Nekateri viri za revizijo se niso uspeli naložiti. Preklopite med viri, da pregledate napako JSON.",
+    "description": "Status shown when one or more audit sources fail to load"
+  },
+  "audit_status_refresh_failed": {
+    "message": "Osveževanje virov za revizijo ni uspelo.",
+    "description": "Fallback error shown when refreshing audit sources fails"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "Pridobivanje vgrajenih pravil ni uspelo s statusom $1",
+    "description": "Error shown when fetching bundled rules fails"
+  },
+  "audit_error_final_missing": {
+    "message": "Čas izvajanja ni vrnil ClearURLsData",
+    "description": "Error shown when final rules are missing from runtime storage"
+  },
+  "audit_error_custom_missing": {
+    "message": "Čas izvajanja ni vrnil custom_rules",
+    "description": "Error shown when custom rules are missing from runtime storage"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "Čas izvajanja ni vrnil remoteRulescache",
+    "description": "Error shown when remote cache is missing from runtime storage"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "Neznana napaka vgrajenih pravil",
+    "description": "Fallback bundled rules error"
+  },
+  "audit_error_unknown_final": {
+    "message": "Neznana napaka končnih pravil",
+    "description": "Fallback final rules error"
+  },
+  "audit_error_unknown_custom": {
+    "message": "Neznana napaka pravil po meri",
+    "description": "Fallback custom rules error"
+  },
+  "audit_error_unknown_remote": {
+    "message": "Neznana napaka oddaljenih pravil",
+    "description": "Fallback remote rules error"
+  },
+  "audit_remote_unavailable": {
+    "message": "Ni še na voljo predpomnjenih oddaljenih pravil",
+    "description": "Message shown when remote cache has not been populated yet"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "Ni še na voljo podatkovne vsebine predpomnjenih oddaljenih pravil",
+    "description": "Message shown when remote cache exists but has no data payload"
+  },
+  "audit_faq_modal_title": {
+    "message": "Pogosta vprašanja o reviziji",
+    "description": "Title for the audit FAQ modal"
+  },
+  "audit_faq_intro": {
+    "message": "Te opombe opisujejo polja ponudnikov, ki jih clearurls.js dejansko bere, ko gradi in uporablja pravila.",
+    "description": "Intro text for the audit FAQ modal"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "Kako opravim revizijo ponudnika?",
+    "description": "FAQ title for auditing a provider"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p>Odprite vir v pregledovalniku, poiščite ponudnika znotraj <span class=\"faq-code\">providers</span> in preglejte ključe na tem objektu ponudnika.</p><p>Uporabite <span class=\"faq-code\">Vgrajena pravila</span> za pregled dobavljenih pravil, <span class=\"faq-code\">Končna pravila</span> za pregled združenega rezultata v času izvajanja, <span class=\"faq-code\">Pravila po meri</span> za pregled uporabniških preglasitev in <span class=\"faq-code\">Zadnja predpomnjena oddaljena pravila</span> za pregled najnovejšega pridobljenega oddaljenega podatka, shranjenega v predpomnilniku.</p>",
+    "description": "FAQ body for auditing a provider"
+  },
+  "audit_faq_override_title": {
+    "message": "Kako omogočim, onemogočim, uvozim, uredim ali preglasim posamezna pravila?",
+    "description": "FAQ title for custom rule editing and overrides"
+  },
+  "audit_faq_override_body": {
+    "message": "<p>Uporabite Urejevalnik pravil po meri, ko želite nadzor nad vsakim pravilom posebej. To je mesto, kjer lahko uvozite pravila kot pravila po meri, uredite polja ponudnikov in shranite svojo različico ponudnika.</p><p>Uporabite ga lahko za omogočanje ali onemogočanje posameznih ponudnikov ali posamezne vsebine pravil tako, da uvoženi ali urejeni ponudnik postane vaša različica po meri. Ta različica po meri se nato združi v pravila v času izvajanja.</p><p>Prav tako lahko posamezno preglasite vgrajena pravila in oddaljena pravila. Opravite revizijo <span class=\"faq-code\">Vgrajenih pravil</span> ali <span class=\"faq-code\">Zadnjih predpomnjenih oddaljenih pravil</span>, da poiščete želenega ponudnika, nato preglejte <span class=\"faq-code\">Pravila po meri</span> in <span class=\"faq-code\">Končna pravila</span>, da potrdite, da vaše urejanje ali preglasitev po meri deluje.</p><p>Če uvozite nabor pravil v urejevalnik pravil po meri, lahko obdržite le dele, ki jih želite, onemogočite dele, ki jih ne želite, in uredite ponudnika tako, da končni združeni rezultat deluje, kot želite.</p>",
+    "description": "FAQ body for custom rule editing and overrides"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "Kaj je urlPattern?",
+    "description": "FAQ title for urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPattern</span> je regex, ki se uporablja za odločitev, ali se ponudnik ujema z URL-jem.</p><p>Če ima ponudnik <span class=\"faq-code\">urlPattern</span>, ClearURLs najprej uporabi ta regex. V clearurls.js se to pretvori v pravi RegExp s <span class=\"faq-code\">setURLPattern()</span>.</p>",
+    "description": "FAQ body for urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "Kaj so domainPatterns?",
+    "description": "FAQ title for domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> je preizkuševalec na podlagi domene, ki se uporablja, kadar se ponudnik ne zanaša na <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURLs jih shrani s <span class=\"faq-code\">setURLDomainPattern()</span> in jih nato preveri z logiko ujemanja domene namesto z regex ujemanjem URL-ja.</p>",
+    "description": "FAQ body for domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "Kaj so pravila, rawRules in referralMarketing?",
+    "description": "FAQ title for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">rules</span> so imena parametrov ali fragmentov, ki jih je treba odstraniti iz URL-ja.</p><p><span class=\"faq-code\">rawRules</span> so regex zamenjave, uporabljene neposredno na celotnem nizu URL-ja pred čiščenjem poizvedbe.</p><p><span class=\"faq-code\">referralMarketing</span> se obravnava kot odstranljivi parametri, vendar ali se dejansko uporabijo, je odvisno od globalne nastavitve napotitvenega trženja.</p>",
+    "description": "FAQ body for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "Kaj so exceptions in domainExceptions?",
+    "description": "FAQ title for exceptions and domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\">exceptions</span> so regex vzorci, ki ustavijo delovanje ponudnika na ujemajočih se URL-jih.</p><p><span class=\"faq-code\">domainExceptions</span> delajo isto s preizkušanjem na podlagi domene namesto z regex ujemanjem URL-ja.</p><p>Če se izvzetje ujame, je ponudnik obiden, tudi če se je njegov glavni vzorec najprej ujel.</p>",
+    "description": "FAQ body for exceptions and domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "Kaj so redirections in domainRedirections?",
+    "description": "FAQ title for redirections and domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\">redirections</span> so razvijalci na osnovi regexa. Običajno zajamejo pravi ciljni URL v skupini 1, ClearURLs pa preusmeri na to zajeto vrednost.</p><p><span class=\"faq-code\">domainRedirections</span> so pravila preusmeritev v slogu domene. V tej kodi se preverjajo za vnose, oblikovane kot <span class=\"faq-code\">vzorec $redirect= cilj</span>.</p><p>Če se regex preusmeritev ujame prva, ta zmaga. Če ne, ClearURLs nato preveri preusmeritve domen.</p>",
+    "description": "FAQ body for redirections and domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "Kaj so methods in resourceTypes?",
+    "description": "FAQ title for methods and resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "<p><span class=\"faq-code\">methods</span> omejijo ponudnika na določene HTTP metode, kot sta <span class=\"faq-code\">GET</span> ali <span class=\"faq-code\">POST</span>. Če metode niso navedene, so dovoljene vse metode.</p><p><span class=\"faq-code\">resourceTypes</span> omejijo ponudnika na vrste virov webRequest, kot so <span class=\"faq-code\">main_frame</span>, <span class=\"faq-code\">sub_frame</span> ali <span class=\"faq-code\">xmlhttprequest</span>.</p><p>Če vrste virov niso navedene, ClearURLs uporabi globalne dovoljene vrste zahtev iz nastavitev.</p>",
+    "description": "FAQ body for methods and resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "Kaj sta completeProvider in forceRedirection?",
+    "description": "FAQ title for completeProvider and forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\">completeProvider</span> spremeni ponudnika v blokirnega ponudnika. V clearurls.js to pomeni, da lahko ponudnik prekliče ustrezne zahteve, ko je omogočeno blokiranje domen.</p><p><span class=\"faq-code\">forceRedirection</span> naredi preusmeritev bolj agresivno. Ko je preusmeritev najdena na zahtevi <span class=\"faq-code\">main_frame</span>, lahko ClearURLs posodobi zavihek brskalnika neposredno, namesto da vrne običajen odgovor preusmeritve.</p>",
+    "description": "FAQ body for completeProvider and forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "Katera polja ponudnikov uporablja clearurls.js tukaj?",
+    "description": "FAQ title for the list of provider fields used by clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p>Pot gradnje ponudnikov v tej veji bere te ključe: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span> in <span class=\"faq-code\">resourceTypes</span>.</p><p>Pri reviziji obnašanja je najpomembnejše mesto za preverjanje <span class=\"faq-code\">Končna pravila</span>, saj prikazujejo združeni rezultat po združitvi vgrajenih, oddaljenih in lastnih virov.</p>",
+    "description": "FAQ body for the list of provider fields used by clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "Začasna prekinitev",
+    "description": "Auto-added i18n key: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "Premor 15 min",
+    "description": "Auto-added i18n key: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "Premor 1 uro",
+    "description": "Auto-added i18n key: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "Do ponovnega zagona",
+    "description": "Auto-added i18n key: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "Nadaljuj zdaj",
+    "description": "Auto-added i18n key: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "Aktivno",
+    "description": "Auto-added i18n key: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "Prekinjeno do ponovnega zagona brskalnika",
+    "description": "Auto-added i18n key: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "Prekinjeno (še %s)",
+    "description": "Auto-added i18n key: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "Posodabljanje stanja začasne prekinitve ni uspelo.",
+    "description": "Auto-added i18n key: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "Nadaljevanje čiščenja ni uspelo.",
+    "description": "Auto-added i18n key: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "manj kot minuto",
+    "description": "Auto-added i18n key: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "min",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "h",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "Stanje oddaljenih pravil",
+    "description": "Auto-added i18n key: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "Osveži zdaj",
+    "description": "Auto-added i18n key: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "Zadnji poskus pridobivanja:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "Zadnji uspešni prenos:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "Zadnje preverjanje zgoščene vrednosti:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "Zadnji razlog za napako:",
+    "description": "Auto-added i18n key: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "Trenutno stanje zgoščene vrednosti:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "N/A",
+    "description": "Auto-added i18n key: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "Brez",
+    "description": "Auto-added i18n key: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "neznano",
+    "description": "Auto-added i18n key: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "Osveževanje ...",
+    "description": "Auto-added i18n key: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "Osveževanje oddaljenih pravil končano.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "Osveževanje oddaljenih pravil ni uspelo.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "Laboratorij za testiranje pravil",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "Laboratorij za testiranje pravil",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "Prilepite URL, da vidite stanje pred/po čiščenju in prvi ujemajoči se ponudnik/pravilo.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "Zaženi test",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "Testiranje ...",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "Najprej vnesite URL.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "Test pravil ni uspel.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "Ujemanje in čiščenje uspešno.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "Za ta URL ni bilo sprememb.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "URL je obvezen",
+    "description": "Auto-added i18n key: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "Neveljavna oblika URL-ja",
+    "description": "Auto-added i18n key: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "Test pravil ni uspel",
+    "description": "Auto-added i18n key: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "Preklopi temo",
+    "description": "ARIA label for popup theme toggle button"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "Zaznavanje domene ...",
+    "description": "Temporary label shown while popup detects current tab domain for whitelist button"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "Dodajanje %s ...",
+    "description": "Whitelist button loading label when adding domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "Odstranjevanje %s ...",
+    "description": "Whitelist button loading label when removing domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "Za to stran ni mogoče zaznati domene",
+    "description": "Tooltip for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "Gumb belega seznama onemogočen, ker ta stran nima podprte domene",
+    "description": "ARIA label for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_pause_15m_title": {
+    "message": "Začasno ustavi čiščenje za 15 minut",
+    "description": "Tooltip and ARIA label for the 15-minute temporary pause button in popup"
+  },
+  "popup_pause_1h_title": {
+    "message": "Začasno ustavi čiščenje za 1 uro",
+    "description": "Tooltip and ARIA label for the 1-hour temporary pause button in popup"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "Ustavi čiščenje do ponovnega zagona brskalnika",
+    "description": "Tooltip and ARIA label for the pause-until-restart button in popup"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "Takoj nadaljuj čiščenje URL-jev",
+    "description": "Tooltip and ARIA label for the resume-now button in popup"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "Začasno ustavi čiščenje URL-jev",
+    "description": "Tooltip for temporary pause section title in popup"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "Skupaj obdelanih elementov na trenutni strani",
+    "description": "Tooltip for popup total elements label"
+  },
+  "popup_consent_description_title": {
+    "message": "Preberite to preden sprejmete",
+    "description": "Tooltip for popup consent description"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "Potrdite, da ste prebrali in sprejeli",
+    "description": "Tooltip for popup consent checkbox label"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "Sprejmite soglasje in odklenite pojavno okno",
+    "description": "Tooltip for popup consent accept button"
+  },
+  "license_third_party_title_title": {
+    "message": "Informacije o komponentah tretjih oseb",
+    "description": "Tooltip for third-party section title"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "Zgoščena vrednost podpisa dodatka Firefox",
+    "description": "Tooltip for Firefox signature title label"
+  },
+  "invalid_date_label": {
+    "message": "Neveljaven datum",
+    "description": "Fallback text when a date value cannot be parsed."
+  },
+  "log_i18n_load_failed": {
+    "message": "Nalaganje jezikovnih nastavitev ni uspelo. Nekatere funkcije morda ne bodo delovale pravilno.",
+    "description": "Error message shown when log page translations fail to load."
+  },
+  "log_html_sort_oldest_first": {
+    "message": "Kliknite za prikaz najprej najstarejših",
+    "description": "Tooltip for log timestamp sort button when currently newest-first."
+  },
+  "log_html_sort_newest_first": {
+    "message": "Kliknite za prikaz najprej najnovejših",
+    "description": "Tooltip for log timestamp sort button when currently oldest-first."
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "Zapri laboratorij za testiranje pravil",
+    "description": "ARIA label for closing the Rule Test Lab modal."
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "Vhodni URL",
+    "description": "Label for input URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "Izhodni URL",
+    "description": "Label for output URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "Spremenjeno",
+    "description": "Label indicating whether URL was changed in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "Ujemajoči se ponudnik",
+    "description": "Label for matched provider in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "Ujemajoče se pravilo",
+    "description": "Label for matched rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "Vrsta vzorca",
+    "description": "Label for pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "Vrednost vzorca",
+    "description": "Label for pattern value in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "Dejanje",
+    "description": "Label for matched action in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "Izbirni parameter za testiranje (npr. utm_source ali ref=abc)",
+    "description": "Placeholder for optional parameter probe input in Rule Test Lab."
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "Testirani parameter",
+    "description": "Label for tested parameter probe in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "Ujemajoče se izvzetje URL",
+    "description": "Label for matched URL regex exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "Ujemajoče se izvzetje domene",
+    "description": "Label for matched domain exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "Ujemajoča se preusmeritev regex",
+    "description": "Label for matched regex redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "Ujemajoča se preusmeritev domene",
+    "description": "Label for matched domain redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "Ujemajoči se regex pravila",
+    "description": "Label for matched standard rule regex in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "Ujemajoče se surovo pravilo",
+    "description": "Label for matched raw rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "Ujemajoče se napotitveno pravilo",
+    "description": "Label for matched referral marketing rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "Ujemajoče se pravilo $removeparam",
+    "description": "Label for matched $removeparam rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "Ujemajoče se izvzetje $removeparam",
+    "description": "Label for matched @@$removeparam exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "Celoten ponudnik",
+    "description": "Label for completeProvider boolean in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "Brez",
+    "description": "Fallback value in Rule Test Lab output when there is no value."
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "Da",
+    "description": "Boolean true label in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "Ne",
+    "description": "Boolean false label in Rule Test Lab output."
+  },
+  "color_picket_clear": {
+    "message": "Počisti",
+    "description": "Clear button in color picker."
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "Uveljavi pravila",
+    "description": "Legacy/alias label for enforcing custom rules."
+  },
+  "log_stats_chart_type_bar": {
+    "message": "Stolpčni graf",
+    "description": "Label for the bar chart option."
+  },
+  "log_stats_chart_type_line": {
+    "message": "Črtni graf",
+    "description": "Label for the line chart option."
+  },
+  "log_stats_daily_activity": {
+    "message": "Dnevna aktivnost (zadnjih 14 dni)",
+    "description": "Stats section title for daily activity chart/table."
+  },
+  "log_stats_date_col": {
+    "message": "Datum",
+    "description": "Header for the date column in daily stats table."
+  },
+  "log_stats_entries_col": {
+    "message": "Vnosi",
+    "description": "Header for the entries column in daily stats table."
+  },
+  "log_stats_no_activity": {
+    "message": "Brez aktivnosti",
+    "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Filtri (interoperabilnost):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Pravila:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Informacije o pravilih:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "Pravila filtra URL:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL viri filtrov:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Stanje pravila:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Stanje zgoščene vrednosti:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL stanje filtra:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Naloženo"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Delno naložen"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Vsi viri niso uspeli"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Ni konfiguriranih virov filtrov brez razpršitve URL"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Pravila na daljavo so onemogočena"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Ni naložen"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "prazno"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "ni potrebno"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Filtri"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Filter"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Združeno Linkumori URL Filtri"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Po meri Linkumori URL Pravila"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL razčlenjevalnik filtra ni na voljo"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Pravila po meri Linkumori URL niso uspela"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL Viri filtrov niso uspeli"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Datoteka oddaljenega filtra URL je prazna"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL pridobivanje filtra ni uspelo"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Neznana napaka filtra URL"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Vsi viri filtrov Linkumori URL niso uspeli"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "priljubljena razširitev URL filter za sledenje"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Ni podprtih pravil Linkumori interoperabilnosti $removeparam"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Interoperabilnost filtra"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori vir interoperabilnostnega filtra"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Pravila"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Po meri URL Pravila"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Tukaj dodajte pravila priljubljene razširitve $removeparam ali $queryprune. Ta pravila so shranjena ločeno od ClearURLs ponudnikov po meri in so združena v filtre Linkumori URL."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Potrdi"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Ni konfiguriranih pravil po meri Linkumori URL."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 podprta pravila, $2 nepodprto preskočeno, $3 dvojnik preskočen."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Preverjanje ni uspelo"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Shranjena in ponovno naložena Linkumori URL pravila."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Shranjevanje ni uspelo"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Podprta pravila bodo prikazana tukaj po potrditvi."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Razčlenjevalnik filtra Linkumori URL ni na voljo."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Filtri (interoperabilnost)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Status"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Runtime Rules"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Pravila po meri"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hash"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 pravila izvajalnega časa\n$3 pravila po meri"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Zapri Linkumori po meri URL pravila"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Kakšna so pravila Linkumori URL?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori Pravila URL so priljubljena razširitev za sledenje URL Filtrirne vrstice, osredotočene na $removeparam. Uporabne so, ko želite neposredno prilepiti sintakso seznama filtrov, namesto da ustvarite ponudnika ClearURLs JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Oddaljena priljubljena razširitev URL filtrira in ta pravila po meri ne potrebujejo preverjanja zgoščevanja. Po razčlenjevanju so shranjeni v LinkumoriURLsData, ločeno od ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilnost spremenjena",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Izhodni URL interoperabilnosti",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Ujemajoče se pravilo interoperabilnosti",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Vrsta vzorca interoperabilnosti",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Dejanje interoperabilnosti",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
+  },
+  "popup_whitelist_state_permanent": {
+    "message": "Na seznamu dovoljenih: $1 — znova kliknite samo za zavihek",
+    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
+  },
+  "popup_whitelist_state_temporary": {
+    "message": "Samo zavihek: $1 — kliknite za odstranitev",
+    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
+  },
+  "logger_nav_label": {
+    "message": "Live Logger"
+  },
+  "logger_btn_pause": {
+    "message": "⏸ Premor"
+  },
+  "logger_btn_resume": {
+    "message": "▶ Nadaljevanje"
+  },
+  "logger_btn_clear": {
+    "message": "🗑 jasno"
+  },
+  "logger_btn_autoscroll": {
+    "message": "↕ Samodejno pomikanje"
+  },
+  "logger_filter_label": {
+    "message": "Filter"
+  },
+  "logger_filter_placeholder": {
+    "message": "Filtriraj vnose ..."
+  },
+  "logger_tab_filter_label": {
+    "message": "Tab"
+  },
+  "logger_tab_all": {
+    "message": "Vsi zavihki"
+  },
+  "logger_col_time": {
+    "message": "Čas"
+  },
+  "logger_col_action": {
+    "message": "Akcija"
+  },
+  "logger_col_rule": {
+    "message": "Pravilo"
+  },
+  "logger_col_provider": {
+    "message": "Ponudnik"
+  },
+  "logger_col_pattern": {
+    "message": "Vzorec"
+  },
+  "logger_col_type": {
+    "message": "Vrsta"
+  },
+  "logger_col_method": {
+    "message": "Metoda"
+  },
+  "logger_col_url": {
+    "message": "URL"
+  },
+  "logger_status_entries": {
+    "message": "vnosi"
+  },
+  "logger_empty_state": {
+    "message": "Še ni vnosov v dnevnik. Brskanje bo zapolnilo ta seznam."
+  },
+  "logger_logging_disabled_banner": {
+    "message": "Beleženje je onemogočeno — omogočite ga v nastavitvah, da zajamete nove vnose."
+  },
+  "logger_detail_title": {
+    "message": "Podrobnosti o vstopu"
+  },
+  "logger_detail_before": {
+    "message": "prej"
+  },
+  "logger_detail_after": {
+    "message": "Po"
+  },
+  "logger_detail_rule": {
+    "message": "Pravilo"
+  },
+  "logger_detail_provider": {
+    "message": "Ponudnik"
+  },
+  "logger_detail_pattern": {
+    "message": "Vzorec"
+  },
+  "logger_detail_type": {
+    "message": "Vrsta"
+  },
+  "logger_detail_method": {
+    "message": "Metoda"
+  },
+  "logger_detail_time": {
+    "message": "Časovni žig"
+  }
+}

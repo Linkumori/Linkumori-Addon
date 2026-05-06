@@ -1,0 +1,1282 @@
+<!--
+  ============================================================
+  ClearURLs
+  ============================================================
+  Copyright (c) 2017–2025 Kevin Röbert
+  Modified by Subham Mahesh (c) 2025–2026 (modified parts only)
+
+  This program is free software: you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation, either
+  version 3 of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this program. If not, see
+  <http://www.gnu.org/licenses/>.
+
+  Repository: https://github.com/linkumori/linkumori
+
+  MODIFICATIONS
+  -------------
+  - New CSS, additional buttons, and navigation bar
+  - Whitelist functionality
+
+  ============================================================
+  SVG ICON ATTRIBUTIONS
+  ============================================================
+
+  EXTERNAL FILE REFERENCES — Google Material Icons (Unmodified)
+  -------------------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+  Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+
+  - Sun Icon        — ../LinkumorI_HTML_SVG/sun.svg
+                       Unmodified local Material icon SVG used for the theme toggle
+  - Moon Icon       — ../LinkumorI_HTML_SVG/moon.svg
+                       Unmodified local Material icon SVG used for the theme toggle
+
+  EXTERNAL FILE REFERENCES — Google Material Icons (Unmodified)
+  --------------------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+
+  - Paintbrush Icon — ../LinkumorI_HTML_SVG/paintbrush.svg
+
+  ============================================================
+  MODIFICATION HISTORY
+  ============================================================
+  2025-06-14   Subham Mahesh   First modification
+  2025-08-21   Subham Mahesh   Second modification
+  2025-09-05   Subham Mahesh   Third modification
+  2026-02-14   Subham Mahesh   Fourth modification
+  2026-04-19   Subham Mahesh   Updated theme-toggle icon attribution
+
+  Note: Due to inline constraints, subsequent modifications may
+  not appear here. To view the full history, run:
+
+    node linkumori-cli-tool.js
+
+  Select "Generate Commit History" to produce a Markdown file
+  listing all modifications by file, author, and date.
+
+  IMPORTANT NOTES
+  ---------------
+  - git clone is required before running "Generate Commit History";
+    otherwise commit history generation will not work.
+  - Older modifications may not appear in the generated
+    COMMIT_HISTORY.md.
+  - If a file's inline notice is limited, check for a separate
+    file-specific notice and COMMIT_HISTORY.md; if neither exists,
+    treat the inline notice as the final modification record.
+  - If a separate file-specific notice is provided, check the
+    file's inline notice and COMMIT_HISTORY.md; if neither exists,
+    treat the separate notice as the final modification record.
+  - Review individual modified source files for earlier notices.
+  - Some files may not contain notices within the file itself or
+    may not be listed in COMMIT_HISTORY.md; a separate notice
+    file may be provided instead.
+  - Not all source files have been modified, but review notices
+    in all source files and any separate notice files (.md or .txt).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id="popup_page_title"></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="../external_js/theme_bootstrap.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Old-Country-Nobility';
+            src: url('../Old-Country-Nobility/Old-Country-Nobility.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+             --bg-primary: #0f111a;
+            --bg-secondary: #161a24;
+            --bg-tertiary: #232838;
+            --bg-tertiary-license: #232838;
+            --bg-primary-theme: #161a24;
+
+            --button-primary: #2f3648;
+            --button-hover: #232838;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #2f3648;
+            --button-success-hover: #232838;
+            --button-text: #ffffff;
+            --logo-bg: #ffffff;
+            --logo-accent: #2f3648;
+
+            --text-primary: #f1f5f9;
+            --text-primary-domain: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+
+            --border-color: rgba(255, 255, 255, 0.12);
+            --shadow-color: rgba(0, 0, 0, 0.35);
+
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.14);
+            --input-focus: #8ab4e6;
+            --button-primary-toogle: rgba(47, 54, 72, 0.45);
+
+            --nav-bg: #161a24;
+            --nav-item-hover: #232838;
+            --nav-item-active: #8ab4e6;
+            --nav-border: rgba(255, 255, 255, 0.12);
+            --nav-text: var(--text-secondary);
+            --nav-text-active: var(--text-primary);
+            --theme-icon-filter: brightness(0) invert(1);
+            --link-color: #ffffff;
+            --link-color-hover: #dbeafe;
+        }
+            /* Primary Background Colors - Default Dark Theme */
+          
+
+        /* Light theme */
+        :root[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f1f5f9;
+            --bg-tertiary: #2563eb;
+            --bg-primary-theme: #f1f5f9;
+            --bg-tertiary-license: #818892;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-primary-domain: #334155;
+            --button-text: #ffffff;
+            --text-muted: #64748b;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --input-bg: rgba(0, 0, 0, 0.05);
+            --input-border: rgba(0, 0, 0, 0.1);
+            --button-primary: #2563eb;
+            --button-hover: #1e40af;      
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #2563eb;
+            --button-success-hover: #2563eb;
+            --input-focus: #1e3a8a;
+            --logo-bg: #2563eb;          
+            --logo-accent: #f1f5f9;
+            --button-primary-toogle: #71a7ff;
+
+            /* Navigation Colors - Light Theme */
+            --nav-bg: #f1f5f9;
+            --nav-item-hover: #2563eb;
+            --nav-item-active: #2563eb;
+            --nav-border: rgba(0, 0, 0, 0.1);
+            --nav-text: #334155;
+            --nav-text-active: #ffffff;
+            --theme-icon-filter: brightness(0) saturate(100%);
+            --link-color: var(--text-secondary);
+            --link-color-hover: var(--text-primary);
+        }
+
+        /* Ice Cold theme */
+        :root[data-theme="icecold"] {
+            --bg-primary: #e5eaf5;
+            --bg-secondary: #f3f7fd;
+            --bg-tertiary: #d7e8f6;
+            --bg-tertiary-license: #d7e8f6;
+            --bg-primary-theme: #f3f7fd;
+
+            --button-primary: #8458b3;
+            --button-hover: #a28089;
+            --button-danger: #8458b3;
+            --button-danger-hover: #a28089;
+            --button-success: #8458b3;
+            --button-success-hover: #a28089;
+            --button-text: #ffffff;
+            --logo-bg: #ffffff;
+            --logo-accent: #8458b3;
+
+            --text-primary: #1f2937;
+            --text-primary-domain: #1f2937;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+
+            --border-color: rgba(148, 163, 184, 0.35);
+            --shadow-color: rgba(0, 0, 0, 0.08);
+
+            --input-bg: #ffffff;
+            --input-border: rgba(148, 163, 184, 0.45);
+            --input-focus: #8458b3;
+            --button-primary-toogle: rgba(132, 88, 179, 0.2);
+
+            --nav-bg: #f3f7fd;
+            --nav-item-hover: #d7e8f6;
+            --nav-item-active: #8458b3;
+            --nav-border: rgba(148, 163, 184, 0.35);
+            --nav-text: var(--text-secondary);
+            --nav-text-active: var(--text-primary);
+            --theme-icon-filter: brightness(0) saturate(100%);
+            --link-color: var(--text-secondary);
+            --link-color-hover: var(--text-primary);
+        }
+
+        :root[data-theme="midnight"] {
+              --bg-primary: #0f172a;      
+            --bg-secondary: #1e293b;    
+            --bg-tertiary: #334155;     
+            --bg-tertiary-license: #334155;
+            --bg-primary-theme: #1e293b; 
+            
+            /* Interactive Elements */
+            --button-primary: #2563eb;  
+            --button-hover: #3b82f6;    
+            --button-danger: #dc2626;   
+            --button-danger-hover: #ef4444;
+            --button-success: #2563eb;  
+            --button-success-hover: #2563eb;
+            --button-text: #ffffff;
+            --logo-bg: #ffffff;          
+            --logo-accent: #2563eb; 
+            
+            /* Text Colors */
+            --text-primary: #f8fafc;     
+            --text-primary-domain: #f8fafc;    
+            --text-secondary: #cbd5e1;  
+            --text-muted: #94a3b8;      
+
+            /* Border and Shadow Colors */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.25);
+
+            /* Input and Interactive Element Colors */
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-focus: #3b82f6;
+            --button-primary-toogle: rgba(255, 255, 255, 0.2);
+
+            /* Navigation Colors */
+            --nav-bg: #1e293b;
+            --nav-item-hover: #334155;
+            --nav-item-active: #2563eb;
+            --nav-border: rgba(255, 255, 255, 0.1);
+            --nav-text: var(--text-secondary);
+            --nav-text-active: var(--text-primary);
+            --theme-icon-filter: brightness(0) invert(1);
+            --link-color: var(--text-secondary);
+            --link-color-hover: var(--text-primary);
+        }
+
+        /* Sunset Orange theme */
+ :root[data-theme="sunset"] {
+    --bg-primary: #f5f3f0;
+    --bg-secondary: #fffdfb;
+    --bg-tertiary: #fff6f2;
+    --bg-tertiary-license: #fff6f2;
+    --bg-primary-theme: #fffdfb;
+    
+    --button-primary: #f76f53;
+    --button-hover: #c85a3e;
+    --button-danger: #dc2626;
+    --button-danger-hover: #ef4444;
+    --button-success: #f76f53;
+    --button-success-hover: #c85a3e;
+    --button-text: #ffffff;
+    --logo-bg: #ffffff;
+    --logo-accent: #f76f53;
+    
+   --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-primary-domain: #1a1a1a;
+    
+    --border-color: rgba(0, 0, 0, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.06);
+    
+    --input-bg: rgba(0, 0, 0, 0.04);
+    --input-border: rgba(0, 0, 0, 0.15);
+    --input-focus: #f76f53;
+    --button-primary-toogle: rgba(247, 111, 83, 0.2);
+    
+    --nav-bg: #fffdfb;
+    --nav-item-hover: rgba(247, 111, 83, 0.08);
+    --nav-item-active: #f76f53;
+    --nav-border: rgba(0, 0, 0, 0.07);
+    --nav-text: var(--text-secondary);
+    --nav-text-active: var(--text-primary);
+    --theme-icon-filter: brightness(0) saturate(100%);
+    --link-color: var(--text-secondary);
+    --link-color-hover: var(--text-primary);
+}
+
+        /* Legacy theme */
+        :root[data-theme="legacy"] {
+            --bg-primary: #212529;
+            --bg-secondary: #343a40;
+            --bg-tertiary: #495057;
+            --bg-tertiary-license: #495057;
+            --bg-primary-theme: #212529;
+
+            --button-primary: #FF7800;
+            --button-hover: #FF7800;
+            --button-danger: #dc3545;
+            --button-danger-hover: #c82333;
+            --button-success: #FF7800;
+            --button-success-hover: #FF7800;
+            --button-text: #ffffff;
+            --logo-bg: #ffffff;
+            --logo-accent: #2563eb;
+
+            --text-primary: #f8f9fa;
+            --text-secondary: #dee2e6;
+            --text-primary-domain: #f8f9fa;
+            --text-muted: #adb5bd;
+
+            --border-color: rgba(255, 255, 255, 0.14);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.2);
+            --input-focus: #FF7800;
+            --button-primary-toogle: rgba(255, 120, 0, 0.25);
+
+            --nav-bg: #343a40;
+            --nav-item-hover: #495057;
+            --nav-item-active: #FF7800;
+            --nav-border: rgba(255, 255, 255, 0.15);
+            --nav-text: #e9ecef;
+            --nav-text-active: #ffffff;
+            --theme-icon-filter: brightness(0) invert(1);
+            --link-color: #dee2e6;
+            --link-color-hover: #f8f9fa;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            width: 340px;
+            min-width: 300px;
+            max-width: 100vw;
+            margin: 0;
+            font-family: "Old-Country-Nobility", serif;
+            background: var(--bg-primary);
+            transition: background-color 0.2s;
+            min-height: 360px;
+            max-height: 640px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            overflow-wrap: anywhere;
+        }
+
+        .header {
+            background: var(--bg-secondary);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px var(--shadow-color);
+            position: relative;
+            /* FIXED: Prevent header from shrinking */
+            flex-shrink: 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .logo circle {
+            stroke: none;
+        }
+
+        :root[data-theme="legacy"] .logo {
+            background: url("../img/linkumori_icon_theme_legacy.svg") center / contain no-repeat;
+        }
+
+        :root[data-theme="legacy"] .logo * {
+            opacity: 0;
+        }
+
+        .title-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .header h1 {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.2;
+            max-width: 100%;
+            overflow-wrap: anywhere;
+        }
+
+        .version {
+            color: var(--text-muted);
+            font-size: 10px;
+            margin: 0;
+            line-height: 1;
+            max-width: 100%;
+            overflow-wrap: anywhere;
+        }
+
+
+        /* Theme Toggle Styles */
+        .theme-toggle-btn {
+            background: transparent;
+            padding: 4px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .tools-icon-btn {
+            background: transparent;
+            padding: 4px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .tools-icon-btn:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .tools-icon-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--button-primary);
+        }
+
+        .tools-icon-btn img {
+            width: 14px;
+            height: 14px;
+            display: block;
+            filter: var(--theme-icon-filter);
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .theme-toggle-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--button-primary);
+        }
+
+        .theme-toggle-btn img {
+            width: 12px;
+            height: 12px;
+            transition: opacity 0.2s;
+            display: block;
+            filter: var(--theme-icon-filter);
+        }
+
+        .sun-icon {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .moon-icon {
+            opacity: 1;
+        }
+
+        :root[data-theme="light"] .sun-icon {
+            opacity: 1;
+        }
+
+        :root[data-theme="light"] .moon-icon {
+            opacity: 0;
+        }
+
+        /* Navigation Bar Styles */
+        .nav-bar {
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--nav-border);
+            display: flex;
+            padding: 0;
+            margin: 0;
+            /* FIXED: Prevent nav from shrinking */
+            flex-shrink: 0;
+        }
+
+        .nav-item {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 12px;
+            background: none;
+            border: none;
+            color: var(--nav-text, var(--text-secondary));
+            font-family: "Old-Country-Nobility", serif;
+            font-size: 12px;
+            line-height: 1.2;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+
+        .nav-item:hover {
+            background: var(--nav-item-hover);
+            color: var(--nav-text-active, var(--text-primary));
+        }
+
+        .nav-item.active {
+            color: var(--nav-text-active, var(--text-primary));
+            border-bottom-color: var(--nav-item-active);
+            background: var(--nav-item-hover);
+        }
+
+        .nav-item:focus {
+            outline: none;
+            box-shadow: inset 0 0 0 2px var(--button-primary);
+        }
+
+        .content {
+            display: none;
+        }
+
+        #mainContent {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 6px;
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        #licenseContent {
+            display: none;
+            padding: 8px;
+            /* FIXED: Allow license content to scroll when needed */
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+        }
+
+        .license-section {
+            margin-bottom: 12px;
+        }
+
+        .license-section h3 {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin: 0 0 6px 0;
+            font-weight: bold;
+        }
+
+        .license-section p {
+            color: var(--text-muted);
+            font-size: 11px;
+            line-height: 1.3;
+            margin: 0 0 6px 0;
+        }
+
+        .license-section .version-info {
+            color: var(--text-secondary);
+            font-size: 10px;
+            font-style: italic;
+        }
+
+        .license-links {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+       
+
+        .license-link {
+            color: var(--link-color, var(--text-secondary));
+            text-decoration: none;
+            font-size: 11px;
+            padding: 2px 0;
+            transition: color 0.2s;
+            overflow-wrap: anywhere;
+        }
+
+        .license-link:hover {
+            color: var(--link-color-hover, var(--text-primary));
+            text-decoration: underline;
+        }
+
+        .license-link.header-style {
+            color: var(--text-secondary);
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .license-link.header-style:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            padding: 5px 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            box-shadow: 0 1px 2px var(--shadow-color);
+        }
+
+        .toggle-switch {
+            width: 40px;
+            flex: 0 0 40px;
+            height: 20px;
+            background: var(--button-primary-toogle);
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 1px;
+        }
+
+        .toggle-switch.active {
+            background: var(--button-primary);
+        }
+
+        .toggle-switch:before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #ffffff;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: 0.2s;
+            box-shadow: 0 1px 3px var(--shadow-color);
+        }
+
+        .toggle-switch.active:before {
+            transform: translateX(18px);
+        }
+
+        .toggle-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            flex: 1;
+            min-width: 0;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+        }
+
+        .pause-card {
+            margin-top: 4px;
+            padding: 6px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .pause-title {
+            color: var(--text-primary);
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 3px;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+        }
+
+        .pause-status {
+            color: var(--text-secondary);
+            font-size: 11px;
+            margin-bottom: 6px;
+            line-height: 1.3;
+            overflow-wrap: anywhere;
+        }
+
+        .pause-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 4px;
+        }
+
+        .btn-small {
+            width: 100%;
+            border: 1px solid var(--input-border);
+            background: var(--bg-tertiary);
+            color: var(--button-text, #ffffff);
+            font-size: 10px;
+            padding: 5px 6px;
+            min-width: 0;
+            min-height: 28px;
+            line-height: 1.2;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+
+        .btn-small:hover {
+            background: var(--button-primary);
+            color: #fff;
+        }
+
+        .btn-small-danger:hover {
+            background: var(--button-danger);
+        }
+
+        :root[data-theme="icecold"] .pause-buttons .btn-small,
+        :root[data-theme="icecold"] .pause-buttons .btn-small:hover {
+            color: #1f2937;
+        }
+
+        :root[data-theme="sunset"] .pause-buttons .btn-small {
+            background: var(--button-primary);
+            border-color: var(--button-primary);
+        }
+
+        .empty-message {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 12px;
+            font-size: 12px;
+        }
+
+        button {
+            padding: 5px 8px;
+            background: var(--button-primary);
+            color: var(--button-text, #ffffff);
+            border: none;
+            font-family: "Old-Country-Nobility";
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            line-height: 1.2;
+            transition: background-color 0.2s;
+            min-width: 0;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+
+        button:hover {
+            background: var(--button-hover);
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.3);
+        }
+
+        /* Dynamic Whitelist Button Styles */
+        #singledynamicwhitelistunwhitelistbutton {
+            width: 100%;
+            background: var(--button-success);
+            margin: 0;
+            /* FIXED: Make whitelist button smaller in height */
+            font-size: 10px;
+            padding: 5px 7px;
+            text-overflow: clip;
+            overflow: visible;
+            white-space: normal;
+            font-weight: 500;
+            line-height: 1.25;
+            min-height: 30px;
+            transition: all 0.2s ease;
+        }
+
+        #singledynamicwhitelistunwhitelistbutton:hover {
+            background: var(--button-success-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.whitelisted {
+            background: var(--button-danger);
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.whitelisted:hover {
+            background: var(--button-danger-hover);
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.not-whitelisted {
+            background: var(--button-success);
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.not-whitelisted:hover {
+            background: var(--button-success-hover);
+        }
+
+        /* Tab-only temporary whitelist — amber/warning colour */
+        #singledynamicwhitelistunwhitelistbutton.tab-whitelisted {
+            background: #b45309;
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.tab-whitelisted:hover {
+            background: #d97706;
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.tab-whitelisted:disabled:hover {
+            background: #b45309;
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.whitelist-feedback-success {
+            box-shadow: 0 0 0 2px var(--button-primary), 0 2px 6px var(--shadow-color);
+            transform: translateY(-1px);
+        }
+
+        #singledynamicwhitelistunwhitelistbutton:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #singledynamicwhitelistunwhitelistbutton:disabled:hover {
+            background: var(--button-success); /* Keep original color when disabled */
+            transform: none;
+            box-shadow: none;
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.whitelisted:disabled:hover {
+            background: var(--button-danger); /* Keep original color when disabled */
+        }
+
+        /* Add smooth transitions for theme changes */
+        body * {
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .statistics-container {
+            background: var(--bg-secondary);
+            padding: 6px;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px var(--shadow-color);
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            background: var(--bg-primary);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--button-danger);
+            width: 0%;
+            transition: width 0.3s;
+            border-radius: 3px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 11px;
+            flex: 1;
+            min-width: 0;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+        }
+
+        .stat-value {
+            font-size: 11px;
+            font-weight: bold;
+            flex: 0 0 auto;
+            max-width: 45%;
+            text-align: end;
+            overflow-wrap: anywhere;
+        }
+
+        .stat-value-muted {
+            color: var(--text-secondary);
+        }
+
+        .stat-value-danger {
+            color: var(--button-danger);
+        }
+
+        .stat-value-primary {
+            color: var(--text-primary);
+        }
+
+        .btn-full-primary {
+            width: 100%;
+            background: var(--button-primary);
+        }
+
+        .is-hidden {
+            display: none;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(82px, 1fr));
+            gap: 4px;
+            margin-top: 4px;
+            /* FIXED: Ensure button group is always visible and doesn't shrink */
+            flex-shrink: 0;
+            padding-bottom: 2px;
+        }
+
+        .button-group button {
+            /* FIXED: Make buttons smaller in height */
+            padding: 4px 6px;
+            font-size: 10px;
+            min-height: 28px;
+            line-height: 1.2;
+        }
+
+        body.popup-long-text .pause-buttons,
+        body.popup-long-text .button-group {
+            grid-template-columns: 1fr;
+        }
+
+        body.popup-long-text .button-group button,
+        body.popup-long-text .btn-small {
+            min-height: 30px;
+        }
+
+        /* Hide elements by default */
+        .content {
+            display: none;
+        }
+
+        /* Show elements when their toggle is active */
+        #statistic_section {
+            display: block;
+        }
+
+        #log_section {
+            display: block;
+        }
+
+        .bottom-actions {
+            position: sticky;
+            bottom: 0;
+            z-index: 2;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--bg-primary) 18%, var(--bg-primary) 100%);
+            padding-top: 4px;
+            margin-top: auto;
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+
+        /* Firefox-safe custom scrollbar styling */
+        #licenseContent,
+        #mainContent,
+        body {
+            scrollbar-width: thin;
+            scrollbar-color: var(--text-muted) var(--bg-primary);
+        }
+
+        /* Popup consent gate */
+        #popupConsentGate {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(2, 6, 23, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        #popupConsentGate.hidden {
+            display: none;
+        }
+
+        .popup-consent-card {
+            width: 100%;
+            max-width: 360px;
+            max-height: calc(100vh - 32px);
+            overflow: auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+        }
+
+        .popup-consent-title {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .popup-consent-description {
+            margin: 0 0 12px 0;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        .popup-consent-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin: 0 0 12px 0;
+        }
+
+        .popup-consent-check span {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        #popupConsentAccept {
+            flex: 1;
+        }
+
+        #popupConsentAccept:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .popup-consent-actions {
+            margin: 0 0 10px 0;
+            font-size: 12px;
+        }
+
+        #popupConsentLegalLink {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        #popupConsentLegalLink:hover {
+            color: var(--text-secondary);
+        }
+
+    </style>
+</head>
+<body class="consent-locked">
+    <div class="header">
+        <div class="header-content">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
+                <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
+                    fill="none"
+                    stroke="var(--logo-accent)"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+                <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35"
+                    fill="none"
+                    stroke="var(--logo-accent)"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+                <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28"
+                       fill="var(--logo-accent)"/>
+            </svg>
+            <div class="title-section">
+                <h1 id="name"></h1>
+                <span class="version" id="version"></span>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button id="cleaning_tools_icon" class="tools-icon-btn" aria-label="" title="">
+                <img src="../LinkumorI_HTML_SVG/paintbrush.svg" alt="" aria-hidden="true">
+            </button>
+            <button id="themeToggle" class="theme-toggle-btn" aria-label="" title="">
+                <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" aria-hidden="true">
+                <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" aria-hidden="true">
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <button class="nav-item active" id="navMain" data-target="mainContent">
+            <span id="nav_main_label"></span>
+        </button>
+        <button class="nav-item" id="navLicense" data-target="licenseContent">
+            <span id="nav_license_label"></span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent">
+        <div class="toggle-container">
+            <div class="toggle-switch" id="globalStatus"></div>
+            <span class="toggle-label" id="configs_switch_filter"></span>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle-switch" id="logging"></div>
+            <span class="toggle-label" id="configs_switch_log"></span>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle-switch" id="tabcounter"></div>
+            <span class="toggle-label" id="configs_switch_badges"></span>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle-switch" id="statistics"></div>
+            <span class="toggle-label" id="configs_switch_statistics"></span>
+        </div>
+
+        <div class="pause-card">
+            <div class="pause-title" id="temporaryPauseTitle"></div>
+            <div class="pause-status" id="temporaryPauseStatus"></div>
+            <div class="pause-buttons">
+                <button id="pause15mBtn" class="btn-small"></button>
+                <button id="pause1hBtn" class="btn-small"></button>
+                <button id="pauseUntilRestartBtn" class="btn-small"></button>
+                <button id="resumePauseBtn" class="btn-small btn-small-danger"></button>
+            </div>
+        </div>
+
+        <div class="content" id="statistic_section">
+            <div class="statistics-container">
+                <div class="stat-row">
+                    <span class="stat-label" id="statistics_elements"></span>
+                    <span class="stat-value stat-value-muted" id="statistics_total_elements">0</span>
+                </div>
+                
+                <div class="stat-row">
+                    <span class="stat-label" id="statistics_blocked"></span>
+                    <span class="stat-value stat-value-danger" id="statistics_value">0</span>
+                </div>
+                
+                <div class="stat-row">
+                    <span class="stat-label" id="statistics_percentage"></span>
+                    <span class="stat-value stat-value-primary" id="statistics_value_global_percentage"></span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress_blocked"></div>
+                </div>
+
+                <button id="reset_counter_btn" class="btn-full-primary"></button>
+            </div>
+        </div>
+
+        <div class="content" id="log_section">
+            <button id="loggingPage" class="btn-full-primary"></button>
+        </div>
+
+        <div class="bottom-actions">
+            <!-- Dynamic Whitelist Button -->
+            <button id="singledynamicwhitelistunwhitelistbutton" class="is-hidden"></button>
+
+            <div class="button-group">
+                 <button id="customrules"></button>
+                <button id="whitelist_page"></button>
+                <button id="settings"></button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- License Content -->
+    <div id="licenseContent">
+        <div class="license-section">
+            <h3 id="license_name"></h3>
+            <p class="version-info"><span id="license_version_label"></span> <span id="license_version"></span></p>
+            <p class="version-info"><span id="license_firefox_signature_label"></span> <span id="license_firefox_signature_value"></span></p>
+    
+        </div>
+
+        <div class="license-section">
+            <h3 id="license_title"></h3>
+            <p id="license_description"></p>
+            <h3 id="license_links_title"></h3>
+        </div>
+            <div class="license-links">
+                <a href="#" id="legalLink" class="license-link"></a>
+                <a href="../licenses/LGPL-3.0.txt" id="license_lgpl_link" class="license-link" target="_blank"></a>
+                <a href="https://github.com/Linkumori/Linkumori-Addon" id="license_source_repo_link" class="license-link" target="_blank"></a>
+                <a href="https://github.com/Linkumori/Linkumori-Addon/releases/" id="license_source_repo_link_direct" class="license-link" target="_blank"></a>
+                <a href="https://github.com/Linkumori/Linkumori-Addon/issues" id="license_report_issues_link" class="license-link" target="_blank"></a>
+                <a href="https://gitlab.com/ClearURLs/ClearUrls/-/tree/m3-migration?ref_type=heads" id="license_clearurls_migration_link" class="license-link" target="_blank"></a>
+                <a href="https://github.com/ClearURLs/Addon/tree/1.27.3" id="license_clearurls_addon_link" class="license-link" target="_blank"></a>
+            </div>
+        </div>
+
+    <div id="popupConsentGate" role="dialog" aria-modal="true" aria-labelledby="popupConsentTitle">
+        <div class="popup-consent-card">
+            <h2 id="popupConsentTitle" class="popup-consent-title"></h2>
+            <p id="popupConsentDescription" class="popup-consent-description"></p>
+            <label class="popup-consent-check" for="popupConsentCheckbox">
+                <input type="checkbox" id="popupConsentCheckbox">
+                <span id="popupConsentCheckboxLabel"></span>
+            </label>
+            <div class="popup-consent-actions">
+                <a id="popupConsentLegalLink" href="/html/legal.html" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+            <button id="popupConsentAccept" type="button" disabled></button>
+        </div>
+    </div>
+
+<script src="../core_js/consent_config.js"></script>
+<script src="../external_js/light-punycode.js"></script>
+<script src="../external_js/linkumori-i18n.js"></script>
+<script src="../core_js/popup.js"></script>
+<script src="../core_js/write_version.js"></script>
+</body>
+</html>

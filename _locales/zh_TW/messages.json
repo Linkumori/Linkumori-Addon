@@ -1,0 +1,4465 @@
+{
+  "aboutPageTitle": {
+    "message": "Linkumori - 關於",
+    "description": "關於/法律頁面的標題"
+  },
+  "active_bundled_providers_label": {
+    "message": "已啟用內建規則:",
+    "description": "已啟用內建規則的計數標籤。"
+  },
+  "active_remote_providers_label": {
+    "message": "已啟用遠端規則:",
+    "description": "已啟用遠端規則的計數標籤。"
+  },
+  "addDomainToWhitelist": {
+    "message": "將 $1 添加到白名單",
+    "description": "將網域名稱添加到白名單的按鈕標籤。$1 將被替換為網域名稱。"
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "將當前網域名稱添加到白名單",
+    "description": "將當前網域名稱添加到白名單的按鈕標籤。"
+  },
+  "appearance_settings_title": {
+    "message": "外觀設定",
+    "description": "外觀設定部分的標題"
+  },
+  "badge_color_description": {
+    "message": "選擇顯示每個頁面已清理參數數量的擴展程式標記的顏色。",
+    "description": "說明文字，解釋標記顏色設定的作用。"
+  },
+  "badge_color_label": {
+    "message": "標記顏色",
+    "description": "標記顏色選擇器的標籤"
+  },
+  "badge_preview_label": {
+    "message": "預覽",
+    "description": "標記預覽部分的標籤"
+  },
+  "blocked_html_body": {
+    "message": "此網站被 <b>Linkumori (Clean URLS)</b> 擴充程式阻止，因為我們將此網站識別為廣告和/或追蹤服務。要訪問此網站，您必須暫時停用該擴充程式或在 Linkumori (Clean URLS) 設定中禁用網域名稱阻止。然後您可以點擊以下按鈕來加載頁面。",
+    "description": "此字符串用於被阻止的網站頁面的正文。"
+  },
+  "blocked_html_button": {
+    "message": "訪問頁面",
+    "description": "此字符串用於被阻止的網站頁面的按鈕。"
+  },
+  "blocked_html_title": {
+    "message": "此網站被 <b>Linkumori (Clean URLS)</b> 阻止",
+    "description": "此字符串用於被阻止的網站頁面的標題。"
+  },
+  "built_in_rules_enabled": {
+    "message": "啟用內建規則",
+    "description": "啟用或禁用捆綁式內建規則的切換按鈕標籤"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "使用內建 Linkumori/ClearURLs 規則。禁用此選項以僅運行遠端規則和/或自定義規則。",
+    "description": "控制內建規則的切換按鈕的描述。"
+  },
+  "linkumori_interoperability_mode_enabled": {
+    "message": "Linkumori 互通模式"
+  },
+  "linkumori_interoperability_mode_enabled_description": {
+    "message": "在原生 Linkumori/ClearURLs JSON 規則之外，套用 Linkumori URL Filter 互通規則，包括相容的 $removeparam 清單。"
+  },
+  "bundled_rules_description": {
+    "message": "Linkumori 使用兩個規則類別：Linkumori (ClearURLs 2.0) JSON 用於本機提供程序的規則，以及 Linkumori 987用於流行擴展的過濾互通性規則$removeparam 列出。每個類別單獨計算。",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "規則資訊",
+    "description": "規則資訊部分的標題。"
+  },
+  "button_cancel": {
+    "message": "取消"
+  },
+  "button_close": {
+    "message": "關閉",
+    "description": "FAQ 模態框的關閉按鈕文本"
+  },
+  "button_confirm": {
+    "message": "確認",
+    "description": "模態對話框通用確認按鈕文本"
+  },
+  "modal_alert_title": {
+    "message": "提示",
+    "description": "提醒類型模態對話框的預設標題"
+  },
+  "modal_confirm_title": {
+    "message": "確認",
+    "description": "確認類型模態對話框的預設標題"
+  },
+  "modal_prompt_title": {
+    "message": "需要輸入",
+    "description": "輸入類型模態對話框的預設標題"
+  },
+  "button_delete": {
+    "message": "刪除"
+  },
+  "button_exit": {
+    "message": "退出",
+    "description": "退出編輯器的按鈕文本"
+  },
+  "button_save": {
+    "message": "儲存"
+  },
+  "cleanUrlsButton": {
+    "message": "清理網址",
+    "description": "用於啟動網址清理的按鈕上的文字。"
+  },
+  "cleanUrlsToolHeader": {
+    "message": "Linkumori 網址清理工具",
+    "description": "網址清理工具的主要標題。"
+  },
+  "cleanUrlsToolTitle": {
+    "message": "Linkumori 高級網址清理工具",
+    "description": "網址清理工具頁面的標題。"
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "已清理的網址將會出現在這裡...",
+    "description": "已清理網址文本區域的佔位符文字。"
+  },
+  "cleanedUrlsTitle": {
+    "message": "已清理的網址",
+    "description": "已清理網址部分的標題。"
+  },
+  "clipboard_copy_link": {
+    "message": "複製清理後的連結位置",
+    "description": "此字符串用於上下文菜單中，以複製清理後的連結。"
+  },
+  "color_picker_cancel": {
+    "message": "取消",
+    "description": "顏色選擇器中的取消按鈕。"
+  },
+  "color_picket_clear": {
+    "message": "清除",
+    "description": "顏色選擇器中的清除按鈕。"
+  },
+  "color_picker_save": {
+    "message": "儲存",
+    "description": "顏色選擇器中的儲存按鈕。"
+  },
+  "composition_breakdown_label": {
+    "message": "組成:",
+    "description": "捆綁式與自定義百分比分解的標籤。"
+  },
+  "configs_switch_statistics": {
+    "message": "統計",
+    "description": "此字符串用於彈出頁面上切換按鈕的名稱，用於顯示統計信息。"
+  },
+  "confirm_reset_settings": {
+    "message": "您確定要將所有設定重置為預設值嗎？",
+    "description": "在重置設置之前顯示的確認消息。"
+  },
+  "confirmation_error_template": {
+    "message": "短語不匹配。請準確輸入：\"%s\"",
+    "description": "錯誤消息模板，帶有本地化短語的占位符。"
+  },
+  "confirmation_error_text": {
+    "message": "短語不匹配。請準確輸入：「我完全承擔所有責任」",
+    "description": "對於輸入的確認短語錯誤的錯誤消息。"
+  },
+  "confirmation_final_text": {
+    "message": "我確認我擁有/控制這些伺服器，並對其使用負全部責任。此功能以「現有狀態」提供，不帶任何保證。我具有合法能力同意本協議。",
+    "description": "確認模態框中的最終警告文本。"
+  },
+  "confirmation_input_label": {
+    "message": "在此處輸入短語：",
+    "description": "確認輸入字段的標籤。"
+  },
+  "confirmation_modal_cancel": {
+    "message": "取消",
+    "description": "確認模態框中的取消按鈕文本。"
+  },
+  "confirmation_modal_confirm": {
+    "message": "確認並啟用遠端網址",
+    "description": "確認模態框中的確認按鈕文本。"
+  },
+  "confirmation_modal_text": {
+    "message": "要繼續，請準確輸入以下確認短語：",
+    "description": "確認模態框的說明性文字。"
+  },
+  "confirmation_modal_title": {
+    "message": "確認您的理解",
+    "description": "確認模態框的標題。"
+  },
+  "context_menu_enabled": {
+    "message": "顯示上下文菜單項目",
+    "description": "此字符串用於切換顯示複製清理後鏈接的上下文菜單項。"
+  },
+  "context_menu_enabled_description": {
+    "message": "將 Linkumori 選項添加到右鍵菜單。",
+    "description": "上下文菜單切換按鈕的描述。"
+  },
+  "copyFailed": {
+    "message": "複製失敗！",
+    "description": "複製操作失敗時顯示的提示信息。"
+  },
+  "copyText": {
+    "message": "複製",
+    "description": "用於複製操作的按鈕文本。"
+  },
+  "copyUrlsButton": {
+    "message": "複製結果",
+    "description": "用於複製已清理的 URL 的按鈕上的文字。"
+  },
+  "copy_urls_empty": {
+    "message": "沒有可複製的網址。",
+    "description": "嘗試複製但輸出 URL 區域為空時顯示的提示信息。"
+  },
+  "copy_urls_fail": {
+    "message": "複製網址失敗。",
+    "description": "在清理工具中，當複製網址到剪貼板失敗時顯示的錯誤消息。"
+  },
+  "copy_urls_success": {
+    "message": "網址已複製到剪貼板！",
+    "description": "在清理工具中，當網址成功複製到剪貼板時顯示的成功消息。"
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "添加新規則"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "添加規則"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "高級 JSON 編輯器"
+  },
+  "customRulesEditor_builtin": {
+    "message": "內置:"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "完整規則 (阻止整個域名)"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "您確定要刪除名為 \"$1\" 的規則嗎？"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "您確定要刪除所有 $1 規則嗎？"
+  },
+  "customRulesEditor_copy": {
+    "message": "複製"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "創建您的第一個規則"
+  },
+  "customRulesEditor_custom": {
+    "message": "自定義:"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "自定義規則"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "刪除全部"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "刪除所有規則失敗"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "刪除當前規則"
+  },
+  "customRulesEditor_description": {
+    "message": "創建和管理自定義 URL 清理規則，用於未由內置提供程序覆蓋的網站。"
+  },
+  "customRulesEditor_disabled": {
+    "message": "禁用:"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "域名例外"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "域名模式"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "簡單的域名模式（不能與 URL 模式一起使用）。格式：example.com, *.example.com, ||example.com^, ||*.example.com^ 每行一個模式。",
+    "description": "用於域名模式字段的幫助文本。"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "域名模式"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||example.com^\n||*.subdomain.com^\n"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "至少需要一個域名模式"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "域名重定向"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "重複"
+  },
+  "customRulesEditor_editName": {
+    "message": "編輯名稱"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "編輯規則"
+  },
+  "customRulesEditor_editing": {
+    "message": "正在編輯: $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "域名模式不能為空"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "強制執行失敗"
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "強制應用規則"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "規則已生效"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "重新加載擴展程序以立即應用所有規則"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "例外 (要排除的 URL)"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "退出編輯器並返回規則列表",
+    "description": "自定義規則編輯器中退出按鈕的工具提示文本。"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "導出規則失敗"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "將自定義規則導出到文件"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "保存規則失敗"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "強制重定向"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "HTTP 方法",
+    "description": "用於 HTTP 方法字段的標籤。"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "這會取代檔案中包含的自訂規則類別。要繼續嗎？"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "導入規則失敗: $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "從文件導入自定義規則"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "無效的域名模式: {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "檔案結構無效：缺少 ClearURLs 提供者或 Linkumori URL 自訂規則"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "無效的 URL 模式正則表達式: 1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "JSON 錯誤: $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "JSON 會顯示在這裡..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "需要 JSON 內容"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "點擊 urlPattern 會移除 domainPatterns，反之亦然。"
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "添加到 JSON"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "自定義規則",
+    "description": "導航標籤，指向自定義規則視圖。"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "白名單",
+    "description": "導航標籤，指向白名單視圖。"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "文件中未找到任何規則規則"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "自定義規則編輯器和白名單管理"
+  },
+  "customRulesEditor_patternType": {
+    "message": "模式類型"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "選擇如何為該規則匹配 URL"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "請選擇一個模式類型"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "規則 \"$1\" 不能同時具有 urlPattern 和 domainPatterns"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "規則 \"$1\" 的域名模式為空"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "規則 \"$1\" 缺少 urlPattern"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "規則 \"$1\" 必須包含 urlPattern 或 domainPatterns"
+  },
+  "customRulesEditor_providerName": {
+    "message": "規則名稱 *"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "已存在同名的規則。"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "此規則的唯一識別碼 (例如：\"example.com\", \"mysite\")。"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "範例：example.com, mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "請填寫規則名稱。"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "原始規則 (正則表達式模式)。"
+  },
+  "customRulesEditor_redirections": {
+    "message": "重定向 (重定向模式)。"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "推薦行銷。"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "資源類型。"
+  },
+  "customRulesEditor_rules": {
+    "message": "規則 (要移除的 URL 參數)。"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "規則狀態。"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "儲存規則"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "儲存目前規則的設定。"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "選擇要編輯的規則。"
+  },
+  "customRulesEditor_title": {
+    "message": "自訂規則編輯器 - ClearURLs"
+  },
+  "customRulesEditor_total": {
+    "message": "總計："
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "您有未儲存的變更。是否繼續而不儲存？"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "URL 模式 *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "URL 模式和網域名稱模式不能同時使用。"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "用於匹配 URL 的正則表達式。"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "URL 模式 (正規表示式)"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "必須選擇 URL 模式或網域名稱模式其中之一。"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "請填寫 URL 模式。"
+  },
+  "customRulesEditor_welcome": {
+    "message": "歡迎使用自訂規則編輯器。"
+  },
+  "custom_providers_label": {
+    "message": "自訂規則：",
+    "description": "用於顯示自訂規則數量標籤的文字。"
+  },
+  "customrules": {
+    "message": "自訂規則"
+  },
+  "datatable_empty_table": {
+    "message": "表格中沒有資料。",
+    "description": "DataTables 空表格訊息。"
+  },
+  "datatable_info": {
+    "message": "顯示第 _START_ 到 _END_ 筆，總共有 _TOTAL_ 筆。",
+    "description": "DataTables 分頁資訊。"
+  },
+  "datatable_info_empty": {
+    "message": "顯示 0 到 0 筆，總共有 0 筆。",
+    "description": "DataTables 無資料時的資訊訊息。"
+  },
+  "datatable_showing_all": {
+    "message": "顯示所有 $1 筆。",
+    "description": "顯示所有筆數時的提示訊息。$1=總計數量"
+  },
+  "datatable_showing_entries": {
+    "message": "顯示第 $1 到 $2 筆，總共有 $3 筆。",
+    "description": "顯示目前範圍的分頁資訊。$1=起始, $2=結束, $3=總計"
+  },
+  "datatable_zero_records": {
+    "message": "沒有找到符合條件的紀錄。",
+    "description": "DataTables 無搜尋結果訊息。"
+  },
+  "domain_blocking_enabled": {
+    "message": "允許網域名稱封鎖 (可能會導致在不允許使用 AdBlocker 的頁面上出現問題)。",
+    "description": "用於網域名稱封鎖開關的標籤文字。"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "封鎖特定網域的請求。",
+    "description": "網域名稱封鎖切換器的說明文字。"
+  },
+  "downloadFailed": {
+    "message": "下載失敗！",
+    "description": "當下載操作失敗時顯示的提示訊息。"
+  },
+  "downloadText": {
+    "message": "下載",
+    "description": "用於下載操作的按鈕文字。"
+  },
+  "eTag_filtering_enabled": {
+    "message": "過濾請求中的 ETag 標頭。",
+    "description": "用於 ETag 標頭過濾開關的標籤文字。"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "移除 ETag 標頭以防止追蹤。",
+    "description": "ETag 過濾切換器的說明文字。"
+  },
+  "eTag_filtering_log": {
+    "message": "已從此請求中移除 ETag 標頭。",
+    "description": "用於 Linkumori (Clean URLS) 日誌中的 ETag 標頭過濾。"
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "無法取得目前網域。",
+    "description": "當無法確定目前網域時顯示的錯誤訊息。"
+  },
+  "error_loading_data": {
+    "message": "載入日誌資料失敗。請重新整理頁面。",
+    "description": "從儲存體載入日誌資料失敗時顯示的錯誤訊息。"
+  },
+  "error_rendering_table": {
+    "message": "表格資料渲染發生錯誤。",
+    "description": "表格無法渲染時顯示的錯誤訊息。"
+  },
+  "extension_description": {
+    "message": "移除 URL 中的追蹤元素。",
+    "description": "擴充功能描述 (最多 132 個字元)"
+  },
+  "fallback_rules_loaded": {
+    "message": "關於內建規則可能已損毀或未正確載入。已替代載入備用規則。"
+  },
+  "faq_caution": {
+    "message": "注意事項：",
+    "description": "FAQ中用於提示的標籤"
+  },
+  "faq_common_mistakes": {
+    "message": "有哪些常見錯誤需要避免？",
+    "description": "關於常見錯誤的FAQ問題"
+  },
+  "faq_complete_provider": {
+    "message": "completeProvider的功能是什麼？",
+    "description": "關於completeProvider的FAQ問題"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "當設置為true時，completeProvider會標記匹配的請求以進行阻止。實際的阻止只會在啟用全局“領域阻止”設定時才會發生。當設置為false時，您可以正常使用規則、例外和重定向。",
+    "description": "解釋completeProvider的FAQ答案"
+  },
+  "faq_complete_provider_usage": {
+    "message": "大多數自定義規則應該將此選項設置為false，並使用特定的參數刪除規則。 ",
+    "description": "關於completeProvider使用的建議"
+  },
+  "faq_complete_provider_warning": {
+    "message": "如果啟用了“領域阻止”，則這可能會阻止與匹配的URL完全訪問。",
+    "description": "關於completeProvider的警告"
+  },
+  "faq_complex_example": {
+    "message": "請給我一個複雜的provider範例",
+    "description": "請求複雜示例的FAQ問題"
+  },
+  "faq_complex_example_explanation": {
+    "message": "此provider會移除追蹤參數和片段，處理重定向，但同時保護API、登錄和結帳頁面不被修改。",
+    "description": "解釋複雜示例的FAQ答案"
+  },
+  "faq_complex_example_intro": {
+    "message": "這裡有一個具有重定向和例外的進階provider：",
+    "description": "複雜示例的FAQ介紹"
+  },
+  "faq_custom_rules_note": {
+    "message": "自定義規則會與內建規則一起執行，並且可以通過名稱覆蓋導入的捆綁/遠端provider條目。",
+    "description": "關於自定義規則優先級的說明"
+  },
+  "faq_default_note": {
+    "message": "默認：",
+    "description": "FAQ中用於標記預設行為的標籤"
+  },
+  "faq_domain_exceptions": {
+    "message": "什麼是領域例外？",
+    "description": "關於領域例外的FAQ問題"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "領域例外與普通例外類似，但使用更簡單的領域模式格式而不是正則表達式。 它們允許您將特定域名或子域名排除在處理之外。",
+    "description": "解釋領域例外的FAQ答案"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "領域例外使用與領域模式相同的模式，但比正則表達式例外更簡單。",
+    "description": "關於領域例外的提示"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ - 用於 example.com 和其子域名的主機名匹配",
+    "description": "關於AdBlock領域模式的解釋"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - 主機名通配符；每個 * 匹配一個標籤（點分隔部分）",
+    "description": "關於AdBlock通配符模式的解釋"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "example.com - 對完整URL進行簡單的子字符串匹配 (也可以在更長的主機名/路徑中匹配)",
+    "description": "關於基本領域模式的解釋"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.example.*^ - 匹配具有通配符TLD的子域名，包括多部分TLD (a.example.co.uk)",
+    "description": "關於完整通配符模式的解釋"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||example.*^ - 匹配具有通配符TLD的域名，包括多部分TLD (example.co.uk, example.gov.in)",
+    "description": "關於TLD通配符領域模式的解釋"
+  },
+  "faq_domain_pattern_types": {
+    "message": "領域模式類型：",
+    "description": "FAQ中用於領域模式類型的標題"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com - 對完整URL進行通配符正則表達式匹配，不是嚴格的主機名匹配",
+    "description": "關於通配符領域模式的解釋"
+  },
+  "faq_domain_patterns": {
+    "message": "領域模式與URL模式",
+    "description": "關於領域模式與URL模式的FAQ問題"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "領域模式支持簡單的標記和AdBlock風格的形式。 匹配行為取決於語法 (某些形式檢查主機名，其他形式針對完整的URL字符串):",
+    "description": "關於領域模式的解釋"
+  },
+  "faq_domain_redirections": {
+    "message": "什麼是領域重定向？",
+    "description": "關於領域重定向的FAQ問題"
+  },
+  "faq_domain_redirections_example": {
+    "message": "redirect.example.com$redirect=https://target.com 將從 redirect.example.com 的所有 URL 重定向到 https://target.com",
+    "description": "領域重定向的FAQ示例"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "領域重定向使用領域模式來檢測重定向URL並提取目標目的地。 它們支持特殊的 $redirect= 語法，用於簡單的重定向映射。",
+    "description": "解釋領域重定向的FAQ答案"
+  },
+  "faq_example": {
+    "message": "範例:",
+    "description": "FAQ 中範例的標籤"
+  },
+  "faq_exceptions": {
+    "message": "異常處理是如何運作的？",
+    "description": "關於異常處理的 FAQ 問題"
+  },
+  "faq_exceptions_explanation": {
+    "message": "異常是指與 URL 匹配，但不應進行任何處理的正規表達式模式。 如果一個 URL 匹配了一個異常，則所有其他規則都會被忽略。",
+    "description": "關於異常的 FAQ 解釋"
+  },
+  "faq_exceptions_usage": {
+    "message": "使用異常來保護登錄頁面、API 端點或其他敏感 URL，防止其被修改。",
+    "description": "關於異常使用的 FAQ 指南"
+  },
+  "faq_force_redirection": {
+    "message": "什麼時候應該使用 forceRedirection？",
+    "description": "關於 forceRedirection 的 FAQ 問題"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "某些網站通過 JavaScript 操縱鏈接，阻止正常的重定向。 forceRedirection 將 URL 直接寫入瀏覽器的主框架。",
+    "description": "關於 forceRedirection 的 FAQ 解釋"
+  },
+  "faq_force_redirection_usage": {
+    "message": "對於像 Google 這樣的網站，如果它們使用 onClick 事件處理程序而不是直接的 href 屬性，請啟用此功能。",
+    "description": "關於 forceRedirection 使用的 FAQ 指南"
+  },
+  "faq_force_redirection_warning": {
+    "message": "僅在正常重定向失敗時才使用，因為這種方法更具侵入性。",
+    "description": "關於 forceRedirection 的 FAQ 警告"
+  },
+  "faq_how_providers_work": {
+    "message": "Provider 是如何運作的？",
+    "description": "關於 Provider 運作方式的 FAQ 問題"
+  },
+  "faq_http_methods": {
+    "message": "什麼是 HTTP 方法？",
+    "description": "關於 HTTP 方法的 FAQ 問題"
+  },
+  "faq_http_methods_common": {
+    "message": "常見的 HTTP 方法：",
+    "description": "FAQ 中常見 HTTP 方法的標題"
+  },
+  "faq_http_methods_delete": {
+    "message": "DELETE - 刪除操作",
+    "description": "關於 DELETE 方法的 FAQ 列表項"
+  },
+  "faq_http_methods_explanation": {
+    "message": "HTTP 方法允許您僅將規則應用於特定類型的 HTTP 請求（GET、POST、PUT、DELETE 等）。 這讓您可以控制哪些請求方法觸發您的規則。",
+    "description": "關於 HTTP 方法的 FAQ 解釋"
+  },
+  "faq_http_methods_get": {
+    "message": "GET - 標準網頁請求",
+    "description": "關於 GET 方法的 FAQ 列表項"
+  },
+  "faq_http_methods_head": {
+    "message": "HEAD - 僅限標頭的請求",
+    "description": "關於 HEAD 方法的 FAQ 列表項"
+  },
+  "faq_http_methods_options": {
+    "message": "OPTIONS - CORS 預檢請求",
+    "description": "關於 OPTIONS 方法的 FAQ 列表項"
+  },
+  "faq_http_methods_post": {
+    "message": "POST - 表單提交和 API 調用",
+    "description": "關於 POST 方法的 FAQ 列表項"
+  },
+  "faq_http_methods_put": {
+    "message": "PUT - 更新操作",
+    "description": "關於 PUT 方法的 FAQ 列表項"
+  },
+  "faq_http_methods_tip": {
+    "message": "留空以應用於所有 HTTP 方法，或僅指定您想要針對的方法。",
+    "description": "關於 HTTP 方法的 FAQ 提示"
+  },
+  "faq_import_benefit_quick": {
+    "message": "快速設置 - 無需手動創建複雜的模式",
+    "description": "通過導入實現快速設置的 FAQ 優勢"
+  },
+  "faq_import_benefit_search": {
+    "message": "搜索和篩選，以找到您需要的內容",
+    "description": "關於搜索功能的 FAQ 優勢"
+  },
+  "faq_import_benefit_tested": {
+    "message": "預先測試過的規則，已知可以正確工作",
+    "description": "通過導入實現的預先測試規則的 FAQ 優勢"
+  },
+  "faq_import_benefit_updates": {
+    "message": "輕鬆更新規則以包含新的規則",
+    "description": "通過導入實現的易於更新的 FAQ 優勢"
+  },
+  "faq_list_feature_actions": {
+    "message": "使用單擊即可編輯、複製或刪除規則",
+    "description": "關於快速操作的 FAQ 功能"
+  },
+  "faq_list_feature_overview": {
+    "message": "所有提供器的快速概覽，包含關鍵統計信息",
+    "description": "關於提供器概覽的 FAQ 功能"
+  },
+  "faq_list_feature_search": {
+    "message": "通過名稱搜索規則，以便快速找到特定規則",
+    "description": "關於提供器搜索的 FAQ 功能"
+  },
+  "faq_list_feature_stats": {
+    "message": "一目瞭然地查看規則計數和模式類型",
+    "description": "關於統計信息顯示的 FAQ 功能"
+  },
+  "faq_mistake_broad": {
+    "message": "使 urlPattern 太過寬泛（匹配不希望匹配的網站）",
+    "description": "關於寬泛模式的常見錯誤"
+  },
+  "faq_mistake_complete": {
+    "message": "除非您真的想要阻止該站點，否則不要將 completeProvider 設置為 true",
+    "description": "關於 completeProvider 的常見錯誤"
+  },
+  "faq_mistake_escape": {
+    "message": "忘記在模式中轉義特殊正規表達式字符",
+    "description": "關於轉義正規表達式的常見錯誤"
+  },
+  "faq_mistake_exceptions": {
+    "message": "未添加重要的功能異常",
+    "description": "關於缺少異常的常見錯誤"
+  },
+  "faq_mistake_testing": {
+    "message": "在部署之前沒有徹底測試規則",
+    "description": "關於不充分測試的常見錯誤"
+  },
+  "faq_note": {
+    "message": "注意:",
+    "description": "FAQ 中重要提示的標籤"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "這兩個欄位都可能出現在資料中，但 urlPattern 具有優先權。只有在 urlPattern 為空時才會使用 Domain Patterns。網域比對支援 PSL 感知行為，包含可註冊網域邏輯與多部分 TLD 支援。",
+    "description": "關於模式排他的 FAQ 提示"
+  },
+  "faq_perf_combine": {
+    "message": "將多個相似的模式合併為一個正規表達式。",
+    "description": "關於合併模式的常見問題解答 (FAQ) 性能提示"
+  },
+  "faq_perf_limit": {
+    "message": "限制規則的數量，只保留您實際需要的那些。",
+    "description": "關於限制規則的常見問題解答 (FAQ) 性能提示"
+  },
+  "faq_perf_review": {
+    "message": "定期審查和清理未使用的規則。",
+    "description": "關於定期審查的常見問題解答 (FAQ) 性能提示"
+  },
+  "faq_perf_simple": {
+    "message": "如果可能，請使用簡單的規則，而不是複雜的原始規則。",
+    "description": "關於使用簡單規則的常見問題解答 (FAQ) 性能提示"
+  },
+  "faq_perf_specific": {
+    "message": "請盡可能地使 `urlPattern` 越具體越好。",
+    "description": "關於特定模式的常見問題解答性能提示。"
+  },
+  "faq_performance_tips": {
+    "message": "我該如何優化性能？",
+    "description": "關於性能優化的常見問題解答。"
+  },
+  "faq_provider_example": {
+    "message": "例如，一個 \"Google\" 提供者將處理所有 Google 服務，並包含規則以從搜尋結果、YouTube 連結等中移除追蹤參數。",
+    "description": "提供者使用範例的常見問題解答。"
+  },
+  "faq_provider_import": {
+    "message": "我該如何從規則中導入提供者？",
+    "description": "關於提供者導入功能的常見問題解答。"
+  },
+  "faq_provider_import_benefits": {
+    "message": "導入的好處：",
+    "description": "導入好處部分的標題。"
+  },
+  "faq_provider_import_explanation": {
+    "message": "提供者導入功能允許您快速從內建的規則目錄中添加提供者。點擊 \"從規則導入\" 按鈕即可瀏覽並選擇提供者。",
+    "description": "關於提供者導入功能的說明。"
+  },
+  "faq_provider_import_tip": {
+    "message": "您可以一次導入多個提供者，只需選擇它們然後點擊導入。",
+    "description": "關於提供者導入的提示。"
+  },
+  "faq_provider_list": {
+    "message": "我該如何有效地管理我的提供者？",
+    "description": "關於提供者列表管理的常見問題解答。"
+  },
+  "faq_provider_list_explanation": {
+    "message": "提供者列表視窗讓您快速查看所有自定義提供者。您可以搜尋、編輯、複製或刪除提供者，而無需單獨打開每個提供者。",
+    "description": "關於提供者列表功能的說明。"
+  },
+  "faq_provider_list_features": {
+    "message": "提供者列表功能：",
+    "description": "關於提供者列表功能的標題。"
+  },
+  "faq_provider_list_tip": {
+    "message": "從編輯器工具欄打開提供者列表，以瀏覽和管理提供者。",
+    "description": "關於提供者列表的提示。"
+  },
+  "faq_providers_explanation": {
+    "message": "提供者是邏輯單元，它們將多個規則分組到相同的 URL 模式下。每個提供者都針對特定的網站或服務，並包含所有用於清理來自該來源的 URL 的規則。",
+    "description": "解釋提供者的常見問題解答。"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "直接套用正規表達式模式到整個 URL。用於複雜的模式，這些模式不符合標準參數格式。",
+    "description": "關於 rawRules 的常見問題解答說明。"
+  },
+  "faq_raw_rules_title": {
+    "message": "原始規則：",
+    "description": "關於 rawRules 說明部分的標題。"
+  },
+  "faq_raw_rules_usage": {
+    "message": "對於片段、路徑區段或複雜的參數模式，請使用 rawRules。",
+    "description": "關於 rawRules 使用的指導。"
+  },
+  "faq_redirections": {
+    "message": "重定向是如何運作的？",
+    "description": "關於重定向的常見問題解答。"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com 變成 https://target.com",
+    "description": "重定向過程的常見問題解答範例。"
+  },
+  "faq_redirections_explanation": {
+    "message": "重定向會從重定向服務中提取實際目標 URL。正規表達式中的第一個捕獲組將成為新的 URL。",
+    "description": "關於重定向的常見問題解答說明。"
+  },
+  "faq_redirections_process": {
+    "message": "捕獲的 URL 會自動使用 decodeURIComponent() 解碼，並取代原始 URL。",
+    "description": "關於重定向處理的常見問題解答說明。"
+  },
+  "faq_referral_default": {
+    "message": "預設情況下，推薦行銷已禁用，因此除非使用者明確允許，否則這些參數將會被移除。",
+    "description": "關於 referralMarketing 預設行為的常見問題解答說明。"
+  },
+  "faq_referral_explanation": {
+    "message": "推薦行銷參數有助於內容創作者賺取佣金。只有在使用者在設定中已禁用推薦行銷支援時，這些參數才會被移除。",
+    "description": "關於 referralMarketing 的常見問題解答說明。"
+  },
+  "faq_referral_marketing": {
+    "message": "什麼是推薦行銷？",
+    "description": "關於推薦行銷的常見問題解答。"
+  },
+  "faq_resource_types": {
+    "message": "資源類型是什麼？",
+    "description": "關於資源類型的常見問題解答。"
+  },
+  "faq_resource_types_common": {
+    "message": "常見的資源類型：",
+    "description": "關於常見資源類型的標題。"
+  },
+  "faq_resource_types_explanation": {
+    "message": "資源類型允許您僅將規則應用於特定類型的網路請求（圖片、腳本、主要頁面等）。這讓您可以精確控制規則的應用時機。",
+    "description": "關於資源類型的常見問題解答說明。"
+  },
+  "faq_resource_types_tip": {
+    "message": "保持空白以適用於所有資源類型，或僅指定您要針對的類型。",
+    "description": "關於資源類型的提示。"
+  },
+  "faq_rt_font": {
+    "message": "字體 - 網頁字體 (.woff, .ttf 等)",
+    "description": "關於資源類型字體的常見問題解答。"
+  },
+  "faq_rt_image": {
+    "message": "圖片 - 圖片和照片",
+    "description": "關於資源類型圖片的常見問題解答。"
+  },
+  "faq_rt_imageset": {
+    "message": "圖片集 - 響應式圖片的圖片集",
+    "description": "關於資源類型圖片集的常見問題解答。"
+  },
+  "faq_rt_main_frame": {
+    "message": "主要框架 - 主要網頁",
+    "description": "關於資源類型主要框架的常見問題解答。"
+  },
+  "faq_rt_media": {
+    "message": "多媒體 - 音訊和視訊檔案",
+    "description": "關於資源類型多媒體的常見問題解答。"
+  },
+  "faq_rt_object": {
+    "message": "物件 - 內嵌物件 (Flash, 插件)",
+    "description": "關於資源類型物件的常見問題解答。"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "物件次要請求 - 由內嵌物件發出的請求",
+    "description": "關於資源類型物件次要請求的常見問題解答。"
+  },
+  "faq_rt_other": {
+    "message": "其他 - 上述未涵蓋的其他類型",
+    "description": "關於資源類型其他項目的常見問題解答。"
+  },
+  "faq_rt_script": {
+    "message": "腳本 - JavaScript 檔案",
+    "description": "關於資源類型腳本的常見問題解答。"
+  },
+  "faq_rt_stylesheet": {
+    "message": "樣式表 - CSS 檔案",
+    "description": "關於資源類型樣式表的常見問題解答。"
+  },
+  "faq_rt_sub_frame": {
+    "message": "次要框架 - 內嵌的 iframe",
+    "description": "關於資源類型次要框架的常見問題解答。"
+  },
+  "faq_rt_websocket": {
+    "message": "WebSocket - WebSocket 連線",
+    "description": "關於資源類型 WebSocket 的常見問題解答。"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "XML DTD - XML 文件類型定義",
+    "description": "關於資源類型 XML DTD 的常見問題解答。"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "XMLHttpRequest - AJAX 請求",
+    "description": "關於資源類型 XMLHttpRequest 的常見問題解答。"
+  },
+  "faq_rt_xslt": {
+    "message": "XSLT - XSLT 轉換檔案",
+    "description": "關於資源類型 XSLT 的常見問題解答。"
+  },
+  "faq_rules_converted": {
+    "message": "範例： \"utm_source\" 會完全匹配鍵； \"utm_.*\" 會匹配像 utm_source 和 utm_campaign 這樣的鍵。",
+    "description": "關於規則鍵匹配的常見問題解答範例。"
+  },
+  "faq_rules_explanation": {
+    "message": "正則表達式模式會與每個查詢參數鍵和哈希片段鍵進行匹配。 使用簡單名稱（用於完全匹配鍵）或使用正則表達式進行更廣泛的匹配。",
+    "description": "關於規則的常見問題解答說明。"
+  },
+  "faq_rules_title": {
+    "message": "規則：",
+    "description": "關於規則說明部分的常見問題解答標題。"
+  },
+  "faq_rules_vs_raw": {
+    "message": "規則和 rawRules 之間的區別是什麼？",
+    "description": "關於規則與 rawRules 的常見問題解答。"
+  },
+  "faq_section_advanced": {
+    "message": "進階功能",
+    "description": "關於進階功能的常見問題解答章節標題。"
+  },
+  "faq_section_basics": {
+    "message": "基礎知識",
+    "description": "關於基礎知識的常見問題解答章節標題。"
+  },
+  "faq_section_examples": {
+    "message": "範例",
+    "description": "關於範例的常見問題解答章節標題。"
+  },
+  "faq_section_new_features": {
+    "message": "進階功能",
+    "description": "關於進階功能的常見問題解答章節標題。"
+  },
+  "faq_section_properties": {
+    "message": "提供者屬性",
+    "description": "關於提供者屬性的常見問題解答章節標題。"
+  },
+  "faq_section_tips": {
+    "message": "技巧與最佳實踐",
+    "description": "關於技巧與最佳實踐的常見問題解答章節標題。"
+  },
+  "faq_simple_example": {
+    "message": "請給我一個簡單的提供者範例。",
+    "description": "請求簡單範例的常見問題解答。"
+  },
+  "faq_simple_example_explanation": {
+    "message": "這會移除 Facebook 點擊 ID 和 UTM 參數，但如果使用者允許行銷追蹤，則會保留聯盟連結。",
+    "description": "關於簡單範例說明的一般問題解答。"
+  },
+  "faq_simple_example_intro": {
+    "message": "這裡有一個基本的提供者，用於移除虛擬購物網站上的追蹤參數：",
+    "description": "關於簡單範例介紹的一般問題解答。"
+  },
+  "faq_test_backup": {
+    "message": "在進行重大變更之前，請先匯出您的規則。",
+    "description": "關於備份規則的常見問題解答提示。"
+  },
+  "faq_test_exceptions": {
+    "message": "務必為關鍵頁面（登入、結帳、API）新增例外情況。",
+    "description": "關於新增例外情況的常見問題解答提示。"
+  },
+  "faq_test_regex": {
+    "message": "使用像 regex101.com 這樣的線上工具來測試正規表達式模式。",
+    "description": "關於測試正規表達式模式的常見問題解答提示。"
+  },
+  "faq_test_reload": {
+    "message": "使用「強制執行規則」按鈕，可在無需重新啟動瀏覽器的情況下重新載入變更。",
+    "description": "關於強制執行規則的常見問題解答提示。"
+  },
+  "faq_test_small": {
+    "message": "從簡單的規則開始，然後逐漸增加複雜度。",
+    "description": "關於從小處著手的常見問題解答提示。"
+  },
+  "faq_testing_tips": {
+    "message": "我應該如何測試我的自訂規則？",
+    "description": "關於測試技巧的常見問題解答。"
+  },
+  "faq_tip": {
+    "message": "提示：",
+    "description": "FAQ 中提示的標籤。"
+  },
+  "faq_title": {
+    "message": "常見問題解答",
+    "description": "FAQ 按鈕文字和彈出窗口標題。"
+  },
+  "faq_url_pattern": {
+    "message": "什麼是 urlPattern？",
+    "description": "關於 urlPattern 的常見問題解答。"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "urlPattern 是一個正規表達式，必須與所有受提供者規則影響的 URL 相符。 它定義了此提供者應該處理哪些網站。",
+    "description": "關於 urlPattern 的常見問題解答說明。"
+  },
+  "faq_url_pattern_structure": {
+    "message": "典型的結構涵蓋：協定 + 子網域 + 網域名稱 + TLD + 目錄 + 參數。",
+    "description": "關於 urlPattern 結構的常見問題解答說明。"
+  },
+  "faq_url_pattern_tip": {
+    "message": "在新增之前，請使用線上正規表達式測試器來驗證您的模式。",
+    "description": "關於測試 urlPattern 的常見問題解答提示。"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "URL 模式使用完整的正規表達式，以便精確控制哪些 URL 相符：",
+    "description": "關於 URL 模式的常見問題解答說明。"
+  },
+  "faq_use_domain_patterns": {
+    "message": "使用網域名稱模式，用於更簡單的網址/路徑比對，無需編寫完整的 urlPattern 正規表達式。",
+    "description": "關於使用網域名稱模式的常見問題解答指導。"
+  },
+  "faq_use_url_patterns": {
+    "message": "使用 URL 模式進行複雜的比對（特定路徑、查詢參數等）。",
+    "description": "關於使用 URL 模式的常見問題解答指導。"
+  },
+  "faq_warning": {
+    "message": "警告：",
+    "description": "FAQ 中警告的標籤。"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "什麼是自訂規則？",
+    "description": "關於自訂規則的常見問題解答。"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "自訂規則允許您為未包含在內置規則中的網站創建自己的 URL 清理模式。 它們遵循與主目錄相同的結構，但由單獨管理。",
+    "description": "關於自訂規則的常見問題解答說明。"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "何時使用哪種：",
+    "description": "關於模式使用指導的常見問題解答部分標題。"
+  },
+  "feature1": {
+    "message": "默認啟用內置的注重隱私的 URL 清理功能。",
+    "description": ""
+  },
+  "feature2": {
+    "message": "自訂規則支持，用於每個提供者和每個模式的控制。",
+    "description": ""
+  },
+  "feature3": {
+    "message": "白名單支持，可選擇性地繞過對選定網域的清理。",
+    "description": ""
+  },
+  "feature4": {
+    "message": "遠端規則和過載模式，用於高級設置。",
+    "description": ""
+  },
+  "feature_toggles_title": {
+    "message": "功能設定",
+    "description": "「功能設定」部分的標題。"
+  },
+  "fileEmptyError": {
+    "message": "文件為空或無法讀取。",
+    "description": "當法律/隱私文件為空或無法讀取時顯示的錯誤訊息。"
+  },
+  "general_settings_title": {
+    "message": "一般設定",
+    "description": "「一般設定」部分的標題。"
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "內置規則已載入 (缺少雜湊)",
+    "description": "當在缺少雜湊 URL 時載入內置規則時的狀態。"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "使用內置規則 (備用方案)",
+    "description": "當遠端請求失敗後切換到內置規則時的狀態。"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "快取遠端 + 自訂規則 (內置失敗)",
+    "description": "當內置規則失敗後使用快取的遠端規則和自訂規則時的狀態。"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "快取遠端 + 自訂規則 (遠端失敗)",
+    "description": "當遠端請求失敗後使用快取的遠端規則和自訂規則時的狀態。"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "快取遠端 + 自訂規則 (沒有雜湊 URL)",
+    "description": "當缺少雜湊 URL 時使用快取的遠端規則和自訂規則時的狀態。"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "快取遠端規則 (內置失敗)",
+    "description": "當內置規則失敗後使用快取的遠端規則時的狀態。"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "快取遠端規則 (遠端失敗)",
+    "description": "當當前遠端請求失敗後使用快取的遠端規則時的狀態。"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "快取遠端規則 (沒有雜湊 URL)",
+    "description": "因為缺少雜湊 URL 而使用快取的遠端規則時的狀態。"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "快取遠端 + 內置規則已合併",
+    "description": "過載模式下，將快取遠端規則與內置規則合併時的狀態。"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "快取遠端 + 內置規則已合併，包含自訂規則",
+    "description": "過載模式下，將快取遠端、內置與自訂規則合併時的狀態。"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "僅使用自訂規則",
+    "description": "當禁用內置規則並且只有自訂規則啟用的狀態。"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "已禁用內置規則且未找到任何自訂規則",
+    "description": "當禁用內置規則且沒有可載入的自訂規則時的狀態。"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "使用精簡規則 (遠端失敗)",
+    "description": "當遠端請求失敗後使用備用規則時的狀態。"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "需要雜湊 URL",
+    "description": "當配置了遠端 URL 但缺少雜湊 URL 時的狀態。"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "遠端 + 內置規則已合併",
+    "description": "當成功合併遠端和內置規則時的狀態。"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "遠端 + 內置規則已合併，包含自訂規則",
+    "description": "當啟用過載模式並且合併了遠端、內置和自訂規則時的狀態。"
+  },
+  "hashStatus_remote_failed": {
+    "message": "遠端規則失敗",
+    "description": "當遠端規則驗證或載入失敗時的狀態。"
+  },
+  "hashStatus_remote_verified": {
+    "message": "已驗證遠端規則",
+    "description": "當成功驗證了遠端規則時的狀態。"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "已載入遠端規則，並合併了自訂規則",
+    "description": "當載入了遠端規則並且合併了自訂規則時顯示的消息。"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "在確認後，雜湊 URL 欄位中的預填文字。"
+  },
+  "headerTitle": {
+    "message": "Linkumori",
+    "description": "標題文字，用於擴充功能。"
+  },
+  "history_listener_enabled": {
+    "message": "防止追蹤程式碼注入到瀏覽歷史紀錄中。",
+    "description": "用作瀏覽器歷史記錄 API 監聽器的標籤名稱。"
+  },
+  "history_listener_enabled_description": {
+    "message": "監控並清理瀏覽器歷史記錄中的網址。",
+    "description": "用於啟用/停用歷史記錄監聽器的說明文字。"
+  },
+  "search_link_fix_enabled": {
+    "message": "搜尋結果連結修正",
+    "description": "Google 與 Yandex 內容腳本合併切換的標籤"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "啟用 Google 與 Yandex 內容腳本，從搜尋結果連結中移除重新導向追蹤。",
+    "description": "搜尋結果內容腳本合併切換的說明"
+  },
+  "google_link_fix_enabled": {
+    "message": "Google 連結修正",
+    "description": "Google 內容腳本切換的標籤"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "啟用 Google 內容腳本，從 Google 搜尋結果連結中移除重新導向追蹤。",
+    "description": "Google 內容腳本切換的說明"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "Yandex 連結修正",
+    "description": "Yandex 內容腳本切換的標籤"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "啟用 Yandex 內容腳本，從 Yandex 搜尋結果連結中移除重新導向追蹤。",
+    "description": "Yandex 內容腳本切換的說明"
+  },
+  "import_invalid_format": {
+    "message": "檔案格式無效或資料已損毀。",
+    "description": "當檔案格式無效時顯示的錯誤訊息。"
+  },
+  "import_parse_error": {
+    "message": "解析檔案失敗。請檢查檔案格式。",
+    "description": "當檔案解析失敗時顯示的錯誤訊息。"
+  },
+  "import_read_error": {
+    "message": "讀取檔案失敗。",
+    "description": "當讀取檔案失敗時顯示的錯誤訊息。"
+  },
+  "inputUrlsDescription": {
+    "message": "使用此工具，您可以貼上網址，點擊綠色按鈕後，ClearURLs 將會清理這些網址。您可以一次性貼上多個網址，但每個網址必須位於單獨的一行。",
+    "description": "輸入網址部分的說明文字。"
+  },
+  "inputUrlsPlaceholder": {
+    "message": "在此處貼上您的網址，每行一個...",
+    "description": "輸入網址文本區域的提示文字。"
+  },
+  "inputUrlsTitle": {
+    "message": "輸入網址",
+    "description": "輸入網址部分的標題。"
+  },
+  "language_selector_description": {
+    "message": "選擇您偏好的介面語言，然後點擊儲存並重新載入。(數字不會被翻譯)",
+    "description": "語言選擇器的說明文字。"
+  },
+  "language_selector_label": {
+    "message": "介面語言",
+    "description": "語言選擇器下拉選單的標籤。"
+  },
+  "licenseCopied": {
+    "message": "已複製授權條款！",
+    "description": "複製授權條款內容後顯示的提示訊息。"
+  },
+  "licenseDescription": {
+    "message": "此擴充功能是開源，並根據 GNU Lesser General Public License 授權。",
+    "description": "授權資訊部分的說明文字。"
+  },
+  "licenseDownloaded": {
+    "message": "已下載授權條款！",
+    "description": "下載授權條款內容後顯示的提示訊息。"
+  },
+  "licenseSection": {
+    "message": "授權資訊",
+    "description": "授權資訊部分的標題。"
+  },
+  "license_links_title": {
+    "message": "連結",
+    "description": "授權部分中連結部分的標題。"
+  },
+  "license_third_party_title": {
+    "message": "第三方組件",
+    "description": "授權部分中第三方組件部分的標題。"
+  },
+  "license_title": {
+    "message": "授權",
+    "description": "授權部分的標題。"
+  },
+  "loadError": {
+    "message": "載入內容時發生錯誤。",
+    "description": "當法律/隱私權內容載入失敗時顯示的錯誤標題。"
+  },
+  "loadingContent": {
+    "message": "正在載入內容...",
+    "description": "關於/法律內容區域的一般載入訊息。"
+  },
+  "loadingLicense": {
+    "message": "正在載入授權條款...",
+    "description": "載入授權條款內容的文字。"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "正在載入隱私權政策...",
+    "description": "載入隱私權政策內容的文字。"
+  },
+  "local_hosts_skipping": {
+    "message": "跳過本機主機上的網址 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+    "description": "用於本機主機跳過開關的標籤。"
+  },
+  "local_hosts_skipping_description": {
+    "message": "跳過對本地主機和本地網路地址的清理。",
+    "description": "用於本機主機跳過的開關說明文字。"
+  },
+  "log_domain_blocked": {
+    "message": "此網域已被阻止",
+    "description": "在 Linkumori (Clean URLS) 記錄中，用於被阻擋的網域。"
+  },
+  "log_html_export_button": {
+    "message": "匯出",
+    "description": "用於記錄頁面上的匯出按鈕。"
+  },
+  "log_html_export_button_title": {
+    "message": "匯出全局日誌",
+    "description": "用於記錄頁面上的匯出按鈕標題。"
+  },
+  "log_html_import_button": {
+    "message": "匯入",
+    "description": "用於記錄頁面上的匯入按鈕。"
+  },
+  "log_html_import_button_title": {
+    "message": "匯入全局日誌",
+    "description": "用於記錄頁面上的匯入按鈕標題。"
+  },
+  "log_html_import_error": {
+    "message": "匯入日誌檔案時發生錯誤：",
+    "description": "匯入失敗時顯示的錯誤訊息前綴。"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "日誌檔案格式無效。",
+    "description": "當匯入的檔案不是有效的 JSON 日誌格式時顯示的錯誤訊息。"
+  },
+  "log_html_page_title": {
+    "message": "Linkumori (Clean URLS) 的紀錄",
+    "description": "用於記錄頁面標題的文字。"
+  },
+  "log_html_reset_button": {
+    "message": "重置",
+    "description": "用於記錄頁面上的重置按鈕。"
+  },
+  "log_html_reset_button_title": {
+    "message": "重置全局日誌",
+    "description": "用於記錄頁面上的重置按鈕標題。"
+  },
+  "log_html_reset_confirm": {
+    "message": "您確定要重置日誌嗎？此操作不可逆。",
+    "description": "當使用者點擊重置按鈕時顯示的確認對話框。"
+  },
+  "log_html_search": {
+    "message": "搜尋",
+    "description": "搜尋輸入欄位的標籤。"
+  },
+  "log_html_search_placeholder": {
+    "message": "搜尋日誌...",
+    "description": "搜尋輸入框中的佔位符文字"
+  },
+  "log_html_show_all": {
+    "message": "全部",
+    "description": "在條目下拉選單中，用於顯示所有條目的選項"
+  },
+  "log_html_show_entries": {
+    "message": "顯示條目數",
+    "description": "下拉選單的標籤，用於選擇每頁要顯示多少個條目"
+  },
+  "log_html_table_head_1": {
+    "message": "之前",
+    "description": "此字串用於日誌頁面的表格標題。"
+  },
+  "log_html_table_head_2": {
+    "message": "之後",
+    "description": "此字串用於日誌頁面的表格標題。"
+  },
+  "log_html_table_head_3": {
+    "message": "規則",
+    "description": "此字串用於日誌頁面的表格標題。"
+  },
+  "log_html_table_head_4": {
+    "message": "時間",
+    "description": "此字串用於日誌頁面的表格標題。"
+  },
+  "log_nav_dashboard": {
+    "message": "儀表板",
+    "description": "在日誌頁面上，儀表板視圖的標籤"
+  },
+  "log_nav_logs": {
+    "message": "日誌",
+    "description": "在日誌頁面上，日誌視圖的標籤"
+  },
+  "log_ping_blocked": {
+    "message": "此超鏈接審計被阻止",
+    "description": "此字串用於 Linkumori (Clean URLS) 日誌中的超鏈接審計。"
+  },
+  "log_redirect": {
+    "message": "此網址已重定向",
+    "description": "此字串用於 Linkumori (Clean URLS) 日誌中的重定向。"
+  },
+  "log_stats_changed_urls": {
+    "message": "已變更的網址",
+    "description": "統計資訊卡片的標籤，用於顯示網址已變更的條目"
+  },
+  "log_stats_chart_no_data": {
+    "message": "沒有圖表數據",
+    "description": "當沒有可用於圖表的數據時，使用的空狀態標籤"
+  },
+  "log_stats_chart_reload": {
+    "message": "重新載入",
+    "description": "按鈕標籤，用於重新載入統計資訊圖表並重置圓餅圖篩選器"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "重新載入圖表並重置圓餅圖篩選器",
+    "description": "日誌儀表板中重新載入圖表的按鈕的工具提示。"
+  },
+  "log_stats_chart_title": {
+    "message": "統計資訊圖表",
+    "description": "日誌儀表板中可選圖表部分的標題。"
+  },
+  "log_stats_chart_type": {
+    "message": "圖表類型",
+    "description": "圖表類型選擇器的標籤。"
+  },
+  "log_stats_chart_type_bar": {
+    "message": "長條圖",
+    "description": "長條圖選項的標籤。"
+  },
+  "log_stats_chart_type_line": {
+    "message": "折線圖",
+    "description": "折線圖選項的標籤。"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "圓餅圖",
+    "description": "圓餅圖選項的標籤。"
+  },
+  "log_stats_count_col": {
+    "message": "數量",
+    "description": "統計資訊表格中「數量」欄位的標題。"
+  },
+  "log_stats_daily_activity": {
+    "message": "每日活動 (最近 14 天)",
+    "description": "用於每日活動圖表/表格的統計資訊區段標題。"
+  },
+  "log_stats_date_col": {
+    "message": "日期",
+    "description": "每日統計資訊表格中「日期」欄位的標題。"
+  },
+  "log_stats_domain_col": {
+    "message": "網域名稱",
+    "description": "統計資訊中「網域名稱」欄位的標題。"
+  },
+  "log_stats_earliest": {
+    "message": "最早時間",
+    "description": "用於最早時間戳記的統計資訊卡片標籤。"
+  },
+  "log_stats_entries_col": {
+    "message": "條目數",
+    "description": "每日統計資訊表格中「條目數」欄位的標題。"
+  },
+  "log_stats_latest": {
+    "message": "最新時間",
+    "description": "用於最新時間戳記的統計資訊卡片標籤。"
+  },
+  "log_stats_no_activity": {
+    "message": "沒有活動",
+    "description": "當每日統計資訊中沒有可用數據時，使用的備用行標籤。"
+  },
+  "log_stats_no_domains": {
+    "message": "沒有網域名稱",
+    "description": "當統計資訊中沒有可用網域名稱時，使用的備用行標籤。"
+  },
+  "log_stats_no_rules": {
+    "message": "沒有規則",
+    "description": "當統計資訊中沒有可用規則時，使用的備用行標籤。"
+  },
+  "log_stats_rule_col": {
+    "message": "規則名稱",
+    "description": "統計資訊中「規則名稱」欄位的標題。"
+  },
+  "log_stats_top_domains": {
+    "message": "熱門網域名稱",
+    "description": "用於頂級網域的統計資訊區段標題。"
+  },
+  "log_stats_top_rules": {
+    "message": "熱門規則",
+    "description": "用於頂級規則的統計資訊區段標題。"
+  },
+  "log_stats_total_entries": {
+    "message": "總條目數",
+    "description": "用於總日誌條目的統計資訊卡片標籤。"
+  },
+  "log_stats_unique_domains": {
+    "message": "唯一網域名稱",
+    "description": "用於唯一來源網域的統計資訊卡片標籤。"
+  },
+  "log_stats_unique_rules": {
+    "message": "唯一規則",
+    "description": "用於唯一應用規則的統計資訊卡片標籤。"
+  },
+  "log_whitelist_bypass": {
+    "message": "跳過：網域名稱已列入白名單",
+    "description": "當由於網域名稱已列入白名單而跳過 URL 清理時，此字串用於日誌中。"
+  },
+  "moonIconAlt": {
+    "message": "月亮圖示",
+    "description": "月亮主題圖示的替代文字。"
+  },
+  "new_custom_providers_label": {
+    "message": "新增：",
+    "description": "用於顯示新增自訂提供者數量的行內標籤。"
+  },
+  "nothingToCopy": {
+    "message": "沒有內容可以複製！",
+    "description": "當複製操作沒有內容時，使用的吐司訊息。"
+  },
+  "nothingToDownload": {
+    "message": "沒有內容可以下載！",
+    "description": "當下載操作沒有內容時，使用的吐司訊息。"
+  },
+  "openSettings": {
+    "message": "打開 Linkumori 設定"
+  },
+  "overload_mode_enabled": {
+    "message": "啟用超載模式",
+    "description": "用於開啟/關閉合併內建和遠端規則的切換開關標籤。"
+  },
+  "overload_mode_enabled_description": {
+    "message": "啟用時，內建和遠端規則會一起載入並在應用自訂規則之前進行合併。",
+    "description": "超載模式切換開關的描述。"
+  },
+  "overridden_providers_label": {
+    "message": "已覆蓋：",
+    "description": "用於顯示已覆蓋提供者數量的行內標籤。"
+  },
+  "overridden_providers_list_label": {
+    "message": "已覆蓋的提供者：",
+    "description": "用於已覆蓋的提供者名稱列表的標籤。"
+  },
+  "pagination_current_page_aria": {
+    "message": "目前頁面，第 $1 頁",
+    "description": "螢幕閱讀器標籤，用於顯示目前的活動頁面。$1=頁碼"
+  },
+  "pagination_first": {
+    "message": "第一頁",
+    "description": "導航至第一頁的按鈕文字。"
+  },
+  "pagination_first_aria": {
+    "message": "第一頁",
+    "description": "螢幕閱讀器標籤，用於第一頁按鈕。"
+  },
+  "pagination_last": {
+    "message": "最後一頁",
+    "description": "導航至最後一頁的按鈕文字。"
+  },
+  "pagination_last_aria": {
+    "message": "最後一頁",
+    "description": "螢幕閱讀器標籤，用於最後一頁按鈕。"
+  },
+  "pagination_next": {
+    "message": "下一頁",
+    "description": "導航至下一頁的按鈕文字。"
+  },
+  "pagination_next_aria": {
+    "message": "下一頁",
+    "description": "螢幕閱讀器標籤，用於下一頁按鈕。"
+  },
+  "pagination_page_aria": {
+    "message": "第 $1 頁",
+    "description": "螢幕閱讀器標籤，用於數字頁面按鈕。$1=頁碼"
+  },
+  "pagination_previous": {
+    "message": "上一頁",
+    "description": "導航至上一頁的按鈕文字。"
+  },
+  "pagination_previous_aria": {
+    "message": "上一頁",
+    "description": "螢幕閱讀器標籤，用於上一頁按鈕。"
+  },
+  "percentage_symbol": {
+    "message": "%",
+    "description": "此語言中用於百分比的符號。"
+  },
+  "ping_blocking_enabled": {
+    "message": "阻止超鏈接稽核",
+    "description": "此字符串用作超鏈接稽核阻斷開關的標籤。"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "阻止用於追蹤的 ping 請求。",
+    "description": "阻斷 ping 功能的切換開關描述。"
+  },
+  "popup_consent_accept_button": {
+    "message": "接受並繼續",
+    "description": "按鈕標籤，用於接受彈出視窗同意閘門。"
+  },
+  "popup_consent_checkbox": {
+    "message": "我已閱讀並接受隱私權政策和許可證。",
+    "description": "彈出視窗閘門的同意複選框標籤。"
+  },
+  "popup_consent_description": {
+    "message": "在繼續使用此彈出視窗之前，請閱讀隱私權政策和許可證。我們不會收集您的數據。所有數據都儲存在您的設備上，並且不會傳輸給我們。",
+    "description": "彈出視窗同意閘門的描述。"
+  },
+  "popup_consent_legal_button": {
+    "message": "閱讀法律文件",
+    "description": "按鈕標籤，用於從彈出視窗同意閘門打開法律頁面。"
+  },
+  "popup_consent_title": {
+    "message": "需要同意",
+    "description": "彈出視窗同意閘門的標題。"
+  },
+  "popup_html_page_title": {
+    "message": "Linkumori",
+    "description": "彈出頁面的標題文字。"
+  },
+  "popup_html_version_label": {
+    "message": "版本：",
+    "description": "彈出頁面授權區域顯示的版本標籤。"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "Firefox 附加元件簽章",
+    "description": "彈出頁面授權區域中顯示 Firefox 附加元件簽章指紋的標籤。"
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "Firefox 附加元件簽章",
+    "description": "彈出視窗中 Firefox 簽章值的標籤。"
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "未簽章，因此不可用",
+    "description": "當附加元件為未簽章狀態時，Mozilla 簽章雜湊不可用。"
+  },
+  "popup_html_version_label_title": {
+    "message": "目前擴充功能版本",
+    "description": "彈出頁面版本標籤的提示文字。"
+  },
+  "popup_html_license_description": {
+    "message": "點擊下方的法律連結可查看詳細的授權與隱私資訊。",
+    "description": "彈出頁面授權區域的說明文字。"
+  },
+  "popup_html_license_description_title": {
+    "message": "授權與隱私資訊",
+    "description": "彈出頁面授權說明的提示文字。"
+  },
+  "popup_html_gpl_link": {
+    "message": "GNU 通用公共授權 v3.0",
+    "description": "彈出頁面中 GPL v3 的授權連結文字。"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "開啟 GNU GPL v3.0 授權條款",
+    "description": "彈出頁面 GPL 連結的提示文字。"
+  },
+  "popup_html_lgpl_link": {
+    "message": "GNU 寬鬆通用公共授權 v3.0",
+    "description": "彈出頁面中 LGPL v3 的授權連結文字。"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "開啟 GNU LGPL v3.0 授權條款",
+    "description": "彈出頁面 LGPL 連結的提示文字。"
+  },
+  "popup_html_source_code_repository": {
+    "message": "原始碼儲存庫",
+    "description": "彈出頁面中原始碼儲存庫連結文字。"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "開啟原始碼儲存庫",
+    "description": "彈出頁面原始碼連結的提示文字。"
+  },
+  "popup_html_source_code_releases": {
+    "message": "原始碼發行版本",
+    "description": "彈出頁面中原始碼發行版本連結文字。"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "開啟原始碼發行版本頁面",
+    "description": "彈出頁面原始碼發行版本連結的提示文字。"
+  },
+  "popup_html_report_issues": {
+    "message": "回報問題",
+    "description": "彈出頁面中問題回報連結文字。"
+  },
+  "popup_html_report_issues_title": {
+    "message": "開啟問題回報頁面",
+    "description": "彈出頁面回報問題連結的提示文字。"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "ClearURLs MV3 遷移儲存庫",
+    "description": "彈出頁面中 ClearURLs MV3 遷移儲存庫連結文字。"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "開啟 ClearURLs MV3 遷移儲存庫",
+    "description": "彈出頁面 ClearURLs 遷移連結的提示文字。"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "ClearURLs 附加元件 V1.27.3 儲存庫",
+    "description": "彈出頁面中 ClearURLs 附加元件 v1.27.3 儲存庫連結文字。"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "開啟 ClearURLs 附加元件 v1.27.3 儲存庫",
+    "description": "彈出頁面 ClearURLs 附加元件連結的提示文字。"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "Linkumori v.",
+    "description": "封鎖頁面底部版本號前的前綴文字。"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "徽章",
+    "description": "此字符串用作彈出頁面上徽章切換按鈕的名稱。"
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "篩選器",
+    "description": "此字符串用作彈出頁面上篩選器切換按鈕的名稱。"
+  },
+  "popup_html_configs_switch_log": {
+    "message": "日誌記錄",
+    "description": "此字符串用作彈出頁面上日誌記錄切換按鈕的名稱。"
+  },
+  "popup_html_log_head": {
+    "message": "查看日誌",
+    "description": "此字符串用作彈出頁面上的日誌按鈕的名稱。"
+  },
+  "popup_html_settings_button": {
+    "message": "設定",
+    "description": "此字符串用於彈出頁面上的設定按鈕。"
+  },
+  "popup_html_statistics": {
+    "message": "統計資料",
+    "description": "統計功能切換標籤。"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "已阻止",
+    "description": "此字符串用作彈出頁面上已阻止元素的名稱。"
+  },
+  "popup_html_statistics_elements": {
+    "message": "元素",
+    "description": "此字符串用作彈出頁面上元素的名稱。"
+  },
+  "popup_html_statistics_percentage": {
+    "message": "百分比",
+    "description": "此字符串用作彈出頁面上已阻止元素的百分比的名稱。"
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "重置",
+    "description": "此字符串用作彈出頁面上的統計資料重置按鈕的名稱。"
+  },
+  "popup_html_tools_button": {
+    "message": "工具",
+    "description": "此字符串用於彈出頁面上的工具按鈕。"
+  },
+  "popup_html_tools_button_title": {
+    "message": "打開清理工具",
+    "description": "此字符串用作彈出頁面上工具按鈕的標題。"
+  },
+  "popup_html_whitelist_button": {
+    "message": "白名單",
+    "description": "此字符串用於彈出頁面上的白名單按鈕。"
+  },
+  "popup_nav_license": {
+    "message": "許可證(license)",
+    "description": "導航標籤，用於許可證區段"
+  },
+  "popup_nav_main": {
+    "message": "主要內容",
+    "description": "導航標籤，用於主要內容區段"
+  },
+  "privacyCopied": {
+    "message": "隱私權政策已複製！",
+    "description": "在複製隱私權政策內容後顯示的通知訊息。"
+  },
+  "privacyDescription": {
+    "message": "請查看以下我們的隱私權政策。",
+    "description": "用於隱私權政策區段的描述性文字。"
+  },
+  "privacyDownloaded": {
+    "message": "隱私權政策已下載！",
+    "description": "在下載隱私權政策內容後顯示的通知訊息。"
+  },
+  "privacyPolicySection": {
+    "message": "隱私權政策",
+    "description": "用於隱私權政策區段的標題。"
+  },
+  "privacyVersionDescription": {
+    "message": "請選擇您想要查看的隱私權政策版本。請注意，目前只有英文版本可用，未來可能會添加其他語言。",
+    "description": "用於隱私權版本選擇器的輔助描述。"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "English",
+    "description": "用於全局英文隱私權政策文件的選項標籤。"
+  },
+  "privacyVersionLabel": {
+    "message": "隱私權政策 ",
+    "description": "用於選擇英文隱私權政策版本的標籤。"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "找不到選定的策略文件。已替換為默認的隱私權政策。",
+    "description": "當無法加載選定的隱私權版本文件時顯示的通知。"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "加載隱私權版本映射失敗。",
+    "description": "當無法加載隱私權版本映射配置時顯示的通知。"
+  },
+  "providerImport_bundledRules": {
+    "message": "啟用捆綁/遠程規則/自定義規則",
+    "description": "側邊欄選項，用於目前啟用的捆綁和遠程規則。"
+  },
+  "providerImport_button": {
+    "message": "導入/禁用提供程序",
+    "description": "導入選定的提供程序的按鈕文本。"
+  },
+  "providerImport_clearSelection": {
+    "message": "清除",
+    "description": "用於清除所有選定提供程序的按鈕文本。"
+  },
+  "providerImport_complete": {
+    "message": "完成"
+  },
+  "providerImport_completeProvider": {
+    "message": "完成提供程序"
+  },
+  "providerImport_completed": {
+    "message": "導入完成！"
+  },
+  "providerImport_confirmExclude": {
+    "message": "排除此提供程序簽名嗎？與匹配的 URL/域名模式提供程序的自定義規則將被隱藏和移除。",
+    "description": "在從導入中排除提供程序簽名之前顯示的確認訊息。"
+  },
+  "providerImport_disableSelected": {
+    "message": "禁用選定",
+    "description": "用於禁用所選提供程序的按鈕文本（按簽名）。"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "是否禁用 $1 個選定的提供程序簽名？",
+    "description": "在批量禁用選定的提供程序之前顯示的確認訊息。$1 是選定數量。"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "已禁用簽名：$1。已移除匹配的自定義提供程序：$2。",
+    "description": "批量禁用結果。$1 禁用的簽名數量，$2 移除的自定義提供程序數量。"
+  },
+  "providerImport_disabledClear": {
+    "message": "清除所有",
+    "description": "用於清除所選來源的所有排除簽名的按鈕標籤。"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "清除所有已禁用的規則",
+    "description": "用於清除來自所有來源的所有排除簽名的按鈕標籤。"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "從所有來源清除所有已禁用的簽名？",
+    "description": "在全局清除所有已禁用簽名之前顯示的確認訊息。"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "為此來源清除所有已禁用的簽名嗎？",
+    "description": "在清除所選來源的已禁用簽名之前顯示的確認訊息。"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "沒有已禁用的簽名",
+    "description": "當所選來源不存在任何已禁用簽名時顯示的空白狀態文本。"
+  },
+  "providerImport_disabledRestore": {
+    "message": "恢復",
+    "description": "用於恢復排除簽名的按鈕標籤。"
+  },
+  "providerImport_disabledTitle": {
+    "message": "已禁用的規則",
+    "description": "提供程序導入側邊欄中已禁用提供程序簽名列表的標題。"
+  },
+  "providerImport_domainExceptions": {
+    "message": "域名例外",
+    "description": "在提供程序卡片中的域名例外工具提示的完整文本。"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "DE",
+    "description": "在提供程序卡片中，域名例外數量的縮寫。"
+  },
+  "providerImport_domainPatterns": {
+    "message": "域名模式",
+    "description": "在提供程序卡片中的域名模式工具提示的完整文本。"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "DP",
+    "description": "服務提供者卡片中，網域名稱模式數量簡寫。"
+  },
+  "providerImport_domainRedirections": {
+    "message": "網域名稱轉址",
+    "description": "在服務提供者卡片中，網域名稱轉址工具提示的完整文字。"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "DR",
+    "description": "服務提供者卡片中，網域名稱轉址數量簡寫。"
+  },
+  "providerImport_exceptions": {
+    "message": "例外情況"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "exc"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "此服務提供者沒有 URL/網域名稱模式，無法透過簽名排除。",
+    "description": "當使用者嘗試排除一個沒有 URL/網域名稱模式的服務提供者時顯示。"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "已排除服務提供者的簽名。移除了 $1 個符合自定義服務提供者的項目。",
+    "description": "排除服務提供者簽名後的成功訊息。$1 代表移除的自定義數量。"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(存在於自定義中)"
+  },
+  "providerImport_failed": {
+    "message": "匯入服務提供者的操作失敗：$1"
+  },
+  "providerImport_import": {
+    "message": "匯入選取的項目"
+  },
+  "providerImport_importedCount": {
+    "message": "已匯入：$1 個服務提供者"
+  },
+  "providerImport_importedRulesCount": {
+    "message": "已匯入：$1 條規則",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_importing": {
+    "message": "正在匯入..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "現有 Linkumori 互通性規則",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
+  },
+  "providerImport_loading": {
+    "message": "載入服務提供者...",
+    "description": "在將服務提供者載入到表格中時顯示。"
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "沒有可用的服務提供者，適用於 $1 規則。"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "在 $1 規則中未找到任何服務提供者。"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "沒有可供匯入的規則。"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "沒有 URL 模式"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "已覆蓋：$1 個服務提供者"
+  },
+  "providerImport_rawRules": {
+    "message": "原始規則",
+    "description": "在服務提供者卡片中，原始規則工具提示的完整文字。"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "原始",
+    "description": "服務提供者卡片中，原始規則數量簡寫。"
+  },
+  "providerImport_redirections": {
+    "message": "轉址"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "轉"
+  },
+  "providerImport_referralAbbr": {
+    "message": "Ref",
+    "description": "服務提供者卡片中，推薦行銷數量簡寫。"
+  },
+  "providerImport_referralMarketing": {
+    "message": "推薦行銷",
+    "description": "在服務提供者卡片中，推薦行銷工具提示的完整文字。"
+  },
+  "providerImport_rules": {
+    "message": "規則"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "規則",
+    "description": "服務提供者卡片中，規則數量簡寫。"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "搜尋服務提供者...",
+    "description": "搜尋輸入欄位中的佔位符文字，用於篩選服務提供者。"
+  },
+  "providerImport_selectAll": {
+    "message": "全選",
+    "description": "按鈕文字，用於在列表中選擇所有服務提供者。"
+  },
+  "providerImport_selectedCount": {
+    "message": "$1 已選取"
+  },
+  "providerImport_skippedCount": {
+    "message": "已略過：$1 個服務提供者"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "已略過：$1 條規則",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_sources": {
+    "message": "規則來源",
+    "description": "顯示可用規則來源的側邊欄標題。"
+  },
+  "providerImport_title": {
+    "message": "匯入或停用服務提供者",
+    "description": "服務提供者匯入對話框的標題。"
+  },
+  "providerList_button": {
+    "message": "列出所有自定義服務提供者並搜尋",
+    "description": "按鈕文字，用於打開服務提供者列表對話框。"
+  },
+  "providerList_complete": {
+    "message": "完整",
+    "description": "標籤，表示該服務提供者已完成。"
+  },
+  "providerList_confirmDelete": {
+    "message": "您確定要刪除服務提供者「$1」嗎？",
+    "description": "刪除服務提供者的確認訊息。",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "複製",
+    "description": "附加到服務提供者名稱，以在複製時表示 (例如，「Google_Copy」)"
+  },
+  "providerList_createFirst": {
+    "message": "建立第一個服務提供者",
+    "description": "當沒有任何服務提供者存在時，按鈕文字。"
+  },
+  "providerList_delete": {
+    "message": "刪除",
+    "description": "按鈕文字，用於刪除服務提供者。"
+  },
+  "providerList_deleteFailed": {
+    "message": "刪除服務提供者的操作失敗。請重試。",
+    "description": "當服務提供者刪除失敗時顯示的錯誤訊息。"
+  },
+  "providerList_deleteTooltip": {
+    "message": "刪除服務提供者",
+    "description": "刪除服務提供者按鈕的工具提示文字。"
+  },
+  "providerList_duplicate": {
+    "message": "複製",
+    "description": "按鈕文字，用於複製/複製服務提供者。"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "複製服務提供者",
+    "description": "複製服務提供者按鈕的工具提示文字。"
+  },
+  "providerList_edit": {
+    "message": "編輯",
+    "description": "按鈕文字，用於編輯服務提供者。"
+  },
+  "providerList_editTooltip": {
+    "message": "編輯服務提供者",
+    "description": "編輯服務提供者按鈕的工具提示文字。"
+  },
+  "providerList_exceptions": {
+    "message": "異常",
+    "description": "提供者統計中的異常數量標籤"
+  },
+  "providerList_noProvidersFound": {
+    "message": "未找到任何自定義提供者。",
+    "description": "當沒有要顯示的自定義提供者時，顯示的消息"
+  },
+  "providerList_noUrlPattern": {
+    "message": "無 URL 模式",
+    "description": "當提供者未定義 URL 模式時，顯示的文本"
+  },
+  "providerList_rawRules": {
+    "message": "原始規則",
+    "description": "提供者統計中的原始規則數量標籤"
+  },
+  "providerList_redirections": {
+    "message": "重定向",
+    "description": "提供者統計中的重定向數量標籤"
+  },
+  "providerList_referral": {
+    "message": "推薦",
+    "description": "提供者統計中的推薦營銷數量標籤"
+  },
+  "providerList_rules": {
+    "message": "規則",
+    "description": "提供者統計中的規則數量標籤"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "搜索提供者...",
+    "description": "提供者搜索輸入框的占位符文本"
+  },
+  "providerList_title": {
+    "message": "所有提供者",
+    "description": "提供者列表模態框的標題"
+  },
+  "referral_marketing_enabled": {
+    "message": "允許推薦營銷",
+    "description": "此字符串用作推薦營銷開關的標籤"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "移除推薦和聯盟跟蹤參數。",
+    "description": "推薦營銷切換按鈕的描述。"
+  },
+  "redirection_enabled": {
+    "message": "啟用第三方重新導向繞過",
+    "description": "用於啟用正則重新導向與網域重新導向的切換按鈕標籤。"
+  },
+  "redirection_enabled_description": {
+    "message": "使用來自內建、遠程與自訂規則的正則重新導向與網域重新導向，繞過第三方中介重新導向與追蹤網址。若有需要請先審核規則，再用自訂規則編輯器逐一編輯或覆寫。",
+    "description": "用於啟用或停用重新導向處理的描述。"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "第 $LINE$ 行：預期 \"ruleURL | hashURL\"",
+    "description": "當格式錯誤的遠程規則集行時，顯示的驗證消息。",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "第 $LINE$ 行：無效的 HTTPS 哈希 URL",
+    "description": "當附加的遠程哈希 URL 無效時，顯示的驗證消息。",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "第 $LINE$ 行：無效的 HTTPS 規則 URL",
+    "description": "當附加的遠程規則 URL 無效時，顯示的驗證消息。",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "已禁用遠程規則。啟用下面的切換按鈕以配置遠程規則 URL。",
+    "description": "當禁用遠程規則時，顯示的描述。"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "已禁用遠程規則 - 啟用下面的切換按鈕",
+    "description": "當禁用遠程規則時，顯示的占位符文本。"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "安全警報：Gatekeeper 已禁用。啟用遠程規則以訪問遠程 URL 字段。",
+    "description": "當 Gatekeeper 被禁用且遠程規則關閉時，顯示的警報。"
+  },
+  "remote_rules_enabled": {
+    "message": "啟用遠程規則",
+    "description": "用於啟用或禁用遠程規則獲取的切換按鈕標籤。"
+  },
+  "remote_rules_enabled_description": {
+    "message": "允許擴展從遠程服務器獲取規則。當禁用時，僅使用捆綁的規則。",
+    "description": "遠程規則啟用切換按鈕的描述。"
+  },
+  "remote_rules_loaded": {
+    "message": "僅加載遠程規則",
+    "description": "當只加載遠程規則時，顯示的提示信息。"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "遠程規則僅限於自託管服務器。請勿使用第三方 URL。",
+    "description": "解釋遠程規則限制的通知。"
+  },
+  "remote_rules_security_notice": {
+    "message": "安全提示：僅使用您擁有和控制的 URL",
+    "description": "在 URL 字段附近顯示的簡短安全提示。"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "設置已更改，等待保存。單擊“保存”以應用。",
+    "description": "在切換設置後顯示的提示信息，該設置將在用戶單擊“保存”時生效。"
+  },
+  "removeDomainFromWhitelist": {
+    "message": "從白名單中移除 $1",
+    "description": "用於從白名單中刪除域的按鈕標籤。$1 將被替換為域名。"
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "在確認後，規則 URL 字段的占位符文本。"
+  },
+  "rules_author_label": {
+    "message": "作者：",
+    "description": "規則數據集作者的標籤。"
+  },
+  "rules_composition_label": {
+    "message": "提供者組合：",
+    "description": "顯示提供者組合詳細信息的章節標題。"
+  },
+  "rules_disabled_providers_label": {
+    "message": "已禁用提供者：",
+    "description": "已禁用提供者簽名數量的標籤。"
+  },
+  "rules_hash_status_label": {
+    "message": "加載狀態：",
+    "description": "規則當前加載狀態的標籤。"
+  },
+  "rules_last_updated_label": {
+    "message": "上次更新：",
+    "description": "規則數據集上次更新日期的標籤。"
+  },
+  "rules_license_label": {
+    "message": "許可證：",
+    "description": "規則數據集許可證的標籤。"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "合併遠程規則",
+    "description": "設置中合併遠程規則元數據的顯示名稱。"
+  },
+  "rules_metadata_section": {
+    "message": "規則信息：",
+    "description": "規則元數據信息的章節標題。"
+  },
+  "rules_name_label": {
+    "message": "規則名稱：",
+    "description": "規則數據集名稱的標籤。"
+  },
+  "rules_source_bundled": {
+    "message": "捆綁",
+    "description": "當啟用捆綁規則時顯示的文本。"
+  },
+  "rules_source_bundled_fallback": {
+    "message": "捆綁回退",
+    "description": "當啟用捆綁回退規則時顯示的文本。"
+  },
+  "rules_source_fallback": {
+    "message": "回退",
+    "description": "當啟用最小回退規則時顯示的文本。"
+  },
+  "rules_source_label": {
+    "message": "來源:",
+    "description": "用於顯示目前活動規則的來源。"
+  },
+  "rules_source_remote": {
+    "message": "遠端",
+    "description": "當使用遠端規則時，顯示的文字。"
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "遠端 + 內建 (合併)",
+    "description": "當遠端和內建規則合併時，顯示的文字。"
+  },
+  "rules_status_active": {
+    "message": "啟用",
+    "description": "表示規則已啟用的狀態。"
+  },
+  "rules_status_error": {
+    "message": "載入規則發生錯誤",
+    "description": "當規則載入失敗時，顯示的訊息。"
+  },
+  "rules_status_label": {
+    "message": "狀態:",
+    "description": "用於顯示規則狀態的標籤。"
+  },
+  "rules_status_not_loaded": {
+    "message": "未載入任何規則",
+    "description": "當沒有載入任何規則時，顯示的訊息。"
+  },
+  "rules_total_providers_label": {
+    "message": "總共提供者:",
+    "description": "用於顯示規則提供者的總數 (包含內建和自訂)。"
+  },
+  "rules_total_rules_label": {
+    "message": "總規則數量:",
+    "description": "用於顯示規則總數的標籤。"
+  },
+  "rules_version_label": {
+    "message": "規則版本:",
+    "description": "用於顯示規則資料集的版本的標籤。"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "要新增、編輯或移除白名單網域，",
+    "description": "在規則資訊區塊中，用於建議管理白名單的文字。"
+  },
+  "rules_whitelist_open_editor": {
+    "message": "點擊這裡",
+    "description": "從規則資訊區塊打開自訂規則編輯器的連結文字。"
+  },
+  "rules_whitelist_total_label": {
+    "message": "總白名單網域數量:",
+    "description": "在規則資訊區塊中，用於顯示白名單網域總數的標籤。"
+  },
+  "save_invalid_hash_url": {
+    "message": "無效的哈希 URL 格式",
+    "description": "當主要哈希 URL 不是有效的 URL 時，顯示的驗證訊息。"
+  },
+  "save_invalid_rule_url": {
+    "message": "無效的規則 URL 格式",
+    "description": "當主要規則 URL 不是有效 URL 時，顯示的驗證訊息。"
+  },
+  "save_primary_hash_https_required": {
+    "message": "主要哈希 URL 必須使用 HTTPS",
+    "description": "當主要哈希 URL 未使用 HTTPS 時，顯示的驗證訊息。"
+  },
+  "save_primary_remote_pair_required": {
+    "message": "只有當主規則 URL 指向 Linkumori (ClearURLs 2.0) JSON 規則時，才需要主哈希 URL。",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "主要規則 URL 必須使用 HTTPS",
+    "description": "當主要規則 URL 未使用 HTTPS 時，顯示的驗證訊息。"
+  },
+  "security_confirmation_cancelled": {
+    "message": "安全性確認已取消",
+    "description": "當使用者取消確認視窗時，顯示的狀態訊息。"
+  },
+  "security_confirmation_phrase": {
+    "message": "我完全承擔全部責任",
+    "description": "使用者必須輸入的確切詞語以確認 (可以本地化)。"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "需要安全性確認",
+    "description": "在 URL 欄位旁邊顯示的佔位符文字，用於指示需要進行安全性確認。"
+  },
+  "security_confirmation_reset": {
+    "message": "安全性確認已重置",
+    "description": "當安全性確認被重置時，顯示的狀態訊息。"
+  },
+  "security_confirmation_session_success": {
+    "message": "安全性確認成功",
+    "description": "當安全性確認成功時，顯示的訊息。"
+  },
+  "security_confirmation_tooltip": {
+    "message": "需要安全性確認 - 點擊以開始",
+    "description": "用於遠端 URL 旁邊的安全性確認圖示的工具提示文字。"
+  },
+  "security_modal_advanced_warning": {
+    "message": "警告：此進階功能僅適用於自架伺服器",
+    "description": "安全性視窗中主要警告橫幅文字。"
+  },
+  "security_modal_cancel": {
+    "message": "我不想繼續 - 取消",
+    "description": "安全性視窗中的取消按鈕文字。"
+  },
+  "security_modal_cancelled": {
+    "message": "為了安全起見，已取消遠端 URL 設定",
+    "description": "當使用者取消安全性視窗時，顯示的狀態訊息。"
+  },
+  "security_modal_continue": {
+    "message": "我了解風險 - 繼續",
+    "description": "安全性視窗中的繼續按鈕文字。"
+  },
+  "security_modal_final_warning": {
+    "message": "如果您不完全了解您的來源是 Linkumori (ClearURLs 2.0) JSON 規則集還是 Linkumori URL 篩選器遠端操作性清單應重新考慮使用功能性清單。",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "此遠端規則功能專為了解正在載入的來源格式的進階使用者而設計。 Linkumori (ClearURLs 2.0) JSON 遠端規則需要匹配的雜湊值 URL 進行驗證。 Linkumori URL 無需哈希即可載入過濾器互通性清單 URL 並單獨儲存。",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "如果您新增遠端規則 URL，擴充功能將連接到您指定的伺服器以取得 Linkumori (ClearURLs 2.0) JSON 規則集、其配置後的雜湊檔案或 98789695676969過濾器互通性列表。每次提取都可能會向託管伺服器公開您的 IP 地址和一般信息，例如擴展程序版本、瀏覽器和瀏覽器版本。該資料受該網站或網路伺服器的隱私權政策的約束。",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "如果需要，請在繼續之前再次閱讀 %PRIVACY_POLICY_LINK%。",
+    "description": "遠端規則安全性視窗中的附加句子，包含隱私權政策連結占位符"
+  },
+  "security_modal_privacy_title": {
+    "message": "警告提示：",
+    "description": "隱私聲明部分的標題"
+  },
+  "security_modal_recommendation": {
+    "message": "使用內建規則，除非您信任並控制遠端來源。對於 Linkumori (ClearURLs 2.0) JSON 規則，請提供匹配的雜湊值 URL。對於互通性篩選器列表，請將雜湊值 URL 留空。",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "您的IP地址和瀏覽器信息將暴露給配置的服務器。",
+    "description": "第一個安全風險點"
+  },
+  "security_modal_risk_2": {
+    "message": "如果規則源被破壞，惡意規則可能會被發送到您的瀏覽器。",
+    "description": "第二個安全風險點"
+  },
+  "security_modal_risk_3": {
+    "message": "雜湊驗證僅適用於 Linkumori (ClearURLs 2.0) JSON 規則；它可以防止傳輸篡改，而不是惡意規則來源。",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "互通性過濾器清單不使用雜湊驗證，因此對來源 URL 的信任尤為重要。",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "安全風險：",
+    "description": "安全風險部分的標題"
+  },
+  "security_modal_title": {
+    "message": "遠程規則安全警告",
+    "description": "安全免責聲明模態框的標題"
+  },
+  "setting_hash_url_description": {
+    "message": "用於規則驗證的哈希文件URL：",
+    "description": "自定義哈希URL輸入字段的描述"
+  },
+  "setting_hash_url_label": {
+    "message": "rules.hash 文件的 URL (哈希)",
+    "description": "此字符串用作 rules.hash URL 標籤的名稱。"
+  },
+  "setting_hash_url_mandatory": {
+    "message": "ClearURLs JSON 遠端規則必需。對於流行的擴展 URL 追蹤過濾器列表，將其留空。",
+    "description": "Description for hash URL field explaining when it is required"
+  },
+  "setting_html_export_button": {
+    "message": "導出",
+    "description": "此字符串用作設置頁面上“導出”按鈕的名稱。"
+  },
+  "setting_html_export_button_title": {
+    "message": "導出所有內容",
+    "description": "此字符串用作設置頁面上“導出”按鈕的標題。"
+  },
+  "setting_html_import_button": {
+    "message": "導入",
+    "description": "此字符串用作設置頁面上“重置”按鈕的名稱。"
+  },
+  "setting_html_import_button_title": {
+    "message": "導入所有內容",
+    "description": "此字符串用作設置頁面上“導入”按鈕的標題。"
+  },
+  "setting_html_reset_button": {
+    "message": "重置",
+    "description": "此字符串用作設置頁面上“重置”按鈕的名稱。"
+  },
+  "setting_html_reset_button_title": {
+    "message": "重置所有內容",
+    "description": "此字符串用作設置頁面上“重置”按鈕的標題。"
+  },
+  "setting_html_audit_button": {
+    "message": "審核",
+    "description": "此字符串用作設置頁面上“審核”按鈕的名稱。"
+  },
+  "setting_html_audit_button_title": {
+    "message": "打開審核頁面",
+    "description": "此字符串用作設置頁面上“審核”按鈕的標題。"
+  },
+  "setting_log_limit_label": {
+    "message": "限制日誌條數為 $LIMIT$ 條。",
+    "description": "此字符串用作日誌限制標籤的名稱。",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "日誌限制 (0-5000)",
+    "description": "日誌限制輸入字段的標籤。"
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "其他遠端來源合併在一起。使用 <code>ruleURL | hashURL</code> 表示 ClearURLs JSON，或僅使用 <code>ruleURL</code> 表示常用擴充功能 URL 追蹤清單。",
+    "description": "Description for additional remote rule sources."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "其他遠程規則集",
+    "description": "其他遠程規則+哈希 URL 組合的標籤。"
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "其他遠程規則集條目的占位符。"
+  },
+  "setting_rule_url_description": {
+    "message": "自訂遠端 URL 用於 ClearURLs JSON 規則或流行擴充 URL 追蹤過濾器",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "data.json 文件的 URL (規則) 或 .txt（流行）",
+    "description": "此字符串用作規則 URL 標籤的名稱。"
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "注意：雜湊值 URL 僅對於 ClearURLs JSON 遠端規則是必需的。流行的擴充功能 URL 追蹤清單單獨儲存為 Linkumori URL 過濾器。",
+    "description": "Note about when hash URL is mandatory"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>請求類型</a> (專家級)",
+    "description": "此字串用於請求類型的標籤名稱。"
+  },
+  "settings_html_page_title": {
+    "message": "Linkumori (清除 URL) 設定",
+    "description": "此字串用於設定頁面的標題。"
+  },
+  "settings_html_save_button": {
+    "message": "儲存並重新載入擴充功能",
+    "description": "此字串用於設定頁面上「儲存及重新載入」按鈕的名稱。"
+  },
+  "settings_html_save_button_title": {
+    "message": "儲存設定",
+    "description": "此字串用於設定頁面上「儲存及重新載入」按鈕的標題。"
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "匯入的徽章顏色為 #FFA500。您是否要切換到 Linkumori 藍 (#2563EB)？",
+    "description": "當偵測到舊版橘色徽章顏色時，在匯入 ClearURLs 時顯示的提示。"
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "您正在匯入 ClearURLs 備份。Linkumori 將匯入相容的設定，並略過 ClearURLsData。繼續？",
+    "description": "當匯入舊版 ClearURLs JSON 檔案時顯示的確認訊息。"
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "此 ClearURLs 備份包含遠端規則來源設定。您是否要現在啟用「遠端規則」切換？",
+    "description": "當 ClearURLs 匯入包含遠端規則 URL 時，顯示的第二個確認訊息。"
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "從您的 ClearURLs 匯入中已啟用「遠端規則」切換。請開啟設定並手動點擊儲存以確認您的最終遠端配置。",
+    "description": "當使用者在 ClearURLs 匯入期間啟用遠端規則時顯示的提示。"
+  },
+  "settings_import_confirm": {
+    "message": "您確定要匯入設定嗎？這將覆寫您目前的"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "匯入元數據不完整",
+    "description": "當匯入的元數據存在，但缺少預期的欄位時顯示。"
+  },
+  "settings_import_invalid_file": {
+    "message": "已選取無效檔案",
+    "description": "當匯入的設定檔案無效時顯示。"
+  },
+  "settings_import_invalid_format": {
+    "message": "設定格式無效",
+    "description": "當無法將匯入的設定資料解析為預期格式時顯示。"
+  },
+  "settings_import_no_data": {
+    "message": "檔案中未找到可匯入的設定",
+    "description": "當已解析的檔案沒有任何支援的設定索引鍵時顯示。"
+  },
+  "settings_import_no_file": {
+    "message": "未選擇檔案",
+    "description": "當啟動匯入但沒有選擇檔案時顯示。"
+  },
+  "settings_import_parse_error": {
+    "message": "無法解析設定檔案",
+    "description": "當匯入檔案的 JSON 解析失敗時顯示。"
+  },
+  "settings_import_read_error": {
+    "message": "無法讀取設定檔案",
+    "description": "當瀏覽器無法讀取所選檔案時顯示。"
+  },
+  "settings_import_wrong_extension": {
+    "message": "請選擇有效的 Linkumori/ClearURLs 設定檔案 (.json 或 .conf)",
+    "description": "當匯入的設定檔案不符合支援的 Linkumori 或 ClearURLs 格式時顯示。"
+  },
+  "settings_imported": {
+    "message": "設定已成功匯入"
+  },
+  "statistics_reset_success": {
+    "message": "重置成功！",
+    "description": "在重置統計資料後使用的反饋訊息。"
+  },
+  "status_builtinOnly": {
+    "message": "僅使用內建規則"
+  },
+  "status_color_picker_failed": {
+    "message": "初始化顏色選擇器失敗",
+    "description": "當顏色選擇器載入失敗時顯示的錯誤訊息。"
+  },
+  "status_customFailed": {
+    "message": "自訂規則失敗"
+  },
+  "status_customMerged": {
+    "message": "自訂規則已合併 (預設 + 自訂)"
+  },
+  "status_deleteFailed": {
+    "message": "刪除失敗"
+  },
+  "status_invalidJson": {
+    "message": "無效的 JSON"
+  },
+  "status_language_changed_success": {
+    "message": "已成功切換至 $1 語言",
+    "description": "當變更語言時顯示的成功訊息。$1 是原生語言名稱。"
+  },
+  "status_load_settings_failed": {
+    "message": "載入設定失敗",
+    "description": "當設定載入失敗時顯示的狀態訊息。"
+  },
+  "status_loading": {
+    "message": "正在載入..."
+  },
+  "status_reset_failed": {
+    "message": "重置設定失敗",
+    "description": "當設定重置失敗時顯示的狀態訊息。"
+  },
+  "status_reset_successful": {
+    "message": "設定已成功重置",
+    "description": "在重置設定後顯示的狀態訊息。"
+  },
+  "status_resetting_settings": {
+    "message": "正在重置設定...",
+    "description": "在重置設定時顯示的狀態訊息。"
+  },
+  "status_saveFailed": {
+    "message": "儲存失敗"
+  },
+  "status_save_failed": {
+    "message": "儲存設定失敗",
+    "description": "當設定儲存失敗時顯示的狀態訊息。"
+  },
+  "status_save_setting_failed": {
+    "message": "無法儲存 $SETTING$ 設定",
+    "description": "當特定切換設定儲存失敗時顯示的錯誤訊息。",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "設定已成功儲存",
+    "description": "當設定成功儲存時顯示的狀態訊息。"
+  },
+  "status_saved": {
+    "message": "已儲存！",
+    "description": "在儲存設定後使用的按鈕文字。"
+  },
+  "status_saving": {
+    "message": "正在儲存...",
+    "description": "在儲存設定時使用的按鈕文字。"
+  },
+  "status_unavailable": {
+    "message": "狀態不可用"
+  },
+  "status_unknown": {
+    "message": "未知"
+  },
+  "status_usingCached": {
+    "message": "關於內建規則可能已損毀或未正確載入。已載入備用規則並與自訂規則合併。"
+  },
+  "status_usingFallback": {
+    "message": "使用備用規則"
+  },
+  "status_valid": {
+    "message": "有效"
+  },
+  "status_validJson": {
+    "message": "有效的 JSON"
+  },
+  "status_validJsonUnsaved": {
+    "message": "有效的 JSON - 未儲存"
+  },
+  "sunIconAlt": {
+    "message": "太陽圖示",
+    "description": "太陽主題圖示的替代文字。"
+  },
+  "switchToDarkTheme": {
+    "message": "切換到深色模式",
+    "description": "當目前主題為淺色時，主題切換器的 ARIA 標籤。"
+  },
+  "switchToLightTheme": {
+    "message": "切換到淺色模式",
+    "description": "當目前主題為深色時，主題切換器的 ARIA 標籤。"
+  },
+  "themeToggleAriaLabel": {
+    "message": "切換主題",
+    "description": "用於主題切換按鈕的可訪問性 ARIA 標籤。"
+  },
+  "theme_description": {
+    "message": "選擇您喜歡的主題外觀",
+    "description": "用於主題選擇部分的描述文字。"
+  },
+  "theme_name_dark": {
+    "message": "深色",
+    "description": "深色主題的名稱。"
+  },
+  "theme_name_icecold": {
+    "message": "冰冷",
+    "description": "Ice Cold 主題的名稱。"
+  },
+  "theme_name_zengray": {
+    "message": "禪灰",
+    "description": "Zen Grey 主題的名稱。"
+  },
+  "theme_name_forest": {
+    "message": "森林",
+    "description": "森林主題的名稱。"
+  },
+  "theme_name_light": {
+    "message": "淺色",
+    "description": "淺色主題的名稱。"
+  },
+  "theme_name_midnight": {
+    "message": "午夜",
+    "description": "午夜主題的名稱。"
+  },
+  "theme_name_sunset": {
+    "message": "日落",
+    "description": "日落主題的名稱。"
+  },
+  "theme_name_legacy": {
+    "message": "經典",
+    "description": "ClearURLs 風格傳統主題的名稱。"
+  },
+  "theme_group_light_label": {
+    "message": "淺色模式",
+    "description": "淺色主題卡片群組上方的標籤。"
+  },
+  "theme_group_dark_label": {
+    "message": "深色模式",
+    "description": "深色主題卡片群組上方的標籤。"
+  },
+  "theme_selection_label": {
+    "message": "主題",
+    "description": "用於主題選擇部分的標籤。"
+  },
+  "time_am": {
+    "message": "上午"
+  },
+  "time_am_lower": {
+    "message": "上午",
+    "description": "小寫上午標記（中文同樣使用）。"
+  },
+  "time_pm": {
+    "message": "下午"
+  },
+  "time_pm_lower": {
+    "message": "下午",
+    "description": "小寫下午標記（中文同樣使用）。"
+  },
+  "number_0": {
+    "message": "0",
+    "description": "本地化數字零。"
+  },
+  "number_1": {
+    "message": "1",
+    "description": "本地化數字一。"
+  },
+  "number_2": {
+    "message": "2",
+    "description": "本地化數字二。"
+  },
+  "number_3": {
+    "message": "3",
+    "description": "本地化數字三。"
+  },
+  "number_4": {
+    "message": "4",
+    "description": "本地化數字四。"
+  },
+  "number_5": {
+    "message": "5",
+    "description": "本地化數字五。"
+  },
+  "number_6": {
+    "message": "6",
+    "description": "本地化數字六。"
+  },
+  "number_7": {
+    "message": "7",
+    "description": "本地化數字七。"
+  },
+  "number_8": {
+    "message": "8",
+    "description": "本地化數字八。"
+  },
+  "number_9": {
+    "message": "9",
+    "description": "本地化數字九。"
+  },
+  "day_0": {
+    "message": "星期日",
+    "description": "星期日的本地化名稱。"
+  },
+  "day_1": {
+    "message": "星期一",
+    "description": "星期一的本地化名稱。"
+  },
+  "day_2": {
+    "message": "星期二",
+    "description": "星期二的本地化名稱。"
+  },
+  "day_3": {
+    "message": "星期三",
+    "description": "星期三的本地化名稱。"
+  },
+  "day_4": {
+    "message": "星期四",
+    "description": "星期四的本地化名稱。"
+  },
+  "day_5": {
+    "message": "星期五",
+    "description": "星期五的本地化名稱。"
+  },
+  "day_6": {
+    "message": "星期六",
+    "description": "星期六的本地化名稱。"
+  },
+  "month_1": {
+    "message": "一月",
+    "description": "一月的本地化名稱。"
+  },
+  "month_2": {
+    "message": "二月",
+    "description": "二月的本地化名稱。"
+  },
+  "month_3": {
+    "message": "三月",
+    "description": "三月的本地化名稱。"
+  },
+  "month_4": {
+    "message": "四月",
+    "description": "四月的本地化名稱。"
+  },
+  "month_5": {
+    "message": "五月",
+    "description": "五月的本地化名稱。"
+  },
+  "month_6": {
+    "message": "六月",
+    "description": "六月的本地化名稱。"
+  },
+  "month_7": {
+    "message": "七月",
+    "description": "七月的本地化名稱。"
+  },
+  "month_8": {
+    "message": "八月",
+    "description": "八月的本地化名稱。"
+  },
+  "month_9": {
+    "message": "九月",
+    "description": "九月的本地化名稱。"
+  },
+  "month_10": {
+    "message": "十月",
+    "description": "十月的本地化名稱。"
+  },
+  "month_11": {
+    "message": "十一月",
+    "description": "十一月的本地化名稱。"
+  },
+  "month_12": {
+    "message": "十二月",
+    "description": "十二月的本地化名稱。"
+  },
+  "url_field_editable_tooltip": {
+    "message": "此欄位可編輯",
+    "description": "當安全性確認已完成時顯示的提示信息。"
+  },
+  "url_validation_https_recommended": {
+    "message": "為了安全起見，建議使用 HTTPS",
+    "description": "當 URL 驗證通過但未使用 HTTPS 時顯示的警告信息。"
+  },
+  "url_validation_invalid": {
+    "message": "URL 格式無效。",
+    "description": "當 URL 格式無效時顯示的錯誤消息。"
+  },
+  "watchdog": {
+    "message": "[Linkumori (Clean URLS)]：監控程序已檢測到問題，並且已經失敗了 $TIMES$ 次。",
+    "description": "用於監控程序的文本。",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "Linkumori 默認情況下會移除 URL 中的追蹤參數，並在需要時提供高級控制。請查看以下功能，然後繼續閱讀《隱私政策》和《許可證》。"
+  },
+  "welcomeHeading": {
+    "message": "歡迎使用 Linkumori"
+  },
+  "welcome_migration_description": {
+    "message": "您的 ClearURLs 設置已導入。請查看以下 Linkumori 功能，然後繼續閱讀《隱私政策》和《許可證》。",
+    "description": "在遷移歡迎屏幕上顯示的描述。"
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "默認啟用內置的注重隱私規則。",
+    "description": "功能列表項目，描述默認捆綁規則的行為。"
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "自定義規則編輯器具有提供者級別控制、導入/導出以及規則管理功能。",
+    "description": "功能列表項目，描述自定義規則。"
+  },
+  "welcome_migration_feature_overload": {
+    "message": "過載模式可以在應用自定義規則之前合併捆綁和遠程規則。",
+    "description": "功能列表項目，描述過載模式。"
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "支持多個遠程規則源（規則 URL + 哈希 URL 組合）。",
+    "description": "功能列表項目，描述多個遠程設置。"
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "白名單支持：在需要時，可以選擇性地對某些域名不進行清理。",
+    "description": "功能列表項目，描述白名單的行為。"
+  },
+  "welcome_migration_heading": {
+    "message": "ClearURLs 遷移完成",
+    "description": "遷移歡迎屏幕上的主要標題。"
+  },
+  "welcome_migration_open_settings": {
+    "message": "打開設置",
+    "description": "從遷移歡迎屏幕上打開設置的按鈕標籤。"
+  },
+  "welcome_migration_title": {
+    "message": "歡迎使用 Linkumori",
+    "description": "在 ClearURLs 導入後顯示的遷移歡迎屏幕的頁面標題。"
+  },
+  "welcome_next_button": {
+    "message": "下一步：隱私權與授權",
+    "description": "在引導式歡迎模式下顯示的按鈕，用於繼續到隱私權和授權部分。"
+  },
+  "whitelist_add_button": {
+    "message": "新增",
+    "description": "新增網域按鈕上的文字"
+  },
+  "whitelist_add_failed": {
+    "message": "新增網域到白名單失敗",
+    "description": "當新增網域失敗時顯示的錯誤訊息"
+  },
+  "whitelist_added": {
+    "message": "已將 %s 新增至白名單",
+    "description": "成功新增網域時顯示的訊息。%s 會被替換為網域名稱。"
+  },
+  "whitelist_already_exists": {
+    "message": "該網域已在白名單中，或無效",
+    "description": "當網域已存在於白名單中或無效時顯示的錯誤訊息"
+  },
+  "whitelist_count": {
+    "message": "%d 個網域名稱已加入白名單",
+    "description": "顯示已加入白名單的網域名稱數量。%d 會被替換為計數。"
+  },
+  "whitelist_empty": {
+    "message": "沒有任何網域名稱在白名單中",
+    "description": "當白名單為空時顯示的文字"
+  },
+  "whitelist_enter_domain": {
+    "message": "請輸入一個網域名稱",
+    "description": "嘗試新增空白網域時顯示的錯誤訊息"
+  },
+  "whitelist_examples_text": {
+    "message": "範例：<code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
+    "description": "網域名稱格式範例之前的文字"
+  },
+  "whitelist_export_button": {
+    "message": "匯出",
+    "description": "匯出白名單網域的按鈕文字"
+  },
+  "whitelist_export_done": {
+    "message": "已成功匯出白名單",
+    "description": "當白名單匯出完成時顯示的成功訊息"
+  },
+  "whitelist_export_empty": {
+    "message": "白名單為空。沒有任何內容可以匯出。",
+    "description": "當使用者嘗試匯出空的白名單時顯示的信息"
+  },
+  "whitelist_export_failed": {
+    "message": "匯出白名單失敗",
+    "description": "當白名單匯出失敗時顯示的錯誤訊息"
+  },
+  "whitelist_import_button": {
+    "message": "匯入",
+    "description": "匯入白名單網域的按鈕文字"
+  },
+  "whitelist_import_done": {
+    "message": "已將 %s 個網域名稱匯入到白名單中",
+    "description": "成功匯入白名單時顯示的訊息。%s 會被替換為匯入的網域名稱數量。"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "白名單格式無效。請使用網域名稱的 JSON 陣列。",
+    "description": "當匯入的白名單結構不受支援時顯示的錯誤訊息"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "在白名單檔案中未找到任何有效的網域名稱",
+    "description": "當匯入的白名單沒有任何有效的網域名稱條目時顯示的錯誤訊息"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "解析白名單檔案失敗",
+    "description": "當白名單匯入檔案為無效 JSON 時顯示的錯誤訊息"
+  },
+  "whitelist_input_placeholder": {
+    "message": "example.com 或 *.example.com",
+    "description": "網域名稱輸入欄位的佔位符文字"
+  },
+  "whitelist_invalid_format": {
+    "message": "網域名稱格式無效。請使用：example.com 或 *.example.com",
+    "description": "用於無效網域名稱格式的錯誤訊息"
+  },
+  "whitelist_load_failed": {
+    "message": "載入白名單失敗",
+    "description": "當白名單載入失敗時顯示的錯誤訊息"
+  },
+  "whitelist_remove_button": {
+    "message": "移除",
+    "description": "移除網域名稱按鈕上的文字"
+  },
+  "whitelist_remove_failed": {
+    "message": "移除網域從白名單失敗",
+    "description": "當移除網域名稱失敗時顯示的錯誤訊息"
+  },
+  "whitelist_removed": {
+    "message": "已將 %s 從白名單中移除",
+    "description": "成功移除網域名稱時顯示的訊息。%s 會被替換為網域名稱。"
+  },
+  "whitelist_search_placeholder": {
+    "message": "搜尋已加入白名單的網域名稱",
+    "description": "用於搜尋已加入白名單的網域名稱的佔位符文字"
+  },
+  "whitelist_section_description": {
+    "message": "在此處新增的網域名稱將會繞過所有 URL 清理。這些網站上的追蹤參數將被保留。",
+    "description": "解釋白名單功能的描述"
+  },
+  "whitelist_section_title": {
+    "message": "網域名稱白名單",
+    "description": "白名單設定部分的標題"
+  },
+  "whitelist_update_failed": {
+    "message": "更新白名單失敗",
+    "description": "當更新白名單失敗時顯示的錯誤訊息。"
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "重置全球統計數據",
+    "description": "此字符串用於彈出頁面上重置統計按鈕的標題。"
+  },
+  "popup_html_log_head_title": {
+    "message": "打開日誌",
+    "description": "此字符串用於彈出頁面上日誌按鈕的標題。"
+  },
+  "popup_html_settings_button_title": {
+    "message": "打開設置",
+    "description": "此字符串用於彈出頁面上設置按鈕的標題。"
+  },
+  "license_title_title": {
+    "message": "授權信息(License)",
+    "description": "彈出窗口中許可證信息鏈接的標題"
+  },
+  "license_links_title_title": {
+    "message": "許可證和致謝",
+    "description": "彈出窗口中許可證和致謝鏈接的標題"
+  },
+  "popup_nav_main_title": {
+    "message": "切換到主擴展控件",
+    "description": "主要導航按鈕的工具提示"
+  },
+  "popup_nav_license_title": {
+    "message": "切換到授權資訊",
+    "description": "授權導航按鈕的工具提示"
+  },
+  "customrules_title": {
+    "message": "自定義規則",
+    "description": "自定義規則部分標題"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "法律信息 - 隱私權政策和授權",
+    "description": "彈出窗口同意門打開的法律信息頁面的標題"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "白名單",
+    "description": "從彈出窗口同意門打開的 HTML 內容頁面的標題"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "禁用 Gatekeeper",
+    "description": "用於禁用遠程 URL 編輯保護的開關標籤"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "在此會話流程中，禁用 Gatekeeper 檢查以進行遠程 URL 編輯。",
+    "description": "禁用 Gatekeeper 開關的描述"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "已啟用「禁用 Gatekeeper」。每次設定時都需要安全確認。",
+    "description": "啟用「禁用 Gatekeeper」後顯示的狀態訊息"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "已停用「禁用 Gatekeeper」。現有的信任值可以在沒有立即確認的情況下進行編輯。",
+    "description": "停用「禁用 Gatekeeper」後顯示的狀態訊息"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "匯出遠端 URL",
+    "description": "僅用於匯出遠端 URL 設定的按鈕文字"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "匯入遠端 URL",
+    "description": "僅用於匯入遠端 URL 設定的按鈕文字"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "匯出主要和附加的遠端 URL 組合",
+    "description": "遠端 URL 匯出按鈕的工具提示"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "匯入主要和附加的遠端 URL 組合",
+    "description": "遠端 URL 匯入按鈕的工具提示"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "禁用 Gatekeeper 風險警告",
+    "description": "「禁用 Gatekeeper」風險彈窗的標題"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "警告：僅供自架設伺服器使用的高級功能",
+    "description": "「禁用 Gatekeeper」彈窗頂部警告橫幅文字"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "您正在停用遠端規則 URL 編輯的 Gatekeeper 保護。此功能可以載入帶有雜湊驗證的 Linkumori (ClearURLs 2.0) JSON 規則，或不帶哈希驗證的 Linkumori URL9 互操作性清單篩選。僅當您了解要配置的格式時才能繼續。",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "Gatekeeper 是一個內建的安全機制，它會阻止直接編輯遠端 URL，直到您確認安全警告並完成輸入確認。",
+    "description": "說明「禁用 Gatekeeper」彈窗中 Gatekeeper 的含義"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "除非您信任並控制遠端來源，否則請保持啟用 Gatekeeper。 JSON 規則應包含符合的雜湊值 URL；互通性清單有意將雜湊值 URL 留空。",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "警告提示：",
+    "description": "「禁用 Gatekeeper」彈窗中隱私權部分的標題"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "如果您新增遠端規則 URL，擴充功能將連接到您指定的伺服器以取得 Linkumori (ClearURLs 2.0) JSON 規則集、其配置後的雜湊檔案或 98789695676969過濾器互通性列表。每次提取都可能會向託管伺服器公開您的 IP 地址和一般信息，例如擴展程序版本、瀏覽器和瀏覽器版本。該資料受該網站或網路伺服器的隱私權政策的約束。",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "如果需要，請在繼續之前再次閱讀 %PRIVACY_POLICY_LINK%。",
+    "description": "禁用 Gatekeeper 視窗中的附加句子，包含隱私權政策連結占位符"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "警告提示：",
+    "description": "「禁用 Gatekeeper」彈窗中風險部分的標題"
+  },
+  "privacy_policy_link_label": {
+    "message": "隱私權政策",
+    "description": "警告對話框中隱私權政策超連結的標籤"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "每次啟用並在您的瀏覽器中載入擴充功能時，該擴充功能會連接到您指定的 URL。",
+    "description": "「禁用 Gatekeeper」彈窗中風險項目 1"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "託管遠端 JSON、雜湊或互通性過濾器檔案的伺服器將收到您的 IP 位址。",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "該伺服器也可能接收到您的擴充功能版本、瀏覽器和瀏覽器版本。",
+    "description": "「禁用 Gatekeeper」彈窗中風險項目 3"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "這些資料受託管這些檔案的網站或網路伺服器的隱私權政策約束。",
+    "description": "「禁用 Gatekeeper」彈窗中風險項目 4"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "透過停用 Gatekeeper，您會增加不安全或受損的遠端規則來源的風險。雜湊驗證僅保護 Linkumori (ClearURLs 2.0) JSON 規則下載。它不適用於互通性列表。",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "取消",
+    "description": "「禁用 Gatekeeper」彈窗中的取消按鈕文字"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "繼續",
+    "description": "「禁用 Gatekeeper」彈窗中的繼續按鈕文字"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "我了解遠端規則的風險，並且要禁用 Gatekeeper",
+    "description": "使用者必須輸入的確切短語以確認禁用 Gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "需要輸入確認",
+    "description": "適用於 Gatekeeper 的特定確認彈窗標題"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "要禁用 Gatekeeper，請在下方輸入確切的確認短語。",
+    "description": "適用於 Gatekeeper 的特定確認彈窗中的說明文字"
+  },
+  "redirection_warning_modal_title": {
+    "message": "重新導向繞過警告",
+    "description": "啟用重新導向繞過前顯示的警告視窗標題。"
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "啟用此功能前請先審核重新導向規則。",
+    "description": "重新導向繞過警告視窗頂部警告文字。"
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "此功能會套用目前存在於內建、遠程與自訂來源中的重新導向規則，以繞過第三方中介重新導向與追蹤網址。",
+    "description": "重新導向繞過警告視窗主要警告文字。"
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "請先審核規則。若某條重新導向規則過於寬泛，或不適合你的瀏覽需求，請先在自訂規則編輯器中編輯或覆寫，再啟用此設定。",
+    "description": "重新導向繞過警告視窗建議文字。"
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "請先檢查",
+    "description": "重新導向繞過警告視窗風險區塊標題。"
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "內建規則、遠程規則與自訂規則都可能提供重新導向行為。",
+    "description": "重新導向繞過警告視窗第一條風險說明。"
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "過於寬泛的重新導向規則，可能會以你未預期的方式解開連結。",
+    "description": "重新導向繞過警告視窗第二條風險說明。"
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "當抓取到新的遠程規則資料時，最新快取的遠程規則可能會變動。",
+    "description": "重新導向繞過警告視窗第三條風險說明。"
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "在依賴此功能前，請使用審核頁面檢查內建規則、最終規則、自訂規則與最新快取的遠程規則。",
+    "description": "重新導向繞過警告視窗第四條風險說明。"
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "只有在你信任目前存在於不同來源中的重新導向規則時，才應啟用此功能。如果你不了解這個功能，就不要啟用。若未啟用此設定，重新導向繞過規則將不會被套用。",
+    "description": "重新導向繞過警告視窗最後警告文字。"
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "取消",
+    "description": "重新導向繞過警告視窗取消按鈕。"
+  },
+  "redirection_warning_modal_continue": {
+    "message": "繼續",
+    "description": "重新導向繞過警告視窗繼續按鈕。"
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "重新導向繞過會保持停用。",
+    "description": "取消重新導向繞過警告視窗時顯示的狀態文字。"
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "輸入確切的確認短語",
+    "description": "適用於 Gatekeeper 的特定確認彈窗中的輸入標籤"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "此操作減少了遠端規則的保障措施。僅當您信任 JSON 和互通性過濾器來源時才繼續。",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "將佔位符值替換為您的實際 HTTPS URL，然後匯入此檔案。",
+    "description": "遠端 URL 匯出 JSON 的範本匯出說明 1"
+  },
+  "remote_urls_template_note_2": {
+    "message": "主要包含主要規則/雜湊 URL 配對。",
+    "description": "遠端 URL 匯出 JSON 的範本匯出說明 2"
+  },
+  "remote_urls_template_note_3": {
+    "message": "「Additional」是可選的，且支援多組規則/雜湊 URL。",
+    "description": "遠端 URL 匯出 JSON 的範本說明 3"
+  },
+  "remote_urls_template_note_4": {
+    "message": "根據需要新增或移除「additional」陣列中的物件。",
+    "description": "遠端 URL 匯出 JSON 的範本說明 4"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "REPLACE_WITH_PRIMARY_RULE_URL",
+    "description": "範本匯出 JSON 中主要規則 URL 的佔位符值"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "REPLACE_WITH_PRIMARY_HASH_URL",
+    "description": "範本匯出 JSON 中主要雜湊 URL 的佔位符值"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "範本匯出 JSON 中額外規則 URL 1 的佔位符值"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "範本匯出 JSON 中額外雜湊 URL 1 的佔位符值"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "範本匯出 JSON 中額外規則 URL 2 的佔位符值"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "範本匯出 JSON 中額外雜湊 URL 2 的佔位符值"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "範本匯出 JSON 中額外規則 URL 3 的佔位符值"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "範本匯出 JSON 中額外雜湊 URL 3 的佔位符值"
+  },
+  "remote_urls_export_success": {
+    "message": "已匯出遠端 URL 設定。",
+    "description": "匯出設定完成的遠端 URL 時的成功狀態"
+  },
+  "remote_urls_template_export_success": {
+    "message": "已匯出遠端 URL 範本。請填寫佔位符並匯入。",
+    "description": "匯出空白遠端 URL 範本時的成功狀態"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "已匯入並儲存遠端 URL 設定。",
+    "description": "匯入並儲存遠端 URL 設定完成時的成功狀態"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "已解析匯入內容，但儲存遠端 URL 設定失敗。",
+    "description": "匯入解析成功，但儲存失敗時的錯誤狀態"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "無效的遠端 URL 設定檔案。",
+    "description": "匯入的遠端 URL JSON 無效時的錯誤狀態"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "無法讀取所選檔案。",
+    "description": "遠端 URL 匯入時，檔案讀取器發生錯誤的狀態"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "在檔案中未找到任何有效的遠端 URL 組。",
+    "description": "遠端 URL 匯入期間，未找到任何有效組時的錯誤狀態"
+  },
+  "color_picker_clear": {
+    "message": "清除",
+    "description": "顏色選擇器中的清除按鈕"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "強制套用規則"
+  },
+  "log_html_table_head_5": {
+    "message": "提供者",
+    "description": "日誌頁面中符合的提供者名稱欄位標題。"
+  },
+  "log_html_table_head_6": {
+    "message": "模式",
+    "description": "日誌頁面中符合的 urlPattern/domainPattern 欄位標題。"
+  },
+  "log_html_table_head_7": {
+    "message": "方法",
+    "description": "日誌頁面中請求方法與提供者方法欄位標題。"
+  },
+  "log_html_table_head_8": {
+    "message": "資源類型",
+    "description": "日誌頁面中請求資源類型與提供者資源類型欄位標題。"
+  },
+  "log_provider_pattern_domain": {
+    "message": "domainPattern",
+    "description": "日誌項目中領域模式提供者匹配的標籤。"
+  },
+  "log_provider_pattern_url": {
+    "message": "urlPattern",
+    "description": "日誌項目中 URL 模式提供者匹配的標籤。"
+  },
+  "log_provider_request_method": {
+    "message": "方法",
+    "description": "提供者匹配詳情中目前請求方法的標籤。"
+  },
+  "log_provider_methods": {
+    "message": "提供者方法",
+    "description": "提供者匹配詳情中提供者方法篩選器的標籤。"
+  },
+  "log_stats_no_providers": {
+    "message": "沒有提供者",
+    "description": "統計資料中沒有可用提供者時的後備列標籤"
+  },
+  "log_stats_no_methods": {
+    "message": "沒有方法",
+    "description": "統計資料中沒有可用方法時的後備列標籤"
+  },
+  "log_stats_no_resource_types": {
+    "message": "沒有資源類型",
+    "description": "統計資料中沒有可用資源類型時的後備列標籤"
+  },
+  "log_stats_provider_col": {
+    "message": "提供者",
+    "description": "統計資料中提供者名稱欄位標題"
+  },
+  "log_stats_method_col": {
+    "message": "方法",
+    "description": "統計資料中方法名稱欄位標題"
+  },
+  "log_stats_resource_type_col": {
+    "message": "資源類型",
+    "description": "統計資料中資源類型欄位標題"
+  },
+  "log_stats_top_providers": {
+    "message": "熱門提供者",
+    "description": "統計資料中熱門提供者區塊標題"
+  },
+  "log_stats_top_methods": {
+    "message": "熱門方法",
+    "description": "統計資料中熱門方法區塊標題"
+  },
+  "log_stats_top_resource_types": {
+    "message": "熱門資源類型",
+    "description": "統計資料中熱門資源類型區塊標題"
+  },
+  "log_stats_unique_providers": {
+    "message": "唯一提供者",
+    "description": "統計卡片中唯一提供者的標籤"
+  },
+  "log_stats_unique_methods": {
+    "message": "唯一方法",
+    "description": "統計卡片中唯一方法的標籤"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "唯一資源類型",
+    "description": "統計卡片中唯一資源類型的標籤"
+  },
+  "legal_consent_notice_default": {
+    "message": "請閱讀下方的隱私權政策與授權條款，然後接受以繼續使用 Linkumori。",
+    "description": "法律頁面同意區塊的預設提示文字"
+  },
+  "legal_consent_notice_update": {
+    "message": "Linkumori 的法律條款已更新。請閱讀隱私權政策與授權條款，然後接受以繼續使用此擴充功能。",
+    "description": "同意版本更新後顯示於法律頁面的提示文字"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "請閱讀下方的隱私權政策與授權條款，然後接受以完成 Linkumori 的設定。",
+    "description": "首次安裝期間顯示於法律頁面的提示文字"
+  },
+  "legal_consent_notice_import": {
+    "message": "請閱讀下方的隱私權政策與授權條款，然後接受以完成遷移到 Linkumori。",
+    "description": "匯入或遷移期間顯示於法律頁面的提示文字"
+  },
+  "legal_consent_status_required": {
+    "message": "需要同意。在您接受目前的法律條款之前，Linkumori 將保持暫停。",
+    "description": "需要法律同意時顯示的狀態訊息"
+  },
+  "legal_consent_status_accepted": {
+    "message": "已接受同意。Linkumori 可以依照目前的法律條款運作。",
+    "description": "已接受目前法律同意時顯示的狀態訊息"
+  },
+  "legal_consent_button_accepted": {
+    "message": "已接受",
+    "description": "法律同意已被接受後顯示的按鈕標籤"
+  },
+  "legal_consent_saved": {
+    "message": "已接受同意。",
+    "description": "儲存法律同意後顯示的提示"
+  },
+  "legal_consent_save_failed": {
+    "message": "儲存同意失敗。",
+    "description": "儲存法律同意失敗時顯示的提示"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "無法判斷目前的同意政策版本。",
+    "description": "目前同意版本不可用時顯示的錯誤"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "如何撤回同意",
+    "description": "在法律頁面上開啟撤回同意視窗的按鈕文字"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "如隱私權政策所述，撤回同意的方式是解除安裝此擴充功能。",
+    "description": "顯示在法律頁面同意控制項下方的撤回同意簡短說明"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "如何撤回同意",
+    "description": "法律頁面撤回同意視窗的標題"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "您可以隨時透過直接解除安裝此擴充功能或附加元件來撤回您的同意。",
+    "description": "撤回同意視窗中的介紹文字"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "解除安裝後，Linkumori 儲存在您裝置上的所有本機資料都會永久且自動刪除。除了解除安裝之外，您不需要再採取任何行動。",
+    "description": "撤回同意視窗中的資料刪除說明"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "由於 Linkumori 不會將任何資料傳輸到外部伺服器，因此沒有需要另外請求刪除的遠端資料。",
+    "description": "撤回同意視窗中的遠端資料說明"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "關閉",
+    "description": "撤回同意視窗的關閉按鈕文字"
+  },
+  "legal_optional_features_heading": {
+    "message": "目前停用，但您可能想啟用的功能",
+    "description": "法律頁面上可選功能切換區塊的標題"
+  },
+  "legal_optional_features_description": {
+    "message": "這些可選保護功能預設為停用。開啟您想要的項目，然後儲存並重新載入 Linkumori。",
+    "description": "法律頁面上可選功能切換區塊的說明文字"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "已停用",
+    "description": "當法律頁面上的可選功能為停用時顯示的狀態標籤"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "已啟用",
+    "description": "當法律頁面上的可選功能為啟用時顯示的狀態標籤"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "儲存後啟用",
+    "description": "當法律頁面上的可選功能將在儲存後啟用時顯示的狀態標籤"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "儲存後停用",
+    "description": "當法律頁面上的可選功能將在儲存後停用時顯示的狀態標籤"
+  },
+  "legal_optional_features_note": {
+    "message": "只有在使用右側按鈕時，變更才會被儲存。",
+    "description": "法律頁面可選功能切換區塊下方的初始提示文字"
+  },
+  "legal_optional_features_note_default": {
+    "message": "這些功能預設為停用。開啟您想要的項目，然後儲存並重新載入 Linkumori。",
+    "description": "法律頁面可選功能切換區塊下方的預設提示文字"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "變更尚未套用。請儲存以套用變更並重新開啟此法律頁面。",
+    "description": "當法律頁面的可選功能變更尚未儲存時顯示的提示文字"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "正在儲存您的可選功能變更並重新載入 Linkumori。",
+    "description": "在儲存法律頁面可選功能變更期間顯示的提示文字"
+  },
+  "legal_optional_features_save_button": {
+    "message": "儲存並重新載入 Linkumori",
+    "description": "法律頁面可選功能切換區塊的儲存按鈕文字"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "儲存可選功能變更失敗。",
+    "description": "當法律頁面的可選功能變更無法儲存時顯示的錯誤提示"
+  },
+  "popup_consent_title_title": {
+    "message": "需要同意",
+    "description": "Popup 中法律資訊區塊的標題"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "切換主要功能的開啟或關閉",
+    "description": "Popup 中切換到過濾設定檢視按鈕的標題"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "切換擴充功能記錄功能，所有資料都只儲存在您的裝置上",
+    "description": "Popup 中切換到統計檢視按鈕的標題"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "切換徽章圖示的開啟或關閉",
+    "description": "Popup 中統計區塊的標題"
+  },
+  "configs_switch_statistics_title": {
+    "message": "切換統計功能的開啟或關閉",
+    "description": "Popup 中切換到授權與致謝檢視按鈕的標題"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "元素",
+    "description": "Popup 中統計區塊的標題"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "已封鎖",
+    "description": "Popup 中元素統計的說明"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "百分比",
+    "description": "Popup 中封鎖統計的說明"
+  },
+  "audit_html_page_title": {
+    "message": "Linkumori Rules Audit",
+    "description": "Title for the audit page"
+  },
+  "audit_badge_label": {
+    "message": "AUDIT",
+    "description": "Small badge label in the audit page header"
+  },
+  "audit_section_title": {
+    "message": "Rules Audit",
+    "description": "Main section title for the audit page"
+  },
+  "audit_viewer_title": {
+    "message": "Rules Source Viewer",
+    "description": "Title for the audit source viewer card"
+  },
+  "audit_viewer_description": {
+    "message": "Use the source buttons below to inspect bundled rules, final merged rules, custom rules, or the latest fetched remote rules stored in cache as raw JSON.",
+    "description": "Description for the audit source viewer"
+  },
+  "audit_refresh_button": {
+    "message": "Refresh Sources",
+    "description": "Refresh button label on the audit page"
+  },
+  "audit_faq_button": {
+    "message": "FAQ",
+    "description": "FAQ button label on the audit page"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "Toggle theme",
+    "description": "Accessible label for the theme toggle on the audit page"
+  },
+  "audit_faq_close_aria": {
+    "message": "Close FAQ",
+    "description": "Accessible label for the FAQ modal close button"
+  },
+  "audit_source_bundled": {
+    "message": "Bundled Rules",
+    "description": "Button and title for bundled rules audit source"
+  },
+  "audit_source_final": {
+    "message": "Final Rules",
+    "description": "Button and title for final merged rules audit source"
+  },
+  "audit_source_custom": {
+    "message": "Custom Rules",
+    "description": "Button and title for custom rules audit source"
+  },
+  "audit_source_remote": {
+    "message": "Latest Cached Remote Rules",
+    "description": "Button and title for latest cached remote rules audit source"
+  },
+  "audit_source_bundled_description": {
+    "message": "Source: bundled file data/linkumori-clearurls-min.json",
+    "description": "Source description for bundled rules"
+  },
+  "audit_source_final_description": {
+    "message": "Source: runtime storage ClearURLsData",
+    "description": "Source description for final rules"
+  },
+  "audit_source_custom_description": {
+    "message": "Source: runtime storage custom_rules",
+    "description": "Source description for custom rules"
+  },
+  "audit_source_remote_description": {
+    "message": "Source: runtime storage remoteRulescache.data (latest fetched remote rules cached locally)",
+    "description": "Source description for latest cached remote rules"
+  },
+  "audit_meta_waiting": {
+    "message": "Waiting...",
+    "description": "Meta text shown before audit data is loaded"
+  },
+  "audit_meta_error": {
+    "message": "Error",
+    "description": "Meta text shown when a selected audit source has an error"
+  },
+  "audit_meta_source_bundled": {
+    "message": "bundled rules",
+    "description": "Meta label for bundled rules source"
+  },
+  "audit_meta_source_final": {
+    "message": "final rules",
+    "description": "Meta label for final rules source"
+  },
+  "audit_meta_source_custom": {
+    "message": "custom rules",
+    "description": "Meta label for custom rules source"
+  },
+  "audit_meta_source_remote": {
+    "message": "remote cache",
+    "description": "Meta label for latest cached remote rules source"
+  },
+  "audit_meta_template": {
+    "message": "$1 | providers: $2 | chars: $3",
+    "description": "Template for audit source meta information"
+  },
+  "audit_status_loading": {
+    "message": "Loading audit sources...",
+    "description": "Status shown while loading audit sources"
+  },
+  "audit_status_loaded": {
+    "message": "All audit sources loaded.",
+    "description": "Status shown when all audit sources load successfully"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "Audit sources loaded. Latest cached remote rules are not available yet.",
+    "description": "Status shown when audit sources load but remote cache is not yet available"
+  },
+  "audit_status_partial_error": {
+    "message": "Some audit sources failed to load. Switch sources to inspect the error JSON.",
+    "description": "Status shown when one or more audit sources fail to load"
+  },
+  "audit_status_refresh_failed": {
+    "message": "Failed to refresh audit sources.",
+    "description": "Fallback error shown when refreshing audit sources fails"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "Bundled rules fetch failed with status $1",
+    "description": "Error shown when fetching bundled rules fails"
+  },
+  "audit_error_final_missing": {
+    "message": "Runtime did not return ClearURLsData",
+    "description": "Error shown when final rules are missing from runtime storage"
+  },
+  "audit_error_custom_missing": {
+    "message": "Runtime did not return custom_rules",
+    "description": "Error shown when custom rules are missing from runtime storage"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "Runtime did not return remoteRulescache",
+    "description": "Error shown when remote cache is missing from runtime storage"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "Unknown bundled rules error",
+    "description": "Fallback bundled rules error"
+  },
+  "audit_error_unknown_final": {
+    "message": "Unknown final rules error",
+    "description": "Fallback final rules error"
+  },
+  "audit_error_unknown_custom": {
+    "message": "Unknown custom rules error",
+    "description": "Fallback custom rules error"
+  },
+  "audit_error_unknown_remote": {
+    "message": "Unknown remote rules error",
+    "description": "Fallback remote rules error"
+  },
+  "audit_remote_unavailable": {
+    "message": "No cached remote rules available yet",
+    "description": "Message shown when remote cache has not been populated yet"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "No cached remote rules payload available yet",
+    "description": "Message shown when remote cache exists but has no data payload"
+  },
+  "audit_faq_modal_title": {
+    "message": "Audit FAQ",
+    "description": "Title for the audit FAQ modal"
+  },
+  "audit_faq_intro": {
+    "message": "These notes describe the provider fields that clearurls.js actually reads when it builds and applies rules.",
+    "description": "Intro text for the audit FAQ modal"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "How do I audit a provider?",
+    "description": "FAQ title for auditing a provider"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p>Open a source in the viewer, find the provider inside <span class=\"faq-code\">providers</span>, and inspect the keys on that provider object.</p><p>Use <span class=\"faq-code\">Bundled Rules</span> to inspect the shipped rules, <span class=\"faq-code\">Final Rules</span> to inspect the merged runtime result, <span class=\"faq-code\">Custom Rules</span> to inspect user overrides, and <span class=\"faq-code\">Latest Cached Remote Rules</span> to inspect the most recently fetched remote payload saved in cache.</p>",
+    "description": "FAQ body for auditing a provider"
+  },
+  "audit_faq_override_title": {
+    "message": "How do I enable, disable, import, edit, or override individual rules?",
+    "description": "FAQ title for custom rule editing and overrides"
+  },
+  "audit_faq_override_body": {
+    "message": "<p>Use the Custom Rules Editor when you want rule-by-rule control. That is the place where you can import rules as custom rules, edit provider fields, and save your own version of a provider.</p><p>You can use it to enable or disable individual providers or individual rule content by turning the imported or edited provider into your custom version. That custom version is then merged into the runtime rules.</p><p>You can also override bundled rules and remote rules individually. Audit <span class=\"faq-code\">Bundled Rules</span> or <span class=\"faq-code\">Latest Cached Remote Rules</span> to find the provider you want, then inspect <span class=\"faq-code\">Custom Rules</span> and <span class=\"faq-code\">Final Rules</span> to confirm your custom edit or override is taking effect.</p><p>If you import a ruleset into the Custom Rules Editor, you can keep only the parts you want, disable the parts you do not want, and edit the provider so the final merged output behaves the way you intend.</p>",
+    "description": "FAQ body for custom rule editing and overrides"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "What is urlPattern?",
+    "description": "FAQ title for urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPattern</span> is the regex used to decide whether a provider matches a URL.</p><p>If a provider has <span class=\"faq-code\">urlPattern</span>, ClearURLs uses that regex first. In clearurls.js, this is turned into a real RegExp by <span class=\"faq-code\">setURLPattern()</span>.</p>",
+    "description": "FAQ body for urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "What is domainPatterns?",
+    "description": "FAQ title for domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> is the domain-based matcher used when a provider does not rely on <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURLs stores these with <span class=\"faq-code\">setURLDomainPattern()</span> and then checks them with domain matching logic instead of regex URL matching.</p>",
+    "description": "FAQ body for domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "What are rules, rawRules, and referralMarketing?",
+    "description": "FAQ title for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">rules</span> are parameter names or fragment names that should be removed from the URL.</p><p><span class=\"faq-code\">rawRules</span> are regex replacements applied directly to the whole URL string before query cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> is treated like removable parameters too, but whether they are actually used depends on the global referral-marketing setting.</p>",
+    "description": "FAQ body for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "What are exceptions and domainExceptions?",
+    "description": "FAQ title for exceptions and domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\">exceptions</span> are regex patterns that stop a provider from acting on matching URLs.</p><p><span class=\"faq-code\">domainExceptions</span> do the same thing with domain-based matching instead of URL regex matching.</p><p>If an exception matches, the provider is bypassed even if its main pattern matched first.</p>",
+    "description": "FAQ body for exceptions and domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "What are redirections and domainRedirections?",
+    "description": "FAQ title for redirections and domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\">redirections</span> are regex-based unwrappers. They usually capture the real destination URL in group 1, and ClearURLs redirects to that captured value.</p><p><span class=\"faq-code\">domainRedirections</span> are domain-style redirect rules. In this codebase they are checked for entries shaped like <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>If a regex redirection matches first, that wins. If not, ClearURLs checks domain redirections next.</p>",
+    "description": "FAQ body for redirections and domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "What are methods and resourceTypes?",
+    "description": "FAQ title for methods and resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "<p><span class=\"faq-code\">methods</span> restrict a provider to specific HTTP methods such as <span class=\"faq-code\">GET</span> or <span class=\"faq-code\">POST</span>. If no methods are listed, all methods are allowed.</p><p><span class=\"faq-code\">resourceTypes</span> restrict a provider to webRequest resource types such as <span class=\"faq-code\">main_frame</span>, <span class=\"faq-code\">sub_frame</span>, or <span class=\"faq-code\">xmlhttprequest</span>.</p><p>If no resource types are listed, ClearURLs falls back to the global allowed request types from settings.</p>",
+    "description": "FAQ body for methods and resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "What are completeProvider and forceRedirection?",
+    "description": "FAQ title for completeProvider and forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\">completeProvider</span> turns the provider into a blocking provider. In clearurls.js, that means the provider can cancel matching requests when domain blocking is enabled.</p><p><span class=\"faq-code\">forceRedirection</span> makes a redirect more aggressive. When a redirection is found on a <span class=\"faq-code\">main_frame</span> request, ClearURLs can update the browser tab directly instead of returning a normal redirect response.</p>",
+    "description": "FAQ body for completeProvider and forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "Which provider fields does clearurls.js use here?",
+    "description": "FAQ title for the list of provider fields used by clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p>The provider-building path in this branch reads these keys: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, and <span class=\"faq-code\">resourceTypes</span>.</p><p>When auditing behavior, the most important place to check is <span class=\"faq-code\">Final Rules</span>, because that shows the merged result after bundled, remote, and custom sources have been combined.</p>",
+    "description": "FAQ body for the list of provider fields used by clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "暫時暫停",
+    "description": "Auto-added i18n key: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "暫停 15 分鐘",
+    "description": "Auto-added i18n key: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "暫停 1 小時",
+    "description": "Auto-added i18n key: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "直到重新啟動",
+    "description": "Auto-added i18n key: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "立即恢復",
+    "description": "Auto-added i18n key: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "啟用中",
+    "description": "Auto-added i18n key: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "已暫停，直到瀏覽器重新啟動",
+    "description": "Auto-added i18n key: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "已暫停（剩餘 %s）",
+    "description": "Auto-added i18n key: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "更新暫停狀態失敗。",
+    "description": "Auto-added i18n key: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "恢復清理失敗。",
+    "description": "Auto-added i18n key: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "少於 1 分鐘",
+    "description": "Auto-added i18n key: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "分",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "小時",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "遠端規則健康狀態",
+    "description": "Auto-added i18n key: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "立即重新整理",
+    "description": "Auto-added i18n key: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "上次抓取嘗試：",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "上次成功抓取：",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "上次雜湊驗證：",
+    "description": "Auto-added i18n key: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "上次失敗原因：",
+    "description": "Auto-added i18n key: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "目前雜湊狀態：",
+    "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "N/A",
+    "description": "Auto-added i18n key: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "無",
+    "description": "Auto-added i18n key: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "未知",
+    "description": "Auto-added i18n key: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "重新整理中...",
+    "description": "Auto-added i18n key: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "遠端規則重新整理完成。",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "遠端規則重新整理失敗。",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "規則測試實驗室",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "規則測試實驗室",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "貼上 URL 以查看清理前後與第一個匹配的供應商/規則。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "執行測試",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "測試中...",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "請先輸入 URL。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "規則測試失敗。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "已匹配並成功清理。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "此 URL 未套用任何變更。",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "需要 URL",
+    "description": "Auto-added i18n key: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "URL 格式無效",
+    "description": "Auto-added i18n key: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "規則測試失敗",
+    "description": "Auto-added i18n key: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "切換主題",
+    "description": "Popup 主題切換按鈕的 ARIA 標籤"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "正在偵測網域...",
+    "description": "在偵測目前分頁網域時，白名單按鈕顯示的暫時文字"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "正在新增 %s...",
+    "description": "將網域新增到白名單時按鈕顯示的載入文字。%s 會替換為網域。"
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "正在移除 %s...",
+    "description": "從白名單移除網域時按鈕顯示的載入文字。%s 會替換為網域。"
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "無法偵測此頁面的網域",
+    "description": "當目前頁面沒有支援網域時，停用白名單按鈕的提示文字"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "白名單按鈕已停用，因為此頁面沒有支援的網域",
+    "description": "當目前頁面沒有支援網域時，停用白名單按鈕的 ARIA 標籤"
+  },
+  "popup_pause_15m_title": {
+    "message": "暫停清理 15 分鐘",
+    "description": "Popup 中 15 分鐘暫停按鈕的工具提示與 ARIA 標籤"
+  },
+  "popup_pause_1h_title": {
+    "message": "暫停清理 1 小時",
+    "description": "Popup 中 1 小時暫停按鈕的工具提示與 ARIA 標籤"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "暫停清理直到瀏覽器重新啟動",
+    "description": "Popup 中「直到重新啟動」按鈕的工具提示與 ARIA 標籤"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "立即恢復 URL 清理",
+    "description": "Popup 中「立即恢復」按鈕的工具提示與 ARIA 標籤"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "暫時暫停 URL 清理",
+    "description": "Popup 中「暫時暫停」區塊標題的工具提示"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "目前頁面已處理元素總數",
+    "description": "Popup 中總元素標籤的工具提示"
+  },
+  "popup_consent_description_title": {
+    "message": "接受前請先閱讀",
+    "description": "Popup 同意描述文字的工具提示"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "確認你已閱讀並同意",
+    "description": "Popup 同意核取方塊標籤的工具提示"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "接受同意並解除 Popup 鎖定",
+    "description": "Popup 同意接受按鈕的工具提示"
+  },
+  "license_third_party_title_title": {
+    "message": "第三方元件資訊",
+    "description": "第三方區塊標題的工具提示"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "Firefox 附加元件簽章摘要",
+    "description": "Firefox 簽章標題的工具提示"
+  },
+  "invalid_date_label": {
+    "message": "無效日期",
+    "description": "當日期值無法解析時顯示的後備文字。"
+  },
+  "log_i18n_load_failed": {
+    "message": "無法載入國際化資源。部分功能可能無法正常運作。",
+    "description": "當記錄頁面的翻譯載入失敗時顯示的錯誤訊息。"
+  },
+  "log_html_sort_oldest_first": {
+    "message": "點擊以先顯示最舊項目",
+    "description": "當目前為最新優先時，記錄時間排序按鈕的提示文字。"
+  },
+  "log_html_sort_newest_first": {
+    "message": "點擊以先顯示最新項目",
+    "description": "當目前為最舊優先時，記錄時間排序按鈕的提示文字。"
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "關閉規則測試實驗室",
+    "description": "用於關閉規則測試實驗室對話框的 ARIA 標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "輸入網址",
+    "description": "規則測試實驗室輸出中輸入網址的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "輸出網址",
+    "description": "規則測試實驗室輸出中輸出網址的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "是否變更",
+    "description": "規則測試實驗室輸出中網址是否變更的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "匹配供應商",
+    "description": "規則測試實驗室輸出中匹配供應商的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "匹配規則",
+    "description": "規則測試實驗室輸出中匹配規則的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "模式類型",
+    "description": "規則測試實驗室輸出中模式類型的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "模式值",
+    "description": "規則測試實驗室輸出中模式值的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "動作",
+    "description": "規則測試實驗室輸出中動作的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "可選參數測試（例如：utm_source 或 ref=abc）",
+    "description": "規則測試實驗室中可選參數測試輸入框的提示文字。"
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "測試參數",
+    "description": "規則測試實驗室輸出中測試參數的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "匹配例外規則",
+    "description": "規則測試實驗室輸出中匹配 URL 正則例外的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "匹配網域例外",
+    "description": "規則測試實驗室輸出中匹配網域例外的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "匹配重新導向",
+    "description": "規則測試實驗室輸出中匹配正則重新導向的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "匹配網域重新導向",
+    "description": "規則測試實驗室輸出中匹配網域重新導向的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "匹配規則正則",
+    "description": "規則測試實驗室輸出中匹配一般規則正則的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "匹配原始規則",
+    "description": "規則測試實驗室輸出中匹配 raw rule 的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "匹配推薦規則",
+    "description": "規則測試實驗室輸出中匹配 referralMarketing 規則的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "匹配 RemoveParam 規則",
+    "description": "規則測試實驗室輸出中匹配 $removeparam 規則的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "匹配 RemoveParam 例外",
+    "description": "規則測試實驗室輸出中匹配 @@$removeparam 例外的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "完整供應商",
+    "description": "規則測試實驗室輸出中 completeProvider 布林值的標籤。"
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "無",
+    "description": "規則測試實驗室輸出中無值時的預設文字。"
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "是",
+    "description": "規則測試實驗室輸出中的布林真值文字。"
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "否",
+    "description": "規則測試實驗室輸出中的布林假值文字。"
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL 過濾器（互通性）："
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON 規則："
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON 規則資訊："
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL過濾規則："
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL 篩選來源："
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "規則狀態："
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "哈希狀態："
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL 過濾器狀態："
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "已載入"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "部分載入"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "所有來源都失敗"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "未配置 hashless URL 過濾源"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "遠端規則已停用"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "未載入"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "空的"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "不需要"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL 過濾器"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL 過濾器"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "合併 Linkumori URL 過濾器"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "定制Linkumori URL規則"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL 過濾器解析器不可用"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "自訂 Linkumori URL 規則失敗"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL 過濾源失敗"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "遠端URL過濾文件為空"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL 篩選器取得失敗"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "未知 URL 過濾器錯誤"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "所有 Linkumori URL 過濾源失敗"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "流行擴充 URL 追蹤過濾器"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "未找到受支援的 Linkumori 互通性 $removeparam 規則"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL 過濾器互通性"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori 互通過濾源"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL 規則"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori 定制 URL 規則"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "在此新增常用分機 $removeparam 或 $queryprune 規則。這些規則與 ClearURLs 自訂提供者分開存儲，並合併到 Linkumori URL 過濾器中。"
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "證實"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "未配置自訂 Linkumori URL 規則。"
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 支援的規則，$2 不支援的跳過，$3 重複的跳過。"
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "驗證失敗"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "已儲存並重新載入 Linkumori URL 規則。"
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "保存失敗"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "驗證後，支援的規則將顯示在此。"
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL 過濾器解析器不可用。"
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL 過濾器（互通性）"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL 狀態"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "運行時規則"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "自訂規則"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL 哈希"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 運行時規則\n$3 自訂規則"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "關閉Linkumori客製URL規則"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Linkumori URL 規則是什麼？"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL 規則是流行的擴展跟踪 URL 過濾器行，重點關注 $removeparam。當您想要直接貼上過濾器清單語法而不是建立 ClearURLs 提供者 JSON 時，它們非常有用。"
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "遠端流行擴充URL過濾器和這些自訂規則不需要雜湊驗證。解析後它們儲存在LinkumoriURLsData中，與ClearURLsData分開。"
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "互通性已變更",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "互通性輸出 URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "相符的互通性規則",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "互通性模式類型",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "互通性動作",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
+  },
+  "popup_whitelist_state_permanent": {
+    "message": "Whitelisted: $1 — click again for tab-only",
+    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
+  },
+  "popup_whitelist_state_temporary": {
+    "message": "Tab-only: $1 — click to remove",
+    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
+  },
+  "logger_nav_label": {
+    "message": "即時記錄器"
+  },
+  "logger_btn_pause": {
+    "message": "⏸ 暫停"
+  },
+  "logger_btn_resume": {
+    "message": "▶ 恢復"
+  },
+  "logger_btn_clear": {
+    "message": "🗑 清除"
+  },
+  "logger_btn_autoscroll": {
+    "message": "↕ 自動捲動"
+  },
+  "logger_filter_label": {
+    "message": "篩選"
+  },
+  "logger_filter_placeholder": {
+    "message": "過濾條目..."
+  },
+  "logger_tab_filter_label": {
+    "message": "選項卡"
+  },
+  "logger_tab_all": {
+    "message": "所有選項卡"
+  },
+  "logger_col_time": {
+    "message": "時間"
+  },
+  "logger_col_action": {
+    "message": "行動"
+  },
+  "logger_col_rule": {
+    "message": "規則"
+  },
+  "logger_col_provider": {
+    "message": "提供者"
+  },
+  "logger_col_pattern": {
+    "message": "圖案"
+  },
+  "logger_col_type": {
+    "message": "類型"
+  },
+  "logger_col_method": {
+    "message": "方法"
+  },
+  "logger_col_url": {
+    "message": "URL"
+  },
+  "logger_status_entries": {
+    "message": "條目"
+  },
+  "logger_empty_state": {
+    "message": "還沒有日誌條目。瀏覽將填入此清單。"
+  },
+  "logger_logging_disabled_banner": {
+    "message": "日誌記錄已停用 - 在“設定”中啟用它以捕獲新條目。"
+  },
+  "logger_detail_title": {
+    "message": "參賽詳情"
+  },
+  "logger_detail_before": {
+    "message": "前"
+  },
+  "logger_detail_after": {
+    "message": "後"
+  },
+  "logger_detail_rule": {
+    "message": "規則"
+  },
+  "logger_detail_provider": {
+    "message": "提供者"
+  },
+  "logger_detail_pattern": {
+    "message": "圖案"
+  },
+  "logger_detail_type": {
+    "message": "類型"
+  },
+  "logger_detail_method": {
+    "message": "方法"
+  },
+  "logger_detail_time": {
+    "message": "時間戳"
+  }
+}

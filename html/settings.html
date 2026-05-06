@@ -1,0 +1,776 @@
+<!--
+  ============================================================
+  Linkumori Settings Page
+  ============================================================
+  Copyright (c) 2017–2025 Kevin Röbert
+  Modified by Subham Mahesh (c) 2025–2026
+
+  This program is free software: you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation, either
+  version 3 of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+
+  ============================================================
+  SVG ICON ATTRIBUTIONS
+  ============================================================
+
+  CUSTOM ICONS
+  ------------
+  - Linkumori Logo
+    Author:   Subham Mahesh (c) 2025
+    Usage:    Embedded inline in header and badge preview
+
+  EMBEDDED ICONS — Google Material Icons (Modified)
+  --------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+  Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+  Modifications: width=16, height=16, fill=currentColor
+
+  - Save Icon     — derivative of save.svg
+                    Used in: save settings button
+  - Export Icon   — derivative of export.svg
+                    Used in: export settings button
+  - Import Icon   — derivative of upload.svg
+                    Used in: import settings button
+  - Reset Icon    — derivative of reset.svg
+                    Used in: reset settings button
+  - Audit Icon    — derivative of svg/material_icon/description_24dp_E3E3E3.svg
+                    Downloaded from: https://material-icons.github.io/material-icons/svg/description/baseline.svg
+                    Used in: settings audit button
+
+  EXTERNAL FILE REFERENCES — Google Material Icons (Unmodified)
+  -------------------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+  Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+
+  - Sun Icon    — ../LinkumorI_HTML_SVG/sun.svg
+                  Unmodified local Material icon SVG used for the theme toggle
+  - Moon Icon   — ../LinkumorI_HTML_SVG/moon.svg
+                  Unmodified local Material icon SVG used for the theme toggle
+
+  EXTERNAL FILE REFERENCES — Lucide Icons
+  ----------------------------------------
+  License:   ISC License (includes Feather-derived MIT portions)
+  Source:    https://lucide.dev/icons/user-round-key
+  Note:      See THIRD-PARTY-NOTICE/lucid-user-round-key.svg/NOTICE.txt
+
+  - Confirmation Icon — ../LinkumorI_HTML_SVG/lucid-user-round-key.svg
+
+  EXTERNAL FILE REFERENCES — Google Material Icons (Unmodified)
+  --------------------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+
+  - Warning Icon — ../LinkumorI_HTML_SVG/warning.svg
+
+  ============================================================
+  MODIFICATION HISTORY
+  ============================================================
+  2025-06-14   Subham Mahesh   HTML only
+  2025-08-21   Subham Mahesh   HTML + Google Material icon assets
+  2025-09-05   Subham Mahesh   HTML + Google Material icon assets
+  2026-03-04   Subham Mahesh   Audit Icon (description_24dp) + HTML
+  2026-04-19   Subham Mahesh   Updated theme-toggle icon attribution
+
+  Note: Due to inline constraints, subsequent modifications may
+  not appear here. To view the full history, run:
+
+    node linkumori-cli-tool.js
+
+  Select "Generate Commit History" to produce a Markdown file
+  listing all modifications by file, author, and date.
+
+  IMPORTANT NOTES
+  ---------------
+  - git clone is required before running "Generate Commit History";
+    otherwise commit history generation will not work.
+  - Older modifications may not appear in the generated
+    COMMIT_HISTORY.md.
+  - If a file's inline notice is limited, check for a separate
+    file-specific notice and COMMIT_HISTORY.md; if neither exists,
+    treat the inline notice as the final modification record.
+  - If a separate file-specific notice is provided, check the
+    file's inline notice and COMMIT_HISTORY.md; if neither exists,
+    treat the separate notice as the final modification record.
+  - Review individual modified source files for earlier notices.
+  - Some files may not contain notices within the file itself or
+    may not be listed in COMMIT_HISTORY.md; a separate notice
+    file may be provided instead.
+  - Not all source files have been modified, but review notices
+    in all source files and any separate notice files (.md or .txt).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title data-i18n="settings_html_page_title"></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../external_js/theme_bootstrap.js"></script>
+    <script src="../external_js/theme_favicon.js"></script>
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/linkumori-pickr.min.css">
+
+</head>
+<body>
+    <!-- 
+    Header Content Design and Implementation
+    Copyright (c) 2025 Subham Mahesh
+    Licensed under GNU Lesser General Public License v3.0
+    -->
+    <div class="header">
+        <div class="header-content">
+            <!-- Linkumori Logo SVG - Custom Design by Subham Mahesh (c) 2025 -->
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
+                <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
+                    fill="none"
+                    stroke="var(--logo-accent)"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+                <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35"
+                    fill="none"
+                    stroke="var(--logo-accent)"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+                <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28"
+                       fill="var(--logo-accent)"/>
+            </svg>
+            <div class="header-text">
+                <h1 id="page_title"></h1>
+                <span class="version-badge" id="version"></span>
+            </div>
+        </div>
+        <!-- Theme Toggle Button with Google Material Icons (Apache 2.0) -->
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="">
+            <!-- Icons from Google Material Icons - https://fonts.google.com/icons (Apache 2.0) -->
+            <img id="themeToggleSunIcon" src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon">
+            <img id="themeToggleMoonIcon" src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon">
+        </button>
+    </div>
+
+    <div class="container">
+        <div id="statusMessage" class="status-message"></div>
+
+        <h2 class="section-header" id="general_settings_title"></h2>
+        <div class="card">
+            <!-- Language Selection -->
+            <div class="form-group">
+                <label class="form-label" id="language_selector_label" for="languageSelector"></label>
+                <select id="languageSelector" class="form-input language-selector" disabled>
+                    <option value=""></option>
+                </select>
+                <div class="field-description" id="language_selector_description"></div>
+            </div>
+
+            <!-- Theme Selection with SVG Previews -->
+            <div class="form-group">
+                <label class="form-label" id="theme_selection_label"></label>
+                <div class="theme-groups-inline">
+                    <div class="theme-group">
+                        <div class="theme-group-label" id="theme_group_light_label"></div>
+                        <div class="theme-grid" style="min-height: 100px;">
+                        <div class="theme-card active-light" data-theme="light" data-theme-category="light">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="80" height="12" fill="#f1f5f9"/>
+                                <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
+                                <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
+                                <circle cx="12" cy="6" r="1.5" fill="#28ca42"/>
+                                <rect x="16" y="4" width="40" height="4" rx="2" fill="#e2e8f0"/>
+                                <rect y="12" width="80" height="48" fill="#ffffff"/>
+                                <rect x="6" y="18" width="68" height="4" fill="#2563eb"/>
+                                <rect x="6" y="26" width="55" height="2" fill="#334155"/>
+                                <rect x="6" y="30" width="45" height="2" fill="#334155"/>
+                                <rect x="6" y="34" width="38" height="2" fill="#334155"/>
+                                <rect x="6" y="42" width="16" height="6" rx="3" fill="#2563eb"/>
+                            </svg>
+                            <span class="theme-name" id="theme_name_light"></span>
+                        </div>
+                        <div class="theme-card" data-theme="icecold" data-theme-category="light">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="80" height="12" fill="#d0bdf4"/>
+                                <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
+                                <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
+                                <circle cx="12" cy="6" r="1.5" fill="#28ca42"/>
+                                <rect x="16" y="4" width="40" height="4" rx="2" fill="#a0d2eb"/>
+                                <rect y="12" width="80" height="48" fill="#e5eaf5"/>
+                                <rect x="6" y="18" width="68" height="4" fill="#d0bdf4"/>
+                                <rect x="6" y="26" width="55" height="2" fill="#4f4561"/>
+                                <rect x="6" y="30" width="45" height="2" fill="#4f4561"/>
+                                <rect x="6" y="34" width="38" height="2" fill="#4f4561"/>
+                                <rect x="6" y="42" width="16" height="6" rx="3" fill="#8458B3"/>
+                            </svg>
+                            <span class="theme-name" id="theme_name_icecold"></span>
+                        </div>
+                        <div class="theme-card" data-theme="sunset" data-theme-category="light">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="80" height="12" fill="#fffdfb"/>
+                                <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
+                                <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
+                                <circle cx="12" cy="6" r="1.5" fill="#28ca42"/>
+                                <rect x="16" y="4" width="40" height="4" rx="2" fill="#fff6f2"/>
+                                <rect y="12" width="80" height="48" fill="#f5f3f0"/>
+                                <rect x="6" y="18" width="68" height="4" fill="#fffdfb"/>
+                                <rect x="6" y="26" width="55" height="2" fill="#6b6b6b"/>
+                                <rect x="6" y="30" width="45" height="2" fill="#6b6b6b"/>
+                                <rect x="6" y="34" width="38" height="2" fill="#6b6b6b"/>
+                                <rect x="6" y="42" width="16" height="6" rx="3" fill="#f76f53"/>
+                            </svg>
+                            <span class="theme-name" id="theme_name_sunset"></span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="theme-group">
+                        <div class="theme-group-label" id="theme_group_dark_label"></div>
+                        <div class="theme-grid" style="min-height: 100px;">
+                        <div class="theme-card active active-dark" data-theme="dark" data-theme-category="dark">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="80" height="12" fill="#161a24"/>
+                                <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
+                                <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
+                                <circle cx="12" cy="6" r="1.5" fill="#28ca42"/>
+                                <rect x="16" y="4" width="40" height="4" rx="2" fill="#232838"/>
+                                <rect y="12" width="80" height="48" fill="#0f111a"/>
+                                <rect x="6" y="18" width="68" height="4" fill="#161a24"/>
+                                <rect x="6" y="26" width="55" height="2" fill="#cbd5e1"/>
+                                <rect x="6" y="30" width="45" height="2" fill="#cbd5e1"/>
+                                <rect x="6" y="34" width="38" height="2" fill="#cbd5e1"/>
+                                <rect x="6" y="42" width="16" height="6" rx="3" fill="#8ab4e6"/>
+                            </svg>
+                            <span class="theme-name" id="theme_name_dark"></span>
+                        </div>
+                        <div class="theme-card" data-theme="midnight" data-theme-category="dark">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="80" height="12" fill="#1e293b"/>
+                                <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
+                                <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
+                                <circle cx="12" cy="6" r="1.5" fill="#28ca42"/>
+                                <rect x="16" y="4" width="40" height="4" rx="2" fill="#334155"/>
+                                <rect y="12" width="80" height="48" fill="#0f172a"/>
+                                <rect x="6" y="18" width="68" height="4" fill="#1e293b"/>
+                                <rect x="6" y="26" width="55" height="2" fill="#cbd5e1"/>
+                                <rect x="6" y="30" width="45" height="2" fill="#cbd5e1"/>
+                                <rect x="6" y="34" width="38" height="2" fill="#cbd5e1"/>
+                                <rect x="6" y="42" width="16" height="6" rx="3" fill="#2563eb"/>
+                            </svg>
+                            <span class="theme-name" id="theme_name_midnight"></span>
+                        </div>
+                        <div class="theme-card" data-theme="legacy" data-theme-category="dark">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="80" height="12" fill="#343a40"/>
+                                <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
+                                <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
+                                <circle cx="12" cy="6" r="1.5" fill="#28ca42"/>
+                                <rect x="16" y="4" width="40" height="4" rx="2" fill="#495057"/>
+                                <rect y="12" width="80" height="48" fill="#212529"/>
+                                <rect x="6" y="18" width="68" height="4" fill="#343a40"/>
+                                <rect x="6" y="26" width="55" height="2" fill="#dee2e6"/>
+                                <rect x="6" y="30" width="45" height="2" fill="#dee2e6"/>
+                                <rect x="6" y="34" width="38" height="2" fill="#dee2e6"/>
+                                <rect x="6" y="42" width="16" height="6" rx="3" fill="#ff7800"/>
+                            </svg>
+                            <span class="theme-name" id="theme_name_legacy"></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-description" id="theme_description"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" id="types_label" for="types"></label>
+                <input type="text" id="types" name="types" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" id="logLimit_label" for="logLimit"></label>
+                <input type="number" id="logLimit" name="logLimit" class="form-input" min="0" max="5000">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" id="ruleURL_label" for="ruleURL"></label>
+                <input type="url" id="ruleURL" name="ruleURL" class="form-input" placeholder="">
+                <div class="field-description" id="ruleURL_description"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" id="hashURL_label" for="hashURL"></label>
+                <input type="url" id="hashURL" name="hashURL" class="form-input" placeholder="">
+                <div class="field-description" id="hashURL_description"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" id="remoteRuleSets_label" for="remoteRuleSets"></label>
+                <textarea id="remoteRuleSets" name="remoteRuleSets" class="form-input" rows="4"></textarea>
+                <div class="field-description" id="remoteRuleSets_description"></div>
+            </div>
+
+            <div id="remoteUrlTransferControls" class="button-group remote-url-transfer-controls" style="display: none;">
+                <button id="export_remote_urls_btn" class="btn btn-secondary" type="button" title="">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M202-65l-56-57 118-118h-90v-80h226v226h-80v-89L202-65Zm278-15v-80h240v-440H520v-200H240v400h-80v-400q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H480Z"/>
+                    </svg>
+                    <span id="export_remote_urls_btn_text"></span>
+                </button>
+                <div class="file-input-wrapper">
+                    <button id="import_remote_urls_btn" class="btn btn-secondary" type="button" title="">
+                        <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                            <path d="M440-280h80v-168l64 64 56-56-160-160-160 160 56 56 64-64v168ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/>
+                        </svg>
+                        <span id="import_remote_urls_btn_text"></span>
+                    </button>
+                    <input type="file" id="importRemoteUrls" accept=".json,.conf" style="display: none;">
+                </div>
+            </div>
+
+            <div class="remote-health-card" id="remoteHealthCard">
+                <div class="remote-health-header">
+                    <strong id="remoteHealthTitle"></strong>
+                    <button id="refresh_remote_rules_btn" class="btn btn-secondary" type="button"></button>
+                </div>
+                <div class="remote-health-grid">
+                    <div><span class="remote-health-label" id="remoteHealthFetchAttemptLabel"></span> <span id="remoteHealthFetchAttempt"></span></div>
+                    <div><span class="remote-health-label" id="remoteHealthFetchSuccessLabel"></span> <span id="remoteHealthFetchSuccess"></span></div>
+                    <div><span class="remote-health-label" id="remoteHealthHashVerificationLabel"></span> <span id="remoteHealthHashVerification"></span></div>
+                    <div><span class="remote-health-label" id="remoteHealthFailureReasonLabel"></span> <span id="remoteHealthFailureReason"></span></div>
+                    <div><span class="remote-health-label" id="remoteHealthHashStatusLabel"></span> <span id="remoteHealthHashStatus"></span></div>
+                    <div><span class="remote-health-label" id="remoteHealthLinkumoriURLStatusLabel"></span> <span id="remoteHealthLinkumoriURLStatus"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-header" id="appearance_settings_title"></h2>
+        <div class="card">
+            <div class="color-picker-section">
+                <div class="color-preview-container">
+                    <div id="badged-color-picker" 
+                         class="color-preview" 
+                         title=""
+                         role="button"
+                         tabindex="0"
+                         aria-label=""></div>
+                    <div class="color-info">
+                        <div class="color-label" id="badge_color_label"></div>
+                        <div id="color-value" class="color-value"></div>
+                    </div>
+                </div>
+                
+                <div class="badge-preview-container">
+                    <div class="badge-preview-label" id="badge_preview_label"></div>
+                    <div class="extension-icon-demo">
+                        <div class="icon-placeholder">
+                            <!-- Linkumori Logo - Same as header -->
+                            <svg width="20" height="20" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
+                                <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
+                                    fill="none"
+                                    stroke="var(--logo-accent)"
+                                    stroke-width="8"
+                                    stroke-linecap="round"/>
+                                <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35"
+                                    fill="none"
+                                    stroke="var(--logo-accent)"
+                                    stroke-width="8"
+                                    stroke-linecap="round"/>
+                                <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28"
+                                       fill="var(--logo-accent)"/>
+                            </svg>
+                        </div>
+                        <div id="badge-demo" class="badge-counter">8</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="color-description" id="badge_color_description">
+            </div>
+        </div>
+
+        <h2 class="section-header" id="feature_toggles_title"></h2>
+        <div class="card">
+            <div class="toggle-container">
+                <div class="toggle-switch" id="domainBlocking"></div>
+                <div class="toggle-content">
+                    <div class="toggle-title" id="domain_blocking_enabled"></div>
+                    <div class="toggle-description" id="domain_blocking_enabled_description"></div>
+                </div>
+            </div>
+
+            <div class="toggle-container">
+                <div class="toggle-switch" id="localHostsSkipping"></div>
+                <div class="toggle-content">
+                    <div class="toggle-title" id="local_hosts_skipping"></div>
+                    <div class="toggle-description" id="local_hosts_skipping_description"></div>
+                </div>
+            </div>
+
+            <div class="toggle-container">
+                <div class="toggle-switch" id="historyListenerEnabled"></div>
+                <div class="toggle-content">
+                    <div class="toggle-title" id="history_listener_enabled"></div>
+                    <div class="toggle-description" id="history_listener_enabled_description"></div>
+                </div>
+            </div>
+
+            <div class="toggle-container">
+                <div class="toggle-switch" id="searchLinkFixEnabled"></div>
+                <div class="toggle-content">
+                    <div class="toggle-title" id="search_link_fix_enabled"></div>
+                    <div class="toggle-description" id="search_link_fix_enabled_description"></div>
+                </div>
+            </div>
+
+            <div class="toggle-container">
+                <div class="toggle-switch" id="contextMenuEnabled"></div>
+                <div class="toggle-content">
+                    <div class="toggle-title" id="context_menu_enabled"></div>
+                    <div class="toggle-description" id="context_menu_enabled_description"></div>
+                </div>
+            </div>
+
+            <div class="toggle-container">
+                <div class="toggle-switch" id="referralMarketing"></div>
+                <div class="toggle-content">
+                    <div class="toggle-title" id="referral_marketing_enabled"></div>
+                    <div class="toggle-description" id="referral_marketing_enabled_description"></div>
+                </div>
+            </div>
+
+            <div class="toggle-container">
+                <div class="toggle-switch" id="pingBlocking"></div>
+                <div class="toggle-content">
+                    <div class="toggle-title" id="ping_blocking_enabled"></div>
+                    <div class="toggle-description" id="ping_blocking_enabled_description"></div>
+                </div>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle-switch" id="redirectionEnabled"></div>
+                <div class="toggle-content">
+                    <div class="toggle-title" id="redirection_enabled"></div>
+                    <div class="toggle-description" id="redirection_enabled_description"></div>
+                </div>
+            </div>
+<div class="toggle-container">
+    <div class="toggle-switch" id="remoteRulesEnabled"></div>
+    <div class="toggle-content">
+        <div class="toggle-title" id="remote_rules_enabled"></div>
+        <div class="toggle-description" id="remote_rules_enabled_description"></div>
+    </div>
+</div>
+<div class="toggle-container">
+    <div class="toggle-switch" id="disableGatekeeper"></div>
+    <div class="toggle-content">
+        <div class="toggle-title" id="disable_gatekeeper_enabled"></div>
+        <div class="toggle-description" id="disable_gatekeeper_enabled_description"></div>
+    </div>
+</div>
+<div class="toggle-container">
+    <div class="toggle-switch" id="builtInRulesEnabled"></div>
+    <div class="toggle-content">
+        <div class="toggle-title" id="built_in_rules_enabled"></div>
+        <div class="toggle-description" id="built_in_rules_enabled_description"></div>
+    </div>
+</div>
+<div class="toggle-container">
+    <div class="toggle-switch" id="linkumoriInteroperabilityMode"></div>
+    <div class="toggle-content">
+        <div class="toggle-title" id="linkumori_interoperability_mode_enabled"></div>
+        <div class="toggle-description" id="linkumori_interoperability_mode_enabled_description"></div>
+    </div>
+</div>
+<div class="toggle-container">
+    <div class="toggle-switch" id="overloadModeEnabled"></div>
+    <div class="toggle-content">
+        <div class="toggle-title" id="overload_mode_enabled"></div>
+        <div class="toggle-description" id="overload_mode_enabled_description"></div>
+    </div>
+</div>
+            <div class="toggle-container">
+                <div class="toggle-switch" id="eTagFiltering"></div>
+                <div class="toggle-content">
+                    <div class="toggle-title" id="eTag_filtering_enabled"></div>
+                    <div class="toggle-description" id="eTag_filtering_enabled_description"></div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-header" id="bundled_rules_section_title"></h2>
+        <div class="card">
+            <p id="bundled_rules_description"></p>
+            <div id="bundled_rules_status" class="rules-status">
+                <strong></strong>
+                <br>
+                <strong id="settings_disabled_rules_fallback_label"></strong>
+                <span id="settings_disabled_rules_fallback_count">0</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="button-group">
+                <!-- Save Icon - Updated with new SVG path -->
+                <button id="save_settings_btn" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/>
+                    </svg>
+                    <span id="save_settings_btn_text"></span>
+                </button>
+
+                <!-- Export Icon - Updated with new SVG path -->
+                <button id="export_settings_btn" class="btn btn-secondary">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M202-65l-56-57 118-118h-90v-80h226v226h-80v-89L202-65Zm278-15v-80h240v-440H520v-200H240v400h-80v-400q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H480Z"/>
+                    </svg>
+                    <span id="export_settings_btn_text"></span>
+                </button>
+
+                <!-- Import Icon - Updated with new SVG path -->
+                <div class="file-input-wrapper">
+                    <button id="import_settings_btn" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                            <path d="M440-280h80v-168l64 64 56-56-160-160-160 160 56 56 64-64v168ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/>
+                        </svg>
+                        <span id="import_settings_btn_text"></span>
+                    </button>
+                    <input type="file" id="importSettings" accept=".conf,.json" style="display: none;">
+                </div>
+
+                <!-- Reset Icon - Updated with new SVG path -->
+                <button id="reset_settings_btn" class="btn btn-danger">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M280-200v-80h284q63 0 109.5-40T720-420q0-60-46.5-100T564-560H312l104 104-56 56-200-200 200-200 56 56-104 104h252q97 0 166.5 63T800-420q0 94-69.5 157T564-200H280Z"/>
+                    </svg>
+                    <span id="reset_settings_btn_text"></span>
+                </button>
+                <button id="audit_settings_btn" class="btn btn-secondary">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80Zm-80 320q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h360l200 200v520q0 33-23.5 56.5T720-80H240Zm320-560v-160H240v640h480v-480H560Zm-320-160v160-160 640-640Z"/>
+                    </svg>
+                    <span id="audit_settings_btn_text"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+ <!-- Security Disclaimer Modal -->
+    <div id="securityDisclaimerModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <img class="modal-warning-icon" src="../LinkumorI_HTML_SVG/warning.svg" alt="" aria-hidden="true">
+                <h2 id="security_modal_title" class="modal-title"></h2>
+            </div>
+            
+            <div class="modal-content">
+                <div class="warning-banner">
+                    <strong id="security_modal_advanced_warning"></strong>
+                </div>
+                
+                <div class="disclaimer-text">
+                    <p id="security_modal_main_warning"></p>
+                    
+                    <p id="security_modal_recommendation"></p>
+                    
+                    <div class="privacy-notice">
+                        <h3 id="security_modal_privacy_title"></h3>
+                        <p id="security_modal_privacy_text" class="modal-rich-text"></p>
+                    </div>
+                    
+                    <div class="risks-notice">
+                        <h3 id="security_modal_risks_title"></h3>
+                        <ul>
+                            <li id="security_modal_risk_1"></li>
+                            <li id="security_modal_risk_2"></li>
+                            <li id="security_modal_risk_3"></li>
+                            <li id="security_modal_risk_4"></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendation-banner">
+                        <p id="security_modal_final_warning"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button id="securityModalCancel" class="btn btn-secondary">
+                    <span id="security_modal_cancel"></span>
+                </button>
+                <button id="securityModalContinue" class="btn btn-danger">
+                    <span id="security_modal_continue"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disable Gatekeeper Risk Modal -->
+    <div id="disableGatekeeperRiskModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <img class="modal-warning-icon" src="../LinkumorI_HTML_SVG/warning.svg" alt="" aria-hidden="true">
+                <h2 id="disable_gatekeeper_modal_title" class="modal-title"></h2>
+            </div>
+
+            <div class="modal-content">
+                <div class="warning-banner">
+                    <strong id="disable_gatekeeper_modal_advanced_warning"></strong>
+                </div>
+
+                <div class="disclaimer-text">
+                    <p id="disable_gatekeeper_modal_main_warning"></p>
+                    <p id="disable_gatekeeper_modal_gatekeeper_explanation"></p>
+                    <p id="disable_gatekeeper_modal_recommendation"></p>
+
+                    <div class="privacy-notice">
+                        <h3 id="disable_gatekeeper_modal_privacy_title"></h3>
+                        <p id="disable_gatekeeper_modal_privacy_text" class="modal-rich-text"></p>
+                    </div>
+
+                    <div class="risks-notice">
+                        <h3 id="disable_gatekeeper_modal_risks_title"></h3>
+                        <ul>
+                            <li id="disable_gatekeeper_modal_risk_1"></li>
+                            <li id="disable_gatekeeper_modal_risk_2"></li>
+                            <li id="disable_gatekeeper_modal_risk_3"></li>
+                            <li id="disable_gatekeeper_modal_risk_4"></li>
+                        </ul>
+                    </div>
+
+                    <div class="recommendation-banner">
+                        <p id="disable_gatekeeper_modal_final_warning"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="disableGatekeeperRiskCancel" class="btn btn-secondary">
+                    <span id="disable_gatekeeper_modal_cancel"></span>
+                </button>
+                <button id="disableGatekeeperRiskContinue" class="btn btn-danger">
+                    <span id="disable_gatekeeper_modal_continue"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Redirection Warning Modal -->
+    <div id="redirectionWarningModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <img class="modal-warning-icon" src="../LinkumorI_HTML_SVG/warning.svg" alt="" aria-hidden="true">
+                <h2 id="redirection_warning_modal_title" class="modal-title"></h2>
+            </div>
+
+            <div class="modal-content">
+                <div class="warning-banner">
+                    <strong id="redirection_warning_modal_advanced_warning"></strong>
+                </div>
+
+                <div class="disclaimer-text">
+                    <p id="redirection_warning_modal_main_warning"></p>
+                    <p id="redirection_warning_modal_recommendation"></p>
+
+                    <div class="risks-notice">
+                        <h3 id="redirection_warning_modal_risks_title"></h3>
+                        <ul>
+                            <li id="redirection_warning_modal_risk_1"></li>
+                            <li id="redirection_warning_modal_risk_2"></li>
+                            <li id="redirection_warning_modal_risk_3"></li>
+                            <li id="redirection_warning_modal_risk_4"></li>
+                        </ul>
+                    </div>
+
+                    <div class="recommendation-banner">
+                        <p id="redirection_warning_modal_final_warning"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="redirectionWarningCancel" class="btn btn-secondary">
+                    <span id="redirection_warning_modal_cancel"></span>
+                </button>
+                <button id="redirectionWarningAudit" class="btn btn-secondary">
+                    <span id="redirection_warning_modal_audit"></span>
+                </button>
+                <button id="redirectionWarningContinue" class="btn btn-danger">
+                    <span id="redirection_warning_modal_continue"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container modal-container-small">
+            <div class="modal-header">
+                <img class="modal-confirm-icon" src="../LinkumorI_HTML_SVG/lucid-user-round-key.svg" alt="" aria-hidden="true">
+                <h2 id="confirmation_modal_title" class="modal-title"></h2>
+            </div>
+            
+            <div class="modal-content">
+                <p id="confirmation_modal_text"></p>
+                
+                <div class="confirmation-phrase-display">
+                    <code id="confirmation_phrase_text"></code>
+                </div>
+                
+                <div class="form-group">
+                    <label id="confirmation_input_label" class="form-label" for="confirmationInput"></label>
+                    <input type="text" id="confirmationInput" class="form-input" placeholder="" autocomplete="off">
+                    <div id="confirmationError" class="confirmation-error" style="display: none;">
+                        <span id="confirmation_error_text"></span>
+                    </div>
+                </div>
+                
+                <div class="final-warning">
+                    <p id="confirmation_final_text"></p>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button id="confirmationModalCancel" class="btn btn-secondary">
+                    <span id="confirmation_modal_cancel"></span>
+                </button>
+                <button id="confirmationModalConfirm" class="btn btn-danger" disabled>
+                    <span id="confirmation_modal_confirm"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Import Prompt Modal -->
+    <div id="settingsImportPromptModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container modal-container-small">
+            <div class="modal-header">
+                <img class="modal-warning-icon" src="../LinkumorI_HTML_SVG/warning.svg" alt="" aria-hidden="true">
+                <h2 id="settings_import_prompt_title" class="modal-title"></h2>
+            </div>
+
+            <div class="modal-content">
+                <p id="settings_import_prompt_message"></p>
+            </div>
+
+            <div class="modal-actions">
+                <button id="settingsImportPromptCancel" class="btn btn-secondary">
+                    <span id="settings_import_prompt_cancel"></span>
+                </button>
+                <button id="settingsImportPromptConfirm" class="btn btn-danger">
+                    <span id="settings_import_prompt_confirm"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts - Load in proper order -->
+    <script src="../external_js/linkumori-pickr.js"></script>
+    <script src="../external_js/linkumori-i18n.js"></script>
+    <script src="../core_js/modal_dialog.js"></script>
+    <script type="module" src="../core_js/settings.js"></script>
+
+    <script src="../core_js/write_version.js"></script>
+</body>
+</html>

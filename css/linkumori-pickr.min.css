@@ -1,0 +1,348 @@
+/*
+ * ============================================================
+ * Linkumori — Firefox MV3 WebRequest
+ * ============================================================
+ * Copyright (c) 2025 Subham Mahesh (modified portions only)
+ *
+ * Modified portions are licensed under the GNU Lesser General
+ * Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any
+ * later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this program. If not, see
+ * <http://www.gnu.org/licenses/>.
+ *
+ * ============================================================
+ * THIRD-PARTY ATTRIBUTION — Pickr 1.9.1 (MIT License)
+ * ============================================================
+ * This file contains portions based on Pickr 1.9.1 by Simon
+ * Reinisch, adapted for use in Linkumori. Remaining unmodified
+ * portions retain their original MIT License.
+ *
+ * Source:     https://github.com/Simonwep/pickr
+ * Copyright:  (c) 2018–2021 Simon Reinisch
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or
+ * sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following
+ * conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * ============================================================
+ * MODIFICATION HISTORY
+ * ============================================================
+ * 2025-06-14   Subham Mahesh   First modification
+ * 2025-08-21   Subham Mahesh   Second modification
+ * 2025-09-05   Subham Mahesh   Third modification
+ *
+ * Note: Due to inline constraints, subsequent modifications may
+ * not appear here. To view the full history, run:
+ *
+ *   node linkumori-cli-tool.js
+ *
+ * Select "Generate Commit History" to produce a Markdown file
+ * listing all modifications by file, author, and date.
+ *
+ * IMPORTANT NOTES
+ * ---------------
+ * - git clone is required before running "Generate Commit History";
+ *   otherwise commit history generation will not work.
+ * - Older modifications may not appear in the generated
+ *   COMMIT_HISTORY.md.
+ * - If a file's inline notice is limited, check for a separate
+ *   file-specific notice and COMMIT_HISTORY.md; if neither exists,
+ *   treat the inline notice as the final modification record.
+ * - If a separate file-specific notice is provided, check the
+ *   file's inline notice and COMMIT_HISTORY.md; if neither exists,
+ *   treat the separate notice as the final modification record.
+ * - Review individual modified source files for earlier notices.
+ * - Some files may not contain notices within the file itself or
+ *   may not be listed in COMMIT_HISTORY.md; a separate notice
+ *   file may be provided instead.
+ * - Not all source files have been modified, but review notices
+ *   in all source files and any separate notice files (.md or .txt).
+ * ============================================================
+ */
+.linkumori-picker-app {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 10000;
+    border-radius: .1em;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility 0s .3s;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    box-shadow: 0 .15em 1.5em 0 rgba(0, 0, 0, .1), 0 0 1em 0 rgba(0, 0, 0, .03);
+    left: 0;
+    top: 0;
+}
+
+.linkumori-picker-app.visible {
+    transition: opacity .3s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.linkumori-picker-app .linkumori-picker-interaction {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 -0.2em 0 -0.2em;
+}
+
+.linkumori-picker-app .linkumori-picker-interaction > * {
+    margin: 0 .2em;
+}
+
+.linkumori-picker-app .linkumori-picker-interaction input {
+    letter-spacing: .07em;
+    font-size: .75em;
+    text-align: center;
+    cursor: pointer;
+    color: #75797e;
+    background: #f1f3f4;
+    border-radius: .15em;
+    transition: all .15s;
+    padding: .45em .5em;
+    margin-top: .75em;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    -webkit-appearance: none;
+}
+
+.linkumori-picker-app .linkumori-picker-interaction input:hover {
+    filter: brightness(0.975);
+}
+
+.linkumori-picker-app .linkumori-picker-interaction input:focus {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .85), 0 0 0 3px rgba(66, 133, 244, .75);
+}
+
+.linkumori-picker-app .linkumori-picker-interaction .linkumori-picker-result {
+    color: #75797e;
+    text-align: left;
+    flex: 1 1 8em;
+    min-width: 8em;
+    transition: all .2s;
+    border-radius: .15em;
+    background: #f1f3f4;
+    cursor: text;
+}
+
+.linkumori-picker-app .linkumori-picker-interaction .linkumori-picker-result::-moz-selection {
+    background: #4285f4;
+    color: #fff;
+}
+
+.linkumori-picker-app .linkumori-picker-interaction .linkumori-picker-result::selection {
+    background: #4285f4;
+    color: #fff;
+}
+
+.linkumori-picker-app .linkumori-picker-interaction .linkumori-picker-save,
+.linkumori-picker-app .linkumori-picker-interaction .linkumori-picker-cancel {
+    color: #fff;
+    width: auto;
+}
+
+.linkumori-picker-app .linkumori-picker-interaction .linkumori-picker-save:hover,
+.linkumori-picker-app .linkumori-picker-interaction .linkumori-picker-cancel:hover {
+    filter: brightness(0.925);
+}
+
+.linkumori-picker-app .linkumori-picker-interaction .linkumori-picker-save {
+    background: #4285f4;
+}
+
+.linkumori-picker-app .linkumori-picker-interaction .linkumori-picker-cancel {
+    background: #f44250;
+}
+
+.linkumori-picker-app .linkumori-picker-selection .linkumori-picker-picker {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.linkumori-picker-app .linkumori-picker-selection .linkumori-picker-color-palette,
+.linkumori-picker-app .linkumori-picker-selection .linkumori-picker-color-chooser,
+.linkumori-picker-app .linkumori-picker-selection .linkumori-picker-color-opacity {
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    cursor: grab;
+    cursor: -webkit-grab;
+}
+
+.linkumori-picker-app .linkumori-picker-selection .linkumori-picker-color-palette:active,
+.linkumori-picker-app .linkumori-picker-selection .linkumori-picker-color-chooser:active,
+.linkumori-picker-app .linkumori-picker-selection .linkumori-picker-color-opacity:active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.linkumori-picker-app[data-theme=nano] {
+    width: 14.25em;
+    max-width: 95vw;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-interaction {
+    padding: 0 .6em .6em .6em;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection {
+    display: grid;
+    grid-gap: .6em;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 5fr auto auto;
+    align-items: center;
+    height: 10.5em;
+    width: 100%;
+    align-self: flex-start;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-preview {
+    grid-area: 2/1/4/1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: .6em;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-preview .linkumori-picker-current-color {
+    position: relative;
+    background: var(--linkumori-picker-color);
+    width: 2em;
+    height: 2em;
+    border-radius: 50em;
+    overflow: hidden;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-preview .linkumori-picker-current-color::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'><path fill='white' d='M1,0H2V1H1V0ZM0,1H1V2H0V1Z'/><path fill='gray' d='M0,0H1V1H0V0ZM1,1H2V2H1V1Z'/></svg>");
+    background-size: .5em;
+    border-radius: .15em;
+    z-index: -1;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-palette {
+    grid-area: 1/1/2/3;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-palette .linkumori-picker-palette {
+    border-radius: .15em;
+    width: 100%;
+    height: 100%;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-palette .linkumori-picker-palette::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'><path fill='white' d='M1,0H2V1H1V0ZM0,1H1V2H0V1Z'/><path fill='gray' d='M0,0H1V1H0V0ZM1,1H2V2H1V1Z'/></svg>");
+    background-size: .5em;
+    border-radius: .15em;
+    z-index: -1;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-chooser {
+    grid-area: 2/2/2/2;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-opacity {
+    grid-area: 3/2/3/2;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-chooser,
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-opacity {
+    height: .5em;
+    margin: 0 .6em;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-chooser .linkumori-picker-picker,
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-opacity .linkumori-picker-picker {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-chooser .linkumori-picker-slider,
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-opacity .linkumori-picker-slider {
+    flex-grow: 1;
+    border-radius: 50em;
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-chooser .linkumori-picker-slider {
+    background: linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(0, 100%, 50%));
+}
+
+.linkumori-picker-app[data-theme=nano] .linkumori-picker-selection .linkumori-picker-color-opacity .linkumori-picker-slider {
+    background: linear-gradient(to right, transparent, black), url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'><path fill='white' d='M1,0H2V1H1V0ZM0,1H1V2H0V1Z'/><path fill='gray' d='M0,0H1V1H0V0ZM1,1H2V2H1V1Z'/></svg>");
+    background-size: 100%, .25em;
+}
+       .linkumori-picker-current-color {
+    background: transparent !important; /* Remove solid background */
+}
+
+.linkumori-picker-current-color::before {
+    /* Checkerboard background */
+    background: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'><path fill='white' d='M1,0H2V1H1V0ZM0,1H1V2H0V1Z'/><path fill='gray' d='M0,0H1V1H0V0ZM1,1H2V2H1V1Z'/></svg>") !important;
+    background-size: 8px !important;
+    z-index: 1 !important;
+}
+
+.linkumori-picker-current-color::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: var(--linkumori-picker-color) !important;
+    z-index: 2 !important;
+}

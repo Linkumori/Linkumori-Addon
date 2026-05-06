@@ -1,0 +1,4462 @@
+{
+  "aboutPageTitle": {
+    "message": "Linkumori - Om",
+    "description": "Title for the about/legal page"
+  },
+  "active_bundled_providers_label": {
+    "message": "Aktive pakkeleverandører:",
+    "description": "Label for active bundled providers count."
+  },
+  "active_remote_providers_label": {
+    "message": "Aktive eksterne leverandører:",
+    "description": "Label for active remote providers count."
+  },
+  "addDomainToWhitelist": {
+    "message": "Legg til $1 på hvitelisten",
+    "description": "Button label to add a domain to the whitelist. $1 is replaced with the domain."
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "Legg til gjeldende domene til hvitelisten",
+    "description": "Button label to add the current domain to the whitelist."
+  },
+  "appearance_settings_title": {
+    "message": "Innstillinger for utseende",
+    "description": "Title for the appearance settings section"
+  },
+  "badge_color_description": {
+    "message": "Velg fargen for utvidelsesmerket som viser antall parametere som er renset på hver side.",
+    "description": "Description text explaining what the badge color setting does"
+  },
+  "badge_color_label": {
+    "message": "Merkefarge",
+    "description": "Label for the badge color picker"
+  },
+  "badge_preview_label": {
+    "message": "Forhåndsvisning",
+    "description": "Label for the badge preview section"
+  },
+  "blocked_html_body": {
+    "message": "Dette nettstedet ble blokkert av <b>Linkumori (Clean URLS)</b> Add-on, fordi vi identifiserer dette nettstedet som en annonserings- og/eller sporingstjeneste. For å besøke dette nettstedet, må du midlertidig deaktivere tillegget eller deaktivere domeneblokkering i Linkumori (Clean URLS)-innstillingene. Etter dette kan du klikke på knappen nedenfor for å laste siden.",
+    "description": "This string is used as body on the blocked site page."
+  },
+  "blocked_html_button": {
+    "message": "Besøk siden",
+    "description": "This string is used as button on the blocked site page."
+  },
+  "blocked_html_title": {
+    "message": "Dette nettstedet ble blokkert av <b>Linkumori (Clean URLS)</b>",
+    "description": "This string is used as title on the blocked site page."
+  },
+  "built_in_rules_enabled": {
+    "message": "Aktiver innebygde regler",
+    "description": "Label for the toggle that enables or disables bundled built-in rules"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "Bruk de medfølgende Linkumori/ClearURLs-reglene. Deaktiver dette for å kjøre kun med eksterne regler og/eller egendefinerte regler.",
+    "description": "Description for the toggle that controls bundled built-in rules"
+  },
+  "linkumori_interoperability_mode_enabled": {
+    "message": "Linkumori-interoperabilitetsmodus"
+  },
+  "linkumori_interoperability_mode_enabled_description": {
+    "message": "Bruk interoperabilitetsregler for Linkumori URL Filter, inkludert kompatible $removeparam-lister, sammen med innebygde Linkumori/ClearURLs JSON-regler."
+  },
+  "bundled_rules_description": {
+    "message": "Linkumori bruker to regelkategorier: Linkumori (ClearURLs 2.0) JSON regler for opprinnelige leverandører, og Linkumori 98767 regler for interoperabilitet for filtrering $removeparam lister. Hver kategori telles separat.",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "Reglerinformasjon",
+    "description": "Title for the Rules Information section."
+  },
+  "button_cancel": {
+    "message": "Kansellere"
+  },
+  "button_close": {
+    "message": "Lukke",
+    "description": "Close button text for FAQ modal"
+  },
+  "button_confirm": {
+    "message": "Bekrefte",
+    "description": "Generic confirm button text for modal dialogs"
+  },
+  "modal_alert_title": {
+    "message": "Legg merke til",
+    "description": "Default title for alert-style modal dialogs"
+  },
+  "modal_confirm_title": {
+    "message": "Bekrefte",
+    "description": "Default title for confirm-style modal dialogs"
+  },
+  "modal_prompt_title": {
+    "message": "Inndata kreves",
+    "description": "Default title for prompt-style modal dialogs"
+  },
+  "button_delete": {
+    "message": "Slett"
+  },
+  "button_exit": {
+    "message": "Gå",
+    "description": "Button text for exiting the editor"
+  },
+  "button_save": {
+    "message": "Spare"
+  },
+  "cleanUrlsButton": {
+    "message": "Rengjør nettadresser",
+    "description": "Text for the button that initiates URL cleaning."
+  },
+  "cleanUrlsToolHeader": {
+    "message": "Linkumori Clean URLs Tool",
+    "description": "The main header of the URL cleaning tool."
+  },
+  "cleanUrlsToolTitle": {
+    "message": "Linkumori Advanced URL Cleaning Tool",
+    "description": "The title of the URL cleaning tool page."
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "Rensede nettadresser vises her...",
+    "description": "Placeholder text for the cleaned URLs textarea."
+  },
+  "cleanedUrlsTitle": {
+    "message": "Rensede URL-er",
+    "description": "Title for the cleaned URLs section."
+  },
+  "clipboard_copy_link": {
+    "message": "Kopier Clean Link Location",
+    "description": "This string is used in the context menu to copy clean links."
+  },
+  "color_picker_cancel": {
+    "message": "Kansellere",
+    "description": "Cancel button in color picker"
+  },
+  "color_picker_clear": {
+    "message": "Klar",
+    "description": "Clear button in color picker"
+  },
+  "color_picker_save": {
+    "message": "Spare",
+    "description": "Save button in color picker"
+  },
+  "composition_breakdown_label": {
+    "message": "Sammensetning:",
+    "description": "Label for bundled vs custom percentage breakdown."
+  },
+  "configs_switch_statistics": {
+    "message": "Statistikk",
+    "description": "This string is used as name for the statistics switch button on the popup page."
+  },
+  "confirm_reset_settings": {
+    "message": "Er du sikker på at du vil tilbakestille alle innstillinger til standard?",
+    "description": "Confirmation message before resetting settings."
+  },
+  "confirmation_error_template": {
+    "message": "Uttrykket stemmer ikke. Vennligst skriv nøyaktig: \"%s\"",
+    "description": "Template for error message with placeholder for localized phrase"
+  },
+  "confirmation_error_text": {
+    "message": "Uttrykket stemmer ikke. Vennligst skriv nøyaktig: \"Jeg aksepterer fullt ansvar\"",
+    "description": "Error message for incorrect confirmation phrase"
+  },
+  "confirmation_final_text": {
+    "message": "Jeg bekrefter at jeg eier/kontrollerer disse serverne og aksepterer alt ansvar for bruken av dem. Denne funksjonen leveres \"som den er\" uten garanti. Jeg er juridisk i stand til å samtykke til denne avtalen.",
+    "description": "Final warning text in confirmation modal"
+  },
+  "confirmation_input_label": {
+    "message": "Skriv inn setningen her:",
+    "description": "Label for confirmation input field"
+  },
+  "confirmation_modal_cancel": {
+    "message": "Kansellere",
+    "description": "Cancel button text in confirmation modal"
+  },
+  "confirmation_modal_confirm": {
+    "message": "Bekreft og aktiver eksterne URL-er",
+    "description": "Confirm button text in confirmation modal"
+  },
+  "confirmation_modal_text": {
+    "message": "For å fortsette, skriv inn følgende bekreftelsessetning nøyaktig som vist:",
+    "description": "Instruction text for confirmation modal"
+  },
+  "confirmation_modal_title": {
+    "message": "Bekreft din forståelse",
+    "description": "Title for confirmation modal"
+  },
+  "context_menu_enabled": {
+    "message": "Vis kontekstmenyoppføring",
+    "description": "This string is used toggle the context menu entry to copy clean links."
+  },
+  "context_menu_enabled_description": {
+    "message": "Legg til Linkumori-alternativer til høyreklikkmenyen.",
+    "description": "Description for the context menu toggle."
+  },
+  "copyFailed": {
+    "message": "Kunne ikke kopiere!",
+    "description": "Toast message when copy action fails"
+  },
+  "copyText": {
+    "message": "Kopiere",
+    "description": "Button text for copy action"
+  },
+  "copyUrlsButton": {
+    "message": "Kopier resultater",
+    "description": "Text for the button that copies cleaned URLs."
+  },
+  "copy_urls_empty": {
+    "message": "Ingen nettadresser å kopiere.",
+    "description": "Message when attempting to copy but the output URL area is empty."
+  },
+  "copy_urls_fail": {
+    "message": "Kunne ikke kopiere nettadresser.",
+    "description": "Error message when copying URLs to clipboard fails in the cleaning tool."
+  },
+  "copy_urls_success": {
+    "message": "URL-er kopiert til utklippstavlen!",
+    "description": "Success message when URLs are copied to clipboard in the cleaning tool."
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "Legg til ny leverandør"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "Legg til leverandør"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "Avansert JSON Editor"
+  },
+  "customRulesEditor_builtin": {
+    "message": "Innebygd:"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "Komplett leverandør (blokkerer hele domenet)"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "Er du sikker på at du vil slette leverandøren \"$1\"?"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "Er du sikker på at du vil slette alle $1-leverandører?"
+  },
+  "customRulesEditor_copy": {
+    "message": "kopiere"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "Opprett din første leverandør"
+  },
+  "customRulesEditor_custom": {
+    "message": "Skikk:"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "Tilpassede leverandører"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "Slett alle"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "Kunne ikke slette alle leverandører"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "Slett gjeldende leverandør"
+  },
+  "customRulesEditor_description": {
+    "message": "Opprett og administrer egendefinerte regler for rengjøring av nettadresser for nettsteder som ikke dekkes av de innebygde leverandørene."
+  },
+  "customRulesEditor_disabled": {
+    "message": "Funksjonshemmet:"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "Domeneunntak"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "Domenemønstre"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "Enkle domenemønstre (kan ikke brukes med URL-mønster). Formater: example.com, *.example.com, ||example.com^, ||*.example.com^ Ett mønster per linje.",
+    "description": "Help text for domain patterns field"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "Domenemønstre"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||eksempel.no^\n||*.subdomain.com^"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "Minst ett domenemønster kreves"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "Domeneomadresseringer"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "Kopiere"
+  },
+  "customRulesEditor_editName": {
+    "message": "Rediger navn"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "Rediger leverandør"
+  },
+  "customRulesEditor_editing": {
+    "message": "Redigering: $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "Domenemønstre kan ikke være tomme"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "Håndhevelse mislyktes"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "Håndheve regler"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "Regler håndhevet"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "Last inn utvidelsen på nytt for å bruke alle regler umiddelbart"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "Unntak (nettadresser å ekskludere)"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "Avslutt redigeringsprogrammet og gå tilbake til leverandørlisten",
+    "description": "Tooltip text for the exit button in the custom rules editor"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "Kunne ikke eksportere regler"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "Eksporter egendefinerte regler til fil"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "Kunne ikke lagre leverandøren"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "Tving omdirigering"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "HTTP-metoder",
+    "description": "Label for HTTP methods field"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "Dette erstatter kategoriene for egendefinerte regler som er inkludert i filen. Fortsette?"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "Kunne ikke importere regler: $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "Importer egendefinerte regler fra fil"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "Ugyldig domenemønster: {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "Ugyldig filstruktur: mangler ClearURLs-leverandører eller egendefinerte Linkumori URL-regler"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "Ugyldig regex for nettadressemønster: $1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "JSON-feil: $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "JSON vises her..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "JSON-innhold kreves"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "Ved å klikke på urlPattern fjernes domenePatterns, og omvendt."
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "Legg til felt i JSON"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "Egendefinerte regler",
+    "description": "Navigation label for custom rules view"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "Hviteliste",
+    "description": "Navigation label for whitelist view"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "Ingen leverandører funnet i filen"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "Redaktør for tilpassede regler og administrering av hviteliste"
+  },
+  "customRulesEditor_patternType": {
+    "message": "Mønstertype"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "Velg hvordan du vil matche nettadresser for denne leverandøren"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "Vennligst velg en mønstertype"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "Leverandøren \"$1\" kan ikke ha både urlPattern og domainPatterns"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "Leverandøren \"$1\" har tomme domenemønstre"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "Leverandøren \"$1\" mangler urlPattern"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "Leverandøren \"$1\" må ha enten urlPattern eller domainPatterns"
+  },
+  "customRulesEditor_providerName": {
+    "message": "Leverandørnavn *"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "Det finnes allerede en leverandør med dette navnet"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "Unik identifikator for denne leverandøren (f.eks. «example.com», «mysite»)"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "f.eks. example.com, mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "Leverandørnavn er obligatorisk"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "Rå regler (regex-mønstre)"
+  },
+  "customRulesEditor_redirections": {
+    "message": "Omdirigeringer (viderekoblingsmønstre)"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "Referansemarkedsføring"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "Ressurstyper"
+  },
+  "customRulesEditor_rules": {
+    "message": "Regler (nettadresseparametere som skal fjernes)"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "Regler Status"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "Lagre leverandør"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "Lagre gjeldende leverandør"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "Velg en leverandør du vil redigere"
+  },
+  "customRulesEditor_title": {
+    "message": "Custom Rules Editor - ClearURLs"
+  },
+  "customRulesEditor_total": {
+    "message": "Total:"
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "Du har ulagrede endringer. Vil du fortsette uten å lagre?"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "URL-mønster *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "URL-mønster og domenemønster kan ikke brukes sammen"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "Regulært uttrykk for å matche nettadresser"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "URL-mønster (regex)"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "Enten URL-mønster eller domenemønstre er påkrevd"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?eksempel\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "URL-mønster er påkrevd"
+  },
+  "customRulesEditor_welcome": {
+    "message": "Velkommen til Editor for tilpassede regler"
+  },
+  "custom_providers_label": {
+    "message": "Egendefinerte leverandører:",
+    "description": "Label for custom providers count."
+  },
+  "customrules": {
+    "message": "Egendefinerte regler"
+  },
+  "datatable_empty_table": {
+    "message": "Ingen data tilgjengelig i tabellen",
+    "description": "DataTables empty table message"
+  },
+  "datatable_info": {
+    "message": "Viser _START_ til _END_ av _TOTAL_ oppføringer",
+    "description": "DataTables pagination info"
+  },
+  "datatable_info_empty": {
+    "message": "Viser 0 til 0 av 0 oppføringer",
+    "description": "DataTables info when no data"
+  },
+  "datatable_showing_all": {
+    "message": "Viser alle $1 oppføringer",
+    "description": "Info message when showing all entries. $1=total count"
+  },
+  "datatable_showing_entries": {
+    "message": "Viser $1 til $2 av $3 oppføringer",
+    "description": "Pagination info showing current range. $1=start, $2=end, $3=total"
+  },
+  "datatable_zero_records": {
+    "message": "Ingen samsvarende poster funnet",
+    "description": "DataTables no search results message"
+  },
+  "domain_blocking_enabled": {
+    "message": "Tillat domeneblokkering (kan føre til problemer på sider som ikke tillater AdBlockers)",
+    "description": "This string is used as label for the domain blocking switch"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "Blokker forespørsler til bestemte domener.",
+    "description": "Description for the domain blocking toggle."
+  },
+  "downloadFailed": {
+    "message": "Kunne ikke laste ned!",
+    "description": "Toast message when download action fails"
+  },
+  "downloadText": {
+    "message": "Last ned",
+    "description": "Button text for download action"
+  },
+  "eTag_filtering_enabled": {
+    "message": "Filtrerer ETag-overskrifter fra forespørsler",
+    "description": "This string is used as label for the ETag header filtering switch"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "Fjern ETag-overskrifter for å forhindre sporing.",
+    "description": "Description for the ETag filtering toggle."
+  },
+  "eTag_filtering_log": {
+    "message": "ETag-overskriften ble fjernet fra denne forespørselen",
+    "description": "This string is used on ETag header filtering in the Linkumori (Clean URLS) log."
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "Kan ikke hente gjeldende domene",
+    "description": "Error message when the current domain cannot be determined."
+  },
+  "error_loading_data": {
+    "message": "Kunne ikke laste loggdata. Vennligst oppdater siden.",
+    "description": "Error message when log data cannot be loaded from storage"
+  },
+  "error_rendering_table": {
+    "message": "Feil ved gjengivelse av tabelldata",
+    "description": "Error message when table fails to render"
+  },
+  "extension_description": {
+    "message": "Fjern sporingselementer fra nettadresser.",
+    "description": "Extension description (max. 132 characters)"
+  },
+  "fallback_rules_loaded": {
+    "message": "angående medfølgende regel kan ha blitt ødelagt eller ikke lastet inn riktig. Reserveregler har blitt lastet inn i stedet."
+  },
+  "faq_caution": {
+    "message": "Forsiktighet:",
+    "description": "Label for cautions in FAQ"
+  },
+  "faq_common_mistakes": {
+    "message": "Hva er vanlige feil å unngå?",
+    "description": "FAQ question about common mistakes"
+  },
+  "faq_complete_provider": {
+    "message": "Hva gjør completeProvider?",
+    "description": "FAQ question about completeProvider"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "Når satt til true, merker completeProvider samsvarende forespørsler om blokkering. Faktisk blokkering skjer bare når den globale \"Domeneblokkering\"-innstillingen er aktivert. Når falsk, kan du bruke vanlige regler, unntak og omdirigeringer.",
+    "description": "FAQ answer explaining completeProvider"
+  },
+  "faq_complete_provider_usage": {
+    "message": "De fleste egendefinerte regler bør sette dette til usann og bruke bestemte regler for fjerning av parametere i stedet.",
+    "description": "FAQ guidance on completeProvider usage"
+  },
+  "faq_complete_provider_warning": {
+    "message": "Hvis domeneblokkering er aktivert, kan dette blokkere full tilgang for samsvarende URL-er.",
+    "description": "FAQ warning about completeProvider"
+  },
+  "faq_complex_example": {
+    "message": "Vis meg et eksempel på en kompleks leverandør",
+    "description": "FAQ question requesting complex example"
+  },
+  "faq_complex_example_explanation": {
+    "message": "Denne leverandøren fjerner sporingsparametere og fragmenter, håndterer omdirigeringer, men beskytter API-, påloggings- og betalingssider mot endringer.",
+    "description": "FAQ explanation of complex example"
+  },
+  "faq_complex_example_intro": {
+    "message": "Her er en avansert leverandør med omdirigeringer og unntak:",
+    "description": "FAQ intro to complex example"
+  },
+  "faq_custom_rules_note": {
+    "message": "Egendefinerte regler kjører sammen med innebygde regler og kan overstyre importerte pakkede/ekstern leverandøroppføringer etter navn.",
+    "description": "Note about custom rules precedence"
+  },
+  "faq_default_note": {
+    "message": "Misligholde:",
+    "description": "Label for default behavior notes in FAQ"
+  },
+  "faq_domain_exceptions": {
+    "message": "Hva er domeneunntak?",
+    "description": "FAQ question about domain exceptions"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "Domeneunntak fungerer som vanlige unntak, men bruk det enklere domenemønsterformatet i stedet for regulært uttrykk. De lar deg ekskludere bestemte domener eller underdomener fra behandling.",
+    "description": "FAQ explanation of domain exceptions"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "Domeneunntak bruker de samme mønstrene som domenemønstre, men enklere enn regex-unntak.",
+    "description": "FAQ tip about domain exceptions"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ - Vertsnavn samsvarer med for eksempel.com og dets underdomener",
+    "description": "FAQ explanation of AdBlock domain pattern"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - Jokertegn for vertsnavn; hver * samsvarer med én etikett (punktsegment)",
+    "description": "FAQ explanation of AdBlock wildcard pattern"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "example.com - Enkelt understrengsamsvar på full URL (kan også samsvare i lengre vertsnavn/baner)",
+    "description": "FAQ explanation of basic domain pattern"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.example.*^ – Matcher underdomener med jokertegn-TLDer, inkludert flerdelte TLD-er (a.example.co.uk)",
+    "description": "FAQ explanation of full wildcard pattern"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||eksempel.*^ – Matcher domenet med jokertegn-TLDer, inkludert flerdelte TLD-er (example.co.uk, example.gov.in)",
+    "description": "FAQ explanation of TLD wildcard domain pattern"
+  },
+  "faq_domain_pattern_types": {
+    "message": "Domenemønstertyper:",
+    "description": "FAQ section title for domain pattern types"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com – Regex-samsvar med jokertegn på full URL, ikke strengt samsvar med bare vertsnavn",
+    "description": "FAQ explanation of wildcard domain pattern"
+  },
+  "faq_domain_patterns": {
+    "message": "Domenemønstre vs URL-mønstre",
+    "description": "FAQ question about domain patterns vs URL patterns"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "Domenemønstre støtter enkle tokens og skjemaer i AdBlock-stil. Samsvarende oppførsel avhenger av syntaks (noen skjemaer sjekker vertsnavn, andre samsvarer med hele URL-strengen):",
+    "description": "FAQ explanation of domain patterns"
+  },
+  "faq_domain_redirections": {
+    "message": "Hva er domeneomadresseringer?",
+    "description": "FAQ question about domain redirections"
+  },
+  "faq_domain_redirections_example": {
+    "message": "redirect.example.com$redirect=https://target.com vil omdirigere alle nettadresser fra redirect.example.com til https://target.com",
+    "description": "FAQ example of domain redirections"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "Domeneviderekoblinger bruker domenemønstre for å oppdage omdirigeringsadresser og trekke ut måldestinasjonen. De støtter den spesielle $redirect=-syntaksen for enkel omdirigeringskartlegging.",
+    "description": "FAQ explanation of domain redirections"
+  },
+  "faq_example": {
+    "message": "Eksempel:",
+    "description": "Label for examples in FAQ"
+  },
+  "faq_exceptions": {
+    "message": "Hvordan fungerer unntak?",
+    "description": "FAQ question about exceptions"
+  },
+  "faq_exceptions_explanation": {
+    "message": "Unntak er regex-mønstre som samsvarer med nettadresser der ingen behandling skal finne sted. Hvis en URL samsvarer med et unntak, ignoreres alle andre regler.",
+    "description": "FAQ explanation of exceptions"
+  },
+  "faq_exceptions_usage": {
+    "message": "Bruk unntak for å beskytte påloggingssider, API-endepunkter eller andre sensitive nettadresser fra å bli endret.",
+    "description": "FAQ guidance on exceptions usage"
+  },
+  "faq_force_redirection": {
+    "message": "Når bør jeg bruke forceRedirection?",
+    "description": "FAQ question about forceRedirection"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "Noen nettsteder manipulerer koblinger gjennom JavaScript, og forhindrer normale omdirigeringer. forceRedirection skriver URL-en direkte til nettleserens hovedramme.",
+    "description": "FAQ explanation of forceRedirection"
+  },
+  "faq_force_redirection_usage": {
+    "message": "Aktiver dette for nettsteder som Google som bruker onClick-behandlere i stedet for direkte href-attributter.",
+    "description": "FAQ guidance on forceRedirection usage"
+  },
+  "faq_force_redirection_warning": {
+    "message": "Bruk kun når vanlige omdirigeringer mislykkes, da denne metoden er mer påtrengende.",
+    "description": "FAQ warning about forceRedirection"
+  },
+  "faq_how_providers_work": {
+    "message": "Hvordan fungerer tilbydere?",
+    "description": "FAQ question about how providers work"
+  },
+  "faq_http_methods": {
+    "message": "Hva er HTTP-metoder?",
+    "description": "FAQ question about HTTP methods"
+  },
+  "faq_http_methods_common": {
+    "message": "Vanlige HTTP-metoder:",
+    "description": "FAQ section title for common HTTP methods"
+  },
+  "faq_http_methods_delete": {
+    "message": "SLETT - Slett operasjoner",
+    "description": "FAQ list item for DELETE method"
+  },
+  "faq_http_methods_explanation": {
+    "message": "HTTP-metoder lar deg bruke regler kun på spesifikke typer HTTP-forespørsler (GET, POST, PUT, DELETE, etc.). Dette gir deg kontroll over hvilke forespørselsmetoder som utløser reglene dine.",
+    "description": "FAQ explanation of HTTP methods"
+  },
+  "faq_http_methods_get": {
+    "message": "GET - Standard websideforespørsler",
+    "description": "FAQ list item for GET method"
+  },
+  "faq_http_methods_head": {
+    "message": "HEAD - forespørsler kun overskrift",
+    "description": "FAQ list item for HEAD method"
+  },
+  "faq_http_methods_options": {
+    "message": "ALTERNATIVER - Preflight CORS-forespørsler",
+    "description": "FAQ list item for OPTIONS method"
+  },
+  "faq_http_methods_post": {
+    "message": "POST – Skjemainnleveringer og API-kall",
+    "description": "FAQ list item for POST method"
+  },
+  "faq_http_methods_put": {
+    "message": "PUT - Oppdater operasjoner",
+    "description": "FAQ list item for PUT method"
+  },
+  "faq_http_methods_tip": {
+    "message": "La det stå tomt for å gjelde alle HTTP-metoder, eller spesifiser bare metodene du vil målrette mot.",
+    "description": "FAQ tip about HTTP methods"
+  },
+  "faq_import_benefit_quick": {
+    "message": "Rask oppsett - du trenger ikke å lage komplekse mønstre manuelt",
+    "description": "FAQ benefit of quick setup via import"
+  },
+  "faq_import_benefit_search": {
+    "message": "Søk og filtrer for å finne akkurat det du trenger",
+    "description": "FAQ benefit of search functionality"
+  },
+  "faq_import_benefit_tested": {
+    "message": "Forhåndstestede regler som er kjent for å fungere korrekt",
+    "description": "FAQ benefit of tested rules via import"
+  },
+  "faq_import_benefit_updates": {
+    "message": "Enkelt å holde reglene oppdatert med nye leverandører",
+    "description": "FAQ benefit of easy updates via import"
+  },
+  "faq_list_feature_actions": {
+    "message": "Rediger, dupliser eller slett leverandører med enkeltklikk",
+    "description": "FAQ feature of quick actions"
+  },
+  "faq_list_feature_overview": {
+    "message": "Rask oversikt over alle tilbydere med nøkkelstatistikk",
+    "description": "FAQ feature of provider overview"
+  },
+  "faq_list_feature_search": {
+    "message": "Søk etter leverandører etter navn for å finne spesifikke raskt",
+    "description": "FAQ feature of provider search"
+  },
+  "faq_list_feature_stats": {
+    "message": "Se regeltellinger og mønstertyper på et øyeblikk",
+    "description": "FAQ feature of statistics display"
+  },
+  "faq_mistake_broad": {
+    "message": "Gjør urlPattern for bredt (matcher utilsiktede nettsteder)",
+    "description": "FAQ common mistake about broad patterns"
+  },
+  "faq_mistake_complete": {
+    "message": "Sette completeProvider til true med mindre du virkelig vil blokkere nettstedet",
+    "description": "FAQ common mistake about completeProvider"
+  },
+  "faq_mistake_escape": {
+    "message": "Glemte å unnslippe spesielle regex-tegn i mønstre",
+    "description": "FAQ common mistake about escaping regex"
+  },
+  "faq_mistake_exceptions": {
+    "message": "Legger ikke til unntak for viktig funksjonalitet",
+    "description": "FAQ common mistake about missing exceptions"
+  },
+  "faq_mistake_testing": {
+    "message": "Ikke tester regler grundig før distribusjon",
+    "description": "FAQ common mistake about insufficient testing"
+  },
+  "faq_note": {
+    "message": "Note:",
+    "description": "Label for important notes in FAQ"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "Begge feltene kan være tilstede i data, men urlPattern har prioritet. Domenemønstre brukes bare når urlPattern er tomt. Domenematching er PSL-bevisst, inkludert registrerbare domenehåndtering og flerdelt TLD-støtte.",
+    "description": "FAQ note about pattern exclusivity"
+  },
+  "faq_perf_combine": {
+    "message": "Kombiner flere lignende mønstre til ett regulært uttrykk",
+    "description": "FAQ performance tip about combining patterns"
+  },
+  "faq_perf_limit": {
+    "message": "Begrens antall tilbydere til det du faktisk trenger",
+    "description": "FAQ performance tip about limiting providers"
+  },
+  "faq_perf_review": {
+    "message": "Gjennomgå og ryd opp i ubrukte regler regelmessig",
+    "description": "FAQ performance tip about regular review"
+  },
+  "faq_perf_simple": {
+    "message": "Bruk enkle regler i stedet for komplekse rawRules når det er mulig",
+    "description": "FAQ performance tip about simple rules"
+  },
+  "faq_perf_specific": {
+    "message": "Gjør urlPattern så spesifikt som mulig",
+    "description": "FAQ performance tip about specific patterns"
+  },
+  "faq_performance_tips": {
+    "message": "Hvordan kan jeg optimalisere ytelsen?",
+    "description": "FAQ question about performance optimization"
+  },
+  "faq_provider_example": {
+    "message": "For eksempel vil en \"Google\"-leverandør håndtere alle Google-tjenester med regler for å fjerne sporingsparametere fra søkeresultater, YouTube-koblinger osv.",
+    "description": "FAQ example of provider usage"
+  },
+  "faq_provider_import": {
+    "message": "Hvordan importerer jeg leverandører fra regler?",
+    "description": "FAQ question about provider import feature"
+  },
+  "faq_provider_import_benefits": {
+    "message": "Fordeler med å importere:",
+    "description": "FAQ section title for import benefits"
+  },
+  "faq_provider_import_explanation": {
+    "message": "Leverandørimport-funksjonen lar deg raskt legge til leverandører fra den innebygde regelkatalogen. Klikk på \"Importer fra regler\"-knappen for å bla gjennom og velge leverandører.",
+    "description": "FAQ explanation of provider import feature"
+  },
+  "faq_provider_import_tip": {
+    "message": "Du kan importere flere leverandører samtidig ved å velge dem og klikke på Importer.",
+    "description": "FAQ tip about provider import"
+  },
+  "faq_provider_list": {
+    "message": "Hvordan administrerer jeg leverandørene mine effektivt?",
+    "description": "FAQ question about provider list management"
+  },
+  "faq_provider_list_explanation": {
+    "message": "Leverandørlistevisningen gir deg en rask oversikt over alle tilpassede leverandører. Du kan søke, redigere, duplisere eller slette leverandører uten å åpne hver enkelt.",
+    "description": "FAQ explanation of provider list feature"
+  },
+  "faq_provider_list_features": {
+    "message": "Leverandørlistefunksjoner:",
+    "description": "FAQ section title for provider list features"
+  },
+  "faq_provider_list_tip": {
+    "message": "Åpne leverandørlisten fra redigeringsverktøylinjen for å bla gjennom og administrere leverandører.",
+    "description": "FAQ tip about provider list"
+  },
+  "faq_providers_explanation": {
+    "message": "Leverandører er logiske enheter som grupperer flere regler under samme URL-mønster. Hver leverandør retter seg mot et bestemt nettsted eller en bestemt tjeneste og inneholder alle reglene som trengs for å rense nettadresser fra den kilden.",
+    "description": "FAQ answer explaining providers"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "Direkte regex-mønstre brukt på hele nettadressen. Bruk for komplekse mønstre som ikke passer til standard parameterformat.",
+    "description": "FAQ explanation of rawRules"
+  },
+  "faq_raw_rules_title": {
+    "message": "Rå regler:",
+    "description": "FAQ section title for rawRules explanation"
+  },
+  "faq_raw_rules_usage": {
+    "message": "Bruk rawRules for fragmenter, banesegmenter eller komplekse parametermønstre.",
+    "description": "FAQ guidance on rawRules usage"
+  },
+  "faq_redirections": {
+    "message": "Hvordan fungerer omdirigeringer?",
+    "description": "FAQ question about redirections"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com blir https://target.com",
+    "description": "FAQ example of redirection process"
+  },
+  "faq_redirections_explanation": {
+    "message": "Omdirigeringer trekker ut den virkelige destinasjonsadressen fra omdirigeringstjenester. Den første fangstgruppen i det regulære uttrykket blir den nye URL-en.",
+    "description": "FAQ explanation of redirections"
+  },
+  "faq_redirections_process": {
+    "message": "Den fangede URL-en dekodes automatisk med decodeURIComponent() og erstatter den opprinnelige URL-en.",
+    "description": "FAQ explanation of redirection processing"
+  },
+  "faq_referral_default": {
+    "message": "Henvisningsmarkedsføring er deaktivert som standard, så disse parameterne vil bli fjernet med mindre brukeren uttrykkelig tillater det.",
+    "description": "FAQ note about referralMarketing default behavior"
+  },
+  "faq_referral_explanation": {
+    "message": "Parametere for henvisningsmarkedsføring hjelper innholdsskapere med å tjene provisjoner. Disse parameterne fjernes bare når brukeren har deaktivert støtte for henvisningsmarkedsføring i innstillingene.",
+    "description": "FAQ explanation of referralMarketing"
+  },
+  "faq_referral_marketing": {
+    "message": "Hva er henvisningsmarkedsføring?",
+    "description": "FAQ question about referralMarketing"
+  },
+  "faq_resource_types": {
+    "message": "Hva er ressurstyper?",
+    "description": "FAQ question about resource types"
+  },
+  "faq_resource_types_common": {
+    "message": "Vanlige ressurstyper:",
+    "description": "FAQ section title for common resource types"
+  },
+  "faq_resource_types_explanation": {
+    "message": "Ressurstyper lar deg bruke regler kun på spesifikke typer nettforespørsler (bilder, skript, hovedsider osv.). Dette gir deg finmasket kontroll over når regler brukes.",
+    "description": "FAQ explanation of resource types"
+  },
+  "faq_resource_types_tip": {
+    "message": "La stå tomt for å gjelde alle ressurstyper, eller spesifiser bare typene du vil målrette mot.",
+    "description": "FAQ tip about resource types"
+  },
+  "faq_rt_font": {
+    "message": "font – nettfonter (.woff, .ttf osv.)",
+    "description": "FAQ resource type font"
+  },
+  "faq_rt_image": {
+    "message": "bilde - Bilder og bilder",
+    "description": "FAQ resource type image"
+  },
+  "faq_rt_imageset": {
+    "message": "bildesett - Bildesett for responsive bilder",
+    "description": "FAQ resource type imageset"
+  },
+  "faq_rt_main_frame": {
+    "message": "main_frame - Hovednettsiden",
+    "description": "FAQ resource type main_frame"
+  },
+  "faq_rt_media": {
+    "message": "media - Lyd- og videofiler",
+    "description": "FAQ resource type media"
+  },
+  "faq_rt_object": {
+    "message": "objekt - innebygde objekter (Flash, plugins)",
+    "description": "FAQ resource type object"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "object_subrequest - Forespørsler laget av innebygde objekter",
+    "description": "FAQ resource type object_subrequest"
+  },
+  "faq_rt_other": {
+    "message": "annet - Andre typer som ikke dekkes ovenfor",
+    "description": "FAQ resource type other"
+  },
+  "faq_rt_script": {
+    "message": "script - JavaScript-filer",
+    "description": "FAQ resource type script"
+  },
+  "faq_rt_stylesheet": {
+    "message": "stilark - CSS-filer",
+    "description": "FAQ resource type stylesheet"
+  },
+  "faq_rt_sub_frame": {
+    "message": "sub_frame – innebygde iframes",
+    "description": "FAQ resource type sub_frame"
+  },
+  "faq_rt_websocket": {
+    "message": "websocket - WebSocket-tilkoblinger",
+    "description": "FAQ resource type websocket"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "xml_dtd - XML-dokumenttypedefinisjoner",
+    "description": "FAQ resource type xml_dtd"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "xmlhttprequest - AJAX-forespørsler",
+    "description": "FAQ resource type xmlhttprequest"
+  },
+  "faq_rt_xslt": {
+    "message": "xslt - XSLT-transformasjonsfiler",
+    "description": "FAQ resource type xslt"
+  },
+  "faq_rules_converted": {
+    "message": "Eksempel: \"utm_source\" samsvarer nøyaktig; \"utm_.*\" samsvarer med utm_source og utm_campaign. Omfangede Linkumori-unntak/-regler løses først, deretter kjører normale/regex-regler bare for umatchede nøkler.",
+    "description": "FAQ examples for rules key matching"
+  },
+  "faq_rules_explanation": {
+    "message": "Regler samsvarer med søkeparameternøkler og hashfragmentnøkler. Bruk enkle navn (eksakt nøkkel), regulært uttrykk (større samsvar) eller Linkumori-omfangsregler som ||example.com^$removeparam=... for å målrette mot bestemte domener.",
+    "description": "FAQ explanation of rules"
+  },
+  "faq_rules_title": {
+    "message": "Regler:",
+    "description": "FAQ section title for rules explanation"
+  },
+  "faq_rules_vs_raw": {
+    "message": "Hva er forskjellen mellom regler og rawRules?",
+    "description": "FAQ question about rules vs rawRules"
+  },
+  "faq_section_advanced": {
+    "message": "Avanserte funksjoner",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_basics": {
+    "message": "Grunnleggende",
+    "description": "FAQ section title for basic questions"
+  },
+  "faq_section_examples": {
+    "message": "Eksempler",
+    "description": "FAQ section title for examples"
+  },
+  "faq_section_new_features": {
+    "message": "Avanserte funksjoner",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_properties": {
+    "message": "Leverandøregenskaper",
+    "description": "FAQ section title for provider properties"
+  },
+  "faq_section_tips": {
+    "message": "Tips og beste fremgangsmåter",
+    "description": "FAQ section title for tips and best practices"
+  },
+  "faq_simple_example": {
+    "message": "Vis meg et enkelt leverandøreksempel",
+    "description": "FAQ question requesting simple example"
+  },
+  "faq_simple_example_explanation": {
+    "message": "Dette fjerner Facebook-klikk-IDer og UTM-parametere, men bevarer tilknyttede lenker hvis brukeren tillater henvisningsmarkedsføring.",
+    "description": "FAQ explanation of simple example"
+  },
+  "faq_simple_example_intro": {
+    "message": "Her er en grunnleggende leverandør som fjerner sporingsparametere fra et fiktivt shoppingnettsted:",
+    "description": "FAQ intro to simple example"
+  },
+  "faq_test_backup": {
+    "message": "Eksporter reglene dine før du gjør store endringer",
+    "description": "FAQ tip about backing up rules"
+  },
+  "faq_test_exceptions": {
+    "message": "Legg alltid til unntak for kritiske sider (pålogging, utsjekking, API)",
+    "description": "FAQ tip about adding exceptions"
+  },
+  "faq_test_regex": {
+    "message": "Test regex-mønstre ved hjelp av nettbaserte verktøy som regex101.com",
+    "description": "FAQ tip about testing regex patterns"
+  },
+  "faq_test_reload": {
+    "message": "Bruk knappen \"Håndhev regler\" for å laste inn endringer på nytt uten å starte nettleseren på nytt",
+    "description": "FAQ tip about enforcing rules"
+  },
+  "faq_test_small": {
+    "message": "Start med enkle regler og legg gradvis til kompleksitet",
+    "description": "FAQ tip about starting small"
+  },
+  "faq_testing_tips": {
+    "message": "Hvordan bør jeg teste mine egendefinerte regler?",
+    "description": "FAQ question about testing tips"
+  },
+  "faq_tip": {
+    "message": "Tupp:",
+    "description": "Label for tips in FAQ"
+  },
+  "faq_title": {
+    "message": "FAQ",
+    "description": "FAQ button text and modal title"
+  },
+  "faq_url_pattern": {
+    "message": "Hva er urlPattern?",
+    "description": "FAQ question about urlPattern"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "urlPattern er et regulært uttrykk som må samsvare med hver URL som skal påvirkes av leverandørens regler. Den definerer hvilke nettsteder denne leverandøren skal håndtere.",
+    "description": "FAQ answer explaining urlPattern"
+  },
+  "faq_url_pattern_structure": {
+    "message": "Den typiske strukturen dekker: protokoll + underdomene + domene + TLD + kataloger + parametere",
+    "description": "FAQ explanation of urlPattern structure"
+  },
+  "faq_url_pattern_tip": {
+    "message": "Bruk online regex-testere for å validere mønstrene dine før du legger dem til.",
+    "description": "FAQ tip for testing urlPattern"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "URL-mønstre bruker fullstendig regulært uttrykk for nøyaktig kontroll over hvilke nettadresser som samsvarer:",
+    "description": "FAQ explanation of URL patterns"
+  },
+  "faq_use_domain_patterns": {
+    "message": "Bruk domenemønstre for enklere vertsnavn/bane-matching uten å skrive fullstendig urlPattern-regex.",
+    "description": "FAQ guidance for using domain patterns"
+  },
+  "faq_use_url_patterns": {
+    "message": "Bruk URL-mønstre for kompleks samsvar (spesifikke baner, søkeparametere osv.)",
+    "description": "FAQ guidance for using URL patterns"
+  },
+  "faq_warning": {
+    "message": "Advarsel:",
+    "description": "Label for warnings in FAQ"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "Hva er egendefinerte regler?",
+    "description": "FAQ question about custom rules"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "Egendefinerte regler lar deg lage dine egne URL-rensemønstre for nettsteder som ikke dekkes av de innebygde reglene. De følger samme struktur som hovedkatalogen, men administreres separat.",
+    "description": "FAQ answer explaining custom rules"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "Når du skal bruke hvilke:",
+    "description": "FAQ section title for pattern usage guidance"
+  },
+  "feature1": {
+    "message": "Innebygd personvernfokusert URL-rensing aktivert som standard"
+  },
+  "feature2": {
+    "message": "Støtte for egendefinerte regler for kontroll per leverandør og per mønster"
+  },
+  "feature3": {
+    "message": "Hvitelistestøtte for å omgå rengjøring for utvalgte domener"
+  },
+  "feature4": {
+    "message": "Eksterne regler og overbelastningsmodus for avanserte oppsett"
+  },
+  "feature_toggles_title": {
+    "message": "Funksjonsinnstillinger",
+    "description": "Title for the Feature Settings section."
+  },
+  "fileEmptyError": {
+    "message": "Filen er tom eller uleselig",
+    "description": "Error shown when a legal/privacy file is empty or unreadable"
+  },
+  "general_settings_title": {
+    "message": "Generelle innstillinger",
+    "description": "Title for the General Settings section."
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "Innebygde regler lastet (hash mangler)",
+    "description": "Status when bundled rules loaded after hash URL was missing"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "Bruke innebygde regler (reserve)",
+    "description": "Status when fell back to bundled rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "Bufret fjernkontroll + egendefinerte regler (buntet mislyktes)",
+    "description": "Status when using cached remote rules with custom rules after bundled failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "Bufret fjernkontroll + egendefinerte regler (fjernkontrollen mislyktes)",
+    "description": "Status when using cached remote rules with custom rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "Bufret fjernkontroll + egendefinerte regler (ingen hash-URL)",
+    "description": "Status when using cached remote rules with custom rules, hash URL missing"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "Bufrede eksterne regler (buntet mislyktes)",
+    "description": "Status when using cached remote rules after bundled rules failed"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "Bufret eksterne regler (fjernkontrollen mislyktes)",
+    "description": "Status when using cached remote rules after current remote fetch failed"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "Bufrede eksterne regler (ingen hash-URL)",
+    "description": "Status when using cached remote rules because hash URL is missing"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "Bufret fjernkontroll + innebygde regler slått sammen",
+    "description": "Status when overload mode merges cached remote rules with built-in rules"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "Bufret fjernkontroll + innebygde regler slått sammen med egendefinerte regler",
+    "description": "Status when overload mode merges cached remote and built-in rules, then custom rules"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "Bruker kun tilpassede regler",
+    "description": "Status when built-in rules are disabled and only custom rules are active"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "Innebygde regler er deaktivert og ingen egendefinerte regler funnet",
+    "description": "Status when built-in rules are disabled and there are no custom rules to load"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "Bruk av minimale regler (fjernkontrollen mislyktes)",
+    "description": "Status when using fallback rules after remote failure"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "Hash URL kreves",
+    "description": "Status when remote URL is configured but hash URL is missing"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "Fjernkontroll + innebygde regler slått sammen",
+    "description": "Status when remote and built-in rules are merged successfully"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "Remote + innebygde regler slått sammen med egendefinerte regler",
+    "description": "Status when overload mode is active and custom rules are merged"
+  },
+  "hashStatus_remote_failed": {
+    "message": "Eksterne regler mislyktes",
+    "description": "Status when remote rules failed verification or loading"
+  },
+  "hashStatus_remote_verified": {
+    "message": "Eksterne regler bekreftet",
+    "description": "Status when remote rules have been successfully verified"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "Eksterne regler lastet inn og tilpassede regler slått sammen",
+    "description": "Message shown when remote rules are loaded and custom rules are merged"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
+  },
+  "headerTitle": {
+    "message": "Linkumori",
+    "description": "Header title for the extension"
+  },
+  "history_listener_enabled": {
+    "message": "Forhindre sporing av injeksjon over historikk API",
+    "description": "This string is used as name for the history API listener label."
+  },
+  "history_listener_enabled_description": {
+    "message": "Overvåk og rengjør nettadresser i nettleserloggen.",
+    "description": "Description for the history listener toggle."
+  },
+  "search_link_fix_enabled": {
+    "message": "Søkeresultatkobling fiks",
+    "description": "Label for the combined Google and Yandex content script toggle"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "Aktiver Google- og Yandex-innholdsskript som fjerner omdirigeringssporing fra søkeresultatkoblinger.",
+    "description": "Description for the combined search result content script toggle"
+  },
+  "google_link_fix_enabled": {
+    "message": "Google-lenkefiks",
+    "description": "Label for the Google content script toggle"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "Aktiver Google-innholdsskriptet som fjerner omdirigeringssporing fra Google-resultatkoblinger.",
+    "description": "Description for the Google content script toggle"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "Reparasjon av Yandex-lenker",
+    "description": "Label for the Yandex content script toggle"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "Aktiver Yandex-innholdsskriptet som fjerner omdirigeringssporing fra Yandex-resultatkoblinger.",
+    "description": "Description for the Yandex content script toggle"
+  },
+  "import_invalid_format": {
+    "message": "Ugyldig filformat eller ødelagte data",
+    "description": "Error message for invalid file format"
+  },
+  "import_parse_error": {
+    "message": "Kunne ikke analysere filen. Vennligst sjekk filformatet.",
+    "description": "Error message when file parsing fails"
+  },
+  "import_read_error": {
+    "message": "Kunne ikke lese filen",
+    "description": "Error message when file reading fails"
+  },
+  "inputUrlsDescription": {
+    "message": "Med dette verktøyet kan du lime inn URL-er og ClearURLs vil rense URL-ene etter et klikk på den grønne knappen. Du kan lime inn flere nettadresser samtidig, men hver nettadresse må være på en egen linje.",
+    "description": "Description text for the input URLs section."
+  },
+  "inputUrlsPlaceholder": {
+    "message": "Lim inn nettadressene dine her, én per linje...",
+    "description": "Placeholder text for the input URLs textarea."
+  },
+  "inputUrlsTitle": {
+    "message": "Skriv inn nettadresser",
+    "description": "Title for the input URL section."
+  },
+  "language_selector_description": {
+    "message": "Velg ditt foretrukne språk for grensesnittet. og klikk lagre og last inn på nytt.(tallet er ikke oversatt)",
+    "description": "Description text for language selector"
+  },
+  "language_selector_label": {
+    "message": "Grensesnittspråk",
+    "description": "Label for language selector dropdown"
+  },
+  "licenseCopied": {
+    "message": "Lisensen er kopiert!",
+    "description": "Toast message after copying license content"
+  },
+  "licenseDescription": {
+    "message": "Denne utvidelsen er åpen kildekode og lisensiert under GNU Lesser General Public License.",
+    "description": "Description text for license section"
+  },
+  "licenseDownloaded": {
+    "message": "Lisens lastet ned!",
+    "description": "Toast message after downloading license content"
+  },
+  "licenseSection": {
+    "message": "Lisensinformasjon",
+    "description": "Section header for license information"
+  },
+  "license_links_title": {
+    "message": "Linker",
+    "description": "Title for links section in license"
+  },
+  "license_third_party_title": {
+    "message": "Tredjepartskomponenter",
+    "description": "Title for third party components section"
+  },
+  "license_title": {
+    "message": "Tillatelse",
+    "description": "License section title"
+  },
+  "loadError": {
+    "message": "Feil ved innlasting av innhold",
+    "description": "Error title shown when legal/privacy content fails to load"
+  },
+  "loadingContent": {
+    "message": "Laster inn innhold ...",
+    "description": "Generic loading message for about/legal content areas"
+  },
+  "loadingLicense": {
+    "message": "Laster inn lisens...",
+    "description": "Loading text for license content"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "Laster inn personvernreglene...",
+    "description": "Loading text for privacy policy content"
+  },
+  "local_hosts_skipping": {
+    "message": "Hopp over nettadresser på lokale verter (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, lokal vert)",
+    "description": "This string is used as label for the local host skipping switch"
+  },
+  "local_hosts_skipping_description": {
+    "message": "Hopp over rensing for lokale verts- og lokale nettverksadresser.",
+    "description": "Description for the local hosts skipping toggle."
+  },
+  "log_domain_blocked": {
+    "message": "Dette domenet er blokkert",
+    "description": "This string is used on blocked domains in the Linkumori (Clean URLS) log."
+  },
+  "log_html_export_button": {
+    "message": "Eksport",
+    "description": "This string is used for the export button on the log page."
+  },
+  "log_html_export_button_title": {
+    "message": "Eksporterer den globale loggen",
+    "description": "This string is used as title for the export button on the log page."
+  },
+  "log_html_import_button": {
+    "message": "Import",
+    "description": "This string is used for the import button on the log page."
+  },
+  "log_html_import_button_title": {
+    "message": "Importer den globale loggen",
+    "description": "This string is used as title for the import button on the log page."
+  },
+  "log_html_import_error": {
+    "message": "Feil ved import av loggfil:",
+    "description": "Error message prefix when import fails"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "Ugyldig loggfilformat.",
+    "description": "Error message when imported file is not valid JSON log format"
+  },
+  "log_html_page_title": {
+    "message": "Logg fra Linkumori (rene URL-er)",
+    "description": "This string is used as header on the log page."
+  },
+  "log_html_reset_button": {
+    "message": "Tilbakestill",
+    "description": "This string is used for the reset button on the log page."
+  },
+  "log_html_reset_button_title": {
+    "message": "Tilbakestiller den globale loggen",
+    "description": "This string is used as title for the reset button on the log page."
+  },
+  "log_html_reset_confirm": {
+    "message": "Er du sikker på at du vil tilbakestille loggen? Denne handlingen kan ikke angres.",
+    "description": "Confirmation dialog when user clicks reset button"
+  },
+  "log_html_search": {
+    "message": "Søk",
+    "description": "Label for the search input field"
+  },
+  "log_html_search_placeholder": {
+    "message": "Søk i logger...",
+    "description": "Placeholder text in the search input field"
+  },
+  "log_html_show_all": {
+    "message": "Alle",
+    "description": "Option in entries dropdown to show all entries"
+  },
+  "log_html_show_entries": {
+    "message": "Vis oppføringer",
+    "description": "Label for the dropdown to select how many entries to show per page"
+  },
+  "log_html_table_head_1": {
+    "message": "Før",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_2": {
+    "message": "Etter",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_3": {
+    "message": "Regel",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_4": {
+    "message": "Tid",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_5": {
+    "message": "Leverandør",
+    "description": "Column header for matched provider name on the log page."
+  },
+  "log_html_table_head_6": {
+    "message": "Mønster",
+    "description": "Column header for matched urlPattern/domainPattern on the log page."
+  },
+  "log_html_table_head_7": {
+    "message": "Metode",
+    "description": "Column header for request method and provider methods on the log page."
+  },
+  "log_html_table_head_8": {
+    "message": "Ressurstype",
+    "description": "Column header for request resource type and provider resource types on the log page."
+  },
+  "log_nav_dashboard": {
+    "message": "Dashbord",
+    "description": "Tab label for dashboard view on log page"
+  },
+  "log_nav_logs": {
+    "message": "Logger",
+    "description": "Tab label for logs view on log page"
+  },
+  "log_ping_blocked": {
+    "message": "Denne hyperkoblingsrevisjonen ble blokkert",
+    "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
+  },
+  "log_provider_pattern_domain": {
+    "message": "domenemønster",
+    "description": "Label for domain pattern provider matching in log entries."
+  },
+  "log_provider_pattern_url": {
+    "message": "urlmønster",
+    "description": "Label for URL pattern provider matching in log entries."
+  },
+  "log_provider_request_method": {
+    "message": "metode",
+    "description": "Label for the current request method in provider match details."
+  },
+  "log_provider_methods": {
+    "message": "leverandørmetoder",
+    "description": "Label for provider method filters in provider match details."
+  },
+  "log_redirect": {
+    "message": "Denne nettadressen blir omdirigert",
+    "description": "This string is used on redirections in the Linkumori (Clean URLS) log."
+  },
+  "log_stats_changed_urls": {
+    "message": "Endret nettadresser",
+    "description": "Stats card label for entries where URL changed"
+  },
+  "log_stats_chart_no_data": {
+    "message": "Ingen kartdata",
+    "description": "Empty-state label when no data is available for chart"
+  },
+  "log_stats_chart_reload": {
+    "message": "Last inn på nytt",
+    "description": "Button label to reload the stats chart and reset pie filters"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "Last inn diagrammet på nytt og tilbakestill kakefiltrene",
+    "description": "Tooltip for reload chart button in log dashboard"
+  },
+  "log_stats_chart_title": {
+    "message": "Statistikkdiagram",
+    "description": "Title for selectable chart section in log dashboard"
+  },
+  "log_stats_chart_type": {
+    "message": "Diagramtype",
+    "description": "Label for chart type selector"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "Pai",
+    "description": "Option label for pie chart"
+  },
+  "log_stats_count_col": {
+    "message": "Telle",
+    "description": "Column header for count in stats tables"
+  },
+  "log_stats_domain_col": {
+    "message": "Domene",
+    "description": "Column header for domain name in stats"
+  },
+  "log_stats_earliest": {
+    "message": "Tidligst",
+    "description": "Stats card label for earliest timestamp"
+  },
+  "log_stats_latest": {
+    "message": "Siste",
+    "description": "Stats card label for latest timestamp"
+  },
+  "log_stats_no_domains": {
+    "message": "Ingen domener",
+    "description": "Fallback row label when no domains are available in stats"
+  },
+  "log_stats_no_rules": {
+    "message": "Ingen regler",
+    "description": "Fallback row label when no rules are available in stats"
+  },
+  "log_stats_no_providers": {
+    "message": "Ingen tilbydere",
+    "description": "Fallback row label when no providers are available in stats"
+  },
+  "log_stats_no_methods": {
+    "message": "Ingen metoder",
+    "description": "Fallback row label when no methods are available in stats"
+  },
+  "log_stats_no_resource_types": {
+    "message": "Ingen ressurstyper",
+    "description": "Fallback row label when no resource types are available in stats"
+  },
+  "log_stats_rule_col": {
+    "message": "Regel",
+    "description": "Column header for rule name in stats"
+  },
+  "log_stats_provider_col": {
+    "message": "Leverandør",
+    "description": "Column header for provider name in stats"
+  },
+  "log_stats_method_col": {
+    "message": "Metode",
+    "description": "Column header for method name in stats"
+  },
+  "log_stats_resource_type_col": {
+    "message": "Ressurstype",
+    "description": "Column header for resource type in stats"
+  },
+  "log_stats_top_domains": {
+    "message": "Toppdomener",
+    "description": "Stats section title for top domains"
+  },
+  "log_stats_top_providers": {
+    "message": "Toppleverandører",
+    "description": "Stats section title for top providers"
+  },
+  "log_stats_top_methods": {
+    "message": "Toppmetoder",
+    "description": "Stats section title for top methods"
+  },
+  "log_stats_top_resource_types": {
+    "message": "Topp ressurstyper",
+    "description": "Stats section title for top resource types"
+  },
+  "log_stats_top_rules": {
+    "message": "Topp regler",
+    "description": "Stats section title for top rules"
+  },
+  "log_stats_total_entries": {
+    "message": "Totalt antall oppføringer",
+    "description": "Stats card label for total log entries"
+  },
+  "log_stats_unique_domains": {
+    "message": "Unike domener",
+    "description": "Stats card label for unique source domains"
+  },
+  "log_stats_unique_rules": {
+    "message": "Unike regler",
+    "description": "Stats card label for unique applied rules"
+  },
+  "log_stats_unique_providers": {
+    "message": "Unike leverandører",
+    "description": "Stats card label for unique providers"
+  },
+  "log_stats_unique_methods": {
+    "message": "Unike metoder",
+    "description": "Stats card label for unique methods"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "Unike ressurstyper",
+    "description": "Stats card label for unique resource types"
+  },
+  "log_whitelist_bypass": {
+    "message": "Hoppet over: domenet er hvitelistet",
+    "description": "This string is used in the log when URL cleaning is skipped because the domain is whitelisted."
+  },
+  "moonIconAlt": {
+    "message": "måneikon",
+    "description": "Alt text for moon theme icon"
+  },
+  "new_custom_providers_label": {
+    "message": "ny:",
+    "description": "Inline label for new custom provider count."
+  },
+  "nothingToCopy": {
+    "message": "Ingenting å kopiere!",
+    "description": "Toast message when copy action has no content"
+  },
+  "nothingToDownload": {
+    "message": "Ingenting å laste ned!",
+    "description": "Toast message when download action has no content"
+  },
+  "openSettings": {
+    "message": "Åpne Linkumori-innstillinger"
+  },
+  "overload_mode_enabled": {
+    "message": "Aktiver overbelastningsmodus",
+    "description": "Label for toggle that merges built-in and remote rules together"
+  },
+  "overload_mode_enabled_description": {
+    "message": "Når den er aktivert, blir innebygde og eksterne regler lastet sammen og slått sammen før egendefinerte regler brukes.",
+    "description": "Description for overload mode toggle"
+  },
+  "overridden_providers_label": {
+    "message": "overstyrt:",
+    "description": "Inline label for overridden provider count."
+  },
+  "overridden_providers_list_label": {
+    "message": "Overstyrte leverandører:",
+    "description": "Label for overridden provider names list."
+  },
+  "pagination_current_page_aria": {
+    "message": "Gjeldende side, side $1",
+    "description": "Screen reader label for current active page. $1=page number"
+  },
+  "pagination_first": {
+    "message": "Først",
+    "description": "Button text to go to first page"
+  },
+  "pagination_first_aria": {
+    "message": "Første side",
+    "description": "Screen reader label for first page button"
+  },
+  "pagination_last": {
+    "message": "Siste",
+    "description": "Button text to go to last page"
+  },
+  "pagination_last_aria": {
+    "message": "Siste side",
+    "description": "Screen reader label for last page button"
+  },
+  "pagination_next": {
+    "message": "Neste",
+    "description": "Button text to go to next page"
+  },
+  "pagination_next_aria": {
+    "message": "Neste side",
+    "description": "Screen reader label for next page button"
+  },
+  "pagination_page_aria": {
+    "message": "Side XXKNXX0XXTKNXX",
+    "description": "Screen reader label for numbered page buttons. $1=page number"
+  },
+  "pagination_previous": {
+    "message": "Tidligere",
+    "description": "Button text to go to previous page"
+  },
+  "pagination_previous_aria": {
+    "message": "Forrige side",
+    "description": "Screen reader label for previous page button"
+  },
+  "percentage_symbol": {
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
+  },
+  "ping_blocking_enabled": {
+    "message": "Blokker hyperkoblingsrevisjon",
+    "description": "This string is used as label for the hyperlink auditing blocking switch"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "Blokker ping-forespørsler som brukes til sporing.",
+    "description": "Description for the ping blocking toggle."
+  },
+  "popup_consent_accept_button": {
+    "message": "Godta og fortsett",
+    "description": "Button label to accept popup consent gate"
+  },
+  "popup_consent_checkbox": {
+    "message": "Jeg har lest og godtar personvernerklæringen og lisensen.",
+    "description": "Consent checkbox label for popup gate"
+  },
+  "popup_consent_description": {
+    "message": "Vennligst les personvernreglene og lisensen før du bruker denne popupen. Vi samler ikke inn dataene dine. All data lagres på enheten din og overføres ikke til oss.",
+    "description": "Description for popup consent gate"
+  },
+  "popup_consent_legal_button": {
+    "message": "Les Juridisk",
+    "description": "Button label to open legal page from popup consent gate"
+  },
+  "popup_consent_title": {
+    "message": "Samtykke kreves",
+    "description": "Title for popup consent gate"
+  },
+  "popup_html_page_title": {
+    "message": "Linkumori",
+    "description": "Popup page title text"
+  },
+  "popup_html_version_label": {
+    "message": "Versjon:",
+    "description": "Version label shown in popup license section"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "Firefox Add-on Signatur",
+    "description": "Label shown in popup license section for Firefox add-on signing fingerprint."
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "Firefox Add-on Signatur",
+    "description": "Popup label for Firefox signature value."
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "Utilgjengelig siden den er usignert",
+    "description": "Message shown when the add-on package is unsigned and no Mozilla signing digest is available."
+  },
+  "popup_html_version_label_title": {
+    "message": "Gjeldende utvidelsesversjon",
+    "description": "Tooltip for popup version label"
+  },
+  "popup_html_license_description": {
+    "message": "Se detaljert lisens- og personverninformasjon ved å klikke på den juridiske lenken nedenfor.",
+    "description": "Description in popup license section"
+  },
+  "popup_html_license_description_title": {
+    "message": "Lisens- og personverninformasjon",
+    "description": "Tooltip for popup license description"
+  },
+  "popup_html_gpl_link": {
+    "message": "GNU General Public License v3.0",
+    "description": "Popup license link label for GPL v3"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "Åpne GNU GPL v3.0 lisenstekst",
+    "description": "Tooltip for GPL link in popup license section"
+  },
+  "popup_html_lgpl_link": {
+    "message": "GNU General Lesser Public License v3.0",
+    "description": "Popup license link label for LGPL v3"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "Åpne GNU LGPL v3.0 lisenstekst",
+    "description": "Tooltip for LGPL link in popup license section"
+  },
+  "popup_html_source_code_repository": {
+    "message": "Kildekodelager",
+    "description": "Popup license link label for source code repository"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "Åpent kildekodelager",
+    "description": "Tooltip for source code repository link in popup license section"
+  },
+  "popup_html_source_code_releases": {
+    "message": "Kildekodeutgivelser",
+    "description": "Popup license link label for source code releases"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "Utgivelser av åpen kildekode",
+    "description": "Tooltip for source code releases link in popup license section"
+  },
+  "popup_html_report_issues": {
+    "message": "Rapporter problemer",
+    "description": "Popup license link label for issue tracker"
+  },
+  "popup_html_report_issues_title": {
+    "message": "Åpne problemsporing",
+    "description": "Tooltip for report issues link in popup license section"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "ClearURLs MV3 Migration Repository",
+    "description": "Popup license link label for ClearURLs MV3 migration repo"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "Åpne ClearURLs MV3-migreringslager",
+    "description": "Tooltip for ClearURLs migration repository link in popup license section"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "ClearURLs addons V1.27.3 Repository",
+    "description": "Popup license link label for ClearURLs addon v1.27.3 repo"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "Åpne ClearURLs Addon v1.27.3-depot",
+    "description": "Tooltip for ClearURLs addon repository link in popup license section"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "Linkumori v.",
+    "description": "Footer prefix shown on blocked page before version number"
+  },
+  "legal_consent_notice_default": {
+    "message": "Se gjennom personvernreglene og lisensen nedenfor, og godta deretter å fortsette å bruke Linkumori.",
+    "description": "Default notice text for the legal page consent section"
+  },
+  "legal_consent_notice_update": {
+    "message": "Linkumori juridiske vilkår ble oppdatert. Se gjennom personvernreglene og lisensen, og godta deretter å fortsette å bruke utvidelsen.",
+    "description": "Notice text shown on the legal page after a consent version update"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "Se gjennom personvernreglene og lisensen nedenfor, og godta deretter for å fullføre konfigureringen av Linkumori.",
+    "description": "Notice text shown on the legal page during first install"
+  },
+  "legal_consent_notice_import": {
+    "message": "Se gjennom personvernreglene og lisensen nedenfor, og godta deretter å fullføre migreringen til Linkumori.",
+    "description": "Notice text shown on the legal page during import or migration"
+  },
+  "legal_consent_status_required": {
+    "message": "Samtykke kreves. Linkumori er satt på pause til du godtar gjeldende juridiske vilkår.",
+    "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_accepted": {
+    "message": "Samtykke godtatt. Linkumori kan kjøre med gjeldende juridiske vilkår.",
+    "description": "Status message shown when current legal consent is accepted"
+  },
+  "legal_consent_button_accepted": {
+    "message": "Godtatt",
+    "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_saved": {
+    "message": "Samtykke godtatt.",
+    "description": "Toast shown after saving legal consent"
+  },
+  "legal_consent_save_failed": {
+    "message": "Kunne ikke lagre samtykke.",
+    "description": "Toast shown when saving legal consent fails"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "Kan ikke fastslå gjeldende versjon av samtykkepolitikken.",
+    "description": "Error shown when the current consent version is unavailable"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "Hvordan trekke tilbake samtykket",
+    "description": "Button label that opens the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "Tilbaketrekking av samtykke håndteres ved å avinstallere utvidelsen, som forklart i personvernreglene.",
+    "description": "Short note below the legal page consent controls about withdrawing consent"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "Hvordan trekke tilbake samtykke",
+    "description": "Title for the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "Du kan trekke tilbake samtykket ditt når som helst ved å avinstallere utvidelsen eller tillegget.",
+    "description": "Introductory text in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "Ved avinstallering slettes alle data som er lagret lokalt av Linkumori på enheten din permanent og automatisk. Ingen handling utover avinstallering er nødvendig fra din side.",
+    "description": "Data deletion explanation in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "Siden Linkumori ikke overfører data til eksterne servere, er det ingen eksterne data å be om sletting av.",
+    "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "Lukke",
+    "description": "Close button label for the withdrawal of consent modal"
+  },
+  "legal_optional_features_heading": {
+    "message": "Deaktiverte funksjoner du kanskje vil aktivere",
+    "description": "Heading for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_features_description": {
+    "message": "Disse valgfrie beskyttelsene starter deaktivert som standard. Slå på de du vil ha, lagre og last inn Linkumori på nytt.",
+    "description": "Description for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "Funksjonshemmet",
+    "description": "Status badge shown when an optional legal-page feature is disabled"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "Aktivert",
+    "description": "Status badge shown when an optional legal-page feature is enabled"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "Aktiver ved lagring",
+    "description": "Status badge shown when an optional legal-page feature will be enabled after saving"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "Deaktiver ved lagring",
+    "description": "Status badge shown when an optional legal-page feature will be disabled after saving"
+  },
+  "legal_optional_features_note": {
+    "message": "Endringer lagres kun når du bruker knappen til høyre.",
+    "description": "Initial helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_default": {
+    "message": "Disse funksjonene er deaktivert som standard. Slå på hva du vil, lagre og last inn Linkumori på nytt.",
+    "description": "Default helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "Endringer venter. Lagre for å bruke dem og åpne denne juridiske siden på nytt.",
+    "description": "Helper note shown when optional legal-page feature changes have not been saved yet"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "Lagrer valgfrie funksjonsendringer og laster inn Linkumori på nytt.",
+    "description": "Helper note shown while optional legal-page feature changes are being saved"
+  },
+  "legal_optional_features_save_button": {
+    "message": "Lagre og last inn Linkumori på nytt",
+    "description": "Save button label for optional legal-page feature toggles"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "Kunne ikke lagre de valgfrie funksjonsendringene.",
+    "description": "Error toast shown when optional legal-page feature changes fail to save"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "Merker",
+    "description": "This string is used as name for the badges switch button on the popup page."
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "Filter",
+    "description": "This string is used as name for the filter switch button on the popup page."
+  },
+  "popup_html_configs_switch_log": {
+    "message": "Logging",
+    "description": "This string is used as name for the logging switch button on the popup page."
+  },
+  "popup_html_log_head": {
+    "message": "Vis logger",
+    "description": "This string is used as name for the log button on the popup page."
+  },
+  "popup_html_settings_button": {
+    "message": "Innstillinger",
+    "description": "This string is used for the settings button on the popup page."
+  },
+  "popup_html_statistics": {
+    "message": "Statistikk",
+    "description": "Toggle label for statistics feature"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "Blokkert",
+    "description": "This string is used as name for the blocked elements on the popup page."
+  },
+  "popup_html_statistics_elements": {
+    "message": "Elementer",
+    "description": "This string is used as name for the elements on the popup page."
+  },
+  "popup_html_statistics_percentage": {
+    "message": "Prosentdel",
+    "description": "This string is used as name for the percentage of blocked elements on the popup page."
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "Tilbakestill",
+    "description": "This string is used as name for the statistics reset button on the popup page."
+  },
+  "popup_html_tools_button": {
+    "message": "Verktøy",
+    "description": "This string is used for the tools button on the popup page."
+  },
+  "popup_html_tools_button_title": {
+    "message": "Åpne rengjøringsverktøy",
+    "description": "This string is used as a title for the tools button on the popup page."
+  },
+  "popup_html_whitelist_button": {
+    "message": "Hviteliste",
+    "description": "This string is used for the whitelist button on the popup page."
+  },
+  "popup_nav_license": {
+    "message": "Tillatelse",
+    "description": "Navigation label for license section"
+  },
+  "popup_nav_main": {
+    "message": "Hoved",
+    "description": "Navigation label for main content section"
+  },
+  "privacyCopied": {
+    "message": "Personvernerklæring kopiert!",
+    "description": "Toast message after copying privacy policy content"
+  },
+  "privacyDescription": {
+    "message": "Vennligst les vår personvernerklæring nedenfor.",
+    "description": "Description text for privacy policy section"
+  },
+  "privacyDownloaded": {
+    "message": "Personvernerklæring lastet ned!",
+    "description": "Toast message after downloading privacy policy content"
+  },
+  "privacyPolicySection": {
+    "message": "Personvernerklæring",
+    "description": "Section header for privacy policy"
+  },
+  "privacyVersionDescription": {
+    "message": "Velg hvilken oversettelse av personvernreglene du ønsket å se. Vær oppmerksom på at kun engelsk versjon er tilgjengelig for øyeblikket, og andre språk kan bli lagt til i fremtiden.",
+    "description": "Helper description for privacy version selector"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "English",
+    "description": "Option label for global English privacy policy file"
+  },
+  "privacyVersionLabel": {
+    "message": "Personvernerklæring",
+    "description": "Label for selecting English privacy policy version"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "Finner ikke den valgte policyfilen. Lastet inn standard personvernpolicy i stedet.",
+    "description": "Notification shown when selected privacy version file cannot be loaded"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "Kunne ikke laste inn versjonskartet for personvernreglene.",
+    "description": "Notification shown when privacy version mapping config cannot be loaded"
+  },
+  "providerImport_bundledRules": {
+    "message": "Aktive grupperte/fjernregler/egendefinerte regler",
+    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  },
+  "providerImport_button": {
+    "message": "Importer/deaktiver leverandører",
+    "description": "Button text to import selected providers"
+  },
+  "providerImport_clearSelection": {
+    "message": "Klar",
+    "description": "Button text to clear all selected providers."
+  },
+  "providerImport_complete": {
+    "message": "Fullstendig"
+  },
+  "providerImport_completeProvider": {
+    "message": "Komplett leverandør"
+  },
+  "providerImport_completed": {
+    "message": "Import fullført!"
+  },
+  "providerImport_confirmExclude": {
+    "message": "Vil du ekskludere denne leverandørsignaturen? Matchende URL-/domenemønsterleverandører vil bli skjult og fjernet fra egendefinerte regler.",
+    "description": "Confirmation shown before excluding a provider signature from import"
+  },
+  "providerImport_disableSelected": {
+    "message": "Deaktiver valgt",
+    "description": "Button text to disable selected providers by signature"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "Deaktivere signaturer for $1 valgte leverandør(er)?",
+    "description": "Confirmation before disabling selected providers in batch. $1 is selected count"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "Deaktiverte signaturer: $1. Fjernet samsvarende tilpassede leverandører: $2.",
+    "description": "Batch disable result. $1 is disabled signature count and $2 removed custom provider count"
+  },
+  "providerImport_disabledClear": {
+    "message": "Fjern alle",
+    "description": "Button label to clear all excluded signatures for selected source"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "Fjern alle deaktiverte regler",
+    "description": "Button label to clear all disabled signatures from all sources"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "Vil du fjerne alle deaktiverte signaturer fra alle kilder?",
+    "description": "Confirmation before clearing all disabled signatures globally"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "Vil du fjerne alle deaktiverte signaturer for denne kilden?",
+    "description": "Confirmation before clearing disabled signatures for selected source"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "Ingen deaktiverte signaturer",
+    "description": "Empty state text when no disabled signatures exist for selected source"
+  },
+  "providerImport_disabledRestore": {
+    "message": "Restaurere",
+    "description": "Button label to restore an excluded signature"
+  },
+  "providerImport_disabledTitle": {
+    "message": "Deaktiverte regler",
+    "description": "Title for disabled provider signature list in provider import sidebar"
+  },
+  "providerImport_domainExceptions": {
+    "message": "Domeneunntak",
+    "description": "Full text for domain exceptions tooltip in provider cards"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "DE",
+    "description": "Abbreviation for domain exceptions count in provider cards"
+  },
+  "providerImport_domainPatterns": {
+    "message": "Domenemønstre",
+    "description": "Full text for domain patterns tooltip in provider cards"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "DP",
+    "description": "Abbreviation for domain patterns count in provider cards"
+  },
+  "providerImport_domainRedirections": {
+    "message": "Domeneomadresseringer",
+    "description": "Full text for domain redirections tooltip in provider cards"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "DR",
+    "description": "Abbreviation for domain redirections count in provider cards"
+  },
+  "providerImport_exceptions": {
+    "message": "Unntak"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "eks"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "Denne leverandøren har ingen URL/domenemønster og kan ikke ekskluderes med signatur.",
+    "description": "Shown when user tries to exclude a provider without URL/domain patterns"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "Leverandørsignatur ekskludert. Fjernet $1 samsvarende tilpassede leverandør(er).",
+    "description": "Success message after excluding a provider signature. $1 is removed custom count"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(finnes i tilpasset)"
+  },
+  "providerImport_failed": {
+    "message": "Kunne ikke importere leverandører: $1"
+  },
+  "providerImport_import": {
+    "message": "Importer valgt"
+  },
+  "providerImport_importedCount": {
+    "message": "Importert: $1-leverandører"
+  },
+  "providerImport_importedRulesCount": {
+    "message": "Importert: $1 regler",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_importing": {
+    "message": "Importerer..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Eksisterende Linkumori-interoperabilitetsregler",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
+  },
+  "providerImport_loading": {
+    "message": "Laster inn leverandører ...",
+    "description": "Displayed while providers are being loaded into the grid."
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "Ingen leverandører tilgjengelig for $1-regler"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "Ingen tilbydere funnet i $1-reglene"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "Ingen regler tilgjengelig for import"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "Ikke noe URL-mønster"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "Overskrevet: $1-leverandører"
+  },
+  "providerImport_rawRules": {
+    "message": "Rå regler",
+    "description": "Full text for raw rules tooltip in provider cards"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "Rå",
+    "description": "Abbreviation for raw rules count in provider cards"
+  },
+  "providerImport_redirections": {
+    "message": "Omdirigeringer"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "rød"
+  },
+  "providerImport_referralAbbr": {
+    "message": "Ref",
+    "description": "Abbreviation for referral marketing count in provider cards"
+  },
+  "providerImport_referralMarketing": {
+    "message": "Referansemarkedsføring",
+    "description": "Full text for referral marketing tooltip in provider cards"
+  },
+  "providerImport_rules": {
+    "message": "regler"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "Regler",
+    "description": "Abbreviation for rules count in provider cards"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "Søkeleverandører...",
+    "description": "Placeholder text in the search input field to filter providers."
+  },
+  "providerImport_selectAll": {
+    "message": "Velg alle",
+    "description": "Button text to select all providers in the list/grid."
+  },
+  "providerImport_selectedCount": {
+    "message": "X$1 valgt"
+  },
+  "providerImport_skippedCount": {
+    "message": "Hoppet over: $1-leverandører"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Hoppet over: $1 regler",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_sources": {
+    "message": "Regelkilde",
+    "description": "Heading for the sidebar that lists available rule sources."
+  },
+  "providerImport_title": {
+    "message": "Importer eller deaktiver leverandører",
+    "description": "Title of the provider import modal dialog."
+  },
+  "providerList_button": {
+    "message": "Vis alle tilpassede leverandører og søk",
+    "description": "Button text to open the provider list modal"
+  },
+  "providerList_complete": {
+    "message": "Fullstendig",
+    "description": "Label indicating a provider is a complete provider"
+  },
+  "providerList_confirmDelete": {
+    "message": "Er du sikker på at du vil slette leverandøren \"$1\"?",
+    "description": "Confirmation message when deleting a provider",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "Kopiere",
+    "description": "Suffix added to provider names when duplicating (e.g., 'Google_Copy')"
+  },
+  "providerList_createFirst": {
+    "message": "Opprett første leverandør",
+    "description": "Button text to create the first provider when none exist"
+  },
+  "providerList_delete": {
+    "message": "Slett",
+    "description": "Button text to delete a provider"
+  },
+  "providerList_deleteFailed": {
+    "message": "Kunne ikke slette leverandøren. Vennligst prøv igjen.",
+    "description": "Error message when provider deletion fails"
+  },
+  "providerList_deleteTooltip": {
+    "message": "Slett leverandør",
+    "description": "Tooltip text for the delete provider button"
+  },
+  "providerList_duplicate": {
+    "message": "Kopiere",
+    "description": "Button text to duplicate/copy a provider"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "Duplikatleverandør",
+    "description": "Tooltip text for the duplicate provider button"
+  },
+  "providerList_edit": {
+    "message": "Redigere",
+    "description": "Button text to edit a provider"
+  },
+  "providerList_editTooltip": {
+    "message": "Rediger leverandør",
+    "description": "Tooltip text for the edit provider button"
+  },
+  "providerList_exceptions": {
+    "message": "Unntak",
+    "description": "Label for exceptions count in provider statistics"
+  },
+  "providerList_noProvidersFound": {
+    "message": "Fant ingen egendefinerte leverandører.",
+    "description": "Message shown when there are no custom providers to display"
+  },
+  "providerList_noUrlPattern": {
+    "message": "Ikke noe URL-mønster",
+    "description": "Text shown when a provider has no URL pattern defined"
+  },
+  "providerList_rawRules": {
+    "message": "Rå regler",
+    "description": "Label for raw rules count in provider statistics"
+  },
+  "providerList_redirections": {
+    "message": "Omdirigeringer",
+    "description": "Label for redirections count in provider statistics"
+  },
+  "providerList_referral": {
+    "message": "Henvisning",
+    "description": "Label for referral marketing count in provider statistics"
+  },
+  "providerList_rules": {
+    "message": "Regler",
+    "description": "Label for rules count in provider statistics"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "Søkeleverandører...",
+    "description": "Placeholder text for the provider search input"
+  },
+  "providerList_title": {
+    "message": "Alle leverandører",
+    "description": "Title of the provider list modal"
+  },
+  "referral_marketing_enabled": {
+    "message": "Tillat henvisningsmarkedsføring",
+    "description": "This string is used as label for the referral marketing switch"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "Fjern henvisnings- og tilknyttede sporingsparametere.",
+    "description": "Description for the referral marketing toggle."
+  },
+  "redirection_enabled": {
+    "message": "Aktiver omdirigering av tredjeparter",
+    "description": "Label for the toggle that enables regex redirections and domain redirections"
+  },
+  "redirection_enabled_description": {
+    "message": "Omgå tredjeparts mellommann omdirigering og sporings-URLer ved å bruke regex-omadresseringer og domeneomadresseringer fra pakkede, eksterne og egendefinerte regler. Revider regler først om nødvendig, og bruk deretter redigeringsprogrammet for tilpassede regler for å redigere eller overstyre dem individuelt.",
+    "description": "Description for the toggle that enables or disables redirection handling"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "Linje $LINE$: forventet «ruleURL | hashURL»",
+    "description": "Validation message when an additional remote rule set line is malformed.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "Linje $LINE$: ugyldig HTTPS-hash-URL",
+    "description": "Validation message when additional remote hash URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "Linje $LINE$: ugyldig URL for HTTPS-regel",
+    "description": "Validation message when additional remote rule URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "Eksterne regler er deaktivert. Aktiver bryteren nedenfor for å konfigurere nettadresser for eksterne regler.",
+    "description": "Description shown when remote rules are disabled"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "Eksterne regler deaktivert - veksle nedenfor for å aktivere",
+    "description": "Placeholder text shown when remote rules are disabled"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "Sikkerhetsvarsel: Gatekeeper er deaktivert. Aktiver eksterne regler for å få tilgang til eksterne URL-felt.",
+    "description": "Alert shown when Gatekeeper is disabled while remote rules are turned off."
+  },
+  "remote_rules_enabled": {
+    "message": "Aktiver eksterne regler",
+    "description": "Label for the toggle that enables or disables remote rule fetching"
+  },
+  "remote_rules_enabled_description": {
+    "message": "Tillat utvidelsen å hente regler fra eksterne servere. Når de er deaktivert, vil bare sammensatte regler brukes.",
+    "description": "Description for the remote rules enabled toggle"
+  },
+  "remote_rules_loaded": {
+    "message": "Eksterne regler er kun lastet inn",
+    "description": "Message shown when remote rules are loaded"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "Eksterne regler er begrenset til servere som er vert for selv. Ikke bruk tredjeparts URL-er.",
+    "description": "Notice explaining remote rules restrictions"
+  },
+  "remote_rules_security_notice": {
+    "message": "Sikkerhetsmerknad: Bruk bare nettadresser du eier og kontrollerer",
+    "description": "Small security notice near URL fields"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "Innstillingsendringen venter. Klikk Lagre for å søke.",
+    "description": "Status message shown after toggling a setting that will apply when the user clicks Save."
+  },
+  "removeDomainFromWhitelist": {
+    "message": "Fjern $1 fra hvitelisten",
+    "description": "Button label to remove a domain from the whitelist. $1 is replaced with the domain."
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
+  },
+  "rules_author_label": {
+    "message": "Forfatter:",
+    "description": "Label for the author of the rules dataset"
+  },
+  "rules_composition_label": {
+    "message": "Leverandørsammensetning:",
+    "description": "Section label for provider composition details."
+  },
+  "rules_disabled_providers_label": {
+    "message": "Deaktiverte leverandører:",
+    "description": "Label for the number of disabled provider signatures"
+  },
+  "rules_hash_status_label": {
+    "message": "Lastestatus:",
+    "description": "Label for the current loading status of the rules"
+  },
+  "rules_last_updated_label": {
+    "message": "Sist oppdatert:",
+    "description": "Label for the last update date of the rules dataset"
+  },
+  "rules_license_label": {
+    "message": "Tillatelse:",
+    "description": "Label for the license of the rules dataset"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "Sammenslåtte eksterne regler",
+    "description": "Display name for merged remote rules metadata in settings."
+  },
+  "rules_metadata_section": {
+    "message": "Reglerinformasjon:",
+    "description": "Section header for rules metadata information"
+  },
+  "rules_name_label": {
+    "message": "Regelnavn:",
+    "description": "Label for the name of the rules dataset"
+  },
+  "rules_source_bundled": {
+    "message": "Buntet",
+    "description": "Source text when bundled rules are active."
+  },
+  "rules_source_bundled_fallback": {
+    "message": "Medfølgende fallback",
+    "description": "Source text when bundled fallback rules are active."
+  },
+  "rules_source_fallback": {
+    "message": "Tilbakeslag",
+    "description": "Source text when minimal fallback rules are active."
+  },
+  "rules_source_label": {
+    "message": "Kilde:",
+    "description": "Label for current active rules source."
+  },
+  "rules_source_remote": {
+    "message": "Fjernkontroll",
+    "description": "Source text when remote rules are active."
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "Fjernkontroll + innebygd (sammenslått)",
+    "description": "Source text when remote and built-in rules are merged."
+  },
+  "rules_status_active": {
+    "message": "Aktiv",
+    "description": "Value for active rules status."
+  },
+  "rules_status_error": {
+    "message": "Feil ved innlasting av regler",
+    "description": "Value for when rules fail to load."
+  },
+  "rules_status_label": {
+    "message": "Status:",
+    "description": "Label for rules status."
+  },
+  "rules_status_not_loaded": {
+    "message": "Ingen regler lastet inn",
+    "description": "Value for when no rules are loaded."
+  },
+  "rules_total_providers_label": {
+    "message": "Totale leverandører:",
+    "description": "Label for the total number of rule providers (bundled + custom)"
+  },
+  "rules_total_rules_label": {
+    "message": "Totale regler:",
+    "description": "Label for total rules count."
+  },
+  "rules_version_label": {
+    "message": "Regelversjon:",
+    "description": "Label for the version of the rules dataset"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "For å legge til, redigere eller fjerne hvitelistedomener",
+    "description": "Recommendation text in rules information section for whitelist management."
+  },
+  "rules_whitelist_open_editor": {
+    "message": "Klikk her",
+    "description": "Link text to open custom rules editor from rules information section."
+  },
+  "rules_whitelist_total_label": {
+    "message": "Totalt antall hvitelistedomener:",
+    "description": "Label for total whitelist domain count in rules information section."
+  },
+  "save_invalid_hash_url": {
+    "message": "Ugyldig hash-URL-format",
+    "description": "Validation message when primary hash URL is not a valid URL."
+  },
+  "save_invalid_rule_url": {
+    "message": "Ugyldig nettadresseformat for regel",
+    "description": "Validation message when primary rule URL is not a valid URL."
+  },
+  "save_primary_hash_https_required": {
+    "message": "Primær hash-URL må bruke HTTPS",
+    "description": "Validation message when primary hash URL is not HTTPS."
+  },
+  "save_primary_remote_pair_required": {
+    "message": "Primær hash URL kreves bare når primærregelen URL peker på Linkumori (ClearURLs 2.0) JSON regler.",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "Primærregel-URL må bruke HTTPS",
+    "description": "Validation message when primary rule URL is not HTTPS."
+  },
+  "security_confirmation_cancelled": {
+    "message": "Sikkerhetsbekreftelsen kansellert",
+    "description": "Status message when user cancels confirmation modal"
+  },
+  "security_confirmation_phrase": {
+    "message": "Jeg tar fullt ansvar",
+    "description": "The exact phrase users must type to confirm (can be localized)"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "Sikkerhetsbekreftelse kreves",
+    "description": "Placeholder text shown in URL fields before security confirmation"
+  },
+  "security_confirmation_reset": {
+    "message": "Sikkerhetsbekreftelsen er tilbakestilt",
+    "description": "Status message when security confirmation is reset"
+  },
+  "security_confirmation_session_success": {
+    "message": "Sikkerhetsbekreftelsen vellykket",
+    "description": "Message shown when security confirmation is successful"
+  },
+  "security_confirmation_tooltip": {
+    "message": "Sikkerhetsbekreftelse kreves - klikk for å begynne",
+    "description": "Tooltip text for the security confirmation icon next to remote URLs"
+  },
+  "security_modal_advanced_warning": {
+    "message": "ADVARSEL: Avansert funksjon kun beregnet på selvvertsbaserte servere",
+    "description": "Main warning banner text in security modal"
+  },
+  "security_modal_cancel": {
+    "message": "Jeg vil ikke fortsette - Avbryt",
+    "description": "Cancel button text in security modal"
+  },
+  "security_modal_cancelled": {
+    "message": "Ekstern URL-konfigurasjon avbrutt for sikkerhet",
+    "description": "Status message when user cancels security modal"
+  },
+  "security_modal_continue": {
+    "message": "Jeg forstår risikoene - fortsett",
+    "description": "Continue button text in security modal"
+  },
+  "security_modal_final_warning": {
+    "message": "Du bør revurdere å bruke eksterne regler hvis du ikke helt forstår om kilden din er en Linkumori (ClearURLs 2.0) JSON regelsett eller en Linkumori 987650045679 Filter interoperabilitetsliste.",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "Denne eksterne regelfunksjonen er designet for avanserte brukere som forstår kildeformatet de laster inn. Linkumori (ClearURLs 2.0) JSON eksterne regler krever en samsvarende hash URL for bekreftelse. Linkumori URL Filterinteroperabilitetslister kan lastes inn uten en hash URL og lagres separat.",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "Hvis du legger til en ekstern regel URL, vil utvidelsen koble til den angitte serveren for å hente enten en Linkumori (ClearURLs 2.0) JSON regelsett, hash-filen når den er konfigurert, eller en 9876500090285766589028765 URL Filter interoperabilitetsliste. Hver henting kan eksponere IP-adressen din og generell informasjon som utvidelsesversjon, nettleser- og nettleserversjon for vertsserveren. Disse dataene er underlagt personvernreglene til den nettsiden eller webserveren.",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "Les %PRIVACY_POLICY_LINK% igjen før du fortsetter om nødvendig.",
+    "description": "Follow-up sentence in the remote rules warning modal with a privacy policy link placeholder"
+  },
+  "security_modal_privacy_title": {
+    "message": "advarsel:",
+    "description": "Header for privacy notice section"
+  },
+  "security_modal_recommendation": {
+    "message": "Bruk innebygde regler med mindre du stoler på og kontrollerer den eksterne kilden. For Linkumori (ClearURLs 2.0) JSON regler, oppgi en samsvarende hash URL. For interoperabilitetsfilterlister, la hashen URL stå tom.",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "Din IP-adresse og nettleserinformasjon vil bli eksponert for de konfigurerte serverne",
+    "description": "First security risk point"
+  },
+  "security_modal_risk_2": {
+    "message": "Hvis regelkilden er kompromittert, kan ondsinnede regler leveres til nettleseren din",
+    "description": "Second security risk point"
+  },
+  "security_modal_risk_3": {
+    "message": "Hash-verifisering gjelder kun for Linkumori (ClearURLs 2.0) JSON regler; den beskytter mot overføringsmanipulering, ikke ondsinnede regelkilder.",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "Interoperabilitetsfilterlister bruker ikke hash-verifisering, så tillit til kilden URL er spesielt viktig.",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "Sikkerhetsrisikoer:",
+    "description": "Header for security risks section"
+  },
+  "security_modal_title": {
+    "message": "Sikkerhetsadvarsel for eksterne regler",
+    "description": "Title for the security disclaimer modal"
+  },
+  "setting_hash_url_description": {
+    "message": "Nettadresse for hashfil for regelbekreftelse:",
+    "description": "Description for the custom hash URL input field"
+  },
+  "setting_hash_url_label": {
+    "message": "Nettadressen til rules.hash-filen (hash)",
+    "description": "This string is used as name for the rule.hash url label."
+  },
+  "setting_hash_url_mandatory": {
+    "message": "Nødvendig for ClearURLs JSON eksterne regler. La det stå tomt for den populære utvidelsen URL sporingsfilterlister.",
+    "description": "Description for hash URL field explaining when it is required"
+  },
+  "setting_html_export_button": {
+    "message": "Eksport",
+    "description": "This string is used as name for the export button on the settings page."
+  },
+  "setting_html_export_button_title": {
+    "message": "Eksporterer alt",
+    "description": "This string is used as title for the export button on the settings page."
+  },
+  "setting_html_import_button": {
+    "message": "Import",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_import_button_title": {
+    "message": "Importerer alt",
+    "description": "This string is used as title for the import button on the settings page."
+  },
+  "setting_html_reset_button": {
+    "message": "Tilbakestill",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_reset_button_title": {
+    "message": "Tilbakestiller alt",
+    "description": "This string is used as title for the reset button on the settings page."
+  },
+  "setting_html_audit_button": {
+    "message": "Revidere",
+    "description": "This string is used as name for the audit button on the settings page."
+  },
+  "setting_html_audit_button_title": {
+    "message": "Åpne revisjonssiden",
+    "description": "This string is used as title for the audit button on the settings page."
+  },
+  "setting_log_limit_label": {
+    "message": "Begrens loggen til $LIMIT$-oppføringer.",
+    "description": "This string is used as name for the log limit label.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "Logggrense (0-5000)",
+    "description": "Label for the log limit input field."
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "Ytterligere eksterne kilder slått sammen. Bruk <code>ruleURL | hashURL</code> for ClearURLs JSON, eller bare <code>ruleURL</code> for populær utvidelse URL sporingslister.",
+    "description": "Description for additional remote rule sources."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "Ytterligere eksterne regelsett",
+    "description": "Label for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
+  },
+  "setting_rule_url_description": {
+    "message": "Egendefinert fjernkontroll URL for ClearURLs JSON regler eller populær utvidelse URL sporingsfiltre",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "Nettadressen til data.json-filen (regler) eller .txt (for populære)",
+    "description": "This string is used as name for the rule url label."
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "Merk: Hash URL er obligatorisk bare for ClearURLs JSON eksterne regler. Populær utvidelse URL sporingslister lagres separat som Linkumori URL filtre.",
+    "description": "Note about when hash URL is mandatory"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Forespørselstyper</a> (ekspertnivå)",
+    "description": "This string is used as name for the types label."
+  },
+  "settings_html_page_title": {
+    "message": "Linkumori (Clean URLS)-innstillinger",
+    "description": "This string is used as title on the settings page."
+  },
+  "settings_html_save_button": {
+    "message": "Lagre og last inn tillegget på nytt",
+    "description": "This string is used as name for the save&reload button on the settings page."
+  },
+  "settings_html_save_button_title": {
+    "message": "Lagrer innstillingene",
+    "description": "This string is used as title for the save&reload button on the settings page."
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "Importert merkefarge er #FFA500. Vil du bytte til Linkumori blå (#2563EB)?",
+    "description": "Prompt shown during ClearURLs import when old orange badge color is detected."
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "Du importerer en ClearURLs-sikkerhetskopi. Linkumori vil importere kompatible innstillinger og hoppe over ClearURLsData. Fortsette?",
+    "description": "Confirmation shown when importing legacy ClearURLs JSON files."
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "Denne ClearURLs-sikkerhetskopien inkluderer eksterne regelkildeinnstillinger. Vil du aktivere vekslingen for eksterne regler nå?",
+    "description": "Second confirmation shown for ClearURLs imports when remote rule URLs are present."
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "Eksterne regler-veksling ble aktivert fra ClearURLs-importen. Åpne Innstillinger og klikk Lagre manuelt for å bekrefte den endelige fjernkonfigurasjonen.",
+    "description": "Notice shown after user enables remote rules during ClearURLs import."
+  },
+  "settings_import_confirm": {
+    "message": "Er du sikker på at du vil importere innstillinger? Dette vil overskrive gjeldende"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "Import metadata er ufullstendig",
+    "description": "Shown when import metadata is present but missing expected fields."
+  },
+  "settings_import_invalid_file": {
+    "message": "Ugyldig fil er valgt",
+    "description": "Shown when imported settings file is invalid."
+  },
+  "settings_import_invalid_format": {
+    "message": "Ugyldig innstillingsformat",
+    "description": "Shown when imported settings data cannot be parsed as expected."
+  },
+  "settings_import_no_data": {
+    "message": "Ingen importerbare innstillinger funnet i filen",
+    "description": "Shown when parsed file has no supported settings keys."
+  },
+  "settings_import_no_file": {
+    "message": "Ingen fil er valgt",
+    "description": "Shown when import is triggered without selecting a file."
+  },
+  "settings_import_parse_error": {
+    "message": "Kunne ikke analysere innstillingsfilen",
+    "description": "Shown when JSON parsing fails for imported file."
+  },
+  "settings_import_read_error": {
+    "message": "Kunne ikke lese innstillingsfilen",
+    "description": "Shown when browser cannot read the selected file."
+  },
+  "settings_import_wrong_extension": {
+    "message": "Velg en gyldig Linkumori/ClearURLs-innstillingsfil (.json eller .conf)",
+    "description": "Shown when imported settings file does not match supported Linkumori or ClearURLs formats."
+  },
+  "settings_imported": {
+    "message": "Innstillinger ble importert"
+  },
+  "statistics_reset_success": {
+    "message": "Tilbakestillingen var vellykket!",
+    "description": "This string is used as feedback after the statistics have been reset."
+  },
+  "status_builtinOnly": {
+    "message": "Kun innebygde regler"
+  },
+  "status_color_picker_failed": {
+    "message": "Kunne ikke initialisere fargevelgeren",
+    "description": "Error message when color picker fails to load"
+  },
+  "status_customFailed": {
+    "message": "Egendefinerte regler mislyktes"
+  },
+  "status_customMerged": {
+    "message": "Egendefinerte regler slått sammen (defult + egendefinert)"
+  },
+  "status_deleteFailed": {
+    "message": "Sletting mislyktes"
+  },
+  "status_invalidJson": {
+    "message": "Ugyldig JSON"
+  },
+  "status_language_changed_success": {
+    "message": "Språket ble endret til $1",
+    "description": "Success message when language is changed. $1 is the native language name"
+  },
+  "status_load_settings_failed": {
+    "message": "Kunne ikke laste inn innstillingene",
+    "description": "Status message when settings fail to load."
+  },
+  "status_loading": {
+    "message": "Laster inn..."
+  },
+  "status_reset_failed": {
+    "message": "Kunne ikke tilbakestille innstillingene",
+    "description": "Status message when settings reset fails."
+  },
+  "status_reset_successful": {
+    "message": "Innstillinger tilbakestilt",
+    "description": "Status message shown after settings have been reset."
+  },
+  "status_resetting_settings": {
+    "message": "Tilbakestiller innstillingene...",
+    "description": "Status message shown while settings are being reset."
+  },
+  "status_saveFailed": {
+    "message": "Lagring mislyktes"
+  },
+  "status_save_failed": {
+    "message": "Kunne ikke lagre innstillingene",
+    "description": "Status message when settings save fails."
+  },
+  "status_save_setting_failed": {
+    "message": "Kunne ikke lagre $SETTING$-innstillingen",
+    "description": "Error message when a specific toggle setting fails to save.",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "Innstillingene er lagret",
+    "description": "Status message when settings save is successful."
+  },
+  "status_saved": {
+    "message": "Lagret!",
+    "description": "Button text after settings are saved."
+  },
+  "status_saving": {
+    "message": "Lagrer...",
+    "description": "Button text while saving settings."
+  },
+  "status_unavailable": {
+    "message": "Status utilgjengelig"
+  },
+  "status_unknown": {
+    "message": "Ukjent"
+  },
+  "status_usingCached": {
+    "message": "angående medfølgende regel kan ha blitt ødelagt eller ikke lastet inn riktig. Reserveregler har blitt lastet inn i stedet og slått sammen med egendefinerte regler."
+  },
+  "status_usingFallback": {
+    "message": "Bruke reserveregler"
+  },
+  "status_valid": {
+    "message": "Gyldig"
+  },
+  "status_validJson": {
+    "message": "Gyldig JSON"
+  },
+  "status_validJsonUnsaved": {
+    "message": "Gyldig JSON – Ikke lagret"
+  },
+  "sunIconAlt": {
+    "message": "solikon",
+    "description": "Alt text for sun theme icon"
+  },
+  "switchToDarkTheme": {
+    "message": "Bytt til mørkt tema",
+    "description": "ARIA label for theme toggle when current theme is light"
+  },
+  "switchToLightTheme": {
+    "message": "Bytt til lystema",
+    "description": "ARIA label for theme toggle when current theme is dark"
+  },
+  "themeToggleAriaLabel": {
+    "message": "Bytt tema",
+    "description": "ARIA label for the theme toggle button for accessibility."
+  },
+  "theme_description": {
+    "message": "Velg ønsket temautseende",
+    "description": "Description text for theme selection"
+  },
+  "theme_name_dark": {
+    "message": "Mørk",
+    "description": "Name for the dark theme"
+  },
+  "theme_name_icecold": {
+    "message": "Iskald",
+    "description": "Name for the ice cold theme"
+  },
+  "theme_name_zengray": {
+    "message": "Zen grå",
+    "description": "Name for the zen grey theme"
+  },
+  "theme_name_forest": {
+    "message": "Skog",
+    "description": "Name for the forest theme"
+  },
+  "theme_name_light": {
+    "message": "Lys",
+    "description": "Name for the light theme"
+  },
+  "theme_name_midnight": {
+    "message": "Midnatt",
+    "description": "Name for the midnight theme"
+  },
+  "theme_name_sunset": {
+    "message": "Solnedgang",
+    "description": "Name for the sunset theme"
+  },
+  "theme_name_legacy": {
+    "message": "Arv",
+    "description": "Name for the legacy ClearURLs-style theme"
+  },
+  "theme_group_light_label": {
+    "message": "Lysmodus",
+    "description": "Label above the light theme cards group"
+  },
+  "theme_group_dark_label": {
+    "message": "Mørk modus",
+    "description": "Label above the dark theme cards group"
+  },
+  "theme_selection_label": {
+    "message": "Tema",
+    "description": "Label for the theme selection section"
+  },
+  "time_am": {
+    "message": "ER"
+  },
+  "time_am_lower": {
+    "message": "er",
+    "description": "Lowercase AM marker"
+  },
+  "time_pm": {
+    "message": "PM"
+  },
+  "time_pm_lower": {
+    "message": "pm",
+    "description": "Lowercase PM marker"
+  },
+  "number_0": {
+    "message": "0",
+    "description": "Localized digit zero"
+  },
+  "number_1": {
+    "message": "1",
+    "description": "Localized digit one"
+  },
+  "number_2": {
+    "message": "2",
+    "description": "Localized digit two"
+  },
+  "number_3": {
+    "message": "3",
+    "description": "Localized digit three"
+  },
+  "number_4": {
+    "message": "4",
+    "description": "Localized digit four"
+  },
+  "number_5": {
+    "message": "5",
+    "description": "Localized digit five"
+  },
+  "number_6": {
+    "message": "6",
+    "description": "Localized digit six"
+  },
+  "number_7": {
+    "message": "7",
+    "description": "Localized digit seven"
+  },
+  "number_8": {
+    "message": "8",
+    "description": "Localized digit eight"
+  },
+  "number_9": {
+    "message": "9",
+    "description": "Localized digit nine"
+  },
+  "day_0": {
+    "message": "søndag",
+    "description": "Localized weekday name for Sunday"
+  },
+  "day_1": {
+    "message": "mandag",
+    "description": "Localized weekday name for Monday"
+  },
+  "day_2": {
+    "message": "tirsdag",
+    "description": "Localized weekday name for Tuesday"
+  },
+  "day_3": {
+    "message": "onsdag",
+    "description": "Localized weekday name for Wednesday"
+  },
+  "day_4": {
+    "message": "torsdag",
+    "description": "Localized weekday name for Thursday"
+  },
+  "day_5": {
+    "message": "fredag",
+    "description": "Localized weekday name for Friday"
+  },
+  "day_6": {
+    "message": "lørdag",
+    "description": "Localized weekday name for Saturday"
+  },
+  "month_1": {
+    "message": "januar",
+    "description": "Localized month name for January"
+  },
+  "month_2": {
+    "message": "februar",
+    "description": "Localized month name for February"
+  },
+  "month_3": {
+    "message": "mars",
+    "description": "Localized month name for March"
+  },
+  "month_4": {
+    "message": "april",
+    "description": "Localized month name for April"
+  },
+  "month_5": {
+    "message": "mai",
+    "description": "Localized month name for May"
+  },
+  "month_6": {
+    "message": "juni",
+    "description": "Localized month name for June"
+  },
+  "month_7": {
+    "message": "juli",
+    "description": "Localized month name for July"
+  },
+  "month_8": {
+    "message": "august",
+    "description": "Localized month name for August"
+  },
+  "month_9": {
+    "message": "september",
+    "description": "Localized month name for September"
+  },
+  "month_10": {
+    "message": "oktober",
+    "description": "Localized month name for October"
+  },
+  "month_11": {
+    "message": "november",
+    "description": "Localized month name for November"
+  },
+  "month_12": {
+    "message": "desember",
+    "description": "Localized month name for December"
+  },
+  "url_field_editable_tooltip": {
+    "message": "Feltet er redigerbart",
+    "description": "Tooltip shown when security confirmation is already satisfied."
+  },
+  "url_validation_https_recommended": {
+    "message": "HTTPS anbefales for sikkerhet",
+    "description": "Warning shown when URL is valid but does not use HTTPS."
+  },
+  "url_validation_invalid": {
+    "message": "Ugyldig URL-format.",
+    "description": "Error message displayed when the URL format is invalid"
+  },
+  "watchdog": {
+    "message": "[Linkumori (Clean URLS)]: Vakthunden har oppdaget et problem og har allerede feilet $TIMES$ ganger.",
+    "description": "This string is used as text for the watchdog",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "Linkumori fjerner sporingsparametere fra URL-er som standard og gir deg avanserte kontroller når det er nødvendig. Se gjennom funksjonene nedenfor, og fortsett deretter til personvernregler og lisens."
+  },
+  "welcomeHeading": {
+    "message": "Velkommen til Linkumori"
+  },
+  "welcome_migration_description": {
+    "message": "ClearURLs-innstillingene dine ble importert. Se gjennom Linkumori-funksjonene nedenfor, og fortsett deretter å lese personvernerklæringen og lisensen.",
+    "description": "Description shown on migration welcome screen."
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "Innebygde personvernfokuserte regler aktivert som standard.",
+    "description": "Feature list item describing default bundled rule behavior."
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "Redigerer for egendefinerte regler med kontroll på leverandørnivå, import/eksport og regeladministrasjon.",
+    "description": "Feature list item describing custom rules."
+  },
+  "welcome_migration_feature_overload": {
+    "message": "Overbelastningsmodus kan slå sammen pakkede og eksterne regler før egendefinerte regler brukes.",
+    "description": "Feature list item describing overload mode."
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "Flere eksterne regelkilder støttes (regel-URL + hash-URL-par).",
+    "description": "Feature list item describing multiple remote sets."
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "Hvitelistestøtte for å omgå rengjøring på utvalgte domener ved behov.",
+    "description": "Feature list item describing whitelist behavior."
+  },
+  "welcome_migration_heading": {
+    "message": "ClearURLs-migrering fullført",
+    "description": "Main heading on migration welcome screen."
+  },
+  "welcome_migration_open_settings": {
+    "message": "Åpne Innstillinger",
+    "description": "Button label to open settings from migration welcome screen."
+  },
+  "welcome_migration_title": {
+    "message": "Velkommen til Linkumori",
+    "description": "Page title for the migration welcome screen shown after ClearURLs import."
+  },
+  "welcome_next_button": {
+    "message": "Neste: Personvern og lisens",
+    "description": "Button shown in guided welcome mode to continue to privacy and license sections."
+  },
+  "whitelist_add_button": {
+    "message": "Legge til",
+    "description": "Text for the add domain button"
+  },
+  "whitelist_add_failed": {
+    "message": "Kunne ikke legge til domene på hvitelisten",
+    "description": "Error message when adding domain fails"
+  },
+  "whitelist_added": {
+    "message": "Lagt til %s på hvitelisten",
+    "description": "Success message when domain is added. %s is replaced with domain name."
+  },
+  "whitelist_already_exists": {
+    "message": "Domene er allerede på hviteliste eller ugyldig",
+    "description": "Error message when domain already exists or is invalid"
+  },
+  "whitelist_count": {
+    "message": "%d domene(r) hvitelistet",
+    "description": "Text showing number of whitelisted domains. %d is replaced with the count."
+  },
+  "whitelist_empty": {
+    "message": "Ingen domener hvitelistet",
+    "description": "Text shown when whitelist is empty"
+  },
+  "whitelist_enter_domain": {
+    "message": "Vennligst skriv inn et domenenavn",
+    "description": "Error message when trying to add empty domain"
+  },
+  "whitelist_examples_text": {
+    "message": "Eksempler: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
+    "description": "Text before domain format examples"
+  },
+  "whitelist_export_button": {
+    "message": "Eksport",
+    "description": "Button text for exporting whitelist domains"
+  },
+  "whitelist_export_done": {
+    "message": "Hvitelisten ble eksportert",
+    "description": "Success message when whitelist export completes"
+  },
+  "whitelist_export_empty": {
+    "message": "Hvitelisten er tom. Ingenting å eksportere.",
+    "description": "Info message when user tries to export an empty whitelist"
+  },
+  "whitelist_export_failed": {
+    "message": "Kunne ikke eksportere hvitelisten",
+    "description": "Error shown when whitelist export fails"
+  },
+  "whitelist_import_button": {
+    "message": "Import",
+    "description": "Button text for importing whitelist domains"
+  },
+  "whitelist_import_done": {
+    "message": "Importerte %s domene(r) til hviteliste",
+    "description": "Success message for whitelist import. %s is replaced with imported domain count"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "Ugyldig hvitelisteformat. Bruk en JSON-gruppe med domener.",
+    "description": "Error shown when imported whitelist structure is not supported"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "Ingen gyldige domener funnet i hvitelistefilen",
+    "description": "Error shown when imported whitelist has no valid domain entries"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "Kunne ikke analysere hvitelistefilen",
+    "description": "Error shown when whitelist import file is invalid JSON"
+  },
+  "whitelist_input_placeholder": {
+    "message": "example.com eller *.example.com",
+    "description": "Placeholder text for the domain input field"
+  },
+  "whitelist_invalid_format": {
+    "message": "Ugyldig domeneformat. Bruk: example.com eller *.example.com",
+    "description": "Error message for invalid domain format"
+  },
+  "whitelist_load_failed": {
+    "message": "Kunne ikke laste inn hvitelisten",
+    "description": "Error message when whitelist fails to load"
+  },
+  "whitelist_remove_button": {
+    "message": "Fjerne",
+    "description": "Text for the remove domain button"
+  },
+  "whitelist_remove_failed": {
+    "message": "Kunne ikke fjerne domenet fra hvitelisten",
+    "description": "Error message when removing domain fails"
+  },
+  "whitelist_removed": {
+    "message": "Fjernet %s fra hvitelisten",
+    "description": "Success message when domain is removed. %s is replaced with domain name."
+  },
+  "whitelist_search_placeholder": {
+    "message": "Søk på hvitelistede domener",
+    "description": "Placeholder text for searching whitelisted domains"
+  },
+  "whitelist_section_description": {
+    "message": "Domener som legges til her vil omgå ALL URL-rensing. Sporingsparametere vil bli bevart på disse nettstedene.",
+    "description": "Description explaining what the whitelist does"
+  },
+  "whitelist_section_title": {
+    "message": "Domenehviteliste",
+    "description": "Title for the whitelist settings section"
+  },
+  "whitelist_update_failed": {
+    "message": "Kunne ikke oppdatere hvitelisten",
+    "description": "Error message when updating the whitelist fails."
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "Tilbakestill den globale statistikken",
+    "description": "This string is used as title for the statistics reset button on the popup page."
+  },
+  "popup_html_log_head_title": {
+    "message": "Åpne loggen",
+    "description": "This string is used as title for the log button on the popup page."
+  },
+  "popup_html_settings_button_title": {
+    "message": "Åpne innstillinger",
+    "description": "This string is used as a title for the settings button on the popup page."
+  },
+  "license_title_title": {
+    "message": "Lisensinformasjon",
+    "description": "Title for the license information link in the popup"
+  },
+  "license_links_title_title": {
+    "message": "Lisens og kreditter",
+    "description": "Title for the license and credits link in the popup"
+  },
+  "popup_nav_main_title": {
+    "message": "Bytt til hovedutvidelseskontroller",
+    "description": "Tooltip for main navigation button"
+  },
+  "popup_nav_license_title": {
+    "message": "Bytt til lisensinformasjon",
+    "description": "Tooltip for license information button"
+  },
+  "customrules_title": {
+    "message": "Egendefinerte regler",
+    "description": "Title for the custom rules section"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "Juridisk informasjon - Personvernerklæring og lisens",
+    "description": "Title for legal information page opened from popup consent gate"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "Hviteliste",
+    "description": "Title for HTML content page opened from popup consent gate"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "Deaktiver Gatekeeper",
+    "description": "Label for toggle that disables gatekeeper protections for remote URL editing"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "Deaktiver gatekeeper-sjekker for ekstern URL-redigering i denne øktflyten.",
+    "description": "Description for disable gatekeeper toggle"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "Deaktiver Gatekeeper aktivert. Sikkerhetsbekreftelse kreves hver innstillingsøkt.",
+    "description": "Status message shown after enabling disable gatekeeper"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "Deaktiver Gatekeeper deaktivert. Eksisterende pålitelige verdier kan redigeres uten umiddelbar bekreftelse.",
+    "description": "Status message shown after disabling disable gatekeeper"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "Eksporter eksterne URL-er",
+    "description": "Button text for exporting remote URL configuration only"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "Importer eksterne nettadresser",
+    "description": "Button text for importing remote URL configuration only"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "Eksporter primære og flere eksterne URL-par",
+    "description": "Tooltip for remote URL export button"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "Importer primære og flere eksterne URL-par",
+    "description": "Tooltip for remote URL import button"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "Deaktiver gatekeeper risikoadvarsel",
+    "description": "Title for the disable gatekeeper risk modal"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "ADVARSEL: Avansert funksjon kun beregnet på selvvertsbaserte servere",
+    "description": "Top warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "Du deaktiverer Gatekeeper-beskyttelse for redigering av ekstern regel URL. Denne funksjonen kan laste Linkumori (ClearURLs 2.0) JSON regler med hash-verifisering, eller Linkumori URL Filter interoperabilitetslister uten hash-verifiseringslister. Fortsett bare hvis du forstår hvilket format du konfigurerer.",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "Gatekeeper er den innebygde sikkerhetsflyten som blokkerer direkte fjernredigering av URL-adresser inntil du bekrefter sikkerhetsadvarselen og fullfører skrevet bekreftelse.",
+    "description": "Explains what gatekeeper means in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "Hold Gatekeeper aktivert med mindre du stoler på og kontrollerer eksterne kilder. JSON-regler bør inkludere en samsvarende hash URL; interoperabilitetslister lar hashen URL være tom.",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "advarsel:",
+    "description": "Privacy section title in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "Hvis du legger til en ekstern regel URL, vil utvidelsen koble til den angitte serveren for å hente enten en Linkumori (ClearURLs 2.0) JSON regelsett, hash-filen når den er konfigurert, eller en 9876500090285766589028765 URL Filter interoperabilitetsliste. Hver henting kan eksponere IP-adressen din og generell informasjon som utvidelsesversjon, nettleser- og nettleserversjon for vertsserveren. Disse dataene er underlagt personvernreglene til den nettsiden eller webserveren.",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "Les %PRIVACY_POLICY_LINK% igjen før du fortsetter om nødvendig.",
+    "description": "Follow-up sentence in the disable gatekeeper warning modal with a privacy policy link placeholder"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "advarsel:",
+    "description": "Risks section title in disable gatekeeper modal"
+  },
+  "privacy_policy_link_label": {
+    "message": "Personvernerklæring",
+    "description": "Label for privacy policy hyperlinks shown in warning dialogs"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "Utvidelsen kobles til din angitte URL hver gang utvidelsen aktiveres og lastes inn i nettleseren din.",
+    "description": "Risk bullet 1 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "Serveren som er vert for eksterne JSON, hash- eller interoperabilitetsfilterfiler vil motta IP-adressen din.",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "Serveren kan også motta din utvidelsesversjon, nettleser og nettleserversjon.",
+    "description": "Risk bullet 3 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "Disse dataene er underlagt personvernreglene til nettstedet eller webserveren som er vert for disse filene.",
+    "description": "Risk bullet 4 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "Ved å deaktivere Gatekeeper øker du risikoen fra usikre eller kompromitterte eksterne regelkilder. Hash-verifisering beskytter bare Linkumori (ClearURLs 2.0) JSON regelnedlastinger. Det gjelder ikke interoperabilitetslister.",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "Kansellere",
+    "description": "Cancel button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "Fortsette",
+    "description": "Continue button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "Jeg forstår risikoen for eksterne regler og deaktiverer gatekeeper",
+    "description": "Exact phrase user must type to confirm disabling gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "Typebekreftelse kreves",
+    "description": "Title for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "For å deaktivere gatekeeper, skriv inn den nøyaktige bekreftelsesfrasen nedenfor.",
+    "description": "Instruction text for gatekeeper-specific confirmation modal"
+  },
+  "redirection_warning_modal_title": {
+    "message": "Advarsel om omdirigering",
+    "description": "Title for the warning modal shown before enabling redirect bypass."
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "Se gjennom omdirigeringsreglene før du aktiverer denne funksjonen.",
+    "description": "Top warning line for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "Denne funksjonen kan omgå tredjeparts mellommann omdirigering og sporings-URLer ved å bruke omdirigeringsreglene som for øyeblikket er tilstede fra pakkede, eksterne og tilpassede kilder.",
+    "description": "Main warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "Revidere reglene først. Hvis en omdirigeringsregel er for bred eller ikke passende for nettlesingen din, rediger eller overstyr den i redigeringsprogrammet for tilpassede regler før du aktiverer denne innstillingen.",
+    "description": "Recommendation text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "Hva skal sjekkes",
+    "description": "Risks section title for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "Medfølgende regler, eksterne regler og egendefinerte regler kan alle bidra med omdirigeringsatferd.",
+    "description": "First risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "En bred omdirigeringsregel kan pakke ut en kobling på en måte du ikke forventet.",
+    "description": "Second risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "De siste bufrede eksterne reglene kan endres når nye eksterne regeldata hentes.",
+    "description": "Third risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "Bruk revisjonssiden til å inspisere medfølgende regler, endelige regler, egendefinerte regler og siste bufrede eksterne regler før du stoler på denne funksjonen.",
+    "description": "Fourth risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "Aktiver dette bare hvis du stoler på omdirigeringsreglene som for øyeblikket finnes fra forskjellige kilder. Hvis du ikke forstår denne funksjonen, ikke aktiver den. Uten å aktivere denne innstillingen, håndheves ikke omkoblingsregler for omdirigering.",
+    "description": "Final warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "Kansellere",
+    "description": "Cancel button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_continue": {
+    "message": "Fortsette",
+    "description": "Continue button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "Omdirigering forblir deaktivert.",
+    "description": "Status shown when the redirect bypass warning modal is cancelled."
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "Skriv inn nøyaktig bekreftelsesfrase",
+    "description": "Input label for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "Denne handlingen reduserer sikkerhetstiltak for eksterne regler. Fortsett bare hvis du stoler på JSON og interoperabilitetsfilterkildene.",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "Erstatt plassholderverdier med de virkelige HTTPS-URLene, og importer deretter denne filen.",
+    "description": "Template export note 1 for remote URL export JSON"
+  },
+  "remote_urls_template_note_2": {
+    "message": "Primær inneholder hovedregel/hash-URL-paret.",
+    "description": "Template export note 2 for remote URL export JSON"
+  },
+  "remote_urls_template_note_3": {
+    "message": "Ekstra er valgfritt og støtter flere regel/hash-URL-par.",
+    "description": "Template export note 3 for remote URL export JSON"
+  },
+  "remote_urls_template_note_4": {
+    "message": "Legg til eller fjern objekter i den ekstra matrisen etter behov.",
+    "description": "Template export note 4 for remote URL export JSON"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "ERSTAT_WITH_PRIMARY_RULE_URL",
+    "description": "Placeholder value for primary rule URL in template export JSON"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "ERSTAT_WITH_PRIMARY_HASH_URL",
+    "description": "Placeholder value for primary hash URL in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "ERSTAT_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "ERSTAT_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "SKIFT UT_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "SKIFT UT_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "SKIFT UT_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "SKIFT UT_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
+  },
+  "remote_urls_export_success": {
+    "message": "Ekstern URL-konfigurasjon er eksportert.",
+    "description": "Success status after exporting configured remote URLs"
+  },
+  "remote_urls_template_export_success": {
+    "message": "Ekstern URL-mal eksportert. Fyll ut plassholdere og importer.",
+    "description": "Success status after exporting empty remote URL template"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "Ekstern URL-konfigurasjon importert og lagret.",
+    "description": "Success status after importing and saving remote URL configuration"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "Importer analysert, men lagring av ekstern URL-konfigurasjon mislyktes.",
+    "description": "Error status when import parsing succeeded but saving failed"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "Ugyldig ekstern URL-konfigurasjonsfil.",
+    "description": "Error status when imported remote URL JSON is invalid"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "Kan ikke lese den valgte filen.",
+    "description": "Error status when file reader fails for remote URL import"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "Ingen gyldige eksterne URL-par ble funnet i filen.",
+    "description": "Error status when no valid pairs are found during remote URL import"
+  },
+  "popup_consent_title_title": {
+    "message": "Samtykke kreves",
+    "description": "Title for the legal information section in the popup"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "Bytt til på/av hovedfunksjonalitet",
+    "description": "Title for the button that switches to the filter configuration view in the popup"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "Bytt for ytelse for loggutvidelse alle dato lagret lokalt på enheten din",
+    "description": "Title for the button that switches to the statistics view in the popup"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "bryter for på/av-merkeikon",
+    "description": "Title for the statistics section in the popup"
+  },
+  "configs_switch_statistics_title": {
+    "message": "bryter for av/på-statistikk",
+    "description": "Title for the button that switches to the license and credits view in the popup"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "Elementer",
+    "description": "Title for the statistics section in the popup"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "Blokkert",
+    "description": "Description for the elements statistic in the popup"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "Prosentdel",
+    "description": "Description for the blocked statistic in the popup"
+  },
+  "audit_html_page_title": {
+    "message": "Linkumori Rules Audit",
+    "description": "Title for the audit page"
+  },
+  "audit_badge_label": {
+    "message": "REVIDERE",
+    "description": "Small badge label in the audit page header"
+  },
+  "audit_section_title": {
+    "message": "Regelrevisjon",
+    "description": "Main section title for the audit page"
+  },
+  "audit_viewer_title": {
+    "message": "Regler Kilde Viewer",
+    "description": "Title for the audit source viewer card"
+  },
+  "audit_viewer_description": {
+    "message": "Bruk kildeknappene nedenfor for å inspisere sammenslåtte regler, endelige sammenslåtte regler, egendefinerte regler eller de sist hentede eksterne reglene som er lagret i hurtigbufferen som rå JSON.",
+    "description": "Description for the audit source viewer"
+  },
+  "audit_refresh_button": {
+    "message": "Oppdater kilder",
+    "description": "Refresh button label on the audit page"
+  },
+  "audit_faq_button": {
+    "message": "FAQ",
+    "description": "FAQ button label on the audit page"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "Bytt tema",
+    "description": "Accessible label for the theme toggle on the audit page"
+  },
+  "audit_faq_close_aria": {
+    "message": "Lukk FAQ",
+    "description": "Accessible label for the FAQ modal close button"
+  },
+  "audit_source_bundled": {
+    "message": "Medfølgende regler",
+    "description": "Button and title for bundled rules audit source"
+  },
+  "audit_source_final": {
+    "message": "Endelige regler",
+    "description": "Button and title for final merged rules audit source"
+  },
+  "audit_source_custom": {
+    "message": "Egendefinerte regler",
+    "description": "Button and title for custom rules audit source"
+  },
+  "audit_source_remote": {
+    "message": "Siste bufrede fjernkontrollregler",
+    "description": "Button and title for latest cached remote rules audit source"
+  },
+  "audit_source_bundled_description": {
+    "message": "Kilde: medfølgende fildata/linkumori-clearurls-min.json",
+    "description": "Source description for bundled rules"
+  },
+  "audit_source_final_description": {
+    "message": "Kilde: runtime storage ClearURLsData",
+    "description": "Source description for final rules"
+  },
+  "audit_source_custom_description": {
+    "message": "Kilde: runtime storage custom_rules",
+    "description": "Source description for custom rules"
+  },
+  "audit_source_remote_description": {
+    "message": "Kilde: runtime storage remoteRulescache.data (sist hentede eksterne regler bufret lokalt)",
+    "description": "Source description for latest cached remote rules"
+  },
+  "audit_meta_waiting": {
+    "message": "Venter...",
+    "description": "Meta text shown before audit data is loaded"
+  },
+  "audit_meta_error": {
+    "message": "Feil",
+    "description": "Meta text shown when a selected audit source has an error"
+  },
+  "audit_meta_source_bundled": {
+    "message": "medfølgende regler",
+    "description": "Meta label for bundled rules source"
+  },
+  "audit_meta_source_final": {
+    "message": "endelige regler",
+    "description": "Meta label for final rules source"
+  },
+  "audit_meta_source_custom": {
+    "message": "egendefinerte regler",
+    "description": "Meta label for custom rules source"
+  },
+  "audit_meta_source_remote": {
+    "message": "ekstern cache",
+    "description": "Meta label for latest cached remote rules source"
+  },
+  "audit_meta_template": {
+    "message": "$1 | leverandører: $2 | tegn: $3",
+    "description": "Template for audit source meta information"
+  },
+  "audit_status_loading": {
+    "message": "Laster inn revisjonskilder ...",
+    "description": "Status shown while loading audit sources"
+  },
+  "audit_status_loaded": {
+    "message": "Alle revisjonskilder er lastet inn.",
+    "description": "Status shown when all audit sources load successfully"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "Revisjonskilder er lastet inn. De siste bufrede eksterne reglene er ikke tilgjengelige ennå.",
+    "description": "Status shown when audit sources load but remote cache is not yet available"
+  },
+  "audit_status_partial_error": {
+    "message": "Noen revisjonskilder kunne ikke lastes inn. Bytt kilde for å inspisere feilen JSON.",
+    "description": "Status shown when one or more audit sources fail to load"
+  },
+  "audit_status_refresh_failed": {
+    "message": "Kunne ikke oppdatere revisjonskildene.",
+    "description": "Fallback error shown when refreshing audit sources fails"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "Henting av grupperte regler mislyktes med status $1",
+    "description": "Error shown when fetching bundled rules fails"
+  },
+  "audit_error_final_missing": {
+    "message": "Runtime returnerte ikke ClearURLsData",
+    "description": "Error shown when final rules are missing from runtime storage"
+  },
+  "audit_error_custom_missing": {
+    "message": "Runtime returnerte ikke custom_rules",
+    "description": "Error shown when custom rules are missing from runtime storage"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "Kjøretid returnerte ikke ekstern Rulescache",
+    "description": "Error shown when remote cache is missing from runtime storage"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "Ukjent feil med pakkeregler",
+    "description": "Fallback bundled rules error"
+  },
+  "audit_error_unknown_final": {
+    "message": "Ukjent feil med endelige regler",
+    "description": "Fallback final rules error"
+  },
+  "audit_error_unknown_custom": {
+    "message": "Ukjent feil med egendefinerte regler",
+    "description": "Fallback custom rules error"
+  },
+  "audit_error_unknown_remote": {
+    "message": "Ukjent feil med eksterne regler",
+    "description": "Fallback remote rules error"
+  },
+  "audit_remote_unavailable": {
+    "message": "Ingen bufrede eksterne regler tilgjengelig ennå",
+    "description": "Message shown when remote cache has not been populated yet"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "Ingen bufrede eksterne regler nyttelast tilgjengelig ennå",
+    "description": "Message shown when remote cache exists but has no data payload"
+  },
+  "audit_faq_modal_title": {
+    "message": "Vanlige spørsmål om revisjon",
+    "description": "Title for the audit FAQ modal"
+  },
+  "audit_faq_intro": {
+    "message": "Disse notatene beskriver leverandørfeltene som clearurls.js faktisk leser når den bygger og bruker regler.",
+    "description": "Intro text for the audit FAQ modal"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "Hvordan reviderer jeg en leverandør?",
+    "description": "FAQ title for auditing a provider"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p> Åpne en kilde i visningsprogrammet, finn leverandøren i <span class=\"faq-code\">leverandørene</span>, og inspiser nøklene på det leverandørobjektet.</p><p>Bruk XXKNXX5XXTKNXXNundled RuXXXXN sendte regler, <span class=\"faq-code\"> Endelige regler</span> for å inspisere det sammenslåtte kjøretidsresultatet, <span class=\"faq-code\"> Egendefinerte regler</span> for å inspisere brukeroverstyringer, og <span class=\"faq-code\">Siste Rules11XXTKNXXSiste Rules11XXTKNXXSiste Rules2TKN RemoteXXTKN, senest XXTKN hentet ekstern nyttelast lagret i cache.</p>",
+    "description": "FAQ body for auditing a provider"
+  },
+  "audit_faq_override_title": {
+    "message": "Hvordan aktiverer, deaktiverer, importerer, redigerer eller overstyrer jeg individuelle regler?",
+    "description": "FAQ title for custom rule editing and overrides"
+  },
+  "audit_faq_override_body": {
+    "message": "<p> Bruk Custom Rules Editor når du vil ha regel-for-regel kontroll. Det er stedet hvor du kan importere regler som egendefinerte regler, redigere leverandørfelt og lagre din egen versjon av en leverandør.</p><p>Du kan bruke den til å aktivere eller deaktivere individuelle leverandører eller individuelle regelinnhold ved å gjøre den importerte eller redigerte leverandøren til din egendefinerte versjon. Den tilpassede versjonen blir deretter slått sammen til kjøretidsreglene.</p><p>Du kan også overstyre buntede regler og eksterne regler individuelt. Revider <span class=\"faq-code\"> Medfølgende regler</span> eller <span class=\"faq-code\">Siste bufrede eksterne regler</span> for å finne leverandøren du ønsker, og inspiser deretter <span class=\"faq-code\">Egendefinerte reglerXXTKNXX11XXNXXNXXNXXNXXNXXNXXN Regler</span> for å bekrefte at den egendefinerte redigeringen eller overstyringen din trer i kraft.</p><p>Hvis du importerer et regelsett inn i redigeringsprogrammet for tilpassede regler, kan du beholde bare delene du vil ha, deaktivere delene du ikke vil ha, og redigere leverandøren slik at den endelige sammenslåtte utgangen oppfører seg på den siste måten.",
+    "description": "FAQ body for custom rule editing and overrides"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "Hva er urlPattern?",
+    "description": "FAQ title for urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPattern</span> er det regulære uttrykket som brukes til å avgjøre om en leverandør samsvarer med en URL.</p><p>Hvis en leverandør har <span class=\"faq-code\">urlPatternXXNXXN, bruk de regXXTXXN-ene. først. I clearurls.js blir dette omgjort til et ekte RegExp av <span class=\"faq-code\">setURLPattern()</span>.</p>",
+    "description": "FAQ body for urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "Hva er domenePatterns?",
+    "description": "FAQ title for domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> er den domenebaserte matcheren som brukes når en leverandør ikke er avhengig av <span class=\"faq-code\">urlPattern</span>.XXTKNXX5KNXXTKXXNXXNXXNXXL-butikkene med disse butikkene <span class=\"faq-code\">setURLDomainPattern()</span> og deretter sjekker dem med domenematching-logikk i stedet for regex URL-matching.</p>",
+    "description": "FAQ body for domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "Hva er regler, rawRules og henvisningsmarkedsføring?",
+    "description": "FAQ title for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">regler</span> er parameternavn eller fragmentnavn som skal fjernes fra URL-en.</p><p><span class=\"faq-code\">rawRulesXXTKNXX brukes direkte på XXTKN-erstatninger på regex-nettadressen XX6 regXXTKN. cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> behandles også som flyttbare parametere, men om de faktisk brukes avhenger av den globale henvisningsmarkedsføringsinnstillingen.</p>",
+    "description": "FAQ body for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "Hva er unntak og domeneunntak?",
+    "description": "FAQ title for exceptions and domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\">unntak</span> er regex-mønstre som stopper en leverandør fra å handle på samsvarende nettadresser.</p><p><span class=\"faq-code\">domeneunntakXXTKNXXa gjør samme-TKNXX6 i stedet for-TKNXX6-baserte Nettadresseregex matching.</p><p>Hvis et unntak samsvarer, omgås leverandøren selv om hovedmønsteret samsvarte først.</p>",
+    "description": "FAQ body for exceptions and domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "Hva er omdirigeringer og domeneomadresseringer?",
+    "description": "FAQ title for redirections and domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\"> omdirigeringer</span> er regex-baserte utpakkere. De fanger vanligvis opp den virkelige destinasjonsadressen i gruppe 1, og ClearURL-er omdirigerer til den registrerte verdien.</p><p><span class=\"faq-code\">domeneomdirigering</span> er omdirigeringsregler i domenestil. I denne kodebasen blir de sjekket for oppføringer formet som <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Hvis en regex-omdirigering matcher først, vinner den. Hvis ikke, sjekker ClearURLs domeneomadresseringer neste.</p>",
+    "description": "FAQ body for redirections and domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "Hva er metoder og ressurstyper?",
+    "description": "FAQ title for methods and resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "<p><span class=\"faq-code\">metoder</span> begrenser en leverandør til spesifikke HTTP-metoder som <span class=\"faq-code\">GET</span> eller <span class=\"faq-code\">POST</span>. Hvis ingen metoder er oppført, er alle metoder tillatt.</p><p><span class=\"faq-code\">ressurstyper</span> begrenser en leverandør til webRequest-ressurstyper som <span class=\"faq-code\">main_frameXXXXXNXXN,12XXTKNXXN <span class=\"faq-code\">sub_frame</span>, eller <span class=\"faq-code\">xmlhttprequest</span>.</p><p>Hvis ingen ressurstyper er tillatt oppført, fall tilbake til de globale forespørselstypene, ClearURL innstillinger.</p>",
+    "description": "FAQ body for methods and resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "Hva er completeProvider og forceRedirection?",
+    "description": "FAQ title for completeProvider and forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\">completeProvider</span> gjør leverandøren til en blokkerende leverandør. I clearurls.js betyr det at leverandøren kan kansellere samsvarsforespørsler når domeneblokkering er aktivert.</p><p><span class=\"faq-code\">forceRedirection</span> gjør en omdirigering mer aggressiv. Når en omdirigering blir funnet på en <span class=\"faq-code\">main_frame</span>-forespørsel, kan ClearURL-er oppdatere nettleserfanen direkte i stedet for å returnere et normalt omdirigeringssvar.</p>",
+    "description": "FAQ body for completeProvider and forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "Hvilke leverandørfelt bruker clearurls.js her?",
+    "description": "FAQ title for the list of provider fields used by clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p>Tilbyderbyggebanen i denne grenen leser disse nøklene: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, XXKNXX5XXTKNXXTKNXXN,<span class=\"faq-code\">TKNXXN,<span class=\"faq-code\">TXXN, <span class=\"faq-code\">domenemønstre</span>, <span class=\"faq-code\">regler</span>, <span class=\"faq-code\">rawRules</span>, XXKNXX13XXTKXXNXXreferralNXXNXXNXXNXXNXXNXXreferral, <span class=\"faq-code\">unntak</span>, <span class=\"faq-code\">domeneunntak</span>, <span class=\"faq-code\">omdirigeringer</span>, XXXTKNXXdomaxxnxxNXXNXXNXXdirections21KXXNXXNXXNXX2 <span class=\"faq-code\">metoder</span> og <span class=\"faq-code\">resourceTypes</span>.</p><p>Når revisjonsatferd er det viktigste stedet å sjekke XXXXFXXNXXNXXF Regler</span>, fordi det viser det sammenslåtte resultatet etter at sammenslåtte, eksterne og egendefinerte kilder er kombinert.</p>",
+    "description": "FAQ body for the list of provider fields used by clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "Midlertidig pause",
+    "description": "Auto-added i18n key: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "Pause 15 min",
+    "description": "Auto-added i18n key: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "Pause 1 time",
+    "description": "Auto-added i18n key: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "Inntil omstart",
+    "description": "Auto-added i18n key: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "Fortsett nå",
+    "description": "Auto-added i18n key: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "Aktiv",
+    "description": "Auto-added i18n key: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "Pauses til nettleseren starter på nytt",
+    "description": "Auto-added i18n key: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "Satt på pause (%s igjen)",
+    "description": "Auto-added i18n key: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "Kunne ikke oppdatere midlertidig pausetilstand.",
+    "description": "Auto-added i18n key: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "Kunne ikke gjenoppta rengjøringen.",
+    "description": "Auto-added i18n key: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "mindre enn et minutt",
+    "description": "Auto-added i18n key: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "min",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "h",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "Fjernregler Helse",
+    "description": "Auto-added i18n key: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "Oppdater nå",
+    "description": "Auto-added i18n key: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "Siste hentingsforsøk:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "Siste vellykkede henting:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "Siste hashbekreftelse:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "Årsak til siste feil:",
+    "description": "Auto-added i18n key: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "Gjeldende hash-status:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "N/A",
+    "description": "Auto-added i18n key: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "Ingen",
+    "description": "Auto-added i18n key: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "ukjent",
+    "description": "Auto-added i18n key: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "Oppdaterer...",
+    "description": "Auto-added i18n key: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "Oppdatering av eksterne regler er fullført.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "Oppdatering av eksterne regler mislyktes.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "Regel Test Lab",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "Regel Test Lab",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "Lim inn en URL for å se før/etter rensing og første samsvarende leverandør/regel.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=nyhetsbrev",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "Kjør test",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "Tester...",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "Skriv inn en URL først.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "Regeltesten mislyktes.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "Matchet og renset vellykket.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "Ingen endringer er gjort for denne nettadressen.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "URL er obligatorisk",
+    "description": "Auto-added i18n key: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "Ugyldig URL-format",
+    "description": "Auto-added i18n key: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "Regeltesten mislyktes",
+    "description": "Auto-added i18n key: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "Bytt tema",
+    "description": "ARIA label for popup theme toggle button"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "Finner domene ...",
+    "description": "Temporary label shown while popup detects current tab domain for whitelist button"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "Legger til %s...",
+    "description": "Whitelist button loading label when adding domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "Fjerner %s...",
+    "description": "Whitelist button loading label when removing domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "Kan ikke finne domene for denne siden",
+    "description": "Tooltip for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "Hvitelisteknappen er deaktivert fordi denne siden ikke har noe støttet domene",
+    "description": "ARIA label for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_pause_15m_title": {
+    "message": "Sett rengjøringen på pause i 15 minutter",
+    "description": "Tooltip and ARIA label for the 15-minute temporary pause button in popup"
+  },
+  "popup_pause_1h_title": {
+    "message": "Sett rengjøringen på pause i 1 time",
+    "description": "Tooltip and ARIA label for the 1-hour temporary pause button in popup"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "Sett rengjøringen på pause til nettleseren startes på nytt",
+    "description": "Tooltip and ARIA label for the pause-until-restart button in popup"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "Gjenoppta rensing av URL nå",
+    "description": "Tooltip and ARIA label for the resume-now button in popup"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "Sett nettadresserensing på pause midlertidig",
+    "description": "Tooltip for temporary pause section title in popup"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "Totalt antall elementer behandlet på gjeldende side",
+    "description": "Tooltip for popup total elements label"
+  },
+  "popup_consent_description_title": {
+    "message": "Les dette før du godtar",
+    "description": "Tooltip for popup consent description"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "Bekreft at du leser og godtar",
+    "description": "Tooltip for popup consent checkbox label"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "Godta samtykke og lås opp popup-vinduet",
+    "description": "Tooltip for popup consent accept button"
+  },
+  "license_third_party_title_title": {
+    "message": "Tredjepartskomponentinformasjon",
+    "description": "Tooltip for third-party section title"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "Signatursammendrag for add-on Firefox",
+    "description": "Tooltip for Firefox signature title label"
+  },
+  "invalid_date_label": {
+    "message": "Ugyldig dato",
+    "description": "Fallback text when a date value cannot be parsed."
+  },
+  "log_i18n_load_failed": {
+    "message": "Kunne ikke laste inn internasjonalisering. Noen funksjoner fungerer kanskje ikke som de skal.",
+    "description": "Error message shown when log page translations fail to load."
+  },
+  "log_html_sort_oldest_first": {
+    "message": "Klikk for å vise eldste først",
+    "description": "Tooltip for log timestamp sort button when currently newest-first."
+  },
+  "log_html_sort_newest_first": {
+    "message": "Klikk for å vise det nyeste først",
+    "description": "Tooltip for log timestamp sort button when currently oldest-first."
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "Lukk Rule Test Lab",
+    "description": "ARIA label for closing the Rule Test Lab modal."
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "Skriv inn URL",
+    "description": "Label for input URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "Utdata-URL",
+    "description": "Label for output URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "Endret",
+    "description": "Label indicating whether URL was changed in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "Matchet leverandør",
+    "description": "Label for matched provider in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "Matchet regel",
+    "description": "Label for matched rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "Mønstertype",
+    "description": "Label for pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "Mønsterverdi",
+    "description": "Label for pattern value in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "Handling",
+    "description": "Label for matched action in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "Valgfri parameter å teste (f.eks. utm_source eller ref=abc)",
+    "description": "Placeholder for optional parameter probe input in Rule Test Lab."
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "Testet Param",
+    "description": "Label for tested parameter probe in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "Matchet unntak",
+    "description": "Label for matched URL regex exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "Matchet domeneunntak",
+    "description": "Label for matched domain exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "Matchet omdirigering",
+    "description": "Label for matched regex redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "Matchet domeneomdirigering",
+    "description": "Label for matched domain redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "Regex med samsvarende regel",
+    "description": "Label for matched standard rule regex in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "Matchet rå regel",
+    "description": "Label for matched raw rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "Matchet henvisningsregel",
+    "description": "Label for matched referral marketing rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "Matchet RemoveParam-regel",
+    "description": "Label for matched $removeparam rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "Matchet RemoveParam-unntak",
+    "description": "Label for matched @@$removeparam exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "Komplett leverandør",
+    "description": "Label for completeProvider boolean in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "Ingen",
+    "description": "Fallback value in Rule Test Lab output when there is no value."
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "Ja",
+    "description": "Boolean true label in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "Ingen",
+    "description": "Boolean false label in Rule Test Lab output."
+  },
+  "color_picket_clear": {
+    "message": "Klar",
+    "description": "Clear button in color picker."
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "Håndheve regler",
+    "description": "Legacy/alias label for enforcing custom rules."
+  },
+  "log_stats_chart_type_bar": {
+    "message": "Søylediagram",
+    "description": "Label for the bar chart option."
+  },
+  "log_stats_chart_type_line": {
+    "message": "Linjediagram",
+    "description": "Label for the line chart option."
+  },
+  "log_stats_daily_activity": {
+    "message": "Daglig aktivitet (siste 14 dager)",
+    "description": "Stats section title for daily activity chart/table."
+  },
+  "log_stats_date_col": {
+    "message": "Dato",
+    "description": "Header for the date column in daily stats table."
+  },
+  "log_stats_entries_col": {
+    "message": "Oppføringer",
+    "description": "Header for the entries column in daily stats table."
+  },
+  "log_stats_no_activity": {
+    "message": "Ingen aktivitet",
+    "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Filtre (interoperabilitet):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Regler:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Reglerinformasjon:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL filterregler:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL filterkilder:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Regelstatus:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Hash-status:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL filterstatus:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Lastet"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Delvis lastet"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Alle kilder mislyktes"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Ingen hashless URL filterkilder konfigurert"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Eksterne regler er deaktivert"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Ikke lastet"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Tømme"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "ikke nødvendig"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Filtre"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Filter"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Sammenslått Linkumori URL Filtre"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Egendefinerte Linkumori URL regler"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL filterparser er utilgjengelig"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Egendefinerte Linkumori URL-regler mislyktes"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL filterkilde(r) mislyktes"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Ekstern URL filterfil er tom"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL filterhenting mislyktes"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Ukjent URL filterfeil"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Alle Linkumori URL filterkilder mislyktes"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "populær utvidelse URL sporingsfilter"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Ingen støttede Linkumori interoperabilitet $removeparam regler funnet"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Filterinteroperabilitet"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori interoperabilitetsfilterkilde"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Regler"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Egendefinerte URL regler"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Legg til den populære utvidelsen $removeparam eller $queryprune regler her. Disse reglene lagres separat fra ClearURLs tilpassede leverandører og slås sammen til Linkumori URL filtre."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Bekreft"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Ingen egendefinerte Linkumori URL regler konfigurert."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 støttede regler, $2 ustøttede hoppet over, $3 duplikat hoppet over."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Validering mislyktes"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Lagret og lastet inn på nytt Linkumori URL regler."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Lagring mislyktes"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Støttede regler vil vises her etter validering."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL filterparser er utilgjengelig."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Filtre (interoperabilitet)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Status"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Kjøretidsregler"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Egendefinerte regler"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hash"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 kjøretidsregel(er)\n$3 egendefinerte regler"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Lukk Linkumori tilpassede URL regler"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Hva er Linkumori URL regler?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL regler er populære utvidelsessporing URL filterlinjer fokusert på $removeparam. De er nyttige når du vil lime inn filterlistesyntaks direkte i stedet for å lage 987675000r JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Ekstern populær utvidelse URL filtre og disse egendefinerte reglene trenger ikke hash-verifisering. De lagres i LinkumoriURLsData etter parsing, atskilt fra ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilitet endret",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Interoperabilitet utdata-URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Samsvarende interoperabilitetsregel",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Interoperabilitetsmønstertype",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Interoperabilitetshandling",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
+  },
+  "popup_whitelist_state_permanent": {
+    "message": "Hvitelistet: $1 — klikk igjen for bare fane",
+    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
+  },
+  "popup_whitelist_state_temporary": {
+    "message": "Bare fane: $1 — klikk for å fjerne",
+    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
+  },
+  "logger_nav_label": {
+    "message": "Live Logger"
+  },
+  "logger_btn_pause": {
+    "message": "⏸ Pause"
+  },
+  "logger_btn_resume": {
+    "message": "▶ Gjenoppta"
+  },
+  "logger_btn_clear": {
+    "message": "🗑 Klar"
+  },
+  "logger_btn_autoscroll": {
+    "message": "↕ Automatisk rulling"
+  },
+  "logger_filter_label": {
+    "message": "Filter"
+  },
+  "logger_filter_placeholder": {
+    "message": "Filtrer oppføringer …"
+  },
+  "logger_tab_filter_label": {
+    "message": "Tab"
+  },
+  "logger_tab_all": {
+    "message": "Alle faner"
+  },
+  "logger_col_time": {
+    "message": "Tid"
+  },
+  "logger_col_action": {
+    "message": "Handling"
+  },
+  "logger_col_rule": {
+    "message": "Regel"
+  },
+  "logger_col_provider": {
+    "message": "Leverandør"
+  },
+  "logger_col_pattern": {
+    "message": "Mønster"
+  },
+  "logger_col_type": {
+    "message": "Type"
+  },
+  "logger_col_method": {
+    "message": "Metode"
+  },
+  "logger_col_url": {
+    "message": "URL"
+  },
+  "logger_status_entries": {
+    "message": "oppføringer"
+  },
+  "logger_empty_state": {
+    "message": "Ingen loggoppføringer ennå. Surfing vil fylle denne listen."
+  },
+  "logger_logging_disabled_banner": {
+    "message": "Logging er deaktivert – aktiver den i Innstillinger for å fange opp nye oppføringer."
+  },
+  "logger_detail_title": {
+    "message": "Oppføringsdetalj"
+  },
+  "logger_detail_before": {
+    "message": "Før"
+  },
+  "logger_detail_after": {
+    "message": "Etter"
+  },
+  "logger_detail_rule": {
+    "message": "Regel"
+  },
+  "logger_detail_provider": {
+    "message": "Leverandør"
+  },
+  "logger_detail_pattern": {
+    "message": "Mønster"
+  },
+  "logger_detail_type": {
+    "message": "Type"
+  },
+  "logger_detail_method": {
+    "message": "Metode"
+  },
+  "logger_detail_time": {
+    "message": "Tidsstempel"
+  }
+}
