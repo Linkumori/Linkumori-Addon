@@ -1,0 +1,4464 @@
+{
+  "aboutPageTitle": {
+    "message": "लिंकुमोरी - के बारे में",
+    "description": "Title for the about/legal page"
+  },
+  "active_bundled_providers_label": {
+    "message": "सक्रिय बंडल प्रदाता:",
+    "description": "Label for active bundled providers count."
+  },
+  "active_remote_providers_label": {
+    "message": "सक्रिय दूरस्थ प्रदाता:",
+    "description": "Label for active remote providers count."
+  },
+  "addDomainToWhitelist": {
+    "message": "$1 को श्वेतसूची में जोड़ें",
+    "description": "Button label to add a domain to the whitelist. $1 is replaced with the domain."
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "वर्तमान डोमेन को श्वेतसूची में जोड़ें",
+    "description": "Button label to add the current domain to the whitelist."
+  },
+  "appearance_settings_title": {
+    "message": "अपियरेंस सेटिंग्स",
+    "description": "Title for the appearance settings section"
+  },
+  "badge_color_description": {
+    "message": "एक्सटेंशन बैज के लिए वह रंग चुनें जो प्रत्येक पृष्ठ पर साफ़ किए गए पैरामीटरों की संख्या दिखाता है।",
+    "description": "Description text explaining what the badge color setting does"
+  },
+  "badge_color_label": {
+    "message": "बैज का रंग",
+    "description": "Label for the badge color picker"
+  },
+  "badge_preview_label": {
+    "message": "पूर्व दर्शन",
+    "description": "Label for the badge preview section"
+  },
+  "blocked_html_body": {
+    "message": "इस साइट को <b>Linkumori (क्लीन यूआरएल)</b> ऐड-ऑन द्वारा ब्लॉक किया गया था, क्योंकि हम इस साइट को एक विज्ञापन और/या ट्रैकिंग सेवा के रूप में पहचानते हैं। इस साइट पर जाने के लिए, आपको लिंकुमोरी (क्लीन यूआरएल) सेटिंग्स में ऐड-ऑन को अस्थायी रूप से निष्क्रिय करना होगा या डोमेन ब्लॉकिंग को अक्षम करना होगा। इसके बाद आप पेज को लोड करने के लिए नीचे दिए गए बटन पर क्लिक कर सकते हैं।",
+    "description": "This string is used as body on the blocked site page."
+  },
+  "blocked_html_button": {
+    "message": "यात्रा पेज",
+    "description": "This string is used as button on the blocked site page."
+  },
+  "blocked_html_title": {
+    "message": "इस साइट को <b>Linkumori (स्वच्छ URLS)</b> द्वारा ब्लॉक किया गया था",
+    "description": "This string is used as title on the blocked site page."
+  },
+  "built_in_rules_enabled": {
+    "message": "अंतर्निहित नियम सक्षम करें",
+    "description": "Label for the toggle that enables or disables bundled built-in rules"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "बंडल किए गए लिंकुमोरी/क्लियरयूआरएल नियमों का उपयोग करें। इसे केवल दूरस्थ नियमों और/या कस्टम नियमों के साथ चलाने के लिए अक्षम करें।",
+    "description": "Description for the toggle that controls bundled built-in rules"
+  },
+  "linkumori_interoperability_mode_enabled": {
+    "message": "Linkumori इंटरऑपरेबिलिटी मोड",
+    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
+  },
+  "linkumori_interoperability_mode_enabled_description": {
+    "message": "मूल Linkumori/ClearURLs JSON नियमों के साथ संगत $removeparam सूचियों सहित Linkumori URL Filter इंटरऑपरेबिलिटी नियम लागू करें।",
+    "description": "Description for the Linkumori interoperability mode toggle"
+  },
+  "bundled_rules_description": {
+    "message": "Linkumori दो नियम श्रेणियों का उपयोग करता है: Linkumori (ClearURLs 2.0) मूल प्रदाताओं के लिए JSON नियम, और Linkumori URL लोकप्रिय एक्सटेंशन के लिए अंतरसंचालनीयता नियम फ़िल्टर करें $removeparam सूचियाँ। प्रत्येक श्रेणी की गणना अलग-अलग की जाती है।",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "नियमों की जानकारी",
+    "description": "Title for the Rules Information section."
+  },
+  "button_cancel": {
+    "message": "रद्द करना"
+  },
+  "button_close": {
+    "message": "बंद करना",
+    "description": "Close button text for FAQ modal"
+  },
+  "button_confirm": {
+    "message": "पुष्टि करना",
+    "description": "Generic confirm button text for modal dialogs"
+  },
+  "modal_alert_title": {
+    "message": "सूचना",
+    "description": "Default title for alert-style modal dialogs"
+  },
+  "modal_confirm_title": {
+    "message": "पुष्टि करना",
+    "description": "Default title for confirm-style modal dialogs"
+  },
+  "modal_prompt_title": {
+    "message": "इनपुट आवश्यक",
+    "description": "Default title for prompt-style modal dialogs"
+  },
+  "button_delete": {
+    "message": "मिटाना"
+  },
+  "button_exit": {
+    "message": "बाहर निकलना",
+    "description": "Button text for exiting the editor"
+  },
+  "button_save": {
+    "message": "बचाना"
+  },
+  "cleanUrlsButton": {
+    "message": "साफ़ यूआरएल",
+    "description": "Text for the button that initiates URL cleaning."
+  },
+  "cleanUrlsToolHeader": {
+    "message": "लिंकुमोरी क्लीन यूआरएल टूल",
+    "description": "The main header of the URL cleaning tool."
+  },
+  "cleanUrlsToolTitle": {
+    "message": "लिंकुमोरी एडवांस्ड यूआरएल क्लीनिंग टूल",
+    "description": "The title of the URL cleaning tool page."
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "साफ किए गए यूआरएल यहां दिखाई देंगे...",
+    "description": "Placeholder text for the cleaned URLs textarea."
+  },
+  "cleanedUrlsTitle": {
+    "message": "साफ़ किए गए यूआरएल",
+    "description": "Title for the cleaned URLs section."
+  },
+  "clipboard_copy_link": {
+    "message": "स्वच्छ लिंक स्थान कॉपी करें",
+    "description": "This string is used in the context menu to copy clean links."
+  },
+  "color_picker_cancel": {
+    "message": "रद्द करना",
+    "description": "Cancel button in color picker"
+  },
+  "color_picker_clear": {
+    "message": "स्पष्ट",
+    "description": "Clear button in color picker"
+  },
+  "color_picker_save": {
+    "message": "बचाना",
+    "description": "Save button in color picker"
+  },
+  "composition_breakdown_label": {
+    "message": "संघटन:",
+    "description": "Label for bundled vs custom percentage breakdown."
+  },
+  "configs_switch_statistics": {
+    "message": "आंकड़े",
+    "description": "This string is used as name for the statistics switch button on the popup page."
+  },
+  "confirm_reset_settings": {
+    "message": "क्या आप वाकई सभी सेटिंग्स को डिफ़ॉल्ट पर रीसेट करना चाहते हैं?",
+    "description": "Confirmation message before resetting settings."
+  },
+  "confirmation_error_template": {
+    "message": "वाक्यांश मेल नहीं खाता. कृपया बिल्कुल सही टाइप करें: \"%s\"",
+    "description": "Template for error message with placeholder for localized phrase"
+  },
+  "confirmation_error_text": {
+    "message": "वाक्यांश मेल नहीं खाता. कृपया बिल्कुल सही टाइप करें: \"मैं पूरी ज़िम्मेदारी स्वीकार करता हूँ\"",
+    "description": "Error message for incorrect confirmation phrase"
+  },
+  "confirmation_final_text": {
+    "message": "मैं पुष्टि करता हूं कि मैं इन सर्वरों का मालिक हूं/नियंत्रित हूं और उनके उपयोग के लिए सभी जिम्मेदारी स्वीकार करता हूं। यह सुविधा बिना किसी वारंटी के \"जैसी है\" प्रदान की जाती है। मैं कानूनी तौर पर इस समझौते पर सहमति देने में सक्षम हूं।",
+    "description": "Final warning text in confirmation modal"
+  },
+  "confirmation_input_label": {
+    "message": "वाक्यांश यहां टाइप करें:",
+    "description": "Label for confirmation input field"
+  },
+  "confirmation_modal_cancel": {
+    "message": "रद्द करना",
+    "description": "Cancel button text in confirmation modal"
+  },
+  "confirmation_modal_confirm": {
+    "message": "दूरस्थ यूआरएल की पुष्टि करें और सक्षम करें",
+    "description": "Confirm button text in confirmation modal"
+  },
+  "confirmation_modal_text": {
+    "message": "आगे बढ़ने के लिए, कृपया निम्नलिखित पुष्टिकरण वाक्यांश बिल्कुल दिखाए अनुसार टाइप करें:",
+    "description": "Instruction text for confirmation modal"
+  },
+  "confirmation_modal_title": {
+    "message": "अपनी समझ की पुष्टि करें",
+    "description": "Title for confirmation modal"
+  },
+  "context_menu_enabled": {
+    "message": "संदर्भ मेनू प्रविष्टि प्रदर्शित करें",
+    "description": "This string is used toggle the context menu entry to copy clean links."
+  },
+  "context_menu_enabled_description": {
+    "message": "राइट-क्लिक मेनू में लिंकुमोरी विकल्प जोड़ें।",
+    "description": "Description for the context menu toggle."
+  },
+  "copyFailed": {
+    "message": "प्रतिलिपि बनाने में विफल!",
+    "description": "Toast message when copy action fails"
+  },
+  "copyText": {
+    "message": "प्रतिलिपि",
+    "description": "Button text for copy action"
+  },
+  "copyUrlsButton": {
+    "message": "परिणाम कॉपी करें",
+    "description": "Text for the button that copies cleaned URLs."
+  },
+  "copy_urls_empty": {
+    "message": "कॉपी करने के लिए कोई यूआरएल नहीं.",
+    "description": "Message when attempting to copy but the output URL area is empty."
+  },
+  "copy_urls_fail": {
+    "message": "यूआरएल कॉपी करने में विफल.",
+    "description": "Error message when copying URLs to clipboard fails in the cleaning tool."
+  },
+  "copy_urls_success": {
+    "message": "यूआरएल क्लिपबोर्ड पर कॉपी किए गए!",
+    "description": "Success message when URLs are copied to clipboard in the cleaning tool."
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "नया प्रदाता जोड़ें"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "प्रदाता जोड़ें"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "उन्नत JSON संपादक"
+  },
+  "customRulesEditor_builtin": {
+    "message": "अंतर्निर्मित:"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "पूर्ण प्रदाता (संपूर्ण डोमेन को ब्लॉक करता है)"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "क्या आप वाकई प्रदाता \"$1\" को हटाना चाहते हैं?"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "क्या आप वाकई सभी $1 प्रदाताओं को हटाना चाहते हैं?"
+  },
+  "customRulesEditor_copy": {
+    "message": "कॉपी"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "अपना पहला प्रदाता बनाएं"
+  },
+  "customRulesEditor_custom": {
+    "message": "रिवाज़:"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "कस्टम प्रदाता"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "सभी हटा दो"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "सभी प्रदाताओं को हटाने में विफल"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "वर्तमान प्रदाता हटाएँ"
+  },
+  "customRulesEditor_description": {
+    "message": "अंतर्निहित प्रदाताओं द्वारा कवर नहीं की गई वेबसाइटों के लिए कस्टम यूआरएल सफाई नियम बनाएं और प्रबंधित करें।"
+  },
+  "customRulesEditor_disabled": {
+    "message": "अक्षम:"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "डोमेन अपवाद"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "डोमेन पैटर्न"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "सरल डोमेन पैटर्न (यूआरएल पैटर्न के साथ उपयोग नहीं किया जा सकता)। प्रारूप: example.com, *.example.com, ||example.com^, ||*.example.com^ प्रति पंक्ति एक पैटर्न।",
+    "description": "Help text for domain patterns field"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "डोमेन पैटर्न"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||example.com^\n||*.subdomain.com^"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "कम से कम एक डोमेन पैटर्न आवश्यक है"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "डोमेन पुनर्निर्देशन"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "डुप्लिकेट"
+  },
+  "customRulesEditor_editName": {
+    "message": "नाम संपादित करें"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "प्रदाता संपादित करें"
+  },
+  "customRulesEditor_editing": {
+    "message": "संपादन: $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "डोमेन पैटर्न खाली नहीं हो सकते"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "प्रवर्तन विफल"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "नियम लागू करें"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "नियम लागू"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "सभी नियमों को तुरंत लागू करने के लिए एक्सटेंशन पुनः लोड करें"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "अपवाद (बाहर रखे जाने वाले यूआरएल)"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "संपादक से बाहर निकलें और प्रदाता सूची पर वापस लौटें",
+    "description": "Tooltip text for the exit button in the custom rules editor"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "नियम निर्यात करने में विफल"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "फ़ाइल में कस्टम नियम निर्यात करें"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "प्रदाता को सहेजने में विफल"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "बल पुनर्निर्देशन"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "HTTP तरीके",
+    "description": "Label for HTTP methods field"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "यह फ़ाइल में शामिल कस्टम नियम श्रेणियों को बदल देगा। जारी रखें?"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "नियम आयात करने में विफल: $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "फ़ाइल से कस्टम नियम आयात करें"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "अमान्य डोमेन पैटर्न: {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "अमान्य फ़ाइल संरचना: ClearURLs प्रदाता या Linkumori URL कस्टम नियम अनुपस्थित हैं"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "अमान्य यूआरएल पैटर्न रेगेक्स: $1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "JSON त्रुटि: $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "JSON यहां दिखाई देगा..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "JSON सामग्री आवश्यक है"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "यूआरएलपैटर्न पर क्लिक करने से डोमेनपैटर्न हट जाता है, और इसके विपरीत।"
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "JSON में फ़ील्ड जोड़ें"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "कस्टम नियम",
+    "description": "Navigation label for custom rules view"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "श्वेतसूची",
+    "description": "Navigation label for whitelist view"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "फ़ाइल में कोई प्रदाता नहीं मिला"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "कस्टम नियम संपादक और श्वेतसूची प्रबंधन"
+  },
+  "customRulesEditor_patternType": {
+    "message": "पैटर्न प्रकार"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "इस प्रदाता के लिए यूआरएल का मिलान करने का तरीका चुनें"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "कृपया एक पैटर्न प्रकार चुनें"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "प्रदाता \"$1\" में यूआरएलपैटर्न और डोमेनपैटर्न दोनों नहीं हो सकते"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "प्रदाता \"$1\" के पास खाली डोमेन पैटर्न हैं"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "प्रदाता \"$1\" में urlपैटर्न गुम है"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "प्रदाता \"$1\" के पास या तो यूआरएलपैटर्न या डोमेनपैटर्न होना चाहिए"
+  },
+  "customRulesEditor_providerName": {
+    "message": "प्रदाता का नाम *"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "इस नाम का एक प्रदाता पहले से मौजूद है"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "इस प्रदाता के लिए विशिष्ट पहचानकर्ता (उदाहरण के लिए, \"example.com\", \"mysite\")"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "उदाहरण के लिए, example.com, mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "प्रदाता का नाम आवश्यक है"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "कच्चे नियम (रेगेक्स पैटर्न)"
+  },
+  "customRulesEditor_redirections": {
+    "message": "पुनर्निर्देशन (रीडायरेक्ट पैटर्न)"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "रेफरल मार्केटिंग"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "संसाधन प्रकार"
+  },
+  "customRulesEditor_rules": {
+    "message": "नियम (हटाने के लिए यूआरएल पैरामीटर)"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "नियम स्थिति"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "प्रदाता सहेजें"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "वर्तमान प्रदाता सहेजें"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "संपादित करने के लिए एक प्रदाता का चयन करें"
+  },
+  "customRulesEditor_title": {
+    "message": "कस्टम नियम संपादक - ClearURLs"
+  },
+  "customRulesEditor_total": {
+    "message": "कुल:"
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "आपके पास सहेजे नहीं गए परिवर्तन हैं. बिना सहेजे जारी रखें?"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "यूआरएल पैटर्न *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "यूआरएल पैटर्न और डोमेन पैटर्न का एक साथ उपयोग नहीं किया जा सकता है"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "यूआरएल से मेल खाने के लिए नियमित अभिव्यक्ति"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "यूआरएल पैटर्न (रेगेक्स)"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "या तो यूआरएल पैटर्न या डोमेन पैटर्न आवश्यक है"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "यूआरएल पैटर्न आवश्यक है"
+  },
+  "customRulesEditor_welcome": {
+    "message": "कस्टम नियम संपादक में आपका स्वागत है"
+  },
+  "custom_providers_label": {
+    "message": "कस्टम प्रदाता:",
+    "description": "Label for custom providers count."
+  },
+  "customrules": {
+    "message": "कस्टम नियम"
+  },
+  "datatable_empty_table": {
+    "message": "तालिका में कोई डेटा उपलब्ध नहीं है",
+    "description": "DataTables empty table message"
+  },
+  "datatable_info": {
+    "message": "_TOTAL_ प्रविष्टियों में से _START_ को _END_ में दिखाया जा रहा है",
+    "description": "DataTables pagination info"
+  },
+  "datatable_info_empty": {
+    "message": "0 में से 0 प्रविष्टियाँ दिखाई जा रही हैं",
+    "description": "DataTables info when no data"
+  },
+  "datatable_showing_all": {
+    "message": "सभी $1 प्रविष्टियाँ दिखाई जा रही हैं",
+    "description": "Info message when showing all entries. $1=total count"
+  },
+  "datatable_showing_entries": {
+    "message": "$3 प्रविष्टियों में से $1 को $2 में दिखाया जा रहा है",
+    "description": "Pagination info showing current range. $1=start, $2=end, $3=total"
+  },
+  "datatable_zero_records": {
+    "message": "कोई मेल खाता रिकॉर्ड नहीं मिला",
+    "description": "DataTables no search results message"
+  },
+  "domain_blocking_enabled": {
+    "message": "डोमेन अवरोधन की अनुमति दें (उन पृष्ठों पर समस्याएँ हो सकती हैं जो AdBlockers को अनुमति नहीं देते हैं)",
+    "description": "This string is used as label for the domain blocking switch"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "विशिष्ट डोमेन के अनुरोधों को ब्लॉक करें.",
+    "description": "Description for the domain blocking toggle."
+  },
+  "downloadFailed": {
+    "message": "डाउनलोड करने में विफल!",
+    "description": "Toast message when download action fails"
+  },
+  "downloadText": {
+    "message": "डाउनलोड करना",
+    "description": "Button text for download action"
+  },
+  "eTag_filtering_enabled": {
+    "message": "अनुरोधों से ईटैग हेडर फ़िल्टर करता है",
+    "description": "This string is used as label for the ETag header filtering switch"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "ट्रैकिंग रोकने के लिए ETag हेडर हटाएँ।",
+    "description": "Description for the ETag filtering toggle."
+  },
+  "eTag_filtering_log": {
+    "message": "इस अनुरोध से ETag हेडर हटा दिया गया था",
+    "description": "This string is used on ETag header filtering in the Linkumori (Clean URLS) log."
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "वर्तमान डोमेन प्राप्त करने में असमर्थ",
+    "description": "Error message when the current domain cannot be determined."
+  },
+  "error_loading_data": {
+    "message": "लॉग डेटा लोड करने में विफल. कृपया पृष्ठ को ताज़ा करें.",
+    "description": "Error message when log data cannot be loaded from storage"
+  },
+  "error_rendering_table": {
+    "message": "तालिका डेटा प्रस्तुत करने में त्रुटि",
+    "description": "Error message when table fails to render"
+  },
+  "extension_description": {
+    "message": "URL से ट्रैकिंग तत्व हटाएँ.",
+    "description": "Extension description (max. 132 characters)"
+  },
+  "fallback_rules_loaded": {
+    "message": "बंडल किए गए नियम से संबंधित जानकारी दूषित हो सकती है या ठीक से लोड नहीं की गई है। इसके बजाय फ़ॉलबैक नियम लोड किए गए हैं."
+  },
+  "faq_caution": {
+    "message": "सावधानी:",
+    "description": "Label for cautions in FAQ"
+  },
+  "faq_common_mistakes": {
+    "message": "किन सामान्य गलतियों से बचना चाहिए?",
+    "description": "FAQ question about common mistakes"
+  },
+  "faq_complete_provider": {
+    "message": "कंप्लीटप्रोवाइडर क्या करता है?",
+    "description": "FAQ question about completeProvider"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "जब सही पर सेट किया जाता है, तो कंप्लीटप्रोवाइडर ब्लॉकिंग के लिए मेल खाने वाले अनुरोधों को चिह्नित करता है। वास्तविक अवरोधन तभी होता है जब वैश्विक \"डोमेन अवरोधन\" सेटिंग सक्षम होती है। गलत होने पर, आप सामान्य नियमों, अपवादों और पुनर्निर्देशन का उपयोग कर सकते हैं।",
+    "description": "FAQ answer explaining completeProvider"
+  },
+  "faq_complete_provider_usage": {
+    "message": "अधिकांश कस्टम नियमों को इसे गलत पर सेट करना चाहिए और इसके बजाय विशिष्ट पैरामीटर हटाने के नियमों का उपयोग करना चाहिए।",
+    "description": "FAQ guidance on completeProvider usage"
+  },
+  "faq_complete_provider_warning": {
+    "message": "यदि डोमेन ब्लॉकिंग सक्षम है, तो यह मेल खाने वाले यूआरएल के लिए पूर्ण पहुंच को ब्लॉक कर सकता है।",
+    "description": "FAQ warning about completeProvider"
+  },
+  "faq_complex_example": {
+    "message": "मुझे एक जटिल प्रदाता उदाहरण दिखाएँ",
+    "description": "FAQ question requesting complex example"
+  },
+  "faq_complex_example_explanation": {
+    "message": "यह प्रदाता ट्रैकिंग पैरामीटर और टुकड़े हटा देता है, रीडायरेक्ट को संभालता है, लेकिन एपीआई, लॉगिन और चेकआउट पृष्ठों को संशोधन से बचाता है।",
+    "description": "FAQ explanation of complex example"
+  },
+  "faq_complex_example_intro": {
+    "message": "यहां पुनर्निर्देशन और अपवादों वाला एक उन्नत प्रदाता है:",
+    "description": "FAQ intro to complex example"
+  },
+  "faq_custom_rules_note": {
+    "message": "कस्टम नियम अंतर्निहित नियमों के साथ चलते हैं और आयातित बंडल/दूरस्थ प्रदाता प्रविष्टियों को नाम से ओवरराइड कर सकते हैं।",
+    "description": "Note about custom rules precedence"
+  },
+  "faq_default_note": {
+    "message": "गलती करना:",
+    "description": "Label for default behavior notes in FAQ"
+  },
+  "faq_domain_exceptions": {
+    "message": "डोमेन अपवाद क्या हैं?",
+    "description": "FAQ question about domain exceptions"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "डोमेन अपवाद नियमित अपवादों की तरह काम करते हैं लेकिन रेगेक्स के बजाय सरल डोमेन पैटर्न प्रारूप का उपयोग करते हैं। वे आपको विशिष्ट डोमेन या उपडोमेन को प्रसंस्करण से बाहर करने की अनुमति देते हैं।",
+    "description": "FAQ explanation of domain exceptions"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "डोमेन अपवाद डोमेन पैटर्न के समान पैटर्न का उपयोग करते हैं लेकिन रेगेक्स अपवादों की तुलना में सरल होते हैं।",
+    "description": "FAQ tip about domain exceptions"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ - example.com और उसके उपडोमेन के लिए होस्टनाम मेल खाता है",
+    "description": "FAQ explanation of AdBlock domain pattern"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - होस्टनाम वाइल्डकार्ड; प्रत्येक * एक लेबल (डॉट सेगमेंट) से मेल खाता है",
+    "description": "FAQ explanation of AdBlock wildcard pattern"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "example.com - पूर्ण URL पर सरल सबस्ट्रिंग मिलान (लंबे होस्टनाम/पथ के अंदर भी मिलान किया जा सकता है)",
+    "description": "FAQ explanation of basic domain pattern"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.उदाहरण.*^ - मल्टी-पार्ट टीएलडी सहित वाइल्डकार्ड टीएलडी के साथ उपडोमेन का मिलान करता है (a.example.co.uk)",
+    "description": "FAQ explanation of full wildcard pattern"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||उदाहरण.*^ - मल्टी-पार्ट टीएलडी सहित वाइल्डकार्ड टीएलडी के साथ डोमेन का मिलान करता है (example.co.uk, example.gov.in)",
+    "description": "FAQ explanation of TLD wildcard domain pattern"
+  },
+  "faq_domain_pattern_types": {
+    "message": "डोमेन पैटर्न प्रकार:",
+    "description": "FAQ section title for domain pattern types"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com - पूरे यूआरएल पर वाइल्डकार्ड रेगेक्स मिलान, सख्त केवल होस्टनाम मिलान नहीं",
+    "description": "FAQ explanation of wildcard domain pattern"
+  },
+  "faq_domain_patterns": {
+    "message": "डोमेन पैटर्न बनाम यूआरएल पैटर्न",
+    "description": "FAQ question about domain patterns vs URL patterns"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "डोमेन पैटर्न सरल टोकन और एडब्लॉक-शैली फॉर्म का समर्थन करते हैं। मिलान व्यवहार सिंटैक्स पर निर्भर करता है (कुछ फॉर्म होस्टनाम की जांच करते हैं, अन्य पूर्ण यूआरएल स्ट्रिंग के विरुद्ध मेल खाते हैं):",
+    "description": "FAQ explanation of domain patterns"
+  },
+  "faq_domain_redirections": {
+    "message": "डोमेन पुनर्निर्देशन क्या हैं?",
+    "description": "FAQ question about domain redirections"
+  },
+  "faq_domain_redirections_example": {
+    "message": "रीडायरेक्ट.example.com$redirect=https://target.com सभी यूआरएल को रीडायरेक्ट.example.com से https://target.com पर रीडायरेक्ट करेगा",
+    "description": "FAQ example of domain redirections"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "डोमेन पुनर्निर्देशन पुनर्निर्देशन URL का पता लगाने और लक्ष्य गंतव्य निकालने के लिए डोमेन पैटर्न का उपयोग करते हैं। वे सरल रीडायरेक्ट मैपिंग के लिए विशेष $redirect= सिंटैक्स का समर्थन करते हैं।",
+    "description": "FAQ explanation of domain redirections"
+  },
+  "faq_example": {
+    "message": "उदाहरण:",
+    "description": "Label for examples in FAQ"
+  },
+  "faq_exceptions": {
+    "message": "अपवाद कैसे काम करते हैं?",
+    "description": "FAQ question about exceptions"
+  },
+  "faq_exceptions_explanation": {
+    "message": "अपवाद रेगेक्स पैटर्न हैं जो यूआरएल से मेल खाते हैं जहां कोई प्रोसेसिंग नहीं होनी चाहिए। यदि कोई URL किसी अपवाद से मेल खाता है, तो अन्य सभी नियमों को अनदेखा कर दिया जाता है।",
+    "description": "FAQ explanation of exceptions"
+  },
+  "faq_exceptions_usage": {
+    "message": "लॉगिन पेजों, एपीआई एंडपॉइंट्स या अन्य संवेदनशील यूआरएल को संशोधित होने से बचाने के लिए अपवादों का उपयोग करें।",
+    "description": "FAQ guidance on exceptions usage"
+  },
+  "faq_force_redirection": {
+    "message": "मुझे ForceRedirection का उपयोग कब करना चाहिए?",
+    "description": "FAQ question about forceRedirection"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "कुछ वेबसाइटें सामान्य पुनर्निर्देशन को रोकते हुए, जावास्क्रिप्ट के माध्यम से लिंक में हेरफेर करती हैं। ForceRedirection URL को सीधे ब्राउज़र के मुख्य फ़्रेम पर लिखता है।",
+    "description": "FAQ explanation of forceRedirection"
+  },
+  "faq_force_redirection_usage": {
+    "message": "इसे Google जैसी वेबसाइटों के लिए सक्षम करें जो प्रत्यक्ष href विशेषताओं के बजाय onClick हैंडलर का उपयोग करते हैं।",
+    "description": "FAQ guidance on forceRedirection usage"
+  },
+  "faq_force_redirection_warning": {
+    "message": "केवल तभी उपयोग करें जब सामान्य पुनर्निर्देशन विफल हो जाए, क्योंकि यह विधि अधिक दखल देने वाली है।",
+    "description": "FAQ warning about forceRedirection"
+  },
+  "faq_how_providers_work": {
+    "message": "प्रदाता कैसे काम करते हैं?",
+    "description": "FAQ question about how providers work"
+  },
+  "faq_http_methods": {
+    "message": "HTTP तरीके क्या हैं?",
+    "description": "FAQ question about HTTP methods"
+  },
+  "faq_http_methods_common": {
+    "message": "सामान्य HTTP विधियाँ:",
+    "description": "FAQ section title for common HTTP methods"
+  },
+  "faq_http_methods_delete": {
+    "message": "हटाएं - परिचालन हटाएं",
+    "description": "FAQ list item for DELETE method"
+  },
+  "faq_http_methods_explanation": {
+    "message": "HTTP विधियाँ आपको केवल विशिष्ट प्रकार के HTTP अनुरोधों (GET, POST, PUT, DELETE, आदि) पर नियम लागू करने की अनुमति देती हैं। यह आपको इस पर नियंत्रण देता है कि कौन सी अनुरोध विधियाँ आपके नियमों को ट्रिगर करती हैं।",
+    "description": "FAQ explanation of HTTP methods"
+  },
+  "faq_http_methods_get": {
+    "message": "प्राप्त करें - मानक वेब पेज अनुरोध",
+    "description": "FAQ list item for GET method"
+  },
+  "faq_http_methods_head": {
+    "message": "हेड - हेडर-केवल अनुरोध",
+    "description": "FAQ list item for HEAD method"
+  },
+  "faq_http_methods_options": {
+    "message": "विकल्प - प्रीफ़्लाइट CORS अनुरोध",
+    "description": "FAQ list item for OPTIONS method"
+  },
+  "faq_http_methods_post": {
+    "message": "पोस्ट - फॉर्म सबमिशन और एपीआई कॉल",
+    "description": "FAQ list item for POST method"
+  },
+  "faq_http_methods_put": {
+    "message": "PUT - अद्यतन संचालन",
+    "description": "FAQ list item for PUT method"
+  },
+  "faq_http_methods_tip": {
+    "message": "सभी HTTP विधियों पर लागू करने के लिए खाली छोड़ें, या केवल वे विधियाँ निर्दिष्ट करें जिन्हें आप लक्षित करना चाहते हैं।",
+    "description": "FAQ tip about HTTP methods"
+  },
+  "faq_import_benefit_quick": {
+    "message": "त्वरित सेटअप - मैन्युअल रूप से जटिल पैटर्न बनाने की कोई आवश्यकता नहीं है",
+    "description": "FAQ benefit of quick setup via import"
+  },
+  "faq_import_benefit_search": {
+    "message": "आपको जो चाहिए वही ढूंढने के लिए खोजें और फ़िल्टर करें",
+    "description": "FAQ benefit of search functionality"
+  },
+  "faq_import_benefit_tested": {
+    "message": "पूर्व-परीक्षित नियम जो सही ढंग से काम करने के लिए जाने जाते हैं",
+    "description": "FAQ benefit of tested rules via import"
+  },
+  "faq_import_benefit_updates": {
+    "message": "नए प्रदाताओं के साथ नियमों को अद्यतन रखना आसान है",
+    "description": "FAQ benefit of easy updates via import"
+  },
+  "faq_list_feature_actions": {
+    "message": "एकल क्लिक से प्रदाताओं को संपादित करें, डुप्लिकेट करें या हटाएं",
+    "description": "FAQ feature of quick actions"
+  },
+  "faq_list_feature_overview": {
+    "message": "प्रमुख आँकड़ों के साथ सभी प्रदाताओं का त्वरित अवलोकन",
+    "description": "FAQ feature of provider overview"
+  },
+  "faq_list_feature_search": {
+    "message": "विशिष्ट प्रदाताओं को तुरंत ढूंढने के लिए प्रदाताओं को नाम से खोजें",
+    "description": "FAQ feature of provider search"
+  },
+  "faq_list_feature_stats": {
+    "message": "एक नज़र में नियम संख्या और पैटर्न प्रकार देखें",
+    "description": "FAQ feature of statistics display"
+  },
+  "faq_mistake_broad": {
+    "message": "यूआरएलपैटर्न को बहुत व्यापक बनाना (अनपेक्षित साइटों से मेल खाना)",
+    "description": "FAQ common mistake about broad patterns"
+  },
+  "faq_mistake_complete": {
+    "message": "जब तक आप वास्तव में साइट को ब्लॉक नहीं करना चाहते, कंप्लीटप्रोवाइडर को सत्य पर सेट करना",
+    "description": "FAQ common mistake about completeProvider"
+  },
+  "faq_mistake_escape": {
+    "message": "पैटर्न में विशेष रेगेक्स वर्णों से बचना भूल गए",
+    "description": "FAQ common mistake about escaping regex"
+  },
+  "faq_mistake_exceptions": {
+    "message": "महत्वपूर्ण कार्यक्षमता के लिए अपवाद नहीं जोड़ा जा रहा है",
+    "description": "FAQ common mistake about missing exceptions"
+  },
+  "faq_mistake_testing": {
+    "message": "तैनाती से पहले नियमों का गहनता से परीक्षण नहीं करना",
+    "description": "FAQ common mistake about insufficient testing"
+  },
+  "faq_note": {
+    "message": "टिप्पणी:",
+    "description": "Label for important notes in FAQ"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "दोनों फ़ील्ड डेटा में मौजूद हो सकते हैं, लेकिन urlPattern को प्राथमिकता दी जाती है। डोमेन पैटर्न का उपयोग केवल तभी किया जाता है जब यूआरएलपैटर्न खाली हो। डोमेन मिलान पीएसएल-जागरूक है, जिसमें पंजीकरण योग्य-डोमेन हैंडलिंग और बहु-भाग टीएलडी समर्थन शामिल है।",
+    "description": "FAQ note about pattern exclusivity"
+  },
+  "faq_perf_combine": {
+    "message": "एकाधिक समान पैटर्न को एक रेगेक्स में संयोजित करें",
+    "description": "FAQ performance tip about combining patterns"
+  },
+  "faq_perf_limit": {
+    "message": "प्रदाताओं की संख्या उतनी ही सीमित करें जितनी आपको वास्तव में आवश्यकता है",
+    "description": "FAQ performance tip about limiting providers"
+  },
+  "faq_perf_review": {
+    "message": "अप्रयुक्त नियमों की नियमित रूप से समीक्षा करें और उन्हें साफ़ करें",
+    "description": "FAQ performance tip about regular review"
+  },
+  "faq_perf_simple": {
+    "message": "जब संभव हो तो जटिल rawRules के बजाय सरल नियमों का उपयोग करें",
+    "description": "FAQ performance tip about simple rules"
+  },
+  "faq_perf_specific": {
+    "message": "यूआरएलपैटर्न को यथासंभव विशिष्ट बनाएं",
+    "description": "FAQ performance tip about specific patterns"
+  },
+  "faq_performance_tips": {
+    "message": "मैं प्रदर्शन को कैसे अनुकूलित कर सकता हूँ?",
+    "description": "FAQ question about performance optimization"
+  },
+  "faq_provider_example": {
+    "message": "उदाहरण के लिए, एक \"Google\" प्रदाता खोज परिणामों, YouTube लिंक आदि से ट्रैकिंग पैरामीटर हटाने के नियमों के साथ सभी Google सेवाओं को संभालेगा।",
+    "description": "FAQ example of provider usage"
+  },
+  "faq_provider_import": {
+    "message": "मैं नियमों से प्रदाताओं को कैसे आयात करूं?",
+    "description": "FAQ question about provider import feature"
+  },
+  "faq_provider_import_benefits": {
+    "message": "आयात करने के लाभ:",
+    "description": "FAQ section title for import benefits"
+  },
+  "faq_provider_import_explanation": {
+    "message": "प्रदाता आयात सुविधा आपको अंतर्निहित नियम कैटलॉग से प्रदाताओं को शीघ्रता से जोड़ने की अनुमति देती है। प्रदाताओं को ब्राउज़ करने और चुनने के लिए 'नियमों से आयात करें' बटन पर क्लिक करें।",
+    "description": "FAQ explanation of provider import feature"
+  },
+  "faq_provider_import_tip": {
+    "message": "आप एक साथ कई प्रदाताओं को चुनकर और आयात पर क्लिक करके आयात कर सकते हैं।",
+    "description": "FAQ tip about provider import"
+  },
+  "faq_provider_list": {
+    "message": "मैं अपने प्रदाताओं को कुशलतापूर्वक कैसे प्रबंधित करूं?",
+    "description": "FAQ question about provider list management"
+  },
+  "faq_provider_list_explanation": {
+    "message": "प्रदाता सूची दृश्य आपको सभी कस्टम प्रदाताओं का त्वरित अवलोकन देता है। आप प्रत्येक प्रदाता को अलग-अलग खोले बिना खोज सकते हैं, संपादित कर सकते हैं, डुप्लिकेट बना सकते हैं या हटा सकते हैं।",
+    "description": "FAQ explanation of provider list feature"
+  },
+  "faq_provider_list_features": {
+    "message": "प्रदाता सूची विशेषताएं:",
+    "description": "FAQ section title for provider list features"
+  },
+  "faq_provider_list_tip": {
+    "message": "प्रदाताओं को ब्राउज़ और प्रबंधित करने के लिए संपादक टूलबार से प्रदाता सूची खोलें।",
+    "description": "FAQ tip about provider list"
+  },
+  "faq_providers_explanation": {
+    "message": "प्रदाता तार्किक इकाइयाँ हैं जो एक ही यूआरएल पैटर्न के तहत कई नियमों को समूहित करती हैं। प्रत्येक प्रदाता एक विशिष्ट वेबसाइट या सेवा को लक्षित करता है और उसमें उस स्रोत से यूआरएल साफ़ करने के लिए आवश्यक सभी नियम शामिल होते हैं।",
+    "description": "FAQ answer explaining providers"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "संपूर्ण URL पर प्रत्यक्ष रेगेक्स पैटर्न लागू किया गया। उन जटिल पैटर्न के लिए उपयोग करें जो मानक पैरामीटर प्रारूप में फिट नहीं होते हैं।",
+    "description": "FAQ explanation of rawRules"
+  },
+  "faq_raw_rules_title": {
+    "message": "कच्चे नियम:",
+    "description": "FAQ section title for rawRules explanation"
+  },
+  "faq_raw_rules_usage": {
+    "message": "टुकड़ों, पथ खंडों या जटिल पैरामीटर पैटर्न के लिए rawRules का उपयोग करें।",
+    "description": "FAQ guidance on rawRules usage"
+  },
+  "faq_redirections": {
+    "message": "पुनर्निर्देशन कैसे कार्य करता है?",
+    "description": "FAQ question about redirections"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com https://target.com बन जाता है",
+    "description": "FAQ example of redirection process"
+  },
+  "faq_redirections_explanation": {
+    "message": "पुनर्निर्देशन पुनर्निर्देशन सेवाओं से वास्तविक गंतव्य URL निकालता है। रेगेक्स में पहला कैप्चर समूह नया यूआरएल बन जाता है।",
+    "description": "FAQ explanation of redirections"
+  },
+  "faq_redirections_process": {
+    "message": "कैप्चर किया गया URL स्वचालित रूप से decodeURIComponent() से डिकोड हो जाता है और मूल URL को बदल देता है।",
+    "description": "FAQ explanation of redirection processing"
+  },
+  "faq_referral_default": {
+    "message": "रेफरल मार्केटिंग डिफ़ॉल्ट रूप से अक्षम है, इसलिए इन मापदंडों को हटा दिया जाएगा जब तक कि उपयोगकर्ता द्वारा स्पष्ट रूप से अनुमति न दी जाए।",
+    "description": "FAQ note about referralMarketing default behavior"
+  },
+  "faq_referral_explanation": {
+    "message": "रेफरल मार्केटिंग पैरामीटर सामग्री निर्माताओं को कमीशन कमाने में मदद करते हैं। ये पैरामीटर केवल तभी हटाए जाते हैं जब उपयोगकर्ता ने सेटिंग्स में रेफरल मार्केटिंग समर्थन अक्षम कर दिया हो।",
+    "description": "FAQ explanation of referralMarketing"
+  },
+  "faq_referral_marketing": {
+    "message": "रेफरलमार्केटिंग क्या है?",
+    "description": "FAQ question about referralMarketing"
+  },
+  "faq_resource_types": {
+    "message": "संसाधन प्रकार क्या हैं?",
+    "description": "FAQ question about resource types"
+  },
+  "faq_resource_types_common": {
+    "message": "सामान्य संसाधन प्रकार:",
+    "description": "FAQ section title for common resource types"
+  },
+  "faq_resource_types_explanation": {
+    "message": "संसाधन प्रकार आपको केवल विशिष्ट प्रकार के वेब अनुरोधों (चित्र, स्क्रिप्ट, मुख्य पृष्ठ, आदि) पर नियम लागू करने की अनुमति देते हैं। इससे आपको नियम लागू होने पर विस्तृत नियंत्रण मिलता है।",
+    "description": "FAQ explanation of resource types"
+  },
+  "faq_resource_types_tip": {
+    "message": "सभी संसाधन प्रकारों पर लागू करने के लिए खाली छोड़ें, या केवल वे प्रकार निर्दिष्ट करें जिन्हें आप लक्षित करना चाहते हैं।",
+    "description": "FAQ tip about resource types"
+  },
+  "faq_rt_font": {
+    "message": "फ़ॉन्ट - वेब फ़ॉन्ट (.woff, .ttf, आदि)",
+    "description": "FAQ resource type font"
+  },
+  "faq_rt_image": {
+    "message": "छवि - छवियाँ और तस्वीरें",
+    "description": "FAQ resource type image"
+  },
+  "faq_rt_imageset": {
+    "message": "इमेजसेट - प्रतिक्रियाशील छवियों के लिए छवि सेट",
+    "description": "FAQ resource type imageset"
+  },
+  "faq_rt_main_frame": {
+    "message": "मेन_फ़्रेम - मुख्य वेबपेज",
+    "description": "FAQ resource type main_frame"
+  },
+  "faq_rt_media": {
+    "message": "मीडिया - ऑडियो और वीडियो फ़ाइलें",
+    "description": "FAQ resource type media"
+  },
+  "faq_rt_object": {
+    "message": "ऑब्जेक्ट - एंबेडेड ऑब्जेक्ट (फ़्लैश, प्लगइन्स)",
+    "description": "FAQ resource type object"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "object_subrequest - एम्बेडेड ऑब्जेक्ट द्वारा किए गए अनुरोध",
+    "description": "FAQ resource type object_subrequest"
+  },
+  "faq_rt_other": {
+    "message": "अन्य - अन्य प्रकार जो ऊपर कवर नहीं किए गए हैं",
+    "description": "FAQ resource type other"
+  },
+  "faq_rt_script": {
+    "message": "स्क्रिप्ट - जावास्क्रिप्ट फ़ाइलें",
+    "description": "FAQ resource type script"
+  },
+  "faq_rt_stylesheet": {
+    "message": "स्टाइलशीट - सीएसएस फ़ाइलें",
+    "description": "FAQ resource type stylesheet"
+  },
+  "faq_rt_sub_frame": {
+    "message": "सब_फ्रेम - एंबेडेड आईफ्रेम",
+    "description": "FAQ resource type sub_frame"
+  },
+  "faq_rt_websocket": {
+    "message": "वेबसॉकेट - वेबसॉकेट कनेक्शन",
+    "description": "FAQ resource type websocket"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "xml_dtd - XML ​​दस्तावेज़ प्रकार परिभाषाएँ",
+    "description": "FAQ resource type xml_dtd"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "xmlhttprequest - AJAX अनुरोध",
+    "description": "FAQ resource type xmlhttprequest"
+  },
+  "faq_rt_xslt": {
+    "message": "xslt - XSLT परिवर्तन फ़ाइलें",
+    "description": "FAQ resource type xslt"
+  },
+  "faq_rules_converted": {
+    "message": "उदाहरण: \"utm_source\" बिल्कुल मेल खाता है; \"utm_.*\" utm_source और utm_campaign से मेल खाता है। स्कोप्ड लिंकुमोरी अपवादों/नियमों को पहले हल किया जाता है, फिर सामान्य/रेगेक्स नियम केवल बेजोड़ कुंजियों के लिए चलते हैं।",
+    "description": "FAQ examples for rules key matching"
+  },
+  "faq_rules_explanation": {
+    "message": "नियम क्वेरी पैरामीटर कुंजियों और हैश फ़्रैगमेंट कुंजियों से मेल खाते हैं। विशिष्ट डोमेन को लक्षित करने के लिए सरल नाम (सटीक कुंजी), रेगेक्स (व्यापक मिलान), या लिंकुमोरी स्कोप्ड नियमों जैसे ||example.com^$removeparam=... का उपयोग करें।",
+    "description": "FAQ explanation of rules"
+  },
+  "faq_rules_title": {
+    "message": "नियम:",
+    "description": "FAQ section title for rules explanation"
+  },
+  "faq_rules_vs_raw": {
+    "message": "नियम और कच्चे नियम के बीच क्या अंतर है?",
+    "description": "FAQ question about rules vs rawRules"
+  },
+  "faq_section_advanced": {
+    "message": "उन्नत विशेषताएँ",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_basics": {
+    "message": "मूल बातें",
+    "description": "FAQ section title for basic questions"
+  },
+  "faq_section_examples": {
+    "message": "उदाहरण",
+    "description": "FAQ section title for examples"
+  },
+  "faq_section_new_features": {
+    "message": "उन्नत विशेषताएँ",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_properties": {
+    "message": "प्रदाता गुण",
+    "description": "FAQ section title for provider properties"
+  },
+  "faq_section_tips": {
+    "message": "युक्तियाँ एवं सर्वोत्तम प्रथाएँ",
+    "description": "FAQ section title for tips and best practices"
+  },
+  "faq_simple_example": {
+    "message": "मुझे एक सरल प्रदाता उदाहरण दिखाएँ",
+    "description": "FAQ question requesting simple example"
+  },
+  "faq_simple_example_explanation": {
+    "message": "यह फेसबुक क्लिक आईडी और यूटीएम पैरामीटर को हटा देता है, लेकिन यदि उपयोगकर्ता रेफरल मार्केटिंग की अनुमति देता है तो संबद्ध लिंक सुरक्षित रखता है।",
+    "description": "FAQ explanation of simple example"
+  },
+  "faq_simple_example_intro": {
+    "message": "यहां एक बुनियादी प्रदाता है जो एक काल्पनिक शॉपिंग साइट से ट्रैकिंग पैरामीटर हटा देता है:",
+    "description": "FAQ intro to simple example"
+  },
+  "faq_test_backup": {
+    "message": "बड़े बदलाव करने से पहले अपने नियम निर्यात करें",
+    "description": "FAQ tip about backing up rules"
+  },
+  "faq_test_exceptions": {
+    "message": "महत्वपूर्ण पृष्ठों के लिए हमेशा अपवाद जोड़ें (लॉगिन, चेकआउट, एपीआई)",
+    "description": "FAQ tip about adding exceptions"
+  },
+  "faq_test_regex": {
+    "message": "regex101.com जैसे ऑनलाइन टूल का उपयोग करके रेगेक्स पैटर्न का परीक्षण करें",
+    "description": "FAQ tip about testing regex patterns"
+  },
+  "faq_test_reload": {
+    "message": "ब्राउज़र को पुनरारंभ किए बिना परिवर्तनों को पुनः लोड करने के लिए \"नियम लागू करें\" बटन का उपयोग करें",
+    "description": "FAQ tip about enforcing rules"
+  },
+  "faq_test_small": {
+    "message": "सरल नियमों से प्रारंभ करें और धीरे-धीरे जटिलताएँ जोड़ें",
+    "description": "FAQ tip about starting small"
+  },
+  "faq_testing_tips": {
+    "message": "मुझे अपने कस्टम नियमों का परीक्षण कैसे करना चाहिए?",
+    "description": "FAQ question about testing tips"
+  },
+  "faq_tip": {
+    "message": "बख्शीश:",
+    "description": "Label for tips in FAQ"
+  },
+  "faq_title": {
+    "message": "अक्सर पूछे जाने वाले प्रश्न",
+    "description": "FAQ button text and modal title"
+  },
+  "faq_url_pattern": {
+    "message": "यूआरएलपैटर्न क्या है?",
+    "description": "FAQ question about urlPattern"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "यूआरएलपैटर्न एक नियमित अभिव्यक्ति है जिसे प्रदाता के नियमों से प्रभावित होने वाले प्रत्येक यूआरएल से मेल खाना चाहिए। यह परिभाषित करता है कि इस प्रदाता को कौन सी वेबसाइटें संभालनी चाहिए।",
+    "description": "FAQ answer explaining urlPattern"
+  },
+  "faq_url_pattern_structure": {
+    "message": "विशिष्ट संरचना में शामिल हैं: प्रोटोकॉल + उपडोमेन + डोमेन + टीएलडी + निर्देशिकाएं + पैरामीटर",
+    "description": "FAQ explanation of urlPattern structure"
+  },
+  "faq_url_pattern_tip": {
+    "message": "अपने पैटर्न को जोड़ने से पहले सत्यापित करने के लिए ऑनलाइन रेगेक्स परीक्षकों का उपयोग करें।",
+    "description": "FAQ tip for testing urlPattern"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "कौन से यूआरएल मेल खाते हैं, इस पर सटीक नियंत्रण के लिए यूआरएल पैटर्न पूर्ण रेगेक्स का उपयोग करते हैं:",
+    "description": "FAQ explanation of URL patterns"
+  },
+  "faq_use_domain_patterns": {
+    "message": "पूर्ण यूआरएल पैटर्न रेगेक्स लिखे बिना सरल होस्टनाम/पथ मिलान के लिए डोमेन पैटर्न का उपयोग करें।",
+    "description": "FAQ guidance for using domain patterns"
+  },
+  "faq_use_url_patterns": {
+    "message": "जटिल मिलान (विशिष्ट पथ, क्वेरी पैरामीटर इत्यादि) के लिए यूआरएल पैटर्न का उपयोग करें",
+    "description": "FAQ guidance for using URL patterns"
+  },
+  "faq_warning": {
+    "message": "चेतावनी:",
+    "description": "Label for warnings in FAQ"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "कस्टम नियम क्या हैं?",
+    "description": "FAQ question about custom rules"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "कस्टम नियम आपको उन वेबसाइटों के लिए अपना स्वयं का यूआरएल सफाई पैटर्न बनाने की अनुमति देते हैं जो अंतर्निहित नियमों के अंतर्गत नहीं आते हैं। वे मुख्य कैटलॉग के समान संरचना का पालन करते हैं लेकिन अलग से प्रबंधित होते हैं।",
+    "description": "FAQ answer explaining custom rules"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "कब कौन सा उपयोग करें:",
+    "description": "FAQ section title for pattern usage guidance"
+  },
+  "feature1": {
+    "message": "अंतर्निहित गोपनीयता-केंद्रित URL सफ़ाई डिफ़ॉल्ट रूप से सक्षम है"
+  },
+  "feature2": {
+    "message": "कस्टम नियम प्रति-प्रदाता और प्रति-पैटर्न नियंत्रण के लिए समर्थन करते हैं"
+  },
+  "feature3": {
+    "message": "चयनित डोमेन के लिए सफ़ाई को बायपास करने के लिए श्वेतसूची समर्थन"
+  },
+  "feature4": {
+    "message": "उन्नत सेटअप के लिए दूरस्थ नियम और ओवरलोड मोड"
+  },
+  "feature_toggles_title": {
+    "message": "फ़ीचर सेटिंग्स",
+    "description": "Title for the Feature Settings section."
+  },
+  "fileEmptyError": {
+    "message": "फ़ाइल खाली है या अपठनीय है",
+    "description": "Error shown when a legal/privacy file is empty or unreadable"
+  },
+  "general_settings_title": {
+    "message": "सामान्य सेटिंग्स",
+    "description": "Title for the General Settings section."
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "अंतर्निहित नियम लोड किए गए (हैश गायब)",
+    "description": "Status when bundled rules loaded after hash URL was missing"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "अंतर्निहित नियमों का उपयोग करना (फ़ॉलबैक)",
+    "description": "Status when fell back to bundled rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "कैश्ड रिमोट + कस्टम नियम (बंडल विफल)",
+    "description": "Status when using cached remote rules with custom rules after bundled failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "कैश्ड रिमोट + कस्टम नियम (रिमोट विफल)",
+    "description": "Status when using cached remote rules with custom rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "कैश्ड रिमोट + कस्टम नियम (कोई हैश यूआरएल नहीं)",
+    "description": "Status when using cached remote rules with custom rules, hash URL missing"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "कैश्ड दूरस्थ नियम (बंडल विफल)",
+    "description": "Status when using cached remote rules after bundled rules failed"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "कैश्ड दूरस्थ नियम (दूरस्थ विफल)",
+    "description": "Status when using cached remote rules after current remote fetch failed"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "कैश्ड दूरस्थ नियम (कोई हैश URL नहीं)",
+    "description": "Status when using cached remote rules because hash URL is missing"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "कैश्ड रिमोट + अंतर्निहित नियम मर्ज किए गए",
+    "description": "Status when overload mode merges cached remote rules with built-in rules"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "कैश्ड रिमोट + अंतर्निहित नियमों को कस्टम नियमों के साथ विलय कर दिया गया",
+    "description": "Status when overload mode merges cached remote and built-in rules, then custom rules"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "केवल कस्टम नियमों का उपयोग करना",
+    "description": "Status when built-in rules are disabled and only custom rules are active"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "अंतर्निहित नियम अक्षम हैं और कोई कस्टम नियम नहीं मिला",
+    "description": "Status when built-in rules are disabled and there are no custom rules to load"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "न्यूनतम नियमों का उपयोग करना (दूरस्थ विफल)",
+    "description": "Status when using fallback rules after remote failure"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "हैश यूआरएल आवश्यक है",
+    "description": "Status when remote URL is configured but hash URL is missing"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "रिमोट + अंतर्निर्मित नियम विलय",
+    "description": "Status when remote and built-in rules are merged successfully"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "रिमोट + अंतर्निर्मित नियमों को कस्टम नियमों के साथ विलय कर दिया गया",
+    "description": "Status when overload mode is active and custom rules are merged"
+  },
+  "hashStatus_remote_failed": {
+    "message": "दूरस्थ नियम विफल",
+    "description": "Status when remote rules failed verification or loading"
+  },
+  "hashStatus_remote_verified": {
+    "message": "दूरस्थ नियम सत्यापित",
+    "description": "Status when remote rules have been successfully verified"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "दूरस्थ नियम लोड किए गए और कस्टम नियम मर्ज किए गए",
+    "description": "Message shown when remote rules are loaded and custom rules are merged"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
+  },
+  "headerTitle": {
+    "message": "लिंकुमोरी",
+    "description": "Header title for the extension"
+  },
+  "history_listener_enabled": {
+    "message": "इतिहास एपीआई पर ट्रैकिंग इंजेक्शन को रोकें",
+    "description": "This string is used as name for the history API listener label."
+  },
+  "history_listener_enabled_description": {
+    "message": "ब्राउज़र इतिहास में यूआरएल की निगरानी करें और साफ़ करें।",
+    "description": "Description for the history listener toggle."
+  },
+  "search_link_fix_enabled": {
+    "message": "खोज परिणाम लिंक ठीक करें",
+    "description": "Label for the combined Google and Yandex content script toggle"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "Google और Yandex सामग्री स्क्रिप्ट सक्षम करें जो खोज परिणाम लिंक से रीडायरेक्ट ट्रैकिंग हटा दें।",
+    "description": "Description for the combined search result content script toggle"
+  },
+  "google_link_fix_enabled": {
+    "message": "Google लिंक ठीक करें",
+    "description": "Label for the Google content script toggle"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "Google सामग्री स्क्रिप्ट सक्षम करें जो Google परिणाम लिंक से रीडायरेक्ट ट्रैकिंग को हटा देती है।",
+    "description": "Description for the Google content script toggle"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "यांडेक्स लिंक फिक्स",
+    "description": "Label for the Yandex content script toggle"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "Yandex सामग्री स्क्रिप्ट को सक्षम करें जो Yandex परिणाम लिंक से रीडायरेक्ट ट्रैकिंग को हटा देती है।",
+    "description": "Description for the Yandex content script toggle"
+  },
+  "import_invalid_format": {
+    "message": "अमान्य फ़ाइल स्वरूप या दूषित डेटा",
+    "description": "Error message for invalid file format"
+  },
+  "import_parse_error": {
+    "message": "फ़ाइल को पार्स करने में विफल. कृपया फ़ाइल स्वरूप की जाँच करें.",
+    "description": "Error message when file parsing fails"
+  },
+  "import_read_error": {
+    "message": "फ़ाइल पढ़ने में विफल",
+    "description": "Error message when file reading fails"
+  },
+  "inputUrlsDescription": {
+    "message": "इस टूल से आप यूआरएल पेस्ट कर सकते हैं और क्लियरयूआरएल हरे बटन पर क्लिक करने के बाद यूआरएल साफ कर देगा। आप एक साथ कई यूआरएल पेस्ट कर सकते हैं, लेकिन हर यूआरएल एक अलग लाइन पर होना चाहिए।",
+    "description": "Description text for the input URLs section."
+  },
+  "inputUrlsPlaceholder": {
+    "message": "अपने यूआरएल यहां चिपकाएं, प्रति पंक्ति एक...",
+    "description": "Placeholder text for the input URLs textarea."
+  },
+  "inputUrlsTitle": {
+    "message": "इनपुट यूआरएल",
+    "description": "Title for the input URL section."
+  },
+  "language_selector_description": {
+    "message": "इंटरफ़ेस के लिए अपनी पसंदीदा भाषा चुनें. और सहेजें पर क्लिक करें और पुनः लोड करें। (संख्या का अनुवाद नहीं किया गया है)",
+    "description": "Description text for language selector"
+  },
+  "language_selector_label": {
+    "message": "इंटरफ़ेस भाषा",
+    "description": "Label for language selector dropdown"
+  },
+  "licenseCopied": {
+    "message": "लाइसेंस की प्रतिलिपि बनाई गई!",
+    "description": "Toast message after copying license content"
+  },
+  "licenseDescription": {
+    "message": "यह एक्सटेंशन खुला स्रोत है और जीएनयू लेसर जनरल पब्लिक लाइसेंस के तहत लाइसेंस प्राप्त है।",
+    "description": "Description text for license section"
+  },
+  "licenseDownloaded": {
+    "message": "लाइसेंस डाउनलोड हो गया!",
+    "description": "Toast message after downloading license content"
+  },
+  "licenseSection": {
+    "message": "लाइसेंस जानकारी",
+    "description": "Section header for license information"
+  },
+  "license_links_title": {
+    "message": "लिंक",
+    "description": "Title for links section in license"
+  },
+  "license_third_party_title": {
+    "message": "तृतीय पक्ष घटक",
+    "description": "Title for third party components section"
+  },
+  "license_title": {
+    "message": "लाइसेंस",
+    "description": "License section title"
+  },
+  "loadError": {
+    "message": "सामग्री लोड करने में त्रुटि",
+    "description": "Error title shown when legal/privacy content fails to load"
+  },
+  "loadingContent": {
+    "message": "सामग्री लोड हो रही है...",
+    "description": "Generic loading message for about/legal content areas"
+  },
+  "loadingLicense": {
+    "message": "लाइसेंस लोड हो रहा है...",
+    "description": "Loading text for license content"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "गोपनीयता नीति लोड हो रही है...",
+    "description": "Loading text for privacy policy content"
+  },
+  "local_hosts_skipping": {
+    "message": "स्थानीय होस्ट पर यूआरएल छोड़ें (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, लोकलहोस्ट)",
+    "description": "This string is used as label for the local host skipping switch"
+  },
+  "local_hosts_skipping_description": {
+    "message": "लोकलहोस्ट और स्थानीय नेटवर्क पतों की सफाई छोड़ें।",
+    "description": "Description for the local hosts skipping toggle."
+  },
+  "log_domain_blocked": {
+    "message": "यह डोमेन अवरुद्ध है",
+    "description": "This string is used on blocked domains in the Linkumori (Clean URLS) log."
+  },
+  "log_html_export_button": {
+    "message": "निर्यात",
+    "description": "This string is used for the export button on the log page."
+  },
+  "log_html_export_button_title": {
+    "message": "वैश्विक लॉग निर्यात करता है",
+    "description": "This string is used as title for the export button on the log page."
+  },
+  "log_html_import_button": {
+    "message": "आयात",
+    "description": "This string is used for the import button on the log page."
+  },
+  "log_html_import_button_title": {
+    "message": "वैश्विक लॉग आयात करें",
+    "description": "This string is used as title for the import button on the log page."
+  },
+  "log_html_import_error": {
+    "message": "लॉग फ़ाइल आयात करने में त्रुटि:",
+    "description": "Error message prefix when import fails"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "अमान्य लॉग फ़ाइल स्वरूप.",
+    "description": "Error message when imported file is not valid JSON log format"
+  },
+  "log_html_page_title": {
+    "message": "लिंकुमोरी से लॉग इन करें (यूआरएल साफ़ करें)",
+    "description": "This string is used as header on the log page."
+  },
+  "log_html_reset_button": {
+    "message": "रीसेट करें",
+    "description": "This string is used for the reset button on the log page."
+  },
+  "log_html_reset_button_title": {
+    "message": "वैश्विक लॉग रीसेट करता है",
+    "description": "This string is used as title for the reset button on the log page."
+  },
+  "log_html_reset_confirm": {
+    "message": "क्या आप वाकई लॉग को रीसेट करना चाहते हैं? इस एक्शन को वापस नहीं किया जा सकता।",
+    "description": "Confirmation dialog when user clicks reset button"
+  },
+  "log_html_search": {
+    "message": "खोज",
+    "description": "Label for the search input field"
+  },
+  "log_html_search_placeholder": {
+    "message": "लॉग खोजें...",
+    "description": "Placeholder text in the search input field"
+  },
+  "log_html_show_all": {
+    "message": "सभी",
+    "description": "Option in entries dropdown to show all entries"
+  },
+  "log_html_show_entries": {
+    "message": "प्रविष्टियाँ दिखाएँ",
+    "description": "Label for the dropdown to select how many entries to show per page"
+  },
+  "log_html_table_head_1": {
+    "message": "पहले",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_2": {
+    "message": "बाद",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_3": {
+    "message": "नियम",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_4": {
+    "message": "समय",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_5": {
+    "message": "प्रदाता",
+    "description": "Column header for matched provider name on the log page."
+  },
+  "log_html_table_head_6": {
+    "message": "नमूना",
+    "description": "Column header for matched urlPattern/domainPattern on the log page."
+  },
+  "log_html_table_head_7": {
+    "message": "तरीका",
+    "description": "Column header for request method and provider methods on the log page."
+  },
+  "log_html_table_head_8": {
+    "message": "संसाधन प्रकार",
+    "description": "Column header for request resource type and provider resource types on the log page."
+  },
+  "log_nav_dashboard": {
+    "message": "डैशबोर्ड",
+    "description": "Tab label for dashboard view on log page"
+  },
+  "log_nav_logs": {
+    "message": "लॉग्स",
+    "description": "Tab label for logs view on log page"
+  },
+  "log_ping_blocked": {
+    "message": "इस हाइपरलिंक ऑडिटिंग को अवरुद्ध कर दिया गया था",
+    "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
+  },
+  "log_provider_pattern_domain": {
+    "message": "डोमेनपैटर्न",
+    "description": "Label for domain pattern provider matching in log entries."
+  },
+  "log_provider_pattern_url": {
+    "message": "urlपैटर्न",
+    "description": "Label for URL pattern provider matching in log entries."
+  },
+  "log_provider_request_method": {
+    "message": "तरीका",
+    "description": "Label for the current request method in provider match details."
+  },
+  "log_provider_methods": {
+    "message": "प्रदाता विधियाँ",
+    "description": "Label for provider method filters in provider match details."
+  },
+  "log_redirect": {
+    "message": "यह यूआरएल पुनर्निर्देशित है",
+    "description": "This string is used on redirections in the Linkumori (Clean URLS) log."
+  },
+  "log_stats_changed_urls": {
+    "message": "परिवर्तित यूआरएल",
+    "description": "Stats card label for entries where URL changed"
+  },
+  "log_stats_chart_no_data": {
+    "message": "कोई चार्ट डेटा नहीं",
+    "description": "Empty-state label when no data is available for chart"
+  },
+  "log_stats_chart_reload": {
+    "message": "पुनः लोड करें",
+    "description": "Button label to reload the stats chart and reset pie filters"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "चार्ट पुनः लोड करें और पाई फ़िल्टर रीसेट करें",
+    "description": "Tooltip for reload chart button in log dashboard"
+  },
+  "log_stats_chart_title": {
+    "message": "आँकड़े चार्ट",
+    "description": "Title for selectable chart section in log dashboard"
+  },
+  "log_stats_chart_type": {
+    "message": "चार्ट प्रकार",
+    "description": "Label for chart type selector"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "पाई",
+    "description": "Option label for pie chart"
+  },
+  "log_stats_count_col": {
+    "message": "गिनती करना",
+    "description": "Column header for count in stats tables"
+  },
+  "log_stats_domain_col": {
+    "message": "कार्यक्षेत्र",
+    "description": "Column header for domain name in stats"
+  },
+  "log_stats_earliest": {
+    "message": "सबसे पहले",
+    "description": "Stats card label for earliest timestamp"
+  },
+  "log_stats_latest": {
+    "message": "नवीनतम",
+    "description": "Stats card label for latest timestamp"
+  },
+  "log_stats_no_domains": {
+    "message": "कोई डोमेन नहीं",
+    "description": "Fallback row label when no domains are available in stats"
+  },
+  "log_stats_no_rules": {
+    "message": "कोई नियम नहीं",
+    "description": "Fallback row label when no rules are available in stats"
+  },
+  "log_stats_no_providers": {
+    "message": "कोई प्रदाता नहीं",
+    "description": "Fallback row label when no providers are available in stats"
+  },
+  "log_stats_no_methods": {
+    "message": "कोई विधि नहीं",
+    "description": "Fallback row label when no methods are available in stats"
+  },
+  "log_stats_no_resource_types": {
+    "message": "कोई संसाधन प्रकार नहीं",
+    "description": "Fallback row label when no resource types are available in stats"
+  },
+  "log_stats_rule_col": {
+    "message": "नियम",
+    "description": "Column header for rule name in stats"
+  },
+  "log_stats_provider_col": {
+    "message": "प्रदाता",
+    "description": "Column header for provider name in stats"
+  },
+  "log_stats_method_col": {
+    "message": "तरीका",
+    "description": "Column header for method name in stats"
+  },
+  "log_stats_resource_type_col": {
+    "message": "संसाधन प्रकार",
+    "description": "Column header for resource type in stats"
+  },
+  "log_stats_top_domains": {
+    "message": "शीर्ष डोमेन",
+    "description": "Stats section title for top domains"
+  },
+  "log_stats_top_providers": {
+    "message": "शीर्ष प्रदाता",
+    "description": "Stats section title for top providers"
+  },
+  "log_stats_top_methods": {
+    "message": "शीर्ष विधियाँ",
+    "description": "Stats section title for top methods"
+  },
+  "log_stats_top_resource_types": {
+    "message": "शीर्ष संसाधन प्रकार",
+    "description": "Stats section title for top resource types"
+  },
+  "log_stats_top_rules": {
+    "message": "शीर्ष नियम",
+    "description": "Stats section title for top rules"
+  },
+  "log_stats_total_entries": {
+    "message": "कुल प्रविष्टियां",
+    "description": "Stats card label for total log entries"
+  },
+  "log_stats_unique_domains": {
+    "message": "अद्वितीय डोमेन",
+    "description": "Stats card label for unique source domains"
+  },
+  "log_stats_unique_rules": {
+    "message": "अनोखे नियम",
+    "description": "Stats card label for unique applied rules"
+  },
+  "log_stats_unique_providers": {
+    "message": "अद्वितीय प्रदाता",
+    "description": "Stats card label for unique providers"
+  },
+  "log_stats_unique_methods": {
+    "message": "अनोखे तरीके",
+    "description": "Stats card label for unique methods"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "अद्वितीय संसाधन प्रकार",
+    "description": "Stats card label for unique resource types"
+  },
+  "log_whitelist_bypass": {
+    "message": "छोड़ा गया: डोमेन श्वेतसूची में है",
+    "description": "This string is used in the log when URL cleaning is skipped because the domain is whitelisted."
+  },
+  "moonIconAlt": {
+    "message": "चंद्रमा चिह्न",
+    "description": "Alt text for moon theme icon"
+  },
+  "new_custom_providers_label": {
+    "message": "नया:",
+    "description": "Inline label for new custom provider count."
+  },
+  "nothingToCopy": {
+    "message": "नकल करने के लिए कुछ भी नहीं!",
+    "description": "Toast message when copy action has no content"
+  },
+  "nothingToDownload": {
+    "message": "डाउनलोड करने के लिए कुछ भी नहीं!",
+    "description": "Toast message when download action has no content"
+  },
+  "openSettings": {
+    "message": "लिंकुमोरी सेटिंग्स खोलें"
+  },
+  "overload_mode_enabled": {
+    "message": "ओवरलोड मोड सक्षम करें",
+    "description": "Label for toggle that merges built-in and remote rules together"
+  },
+  "overload_mode_enabled_description": {
+    "message": "सक्षम होने पर, अंतर्निहित और दूरस्थ नियमों को एक साथ लोड किया जाता है और कस्टम नियम लागू करने से पहले विलय कर दिया जाता है।",
+    "description": "Description for overload mode toggle"
+  },
+  "overridden_providers_label": {
+    "message": "ओवरराइड किया गया:",
+    "description": "Inline label for overridden provider count."
+  },
+  "overridden_providers_list_label": {
+    "message": "ओवरराइड प्रदाता:",
+    "description": "Label for overridden provider names list."
+  },
+  "pagination_current_page_aria": {
+    "message": "वर्तमान पृष्ठ, पृष्ठ $1",
+    "description": "Screen reader label for current active page. $1=page number"
+  },
+  "pagination_first": {
+    "message": "पहला",
+    "description": "Button text to go to first page"
+  },
+  "pagination_first_aria": {
+    "message": "पहला पन्ना",
+    "description": "Screen reader label for first page button"
+  },
+  "pagination_last": {
+    "message": "अंतिम",
+    "description": "Button text to go to last page"
+  },
+  "pagination_last_aria": {
+    "message": "आखिरी पन्ना",
+    "description": "Screen reader label for last page button"
+  },
+  "pagination_next": {
+    "message": "अगला",
+    "description": "Button text to go to next page"
+  },
+  "pagination_next_aria": {
+    "message": "अगला पृष्ठ",
+    "description": "Screen reader label for next page button"
+  },
+  "pagination_page_aria": {
+    "message": "पृष्ठ $1",
+    "description": "Screen reader label for numbered page buttons. $1=page number"
+  },
+  "pagination_previous": {
+    "message": "पहले का",
+    "description": "Button text to go to previous page"
+  },
+  "pagination_previous_aria": {
+    "message": "पिछला पृष्ठ",
+    "description": "Screen reader label for previous page button"
+  },
+  "percentage_symbol": {
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
+  },
+  "ping_blocking_enabled": {
+    "message": "हाइपरलिंक ऑडिटिंग को ब्लॉक करें",
+    "description": "This string is used as label for the hyperlink auditing blocking switch"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "ट्रैकिंग के लिए उपयोग किए जाने वाले पिंग अनुरोधों को ब्लॉक करें।",
+    "description": "Description for the ping blocking toggle."
+  },
+  "popup_consent_accept_button": {
+    "message": "स्वीकार करें और जारी रखें",
+    "description": "Button label to accept popup consent gate"
+  },
+  "popup_consent_checkbox": {
+    "message": "मैंने गोपनीयता नीति और लाइसेंस को पढ़ लिया है और स्वीकार कर लिया है।",
+    "description": "Consent checkbox label for popup gate"
+  },
+  "popup_consent_description": {
+    "message": "कृपया इस पॉपअप का उपयोग करने से पहले गोपनीयता नीति और लाइसेंस पढ़ें। हम आपका डेटा एकत्र नहीं करते हैं. सारा डेटा आपके डिवाइस पर संग्रहीत है और हमें प्रेषित नहीं किया जाता है।",
+    "description": "Description for popup consent gate"
+  },
+  "popup_consent_legal_button": {
+    "message": "कानूनी पढ़ें",
+    "description": "Button label to open legal page from popup consent gate"
+  },
+  "popup_consent_title": {
+    "message": "सहमति आवश्यक है",
+    "description": "Title for popup consent gate"
+  },
+  "popup_html_page_title": {
+    "message": "लिंकुमोरी",
+    "description": "Popup page title text"
+  },
+  "popup_html_version_label": {
+    "message": "संस्करण:",
+    "description": "Version label shown in popup license section"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "फ़ायरफ़ॉक्स ऐड-ऑन हस्ताक्षर",
+    "description": "Label shown in popup license section for Firefox add-on signing fingerprint."
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "फ़ायरफ़ॉक्स ऐड-ऑन हस्ताक्षर",
+    "description": "Popup label for Firefox signature value."
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "यह अहस्ताक्षरित होने के कारण अनुपलब्ध है",
+    "description": "Message shown when the add-on package is unsigned and no Mozilla signing digest is available."
+  },
+  "popup_html_version_label_title": {
+    "message": "वर्तमान विस्तार संस्करण",
+    "description": "Tooltip for popup version label"
+  },
+  "popup_html_license_description": {
+    "message": "नीचे दिए गए कानूनी लिंक पर क्लिक करके विस्तृत लाइसेंस और गोपनीयता जानकारी देखें।",
+    "description": "Description in popup license section"
+  },
+  "popup_html_license_description_title": {
+    "message": "लाइसेंस और गोपनीयता की जानकारी",
+    "description": "Tooltip for popup license description"
+  },
+  "popup_html_gpl_link": {
+    "message": "जीएनयू जनरल पब्लिक लाइसेंस v3.0",
+    "description": "Popup license link label for GPL v3"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "GNU GPL v3.0 लाइसेंस टेक्स्ट खोलें",
+    "description": "Tooltip for GPL link in popup license section"
+  },
+  "popup_html_lgpl_link": {
+    "message": "जीएनयू जनरल लेसर पब्लिक लाइसेंस v3.0",
+    "description": "Popup license link label for LGPL v3"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "GNU LGPL v3.0 लाइसेंस टेक्स्ट खोलें",
+    "description": "Tooltip for LGPL link in popup license section"
+  },
+  "popup_html_source_code_repository": {
+    "message": "सोर्स कोड रिपॉजिटरी",
+    "description": "Popup license link label for source code repository"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "ओपन सोर्स कोड रिपॉजिटरी",
+    "description": "Tooltip for source code repository link in popup license section"
+  },
+  "popup_html_source_code_releases": {
+    "message": "स्रोत कोड विज्ञप्ति",
+    "description": "Popup license link label for source code releases"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "ओपन सोर्स कोड रिलीज़",
+    "description": "Tooltip for source code releases link in popup license section"
+  },
+  "popup_html_report_issues": {
+    "message": "मुद्दों की रिपोर्ट करें",
+    "description": "Popup license link label for issue tracker"
+  },
+  "popup_html_report_issues_title": {
+    "message": "इश्यू ट्रैकर खोलें",
+    "description": "Tooltip for report issues link in popup license section"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "ClearURLs MV3 माइग्रेशन रिपॉजिटरी",
+    "description": "Popup license link label for ClearURLs MV3 migration repo"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "ClearURLs MV3 माइग्रेशन रिपॉजिटरी खोलें",
+    "description": "Tooltip for ClearURLs migration repository link in popup license section"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "ClearURLs V1.27.3 रिपॉजिटरी को जोड़ता है",
+    "description": "Popup license link label for ClearURLs addon v1.27.3 repo"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "ClearURLs Addon v1.27.3 रिपॉजिटरी खोलें",
+    "description": "Tooltip for ClearURLs addon repository link in popup license section"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "लिंकुमोरी वि.",
+    "description": "Footer prefix shown on blocked page before version number"
+  },
+  "legal_consent_notice_default": {
+    "message": "नीचे दी गई गोपनीयता नीति और लाइसेंस की समीक्षा करें, फिर लिंकुमोरी का उपयोग जारी रखना स्वीकार करें।",
+    "description": "Default notice text for the legal page consent section"
+  },
+  "legal_consent_notice_update": {
+    "message": "लिंकुमोरी कानूनी शर्तें अद्यतन की गईं। गोपनीयता नीति और लाइसेंस की समीक्षा करें, फिर एक्सटेंशन का उपयोग जारी रखना स्वीकार करें।",
+    "description": "Notice text shown on the legal page after a consent version update"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "नीचे दी गई गोपनीयता नीति और लाइसेंस की समीक्षा करें, फिर लिंकुमोरी की स्थापना समाप्त करने के लिए स्वीकार करें।",
+    "description": "Notice text shown on the legal page during first install"
+  },
+  "legal_consent_notice_import": {
+    "message": "नीचे दी गई गोपनीयता नीति और लाइसेंस की समीक्षा करें, फिर लिंकुमोरी में माइग्रेट करना समाप्त करना स्वीकार करें।",
+    "description": "Notice text shown on the legal page during import or migration"
+  },
+  "legal_consent_status_required": {
+    "message": "सहमति आवश्यक है. जब तक आप वर्तमान कानूनी शर्तों को स्वीकार नहीं कर लेते तब तक लिंकुमोरी को रोक दिया गया है।",
+    "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_accepted": {
+    "message": "सहमति स्वीकार कर ली गयी. लिंकुमोरी वर्तमान कानूनी शर्तों के साथ चल सकता है।",
+    "description": "Status message shown when current legal consent is accepted"
+  },
+  "legal_consent_button_accepted": {
+    "message": "स्वीकृत",
+    "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_saved": {
+    "message": "सहमति स्वीकार कर ली गयी.",
+    "description": "Toast shown after saving legal consent"
+  },
+  "legal_consent_save_failed": {
+    "message": "सहमति सहेजने में विफल.",
+    "description": "Toast shown when saving legal consent fails"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "वर्तमान सहमति नीति संस्करण निर्धारित करने में असमर्थ.",
+    "description": "Error shown when the current consent version is unavailable"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "सहमति कैसे वापस लें",
+    "description": "Button label that opens the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "सहमति वापस लेने का काम एक्सटेंशन को अनइंस्टॉल करके किया जाता है, जैसा कि गोपनीयता नीति में बताया गया है।",
+    "description": "Short note below the legal page consent controls about withdrawing consent"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "सहमति कैसे वापस लें",
+    "description": "Title for the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "आप एक्सटेंशन या ऐड-ऑन को अनइंस्टॉल करके किसी भी समय अपनी सहमति वापस ले सकते हैं।",
+    "description": "Introductory text in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "अनइंस्टॉल करने पर, आपके डिवाइस पर लिंकुमोरी द्वारा स्थानीय रूप से संग्रहीत सभी डेटा स्थायी रूप से और स्वचालित रूप से हटा दिया जाता है। आपकी ओर से अनइंस्टॉल करने के अलावा किसी भी कार्रवाई की आवश्यकता नहीं है।",
+    "description": "Data deletion explanation in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "चूंकि लिंकुमोरी किसी भी डेटा को बाहरी सर्वर पर प्रसारित नहीं करता है, इसलिए हटाने का अनुरोध करने के लिए कोई दूरस्थ डेटा नहीं है।",
+    "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "बंद करना",
+    "description": "Close button label for the withdrawal of consent modal"
+  },
+  "legal_optional_features_heading": {
+    "message": "अक्षम सुविधाएँ जिन्हें आप सक्षम करना चाह सकते हैं",
+    "description": "Heading for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_features_description": {
+    "message": "ये वैकल्पिक सुरक्षाएँ डिफ़ॉल्ट रूप से अक्षम होने लगती हैं। जिन्हें आप चाहते हैं उन्हें चालू करें, फिर लिंकुमोरी को सहेजें और पुनः लोड करें।",
+    "description": "Description for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "अक्षम",
+    "description": "Status badge shown when an optional legal-page feature is disabled"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "सक्रिय",
+    "description": "Status badge shown when an optional legal-page feature is enabled"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "सहेजें पर सक्षम करें",
+    "description": "Status badge shown when an optional legal-page feature will be enabled after saving"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "सहेजने पर अक्षम करें",
+    "description": "Status badge shown when an optional legal-page feature will be disabled after saving"
+  },
+  "legal_optional_features_note": {
+    "message": "परिवर्तन केवल तभी सहेजे जाते हैं जब आप दाईं ओर बटन का उपयोग करते हैं।",
+    "description": "Initial helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_default": {
+    "message": "ये सुविधाएं डिफ़ॉल्ट रूप से अक्षम हैं. आप जो चाहें उसे चालू करें, फिर लिंकुमोरी को सहेजें और पुनः लोड करें।",
+    "description": "Default helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "परिवर्तन लंबित हैं. उन्हें लागू करने के लिए सहेजें और इस कानूनी पृष्ठ को फिर से खोलें।",
+    "description": "Helper note shown when optional legal-page feature changes have not been saved yet"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "अपने वैकल्पिक सुविधा परिवर्तनों को सहेजना और लिंकुमोरी को पुनः लोड करना।",
+    "description": "Helper note shown while optional legal-page feature changes are being saved"
+  },
+  "legal_optional_features_save_button": {
+    "message": "लिंकुमोरी को सहेजें और पुनः लोड करें",
+    "description": "Save button label for optional legal-page feature toggles"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "वैकल्पिक सुविधा परिवर्तन सहेजने में विफल.",
+    "description": "Error toast shown when optional legal-page feature changes fail to save"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "बैज",
+    "description": "This string is used as name for the badges switch button on the popup page."
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "फ़िल्टर",
+    "description": "This string is used as name for the filter switch button on the popup page."
+  },
+  "popup_html_configs_switch_log": {
+    "message": "लॉगिंग",
+    "description": "This string is used as name for the logging switch button on the popup page."
+  },
+  "popup_html_log_head": {
+    "message": "लॉग देखें",
+    "description": "This string is used as name for the log button on the popup page."
+  },
+  "popup_html_settings_button": {
+    "message": "सेटिंग्स",
+    "description": "This string is used for the settings button on the popup page."
+  },
+  "popup_html_statistics": {
+    "message": "आंकड़े",
+    "description": "Toggle label for statistics feature"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "अवरोधित",
+    "description": "This string is used as name for the blocked elements on the popup page."
+  },
+  "popup_html_statistics_elements": {
+    "message": "तत्वों",
+    "description": "This string is used as name for the elements on the popup page."
+  },
+  "popup_html_statistics_percentage": {
+    "message": "को PERCENTAGE",
+    "description": "This string is used as name for the percentage of blocked elements on the popup page."
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "रीसेट करें",
+    "description": "This string is used as name for the statistics reset button on the popup page."
+  },
+  "popup_html_tools_button": {
+    "message": "औजार",
+    "description": "This string is used for the tools button on the popup page."
+  },
+  "popup_html_tools_button_title": {
+    "message": "सफाई उपकरण खोलें",
+    "description": "This string is used as a title for the tools button on the popup page."
+  },
+  "popup_html_whitelist_button": {
+    "message": "श्वेतसूची",
+    "description": "This string is used for the whitelist button on the popup page."
+  },
+  "popup_nav_license": {
+    "message": "लाइसेंस",
+    "description": "Navigation label for license section"
+  },
+  "popup_nav_main": {
+    "message": "मुख्य",
+    "description": "Navigation label for main content section"
+  },
+  "privacyCopied": {
+    "message": "गोपनीयता नीति की प्रतिलिपि बनाई गई!",
+    "description": "Toast message after copying privacy policy content"
+  },
+  "privacyDescription": {
+    "message": "कृपया नीचे हमारी गोपनीयता नीति की समीक्षा करें।",
+    "description": "Description text for privacy policy section"
+  },
+  "privacyDownloaded": {
+    "message": "गोपनीयता नीति डाउनलोड की गई!",
+    "description": "Toast message after downloading privacy policy content"
+  },
+  "privacyPolicySection": {
+    "message": "गोपनीयता नीति",
+    "description": "Section header for privacy policy"
+  },
+  "privacyVersionDescription": {
+    "message": "चुनें कि आप गोपनीयता नीति का कौन सा अनुवाद देखना चाहते हैं। कृपया ध्यान दें कि अभी केवल अंग्रेजी संस्करण उपलब्ध है, और भविष्य में अन्य भाषाओं को जोड़ा जा सकता है।",
+    "description": "Helper description for privacy version selector"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "English",
+    "description": "Option label for global English privacy policy file"
+  },
+  "privacyVersionLabel": {
+    "message": "गोपनीयता नीति",
+    "description": "Label for selecting English privacy policy version"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "चयनित नीति फ़ाइल नहीं मिली. इसके बजाय डिफ़ॉल्ट गोपनीयता नीति लोड की गई।",
+    "description": "Notification shown when selected privacy version file cannot be loaded"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "गोपनीयता नीति संस्करण मानचित्र लोड करने में विफल.",
+    "description": "Notification shown when privacy version mapping config cannot be loaded"
+  },
+  "providerImport_bundledRules": {
+    "message": "सक्रिय बंडल/दूरस्थ नियम/कस्टम नियम",
+    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  },
+  "providerImport_button": {
+    "message": "प्रदाताओं को आयात/अक्षम करें",
+    "description": "Button text to import selected providers"
+  },
+  "providerImport_clearSelection": {
+    "message": "स्पष्ट",
+    "description": "Button text to clear all selected providers."
+  },
+  "providerImport_complete": {
+    "message": "पूरा"
+  },
+  "providerImport_completeProvider": {
+    "message": "पूर्ण प्रदाता"
+  },
+  "providerImport_completed": {
+    "message": "आयात पूरा हुआ!"
+  },
+  "providerImport_confirmExclude": {
+    "message": "क्या इस प्रदाता के हस्ताक्षर को बाहर रखा गया है? मेल खाने वाले यूआरएल/डोमेन पैटर्न प्रदाताओं को कस्टम नियमों से छिपा दिया जाएगा और हटा दिया जाएगा।",
+    "description": "Confirmation shown before excluding a provider signature from import"
+  },
+  "providerImport_disableSelected": {
+    "message": "चयनित अक्षम करें",
+    "description": "Button text to disable selected providers by signature"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "$1 चयनित प्रदाताओं के लिए हस्ताक्षर अक्षम करें?",
+    "description": "Confirmation before disabling selected providers in batch. $1 is selected count"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "अक्षम हस्ताक्षर: $1। मेल खाने वाले कस्टम प्रदाता हटा दिए गए: $2।",
+    "description": "Batch disable result. $1 is disabled signature count and $2 removed custom provider count"
+  },
+  "providerImport_disabledClear": {
+    "message": "सभी साफ करें",
+    "description": "Button label to clear all excluded signatures for selected source"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "सभी विकलांग नियम साफ़ करें",
+    "description": "Button label to clear all disabled signatures from all sources"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "सभी स्रोतों से सभी अक्षम हस्ताक्षर साफ़ करें?",
+    "description": "Confirmation before clearing all disabled signatures globally"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "इस स्रोत के लिए सभी अक्षम हस्ताक्षर साफ़ करें?",
+    "description": "Confirmation before clearing disabled signatures for selected source"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "कोई अक्षम हस्ताक्षर नहीं",
+    "description": "Empty state text when no disabled signatures exist for selected source"
+  },
+  "providerImport_disabledRestore": {
+    "message": "पुनर्स्थापित करना",
+    "description": "Button label to restore an excluded signature"
+  },
+  "providerImport_disabledTitle": {
+    "message": "विकलांग नियम",
+    "description": "Title for disabled provider signature list in provider import sidebar"
+  },
+  "providerImport_domainExceptions": {
+    "message": "डोमेन अपवाद",
+    "description": "Full text for domain exceptions tooltip in provider cards"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "डी.ई",
+    "description": "Abbreviation for domain exceptions count in provider cards"
+  },
+  "providerImport_domainPatterns": {
+    "message": "डोमेन पैटर्न",
+    "description": "Full text for domain patterns tooltip in provider cards"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "डी पी",
+    "description": "Abbreviation for domain patterns count in provider cards"
+  },
+  "providerImport_domainRedirections": {
+    "message": "डोमेन पुनर्निर्देशन",
+    "description": "Full text for domain redirections tooltip in provider cards"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "डॉ",
+    "description": "Abbreviation for domain redirections count in provider cards"
+  },
+  "providerImport_exceptions": {
+    "message": "अपवाद"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "अतिरिक्त"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "इस प्रदाता के पास कोई यूआरएल/डोमेन पैटर्न नहीं है और इसे हस्ताक्षर द्वारा बाहर नहीं किया जा सकता है।",
+    "description": "Shown when user tries to exclude a provider without URL/domain patterns"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "प्रदाता के हस्ताक्षर को बाहर रखा गया. $1 मेल खाने वाले कस्टम प्रदाता को हटा दिया गया।",
+    "description": "Success message after excluding a provider signature. $1 is removed custom count"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(कस्टम में मौजूद है)"
+  },
+  "providerImport_failed": {
+    "message": "प्रदाताओं को आयात करने में विफल: $1"
+  },
+  "providerImport_import": {
+    "message": "आयात चयनित"
+  },
+  "providerImport_importedCount": {
+    "message": "आयातित: $1 प्रदाता"
+  },
+  "providerImport_importedRulesCount": {
+    "message": "आयातित: $1 नियम",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_importing": {
+    "message": "आयात किया जा रहा है..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "मौजूदा Linkumori इंटरऑपरेबिलिटी नियम",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
+  },
+  "providerImport_loading": {
+    "message": "प्रदाता लोड हो रहे हैं...",
+    "description": "Displayed while providers are being loaded into the grid."
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "$1 नियमों के लिए कोई प्रदाता उपलब्ध नहीं है"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "$1 नियमों में कोई प्रदाता नहीं मिला"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "आयात के लिए कोई नियम उपलब्ध नहीं है"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "कोई यूआरएल पैटर्न नहीं"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "अधिलेखित: $1 प्रदाता"
+  },
+  "providerImport_rawRules": {
+    "message": "कच्चे नियम",
+    "description": "Full text for raw rules tooltip in provider cards"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "कच्चा",
+    "description": "Abbreviation for raw rules count in provider cards"
+  },
+  "providerImport_redirections": {
+    "message": "पुनर्निर्देशन"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "लाल"
+  },
+  "providerImport_referralAbbr": {
+    "message": "रेफरी",
+    "description": "Abbreviation for referral marketing count in provider cards"
+  },
+  "providerImport_referralMarketing": {
+    "message": "रेफरल मार्केटिंग",
+    "description": "Full text for referral marketing tooltip in provider cards"
+  },
+  "providerImport_rules": {
+    "message": "नियम"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "नियम",
+    "description": "Abbreviation for rules count in provider cards"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "प्रदाता खोजें...",
+    "description": "Placeholder text in the search input field to filter providers."
+  },
+  "providerImport_selectAll": {
+    "message": "सबका चयन करें",
+    "description": "Button text to select all providers in the list/grid."
+  },
+  "providerImport_selectedCount": {
+    "message": "$1 चयनित"
+  },
+  "providerImport_skippedCount": {
+    "message": "छोड़ा गया: $1 प्रदाता"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "छोड़े गए: $1 नियम",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_sources": {
+    "message": "नियम स्रोत",
+    "description": "Heading for the sidebar that lists available rule sources."
+  },
+  "providerImport_title": {
+    "message": "प्रदाताओं को आयात या अक्षम करें",
+    "description": "Title of the provider import modal dialog."
+  },
+  "providerList_button": {
+    "message": "सभी कस्टम प्रदाताओं की सूची बनाएं और खोजें",
+    "description": "Button text to open the provider list modal"
+  },
+  "providerList_complete": {
+    "message": "पूरा",
+    "description": "Label indicating a provider is a complete provider"
+  },
+  "providerList_confirmDelete": {
+    "message": "क्या आप वाकई प्रदाता \"$1\" को हटाना चाहते हैं?",
+    "description": "Confirmation message when deleting a provider",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "प्रतिलिपि",
+    "description": "Suffix added to provider names when duplicating (e.g., 'Google_Copy')"
+  },
+  "providerList_createFirst": {
+    "message": "प्रथम प्रदाता बनाएँ",
+    "description": "Button text to create the first provider when none exist"
+  },
+  "providerList_delete": {
+    "message": "मिटाना",
+    "description": "Button text to delete a provider"
+  },
+  "providerList_deleteFailed": {
+    "message": "प्रदाता को हटाने में विफल. कृपया पुन: प्रयास करें।",
+    "description": "Error message when provider deletion fails"
+  },
+  "providerList_deleteTooltip": {
+    "message": "प्रदाता हटाएँ",
+    "description": "Tooltip text for the delete provider button"
+  },
+  "providerList_duplicate": {
+    "message": "प्रतिलिपि",
+    "description": "Button text to duplicate/copy a provider"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "डुप्लिकेट प्रदाता",
+    "description": "Tooltip text for the duplicate provider button"
+  },
+  "providerList_edit": {
+    "message": "संपादन करना",
+    "description": "Button text to edit a provider"
+  },
+  "providerList_editTooltip": {
+    "message": "प्रदाता संपादित करें",
+    "description": "Tooltip text for the edit provider button"
+  },
+  "providerList_exceptions": {
+    "message": "अपवाद",
+    "description": "Label for exceptions count in provider statistics"
+  },
+  "providerList_noProvidersFound": {
+    "message": "कोई कस्टम प्रदाता नहीं मिला.",
+    "description": "Message shown when there are no custom providers to display"
+  },
+  "providerList_noUrlPattern": {
+    "message": "कोई यूआरएल पैटर्न नहीं",
+    "description": "Text shown when a provider has no URL pattern defined"
+  },
+  "providerList_rawRules": {
+    "message": "कच्चे नियम",
+    "description": "Label for raw rules count in provider statistics"
+  },
+  "providerList_redirections": {
+    "message": "पुनर्निर्देशन",
+    "description": "Label for redirections count in provider statistics"
+  },
+  "providerList_referral": {
+    "message": "रेफ़रल",
+    "description": "Label for referral marketing count in provider statistics"
+  },
+  "providerList_rules": {
+    "message": "नियम",
+    "description": "Label for rules count in provider statistics"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "प्रदाता खोजें...",
+    "description": "Placeholder text for the provider search input"
+  },
+  "providerList_title": {
+    "message": "सभी प्रदाता",
+    "description": "Title of the provider list modal"
+  },
+  "referral_marketing_enabled": {
+    "message": "रेफरल मार्केटिंग की अनुमति दें",
+    "description": "This string is used as label for the referral marketing switch"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "रेफ़रल और संबद्ध ट्रैकिंग पैरामीटर हटाएँ.",
+    "description": "Description for the referral marketing toggle."
+  },
+  "redirection_enabled": {
+    "message": "तृतीय-पक्ष रीडायरेक्ट बाईपास सक्षम करें",
+    "description": "Label for the toggle that enables regex redirections and domain redirections"
+  },
+  "redirection_enabled_description": {
+    "message": "बंडल, रिमोट और कस्टम नियमों से रेगेक्स पुनर्निर्देशन और डोमेन पुनर्निर्देशन का उपयोग करके तृतीय-पक्ष बिचौलिए पुनर्निर्देशन और यूआरएल को ट्रैक करने से बचें। यदि आवश्यक हो तो पहले ऑडिट नियम, फिर उन्हें व्यक्तिगत रूप से संपादित करने या ओवरराइड करने के लिए कस्टम नियम संपादक का उपयोग करें।",
+    "description": "Description for the toggle that enables or disables redirection handling"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "लाइन $LINE$: अपेक्षित \"ruleURL | hashURL\"",
+    "description": "Validation message when an additional remote rule set line is malformed.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "लाइन $LINE$: अमान्य HTTPS हैश URL",
+    "description": "Validation message when additional remote hash URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "लाइन $LINE$: अमान्य HTTPS नियम URL",
+    "description": "Validation message when additional remote rule URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "दूरस्थ नियम अक्षम हैं. दूरस्थ नियम URL को कॉन्फ़िगर करने के लिए नीचे दिए गए टॉगल को सक्षम करें।",
+    "description": "Description shown when remote rules are disabled"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "दूरस्थ नियम अक्षम - सक्षम करने के लिए नीचे टॉगल करें",
+    "description": "Placeholder text shown when remote rules are disabled"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "सुरक्षा चेतावनी: द्वारपाल अक्षम है. दूरस्थ URL फ़ील्ड तक पहुँचने के लिए दूरस्थ नियम सक्षम करें।",
+    "description": "Alert shown when Gatekeeper is disabled while remote rules are turned off."
+  },
+  "remote_rules_enabled": {
+    "message": "दूरस्थ नियम सक्षम करें",
+    "description": "Label for the toggle that enables or disables remote rule fetching"
+  },
+  "remote_rules_enabled_description": {
+    "message": "एक्सटेंशन को दूरस्थ सर्वर से नियम लाने की अनुमति दें। अक्षम होने पर, केवल बंडल किए गए नियमों का उपयोग किया जाएगा।",
+    "description": "Description for the remote rules enabled toggle"
+  },
+  "remote_rules_loaded": {
+    "message": "केवल दूरस्थ नियम लोड किए गए",
+    "description": "Message shown when remote rules are loaded"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "दूरस्थ नियम केवल स्व-होस्ट किए गए सर्वर तक ही सीमित हैं। तृतीय-पक्ष URL का उपयोग न करें.",
+    "description": "Notice explaining remote rules restrictions"
+  },
+  "remote_rules_security_notice": {
+    "message": "सुरक्षा सूचना: केवल उन्हीं यूआरएल का उपयोग करें जिनके आप मालिक हैं और जिन्हें आप नियंत्रित करते हैं",
+    "description": "Small security notice near URL fields"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "सेटिंग्स परिवर्तन लंबित है. आवेदन करने के लिए सहेजें पर क्लिक करें.",
+    "description": "Status message shown after toggling a setting that will apply when the user clicks Save."
+  },
+  "removeDomainFromWhitelist": {
+    "message": "$1 को श्वेतसूची से हटाएँ",
+    "description": "Button label to remove a domain from the whitelist. $1 is replaced with the domain."
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
+  },
+  "rules_author_label": {
+    "message": "लेखक:",
+    "description": "Label for the author of the rules dataset"
+  },
+  "rules_composition_label": {
+    "message": "प्रदाता संरचना:",
+    "description": "Section label for provider composition details."
+  },
+  "rules_disabled_providers_label": {
+    "message": "विकलांग प्रदाता:",
+    "description": "Label for the number of disabled provider signatures"
+  },
+  "rules_hash_status_label": {
+    "message": "लोड स्थिति:",
+    "description": "Label for the current loading status of the rules"
+  },
+  "rules_last_updated_label": {
+    "message": "आखरी अपडेट:",
+    "description": "Label for the last update date of the rules dataset"
+  },
+  "rules_license_label": {
+    "message": "लाइसेंस:",
+    "description": "Label for the license of the rules dataset"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "मर्ज किए गए दूरस्थ नियम",
+    "description": "Display name for merged remote rules metadata in settings."
+  },
+  "rules_metadata_section": {
+    "message": "नियमों की जानकारी:",
+    "description": "Section header for rules metadata information"
+  },
+  "rules_name_label": {
+    "message": "नियम का नाम:",
+    "description": "Label for the name of the rules dataset"
+  },
+  "rules_source_bundled": {
+    "message": "बंडल",
+    "description": "Source text when bundled rules are active."
+  },
+  "rules_source_bundled_fallback": {
+    "message": "बंडल फ़ॉलबैक",
+    "description": "Source text when bundled fallback rules are active."
+  },
+  "rules_source_fallback": {
+    "message": "मैदान छोड़ना",
+    "description": "Source text when minimal fallback rules are active."
+  },
+  "rules_source_label": {
+    "message": "स्रोत:",
+    "description": "Label for current active rules source."
+  },
+  "rules_source_remote": {
+    "message": "दूर",
+    "description": "Source text when remote rules are active."
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "रिमोट + बिल्ट-इन (विलयित)",
+    "description": "Source text when remote and built-in rules are merged."
+  },
+  "rules_status_active": {
+    "message": "सक्रिय",
+    "description": "Value for active rules status."
+  },
+  "rules_status_error": {
+    "message": "नियम लोड करने में त्रुटि",
+    "description": "Value for when rules fail to load."
+  },
+  "rules_status_label": {
+    "message": "स्थिति:",
+    "description": "Label for rules status."
+  },
+  "rules_status_not_loaded": {
+    "message": "कोई नियम लोड नहीं किया गया",
+    "description": "Value for when no rules are loaded."
+  },
+  "rules_total_providers_label": {
+    "message": "कुल प्रदाता:",
+    "description": "Label for the total number of rule providers (bundled + custom)"
+  },
+  "rules_total_rules_label": {
+    "message": "कुल नियम:",
+    "description": "Label for total rules count."
+  },
+  "rules_version_label": {
+    "message": "नियम संस्करण:",
+    "description": "Label for the version of the rules dataset"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "श्वेतसूची डोमेन जोड़ने, संपादित करने या हटाने के लिए",
+    "description": "Recommendation text in rules information section for whitelist management."
+  },
+  "rules_whitelist_open_editor": {
+    "message": "यहाँ क्लिक करें",
+    "description": "Link text to open custom rules editor from rules information section."
+  },
+  "rules_whitelist_total_label": {
+    "message": "कुल श्वेतसूची डोमेन:",
+    "description": "Label for total whitelist domain count in rules information section."
+  },
+  "save_invalid_hash_url": {
+    "message": "अमान्य हैश यूआरएल प्रारूप",
+    "description": "Validation message when primary hash URL is not a valid URL."
+  },
+  "save_invalid_rule_url": {
+    "message": "अमान्य नियम URL प्रारूप",
+    "description": "Validation message when primary rule URL is not a valid URL."
+  },
+  "save_primary_hash_https_required": {
+    "message": "प्राथमिक हैश URL को HTTPS का उपयोग करना चाहिए",
+    "description": "Validation message when primary hash URL is not HTTPS."
+  },
+  "save_primary_remote_pair_required": {
+    "message": "प्राथमिक हैश URL की आवश्यकता केवल तभी होती है जब प्राथमिक नियम Linkumori (ClearURLs 2.0) JSON नियम को इंगित करता है।",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "प्राथमिक नियम URL को HTTPS का उपयोग करना चाहिए",
+    "description": "Validation message when primary rule URL is not HTTPS."
+  },
+  "security_confirmation_cancelled": {
+    "message": "सुरक्षा पुष्टिकरण रद्द कर दिया गया",
+    "description": "Status message when user cancels confirmation modal"
+  },
+  "security_confirmation_phrase": {
+    "message": "मैं पूरी जिम्मेदारी स्वीकार करता हूं",
+    "description": "The exact phrase users must type to confirm (can be localized)"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "सुरक्षा पुष्टि आवश्यक है",
+    "description": "Placeholder text shown in URL fields before security confirmation"
+  },
+  "security_confirmation_reset": {
+    "message": "सुरक्षा पुष्टिकरण रीसेट कर दिया गया है",
+    "description": "Status message when security confirmation is reset"
+  },
+  "security_confirmation_session_success": {
+    "message": "सुरक्षा पुष्टिकरण सफल",
+    "description": "Message shown when security confirmation is successful"
+  },
+  "security_confirmation_tooltip": {
+    "message": "सुरक्षा पुष्टिकरण आवश्यक - आरंभ करने के लिए क्लिक करें",
+    "description": "Tooltip text for the security confirmation icon next to remote URLs"
+  },
+  "security_modal_advanced_warning": {
+    "message": "चेतावनी: उन्नत सुविधा केवल स्व-होस्ट किए गए सर्वर के लिए है",
+    "description": "Main warning banner text in security modal"
+  },
+  "security_modal_cancel": {
+    "message": "मैं आगे नहीं बढ़ना चाहता - रद्द करें",
+    "description": "Cancel button text in security modal"
+  },
+  "security_modal_cancelled": {
+    "message": "सुरक्षा के लिए रिमोट यूआरएल कॉन्फ़िगरेशन रद्द कर दिया गया",
+    "description": "Status message when user cancels security modal"
+  },
+  "security_modal_continue": {
+    "message": "मैं जोखिमों को समझता हूं - जारी रखें",
+    "description": "Continue button text in security modal"
+  },
+  "security_modal_final_warning": {
+    "message": "यदि आप पूरी तरह से नहीं समझते हैं कि आपका स्रोत Linkumori (ClearURLs 2.0) JSON नियमसेट है या Linkumori URL फ़िल्टर इंटरऑपरेबिलिटी सूची है तो आपको दूरस्थ नियमों का उपयोग करने पर पुनर्विचार करना चाहिए।",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "यह दूरस्थ नियम सुविधा उन्नत उपयोगकर्ताओं के लिए डिज़ाइन की गई है जो उनके द्वारा लोड किए जा रहे स्रोत प्रारूप को समझते हैं। Linkumori (ClearURLs 2.0) JSON दूरस्थ नियमों को सत्यापन के लिए मिलान हैश URL की आवश्यकता होती है। Linkumori URL फ़िल्टर इंटरऑपरेबिलिटी सूचियाँ बिना हैश URL के लोड की जा सकती हैं और अलग से संग्रहीत की जाती हैं।",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "यदि आप एक दूरस्थ नियम URL जोड़ते हैं, तो एक्सटेंशन या तो Linkumori (ClearURLs 2.0) JSON नियमसेट, कॉन्फ़िगर होने पर इसकी हैश फ़ाइल, या Linkumori लाने के लिए आपके निर्दिष्ट सर्वर से कनेक्ट हो जाएगा। URL अंतरसंचालनीयता सूची फ़िल्टर करें। प्रत्येक फ़ेच आपके IP पते और सामान्य जानकारी जैसे एक्सटेंशन संस्करण, ब्राउज़र और ब्राउज़र संस्करण को होस्टिंग सर्वर पर प्रदर्शित कर सकता है। यह डेटा उस वेबसाइट या वेब सर्वर की गोपनीयता नीति के अधीन है।",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "यदि आवश्यक हो तो जारी रखने से पहले %PRIVACY_POLICY_LINK% को दोबारा पढ़ें।",
+    "description": "Follow-up sentence in the remote rules warning modal with a privacy policy link placeholder"
+  },
+  "security_modal_privacy_title": {
+    "message": "चेतावनी प्रपत्र:",
+    "description": "Header for privacy notice section"
+  },
+  "security_modal_recommendation": {
+    "message": "जब तक आप दूरस्थ स्रोत पर भरोसा और नियंत्रण नहीं करते, तब तक अंतर्निहित नियमों का उपयोग करें। Linkumori (ClearURLs 2.0) JSON नियमों के लिए, एक मिलान हैश URL प्रदान करें। इंटरऑपरेबिलिटी फ़िल्टर सूचियों के लिए, हैश URL को खाली छोड़ दें।",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "आपका आईपी पता और ब्राउज़र जानकारी कॉन्फ़िगर किए गए सर्वर के सामने आ जाएगी",
+    "description": "First security risk point"
+  },
+  "security_modal_risk_2": {
+    "message": "यदि नियम स्रोत से छेड़छाड़ की गई है, तो आपके ब्राउज़र पर दुर्भावनापूर्ण नियम प्रस्तुत किए जा सकते हैं",
+    "description": "Second security risk point"
+  },
+  "security_modal_risk_3": {
+    "message": "हैश सत्यापन केवल Linkumori (ClearURLs 2.0) JSON नियमों पर लागू होता है; यह ट्रांसमिशन छेड़छाड़ से बचाता है, दुर्भावनापूर्ण नियम स्रोतों से नहीं।",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "इंटरऑपरेबिलिटी फ़िल्टर सूचियाँ हैश सत्यापन का उपयोग नहीं करती हैं, इसलिए स्रोत URL पर भरोसा विशेष रूप से महत्वपूर्ण है।",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "सुरक्षा जोखिम:",
+    "description": "Header for security risks section"
+  },
+  "security_modal_title": {
+    "message": "दूरस्थ नियम सुरक्षा चेतावनी",
+    "description": "Title for the security disclaimer modal"
+  },
+  "setting_hash_url_description": {
+    "message": "नियम सत्यापन के लिए हैश फ़ाइल URL:",
+    "description": "Description for the custom hash URL input field"
+  },
+  "setting_hash_url_label": {
+    "message": "नियम.हैश फ़ाइल का यूआरएल (हैश)",
+    "description": "This string is used as name for the rule.hash url label."
+  },
+  "setting_hash_url_mandatory": {
+    "message": "ClearURLs JSON दूरस्थ नियमों के लिए आवश्यक। लोकप्रिय एक्सटेंशन URL ट्रैकिंग फ़िल्टर सूचियों को खाली छोड़ दें।",
+    "description": "Description for hash URL field explaining when it is required"
+  },
+  "setting_html_export_button": {
+    "message": "निर्यात",
+    "description": "This string is used as name for the export button on the settings page."
+  },
+  "setting_html_export_button_title": {
+    "message": "सब कुछ निर्यात करता है",
+    "description": "This string is used as title for the export button on the settings page."
+  },
+  "setting_html_import_button": {
+    "message": "आयात",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_import_button_title": {
+    "message": "सब कुछ आयात करता है",
+    "description": "This string is used as title for the import button on the settings page."
+  },
+  "setting_html_reset_button": {
+    "message": "रीसेट करें",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_reset_button_title": {
+    "message": "सब कुछ रीसेट करता है",
+    "description": "This string is used as title for the reset button on the settings page."
+  },
+  "setting_html_audit_button": {
+    "message": "अंकेक्षण",
+    "description": "This string is used as name for the audit button on the settings page."
+  },
+  "setting_html_audit_button_title": {
+    "message": "ऑडिट पेज खोलें",
+    "description": "This string is used as title for the audit button on the settings page."
+  },
+  "setting_log_limit_label": {
+    "message": "लॉग को $LIMIT$ प्रविष्टियों तक सीमित करें।",
+    "description": "This string is used as name for the log limit label.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "लॉग सीमा (0-5000)",
+    "description": "Label for the log limit input field."
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "अतिरिक्त दूरस्थ स्रोतों को एक साथ मिला दिया गया। ClearURLs JSON के लिए <code>ruleURL | hashURL</code> का उपयोग करें, या लोकप्रिय एक्सटेंशन URL ट्रैकिंग सूचियों के लिए केवल <code>ruleURL</code> का उपयोग करें।",
+    "description": "Description for additional remote rule sources."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "अतिरिक्त दूरस्थ नियम सेट",
+    "description": "Label for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
+  },
+  "setting_rule_url_description": {
+    "message": "ClearURLs JSON नियम या लोकप्रिय एक्सटेंशन URL ट्रैकिंग फ़िल्टर के लिए कस्टम रिमोट URL",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "data.json फ़ाइल का यूआरएल (नियम) या .txt (लोकप्रिय के लिए)",
+    "description": "This string is used as name for the rule url label."
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "नोट: हैश URL केवल ClearURLs JSON दूरस्थ नियमों के लिए अनिवार्य है। लोकप्रिय एक्सटेंशन URL ट्रैकिंग सूचियाँ Linkumori URL फ़िल्टर के रूप में अलग से संग्रहीत की जाती हैं।",
+    "description": "Note about when hash URL is mandatory"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>अनुरोध प्रकार</a> (विशेषज्ञ स्तर)",
+    "description": "This string is used as name for the types label."
+  },
+  "settings_html_page_title": {
+    "message": "लिंकुमोरी (स्वच्छ यूआरएल) सेटिंग्स",
+    "description": "This string is used as title on the settings page."
+  },
+  "settings_html_save_button": {
+    "message": "ऐडऑन को सहेजें और पुनः लोड करें",
+    "description": "This string is used as name for the save&reload button on the settings page."
+  },
+  "settings_html_save_button_title": {
+    "message": "सेटिंग्स सहेजता है",
+    "description": "This string is used as title for the save&reload button on the settings page."
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "आयातित बैज का रंग #FFA500 है। क्या आप लिंकुमोरी ब्लू (#2563ईबी) पर स्विच करना चाहते हैं?",
+    "description": "Prompt shown during ClearURLs import when old orange badge color is detected."
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "आप ClearURLs बैकअप आयात कर रहे हैं। लिंकुमोरी संगत सेटिंग्स आयात करेगा और ClearURLsData को छोड़ देगा। जारी रखना?",
+    "description": "Confirmation shown when importing legacy ClearURLs JSON files."
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "इस ClearURLs बैकअप में दूरस्थ नियम स्रोत सेटिंग्स शामिल हैं। क्या आप अब रिमोट रूल्स टॉगल को सक्षम करना चाहते हैं?",
+    "description": "Second confirmation shown for ClearURLs imports when remote rule URLs are present."
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "आपके ClearURLs आयात से रिमोट रूल्स टॉगल सक्षम किया गया था। कृपया सेटिंग्स खोलें और अपने अंतिम रिमोट कॉन्फ़िगरेशन की पुष्टि करने के लिए मैन्युअल रूप से सहेजें पर क्लिक करें।",
+    "description": "Notice shown after user enables remote rules during ClearURLs import."
+  },
+  "settings_import_confirm": {
+    "message": "क्या आप वाकई सेटिंग्स आयात करना चाहते हैं? यह आपके वर्तमान को अधिलेखित कर देगा"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "आयात मेटाडेटा अधूरा है",
+    "description": "Shown when import metadata is present but missing expected fields."
+  },
+  "settings_import_invalid_file": {
+    "message": "अमान्य फ़ाइल चयनित",
+    "description": "Shown when imported settings file is invalid."
+  },
+  "settings_import_invalid_format": {
+    "message": "अमान्य सेटिंग प्रारूप",
+    "description": "Shown when imported settings data cannot be parsed as expected."
+  },
+  "settings_import_no_data": {
+    "message": "फ़ाइल में कोई आयात योग्य सेटिंग नहीं मिली",
+    "description": "Shown when parsed file has no supported settings keys."
+  },
+  "settings_import_no_file": {
+    "message": "कोई फ़ाइल चयनित नहीं",
+    "description": "Shown when import is triggered without selecting a file."
+  },
+  "settings_import_parse_error": {
+    "message": "सेटिंग फ़ाइल को पार्स करने में विफल",
+    "description": "Shown when JSON parsing fails for imported file."
+  },
+  "settings_import_read_error": {
+    "message": "सेटिंग फ़ाइल पढ़ने में विफल",
+    "description": "Shown when browser cannot read the selected file."
+  },
+  "settings_import_wrong_extension": {
+    "message": "कृपया एक मान्य Linkumori/ClearURLs सेटिंग फ़ाइल चुनें (.json या .conf)",
+    "description": "Shown when imported settings file does not match supported Linkumori or ClearURLs formats."
+  },
+  "settings_imported": {
+    "message": "सेटिंग्स सफलतापूर्वक आयात की गईं"
+  },
+  "statistics_reset_success": {
+    "message": "रीसेट सफल!",
+    "description": "This string is used as feedback after the statistics have been reset."
+  },
+  "status_builtinOnly": {
+    "message": "केवल अंतर्निहित नियम"
+  },
+  "status_color_picker_failed": {
+    "message": "रंग चयनकर्ता आरंभ करने में विफल",
+    "description": "Error message when color picker fails to load"
+  },
+  "status_customFailed": {
+    "message": "कस्टम नियम विफल"
+  },
+  "status_customMerged": {
+    "message": "कस्टम नियम मर्ज किए गए (डिफ़ॉल्ट + कस्टम)"
+  },
+  "status_deleteFailed": {
+    "message": "हटाना विफल"
+  },
+  "status_invalidJson": {
+    "message": "अमान्य JSON"
+  },
+  "status_language_changed_success": {
+    "message": "भाषा सफलतापूर्वक $1 में बदल गई",
+    "description": "Success message when language is changed. $1 is the native language name"
+  },
+  "status_load_settings_failed": {
+    "message": "सेटिंग्स लोड करने में विफल",
+    "description": "Status message when settings fail to load."
+  },
+  "status_loading": {
+    "message": "लोड हो रहा है..."
+  },
+  "status_reset_failed": {
+    "message": "सेटिंग्स रीसेट करने में विफल",
+    "description": "Status message when settings reset fails."
+  },
+  "status_reset_successful": {
+    "message": "सेटिंग्स सफलतापूर्वक रीसेट हो गईं",
+    "description": "Status message shown after settings have been reset."
+  },
+  "status_resetting_settings": {
+    "message": "सेटिंग्स रीसेट की जा रही हैं...",
+    "description": "Status message shown while settings are being reset."
+  },
+  "status_saveFailed": {
+    "message": "सहेजना विफल"
+  },
+  "status_save_failed": {
+    "message": "सेटिंग्स सहेजने में विफल",
+    "description": "Status message when settings save fails."
+  },
+  "status_save_setting_failed": {
+    "message": "$SETTING$ सेटिंग सहेजने में विफल",
+    "description": "Error message when a specific toggle setting fails to save.",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "सेटिंग्स सफलतापूर्वक सहेजी गईं",
+    "description": "Status message when settings save is successful."
+  },
+  "status_saved": {
+    "message": "सहेजा गया!",
+    "description": "Button text after settings are saved."
+  },
+  "status_saving": {
+    "message": "सहेजा जा रहा है...",
+    "description": "Button text while saving settings."
+  },
+  "status_unavailable": {
+    "message": "स्थिति अनुपलब्ध"
+  },
+  "status_unknown": {
+    "message": "अज्ञात"
+  },
+  "status_usingCached": {
+    "message": "बंडल किए गए नियम से संबंधित जानकारी दूषित हो सकती है या ठीक से लोड नहीं की गई है। इसके बजाय फ़ॉलबैक नियम लोड किए गए हैं और कस्टम नियमों के साथ विलय कर दिए गए हैं।"
+  },
+  "status_usingFallback": {
+    "message": "फ़ॉलबैक नियमों का उपयोग करना"
+  },
+  "status_valid": {
+    "message": "वैध"
+  },
+  "status_validJson": {
+    "message": "वैध JSON"
+  },
+  "status_validJsonUnsaved": {
+    "message": "वैध JSON - सहेजा नहीं गया"
+  },
+  "sunIconAlt": {
+    "message": "सूर्य चिह्न",
+    "description": "Alt text for sun theme icon"
+  },
+  "switchToDarkTheme": {
+    "message": "डार्क थीम पर स्विच करें",
+    "description": "ARIA label for theme toggle when current theme is light"
+  },
+  "switchToLightTheme": {
+    "message": "लाइट थीम पर स्विच करें",
+    "description": "ARIA label for theme toggle when current theme is dark"
+  },
+  "themeToggleAriaLabel": {
+    "message": "थीम टॉगल करें",
+    "description": "ARIA label for the theme toggle button for accessibility."
+  },
+  "theme_description": {
+    "message": "अपनी पसंदीदा थीम उपस्थिति चुनें",
+    "description": "Description text for theme selection"
+  },
+  "theme_name_dark": {
+    "message": "अँधेरा",
+    "description": "Name for the dark theme"
+  },
+  "theme_name_icecold": {
+    "message": "बर्फ के ठंडे",
+    "description": "Name for the ice cold theme"
+  },
+  "theme_name_zengray": {
+    "message": "ज़ेन ग्रे",
+    "description": "Name for the zen grey theme"
+  },
+  "theme_name_forest": {
+    "message": "जंगल",
+    "description": "Name for the forest theme"
+  },
+  "theme_name_light": {
+    "message": "रोशनी",
+    "description": "Name for the light theme"
+  },
+  "theme_name_midnight": {
+    "message": "मध्यरात्रि",
+    "description": "Name for the midnight theme"
+  },
+  "theme_name_sunset": {
+    "message": "सूर्यास्त",
+    "description": "Name for the sunset theme"
+  },
+  "theme_name_legacy": {
+    "message": "परंपरा",
+    "description": "Name for the legacy ClearURLs-style theme"
+  },
+  "theme_group_light_label": {
+    "message": "लाइट मोड",
+    "description": "Label above the light theme cards group"
+  },
+  "theme_group_dark_label": {
+    "message": "डार्क मोड",
+    "description": "Label above the dark theme cards group"
+  },
+  "theme_selection_label": {
+    "message": "विषय",
+    "description": "Label for the theme selection section"
+  },
+  "time_am": {
+    "message": "पूर्वाह्न"
+  },
+  "time_am_lower": {
+    "message": "पूर्वाह्न",
+    "description": "Lowercase AM marker"
+  },
+  "time_pm": {
+    "message": "बजे"
+  },
+  "time_pm_lower": {
+    "message": "बजे",
+    "description": "Lowercase PM marker"
+  },
+  "number_0": {
+    "message": "0",
+    "description": "Localized digit zero"
+  },
+  "number_1": {
+    "message": "1",
+    "description": "Localized digit one"
+  },
+  "number_2": {
+    "message": "2",
+    "description": "Localized digit two"
+  },
+  "number_3": {
+    "message": "3",
+    "description": "Localized digit three"
+  },
+  "number_4": {
+    "message": "4",
+    "description": "Localized digit four"
+  },
+  "number_5": {
+    "message": "5",
+    "description": "Localized digit five"
+  },
+  "number_6": {
+    "message": "6",
+    "description": "Localized digit six"
+  },
+  "number_7": {
+    "message": "7",
+    "description": "Localized digit seven"
+  },
+  "number_8": {
+    "message": "8",
+    "description": "Localized digit eight"
+  },
+  "number_9": {
+    "message": "9",
+    "description": "Localized digit nine"
+  },
+  "day_0": {
+    "message": "रविवार",
+    "description": "Localized weekday name for Sunday"
+  },
+  "day_1": {
+    "message": "सोमवार",
+    "description": "Localized weekday name for Monday"
+  },
+  "day_2": {
+    "message": "मंगलवार",
+    "description": "Localized weekday name for Tuesday"
+  },
+  "day_3": {
+    "message": "बुधवार",
+    "description": "Localized weekday name for Wednesday"
+  },
+  "day_4": {
+    "message": "गुरुवार",
+    "description": "Localized weekday name for Thursday"
+  },
+  "day_5": {
+    "message": "शुक्रवार",
+    "description": "Localized weekday name for Friday"
+  },
+  "day_6": {
+    "message": "शनिवार",
+    "description": "Localized weekday name for Saturday"
+  },
+  "month_1": {
+    "message": "जनवरी",
+    "description": "Localized month name for January"
+  },
+  "month_2": {
+    "message": "फ़रवरी",
+    "description": "Localized month name for February"
+  },
+  "month_3": {
+    "message": "मार्च",
+    "description": "Localized month name for March"
+  },
+  "month_4": {
+    "message": "अप्रैल",
+    "description": "Localized month name for April"
+  },
+  "month_5": {
+    "message": "मई",
+    "description": "Localized month name for May"
+  },
+  "month_6": {
+    "message": "जून",
+    "description": "Localized month name for June"
+  },
+  "month_7": {
+    "message": "जुलाई",
+    "description": "Localized month name for July"
+  },
+  "month_8": {
+    "message": "अगस्त",
+    "description": "Localized month name for August"
+  },
+  "month_9": {
+    "message": "सितम्बर",
+    "description": "Localized month name for September"
+  },
+  "month_10": {
+    "message": "अक्टूबर",
+    "description": "Localized month name for October"
+  },
+  "month_11": {
+    "message": "नवंबर",
+    "description": "Localized month name for November"
+  },
+  "month_12": {
+    "message": "दिसंबर",
+    "description": "Localized month name for December"
+  },
+  "url_field_editable_tooltip": {
+    "message": "फ़ील्ड संपादन योग्य है",
+    "description": "Tooltip shown when security confirmation is already satisfied."
+  },
+  "url_validation_https_recommended": {
+    "message": "सुरक्षा के लिए HTTPS की अनुशंसा की जाती है",
+    "description": "Warning shown when URL is valid but does not use HTTPS."
+  },
+  "url_validation_invalid": {
+    "message": "अमान्य यूआरएल प्रारूप.",
+    "description": "Error message displayed when the URL format is invalid"
+  },
+  "watchdog": {
+    "message": "[लिंकुमोरी (स्वच्छ यूआरएल)]: वॉचडॉग ने एक समस्या का पता लगाया है और पहले ही $TIMES$ बार विफल हो चुका है।",
+    "description": "This string is used as text for the watchdog",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "लिंकुमोरी डिफ़ॉल्ट रूप से यूआरएल से ट्रैकिंग पैरामीटर हटा देता है और जरूरत पड़ने पर आपको उन्नत नियंत्रण देता है। नीचे दी गई सुविधाओं की समीक्षा करें, फिर गोपनीयता नीति और लाइसेंस पर आगे बढ़ें।"
+  },
+  "welcomeHeading": {
+    "message": "लिंकुमोरी में आपका स्वागत है"
+  },
+  "welcome_migration_description": {
+    "message": "आपकी ClearURLs सेटिंग्स आयात की गईं। नीचे लिंकुमोरी सुविधाओं की समीक्षा करें, फिर गोपनीयता नीति और लाइसेंस पढ़ना जारी रखें।",
+    "description": "Description shown on migration welcome screen."
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "अंतर्निहित गोपनीयता-केंद्रित नियम डिफ़ॉल्ट रूप से सक्षम हैं।",
+    "description": "Feature list item describing default bundled rule behavior."
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "प्रदाता-स्तरीय नियंत्रण, आयात/निर्यात और नियम प्रबंधन के साथ कस्टम नियम संपादक।",
+    "description": "Feature list item describing custom rules."
+  },
+  "welcome_migration_feature_overload": {
+    "message": "कस्टम नियम लागू होने से पहले ओवरलोड मोड बंडल और रिमोट नियमों को मर्ज कर सकता है।",
+    "description": "Feature list item describing overload mode."
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "एकाधिक दूरस्थ नियम स्रोत समर्थित (नियम यूआरएल + हैश यूआरएल जोड़े)।",
+    "description": "Feature list item describing multiple remote sets."
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "आवश्यकता पड़ने पर चयनित डोमेन पर सफ़ाई को बायपास करने के लिए श्वेतसूची समर्थन।",
+    "description": "Feature list item describing whitelist behavior."
+  },
+  "welcome_migration_heading": {
+    "message": "ClearURLs माइग्रेशन पूर्ण हुआ",
+    "description": "Main heading on migration welcome screen."
+  },
+  "welcome_migration_open_settings": {
+    "message": "खुली सेटिंग",
+    "description": "Button label to open settings from migration welcome screen."
+  },
+  "welcome_migration_title": {
+    "message": "लिंकुमोरी में आपका स्वागत है",
+    "description": "Page title for the migration welcome screen shown after ClearURLs import."
+  },
+  "welcome_next_button": {
+    "message": "अगला: गोपनीयता और लाइसेंस",
+    "description": "Button shown in guided welcome mode to continue to privacy and license sections."
+  },
+  "whitelist_add_button": {
+    "message": "जोड़ना",
+    "description": "Text for the add domain button"
+  },
+  "whitelist_add_failed": {
+    "message": "डोमेन को श्वेतसूची में जोड़ने में विफल",
+    "description": "Error message when adding domain fails"
+  },
+  "whitelist_added": {
+    "message": "%s को श्वेतसूची में जोड़ा गया",
+    "description": "Success message when domain is added. %s is replaced with domain name."
+  },
+  "whitelist_already_exists": {
+    "message": "डोमेन पहले से ही श्वेतसूची में है या अमान्य है",
+    "description": "Error message when domain already exists or is invalid"
+  },
+  "whitelist_count": {
+    "message": "%d डोमेन श्वेतसूचीबद्ध",
+    "description": "Text showing number of whitelisted domains. %d is replaced with the count."
+  },
+  "whitelist_empty": {
+    "message": "कोई डोमेन श्वेतसूची में नहीं है",
+    "description": "Text shown when whitelist is empty"
+  },
+  "whitelist_enter_domain": {
+    "message": "कृपया एक डोमेन नाम दर्ज करें",
+    "description": "Error message when trying to add empty domain"
+  },
+  "whitelist_examples_text": {
+    "message": "उदाहरण: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
+    "description": "Text before domain format examples"
+  },
+  "whitelist_export_button": {
+    "message": "निर्यात",
+    "description": "Button text for exporting whitelist domains"
+  },
+  "whitelist_export_done": {
+    "message": "श्वेतसूची सफलतापूर्वक निर्यात की गई",
+    "description": "Success message when whitelist export completes"
+  },
+  "whitelist_export_empty": {
+    "message": "श्वेतसूची खाली है. निर्यात करने के लिए कुछ भी नहीं.",
+    "description": "Info message when user tries to export an empty whitelist"
+  },
+  "whitelist_export_failed": {
+    "message": "श्वेतसूची निर्यात करने में विफल",
+    "description": "Error shown when whitelist export fails"
+  },
+  "whitelist_import_button": {
+    "message": "आयात",
+    "description": "Button text for importing whitelist domains"
+  },
+  "whitelist_import_done": {
+    "message": "%s डोमेन को श्वेतसूची में आयात किया गया",
+    "description": "Success message for whitelist import. %s is replaced with imported domain count"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "अमान्य श्वेतसूची प्रारूप. डोमेन की JSON सरणी का उपयोग करें.",
+    "description": "Error shown when imported whitelist structure is not supported"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "श्वेतसूची फ़ाइल में कोई वैध डोमेन नहीं मिला",
+    "description": "Error shown when imported whitelist has no valid domain entries"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "श्वेतसूची फ़ाइल को पार्स करने में विफल",
+    "description": "Error shown when whitelist import file is invalid JSON"
+  },
+  "whitelist_input_placeholder": {
+    "message": "example.com या *.example.com",
+    "description": "Placeholder text for the domain input field"
+  },
+  "whitelist_invalid_format": {
+    "message": "अमान्य डोमेन प्रारूप. उपयोग करें: example.com या *.example.com",
+    "description": "Error message for invalid domain format"
+  },
+  "whitelist_load_failed": {
+    "message": "श्वेतसूची लोड करने में विफल",
+    "description": "Error message when whitelist fails to load"
+  },
+  "whitelist_remove_button": {
+    "message": "निकालना",
+    "description": "Text for the remove domain button"
+  },
+  "whitelist_remove_failed": {
+    "message": "डोमेन को श्वेतसूची से हटाने में विफल",
+    "description": "Error message when removing domain fails"
+  },
+  "whitelist_removed": {
+    "message": "%s को श्वेतसूची से हटाया गया",
+    "description": "Success message when domain is removed. %s is replaced with domain name."
+  },
+  "whitelist_search_placeholder": {
+    "message": "श्वेतसूची वाले डोमेन खोजें",
+    "description": "Placeholder text for searching whitelisted domains"
+  },
+  "whitelist_section_description": {
+    "message": "यहां जोड़े गए डोमेन सभी यूआरएल सफाई को बायपास कर देंगे। इन साइटों पर ट्रैकिंग पैरामीटर संरक्षित रखे जाएंगे।",
+    "description": "Description explaining what the whitelist does"
+  },
+  "whitelist_section_title": {
+    "message": "डोमेन श्वेतसूची",
+    "description": "Title for the whitelist settings section"
+  },
+  "whitelist_update_failed": {
+    "message": "श्वेतसूची अद्यतन करने में विफल",
+    "description": "Error message when updating the whitelist fails."
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "वैश्विक आँकड़े रीसेट करें",
+    "description": "This string is used as title for the statistics reset button on the popup page."
+  },
+  "popup_html_log_head_title": {
+    "message": "लॉग खोलें",
+    "description": "This string is used as title for the log button on the popup page."
+  },
+  "popup_html_settings_button_title": {
+    "message": "खुली सेटिंग",
+    "description": "This string is used as a title for the settings button on the popup page."
+  },
+  "license_title_title": {
+    "message": "लाइसेंस जानकारी",
+    "description": "Title for the license information link in the popup"
+  },
+  "license_links_title_title": {
+    "message": "लाइसेंस और क्रेडिट",
+    "description": "Title for the license and credits link in the popup"
+  },
+  "popup_nav_main_title": {
+    "message": "मुख्य एक्सटेंशन नियंत्रणों पर स्विच करें",
+    "description": "Tooltip for main navigation button"
+  },
+  "popup_nav_license_title": {
+    "message": "लाइसेंस जानकारी पर स्विच करें",
+    "description": "Tooltip for license information button"
+  },
+  "customrules_title": {
+    "message": "कस्टम नियम",
+    "description": "Title for the custom rules section"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "कानूनी जानकारी - गोपनीयता नीति और लाइसेंस",
+    "description": "Title for legal information page opened from popup consent gate"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "श्वेतसूची",
+    "description": "Title for HTML content page opened from popup consent gate"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "गेटकीपर को अक्षम करें",
+    "description": "Label for toggle that disables gatekeeper protections for remote URL editing"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "इस सत्र प्रवाह में दूरस्थ यूआरएल संपादन के लिए गेटकीपर जांच अक्षम करें।",
+    "description": "Description for disable gatekeeper toggle"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "गेटकीपर अक्षम करें सक्षम किया गया. प्रत्येक सेटिंग सत्र में सुरक्षा पुष्टिकरण आवश्यक है।",
+    "description": "Status message shown after enabling disable gatekeeper"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "गेटकीपर अक्षम करें अक्षम करें. मौजूदा विश्वसनीय मानों को तत्काल पुष्टि के बिना संपादित किया जा सकता है।",
+    "description": "Status message shown after disabling disable gatekeeper"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "दूरस्थ यूआरएल निर्यात करें",
+    "description": "Button text for exporting remote URL configuration only"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "दूरस्थ यूआरएल आयात करें",
+    "description": "Button text for importing remote URL configuration only"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "प्राथमिक और अतिरिक्त दूरस्थ यूआरएल जोड़े निर्यात करें",
+    "description": "Tooltip for remote URL export button"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "प्राथमिक और अतिरिक्त दूरस्थ यूआरएल जोड़े आयात करें",
+    "description": "Tooltip for remote URL import button"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "गेटकीपर जोखिम चेतावनी अक्षम करें",
+    "description": "Title for the disable gatekeeper risk modal"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "चेतावनी: उन्नत सुविधा केवल स्व-होस्ट किए गए सर्वर के लिए है",
+    "description": "Top warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "आप दूरस्थ नियम URL संपादन के लिए Gatekeeper सुरक्षा अक्षम कर रहे हैं। यह सुविधा हैश सत्यापन के साथ Linkumori (ClearURLs 2.0) JSON नियम लोड कर सकती है, या Linkumori URL हैश सत्यापन के बिना अंतरसंचालनीयता सूचियों को फ़िल्टर कर सकती है। केवल तभी आगे बढ़ें जब आप समझ जाएं कि आप कौन सा प्रारूप कॉन्फ़िगर कर रहे हैं।",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "गेटकीपर एक अंतर्निहित सुरक्षा प्रवाह है जो प्रत्यक्ष दूरस्थ यूआरएल संपादन को तब तक अवरुद्ध करता है जब तक कि आप सुरक्षा चेतावनी स्वीकार नहीं कर लेते और टाइप की गई पुष्टि पूरी नहीं कर लेते।",
+    "description": "Explains what gatekeeper means in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "जब तक आप अपने दूरस्थ स्रोतों पर भरोसा और नियंत्रण नहीं करते, तब तक Gatekeeper को सक्षम रखें। JSON नियमों में एक मिलान हैश URL शामिल होना चाहिए; अंतरसंचालनीयता सूचियाँ जानबूझकर हैश URL खाली छोड़ देती हैं।",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "चेतावनी प्रपत्र:",
+    "description": "Privacy section title in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "यदि आप एक दूरस्थ नियम URL जोड़ते हैं, तो एक्सटेंशन या तो Linkumori (ClearURLs 2.0) JSON नियमसेट, कॉन्फ़िगर होने पर इसकी हैश फ़ाइल, या Linkumori लाने के लिए आपके निर्दिष्ट सर्वर से कनेक्ट हो जाएगा। URL अंतरसंचालनीयता सूची फ़िल्टर करें। प्रत्येक फ़ेच आपके IP पते और सामान्य जानकारी जैसे एक्सटेंशन संस्करण, ब्राउज़र और ब्राउज़र संस्करण को होस्टिंग सर्वर पर प्रदर्शित कर सकता है। यह डेटा उस वेबसाइट या वेब सर्वर की गोपनीयता नीति के अधीन है।",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "यदि आवश्यक हो तो जारी रखने से पहले %PRIVACY_POLICY_LINK% को दोबारा पढ़ें।",
+    "description": "Follow-up sentence in the disable gatekeeper warning modal with a privacy policy link placeholder"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "चेतावनी प्रपत्र:",
+    "description": "Risks section title in disable gatekeeper modal"
+  },
+  "privacy_policy_link_label": {
+    "message": "गोपनीयता नीति",
+    "description": "Label for privacy policy hyperlinks shown in warning dialogs"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "हर बार एक्सटेंशन सक्षम होने और आपके ब्राउज़र में लोड होने पर एक्सटेंशन आपके निर्दिष्ट यूआरएल से कनेक्ट हो जाएगा।",
+    "description": "Risk bullet 1 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "रिमोट JSON, हैश, या इंटरऑपरेबिलिटी फ़िल्टर फ़ाइलों को होस्ट करने वाले सर्वर को आपका IP पता प्राप्त होगा।",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "सर्वर को आपका एक्सटेंशन संस्करण, ब्राउज़र और ब्राउज़र संस्करण भी प्राप्त हो सकता है।",
+    "description": "Risk bullet 3 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "वह डेटा उन फ़ाइलों को होस्ट करने वाली वेबसाइट या वेब सर्वर की गोपनीयता नीति के अधीन है।",
+    "description": "Risk bullet 4 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "Gatekeeper को अक्षम करके, आप असुरक्षित या समझौता किए गए दूरस्थ नियम स्रोतों से जोखिम बढ़ाते हैं। हैश सत्यापन केवल Linkumori (ClearURLs 2.0) JSON नियम डाउनलोड की सुरक्षा करता है। यह अंतरसंचालनीयता सूचियों पर लागू नहीं होता है.",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "रद्द करना",
+    "description": "Cancel button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "जारी रखना",
+    "description": "Continue button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "मैं दूरस्थ नियमों के जोखिम और गेटकीपर को अक्षम करने के नियमों को समझता हूं",
+    "description": "Exact phrase user must type to confirm disabling gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "प्रकार की पुष्टि आवश्यक है",
+    "description": "Title for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "गेटकीपर को अक्षम करने के लिए, नीचे सटीक पुष्टिकरण वाक्यांश टाइप करें।",
+    "description": "Instruction text for gatekeeper-specific confirmation modal"
+  },
+  "redirection_warning_modal_title": {
+    "message": "पुनर्निर्देशन बायपास चेतावनी",
+    "description": "Title for the warning modal shown before enabling redirect bypass."
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "इस सुविधा को सक्षम करने से पहले रीडायरेक्ट नियमों की समीक्षा करें।",
+    "description": "Top warning line for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "यह सुविधा बंडल, रिमोट और कस्टम स्रोतों से वर्तमान में मौजूद रीडायरेक्ट नियमों को लागू करके तीसरे पक्ष के बिचौलिए रीडायरेक्ट और ट्रैकिंग यूआरएल को बायपास कर सकती है।",
+    "description": "Main warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "पहले नियमों का ऑडिट करें. यदि कोई रीडायरेक्ट नियम बहुत व्यापक है या आपके ब्राउज़िंग के लिए उपयुक्त नहीं है, तो इस सेटिंग को सक्षम करने से पहले कस्टम नियम संपादक में इसे संपादित करें या ओवरराइड करें।",
+    "description": "Recommendation text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "क्या जांच करनी है",
+    "description": "Risks section title for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "बंडल किए गए नियम, दूरस्थ नियम और कस्टम नियम सभी पुनर्निर्देशन व्यवहार में योगदान कर सकते हैं।",
+    "description": "First risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "एक व्यापक रीडायरेक्ट नियम किसी लिंक को इस तरह से खोल सकता है जिसकी आपने अपेक्षा नहीं की थी।",
+    "description": "Second risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "नया रिमोट नियम डेटा लाए जाने पर नवीनतम कैश्ड रिमोट नियम बदल सकते हैं।",
+    "description": "Third risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "इस सुविधा पर भरोसा करने से पहले बंडल नियमों, अंतिम नियमों, कस्टम नियमों और नवीनतम कैश्ड रिमोट नियमों का निरीक्षण करने के लिए ऑडिट पेज का उपयोग करें।",
+    "description": "Fourth risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "इसे तभी सक्षम करें यदि आप वर्तमान में विभिन्न स्रोतों से मौजूद रीडायरेक्ट नियमों पर भरोसा करते हैं। यदि आप इस सुविधा को नहीं समझते हैं, तो इसे सक्षम न करें। इस सेटिंग को सक्षम किए बिना, रीडायरेक्ट बायपास नियम लागू नहीं किए जाएंगे।",
+    "description": "Final warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "रद्द करना",
+    "description": "Cancel button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_continue": {
+    "message": "जारी रखना",
+    "description": "Continue button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "रीडायरेक्ट बायपास अक्षम रहता है.",
+    "description": "Status shown when the redirect bypass warning modal is cancelled."
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "सटीक पुष्टिकरण वाक्यांश टाइप करें",
+    "description": "Input label for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "यह कार्रवाई दूरस्थ नियमों के लिए सुरक्षा उपायों को कम कर देती है. केवल तभी आगे बढ़ें जब आपको अपने JSON और इंटरऑपरेबिलिटी फ़िल्टर स्रोतों पर भरोसा हो।",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "प्लेसहोल्डर मानों को अपने वास्तविक HTTPS URL से बदलें, फिर इस फ़ाइल को आयात करें।",
+    "description": "Template export note 1 for remote URL export JSON"
+  },
+  "remote_urls_template_note_2": {
+    "message": "प्राइमरी में मुख्य नियम/हैश यूआरएल जोड़ी शामिल है।",
+    "description": "Template export note 2 for remote URL export JSON"
+  },
+  "remote_urls_template_note_3": {
+    "message": "अतिरिक्त वैकल्पिक है और एकाधिक नियम/हैश यूआरएल जोड़े का समर्थन करता है।",
+    "description": "Template export note 3 for remote URL export JSON"
+  },
+  "remote_urls_template_note_4": {
+    "message": "आवश्यकतानुसार अतिरिक्त सरणी में ऑब्जेक्ट जोड़ें या हटाएँ।",
+    "description": "Template export note 4 for remote URL export JSON"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "REPLACE_WITH_PRIMARY_RULE_URL",
+    "description": "Placeholder value for primary rule URL in template export JSON"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "REPLACE_WITH_PRIMARY_HASH_URL",
+    "description": "Placeholder value for primary hash URL in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "REPLACE_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "REPLACE_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
+  },
+  "remote_urls_export_success": {
+    "message": "दूरस्थ URL कॉन्फ़िगरेशन निर्यात किया गया.",
+    "description": "Success status after exporting configured remote URLs"
+  },
+  "remote_urls_template_export_success": {
+    "message": "रिमोट यूआरएल टेम्पलेट निर्यात किया गया। प्लेसहोल्डर भरें और आयात करें.",
+    "description": "Success status after exporting empty remote URL template"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "दूरस्थ URL कॉन्फ़िगरेशन आयातित और सहेजा गया।",
+    "description": "Success status after importing and saving remote URL configuration"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "आयात पार्स किया गया, लेकिन दूरस्थ URL कॉन्फ़िगरेशन सहेजना विफल रहा।",
+    "description": "Error status when import parsing succeeded but saving failed"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "अमान्य दूरस्थ URL कॉन्फ़िगरेशन फ़ाइल.",
+    "description": "Error status when imported remote URL JSON is invalid"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "चयनित फ़ाइल को पढ़ने में असमर्थ.",
+    "description": "Error status when file reader fails for remote URL import"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "फ़ाइल में कोई वैध दूरस्थ URL युग्म नहीं मिला।",
+    "description": "Error status when no valid pairs are found during remote URL import"
+  },
+  "popup_consent_title_title": {
+    "message": "सहमति आवश्यक है",
+    "description": "Title for the legal information section in the popup"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "मुख्य कार्यक्षमता को चालू/बंद पर स्विच करें",
+    "description": "Title for the button that switches to the filter configuration view in the popup"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "आपके डिवाइस में स्थानीय रूप से संग्रहीत सभी दिनांक लॉग एक्सटेंशन प्रदर्शन के लिए स्विच करें",
+    "description": "Title for the button that switches to the statistics view in the popup"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "बैज आइकन को चालू/बंद करने के लिए स्विच करें",
+    "description": "Title for the statistics section in the popup"
+  },
+  "configs_switch_statistics_title": {
+    "message": "आँकड़ों को चालू/बंद करने के लिए स्विच करें",
+    "description": "Title for the button that switches to the license and credits view in the popup"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "तत्वों",
+    "description": "Title for the statistics section in the popup"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "अवरोधित",
+    "description": "Description for the elements statistic in the popup"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "को PERCENTAGE",
+    "description": "Description for the blocked statistic in the popup"
+  },
+  "audit_html_page_title": {
+    "message": "लिंकुमोरी नियम लेखापरीक्षा",
+    "description": "Title for the audit page"
+  },
+  "audit_badge_label": {
+    "message": "अंकेक्षण",
+    "description": "Small badge label in the audit page header"
+  },
+  "audit_section_title": {
+    "message": "नियम लेखापरीक्षा",
+    "description": "Main section title for the audit page"
+  },
+  "audit_viewer_title": {
+    "message": "नियम स्रोत व्यूअर",
+    "description": "Title for the audit source viewer card"
+  },
+  "audit_viewer_description": {
+    "message": "बंडल किए गए नियमों, अंतिम मर्ज किए गए नियमों, कस्टम नियमों, या कच्चे JSON के रूप में कैश में संग्रहीत नवीनतम प्राप्त किए गए दूरस्थ नियमों का निरीक्षण करने के लिए नीचे दिए गए स्रोत बटन का उपयोग करें।",
+    "description": "Description for the audit source viewer"
+  },
+  "audit_refresh_button": {
+    "message": "ताज़ा स्रोत",
+    "description": "Refresh button label on the audit page"
+  },
+  "audit_faq_button": {
+    "message": "अक्सर पूछे जाने वाले प्रश्न",
+    "description": "FAQ button label on the audit page"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "थीम टॉगल करें",
+    "description": "Accessible label for the theme toggle on the audit page"
+  },
+  "audit_faq_close_aria": {
+    "message": "अक्सर पूछे जाने वाले प्रश्न बंद करें",
+    "description": "Accessible label for the FAQ modal close button"
+  },
+  "audit_source_bundled": {
+    "message": "बंडल नियम",
+    "description": "Button and title for bundled rules audit source"
+  },
+  "audit_source_final": {
+    "message": "अंतिम नियम",
+    "description": "Button and title for final merged rules audit source"
+  },
+  "audit_source_custom": {
+    "message": "कस्टम नियम",
+    "description": "Button and title for custom rules audit source"
+  },
+  "audit_source_remote": {
+    "message": "नवीनतम कैश्ड रिमोट नियम",
+    "description": "Button and title for latest cached remote rules audit source"
+  },
+  "audit_source_bundled_description": {
+    "message": "स्रोत: बंडल फ़ाइल डेटा/लिंकुमोरी-क्लियरयूआरएल-मिन.जेसन",
+    "description": "Source description for bundled rules"
+  },
+  "audit_source_final_description": {
+    "message": "स्रोत: रनटाइम स्टोरेज ClearURLsData",
+    "description": "Source description for final rules"
+  },
+  "audit_source_custom_description": {
+    "message": "स्रोत: रनटाइम स्टोरेज कस्टम_रूल्स",
+    "description": "Source description for custom rules"
+  },
+  "audit_source_remote_description": {
+    "message": "स्रोत: रनटाइम स्टोरेज रिमोटरूलस्कैच.डेटा (नवीनतम प्राप्त रिमोट नियम स्थानीय रूप से कैश किए गए)",
+    "description": "Source description for latest cached remote rules"
+  },
+  "audit_meta_waiting": {
+    "message": "इंतज़ार में...",
+    "description": "Meta text shown before audit data is loaded"
+  },
+  "audit_meta_error": {
+    "message": "गलती",
+    "description": "Meta text shown when a selected audit source has an error"
+  },
+  "audit_meta_source_bundled": {
+    "message": "बंडल नियम",
+    "description": "Meta label for bundled rules source"
+  },
+  "audit_meta_source_final": {
+    "message": "अंतिम नियम",
+    "description": "Meta label for final rules source"
+  },
+  "audit_meta_source_custom": {
+    "message": "कस्टम नियम",
+    "description": "Meta label for custom rules source"
+  },
+  "audit_meta_source_remote": {
+    "message": "दूरस्थ कैश",
+    "description": "Meta label for latest cached remote rules source"
+  },
+  "audit_meta_template": {
+    "message": "$1 | प्रदाता: $2 | वर्ण: $3",
+    "description": "Template for audit source meta information"
+  },
+  "audit_status_loading": {
+    "message": "ऑडिट स्रोत लोड हो रहे हैं...",
+    "description": "Status shown while loading audit sources"
+  },
+  "audit_status_loaded": {
+    "message": "सभी ऑडिट स्रोत लोड किए गए.",
+    "description": "Status shown when all audit sources load successfully"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "ऑडिट स्रोत लोड किए गए. नवीनतम कैश्ड दूरस्थ नियम अभी तक उपलब्ध नहीं हैं।",
+    "description": "Status shown when audit sources load but remote cache is not yet available"
+  },
+  "audit_status_partial_error": {
+    "message": "कुछ ऑडिट स्रोत लोड होने में विफल रहे. त्रुटि JSON का निरीक्षण करने के लिए स्रोतों को स्विच करें।",
+    "description": "Status shown when one or more audit sources fail to load"
+  },
+  "audit_status_refresh_failed": {
+    "message": "ऑडिट स्रोतों को ताज़ा करने में विफल.",
+    "description": "Fallback error shown when refreshing audit sources fails"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "$1 स्थिति के साथ बंडल नियम लाने में विफल रहा",
+    "description": "Error shown when fetching bundled rules fails"
+  },
+  "audit_error_final_missing": {
+    "message": "रनटाइम ने ClearURLsData नहीं लौटाया",
+    "description": "Error shown when final rules are missing from runtime storage"
+  },
+  "audit_error_custom_missing": {
+    "message": "रनटाइम ने कस्टम_नियम नहीं लौटाए",
+    "description": "Error shown when custom rules are missing from runtime storage"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "रनटाइम ने रिमोटरूलस्कैच वापस नहीं किया",
+    "description": "Error shown when remote cache is missing from runtime storage"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "अज्ञात बंडल नियम त्रुटि",
+    "description": "Fallback bundled rules error"
+  },
+  "audit_error_unknown_final": {
+    "message": "अज्ञात अंतिम नियम त्रुटि",
+    "description": "Fallback final rules error"
+  },
+  "audit_error_unknown_custom": {
+    "message": "अज्ञात कस्टम नियम त्रुटि",
+    "description": "Fallback custom rules error"
+  },
+  "audit_error_unknown_remote": {
+    "message": "अज्ञात दूरस्थ नियम त्रुटि",
+    "description": "Fallback remote rules error"
+  },
+  "audit_remote_unavailable": {
+    "message": "अभी तक कोई कैश्ड रिमोट नियम उपलब्ध नहीं है",
+    "description": "Message shown when remote cache has not been populated yet"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "अभी तक कोई कैश्ड रिमोट नियम पेलोड उपलब्ध नहीं है",
+    "description": "Message shown when remote cache exists but has no data payload"
+  },
+  "audit_faq_modal_title": {
+    "message": "लेखापरीक्षा अक्सर पूछे जाने वाले प्रश्न",
+    "description": "Title for the audit FAQ modal"
+  },
+  "audit_faq_intro": {
+    "message": "ये नोट्स प्रदाता फ़ील्ड्स का वर्णन करते हैं जिन्हें Clearurls.js वास्तव में तब पढ़ता है जब वह नियम बनाता और लागू करता है।",
+    "description": "Intro text for the audit FAQ modal"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "मैं किसी प्रदाता का ऑडिट कैसे करूँ?",
+    "description": "FAQ title for auditing a provider"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p> व्यूअर में एक स्रोत खोलें, <span class=\"faq-code\">providers</span> के अंदर प्रदाता ढूंढें, और उस प्रदाता ऑब्जेक्ट पर कुंजियों का निरीक्षण करें। मर्ज किए गए रनटाइम परिणाम का निरीक्षण करने के लिए नियम</span>, उपयोगकर्ता ओवरराइड का निरीक्षण करने के लिए <span class=\"faq-code\">कस्टम नियम</span>, और कैश में सहेजे गए सबसे हाल ही में प्राप्त रिमोट पेलोड का निरीक्षण करने के लिए <span class=\"faq-code\">नवीनतम कैश्ड रिमोट नियम</span>।",
+    "description": "FAQ body for auditing a provider"
+  },
+  "audit_faq_override_title": {
+    "message": "मैं व्यक्तिगत नियमों को कैसे सक्षम, अक्षम, आयात, संपादित या ओवरराइड कर सकता हूँ?",
+    "description": "FAQ title for custom rule editing and overrides"
+  },
+  "audit_faq_override_body": {
+    "message": "<p> जब आप नियम-दर-नियम नियंत्रण चाहते हैं तो कस्टम नियम संपादक का उपयोग करें। यह वह स्थान है जहां आप नियमों को कस्टम नियमों के रूप में आयात कर सकते हैं, प्रदाता फ़ील्ड संपादित कर सकते हैं, और प्रदाता का अपना संस्करण सहेज सकते हैं। फिर उस कस्टम संस्करण को रनटाइम नियमों में विलय कर दिया जाता है। अपने इच्छित प्रदाता को ढूंढने के लिए ऑडिट <span class=\"faq-code\">बंडल नियम</span> या <span class=\"faq-code\">नवीनतम कैश्ड रिमोट नियम</span>, फिर अपने कस्टम संपादन या ओवरराइड की पुष्टि करने के लिए <span class=\"faq-code\">कस्टम नियम</span> और <span class=\"faq-code\">अंतिम नियम</span> का निरीक्षण करें। प्रभाव।",
+    "description": "FAQ body for custom rule editing and overrides"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "यूआरएलपैटर्न क्या है?",
+    "description": "FAQ title for urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPattern</span> वह रेगेक्स है जिसका उपयोग यह तय करने के लिए किया जाता है कि कोई प्रदाता URL से मेल खाता है या नहीं। Clearurls.js में, इसे <span class=\"faq-code\">setURLPattern()</span>.</p> द्वारा एक वास्तविक रेगएक्सप में बदल दिया गया है।",
+    "description": "FAQ body for urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "डोमेनपैटर्न क्या है?",
+    "description": "FAQ title for domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> डोमेन-आधारित मिलानकर्ता है जिसका उपयोग तब किया जाता है जब कोई प्रदाता <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURLs पर भरोसा नहीं करता है। <span class=\"faq-code\">setURLDomainPattern()</span> और फिर उन्हें रेगेक्स यूआरएल मिलान के बजाय डोमेन मिलान तर्क के साथ जांचता है।</p>",
+    "description": "FAQ body for domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "नियम, कच्चे नियम और रेफरलमार्केटिंग क्या हैं?",
+    "description": "FAQ title for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">rules</span> पैरामीटर नाम या खंड नाम हैं जिन्हें URL से हटा दिया जाना चाहिए। क्लीनअप।",
+    "description": "FAQ body for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "अपवाद और डोमेन अपवाद क्या हैं?",
+    "description": "FAQ title for exceptions and domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\">exceptions</span> रेगेक्स पैटर्न हैं जो प्रदाता को मिलान वाले यूआरएल पर कार्य करने से रोकते हैं। मिलान.</p><p>यदि कोई अपवाद मेल खाता है, तो प्रदाता को बायपास कर दिया जाता है, भले ही उसका मुख्य पैटर्न पहले मेल खाता हो।",
+    "description": "FAQ body for exceptions and domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "पुनर्निर्देशन और डोमेन पुनर्निर्देशन क्या हैं?",
+    "description": "FAQ title for redirections and domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\">redirections</span> रेगेक्स-आधारित अनरैपर हैं। वे आम तौर पर समूह 1 में वास्तविक गंतव्य URL को कैप्चर करते हैं, और ClearURL उस कैप्चर किए गए मान पर रीडायरेक्ट करते हैं। इस कोडबेस में उन्हें <span class=\"faq-code\">पैटर्न $redirect= target</span>.</p><p> जैसे आकार की प्रविष्टियों के लिए जांचा जाता है। यदि कोई रेगेक्स पुनर्निर्देशन पहले मेल खाता है, तो वह जीत जाता है। यदि नहीं, तो ClearURLs अगले डोमेन पुनर्निर्देशन की जाँच करता है।</p>",
+    "description": "FAQ body for redirections and domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "विधियाँ और संसाधन प्रकार क्या हैं?",
+    "description": "FAQ title for methods and resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "<p><span class=\"faq-code\">methods</span> एक प्रदाता को विशिष्ट HTTP विधियों जैसे <span class=\"faq-code\">GET</span> या <span class=\"faq-code\">POST</span> तक सीमित करता है। यदि कोई विधि सूचीबद्ध नहीं है, तो सभी विधियों की अनुमति है। <span class=\"faq-code\">xmlhttprequest</span>.</p><p>यदि कोई संसाधन प्रकार सूचीबद्ध नहीं हैं, तो ClearURL सेटिंग्स से वैश्विक अनुमत अनुरोध प्रकारों पर वापस आ जाता है।</p>",
+    "description": "FAQ body for methods and resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "कंप्लीटप्रोवाइडर और फोर्सरिडायरेक्शन क्या हैं?",
+    "description": "FAQ title for completeProvider and forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\">completeProvider</span> प्रदाता को अवरोधक प्रदाता में बदल देता है। Clearurls.js में, इसका मतलब है कि डोमेन ब्लॉकिंग सक्षम होने पर प्रदाता मिलान अनुरोधों को रद्द कर सकता है। जब <span class=\"faq-code\">main_frame</span> अनुरोध पर पुनर्निर्देशन पाया जाता है, तो ClearURL सामान्य पुनर्निर्देशन प्रतिक्रिया देने के बजाय सीधे ब्राउज़र टैब को अपडेट कर सकते हैं।</p>",
+    "description": "FAQ body for completeProvider and forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "यहां Clearurls.js किस प्रदाता फ़ील्ड का उपयोग करता है?",
+    "description": "FAQ title for the list of provider fields used by clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p>इस शाखा में प्रदाता-निर्माण पथ इन कुंजियों को पढ़ता है: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">डोमेनपैटर्न</span>, <span class=\"faq-code\">नियम</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">अपवाद</span>, <span class=\"faq-code\">डोमेनएक्सेप्शन</span>, <span class=\"faq-code\">विधियां</span>, और <span class=\"faq-code\">संसाधन प्रकार</span>.</p><p>व्यवहार की जांच करते समय, जांचने के लिए सबसे महत्वपूर्ण स्थान <span class=\"faq-code\">अंतिम नियम</span> है, क्योंकि यह बंडल के बाद मर्ज किए गए परिणाम दिखाता है, रिमोट और कस्टम स्रोतों को संयोजित कर दिया गया है।</p>",
+    "description": "FAQ body for the list of provider fields used by clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "अस्थायी विराम",
+    "description": "Auto-added i18n key: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "15 मिनट रुकें",
+    "description": "Auto-added i18n key: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "1 घंटा रुकें",
+    "description": "Auto-added i18n key: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "पुनः प्रारंभ होने तक",
+    "description": "Auto-added i18n key: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "अभी फिर से शुरू करें",
+    "description": "Auto-added i18n key: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "सक्रिय",
+    "description": "Auto-added i18n key: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "ब्राउज़र पुनरारंभ होने तक रुका हुआ",
+    "description": "Auto-added i18n key: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "रोका गया (%s शेष)",
+    "description": "Auto-added i18n key: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "अस्थायी विराम स्थिति को अपडेट करने में विफल.",
+    "description": "Auto-added i18n key: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "सफ़ाई फिर से शुरू करने में विफल.",
+    "description": "Auto-added i18n key: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "एक मिनट से भी कम",
+    "description": "Auto-added i18n key: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "मिन",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "एच",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "दूरस्थ नियम स्वास्थ्य",
+    "description": "Auto-added i18n key: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "अब ताज़ा करें",
+    "description": "Auto-added i18n key: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "अंतिम लाने का प्रयास:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "अंतिम सफल फ़ेच:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "अंतिम हैश सत्यापन:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "अंतिम विफलता का कारण:",
+    "description": "Auto-added i18n key: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "वर्तमान हैश स्थिति:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "एन/ए",
+    "description": "Auto-added i18n key: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "कोई नहीं",
+    "description": "Auto-added i18n key: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "अज्ञात",
+    "description": "Auto-added i18n key: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "ताज़ा...",
+    "description": "Auto-added i18n key: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "दूरस्थ नियम ताज़ा करने का कार्य पूरा हुआ.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "दूरस्थ नियम ताज़ा विफल रहा.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "नियम परीक्षण प्रयोगशाला",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "नियम परीक्षण प्रयोगशाला",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "सफाई से पहले/बाद में और पहले मिलान किए गए प्रदाता/नियम को देखने के लिए एक यूआरएल चिपकाएँ।",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "चालू परीक्षण",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "परीक्षण...",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "पहले एक यूआरएल दर्ज करें.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "नियम परीक्षण विफल रहा.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "मिलान किया गया और सफलतापूर्वक साफ़ किया गया.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "इस URL के लिए कोई परिवर्तन लागू नहीं किया गया.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "यूआरएल आवश्यक है",
+    "description": "Auto-added i18n key: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "अमान्य यूआरएल प्रारूप",
+    "description": "Auto-added i18n key: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "नियम परीक्षण विफल रहा",
+    "description": "Auto-added i18n key: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "थीम टॉगल करें",
+    "description": "ARIA label for popup theme toggle button"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "डोमेन का पता लगाया जा रहा है...",
+    "description": "Temporary label shown while popup detects current tab domain for whitelist button"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "%s जोड़ा जा रहा है...",
+    "description": "Whitelist button loading label when adding domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "%s को हटाया जा रहा है...",
+    "description": "Whitelist button loading label when removing domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "इस पृष्ठ के लिए डोमेन का पता नहीं लगाया जा सका",
+    "description": "Tooltip for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "श्वेतसूची बटन अक्षम है क्योंकि इस पृष्ठ पर कोई समर्थित डोमेन नहीं है",
+    "description": "ARIA label for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_pause_15m_title": {
+    "message": "15 मिनट के लिए सफ़ाई को अस्थायी रूप से रोकें",
+    "description": "Tooltip and ARIA label for the 15-minute temporary pause button in popup"
+  },
+  "popup_pause_1h_title": {
+    "message": "सफाई को 1 घंटे के लिए अस्थायी रूप से रोकें",
+    "description": "Tooltip and ARIA label for the 1-hour temporary pause button in popup"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "ब्राउज़र पुनः आरंभ होने तक सफ़ाई रोकें",
+    "description": "Tooltip and ARIA label for the pause-until-restart button in popup"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "अभी URL सफ़ाई फिर से शुरू करें",
+    "description": "Tooltip and ARIA label for the resume-now button in popup"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "यूआरएल सफ़ाई को अस्थायी रूप से रोकें",
+    "description": "Tooltip for temporary pause section title in popup"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "वर्तमान पृष्ठ पर संसाधित कुल तत्व",
+    "description": "Tooltip for popup total elements label"
+  },
+  "popup_consent_description_title": {
+    "message": "स्वीकार करने से पहले इसे पढ़ें",
+    "description": "Tooltip for popup consent description"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "पुष्टि करें कि आप पढ़ते हैं और स्वीकार करते हैं",
+    "description": "Tooltip for popup consent checkbox label"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "सहमति स्वीकार करें और पॉपअप अनलॉक करें",
+    "description": "Tooltip for popup consent accept button"
+  },
+  "license_third_party_title_title": {
+    "message": "तृतीय-पक्ष घटक जानकारी",
+    "description": "Tooltip for third-party section title"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "फ़ायरफ़ॉक्स ऐड-ऑन सिग्नेचर डाइजेस्ट",
+    "description": "Tooltip for Firefox signature title label"
+  },
+  "invalid_date_label": {
+    "message": "अमान्य दिनांक",
+    "description": "Fallback text when a date value cannot be parsed."
+  },
+  "log_i18n_load_failed": {
+    "message": "अंतर्राष्ट्रीयकरण लोड करने में विफल. कुछ सुविधाएं शायद समुचित रूप से कार्य न करें।",
+    "description": "Error message shown when log page translations fail to load."
+  },
+  "log_html_sort_oldest_first": {
+    "message": "सबसे पुराना सबसे पहले दिखाने के लिए क्लिक करें",
+    "description": "Tooltip for log timestamp sort button when currently newest-first."
+  },
+  "log_html_sort_newest_first": {
+    "message": "सबसे पहले नवीनतम दिखाने के लिए क्लिक करें",
+    "description": "Tooltip for log timestamp sort button when currently oldest-first."
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "नियम परीक्षण प्रयोगशाला बंद करें",
+    "description": "ARIA label for closing the Rule Test Lab modal."
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "इनपुट यूआरएल",
+    "description": "Label for input URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "आउटपुट यूआरएल",
+    "description": "Label for output URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "बदल गया",
+    "description": "Label indicating whether URL was changed in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "मिलान प्रदाता",
+    "description": "Label for matched provider in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "सुमेलित नियम",
+    "description": "Label for matched rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "पैटर्न प्रकार",
+    "description": "Label for pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "पैटर्न मान",
+    "description": "Label for pattern value in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "कार्रवाई",
+    "description": "Label for matched action in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "परीक्षण के लिए वैकल्पिक पैरामीटर (उदा. utm_source या ref=abc)",
+    "description": "Placeholder for optional parameter probe input in Rule Test Lab."
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "परम का परीक्षण किया",
+    "description": "Label for tested parameter probe in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "मिलान अपवाद",
+    "description": "Label for matched URL regex exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "मेल खाने वाला डोमेन अपवाद",
+    "description": "Label for matched domain exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "मिलान पुनर्निर्देशन",
+    "description": "Label for matched regex redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "मिलान किया गया डोमेन पुनर्निर्देशन",
+    "description": "Label for matched domain redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "मिलान नियम रेगेक्स",
+    "description": "Label for matched standard rule regex in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "मिलान कच्चा नियम",
+    "description": "Label for matched raw rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "मिलान रेफरल नियम",
+    "description": "Label for matched referral marketing rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "रिमूवपैराम नियम से मिलान हुआ",
+    "description": "Label for matched $removeparam rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "मिलान किया गया रिमूवपैरम अपवाद",
+    "description": "Label for matched @@$removeparam exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "पूर्ण प्रदाता",
+    "description": "Label for completeProvider boolean in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "कोई नहीं",
+    "description": "Fallback value in Rule Test Lab output when there is no value."
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "हाँ",
+    "description": "Boolean true label in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "नहीं",
+    "description": "Boolean false label in Rule Test Lab output."
+  },
+  "color_picket_clear": {
+    "message": "स्पष्ट",
+    "description": "Clear button in color picker."
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "नियम लागू करें",
+    "description": "Legacy/alias label for enforcing custom rules."
+  },
+  "log_stats_chart_type_bar": {
+    "message": "बार चार्ट",
+    "description": "Label for the bar chart option."
+  },
+  "log_stats_chart_type_line": {
+    "message": "लाइन चार्ट",
+    "description": "Label for the line chart option."
+  },
+  "log_stats_daily_activity": {
+    "message": "दैनिक गतिविधि (पिछले 14 दिन)",
+    "description": "Stats section title for daily activity chart/table."
+  },
+  "log_stats_date_col": {
+    "message": "तारीख",
+    "description": "Header for the date column in daily stats table."
+  },
+  "log_stats_entries_col": {
+    "message": "प्रविष्टियां",
+    "description": "Header for the entries column in daily stats table."
+  },
+  "log_stats_no_activity": {
+    "message": "कोई गतिविधि नहीं",
+    "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL फ़िल्टर (इंटरऑपरेबिलिटी):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON नियम:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON नियम जानकारी:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL फ़िल्टर नियम:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL फ़िल्टर स्रोत:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "नियम स्थिति:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "हैश स्थिति:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL फ़िल्टर स्थिति:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "लदा हुआ"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "आंशिक रूप से भरा हुआ"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "सभी स्रोत विफल हो गए"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "कोई हैशलेस URL फ़िल्टर स्रोत कॉन्फ़िगर नहीं किया गया"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "दूरस्थ नियम अक्षम किए गए"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "लोड नहीं"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "खाली"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "आवश्यक नहीं"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL फ़िल्टर"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL फ़िल्टर"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "मर्ज किए गए Linkumori URL फ़िल्टर"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "कस्टम Linkumori URL नियम"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL फ़िल्टर पार्सर अनुपलब्ध है"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "कस्टम Linkumori URL नियम विफल"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL फ़िल्टर स्रोत विफल"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "रिमोट URL फ़िल्टर फ़ाइल खाली है"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL फ़िल्टर फ़ेच विफल रहा"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "अज्ञात URL फ़िल्टर त्रुटि"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "सभी Linkumori URL फ़िल्टर स्रोत विफल रहे"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "लोकप्रिय एक्सटेंशन URL ट्रैकिंग फ़िल्टर"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "कोई समर्थित Linkumori इंटरऑपरेबिलिटी $removeparam नियम नहीं मिले"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL फ़िल्टर इंटरऑपरेबिलिटी"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori इंटरऑपरेबिलिटी फ़िल्टर स्रोत"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL नियम"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori कस्टम URL नियम"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "यहां लोकप्रिय एक्सटेंशन $removeparam या $queryprune नियम जोड़ें। ये नियम ClearURLs कस्टम प्रदाताओं से अलग से संग्रहीत हैं और Linkumori URL फ़िल्टर में विलय कर दिए गए हैं।"
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "मान्य"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "कोई कस्टम Linkumori URL नियम कॉन्फ़िगर नहीं किया गया।"
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 समर्थित नियम, $2 असमर्थित छोड़ दिया गया, $3 डुप्लिकेट छोड़ दिया गया।"
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "प्रमाणीकरण विफल रहा"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Linkumori URL नियम सहेजे गए और पुनः लोड किए गए।"
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "सहेजना विफल"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "सत्यापन के बाद समर्थित नियम यहां दिखाई देंगे।"
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL फ़िल्टर पार्सर अनुपलब्ध है।"
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL फ़िल्टर (इंटरऑपरेबिलिटी)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL स्थिति"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "रनटाइम नियम"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "कस्टम नियम"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL हैश"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 रनटाइम नियम\n$3 कस्टम नियम"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Linkumori कस्टम URL नियम बंद करें"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Linkumori URL नियम क्या हैं?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL नियम लोकप्रिय एक्सटेंशन ट्रैकिंग URL फ़िल्टर लाइनें हैं जो $removeparam पर केंद्रित हैं। वे तब उपयोगी होते हैं जब आप ClearURLs प्रदाता JSON बनाने के बजाय सीधे फ़िल्टर-सूची सिंटैक्स पेस्ट करना चाहते हैं।"
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "दूरस्थ लोकप्रिय एक्सटेंशन URL फ़िल्टर और इन कस्टम नियमों को हैश सत्यापन की आवश्यकता नहीं है। पार्सिंग के बाद उन्हें ClearURLsData से अलग करके LinkumoriURLsData में संग्रहीत किया जाता है।"
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "इंटरऑपरेबिलिटी बदली",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "इंटरऑपरेबिलिटी आउटपुट URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "मेल खाता इंटरऑपरेबिलिटी नियम",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "इंटरऑपरेबिलिटी पैटर्न प्रकार",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "इंटरऑपरेबिलिटी क्रिया",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
+  },
+  "popup_whitelist_state_permanent": {
+    "message": "श्वेतसूचीबद्ध: $1 - केवल-टैब के लिए फिर से क्लिक करें",
+    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
+  },
+  "popup_whitelist_state_temporary": {
+    "message": "टैब-केवल: $1 - हटाने के लिए क्लिक करें",
+    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
+  },
+  "logger_nav_label": {
+    "message": "लाइव लकड़हारा"
+  },
+  "logger_btn_pause": {
+    "message": "⏸ विराम"
+  },
+  "logger_btn_resume": {
+    "message": "▶ फिर शुरू करना"
+  },
+  "logger_btn_clear": {
+    "message": "🗑 स्पष्ट"
+  },
+  "logger_btn_autoscroll": {
+    "message": "↕ स्वतः स्क्रॉल"
+  },
+  "logger_filter_label": {
+    "message": "फ़िल्टर"
+  },
+  "logger_filter_placeholder": {
+    "message": "प्रविष्टियाँ फ़िल्टर करें..."
+  },
+  "logger_tab_filter_label": {
+    "message": "टैब"
+  },
+  "logger_tab_all": {
+    "message": "सभी टैब"
+  },
+  "logger_col_time": {
+    "message": "समय"
+  },
+  "logger_col_action": {
+    "message": "कार्रवाई"
+  },
+  "logger_col_rule": {
+    "message": "नियम"
+  },
+  "logger_col_provider": {
+    "message": "प्रदाता"
+  },
+  "logger_col_pattern": {
+    "message": "नमूना"
+  },
+  "logger_col_type": {
+    "message": "प्रकार"
+  },
+  "logger_col_method": {
+    "message": "तरीका"
+  },
+  "logger_col_url": {
+    "message": "URL"
+  },
+  "logger_status_entries": {
+    "message": "प्रविष्टियां"
+  },
+  "logger_empty_state": {
+    "message": "अभी तक कोई लॉग प्रविष्टियाँ नहीं. ब्राउज़िंग से यह सूची पॉप्युलेट हो जाएगी."
+  },
+  "logger_logging_disabled_banner": {
+    "message": "लॉगिंग अक्षम है - नई प्रविष्टियाँ कैप्चर करने के लिए इसे सेटिंग्स में सक्षम करें।"
+  },
+  "logger_detail_title": {
+    "message": "प्रवेश विवरण"
+  },
+  "logger_detail_before": {
+    "message": "पहले"
+  },
+  "logger_detail_after": {
+    "message": "बाद"
+  },
+  "logger_detail_rule": {
+    "message": "नियम"
+  },
+  "logger_detail_provider": {
+    "message": "प्रदाता"
+  },
+  "logger_detail_pattern": {
+    "message": "नमूना"
+  },
+  "logger_detail_type": {
+    "message": "प्रकार"
+  },
+  "logger_detail_method": {
+    "message": "तरीका"
+  },
+  "logger_detail_time": {
+    "message": "समय-चिह्न"
+  }
+}

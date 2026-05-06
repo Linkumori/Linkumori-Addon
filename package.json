@@ -1,0 +1,29 @@
+{
+  "name": "linkumori-cli",
+  "version": "1.0.0",
+  "description": "Linkumori Firefox Extension - Interactive CLI Build Tool",
+  "main": "linkumori-cli-tool.js",
+  "type": "module",
+  "scripts": {
+    "start": "bun run linkumori-cli-tool.js",
+    "make": "node ./linkumori-cli-tool.js",
+    "gh": "bun ./scripts/git-workflow.js",
+   "changelog:auto": "bun ./scripts/update-changelog-from-commits.js"
+ 
+  },
+  "keywords": [
+    "linkumori",
+    "firefox",
+    "extension",
+    "build",
+    "cli",
+    "clearurls"
+  ],
+  "author": "Subham_Mahesh and Kevin Röbert (ClearURLs)",
+  "license": "LGPL-3.0-or-later",
+  "preferredInstaller": "bun",
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.2.0"
+  }
+}

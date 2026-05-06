@@ -1,0 +1,80 @@
+================================================================================
+  LINKUMORI (CLEAN URLs) -- MV3 WEBREQUEST FIREFOX ADD-ON
+  Authors, Contributors & Attribution
+================================================================================
+
+The Linkumori codebase is primarily derived from other open-source projects,
+particularly the ClearURLs add-on and related projects. See THIRD-PARTY-NOTICE/
+and LICENSE.md for full third-party attribution and license details.
+
+
+--------------------------------------------------------------------------------
+  LINKUMORI FIRST-PARTY AUTHOR
+--------------------------------------------------------------------------------
+
+  Name    :  Subham Mahesh (subham8907 / linkumori)
+  GitHub  :  https://github.com/Linkumori
+  Role    :  Primary author and maintainer
+
+  Contributors
+  ------------
+  PikachuEXE
+
+
+--------------------------------------------------------------------------------
+  UPSTREAM: CLEARURLS
+--------------------------------------------------------------------------------
+
+  A large portion of the Linkumori codebase originates from or is derived from
+  the ClearURLs project by Kevin Röbert, used under the GNU Lesser General
+  Public License (LGPL) v3.0 or later.
+
+  Name    :  Kevin Röbert
+  GitHub  :  https://github.com/ClearURLs/Addon
+  Role    :  Original ClearURLs author (upstream)
+
+
+--------------------------------------------------------------------------------
+  THIRD-PARTY ACKNOWLEDGMENTS
+--------------------------------------------------------------------------------
+
+  The following individuals and organizations contributed code, data, or assets
+  included in Linkumori, either unmodified or in modified form. See
+  THIRD-PARTY-NOTICE/ and Template.md for full license details.
+
+  Sam Verschueren       --  decode-uri-component
+  foo123                --  RegexAnalyzer
+  Simon Reinisch        --  Pickr color picker
+  Chen, Yi-Cyuan        --  js-sha256
+  Mathias Bynens        --  punycode
+  Raymond Hill          --  publicsuffixlist.js
+  MarkedJS Contributors --  marked.js -- https://github.com/markedjs/marked
+  Christopher Jeffrey   --  Original marked author / early maintainer
+  John Gruber           --  Original Markdown author
+  Mozilla Foundation    --  Public Suffix List data (MPL-2.0)
+  kodango               --  Remove Google Redirection (base for link fixes)
+  Lucide Contributors   --  Icons -- https://lucide.dev
+  Cole Bemis            --  Feather Icons portions in Lucide (MIT)
+  Google LLC            --  Material Icons (Apache-2.0), Tinos font (Apache-2.0)
+  Steve Matteson        --  Tinos font design
+  Monotype Imaging Inc. -- Tinos font credits / type designer showcase
+  dbenjaminmiller       --  MFB Oldstyle font (CC0 1.0)
+
+
+--------------------------------------------------------------------------------
+  MODIFICATION HISTORY
+--------------------------------------------------------------------------------
+
+  Due to space constraints, later modifications are not tracked inline.
+  To view the full modification history, run:
+
+    node linkumori-cli-tool.js
+
+  Then select "Generate Commit History". This will create a Markdown file
+  where you can browse who modified which files and on what date.
+
+  Note: git clone is required before running "Generate Commit History":
+
+    git clone https://github.com/Linkumori/Linkumori-Addon.git
+
+================================================================================

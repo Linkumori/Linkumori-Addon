@@ -1,0 +1,4462 @@
+{
+  "aboutPageTitle": {
+    "message": "Linkumori - O",
+    "description": "Title for the about/legal page"
+  },
+  "active_bundled_providers_label": {
+    "message": "Aktívni poskytovatelia balíkov:",
+    "description": "Label for active bundled providers count."
+  },
+  "active_remote_providers_label": {
+    "message": "Aktívni vzdialení poskytovatelia:",
+    "description": "Label for active remote providers count."
+  },
+  "addDomainToWhitelist": {
+    "message": "Pridať $1 na bielu listinu",
+    "description": "Button label to add a domain to the whitelist. $1 is replaced with the domain."
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "Pridať aktuálnu doménu na bielu listinu",
+    "description": "Button label to add the current domain to the whitelist."
+  },
+  "appearance_settings_title": {
+    "message": "Nastavenia vzhľadu",
+    "description": "Title for the appearance settings section"
+  },
+  "badge_color_description": {
+    "message": "Vyberte farbu odznaku rozšírenia, ktorý zobrazuje počet vyčistených parametrov na každej stránke.",
+    "description": "Description text explaining what the badge color setting does"
+  },
+  "badge_color_label": {
+    "message": "Farba odznaku",
+    "description": "Label for the badge color picker"
+  },
+  "badge_preview_label": {
+    "message": "Ukážka",
+    "description": "Label for the badge preview section"
+  },
+  "blocked_html_body": {
+    "message": "Táto stránka bola zablokovaná doplnkom <b>Linkumori (čisté adresy URL)</b>, pretože túto stránku identifikujeme ako reklamnú a/alebo sledovaciu službu. Ak chcete navštíviť túto stránku, musíte dočasne deaktivovať doplnok alebo zakázať blokovanie domény v nastaveniach Linkumori (čisté adresy URL). Potom môžete kliknutím na tlačidlo nižšie načítať stránku.",
+    "description": "This string is used as body on the blocked site page."
+  },
+  "blocked_html_button": {
+    "message": "Navštívte stránku",
+    "description": "This string is used as button on the blocked site page."
+  },
+  "blocked_html_title": {
+    "message": "Táto stránka bola zablokovaná používateľom <b>Linkumori (čisté adresy URL)</b>",
+    "description": "This string is used as title on the blocked site page."
+  },
+  "built_in_rules_enabled": {
+    "message": "Povoliť vstavané pravidlá",
+    "description": "Label for the toggle that enables or disables bundled built-in rules"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "Použite pribalené pravidlá Linkumori/ClearURLs. Ak chcete spustiť iba vzdialené pravidlá a/alebo vlastné pravidlá, zakážte túto možnosť.",
+    "description": "Description for the toggle that controls bundled built-in rules"
+  },
+  "linkumori_interoperability_mode_enabled": {
+    "message": "Režim interoperability Linkumori"
+  },
+  "linkumori_interoperability_mode_enabled_description": {
+    "message": "Použije pravidlá interoperability Linkumori URL Filter vrátane kompatibilných zoznamov $removeparam spolu s natívnymi pravidlami Linkumori/ClearURLs JSON."
+  },
+  "bundled_rules_description": {
+    "message": "Linkumori používa dve kategórie pravidiel: Linkumori (ClearURLs 2.0) JSON pravidlá pre natívnych poskytovateľov a Linkumori pravidlá interoperability pre obľúbené rozšírenie 98768500555 $removeparam zoznamov. Každá kategória sa počíta samostatne.",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "Informácie o pravidlách",
+    "description": "Title for the Rules Information section."
+  },
+  "button_cancel": {
+    "message": "Zrušiť"
+  },
+  "button_close": {
+    "message": "Zavrieť",
+    "description": "Close button text for FAQ modal"
+  },
+  "button_confirm": {
+    "message": "Potvrďte",
+    "description": "Generic confirm button text for modal dialogs"
+  },
+  "modal_alert_title": {
+    "message": "Všimnite si",
+    "description": "Default title for alert-style modal dialogs"
+  },
+  "modal_confirm_title": {
+    "message": "Potvrďte",
+    "description": "Default title for confirm-style modal dialogs"
+  },
+  "modal_prompt_title": {
+    "message": "Vyžaduje sa vstup",
+    "description": "Default title for prompt-style modal dialogs"
+  },
+  "button_delete": {
+    "message": "Odstrániť"
+  },
+  "button_exit": {
+    "message": "VÝCHOD",
+    "description": "Button text for exiting the editor"
+  },
+  "button_save": {
+    "message": "Uložiť"
+  },
+  "cleanUrlsButton": {
+    "message": "Vyčistite adresy URL",
+    "description": "Text for the button that initiates URL cleaning."
+  },
+  "cleanUrlsToolHeader": {
+    "message": "Nástroj Linkumori Clean URLs Tool",
+    "description": "The main header of the URL cleaning tool."
+  },
+  "cleanUrlsToolTitle": {
+    "message": "Linkumori Advanced URL Cleaning Tool",
+    "description": "The title of the URL cleaning tool page."
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "Tu sa zobrazia vyčistené adresy URL...",
+    "description": "Placeholder text for the cleaned URLs textarea."
+  },
+  "cleanedUrlsTitle": {
+    "message": "Vyčistené adresy URL",
+    "description": "Title for the cleaned URLs section."
+  },
+  "clipboard_copy_link": {
+    "message": "Skopírujte čisté umiestnenie odkazu",
+    "description": "This string is used in the context menu to copy clean links."
+  },
+  "color_picker_cancel": {
+    "message": "Zrušiť",
+    "description": "Cancel button in color picker"
+  },
+  "color_picker_clear": {
+    "message": "Jasné",
+    "description": "Clear button in color picker"
+  },
+  "color_picker_save": {
+    "message": "Uložiť",
+    "description": "Save button in color picker"
+  },
+  "composition_breakdown_label": {
+    "message": "zloženie:",
+    "description": "Label for bundled vs custom percentage breakdown."
+  },
+  "configs_switch_statistics": {
+    "message": "Štatistiky",
+    "description": "This string is used as name for the statistics switch button on the popup page."
+  },
+  "confirm_reset_settings": {
+    "message": "Naozaj chcete obnoviť všetky nastavenia na predvolené hodnoty?",
+    "description": "Confirmation message before resetting settings."
+  },
+  "confirmation_error_template": {
+    "message": "Fráza sa nezhoduje. Zadajte presne: \"%s\"",
+    "description": "Template for error message with placeholder for localized phrase"
+  },
+  "confirmation_error_text": {
+    "message": "Fráza sa nezhoduje. Napíšte presne: \"Prijímam plnú zodpovednosť\"",
+    "description": "Error message for incorrect confirmation phrase"
+  },
+  "confirmation_final_text": {
+    "message": "Potvrdzujem, že vlastním/ovládam tieto servery a prijímam všetku zodpovednosť za ich používanie. Táto funkcia je poskytovaná „tak ako je“ bez záruky. Z právneho hľadiska môžem súhlasiť s touto dohodou.",
+    "description": "Final warning text in confirmation modal"
+  },
+  "confirmation_input_label": {
+    "message": "Sem zadajte frázu:",
+    "description": "Label for confirmation input field"
+  },
+  "confirmation_modal_cancel": {
+    "message": "Zrušiť",
+    "description": "Cancel button text in confirmation modal"
+  },
+  "confirmation_modal_confirm": {
+    "message": "Potvrdiť a povoliť vzdialené adresy URL",
+    "description": "Confirm button text in confirmation modal"
+  },
+  "confirmation_modal_text": {
+    "message": "Ak chcete pokračovať, zadajte nasledujúcu potvrdzovaciu frázu presne podľa obrázka:",
+    "description": "Instruction text for confirmation modal"
+  },
+  "confirmation_modal_title": {
+    "message": "Potvrďte svoje porozumenie",
+    "description": "Title for confirmation modal"
+  },
+  "context_menu_enabled": {
+    "message": "Zobraziť položku kontextového menu",
+    "description": "This string is used toggle the context menu entry to copy clean links."
+  },
+  "context_menu_enabled_description": {
+    "message": "Pridajte možnosti Linkumori do ponuky po kliknutí pravým tlačidlom myši.",
+    "description": "Description for the context menu toggle."
+  },
+  "copyFailed": {
+    "message": "Kopírovanie zlyhalo!",
+    "description": "Toast message when copy action fails"
+  },
+  "copyText": {
+    "message": "Kopírovať",
+    "description": "Button text for copy action"
+  },
+  "copyUrlsButton": {
+    "message": "Kopírovať výsledky",
+    "description": "Text for the button that copies cleaned URLs."
+  },
+  "copy_urls_empty": {
+    "message": "Žiadne adresy URL na kopírovanie.",
+    "description": "Message when attempting to copy but the output URL area is empty."
+  },
+  "copy_urls_fail": {
+    "message": "Nepodarilo sa skopírovať adresy URL.",
+    "description": "Error message when copying URLs to clipboard fails in the cleaning tool."
+  },
+  "copy_urls_success": {
+    "message": "Adresy URL boli skopírované do schránky!",
+    "description": "Success message when URLs are copied to clipboard in the cleaning tool."
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "Pridať nového poskytovateľa"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "Pridať poskytovateľa"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "Pokročilý editor JSON"
+  },
+  "customRulesEditor_builtin": {
+    "message": "Vstavané:"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "Kompletný poskytovateľ (blokuje celú doménu)"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "Naozaj chcete odstrániť poskytovateľa „$1“?"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "Naozaj chcete odstrániť všetkých poskytovateľov $1?"
+  },
+  "customRulesEditor_copy": {
+    "message": "kopírovať"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "Vytvorte si prvého poskytovateľa"
+  },
+  "customRulesEditor_custom": {
+    "message": "Vlastné:"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "Custom Providers"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "Odstrániť všetko"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "Nepodarilo sa odstrániť všetkých poskytovateľov"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "Odstrániť aktuálneho poskytovateľa"
+  },
+  "customRulesEditor_description": {
+    "message": "Vytvárajte a spravujte vlastné pravidlá čistenia adries URL pre webové stránky, ktoré nepokrývajú vstavaní poskytovatelia."
+  },
+  "customRulesEditor_disabled": {
+    "message": "Zakázané:"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "Výnimky domény"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "Doménové vzory"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "Jednoduché vzory domén (nedá sa použiť so vzorom adresy URL). Formáty: example.com, *.example.com, ||example.com^, ||*.example.com^ Jeden vzor na riadok.",
+    "description": "Help text for domain patterns field"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "Doménové vzory"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||example.com^\n||*.subdomena.com^"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "Vyžaduje sa aspoň jeden vzor domény"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "Presmerovania domény"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "Duplicitné"
+  },
+  "customRulesEditor_editName": {
+    "message": "Upraviť meno"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "Upraviť poskytovateľa"
+  },
+  "customRulesEditor_editing": {
+    "message": "Strih: $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "Vzory domén nemôžu byť prázdne"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "Vynútenie zlyhalo"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "Presadzovať pravidlá"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "Presadzované pravidlá"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "Ak chcete okamžite použiť všetky pravidlá, znova načítajte rozšírenie"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "Výnimky (adresy URL na vylúčenie)"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "Ukončite editor a vráťte sa do zoznamu poskytovateľov",
+    "description": "Tooltip text for the exit button in the custom rules editor"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "Nepodarilo sa exportovať pravidlá"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "Exportovať vlastné pravidlá do súboru"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "Poskytovateľa sa nepodarilo uložiť"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "Vynútiť presmerovanie"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "Metódy HTTP",
+    "description": "Label for HTTP methods field"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "Týmto sa nahradia kategórie vlastných pravidiel zahrnuté v súbore. Pokračovať?"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "Nepodarilo sa importovať pravidlá: $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "Importovať vlastné pravidlá zo súboru"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "Neplatný vzor domény: {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "Neplatná štruktúra súboru: chýbajú poskytovatelia ClearURLs alebo vlastné pravidlá Linkumori URL"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "Neplatný regulárny výraz vzoru adresy URL: $1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "Chyba JSON: $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "Tu sa zobrazí JSON..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "Vyžaduje sa obsah JSON"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "Kliknutím na urlPattern sa odstránia vzory domény a naopak."
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "Pridajte pole do JSON"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "Vlastné pravidlá",
+    "description": "Navigation label for custom rules view"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "Whitelist",
+    "description": "Navigation label for whitelist view"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "V súbore sa nenašli žiadni poskytovatelia"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "Editor vlastných pravidiel a správa bielej listiny"
+  },
+  "customRulesEditor_patternType": {
+    "message": "Typ vzoru"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "Vyberte spôsob priradenia adries URL tohto poskytovateľa"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "Vyberte typ vzoru"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "Poskytovateľ „$1“ nemôže mať súčasne urlPattern a domainPatterns"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "Poskytovateľ „$1“ má prázdne vzory domén"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "U poskytovateľa „$1“ chýba urlPattern"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "Poskytovateľ „$1“ musí mať buď urlPattern alebo domainPatterns"
+  },
+  "customRulesEditor_providerName": {
+    "message": "Meno poskytovateľa *"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "Poskytovateľ s týmto názvom už existuje"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "Jedinečný identifikátor tohto poskytovateľa (napr. „example.com“, „moja lokalita“)"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "napr. example.com, mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "Vyžaduje sa názov poskytovateľa"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "Nespracované pravidlá (vzory regulárneho výrazu)"
+  },
+  "customRulesEditor_redirections": {
+    "message": "Presmerovania (vzory presmerovania)"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "Referral Marketing"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "Typy zdrojov"
+  },
+  "customRulesEditor_rules": {
+    "message": "Pravidlá (parametre webovej adresy na odstránenie)"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "Stav pravidiel"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "Uložiť poskytovateľa"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "Uložiť aktuálneho poskytovateľa"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "Vyberte poskytovateľa, ktorého chcete upraviť"
+  },
+  "customRulesEditor_title": {
+    "message": "Editor vlastných pravidiel – ClearURLs"
+  },
+  "customRulesEditor_total": {
+    "message": "Celkom:"
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "Máte neuložené zmeny. Pokračovať bez uloženia?"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "Vzor adresy URL *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "Vzor adresy URL a vzory domény nemožno použiť súčasne"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "Regulárny výraz na zhodu s adresami URL"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "Vzor adresy URL (regex)"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "Vyžaduje sa vzor adresy URL alebo vzor domény"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?example\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "Vyžaduje sa vzor adresy URL"
+  },
+  "customRulesEditor_welcome": {
+    "message": "Vitajte v editore vlastných pravidiel"
+  },
+  "custom_providers_label": {
+    "message": "Vlastní poskytovatelia:",
+    "description": "Label for custom providers count."
+  },
+  "customrules": {
+    "message": "Vlastné pravidlá"
+  },
+  "datatable_empty_table": {
+    "message": "V tabuľke nie sú dostupné žiadne údaje",
+    "description": "DataTables empty table message"
+  },
+  "datatable_info": {
+    "message": "Zobrazuje sa _START_ až _END_ z _TOTAL_ záznamov",
+    "description": "DataTables pagination info"
+  },
+  "datatable_info_empty": {
+    "message": "Zobrazuje sa 0 až 0 z 0 záznamov",
+    "description": "DataTables info when no data"
+  },
+  "datatable_showing_all": {
+    "message": "Zobrazujú sa všetky záznamy $1",
+    "description": "Info message when showing all entries. $1=total count"
+  },
+  "datatable_showing_entries": {
+    "message": "Zobrazuje sa $1 až $2 z $3 záznamov",
+    "description": "Pagination info showing current range. $1=start, $2=end, $3=total"
+  },
+  "datatable_zero_records": {
+    "message": "Nenašli sa žiadne zodpovedajúce záznamy",
+    "description": "DataTables no search results message"
+  },
+  "domain_blocking_enabled": {
+    "message": "Povoliť blokovanie domény (môže viesť k problémom na stránkach, ktoré nepovoľujú blokovanie reklám)",
+    "description": "This string is used as label for the domain blocking switch"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "Blokovať požiadavky na konkrétne domény.",
+    "description": "Description for the domain blocking toggle."
+  },
+  "downloadFailed": {
+    "message": "Sťahovanie zlyhalo!",
+    "description": "Toast message when download action fails"
+  },
+  "downloadText": {
+    "message": "Stiahnuť",
+    "description": "Button text for download action"
+  },
+  "eTag_filtering_enabled": {
+    "message": "Filtruje hlavičky ETag z požiadaviek",
+    "description": "This string is used as label for the ETag header filtering switch"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "Odstráňte hlavičky ETag, aby ste zabránili sledovaniu.",
+    "description": "Description for the ETag filtering toggle."
+  },
+  "eTag_filtering_log": {
+    "message": "Hlavička ETag bola z tejto žiadosti odstránená",
+    "description": "This string is used on ETag header filtering in the Linkumori (Clean URLS) log."
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "Nie je možné získať aktuálnu doménu",
+    "description": "Error message when the current domain cannot be determined."
+  },
+  "error_loading_data": {
+    "message": "Nepodarilo sa načítať údaje denníka. Obnovte stránku.",
+    "description": "Error message when log data cannot be loaded from storage"
+  },
+  "error_rendering_table": {
+    "message": "Chyba pri vykresľovaní údajov tabuľky",
+    "description": "Error message when table fails to render"
+  },
+  "extension_description": {
+    "message": "Odstráňte prvky sledovania z adries URL.",
+    "description": "Extension description (max. 132 characters)"
+  },
+  "fallback_rules_loaded": {
+    "message": "týkajúce sa združeného pravidla mohlo byť poškodené alebo nesprávne načítané. Namiesto toho boli načítané záložné pravidlá."
+  },
+  "faq_caution": {
+    "message": "Pozor:",
+    "description": "Label for cautions in FAQ"
+  },
+  "faq_common_mistakes": {
+    "message": "Akým bežným chybám sa treba vyhnúť?",
+    "description": "FAQ question about common mistakes"
+  },
+  "faq_complete_provider": {
+    "message": "Čo robí completeProvider?",
+    "description": "FAQ question about completeProvider"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "Keď je nastavená na hodnotu true, completeProvider označí zodpovedajúce požiadavky na blokovanie. K skutočnému blokovaniu dôjde iba vtedy, keď je povolené globálne nastavenie „Blokovanie domén“. Ak je hodnota false, môžete použiť bežné pravidlá, výnimky a presmerovania.",
+    "description": "FAQ answer explaining completeProvider"
+  },
+  "faq_complete_provider_usage": {
+    "message": "Väčšina vlastných pravidiel by to mala nastaviť na hodnotu false a namiesto toho použiť špecifické pravidlá odstraňovania parametrov.",
+    "description": "FAQ guidance on completeProvider usage"
+  },
+  "faq_complete_provider_warning": {
+    "message": "Ak je povolené blokovanie domén, môže to blokovať úplný prístup pre zodpovedajúce adresy URL.",
+    "description": "FAQ warning about completeProvider"
+  },
+  "faq_complex_example": {
+    "message": "Ukážte mi zložitý príklad poskytovateľa",
+    "description": "FAQ question requesting complex example"
+  },
+  "faq_complex_example_explanation": {
+    "message": "Tento poskytovateľ odstraňuje parametre sledovania a fragmenty, spracováva presmerovania, ale chráni API, prihlasovacie a pokladničné stránky pred úpravami.",
+    "description": "FAQ explanation of complex example"
+  },
+  "faq_complex_example_intro": {
+    "message": "Tu je pokročilý poskytovateľ s presmerovaniami a výnimkami:",
+    "description": "FAQ intro to complex example"
+  },
+  "faq_custom_rules_note": {
+    "message": "Vlastné pravidlá sa spúšťajú spolu so vstavanými pravidlami a môžu podľa názvu prepísať importované položky balíka/vzdialeného poskytovateľa.",
+    "description": "Note about custom rules precedence"
+  },
+  "faq_default_note": {
+    "message": "Predvolená hodnota:",
+    "description": "Label for default behavior notes in FAQ"
+  },
+  "faq_domain_exceptions": {
+    "message": "Čo sú výnimky domény?",
+    "description": "FAQ question about domain exceptions"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "Výnimky domény fungujú ako bežné výnimky, ale namiesto regulárneho výrazu používajú jednoduchší formát vzoru domény. Umožňujú vám vylúčiť zo spracovania konkrétne domény alebo subdomény.",
+    "description": "FAQ explanation of domain exceptions"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "Výnimky domény používajú rovnaké vzory ako vzory domén, ale sú jednoduchšie ako výnimky regulárneho výrazu.",
+    "description": "FAQ tip about domain exceptions"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ – názov hostiteľa sa zhoduje s doménou example.com a jej subdoménami",
+    "description": "FAQ explanation of AdBlock domain pattern"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - zástupný znak názvu hostiteľa; každé * zodpovedá jednému štítku (bodka segmentu)",
+    "description": "FAQ explanation of AdBlock wildcard pattern"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "example.com – jednoduchá zhoda podreťazca na celej adrese URL (môže sa zhodovať aj v rámci dlhších názvov hostiteľov/cesty)",
+    "description": "FAQ explanation of basic domain pattern"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.example.*^ – Priraďuje subdomény k zástupným TLD vrátane viacdielnych TLD (a.example.co.uk)",
+    "description": "FAQ explanation of full wildcard pattern"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||example.*^ – Priraďuje doménu zástupným TLD vrátane viacdielnych TLD (example.co.uk, example.gov.in)",
+    "description": "FAQ explanation of TLD wildcard domain pattern"
+  },
+  "faq_domain_pattern_types": {
+    "message": "Typy vzorov domény:",
+    "description": "FAQ section title for domain pattern types"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com – zhoda regulárneho výrazu so zástupným znakom na celej adrese URL, nie striktná zhoda iba s názvom hostiteľa",
+    "description": "FAQ explanation of wildcard domain pattern"
+  },
+  "faq_domain_patterns": {
+    "message": "Vzory domén verzus vzory adries URL",
+    "description": "FAQ question about domain patterns vs URL patterns"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "Vzory domén podporujú jednoduché tokeny a formuláre v štýle AdBlock. Správanie pri zhode závisí od syntaxe (niektoré formuláre kontrolujú názov hostiteľa, iné sa zhodujú s celým reťazcom adresy URL):",
+    "description": "FAQ explanation of domain patterns"
+  },
+  "faq_domain_redirections": {
+    "message": "Čo sú presmerovania domén?",
+    "description": "FAQ question about domain redirections"
+  },
+  "faq_domain_redirections_example": {
+    "message": "redirect.example.com$redirect=https://target.com presmeruje všetky adresy URL z redirect.example.com na https://target.com",
+    "description": "FAQ example of domain redirections"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "Presmerovania domény používajú vzory domén na zisťovanie adries URL presmerovaní a extrahovanie cieľového cieľa. Podporujú špeciálnu syntax $redirect= pre jednoduché mapovanie presmerovania.",
+    "description": "FAQ explanation of domain redirections"
+  },
+  "faq_example": {
+    "message": "Príklad:",
+    "description": "Label for examples in FAQ"
+  },
+  "faq_exceptions": {
+    "message": "Ako fungujú výnimky?",
+    "description": "FAQ question about exceptions"
+  },
+  "faq_exceptions_explanation": {
+    "message": "Výnimkou sú vzory regulárnych výrazov, ktoré sa zhodujú s adresami URL, na ktorých by nemalo dôjsť k žiadnemu spracovaniu. Ak sa adresa URL zhoduje s výnimkou, všetky ostatné pravidlá sa ignorujú.",
+    "description": "FAQ explanation of exceptions"
+  },
+  "faq_exceptions_usage": {
+    "message": "Použite výnimky na ochranu prihlasovacích stránok, koncových bodov API alebo iných citlivých adries URL pred úpravou.",
+    "description": "FAQ guidance on exceptions usage"
+  },
+  "faq_force_redirection": {
+    "message": "Kedy by som mal použiť forceRedirection?",
+    "description": "FAQ question about forceRedirection"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "Niektoré webové stránky manipulujú s odkazmi prostredníctvom JavaScriptu, čím bránia normálnym presmerovaniam. forceRedirection zapíše URL priamo do hlavného rámca prehliadača.",
+    "description": "FAQ explanation of forceRedirection"
+  },
+  "faq_force_redirection_usage": {
+    "message": "Povoľte to pre webové stránky ako Google, ktoré namiesto priamych atribútov href používajú obslužné nástroje onClick.",
+    "description": "FAQ guidance on forceRedirection usage"
+  },
+  "faq_force_redirection_warning": {
+    "message": "Používajte iba vtedy, keď zlyhajú bežné presmerovania, pretože táto metóda je rušnejšia.",
+    "description": "FAQ warning about forceRedirection"
+  },
+  "faq_how_providers_work": {
+    "message": "Ako fungujú poskytovatelia?",
+    "description": "FAQ question about how providers work"
+  },
+  "faq_http_methods": {
+    "message": "Čo sú metódy HTTP?",
+    "description": "FAQ question about HTTP methods"
+  },
+  "faq_http_methods_common": {
+    "message": "Bežné metódy HTTP:",
+    "description": "FAQ section title for common HTTP methods"
+  },
+  "faq_http_methods_delete": {
+    "message": "DELETE - Vymazanie operácií",
+    "description": "FAQ list item for DELETE method"
+  },
+  "faq_http_methods_explanation": {
+    "message": "Metódy HTTP vám umožňujú aplikovať pravidlá iba na špecifické typy HTTP požiadaviek (GET, POST, PUT, DELETE atď.). To vám dáva kontrolu nad tým, ktoré metódy žiadostí spúšťajú vaše pravidlá.",
+    "description": "FAQ explanation of HTTP methods"
+  },
+  "faq_http_methods_get": {
+    "message": "GET – štandardné požiadavky na webové stránky",
+    "description": "FAQ list item for GET method"
+  },
+  "faq_http_methods_head": {
+    "message": "HEAD – Požiadavky iba na hlavičku",
+    "description": "FAQ list item for HEAD method"
+  },
+  "faq_http_methods_options": {
+    "message": "MOŽNOSTI - Predletové požiadavky CORS",
+    "description": "FAQ list item for OPTIONS method"
+  },
+  "faq_http_methods_post": {
+    "message": "POST – Odoslanie formulárov a volania rozhrania API",
+    "description": "FAQ list item for POST method"
+  },
+  "faq_http_methods_put": {
+    "message": "PUT - Operácie aktualizácie",
+    "description": "FAQ list item for PUT method"
+  },
+  "faq_http_methods_tip": {
+    "message": "Ak chcete použiť všetky metódy HTTP, nechajte prázdne, alebo zadajte iba metódy, na ktoré chcete zacieliť.",
+    "description": "FAQ tip about HTTP methods"
+  },
+  "faq_import_benefit_quick": {
+    "message": "Rýchle nastavenie – nie je potrebné manuálne vytvárať zložité vzory",
+    "description": "FAQ benefit of quick setup via import"
+  },
+  "faq_import_benefit_search": {
+    "message": "Vyhľadávajte a filtrujte, aby ste našli presne to, čo potrebujete",
+    "description": "FAQ benefit of search functionality"
+  },
+  "faq_import_benefit_tested": {
+    "message": "Vopred otestované pravidlá, o ktorých je známe, že fungujú správne",
+    "description": "FAQ benefit of tested rules via import"
+  },
+  "faq_import_benefit_updates": {
+    "message": "Jednoduchá aktualizácia pravidiel s novými poskytovateľmi",
+    "description": "FAQ benefit of easy updates via import"
+  },
+  "faq_list_feature_actions": {
+    "message": "Upravte, duplikujte alebo odstráňte poskytovateľov jediným kliknutím",
+    "description": "FAQ feature of quick actions"
+  },
+  "faq_list_feature_overview": {
+    "message": "Rýchly prehľad všetkých poskytovateľov s kľúčovými štatistikami",
+    "description": "FAQ feature of provider overview"
+  },
+  "faq_list_feature_search": {
+    "message": "Vyhľadávajte poskytovateľov podľa názvu, aby ste rýchlo našli konkrétnych",
+    "description": "FAQ feature of provider search"
+  },
+  "faq_list_feature_stats": {
+    "message": "Pozrite si počet pravidiel a typy vzorov na prvý pohľad",
+    "description": "FAQ feature of statistics display"
+  },
+  "faq_mistake_broad": {
+    "message": "UrlPattern je príliš široký (zodpovedá nechceným stránkam)",
+    "description": "FAQ common mistake about broad patterns"
+  },
+  "faq_mistake_complete": {
+    "message": "Nastavenie completeProvider na hodnotu true, pokiaľ naozaj nechcete web zablokovať",
+    "description": "FAQ common mistake about completeProvider"
+  },
+  "faq_mistake_escape": {
+    "message": "Zabudli ste uniknúť špeciálnym znakom regulárneho výrazu vo vzoroch",
+    "description": "FAQ common mistake about escaping regex"
+  },
+  "faq_mistake_exceptions": {
+    "message": "Bez pridania výnimiek pre dôležité funkcie",
+    "description": "FAQ common mistake about missing exceptions"
+  },
+  "faq_mistake_testing": {
+    "message": "Pred nasadením sa pravidlá dôkladne netestujú",
+    "description": "FAQ common mistake about insufficient testing"
+  },
+  "faq_note": {
+    "message": "Poznámka:",
+    "description": "Label for important notes in FAQ"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "Obidve polia môžu byť prítomné v údajoch, ale urlPattern má prioritu. Vzory domény sa používajú iba vtedy, keď je adresa urlPattern prázdna. Priraďovanie domén podporuje PSL, vrátane manipulácie s registrovateľnými doménami a viacdielnej podpory TLD.",
+    "description": "FAQ note about pattern exclusivity"
+  },
+  "faq_perf_combine": {
+    "message": "Skombinujte viacero podobných vzorov do jedného regulárneho výrazu",
+    "description": "FAQ performance tip about combining patterns"
+  },
+  "faq_perf_limit": {
+    "message": "Obmedzte počet poskytovateľov na to, čo skutočne potrebujete",
+    "description": "FAQ performance tip about limiting providers"
+  },
+  "faq_perf_review": {
+    "message": "Pravidelne kontrolujte a čistite nepoužívané pravidlá",
+    "description": "FAQ performance tip about regular review"
+  },
+  "faq_perf_simple": {
+    "message": "Ak je to možné, použite jednoduché pravidlá namiesto zložitých rawRules",
+    "description": "FAQ performance tip about simple rules"
+  },
+  "faq_perf_specific": {
+    "message": "Upravte urlPattern čo najkonkrétnejšie",
+    "description": "FAQ performance tip about specific patterns"
+  },
+  "faq_performance_tips": {
+    "message": "Ako môžem optimalizovať výkon?",
+    "description": "FAQ question about performance optimization"
+  },
+  "faq_provider_example": {
+    "message": "Poskytovateľ „Google“ by napríklad spracoval všetky služby Google pomocou pravidiel na odstránenie parametrov sledovania z výsledkov vyhľadávania, odkazov na YouTube atď.",
+    "description": "FAQ example of provider usage"
+  },
+  "faq_provider_import": {
+    "message": "Ako importujem poskytovateľov z pravidiel?",
+    "description": "FAQ question about provider import feature"
+  },
+  "faq_provider_import_benefits": {
+    "message": "Výhody dovozu:",
+    "description": "FAQ section title for import benefits"
+  },
+  "faq_provider_import_explanation": {
+    "message": "Funkcia Import poskytovateľa vám umožňuje rýchlo pridať poskytovateľov zo vstavaného katalógu pravidiel. Kliknutím na tlačidlo „Importovať z pravidiel“ môžete prehľadávať a vyberať poskytovateľov.",
+    "description": "FAQ explanation of provider import feature"
+  },
+  "faq_provider_import_tip": {
+    "message": "Môžete importovať viacerých poskytovateľov naraz tak, že ich vyberiete a kliknete na Importovať.",
+    "description": "FAQ tip about provider import"
+  },
+  "faq_provider_list": {
+    "message": "Ako môžem efektívne spravovať svojich poskytovateľov?",
+    "description": "FAQ question about provider list management"
+  },
+  "faq_provider_list_explanation": {
+    "message": "Zobrazenie Zoznam poskytovateľov vám poskytuje rýchly prehľad o všetkých vlastných poskytovateľoch. Poskytovateľov môžete vyhľadávať, upravovať, duplikovať alebo odstraňovať bez toho, aby ste museli otvárať každého zvlášť.",
+    "description": "FAQ explanation of provider list feature"
+  },
+  "faq_provider_list_features": {
+    "message": "Funkcie zoznamu poskytovateľov:",
+    "description": "FAQ section title for provider list features"
+  },
+  "faq_provider_list_tip": {
+    "message": "Ak chcete prehľadávať a spravovať poskytovateľov, otvorte zoznam poskytovateľov z panela nástrojov editora.",
+    "description": "FAQ tip about provider list"
+  },
+  "faq_providers_explanation": {
+    "message": "Poskytovatelia sú logické jednotky, ktoré zoskupujú viacero pravidiel pod rovnakým vzorom adresy URL. Každý poskytovateľ sa zameriava na konkrétnu webovú stránku alebo službu a obsahuje všetky pravidlá potrebné na čistenie adries URL z tohto zdroja.",
+    "description": "FAQ answer explaining providers"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "Priame vzory regulárneho výrazu použité na celú adresu URL. Použite pre zložité vzory, ktoré nezodpovedajú štandardnému formátu parametrov.",
+    "description": "FAQ explanation of rawRules"
+  },
+  "faq_raw_rules_title": {
+    "message": "Surové pravidlá:",
+    "description": "FAQ section title for rawRules explanation"
+  },
+  "faq_raw_rules_usage": {
+    "message": "Použite rawRules pre fragmenty, segmenty cesty alebo zložité vzory parametrov.",
+    "description": "FAQ guidance on rawRules usage"
+  },
+  "faq_redirections": {
+    "message": "Ako fungujú presmerovania?",
+    "description": "FAQ question about redirections"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com sa zmení na https://target.com",
+    "description": "FAQ example of redirection process"
+  },
+  "faq_redirections_explanation": {
+    "message": "Presmerovania extrahujú skutočnú cieľovú adresu URL zo služieb presmerovania. Prvá skupina zachytávania v regulačnom výraze sa stane novou adresou URL.",
+    "description": "FAQ explanation of redirections"
+  },
+  "faq_redirections_process": {
+    "message": "Zachytená adresa URL sa automaticky dekóduje pomocou decodeURIComponent() a nahradí pôvodnú adresu URL.",
+    "description": "FAQ explanation of redirection processing"
+  },
+  "faq_referral_default": {
+    "message": "Referenčný marketing je predvolene zakázaný, takže tieto parametre budú odstránené, pokiaľ to používateľ výslovne nepovolí.",
+    "description": "FAQ note about referralMarketing default behavior"
+  },
+  "faq_referral_explanation": {
+    "message": "Parametre sprostredkovania marketingu pomáhajú tvorcom obsahu zarábať provízie. Tieto parametre sa odstránia iba vtedy, keď používateľ v nastaveniach zakázal podporu sprostredkovania marketingu.",
+    "description": "FAQ explanation of referralMarketing"
+  },
+  "faq_referral_marketing": {
+    "message": "Čo je referralMarketing?",
+    "description": "FAQ question about referralMarketing"
+  },
+  "faq_resource_types": {
+    "message": "Čo sú typy zdrojov?",
+    "description": "FAQ question about resource types"
+  },
+  "faq_resource_types_common": {
+    "message": "Bežné typy zdrojov:",
+    "description": "FAQ section title for common resource types"
+  },
+  "faq_resource_types_explanation": {
+    "message": "Typy zdrojov vám umožňujú aplikovať pravidlá iba na špecifické typy webových požiadaviek (obrázky, skripty, hlavné stránky atď.). To vám dáva jemnú kontrolu nad tým, kedy sa aplikujú pravidlá.",
+    "description": "FAQ explanation of resource types"
+  },
+  "faq_resource_types_tip": {
+    "message": "Ak chcete použiť všetky typy zdrojov, nechajte prázdne, alebo zadajte iba typy, na ktoré chcete zacieliť.",
+    "description": "FAQ tip about resource types"
+  },
+  "faq_rt_font": {
+    "message": "font – webové fonty (.woff, .ttf atď.)",
+    "description": "FAQ resource type font"
+  },
+  "faq_rt_image": {
+    "message": "obrázok - Obrázky a obrázky",
+    "description": "FAQ resource type image"
+  },
+  "faq_rt_imageset": {
+    "message": "sada obrázkov – Sady obrázkov pre responzívne obrázky",
+    "description": "FAQ resource type imageset"
+  },
+  "faq_rt_main_frame": {
+    "message": "main_frame – hlavná webová stránka",
+    "description": "FAQ resource type main_frame"
+  },
+  "faq_rt_media": {
+    "message": "médiá - Audio a video súbory",
+    "description": "FAQ resource type media"
+  },
+  "faq_rt_object": {
+    "message": "objekt - Vložené objekty (Flash, pluginy)",
+    "description": "FAQ resource type object"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "object_subrequest – požiadavky vytvorené vloženými objektmi",
+    "description": "FAQ resource type object_subrequest"
+  },
+  "faq_rt_other": {
+    "message": "iné - Iné typy, ktoré nie sú uvedené vyššie",
+    "description": "FAQ resource type other"
+  },
+  "faq_rt_script": {
+    "message": "skript - súbory JavaScript",
+    "description": "FAQ resource type script"
+  },
+  "faq_rt_stylesheet": {
+    "message": "štýly – súbory CSS",
+    "description": "FAQ resource type stylesheet"
+  },
+  "faq_rt_sub_frame": {
+    "message": "sub_frame – vložené prvky iframe",
+    "description": "FAQ resource type sub_frame"
+  },
+  "faq_rt_websocket": {
+    "message": "websocket - pripojenia WebSocket",
+    "description": "FAQ resource type websocket"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "xml_dtd - Definície typu dokumentu XML",
+    "description": "FAQ resource type xml_dtd"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "xmlhttprequest – požiadavky AJAX",
+    "description": "FAQ resource type xmlhttprequest"
+  },
+  "faq_rt_xslt": {
+    "message": "xslt - XSLT transformačné súbory",
+    "description": "FAQ resource type xslt"
+  },
+  "faq_rules_converted": {
+    "message": "Príklad: \"utm_source\" sa presne zhoduje; \"utm_.*\" sa zhoduje s parametrami utm_source a utm_campaign. Najprv sa vyriešia výnimky/pravidlá Linkumori v rozsahu, potom sa normálne/regex pravidlá spustia len pre nezhodné kľúče.",
+    "description": "FAQ examples for rules key matching"
+  },
+  "faq_rules_explanation": {
+    "message": "Pravidlá zodpovedajú kľúčom parametrov dopytu a kľúčom fragmentov hash. Na zacielenie na konkrétne domény použite jednoduché názvy (presný kľúč), regulárny výraz (širšia zhoda) alebo pravidlá s rozsahom Linkumori, ako napríklad ||example.com^$removeparam=....",
+    "description": "FAQ explanation of rules"
+  },
+  "faq_rules_title": {
+    "message": "pravidlá:",
+    "description": "FAQ section title for rules explanation"
+  },
+  "faq_rules_vs_raw": {
+    "message": "Aký je rozdiel medzi pravidlami a rawRules?",
+    "description": "FAQ question about rules vs rawRules"
+  },
+  "faq_section_advanced": {
+    "message": "Pokročilé funkcie",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_basics": {
+    "message": "Základy",
+    "description": "FAQ section title for basic questions"
+  },
+  "faq_section_examples": {
+    "message": "Príklady",
+    "description": "FAQ section title for examples"
+  },
+  "faq_section_new_features": {
+    "message": "Pokročilé funkcie",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_properties": {
+    "message": "Vlastnosti poskytovateľa",
+    "description": "FAQ section title for provider properties"
+  },
+  "faq_section_tips": {
+    "message": "Tipy a osvedčené postupy",
+    "description": "FAQ section title for tips and best practices"
+  },
+  "faq_simple_example": {
+    "message": "Ukážte mi jednoduchý príklad poskytovateľa",
+    "description": "FAQ question requesting simple example"
+  },
+  "faq_simple_example_explanation": {
+    "message": "Týmto sa odstránia ID kliknutí na Facebooku a parametre UTM, ale zachovajú sa pridružené odkazy, ak používateľ povolí marketing sprostredkovania.",
+    "description": "FAQ explanation of simple example"
+  },
+  "faq_simple_example_intro": {
+    "message": "Tu je základný poskytovateľ, ktorý odstraňuje parametre sledovania z fiktívneho nákupného webu:",
+    "description": "FAQ intro to simple example"
+  },
+  "faq_test_backup": {
+    "message": "Pred vykonaním veľkých zmien exportujte svoje pravidlá",
+    "description": "FAQ tip about backing up rules"
+  },
+  "faq_test_exceptions": {
+    "message": "Vždy pridávajte výnimky pre kritické stránky (prihlásenie, pokladňa, API)",
+    "description": "FAQ tip about adding exceptions"
+  },
+  "faq_test_regex": {
+    "message": "Otestujte vzory regulárnych výrazov pomocou online nástrojov, ako je napríklad regex101.com",
+    "description": "FAQ tip about testing regex patterns"
+  },
+  "faq_test_reload": {
+    "message": "Na opätovné načítanie zmien bez reštartovania prehliadača použite tlačidlo \"Vynútiť pravidlá\".",
+    "description": "FAQ tip about enforcing rules"
+  },
+  "faq_test_small": {
+    "message": "Začnite s jednoduchými pravidlami a postupne pridávajte zložitosť",
+    "description": "FAQ tip about starting small"
+  },
+  "faq_testing_tips": {
+    "message": "Ako mám otestovať svoje vlastné pravidlá?",
+    "description": "FAQ question about testing tips"
+  },
+  "faq_tip": {
+    "message": "Tip:",
+    "description": "Label for tips in FAQ"
+  },
+  "faq_title": {
+    "message": "FAQ",
+    "description": "FAQ button text and modal title"
+  },
+  "faq_url_pattern": {
+    "message": "Čo je urlPattern?",
+    "description": "FAQ question about urlPattern"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "UrlPattern je regulárny výraz, ktorý sa musí zhodovať s každou adresou URL, ktorá by mala byť ovplyvnená pravidlami poskytovateľa. Definuje, ktoré webové stránky by mal tento poskytovateľ spracovať.",
+    "description": "FAQ answer explaining urlPattern"
+  },
+  "faq_url_pattern_structure": {
+    "message": "Typická štruktúra zahŕňa: protokol + subdoména + doména + TLD + adresáre + parametre",
+    "description": "FAQ explanation of urlPattern structure"
+  },
+  "faq_url_pattern_tip": {
+    "message": "Na overenie vzorov pred ich pridaním použite online testery regulárnych výrazov.",
+    "description": "FAQ tip for testing urlPattern"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "Vzory adries URL používajú úplný regulárny výraz na presnú kontrolu nad tým, ktoré adresy URL sa zhodujú:",
+    "description": "FAQ explanation of URL patterns"
+  },
+  "faq_use_domain_patterns": {
+    "message": "Použite vzory domén na jednoduchšie porovnávanie názvu hostiteľa/cesty bez písania úplného regulárneho výrazu urlPattern.",
+    "description": "FAQ guidance for using domain patterns"
+  },
+  "faq_use_url_patterns": {
+    "message": "Použite vzory adries URL na komplexnú zhodu (špecifické cesty, parametre dopytu atď.)",
+    "description": "FAQ guidance for using URL patterns"
+  },
+  "faq_warning": {
+    "message": "POZOR:",
+    "description": "Label for warnings in FAQ"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "Čo sú vlastné pravidlá?",
+    "description": "FAQ question about custom rules"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "Vlastné pravidlá vám umožňujú vytvoriť si vlastné vzory čistenia adries URL pre webové stránky, na ktoré sa nevzťahujú vstavané pravidlá. Majú rovnakú štruktúru ako hlavný katalóg, ale sú spravované oddelene.",
+    "description": "FAQ answer explaining custom rules"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "Kedy použiť ktoré:",
+    "description": "FAQ section title for pattern usage guidance"
+  },
+  "feature1": {
+    "message": "Vstavané čistenie adries URL zamerané na ochranu súkromia je predvolene povolené"
+  },
+  "feature2": {
+    "message": "Podpora vlastných pravidiel pre kontrolu podľa jednotlivých poskytovateľov a vzorov"
+  },
+  "feature3": {
+    "message": "Podpora whitelistu na obídenie čistenia pre vybrané domény"
+  },
+  "feature4": {
+    "message": "Vzdialené pravidlá a režim preťaženia pre pokročilé nastavenia"
+  },
+  "feature_toggles_title": {
+    "message": "Nastavenia funkcií",
+    "description": "Title for the Feature Settings section."
+  },
+  "fileEmptyError": {
+    "message": "Súbor je prázdny alebo nečitateľný",
+    "description": "Error shown when a legal/privacy file is empty or unreadable"
+  },
+  "general_settings_title": {
+    "message": "Všeobecné nastavenia",
+    "description": "Title for the General Settings section."
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "Načítané vstavané pravidlá (chýba hash)",
+    "description": "Status when bundled rules loaded after hash URL was missing"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "Používanie vstavaných pravidiel (záložné)",
+    "description": "Status when fell back to bundled rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "Diaľkové ovládanie uložené vo vyrovnávacej pamäti + vlastné pravidlá (súbor zlyhal)",
+    "description": "Status when using cached remote rules with custom rules after bundled failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "Diaľkové ovládanie uložené vo vyrovnávacej pamäti + vlastné pravidlá (vzdialené zlyhalo)",
+    "description": "Status when using cached remote rules with custom rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "Vzdialený prístup vo vyrovnávacej pamäti + vlastné pravidlá (bez hash URL)",
+    "description": "Status when using cached remote rules with custom rules, hash URL missing"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "Vzdialené pravidlá uložené vo vyrovnávacej pamäti (súbor zlyhal)",
+    "description": "Status when using cached remote rules after bundled rules failed"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "Vzdialené pravidlá uložené vo vyrovnávacej pamäti (vzdialené zlyhalo)",
+    "description": "Status when using cached remote rules after current remote fetch failed"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "Vzdialené pravidlá uložené vo vyrovnávacej pamäti (bez hash URL)",
+    "description": "Status when using cached remote rules because hash URL is missing"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "Diaľkové ovládanie uložené vo vyrovnávacej pamäti + vstavané pravidlá boli zlúčené",
+    "description": "Status when overload mode merges cached remote rules with built-in rules"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "Vzdialené + vstavané pravidlá vo vyrovnávacej pamäti sa zlúčili s vlastnými pravidlami",
+    "description": "Status when overload mode merges cached remote and built-in rules, then custom rules"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "Iba pomocou vlastných pravidiel",
+    "description": "Status when built-in rules are disabled and only custom rules are active"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "Vstavané pravidlá sú vypnuté a nenašli sa žiadne vlastné pravidlá",
+    "description": "Status when built-in rules are disabled and there are no custom rules to load"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "Používanie minimálnych pravidiel (vzdialené zlyhalo)",
+    "description": "Status when using fallback rules after remote failure"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "Vyžaduje sa hash URL",
+    "description": "Status when remote URL is configured but hash URL is missing"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "Diaľkové + vstavané pravidlá zlúčené",
+    "description": "Status when remote and built-in rules are merged successfully"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "Vzdialené + vstavané pravidlá zlúčené s vlastnými pravidlami",
+    "description": "Status when overload mode is active and custom rules are merged"
+  },
+  "hashStatus_remote_failed": {
+    "message": "Vzdialené pravidlá zlyhali",
+    "description": "Status when remote rules failed verification or loading"
+  },
+  "hashStatus_remote_verified": {
+    "message": "Diaľkové pravidlá overené",
+    "description": "Status when remote rules have been successfully verified"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "Načítané vzdialené pravidlá a zlúčené vlastné pravidlá",
+    "description": "Message shown when remote rules are loaded and custom rules are merged"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
+  },
+  "headerTitle": {
+    "message": "Linkumori",
+    "description": "Header title for the extension"
+  },
+  "history_listener_enabled": {
+    "message": "Zabrániť vstrekovaniu sledovania cez rozhranie API histórie",
+    "description": "This string is used as name for the history API listener label."
+  },
+  "history_listener_enabled_description": {
+    "message": "Monitorujte a čistite adresy URL v histórii prehliadača.",
+    "description": "Description for the history listener toggle."
+  },
+  "search_link_fix_enabled": {
+    "message": "Oprava odkazu na výsledky vyhľadávania",
+    "description": "Label for the combined Google and Yandex content script toggle"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "Povoľte skripty obsahu Google a Yandex, ktoré odstraňujú sledovanie presmerovania z odkazov na výsledky vyhľadávania.",
+    "description": "Description for the combined search result content script toggle"
+  },
+  "google_link_fix_enabled": {
+    "message": "Oprava odkazu Google",
+    "description": "Label for the Google content script toggle"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "Povoľte skript obsahu Google, ktorý odstráni sledovanie presmerovania z odkazov výsledkov Google.",
+    "description": "Description for the Google content script toggle"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "Oprava odkazu Yandex",
+    "description": "Label for the Yandex content script toggle"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "Povoľte skript obsahu Yandex, ktorý odstraňuje sledovanie presmerovania z odkazov výsledkov Yandex.",
+    "description": "Description for the Yandex content script toggle"
+  },
+  "import_invalid_format": {
+    "message": "Neplatný formát súboru alebo poškodené údaje",
+    "description": "Error message for invalid file format"
+  },
+  "import_parse_error": {
+    "message": "Súbor sa nepodarilo analyzovať. Skontrolujte formát súboru.",
+    "description": "Error message when file parsing fails"
+  },
+  "import_read_error": {
+    "message": "Súbor sa nepodarilo prečítať",
+    "description": "Error message when file reading fails"
+  },
+  "inputUrlsDescription": {
+    "message": "Pomocou tohto nástroja môžete prilepiť adresy URL a ClearURLs vyčistí adresy URL po kliknutí na zelené tlačidlo. Môžete vložiť viacero adries URL naraz, ale každá adresa URL musí byť na samostatnom riadku.",
+    "description": "Description text for the input URLs section."
+  },
+  "inputUrlsPlaceholder": {
+    "message": "Sem prilepte svoje adresy URL, jednu na riadok...",
+    "description": "Placeholder text for the input URLs textarea."
+  },
+  "inputUrlsTitle": {
+    "message": "Zadajte adresy URL",
+    "description": "Title for the input URL section."
+  },
+  "language_selector_description": {
+    "message": "Vyberte preferovaný jazyk rozhrania. a kliknite na uložiť a znova načítať. (čísla nie sú preložené)",
+    "description": "Description text for language selector"
+  },
+  "language_selector_label": {
+    "message": "Jazyk rozhrania",
+    "description": "Label for language selector dropdown"
+  },
+  "licenseCopied": {
+    "message": "Licencia bola skopírovaná!",
+    "description": "Toast message after copying license content"
+  },
+  "licenseDescription": {
+    "message": "Toto rozšírenie je open source a je licencované pod GNU Lesser General Public License.",
+    "description": "Description text for license section"
+  },
+  "licenseDownloaded": {
+    "message": "Licencia stiahnutá!",
+    "description": "Toast message after downloading license content"
+  },
+  "licenseSection": {
+    "message": "Informácie o licencii",
+    "description": "Section header for license information"
+  },
+  "license_links_title": {
+    "message": "Odkazy",
+    "description": "Title for links section in license"
+  },
+  "license_third_party_title": {
+    "message": "Komponenty tretích strán",
+    "description": "Title for third party components section"
+  },
+  "license_title": {
+    "message": "Licencia",
+    "description": "License section title"
+  },
+  "loadError": {
+    "message": "Chyba pri načítavaní obsahu",
+    "description": "Error title shown when legal/privacy content fails to load"
+  },
+  "loadingContent": {
+    "message": "Načítava sa obsah...",
+    "description": "Generic loading message for about/legal content areas"
+  },
+  "loadingLicense": {
+    "message": "Načítava sa licencia...",
+    "description": "Loading text for license content"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "Načítavajú sa pravidlá ochrany osobných údajov...",
+    "description": "Loading text for privacy policy content"
+  },
+  "local_hosts_skipping": {
+    "message": "Preskočiť adresy URL na miestnych hostiteľoch (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+    "description": "This string is used as label for the local host skipping switch"
+  },
+  "local_hosts_skipping_description": {
+    "message": "Preskočte čistenie pre localhost a adresy lokálnej siete.",
+    "description": "Description for the local hosts skipping toggle."
+  },
+  "log_domain_blocked": {
+    "message": "Táto doména je zablokovaná",
+    "description": "This string is used on blocked domains in the Linkumori (Clean URLS) log."
+  },
+  "log_html_export_button": {
+    "message": "Exportovať",
+    "description": "This string is used for the export button on the log page."
+  },
+  "log_html_export_button_title": {
+    "message": "Exportuje globálny denník",
+    "description": "This string is used as title for the export button on the log page."
+  },
+  "log_html_import_button": {
+    "message": "Importovať",
+    "description": "This string is used for the import button on the log page."
+  },
+  "log_html_import_button_title": {
+    "message": "Importujte globálny denník",
+    "description": "This string is used as title for the import button on the log page."
+  },
+  "log_html_import_error": {
+    "message": "Chyba pri importovaní súboru denníka:",
+    "description": "Error message prefix when import fails"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "Neplatný formát súboru denníka.",
+    "description": "Error message when imported file is not valid JSON log format"
+  },
+  "log_html_page_title": {
+    "message": "Prihlásiť sa z Linkumori (čisté adresy URL)",
+    "description": "This string is used as header on the log page."
+  },
+  "log_html_reset_button": {
+    "message": "Resetovať",
+    "description": "This string is used for the reset button on the log page."
+  },
+  "log_html_reset_button_title": {
+    "message": "Resetuje globálny denník",
+    "description": "This string is used as title for the reset button on the log page."
+  },
+  "log_html_reset_confirm": {
+    "message": "Naozaj chcete obnoviť denník? Túto akciu nie je možné vrátiť späť.",
+    "description": "Confirmation dialog when user clicks reset button"
+  },
+  "log_html_search": {
+    "message": "Hľadať",
+    "description": "Label for the search input field"
+  },
+  "log_html_search_placeholder": {
+    "message": "Prehľadávať denníky...",
+    "description": "Placeholder text in the search input field"
+  },
+  "log_html_show_all": {
+    "message": "Všetky",
+    "description": "Option in entries dropdown to show all entries"
+  },
+  "log_html_show_entries": {
+    "message": "Zobraziť záznamy",
+    "description": "Label for the dropdown to select how many entries to show per page"
+  },
+  "log_html_table_head_1": {
+    "message": "Predtým",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_2": {
+    "message": "Po",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_3": {
+    "message": "Pravidlo",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_4": {
+    "message": "čas",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_5": {
+    "message": "Poskytovateľ",
+    "description": "Column header for matched provider name on the log page."
+  },
+  "log_html_table_head_6": {
+    "message": "Vzor",
+    "description": "Column header for matched urlPattern/domainPattern on the log page."
+  },
+  "log_html_table_head_7": {
+    "message": "Metóda",
+    "description": "Column header for request method and provider methods on the log page."
+  },
+  "log_html_table_head_8": {
+    "message": "Typ zdroja",
+    "description": "Column header for request resource type and provider resource types on the log page."
+  },
+  "log_nav_dashboard": {
+    "message": "Dashboard",
+    "description": "Tab label for dashboard view on log page"
+  },
+  "log_nav_logs": {
+    "message": "Denníky",
+    "description": "Tab label for logs view on log page"
+  },
+  "log_ping_blocked": {
+    "message": "Tento audit hypertextového prepojenia bol zablokovaný",
+    "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
+  },
+  "log_provider_pattern_domain": {
+    "message": "domainPattern",
+    "description": "Label for domain pattern provider matching in log entries."
+  },
+  "log_provider_pattern_url": {
+    "message": "urlPattern",
+    "description": "Label for URL pattern provider matching in log entries."
+  },
+  "log_provider_request_method": {
+    "message": "metóda",
+    "description": "Label for the current request method in provider match details."
+  },
+  "log_provider_methods": {
+    "message": "metódy poskytovateľa",
+    "description": "Label for provider method filters in provider match details."
+  },
+  "log_redirect": {
+    "message": "Táto adresa URL je presmerovaná",
+    "description": "This string is used on redirections in the Linkumori (Clean URLS) log."
+  },
+  "log_stats_changed_urls": {
+    "message": "Zmenené adresy URL",
+    "description": "Stats card label for entries where URL changed"
+  },
+  "log_stats_chart_no_data": {
+    "message": "Žiadne údaje grafu",
+    "description": "Empty-state label when no data is available for chart"
+  },
+  "log_stats_chart_reload": {
+    "message": "Znovu načítať",
+    "description": "Button label to reload the stats chart and reset pie filters"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "Znova načítajte graf a resetujte koláčové filtre",
+    "description": "Tooltip for reload chart button in log dashboard"
+  },
+  "log_stats_chart_title": {
+    "message": "Tabuľka štatistík",
+    "description": "Title for selectable chart section in log dashboard"
+  },
+  "log_stats_chart_type": {
+    "message": "Typ grafu",
+    "description": "Label for chart type selector"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "Koláč",
+    "description": "Option label for pie chart"
+  },
+  "log_stats_count_col": {
+    "message": "počítať",
+    "description": "Column header for count in stats tables"
+  },
+  "log_stats_domain_col": {
+    "message": "doména",
+    "description": "Column header for domain name in stats"
+  },
+  "log_stats_earliest": {
+    "message": "Najskoršie",
+    "description": "Stats card label for earliest timestamp"
+  },
+  "log_stats_latest": {
+    "message": "Najnovšie",
+    "description": "Stats card label for latest timestamp"
+  },
+  "log_stats_no_domains": {
+    "message": "Žiadne domény",
+    "description": "Fallback row label when no domains are available in stats"
+  },
+  "log_stats_no_rules": {
+    "message": "Žiadne pravidlá",
+    "description": "Fallback row label when no rules are available in stats"
+  },
+  "log_stats_no_providers": {
+    "message": "Žiadni poskytovatelia",
+    "description": "Fallback row label when no providers are available in stats"
+  },
+  "log_stats_no_methods": {
+    "message": "Žiadne metódy",
+    "description": "Fallback row label when no methods are available in stats"
+  },
+  "log_stats_no_resource_types": {
+    "message": "Žiadne typy zdrojov",
+    "description": "Fallback row label when no resource types are available in stats"
+  },
+  "log_stats_rule_col": {
+    "message": "Pravidlo",
+    "description": "Column header for rule name in stats"
+  },
+  "log_stats_provider_col": {
+    "message": "Poskytovateľ",
+    "description": "Column header for provider name in stats"
+  },
+  "log_stats_method_col": {
+    "message": "Metóda",
+    "description": "Column header for method name in stats"
+  },
+  "log_stats_resource_type_col": {
+    "message": "Typ zdroja",
+    "description": "Column header for resource type in stats"
+  },
+  "log_stats_top_domains": {
+    "message": "Najlepšie domény",
+    "description": "Stats section title for top domains"
+  },
+  "log_stats_top_providers": {
+    "message": "Najlepší poskytovatelia",
+    "description": "Stats section title for top providers"
+  },
+  "log_stats_top_methods": {
+    "message": "Najlepšie metódy",
+    "description": "Stats section title for top methods"
+  },
+  "log_stats_top_resource_types": {
+    "message": "Najlepšie typy zdrojov",
+    "description": "Stats section title for top resource types"
+  },
+  "log_stats_top_rules": {
+    "message": "Hlavné pravidlá",
+    "description": "Stats section title for top rules"
+  },
+  "log_stats_total_entries": {
+    "message": "Celkový počet záznamov",
+    "description": "Stats card label for total log entries"
+  },
+  "log_stats_unique_domains": {
+    "message": "Jedinečné domény",
+    "description": "Stats card label for unique source domains"
+  },
+  "log_stats_unique_rules": {
+    "message": "Jedinečné pravidlá",
+    "description": "Stats card label for unique applied rules"
+  },
+  "log_stats_unique_providers": {
+    "message": "Jedineční poskytovatelia",
+    "description": "Stats card label for unique providers"
+  },
+  "log_stats_unique_methods": {
+    "message": "Jedinečné metódy",
+    "description": "Stats card label for unique methods"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "Jedinečné typy zdrojov",
+    "description": "Stats card label for unique resource types"
+  },
+  "log_whitelist_bypass": {
+    "message": "Preskočené: doména je na bielej listine",
+    "description": "This string is used in the log when URL cleaning is skipped because the domain is whitelisted."
+  },
+  "moonIconAlt": {
+    "message": "ikona mesiaca",
+    "description": "Alt text for moon theme icon"
+  },
+  "new_custom_providers_label": {
+    "message": "nové:",
+    "description": "Inline label for new custom provider count."
+  },
+  "nothingToCopy": {
+    "message": "Niet čo kopírovať!",
+    "description": "Toast message when copy action has no content"
+  },
+  "nothingToDownload": {
+    "message": "Nič na stiahnutie!",
+    "description": "Toast message when download action has no content"
+  },
+  "openSettings": {
+    "message": "Otvorte Nastavenia Linkumori"
+  },
+  "overload_mode_enabled": {
+    "message": "Povoliť režim preťaženia",
+    "description": "Label for toggle that merges built-in and remote rules together"
+  },
+  "overload_mode_enabled_description": {
+    "message": "Keď je povolená, vstavané a vzdialené pravidlá sa načítajú a zlúčia pred použitím vlastných pravidiel.",
+    "description": "Description for overload mode toggle"
+  },
+  "overridden_providers_label": {
+    "message": "prepísané:",
+    "description": "Inline label for overridden provider count."
+  },
+  "overridden_providers_list_label": {
+    "message": "Prepísaní poskytovatelia:",
+    "description": "Label for overridden provider names list."
+  },
+  "pagination_current_page_aria": {
+    "message": "Aktuálna strana, strana $1",
+    "description": "Screen reader label for current active page. $1=page number"
+  },
+  "pagination_first": {
+    "message": "Po prvé",
+    "description": "Button text to go to first page"
+  },
+  "pagination_first_aria": {
+    "message": "Prvá strana",
+    "description": "Screen reader label for first page button"
+  },
+  "pagination_last": {
+    "message": "Posledný",
+    "description": "Button text to go to last page"
+  },
+  "pagination_last_aria": {
+    "message": "Posledná strana",
+    "description": "Screen reader label for last page button"
+  },
+  "pagination_next": {
+    "message": "Ďalej",
+    "description": "Button text to go to next page"
+  },
+  "pagination_next_aria": {
+    "message": "Ďalšia strana",
+    "description": "Screen reader label for next page button"
+  },
+  "pagination_page_aria": {
+    "message": "Strana $1",
+    "description": "Screen reader label for numbered page buttons. $1=page number"
+  },
+  "pagination_previous": {
+    "message": "Predchádzajúce",
+    "description": "Button text to go to previous page"
+  },
+  "pagination_previous_aria": {
+    "message": "Predchádzajúca strana",
+    "description": "Screen reader label for previous page button"
+  },
+  "percentage_symbol": {
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
+  },
+  "ping_blocking_enabled": {
+    "message": "Blokovať auditovanie hypertextových odkazov",
+    "description": "This string is used as label for the hyperlink auditing blocking switch"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "Blokovať požiadavky ping používané na sledovanie.",
+    "description": "Description for the ping blocking toggle."
+  },
+  "popup_consent_accept_button": {
+    "message": "Prijmite a pokračujte",
+    "description": "Button label to accept popup consent gate"
+  },
+  "popup_consent_checkbox": {
+    "message": "Prečítal som si a súhlasím so Zásadami ochrany osobných údajov a licenciou.",
+    "description": "Consent checkbox label for popup gate"
+  },
+  "popup_consent_description": {
+    "message": "Pred použitím tohto kontextového okna si prečítajte Zásady ochrany osobných údajov a licenciu. Vaše údaje nezhromažďujeme. Všetky údaje sú uložené vo vašom zariadení a nie sú prenášané k nám.",
+    "description": "Description for popup consent gate"
+  },
+  "popup_consent_legal_button": {
+    "message": "Prečítajte si právne predpisy",
+    "description": "Button label to open legal page from popup consent gate"
+  },
+  "popup_consent_title": {
+    "message": "Vyžaduje sa súhlas",
+    "description": "Title for popup consent gate"
+  },
+  "popup_html_page_title": {
+    "message": "Linkumori",
+    "description": "Popup page title text"
+  },
+  "popup_html_version_label": {
+    "message": "Verzia:",
+    "description": "Version label shown in popup license section"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "Podpis doplnku Firefox",
+    "description": "Label shown in popup license section for Firefox add-on signing fingerprint."
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "Podpis doplnku Firefox",
+    "description": "Popup label for Firefox signature value."
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "Nedostupné, pretože nie je podpísané",
+    "description": "Message shown when the add-on package is unsigned and no Mozilla signing digest is available."
+  },
+  "popup_html_version_label_title": {
+    "message": "Aktuálna verzia rozšírenia",
+    "description": "Tooltip for popup version label"
+  },
+  "popup_html_license_description": {
+    "message": "Kliknutím na nižšie uvedený právny odkaz zobrazíte podrobné informácie o licencii a ochrane osobných údajov.",
+    "description": "Description in popup license section"
+  },
+  "popup_html_license_description_title": {
+    "message": "Informácie o licencii a súkromí",
+    "description": "Tooltip for popup license description"
+  },
+  "popup_html_gpl_link": {
+    "message": "GNU General Public License v3.0",
+    "description": "Popup license link label for GPL v3"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "Otvorte text licencie GNU GPL v3.0",
+    "description": "Tooltip for GPL link in popup license section"
+  },
+  "popup_html_lgpl_link": {
+    "message": "GNU General Lesser Public License v3.0",
+    "description": "Popup license link label for LGPL v3"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "Otvorte text licencie GNU LGPL v3.0",
+    "description": "Tooltip for LGPL link in popup license section"
+  },
+  "popup_html_source_code_repository": {
+    "message": "Úložisko zdrojového kódu",
+    "description": "Popup license link label for source code repository"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "Otvorené úložisko zdrojového kódu",
+    "description": "Tooltip for source code repository link in popup license section"
+  },
+  "popup_html_source_code_releases": {
+    "message": "Vydania zdrojového kódu",
+    "description": "Popup license link label for source code releases"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "Vydanie otvoreného zdrojového kódu",
+    "description": "Tooltip for source code releases link in popup license section"
+  },
+  "popup_html_report_issues": {
+    "message": "Nahlásiť problémy",
+    "description": "Popup license link label for issue tracker"
+  },
+  "popup_html_report_issues_title": {
+    "message": "Otvorte nástroj na sledovanie problémov",
+    "description": "Tooltip for report issues link in popup license section"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "ClearURLs MV3 Migration Repository",
+    "description": "Popup license link label for ClearURLs MV3 migration repo"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "Otvorte úložisko migrácie ClearURLs MV3",
+    "description": "Tooltip for ClearURLs migration repository link in popup license section"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "Úložisko doplnkov ClearURLs V1.27.3",
+    "description": "Popup license link label for ClearURLs addon v1.27.3 repo"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "Otvorte úložisko ClearURLs Addon v1.27.3",
+    "description": "Tooltip for ClearURLs addon repository link in popup license section"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "Linkumori v.",
+    "description": "Footer prefix shown on blocked page before version number"
+  },
+  "legal_consent_notice_default": {
+    "message": "Prečítajte si zásady ochrany osobných údajov a licenciu nižšie a potom akceptujte, aby ste mohli pokračovať v používaní Linkumori.",
+    "description": "Default notice text for the legal page consent section"
+  },
+  "legal_consent_notice_update": {
+    "message": "Právne podmienky Linkumori boli aktualizované. Prečítajte si Zásady ochrany osobných údajov a licenciu a potom prijmite, aby ste rozšírenie mohli naďalej používať.",
+    "description": "Notice text shown on the legal page after a consent version update"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "Prečítajte si Zásady ochrany osobných údajov a licenciu nižšie, potom akceptujte a dokončite nastavenie Linkumori.",
+    "description": "Notice text shown on the legal page during first install"
+  },
+  "legal_consent_notice_import": {
+    "message": "Prečítajte si Zásady ochrany osobných údajov a licenciu nižšie, potom akceptujte, aby ste dokončili migráciu na Linkumori.",
+    "description": "Notice text shown on the legal page during import or migration"
+  },
+  "legal_consent_status_required": {
+    "message": "Vyžaduje sa súhlas. Linkumori je pozastavený, kým neprijmete aktuálne právne podmienky.",
+    "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_accepted": {
+    "message": "Súhlas prijatý. Linkumori môže bežať so súčasnými právnymi podmienkami.",
+    "description": "Status message shown when current legal consent is accepted"
+  },
+  "legal_consent_button_accepted": {
+    "message": "Prijaté",
+    "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_saved": {
+    "message": "Súhlas prijatý.",
+    "description": "Toast shown after saving legal consent"
+  },
+  "legal_consent_save_failed": {
+    "message": "Súhlas sa nepodarilo uložiť.",
+    "description": "Toast shown when saving legal consent fails"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "Nie je možné určiť aktuálnu verziu pravidiel pre získanie súhlasu.",
+    "description": "Error shown when the current consent version is unavailable"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "Ako odvolať súhlas",
+    "description": "Button label that opens the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "Odvolanie súhlasu sa rieši odinštalovaním rozšírenia, ako je vysvetlené v zásadách ochrany osobných údajov.",
+    "description": "Short note below the legal page consent controls about withdrawing consent"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "Ako odvolať súhlas",
+    "description": "Title for the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "Svoj súhlas môžete kedykoľvek odvolať jednoduchým odinštalovaním rozšírenia alebo doplnku.",
+    "description": "Introductory text in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "Po odinštalovaní sa všetky údaje uložené lokálne Linkumori na vašom zariadení natrvalo a automaticky vymažú. Z vašej strany nie je potrebná žiadna akcia okrem odinštalovania.",
+    "description": "Data deletion explanation in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "Keďže Linkumori neprenáša žiadne údaje na externé servery, neexistujú žiadne vzdialené údaje, o ktoré by bolo možné požiadať.",
+    "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "Zavrieť",
+    "description": "Close button label for the withdrawal of consent modal"
+  },
+  "legal_optional_features_heading": {
+    "message": "Zakázané funkcie, ktoré možno budete chcieť povoliť",
+    "description": "Heading for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_features_description": {
+    "message": "Tieto voliteľné ochrany sú predvolene vypnuté. Zapnite tie, ktoré chcete, potom uložte a znova načítajte Linkumori.",
+    "description": "Description for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "Zakázané",
+    "description": "Status badge shown when an optional legal-page feature is disabled"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "Povolené",
+    "description": "Status badge shown when an optional legal-page feature is enabled"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "Povoliť pri uložení",
+    "description": "Status badge shown when an optional legal-page feature will be enabled after saving"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "Zakázať pri uložení",
+    "description": "Status badge shown when an optional legal-page feature will be disabled after saving"
+  },
+  "legal_optional_features_note": {
+    "message": "Zmeny sa uložia, iba ak použijete tlačidlo vpravo.",
+    "description": "Initial helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_default": {
+    "message": "Tieto funkcie sú predvolene vypnuté. Zapnite si, čo chcete, potom uložte a znova načítajte Linkumori.",
+    "description": "Default helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "Čaká sa na zmeny. Ak ich chcete použiť, uložte ich a znova otvorte túto právnu stránku.",
+    "description": "Helper note shown when optional legal-page feature changes have not been saved yet"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "Uloženie zmien voliteľných funkcií a opätovné načítanie Linkumori.",
+    "description": "Helper note shown while optional legal-page feature changes are being saved"
+  },
+  "legal_optional_features_save_button": {
+    "message": "Uložte a znova načítajte Linkumori",
+    "description": "Save button label for optional legal-page feature toggles"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "Nepodarilo sa uložiť zmeny voliteľných funkcií.",
+    "description": "Error toast shown when optional legal-page feature changes fail to save"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "Odznaky",
+    "description": "This string is used as name for the badges switch button on the popup page."
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "Filter",
+    "description": "This string is used as name for the filter switch button on the popup page."
+  },
+  "popup_html_configs_switch_log": {
+    "message": "Ťažba dreva",
+    "description": "This string is used as name for the logging switch button on the popup page."
+  },
+  "popup_html_log_head": {
+    "message": "Zobraziť denníky",
+    "description": "This string is used as name for the log button on the popup page."
+  },
+  "popup_html_settings_button": {
+    "message": "Nastavenia",
+    "description": "This string is used for the settings button on the popup page."
+  },
+  "popup_html_statistics": {
+    "message": "Štatistiky",
+    "description": "Toggle label for statistics feature"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "Zablokované",
+    "description": "This string is used as name for the blocked elements on the popup page."
+  },
+  "popup_html_statistics_elements": {
+    "message": "Prvky",
+    "description": "This string is used as name for the elements on the popup page."
+  },
+  "popup_html_statistics_percentage": {
+    "message": "Percento",
+    "description": "This string is used as name for the percentage of blocked elements on the popup page."
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "Resetovať",
+    "description": "This string is used as name for the statistics reset button on the popup page."
+  },
+  "popup_html_tools_button": {
+    "message": "Nástroje",
+    "description": "This string is used for the tools button on the popup page."
+  },
+  "popup_html_tools_button_title": {
+    "message": "Otvorené čistiace nástroje",
+    "description": "This string is used as a title for the tools button on the popup page."
+  },
+  "popup_html_whitelist_button": {
+    "message": "Whitelist",
+    "description": "This string is used for the whitelist button on the popup page."
+  },
+  "popup_nav_license": {
+    "message": "Licencia",
+    "description": "Navigation label for license section"
+  },
+  "popup_nav_main": {
+    "message": "Hlavné",
+    "description": "Navigation label for main content section"
+  },
+  "privacyCopied": {
+    "message": "Zásady ochrany osobných údajov boli skopírované!",
+    "description": "Toast message after copying privacy policy content"
+  },
+  "privacyDescription": {
+    "message": "Prečítajte si prosím naše pravidlá ochrany osobných údajov nižšie.",
+    "description": "Description text for privacy policy section"
+  },
+  "privacyDownloaded": {
+    "message": "Zásady ochrany osobných údajov stiahnuté!",
+    "description": "Toast message after downloading privacy policy content"
+  },
+  "privacyPolicySection": {
+    "message": "Zásady ochrany osobných údajov",
+    "description": "Section header for privacy policy"
+  },
+  "privacyVersionDescription": {
+    "message": "Vyberte, ktorý preklad zásad ochrany osobných údajov chcete vidieť. Upozorňujeme, že zatiaľ je k dispozícii iba anglická verzia a v budúcnosti môžu byť pridané ďalšie jazyky.",
+    "description": "Helper description for privacy version selector"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "English",
+    "description": "Option label for global English privacy policy file"
+  },
+  "privacyVersionLabel": {
+    "message": "Zásady ochrany osobných údajov",
+    "description": "Label for selecting English privacy policy version"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "Vybraný súbor politiky sa nenašiel. Namiesto toho boli načítané predvolené pravidlá ochrany osobných údajov.",
+    "description": "Notification shown when selected privacy version file cannot be loaded"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "Nepodarilo sa načítať mapu verzie zásad ochrany osobných údajov.",
+    "description": "Notification shown when privacy version mapping config cannot be loaded"
+  },
+  "providerImport_bundledRules": {
+    "message": "Aktívne pravidlá pre balíky/Vzdialené pravidlá/Vlastné pravidlá",
+    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  },
+  "providerImport_button": {
+    "message": "Importovať/zakázať poskytovateľov",
+    "description": "Button text to import selected providers"
+  },
+  "providerImport_clearSelection": {
+    "message": "Jasné",
+    "description": "Button text to clear all selected providers."
+  },
+  "providerImport_complete": {
+    "message": "Dokončiť"
+  },
+  "providerImport_completeProvider": {
+    "message": "Kompletný poskytovateľ"
+  },
+  "providerImport_completed": {
+    "message": "Import dokončený!"
+  },
+  "providerImport_confirmExclude": {
+    "message": "Chcete tento podpis poskytovateľa vylúčiť? Poskytovatelia zodpovedajúcich vzorov adries URL alebo domén budú skrytí a odstránení z vlastných pravidiel.",
+    "description": "Confirmation shown before excluding a provider signature from import"
+  },
+  "providerImport_disableSelected": {
+    "message": "Zakázať vybraté",
+    "description": "Button text to disable selected providers by signature"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "Zakázať podpisy pre vybratých poskytovateľov $1?",
+    "description": "Confirmation before disabling selected providers in batch. $1 is selected count"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "Zakázané podpisy: $1. Odstránení zodpovedajúci vlastní poskytovatelia: $2.",
+    "description": "Batch disable result. $1 is disabled signature count and $2 removed custom provider count"
+  },
+  "providerImport_disabledClear": {
+    "message": "Vymazať všetko",
+    "description": "Button label to clear all excluded signatures for selected source"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "Vymazať všetky zakázané pravidlá",
+    "description": "Button label to clear all disabled signatures from all sources"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "Vymazať všetky deaktivované podpisy zo všetkých zdrojov?",
+    "description": "Confirmation before clearing all disabled signatures globally"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "Vymazať všetky deaktivované podpisy pre tento zdroj?",
+    "description": "Confirmation before clearing disabled signatures for selected source"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "Žiadne zakázané podpisy",
+    "description": "Empty state text when no disabled signatures exist for selected source"
+  },
+  "providerImport_disabledRestore": {
+    "message": "Obnoviť",
+    "description": "Button label to restore an excluded signature"
+  },
+  "providerImport_disabledTitle": {
+    "message": "Zakázané pravidlá",
+    "description": "Title for disabled provider signature list in provider import sidebar"
+  },
+  "providerImport_domainExceptions": {
+    "message": "Výnimky domény",
+    "description": "Full text for domain exceptions tooltip in provider cards"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "DE",
+    "description": "Abbreviation for domain exceptions count in provider cards"
+  },
+  "providerImport_domainPatterns": {
+    "message": "Doménové vzory",
+    "description": "Full text for domain patterns tooltip in provider cards"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "DP",
+    "description": "Abbreviation for domain patterns count in provider cards"
+  },
+  "providerImport_domainRedirections": {
+    "message": "Presmerovania domény",
+    "description": "Full text for domain redirections tooltip in provider cards"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "DR",
+    "description": "Abbreviation for domain redirections count in provider cards"
+  },
+  "providerImport_exceptions": {
+    "message": "Výnimky"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "výr"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "Tento poskytovateľ nemá žiadny vzor adresy URL/domény a nemožno ho vylúčiť podpisom.",
+    "description": "Shown when user tries to exclude a provider without URL/domain patterns"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "Podpis poskytovateľa je vylúčený. Odstránených $1 zodpovedajúcich vlastných poskytovateľov.",
+    "description": "Success message after excluding a provider signature. $1 is removed custom count"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(existuje vo zvyku)"
+  },
+  "providerImport_failed": {
+    "message": "Nepodarilo sa importovať poskytovateľov: $1"
+  },
+  "providerImport_import": {
+    "message": "Importovať vybraté"
+  },
+  "providerImport_importedCount": {
+    "message": "Importované: poskytovatelia $1"
+  },
+  "providerImport_importedRulesCount": {
+    "message": "Importované: $1 pravidiel",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_importing": {
+    "message": "Importuje sa..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "Existujúce pravidlá interoperability Linkumori",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
+  },
+  "providerImport_loading": {
+    "message": "Načítavajú sa poskytovatelia...",
+    "description": "Displayed while providers are being loaded into the grid."
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "Pre pravidlá $1 nie sú k dispozícii žiadni poskytovatelia"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "V pravidlách $1 sa nenašli žiadni poskytovatelia"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "Pre import nie sú k dispozícii žiadne pravidlá"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "Žiadny vzor adresy URL"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "Prepísané: $1 poskytovatelia"
+  },
+  "providerImport_rawRules": {
+    "message": "Surové pravidlá",
+    "description": "Full text for raw rules tooltip in provider cards"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "Surové",
+    "description": "Abbreviation for raw rules count in provider cards"
+  },
+  "providerImport_redirections": {
+    "message": "Presmerovania"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "červená"
+  },
+  "providerImport_referralAbbr": {
+    "message": "Ref",
+    "description": "Abbreviation for referral marketing count in provider cards"
+  },
+  "providerImport_referralMarketing": {
+    "message": "Referral marketing",
+    "description": "Full text for referral marketing tooltip in provider cards"
+  },
+  "providerImport_rules": {
+    "message": "pravidlá"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "pravidlá",
+    "description": "Abbreviation for rules count in provider cards"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "Hľadať poskytovateľov...",
+    "description": "Placeholder text in the search input field to filter providers."
+  },
+  "providerImport_selectAll": {
+    "message": "Vyberte možnosť Všetky",
+    "description": "Button text to select all providers in the list/grid."
+  },
+  "providerImport_selectedCount": {
+    "message": "Vybraté: $1"
+  },
+  "providerImport_skippedCount": {
+    "message": "Preskočené: $1 poskytovatelia"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "Preskočené: $1 pravidiel",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_sources": {
+    "message": "Zdroj pravidla",
+    "description": "Heading for the sidebar that lists available rule sources."
+  },
+  "providerImport_title": {
+    "message": "Importovať alebo zakázať poskytovateľov",
+    "description": "Title of the provider import modal dialog."
+  },
+  "providerList_button": {
+    "message": "Uveďte všetkých vlastných poskytovateľov a vyhľadajte",
+    "description": "Button text to open the provider list modal"
+  },
+  "providerList_complete": {
+    "message": "Dokončiť",
+    "description": "Label indicating a provider is a complete provider"
+  },
+  "providerList_confirmDelete": {
+    "message": "Naozaj chcete odstrániť poskytovateľa „$1“?",
+    "description": "Confirmation message when deleting a provider",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "Kopírovať",
+    "description": "Suffix added to provider names when duplicating (e.g., 'Google_Copy')"
+  },
+  "providerList_createFirst": {
+    "message": "Vytvorte prvého poskytovateľa",
+    "description": "Button text to create the first provider when none exist"
+  },
+  "providerList_delete": {
+    "message": "Odstrániť",
+    "description": "Button text to delete a provider"
+  },
+  "providerList_deleteFailed": {
+    "message": "Poskytovateľa sa nepodarilo odstrániť. Skúste to znova.",
+    "description": "Error message when provider deletion fails"
+  },
+  "providerList_deleteTooltip": {
+    "message": "Odstrániť poskytovateľa",
+    "description": "Tooltip text for the delete provider button"
+  },
+  "providerList_duplicate": {
+    "message": "Kopírovať",
+    "description": "Button text to duplicate/copy a provider"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "Duplicitný poskytovateľ",
+    "description": "Tooltip text for the duplicate provider button"
+  },
+  "providerList_edit": {
+    "message": "Upraviť",
+    "description": "Button text to edit a provider"
+  },
+  "providerList_editTooltip": {
+    "message": "Upraviť poskytovateľa",
+    "description": "Tooltip text for the edit provider button"
+  },
+  "providerList_exceptions": {
+    "message": "Výnimky",
+    "description": "Label for exceptions count in provider statistics"
+  },
+  "providerList_noProvidersFound": {
+    "message": "Nenašli sa žiadni vlastní poskytovatelia.",
+    "description": "Message shown when there are no custom providers to display"
+  },
+  "providerList_noUrlPattern": {
+    "message": "Žiadny vzor adresy URL",
+    "description": "Text shown when a provider has no URL pattern defined"
+  },
+  "providerList_rawRules": {
+    "message": "Surové pravidlá",
+    "description": "Label for raw rules count in provider statistics"
+  },
+  "providerList_redirections": {
+    "message": "Presmerovania",
+    "description": "Label for redirections count in provider statistics"
+  },
+  "providerList_referral": {
+    "message": "Odporúčanie",
+    "description": "Label for referral marketing count in provider statistics"
+  },
+  "providerList_rules": {
+    "message": "pravidlá",
+    "description": "Label for rules count in provider statistics"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "Hľadať poskytovateľov...",
+    "description": "Placeholder text for the provider search input"
+  },
+  "providerList_title": {
+    "message": "Všetci poskytovatelia",
+    "description": "Title of the provider list modal"
+  },
+  "referral_marketing_enabled": {
+    "message": "Povoliť marketing sprostredkovania",
+    "description": "This string is used as label for the referral marketing switch"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "Odstráňte parametre sledovania sprostredkovania a affiliate partnera.",
+    "description": "Description for the referral marketing toggle."
+  },
+  "redirection_enabled": {
+    "message": "Povoliť obídenie presmerovania tretej strany",
+    "description": "Label for the toggle that enables regex redirections and domain redirections"
+  },
+  "redirection_enabled_description": {
+    "message": "Obíďte presmerovanie a sledovacie adresy URL sprostredkovateľov tretích strán pomocou presmerovaní regulárnych výrazov a presmerovaní domén z balíkov, vzdialených a vlastných pravidiel. Ak je to potrebné, najskôr auditujte pravidlá a potom pomocou Editora vlastných pravidiel ich jednotlivo upravte alebo prepíšte.",
+    "description": "Description for the toggle that enables or disables redirection handling"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "Riadok $LINE$: očakávané \"ruleURL | hashURL\"",
+    "description": "Validation message when an additional remote rule set line is malformed.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "Riadok $LINE$: neplatná webová adresa hash HTTPS",
+    "description": "Validation message when additional remote hash URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "Riadok $LINE$: neplatná webová adresa pravidla HTTPS",
+    "description": "Validation message when additional remote rule URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "Vzdialené pravidlá sú zakázané. Ak chcete nakonfigurovať adresy URL vzdialených pravidiel, povoľte prepínač nižšie.",
+    "description": "Description shown when remote rules are disabled"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "Vzdialené pravidlá sú vypnuté – aktivujte ich prepnutím nižšie",
+    "description": "Placeholder text shown when remote rules are disabled"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "Bezpečnostné upozornenie: Gatekeeper je vypnutý. Povoľte vzdialené pravidlá na prístup k poliam vzdialených adries URL.",
+    "description": "Alert shown when Gatekeeper is disabled while remote rules are turned off."
+  },
+  "remote_rules_enabled": {
+    "message": "Povoliť vzdialené pravidlá",
+    "description": "Label for the toggle that enables or disables remote rule fetching"
+  },
+  "remote_rules_enabled_description": {
+    "message": "Povoliť rozšíreniu načítať pravidlá zo vzdialených serverov. Keď je zakázaná, použijú sa iba združené pravidlá.",
+    "description": "Description for the remote rules enabled toggle"
+  },
+  "remote_rules_loaded": {
+    "message": "Načítajú sa iba vzdialené pravidlá",
+    "description": "Message shown when remote rules are loaded"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "Vzdialené pravidlá sú obmedzené iba na servery s vlastným hosťovaním. Nepoužívajte adresy URL tretích strán.",
+    "description": "Notice explaining remote rules restrictions"
+  },
+  "remote_rules_security_notice": {
+    "message": "Bezpečnostné upozornenie: Používajte iba adresy URL, ktoré vlastníte a ovládate",
+    "description": "Small security notice near URL fields"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "Čaká sa na zmenu nastavení. Ak chcete použiť, kliknite na tlačidlo Uložiť.",
+    "description": "Status message shown after toggling a setting that will apply when the user clicks Save."
+  },
+  "removeDomainFromWhitelist": {
+    "message": "Odstrániť $1 z bielej listiny",
+    "description": "Button label to remove a domain from the whitelist. $1 is replaced with the domain."
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
+  },
+  "rules_author_label": {
+    "message": "autor:",
+    "description": "Label for the author of the rules dataset"
+  },
+  "rules_composition_label": {
+    "message": "Zloženie poskytovateľa:",
+    "description": "Section label for provider composition details."
+  },
+  "rules_disabled_providers_label": {
+    "message": "Deaktivovaní poskytovatelia:",
+    "description": "Label for the number of disabled provider signatures"
+  },
+  "rules_hash_status_label": {
+    "message": "Stav načítania:",
+    "description": "Label for the current loading status of the rules"
+  },
+  "rules_last_updated_label": {
+    "message": "Posledná aktualizácia:",
+    "description": "Label for the last update date of the rules dataset"
+  },
+  "rules_license_label": {
+    "message": "Licencia:",
+    "description": "Label for the license of the rules dataset"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "Zlúčené vzdialené pravidlá",
+    "description": "Display name for merged remote rules metadata in settings."
+  },
+  "rules_metadata_section": {
+    "message": "Informácie o pravidlách:",
+    "description": "Section header for rules metadata information"
+  },
+  "rules_name_label": {
+    "message": "Názov pravidiel:",
+    "description": "Label for the name of the rules dataset"
+  },
+  "rules_source_bundled": {
+    "message": "Zbalený",
+    "description": "Source text when bundled rules are active."
+  },
+  "rules_source_bundled_fallback": {
+    "message": "Záložný balík",
+    "description": "Source text when bundled fallback rules are active."
+  },
+  "rules_source_fallback": {
+    "message": "Záložný",
+    "description": "Source text when minimal fallback rules are active."
+  },
+  "rules_source_label": {
+    "message": "Zdroj:",
+    "description": "Label for current active rules source."
+  },
+  "rules_source_remote": {
+    "message": "Diaľkové ovládanie",
+    "description": "Source text when remote rules are active."
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "Diaľkové + vstavané (zlúčené)",
+    "description": "Source text when remote and built-in rules are merged."
+  },
+  "rules_status_active": {
+    "message": "Aktívne",
+    "description": "Value for active rules status."
+  },
+  "rules_status_error": {
+    "message": "Chyba pri načítavaní pravidiel",
+    "description": "Value for when rules fail to load."
+  },
+  "rules_status_label": {
+    "message": "Stav:",
+    "description": "Label for rules status."
+  },
+  "rules_status_not_loaded": {
+    "message": "Nie sú načítané žiadne pravidlá",
+    "description": "Value for when no rules are loaded."
+  },
+  "rules_total_providers_label": {
+    "message": "Celkový počet poskytovateľov:",
+    "description": "Label for the total number of rule providers (bundled + custom)"
+  },
+  "rules_total_rules_label": {
+    "message": "Celkové pravidlá:",
+    "description": "Label for total rules count."
+  },
+  "rules_version_label": {
+    "message": "Verzia pravidiel:",
+    "description": "Label for the version of the rules dataset"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "Ak chcete pridať, upraviť alebo odstrániť domény na bielu listinu",
+    "description": "Recommendation text in rules information section for whitelist management."
+  },
+  "rules_whitelist_open_editor": {
+    "message": "Kliknite sem",
+    "description": "Link text to open custom rules editor from rules information section."
+  },
+  "rules_whitelist_total_label": {
+    "message": "Celkový počet povolených domén:",
+    "description": "Label for total whitelist domain count in rules information section."
+  },
+  "save_invalid_hash_url": {
+    "message": "Neplatný formát hash URL",
+    "description": "Validation message when primary hash URL is not a valid URL."
+  },
+  "save_invalid_rule_url": {
+    "message": "Neplatný formát adresy URL pravidla",
+    "description": "Validation message when primary rule URL is not a valid URL."
+  },
+  "save_primary_hash_https_required": {
+    "message": "Primárna webová adresa hash musí používať protokol HTTPS",
+    "description": "Validation message when primary hash URL is not HTTPS."
+  },
+  "save_primary_remote_pair_required": {
+    "message": "Primárny hash URL sa vyžaduje len vtedy, keď primárne pravidlo URL ukazuje na Linkumori (ClearURLs 2.0) JSON.",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "Adresa URL primárneho pravidla musí používať protokol HTTPS",
+    "description": "Validation message when primary rule URL is not HTTPS."
+  },
+  "security_confirmation_cancelled": {
+    "message": "Bezpečnostné potvrdenie bolo zrušené",
+    "description": "Status message when user cancels confirmation modal"
+  },
+  "security_confirmation_phrase": {
+    "message": "Prijímam plnú zodpovednosť",
+    "description": "The exact phrase users must type to confirm (can be localized)"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "Vyžaduje sa bezpečnostné potvrdenie",
+    "description": "Placeholder text shown in URL fields before security confirmation"
+  },
+  "security_confirmation_reset": {
+    "message": "Potvrdenie zabezpečenia bolo resetované",
+    "description": "Status message when security confirmation is reset"
+  },
+  "security_confirmation_session_success": {
+    "message": "Potvrdenie zabezpečenia bolo úspešné",
+    "description": "Message shown when security confirmation is successful"
+  },
+  "security_confirmation_tooltip": {
+    "message": "Vyžaduje sa potvrdenie zabezpečenia – začnite kliknutím",
+    "description": "Tooltip text for the security confirmation icon next to remote URLs"
+  },
+  "security_modal_advanced_warning": {
+    "message": "UPOZORNENIE: Pokročilá funkcia určená len pre servery s vlastným hosťovaním",
+    "description": "Main warning banner text in security modal"
+  },
+  "security_modal_cancel": {
+    "message": "Nechcem pokračovať - ​​Zrušiť",
+    "description": "Cancel button text in security modal"
+  },
+  "security_modal_cancelled": {
+    "message": "Konfigurácia vzdialenej adresy URL bola z bezpečnostných dôvodov zrušená",
+    "description": "Status message when user cancels security modal"
+  },
+  "security_modal_continue": {
+    "message": "Rozumiem rizikám – pokračujte",
+    "description": "Continue button text in security modal"
+  },
+  "security_modal_final_warning": {
+    "message": "Mali by ste prehodnotiť používanie vzdialených pravidiel, ak úplne nerozumiete tomu, či váš zdroj je Linkumori (ClearURLs 2.0) JSON alebo Linkumori 98765004567.",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "Táto funkcia vzdialených pravidiel je určená pre pokročilých používateľov, ktorí rozumejú zdrojovému formátu, ktorý načítavajú. Linkumori (ClearURLs 2.0) JSON vzdialené pravidlá vyžadujú na overenie zhodný hash URL. Linkumori URL Zoznamy interoperability filtrov možno načítať bez hash URL a sú uložené oddelene.",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "Ak pridáte vzdialené pravidlo URL, rozšírenie sa pripojí k vášmu určenému serveru a načíta buď sadu pravidiel Linkumori (ClearURLs 2.0), JSON, jej hash súbor, keď je nakonfigurovaný76509, alebo 9809 URL Zoznam interoperability filtrov. Každé načítanie môže poskytnúť hostiteľskému serveru vašu adresu IP a všeobecné informácie, ako je verzia rozšírenia, prehliadač a verzia prehliadača. Tieto údaje podliehajú zásadám ochrany osobných údajov danej webovej stránky alebo webového servera.",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "V prípade potreby si pred pokračovaním znova prečítajte %PRIVACY_POLICY_LINK%.",
+    "description": "Follow-up sentence in the remote rules warning modal with a privacy policy link placeholder"
+  },
+  "security_modal_privacy_title": {
+    "message": "varovný oznam:",
+    "description": "Header for privacy notice section"
+  },
+  "security_modal_recommendation": {
+    "message": "Používajte vstavané pravidlá, pokiaľ nedôverujete vzdialenému zdroju a neovládate ho. Pre pravidlá Linkumori (ClearURLs 2.0) JSON zadajte zodpovedajúci hash URL. Pre zoznamy filtrov interoperability ponechajte hash URL prázdny.",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "Vaša IP adresa a informácie o prehliadači budú vystavené nakonfigurovaným serverom",
+    "description": "First security risk point"
+  },
+  "security_modal_risk_2": {
+    "message": "Ak je zdroj pravidiel ohrozený, vášmu prehliadaču môžu byť doručené škodlivé pravidlá",
+    "description": "Second security risk point"
+  },
+  "security_modal_risk_3": {
+    "message": "Overenie hash sa vzťahuje len na pravidlá Linkumori (ClearURLs 2.0) JSON; chráni pred manipuláciou s prenosom, nie pred škodlivými zdrojmi pravidiel.",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "Zoznamy filtrov interoperability nepoužívajú overenie hash, takže dôvera v zdroj URL je obzvlášť dôležitá.",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "Bezpečnostné riziká:",
+    "description": "Header for security risks section"
+  },
+  "security_modal_title": {
+    "message": "Upozornenie na zabezpečenie vzdialených pravidiel",
+    "description": "Title for the security disclaimer modal"
+  },
+  "setting_hash_url_description": {
+    "message": "Webová adresa súboru hash na overenie pravidla:",
+    "description": "Description for the custom hash URL input field"
+  },
+  "setting_hash_url_label": {
+    "message": "Adresa URL súboru rules.hash (hash)",
+    "description": "This string is used as name for the rule.hash url label."
+  },
+  "setting_hash_url_mandatory": {
+    "message": "Vyžaduje sa pre vzdialené pravidlá ClearURLs JSON. Pre zoznamy filtrov sledovania obľúbeného rozšírenia URL nechajte prázdne.",
+    "description": "Description for hash URL field explaining when it is required"
+  },
+  "setting_html_export_button": {
+    "message": "Exportovať",
+    "description": "This string is used as name for the export button on the settings page."
+  },
+  "setting_html_export_button_title": {
+    "message": "Vyváža všetko",
+    "description": "This string is used as title for the export button on the settings page."
+  },
+  "setting_html_import_button": {
+    "message": "Importovať",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_import_button_title": {
+    "message": "Dováža všetko",
+    "description": "This string is used as title for the import button on the settings page."
+  },
+  "setting_html_reset_button": {
+    "message": "Resetovať",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_reset_button_title": {
+    "message": "Resetuje všetko",
+    "description": "This string is used as title for the reset button on the settings page."
+  },
+  "setting_html_audit_button": {
+    "message": "Audit",
+    "description": "This string is used as name for the audit button on the settings page."
+  },
+  "setting_html_audit_button_title": {
+    "message": "Otvorte stránku auditu",
+    "description": "This string is used as title for the audit button on the settings page."
+  },
+  "setting_log_limit_label": {
+    "message": "Obmedzte protokol na položky $LIMIT$.",
+    "description": "This string is used as name for the log limit label.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "Limit denníka (0 – 5 000)",
+    "description": "Label for the log limit input field."
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "Ďalšie vzdialené zdroje sa spojili. Použite <code>ruleURL | hashURL</code> pre ClearURLs JSON alebo iba <code>ruleURL</code> pre obľúbené zoznamy sledovania rozšírenia URL.",
+    "description": "Description for additional remote rule sources."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "Ďalšie vzdialené sady pravidiel",
+    "description": "Label for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
+  },
+  "setting_rule_url_description": {
+    "message": "Vlastné diaľkové URL pre ClearURLs pravidlá JSON alebo obľúbené rozšírenie URL sledovacie filtre",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "Adresa URL súboru data.json (pravidlá) alebo .txt (pre obľúbené)",
+    "description": "This string is used as name for the rule url label."
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "Poznámka: Hash URL je povinný len pre vzdialené pravidlá ClearURLs JSON. Zoznamy sledovania obľúbeného rozšírenia URL sú uložené oddelene ako filtre Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Typy žiadostí</a> (odborná úroveň)",
+    "description": "This string is used as name for the types label."
+  },
+  "settings_html_page_title": {
+    "message": "Nastavenia Linkumori (čisté adresy URL).",
+    "description": "This string is used as title on the settings page."
+  },
+  "settings_html_save_button": {
+    "message": "Uložiť a znova načítať doplnok",
+    "description": "This string is used as name for the save&reload button on the settings page."
+  },
+  "settings_html_save_button_title": {
+    "message": "Uloží nastavenia",
+    "description": "This string is used as title for the save&reload button on the settings page."
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "Farba importovaného odznaku je #FFA500. Chcete prejsť na Linkumori blue (#2563EB)?",
+    "description": "Prompt shown during ClearURLs import when old orange badge color is detected."
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "Importujete zálohu ClearURLs. Linkumori importuje kompatibilné nastavenia a preskočí ClearURLsData. Pokračovať?",
+    "description": "Confirmation shown when importing legacy ClearURLs JSON files."
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "Táto záloha ClearURLs obsahuje nastavenia vzdialeného zdroja pravidiel. Chcete teraz povoliť prepínač vzdialených pravidiel?",
+    "description": "Second confirmation shown for ClearURLs imports when remote rule URLs are present."
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "Prepínač vzdialených pravidiel bol povolený z vášho importu ClearURLs. Otvorte Nastavenia a kliknite na Uložiť manuálne, aby ste potvrdili konečnú vzdialenú konfiguráciu.",
+    "description": "Notice shown after user enables remote rules during ClearURLs import."
+  },
+  "settings_import_confirm": {
+    "message": "Naozaj chcete importovať nastavenia? Tým sa prepíše váš aktuálny"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "Metadáta importu sú neúplné",
+    "description": "Shown when import metadata is present but missing expected fields."
+  },
+  "settings_import_invalid_file": {
+    "message": "Bol vybratý neplatný súbor",
+    "description": "Shown when imported settings file is invalid."
+  },
+  "settings_import_invalid_format": {
+    "message": "Neplatný formát nastavení",
+    "description": "Shown when imported settings data cannot be parsed as expected."
+  },
+  "settings_import_no_data": {
+    "message": "V súbore sa nenašli žiadne importovateľné nastavenia",
+    "description": "Shown when parsed file has no supported settings keys."
+  },
+  "settings_import_no_file": {
+    "message": "Nie je vybratý žiadny súbor",
+    "description": "Shown when import is triggered without selecting a file."
+  },
+  "settings_import_parse_error": {
+    "message": "Nepodarilo sa analyzovať súbor s nastaveniami",
+    "description": "Shown when JSON parsing fails for imported file."
+  },
+  "settings_import_read_error": {
+    "message": "Nepodarilo sa prečítať súbor nastavení",
+    "description": "Shown when browser cannot read the selected file."
+  },
+  "settings_import_wrong_extension": {
+    "message": "Vyberte platný súbor nastavení Linkumori/ClearURLs (.json alebo .conf)",
+    "description": "Shown when imported settings file does not match supported Linkumori or ClearURLs formats."
+  },
+  "settings_imported": {
+    "message": "Nastavenia boli úspešne importované"
+  },
+  "statistics_reset_success": {
+    "message": "Reset bol úspešný!",
+    "description": "This string is used as feedback after the statistics have been reset."
+  },
+  "status_builtinOnly": {
+    "message": "Iba vstavané pravidlá"
+  },
+  "status_color_picker_failed": {
+    "message": "Nepodarilo sa inicializovať výber farieb",
+    "description": "Error message when color picker fails to load"
+  },
+  "status_customFailed": {
+    "message": "Vlastné pravidlá zlyhali"
+  },
+  "status_customMerged": {
+    "message": "Vlastné pravidlá boli zlúčené (predvolené + vlastné)"
+  },
+  "status_deleteFailed": {
+    "message": "Odstránenie zlyhalo"
+  },
+  "status_invalidJson": {
+    "message": "Neplatný JSON"
+  },
+  "status_language_changed_success": {
+    "message": "Jazyk bol úspešne zmenený na $1",
+    "description": "Success message when language is changed. $1 is the native language name"
+  },
+  "status_load_settings_failed": {
+    "message": "Nepodarilo sa načítať nastavenia",
+    "description": "Status message when settings fail to load."
+  },
+  "status_loading": {
+    "message": "Načítava sa..."
+  },
+  "status_reset_failed": {
+    "message": "Obnovenie nastavení zlyhalo",
+    "description": "Status message when settings reset fails."
+  },
+  "status_reset_successful": {
+    "message": "Nastavenia boli úspešne obnovené",
+    "description": "Status message shown after settings have been reset."
+  },
+  "status_resetting_settings": {
+    "message": "Obnovujú sa nastavenia...",
+    "description": "Status message shown while settings are being reset."
+  },
+  "status_saveFailed": {
+    "message": "Uloženie zlyhalo"
+  },
+  "status_save_failed": {
+    "message": "Nastavenia sa nepodarilo uložiť",
+    "description": "Status message when settings save fails."
+  },
+  "status_save_setting_failed": {
+    "message": "Nepodarilo sa uložiť nastavenie $SETTING$",
+    "description": "Error message when a specific toggle setting fails to save.",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "Nastavenia boli úspešne uložené",
+    "description": "Status message when settings save is successful."
+  },
+  "status_saved": {
+    "message": "Uložené!",
+    "description": "Button text after settings are saved."
+  },
+  "status_saving": {
+    "message": "Ukladá sa...",
+    "description": "Button text while saving settings."
+  },
+  "status_unavailable": {
+    "message": "Stav je nedostupný"
+  },
+  "status_unknown": {
+    "message": "Neznámy"
+  },
+  "status_usingCached": {
+    "message": "týkajúce sa združeného pravidla mohlo byť poškodené alebo nesprávne načítané. Namiesto toho boli načítané záložné pravidlá a zlúčené s vlastnými pravidlami."
+  },
+  "status_usingFallback": {
+    "message": "Používanie záložných pravidiel"
+  },
+  "status_valid": {
+    "message": "Platné"
+  },
+  "status_validJson": {
+    "message": "Platný JSON"
+  },
+  "status_validJsonUnsaved": {
+    "message": "Platný JSON – neuložené"
+  },
+  "sunIconAlt": {
+    "message": "ikona slnka",
+    "description": "Alt text for sun theme icon"
+  },
+  "switchToDarkTheme": {
+    "message": "Prepnúť na tmavý motív",
+    "description": "ARIA label for theme toggle when current theme is light"
+  },
+  "switchToLightTheme": {
+    "message": "Prepnúť na svetlú tému",
+    "description": "ARIA label for theme toggle when current theme is dark"
+  },
+  "themeToggleAriaLabel": {
+    "message": "Prepnúť tému",
+    "description": "ARIA label for the theme toggle button for accessibility."
+  },
+  "theme_description": {
+    "message": "Vyberte si preferovaný vzhľad témy",
+    "description": "Description text for theme selection"
+  },
+  "theme_name_dark": {
+    "message": "Tmavý",
+    "description": "Name for the dark theme"
+  },
+  "theme_name_icecold": {
+    "message": "Ľadová zima",
+    "description": "Name for the ice cold theme"
+  },
+  "theme_name_zengray": {
+    "message": "Zen Grey",
+    "description": "Name for the zen grey theme"
+  },
+  "theme_name_forest": {
+    "message": "les",
+    "description": "Name for the forest theme"
+  },
+  "theme_name_light": {
+    "message": "Svetlo",
+    "description": "Name for the light theme"
+  },
+  "theme_name_midnight": {
+    "message": "Polnoc",
+    "description": "Name for the midnight theme"
+  },
+  "theme_name_sunset": {
+    "message": "Západ slnka",
+    "description": "Name for the sunset theme"
+  },
+  "theme_name_legacy": {
+    "message": "Legacy",
+    "description": "Name for the legacy ClearURLs-style theme"
+  },
+  "theme_group_light_label": {
+    "message": "Svetelný režim",
+    "description": "Label above the light theme cards group"
+  },
+  "theme_group_dark_label": {
+    "message": "Tmavý režim",
+    "description": "Label above the dark theme cards group"
+  },
+  "theme_selection_label": {
+    "message": "Téma",
+    "description": "Label for the theme selection section"
+  },
+  "time_am": {
+    "message": "AM"
+  },
+  "time_am_lower": {
+    "message": "ráno",
+    "description": "Lowercase AM marker"
+  },
+  "time_pm": {
+    "message": "PM"
+  },
+  "time_pm_lower": {
+    "message": "popoludní",
+    "description": "Lowercase PM marker"
+  },
+  "number_0": {
+    "message": "0",
+    "description": "Localized digit zero"
+  },
+  "number_1": {
+    "message": "1",
+    "description": "Localized digit one"
+  },
+  "number_2": {
+    "message": "2",
+    "description": "Localized digit two"
+  },
+  "number_3": {
+    "message": "3",
+    "description": "Localized digit three"
+  },
+  "number_4": {
+    "message": "4",
+    "description": "Localized digit four"
+  },
+  "number_5": {
+    "message": "5",
+    "description": "Localized digit five"
+  },
+  "number_6": {
+    "message": "6",
+    "description": "Localized digit six"
+  },
+  "number_7": {
+    "message": "7",
+    "description": "Localized digit seven"
+  },
+  "number_8": {
+    "message": "8",
+    "description": "Localized digit eight"
+  },
+  "number_9": {
+    "message": "9",
+    "description": "Localized digit nine"
+  },
+  "day_0": {
+    "message": "nedeľu",
+    "description": "Localized weekday name for Sunday"
+  },
+  "day_1": {
+    "message": "pondelok",
+    "description": "Localized weekday name for Monday"
+  },
+  "day_2": {
+    "message": "utorok",
+    "description": "Localized weekday name for Tuesday"
+  },
+  "day_3": {
+    "message": "streda",
+    "description": "Localized weekday name for Wednesday"
+  },
+  "day_4": {
+    "message": "štvrtok",
+    "description": "Localized weekday name for Thursday"
+  },
+  "day_5": {
+    "message": "piatok",
+    "description": "Localized weekday name for Friday"
+  },
+  "day_6": {
+    "message": "sobota",
+    "description": "Localized weekday name for Saturday"
+  },
+  "month_1": {
+    "message": "januára",
+    "description": "Localized month name for January"
+  },
+  "month_2": {
+    "message": "februára",
+    "description": "Localized month name for February"
+  },
+  "month_3": {
+    "message": "marca",
+    "description": "Localized month name for March"
+  },
+  "month_4": {
+    "message": "apríla",
+    "description": "Localized month name for April"
+  },
+  "month_5": {
+    "message": "mája",
+    "description": "Localized month name for May"
+  },
+  "month_6": {
+    "message": "júna",
+    "description": "Localized month name for June"
+  },
+  "month_7": {
+    "message": "júla",
+    "description": "Localized month name for July"
+  },
+  "month_8": {
+    "message": "augusta",
+    "description": "Localized month name for August"
+  },
+  "month_9": {
+    "message": "septembra",
+    "description": "Localized month name for September"
+  },
+  "month_10": {
+    "message": "októbra",
+    "description": "Localized month name for October"
+  },
+  "month_11": {
+    "message": "novembra",
+    "description": "Localized month name for November"
+  },
+  "month_12": {
+    "message": "decembra",
+    "description": "Localized month name for December"
+  },
+  "url_field_editable_tooltip": {
+    "message": "Pole je upraviteľné",
+    "description": "Tooltip shown when security confirmation is already satisfied."
+  },
+  "url_validation_https_recommended": {
+    "message": "Pre zabezpečenie sa odporúča HTTPS",
+    "description": "Warning shown when URL is valid but does not use HTTPS."
+  },
+  "url_validation_invalid": {
+    "message": "Neplatný formát adresy URL.",
+    "description": "Error message displayed when the URL format is invalid"
+  },
+  "watchdog": {
+    "message": "[Linkumori (Clean URLS)]: Watchdog zistil problém a už $TIMES$-krát zlyhal.",
+    "description": "This string is used as text for the watchdog",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "Linkumori predvolene odstraňuje parametre sledovania z adries URL a v prípade potreby vám poskytuje pokročilé ovládacie prvky. Prečítajte si nižšie uvedené funkcie a potom pokračujte na Zásady ochrany osobných údajov a Licencia."
+  },
+  "welcomeHeading": {
+    "message": "Vitajte v Linkumori"
+  },
+  "welcome_migration_description": {
+    "message": "Vaše nastavenia ClearURLs boli importované. Skontrolujte funkcie Linkumori nižšie a potom pokračujte v čítaní Zásad ochrany osobných údajov a licencie.",
+    "description": "Description shown on migration welcome screen."
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "Vstavané pravidlá zamerané na ochranu osobných údajov sú predvolene povolené.",
+    "description": "Feature list item describing default bundled rule behavior."
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "Editor vlastných pravidiel s ovládaním na úrovni poskytovateľa, importom/exportom a správou pravidiel.",
+    "description": "Feature list item describing custom rules."
+  },
+  "welcome_migration_feature_overload": {
+    "message": "Režim preťaženia môže zlúčiť združené a vzdialené pravidlá pred použitím vlastných pravidiel.",
+    "description": "Feature list item describing overload mode."
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "Podporované sú viaceré vzdialené zdroje pravidiel (páry URL pravidiel + hash URL).",
+    "description": "Feature list item describing multiple remote sets."
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "Podpora whitelistu na obídenie čistenia na vybraných doménach v prípade potreby.",
+    "description": "Feature list item describing whitelist behavior."
+  },
+  "welcome_migration_heading": {
+    "message": "Migrácia ClearURLs bola dokončená",
+    "description": "Main heading on migration welcome screen."
+  },
+  "welcome_migration_open_settings": {
+    "message": "Otvorte Nastavenia",
+    "description": "Button label to open settings from migration welcome screen."
+  },
+  "welcome_migration_title": {
+    "message": "Vitajte v Linkumori",
+    "description": "Page title for the migration welcome screen shown after ClearURLs import."
+  },
+  "welcome_next_button": {
+    "message": "Ďalej: Ochrana osobných údajov a licencia",
+    "description": "Button shown in guided welcome mode to continue to privacy and license sections."
+  },
+  "whitelist_add_button": {
+    "message": "Pridať",
+    "description": "Text for the add domain button"
+  },
+  "whitelist_add_failed": {
+    "message": "Nepodarilo sa pridať doménu na bielu listinu",
+    "description": "Error message when adding domain fails"
+  },
+  "whitelist_added": {
+    "message": "%s bol pridaný na bielu listinu",
+    "description": "Success message when domain is added. %s is replaced with domain name."
+  },
+  "whitelist_already_exists": {
+    "message": "Doména je už na zozname povolených alebo neplatná",
+    "description": "Error message when domain already exists or is invalid"
+  },
+  "whitelist_count": {
+    "message": "Počet domén pridaných na bielu listinu: %d",
+    "description": "Text showing number of whitelisted domains. %d is replaced with the count."
+  },
+  "whitelist_empty": {
+    "message": "Žiadne domény nie sú na zozname povolených",
+    "description": "Text shown when whitelist is empty"
+  },
+  "whitelist_enter_domain": {
+    "message": "Zadajte názov domény",
+    "description": "Error message when trying to add empty domain"
+  },
+  "whitelist_examples_text": {
+    "message": "Príklady: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
+    "description": "Text before domain format examples"
+  },
+  "whitelist_export_button": {
+    "message": "Exportovať",
+    "description": "Button text for exporting whitelist domains"
+  },
+  "whitelist_export_done": {
+    "message": "Biela listina bola úspešne exportovaná",
+    "description": "Success message when whitelist export completes"
+  },
+  "whitelist_export_empty": {
+    "message": "Whitelist je prázdny. Nič na export.",
+    "description": "Info message when user tries to export an empty whitelist"
+  },
+  "whitelist_export_failed": {
+    "message": "Export bielej listiny zlyhal",
+    "description": "Error shown when whitelist export fails"
+  },
+  "whitelist_import_button": {
+    "message": "Importovať",
+    "description": "Button text for importing whitelist domains"
+  },
+  "whitelist_import_done": {
+    "message": "Domény %s boli importované na bielu listinu",
+    "description": "Success message for whitelist import. %s is replaced with imported domain count"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "Neplatný formát bielej listiny. Použite pole domén JSON.",
+    "description": "Error shown when imported whitelist structure is not supported"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "V súbore bielej listiny sa nenašli žiadne platné domény",
+    "description": "Error shown when imported whitelist has no valid domain entries"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "Nepodarilo sa analyzovať súbor bielej listiny",
+    "description": "Error shown when whitelist import file is invalid JSON"
+  },
+  "whitelist_input_placeholder": {
+    "message": "example.com alebo *.example.com",
+    "description": "Placeholder text for the domain input field"
+  },
+  "whitelist_invalid_format": {
+    "message": "Neplatný formát domény. Použite: example.com alebo *.example.com",
+    "description": "Error message for invalid domain format"
+  },
+  "whitelist_load_failed": {
+    "message": "Nepodarilo sa načítať bielu listinu",
+    "description": "Error message when whitelist fails to load"
+  },
+  "whitelist_remove_button": {
+    "message": "Odstrániť",
+    "description": "Text for the remove domain button"
+  },
+  "whitelist_remove_failed": {
+    "message": "Nepodarilo sa odstrániť doménu z bielej listiny",
+    "description": "Error message when removing domain fails"
+  },
+  "whitelist_removed": {
+    "message": "%s bol odstránený z bielej listiny",
+    "description": "Success message when domain is removed. %s is replaced with domain name."
+  },
+  "whitelist_search_placeholder": {
+    "message": "Vyhľadajte domény na zozname povolených",
+    "description": "Placeholder text for searching whitelisted domains"
+  },
+  "whitelist_section_description": {
+    "message": "Tu pridané domény obídu VŠETKY čistenie adries URL. Parametre sledovania budú na týchto stránkach zachované.",
+    "description": "Description explaining what the whitelist does"
+  },
+  "whitelist_section_title": {
+    "message": "Whitelist domén",
+    "description": "Title for the whitelist settings section"
+  },
+  "whitelist_update_failed": {
+    "message": "Aktualizácia bielej listiny zlyhala",
+    "description": "Error message when updating the whitelist fails."
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "Obnovte globálne štatistiky",
+    "description": "This string is used as title for the statistics reset button on the popup page."
+  },
+  "popup_html_log_head_title": {
+    "message": "Otvorte denník",
+    "description": "This string is used as title for the log button on the popup page."
+  },
+  "popup_html_settings_button_title": {
+    "message": "Otvorte nastavenia",
+    "description": "This string is used as a title for the settings button on the popup page."
+  },
+  "license_title_title": {
+    "message": "Informácie o licencii",
+    "description": "Title for the license information link in the popup"
+  },
+  "license_links_title_title": {
+    "message": "Licencia a kredity",
+    "description": "Title for the license and credits link in the popup"
+  },
+  "popup_nav_main_title": {
+    "message": "Prepnite na hlavné ovládacie prvky rozšírenia",
+    "description": "Tooltip for main navigation button"
+  },
+  "popup_nav_license_title": {
+    "message": "Prepnúť na informácie o licencii",
+    "description": "Tooltip for license information button"
+  },
+  "customrules_title": {
+    "message": "Vlastné pravidlá",
+    "description": "Title for the custom rules section"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "Právne informácie – Zásady ochrany osobných údajov a licencia",
+    "description": "Title for legal information page opened from popup consent gate"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "Whitelist",
+    "description": "Title for HTML content page opened from popup consent gate"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "Zakázať Gatekeepera",
+    "description": "Label for toggle that disables gatekeeper protections for remote URL editing"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "Zakázať v tomto toku relácie kontroly správcu brány na úpravu vzdialenej adresy URL.",
+    "description": "Description for disable gatekeeper toggle"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "Zakázať službu Gatekeeper je povolená. Potvrdenie zabezpečenia sa vyžaduje pri každej relácii nastavení.",
+    "description": "Status message shown after enabling disable gatekeeper"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "Disable Gatekeeper vypnutý. Existujúce dôveryhodné hodnoty je možné upravovať bez okamžitého potvrdenia.",
+    "description": "Status message shown after disabling disable gatekeeper"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "Exportovať vzdialené adresy URL",
+    "description": "Button text for exporting remote URL configuration only"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "Importujte vzdialené adresy URL",
+    "description": "Button text for importing remote URL configuration only"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "Exportujte primárne a ďalšie vzdialené páry adries URL",
+    "description": "Tooltip for remote URL export button"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "Importujte primárne a ďalšie vzdialené páry adries URL",
+    "description": "Tooltip for remote URL import button"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "Zakázať varovanie pred rizikom Gatekeepera",
+    "description": "Title for the disable gatekeeper risk modal"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "UPOZORNENIE: Pokročilá funkcia určená len pre servery s vlastným hosťovaním",
+    "description": "Top warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "Vypínate ochranu Gatekeeper pre vzdialenú úpravu pravidla URL. Táto funkcia môže načítať Linkumori (ClearURLs 2.0) JSON pravidlá s overením hash alebo Linkumori URL zoznamy interoperability filtrov bez overenia hash. Pokračujte iba vtedy, ak rozumiete, ktorý formát konfigurujete.",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "Gatekeeper je vstavaný bezpečnostný postup, ktorý blokuje priame vzdialené úpravy URL, kým nepotvrdíte bezpečnostné varovanie a nedokončíte zadané potvrdenie.",
+    "description": "Explains what gatekeeper means in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "Ponechajte Gatekeeper povolený, pokiaľ nedôverujete svojim vzdialeným zdrojom a neovládate ich. pravidlá JSON by mali obsahovať zodpovedajúci hash URL; zoznamy interoperability zámerne nechávajú hash URL prázdny.",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "varovný oznam:",
+    "description": "Privacy section title in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "Ak pridáte vzdialené pravidlo URL, rozšírenie sa pripojí k vášmu určenému serveru a načíta buď sadu pravidiel Linkumori (ClearURLs 2.0), JSON, jej hash súbor, keď je nakonfigurovaný76509, alebo 9809 URL Zoznam interoperability filtrov. Každé načítanie môže poskytnúť hostiteľskému serveru vašu adresu IP a všeobecné informácie, ako je verzia rozšírenia, prehliadač a verzia prehliadača. Tieto údaje podliehajú zásadám ochrany osobných údajov danej webovej stránky alebo webového servera.",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "V prípade potreby si pred pokračovaním znova prečítajte %PRIVACY_POLICY_LINK%.",
+    "description": "Follow-up sentence in the disable gatekeeper warning modal with a privacy policy link placeholder"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "varovný oznam:",
+    "description": "Risks section title in disable gatekeeper modal"
+  },
+  "privacy_policy_link_label": {
+    "message": "Zásady ochrany osobných údajov",
+    "description": "Label for privacy policy hyperlinks shown in warning dialogs"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "Rozšírenie sa pripojí k vami určenej adrese URL vždy, keď je rozšírenie povolené a načítané vo vašom prehliadači.",
+    "description": "Risk bullet 1 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "Server, ktorý hostí vzdialené JSON, hash alebo súbory filtra interoperability, dostane vašu adresu IP.",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "Server môže tiež prijať vašu verziu rozšírenia, prehliadača a verziu prehliadača.",
+    "description": "Risk bullet 3 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "Tieto údaje podliehajú zásadám ochrany osobných údajov webovej stránky alebo webového servera, na ktorom sú tieto súbory hosťované.",
+    "description": "Risk bullet 4 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "Vypnutím Gatekeeper zvýšite riziko z nebezpečných alebo kompromitovaných vzdialených zdrojov pravidiel. Overenie hash chráni iba Linkumori (ClearURLs 2.0) JSON stiahnuté pravidlá. Nevzťahuje sa na zoznamy interoperability.",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "Zrušiť",
+    "description": "Cancel button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "Pokračovať",
+    "description": "Continue button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "Rozumiem riziku pravidiel na diaľku a deaktivujem vrátnika",
+    "description": "Exact phrase user must type to confirm disabling gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "Vyžaduje sa potvrdenie typu",
+    "description": "Title for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "Ak chcete vypnúť strážcu brány, zadajte presnú potvrdzovaciu frázu nižšie.",
+    "description": "Instruction text for gatekeeper-specific confirmation modal"
+  },
+  "redirection_warning_modal_title": {
+    "message": "Upozornenie na obídenie presmerovania",
+    "description": "Title for the warning modal shown before enabling redirect bypass."
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "Pred povolením tejto funkcie si prečítajte pravidlá presmerovania.",
+    "description": "Top warning line for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "Táto funkcia môže obísť sprostredkovateľské presmerovanie a sledovacie adresy URL tretích strán použitím pravidiel presmerovania, ktoré sú v súčasnosti k dispozícii z balíkov, vzdialených a vlastných zdrojov.",
+    "description": "Main warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "Najprv skontrolujte pravidlá. Ak je pravidlo presmerovania príliš široké alebo nevhodné pre vaše prehliadanie, pred povolením tohto nastavenia ho upravte alebo prepíšte v Editore vlastných pravidiel.",
+    "description": "Recommendation text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "Čo skontrolovať",
+    "description": "Risks section title for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "Združené pravidlá, vzdialené pravidlá a vlastné pravidlá môžu prispieť k správaniu presmerovania.",
+    "description": "First risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "Široké pravidlo presmerovania môže rozbaliť odkaz spôsobom, ktorý ste neočakávali.",
+    "description": "Second risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "Najnovšie vzdialené pravidlá uložené vo vyrovnávacej pamäti sa môžu zmeniť, keď sa načítajú nové údaje vzdialeného pravidla.",
+    "description": "Third risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "Pred spoliehaním sa na túto funkciu použite stránku Audit na kontrolu pravidiel balíkov, konečných pravidiel, vlastných pravidiel a najnovších vzdialených pravidiel uložených vo vyrovnávacej pamäti.",
+    "description": "Fourth risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "Povoľte to iba vtedy, ak dôverujete pravidlám presmerovania, ktoré sú v súčasnosti prítomné z rôznych zdrojov. Ak tejto funkcii nerozumiete, nezapínajte ju. Bez povolenia tohto nastavenia sa pravidlá obídenia presmerovania nebudú uplatňovať.",
+    "description": "Final warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "Zrušiť",
+    "description": "Cancel button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_continue": {
+    "message": "Pokračovať",
+    "description": "Continue button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "Obtok presmerovania zostáva vypnutý.",
+    "description": "Status shown when the redirect bypass warning modal is cancelled."
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "Zadajte presnú potvrdzovaciu frázu",
+    "description": "Input label for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "Táto akcia znižuje zabezpečenie pre vzdialené pravidlá. Pokračujte, len ak dôverujete svojim zdrojom JSON a interoperabilným filtrom.",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "Nahraďte zástupné hodnoty svojimi skutočnými adresami URL HTTPS a potom importujte tento súbor.",
+    "description": "Template export note 1 for remote URL export JSON"
+  },
+  "remote_urls_template_note_2": {
+    "message": "Primárne obsahuje pár URL hlavného pravidla/hash.",
+    "description": "Template export note 2 for remote URL export JSON"
+  },
+  "remote_urls_template_note_3": {
+    "message": "Doplnok je voliteľný a podporuje viacero párov URL pravidlo/hash.",
+    "description": "Template export note 3 for remote URL export JSON"
+  },
+  "remote_urls_template_note_4": {
+    "message": "Podľa potreby pridajte alebo odstráňte objekty v dodatočnom poli.",
+    "description": "Template export note 4 for remote URL export JSON"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "REPLACE_WITH_PRIMARY_RULE_URL",
+    "description": "Placeholder value for primary rule URL in template export JSON"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "REPLACE_WITH_PRIMARY_HASH_URL",
+    "description": "Placeholder value for primary hash URL in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "VYMENIŤ_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "VYMENIŤ_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "VYMENIŤ_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "VYMENIŤ_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "VYMENIŤ_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "VYMENIŤ_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
+  },
+  "remote_urls_export_success": {
+    "message": "Konfigurácia vzdialenej adresy URL bola exportovaná.",
+    "description": "Success status after exporting configured remote URLs"
+  },
+  "remote_urls_template_export_success": {
+    "message": "Šablóna vzdialenej adresy URL bola exportovaná. Vyplňte zástupné symboly a importujte.",
+    "description": "Success status after exporting empty remote URL template"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "Konfigurácia vzdialenej adresy URL bola importovaná a uložená.",
+    "description": "Success status after importing and saving remote URL configuration"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "Import analyzoval, ale uloženie konfigurácie vzdialenej adresy URL zlyhalo.",
+    "description": "Error status when import parsing succeeded but saving failed"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "Neplatný konfiguračný súbor vzdialenej adresy URL.",
+    "description": "Error status when imported remote URL JSON is invalid"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "Nedá sa prečítať vybraný súbor.",
+    "description": "Error status when file reader fails for remote URL import"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "V súbore sa nenašli žiadne platné páry vzdialených adries URL.",
+    "description": "Error status when no valid pairs are found during remote URL import"
+  },
+  "popup_consent_title_title": {
+    "message": "Vyžaduje sa súhlas",
+    "description": "Title for the legal information section in the popup"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "Zapnutie/vypnutie hlavnej funkcie",
+    "description": "Title for the button that switches to the filter configuration view in the popup"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "Prepnite na protokoly výkonu rozšírenia pre všetky dátumy uložené lokálne vo vašom zariadení",
+    "description": "Title for the button that switches to the statistics view in the popup"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "prepínač pre zapnutie/vypnutie ikony odznaku",
+    "description": "Title for the statistics section in the popup"
+  },
+  "configs_switch_statistics_title": {
+    "message": "prepínač pre zapnutie/vypnutie štatistiky",
+    "description": "Title for the button that switches to the license and credits view in the popup"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "Prvky",
+    "description": "Title for the statistics section in the popup"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "Zablokované",
+    "description": "Description for the elements statistic in the popup"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "Percento",
+    "description": "Description for the blocked statistic in the popup"
+  },
+  "audit_html_page_title": {
+    "message": "Audit pravidiel Linkumori",
+    "description": "Title for the audit page"
+  },
+  "audit_badge_label": {
+    "message": "AUDIT",
+    "description": "Small badge label in the audit page header"
+  },
+  "audit_section_title": {
+    "message": "Audit pravidiel",
+    "description": "Main section title for the audit page"
+  },
+  "audit_viewer_title": {
+    "message": "Prehliadač zdrojov pravidiel",
+    "description": "Title for the audit source viewer card"
+  },
+  "audit_viewer_description": {
+    "message": "Pomocou zdrojových tlačidiel nižšie môžete skontrolovať združené pravidlá, konečné zlúčené pravidlá, vlastné pravidlá alebo najnovšie načítané vzdialené pravidlá uložené vo vyrovnávacej pamäti ako nespracovaný JSON.",
+    "description": "Description for the audit source viewer"
+  },
+  "audit_refresh_button": {
+    "message": "Obnoviť zdroje",
+    "description": "Refresh button label on the audit page"
+  },
+  "audit_faq_button": {
+    "message": "FAQ",
+    "description": "FAQ button label on the audit page"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "Prepnúť tému",
+    "description": "Accessible label for the theme toggle on the audit page"
+  },
+  "audit_faq_close_aria": {
+    "message": "Zavrieť FAQ",
+    "description": "Accessible label for the FAQ modal close button"
+  },
+  "audit_source_bundled": {
+    "message": "Pravidlá balíka",
+    "description": "Button and title for bundled rules audit source"
+  },
+  "audit_source_final": {
+    "message": "Záverečné pravidlá",
+    "description": "Button and title for final merged rules audit source"
+  },
+  "audit_source_custom": {
+    "message": "Vlastné pravidlá",
+    "description": "Button and title for custom rules audit source"
+  },
+  "audit_source_remote": {
+    "message": "Najnovšie vzdialené pravidlá uložené vo vyrovnávacej pamäti",
+    "description": "Button and title for latest cached remote rules audit source"
+  },
+  "audit_source_bundled_description": {
+    "message": "Zdroj: pribalený súbor data/linkumori-clearurls-min.json",
+    "description": "Source description for bundled rules"
+  },
+  "audit_source_final_description": {
+    "message": "Zdroj: runtime úložisko ClearURLsData",
+    "description": "Source description for final rules"
+  },
+  "audit_source_custom_description": {
+    "message": "Zdroj: runtime storage custom_rules",
+    "description": "Source description for custom rules"
+  },
+  "audit_source_remote_description": {
+    "message": "Zdroj: runtime storage remoteRulescache.data (najnovšie načítané vzdialené pravidlá uložené vo vyrovnávacej pamäti lokálne)",
+    "description": "Source description for latest cached remote rules"
+  },
+  "audit_meta_waiting": {
+    "message": "Čakanie...",
+    "description": "Meta text shown before audit data is loaded"
+  },
+  "audit_meta_error": {
+    "message": "Chyba",
+    "description": "Meta text shown when a selected audit source has an error"
+  },
+  "audit_meta_source_bundled": {
+    "message": "združené pravidlá",
+    "description": "Meta label for bundled rules source"
+  },
+  "audit_meta_source_final": {
+    "message": "konečné pravidlá",
+    "description": "Meta label for final rules source"
+  },
+  "audit_meta_source_custom": {
+    "message": "vlastné pravidlá",
+    "description": "Meta label for custom rules source"
+  },
+  "audit_meta_source_remote": {
+    "message": "vzdialená vyrovnávacia pamäť",
+    "description": "Meta label for latest cached remote rules source"
+  },
+  "audit_meta_template": {
+    "message": "$1 | poskytovatelia: $2 | znaky: $3",
+    "description": "Template for audit source meta information"
+  },
+  "audit_status_loading": {
+    "message": "Načítavajú sa zdroje auditu...",
+    "description": "Status shown while loading audit sources"
+  },
+  "audit_status_loaded": {
+    "message": "Všetky zdroje auditu boli načítané.",
+    "description": "Status shown when all audit sources load successfully"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "Načítané zdroje auditu. Najnovšie vzdialené pravidlá uložené vo vyrovnávacej pamäti zatiaľ nie sú k dispozícii.",
+    "description": "Status shown when audit sources load but remote cache is not yet available"
+  },
+  "audit_status_partial_error": {
+    "message": "Niektoré zdroje auditu sa nepodarilo načítať. Ak chcete skontrolovať chybový JSON, prepnite zdroje.",
+    "description": "Status shown when one or more audit sources fail to load"
+  },
+  "audit_status_refresh_failed": {
+    "message": "Obnovenie zdrojov auditu zlyhalo.",
+    "description": "Fallback error shown when refreshing audit sources fails"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "Načítanie pravidiel balíka zlyhalo so stavom $1",
+    "description": "Error shown when fetching bundled rules fails"
+  },
+  "audit_error_final_missing": {
+    "message": "Runtime nevrátilo ClearURLsData",
+    "description": "Error shown when final rules are missing from runtime storage"
+  },
+  "audit_error_custom_missing": {
+    "message": "Runtime nevrátilo custom_rules",
+    "description": "Error shown when custom rules are missing from runtime storage"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "Runtime nevrátilo remoteRulescache",
+    "description": "Error shown when remote cache is missing from runtime storage"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "Chyba neznámych pravidiel balíka",
+    "description": "Fallback bundled rules error"
+  },
+  "audit_error_unknown_final": {
+    "message": "Neznáma chyba konečných pravidiel",
+    "description": "Fallback final rules error"
+  },
+  "audit_error_unknown_custom": {
+    "message": "Neznáma chyba vlastných pravidiel",
+    "description": "Fallback custom rules error"
+  },
+  "audit_error_unknown_remote": {
+    "message": "Chyba neznámych vzdialených pravidiel",
+    "description": "Fallback remote rules error"
+  },
+  "audit_remote_unavailable": {
+    "message": "Zatiaľ nie sú k dispozícii žiadne vzdialené pravidlá uložené vo vyrovnávacej pamäti",
+    "description": "Message shown when remote cache has not been populated yet"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "Zatiaľ nie je k dispozícii žiadny obsah vzdialených pravidiel uložených vo vyrovnávacej pamäti",
+    "description": "Message shown when remote cache exists but has no data payload"
+  },
+  "audit_faq_modal_title": {
+    "message": "Časté otázky o audite",
+    "description": "Title for the audit FAQ modal"
+  },
+  "audit_faq_intro": {
+    "message": "Tieto poznámky popisujú polia poskytovateľa, ktoré clearurls.js skutočne číta, keď vytvára a aplikuje pravidlá.",
+    "description": "Intro text for the audit FAQ modal"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "Ako vykonám audit poskytovateľa?",
+    "description": "FAQ title for auditing a provider"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p>Otvorte zdroj v prehliadači, nájdite poskytovateľa v rámci <span class=\"faq-code\">poskytovatelia</span> a skontrolujte kľúče na tomto objekte poskytovateľa. <span class=\"faq-code\">Záverečné pravidlá</span> na kontrolu zlúčeného výsledku runtime, <span class=\"faq-code\">Vlastné pravidlá</span> na kontrolu používateľských prepisov a <span class=\"faq-code\">Najnovšie uložené vzdialené pravidláXXTKNXX12 naposledy XXTKNXX na kontrolu vzdialeného obsahu cache.</p>",
+    "description": "FAQ body for auditing a provider"
+  },
+  "audit_faq_override_title": {
+    "message": "Ako povolím, zakážem, importujem, upravím alebo prepíšem jednotlivé pravidlá?",
+    "description": "FAQ title for custom rule editing and overrides"
+  },
+  "audit_faq_override_body": {
+    "message": "<p>Ak chcete ovládať pravidlá podľa pravidiel, použite Editor vlastných pravidiel. Toto je miesto, kde môžete importovať pravidlá ako vlastné pravidlá, upravovať polia poskytovateľa a ukladať si vlastnú verziu poskytovateľa. </p><p> Pomocou neho môžete povoliť alebo zakázať jednotlivých poskytovateľov alebo obsah jednotlivých pravidiel tak, že importovaného alebo upraveného poskytovateľa zmeníte na vlastnú verziu. Táto vlastná verzia sa potom zlúči s pravidlami spustenia. </p><p> Môžete tiež individuálne prepísať združené pravidlá a vzdialené pravidlá. Auditujte <span class=\"faq-code\">Bundled Rules</span> alebo <span class=\"faq-code\">Najnovšie uložené vzdialené pravidlá</span> a nájdite požadovaného poskytovateľa, potom skontrolujte <span class=\"faq-code\">Vlastné pravidlá</span> a XXTKNXX a XXTKNTXX1 potvrďte2 vlastné pravidlá2XXTKNTXX11XXTKNTXX nadobudne účinnosť prepísanie.</p><p>Ak importujete sadu pravidiel do editora vlastných pravidiel, môžete ponechať iba časti, ktoré chcete, zakázať časti, ktoré nechcete, a upraviť poskytovateľa, aby sa konečný zlúčený výstup správal tak, ako zamýšľate.</p>",
+    "description": "FAQ body for custom rule editing and overrides"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "Čo je urlPattern?",
+    "description": "FAQ title for urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPattern</span> je regulárny výraz používaný na rozhodnutie, či sa poskytovateľ zhoduje s webovou adresou. V súbore clearurls.js sa to zmení na skutočný RegExp pomocou <span class=\"faq-code\">setURLPattern()</span>.</p>",
+    "description": "FAQ body for urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "Čo je domainPatterns?",
+    "description": "FAQ title for domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\">vzory domény</span> je porovnávač domény, ktorý sa používa, keď sa poskytovateľ nespolieha na <span class=\"faq-code\">urlPattern</span>.</p><p>Vymazať tieto adresy URL <span class=\"faq-code\">setURLDomainPattern()</span> a potom ich skontroluje pomocou logiky zhody domény namiesto zhody adresy URL s regulárnym výrazom.</p>",
+    "description": "FAQ body for domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "Čo sú pravidlá, rawRules a referralMarketing?",
+    "description": "FAQ title for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">pravidlá</span> sú názvy parametrov alebo názvy fragmentov, ktoré by sa mali z adresy URL odstrániť.</p><p><span class=\"faq-code\">rawRules</span> sú nahradenia reťazcov regulárnych webových adries aplikovaných priamo na celý reťazec adresy URL cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> sa tiež považuje za vymeniteľné parametre, ale či sa skutočne použijú, závisí od globálneho nastavenia marketingu sprostredkovania.</p>",
+    "description": "FAQ body for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "Čo sú výnimky a výnimky domény?",
+    "description": "FAQ title for exceptions and domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\">výnimky</span> sú vzory regulárnych výrazov, ktoré bránia poskytovateľovi konať na základe zhodujúcich sa adries URL.</p><p><span class=\"faq-code\">výnimky domény</span> namiesto priraďovania adresy URL na základe regulárneho výrazu urobte to isté párovanie.</p><p>Ak sa výnimka zhoduje, poskytovateľ je obídený, aj keď sa najprv zhoduje jeho hlavný vzor.</p>",
+    "description": "FAQ body for exceptions and domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "Čo sú presmerovania a presmerovania domény?",
+    "description": "FAQ title for redirections and domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\">presmerovania</span> sú rozbalovacie nástroje založené na regulárnych výrazoch. Zvyčajne zachytávajú skutočnú cieľovú URL v skupine 1 a ClearURLs presmeruje na túto zachytenú hodnotu.</p><p><span class=\"faq-code\">domainRedirections</span> sú pravidlá presmerovania v štýle domény. V tejto kódovej základni sa kontrolujú položky v tvare <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Ak sa najskôr zhoduje presmerovanie regulárneho výrazu, vyhráva. Ak nie, ClearURLs skontroluje presmerovania domény ako ďalšie.</p>",
+    "description": "FAQ body for redirections and domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "Čo sú metódy a typy zdrojov?",
+    "description": "FAQ title for methods and resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "Metódy <p><span class=\"faq-code\"></span> obmedzujú poskytovateľa na konkrétne metódy HTTP, ako napríklad <span class=\"faq-code\">GET</span> alebo <span class=\"faq-code\">POST</span>. Ak nie sú uvedené žiadne metódy, sú povolené všetky metódy.</p><p><span class=\"faq-code\">typy zdrojov</span> obmedziť poskytovateľa na typy zdrojov webRequest, ako sú <span class=\"faq-code\">main_frame</span>, 1XXTKXXfraxXX1,XXTKXX13 <span class=\"faq-code\">xmlhttprequest</span>.</p><p>Ak nie sú uvedené žiadne typy zdrojov, ClearURLs sa vráti späť na globálne povolené typy požiadaviek z nastavení.</p>",
+    "description": "FAQ body for methods and resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "Čo sú completeProvider a forceRedirection?",
+    "description": "FAQ title for completeProvider and forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\">kompletnýPoskytovateľ</span> premení poskytovateľa na blokujúceho poskytovateľa. V súbore clearurls.js to znamená, že poskytovateľ môže zrušiť zodpovedajúce požiadavky, keď je povolené blokovanie domény.</p><p><span class=\"faq-code\">forceRedirection</span> robí presmerovanie agresívnejším. Keď sa v požiadavke <span class=\"faq-code\">main_frame</span> nájde presmerovanie, ClearURLs môže aktualizovať kartu prehliadača priamo namiesto vrátenia normálnej odpovede s presmerovaním.</p>",
+    "description": "FAQ body for completeProvider and forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "Ktoré polia poskytovateľa tu používa clearurls.js?",
+    "description": "FAQ title for the list of provider fields used by clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p>Cesta vytvárania poskytovateľa v tejto vetve číta tieto kľúče: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPatternXXTKNXX6XXTKNTXX <span class=\"faq-code\">Vzory domény</span>, <span class=\"faq-code\">pravidlá</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketingXXTKNXX, <span class=\"faq-code\">výnimky</span>, <span class=\"faq-code\">doménaVýnimky</span>, <span class=\"faq-code\">presmerovania</span>, XXTKNNK21XXTKNXXdoména2XXNTKNXX,XXNTKNXX <span class=\"faq-code\">metódy</span> a <span class=\"faq-code\">typy zdrojov</span>.</p><p>Pri audite správania je najdôležitejším miestom na kontrolu XXTKNXX, pretože po tom, čo sa ukáže 0 pravidlách XXTKNTKXX, po zlúčení XXTKNXX3 pravidlá spojené, vzdialené a vlastné zdroje boli kombinované.</p>",
+    "description": "FAQ body for the list of provider fields used by clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "Dočasná pauza",
+    "description": "Auto-added i18n key: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "Pauza 15 min",
+    "description": "Auto-added i18n key: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "Pauza 1 hodinu",
+    "description": "Auto-added i18n key: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "Až do reštartu",
+    "description": "Auto-added i18n key: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "Pokračujte teraz",
+    "description": "Auto-added i18n key: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "Aktívne",
+    "description": "Auto-added i18n key: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "Pozastavené do reštartovania prehliadača",
+    "description": "Auto-added i18n key: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "Pozastavené (zostáva %s)",
+    "description": "Auto-added i18n key: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "Aktualizácia stavu dočasného pozastavenia zlyhala.",
+    "description": "Auto-added i18n key: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "Obnovenie čistenia zlyhalo.",
+    "description": "Auto-added i18n key: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "menej ako minútu",
+    "description": "Auto-added i18n key: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "min",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "h",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "Vzdialené pravidlá Zdravie",
+    "description": "Auto-added i18n key: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "Obnovte teraz",
+    "description": "Auto-added i18n key: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "Posledný pokus o načítanie:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "Posledné úspešné načítanie:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "Posledné overenie hash:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "Dôvod posledného zlyhania:",
+    "description": "Auto-added i18n key: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "Aktuálny stav hash:",
+    "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "N/A",
+    "description": "Auto-added i18n key: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "žiadne",
+    "description": "Auto-added i18n key: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "neznámy",
+    "description": "Auto-added i18n key: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "Obnovuje sa...",
+    "description": "Auto-added i18n key: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "Obnovenie vzdialených pravidiel bolo dokončené.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "Obnovenie vzdialených pravidiel zlyhalo.",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "Laboratórium na testovanie pravidiel",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "Laboratórium na testovanie pravidiel",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "Prilepte webovú adresu, aby ste videli pred a po čistení a prvého zodpovedajúceho poskytovateľa / pravidla.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "Spustiť test",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "Testuje sa...",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "Najprv zadajte adresu URL.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "Test pravidla zlyhal.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "Úspešne spárované a vyčistené.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "Pre túto adresu URL neboli použité žiadne zmeny.",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "Vyžaduje sa adresa URL",
+    "description": "Auto-added i18n key: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "Neplatný formát adresy URL",
+    "description": "Auto-added i18n key: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "Test pravidla zlyhal",
+    "description": "Auto-added i18n key: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "Prepnúť tému",
+    "description": "ARIA label for popup theme toggle button"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "Zisťuje sa doména...",
+    "description": "Temporary label shown while popup detects current tab domain for whitelist button"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "Pridáva sa %s...",
+    "description": "Whitelist button loading label when adding domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "Odstraňuje sa %s...",
+    "description": "Whitelist button loading label when removing domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "Pre túto stránku sa nepodarilo zistiť doménu",
+    "description": "Tooltip for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "Tlačidlo bielej listiny je zakázané, pretože táto stránka nemá podporovanú doménu",
+    "description": "ARIA label for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_pause_15m_title": {
+    "message": "Dočasne prerušte čistenie na 15 minút",
+    "description": "Tooltip and ARIA label for the 15-minute temporary pause button in popup"
+  },
+  "popup_pause_1h_title": {
+    "message": "Dočasne prerušte čistenie na 1 hodinu",
+    "description": "Tooltip and ARIA label for the 1-hour temporary pause button in popup"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "Pozastavte čistenie, kým sa prehliadač nereštartuje",
+    "description": "Tooltip and ARIA label for the pause-until-restart button in popup"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "Teraz pokračujte v čistení adries URL",
+    "description": "Tooltip and ARIA label for the resume-now button in popup"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "Dočasne pozastavte čistenie adries URL",
+    "description": "Tooltip for temporary pause section title in popup"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "Celkový počet prvkov spracovaných na aktuálnej stránke",
+    "description": "Tooltip for popup total elements label"
+  },
+  "popup_consent_description_title": {
+    "message": "Pred prijatím si prečítajte toto",
+    "description": "Tooltip for popup consent description"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "Potvrďte, že čítate a súhlasíte",
+    "description": "Tooltip for popup consent checkbox label"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "Prijmite súhlas a odomknite kontextové okno",
+    "description": "Tooltip for popup consent accept button"
+  },
+  "license_third_party_title_title": {
+    "message": "Informácie o komponentoch tretích strán",
+    "description": "Tooltip for third-party section title"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "Prehľad podpisov doplnku Firefox",
+    "description": "Tooltip for Firefox signature title label"
+  },
+  "invalid_date_label": {
+    "message": "Neplatný dátum",
+    "description": "Fallback text when a date value cannot be parsed."
+  },
+  "log_i18n_load_failed": {
+    "message": "Nepodarilo sa načítať internacionalizáciu. Niektoré funkcie nemusia fungovať správne.",
+    "description": "Error message shown when log page translations fail to load."
+  },
+  "log_html_sort_oldest_first": {
+    "message": "Kliknutím zobrazíte najskôr najstarší",
+    "description": "Tooltip for log timestamp sort button when currently newest-first."
+  },
+  "log_html_sort_newest_first": {
+    "message": "Kliknutím zobrazíte najnovšie ako prvé",
+    "description": "Tooltip for log timestamp sort button when currently oldest-first."
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "Zatvorte laboratórium na testovanie pravidiel",
+    "description": "ARIA label for closing the Rule Test Lab modal."
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "Zadajte URL",
+    "description": "Label for input URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "Výstupná adresa URL",
+    "description": "Label for output URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "Zmenené",
+    "description": "Label indicating whether URL was changed in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "Priradený poskytovateľ",
+    "description": "Label for matched provider in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "Zhodné pravidlo",
+    "description": "Label for matched rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "Typ vzoru",
+    "description": "Label for pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "Hodnota vzoru",
+    "description": "Label for pattern value in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "Akcia",
+    "description": "Label for matched action in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "Voliteľný parameter na testovanie (napr. utm_source alebo ref=abc)",
+    "description": "Placeholder for optional parameter probe input in Rule Test Lab."
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "Testovaný Param",
+    "description": "Label for tested parameter probe in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "Zhodná výnimka",
+    "description": "Label for matched URL regex exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "Výnimka zhodnej domény",
+    "description": "Label for matched domain exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "Zhodné presmerovanie",
+    "description": "Label for matched regex redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "Presmerovanie zhodnej domény",
+    "description": "Label for matched domain redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "Zhodné pravidlo regulárneho výrazu",
+    "description": "Label for matched standard rule regex in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "Matched Raw Rule",
+    "description": "Label for matched raw rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "Zhodné pravidlo sprostredkovania",
+    "description": "Label for matched referral marketing rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "Zhodné pravidlo RemoveParam",
+    "description": "Label for matched $removeparam rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "Zodpovedajúca výnimka RemoveParam",
+    "description": "Label for matched @@$removeparam exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "Kompletný poskytovateľ",
+    "description": "Label for completeProvider boolean in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "žiadne",
+    "description": "Fallback value in Rule Test Lab output when there is no value."
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "áno",
+    "description": "Boolean true label in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "Nie",
+    "description": "Boolean false label in Rule Test Lab output."
+  },
+  "color_picket_clear": {
+    "message": "Jasné",
+    "description": "Clear button in color picker."
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "Presadzovať pravidlá",
+    "description": "Legacy/alias label for enforcing custom rules."
+  },
+  "log_stats_chart_type_bar": {
+    "message": "Stĺpcový graf",
+    "description": "Label for the bar chart option."
+  },
+  "log_stats_chart_type_line": {
+    "message": "Čiarový graf",
+    "description": "Label for the line chart option."
+  },
+  "log_stats_daily_activity": {
+    "message": "Denná aktivita (posledných 14 dní)",
+    "description": "Stats section title for daily activity chart/table."
+  },
+  "log_stats_date_col": {
+    "message": "Dátum",
+    "description": "Header for the date column in daily stats table."
+  },
+  "log_stats_entries_col": {
+    "message": "Príspevky",
+    "description": "Header for the entries column in daily stats table."
+  },
+  "log_stats_no_activity": {
+    "message": "Žiadna aktivita",
+    "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL Filtre (interoperabilita):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Pravidlá:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON Informácie o pravidlách:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL pravidlá filtrovania:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL zdroje filtra:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "Stav pravidla:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "Stav hash:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL stav filtra:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Načítané"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Čiastočne naložené"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Všetky zdroje zlyhali"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Nie sú nakonfigurované žiadne zdroje hashless URL filtrov"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Vzdialené pravidlá sú vypnuté"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Nenačítané"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "Prázdny"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "nevyžaduje sa"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL Filtre"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL Filter"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Zlúčené Linkumori URL filtre"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "Vlastné Linkumori URL Pravidlá"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL analyzátor filtra nie je k dispozícii"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "Vlastné pravidlá Linkumori URL zlyhali"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL zdroj(e) filtra zlyhal"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "Vzdialený súbor filtra URL je prázdny"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL načítanie filtra zlyhalo"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "Neznáma chyba filtra URL"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "Všetky zdroje filtra Linkumori URL zlyhali"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "populárne rozšírenie URL sledovací filter"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "Nenašli sa žiadne podporované pravidlá Linkumori interoperability $removeparam"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL Interoperabilita filtra"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori zdroj filtra interoperability"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL Pravidlá"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori Vlastné URL Pravidlá"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "Tu pridajte pravidlá populárneho rozšírenia $removeparam alebo $queryprune. Tieto pravidlá sú uložené oddelene od ClearURLs vlastných poskytovateľov a sú zlúčené do Linkumori URL Filtre."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "Overiť"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "Nie sú nakonfigurované žiadne vlastné pravidlá Linkumori URL."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 podporované pravidlá, $2 nepodporované preskočené, $3 duplikát preskočený."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "Overenie zlyhalo"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "Uložené a znovu načítané pravidlá Linkumori URL."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "Uloženie zlyhalo"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "Po overení sa tu zobrazia podporované pravidlá."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL analyzátor filtra nie je k dispozícii."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL Filtre (interoperabilita)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Stav"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "Runtime pravidlá"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "Vlastné pravidlá"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL Hash"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 pravidlá spustenia\n$3 vlastné pravidlá"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Zavrieť Linkumori vlastné pravidlá URL"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Aké sú pravidlá Linkumori URL?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL pravidlá sú populárnym sledovaním rozšírení URL riadky filtra zamerané na $removeparam. Sú užitočné, keď chcete priamo prilepiť syntax zoznamu filtrov namiesto vytvárania 987650000000956,87"
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "Vzdialené obľúbené rozšírenie URL filtruje a tieto vlastné pravidlá nevyžadujú overenie hash. Po analýze sú uložené v LinkumoriURLsData oddelene od ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "Interoperabilita zmenená",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "Výstupná URL interoperability",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "Zhodné pravidlo interoperability",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "Typ vzoru interoperability",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "Akcia interoperability",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
+  },
+  "popup_whitelist_state_permanent": {
+    "message": "Biela listina: $1 — opätovným kliknutím zobrazíte iba kartu",
+    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
+  },
+  "popup_whitelist_state_temporary": {
+    "message": "Iba karta: $1 – kliknutím odstránite",
+    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
+  },
+  "logger_nav_label": {
+    "message": "Živý záznamník"
+  },
+  "logger_btn_pause": {
+    "message": "⏸ Pauza"
+  },
+  "logger_btn_resume": {
+    "message": "▶ Obnoviť"
+  },
+  "logger_btn_clear": {
+    "message": "🗑 Jasné"
+  },
+  "logger_btn_autoscroll": {
+    "message": "↕ Automatické posúvanie"
+  },
+  "logger_filter_label": {
+    "message": "Filter"
+  },
+  "logger_filter_placeholder": {
+    "message": "Filtrovať záznamy…"
+  },
+  "logger_tab_filter_label": {
+    "message": "Tab"
+  },
+  "logger_tab_all": {
+    "message": "Všetky karty"
+  },
+  "logger_col_time": {
+    "message": "Time"
+  },
+  "logger_col_action": {
+    "message": "Akcia"
+  },
+  "logger_col_rule": {
+    "message": "Pravidlo"
+  },
+  "logger_col_provider": {
+    "message": "Poskytovateľ"
+  },
+  "logger_col_pattern": {
+    "message": "Vzor"
+  },
+  "logger_col_type": {
+    "message": "Typ"
+  },
+  "logger_col_method": {
+    "message": "Metóda"
+  },
+  "logger_col_url": {
+    "message": "URL"
+  },
+  "logger_status_entries": {
+    "message": "záznamy"
+  },
+  "logger_empty_state": {
+    "message": "Zatiaľ žiadne záznamy denníka. Prehliadanie vyplní tento zoznam."
+  },
+  "logger_logging_disabled_banner": {
+    "message": "Protokolovanie je vypnuté – povoľte ho v Nastaveniach, aby ste mohli zaznamenávať nové záznamy."
+  },
+  "logger_detail_title": {
+    "message": "Detail vstupu"
+  },
+  "logger_detail_before": {
+    "message": "Predtým"
+  },
+  "logger_detail_after": {
+    "message": "Po"
+  },
+  "logger_detail_rule": {
+    "message": "Pravidlo"
+  },
+  "logger_detail_provider": {
+    "message": "Poskytovateľ"
+  },
+  "logger_detail_pattern": {
+    "message": "Vzor"
+  },
+  "logger_detail_type": {
+    "message": "Typ"
+  },
+  "logger_detail_method": {
+    "message": "Metóda"
+  },
+  "logger_detail_time": {
+    "message": "Časová pečiatka"
+  }
+}

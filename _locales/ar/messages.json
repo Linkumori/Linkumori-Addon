@@ -1,0 +1,4464 @@
+{
+  "aboutPageTitle": {
+    "message": "Linkumori - حول",
+    "description": "عنوان صفحة حول/قانونية"
+  },
+  "active_bundled_providers_label": {
+    "message": "مزودو الخدمة النشطون المدمجون:",
+    "description": "تسمية لعدد مزودي الخدمة النشطين المدمجين"
+  },
+  "active_remote_providers_label": {
+    "message": "مزودو الخدمة النشطون عن بُعد:",
+    "description": "تسمية لعدد مزودي الخدمة النشطين عن بُعد"
+  },
+  "addDomainToWhitelist": {
+    "message": "أضف $1 إلى القائمة البيضاء",
+    "description": "تسمية الزر لإضافة نطاق إلى القائمة البيضاء. يتم استبدال $1 بالنطاق"
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "أضف النطاق الحالي إلى القائمة البيضاء",
+    "description": "تسمية الزر لإضافة النطاق الحالي إلى القائمة البيضاء"
+  },
+  "appearance_settings_title": {
+    "message": "إعدادات المظهر",
+    "description": "عنوان قسم إعدادات المظهر"
+  },
+  "badge_color_description": {
+    "message": "اختر لون شارة الامتداد التي تُظهر عدد المعلمات التي تم تنظيفها في كل صفحة.",
+    "description": "نص وصفي يشرح ما يفعله إعداد لون الشارة"
+  },
+  "badge_color_label": {
+    "message": "لون الشارة",
+    "description": "تسمية منتقي لون الشارة"
+  },
+  "badge_preview_label": {
+    "message": "معاينة",
+    "description": "تسمية قسم معاينة الشارة"
+  },
+  "blocked_html_body": {
+    "message": "تم حظر هذا الموقع بواسطة إضافة <b>Linkumori (Clean URLS)</b>، لأننا نحدد هذا الموقع كخدمة إعلانية و/أو تتبع. لزيارة هذا الموقع، يجب عليك تعطيل الإضافة مؤقتًا أو تعطيل حظر النطاق في إعدادات Linkumori (Clean URLS). بعد ذلك يمكنك النقر على الزر أدناه لتحميل الصفحة.",
+    "description": "يُستخدم هذا النص كمحتوى في صفحة الموقع المحظور."
+  },
+  "blocked_html_button": {
+    "message": "زيارة الصفحة",
+    "description": "يُستخدم هذا النص كزر في صفحة الموقع المحظور."
+  },
+  "blocked_html_title": {
+    "message": "تم حظر هذا الموقع بواسطة <b>Linkumori (Clean URLS)</b>",
+    "description": "يُستخدم هذا النص كعنوان في صفحة الموقع المحظور."
+  },
+  "built_in_rules_enabled": {
+    "message": "تمكين القواعد المضمنة",
+    "description": "تسمية لمفتاح التبديل الذي يمكن أو يعطل القواعد المضمنة"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "استخدم قواعد Linkumori/ClearURLs المضمنة. قم بتعطيل هذا للتشغيل باستخدام القواعد البعيدة و/أو القواعد المخصصة فقط.",
+    "description": "وصف لمفتاح التبديل الذي يتحكم في القواعد المضمنة"
+  },
+  "linkumori_interoperability_mode_enabled": {
+    "message": "وضع توافق Linkumori",
+    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
+  },
+  "linkumori_interoperability_mode_enabled_description": {
+    "message": "طبّق قواعد توافق Linkumori URL Filter، بما في ذلك قوائم $removeparam المتوافقة، إلى جانب قواعد Linkumori/ClearURLs JSON الأصلية.",
+    "description": "Description for the Linkumori interoperability mode toggle"
+  },
+  "bundled_rules_description": {
+    "message": "Linkumori يستخدم فئتين من القواعد: Linkumori (ClearURLs 2.0) JSON قواعد للموفرين الأصليين، وLinkumori URL تصفية قواعد قابلية التشغيل التفاعلي للامتداد الشائع $removeparam قوائم. يتم احتساب كل فئة على حدة.",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "معلومات القواعد",
+    "description": "عنوان قسم معلومات القواعد."
+  },
+  "button_cancel": {
+    "message": "إلغاء"
+  },
+  "button_close": {
+    "message": "إغلاق",
+    "description": "نص زر الإغلاق لنافذة الأسئلة الشائعة"
+  },
+  "button_confirm": {
+    "message": "تأكيد",
+    "description": "نص زر تأكيد عام لنوافذ الحوار"
+  },
+  "modal_alert_title": {
+    "message": "إشعار",
+    "description": "العنوان الافتراضي لنوافذ الحوار من نمط التنبيه"
+  },
+  "modal_confirm_title": {
+    "message": "تأكيد",
+    "description": "العنوان الافتراضي لنوافذ الحوار من نمط التأكيد"
+  },
+  "modal_prompt_title": {
+    "message": "مطلوب إدخال",
+    "description": "العنوان الافتراضي لنوافذ الحوار من نمط الإدخال"
+  },
+  "button_delete": {
+    "message": "حذف"
+  },
+  "button_exit": {
+    "message": "خروج",
+    "description": "نص زر الخروج من المحرر"
+  },
+  "button_save": {
+    "message": "حفظ"
+  },
+  "cleanUrlsButton": {
+    "message": "تنظيف عناوين URL",
+    "description": "نص الزر الذي يبدأ عملية تنظيف URL."
+  },
+  "cleanUrlsToolHeader": {
+    "message": "أداة Linkumori لتنظيف عناوين URL",
+    "description": "الرأس الرئيسي لأداة تنظيف URL."
+  },
+  "cleanUrlsToolTitle": {
+    "message": "أداة Linkumori المتقدمة لتنظيف عناوين URL",
+    "description": "عنوان صفحة أداة تنظيف URL."
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "ستظهر عناوين URL المنظفة هنا...",
+    "description": "نص placeholder لمنطقة نص عناوين URL المنظفة."
+  },
+  "cleanedUrlsTitle": {
+    "message": "عناوين URL المنظفة",
+    "description": "عنوان قسم عناوين URL المنظفة."
+  },
+  "clipboard_copy_link": {
+    "message": "نسخ موقع الرابط النظيف",
+    "description": "يُستخدم هذا النص في قائمة السياق لنسخ الروابط النظيفة."
+  },
+  "color_picker_cancel": {
+    "message": "إلغاء",
+    "description": "زر الإلغاء في منتقي الألوان"
+  },
+  "color_picker_clear": {
+    "message": "مسح",
+    "description": "زر المسح في منتقي الألوان"
+  },
+  "color_picker_save": {
+    "message": "حفظ",
+    "description": "زر الحفظ في منتقي الألوان"
+  },
+  "composition_breakdown_label": {
+    "message": "التكوين:",
+    "description": "تسمية لتفصيل النسبة المئوية للمدمج مقابل المخصص."
+  },
+  "configs_switch_statistics": {
+    "message": "الإحصائيات",
+    "description": "يُستخدم هذا النص كاسم لزر تبديل الإحصائيات في صفحة النافذة المنبثقة."
+  },
+  "confirm_reset_settings": {
+    "message": "هل أنت متأكد من رغبتك في إعادة تعيين جميع الإعدادات إلى الوضع الافتراضي؟",
+    "description": "رسالة تأكيد قبل إعادة تعيين الإعدادات."
+  },
+  "confirmation_error_template": {
+    "message": "العبارة غير متطابقة. يرجى الكتابة تمامًا: \"%s\"",
+    "description": "قالب رسالة خطأ مع placeholder للنص المترجم"
+  },
+  "confirmation_error_text": {
+    "message": "العبارة غير متطابقة. يرجى الكتابة تمامًا: \"أنا أقبل المسؤولية الكاملة\"",
+    "description": "رسالة خطأ لعبارة التأكيد غير الصحيحة"
+  },
+  "confirmation_final_text": {
+    "message": "أؤكد أنني أملك/أتحكم في هذه الخوادم وأقبل كل المسؤولية عن استخدامها. هذه الميزة مقدمة \"كما هي\" بدون ضمان. أنا قادر قانونيًا على الموافقة على هذا الاتفاق.",
+    "description": "نص التحذير النهائي في نافذة التأكيد"
+  },
+  "confirmation_input_label": {
+    "message": "اكتب العبارة هنا:",
+    "description": "تسمية حقل إدخال التأكيد"
+  },
+  "confirmation_modal_cancel": {
+    "message": "إلغاء",
+    "description": "نص زر الإلغاء في نافذة التأكيد"
+  },
+  "confirmation_modal_confirm": {
+    "message": "تأكيد وتمكين عناوين URL البعيدة",
+    "description": "نص زر التأكيد في نافذة التأكيد"
+  },
+  "confirmation_modal_text": {
+    "message": "للمتابعة، يرجى كتابة عبارة التأكيد التالية تمامًا كما هو موضح:",
+    "description": "نص تعليمات نافذة التأكيد"
+  },
+  "confirmation_modal_title": {
+    "message": "تأكيد فهمك",
+    "description": "عنوان نافذة التأكيد"
+  },
+  "context_menu_enabled": {
+    "message": "عرض إدخال قائمة السياق",
+    "description": "يُستخدم هذا النص لتبديل إدخال قائمة السياق لنسخ الروابط النظيفة."
+  },
+  "context_menu_enabled_description": {
+    "message": "أضف خيارات Linkumori إلى قائمة النقر بزر الماوس الأيمن.",
+    "description": "وصف لمفتاح تبديل قائمة السياق."
+  },
+  "copyFailed": {
+    "message": "فشل النسخ!",
+    "description": "رسالة توست عند فشل عملية النسخ"
+  },
+  "copyText": {
+    "message": "نسخ",
+    "description": "نص زر إجراء النسخ"
+  },
+  "copyUrlsButton": {
+    "message": "نسخ النتائج",
+    "description": "نص الزر الذي ينسخ عناوين URL المنظفة."
+  },
+  "copy_urls_empty": {
+    "message": "لا توجد عناوين URL للنسخ.",
+    "description": "رسالة عند محاولة النسخ ولكن منطقة URL الناتجة فارغة."
+  },
+  "copy_urls_fail": {
+    "message": "فشل نسخ عناوين URL.",
+    "description": "رسالة خطأ عند فشل نسخ عناوين URL إلى الحافظة في أداة التنظيف."
+  },
+  "copy_urls_success": {
+    "message": "تم نسخ عناوين URL إلى الحافظة!",
+    "description": "رسالة نجاح عند نسخ عناوين URL إلى الحافظة في أداة التنظيف."
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "إضافة مزود جديد"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "إضافة مزود"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "محرر JSON المتقدم"
+  },
+  "customRulesEditor_builtin": {
+    "message": "مدمج:"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "مزود كامل (يمنع النطاق بالكامل)"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "هل أنت متأكد من رغبتك في حذف المزود \"$1\"؟"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "هل أنت متأكد من رغبتك في حذف جميع مزودي الخدمة البالغ عددهم $1؟"
+  },
+  "customRulesEditor_copy": {
+    "message": "نسخ"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "إنشاء أول مزود لك"
+  },
+  "customRulesEditor_custom": {
+    "message": "مخصص:"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "مزودو الخدمة المخصصون"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "حذف الكل"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "فشل حذف جميع المزودين"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "حذف المزود الحالي"
+  },
+  "customRulesEditor_description": {
+    "message": "أنشئ وأدر قواعد تنظيف URL مخصصة للمواقع غير المشمولة بالمزودين المدمجين."
+  },
+  "customRulesEditor_disabled": {
+    "message": "معطل:"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "استثناءات النطاق"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "أنماط النطاق"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "أنماط نطاق بسيطة (لا يمكن استخدامها مع نمط URL). الصيغ: example.com، *.example.com، ||example.com^، ||*.example.com^ نمط واحد لكل سطر.",
+    "description": "نص تعليمات لحقل أنماط النطاق"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "أنماط النطاق"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||example.com^\n||*.subdomain.com^"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "مطلوب نمط نطاق واحد على الأقل"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "إعادة توجيه النطاق"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "تكرار"
+  },
+  "customRulesEditor_editName": {
+    "message": "تحرير الاسم"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "تحرير المزود"
+  },
+  "customRulesEditor_editing": {
+    "message": "تحرير: $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "لا يمكن أن تكون أنماط النطاق فارغة"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "فشل تطبيق القواعد"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "تطبيق القواعد"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "تم تطبيق القواعد"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "أعد تحميل الامتداد لتطبيق جميع القواعد فورًا"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "استثناءات (عناوين URL لاستبعادها)"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "الخروج من المحرر والعودة إلى قائمة المزودين",
+    "description": "نص تلميح الأداة لزر الخروج في محرر القواعد المخصصة"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "فشل تصدير القواعد"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "تصدير القواعد المخصصة إلى ملف"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "فشل حفظ المزود"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "فرض إعادة التوجيه"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "طرق HTTP",
+    "description": "تسمية لحقل طرق HTTP"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "سيؤدي هذا إلى استبدال فئات القواعد المخصصة المضمنة في الملف. هل تريد المتابعة؟"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "فشل استيراد القواعد: $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "استيراد القواعد المخصصة من ملف"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "نمط نطاق غير صالح: {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "بنية الملف غير صالحة: كائن موفري ClearURLs أو قواعد Linkumori URL المخصصة مفقودة"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "نمط URL Regex غير صالح: $1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "خطأ JSON: $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "سيظهر JSON هنا..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "محتوى JSON مطلوب"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "النقر على urlPattern يزيل domainPatterns، والعكس صحيح."
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "إضافة حقل إلى JSON"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "قواعد مخصصة",
+    "description": "تسمية التنقل لعرض القواعد المخصصة"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "القائمة البيضاء",
+    "description": "تسمية التنقل لعرض القائمة البيضاء"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "لم يتم العثور على مزودين في الملف"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "محرر القواعد المخصصة وإدارة القائمة البيضاء"
+  },
+  "customRulesEditor_patternType": {
+    "message": "نوع النمط"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "اختر كيفية مطابقة عناوين URL لهذا المزود"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "الرجاء تحديد نوع نمط"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "لا يمكن أن يحتوي المزود \"$1\" على كل من urlPattern و domainPatterns"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "المزود \"$1\" لديه أنماط نطاق فارغة"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "المزود \"$1\" يفتقد urlPattern"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "يجب أن يحتوي المزود \"$1\" إما على urlPattern أو domainPatterns"
+  },
+  "customRulesEditor_providerName": {
+    "message": "اسم المزود *"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "مزود بهذا الاسم موجود بالفعل"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "معرف فريد لهذا المزود (مثل \"example.com\"، \"mysite\")"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "مثال: example.com، mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "اسم المزود مطلوب"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "قواعد أولية (أنماط regex)"
+  },
+  "customRulesEditor_redirections": {
+    "message": "إعادة توجيه (أنماط إعادة التوجيه)"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "تسويق الإحالة"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "أنواع الموارد"
+  },
+  "customRulesEditor_rules": {
+    "message": "قواعد (معلمات URL لإزالتها)"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "حالة القواعد"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "حفظ المزود"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "حفظ المزود الحالي"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "حدد مزودًا لتحريره"
+  },
+  "customRulesEditor_title": {
+    "message": "محرر القواعد المخصصة - ClearURLs"
+  },
+  "customRulesEditor_total": {
+    "message": "المجموع:"
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "لديك تغييرات غير محفوظة. هل تريد المتابعة بدون حفظ؟"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "نمط URL *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "لا يمكن استخدام نمط URL وأنماط النطاق معًا"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "تعبير منتظم لمطابقة عناوين URL"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "نمط URL (Regex)"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "مطلوب إما نمط URL أو أنماط النطاق"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^https? :\\/\\/(? :[ a - z0 -9 -]+\\. )*?example\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "نمط URL مطلوب"
+  },
+  "customRulesEditor_welcome": {
+    "message": "مرحبًا بك في محرر القواعد المخصصة"
+  },
+  "custom_providers_label": {
+    "message": "مزودو الخدمة المخصصون:",
+    "description": "تسمية لعدد مزودي الخدمة المخصصين."
+  },
+  "customrules": {
+    "message": "قواعد مخصصة"
+  },
+  "datatable_empty_table": {
+    "message": "لا توجد بيانات متاحة في الجدول",
+    "description": "رسالة جدول DataTables فارغ"
+  },
+  "datatable_info": {
+    "message": "عرض _START_ إلى _END_ من _TOTAL_ إدخالاً",
+    "description": "معلومات ترقيم الصفحات في DataTables"
+  },
+  "datatable_info_empty": {
+    "message": "عرض 0 إلى 0 من 0 إدخالات",
+    "description": "معلومات DataTables عند عدم وجود بيانات"
+  },
+  "datatable_showing_all": {
+    "message": "عرض جميع إدخالات $1",
+    "description": "رسالة معلومات عند عرض جميع الإدخالات. $1=العدد الإجمالي"
+  },
+  "datatable_showing_entries": {
+    "message": "عرض $1 إلى $2 من $3 إدخالات",
+    "description": "معلومات ترقيم الصفحات تعرض النطاق الحالي. $1=البداية، $2=النهاية، $3=الإجمالي"
+  },
+  "datatable_zero_records": {
+    "message": "لم يتم العثور على سجلات مطابقة",
+    "description": "رسالة عدم وجود نتائج بحث في DataTables"
+  },
+  "domain_blocking_enabled": {
+    "message": "السماح بحظر النطاق (قد يؤدي إلى مشاكل في الصفحات التي لا تسمح بحاصرات الإعلانات)",
+    "description": "يُستخدم هذا النص كتسمية لمفتاح حظر النطاق"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "منع الطلبات إلى نطاقات محددة.",
+    "description": "وصف لمفتاح تبديل حظر النطاق."
+  },
+  "downloadFailed": {
+    "message": "فشل التنزيل!",
+    "description": "رسالة توست عند فشل إجراء التنزيل"
+  },
+  "downloadText": {
+    "message": "تنزيل",
+    "description": "نص زر إجراء التنزيل"
+  },
+  "eTag_filtering_enabled": {
+    "message": "تصفية رؤوس ETag من الطلبات",
+    "description": "يُستخدم هذا النص كتسمية لمفتاح تصفية رأس ETag"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "إزالة رؤوس ETag لمنع التتبع.",
+    "description": "وصف لمفتاح تبديل تصفية ETag."
+  },
+  "eTag_filtering_log": {
+    "message": "تمت إزالة رأس ETag من هذا الطلب",
+    "description": "يُستخدم هذا النص لتصفية رأس ETag في سجل Linkumori (Clean URLS)."
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "غير قادر على الحصول على النطاق الحالي",
+    "description": "رسالة خطأ عندما لا يمكن تحديد النطاق الحالي."
+  },
+  "error_loading_data": {
+    "message": "فشل تحميل بيانات السجل. يرجى تحديث الصفحة.",
+    "description": "رسالة خطأ عندما لا يمكن تحميل بيانات السجل من التخزين"
+  },
+  "error_rendering_table": {
+    "message": "خطأ في عرض بيانات الجدول",
+    "description": "رسالة خطأ عندما يفشل عرض الجدول"
+  },
+  "extension_description": {
+    "message": "إزالة عناصر التتبع من عناوين URL.",
+    "description": "وصف الامتداد (بحد أقصى 132 حرفًا)"
+  },
+  "fallback_rules_loaded": {
+    "message": "ربما تكون القاعدة المضمنة تالفة أو لم يتم تحميلها بشكل صحيح. تم تحميل قواعد الاحتياطي بدلاً من ذلك."
+  },
+  "faq_caution": {
+    "message": "تنبيه:",
+    "description": "تسمية للتحذيرات في الأسئلة الشائعة"
+  },
+  "faq_common_mistakes": {
+    "message": "ما هي الأخطاء الشائعة التي يجب تجنبها؟",
+    "description": "سؤال في الأسئلة الشائعة حول الأخطاء الشائعة"
+  },
+  "faq_complete_provider": {
+    "message": "ماذا يفعل completeProvider؟",
+    "description": "سؤال في الأسئلة الشائعة حول completeProvider"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "عند التعيين على true، يحدد completeProvider الطلبات المتطابقة للحظر. يحدث الحظر الفعلي فقط عند تمكين إعداد \"حظر النطاق\" العام. عندما يكون false، يمكنك استخدام القواعد العادية والاستثناءات وعمليات إعادة التوجيه.",
+    "description": "إجابة في الأسئلة الشائعة تشرح completeProvider"
+  },
+  "faq_complete_provider_usage": {
+    "message": "يجب على معظم القواعد المخصصة تعيين هذا على false واستخدام قواعد إزالة معلمات محددة بدلاً من ذلك.",
+    "description": "توجيه في الأسئلة الشائعة حول استخدام completeProvider"
+  },
+  "faq_complete_provider_warning": {
+    "message": "إذا تم تمكين حظر النطاق، فقد يؤدي ذلك إلى منع الوصول الكامل لعناوين URL المتطابقة.",
+    "description": "تحذير في الأسئلة الشائعة حول completeProvider"
+  },
+  "faq_complex_example": {
+    "message": "أرني مثالاً لمزود معقد",
+    "description": "سؤال في الأسئلة الشائعة يطلب مثالاً معقدًا"
+  },
+  "faq_complex_example_explanation": {
+    "message": "يزيل هذا المزود معلمات وأجزاء التتبع، ويتعامل مع عمليات إعادة التوجيه، ولكنه يحمي صفحات API وصفحات تسجيل الدخول والدفع من التعديل.",
+    "description": "شرح في الأسئلة الشائعة للمثال المعقد"
+  },
+  "faq_complex_example_intro": {
+    "message": "إليك مزود متقدم مع عمليات إعادة توجيه واستثناءات:",
+    "description": "مقدمة في الأسئلة الشائعة للمثال المعقد"
+  },
+  "faq_custom_rules_note": {
+    "message": "تعمل القواعد المخصصة جنبًا إلى جنب مع القواعد المضمنة ويمكنها تجاوز إدخالات المزود المستورد المدمجة/البعيدة بالاسم.",
+    "description": "ملاحظة حول أسبقية القواعد المخصصة"
+  },
+  "faq_default_note": {
+    "message": "الافتراضي:",
+    "description": "تسمية لملاحظات السلوك الافتراضي في الأسئلة الشائعة"
+  },
+  "faq_domain_exceptions": {
+    "message": "ما هي استثناءات النطاق (Domain Exceptions)؟",
+    "description": "سؤال في الأسئلة الشائعة حول استثناءات النطاق"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "تعمل استثناءات النطاق مثل الاستثناءات العادية ولكنها تستخدم تنسيق نمط النطاق الأبسط بدلاً من regex. تسمح لك باستبعاد نطاقات أو نطاقات فرعية معينة من المعالجة.",
+    "description": "شرح في الأسئلة الشائعة لاستثناءات النطاق"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "تستخدم استثناءات النطاق نفس أنماط أنماط النطاق ولكنها أبسط من استثناءات regex.",
+    "description": "نصيحة في الأسئلة الشائعة حول استثناءات النطاق"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ - مطابقة اسم المضيف لـ example.com ونطاقاته الفرعية",
+    "description": "شرح في الأسئلة الشائعة لنمط نطاق AdBlock"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - حرف بدل لاسم المضيف؛ كل * يطابق تسمية واحدة (مقطع نقطي)",
+    "description": "شرح في الأسئلة الشائعة لنمط حرف البدل AdBlock"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "example.com - مطابقة سلسلة فرعية بسيطة على عنوان URL الكامل (يمكن أيضًا المطابقة داخل أسماء مضيفين/مسارات أطول)",
+    "description": "شرح في الأسئلة الشائعة لنمط النطاق الأساسي"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.example.*^ - يطابق النطاقات الفرعية مع نطاقات المستوى الأعلى ذات أحرف البدل، بما في ذلك نطاقات TLD متعددة الأجزاء (a.example.co.uk)",
+    "description": "شرح في الأسئلة الشائعة لنمط حرف البدل الكامل"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||example.*^ - يطابق النطاق مع نطاقات المستوى الأعلى ذات أحرف البدل، بما في ذلك نطاقات TLD متعددة الأجزاء (example.co.uk، example.gov.in)",
+    "description": "شرح في الأسئلة الشائعة لنمط نطاق TLD ذي حرف البدل"
+  },
+  "faq_domain_pattern_types": {
+    "message": "أنواع أنماط النطاق:",
+    "description": "عنوان قسم في الأسئلة الشائعة لأنواع أنماط النطاق"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com - مطابقة regex ذات حرف بدل على عنوان URL الكامل، وليس مطابقة اسم المضيف فقط",
+    "description": "شرح في الأسئلة الشائعة لنمط نطاق حرف البدل"
+  },
+  "faq_domain_patterns": {
+    "message": "أنماط النطاق مقابل أنماط URL",
+    "description": "سؤال في الأسئلة الشائعة حول أنماط النطاق مقابل أنماط URL"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "تدعم أنماط النطاق الرموز البسيطة وأشكال نمط AdBlock. يعتمد سلوك المطابقة على بناء الجملة (بعض الأشكال تتحقق من اسم المضيف، والبعض الآخر يطابق سلسلة URL الكاملة):",
+    "description": "شرح في الأسئلة الشائعة لأنماط النطاق"
+  },
+  "faq_domain_redirections": {
+    "message": "ما هي عمليات إعادة توجيه النطاق (Domain Redirections)؟",
+    "description": "سؤال في الأسئلة الشائعة حول إعادة توجيه النطاق"
+  },
+  "faq_domain_redirections_example": {
+    "message": "redirect.example.com$redirect=https://target.com سيعيد توجيه جميع عناوين URL من redirect.example.com إلى https://target.com",
+    "description": "مثال في الأسئلة الشائعة لإعادة توجيه النطاق"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "تستخدم عمليات إعادة توجيه النطاق أنماط النطاق لاكتشاف عناوين URL لإعادة التوجيه واستخراج الوجهة الهدف. تدعم صيغة $redirect= الخاصة لتعيين إعادة التوجيه البسيط.",
+    "description": "شرح في الأسئلة الشائعة لإعادة توجيه النطاق"
+  },
+  "faq_example": {
+    "message": "مثال:",
+    "description": "تسمية للأمثلة في الأسئلة الشائعة"
+  },
+  "faq_exceptions": {
+    "message": "كيف تعمل الاستثناءات؟",
+    "description": "سؤال في الأسئلة الشائعة حول الاستثناءات"
+  },
+  "faq_exceptions_explanation": {
+    "message": "الاستثناءات هي أنماط regex تطابق عناوين URL حيث لا يجب أن تحدث أي معالجة. إذا تطابق URL مع استثناء، يتم تجاهل جميع القواعد الأخرى.",
+    "description": "شرح في الأسئلة الشائعة للاستثناءات"
+  },
+  "faq_exceptions_usage": {
+    "message": "استخدم الاستثناءات لحماية صفحات تسجيل الدخول ونقاط نهاية API أو عناوين URL الحساسة الأخرى من التعديل.",
+    "description": "توجيه في الأسئلة الشائعة حول استخدام الاستثناءات"
+  },
+  "faq_force_redirection": {
+    "message": "متى يجب علي استخدام forceRedirection؟",
+    "description": "سؤال في الأسئلة الشائعة حول forceRedirection"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "تتلاعب بعض مواقع الويب بالروابط من خلال JavaScript، مما يمنع عمليات إعادة التوجيه العادية. يكتب forceRedirection عنوان URL مباشرة إلى الإطار الرئيسي للمتصفح.",
+    "description": "شرح في الأسئلة الشائعة لـ forceRedirection"
+  },
+  "faq_force_redirection_usage": {
+    "message": "قم بتمكين هذا لمواقع الويب مثل Google التي تستخدم معالجات onClick بدلاً من سمات href المباشرة.",
+    "description": "توجيه في الأسئلة الشائعة حول استخدام forceRedirection"
+  },
+  "faq_force_redirection_warning": {
+    "message": "استخدم فقط عندما تفشل عمليات إعادة التوجيه العادية، لأن هذه الطريقة أكثر تدخلاً.",
+    "description": "تحذير في الأسئلة الشائعة حول forceRedirection"
+  },
+  "faq_how_providers_work": {
+    "message": "كيف تعمل مزودو الخدمة؟",
+    "description": "سؤال في الأسئلة الشائعة حول كيفية عمل المزودين"
+  },
+  "faq_http_methods": {
+    "message": "ما هي طرق HTTP؟",
+    "description": "سؤال في الأسئلة الشائعة حول طرق HTTP"
+  },
+  "faq_http_methods_common": {
+    "message": "طرق HTTP الشائعة:",
+    "description": "عنوان قسم في الأسئلة الشائعة لطرق HTTP الشائعة"
+  },
+  "faq_http_methods_delete": {
+    "message": "DELETE - عمليات الحذف",
+    "description": "عنصر قائمة في الأسئلة الشائعة لطريقة DELETE"
+  },
+  "faq_http_methods_explanation": {
+    "message": "تسمح لك طرق HTTP بتطبيق القواعد فقط على أنواع محددة من طلبات HTTP (GET، POST، PUT، DELETE، إلخ). يمنحك هذا التحكم في طرق الطلب التي تشغل قواعدك.",
+    "description": "شرح في الأسئلة الشائعة لطرق HTTP"
+  },
+  "faq_http_methods_get": {
+    "message": "GET - طلبات صفحات الويب القياسية",
+    "description": "عنصر قائمة في الأسئلة الشائعة لطريقة GET"
+  },
+  "faq_http_methods_head": {
+    "message": "HEAD - طلبات الرأس فقط",
+    "description": "عنصر قائمة في الأسئلة الشائعة لطريقة HEAD"
+  },
+  "faq_http_methods_options": {
+    "message": "OPTIONS - طلبات CORS الأولية",
+    "description": "عنصر قائمة في الأسئلة الشائعة لطريقة OPTIONS"
+  },
+  "faq_http_methods_post": {
+    "message": "POST - إرسالات النماذج واستدعاءات API",
+    "description": "عنصر قائمة في الأسئلة الشائعة لطريقة POST"
+  },
+  "faq_http_methods_put": {
+    "message": "PUT - عمليات التحديث",
+    "description": "عنصر قائمة في الأسئلة الشائعة لطريقة PUT"
+  },
+  "faq_http_methods_tip": {
+    "message": "اتركه فارغًا للتطبيق على جميع طرق HTTP، أو حدد فقط الطرق التي تريد استهدافها.",
+    "description": "نصيحة في الأسئلة الشائعة حول طرق HTTP"
+  },
+  "faq_import_benefit_quick": {
+    "message": "إعداد سريع - لا حاجة لإنشاء أنماط معقدة يدويًا",
+    "description": "فائدة في الأسئلة الشائعة للإعداد السريع عبر الاستيراد"
+  },
+  "faq_import_benefit_search": {
+    "message": "البحث والتصفية للعثور على ما تحتاجه بالضبط",
+    "description": "فائدة في الأسئلة الشائعة لوظيفة البحث"
+  },
+  "faq_import_benefit_tested": {
+    "message": "قواعد تم اختبارها مسبقًا ومن المعروف أنها تعمل بشكل صحيح",
+    "description": "فائدة في الأسئلة الشائعة للقواعد المختبرة عبر الاستيراد"
+  },
+  "faq_import_benefit_updates": {
+    "message": "سهولة الحفاظ على تحديث القواعد بمزودين جدد",
+    "description": "فائدة في الأسئلة الشائعة للتحديثات السهلة عبر الاستيراد"
+  },
+  "faq_list_feature_actions": {
+    "message": "تحرير أو تكرار أو حذف المزودين بنقرة واحدة",
+    "description": "ميزة في الأسئلة الشائعة للإجراءات السريعة"
+  },
+  "faq_list_feature_overview": {
+    "message": "نظرة عامة سريعة على جميع المزودين مع الإحصائيات الرئيسية",
+    "description": "ميزة في الأسئلة الشائعة لنظرة عامة على المزودين"
+  },
+  "faq_list_feature_search": {
+    "message": "البحث عن المزودين بالاسم للعثور على مزودين محددين بسرعة",
+    "description": "ميزة في الأسئلة الشائعة للبحث عن المزودين"
+  },
+  "faq_list_feature_stats": {
+    "message": "رؤية عدد القواعد وأنواع الأنماط في لمحة",
+    "description": "ميزة في الأسئلة الشائعة لعرض الإحصائيات"
+  },
+  "faq_mistake_broad": {
+    "message": "جعل urlPattern واسعًا جدًا (يطابق مواقع غير مقصودة)",
+    "description": "خطأ شائع في الأسئلة الشائعة حول الأنماط الواسعة"
+  },
+  "faq_mistake_complete": {
+    "message": "تعيين completeProvider إلى true ما لم تكن ترغب حقًا في حظر الموقع",
+    "description": "خطأ شائع في الأسئلة الشائعة حول completeProvider"
+  },
+  "faq_mistake_escape": {
+    "message": "نسيان تخطي أحرف regex الخاصة في الأنماط",
+    "description": "خطأ شائع في الأسئلة الشائعة حول تخطي regex"
+  },
+  "faq_mistake_exceptions": {
+    "message": "عدم إضافة استثناءات للوظائف الهامة",
+    "description": "خطأ شائع في الأسئلة الشائعة حول الاستثناءات المفقودة"
+  },
+  "faq_mistake_testing": {
+    "message": "عدم اختبار القواعد بدقة قبل النشر",
+    "description": "خطأ شائع في الأسئلة الشائعة حول الاختبار غير الكافي"
+  },
+  "faq_note": {
+    "message": "ملاحظة:",
+    "description": "تسمية للملاحظات الهامة في الأسئلة الشائعة"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "يمكن أن يكون كلا الحقلين موجودين في البيانات، لكن urlPattern له الأولوية. تُستخدم أنماط النطاق فقط عندما يكون urlPattern فارغًا. مطابقة النطاق مدركة لـ PSL، بما في ذلك معالجة النطاق القابل للتسجيل ودعم TLD متعدد الأجزاء.",
+    "description": "ملاحظة في الأسئلة الشائعة حول حصرية النمط"
+  },
+  "faq_perf_combine": {
+    "message": "دمج عدة أنماط متشابهة في regex واحد",
+    "description": "نصيحة أداء في الأسئلة الشائعة حول دمج الأنماط"
+  },
+  "faq_perf_limit": {
+    "message": "حدد عدد المزودين إلى ما تحتاجه بالفعل",
+    "description": "نصيحة أداء في الأسئلة الشائعة حول تحديد المزودين"
+  },
+  "faq_perf_review": {
+    "message": "راجع ونظف القواعد غير المستخدمة بانتظام",
+    "description": "نصيحة أداء في الأسئلة الشائعة حول المراجعة المنتظمة"
+  },
+  "faq_perf_simple": {
+    "message": "استخدم قواعد بسيطة بدلاً من rawRules المعقدة عندما يكون ذلك ممكنًا",
+    "description": "نصيحة أداء في الأسئلة الشائعة حول القواعد البسيطة"
+  },
+  "faq_perf_specific": {
+    "message": "اجعل urlPattern محددًا قدر الإمكان",
+    "description": "نصيحة أداء في الأسئلة الشائعة حول الأنماط المحددة"
+  },
+  "faq_performance_tips": {
+    "message": "كيف يمكنني تحسين الأداء؟",
+    "description": "سؤال في الأسئلة الشائعة حول تحسين الأداء"
+  },
+  "faq_provider_example": {
+    "message": "على سبيل المثال، سيتعامل مزود \"Google\" مع جميع خدمات Google بقواعد لإزالة معلمات التتبع من نتائج البحث وروابط YouTube وما إلى ذلك.",
+    "description": "مثال في الأسئلة الشائعة لاستخدام المزود"
+  },
+  "faq_provider_import": {
+    "message": "كيف أقوم باستيراد المزودين من القواعد؟",
+    "description": "سؤال في الأسئلة الشائعة حول ميزة استيراد المزود"
+  },
+  "faq_provider_import_benefits": {
+    "message": "فوائد الاستيراد:",
+    "description": "عنوان قسم في الأسئلة الشائعة لفوائد الاستيراد"
+  },
+  "faq_provider_import_explanation": {
+    "message": "تسمح لك ميزة استيراد المزود بإضافة مزودين بسرعة من كتالوج القواعد المدمج. انقر على زر 'استيراد من القواعد' لتصفح المزودين وتحديدهم.",
+    "description": "شرح في الأسئلة الشائعة لميزة استيراد المزود"
+  },
+  "faq_provider_import_tip": {
+    "message": "يمكنك استيراد عدة مزودين مرة واحدة عن طريق تحديدهم والنقر على استيراد.",
+    "description": "نصيحة في الأسئلة الشائعة حول استيراد المزود"
+  },
+  "faq_provider_list": {
+    "message": "كيف يمكنني إدارة مزوديّ بكفاءة؟",
+    "description": "سؤال في الأسئلة الشائعة حول إدارة قائمة المزودين"
+  },
+  "faq_provider_list_explanation": {
+    "message": "تعطيك طريقة عرض قائمة المزودين نظرة عامة سريعة على جميع المزودين المخصصين. يمكنك البحث أو التحرير أو التكرار أو حذف المزودين دون فتح كل واحد على حدة.",
+    "description": "شرح في الأسئلة الشائعة لميزة قائمة المزودين"
+  },
+  "faq_provider_list_features": {
+    "message": "ميزات قائمة المزودين:",
+    "description": "عنوان قسم في الأسئلة الشائعة لميزات قائمة المزودين"
+  },
+  "faq_provider_list_tip": {
+    "message": "افتح قائمة المزودين من شريط أدوات المحرر لتصفح المزودين وإدارتهم.",
+    "description": "نصيحة في الأسئلة الشائعة حول قائمة المزودين"
+  },
+  "faq_providers_explanation": {
+    "message": "المزودون هم وحدات منطقية تجمع قواعد متعددة تحت نفس نمط URL. يستهدف كل مزود موقع ويب أو خدمة معينة ويحتوي على جميع القواعد اللازمة لتنظيف عناوين URL من هذا المصدر.",
+    "description": "إجابة في الأسئلة الشائعة تشرح المزودين"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "أنماط regex مباشرة يتم تطبيقها على عنوان URL بالكامل. استخدم للأنماط المعقدة التي لا تتناسب مع تنسيق المعلمة القياسي.",
+    "description": "شرح في الأسئلة الشائعة لـ rawRules"
+  },
+  "faq_raw_rules_title": {
+    "message": "القواعد الأولية (Raw Rules):",
+    "description": "عنوان قسم في الأسئلة الشائعة لشرح rawRules"
+  },
+  "faq_raw_rules_usage": {
+    "message": "استخدم rawRules للأجزاء أو مقاطع المسار أو أنماط المعلمات المعقدة.",
+    "description": "توجيه في الأسئلة الشائعة حول استخدام rawRules"
+  },
+  "faq_redirections": {
+    "message": "كيف تعمل عمليات إعادة التوجيه؟",
+    "description": "سؤال في الأسئلة الشائعة حول عمليات إعادة التوجيه"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com يصبح https://target.com",
+    "description": "مثال في الأسئلة الشائعة لعملية إعادة التوجيه"
+  },
+  "faq_redirections_explanation": {
+    "message": "تستخرج عمليات إعادة التوجيه عنوان URL الوجهة الحقيقي من خدمات إعادة التوجيه. تصبح مجموعة الالتقاط الأولى في regex عنوان URL الجديد.",
+    "description": "شرح في الأسئلة الشائعة لعمليات إعادة التوجيه"
+  },
+  "faq_redirections_process": {
+    "message": "يتم فك تشفير عنوان URL الملتقط تلقائيًا باستخدام decodeURIComponent() ويستبدل عنوان URL الأصلي.",
+    "description": "شرح في الأسئلة الشائعة لمعالجة إعادة التوجيه"
+  },
+  "faq_referral_default": {
+    "message": "تسويق الإحالة معطل افتراضيًا، لذلك ستتم إزالة هذه المعلمات ما لم يسمح بها المستخدم صراحةً.",
+    "description": "ملاحظة في الأسئلة الشائعة حول السلوك الافتراضي لـ referralMarketing"
+  },
+  "faq_referral_explanation": {
+    "message": "تساعد معلمات تسويق الإحالة منشئي المحتوى على كسب العمولات. تتم إزالة هذه المعلمات فقط عندما يقوم المستخدم بتعطيل دعم تسويق الإحالة في الإعدادات.",
+    "description": "شرح في الأسئلة الشائعة لـ referralMarketing"
+  },
+  "faq_referral_marketing": {
+    "message": "ما هو referralMarketing؟",
+    "description": "سؤال في الأسئلة الشائعة حول referralMarketing"
+  },
+  "faq_resource_types": {
+    "message": "ما هي أنواع الموارد (Resource Types)؟",
+    "description": "سؤال في الأسئلة الشائعة حول أنواع الموارد"
+  },
+  "faq_resource_types_common": {
+    "message": "أنواع الموارد الشائعة:",
+    "description": "عنوان قسم في الأسئلة الشائعة لأنواع الموارد الشائعة"
+  },
+  "faq_resource_types_explanation": {
+    "message": "تسمح لك أنواع الموارد بتطبيق القواعد فقط على أنواع محددة من طلبات الويب (الصور، البرامج النصية، الصفحات الرئيسية، إلخ). يمنحك هذا تحكمًا دقيقًا في وقت تطبيق القواعد.",
+    "description": "شرح في الأسئلة الشائعة لأنواع الموارد"
+  },
+  "faq_resource_types_tip": {
+    "message": "اتركه فارغًا للتطبيق على جميع أنواع الموارد، أو حدد فقط الأنواع التي تريد استهدافها.",
+    "description": "نصيحة في الأسئلة الشائعة حول أنواع الموارد"
+  },
+  "faq_rt_font": {
+    "message": "font - خطوط الويب (.woff، .ttf، إلخ)",
+    "description": "نوع مورد في الأسئلة الشائعة: خط"
+  },
+  "faq_rt_image": {
+    "message": "image - الصور والرسومات",
+    "description": "نوع مورد في الأسئلة الشائعة: صورة"
+  },
+  "faq_rt_imageset": {
+    "message": "imageset - مجموعات الصور للصور المتجاوبة",
+    "description": "نوع مورد في الأسئلة الشائعة: مجموعة صور"
+  },
+  "faq_rt_main_frame": {
+    "message": "main_frame - صفحة الويب الرئيسية",
+    "description": "نوع مورد في الأسئلة الشائعة: الإطار الرئيسي"
+  },
+  "faq_rt_media": {
+    "message": "media - ملفات الصوت والفيديو",
+    "description": "نوع مورد في الأسئلة الشائعة: وسائط"
+  },
+  "faq_rt_object": {
+    "message": "object - كائنات مضمنة (Flash، المكونات الإضافية)",
+    "description": "نوع مورد في الأسئلة الشائعة: كائن"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "object_subrequest - الطلبات التي تقدمها الكائنات المضمنة",
+    "description": "نوع مورد في الأسئلة الشائعة: طلب فرعي لكائن"
+  },
+  "faq_rt_other": {
+    "message": "other - أنواع أخرى غير مغطاة أعلاه",
+    "description": "نوع مورد في الأسئلة الشائعة: أخرى"
+  },
+  "faq_rt_script": {
+    "message": "script - ملفات JavaScript",
+    "description": "نوع مورد في الأسئلة الشائعة: برنامج نصي"
+  },
+  "faq_rt_stylesheet": {
+    "message": "stylesheet - ملفات CSS",
+    "description": "نوع مورد في الأسئلة الشائعة: ورقة أنماط"
+  },
+  "faq_rt_sub_frame": {
+    "message": "sub_frame - iframes مضمنة",
+    "description": "نوع مورد في الأسئلة الشائعة: إطار فرعي"
+  },
+  "faq_rt_websocket": {
+    "message": "websocket - اتصالات WebSocket",
+    "description": "نوع مورد في الأسئلة الشائعة: WebSocket"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "xml_dtd - تعريفات نوع مستند XML",
+    "description": "نوع مورد في الأسئلة الشائعة: DTD XML"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "xmlhttprequest - طلبات AJAX",
+    "description": "نوع مورد في الأسئلة الشائعة: طلب XMLHttpRequest"
+  },
+  "faq_rt_xslt": {
+    "message": "xslt - ملفات تحويل XSLT",
+    "description": "نوع مورد في الأسئلة الشائعة: XSLT"
+  },
+  "faq_rules_converted": {
+    "message": "مثال: \"utm_source\" يطابق تمامًا؛ \"utm_.*\" يطابق utm_source و utm_campaign. يتم حل استثناءات/قواعد Linkumori ذات النطاق أولاً، ثم يتم تشغيل القواعد العادية/regex فقط للمفاتيح غير المتطابقة.",
+    "description": "أمثلة في الأسئلة الشائعة لمطابقة مفاتيح القواعد"
+  },
+  "faq_rules_explanation": {
+    "message": "تطابق القواعد مفاتيح معلمات الاستعلام ومفاتيح أجزاء التجزئة. استخدم أسماء بسيطة (مفتاح دقيق)، أو regex (مطابقة أوسع)، أو قواعد Linkumori ذات النطاق مثل ||example.com^$removeparam=... لاستهداف نطاقات محددة.",
+    "description": "شرح في الأسئلة الشائعة للقواعد"
+  },
+  "faq_rules_title": {
+    "message": "القواعد:",
+    "description": "عنوان قسم في الأسئلة الشائعة لشرح القواعد"
+  },
+  "faq_rules_vs_raw": {
+    "message": "ما الفرق بين rules و rawRules؟",
+    "description": "سؤال في الأسئلة الشائعة حول الفرق بين rules و rawRules"
+  },
+  "faq_section_advanced": {
+    "message": "الميزات المتقدمة",
+    "description": "عنوان قسم في الأسئلة الشائعة للميزات المتقدمة"
+  },
+  "faq_section_basics": {
+    "message": "الأساسيات",
+    "description": "عنوان قسم في الأسئلة الشائعة للأسئلة الأساسية"
+  },
+  "faq_section_examples": {
+    "message": "أمثلة",
+    "description": "عنوان قسم في الأسئلة الشائعة للأمثلة"
+  },
+  "faq_section_new_features": {
+    "message": "الميزات المتقدمة",
+    "description": "عنوان قسم في الأسئلة الشائعة للميزات المتقدمة"
+  },
+  "faq_section_properties": {
+    "message": "خصائص المزود",
+    "description": "عنوان قسم في الأسئلة الشائعة لخصائص المزود"
+  },
+  "faq_section_tips": {
+    "message": "نصائح وأفضل الممارسات",
+    "description": "عنوان قسم في الأسئلة الشائعة للنصائح وأفضل الممارسات"
+  },
+  "faq_simple_example": {
+    "message": "أرني مثالاً لمزود بسيط",
+    "description": "سؤال في الأسئلة الشائعة يطلب مثالاً بسيطًا"
+  },
+  "faq_simple_example_explanation": {
+    "message": "يزيل هذا معرفات النقر على Facebook ومعلمات UTM، ولكنه يحافظ على روابط الإحالة إذا سمح المستخدم بتسويق الإحالة.",
+    "description": "شرح في الأسئلة الشائعة للمثال البسيط"
+  },
+  "faq_simple_example_intro": {
+    "message": "إليك مزود أساسي يزيل معلمات التتبع من موقع تسوق خيالي:",
+    "description": "مقدمة في الأسئلة الشائعة للمثال البسيط"
+  },
+  "faq_test_backup": {
+    "message": "قم بتصدير قواعدك قبل إجراء تغييرات كبيرة",
+    "description": "نصيحة في الأسئلة الشائعة حول عمل نسخة احتياطية للقواعد"
+  },
+  "faq_test_exceptions": {
+    "message": "أضف دائمًا استثناءات للصفحات الحرجة (تسجيل الدخول، الدفع، API)",
+    "description": "نصيحة في الأسئلة الشائعة حول إضافة استثناءات"
+  },
+  "faq_test_regex": {
+    "message": "اختبر أنماط regex باستخدام أدوات عبر الإنترنت مثل regex101.com",
+    "description": "نصيحة في الأسئلة الشائعة حول اختبار أنماط regex"
+  },
+  "faq_test_reload": {
+    "message": "استخدم زر \"تطبيق القواعد\" لإعادة تحميل التغييرات دون إعادة تشغيل المتصفح",
+    "description": "نصيحة في الأسئلة الشائعة حول تطبيق القواعد"
+  },
+  "faq_test_small": {
+    "message": "ابدأ بقواعد بسيطة وأضف التعقيد تدريجيًا",
+    "description": "نصيحة في الأسئلة الشائعة حول البدء صغيرًا"
+  },
+  "faq_testing_tips": {
+    "message": "كيف يجب أن أختبر قواعدي المخصصة؟",
+    "description": "سؤال في الأسئلة الشائعة حول نصائح الاختبار"
+  },
+  "faq_tip": {
+    "message": "نصيحة:",
+    "description": "تسمية للنصائح في الأسئلة الشائعة"
+  },
+  "faq_title": {
+    "message": "الأسئلة الشائعة",
+    "description": "نص زر الأسئلة الشائعة وعنوان النافذة"
+  },
+  "faq_url_pattern": {
+    "message": "ما هو urlPattern؟",
+    "description": "سؤال في الأسئلة الشائعة حول urlPattern"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "urlPattern هو تعبير منتظم يجب أن يطابق كل عنوان URL يجب أن يتأثر بقواعد المزود. يحدد مواقع الويب التي يجب أن يتعامل معها هذا المزود.",
+    "description": "إجابة في الأسئلة الشائعة تشرح urlPattern"
+  },
+  "faq_url_pattern_structure": {
+    "message": "الهيكل النموذجي يغطي: البروتوكول + النطاق الفرعي + النطاق + TLD + الدلائل + المعلمات",
+    "description": "شرح في الأسئلة الشائعة لهيكل urlPattern"
+  },
+  "faq_url_pattern_tip": {
+    "message": "استخدم مختبرات regex عبر الإنترنت للتحقق من صحة أنماطك قبل إضافتها.",
+    "description": "نصيحة في الأسئلة الشائعة لاختبار urlPattern"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "تستخدم أنماط URL regex كاملاً للتحكم الدقيق في عناوين URL المتطابقة:",
+    "description": "شرح في الأسئلة الشائعة لأنماط URL"
+  },
+  "faq_use_domain_patterns": {
+    "message": "استخدم أنماط النطاق لمطابقة اسم المضيف/المسار بشكل أبسط دون كتابة regex urlPattern كامل.",
+    "description": "توجيه في الأسئلة الشائعة لاستخدام أنماط النطاق"
+  },
+  "faq_use_url_patterns": {
+    "message": "استخدم أنماط URL للمطابقة المعقدة (مسارات محددة، معلمات استعلام، إلخ.)",
+    "description": "توجيه في الأسئلة الشائعة لاستخدام أنماط URL"
+  },
+  "faq_warning": {
+    "message": "تحذير:",
+    "description": "تسمية للتحذيرات في الأسئلة الشائعة"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "ما هي القواعد المخصصة؟",
+    "description": "سؤال في الأسئلة الشائعة حول القواعد المخصصة"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "تسمح لك القواعد المخصصة بإنشاء أنماط تنظيف URL الخاصة بك للمواقع غير المشمولة بالقواعد المضمنة. وهي تتبع نفس بنية الكتالوج الرئيسي ولكن يتم إدارتها بشكل منفصل.",
+    "description": "إجابة في الأسئلة الشائعة تشرح القواعد المخصصة"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "متى تستخدم أيًا منهما:",
+    "description": "عنوان قسم في الأسئلة الشائعة لتوجيه استخدام النمط"
+  },
+  "feature1": {
+    "message": "تنظيف عناوين URL المضمنة التي تركز على الخصوصية وممكّنة افتراضيًا"
+  },
+  "feature2": {
+    "message": "دعم القواعد المخصصة للتحكم لكل مزود ولكل نمط"
+  },
+  "feature3": {
+    "message": "دعم القائمة البيضاء لتجاوز التنظيف للنطاقات المحددة"
+  },
+  "feature4": {
+    "message": "قواعد عن بُعد ووضع التحميل الزائد للإعدادات المتقدمة"
+  },
+  "feature_toggles_title": {
+    "message": "إعدادات الميزات",
+    "description": "عنوان قسم إعدادات الميزات."
+  },
+  "fileEmptyError": {
+    "message": "الملف فارغ أو غير قابل للقراءة",
+    "description": "خطأ يظهر عندما يكون ملف قانوني/خصوصية فارغًا أو غير قابل للقراءة"
+  },
+  "general_settings_title": {
+    "message": "الإعدادات العامة",
+    "description": "عنوان قسم الإعدادات العامة."
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "تم تحميل القواعد المضمنة (hash مفقود)",
+    "description": "الحالة عند تحميل القواعد المضمنة بعد أن كان رابط التجزئة مفقودًا"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "استخدام القواعد المضمنة (احتياطي)",
+    "description": "الحالة عند العودة إلى القواعد المضمنة بعد فشل القواعد البعيدة"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "قواعد بعيدة مخبأة + قواعد مخصصة (فشلت المضمنة)",
+    "description": "الحالة عند استخدام القواعد البعيدة المخبأة مع القواعد المخصصة بعد فشل القواعد المضمنة"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "قواعد بعيدة مخبأة + قواعد مخصصة (فشلت البعيدة)",
+    "description": "الحالة عند استخدام القواعد البعيدة المخبأة مع القواعد المخصصة بعد فشل القواعد البعيدة"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "قواعد بعيدة مخبأة + قواعد مخصصة (بدون رابط تجزئة)",
+    "description": "الحالة عند استخدام القواعد البعيدة المخبأة مع القواعد المخصصة، رابط التجزئة مفقود"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "قواعد بعيدة مخبأة (فشلت المضمنة)",
+    "description": "الحالة عند استخدام القواعد البعيدة المخبأة بعد فشل القواعد المضمنة"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "قواعد بعيدة مخبأة (فشلت البعيدة)",
+    "description": "الحالة عند استخدام القواعد البعيدة المخبأة بعد فشل جلب القواعد البعيدة الحالي"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "قواعد بعيدة مخبأة (بدون رابط تجزئة)",
+    "description": "الحالة عند استخدام القواعد البعيدة المخبأة لأن رابط التجزئة مفقود"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "تم دمج القواعد البعيدة المخبأة + القواعد المضمنة",
+    "description": "الحالة عندما يدمج وضع التحميل الزائد القواعد البعيدة المخبأة مع القواعد المضمنة"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "تم دمج القواعد البعيدة المخبأة + القواعد المضمنة مع القواعد المخصصة",
+    "description": "الحالة عندما يدمج وضع التحميل الزائد القواعد البعيدة المخبأة والمضمنة، ثم القواعد المخصصة"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "استخدام القواعد المخصصة فقط",
+    "description": "الحالة عندما تكون القواعد المضمنة معطلة والقواعد المخصصة فقط هي النشطة"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "القواعد المضمنة معطلة ولم يتم العثور على قواعد مخصصة",
+    "description": "الحالة عندما تكون القواعد المضمنة معطلة ولا توجد قواعد مخصصة للتحميل"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "استخدام القواعد الأساسية (فشلت البعيدة)",
+    "description": "الحالة عند استخدام قواعد الاحتياطي بعد فشل القواعد البعيدة"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "رابط التجزئة مطلوب",
+    "description": "الحالة عندما يتم تكوين عنوان URL عن بُعد ولكن رابط التجزئة مفقود"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "تم دمج القواعد البعيدة + المضمنة",
+    "description": "الحالة عندما يتم دمج القواعد البعيدة والمضمنة بنجاح"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "تم دمج القواعد البعيدة + المضمنة مع القواعد المخصصة",
+    "description": "الحالة عندما يكون وضع التحميل الزائد نشطًا ويتم دمج القواعد المخصصة"
+  },
+  "hashStatus_remote_failed": {
+    "message": "فشلت القواعد البعيدة",
+    "description": "الحالة عندما تفشل القواعد البعيدة في التحقق أو التحميل"
+  },
+  "hashStatus_remote_verified": {
+    "message": "تم التحقق من القواعد البعيدة",
+    "description": "الحالة عندما يتم التحقق من القواعد البعيدة بنجاح"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "تم تحميل القواعد البعيدة ودمج القواعد المخصصة",
+    "description": "رسالة تظهر عند تحميل القواعد البعيدة ودمج القواعد المخصصة"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
+  },
+  "headerTitle": {
+    "message": "لينكوموري",
+    "description": "Header title for the extension"
+  },
+  "history_listener_enabled": {
+    "message": "منع حقن التتبع عبر واجهة برمجة تطبيقات السجل",
+    "description": "يُستخدم هذا النص كاسم لتسمية مستمع واجهة برمجة تطبيقات السجل."
+  },
+  "history_listener_enabled_description": {
+    "message": "مراقبة وتنظيف عناوين URL في سجل المتصفح.",
+    "description": "وصف لمفتاح تبديل مستمع السجل."
+  },
+  "search_link_fix_enabled": {
+    "message": "إصلاح رابط نتيجة البحث",
+    "description": "تسمية لمفتاح تبديل البرنامج النصي لمحتوى Google و Yandex المدمج"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "تمكين البرامج النصية لمحتوى Google و Yandex التي تزيل تتبع إعادة التوجيه من روابط نتائج البحث.",
+    "description": "وصف لمفتاح تبديل البرنامج النصي لمحتوى نتيجة البحث المدمج"
+  },
+  "google_link_fix_enabled": {
+    "message": "إصلاح رابط Google",
+    "description": "تسمية لمفتاح تبديل البرنامج النصي لمحتوى Google"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "تمكين البرنامج النصي لمحتوى Google الذي يزيل تتبع إعادة التوجيه من روابط نتائج Google.",
+    "description": "وصف لمفتاح تبديل البرنامج النصي لمحتوى Google"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "إصلاح رابط Yandex",
+    "description": "تسمية لمفتاح تبديل البرنامج النصي لمحتوى Yandex"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "تمكين البرنامج النصي لمحتوى Yandex الذي يزيل تتبع إعادة التوجيه من روابط نتائج Yandex.",
+    "description": "وصف لمفتاح تبديل البرنامج النصي لمحتوى Yandex"
+  },
+  "import_invalid_format": {
+    "message": "تنسيق ملف غير صالح أو بيانات تالفة",
+    "description": "رسالة خطأ لتنسيق ملف غير صالح"
+  },
+  "import_parse_error": {
+    "message": "فشل تحليل الملف. يرجى التحقق من تنسيق الملف.",
+    "description": "رسالة خطأ عند فشل تحليل الملف"
+  },
+  "import_read_error": {
+    "message": "فشل قراءة الملف",
+    "description": "رسالة خطأ عند فشل قراءة الملف"
+  },
+  "inputUrlsDescription": {
+    "message": "باستخدام هذه الأداة يمكنك لصق عناوين URL وسيقوم ClearURLs بتنظيف عناوين URL بعد النقر على الزر الأخضر. يمكنك لصق عدة عناوين URL مرة واحدة، ولكن يجب أن يكون كل عنوان URL في سطر منفصل.",
+    "description": "نص وصفي لقسم عناوين URL المدخلة."
+  },
+  "inputUrlsPlaceholder": {
+    "message": "الصق عناوين URL هنا، واحدًا لكل سطر...",
+    "description": "نص placeholder لمنطقة نص عناوين URL المدخلة."
+  },
+  "inputUrlsTitle": {
+    "message": "عناوين URL المدخلة",
+    "description": "عنوان قسم URL المدخل."
+  },
+  "language_selector_description": {
+    "message": "اختر لغتك المفضلة للواجهة. وانقر على حفظ وإعادة التحميل (الأرقام غير مترجمة).",
+    "description": "نص وصفي لمحدد اللغة"
+  },
+  "language_selector_label": {
+    "message": "لغة الواجهة",
+    "description": "تسمية القائمة المنسدلة لمحدد اللغة"
+  },
+  "licenseCopied": {
+    "message": "تم نسخ الترخيص!",
+    "description": "رسالة توست بعد نسخ محتوى الترخيص"
+  },
+  "licenseDescription": {
+    "message": "هذا الامتداد مفتوح المصدر ومرخص بموجب رخصة جنو الأقل العمومية العامة.",
+    "description": "نص وصفي لقسم الترخيص"
+  },
+  "licenseDownloaded": {
+    "message": "تم تنزيل الترخيص!",
+    "description": "رسالة توست بعد تنزيل محتوى الترخيص"
+  },
+  "licenseSection": {
+    "message": "معلومات الترخيص",
+    "description": "رأس القسم لمعلومات الترخيص"
+  },
+  "license_links_title": {
+    "message": "روابط",
+    "description": "عنوان قسم الروابط في الترخيص"
+  },
+  "license_third_party_title": {
+    "message": "مكونات الطرف الثالث",
+    "description": "عنوان قسم مكونات الطرف الثالث"
+  },
+  "license_title": {
+    "message": "الترخيص",
+    "description": "عنوان قسم الترخيص"
+  },
+  "loadError": {
+    "message": "خطأ في تحميل المحتوى",
+    "description": "عنوان الخطأ الذي يظهر عند فشل تحميل محتوى قانوني/خصوصية"
+  },
+  "loadingContent": {
+    "message": "جاري تحميل المحتوى...",
+    "description": "رسالة تحميل عامة لمناطق محتوى حول/قانوني"
+  },
+  "loadingLicense": {
+    "message": "جاري تحميل الترخيص...",
+    "description": "نص تحميل لمحتوى الترخيص"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "جاري تحميل سياسة الخصوصية...",
+    "description": "نص تحميل لمحتوى سياسة الخصوصية"
+  },
+  "local_hosts_skipping": {
+    "message": "تخطي عناوين URL على المضيفات المحلية (10.0.0.0/8، 172.16.0.0/12، 192.168.0.0/16، 100.64.0.0/10، 169.254.0.0/16، 127.0.0.1، localhost)",
+    "description": "يُستخدم هذا النص كتسمية لمفتاح تخطي المضيف المحلي"
+  },
+  "local_hosts_skipping_description": {
+    "message": "تخطي التنظيف لـ localhost وعناوين الشبكة المحلية.",
+    "description": "وصف لمفتاح تبديل تخطي المضيفين المحليين."
+  },
+  "log_domain_blocked": {
+    "message": "هذا النطاق محظور",
+    "description": "يُستخدم هذا النص على النطاقات المحظورة في سجل Linkumori (Clean URLS)."
+  },
+  "log_html_export_button": {
+    "message": "تصدير",
+    "description": "يُستخدم هذا النص لزر التصدير في صفحة السجل."
+  },
+  "log_html_export_button_title": {
+    "message": "يصدّر السجل العام",
+    "description": "يُستخدم هذا النص كعنوان لزر التصدير في صفحة السجل."
+  },
+  "log_html_import_button": {
+    "message": "استيراد",
+    "description": "يُستخدم هذا النص لزر الاستيراد في صفحة السجل."
+  },
+  "log_html_import_button_title": {
+    "message": "يستورد السجل العام",
+    "description": "يُستخدم هذا النص كعنوان لزر الاستيراد في صفحة السجل."
+  },
+  "log_html_import_error": {
+    "message": "خطأ في استيراد ملف السجل:",
+    "description": "بادئة رسالة خطأ عند فشل الاستيراد"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "تنسيق ملف سجل غير صالح.",
+    "description": "رسالة خطأ عندما لا يكون الملف المستورد بتنسيق JSON صالح للسجل"
+  },
+  "log_html_page_title": {
+    "message": "سجل من Linkumori (Clean URLS)",
+    "description": "يُستخدم هذا النص كرأس في صفحة السجل."
+  },
+  "log_html_reset_button": {
+    "message": "إعادة تعيين",
+    "description": "يُستخدم هذا النص لزر إعادة التعيين في صفحة السجل."
+  },
+  "log_html_reset_button_title": {
+    "message": "يعيد تعيين السجل العام",
+    "description": "يُستخدم هذا النص كعنوان لزر إعادة التعيين في صفحة السجل."
+  },
+  "log_html_reset_confirm": {
+    "message": "هل أنت متأكد من رغبتك في إعادة تعيين السجل؟ لا يمكن التراجع عن هذا الإجراء.",
+    "description": "مربع حوار تأكيد عندما ينقر المستخدم على زر إعادة التعيين"
+  },
+  "log_html_search": {
+    "message": "بحث",
+    "description": "تسمية لحقل إدخال البحث"
+  },
+  "log_html_search_placeholder": {
+    "message": "ابحث في السجلات...",
+    "description": "نص placeholder في حقل إدخال البحث"
+  },
+  "log_html_show_all": {
+    "message": "الكل",
+    "description": "خيار في القائمة المنسدلة للإدخالات لإظهار جميع الإدخالات"
+  },
+  "log_html_show_entries": {
+    "message": "إظهار الإدخالات",
+    "description": "تسمية للقائمة المنسدلة لتحديد عدد الإدخالات المراد عرضها لكل صفحة"
+  },
+  "log_html_table_head_1": {
+    "message": "قبل ",
+    "description": "يُستخدم هذا النص كعنوان جدول في صفحة السجل."
+  },
+  "log_html_table_head_2": {
+    "message": "بعد ",
+    "description": "يُستخدم هذا النص كعنوان جدول في صفحة السجل."
+  },
+  "log_html_table_head_3": {
+    "message": "القاعدة",
+    "description": "يُستخدم هذا النص كعنوان جدول في صفحة السجل."
+  },
+  "log_html_table_head_4": {
+    "message": "الوقت",
+    "description": "يُستخدم هذا النص كعنوان جدول في صفحة السجل."
+  },
+  "log_html_table_head_5": {
+    "message": "المزود",
+    "description": "رأس العمود لاسم المزود المتطابق في صفحة السجل."
+  },
+  "log_html_table_head_6": {
+    "message": "النمط",
+    "description": "رأس العمود لـ urlPattern/domainPattern المتطابق في صفحة السجل."
+  },
+  "log_html_table_head_7": {
+    "message": "الطريقة",
+    "description": "رأس العمود لطريقة الطلب وطرق المزود في صفحة السجل."
+  },
+  "log_html_table_head_8": {
+    "message": "نوع المورد",
+    "description": "رأس العمود لنوع مورد الطلب وأنواع موارد المزود في صفحة السجل."
+  },
+  "log_nav_dashboard": {
+    "message": "لوحة المعلومات",
+    "description": "تسمية علامة التبويب لعرض لوحة المعلومات في صفحة السجل"
+  },
+  "log_nav_logs": {
+    "message": "السجلات",
+    "description": "تسمية علامة التبويب لعرض السجلات في صفحة السجل"
+  },
+  "log_ping_blocked": {
+    "message": "تم حظر تدقيق الارتباط التشعبي هذا",
+    "description": "يُستخدم هذا النص على تدقيق الارتباط التشعبي في سجل Linkumori (Clean URLS)."
+  },
+  "log_provider_pattern_domain": {
+    "message": "domainPattern",
+    "description": "Label for domain pattern provider matching in log entries."
+  },
+  "log_provider_pattern_url": {
+    "message": "urlPattern",
+    "description": "Label for URL pattern provider matching in log entries."
+  },
+  "log_provider_request_method": {
+    "message": "الطريقة",
+    "description": "تسمية لطريقة الطلب الحالية في تفاصيل مطابقة المزود."
+  },
+  "log_provider_methods": {
+    "message": "طرق المزود",
+    "description": "تسمية لعوامل تصفية طريقة المزود في تفاصيل مطابقة المزود."
+  },
+  "log_redirect": {
+    "message": "تمت إعادة توجيه عنوان URL هذا",
+    "description": "يُستخدم هذا النص على عمليات إعادة التوجيه في سجل Linkumori (Clean URLS)."
+  },
+  "log_stats_changed_urls": {
+    "message": "عناوين URL التي تم تغييرها",
+    "description": "تسمية بطاقة الإحصائيات للإدخالات التي تغير فيها عنوان URL"
+  },
+  "log_stats_chart_no_data": {
+    "message": "لا توجد بيانات للمخطط",
+    "description": "تسمية الحالة الفارغة عندما لا تتوفر بيانات للمخطط"
+  },
+  "log_stats_chart_reload": {
+    "message": "إعادة تحميل",
+    "description": "تسمية زر لإعادة تحميل مخطط الإحصائيات وإعادة تعيين عوامل تصفية المخطط الدائري"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "إعادة تحميل المخطط وإعادة تعيين عوامل تصفية المخطط الدائري",
+    "description": "تلميح أداة لزر إعادة تحميل المخطط في لوحة معلومات السجل"
+  },
+  "log_stats_chart_title": {
+    "message": "مخطط الإحصائيات",
+    "description": "عنوان قسم المخطط القابل للتحديد في لوحة معلومات السجل"
+  },
+  "log_stats_chart_type": {
+    "message": "نوع المخطط",
+    "description": "تسمية لمحدد نوع المخطط"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "دائري",
+    "description": "تسمية خيار للمخطط الدائري"
+  },
+  "log_stats_count_col": {
+    "message": "العدد",
+    "description": "رأس العمود للعدد في جداول الإحصائيات"
+  },
+  "log_stats_domain_col": {
+    "message": "النطاق",
+    "description": "رأس العمود لاسم النطاق في الإحصائيات"
+  },
+  "log_stats_earliest": {
+    "message": "الأقدم",
+    "description": "تسمية بطاقة الإحصائيات لأقدم طابع زمني"
+  },
+  "log_stats_latest": {
+    "message": "الأحدث",
+    "description": "تسمية بطاقة الإحصائيات لأحدث طابع زمني"
+  },
+  "log_stats_no_domains": {
+    "message": "لا توجد نطاقات",
+    "description": "تسمية صف احتياطي عندما لا تتوفر نطاقات في الإحصائيات"
+  },
+  "log_stats_no_rules": {
+    "message": "لا توجد قواعد",
+    "description": "تسمية صف احتياطي عندما لا تتوفر قواعد في الإحصائيات"
+  },
+  "log_stats_no_providers": {
+    "message": "لا يوجد مزودون",
+    "description": "تسمية صف احتياطي عندما لا يتوفر مزودون في الإحصائيات"
+  },
+  "log_stats_no_methods": {
+    "message": "لا توجد طرق",
+    "description": "تسمية صف احتياطي عندما لا تتوفر طرق في الإحصائيات"
+  },
+  "log_stats_no_resource_types": {
+    "message": "لا توجد أنواع موارد",
+    "description": "تسمية صف احتياطي عندما لا تتوفر أنواع موارد في الإحصائيات"
+  },
+  "log_stats_rule_col": {
+    "message": "القاعدة",
+    "description": "رأس العمود لاسم القاعدة في الإحصائيات"
+  },
+  "log_stats_provider_col": {
+    "message": "المزود",
+    "description": "رأس العمود لاسم المزود في الإحصائيات"
+  },
+  "log_stats_method_col": {
+    "message": "الطريقة",
+    "description": "رأس العمود لاسم الطريقة في الإحصائيات"
+  },
+  "log_stats_resource_type_col": {
+    "message": "نوع المورد",
+    "description": "رأس العمود لنوع المورد في الإحصائيات"
+  },
+  "log_stats_top_domains": {
+    "message": "أهم النطاقات",
+    "description": "عنوان قسم الإحصائيات لأهم النطاقات"
+  },
+  "log_stats_top_providers": {
+    "message": "أهم المزودين",
+    "description": "عنوان قسم الإحصائيات لأهم المزودين"
+  },
+  "log_stats_top_methods": {
+    "message": "أهم الطرق",
+    "description": "عنوان قسم الإحصائيات لأهم الطرق"
+  },
+  "log_stats_top_resource_types": {
+    "message": "أهم أنواع الموارد",
+    "description": "عنوان قسم الإحصائيات لأهم أنواع الموارد"
+  },
+  "log_stats_top_rules": {
+    "message": "أهم القواعد",
+    "description": "عنوان قسم الإحصائيات لأهم القواعد"
+  },
+  "log_stats_total_entries": {
+    "message": "إجمالي الإدخالات",
+    "description": "تسمية بطاقة الإحصائيات لإجمالي إدخالات السجل"
+  },
+  "log_stats_unique_domains": {
+    "message": "نطاقات فريدة",
+    "description": "تسمية بطاقة الإحصائيات لنطاقات المصدر الفريدة"
+  },
+  "log_stats_unique_rules": {
+    "message": "قواعد فريدة",
+    "description": "تسمية بطاقة الإحصائيات للقواعد المطبقة الفريدة"
+  },
+  "log_stats_unique_providers": {
+    "message": "مزودون فريدون",
+    "description": "تسمية بطاقة الإحصائيات للمزودين الفريدين"
+  },
+  "log_stats_unique_methods": {
+    "message": "طرق فريدة",
+    "description": "تسمية بطاقة الإحصائيات للطرق الفريدة"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "أنواع موارد فريدة",
+    "description": "تسمية بطاقة الإحصائيات لأنواع الموارد الفريدة"
+  },
+  "log_whitelist_bypass": {
+    "message": "تم التخطي: النطاق موجود في القائمة البيضاء",
+    "description": "يُستخدم هذا النص في السجل عندما يتم تخطي تنظيف URL لأن النطاق موجود في القائمة البيضاء."
+  },
+  "moonIconAlt": {
+    "message": "أيقونة القمر",
+    "description": "نص بديل لأيقونة سمة القمر"
+  },
+  "new_custom_providers_label": {
+    "message": "جديد:",
+    "description": "تسمية مضمنة لعدد مزودي الخدمة المخصصين الجدد."
+  },
+  "nothingToCopy": {
+    "message": "لا شيء للنسخ!",
+    "description": "رسالة توست عندما لا يكون لإجراء النسخ محتوى"
+  },
+  "nothingToDownload": {
+    "message": "لا شيء للتنزيل!",
+    "description": "رسالة توست عندما لا يكون لإجراء التنزيل محتوى"
+  },
+  "openSettings": {
+    "message": "فتح إعدادات Linkumori"
+  },
+  "overload_mode_enabled": {
+    "message": "تمكين وضع التحميل الزائد",
+    "description": "تسمية لمفتاح التبديل الذي يدمج القواعد المضمنة والبعيدة معًا"
+  },
+  "overload_mode_enabled_description": {
+    "message": "عند التمكين، يتم تحميل القواعد المضمنة والبعيدة معًا ودمجها قبل تطبيق القواعد المخصصة.",
+    "description": "وصف لمفتاح تبديل وضع التحميل الزائد"
+  },
+  "overridden_providers_label": {
+    "message": "تم تجاوزها:",
+    "description": "تسمية مضمنة لعدد المزودين الذين تم تجاوزهم."
+  },
+  "overridden_providers_list_label": {
+    "message": "المزودون الذين تم تجاوزهم:",
+    "description": "تسمية لقائمة أسماء المزودين الذين تم تجاوزهم."
+  },
+  "pagination_current_page_aria": {
+    "message": "الصفحة الحالية، صفحة $1",
+    "description": "تسمية قارئ الشاشة للصفحة النشطة الحالية. $1=رقم الصفحة"
+  },
+  "pagination_first": {
+    "message": "الأولى",
+    "description": "نص زر للانتقال إلى الصفحة الأولى"
+  },
+  "pagination_first_aria": {
+    "message": "الصفحة الأولى",
+    "description": "تسمية قارئ الشاشة لزر الصفحة الأولى"
+  },
+  "pagination_last": {
+    "message": "الأخيرة",
+    "description": "نص زر للانتقال إلى الصفحة الأخيرة"
+  },
+  "pagination_last_aria": {
+    "message": "الصفحة الأخيرة",
+    "description": "تسمية قارئ الشاشة لزر الصفحة الأخيرة"
+  },
+  "pagination_next": {
+    "message": "التالي",
+    "description": "نص زر للانتقال إلى الصفحة التالية"
+  },
+  "pagination_next_aria": {
+    "message": "الصفحة التالية",
+    "description": "تسمية قارئ الشاشة لزر الصفحة التالية"
+  },
+  "pagination_page_aria": {
+    "message": "صفحة $1",
+    "description": "تسمية قارئ الشاشة لأزرار الصفحات المرقمة. $1=رقم الصفحة"
+  },
+  "pagination_previous": {
+    "message": "السابقة",
+    "description": "نص زر للانتقال إلى الصفحة السابقة"
+  },
+  "pagination_previous_aria": {
+    "message": "الصفحة السابقة",
+    "description": "تسمية قارئ الشاشة لزر الصفحة السابقة"
+  },
+  "percentage_symbol": {
+    "message": "نسبة مئوية (%)",
+    "description": "Symbol used for percentages in this language"
+  },
+  "ping_blocking_enabled": {
+    "message": "حظر تدقيق الارتباط التشعبي",
+    "description": "يُستخدم هذا النص كتسمية لمفتاح حظر تدقيق الارتباط التشعبي"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "حظر طلبات ping المستخدمة للتتبع.",
+    "description": "وصف لمفتاح تبديل حظر ping."
+  },
+  "popup_consent_accept_button": {
+    "message": "قبول والمتابعة",
+    "description": "تسمية زر لقبول بوابة موافقة النافذة المنبثقة"
+  },
+  "popup_consent_checkbox": {
+    "message": "لقد قرأت وقبلت سياسة الخصوصية والترخيص.",
+    "description": "تسمية مربع اختيار الموافقة لبوابة النافذة المنبثقة"
+  },
+  "popup_consent_description": {
+    "message": "يرجى قراءة سياسة الخصوصية والترخيص قبل استخدام هذه النافذة المنبثقة. نحن لا نجمع بياناتك. يتم تخزين جميع البيانات على جهازك ولا يتم إرسالها إلينا.",
+    "description": "وصف بوابة موافقة النافذة المنبثقة"
+  },
+  "popup_consent_legal_button": {
+    "message": "قراءة المعلومات القانونية",
+    "description": "تسمية زر لفتح صفحة المعلومات القانونية من بوابة موافقة النافذة المنبثقة"
+  },
+  "popup_consent_title": {
+    "message": "الموافقة مطلوبة",
+    "description": "عنوان بوابة موافقة النافذة المنبثقة"
+  },
+  "popup_html_page_title": {
+    "message": "لينكوموري",
+    "description": "Popup page title text"
+  },
+  "popup_html_version_label": {
+    "message": "الإصدار:",
+    "description": "تسمية الإصدار المعروضة في قسم ترخيص النافذة المنبثقة"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "توقيع إضافة Firefox",
+    "description": "تسمية معروضة في قسم ترخيص النافذة المنبثقة لبصمة توقيع إضافة Firefox."
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "توقيع إضافة Firefox",
+    "description": "تسمية نافذة منبثقة لقيمة توقيع Firefox."
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "غير متوفر لأنه غير موقع",
+    "description": "رسالة تظهر عندما تكون حزمة الإضافة غير موقعة ولا يتوفر ملخص توقيع Mozilla."
+  },
+  "popup_html_version_label_title": {
+    "message": "إصدار الامتداد الحالي",
+    "description": "تلميح أداة لتسمية إصدار النافذة المنبثقة"
+  },
+  "popup_html_license_description": {
+    "message": "عرض معلومات الترخيص والخصوصية التفصيلية من خلال النقر على رابط المعلومات القانونية أدناه.",
+    "description": "وصف في قسم ترخيص النافذة المنبثقة"
+  },
+  "popup_html_license_description_title": {
+    "message": "معلومات الترخيص والخصوصية",
+    "description": "تلميح أداة لوصف ترخيص النافذة المنبثقة"
+  },
+  "popup_html_gpl_link": {
+    "message": "رخصة جنو العمومية العامة الإصدار 3.0",
+    "description": "تسمية رابط ترخيص النافذة المنبثقة لـ GPL v3"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "فتح نص رخصة GNU GPL v3.0",
+    "description": "تلميح أداة لرابط GPL في قسم ترخيص النافذة المنبثقة"
+  },
+  "popup_html_lgpl_link": {
+    "message": "رخصة جنو الأقل العمومية العامة الإصدار 3.0",
+    "description": "تسمية رابط ترخيص النافذة المنبثقة لـ LGPL v3"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "فتح نص رخصة GNU LGPL v3.0",
+    "description": "تلميح أداة لرابط LGPL في قسم ترخيص النافذة المنبثقة"
+  },
+  "popup_html_source_code_repository": {
+    "message": "مستودع شفرة المصدر",
+    "description": "تسمية رابط ترخيص النافذة المنبثقة لمستودع شفرة المصدر"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "فتح مستودع شفرة المصدر",
+    "description": "تلميح أداة لرابط مستودع شفرة المصدر في قسم ترخيص النافذة المنبثقة"
+  },
+  "popup_html_source_code_releases": {
+    "message": "إصدارات شفرة المصدر",
+    "description": "تسمية رابط ترخيص النافذة المنبثقة لإصدارات شفرة المصدر"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "فتح إصدارات شفرة المصدر",
+    "description": "تلميح أداة لرابط إصدارات شفرة المصدر في قسم ترخيص النافذة المنبثقة"
+  },
+  "popup_html_report_issues": {
+    "message": "الإبلاغ عن المشكلات",
+    "description": "تسمية رابط ترخيص النافذة المنبثقة لمتعقب المشكلات"
+  },
+  "popup_html_report_issues_title": {
+    "message": "فتح متعقب المشكلات",
+    "description": "تلميح أداة لرابط الإبلاغ عن المشكلات في قسم ترخيص النافذة المنبثقة"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "مستودع ترحيل ClearURLs MV3",
+    "description": "تسمية رابط ترخيص النافذة المنبثقة لمستودع ترحيل ClearURLs MV3"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "فتح مستودع ترحيل ClearURLs MV3",
+    "description": "تلميح أداة لرابط مستودع ترحيل ClearURLs في قسم ترخيص النافذة المنبثقة"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "مستودع إضافات ClearURLs V1.27.3",
+    "description": "تسمية رابط ترخيص النافذة المنبثقة لمستودع إضافة ClearURLs v1.27.3"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "فتح مستودع إضافة ClearURLs v1.27.3",
+    "description": "تلميح أداة لرابط مستودع إضافة ClearURLs في قسم ترخيص النافذة المنبثقة"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "Linkumori الإصدار",
+    "description": "بادئة تذييل معروضة على الصفحة المحظورة قبل رقم الإصدار"
+  },
+  "legal_consent_notice_default": {
+    "message": "راجع سياسة الخصوصية والترخيص أدناه، ثم وافق للمتابعة باستخدام Linkumori.",
+    "description": "نص الإشعار الافتراضي لقسم الموافقة في صفحة المعلومات القانونية"
+  },
+  "legal_consent_notice_update": {
+    "message": "تم تحديث الشروط القانونية لـ Linkumori. راجع سياسة الخصوصية والترخيص، ثم وافق للمتابعة باستخدام الامتداد.",
+    "description": "نص الإشعار المعروض في صفحة المعلومات القانونية بعد تحديث إصدار الموافقة"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "راجع سياسة الخصوصية والترخيص أدناه، ثم وافق لإكمال إعداد Linkumori.",
+    "description": "نص الإشعار المعروض في صفحة المعلومات القانونية أثناء التثبيت الأول"
+  },
+  "legal_consent_notice_import": {
+    "message": "راجع سياسة الخصوصية والترخيص أدناه، ثم وافق لإكمال الترحيل إلى Linkumori.",
+    "description": "نص الإشعار المعروض في صفحة المعلومات القانونية أثناء الاستيراد أو الترحيل"
+  },
+  "legal_consent_status_required": {
+    "message": "الموافقة مطلوبة. تم إيقاف Linkumori مؤقتًا حتى تقبل الشروط القانونية الحالية.",
+    "description": "رسالة الحالة المعروضة عندما تكون الموافقة القانونية مطلوبة"
+  },
+  "legal_consent_status_accepted": {
+    "message": "تم قبول الموافقة. يمكن تشغيل Linkumori بموجب الشروط القانونية الحالية.",
+    "description": "رسالة الحالة المعروضة عند قبول الموافقة القانونية الحالية"
+  },
+  "legal_consent_button_accepted": {
+    "message": "تم القبول",
+    "description": "تسمية الزر المعروضة بعد قبول الموافقة القانونية"
+  },
+  "legal_consent_saved": {
+    "message": "تم قبول الموافقة.",
+    "description": "رسالة توست بعد حفظ الموافقة القانونية"
+  },
+  "legal_consent_save_failed": {
+    "message": "فشل حفظ الموافقة.",
+    "description": "رسالة توست عند فشل حفظ الموافقة القانونية"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "غير قادر على تحديد إصدار سياسة الموافقة الحالي.",
+    "description": "خطأ يظهر عندما يكون إصدار الموافقة الحالي غير متوفر"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "كيفية سحب الموافقة",
+    "description": "تسمية الزر التي تفتح نافذة سحب الموافقة في صفحة المعلومات القانونية"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "يتم التعامل مع سحب الموافقة عن طريق إلغاء تثبيت الامتداد، كما هو موضح في سياسة الخصوصية.",
+    "description": "ملاحظة قصيرة أسفل عناصر التحكم في الموافقة بصفحة المعلومات القانونية حول سحب الموافقة"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "كيفية سحب الموافقة",
+    "description": "عنوان نافذة سحب الموافقة في صفحة المعلومات القانونية"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "يمكنك سحب موافقتك في أي وقت بمجرد إلغاء تثبيت الامتداد أو الإضافة.",
+    "description": "نص تمهيدي في نافذة سحب الموافقة"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "عند إلغاء التثبيت، يتم حذف جميع البيانات المخزنة محليًا بواسطة Linkumori على جهازك بشكل دائم وتلقائي. لا يلزم أي إجراء يتجاوز إلغاء التثبيت من جانبك.",
+    "description": "شرح حذف البيانات في نافذة سحب الموافقة"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "نظرًا لأن Linkumori لا ينقل أي بيانات إلى خوادم خارجية، فلا توجد بيانات بعيدة لطلب حذفها.",
+    "description": "توضيح البيانات البعيدة في نافذة سحب الموافقة"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "إغلاق",
+    "description": "تسمية زر الإغلاق لنافذة سحب الموافقة"
+  },
+  "legal_optional_features_heading": {
+    "message": "الميزات المعطلة التي قد ترغب في تمكينها",
+    "description": "عنوان قسم مفاتيح تبديل الميزات الاختيارية في صفحة المعلومات القانونية"
+  },
+  "legal_optional_features_description": {
+    "message": "تبدأ هذه الحماية الاختيارية معطلة افتراضيًا. قم بتشغيل ما تريده، ثم احفظ وأعد تحميل Linkumori.",
+    "description": "وصف قسم مفاتيح تبديل الميزات الاختيارية في صفحة المعلومات القانونية"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "معطل",
+    "description": "شارة الحالة المعروضة عندما تكون ميزة اختيارية في صفحة المعلومات القانونية معطلة"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "ممكّن",
+    "description": "شارة الحالة المعروضة عندما تكون ميزة اختيارية في صفحة المعلومات القانونية ممكّنة"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "سيتم التمكين عند الحفظ",
+    "description": "شارة الحالة المعروضة عندما سيتم تمكين ميزة اختيارية في صفحة المعلومات القانونية بعد الحفظ"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "سيتم التعطيل عند الحفظ",
+    "description": "شارة الحالة المعروضة عندما سيتم تعطيل ميزة اختيارية في صفحة المعلومات القانونية بعد الحفظ"
+  },
+  "legal_optional_features_note": {
+    "message": "يتم حفظ التغييرات فقط عند استخدام الزر الموجود على اليمين.",
+    "description": "ملاحظة مساعدة أولية أسفل مفاتيح تبديل الميزات الاختيارية في صفحة المعلومات القانونية"
+  },
+  "legal_optional_features_note_default": {
+    "message": "هذه الميزات معطلة افتراضيًا. قم بتشغيل أي منها تريده، ثم احفظ وأعد تحميل Linkumori.",
+    "description": "ملاحظة مساعدة افتراضية أسفل مفاتيح تبديل الميزات الاختيارية في صفحة المعلومات القانونية"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "التغييرات معلقة. احفظ لتطبيقها وإعادة فتح صفحة المعلومات القانونية هذه.",
+    "description": "ملاحظة مساعدة تظهر عندما تكون تغييرات ميزات الصفحة القانونية الاختيارية لم يتم حفظها بعد"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "جاري حفظ تغييرات ميزاتك الاختيارية وإعادة تحميل Linkumori.",
+    "description": "ملاحظة مساعدة تظهر أثناء حفظ تغييرات ميزات الصفحة القانونية الاختيارية"
+  },
+  "legal_optional_features_save_button": {
+    "message": "حفظ وإعادة تحميل Linkumori",
+    "description": "تسمية زر الحفظ لمفاتيح تبديل الميزات الاختيارية في صفحة المعلومات القانونية"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "فشل حفظ تغييرات الميزة الاختيارية.",
+    "description": "رسالة خطأ توست عند فشل حفظ تغييرات ميزات الصفحة القانونية الاختيارية"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "الشارات",
+    "description": "يُستخدم هذا النص كاسم لزر تبديل الشارات في صفحة النافذة المنبثقة."
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "فلتر",
+    "description": "يُستخدم هذا النص كاسم لزر تبديل الفلتر في صفحة النافذة المنبثقة."
+  },
+  "popup_html_configs_switch_log": {
+    "message": "تسجيل",
+    "description": "يُستخدم هذا النص كاسم لزر تبديل التسجيل في صفحة النافذة المنبثقة."
+  },
+  "popup_html_log_head": {
+    "message": "عرض السجلات",
+    "description": "يُستخدم هذا النص كاسم لزر السجل في صفحة النافذة المنبثقة."
+  },
+  "popup_html_settings_button": {
+    "message": "الإعدادات",
+    "description": "يُستخدم هذا النص لزر الإعدادات في صفحة النافذة المنبثقة."
+  },
+  "popup_html_statistics": {
+    "message": "الإحصائيات",
+    "description": "تسمية تبديل لميزة الإحصائيات"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "محظور",
+    "description": "يُستخدم هذا النص كاسم للعناصر المحظورة في صفحة النافذة المنبثقة."
+  },
+  "popup_html_statistics_elements": {
+    "message": "العناصر",
+    "description": "يُستخدم هذا النص كاسم للعناصر في صفحة النافذة المنبثقة."
+  },
+  "popup_html_statistics_percentage": {
+    "message": "النسبة المئوية",
+    "description": "يُستخدم هذا النص كاسم لنسبة العناصر المحظورة في صفحة النافذة المنبثقة."
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "إعادة تعيين",
+    "description": "يُستخدم هذا النص كاسم لزر إعادة تعيين الإحصائيات في صفحة النافذة المنبثقة."
+  },
+  "popup_html_tools_button": {
+    "message": "الأدوات",
+    "description": "يُستخدم هذا النص لزر الأدوات في صفحة النافذة المنبثقة."
+  },
+  "popup_html_tools_button_title": {
+    "message": "فتح أدوات التنظيف",
+    "description": "يُستخدم هذا النص كعنوان لزر الأدوات في صفحة النافذة المنبثقة."
+  },
+  "popup_html_whitelist_button": {
+    "message": "القائمة البيضاء",
+    "description": "يُستخدم هذا النص لزر القائمة البيضاء في صفحة النافذة المنبثقة."
+  },
+  "popup_nav_license": {
+    "message": "الترخيص",
+    "description": "تسمية التنقل لقسم الترخيص"
+  },
+  "popup_nav_main": {
+    "message": "الرئيسية",
+    "description": "تسمية التنقل لقسم المحتوى الرئيسي"
+  },
+  "privacyCopied": {
+    "message": "تم نسخ سياسة الخصوصية!",
+    "description": "رسالة توست بعد نسخ محتوى سياسة الخصوصية"
+  },
+  "privacyDescription": {
+    "message": "يرجى مراجعة سياسة الخصوصية أدناه.",
+    "description": "نص وصفي لقسم سياسة الخصوصية"
+  },
+  "privacyDownloaded": {
+    "message": "تم تنزيل سياسة الخصوصية!",
+    "description": "رسالة توست بعد تنزيل محتوى سياسة الخصوصية"
+  },
+  "privacyPolicySection": {
+    "message": "سياسة الخصوصية",
+    "description": "رأس القسم لسياسة الخصوصية"
+  },
+  "privacyVersionDescription": {
+    "message": "اختر ترجمة سياسة الخصوصية التي تريد رؤيتها. يرجى ملاحظة أن النسخة الإنجليزية فقط هي المتاحة حاليًا، وقد تتم إضافة لغات أخرى في المستقبل.",
+    "description": "وصف مساعد لمحدد إصدار سياسة الخصوصية"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "English",
+    "description": "تسمية خيار لملف سياسة الخصوصية العالمي باللغة الإنجليزية"
+  },
+  "privacyVersionLabel": {
+    "message": "سياسة الخصوصية",
+    "description": "تسمية لتحديد إصدار سياسة الخصوصية باللغة الإنجليزية"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "لم يتم العثور على ملف السياسة المحدد. تم تحميل سياسة الخصوصية الافتراضية بدلاً من ذلك.",
+    "description": "إشعار يظهر عند عدم إمكانية تحميل ملف إصدار سياسة الخصوصية المحدد"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "فشل تحميل خريطة إصدار سياسة الخصوصية.",
+    "description": "إشعار يظهر عند عدم إمكانية تحميل تكوين تعيين إصدار سياسة الخصوصية"
+  },
+  "providerImport_bundledRules": {
+    "message": "القواعد النشطة المدمجة/البعيدة/المخصصة",
+    "description": "خيار الشريط الجانبي للقواعد المدمجة النشطة والمدعومة عن بُعد."
+  },
+  "providerImport_button": {
+    "message": "استيراد/تعطيل المزودين",
+    "description": "نص زر لاستيراد المزودين المحددين"
+  },
+  "providerImport_clearSelection": {
+    "message": "مسح",
+    "description": "نص زر لمسح جميع المزودين المحددين."
+  },
+  "providerImport_complete": {
+    "message": "كامل"
+  },
+  "providerImport_completeProvider": {
+    "message": "مزود كامل"
+  },
+  "providerImport_completed": {
+    "message": "اكتمل الاستيراد!"
+  },
+  "providerImport_confirmExclude": {
+    "message": "استبعاد توقيع هذا المزود؟ سيتم إخفاء مزودي نمط URL/النطاق المتطابقين وإزالتهم من القواعد المخصصة.",
+    "description": "تأكيد يظهر قبل استبعاد توقيع مزود من الاستيراد"
+  },
+  "providerImport_disableSelected": {
+    "message": "تعطيل المحدد",
+    "description": "نص زر لتعطيل المزودين المحددين حسب التوقيع"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "هل تريد تعطيل تواقيع $1 مزودًا محددًا؟",
+    "description": "تأكيد قبل تعطيل المزودين المحددين دفعة واحدة. $1 هو العدد المحدد"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "تم تعطيل التواقيع: $1. تمت إزالة المزودين المخصصين المتطابقين: $2.",
+    "description": "نتيجة التعطيل الدفعي. $1 هو عدد التواقيع المعطلة و $2 عدد المزودين المخصصين الذين تمت إزالتهم"
+  },
+  "providerImport_disabledClear": {
+    "message": "مسح الكل",
+    "description": "تسمية زر لمسح جميع التواقيع المستبعدة للمصدر المحدد"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "مسح جميع القواعد المعطلة",
+    "description": "تسمية زر لمسح جميع التواقيع المعطلة من جميع المصادر"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "هل تريد مسح جميع التواقيع المعطلة من جميع المصادر؟",
+    "description": "تأكيد قبل مسح جميع التواقيع المعطلة عالميًا"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "هل تريد مسح جميع التواقيع المعطلة لهذا المصدر؟",
+    "description": "تأكيد قبل مسح التواقيع المعطلة للمصدر المحدد"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "لا توجد تواقيع معطلة",
+    "description": "نص الحالة الفارغة عندما لا توجد تواقيع معطلة للمصدر المحدد"
+  },
+  "providerImport_disabledRestore": {
+    "message": "استعادة",
+    "description": "تسمية زر لاستعادة توقيع مستبعد"
+  },
+  "providerImport_disabledTitle": {
+    "message": "القواعد المعطلة",
+    "description": "عنوان قائمة توقيع المزود المعطل في شريط استيراد المزود الجانبي"
+  },
+  "providerImport_domainExceptions": {
+    "message": "استثناءات النطاق",
+    "description": "النص الكامل لتلميح أداة استثناءات النطاق في بطاقات المزود"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "دي",
+    "description": "Abbreviation for domain exceptions count in provider cards"
+  },
+  "providerImport_domainPatterns": {
+    "message": "أنماط النطاق",
+    "description": "النص الكامل لتلميح أداة أنماط النطاق في بطاقات المزود"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "موانئ دبي",
+    "description": "Abbreviation for domain patterns count in provider cards"
+  },
+  "providerImport_domainRedirections": {
+    "message": "إعادة توجيه النطاق",
+    "description": "النص الكامل لتلميح أداة إعادة توجيه النطاق في بطاقات المزود"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "دكتور",
+    "description": "Abbreviation for domain redirections count in provider cards"
+  },
+  "providerImport_exceptions": {
+    "message": "استثناءات"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "باستثناء"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "هذا المزود ليس لديه نمط URL/نطاق ولا يمكن استبعاده حسب التوقيع.",
+    "description": "يظهر عندما يحاول المستخدم استبعاد مزود بدون أنماط URL/نطاق"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "تم استبعاد توقيع المزود. تمت إزالة $1 مزودًا مخصصًا متطابقًا.",
+    "description": "رسالة نجاح بعد استبعاد توقيع مزود. $1 هو عدد المزودين المخصصين الذين تمت إزالتهم"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(موجود في المخصص)"
+  },
+  "providerImport_failed": {
+    "message": "فشل استيراد المزودين: $1"
+  },
+  "providerImport_import": {
+    "message": "استيراد المحدد"
+  },
+  "providerImport_importedCount": {
+    "message": "تم الاستيراد: $1 مزودًا"
+  },
+  "providerImport_importedRulesCount": {
+    "message": "تم الاستيراد: $1 قاعدة",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_importing": {
+    "message": "جاري الاستيراد..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "قواعد توافق Linkumori الحالية",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
+  },
+  "providerImport_loading": {
+    "message": "جاري تحميل المزودين...",
+    "description": "يظهر أثناء تحميل المزودين في الشبكة."
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "لا يتوفر مزودون لقواعد $1"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "لم يتم العثور على مزودين في قواعد $1"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "لا توجد قواعد متاحة للاستيراد"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "لا يوجد نمط URL"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "تم تجاوزها: $1 مزودًا"
+  },
+  "providerImport_rawRules": {
+    "message": "قواعد أولية",
+    "description": "النص الكامل لتلميح أداة القواعد الأولية في بطاقات المزود"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "خام",
+    "description": "اختصار لعدد القواعد الأولية في بطاقات المزود"
+  },
+  "providerImport_redirections": {
+    "message": "إعادة توجيه"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "أحمر"
+  },
+  "providerImport_referralAbbr": {
+    "message": "إحالة",
+    "description": "اختصار لعدد تسويق الإحالة في بطاقات المزود"
+  },
+  "providerImport_referralMarketing": {
+    "message": "تسويق الإحالة",
+    "description": "النص الكامل لتلميح أداة تسويق الإحالة في بطاقات المزود"
+  },
+  "providerImport_rules": {
+    "message": "قواعد"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "قواعد",
+    "description": "اختصار لعدد القواعد في بطاقات المزود"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "ابحث عن مزودين...",
+    "description": "نص placeholder في حقل إدخال البحث لتصفية المزودين."
+  },
+  "providerImport_selectAll": {
+    "message": "تحديد الكل",
+    "description": "نص زر لتحديد جميع المزودين في القائمة/الشبكة."
+  },
+  "providerImport_selectedCount": {
+    "message": "$1 محدد"
+  },
+  "providerImport_skippedCount": {
+    "message": "تم التخطي: $1 مزودًا"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "تم التخطي: $1 قاعدة",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_sources": {
+    "message": "مصدر القاعدة",
+    "description": "عنوان للشريط الجانبي الذي يسرد مصادر القاعدة المتاحة."
+  },
+  "providerImport_title": {
+    "message": "استيراد أو تعطيل المزودين",
+    "description": "عنوان نافذة حوار استيراد المزود."
+  },
+  "providerList_button": {
+    "message": "سرد جميع المزودين المخصصين والبحث",
+    "description": "نص زر لفتح نافذة قائمة المزودين"
+  },
+  "providerList_complete": {
+    "message": "كامل",
+    "description": "تسمية تشير إلى أن المزود هو مزود كامل"
+  },
+  "providerList_confirmDelete": {
+    "message": "هل أنت متأكد من رغبتك في حذف المزود \"$1\"؟",
+    "description": "رسالة تأكيد عند حذف مزود",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "نسخة",
+    "description": "لاحقة تضاف إلى أسماء المزودين عند التكرار (مثال: 'Google_نسخة')"
+  },
+  "providerList_createFirst": {
+    "message": "إنشاء أول مزود",
+    "description": "نص زر لإنشاء أول مزود عندما لا يوجد أي مزود"
+  },
+  "providerList_delete": {
+    "message": "حذف",
+    "description": "نص زر لحذف مزود"
+  },
+  "providerList_deleteFailed": {
+    "message": "فشل حذف المزود. يرجى المحاولة مرة أخرى.",
+    "description": "رسالة خطأ عند فشل حذف المزود"
+  },
+  "providerList_deleteTooltip": {
+    "message": "حذف المزود",
+    "description": "نص تلميح الأداة لزر حذف المزود"
+  },
+  "providerList_duplicate": {
+    "message": "نسخ",
+    "description": "نص زر لتكرار/نسخ مزود"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "تكرار المزود",
+    "description": "نص تلميح الأداة لزر تكرار المزود"
+  },
+  "providerList_edit": {
+    "message": "تحرير",
+    "description": "نص زر لتحرير مزود"
+  },
+  "providerList_editTooltip": {
+    "message": "تحرير المزود",
+    "description": "نص تلميح الأداة لزر تحرير المزود"
+  },
+  "providerList_exceptions": {
+    "message": "استثناءات",
+    "description": "تسمية لعدد الاستثناءات في إحصائيات المزود"
+  },
+  "providerList_noProvidersFound": {
+    "message": "لم يتم العثور على مزودين مخصصين.",
+    "description": "رسالة تظهر عندما لا توجد مزودين مخصصين لعرضهم"
+  },
+  "providerList_noUrlPattern": {
+    "message": "لا يوجد نمط URL",
+    "description": "نص يظهر عندما لا يحتوي المزود على نمط URL محدد"
+  },
+  "providerList_rawRules": {
+    "message": "قواعد أولية",
+    "description": "تسمية لعدد القواعد الأولية في إحصائيات المزود"
+  },
+  "providerList_redirections": {
+    "message": "إعادة توجيه",
+    "description": "تسمية لعدد عمليات إعادة التوجيه في إحصائيات المزود"
+  },
+  "providerList_referral": {
+    "message": "إحالة",
+    "description": "تسمية لعدد تسويق الإحالة في إحصائيات المزود"
+  },
+  "providerList_rules": {
+    "message": "قواعد",
+    "description": "تسمية لعدد القواعد في إحصائيات المزود"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "ابحث عن مزودين...",
+    "description": "نص placeholder لإدخال البحث عن المزود"
+  },
+  "providerList_title": {
+    "message": "جميع المزودين",
+    "description": "عنوان نافذة قائمة المزودين"
+  },
+  "referral_marketing_enabled": {
+    "message": "السماح بتسويق الإحالة",
+    "description": "يُستخدم هذا النص كتسمية لمفتاح تسويق الإحالة"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "إزالة معلمات تتبع الإحالة والتابعة.",
+    "description": "وصف لمفتاح تبديل تسويق الإحالة."
+  },
+  "redirection_enabled": {
+    "message": "تمكين تجاوز إعادة التوجيه لجهة خارجية",
+    "description": "تسمية لمفتاح التبديل الذي يمكن أو يعطل عمليات إعادة توجيه regex وإعادة توجيه النطاق"
+  },
+  "redirection_enabled_description": {
+    "message": "تجاوز عناوين URL لإعادة التوجيه والتتبع للوسيط من جهة خارجية باستخدام عمليات إعادة توجيه regex وإعادة توجيه النطاق من القواعد المضمنة والبعيدة والمخصصة. قم بمراجعة القواعد أولاً إذا لزم الأمر، ثم استخدم محرر القواعد المخصصة لتحريرها أو تجاوزها بشكل فردي.",
+    "description": "وصف لمفتاح التبديل الذي يمكن أو يعطل معالجة إعادة التوجيه"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "السطر $LINE$: متوقع \"ruleURL | hashURL\"",
+    "description": "رسالة التحقق عندما يكون سطر مجموعة القواعد البعيدة الإضافية غير صحيح.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "السطر $LINE$: رابط تجزئة HTTPS غير صالح",
+    "description": "رسالة التحقق عندما يكون رابط التجزئة البعيد الإضافي غير صالح.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "السطر $LINE$: رابط قاعدة HTTPS غير صالح",
+    "description": "رسالة التحقق عندما يكون رابط القاعدة البعيد الإضافي غير صالح.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "القواعد البعيدة معطلة. قم بتمكين مفتاح التبديل أدناه لتكوين عناوين URL للقواعد البعيدة.",
+    "description": "وصف يظهر عندما تكون القواعد البعيدة معطلة"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "القواعد البعيدة معطلة - قم بتبديل أدناه للتمكين",
+    "description": "نص placeholder يظهر عندما تكون القواعد البعيدة معطلة"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "تنبيه أمني: Gatekeeper معطل. قم بتمكين القواعد البعيدة للوصول إلى حقول URL البعيدة.",
+    "description": "تنبيه يظهر عند تعطيل Gatekeeper بينما تكون القواعد البعيدة متوقفة."
+  },
+  "remote_rules_enabled": {
+    "message": "تمكين القواعد البعيدة",
+    "description": "تسمية لمفتاح التبديل الذي يمكن أو يعطل جلب القواعد البعيدة"
+  },
+  "remote_rules_enabled_description": {
+    "message": "السماح للامتداد بجلب القواعد من الخوادم البعيدة. عند التعطيل، سيتم استخدام القواعد المضمنة فقط.",
+    "description": "وصف لمفتاح تبديل تمكين القواعد البعيدة"
+  },
+  "remote_rules_loaded": {
+    "message": "تم تحميل القواعد البعيدة فقط",
+    "description": "رسالة تظهر عند تحميل القواعد البعيدة"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "القواعد البعيدة مقيدة بالخوادم المستضافة ذاتيًا فقط. لا تستخدم عناوين URL لجهات خارجية.",
+    "description": "إشعار يشرح قيود القواعد البعيدة"
+  },
+  "remote_rules_security_notice": {
+    "message": "إشعار أمني: استخدم فقط عناوين URL التي تملكها وتتحكم فيها",
+    "description": "إشعار أمني صغير بالقرب من حقول URL"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "تغيير الإعدادات معلق. انقر فوق حفظ للتطبيق.",
+    "description": "رسالة الحالة المعروضة بعد تبديل إعداد سيتم تطبيقه عندما ينقر المستخدم على حفظ."
+  },
+  "removeDomainFromWhitelist": {
+    "message": "إزالة $1 من القائمة البيضاء",
+    "description": "تسمية الزر لإزالة نطاق من القائمة البيضاء. يتم استبدال $1 بالنطاق."
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
+  },
+  "rules_author_label": {
+    "message": "المؤلف:",
+    "description": "تسمية لمؤلف مجموعة بيانات القواعد"
+  },
+  "rules_composition_label": {
+    "message": "تكوين المزود:",
+    "description": "تسمية القسم لتفاصيل تكوين المزود."
+  },
+  "rules_disabled_providers_label": {
+    "message": "المزودون المعطلون:",
+    "description": "تسمية لعدد تواقيع المزود المعطلة"
+  },
+  "rules_hash_status_label": {
+    "message": "حالة التحميل:",
+    "description": "تسمية لحالة التحميل الحالية للقواعد"
+  },
+  "rules_last_updated_label": {
+    "message": "آخر تحديث:",
+    "description": "تسمية لتاريخ آخر تحديث لمجموعة بيانات القواعد"
+  },
+  "rules_license_label": {
+    "message": "الترخيص:",
+    "description": "تسمية لترخيص مجموعة بيانات القواعد"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "القواعد البعيدة المدمجة",
+    "description": "اسم العرض للقواعد البعيدة المدمجة في بيانات التعريف بالإعدادات."
+  },
+  "rules_metadata_section": {
+    "message": "معلومات القواعد:",
+    "description": "رأس القسم لمعلومات بيانات القواعد الوصفية"
+  },
+  "rules_name_label": {
+    "message": "اسم القواعد:",
+    "description": "تسمية لاسم مجموعة بيانات القواعد"
+  },
+  "rules_source_bundled": {
+    "message": "مدمجة",
+    "description": "نص المصدر عندما تكون القواعد المضمنة نشطة."
+  },
+  "rules_source_bundled_fallback": {
+    "message": "احتياطي مدمج",
+    "description": "نص المصدر عندما تكون قواعد الاحتياطي المضمنة نشطة."
+  },
+  "rules_source_fallback": {
+    "message": "احتياطي",
+    "description": "نص المصدر عندما تكون قواعد الاحتياطي الأساسية نشطة."
+  },
+  "rules_source_label": {
+    "message": "المصدر:",
+    "description": "تسمية لمصدر القواعد النشط الحالي."
+  },
+  "rules_source_remote": {
+    "message": "عن بُعد",
+    "description": "نص المصدر عندما تكون القواعد البعيدة نشطة."
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "بعيدة + مدمجة (مدمجة)",
+    "description": "نص المصدر عندما يتم دمج القواعد البعيدة والمضمنة."
+  },
+  "rules_status_active": {
+    "message": "نشط",
+    "description": "قيمة لحالة القواعد النشطة."
+  },
+  "rules_status_error": {
+    "message": "خطأ في تحميل القواعد",
+    "description": "قيمة عندما تفشل القواعد في التحميل."
+  },
+  "rules_status_label": {
+    "message": "الحالة:",
+    "description": "تسمية لحالة القواعد."
+  },
+  "rules_status_not_loaded": {
+    "message": "لم يتم تحميل أي قواعد",
+    "description": "قيمة عندما لا يتم تحميل أي قواعد."
+  },
+  "rules_total_providers_label": {
+    "message": "إجمالي المزودين:",
+    "description": "تسمية للعدد الإجمالي لمزودي القواعد (المدمجة + المخصصة)"
+  },
+  "rules_total_rules_label": {
+    "message": "إجمالي القواعد:",
+    "description": "تسمية لإجمالي عدد القواعد."
+  },
+  "rules_version_label": {
+    "message": "إصدار القواعد:",
+    "description": "تسمية لإصدار مجموعة بيانات القواعد"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "لإضافة أو تحرير أو إزالة نطاقات القائمة البيضاء ",
+    "description": "نص توصية في قسم معلومات القواعد لإدارة القائمة البيضاء."
+  },
+  "rules_whitelist_open_editor": {
+    "message": "انقر هنا",
+    "description": "نص رابط لفتح محرر القواعد المخصصة من قسم معلومات القواعد."
+  },
+  "rules_whitelist_total_label": {
+    "message": "إجمالي نطاقات القائمة البيضاء:",
+    "description": "تسمية لإجمالي عدد نطاقات القائمة البيضاء في قسم معلومات القواعد."
+  },
+  "save_invalid_hash_url": {
+    "message": "تنسيق رابط تجزئة غير صالح",
+    "description": "رسالة التحقق عندما لا يكون رابط التجزئة الأساسي عنوان URL صالحًا."
+  },
+  "save_invalid_rule_url": {
+    "message": "تنسيق رابط قاعدة غير صالح",
+    "description": "رسالة التحقق عندما لا يكون رابط القاعدة الأساسي عنوان URL صالحًا."
+  },
+  "save_primary_hash_https_required": {
+    "message": "يجب أن يستخدم رابط التجزئة الأساسي HTTPS",
+    "description": "رسالة التحقق عندما لا يكون رابط التجزئة الأساسي HTTPS."
+  },
+  "save_primary_remote_pair_required": {
+    "message": "التجزئة الأساسية URL مطلوبة فقط عندما تشير القاعدة الأساسية URL إلى Linkumori (ClearURLs 2.0) JSON القواعد.",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "يجب أن يستخدم رابط القاعدة الأساسي HTTPS",
+    "description": "رسالة التحقق عندما لا يكون رابط القاعدة الأساسي HTTPS."
+  },
+  "security_confirmation_cancelled": {
+    "message": "تم إلغاء التأكيد الأمني",
+    "description": "رسالة الحالة عندما يلغي المستخدم نافذة التأكيد"
+  },
+  "security_confirmation_phrase": {
+    "message": "أنا أقبل المسؤولية الكاملة",
+    "description": "العبارة الدقيقة التي يجب على المستخدمين كتابتها للتأكيد (يمكن ترجمتها)"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "مطلوب تأكيد أمني",
+    "description": "نص placeholder معروض في حقول URL قبل التأكيد الأمني"
+  },
+  "security_confirmation_reset": {
+    "message": "تم إعادة تعيين التأكيد الأمني",
+    "description": "رسالة الحالة عند إعادة تعيين التأكيد الأمني"
+  },
+  "security_confirmation_session_success": {
+    "message": "التأكيد الأمني ناجح",
+    "description": "رسالة تظهر عند نجاح التأكيد الأمني"
+  },
+  "security_confirmation_tooltip": {
+    "message": "مطلوب تأكيد أمني - انقر للبدء",
+    "description": "نص تلميح الأداة لأيقونة التأكيد الأمني بجوار عناوين URL البعيدة"
+  },
+  "security_modal_advanced_warning": {
+    "message": "تحذير: ميزة متقدمة مخصصة فقط للخوادم المستضافة ذاتيًا",
+    "description": "نص لافتة التحذير الرئيسية في النافذة الأمنية"
+  },
+  "security_modal_cancel": {
+    "message": "لا أرغب في المتابعة - إلغاء",
+    "description": "نص زر الإلغاء في النافذة الأمنية"
+  },
+  "security_modal_cancelled": {
+    "message": "تم إلغاء تكوين URL البعيد لأسباب أمنية",
+    "description": "رسالة الحالة عندما يلغي المستخدم النافذة الأمنية"
+  },
+  "security_modal_continue": {
+    "message": "أنا أفهم المخاطر - متابعة",
+    "description": "نص زر المتابعة في النافذة الأمنية"
+  },
+  "security_modal_final_warning": {
+    "message": "يجب عليك إعادة النظر في استخدام القواعد البعيدة إذا لم تكن تفهم بشكل كامل ما إذا كان المصدر هو Linkumori (ClearURLs 2.0) JSON مجموعة قواعد أو Linkumori URL قائمة قابلية التشغيل التفاعلي للمرشح.",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "تم تصميم ميزة القواعد عن بعد هذه للمستخدمين المتقدمين الذين يفهمون تنسيق المصدر الذي يقومون بتحميله. Linkumori (ClearURLs 2.0) JSON تتطلب القواعد البعيدة تجزئة مطابقة URL للتحقق. Linkumori URL يمكن تحميل قوائم قابلية التشغيل التفاعلي للمرشح بدون تجزئة URL ويتم تخزينها بشكل منفصل.",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "إذا قمت بإضافة قاعدة بعيدة URL، فسوف يتصل الامتداد بالخادم المعين لديك لجلب مجموعة قواعد Linkumori (ClearURLs 2.0) JSON أو ملف التجزئة الخاص به عند تكوينه، أو Linkumori URL قائمة قابلية التشغيل التفاعلي للتصفية. قد تؤدي كل عملية جلب إلى كشف عنوان IP الخاص بك والمعلومات العامة مثل إصدار الامتداد والمتصفح وإصدار المتصفح لخادم الاستضافة. تخضع هذه البيانات لسياسة الخصوصية الخاصة بهذا الموقع أو خادم الويب.",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "اقرأ %PRIVACY_POLICY_LINK% مرة أخرى قبل المتابعة إذا لزم الأمر.",
+    "description": "جملة متابعة في نافذة تحذير القواعد البعيدة مع رابط سياسة الخصوصية كعنصر نائب"
+  },
+  "security_modal_privacy_title": {
+    "message": "إشعار تحذيري:",
+    "description": "عنوان قسم إشعار الخصوصية"
+  },
+  "security_modal_recommendation": {
+    "message": "استخدم القواعد المضمنة إلا إذا كنت تثق في المصدر البعيد وتتحكم فيه. بالنسبة لقواعد Linkumori (ClearURLs 2.0) JSON، قم بتوفير تجزئة مطابقة URL. بالنسبة لقوائم عوامل تصفية التشغيل التفاعلي، اترك التجزئة URL فارغة.",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "سيتعرض عنوان IP الخاص بك ومعلومات المتصفح للخوادم التي تم تكوينها",
+    "description": "النقطة الأولى لمخاطر الأمان"
+  },
+  "security_modal_risk_2": {
+    "message": "إذا تم اختراق مصدر القاعدة، فقد يتم تقديم قواعد ضارة إلى متصفحك",
+    "description": "النقطة الثانية لمخاطر الأمان"
+  },
+  "security_modal_risk_3": {
+    "message": "ينطبق التحقق من التجزئة على قواعد Linkumori (ClearURLs 2.0) JSON فقط؛ فهو يحمي من التلاعب بالإرسال، وليس من مصادر القواعد الضارة.",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "لا تستخدم قوائم عوامل تصفية التشغيل التفاعلي التحقق من التجزئة، لذا فإن الثقة في المصدر URL مهمة بشكل خاص.",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "المخاطر الأمنية:",
+    "description": "عنوان قسم المخاطر الأمنية"
+  },
+  "security_modal_title": {
+    "message": "تحذير أمني للقواعد البعيدة",
+    "description": "عنوان نافذة إخلاء المسؤولية الأمنية"
+  },
+  "setting_hash_url_description": {
+    "message": "رابط ملف التجزئة للتحقق من القاعدة:",
+    "description": "وصف لحقل إدخال رابط التجزئة المخصص"
+  },
+  "setting_hash_url_label": {
+    "message": "الرابط إلى ملف rules.hash (التجزئة)",
+    "description": "يُستخدم هذا النص كاسم لتسمية رابط rule.hash."
+  },
+  "setting_hash_url_mandatory": {
+    "message": "مطلوب لقواعد ClearURLs JSON عن بعد. اتركه فارغًا لقوائم تصفية التتبع ذات الامتداد الشائع URL.",
+    "description": "Description for hash URL field explaining when it is required"
+  },
+  "setting_html_export_button": {
+    "message": "تصدير",
+    "description": "يُستخدم هذا النص كاسم لزر التصدير في صفحة الإعدادات."
+  },
+  "setting_html_export_button_title": {
+    "message": "يصدّر كل شيء",
+    "description": "يُستخدم هذا النص كعنوان لزر التصدير في صفحة الإعدادات."
+  },
+  "setting_html_import_button": {
+    "message": "استيراد",
+    "description": "يُستخدم هذا النص كاسم لزر إعادة التعيين في صفحة الإعدادات."
+  },
+  "setting_html_import_button_title": {
+    "message": "يستورد كل شيء",
+    "description": "يُستخدم هذا النص كعنوان لزر الاستيراد في صفحة الإعدادات."
+  },
+  "setting_html_reset_button": {
+    "message": "إعادة تعيين",
+    "description": "يُستخدم هذا النص كاسم لزر إعادة التعيين في صفحة الإعدادات."
+  },
+  "setting_html_reset_button_title": {
+    "message": "يعيد تعيين كل شيء",
+    "description": "يُستخدم هذا النص كعنوان لزر إعادة التعيين في صفحة الإعدادات."
+  },
+  "setting_html_audit_button": {
+    "message": "مراجعة",
+    "description": "يُستخدم هذا النص كاسم لزر المراجعة في صفحة الإعدادات."
+  },
+  "setting_html_audit_button_title": {
+    "message": "فتح صفحة المراجعة",
+    "description": "يُستخدم هذا النص كعنوان لزر المراجعة في صفحة الإعدادات."
+  },
+  "setting_log_limit_label": {
+    "message": "تحديد السجل إلى $LIMIT$ إدخالاً.",
+    "description": "يُستخدم هذا النص كاسم لتسمية حد السجل.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "حد السجل (0-5000)",
+    "description": "تسمية لحقل إدخال حد السجل."
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "تم دمج المصادر البعيدة الإضافية معًا. استخدم <code>ruleURL | hashURL</code> لـ ClearURLs JSON، أو <code>ruleURL</code> فقط لقوائم التتبع ذات الامتداد الشائع URL.",
+    "description": "Description for additional remote rule sources."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "مجموعات القواعد البعيدة الإضافية",
+    "description": "تسمية لأزواج رابط القاعدة + التجزئة البعيدة الإضافية."
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
+  },
+  "setting_rule_url_description": {
+    "message": "جهاز التحكم عن بعد المخصص URL لقواعد ClearURLs JSON أو الامتداد الشائع URL مرشحات التتبع",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "الرابط إلى ملف data.json (القواعد) أو .txt (للشعبية)",
+    "description": "يُستخدم هذا النص كاسم لتسمية رابط القاعدة."
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "ملحوظة: التجزئة URL إلزامية فقط للقواعد البعيدة ClearURLs JSON. يتم تخزين قوائم التتبع ذات الامتداد الشائع URL بشكل منفصل كمرشحات Linkumori URL.",
+    "description": "Note about when hash URL is mandatory"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>أنواع الطلبات</a> (مستوى خبير)",
+    "description": "يُستخدم هذا النص كاسم لتسمية الأنواع."
+  },
+  "settings_html_page_title": {
+    "message": "إعدادات Linkumori (Clean URLS)",
+    "description": "يُستخدم هذا النص كعنوان في صفحة الإعدادات."
+  },
+  "settings_html_save_button": {
+    "message": "حفظ وإعادة تحميل الإضافة",
+    "description": "يُستخدم هذا النص كاسم لزر الحفظ وإعادة التحميل في صفحة الإعدادات."
+  },
+  "settings_html_save_button_title": {
+    "message": "يحفظ الإعدادات",
+    "description": "يُستخدم هذا النص كعنوان لزر الحفظ وإعادة التحميل في صفحة الإعدادات."
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "لون الشارة المستورد هو #FFA500. هل تريد التبديل إلى اللون الأزرق Linkumori (#2563EB)؟",
+    "description": "تأكيد يظهر أثناء استيراد ClearURLs عند اكتشاف لون شارة برتقالي قديم."
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "أنت تستورد نسخة احتياطية من ClearURLs. سيستورد Linkumori الإعدادات المتوافقة ويتخطى ClearURLsData. هل تريد المتابعة؟",
+    "description": "تأكيد يظهر عند استيراد ملفات JSON القديمة من ClearURLs."
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "تتضمن هذه النسخة الاحتياطية من ClearURLs إعدادات مصدر القواعد البعيدة. هل تريد تمكين مفتاح تبديل القواعد البعيدة الآن؟",
+    "description": "تأكيد ثان يظهر لاستيرادات ClearURLs عندما تكون عناوين URL للقواعد البعيدة موجودة."
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "تم تمكين مفتاح تبديل القواعد البعيدة من استيراد ClearURLs الخاص بك. يرجى فتح الإعدادات والنقر على حفظ يدويًا لتأكيد التكوين البعيد النهائي الخاص بك.",
+    "description": "إشعار يظهر بعد قيام المستخدم بتمكين القواعد البعيدة أثناء استيراد ClearURLs."
+  },
+  "settings_import_confirm": {
+    "message": "هل أنت متأكد من رغبتك في استيراد الإعدادات؟ سيؤدي هذا إلى الكتابة فوق إعداداتك الحالية"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "بيانات تعريف الاستيراد غير مكتملة",
+    "description": "يظهر عندما تكون بيانات تعريف الاستيراد موجودة ولكنها تفتقر إلى الحقول المتوقعة."
+  },
+  "settings_import_invalid_file": {
+    "message": "تم تحديد ملف غير صالح",
+    "description": "يظهر عندما يكون ملف الإعدادات المستورد غير صالح."
+  },
+  "settings_import_invalid_format": {
+    "message": "تنسيق إعدادات غير صالح",
+    "description": "يظهر عندما لا يمكن تحليل بيانات الإعدادات المستوردة كما هو متوقع."
+  },
+  "settings_import_no_data": {
+    "message": "لم يتم العثور على إعدادات قابلة للاستيراد في الملف",
+    "description": "يظهر عندما لا يحتوي الملف المحلل على مفاتيح إعدادات مدعومة."
+  },
+  "settings_import_no_file": {
+    "message": "لم يتم تحديد ملف",
+    "description": "يظهر عند بدء الاستيراد دون تحديد ملف."
+  },
+  "settings_import_parse_error": {
+    "message": "فشل تحليل ملف الإعدادات",
+    "description": "يظهر عند فشل تحليل JSON للملف المستورد."
+  },
+  "settings_import_read_error": {
+    "message": "فشل قراءة ملف الإعدادات",
+    "description": "يظهر عندما لا يتمكن المتصفح من قراءة الملف المحدد."
+  },
+  "settings_import_wrong_extension": {
+    "message": "يرجى تحديد ملف إعدادات Linkumori/ClearURLs صالح (.json أو .conf)",
+    "description": "يظهر عندما لا يتطابق ملف الإعدادات المستورد مع تنسيقات Linkumori أو ClearURLs المدعومة."
+  },
+  "settings_imported": {
+    "message": "تم استيراد الإعدادات بنجاح"
+  },
+  "statistics_reset_success": {
+    "message": "تمت إعادة التعيين بنجاح!",
+    "description": "يُستخدم هذا النص كملاحظات بعد إعادة تعيين الإحصائيات."
+  },
+  "status_builtinOnly": {
+    "message": "قواعد مضمنة فقط"
+  },
+  "status_color_picker_failed": {
+    "message": "فشل تهيئة منتقي الألوان",
+    "description": "رسالة خطأ عند فشل تحميل منتقي الألوان"
+  },
+  "status_customFailed": {
+    "message": "فشلت القواعد المخصصة"
+  },
+  "status_customMerged": {
+    "message": "تم دمج القواعد المخصصة (الافتراضية + المخصصة)"
+  },
+  "status_deleteFailed": {
+    "message": "فشل الحذف"
+  },
+  "status_invalidJson": {
+    "message": "JSON غير صالح"
+  },
+  "status_language_changed_success": {
+    "message": "تم تغيير اللغة إلى $1 بنجاح",
+    "description": "رسالة نجاح عند تغيير اللغة. $1 هو اسم اللغة الأصلية"
+  },
+  "status_load_settings_failed": {
+    "message": "فشل تحميل الإعدادات",
+    "description": "رسالة الحالة عند فشل تحميل الإعدادات."
+  },
+  "status_loading": {
+    "message": "جاري التحميل..."
+  },
+  "status_reset_failed": {
+    "message": "فشل إعادة تعيين الإعدادات",
+    "description": "رسالة الحالة عند فشل إعادة تعيين الإعدادات."
+  },
+  "status_reset_successful": {
+    "message": "تمت إعادة تعيين الإعدادات بنجاح",
+    "description": "رسالة الحالة المعروضة بعد إعادة تعيين الإعدادات."
+  },
+  "status_resetting_settings": {
+    "message": "جاري إعادة تعيين الإعدادات...",
+    "description": "رسالة الحالة المعروضة أثناء إعادة تعيين الإعدادات."
+  },
+  "status_saveFailed": {
+    "message": "فشل الحفظ"
+  },
+  "status_save_failed": {
+    "message": "فشل حفظ الإعدادات",
+    "description": "رسالة الحالة عند فشل حفظ الإعدادات."
+  },
+  "status_save_setting_failed": {
+    "message": "فشل حفظ إعداد $SETTING$",
+    "description": "رسالة خطأ عند فشل حفظ إعداد تبديل معين.",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "تم حفظ الإعدادات بنجاح",
+    "description": "رسالة الحالة عند نجاح حفظ الإعدادات."
+  },
+  "status_saved": {
+    "message": "تم الحفظ!",
+    "description": "نص الزر بعد حفظ الإعدادات."
+  },
+  "status_saving": {
+    "message": "جاري الحفظ...",
+    "description": "نص الزر أثناء حفظ الإعدادات."
+  },
+  "status_unavailable": {
+    "message": "الحالة غير متاحة"
+  },
+  "status_unknown": {
+    "message": "غير معروف"
+  },
+  "status_usingCached": {
+    "message": "ربما تكون القاعدة المضمنة تالفة أو لم يتم تحميلها بشكل صحيح. تم تحميل قواعد الاحتياطي بدلاً من ذلك ودمجها مع القواعد المخصصة."
+  },
+  "status_usingFallback": {
+    "message": "استخدام قواعد الاحتياطي"
+  },
+  "status_valid": {
+    "message": "صالح"
+  },
+  "status_validJson": {
+    "message": "JSON صالح"
+  },
+  "status_validJsonUnsaved": {
+    "message": "JSON صالح - غير محفوظ"
+  },
+  "sunIconAlt": {
+    "message": "أيقونة الشمس",
+    "description": "نص بديل لأيقونة سمة الشمس"
+  },
+  "switchToDarkTheme": {
+    "message": "التبديل إلى السمة الداكنة",
+    "description": "تسمية ARIA لتبديل السمة عندما تكون السمة الحالية فاتحة"
+  },
+  "switchToLightTheme": {
+    "message": "التبديل إلى السمة الفاتحة",
+    "description": "تسمية ARIA لتبديل السمة عندما تكون السمة الحالية داكنة"
+  },
+  "themeToggleAriaLabel": {
+    "message": "تبديل السمة",
+    "description": "تسمية ARIA لزر تبديل السمة لإمكانية الوصول."
+  },
+  "theme_description": {
+    "message": "اختر مظهر السمة الذي تفضله",
+    "description": "نص وصفي لاختيار السمة"
+  },
+  "theme_name_dark": {
+    "message": "داكن",
+    "description": "اسم السمة الداكنة"
+  },
+  "theme_name_icecold": {
+    "message": "بارد مثلج",
+    "description": "اسم السمة الباردة المثلجة"
+  },
+  "theme_name_zengray": {
+    "message": "رمادي زن",
+    "description": "اسم سمة الرمادي زن"
+  },
+  "theme_name_forest": {
+    "message": "غابة",
+    "description": "اسم سمة الغابة"
+  },
+  "theme_name_light": {
+    "message": "فاتح",
+    "description": "اسم السمة الفاتحة"
+  },
+  "theme_name_midnight": {
+    "message": "منتصف الليل",
+    "description": "اسم سمة منتصف الليل"
+  },
+  "theme_name_sunset": {
+    "message": "غروب الشمس",
+    "description": "اسم سمة غروب الشمس"
+  },
+  "theme_name_legacy": {
+    "message": "قديم",
+    "description": "اسم سمة ClearURLs القديمة"
+  },
+  "theme_group_light_label": {
+    "message": "الوضع الفاتح",
+    "description": "تسمية فوق مجموعة بطاقات السمة الفاتحة"
+  },
+  "theme_group_dark_label": {
+    "message": "الوضع الداكن",
+    "description": "تسمية فوق مجموعة بطاقات السمة الداكنة"
+  },
+  "theme_selection_label": {
+    "message": "السمة",
+    "description": "تسمية لقسم اختيار السمة"
+  },
+  "time_am": {
+    "message": "ص"
+  },
+  "time_am_lower": {
+    "message": "ص",
+    "description": "علامة صغيرة"
+  },
+  "time_pm": {
+    "message": "م"
+  },
+  "time_pm_lower": {
+    "message": "م",
+    "description": "علامة م صغيرة"
+  },
+  "number_0": {
+    "message": "٠",
+    "description": "الرقم صفر مترجم"
+  },
+  "number_1": {
+    "message": "١",
+    "description": "الرقم واحد مترجم"
+  },
+  "number_2": {
+    "message": "٢",
+    "description": "الرقم اثنان مترجم"
+  },
+  "number_3": {
+    "message": "٣",
+    "description": "الرقم ثلاثة مترجم"
+  },
+  "number_4": {
+    "message": "٤",
+    "description": "الرقم أربعة مترجم"
+  },
+  "number_5": {
+    "message": "٥",
+    "description": "الرقم خمسة مترجم"
+  },
+  "number_6": {
+    "message": "٦",
+    "description": "الرقم ستة مترجم"
+  },
+  "number_7": {
+    "message": "٧",
+    "description": "الرقم سبعة مترجم"
+  },
+  "number_8": {
+    "message": "٨",
+    "description": "الرقم ثمانية مترجم"
+  },
+  "number_9": {
+    "message": "٩",
+    "description": "الرقم تسعة مترجم"
+  },
+  "day_0": {
+    "message": "الأحد",
+    "description": "اسم يوم الأسبوع مترجم للأحد"
+  },
+  "day_1": {
+    "message": "الاثنين",
+    "description": "اسم يوم الأسبوع مترجم للاثنين"
+  },
+  "day_2": {
+    "message": "الثلاثاء",
+    "description": "اسم يوم الأسبوع مترجم للثلاثاء"
+  },
+  "day_3": {
+    "message": "الأربعاء",
+    "description": "اسم يوم الأسبوع مترجم للأربعاء"
+  },
+  "day_4": {
+    "message": "الخميس",
+    "description": "اسم يوم الأسبوع مترجم للخميس"
+  },
+  "day_5": {
+    "message": "الجمعة",
+    "description": "اسم يوم الأسبوع مترجم للجمعة"
+  },
+  "day_6": {
+    "message": "السبت",
+    "description": "اسم يوم الأسبوع مترجم للسبت"
+  },
+  "month_1": {
+    "message": "يناير",
+    "description": "اسم الشهر مترجم لشهر يناير"
+  },
+  "month_2": {
+    "message": "فبراير",
+    "description": "اسم الشهر مترجم لشهر فبراير"
+  },
+  "month_3": {
+    "message": "مارس",
+    "description": "اسم الشهر مترجم لشهر مارس"
+  },
+  "month_4": {
+    "message": "أبريل",
+    "description": "اسم الشهر مترجم لشهر أبريل"
+  },
+  "month_5": {
+    "message": "مايو",
+    "description": "اسم الشهر مترجم لشهر مايو"
+  },
+  "month_6": {
+    "message": "يونيو",
+    "description": "اسم الشهر مترجم لشهر يونيو"
+  },
+  "month_7": {
+    "message": "يوليو",
+    "description": "اسم الشهر مترجم لشهر يوليو"
+  },
+  "month_8": {
+    "message": "أغسطس",
+    "description": "اسم الشهر مترجم لشهر أغسطس"
+  },
+  "month_9": {
+    "message": "سبتمبر",
+    "description": "اسم الشهر مترجم لشهر سبتمبر"
+  },
+  "month_10": {
+    "message": "أكتوبر",
+    "description": "اسم الشهر مترجم لشهر أكتوبر"
+  },
+  "month_11": {
+    "message": "نوفمبر",
+    "description": "اسم الشهر مترجم لشهر نوفمبر"
+  },
+  "month_12": {
+    "message": "ديسمبر",
+    "description": "اسم الشهر مترجم لشهر ديسمبر"
+  },
+  "url_field_editable_tooltip": {
+    "message": "الحقل قابل للتحرير",
+    "description": "تلميح أداة يظهر عندما يكون التأكيد الأمني مستوفيًا بالفعل."
+  },
+  "url_validation_https_recommended": {
+    "message": "يوصى باستخدام HTTPS للأمان",
+    "description": "تحذير يظهر عندما يكون عنوان URL صالحًا ولكنه لا يستخدم HTTPS."
+  },
+  "url_validation_invalid": {
+    "message": "تنسيق URL غير صالح.",
+    "description": "رسالة خطأ تظهر عندما يكون تنسيق URL غير صالح"
+  },
+  "watchdog": {
+    "message": "[Linkumori (Clean URLS)]: اكتشف برنامج المراقبة مشكلة وقد فشل بالفعل $TIMES$ مرات.",
+    "description": "يُستخدم هذا النص كنص لبرنامج المراقبة",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "يزيل Linkumori معلمات التتبع من عناوين URL بشكل افتراضي ويمنحك تحكمًا متقدمًا عند الحاجة. راجع الميزات أدناه، ثم تابع إلى سياسة الخصوصية والترخيص."
+  },
+  "welcomeHeading": {
+    "message": "مرحبًا بك في Linkumori"
+  },
+  "welcome_migration_description": {
+    "message": "تم استيراد إعدادات ClearURLs الخاصة بك. راجع ميزات Linkumori أدناه، ثم تابع لقراءة سياسة الخصوصية والترخيص.",
+    "description": "وصف يظهر على شاشة ترحيب الترحيل."
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "قواعد مضمنة تركز على الخصوصية وممكّنة افتراضيًا.",
+    "description": "عنصر قائمة ميزات يصف سلوك القاعدة المضمنة الافتراضي."
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "محرر القواعد المخصصة مع التحكم على مستوى المزود، والاستيراد/التصدير، وإدارة القواعد.",
+    "description": "عنصر قائمة ميزات يصف القواعد المخصصة."
+  },
+  "welcome_migration_feature_overload": {
+    "message": "يمكن لوضع التحميل الزائد دمج القواعد المضمنة والبعيدة قبل تطبيق القواعد المخصصة.",
+    "description": "عنصر قائمة ميزات يصف وضع التحميل الزائد."
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "مدعومة مصادر قواعد بعيدة متعددة (أزواج رابط قاعدة + رابط تجزئة).",
+    "description": "عنصر قائمة ميزات يصف المجموعات البعيدة المتعددة."
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "دعم القائمة البيضاء لتجاوز التنظيف على النطاقات المحددة عند الحاجة.",
+    "description": "عنصر قائمة ميزات يصف سلوك القائمة البيضاء."
+  },
+  "welcome_migration_heading": {
+    "message": "اكتمل ترحيل ClearURLs",
+    "description": "العنوان الرئيسي على شاشة ترحيب الترحيل."
+  },
+  "welcome_migration_open_settings": {
+    "message": "فتح الإعدادات",
+    "description": "تسمية زر لفتح الإعدادات من شاشة ترحيب الترحيل."
+  },
+  "welcome_migration_title": {
+    "message": "مرحبًا بك في Linkumori",
+    "description": "عنوان الصفحة لشاشة ترحيب الترحيل المعروضة بعد استيراد ClearURLs."
+  },
+  "welcome_next_button": {
+    "message": "التالي: الخصوصية والترخيص",
+    "description": "زر معروض في وضع الترحيب الموجه للمتابعة إلى أقسام الخصوصية والترخيص."
+  },
+  "whitelist_add_button": {
+    "message": "إضافة",
+    "description": "نص زر إضافة النطاق"
+  },
+  "whitelist_add_failed": {
+    "message": "فشل إضافة النطاق إلى القائمة البيضاء",
+    "description": "رسالة خطأ عند فشل إضافة النطاق"
+  },
+  "whitelist_added": {
+    "message": "تمت إضافة %s إلى القائمة البيضاء",
+    "description": "رسالة نجاح عند إضافة النطاق. يتم استبدال %s باسم النطاق."
+  },
+  "whitelist_already_exists": {
+    "message": "النطاق موجود بالفعل في القائمة البيضاء أو غير صالح",
+    "description": "رسالة خطأ عند وجود النطاق بالفعل أو عدم صلاحيته"
+  },
+  "whitelist_count": {
+    "message": "%d نطاق(ات) في القائمة البيضاء",
+    "description": "نص يظهر عدد النطاقات في القائمة البيضاء. يتم استبدال %d بالعدد."
+  },
+  "whitelist_empty": {
+    "message": "لا توجد نطاقات في القائمة البيضاء",
+    "description": "نص يظهر عندما تكون القائمة البيضاء فارغة"
+  },
+  "whitelist_enter_domain": {
+    "message": "الرجاء إدخال اسم نطاق",
+    "description": "رسالة خطأ عند محاولة إضافة نطاق فارغ"
+  },
+  "whitelist_examples_text": {
+    "message": "أمثلة: <code>example.com</code>، <code>*.google.com</code>، <code>subdomain.site.com</code>",
+    "description": "نص قبل أمثلة تنسيق النطاق"
+  },
+  "whitelist_export_button": {
+    "message": "تصدير",
+    "description": "نص زر لتصدير نطاقات القائمة البيضاء"
+  },
+  "whitelist_export_done": {
+    "message": "تم تصدير القائمة البيضاء بنجاح",
+    "description": "رسالة نجاح عند اكتمال تصدير القائمة البيضاء"
+  },
+  "whitelist_export_empty": {
+    "message": "القائمة البيضاء فارغة. لا شيء للتصدير.",
+    "description": "رسالة معلومات عندما يحاول المستخدم تصدير قائمة بيضاء فارغة"
+  },
+  "whitelist_export_failed": {
+    "message": "فشل تصدير القائمة البيضاء",
+    "description": "خطأ يظهر عند فشل تصدير القائمة البيضاء"
+  },
+  "whitelist_import_button": {
+    "message": "استيراد",
+    "description": "نص زر لاستيراد نطاقات القائمة البيضاء"
+  },
+  "whitelist_import_done": {
+    "message": "تم استيراد %s نطاق(ات) إلى القائمة البيضاء",
+    "description": "رسالة نجاح لاستيراد القائمة البيضاء. يتم استبدال %s بعدد النطاقات المستوردة"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "تنسيق قائمة بيضاء غير صالح. استخدم مصفوفة JSON من النطاقات.",
+    "description": "خطأ يظهر عندما لا يكون هيكل القائمة البيضاء المستوردة مدعومًا"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "لم يتم العثور على نطاقات صالحة في ملف القائمة البيضاء",
+    "description": "خطأ يظهر عندما لا يحتوي ملف القائمة البيضاء المستورد على إدخالات نطاق صالحة"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "فشل تحليل ملف القائمة البيضاء",
+    "description": "خطأ يظهر عندما يكون ملف استيراد القائمة البيضاء JSON غير صالح"
+  },
+  "whitelist_input_placeholder": {
+    "message": "example.com أو *.example.com",
+    "description": "نص placeholder لحقل إدخال النطاق"
+  },
+  "whitelist_invalid_format": {
+    "message": "تنسيق نطاق غير صالح. استخدم: example.com أو *.example.com",
+    "description": "رسالة خطأ لتنسيق نطاق غير صالح"
+  },
+  "whitelist_load_failed": {
+    "message": "فشل تحميل القائمة البيضاء",
+    "description": "رسالة خطأ عند فشل تحميل القائمة البيضاء"
+  },
+  "whitelist_remove_button": {
+    "message": "إزالة",
+    "description": "نص زر إزالة النطاق"
+  },
+  "whitelist_remove_failed": {
+    "message": "فشل إزالة النطاق من القائمة البيضاء",
+    "description": "رسالة خطأ عند فشل إزالة النطاق"
+  },
+  "whitelist_removed": {
+    "message": "تمت إزالة %s من القائمة البيضاء",
+    "description": "رسالة نجاح عند إزالة النطاق. يتم استبدال %s باسم النطاق."
+  },
+  "whitelist_search_placeholder": {
+    "message": "ابحث في نطاقات القائمة البيضاء",
+    "description": "نص placeholder للبحث في نطاقات القائمة البيضاء"
+  },
+  "whitelist_section_description": {
+    "message": "النطاقات المضافة هنا ستتجاوز تنظيف URL بالكامل. سيتم الاحتفاظ بمعلمات التتبع على هذه المواقع.",
+    "description": "وصف يشرح ما تفعله القائمة البيضاء"
+  },
+  "whitelist_section_title": {
+    "message": "القائمة البيضاء للنطاقات",
+    "description": "عنوان قسم إعدادات القائمة البيضاء"
+  },
+  "whitelist_update_failed": {
+    "message": "فشل تحديث القائمة البيضاء",
+    "description": "رسالة خطأ عند فشل تحديث القائمة البيضاء."
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "إعادة تعيين الإحصائيات العامة",
+    "description": "يُستخدم هذا النص كعنوان لزر إعادة تعيين الإحصائيات في صفحة النافذة المنبثقة."
+  },
+  "popup_html_log_head_title": {
+    "message": "فتح السجل",
+    "description": "يُستخدم هذا النص كعنوان لزر السجل في صفحة النافذة المنبثقة."
+  },
+  "popup_html_settings_button_title": {
+    "message": "فتح الإعدادات",
+    "description": "يُستخدم هذا النص كعنوان لزر الإعدادات في صفحة النافذة المنبثقة."
+  },
+  "license_title_title": {
+    "message": "معلومات الترخيص",
+    "description": "عنوان رابط معلومات الترخيص في النافذة المنبثقة"
+  },
+  "license_links_title_title": {
+    "message": "الترخيص والإشادات",
+    "description": "عنوان رابط الترخيص والإشادات في النافذة المنبثقة"
+  },
+  "popup_nav_main_title": {
+    "message": "التبديل إلى عناصر التحكم الرئيسية في الامتداد",
+    "description": "تلميح أداة لزر التنقل الرئيسي"
+  },
+  "popup_nav_license_title": {
+    "message": "التبديل إلى معلومات الترخيص",
+    "description": "تلميح أداة لزر معلومات الترخيص"
+  },
+  "customrules_title": {
+    "message": "قواعد مخصصة",
+    "description": "عنوان قسم القواعد المخصصة"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "المعلومات القانونية - سياسة الخصوصية والترخيص",
+    "description": "عنوان صفحة المعلومات القانونية المفتوحة من بوابة موافقة النافذة المنبثقة"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "القائمة البيضاء",
+    "description": "عنوان صفحة محتوى HTML المفتوحة من بوابة موافقة النافذة المنبثقة"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "تعطيل Gatekeeper",
+    "description": "تسمية لمفتاح التبديل الذي يعطل حماية Gatekeeper لتحرير URL البعيد"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "تعطيل فحوصات Gatekeeper لتحرير URL البعيد في تدفق الجلسة هذا.",
+    "description": "وصف لمفتاح تبديل تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "تم تمكين تعطيل Gatekeeper. التأكيد الأمني مطلوب في كل جلسة إعدادات.",
+    "description": "رسالة الحالة المعروضة بعد تمكين تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "تم تعطيل تعطيل Gatekeeper. يمكن تحرير القيم الموثوقة الموجودة دون تأكيد فوري.",
+    "description": "رسالة الحالة المعروضة بعد تعطيل تعطيل Gatekeeper"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "تصدير عناوين URL البعيدة",
+    "description": "نص زر لتصدير تكوين URL البعيد فقط"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "استيراد عناوين URL البعيدة",
+    "description": "نص زر لاستيراد تكوين URL البعيد فقط"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "تصدير أزواج URL البعيدة الأساسية والإضافية",
+    "description": "تلميح أداة لزر تصدير URL البعيد"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "استيراد أزواج URL البعيدة الأساسية والإضافية",
+    "description": "تلميح أداة لزر استيراد URL البعيد"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "تحذير مخاطر تعطيل Gatekeeper",
+    "description": "عنوان نافذة مخاطر تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "تحذير: ميزة متقدمة مخصصة فقط للخوادم المستضافة ذاتيًا",
+    "description": "نص لافتة التحذير العلوية في نافذة تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "أنت تقوم بتعطيل حماية Gatekeeper لتحرير القاعدة عن بعد URL. يمكن لهذه الميزة تحميل قواعد Linkumori (ClearURLs 2.0) JSON مع التحقق من التجزئة، أو Linkumori URL تصفية قوائم التشغيل التفاعلي دون التحقق من التجزئة. تابع فقط إذا فهمت التنسيق الذي تقوم بتكوينه.",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "Gatekeeper هو تدفق الأمان المدمج الذي يمنع تحريرات URL البعيدة المباشرة حتى تقر بإشعار الأمان وتكمل التأكيد المكتوب.",
+    "description": "يشرح ما يعنيه Gatekeeper في نافذة تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "احتفظ بتمكين Gatekeeper إلا إذا كنت تثق في مصادرك البعيدة وتتحكم فيها. يجب أن تتضمن قواعد JSON تجزئة مطابقة URL؛ قوائم التشغيل البيني تترك التجزئة URL فارغة عن عمد.",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "إشعار تحذيري:",
+    "description": "عنوان قسم الخصوصية في نافذة تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "إذا قمت بإضافة قاعدة بعيدة URL، فسوف يتصل الامتداد بالخادم المعين لديك لجلب مجموعة قواعد Linkumori (ClearURLs 2.0) JSON أو ملف التجزئة الخاص به عند تكوينه، أو Linkumori URL قائمة قابلية التشغيل التفاعلي للتصفية. قد تؤدي كل عملية جلب إلى كشف عنوان IP الخاص بك والمعلومات العامة مثل إصدار الامتداد والمتصفح وإصدار المتصفح لخادم الاستضافة. تخضع هذه البيانات لسياسة الخصوصية الخاصة بهذا الموقع أو خادم الويب.",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "اقرأ %PRIVACY_POLICY_LINK% مرة أخرى قبل المتابعة إذا لزم الأمر.",
+    "description": "جملة متابعة في نافذة تحذير تعطيل Gatekeeper مع رابط سياسة الخصوصية كعنصر نائب"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "إشعار تحذيري:",
+    "description": "عنوان قسم المخاطر في نافذة تعطيل Gatekeeper"
+  },
+  "privacy_policy_link_label": {
+    "message": "سياسة الخصوصية",
+    "description": "تسمية لروابط سياسة الخصوصية المعروضة في مربعات حوار التحذير"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "سيتصل الامتداد بعنوان URL الذي حددته في كل مرة يتم فيها تمكين الامتداد وتحميله في متصفحك.",
+    "description": "النقطة الأولى للمخاطر في نافذة تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "سيتلقى الخادم الذي يستضيف ملفات JSON أو التجزئة أو مرشح قابلية التشغيل التفاعلي عنوانك IP.",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "قد يتلقى الخادم أيضًا إصدار الامتداد والمتصفح وإصدار المتصفح.",
+    "description": "النقطة الثالثة للمخاطر في نافذة تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "تخضع تلك البيانات لسياسة الخصوصية لموقع الويب أو خادم الويب الذي يستضيف تلك الملفات.",
+    "description": "النقطة الرابعة للمخاطر في نافذة تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "من خلال تعطيل Gatekeeper، فإنك تزيد من المخاطر الناجمة عن مصادر القواعد البعيدة غير الآمنة أو المعرضة للخطر. التحقق من التجزئة يحمي فقط Linkumori (ClearURLs 2.0) JSON تنزيلات القاعدة. ولا ينطبق على قوائم التشغيل التفاعلي.",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "إلغاء",
+    "description": "نص زر الإلغاء في نافذة تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "متابعة",
+    "description": "نص زر المتابعة في نافذة تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "أنا أفهم مخاطر القواعد البعيدة وأعطل Gatekeeper",
+    "description": "العبارة الدقيقة التي يجب على المستخدم كتابتها لتأكيد تعطيل Gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "مطلوب تأكيد كتابي",
+    "description": "عنوان نافذة التأكيد الخاصة بـ Gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "لتعطيل Gatekeeper، اكتب عبارة التأكيد الدقيقة أدناه.",
+    "description": "نص تعليمات نافذة التأكيد الخاصة بـ Gatekeeper"
+  },
+  "redirection_warning_modal_title": {
+    "message": "تحذير تجاوز إعادة التوجيه",
+    "description": "عنوان نافذة التحذير المعروضة قبل تمكين تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "راجع قواعد إعادة التوجيه قبل تمكين هذه الميزة.",
+    "description": "سطر التحذير العلوي لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "يمكن لهذه الميزة تجاوز عناوين URL لإعادة التوجيه والتتبع للوسيط من جهة خارجية من خلال تطبيق قواعد إعادة التوجيه الموجودة حاليًا من المصادر المضمنة والبعيدة والمخصصة.",
+    "description": "نص التحذير الرئيسي لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "قم بمراجعة القواعد أولاً. إذا كانت قاعدة إعادة التوجيه واسعة جدًا أو غير مناسبة لتصفحك، فقم بتحريرها أو تجاوزها في محرر القواعد المخصصة قبل تمكين هذا الإعداد.",
+    "description": "نص التوصية لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "ما يجب التحقق منه",
+    "description": "عنوان قسم المخاطر لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "يمكن للقواعد المضمنة والقواعد البعيدة والقواعد المخصصة أن تساهم جميعها في سلوك إعادة التوجيه.",
+    "description": "عنصر الخطر الأول لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "يمكن لقاعدة إعادة توجيه واسعة أن تكشف رابطًا بطريقة لم تتوقعها.",
+    "description": "عنصر الخطر الثاني لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "قد تتغير أحدث القواعد البعيدة المخبأة عند جلب بيانات قاعدة بعيدة جديدة.",
+    "description": "عنصر الخطر الثالث لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "استخدم صفحة المراجعة لفحص القواعد المضمنة والقواعد النهائية والقواعد المخصصة وأحدث القواعد البعيدة المخبأة قبل الاعتماد على هذه الميزة.",
+    "description": "عنصر الخطر الرابع لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "قم بتمكين هذا فقط إذا كنت تثق في قواعد إعادة التوجيه الموجودة حاليًا من مصادر مختلفة. إذا كنت لا تفهم هذه الميزة، فلا تقم بتمكينها. بدون تمكين هذا الإعداد، لن يتم تطبيق قواعد تجاوز إعادة التوجيه.",
+    "description": "نص التحذير النهائي لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "إلغاء",
+    "description": "زر الإلغاء لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_continue": {
+    "message": "متابعة",
+    "description": "زر المتابعة لنافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "يبقى تجاوز إعادة التوجيه معطلاً.",
+    "description": "الحالة المعروضة عند إلغاء نافذة تحذير تجاوز إعادة التوجيه."
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "اكتب عبارة التأكيد الدقيقة",
+    "description": "تسمية الإدخال لنافذة التأكيد الخاصة بـ Gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "يقلل هذا الإجراء من ضمانات القواعد البعيدة. تابع فقط إذا كنت تثق في JSON ومصادر تصفية التشغيل التفاعلي.",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "استبدل قيم العناصر النائبة بعناوين URL HTTPS الحقيقية الخاصة بك، ثم قم باستيراد هذا الملف.",
+    "description": "ملاحظة تصدير القالب 1 لتصدير JSON لعنوان URL البعيد"
+  },
+  "remote_urls_template_note_2": {
+    "message": "يحتوي Primary على زوج رابط القاعدة/التجزئة الرئيسي.",
+    "description": "ملاحظة تصدير القالب 2 لتصدير JSON لعنوان URL البعيد"
+  },
+  "remote_urls_template_note_3": {
+    "message": "Additional اختياري ويدعم أزواج روابط قاعدة/تجزئة متعددة.",
+    "description": "ملاحظة تصدير القالب 3 لتصدير JSON لعنوان URL البعيد"
+  },
+  "remote_urls_template_note_4": {
+    "message": "أضف أو أزل الكائنات في مصفوفة additional حسب الحاجة.",
+    "description": "ملاحظة تصدير القالب 4 لتصدير JSON لعنوان URL البعيد"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "استبدال_WITH_PRIMARY_RULE_URL",
+    "description": "Placeholder value for primary rule URL in template export JSON"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "استبدال_WITH_PRIMARY_HASH_URL",
+    "description": "Placeholder value for primary hash URL in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "استبدال_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "استبدال_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "استبدال_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "استبدال_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "استبدال_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "استبدال_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
+  },
+  "remote_urls_export_success": {
+    "message": "تم تصدير تكوين URL البعيد.",
+    "description": "حالة نجاح بعد تصدير عناوين URL البعيدة التي تم تكوينها"
+  },
+  "remote_urls_template_export_success": {
+    "message": "تم تصدير قالب URL البعيد. املأ العناصر النائبة واستورد.",
+    "description": "حالة نجاح بعد تصدير قالب URL البعيد الفارغ"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "تم استيراد تكوين URL البعيد وحفظه.",
+    "description": "حالة نجاح بعد استيراد وحفظ تكوين URL البعيد"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "تم تحليل الاستيراد، لكن حفظ تكوين URL البعيد فشل.",
+    "description": "حالة خطأ عندما نجح تحليل الاستيراد ولكن فشل الحفظ"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "ملف تكوين URL البعيد غير صالح.",
+    "description": "حالة خطأ عندما يكون JSON لـ URL البعيد المستورد غير صالح"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "غير قادر على قراءة الملف المحدد.",
+    "description": "حالة خطأ عندما يفشل قارئ الملفات لاستيراد URL البعيد"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "لم يتم العثور على أزواج URL بعيدة صالحة في الملف.",
+    "description": "حالة خطأ عندما لا يتم العثور على أزواج صالحة أثناء استيراد URL البعيد"
+  },
+  "popup_consent_title_title": {
+    "message": "الموافقة مطلوبة",
+    "description": "عنوان قسم المعلومات القانونية في النافذة المنبثقة"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "التبديل لتشغيل/إيقاف تشغيل الوظيفة الرئيسية",
+    "description": "عنوان الزر الذي ينتقل إلى عرض تكوين الفلتر في النافذة المنبثقة"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "التبديل لأداء سجلات الامتداد جميع التواريخ المخزنة محليًا على جهازك",
+    "description": "عنوان الزر الذي ينتقل إلى عرض الإحصائيات في النافذة المنبثقة"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "التبديل لتشغيل/إيقاف تشغيل أيقونة الشارة",
+    "description": "عنوان قسم الإحصائيات في النافذة المنبثقة"
+  },
+  "configs_switch_statistics_title": {
+    "message": "التبديل لتشغيل/إيقاف تشغيل الإحصائيات",
+    "description": "عنوان الزر الذي ينتقل إلى عرض الترخيص والإشادات في النافذة المنبثقة"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "العناصر",
+    "description": "عنوان قسم الإحصائيات في النافذة المنبثقة"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "محظور",
+    "description": "وصف لإحصائية العناصر في النافذة المنبثقة"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "النسبة المئوية",
+    "description": "وصف للإحصائية المحظورة في النافذة المنبثقة"
+  },
+  "audit_html_page_title": {
+    "message": "مراجعة قواعد Linkumori",
+    "description": "عنوان صفحة المراجعة"
+  },
+  "audit_badge_label": {
+    "message": "مراجعة",
+    "description": "تسمية شارة صغيرة في رأس صفحة المراجعة"
+  },
+  "audit_section_title": {
+    "message": "مراجعة القواعد",
+    "description": "عنوان القسم الرئيسي لصفحة المراجعة"
+  },
+  "audit_viewer_title": {
+    "message": "عارض مصدر القواعد",
+    "description": "عنوان بطاقة عارض مصدر المراجعة"
+  },
+  "audit_viewer_description": {
+    "message": "استخدم أزرار المصدر أدناه لفحص القواعد المضمنة أو القواعد النهائية المدمجة أو القواعد المخصصة أو أحدث القواعد البعيدة التي تم جلبها والمخزنة في ذاكرة التخزين المؤقت كـ JSON خام.",
+    "description": "وصف عارض مصدر المراجعة"
+  },
+  "audit_refresh_button": {
+    "message": "تحديث المصادر",
+    "description": "تسمية زر التحديث في صفحة المراجعة"
+  },
+  "audit_faq_button": {
+    "message": "الأسئلة الشائعة",
+    "description": "تسمية زر الأسئلة الشائعة في صفحة المراجعة"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "تبديل السمة",
+    "description": "تسمية يمكن الوصول إليها لتبديل السمة في صفحة المراجعة"
+  },
+  "audit_faq_close_aria": {
+    "message": "إغلاق الأسئلة الشائعة",
+    "description": "تسمية يمكن الوصول إليها لزر إغلاق نافذة الأسئلة الشائعة"
+  },
+  "audit_source_bundled": {
+    "message": "القواعد المضمنة",
+    "description": "زر وعنوان لمصدر مراجعة القواعد المضمنة"
+  },
+  "audit_source_final": {
+    "message": "القواعد النهائية",
+    "description": "زر وعنوان لمصدر مراجعة القواعد النهائية المدمجة"
+  },
+  "audit_source_custom": {
+    "message": "القواعد المخصصة",
+    "description": "زر وعنوان لمصدر مراجعة القواعد المخصصة"
+  },
+  "audit_source_remote": {
+    "message": "أحدث القواعد البعيدة المخبأة",
+    "description": "زر وعنوان لمصدر مراجعة أحدث القواعد البعيدة المخبأة"
+  },
+  "audit_source_bundled_description": {
+    "message": "المصدر: ملف data/linkumori-clearurls-min.json المدمج",
+    "description": "وصف المصدر للقواعد المضمنة"
+  },
+  "audit_source_final_description": {
+    "message": "المصدر: ClearURLsData في تخزين وقت التشغيل",
+    "description": "وصف المصدر للقواعد النهائية"
+  },
+  "audit_source_custom_description": {
+    "message": "المصدر: custom_rules في تخزين وقت التشغيل",
+    "description": "وصف المصدر للقواعد المخصصة"
+  },
+  "audit_source_remote_description": {
+    "message": "المصدر: remoteRulescache.data في تخزين وقت التشغيل (أحدث القواعد البعيدة التي تم جلبها والمخزنة محليًا)",
+    "description": "وصف المصدر لأحدث القواعد البعيدة المخبأة"
+  },
+  "audit_meta_waiting": {
+    "message": "في انتظار...",
+    "description": "نص التعريفات المعروض قبل تحميل بيانات المراجعة"
+  },
+  "audit_meta_error": {
+    "message": "خطأ",
+    "description": "نص التعريفات المعروض عندما يكون لمصدر مراجعة محدد خطأ"
+  },
+  "audit_meta_source_bundled": {
+    "message": "القواعد المضمنة",
+    "description": "تسمية التعريفات لمصدر القواعد المضمنة"
+  },
+  "audit_meta_source_final": {
+    "message": "القواعد النهائية",
+    "description": "تسمية التعريفات لمصدر القواعد النهائية"
+  },
+  "audit_meta_source_custom": {
+    "message": "القواعد المخصصة",
+    "description": "تسمية التعريفات لمصدر القواعد المخصصة"
+  },
+  "audit_meta_source_remote": {
+    "message": "الذاكرة المخبأة البعيدة",
+    "description": "تسمية التعريفات لمصدر أحدث القواعد البعيدة المخبأة"
+  },
+  "audit_meta_template": {
+    "message": "$1 | المزودون: $2 | الحروف: $3",
+    "description": "قالب لمعلومات التعريفات لمصدر المراجعة"
+  },
+  "audit_status_loading": {
+    "message": "جاري تحميل مصادر المراجعة...",
+    "description": "الحالة المعروضة أثناء تحميل مصادر المراجعة"
+  },
+  "audit_status_loaded": {
+    "message": "تم تحميل جميع مصادر المراجعة.",
+    "description": "الحالة المعروضة عند تحميل جميع مصادر المراجعة بنجاح"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "تم تحميل مصادر المراجعة. أحدث القواعد البعيدة المخبأة غير متوفرة بعد.",
+    "description": "الحالة المعروضة عند تحميل مصادر المراجعة ولكن الذاكرة المخبأة البعيدة غير متوفرة بعد"
+  },
+  "audit_status_partial_error": {
+    "message": "فشل تحميل بعض مصادر المراجعة. قم بتبديل المصادر لفحص JSON الخطأ.",
+    "description": "الحالة المعروضة عند فشل تحميل مصدر مراجعة واحد أو أكثر"
+  },
+  "audit_status_refresh_failed": {
+    "message": "فشل تحديث مصادر المراجعة.",
+    "description": "خطأ احتياطي يظهر عند فشل تحديث مصادر المراجعة"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "فشل جلب القواعد المضمنة بالحالة $1",
+    "description": "خطأ يظهر عند فشل جلب القواعد المضمنة"
+  },
+  "audit_error_final_missing": {
+    "message": "لم يُرجع وقت التشغيل ClearURLsData",
+    "description": "خطأ يظهر عند فقدان القواعد النهائية من تخزين وقت التشغيل"
+  },
+  "audit_error_custom_missing": {
+    "message": "لم يُرجع وقت التشغيل custom_rules",
+    "description": "خطأ يظهر عند فقدان القواعد المخصصة من تخزين وقت التشغيل"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "لم يُرجع وقت التشغيل remoteRulescache",
+    "description": "خطأ يظهر عند فقدان الذاكرة المخبأة البعيدة من تخزين وقت التشغيل"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "خطأ غير معروف في القواعد المضمنة",
+    "description": "خطأ احتياطي للقواعد المضمنة"
+  },
+  "audit_error_unknown_final": {
+    "message": "خطأ غير معروف في القواعد النهائية",
+    "description": "خطأ احتياطي للقواعد النهائية"
+  },
+  "audit_error_unknown_custom": {
+    "message": "خطأ غير معروف في القواعد المخصصة",
+    "description": "خطأ احتياطي للقواعد المخصصة"
+  },
+  "audit_error_unknown_remote": {
+    "message": "خطأ غير معروف في القواعد البعيدة",
+    "description": "خطأ احتياطي للقواعد البعيدة"
+  },
+  "audit_remote_unavailable": {
+    "message": "لا توجد قواعد بعيدة مخبأة متاحة بعد",
+    "description": "رسالة تظهر عندما لم يتم ملء الذاكرة المخبأة البعيدة بعد"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "لا توجد حمولة قواعد بعيدة مخبأة متاحة بعد",
+    "description": "رسالة تظهر عندما تكون الذاكرة المخبأة البعيدة موجودة ولكن ليس لديها حمولة بيانات"
+  },
+  "audit_faq_modal_title": {
+    "message": "الأسئلة الشائعة للمراجعة",
+    "description": "عنوان نافذة الأسئلة الشائعة للمراجعة"
+  },
+  "audit_faq_intro": {
+    "message": "تصف هذه الملاحظات حقول المزود التي يقرأها clearurls.js فعليًا عند بناء وتطبيق القواعد.",
+    "description": "نص تمهيدي لنافذة الأسئلة الشائعة للمراجعة"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "كيف يمكنني مراجعة مزود؟",
+    "description": "عنوان سؤال شائع لمراجعة مزود"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p>افتح مصدرًا في العارض، وابحث عن المزود داخل <span class=\"faq-code\">providers</span>، وافحص المفاتيح الموجودة في كائن المزود هذا.</p><p>استخدم <span class=\"faq-code\">القواعد المضمنة</span> لفحص القواعد المشحونة، و <span class=\"faq-code\">القواعد النهائية</span> لفحص نتيجة وقت التشغيل المدمجة، و <span class=\"faq-code\">القواعد المخصصة</span> لفحص تجاوزات المستخدم، و <span class=\"faq-code\">أحدث القواعد البعيدة المخبأة</span> لفحص الحمولة البعيدة التي تم جلبها مؤخرًا والمحفوظة في ذاكرة التخزين المؤقت.</p>",
+    "description": "نص السؤال الشائع لمراجعة مزود"
+  },
+  "audit_faq_override_title": {
+    "message": "كيف يمكنني تمكين أو تعطيل أو استيراد أو تحرير أو تجاوز القواعد الفردية؟",
+    "description": "عنوان سؤال شائع لتحرير القواعد المخصصة والتجاوزات"
+  },
+  "audit_faq_override_body": {
+    "message": "<p>استخدم محرر القواعد المخصصة عندما تريد تحكمًا قاعدة بقاعدة. هذا هو المكان الذي يمكنك فيه استيراد القواعد كقواعد مخصصة وتحرير حقول المزود وحفظ نسختك الخاصة من المزود.</p><p>يمكنك استخدامه لتمكين أو تعطيل المزودين الفرديين أو محتوى القاعدة الفردي عن طريق تحويل المزود المستورد أو المحرر إلى نسختك المخصصة. يتم بعد ذلك دمج هذه النسخة المخصصة في قواعد وقت التشغيل.</p><p>يمكنك أيضًا تجاوز القواعد المضمنة والقواعد البعيدة بشكل فردي. قم بمراجعة <span class=\"faq-code\">القواعد المضمنة</span> أو <span class=\"faq-code\">أحدث القواعد البعيدة المخبأة</span> للعثور على المزود الذي تريده، ثم افحص <span class=\"faq-code\">القواعد المخصصة</span> و <span class=\"faq-code\">القواعد النهائية</span> لتأكيد أن التعديل أو التجاوز المخصص الخاص بك يؤثر.</p><p>إذا قمت باستيراد مجموعة قواعد إلى محرر القواعد المخصصة، فيمكنك الاحتفاظ فقط بالأجزاء التي تريدها، وتعطيل الأجزاء التي لا تريدها، وتحرير المزود بحيث يتصرف الإخراج النهائي المدمج بالطريقة التي تريدها.</p>",
+    "description": "نص السؤال الشائع لتحرير القواعد المخصصة والتجاوزات"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "ما هو urlPattern؟",
+    "description": "عنوان سؤال شائع لـ urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPattern</span> هو regex المستخدم لتحديد ما إذا كان المزود يطابق عنوان URL.</p><p>إذا كان لدى المزود <span class=\"faq-code\">urlPattern</span>، يستخدم ClearURLs هذا regex أولاً. في clearurls.js، يتم تحويل هذا إلى RegExp حقيقي بواسطة <span class=\"faq-code\">setURLPattern()</span>.</p>",
+    "description": "نص السؤال الشائع لـ urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "ما هو domainPatterns؟",
+    "description": "عنوان سؤال شائع لـ domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\">domainPatterns</span> هو المطابق القائم على النطاق المستخدم عندما لا يعتمد المزود على <span class=\"faq-code\">urlPattern</span>.</p><p>يقوم ClearURLs بتخزين هذه باستخدام <span class=\"faq-code\">setURLDomainPattern()</span> ثم يتحقق منها بمنطق مطابقة النطاق بدلاً من مطابقة URL regex.</p>",
+    "description": "نص السؤال الشائع لـ domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "ما هي rules و rawRules و referralMarketing؟",
+    "description": "عنوان سؤال شائع لـ rules و rawRules و referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">rules</span> هي أسماء معلمات أو أسماء أجزاء يجب إزالتها من عنوان URL.</p><p><span class=\"faq-code\">rawRules</span> هي استبدالات regex يتم تطبيقها مباشرة على سلسلة URL بالكامل قبل تنظيف الاستعلام.</p><p><span class=\"faq-code\">referralMarketing</span> يتم التعامل معه مثل المعلمات القابلة للإزالة أيضًا، ولكن ما إذا كانت تستخدم بالفعل يعتمد على إعداد تسويق الإحالة العام.</p>",
+    "description": "نص السؤال الشائع لـ rules و rawRules و referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "ما هي exceptions و domainExceptions؟",
+    "description": "عنوان سؤال شائع لـ exceptions و domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\">exceptions</span> هي أنماط regex تمنع المزود من العمل على عناوين URL المتطابقة.</p><p><span class=\"faq-code\">domainExceptions</span> تفعل الشيء نفسه مع المطابقة القائمة على النطاق بدلاً من مطابقة URL regex.</p><p>إذا تطابق استثناء، يتم تجاوز المزود حتى لو كان نمطه الرئيسي متطابقًا أولاً.</p>",
+    "description": "نص السؤال الشائع لـ exceptions و domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "ما هي redirections و domainRedirections؟",
+    "description": "عنوان سؤال شائع لـ redirections و domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\">redirections</span> هي أدوات فتح قائمة على regex. عادةً ما تلتقط عنوان URL الوجهة الحقيقي في المجموعة 1، ويقوم ClearURLs بإعادة التوجيه إلى تلك القيمة الملتقطة.</p><p><span class=\"faq-code\">domainRedirections</span> هي قواعد إعادة توجيه من نمط النطاق. في قاعدة التعليمات البرمجية هذه، يتم التحقق من الإدخالات بشكل <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>إذا تطابق إعادة توجيه regex أولاً، فهذا هو الفائز. إذا لم يكن كذلك، يتحقق ClearURLs من عمليات إعادة توجيه النطاق بعد ذلك.</p>",
+    "description": "نص السؤال الشائع لـ redirections و domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "ما هي methods و resourceTypes؟",
+    "description": "عنوان سؤال شائع لـ methods و resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "<p><span class=\"faq-code\">methods</span> تقيد المزود بطرق HTTP محددة مثل <span class=\"faq-code\">GET</span> أو <span class=\"faq-code\">POST</span>. إذا لم يتم سرد أي طرق، يُسمح بجميع الطرق.</p><p><span class=\"faq-code\">resourceTypes</span> تقيد المزود بأنواع موارد webRequest مثل <span class=\"faq-code\">main_frame</span> أو <span class=\"faq-code\">sub_frame</span> أو <span class=\"faq-code\">xmlhttprequest</span>.</p><p>إذا لم يتم سرد أي أنواع موارد، يعود ClearURLs إلى أنواع الطلبات المسموح بها العامة من الإعدادات.</p>",
+    "description": "نص السؤال الشائع لـ methods و resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "ما هما completeProvider و forceRedirection؟",
+    "description": "عنوان سؤال شائع لـ completeProvider و forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\">completeProvider</span> يحول المزود إلى مزود حظر. في clearurls.js، هذا يعني أن المزود يمكنه إلغاء الطلبات المتطابقة عند تمكين حظر النطاق.</p><p><span class=\"faq-code\">forceRedirection</span> يجعل إعادة التوجيه أكثر عدوانية. عند العثور على إعادة توجيه على طلب <span class=\"faq-code\">main_frame</span>، يمكن لـ ClearURLs تحديث علامة تبويب المتصفح مباشرة بدلاً من إعادة استجابة إعادة التوجيه العادية.</p>",
+    "description": "نص السؤال الشائع لـ completeProvider و forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "ما هي حقول المزود التي يستخدمها clearurls.js هنا؟",
+    "description": "عنوان سؤال شائع لقائمة حقول المزود التي يستخدمها clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p>يقرأ مسار بناء المزود في هذا الفرع هذه المفاتيح: <span class=\"faq-code\">completeProvider</span>، <span class=\"faq-code\">forceRedirection</span>، <span class=\"faq-code\">urlPattern</span>، <span class=\"faq-code\">domainPatterns</span>، <span class=\"faq-code\">rules</span>، <span class=\"faq-code\">rawRules</span>، <span class=\"faq-code\">referralMarketing</span>، <span class=\"faq-code\">exceptions</span>، <span class=\"faq-code\">domainExceptions</span>، <span class=\"faq-code\">redirections</span>، <span class=\"faq-code\">domainRedirections</span>، <span class=\"faq-code\">methods</span>، و <span class=\"faq-code\">resourceTypes</span>.</p><p>عند مراجعة السلوك، فإن أهم مكان للتحقق هو <span class=\"faq-code\">القواعد النهائية</span>، لأن ذلك يظهر النتيجة المدمجة بعد دمج المصادر المضمنة والبعيدة والمخصصة.</p>",
+    "description": "نص السؤال الشائع لقائمة حقول المزود التي يستخدمها clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "إيقاف مؤقت",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "إيقاف 15 دقيقة",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "إيقاف ساعة واحدة",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "حتى إعادة التشغيل",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "استئناف الآن",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "نشط",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "متوقف مؤقتًا حتى إعادة تشغيل المتصفح",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "متوقف مؤقتًا (متبقي %s)",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "فشل تحديث حالة الإيقاف المؤقت.",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "فشل استئناف التنظيف.",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "أقل من دقيقة",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "د",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "س",
+    "description": "مفتاح i18n مضاف تلقائيًا: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "صحة القواعد البعيدة",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "تحديث الآن",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "آخر محاولة جلب:",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "آخر جلب ناجح:",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "آخر تحقق من التجزئة:",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "سبب آخر فشل:",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "حالة التجزئة الحالية:",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "غير متاح",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "لا شيء",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "غير معروف",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "جاري التحديث...",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "اكتمل تحديث القواعد البعيدة.",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "فشل تحديث القواعد البعيدة.",
+    "description": "مفتاح i18n مضاف تلقائيًا: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "مختبر اختبار القواعد",
+    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "مختبر اختبار القواعد",
+    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "الصق عنوان URL لرؤية قبل/بعد التنظيف وأول مزود/قاعدة متطابقة.",
+    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "تشغيل الاختبار",
+    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "جاري الاختبار...",
+    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "أدخل عنوان URL أولاً.",
+    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "فشل اختبار القاعدة.",
+    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "تم التطابق والتنظيف بنجاح.",
+    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "لم يتم تطبيق أي تغييرات على عنوان URL هذا.",
+    "description": "مفتاح i18n مضاف تلقائيًا: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "عنوان URL مطلوب",
+    "description": "مفتاح i18n مضاف تلقائيًا: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "تنسيق URL غير صالح",
+    "description": "مفتاح i18n مضاف تلقائيًا: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "فشل اختبار القاعدة",
+    "description": "مفتاح i18n مضاف تلقائيًا: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "تبديل السمة",
+    "description": "تسمية ARIA لزر تبديل السمة في النافذة المنبثقة"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "جاري اكتشاف النطاق...",
+    "description": "تسمية مؤقتة معروضة بينما تكتشف النافذة المنبثقة نطاق علامة التبويب الحالية لزر القائمة البيضاء"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "جاري إضافة %s...",
+    "description": "تسمية تحميل زر القائمة البيضاء عند إضافة نطاق. يتم استبدال %s بالنطاق."
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "جاري إزالة %s...",
+    "description": "تسمية تحميل زر القائمة البيضاء عند إزالة نطاق. يتم استبدال %s بالنطاق."
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "لا يمكن اكتشاف نطاق لهذه الصفحة",
+    "description": "تلميح أداة لزر القائمة البيضاء الديناميكي المعطل عندما لا تحتوي الصفحة الحالية على نطاق مدعوم"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "زر القائمة البيضاء معطل لأن هذه الصفحة ليس لها نطاق مدعوم",
+    "description": "تسمية ARIA لزر القائمة البيضاء الديناميكي المعطل عندما لا تحتوي الصفحة الحالية على نطاق مدعوم"
+  },
+  "popup_pause_15m_title": {
+    "message": "إيقاف التنظيف مؤقتًا لمدة 15 دقيقة",
+    "description": "تلميح أداة وتسمية ARIA لزر الإيقاف المؤقت لمدة 15 دقيقة في النافذة المنبثقة"
+  },
+  "popup_pause_1h_title": {
+    "message": "إيقاف التنظيف مؤقتًا لمدة ساعة واحدة",
+    "description": "تلميح أداة وتسمية ARIA لزر الإيقاف المؤقت لمدة ساعة في النافذة المنبثقة"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "إيقاف التنظيف مؤقتًا حتى إعادة تشغيل المتصفح",
+    "description": "تلميح أداة وتسمية ARIA لزر الإيقاف حتى إعادة التشغيل في النافذة المنبثقة"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "استئناف تنظيف URL الآن",
+    "description": "تلميح أداة وتسمية ARIA لزر الاستئناف الآن في النافذة المنبثقة"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "إيقاف تنظيف URL مؤقتًا",
+    "description": "تلميح أداة لعنوان قسم الإيقاف المؤقت في النافذة المنبثقة"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "إجمالي العناصر التي تمت معالجتها على الصفحة الحالية",
+    "description": "تلميح أداة لتسمية العناصر الإجمالية في النافذة المنبثقة"
+  },
+  "popup_consent_description_title": {
+    "message": "اقرأ هذا قبل القبول",
+    "description": "تلميح أداة لوصف موافقة النافذة المنبثقة"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "تأكيد أنك قرأت وقبلت",
+    "description": "تلميح أداة لتسمية مربع اختيار موافقة النافذة المنبثقة"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "قبول الموافقة وفتح النافذة المنبثقة",
+    "description": "تلميح أداة لزر قبول موافقة النافذة المنبثقة"
+  },
+  "license_third_party_title_title": {
+    "message": "معلومات مكونات الطرف الثالث",
+    "description": "تلميح أداة لعنوان قسم الطرف الثالث"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "ملخص توقيع إضافة Firefox",
+    "description": "تلميح أداة لتسمية عنوان توقيع Firefox"
+  },
+  "invalid_date_label": {
+    "message": "تاريخ غير صالح",
+    "description": "نص احتياطي عندما لا يمكن تحليل قيمة التاريخ."
+  },
+  "log_i18n_load_failed": {
+    "message": "فشل تحميل التدويل. قد لا تعمل بعض الميزات بشكل صحيح.",
+    "description": "رسالة خطأ تظهر عند فشل تحميل ترجمات صفحة السجل."
+  },
+  "log_html_sort_oldest_first": {
+    "message": "انقر لعرض الأقدم أولاً",
+    "description": "تلميح أداة لزر فرز الطابع الزمني للسجل عندما يكون الأحدث أولاً حاليًا."
+  },
+  "log_html_sort_newest_first": {
+    "message": "انقر لعرض الأحدث أولاً",
+    "description": "تلميح أداة لزر فرز الطابع الزمني للسجل عندما يكون الأقدم أولاً حاليًا."
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "إغلاق مختبر اختبار القواعد",
+    "description": "تسمية ARIA لإغلاق نافذة مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "عنوان URL للإدخال",
+    "description": "تسمية لعنوان URL للإدخال في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "عنوان URL للإخراج",
+    "description": "تسمية لعنوان URL للإخراج في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "تم التغيير",
+    "description": "تسمية تشير إلى ما إذا تم تغيير عنوان URL في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "المزود المتطابق",
+    "description": "تسمية للمزود المتطابق في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "القاعدة المتطابقة",
+    "description": "تسمية للقاعدة المتطابقة في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "نوع النمط",
+    "description": "تسمية لنوع النمط في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "قيمة النمط",
+    "description": "تسمية لقيمة النمط في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "الإجراء",
+    "description": "تسمية للإجراء المتطابق في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "معامل اختياري للاختبار (مثال utm_source أو ref=abc)",
+    "description": "عنصر نائب لإدخال معامل اختياري في مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "المعامل المختبر",
+    "description": "تسمية لمعامل الاختبار في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "الاستثناء المتطابق",
+    "description": "تسمية لاستثناء URL regex المتطابق في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "استثناء النطاق المتطابق",
+    "description": "تسمية لاستثناء النطاق المتطابق في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "إعادة التوجيه المتطابق (regex)",
+    "description": "تسمية لإعادة التوجيه regex المتطابق في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "إعادة توجيه النطاق المتطابق",
+    "description": "تسمية لإعادة توجيه النطاق المتطابق في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "قاعدة regex المتطابقة",
+    "description": "تسمية لقاعدة regex القياسية المتطابقة في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "القاعدة الأولية المتطابقة",
+    "description": "تسمية للقاعدة الأولية المتطابقة في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "قاعدة الإحالة المتطابقة",
+    "description": "تسمية لقاعدة تسويق الإحالة المتطابقة في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "قاعدة إزالة المعامل المتطابقة",
+    "description": "تسمية لقاعدة $removeparam المتطابقة في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "استثناء إزالة المعامل المتطابق",
+    "description": "تسمية لاستثناء @@$removeparam المتطابق في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "مزود كامل",
+    "description": "تسمية لـ completeProvider المنطقي في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "لا شيء",
+    "description": "قيمة احتياطية في مخرجات مختبر اختبار القواعد عندما لا توجد قيمة."
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "نعم",
+    "description": "تسمية صواب منطقي في مخرجات مختبر اختبار القواعد."
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "لا",
+    "description": "تسمية خطأ منطقي في مخرجات مختبر اختبار القواعد."
+  },
+  "color_picket_clear": {
+    "message": "مسح",
+    "description": "زر المسح في منتقي الألوان."
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "تطبيق القواعد",
+    "description": "تسمية قديمة/مرادف لتطبيق القواعد المخصصة."
+  },
+  "log_stats_chart_type_bar": {
+    "message": "مخطط شريطي",
+    "description": "تسمية لخيار المخطط الشريطي."
+  },
+  "log_stats_chart_type_line": {
+    "message": "مخطط خطي",
+    "description": "تسمية لخيار المخطط الخطي."
+  },
+  "log_stats_daily_activity": {
+    "message": "النشاط اليومي (آخر 14 يومًا)",
+    "description": "عنوان قسم الإحصائيات للمخطط/الجدول اليومي."
+  },
+  "log_stats_date_col": {
+    "message": "التاريخ",
+    "description": "رأس عمود التاريخ في جدول الإحصائيات اليومية."
+  },
+  "log_stats_entries_col": {
+    "message": "الإدخالات",
+    "description": "رأس عمود الإدخالات في جدول الإحصائيات اليومية."
+  },
+  "log_stats_no_activity": {
+    "message": "لا يوجد نشاط",
+    "description": "تسمية صف احتياطي عندما لا تتوفر بيانات إحصائيات يومية."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL المرشحات (قابلية التشغيل البيني):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON القواعد:"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON معلومات القواعد:"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL قواعد التصفية:"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL مصادر التصفية:"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "حالة القاعدة:"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "حالة التجزئة:"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL حالة التصفية:"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "محملة"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "محملة جزئيا"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "جميع المصادر فاشلة"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "لم يتم تكوين مصادر تصفية URL بدون تجزئة"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "تم تعطيل القواعد عن بعد"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "لم يتم تحميلها"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "فارغ"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "غير مطلوب"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL مرشحات"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL مرشح"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "مرشحات مدمجة Linkumori URL"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "قواعد مخصصة Linkumori URL"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL محلل التصفية غير متوفر"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "فشلت القواعد المخصصة Linkumori URL"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL فشل مصدر (مصادر) التصفية"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "ملف التصفية البعيد URL فارغ"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL فشل جلب عامل التصفية"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "خطأ في التصفية URL غير معروف"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "فشلت جميع مصادر التصفية Linkumori URL"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "الامتداد الشائع URL مرشح التتبع"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "لم يتم العثور على قواعد Linkumori لقابلية التشغيل التفاعلي $removeparam المدعومة"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL قابلية التشغيل البيني للتصفية"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori مصدر عامل تصفية التشغيل البيني"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL القواعد"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori قواعد مخصصة URL"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "أضف القواعد الشائعة $removeparam أو $queryprune هنا. يتم تخزين هذه القواعد بشكل منفصل عن موفري الخدمة المخصصين ClearURLs ويتم دمجها في عوامل التصفية Linkumori URL."
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "التحقق من صحة"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "لم يتم تكوين قواعد Linkumori URL المخصصة."
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 القاعدة (القواعد) المدعومة، $2 تم تخطيها غير المدعومة، $3 تم تخطي التكرارات."
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "فشل التحقق من الصحة"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "تم الحفظ وإعادة التحميل Linkumori URL القواعد."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "فشل الحفظ"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "ستظهر القواعد المدعومة هنا بعد التحقق من الصحة."
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL محلل التصفية غير متوفر."
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL المرشحات (قابلية التشغيل البيني)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL الحالة"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "قواعد وقت التشغيل"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "القواعد المخصصة"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL التجزئة"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 قاعدة (قواعد) وقت التشغيل\n$3 القواعد المخصصة"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "إغلاق Linkumori قواعد URL المخصصة"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "ما هي قواعد Linkumori URL؟"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "قواعد Linkumori URL هي خطوط تتبع امتدادات شائعة URL تركز على $removeparam. وهي مفيدة عندما تريد لصق بناء جملة قائمة عوامل التصفية مباشرة بدلاً من إنشاء موفر ClearURLs JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "لا تحتاج مرشحات الامتداد الشائع عن بعد URL وهذه القواعد المخصصة إلى التحقق من التجزئة. يتم تخزينها في LinkumoriURLsData بعد التحليل، منفصلة عن ClearURLsData."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "تغيّر التوافق",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "عنوان URL الناتج من التوافق",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "قاعدة التوافق المطابقة",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "نوع نمط التوافق",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "إجراء التوافق",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
+  },
+  "popup_whitelist_state_permanent": {
+    "message": "القائمة البيضاء: $1 — انقر مرة أخرى لعلامة التبويب فقط",
+    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
+  },
+  "popup_whitelist_state_temporary": {
+    "message": "علامة التبويب فقط: $1 - انقر للإزالة",
+    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
+  },
+  "logger_nav_label": {
+    "message": "المسجل المباشر"
+  },
+  "logger_btn_pause": {
+    "message": "⏸ يوقف"
+  },
+  "logger_btn_resume": {
+    "message": "▶ سيرة ذاتية"
+  },
+  "logger_btn_clear": {
+    "message": "🗑 واضح"
+  },
+  "logger_btn_autoscroll": {
+    "message": "↕ التمرير التلقائي"
+  },
+  "logger_filter_label": {
+    "message": "فلتر"
+  },
+  "logger_filter_placeholder": {
+    "message": "تصفية الإدخالات..."
+  },
+  "logger_tab_filter_label": {
+    "message": "فاتورة غير مدفوعة"
+  },
+  "logger_tab_all": {
+    "message": "جميع علامات التبويب"
+  },
+  "logger_col_time": {
+    "message": "وقت"
+  },
+  "logger_col_action": {
+    "message": "فعل"
+  },
+  "logger_col_rule": {
+    "message": "قاعدة"
+  },
+  "logger_col_provider": {
+    "message": "مزود"
+  },
+  "logger_col_pattern": {
+    "message": "نمط"
+  },
+  "logger_col_type": {
+    "message": "يكتب"
+  },
+  "logger_col_method": {
+    "message": "طريقة"
+  },
+  "logger_col_url": {
+    "message": "URL"
+  },
+  "logger_status_entries": {
+    "message": "إدخالات"
+  },
+  "logger_empty_state": {
+    "message": "لا توجد إدخالات السجل حتى الآن. سيؤدي التصفح إلى ملء هذه القائمة."
+  },
+  "logger_logging_disabled_banner": {
+    "message": "تم تعطيل التسجيل - قم بتمكينه في الإعدادات لالتقاط الإدخالات الجديدة."
+  },
+  "logger_detail_title": {
+    "message": "تفاصيل الدخول"
+  },
+  "logger_detail_before": {
+    "message": "قبل"
+  },
+  "logger_detail_after": {
+    "message": "بعد"
+  },
+  "logger_detail_rule": {
+    "message": "قاعدة"
+  },
+  "logger_detail_provider": {
+    "message": "مزود"
+  },
+  "logger_detail_pattern": {
+    "message": "نمط"
+  },
+  "logger_detail_type": {
+    "message": "يكتب"
+  },
+  "logger_detail_method": {
+    "message": "طريقة"
+  },
+  "logger_detail_time": {
+    "message": "الطابع الزمني"
+  }
+}

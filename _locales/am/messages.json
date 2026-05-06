@@ -1,0 +1,4464 @@
+{
+  "aboutPageTitle": {
+    "message": "Linkumori - ስለ",
+    "description": "Title for the about/legal page"
+  },
+  "active_bundled_providers_label": {
+    "message": "ንቁ የተጠቀለሉ አቅራቢዎች፡-",
+    "description": "Label for active bundled providers count."
+  },
+  "active_remote_providers_label": {
+    "message": "ንቁ የርቀት አቅራቢዎች፡-",
+    "description": "Label for active remote providers count."
+  },
+  "addDomainToWhitelist": {
+    "message": "$1 ወደ የተፈቀደላቸው ዝርዝር ያክሉ",
+    "description": "Button label to add a domain to the whitelist. $1 is replaced with the domain."
+  },
+  "addcurrentdomain_to_whitelist": {
+    "message": "የአሁኑን ጎራ ወደ የተፈቀደላቸው ዝርዝር ያክሉ",
+    "description": "Button label to add the current domain to the whitelist."
+  },
+  "appearance_settings_title": {
+    "message": "የመልክ ቅንብሮች",
+    "description": "Title for the appearance settings section"
+  },
+  "badge_color_description": {
+    "message": "በእያንዳንዱ ገጽ ላይ የተጸዱ የመለኪያዎች ብዛት የሚያሳየውን የኤክስቴንሽን ባጅ ቀለም ይምረጡ።",
+    "description": "Description text explaining what the badge color setting does"
+  },
+  "badge_color_label": {
+    "message": "ባጅ ቀለም",
+    "description": "Label for the badge color picker"
+  },
+  "badge_preview_label": {
+    "message": "ቅድመ እይታ",
+    "description": "Label for the badge preview section"
+  },
+  "blocked_html_body": {
+    "message": "ይህ ጣቢያ በ <b>Linkumori (ንጹህ ዩአርኤሎች) </b> Add-on ታግዷል ፣ ምክንያቱም ይህንን ጣቢያ እንደ ማስታወቂያ እና/ወይም የመከታተያ አገልግሎት እንለያለን ። ይህንን ጣቢያ ለመጎብኘት በ Linkumori (ንጹህ ዩአርኤሎች) ቅንብሮች ውስጥ add-on ን ለጊዜው ማገድ ወይም ማሰናከል አለብዎት ። ከዚህ በኋላ ገጹን ለመጫን ከዚህ በታች ያለውን አዝራር ጠቅ ማድረግ ይችላሉ ።",
+    "description": "This string is used as body on the blocked site page."
+  },
+  "blocked_html_button": {
+    "message": "ገጽ ጎብኝ",
+    "description": "This string is used as button on the blocked site page."
+  },
+  "blocked_html_title": {
+    "message": "ይህ ጣቢያ በ<b>Linkumori (Clean URLS)</b> ታግዷል",
+    "description": "This string is used as title on the blocked site page."
+  },
+  "built_in_rules_enabled": {
+    "message": "አብሮገነብ ደንቦችን አንቃ",
+    "description": "Label for the toggle that enables or disables bundled built-in rules"
+  },
+  "built_in_rules_enabled_description": {
+    "message": "የታሸጉ Linkumori/ClearURLs ደንቦችን ይጠቀሙ ። ይህንን ከርቀት ህጎች እና/ወይም ብጁ ህጎች ጋር ብቻ ለማሄድ ያሰናክሉ ።",
+    "description": "Description for the toggle that controls bundled built-in rules"
+  },
+  "linkumori_interoperability_mode_enabled": {
+    "message": "የLinkumori ተኳኋኝነት ሁነታ",
+    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
+  },
+  "linkumori_interoperability_mode_enabled_description": {
+    "message": "ከLinkumori/ClearURLs JSON ደንቦች ጋር ተኳኋኝ የ$removeparam ዝርዝሮችን ጨምሮ የLinkumori URL Filter ተኳኋኝነት ደንቦችን ይተግብሩ።",
+    "description": "Description for the Linkumori interoperability mode toggle"
+  },
+  "bundled_rules_description": {
+    "message": "Linkumori ሁለት የደንቦች ምድቦችን ይጠቀማል Linkumori (ClearURLs 2.0) JSON ደንቦች ለአገር አቅራቢዎች እና Linkumori 987650055 ታዋቂ ለሆኑ አቅራቢዎች $removeparam ዝርዝሮች. እያንዳንዱ ምድብ በተናጠል ይቆጠራል.",
+    "description": "Description for the bundled rules section."
+  },
+  "bundled_rules_section_title": {
+    "message": "ደንቦች መረጃ",
+    "description": "Title for the Rules Information section."
+  },
+  "button_cancel": {
+    "message": "ሰርዝ"
+  },
+  "button_close": {
+    "message": "ገጠመ",
+    "description": "Close button text for FAQ modal"
+  },
+  "button_confirm": {
+    "message": "አረጋግጥ",
+    "description": "Generic confirm button text for modal dialogs"
+  },
+  "modal_alert_title": {
+    "message": "ማስታወቂያ",
+    "description": "Default title for alert-style modal dialogs"
+  },
+  "modal_confirm_title": {
+    "message": "አረጋግጥ",
+    "description": "Default title for confirm-style modal dialogs"
+  },
+  "modal_prompt_title": {
+    "message": "ግቤት ያስፈልጋል",
+    "description": "Default title for prompt-style modal dialogs"
+  },
+  "button_delete": {
+    "message": "ሰርዝ"
+  },
+  "button_exit": {
+    "message": "ውጣ",
+    "description": "Button text for exiting the editor"
+  },
+  "button_save": {
+    "message": "አስቀምጥ"
+  },
+  "cleanUrlsButton": {
+    "message": "ዩአርኤሎችን አጽዳ",
+    "description": "Text for the button that initiates URL cleaning."
+  },
+  "cleanUrlsToolHeader": {
+    "message": "Linkumori ንጹህ URLs መሣሪያ",
+    "description": "The main header of the URL cleaning tool."
+  },
+  "cleanUrlsToolTitle": {
+    "message": "Linkumori የላቀ ዩአርኤል ማጽጃ መሣሪያ",
+    "description": "The title of the URL cleaning tool page."
+  },
+  "cleanedUrlsPlaceholder": {
+    "message": "የተጸዱ ዩአርኤሎች እዚህ ይታያሉ...",
+    "description": "Placeholder text for the cleaned URLs textarea."
+  },
+  "cleanedUrlsTitle": {
+    "message": "የፀዱ ዩአርኤሎች",
+    "description": "Title for the cleaned URLs section."
+  },
+  "clipboard_copy_link": {
+    "message": "የንጹህ አገናኝ ቦታን ይቅዱ",
+    "description": "This string is used in the context menu to copy clean links."
+  },
+  "color_picker_cancel": {
+    "message": "ሰርዝ",
+    "description": "Cancel button in color picker"
+  },
+  "color_picker_clear": {
+    "message": "ግልጽ",
+    "description": "Clear button in color picker"
+  },
+  "color_picker_save": {
+    "message": "አስቀምጥ",
+    "description": "Save button in color picker"
+  },
+  "composition_breakdown_label": {
+    "message": "ቅንብር፡",
+    "description": "Label for bundled vs custom percentage breakdown."
+  },
+  "configs_switch_statistics": {
+    "message": "ስታትስቲክስ",
+    "description": "This string is used as name for the statistics switch button on the popup page."
+  },
+  "confirm_reset_settings": {
+    "message": "እርግጠኛ ነዎት ሁሉንም ቅንብሮች ወደ ነባሪ ዳግም ማስጀመር ይፈልጋሉ?",
+    "description": "Confirmation message before resetting settings."
+  },
+  "confirmation_error_template": {
+    "message": "ሐረግ አይዛመድም። እባክዎ በትክክል ይተይቡ፡ \"%s\"",
+    "description": "Template for error message with placeholder for localized phrase"
+  },
+  "confirmation_error_text": {
+    "message": "ሐረግ አይዛመድም። እባክዎን በትክክል ይተይቡ፡ \"ሙሉ ሀላፊነትን ተቀብያለሁ\"",
+    "description": "Error message for incorrect confirmation phrase"
+  },
+  "confirmation_final_text": {
+    "message": "እነዚህን አገልጋዮች ባለቤት መሆኔን/መቆጣጠርን አረጋግጣለሁ እና ለአጠቃቀምዎ ሁሉንም ኃላፊነት እቀበላለሁ ። ይህ ባህሪ ያለ ዋስትና \"እንደ\" የቀረበ ነው. በዚህ ስምምነት ላይ በሕጋዊ መንገድ መስማማት እችላለሁ ።",
+    "description": "Final warning text in confirmation modal"
+  },
+  "confirmation_input_label": {
+    "message": "ሐረጉን እዚህ ይተይቡ፡-",
+    "description": "Label for confirmation input field"
+  },
+  "confirmation_modal_cancel": {
+    "message": "ሰርዝ",
+    "description": "Cancel button text in confirmation modal"
+  },
+  "confirmation_modal_confirm": {
+    "message": "ያረጋግጡ እና የርቀት ዩአርኤሎችን አንቃ",
+    "description": "Confirm button text in confirmation modal"
+  },
+  "confirmation_modal_text": {
+    "message": "ለመቀጠል፣ እባክዎን የሚከተለውን የማረጋገጫ ሐረግ በትክክል እንደሚታየው ይተይቡ፡",
+    "description": "Instruction text for confirmation modal"
+  },
+  "confirmation_modal_title": {
+    "message": "ግንዛቤዎን ያረጋግጡ",
+    "description": "Title for confirmation modal"
+  },
+  "context_menu_enabled": {
+    "message": "የአውድ ምናሌ ግቤት አሳይ",
+    "description": "This string is used toggle the context menu entry to copy clean links."
+  },
+  "context_menu_enabled_description": {
+    "message": "የሊንኩሞሪ አማራጮችን ወደ ሜኑ በቀኝ ጠቅ ያድርጉ።",
+    "description": "Description for the context menu toggle."
+  },
+  "copyFailed": {
+    "message": "መቅዳት አልተሳካም!",
+    "description": "Toast message when copy action fails"
+  },
+  "copyText": {
+    "message": "ቅዳ",
+    "description": "Button text for copy action"
+  },
+  "copyUrlsButton": {
+    "message": "ውጤቶች ቅዳ",
+    "description": "Text for the button that copies cleaned URLs."
+  },
+  "copy_urls_empty": {
+    "message": "ምንም የሚቀዱ ዩአርኤሎች የሉም።",
+    "description": "Message when attempting to copy but the output URL area is empty."
+  },
+  "copy_urls_fail": {
+    "message": "ዩአርኤሎችን መቅዳት አልተሳካም።",
+    "description": "Error message when copying URLs to clipboard fails in the cleaning tool."
+  },
+  "copy_urls_success": {
+    "message": "ዩአርኤሎች ወደ ቅንጥብ ሰሌዳ ተቀድተዋል!",
+    "description": "Success message when URLs are copied to clipboard in the cleaning tool."
+  },
+  "customRulesEditor_addNewProvider": {
+    "message": "አዲስ አቅራቢ ያክሉ"
+  },
+  "customRulesEditor_addProvider": {
+    "message": "አቅራቢን ያክሉ"
+  },
+  "customRulesEditor_advancedJsonEditor": {
+    "message": "የላቀ JSON አርታዒ"
+  },
+  "customRulesEditor_builtin": {
+    "message": "አብሮ የተሰራ፡"
+  },
+  "customRulesEditor_completeProvider": {
+    "message": "ሙሉ አቅራቢ (ሙሉውን ጎራ ያግዳል)"
+  },
+  "customRulesEditor_confirmDelete": {
+    "message": "እርግጠኛ ነዎት አቅራቢውን \"$1\" መሰረዝ ይፈልጋሉ?"
+  },
+  "customRulesEditor_confirmDeleteAll": {
+    "message": "እርግጠኛ ነዎት ሁሉንም የ$1 አቅራቢዎችን መሰረዝ ይፈልጋሉ?"
+  },
+  "customRulesEditor_copy": {
+    "message": "ቅዳ"
+  },
+  "customRulesEditor_createFirst": {
+    "message": "የመጀመሪያ አቅራቢዎን ይፍጠሩ"
+  },
+  "customRulesEditor_custom": {
+    "message": "ብጁ፡"
+  },
+  "customRulesEditor_customProviders": {
+    "message": "ብጁ አቅራቢዎች"
+  },
+  "customRulesEditor_deleteAll": {
+    "message": "ሁሉንም ሰርዝ"
+  },
+  "customRulesEditor_deleteAllFailed": {
+    "message": "ሁሉንም አቅራቢዎችን መሰረዝ አልተሳካም።"
+  },
+  "customRulesEditor_deleteTooltip": {
+    "message": "የአሁኑን አቅራቢ ሰርዝ"
+  },
+  "customRulesEditor_description": {
+    "message": "አብሮ በተሰራው አቅራቢዎች ያልተሸፈኑ የድር ጣቢያዎች ብጁ የዩአርኤል ማጽጃ ደንቦችን ይፍጠሩ እና ያቀናብሩ።"
+  },
+  "customRulesEditor_disabled": {
+    "message": "ተሰናክሏል፡"
+  },
+  "customRulesEditor_domainExceptions": {
+    "message": "የጎራ ልዩ ሁኔታዎች"
+  },
+  "customRulesEditor_domainPatterns": {
+    "message": "የጎራ ቅጦች"
+  },
+  "customRulesEditor_domainPatternsHelp": {
+    "message": "ቀላል የጎራ ቅጦች (ከዩአርኤል ጥለት ጋር መጠቀም አይቻልም)። ቅርጸቶች፡ example.com፣ *.example.com፣ ||example.com^፣ ||*.example.com^ በመስመር አንድ ጥለት።",
+    "description": "Help text for domain patterns field"
+  },
+  "customRulesEditor_domainPatternsOption": {
+    "message": "የጎራ ቅጦች"
+  },
+  "customRulesEditor_domainPatternsPlaceholder": {
+    "message": "||emple.com^\n||*.subdomain.com^"
+  },
+  "customRulesEditor_domainPatternsRequired": {
+    "message": "ቢያንስ አንድ የጎራ ጥለት ያስፈልጋል"
+  },
+  "customRulesEditor_domainRedirections": {
+    "message": "የጎራ አቅጣጫ አቅጣጫዎች"
+  },
+  "customRulesEditor_duplicate": {
+    "message": "ማባዛት።"
+  },
+  "customRulesEditor_editName": {
+    "message": "ስም አርትዕ"
+  },
+  "customRulesEditor_editProvider": {
+    "message": "አቅራቢን ያርትዑ"
+  },
+  "customRulesEditor_editing": {
+    "message": "ማረም፡ $1"
+  },
+  "customRulesEditor_emptyDomainPattern": {
+    "message": "የጎራ ቅጦች ባዶ ሊሆኑ አይችሉም"
+  },
+  "customRulesEditor_enforceError": {
+    "message": "ማስፈጸም አልተሳካም።"
+  },
+  "customRulesEditor_enforceRules": {
+    "message": "ደንቦችን ማስፈጸም"
+  },
+  "customRulesEditor_enforceSuccess": {
+    "message": "የተተገበሩ ህጎች"
+  },
+  "customRulesEditor_enforceTooltip": {
+    "message": "ሁሉንም ደንቦች ወዲያውኑ ተግባራዊ ለማድረግ ቅጥያውን እንደገና ይጫኑ"
+  },
+  "customRulesEditor_exceptions": {
+    "message": "የተለዩ (የማካተት ዩአርኤሎች)"
+  },
+  "customRulesEditor_exitTooltip": {
+    "message": "ከአርታዒ ይውጡ እና ወደ አቅራቢዎች ዝርዝር ይመለሱ",
+    "description": "Tooltip text for the exit button in the custom rules editor"
+  },
+  "customRulesEditor_exportFailed": {
+    "message": "ደንቦችን ወደ ውጭ መላክ አልተሳካም።"
+  },
+  "customRulesEditor_exportTooltip": {
+    "message": "ብጁ ደንቦችን ወደ ፋይል ላክ"
+  },
+  "customRulesEditor_failedToSaveProvider": {
+    "message": "አቅራቢን ማስቀመጥ አልተሳካም።"
+  },
+  "customRulesEditor_forceRedirection": {
+    "message": "አቅጣጫ መቀየርን አስገድድ"
+  },
+  "customRulesEditor_httpMethods": {
+    "message": "HTTP ዘዴዎች",
+    "description": "Label for HTTP methods field"
+  },
+  "customRulesEditor_importConfirm": {
+    "message": "ይህ በፋይሉ ውስጥ የተካተቱትን የብጁ ሕግ ምድቦች ይተካል። ይቀጥል?"
+  },
+  "customRulesEditor_importFailed": {
+    "message": "ደንቦችን ማስመጣት አልተሳካም፡ $1"
+  },
+  "customRulesEditor_importTooltip": {
+    "message": "ብጁ ደንቦችን ከፋይል አስመጣ"
+  },
+  "customRulesEditor_invalidDomainPattern": {
+    "message": "ልክ ያልሆነ የጎራ ስርዓተ-ጥለት፡ {0}"
+  },
+  "customRulesEditor_invalidFileStructure": {
+    "message": "የፋይል መዋቅር ልክ አይደለም፦ የClearURLs አቅራቢዎች ወይም የLinkumori URL ብጁ ሕጎች ጎድለዋል"
+  },
+  "customRulesEditor_invalidUrlPattern": {
+    "message": "ልክ ያልሆነ URL ጥለት regex፡ $1"
+  },
+  "customRulesEditor_jsonError": {
+    "message": "JSON ስህተት፡ $1"
+  },
+  "customRulesEditor_jsonPlaceholder": {
+    "message": "JSON እዚህ ይታያል..."
+  },
+  "customRulesEditor_jsonRequired": {
+    "message": "የJSON ይዘት ያስፈልጋል"
+  },
+  "customRulesEditor_jsonToolbarHelp": {
+    "message": "urlPattern ን ጠቅ ማድረግ የጎራ ቅጦችን ያስወግዳል እና በተቃራኒው።"
+  },
+  "customRulesEditor_jsonToolbarTitle": {
+    "message": "መስክ ወደ JSON አክል"
+  },
+  "customRulesEditor_nav_rules": {
+    "message": "ብጁ ህጎች",
+    "description": "Navigation label for custom rules view"
+  },
+  "customRulesEditor_nav_whitelist": {
+    "message": "የተፈቀደላቸው ዝርዝር",
+    "description": "Navigation label for whitelist view"
+  },
+  "customRulesEditor_noProvidersInFile": {
+    "message": "በፋይል ውስጥ ምንም አቅራቢዎች አልተገኙም።"
+  },
+  "customRulesEditor_pageTitle": {
+    "message": "ብጁ ህጎች አርታዒ እና የተፈቀደላቸው ዝርዝር አስተዳደር"
+  },
+  "customRulesEditor_patternType": {
+    "message": "የስርዓተ-ጥለት ዓይነት"
+  },
+  "customRulesEditor_patternTypeHelp": {
+    "message": "ለዚህ አቅራቢ እንዴት ዩአርኤሎችን ማዛመድ እንደሚቻል ይምረጡ"
+  },
+  "customRulesEditor_patternTypeRequired": {
+    "message": "እባክዎ የስርዓተ ጥለት አይነት ይምረጡ"
+  },
+  "customRulesEditor_providerHasBothPatternTypes": {
+    "message": "አቅራቢ \"$1\" ሁለቱንም urlPattern እና domain Patterns ሊኖረው አይችልም"
+  },
+  "customRulesEditor_providerHasEmptyDomainPattern": {
+    "message": "አቅራቢ \"$1\" ባዶ የጎራ ቅጦች አሉት"
+  },
+  "customRulesEditor_providerMissingUrlPattern": {
+    "message": "አቅራቢ \"$1\" urlPattern ይጎድላል"
+  },
+  "customRulesEditor_providerMissingUrlPatternOrDomainPatterns": {
+    "message": "አቅራቢ \"$1\" ዩአርኤል ፓተርን ወይም የጎራ ጥለት ሊኖረው ይገባል"
+  },
+  "customRulesEditor_providerName": {
+    "message": "የአቅራቢ ስም *"
+  },
+  "customRulesEditor_providerNameExists": {
+    "message": "ይህ ስም ያለው አቅራቢ አስቀድሞ አለ።"
+  },
+  "customRulesEditor_providerNameHelp": {
+    "message": "ለዚህ አገልግሎት አቅራቢ ልዩ መለያ (ለምሳሌ \"example.com\"፣ \"mysite\")"
+  },
+  "customRulesEditor_providerNamePlaceholder": {
+    "message": "ለምሳሌ፡ example.com፡ mysite"
+  },
+  "customRulesEditor_providerNameRequired": {
+    "message": "የአቅራቢ ስም ያስፈልጋል"
+  },
+  "customRulesEditor_rawRules": {
+    "message": "ጥሬ ደንቦች (regex ቅጦች)"
+  },
+  "customRulesEditor_redirections": {
+    "message": "አቅጣጫ ማዞር (ቅጦች)"
+  },
+  "customRulesEditor_referralMarketing": {
+    "message": "ሪፈራል ግብይት"
+  },
+  "customRulesEditor_resourceTypes": {
+    "message": "የመርጃ ዓይነቶች"
+  },
+  "customRulesEditor_rules": {
+    "message": "ደንቦች (የሚወገዱ የዩአርኤል መለኪያዎች)"
+  },
+  "customRulesEditor_rulesStatus": {
+    "message": "ደንቦች ሁኔታ"
+  },
+  "customRulesEditor_saveProvider": {
+    "message": "አቅራቢን ያስቀምጡ"
+  },
+  "customRulesEditor_saveTooltip": {
+    "message": "የአሁኑን አቅራቢ ያስቀምጡ"
+  },
+  "customRulesEditor_selectProvider": {
+    "message": "ለማርትዕ አቅራቢ ይምረጡ"
+  },
+  "customRulesEditor_title": {
+    "message": "ብጁ ደንቦች አርታዒ - ClearURLs"
+  },
+  "customRulesEditor_total": {
+    "message": "ጠቅላላ፡"
+  },
+  "customRulesEditor_unsavedChanges": {
+    "message": "ያልተቀመጡ ለውጦች አሉዎት። ሳታስቀምጥ ይቀጥሉ?"
+  },
+  "customRulesEditor_urlPattern": {
+    "message": "የዩአርኤል ንድፍ *"
+  },
+  "customRulesEditor_urlPatternAndDomainPatternsExclusive": {
+    "message": "የዩአርኤል ስርዓተ-ጥለት እና የጎራ ጥለት አንድ ላይ መጠቀም አይቻልም"
+  },
+  "customRulesEditor_urlPatternHelp": {
+    "message": "መደበኛ አገላለጽ ዩአርኤሎችን ለማዛመድ"
+  },
+  "customRulesEditor_urlPatternOption": {
+    "message": "የዩአርኤል ንድፍ (ሬጌክስ)"
+  },
+  "customRulesEditor_urlPatternOrDomainPatternsRequired": {
+    "message": "የዩአርኤል ጥለት ወይም የጎራ ጥለት ያስፈልጋል"
+  },
+  "customRulesEditor_urlPatternPlaceholder": {
+    "message": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ምሳሌ\\.com"
+  },
+  "customRulesEditor_urlPatternRequired": {
+    "message": "URL ጥለት ያስፈልጋል"
+  },
+  "customRulesEditor_welcome": {
+    "message": "ወደ ብጁ ደንቦች አርታዒ እንኳን በደህና መጡ"
+  },
+  "custom_providers_label": {
+    "message": "ብጁ አቅራቢዎች፡",
+    "description": "Label for custom providers count."
+  },
+  "customrules": {
+    "message": "ብጁ ህጎች"
+  },
+  "datatable_empty_table": {
+    "message": "በሰንጠረዡ ውስጥ ምንም ውሂብ የለም",
+    "description": "DataTables empty table message"
+  },
+  "datatable_info": {
+    "message": "ከ_START_ ወደ _END_ የ_TOTAL_ ግቤቶችን በማሳየት ላይ",
+    "description": "DataTables pagination info"
+  },
+  "datatable_info_empty": {
+    "message": "ከ0 ወደ 0 ከ0 ግቤቶች በማሳየት ላይ",
+    "description": "DataTables info when no data"
+  },
+  "datatable_showing_all": {
+    "message": "ሁሉንም የ$1 ግቤቶችን በማሳየት ላይ",
+    "description": "Info message when showing all entries. $1=total count"
+  },
+  "datatable_showing_entries": {
+    "message": "ከ$1 ወደ $2 የ$3 ግቤቶችን በማሳየት ላይ",
+    "description": "Pagination info showing current range. $1=start, $2=end, $3=total"
+  },
+  "datatable_zero_records": {
+    "message": "ምንም ተዛማጅ መዝገቦች አልተገኙም።",
+    "description": "DataTables no search results message"
+  },
+  "domain_blocking_enabled": {
+    "message": "ጎራ ማገድን ፍቀድ (አድብሎከርን ወደማይፈቅዱ ገፆች ላይ ወደ ችግሮች ሊያመራ ይችላል)",
+    "description": "This string is used as label for the domain blocking switch"
+  },
+  "domain_blocking_enabled_description": {
+    "message": "ለተወሰኑ ጎራዎች ጥያቄዎችን አግድ።",
+    "description": "Description for the domain blocking toggle."
+  },
+  "downloadFailed": {
+    "message": "ማውረድ አልተሳካም!",
+    "description": "Toast message when download action fails"
+  },
+  "downloadText": {
+    "message": "አውርድ",
+    "description": "Button text for download action"
+  },
+  "eTag_filtering_enabled": {
+    "message": "ETag ራስጌዎችን ከጥያቄዎች ያጣራል።",
+    "description": "This string is used as label for the ETag header filtering switch"
+  },
+  "eTag_filtering_enabled_description": {
+    "message": "ክትትልን ለመከላከል ETag ራስጌዎችን ያስወግዱ።",
+    "description": "Description for the ETag filtering toggle."
+  },
+  "eTag_filtering_log": {
+    "message": "ETag ራስጌ ከዚህ ጥያቄ ተወግዷል",
+    "description": "This string is used on ETag header filtering in the Linkumori (Clean URLS) log."
+  },
+  "errorMessages_getCurrentDomain": {
+    "message": "የአሁኑን ጎራ ማግኘት አልተቻለም",
+    "description": "Error message when the current domain cannot be determined."
+  },
+  "error_loading_data": {
+    "message": "የምዝግብ ማስታወሻ ውሂብን መጫን አልተሳካም። እባክዎ ገጹን ያድሱ።",
+    "description": "Error message when log data cannot be loaded from storage"
+  },
+  "error_rendering_table": {
+    "message": "የሰንጠረዥ ውሂብ በመስራት ላይ ስህተት",
+    "description": "Error message when table fails to render"
+  },
+  "extension_description": {
+    "message": "የመከታተያ ክፍሎችን ከዩአርኤሎች ያስወግዱ።",
+    "description": "Extension description (max. 132 characters)"
+  },
+  "fallback_rules_loaded": {
+    "message": "የተጠቃለለ ህግን በተመለከተ ተበላሽቷል ወይም በትክክል አልተጫነም ሊሆን ይችላል. በምትኩ የመመለሻ ህጎች ተጭነዋል።"
+  },
+  "faq_caution": {
+    "message": "ጥንቃቄ፡-",
+    "description": "Label for cautions in FAQ"
+  },
+  "faq_common_mistakes": {
+    "message": "መወገድ ያለባቸው የተለመዱ ስህተቶች ምንድን ናቸው?",
+    "description": "FAQ question about common mistakes"
+  },
+  "faq_complete_provider": {
+    "message": "የተሟላ አቅራቢ ምን ያደርጋል?",
+    "description": "FAQ question about completeProvider"
+  },
+  "faq_complete_provider_explanation": {
+    "message": "ወደ እውነት ሲዋቀር፣ ሙሉ አቅራቢው የማገድ ጥያቄዎችን ያመላክታል። ትክክለኛው እገዳ የሚከሰተው ሁለንተናዊ \"የጎራ ማገድ\" ቅንብር ሲነቃ ብቻ ነው። ሐሰት ሲሆን መደበኛ ደንቦችን፣ ልዩ ሁኔታዎችን እና አቅጣጫዎችን መጠቀም ይችላሉ።",
+    "description": "FAQ answer explaining completeProvider"
+  },
+  "faq_complete_provider_usage": {
+    "message": "አብዛኛዎቹ ብጁ ሕጎች ይህንን ወደ ሐሰት ማዋቀር እና በምትኩ የተወሰኑ የመለኪያ አወጋገድ ደንቦችን መጠቀም አለባቸው።",
+    "description": "FAQ guidance on completeProvider usage"
+  },
+  "faq_complete_provider_warning": {
+    "message": "የጎራ እገዳ ከነቃ ይህ ለተዛማጅ ዩአርኤሎች ሙሉ መዳረሻን ሊያግድ ይችላል።",
+    "description": "FAQ warning about completeProvider"
+  },
+  "faq_complex_example": {
+    "message": "ውስብስብ አቅራቢ ምሳሌ አሳየኝ።",
+    "description": "FAQ question requesting complex example"
+  },
+  "faq_complex_example_explanation": {
+    "message": "ይህ አቅራቢ የመከታተያ መለኪያዎችን እና ቁርጥራጮችን ያስወግዳል፣ ማዘዋወርን ይቆጣጠራል፣ ነገር ግን ኤፒአይን፣ መግቢያን እና የፍተሻ ገፆችን ከመቀየር ይጠብቃል።",
+    "description": "FAQ explanation of complex example"
+  },
+  "faq_complex_example_intro": {
+    "message": "አቅጣጫ መቀየር እና የማይካተቱት የላቀ አቅራቢ ይኸውና፡",
+    "description": "FAQ intro to complex example"
+  },
+  "faq_custom_rules_note": {
+    "message": "ብጁ ህጎች ከተገነቡ ህጎች ጋር አብረው ይሰራሉ እና በስም የተዋሃዱ/የርቀት አቅራቢ ግቤቶችን ማለፍ ይችላሉ ።",
+    "description": "Note about custom rules precedence"
+  },
+  "faq_default_note": {
+    "message": "ነባሪ፡",
+    "description": "Label for default behavior notes in FAQ"
+  },
+  "faq_domain_exceptions": {
+    "message": "የጎራ ልዩ ሁኔታዎች ምንድን ናቸው?",
+    "description": "FAQ question about domain exceptions"
+  },
+  "faq_domain_exceptions_explanation": {
+    "message": "የጎራ ልዩ ሁኔታዎች እንደ መደበኛ የማይካተቱ ይሰራሉ ​​ነገር ግን ከ regex ይልቅ ቀላሉን የጎራ ጥለት ቅርጸት ይጠቀሙ። የተወሰኑ ጎራዎችን ወይም ንዑስ ጎራዎችን ከማቀናበር እንዲያስወግዱ ያስችሉዎታል።",
+    "description": "FAQ explanation of domain exceptions"
+  },
+  "faq_domain_exceptions_tip": {
+    "message": "የጎራ ልዩ ሁኔታዎች እንደ Domain Patterns ተመሳሳይ ቅጦችን ይጠቀማሉ ነገር ግን ከ regex ልዩ ሁኔታዎች የበለጠ ቀላል።",
+    "description": "FAQ tip about domain exceptions"
+  },
+  "faq_domain_pattern_adblock": {
+    "message": "||example.com^ - የአስተናጋጅ ስም ለምሳሌ.com እና ንዑስ ጎራዎቹ ይዛመዳሉ",
+    "description": "FAQ explanation of AdBlock domain pattern"
+  },
+  "faq_domain_pattern_adblock_wildcard": {
+    "message": "||*.example.com^ - የአስተናጋጅ ስም የዱር ካርድ; እያንዳንዱ * ከአንድ መለያ ጋር ይዛመዳል (ነጥብ ክፍል)",
+    "description": "FAQ explanation of AdBlock wildcard pattern"
+  },
+  "faq_domain_pattern_basic": {
+    "message": "com - ሙሉ ዩአርኤል ላይ ቀላል ምትክ ግጥሚያ (በተጨማሪም ረዘም አስተናጋጅ ስሞች/ዱካዎች ውስጥ ማዛመድ ይችላሉ)",
+    "description": "FAQ explanation of basic domain pattern"
+  },
+  "faq_domain_pattern_full_wildcard": {
+    "message": "||*.ምሳሌ።*^ - ባለብዙ ክፍል TLDዎችን (ለምሳሌ ምሳሌ.co.uk) ጨምሮ ከዱር ካርድ TLDs ጋር ይዛመዳል።",
+    "description": "FAQ explanation of full wildcard pattern"
+  },
+  "faq_domain_pattern_tld": {
+    "message": "||ምሳሌ።*^ - ጎራውን ከዱር ካርድ TLDs ጋር ያዛምዳል፣ ባለ ብዙ ክፍል TLDs (example.co.uk፣ example.gov.in) ጨምሮ",
+    "description": "FAQ explanation of TLD wildcard domain pattern"
+  },
+  "faq_domain_pattern_types": {
+    "message": "የጎራ ጥለት ዓይነቶች፡-",
+    "description": "FAQ section title for domain pattern types"
+  },
+  "faq_domain_pattern_wildcard": {
+    "message": "*.example.com - ዋይልድካርድ ሪጅክስ ሙሉ ዩአርኤል ላይ ይዛመዳል፣ ጥብቅ የአስተናጋጅ ስም-ብቻ ተዛማጅ አይደለም።",
+    "description": "FAQ explanation of wildcard domain pattern"
+  },
+  "faq_domain_patterns": {
+    "message": "የጎራ ቅጦች ከዩአርኤል ቅጦች ጋር",
+    "description": "FAQ question about domain patterns vs URL patterns"
+  },
+  "faq_domain_patterns_explanation": {
+    "message": "የጎራ ቅጦች ቀላል ቶከኖች እና የAdBlock አይነት ቅጾችን ይደግፋሉ። የማዛመድ ባህሪ በአገባብ ላይ የተመሰረተ ነው (አንዳንድ ቅጾች የአስተናጋጅ ስምን ያረጋግጣሉ፣ ሌሎች ደግሞ ከሙሉ ዩአርኤል ሕብረቁምፊ ጋር ይዛመዳሉ)",
+    "description": "FAQ explanation of domain patterns"
+  },
+  "faq_domain_redirections": {
+    "message": "የጎራ አቅጣጫ አቅጣጫዎች ምንድን ናቸው?",
+    "description": "FAQ question about domain redirections"
+  },
+  "faq_domain_redirections_example": {
+    "message": "redirect.example.com$reirect=https://target.com ሁሉንም ዩ አር ኤልዎች ከ redirect.example.com ወደ https://target.com ያስተላልፋል",
+    "description": "FAQ example of domain redirections"
+  },
+  "faq_domain_redirections_explanation": {
+    "message": "የጎራ ማዘዋወር ዩአርኤሎችን ለማግኘት እና የታለመውን መድረሻ ለማውጣት የጎራ ንድፎችን ይጠቀማሉ። ለቀላል የማዛወር ካርታ ልዩ የ$redirect= አገባብ ይደግፋሉ።",
+    "description": "FAQ explanation of domain redirections"
+  },
+  "faq_example": {
+    "message": "ለምሳሌ፥",
+    "description": "Label for examples in FAQ"
+  },
+  "faq_exceptions": {
+    "message": "ልዩ ሁኔታዎች እንዴት ይሠራሉ?",
+    "description": "FAQ question about exceptions"
+  },
+  "faq_exceptions_explanation": {
+    "message": "ልዩ ሁኔታዎች ምንም ሂደት መከሰት በማይኖርበት ዩአርኤሎች ጋር የሚዛመዱ regex ቅጦች ናቸው። አንድ ዩአርኤል ከተለየ ሁኔታ ጋር የሚዛመድ ከሆነ፣ ሁሉም ሌሎች ደንቦች ችላ ይባላሉ።",
+    "description": "FAQ explanation of exceptions"
+  },
+  "faq_exceptions_usage": {
+    "message": "የመግቢያ ገጾችን፣ የኤፒአይ የመጨረሻ ነጥቦችን ወይም ሌሎች ሚስጥራዊነት ያላቸውን ዩአርኤሎች እንዳይሻሻሉ ለመከላከል ልዩ ሁኔታዎችን ይጠቀሙ።",
+    "description": "FAQ guidance on exceptions usage"
+  },
+  "faq_force_redirection": {
+    "message": "የኃይል አቅጣጫን መቼ መጠቀም አለብኝ?",
+    "description": "FAQ question about forceRedirection"
+  },
+  "faq_force_redirection_explanation": {
+    "message": "አንዳንድ ድረ-ገጾች በጃቫስክሪፕት በኩል አገናኞችን ያስተካክላሉ፣ ይህም መደበኛ አቅጣጫ መቀየርን ይከለክላል። forceRedirection ዩአርኤሉን በቀጥታ ወደ አሳሹ ዋና ፍሬም ይጽፋል።",
+    "description": "FAQ explanation of forceRedirection"
+  },
+  "faq_force_redirection_usage": {
+    "message": "ከቀጥታ href ባህሪያት ይልቅ onClick ተቆጣጣሪዎችን ለሚጠቀሙ እንደ Google ላሉ ድር ጣቢያዎች ይህን አንቃ።",
+    "description": "FAQ guidance on forceRedirection usage"
+  },
+  "faq_force_redirection_warning": {
+    "message": "ይህ ዘዴ የበለጠ ጣልቃ የሚገባ ስለሆነ የተለመዱ ማዞሪያዎች ሲቀሩ ብቻ ይጠቀሙ.",
+    "description": "FAQ warning about forceRedirection"
+  },
+  "faq_how_providers_work": {
+    "message": "አቅራቢዎች እንዴት ይሰራሉ?",
+    "description": "FAQ question about how providers work"
+  },
+  "faq_http_methods": {
+    "message": "HTTP ዘዴዎች ምንድን ናቸው?",
+    "description": "FAQ question about HTTP methods"
+  },
+  "faq_http_methods_common": {
+    "message": "የተለመዱ የኤችቲቲፒ ዘዴዎች",
+    "description": "FAQ section title for common HTTP methods"
+  },
+  "faq_http_methods_delete": {
+    "message": "ሰርዝ - ስራዎችን ሰርዝ",
+    "description": "FAQ list item for DELETE method"
+  },
+  "faq_http_methods_explanation": {
+    "message": "የኤችቲቲፒ ዘዴዎች የተወሰኑ የኤችቲቲፒ ጥያቄዎችን (GET፣ POST፣ PUT፣ DELETE፣ ወዘተ) ላይ ብቻ ደንቦችን እንዲተገብሩ ያስችሉዎታል። ይህ የትኛዎቹ የጥያቄ ዘዴዎች ህጎችዎን እንደሚያስነሳሱ ላይ ቁጥጥር ይሰጥዎታል።",
+    "description": "FAQ explanation of HTTP methods"
+  },
+  "faq_http_methods_get": {
+    "message": "GET - መደበኛ የድረ-ገጽ ጥያቄዎች",
+    "description": "FAQ list item for GET method"
+  },
+  "faq_http_methods_head": {
+    "message": "HEAD - የራስጌ-ብቻ ጥያቄዎች",
+    "description": "FAQ list item for HEAD method"
+  },
+  "faq_http_methods_options": {
+    "message": "አማራጮች - የቅድመ በረራ CORS ጥያቄዎች",
+    "description": "FAQ list item for OPTIONS method"
+  },
+  "faq_http_methods_post": {
+    "message": "POST - ቅፅ ቅፅ እና የኤፒአይ ጥሪዎች",
+    "description": "FAQ list item for POST method"
+  },
+  "faq_http_methods_put": {
+    "message": "PUT - ክወናዎችን አዘምን",
+    "description": "FAQ list item for PUT method"
+  },
+  "faq_http_methods_tip": {
+    "message": "በሁሉም የኤችቲቲፒ ስልቶች ላይ ለመተግበር ባዶ ይተውት ወይም እርስዎ ዒላማ ለማድረግ የሚፈልጓቸውን ዘዴዎች ብቻ ይጥቀሱ።",
+    "description": "FAQ tip about HTTP methods"
+  },
+  "faq_import_benefit_quick": {
+    "message": "ፈጣን ቅንብር - ውስብስብ ንድፎችን በእጅ መፍጠር አያስፈልግም",
+    "description": "FAQ benefit of quick setup via import"
+  },
+  "faq_import_benefit_search": {
+    "message": "በትክክል የሚፈልጉትን ለማግኘት ይፈልጉ እና ያጣሩ",
+    "description": "FAQ benefit of search functionality"
+  },
+  "faq_import_benefit_tested": {
+    "message": "በትክክል እንደሚሰሩ የሚታወቁ ቅድመ-የተሞከሩ ደንቦች",
+    "description": "FAQ benefit of tested rules via import"
+  },
+  "faq_import_benefit_updates": {
+    "message": "ከአዳዲስ አቅራቢዎች ጋር ማዘመን ቀላል ነው።",
+    "description": "FAQ benefit of easy updates via import"
+  },
+  "faq_list_feature_actions": {
+    "message": "በነጠላ ጠቅታ አቅራቢዎችን ያርትዑ፣ ያባዙ ወይም ይሰርዙ",
+    "description": "FAQ feature of quick actions"
+  },
+  "faq_list_feature_overview": {
+    "message": "ቁልፍ ስታቲስቲክስ ያላቸው የሁሉም አቅራቢዎች ፈጣን አጠቃላይ እይታ",
+    "description": "FAQ feature of provider overview"
+  },
+  "faq_list_feature_search": {
+    "message": "የተወሰኑትን በፍጥነት ለማግኘት አቅራቢዎችን በስም ይፈልጉ",
+    "description": "FAQ feature of provider search"
+  },
+  "faq_list_feature_stats": {
+    "message": "የደንብ ቆጠራዎችን እና የስርዓተ-ጥለት አይነቶችን በጨረፍታ ይመልከቱ",
+    "description": "FAQ feature of statistics display"
+  },
+  "faq_mistake_broad": {
+    "message": "ዩአርኤል ፓተርን በጣም ሰፊ ማድረግ (ያልታሰቡ ጣቢያዎችን ማዛመድ)",
+    "description": "FAQ common mistake about broad patterns"
+  },
+  "faq_mistake_complete": {
+    "message": "ጣቢያውን ማገድ ካልፈለጉ በስተቀር የተሟላ አቅራቢን ወደ እውነት ማዋቀር",
+    "description": "FAQ common mistake about completeProvider"
+  },
+  "faq_mistake_escape": {
+    "message": "በስርዓተ-ጥለት ውስጥ ልዩ regex ቁምፊዎችን ለማምለጥ በመርሳት ላይ",
+    "description": "FAQ common mistake about escaping regex"
+  },
+  "faq_mistake_exceptions": {
+    "message": "ለአስፈላጊ ተግባር ልዩ ሁኔታዎችን አለመጨመር",
+    "description": "FAQ common mistake about missing exceptions"
+  },
+  "faq_mistake_testing": {
+    "message": "ከመሰማራቱ በፊት ደንቦችን በደንብ አለመሞከር",
+    "description": "FAQ common mistake about insufficient testing"
+  },
+  "faq_note": {
+    "message": "ማስታወሻ፡-",
+    "description": "Label for important notes in FAQ"
+  },
+  "faq_pattern_exclusive_note": {
+    "message": "ሁለቱም መስኮች በውሂብ ውስጥ ሊኖሩ ይችላሉ፣ ነገር ግን urlPattern ቅድሚያ ይሰጣል። የጎራ ቅጦች ጥቅም ላይ የሚውሉት urlPattern ባዶ ሲሆን ብቻ ነው። የጎራ ማዛመድ ፒኤስኤልን የሚያውቅ ነው፣ ሊመዘገብ የሚችል የጎራ አያያዝ እና ባለብዙ ክፍል TLD ድጋፍን ጨምሮ።",
+    "description": "FAQ note about pattern exclusivity"
+  },
+  "faq_perf_combine": {
+    "message": "ብዙ ተመሳሳይ ንድፎችን ወደ አንድ regex ያዋህዱ",
+    "description": "FAQ performance tip about combining patterns"
+  },
+  "faq_perf_limit": {
+    "message": "የአቅራቢዎችን ብዛት ለሚፈልጉት ነገር ይገድቡ",
+    "description": "FAQ performance tip about limiting providers"
+  },
+  "faq_perf_review": {
+    "message": "ጥቅም ላይ ያልዋሉ ህጎችን በመደበኛነት ይከልሱ እና ያፅዱ",
+    "description": "FAQ performance tip about regular review"
+  },
+  "faq_perf_simple": {
+    "message": "ከተወሳሰቡ ጥሬዎች ይልቅ ቀላል ደንቦችን ይጠቀሙ",
+    "description": "FAQ performance tip about simple rules"
+  },
+  "faq_perf_specific": {
+    "message": "urlPattern በተቻለ መጠን የተወሰነ ያድርጉት",
+    "description": "FAQ performance tip about specific patterns"
+  },
+  "faq_performance_tips": {
+    "message": "አፈጻጸምን እንዴት ማሳደግ እችላለሁ?",
+    "description": "FAQ question about performance optimization"
+  },
+  "faq_provider_example": {
+    "message": "ለምሳሌ፣ የ\"Google\" አገልግሎት አቅራቢ የመከታተያ መለኪያዎችን ከፍለጋ ውጤቶች፣ ከዩቲዩብ አገናኞች፣ ወዘተ ለማስወገድ ሁሉንም የGoogle አገልግሎቶችን ከህጎች ጋር ያስተናግዳል።",
+    "description": "FAQ example of provider usage"
+  },
+  "faq_provider_import": {
+    "message": "አቅራቢዎችን ከደንቦች እንዴት ማስመጣት እችላለሁ?",
+    "description": "FAQ question about provider import feature"
+  },
+  "faq_provider_import_benefits": {
+    "message": "የማስመጣት ጥቅሞች፡-",
+    "description": "FAQ section title for import benefits"
+  },
+  "faq_provider_import_explanation": {
+    "message": "የአቅራቢው ማስመጣት ባህሪ አብሮ ከተሰራው የደንብ ካታሎግ አቅራቢዎችን በፍጥነት እንዲያክሉ ያስችልዎታል። ለማሰስ እና አቅራቢዎችን ለመምረጥ 'ከህጎች አስመጣ' የሚለውን ቁልፍ ጠቅ ያድርጉ።",
+    "description": "FAQ explanation of provider import feature"
+  },
+  "faq_provider_import_tip": {
+    "message": "ብዙ አቅራቢዎችን በመምረጥ እና አስመጣን ጠቅ በማድረግ በአንድ ጊዜ ማስመጣት ይችላሉ።",
+    "description": "FAQ tip about provider import"
+  },
+  "faq_provider_list": {
+    "message": "አቅራቢዎቼን በብቃት እንዴት ማስተዳደር እችላለሁ?",
+    "description": "FAQ question about provider list management"
+  },
+  "faq_provider_list_explanation": {
+    "message": "የአቅራቢ ዝርዝር እይታ የሁሉም ብጁ አቅራቢዎች ፈጣን አጠቃላይ እይታ ይሰጥዎታል። እያንዳንዳቸውን በግል ሳይከፍቱ አቅራቢዎችን መፈለግ፣ ማርትዕ፣ ማባዛት ወይም መሰረዝ ይችላሉ።",
+    "description": "FAQ explanation of provider list feature"
+  },
+  "faq_provider_list_features": {
+    "message": "የአቅራቢዎች ዝርዝር ባህሪዎች",
+    "description": "FAQ section title for provider list features"
+  },
+  "faq_provider_list_tip": {
+    "message": "አቅራቢዎችን ለማሰስ እና ለማስተዳደር የአቅራቢ ዝርዝሩን ከአርታዒ መሣሪያ አሞሌ ይክፈቱ።",
+    "description": "FAQ tip about provider list"
+  },
+  "faq_providers_explanation": {
+    "message": "አቅራቢዎች በተመሳሳዩ የዩአርኤል ስርዓተ-ጥለት ስር ብዙ ደንቦችን የሚያሰባስቡ ምክንያታዊ ክፍሎች ናቸው። እያንዳንዱ አቅራቢ አንድን የተወሰነ ድር ጣቢያ ወይም አገልግሎት ላይ ያነጣጠረ ሲሆን ዩአርኤሎችን ከዚያ ምንጭ ለማጽዳት የሚያስፈልጉትን ሁሉንም ደንቦች ይዟል።",
+    "description": "FAQ answer explaining providers"
+  },
+  "faq_raw_rules_explanation": {
+    "message": "የቀጥታ regex ቅጦች በመላው ዩአርኤል ላይ ተተግብረዋል። መደበኛውን የመለኪያ ፎርማት ለማይመጥኑ ውስብስብ ቅጦች ተጠቀም።",
+    "description": "FAQ explanation of rawRules"
+  },
+  "faq_raw_rules_title": {
+    "message": "ጥሬ ደንቦች፡-",
+    "description": "FAQ section title for rawRules explanation"
+  },
+  "faq_raw_rules_usage": {
+    "message": "ጥሬ ደንቦቹን ለክፍሎች፣ የመንገድ ክፍሎች ወይም ውስብስብ የመለኪያ ቅጦችን ይጠቀሙ።",
+    "description": "FAQ guidance on rawRules usage"
+  },
+  "faq_redirections": {
+    "message": "ማዞሪያዎች እንዴት ይሰራሉ?",
+    "description": "FAQ question about redirections"
+  },
+  "faq_redirections_example": {
+    "message": "https://redirect.com?url=https%3A//target.com ይሆናል https://target.com",
+    "description": "FAQ example of redirection process"
+  },
+  "faq_redirections_explanation": {
+    "message": "ማዘዋወር እውነተኛውን የመድረሻ ዩአርኤል ከተዘዋዋሪ አገልግሎቶች ያወጣል። በ regex ውስጥ ያለው የመጀመሪያው የተቀረጸ ቡድን አዲሱ ዩአርኤል ይሆናል።",
+    "description": "FAQ explanation of redirections"
+  },
+  "faq_redirections_process": {
+    "message": "የተያዘው ዩአርኤል በራስ-ሰር በዲኮድ URIComponent() ይገለጣል እና ዋናውን ዩአርኤል ይተካል።",
+    "description": "FAQ explanation of redirection processing"
+  },
+  "faq_referral_default": {
+    "message": "ሪፈራል ማሻሻጥ በነባሪነት ተሰናክሏል፣ ስለዚህ እነዚህ መለኪያዎች በተጠቃሚው ካልተፈቀደላቸው በስተቀር ይወገዳሉ።",
+    "description": "FAQ note about referralMarketing default behavior"
+  },
+  "faq_referral_explanation": {
+    "message": "ሪፈራል የግብይት መለኪያዎች የይዘት ፈጣሪዎች ኮሚሽን እንዲያገኙ ያግዛሉ። እነዚህ መለኪያዎች የሚወገዱት ተጠቃሚው በቅንብሮች ውስጥ የሪፈራል ግብይት ድጋፍን ሲያሰናክል ብቻ ነው።",
+    "description": "FAQ explanation of referralMarketing"
+  },
+  "faq_referral_marketing": {
+    "message": "ሪፈራል ማርኬቲንግ ምንድን ነው?",
+    "description": "FAQ question about referralMarketing"
+  },
+  "faq_resource_types": {
+    "message": "የመርጃ ዓይነቶች ምንድን ናቸው?",
+    "description": "FAQ question about resource types"
+  },
+  "faq_resource_types_common": {
+    "message": "የተለመዱ የንብረት ዓይነቶች:",
+    "description": "FAQ section title for common resource types"
+  },
+  "faq_resource_types_explanation": {
+    "message": "የመርጃ ዓይነቶች ሕጎችን ለተወሰኑ የድረ-ገጽ ጥያቄዎች (ምስሎች፣ ስክሪፕቶች፣ ዋና ገፆች፣ ወዘተ) ብቻ እንዲተገበሩ ያስችሉዎታል። ይህ ህጎች ሲተገበሩ በደንብ እንዲቆጣጠሩ ይሰጥዎታል።",
+    "description": "FAQ explanation of resource types"
+  },
+  "faq_resource_types_tip": {
+    "message": "በሁሉም የንብረት አይነቶች ላይ ለመተግበር ባዶ ይተዉት ወይም ሊነጣጠሩ የሚፈልጓቸውን ዓይነቶች ብቻ ይጥቀሱ።",
+    "description": "FAQ tip about resource types"
+  },
+  "faq_rt_font": {
+    "message": "ቅርጸ-ቁምፊ - የድር ቅርጸ-ቁምፊዎች (.woff፣ .ttf፣ ወዘተ.)",
+    "description": "FAQ resource type font"
+  },
+  "faq_rt_image": {
+    "message": "ምስል - ምስሎች እና ስዕሎች",
+    "description": "FAQ resource type image"
+  },
+  "faq_rt_imageset": {
+    "message": "imagesset - ምላሽ ለሚሰጡ ምስሎች የምስል ስብስቦች",
+    "description": "FAQ resource type imageset"
+  },
+  "faq_rt_main_frame": {
+    "message": "ዋና_ፍሬም - ዋናው ድረ-ገጽ",
+    "description": "FAQ resource type main_frame"
+  },
+  "faq_rt_media": {
+    "message": "ሚዲያ - ኦዲዮ እና ቪዲዮ ፋይሎች",
+    "description": "FAQ resource type media"
+  },
+  "faq_rt_object": {
+    "message": "ነገር - የተከተቱ ነገሮች (ፍላሽ ፣ ተሰኪዎች)",
+    "description": "FAQ resource type object"
+  },
+  "faq_rt_object_subrequest": {
+    "message": "object_subrequest - በተካተቱ ነገሮች የተደረጉ ጥያቄዎች",
+    "description": "FAQ resource type object_subrequest"
+  },
+  "faq_rt_other": {
+    "message": "ሌላ - ከላይ ያልተካተቱ ሌሎች ዓይነቶች",
+    "description": "FAQ resource type other"
+  },
+  "faq_rt_script": {
+    "message": "ስክሪፕት - ጃቫስክሪፕት ፋይሎች",
+    "description": "FAQ resource type script"
+  },
+  "faq_rt_stylesheet": {
+    "message": "የቅጥ ሉህ - የ CSS ፋይሎች",
+    "description": "FAQ resource type stylesheet"
+  },
+  "faq_rt_sub_frame": {
+    "message": "ንዑስ_ፍሬም - የተከተተ iframes",
+    "description": "FAQ resource type sub_frame"
+  },
+  "faq_rt_websocket": {
+    "message": "websocket - WebSocket ግንኙነቶች",
+    "description": "FAQ resource type websocket"
+  },
+  "faq_rt_xml_dtd": {
+    "message": "xml_dtd - የኤክስኤምኤል ሰነድ አይነት ፍቺዎች",
+    "description": "FAQ resource type xml_dtd"
+  },
+  "faq_rt_xmlhttprequest": {
+    "message": "xmlhttpጥያቄ - AJAX ጥያቄዎች",
+    "description": "FAQ resource type xmlhttprequest"
+  },
+  "faq_rt_xslt": {
+    "message": "xslt - የ XSLT ለውጥ ፋይሎች",
+    "description": "FAQ resource type xslt"
+  },
+  "faq_rules_converted": {
+    "message": "ምሳሌ: \"utm_source\" በትክክል ይዛመዳል; \"utm_.*\" ከ utm_source እና utm_campaign ጋር ይዛመዳል. Scoped Linkumori ልዩነቶች/ደንቦች በመጀመሪያ ይፈታሉ, ከዚያም መደበኛ/regex ደንቦች የማይዛመዱ ቁልፎች ብቻ ያካሂዳሉ.",
+    "description": "FAQ examples for rules key matching"
+  },
+  "faq_rules_explanation": {
+    "message": "ደንቦቹ የጥያቄ መለኪያ ቁልፎችን እና የሃሽ ቁርጥራጭ ቁልፎችን ይዛመዳሉ። የተወሰኑ ጎራዎችን ለማነጣጠር ቀላል ስሞችን (ትክክለኛ ቁልፍ)፣ regex (ሰፋ ያለ ተዛማጅ) ወይም Linkumori ወሰን እንደ ||example.com^$removeparam=... ይጠቀሙ።",
+    "description": "FAQ explanation of rules"
+  },
+  "faq_rules_title": {
+    "message": "ደንቦች፡-",
+    "description": "FAQ section title for rules explanation"
+  },
+  "faq_rules_vs_raw": {
+    "message": "በጥሬ ደንቦች እና ደንቦች መካከል ያለው ልዩነት ምንድን ነው?",
+    "description": "FAQ question about rules vs rawRules"
+  },
+  "faq_section_advanced": {
+    "message": "የላቁ ባህሪያት",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_basics": {
+    "message": "መሰረታዊ ነገሮች",
+    "description": "FAQ section title for basic questions"
+  },
+  "faq_section_examples": {
+    "message": "ምሳሌዎች",
+    "description": "FAQ section title for examples"
+  },
+  "faq_section_new_features": {
+    "message": "የላቁ ባህሪያት",
+    "description": "FAQ section title for advanced features"
+  },
+  "faq_section_properties": {
+    "message": "የአቅራቢዎች ባህሪያት",
+    "description": "FAQ section title for provider properties"
+  },
+  "faq_section_tips": {
+    "message": "ጠቃሚ ምክሮች እና ምርጥ ልምዶች",
+    "description": "FAQ section title for tips and best practices"
+  },
+  "faq_simple_example": {
+    "message": "ቀላል የአቅራቢ ምሳሌ አሳየኝ።",
+    "description": "FAQ question requesting simple example"
+  },
+  "faq_simple_example_explanation": {
+    "message": "ይህ የፌስቡክ ጠቅታ መታወቂያዎችን እና የዩቲኤም መለኪያዎችን ያስወግዳል፣ ነገር ግን ተጠቃሚው ሪፈራል ማሻሻጥ ከፈቀደ የተቆራኘ አገናኞችን ይጠብቃል።",
+    "description": "FAQ explanation of simple example"
+  },
+  "faq_simple_example_intro": {
+    "message": "የመከታተያ መለኪያዎችን ከልብ ወለድ የግዢ ጣቢያ የሚያስወግድ መሰረታዊ አቅራቢ ይኸውና፡",
+    "description": "FAQ intro to simple example"
+  },
+  "faq_test_backup": {
+    "message": "ዋና ለውጦችን ከማድረግዎ በፊት ደንቦችዎን ወደ ውጭ ይላኩ",
+    "description": "FAQ tip about backing up rules"
+  },
+  "faq_test_exceptions": {
+    "message": "ሁልጊዜ ለወሳኝ ገፆች ልዩ ሁኔታዎችን ያክሉ (መግባት፣ ቼክ መውጣት፣ ኤፒአይ)",
+    "description": "FAQ tip about adding exceptions"
+  },
+  "faq_test_regex": {
+    "message": "እንደ regex101.com ያሉ የመስመር ላይ መሳሪያዎችን በመጠቀም regex ቅጦችን ይሞክሩ",
+    "description": "FAQ tip about testing regex patterns"
+  },
+  "faq_test_reload": {
+    "message": "አሳሹን እንደገና ሳያስጀምሩ ለውጦችን እንደገና ለመጫን \"ህጎችን አስፈጽም\" የሚለውን ቁልፍ ይጠቀሙ",
+    "description": "FAQ tip about enforcing rules"
+  },
+  "faq_test_small": {
+    "message": "በቀላል ደንቦች ይጀምሩ እና ቀስ በቀስ ውስብስብነትን ይጨምሩ",
+    "description": "FAQ tip about starting small"
+  },
+  "faq_testing_tips": {
+    "message": "ብጁ ደንቦቼን እንዴት መሞከር አለብኝ?",
+    "description": "FAQ question about testing tips"
+  },
+  "faq_tip": {
+    "message": "ጠቃሚ ምክር፡",
+    "description": "Label for tips in FAQ"
+  },
+  "faq_title": {
+    "message": "የሚጠየቁ ጥያቄዎች",
+    "description": "FAQ button text and modal title"
+  },
+  "faq_url_pattern": {
+    "message": "urlPattern ምንድን ነው?",
+    "description": "FAQ question about urlPattern"
+  },
+  "faq_url_pattern_explanation": {
+    "message": "የ urlPattern መደበኛ አገላለጽ ነው በአገልግሎት አቅራቢው ህጎች ሊነካ ከሚገባው እያንዳንዱ ዩአርኤል ጋር መዛመድ አለበት። ይህ አቅራቢ የትኞቹን ድር ጣቢያዎች ማስተናገድ እንዳለበት ይገልጻል።",
+    "description": "FAQ answer explaining urlPattern"
+  },
+  "faq_url_pattern_structure": {
+    "message": "የተለመደው መዋቅር ይሸፍናል፡ ፕሮቶኮል + ንዑስ ጎራ + ጎራ + TLD + ማውጫዎች + ግቤቶች",
+    "description": "FAQ explanation of urlPattern structure"
+  },
+  "faq_url_pattern_tip": {
+    "message": "ስርዓተ ጥለቶችዎን ከማከልዎ በፊት ለማረጋገጥ የመስመር ላይ regex ሞካሪዎችን ይጠቀሙ።",
+    "description": "FAQ tip for testing urlPattern"
+  },
+  "faq_url_patterns_explanation": {
+    "message": "የዩአርኤል ቅጦች ከየትኞቹ ዩአርኤሎች ጋር እንደሚዛመዱ በትክክል ለመቆጣጠር ሙሉ regex ይጠቀማሉ፡-",
+    "description": "FAQ explanation of URL patterns"
+  },
+  "faq_use_domain_patterns": {
+    "message": "ሙሉ urlPattern regex ሳይጽፉ ቀለል ያለ አስተናጋጅ ስም/መንገድ ለማዛመድ የጎራ ጥረቶችን ይጠቀሙ ።",
+    "description": "FAQ guidance for using domain patterns"
+  },
+  "faq_use_url_patterns": {
+    "message": "ለተወሳሰቡ ማዛመጃ (የተወሰኑ ዱካዎች፣ የጥያቄ መለኪያዎች፣ ወዘተ) የዩአርኤል ቅጦችን ይጠቀሙ።",
+    "description": "FAQ guidance for using URL patterns"
+  },
+  "faq_warning": {
+    "message": "ማስጠንቀቂያ፡-",
+    "description": "Label for warnings in FAQ"
+  },
+  "faq_what_is_custom_rules": {
+    "message": "ብጁ ደንቦች ምንድን ናቸው?",
+    "description": "FAQ question about custom rules"
+  },
+  "faq_what_is_custom_rules_answer": {
+    "message": "ብጁ ሕጎች አብሮ በተሰራው ደንቦች ያልተሸፈኑ ድረ-ገጾች የእራስዎን የዩአርኤል ማጽጃ ቅጦችን እንዲፈጥሩ ያስችሉዎታል። እንደ ዋናው ካታሎግ ተመሳሳይ መዋቅር ይከተላሉ ነገር ግን በተናጥል ነው የሚተዳደሩት።",
+    "description": "FAQ answer explaining custom rules"
+  },
+  "faq_when_to_use_patterns": {
+    "message": "የትኛውን መቼ መጠቀም እንደሚቻል፡-",
+    "description": "FAQ section title for pattern usage guidance"
+  },
+  "feature1": {
+    "message": "አብሮገነብ በግላዊነት ላይ ያተኮረ ዩአርኤል ማጽዳት በነባሪነት ነቅቷል።"
+  },
+  "feature2": {
+    "message": "ብጁ ደንቦች ለአቅራቢ እና ለእያንዳንዱ-ንድፍ ቁጥጥር ይደግፋሉ"
+  },
+  "feature3": {
+    "message": "ለተመረጡት ጎራዎች ጽዳትን ለማለፍ የተፈቀደላቸው ዝርዝር ድጋፍ"
+  },
+  "feature4": {
+    "message": "የርቀት ህጎች እና ከመጠን በላይ የመጫን ሁኔታ ለላቁ ማዋቀሮች"
+  },
+  "feature_toggles_title": {
+    "message": "የባህሪ ቅንብሮች",
+    "description": "Title for the Feature Settings section."
+  },
+  "fileEmptyError": {
+    "message": "ፋይሉ ባዶ ወይም የማይነበብ ነው።",
+    "description": "Error shown when a legal/privacy file is empty or unreadable"
+  },
+  "general_settings_title": {
+    "message": "አጠቃላይ ቅንብሮች",
+    "description": "Title for the General Settings section."
+  },
+  "hashStatus_bundled_fallback_loaded": {
+    "message": "አብሮገነብ ህጎች ተጭነዋል (ሃሽ ይጎድላል)",
+    "description": "Status when bundled rules loaded after hash URL was missing"
+  },
+  "hashStatus_bundled_rules_fallback": {
+    "message": "አብሮገነብ ህጎችን መጠቀም (ወደ ኋላ መመለስ)",
+    "description": "Status when fell back to bundled rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_bundled_failure": {
+    "message": "የተሸጎጠ የርቀት + ብጁ ደንቦች (ጥቅል አልተሳካም)",
+    "description": "Status when using cached remote rules with custom rules after bundled failure"
+  },
+  "hashStatus_cache_remote_custom_rules_after_remote_failure": {
+    "message": "የተሸጎጠ የርቀት + ብጁ ደንቦች (የርቀት አልተሳካም)",
+    "description": "Status when using cached remote rules with custom rules after remote failure"
+  },
+  "hashStatus_cache_remote_custom_rules_no_hashurl": {
+    "message": "የተሸጎጠ የርቀት + ብጁ ደንቦች (ሃሽ ዩአርኤል የለም)",
+    "description": "Status when using cached remote rules with custom rules, hash URL missing"
+  },
+  "hashStatus_cache_remote_rules_after_bundled_failure": {
+    "message": "የተሸጎጡ የርቀት ደንቦች (ጥቅል አልተሳካም)",
+    "description": "Status when using cached remote rules after bundled rules failed"
+  },
+  "hashStatus_cache_remote_rules_after_remote_failure": {
+    "message": "የተሸጎጡ የርቀት ህጎች (የርቀት አልተሳካም)",
+    "description": "Status when using cached remote rules after current remote fetch failed"
+  },
+  "hashStatus_cache_remote_rules_no_hashurl": {
+    "message": "የተሸጎጡ የርቀት ህጎች (ሃሽ ዩአርኤል የለም)",
+    "description": "Status when using cached remote rules because hash URL is missing"
+  },
+  "hashStatus_cache_remote_built_in_merged": {
+    "message": "የተሸጎጠ የርቀት + አብሮገነብ ደንቦች ተዋህደዋል",
+    "description": "Status when overload mode merges cached remote rules with built-in rules"
+  },
+  "hashStatus_cache_remote_built_in_merged_custom": {
+    "message": "የተሸጎጠ የርቀት + አብሮገነብ ደንቦች ከብጁ ደንቦች ጋር ተዋህደዋል",
+    "description": "Status when overload mode merges cached remote and built-in rules, then custom rules"
+  },
+  "hashStatus_custom_only_loaded": {
+    "message": "ብጁ ደንቦችን ብቻ መጠቀም",
+    "description": "Status when built-in rules are disabled and only custom rules are active"
+  },
+  "hashStatus_custom_only_no_rules": {
+    "message": "አብሮገነብ ህጎች ተሰናክለዋል እና ምንም ብጁ ህጎች አልተገኙም።",
+    "description": "Status when built-in rules are disabled and there are no custom rules to load"
+  },
+  "hashStatus_fallback_rules_used_after_remote_failure": {
+    "message": "አነስተኛ ደንቦችን መጠቀም (የርቀት አልተሳካም)",
+    "description": "Status when using fallback rules after remote failure"
+  },
+  "hashStatus_hash_url_missing": {
+    "message": "Hash URL ያስፈልጋል",
+    "description": "Status when remote URL is configured but hash URL is missing"
+  },
+  "hashStatus_remote_built_in_merged": {
+    "message": "የርቀት + አብሮገነብ ደንቦች ተዋህደዋል",
+    "description": "Status when remote and built-in rules are merged successfully"
+  },
+  "hashStatus_remote_built_in_merged_custom": {
+    "message": "የርቀት + አብሮገነብ ደንቦች ከብጁ ደንቦች ጋር ተዋህደዋል",
+    "description": "Status when overload mode is active and custom rules are merged"
+  },
+  "hashStatus_remote_failed": {
+    "message": "የርቀት ህጎች አልተሳኩም",
+    "description": "Status when remote rules failed verification or loading"
+  },
+  "hashStatus_remote_verified": {
+    "message": "የርቀት ህጎች ተረጋግጠዋል",
+    "description": "Status when remote rules have been successfully verified"
+  },
+  "hash_status_remote_custom_merged": {
+    "message": "የርቀት ህጎች ተጭነዋል እና ብጁ ህጎች ተዋህደዋል",
+    "description": "Message shown when remote rules are loaded and custom rules are merged"
+  },
+  "hash_url_placeholder": {
+    "message": "https://example.com/hash.txt",
+    "description": "Placeholder text for hash URL field after confirmation"
+  },
+  "headerTitle": {
+    "message": "ሊንኩሞሪ",
+    "description": "Header title for the extension"
+  },
+  "history_listener_enabled": {
+    "message": "የክትትል መርፌን በታሪክ ኤፒአይ አግድ",
+    "description": "This string is used as name for the history API listener label."
+  },
+  "history_listener_enabled_description": {
+    "message": "በአሳሽ ታሪክ ውስጥ ዩአርኤሎችን ይቆጣጠሩ እና ያጽዱ።",
+    "description": "Description for the history listener toggle."
+  },
+  "search_link_fix_enabled": {
+    "message": "የፍለጋ ውጤት አገናኝ ማስተካከል",
+    "description": "Label for the combined Google and Yandex content script toggle"
+  },
+  "search_link_fix_enabled_description": {
+    "message": "የማዘዋወር ክትትልን ከፍለጋ ውጤት አገናኞች የሚያስወግዱ የጉግል እና የ Yandex ይዘት ስክሪፕቶችን አንቃ።",
+    "description": "Description for the combined search result content script toggle"
+  },
+  "google_link_fix_enabled": {
+    "message": "የጎግል ማገናኛ አስተካክል።",
+    "description": "Label for the Google content script toggle"
+  },
+  "google_link_fix_enabled_description": {
+    "message": "የማዘዋወር ክትትልን ከGoogle የውጤት አገናኞች የሚያስወግድ የጉግል ይዘት ስክሪፕት አንቃ።",
+    "description": "Description for the Google content script toggle"
+  },
+  "yandex_link_fix_enabled": {
+    "message": "የ Yandex አገናኝ ማስተካከል",
+    "description": "Label for the Yandex content script toggle"
+  },
+  "yandex_link_fix_enabled_description": {
+    "message": "የማዘዋወር ክትትልን ከ Yandex የውጤት አገናኞች የሚያስወግድ የ Yandex ይዘት ስክሪፕት አንቃ።",
+    "description": "Description for the Yandex content script toggle"
+  },
+  "import_invalid_format": {
+    "message": "የተሳሳተ የፋይል ቅርጸት ወይም የተበላሸ ውሂብ",
+    "description": "Error message for invalid file format"
+  },
+  "import_parse_error": {
+    "message": "ፋይልን መተንተን አልተሳካም። እባክዎ የፋይል ቅርጸቱን ያረጋግጡ።",
+    "description": "Error message when file parsing fails"
+  },
+  "import_read_error": {
+    "message": "ፋይል ማንበብ አልተሳካም።",
+    "description": "Error message when file reading fails"
+  },
+  "inputUrlsDescription": {
+    "message": "በዚህ መሳሪያ በዩአርኤሎች ውስጥ መለጠፍ ይችላሉ እና ClearURL በአረንጓዴው ቁልፍ ላይ ጠቅ ካደረጉ በኋላ ዩአርኤሎቹን ያጸዳሉ። በአንድ ጊዜ በበርካታ ዩአርኤልዎች ውስጥ መለጠፍ ይችላሉ፣ ነገር ግን እያንዳንዱ ዩአርኤል በተለየ መስመር ላይ መሆን አለበት።",
+    "description": "Description text for the input URLs section."
+  },
+  "inputUrlsPlaceholder": {
+    "message": "ዩአርኤሎችህን እዚህ ለጥፍ፣ በመስመር አንድ...",
+    "description": "Placeholder text for the input URLs textarea."
+  },
+  "inputUrlsTitle": {
+    "message": "የግቤት ዩአርኤሎች",
+    "description": "Title for the input URL section."
+  },
+  "language_selector_description": {
+    "message": "ለበይነገጽ የሚመርጡትን ቋንቋ ይምረጡ። እና አስቀምጥን ጠቅ ያድርጉ እና እንደገና ይጫኑ።(ቁጥሩ አልተተረጎመም)",
+    "description": "Description text for language selector"
+  },
+  "language_selector_label": {
+    "message": "የበይነገጽ ቋንቋ",
+    "description": "Label for language selector dropdown"
+  },
+  "licenseCopied": {
+    "message": "ፍቃድ ተቀድቷል!",
+    "description": "Toast message after copying license content"
+  },
+  "licenseDescription": {
+    "message": "ይህ ቅጥያ ክፍት ምንጭ እና በጂኤንዩ ትንሹ አጠቃላይ የህዝብ ፈቃድ ስር ፍቃድ ያለው ነው።",
+    "description": "Description text for license section"
+  },
+  "licenseDownloaded": {
+    "message": "ፍቃድ ወርዷል!",
+    "description": "Toast message after downloading license content"
+  },
+  "licenseSection": {
+    "message": "የፍቃድ መረጃ",
+    "description": "Section header for license information"
+  },
+  "license_links_title": {
+    "message": "አገናኞች",
+    "description": "Title for links section in license"
+  },
+  "license_third_party_title": {
+    "message": "የሶስተኛ ወገን አካላት",
+    "description": "Title for third party components section"
+  },
+  "license_title": {
+    "message": "ፍቃድ",
+    "description": "License section title"
+  },
+  "loadError": {
+    "message": "ይዘትን መጫን ላይ ስህተት",
+    "description": "Error title shown when legal/privacy content fails to load"
+  },
+  "loadingContent": {
+    "message": "ይዘትን በመጫን ላይ...",
+    "description": "Generic loading message for about/legal content areas"
+  },
+  "loadingLicense": {
+    "message": "ፍቃድ በመጫን ላይ...",
+    "description": "Loading text for license content"
+  },
+  "loadingPrivacyPolicy": {
+    "message": "የግላዊነት መመሪያን በመጫን ላይ...",
+    "description": "Loading text for privacy policy content"
+  },
+  "local_hosts_skipping": {
+    "message": "በአካባቢያዊ አስተናጋጆች ላይ URLዎችን ይዝለሉ (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+    "description": "This string is used as label for the local host skipping switch"
+  },
+  "local_hosts_skipping_description": {
+    "message": "የአካባቢ አስተናጋጅ እና የአካባቢ አውታረ መረብ አድራሻዎችን ማጽዳትን ይዝለሉ።",
+    "description": "Description for the local hosts skipping toggle."
+  },
+  "log_domain_blocked": {
+    "message": "ይህ ጎራ ታግዷል",
+    "description": "This string is used on blocked domains in the Linkumori (Clean URLS) log."
+  },
+  "log_html_export_button": {
+    "message": "ወደ ውጪ ላክ",
+    "description": "This string is used for the export button on the log page."
+  },
+  "log_html_export_button_title": {
+    "message": "የአለምአቀፍ ሎግ ወደ ውጭ ይላካል",
+    "description": "This string is used as title for the export button on the log page."
+  },
+  "log_html_import_button": {
+    "message": "አስመጣ",
+    "description": "This string is used for the import button on the log page."
+  },
+  "log_html_import_button_title": {
+    "message": "የአለምአቀፍ ሎግ አስመጣ",
+    "description": "This string is used as title for the import button on the log page."
+  },
+  "log_html_import_error": {
+    "message": "የምዝግብ ማስታወሻ ፋይል ማስመጣት ላይ ስህተት፡-",
+    "description": "Error message prefix when import fails"
+  },
+  "log_html_import_error_invalid_format": {
+    "message": "ልክ ያልሆነ የምዝግብ ማስታወሻ ፋይል ቅርጸት።",
+    "description": "Error message when imported file is not valid JSON log format"
+  },
+  "log_html_page_title": {
+    "message": "ከሊንኩሞሪ ይግቡ (ዩአርኤልን ያፅዱ)",
+    "description": "This string is used as header on the log page."
+  },
+  "log_html_reset_button": {
+    "message": "ዳግም አስጀምር",
+    "description": "This string is used for the reset button on the log page."
+  },
+  "log_html_reset_button_title": {
+    "message": "የአለምአቀፍ ምዝግብ ማስታወሻን ዳግም ያስጀምራል።",
+    "description": "This string is used as title for the reset button on the log page."
+  },
+  "log_html_reset_confirm": {
+    "message": "እርግጠኛ ነዎት ምዝግብ ማስታወሻውን ዳግም ማስጀመር ይፈልጋሉ? ይህ እርምጃ ሊቀለበስ አይችልም።",
+    "description": "Confirmation dialog when user clicks reset button"
+  },
+  "log_html_search": {
+    "message": "ፈልግ",
+    "description": "Label for the search input field"
+  },
+  "log_html_search_placeholder": {
+    "message": "መዝገቦችን ፈልግ...",
+    "description": "Placeholder text in the search input field"
+  },
+  "log_html_show_all": {
+    "message": "ሁሉም",
+    "description": "Option in entries dropdown to show all entries"
+  },
+  "log_html_show_entries": {
+    "message": "ግቤቶችን አሳይ",
+    "description": "Label for the dropdown to select how many entries to show per page"
+  },
+  "log_html_table_head_1": {
+    "message": "ከዚህ በፊት",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_2": {
+    "message": "በኋላ",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_3": {
+    "message": "ደንብ",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_4": {
+    "message": "ጊዜ",
+    "description": "This string is used as table title on the log page."
+  },
+  "log_html_table_head_5": {
+    "message": "አቅራቢ",
+    "description": "Column header for matched provider name on the log page."
+  },
+  "log_html_table_head_6": {
+    "message": "ስርዓተ-ጥለት",
+    "description": "Column header for matched urlPattern/domainPattern on the log page."
+  },
+  "log_html_table_head_7": {
+    "message": "ዘዴ",
+    "description": "Column header for request method and provider methods on the log page."
+  },
+  "log_html_table_head_8": {
+    "message": "የንብረት አይነት",
+    "description": "Column header for request resource type and provider resource types on the log page."
+  },
+  "log_nav_dashboard": {
+    "message": "ዳሽቦርድ",
+    "description": "Tab label for dashboard view on log page"
+  },
+  "log_nav_logs": {
+    "message": "መዝገቦች",
+    "description": "Tab label for logs view on log page"
+  },
+  "log_ping_blocked": {
+    "message": "ይህ የገጽ አገናኝ ኦዲት ታግዷል",
+    "description": "This string is used on hyperlink auditing in the Linkumori (Clean URLS) log."
+  },
+  "log_provider_pattern_domain": {
+    "message": "የጎራ ጥለት",
+    "description": "Label for domain pattern provider matching in log entries."
+  },
+  "log_provider_pattern_url": {
+    "message": "urlPattern",
+    "description": "Label for URL pattern provider matching in log entries."
+  },
+  "log_provider_request_method": {
+    "message": "ዘዴ",
+    "description": "Label for the current request method in provider match details."
+  },
+  "log_provider_methods": {
+    "message": "የአቅራቢ ዘዴዎች",
+    "description": "Label for provider method filters in provider match details."
+  },
+  "log_redirect": {
+    "message": "ይህ ዩአርኤል ተዘዋውሯል።",
+    "description": "This string is used on redirections in the Linkumori (Clean URLS) log."
+  },
+  "log_stats_changed_urls": {
+    "message": "ዩአርኤሎች ተለውጠዋል",
+    "description": "Stats card label for entries where URL changed"
+  },
+  "log_stats_chart_no_data": {
+    "message": "ምንም የገበታ ውሂብ የለም።",
+    "description": "Empty-state label when no data is available for chart"
+  },
+  "log_stats_chart_reload": {
+    "message": "ዳግም ጫን",
+    "description": "Button label to reload the stats chart and reset pie filters"
+  },
+  "log_stats_chart_reload_title": {
+    "message": "ገበታውን እንደገና ይጫኑ እና የፓይ ማጣሪያዎችን ዳግም ያስጀምሩ",
+    "description": "Tooltip for reload chart button in log dashboard"
+  },
+  "log_stats_chart_title": {
+    "message": "የስታቲስቲክስ ገበታ",
+    "description": "Title for selectable chart section in log dashboard"
+  },
+  "log_stats_chart_type": {
+    "message": "የገበታ አይነት",
+    "description": "Label for chart type selector"
+  },
+  "log_stats_chart_type_pie": {
+    "message": "አምባሻ",
+    "description": "Option label for pie chart"
+  },
+  "log_stats_count_col": {
+    "message": "መቁጠር",
+    "description": "Column header for count in stats tables"
+  },
+  "log_stats_domain_col": {
+    "message": "ጎራ",
+    "description": "Column header for domain name in stats"
+  },
+  "log_stats_earliest": {
+    "message": "መጀመሪያ",
+    "description": "Stats card label for earliest timestamp"
+  },
+  "log_stats_latest": {
+    "message": "የቅርብ ጊዜ",
+    "description": "Stats card label for latest timestamp"
+  },
+  "log_stats_no_domains": {
+    "message": "ምንም ጎራዎች የሉም",
+    "description": "Fallback row label when no domains are available in stats"
+  },
+  "log_stats_no_rules": {
+    "message": "ምንም ደንቦች የሉም",
+    "description": "Fallback row label when no rules are available in stats"
+  },
+  "log_stats_no_providers": {
+    "message": "አቅራቢዎች የሉም",
+    "description": "Fallback row label when no providers are available in stats"
+  },
+  "log_stats_no_methods": {
+    "message": "ምንም ዘዴዎች የሉም",
+    "description": "Fallback row label when no methods are available in stats"
+  },
+  "log_stats_no_resource_types": {
+    "message": "ምንም አይነት የግብአት አይነቶች የሉም",
+    "description": "Fallback row label when no resource types are available in stats"
+  },
+  "log_stats_rule_col": {
+    "message": "ደንብ",
+    "description": "Column header for rule name in stats"
+  },
+  "log_stats_provider_col": {
+    "message": "አቅራቢ",
+    "description": "Column header for provider name in stats"
+  },
+  "log_stats_method_col": {
+    "message": "ዘዴ",
+    "description": "Column header for method name in stats"
+  },
+  "log_stats_resource_type_col": {
+    "message": "የንብረት አይነት",
+    "description": "Column header for resource type in stats"
+  },
+  "log_stats_top_domains": {
+    "message": "ከፍተኛ ጎራዎች",
+    "description": "Stats section title for top domains"
+  },
+  "log_stats_top_providers": {
+    "message": "ከፍተኛ አቅራቢዎች",
+    "description": "Stats section title for top providers"
+  },
+  "log_stats_top_methods": {
+    "message": "ከፍተኛ ዘዴዎች",
+    "description": "Stats section title for top methods"
+  },
+  "log_stats_top_resource_types": {
+    "message": "ከፍተኛ የንብረት ዓይነቶች",
+    "description": "Stats section title for top resource types"
+  },
+  "log_stats_top_rules": {
+    "message": "ከፍተኛ ህጎች",
+    "description": "Stats section title for top rules"
+  },
+  "log_stats_total_entries": {
+    "message": "ጠቅላላ ግቤቶች",
+    "description": "Stats card label for total log entries"
+  },
+  "log_stats_unique_domains": {
+    "message": "ልዩ ጎራዎች",
+    "description": "Stats card label for unique source domains"
+  },
+  "log_stats_unique_rules": {
+    "message": "ልዩ ህጎች",
+    "description": "Stats card label for unique applied rules"
+  },
+  "log_stats_unique_providers": {
+    "message": "ልዩ አቅራቢዎች",
+    "description": "Stats card label for unique providers"
+  },
+  "log_stats_unique_methods": {
+    "message": "ልዩ ዘዴዎች",
+    "description": "Stats card label for unique methods"
+  },
+  "log_stats_unique_resource_types": {
+    "message": "ልዩ የመርጃ ዓይነቶች",
+    "description": "Stats card label for unique resource types"
+  },
+  "log_whitelist_bypass": {
+    "message": "ተዘሏል፡ ጎራ በተፈቀደላቸው መዝገብ ውስጥ ገብቷል።",
+    "description": "This string is used in the log when URL cleaning is skipped because the domain is whitelisted."
+  },
+  "moonIconAlt": {
+    "message": "የጨረቃ አዶ",
+    "description": "Alt text for moon theme icon"
+  },
+  "new_custom_providers_label": {
+    "message": "አዲስ፡",
+    "description": "Inline label for new custom provider count."
+  },
+  "nothingToCopy": {
+    "message": "ምንም የሚገለበጥ ነገር የለም!",
+    "description": "Toast message when copy action has no content"
+  },
+  "nothingToDownload": {
+    "message": "ምንም የሚወርድ የለም!",
+    "description": "Toast message when download action has no content"
+  },
+  "openSettings": {
+    "message": "የሊንኩሞሪ ቅንብሮችን ይክፈቱ"
+  },
+  "overload_mode_enabled": {
+    "message": "ከመጠን በላይ የመጫን ሁኔታን አንቃ",
+    "description": "Label for toggle that merges built-in and remote rules together"
+  },
+  "overload_mode_enabled_description": {
+    "message": "ሲነቃ አብሮ የተሰሩ እና የርቀት ህጎች አንድ ላይ ተጭነው ብጁ ህጎች ከመተግበራቸው በፊት ይዋሃዳሉ።",
+    "description": "Description for overload mode toggle"
+  },
+  "overridden_providers_label": {
+    "message": "የተሻረ",
+    "description": "Inline label for overridden provider count."
+  },
+  "overridden_providers_list_label": {
+    "message": "የተሻሩ አቅራቢዎች፡-",
+    "description": "Label for overridden provider names list."
+  },
+  "pagination_current_page_aria": {
+    "message": "የአሁኑ ገጽ፣ ገጽ $1",
+    "description": "Screen reader label for current active page. $1=page number"
+  },
+  "pagination_first": {
+    "message": "አንደኛ",
+    "description": "Button text to go to first page"
+  },
+  "pagination_first_aria": {
+    "message": "የመጀመሪያ ገጽ",
+    "description": "Screen reader label for first page button"
+  },
+  "pagination_last": {
+    "message": "የመጨረሻ",
+    "description": "Button text to go to last page"
+  },
+  "pagination_last_aria": {
+    "message": "የመጨረሻ ገጽ",
+    "description": "Screen reader label for last page button"
+  },
+  "pagination_next": {
+    "message": "ቀጥሎ",
+    "description": "Button text to go to next page"
+  },
+  "pagination_next_aria": {
+    "message": "ቀጣይ ገጽ",
+    "description": "Screen reader label for next page button"
+  },
+  "pagination_page_aria": {
+    "message": "ገጽ $1",
+    "description": "Screen reader label for numbered page buttons. $1=page number"
+  },
+  "pagination_previous": {
+    "message": "ቀዳሚ",
+    "description": "Button text to go to previous page"
+  },
+  "pagination_previous_aria": {
+    "message": "ያለፈው ገጽ",
+    "description": "Screen reader label for previous page button"
+  },
+  "percentage_symbol": {
+    "message": "%",
+    "description": "Symbol used for percentages in this language"
+  },
+  "ping_blocking_enabled": {
+    "message": "የሃይፐርሊንክ ኦዲት አግድ",
+    "description": "This string is used as label for the hyperlink auditing blocking switch"
+  },
+  "ping_blocking_enabled_description": {
+    "message": "ለመከታተል የሚያገለግሉ የፒንግ ጥያቄዎችን አግድ።",
+    "description": "Description for the ping blocking toggle."
+  },
+  "popup_consent_accept_button": {
+    "message": "ተቀበል እና ቀጥል።",
+    "description": "Button label to accept popup consent gate"
+  },
+  "popup_consent_checkbox": {
+    "message": "የግላዊነት ፖሊሲ እና ፍቃድ አንብቤ ተቀብያለሁ።",
+    "description": "Consent checkbox label for popup gate"
+  },
+  "popup_consent_description": {
+    "message": "ይህን ብቅ ባይ ከመጠቀምዎ በፊት እባክዎ የግላዊነት መመሪያውን እና ፈቃዱን ያንብቡ። የእርስዎን ውሂብ አንሰበስብም። ሁሉም ውሂብ በመሣሪያዎ ላይ ተከማችቷል እና ወደ እኛ አይተላለፍም።",
+    "description": "Description for popup consent gate"
+  },
+  "popup_consent_legal_button": {
+    "message": "ህጋዊ ያንብቡ",
+    "description": "Button label to open legal page from popup consent gate"
+  },
+  "popup_consent_title": {
+    "message": "ፈቃድ ያስፈልጋል",
+    "description": "Title for popup consent gate"
+  },
+  "popup_html_page_title": {
+    "message": "ሊንኩሞሪ",
+    "description": "Popup page title text"
+  },
+  "popup_html_version_label": {
+    "message": "ስሪት፡",
+    "description": "Version label shown in popup license section"
+  },
+  "popup_html_firefox_signature_label": {
+    "message": "የፋየርፎክስ ተጨማሪ ፊርማ",
+    "description": "Label shown in popup license section for Firefox add-on signing fingerprint."
+  },
+  "popup_html_firefox_signature_title": {
+    "message": "የፋየርፎክስ ተጨማሪ ፊርማ",
+    "description": "Popup label for Firefox signature value."
+  },
+  "popup_html_firefox_signature_unavailable": {
+    "message": "ስላልተፈረመ አይገኝም",
+    "description": "Message shown when the add-on package is unsigned and no Mozilla signing digest is available."
+  },
+  "popup_html_version_label_title": {
+    "message": "የአሁኑ የኤክስቴንሽን ስሪት",
+    "description": "Tooltip for popup version label"
+  },
+  "popup_html_license_description": {
+    "message": "ከዚህ በታች ያለውን የህግ ሊንክ በመጫን ዝርዝር የፍቃድ እና የግላዊነት መረጃን ይመልከቱ።",
+    "description": "Description in popup license section"
+  },
+  "popup_html_license_description_title": {
+    "message": "የፍቃድ እና የግላዊነት መረጃ",
+    "description": "Tooltip for popup license description"
+  },
+  "popup_html_gpl_link": {
+    "message": "ጂኤንዩ አጠቃላይ የህዝብ ፈቃድ v3.0",
+    "description": "Popup license link label for GPL v3"
+  },
+  "popup_html_gpl_link_title": {
+    "message": "GNU GPL v3.0 የፍቃድ ጽሑፍን ክፈት",
+    "description": "Tooltip for GPL link in popup license section"
+  },
+  "popup_html_lgpl_link": {
+    "message": "ጂኤንዩ አጠቃላይ ያነሰ የህዝብ ፈቃድ v3.0",
+    "description": "Popup license link label for LGPL v3"
+  },
+  "popup_html_lgpl_link_title": {
+    "message": "GNU LGPL v3.0 የፍቃድ ጽሑፍን ክፈት",
+    "description": "Tooltip for LGPL link in popup license section"
+  },
+  "popup_html_source_code_repository": {
+    "message": "ምንጭ ኮድ ማከማቻ",
+    "description": "Popup license link label for source code repository"
+  },
+  "popup_html_source_code_repository_title": {
+    "message": "የምንጭ ኮድ ማከማቻ ክፈት",
+    "description": "Tooltip for source code repository link in popup license section"
+  },
+  "popup_html_source_code_releases": {
+    "message": "ምንጭ ኮድ የተለቀቁ",
+    "description": "Popup license link label for source code releases"
+  },
+  "popup_html_source_code_releases_title": {
+    "message": "የምንጭ ኮድ ልቀቶችን ይክፈቱ",
+    "description": "Tooltip for source code releases link in popup license section"
+  },
+  "popup_html_report_issues": {
+    "message": "ጉዳዮችን ሪፖርት አድርግ",
+    "description": "Popup license link label for issue tracker"
+  },
+  "popup_html_report_issues_title": {
+    "message": "የችግር መከታተያ ክፈት",
+    "description": "Tooltip for report issues link in popup license section"
+  },
+  "popup_html_clearurls_migration_repository": {
+    "message": "ClearURLs MV3 የስደት ማከማቻ",
+    "description": "Popup license link label for ClearURLs MV3 migration repo"
+  },
+  "popup_html_clearurls_migration_repository_title": {
+    "message": "ClearURLs MV3 ፍልሰት ማከማቻን ክፈት",
+    "description": "Tooltip for ClearURLs migration repository link in popup license section"
+  },
+  "popup_html_clearurls_addon_repository": {
+    "message": "ClearURLs addons V1.27.3 ማከማቻ",
+    "description": "Popup license link label for ClearURLs addon v1.27.3 repo"
+  },
+  "popup_html_clearurls_addon_repository_title": {
+    "message": "ClearURLs Addon v1.27.3 ማከማቻን ክፈት",
+    "description": "Tooltip for ClearURLs addon repository link in popup license section"
+  },
+  "siteblocked_footer_prefix": {
+    "message": "ሊንክሞሪ ቪ.",
+    "description": "Footer prefix shown on blocked page before version number"
+  },
+  "legal_consent_notice_default": {
+    "message": "ከታች ያለውን የግላዊነት ፖሊሲ እና ፍቃድ ይከልሱ፣ ከዚያ Linkumori መጠቀም ለመቀጠል ይቀበሉ።",
+    "description": "Default notice text for the legal page consent section"
+  },
+  "legal_consent_notice_update": {
+    "message": "የሊንኩሞሪ ህጋዊ ውሎች ተዘምነዋል። የግላዊነት ፖሊሲውን እና ፈቃዱን ይገምግሙ፣ ከዚያ ቅጥያውን ለመጠቀም ይቀበሉ።",
+    "description": "Notice text shown on the legal page after a consent version update"
+  },
+  "legal_consent_notice_first_install": {
+    "message": "ከታች ያለውን የግላዊነት ፖሊሲ እና ፍቃድ ይከልሱ፣ ከዚያ Linkumoriን ማዋቀር ለመጨረስ ይቀበሉ።",
+    "description": "Notice text shown on the legal page during first install"
+  },
+  "legal_consent_notice_import": {
+    "message": "ከታች ያለውን የግላዊነት ፖሊሲ እና ፍቃድ ይከልሱ፣ ከዚያ ወደ Linkumori መሰደድ ለመጨረስ ይቀበሉ።",
+    "description": "Notice text shown on the legal page during import or migration"
+  },
+  "legal_consent_status_required": {
+    "message": "ፈቃድ ያስፈልጋል። የአሁኑን የህግ ውሎች እስክትቀበሉ ድረስ Linkumori ባለበት ቆሟል።",
+    "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_accepted": {
+    "message": "ስምምነት ተቀብሏል። ሊንኩሞሪ አሁን ካለው የህግ ውሎች ጋር ሊሄድ ይችላል።",
+    "description": "Status message shown when current legal consent is accepted"
+  },
+  "legal_consent_button_accepted": {
+    "message": "ተቀባይነት አግኝቷል",
+    "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_saved": {
+    "message": "ስምምነት ተቀብሏል።",
+    "description": "Toast shown after saving legal consent"
+  },
+  "legal_consent_save_failed": {
+    "message": "ስምምነትን ማስቀመጥ አልተሳካም።",
+    "description": "Toast shown when saving legal consent fails"
+  },
+  "legal_consent_error_version_unavailable": {
+    "message": "የአሁኑን የፈቃድ ፖሊሲ ስሪት ማወቅ አልተቻለም።",
+    "description": "Error shown when the current consent version is unavailable"
+  },
+  "legal_consent_withdraw_button": {
+    "message": "ስምምነትን እንዴት ማውጣት እንደሚቻል",
+    "description": "Button label that opens the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_note": {
+    "message": "በግላዊነት መመሪያው ላይ እንደተገለፀው የስምምነት ማቋረጥ ቅጥያውን በማራገፍ ይከናወናል።",
+    "description": "Short note below the legal page consent controls about withdrawing consent"
+  },
+  "legal_consent_withdraw_modal_title": {
+    "message": "ስምምነትን እንዴት ማውጣት እንደሚቻል",
+    "description": "Title for the withdrawal of consent modal on the legal page"
+  },
+  "legal_consent_withdraw_modal_intro": {
+    "message": "ቅጥያውን በማራገፍ ወይም በማከል ፈቃድዎን በማንኛውም ጊዜ ማንሳት ይችላሉ።",
+    "description": "Introductory text in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_deletion": {
+    "message": "ሲራገፉ በመሳሪያዎ ላይ በሊንኩሞሪ በአከባቢው የተከማቸው ሁሉም መረጃዎች በቋሚነት ይሰረዛሉ። በእርስዎ በኩል ከማራገፍ ያለፈ እርምጃ አያስፈልግም።",
+    "description": "Data deletion explanation in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_remote": {
+    "message": "Linkumori ምንም አይነት ውሂብ ወደ ውጫዊ አገልጋዮች የማያስተላልፍ በመሆኑ እንዲሰረዝ የሚጠይቅ የርቀት ውሂብ የለም።",
+    "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_close": {
+    "message": "ገጠመ",
+    "description": "Close button label for the withdrawal of consent modal"
+  },
+  "legal_optional_features_heading": {
+    "message": "ለማንቃት ሊፈልጓቸው የሚችሏቸው የተሰናከሉ ባህሪዎች",
+    "description": "Heading for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_features_description": {
+    "message": "እነዚህ አማራጭ ጥበቃዎች በነባሪነት መሰናከል ይጀምራሉ። የሚፈልጉትን ያብሩ፣ ከዚያ ያስቀምጡ እና Linkumoriን እንደገና ይጫኑ።",
+    "description": "Description for the optional feature toggles section on the legal page"
+  },
+  "legal_optional_feature_disabled": {
+    "message": "ተሰናክሏል።",
+    "description": "Status badge shown when an optional legal-page feature is disabled"
+  },
+  "legal_optional_feature_enabled": {
+    "message": "ነቅቷል",
+    "description": "Status badge shown when an optional legal-page feature is enabled"
+  },
+  "legal_optional_feature_pending_enable": {
+    "message": "በማስቀመጥ ላይ አንቃ",
+    "description": "Status badge shown when an optional legal-page feature will be enabled after saving"
+  },
+  "legal_optional_feature_pending_disable": {
+    "message": "በማስቀመጥ ላይ አሰናክል",
+    "description": "Status badge shown when an optional legal-page feature will be disabled after saving"
+  },
+  "legal_optional_features_note": {
+    "message": "ለውጦች የሚቀመጡት በቀኝ በኩል ያለውን አዝራር ሲጠቀሙ ብቻ ነው.",
+    "description": "Initial helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_default": {
+    "message": "እነዚህ ባህሪያት በነባሪነት ተሰናክለዋል። የሚፈልጉትን ያብሩ እና Linkumori ያስቀምጡ እና እንደገና ይጫኑ።",
+    "description": "Default helper note below the optional feature toggles on the legal page"
+  },
+  "legal_optional_features_note_pending": {
+    "message": "ለውጦች በመጠባበቅ ላይ ናቸው። እነሱን ለመተግበር ያስቀምጡ እና ይህን ህጋዊ ገጽ እንደገና ይክፈቱ።",
+    "description": "Helper note shown when optional legal-page feature changes have not been saved yet"
+  },
+  "legal_optional_features_note_saving": {
+    "message": "የአማራጭ ባህሪ ለውጦችን ማስቀመጥ እና Linkumoriን እንደገና በመጫን ላይ።",
+    "description": "Helper note shown while optional legal-page feature changes are being saved"
+  },
+  "legal_optional_features_save_button": {
+    "message": "Linkumori አስቀምጥ እና እንደገና ጫን",
+    "description": "Save button label for optional legal-page feature toggles"
+  },
+  "legal_optional_features_save_failed": {
+    "message": "የአማራጭ ባህሪ ለውጦችን ማስቀመጥ አልተሳካም።",
+    "description": "Error toast shown when optional legal-page feature changes fail to save"
+  },
+  "popup_html_configs_switch_badges": {
+    "message": "ባጆች",
+    "description": "This string is used as name for the badges switch button on the popup page."
+  },
+  "popup_html_configs_switch_filter": {
+    "message": "አጣራ",
+    "description": "This string is used as name for the filter switch button on the popup page."
+  },
+  "popup_html_configs_switch_log": {
+    "message": "መግባት",
+    "description": "This string is used as name for the logging switch button on the popup page."
+  },
+  "popup_html_log_head": {
+    "message": "የምዝግብ ማስታወሻዎችን ይመልከቱ",
+    "description": "This string is used as name for the log button on the popup page."
+  },
+  "popup_html_settings_button": {
+    "message": "ቅንብሮች",
+    "description": "This string is used for the settings button on the popup page."
+  },
+  "popup_html_statistics": {
+    "message": "ስታትስቲክስ",
+    "description": "Toggle label for statistics feature"
+  },
+  "popup_html_statistics_blocked": {
+    "message": "ታግዷል",
+    "description": "This string is used as name for the blocked elements on the popup page."
+  },
+  "popup_html_statistics_elements": {
+    "message": "ንጥረ ነገሮች",
+    "description": "This string is used as name for the elements on the popup page."
+  },
+  "popup_html_statistics_percentage": {
+    "message": "መቶኛ",
+    "description": "This string is used as name for the percentage of blocked elements on the popup page."
+  },
+  "popup_html_statistics_reset_button": {
+    "message": "ዳግም አስጀምር",
+    "description": "This string is used as name for the statistics reset button on the popup page."
+  },
+  "popup_html_tools_button": {
+    "message": "መሳሪያዎች",
+    "description": "This string is used for the tools button on the popup page."
+  },
+  "popup_html_tools_button_title": {
+    "message": "የጽዳት መሳሪያዎችን ይክፈቱ",
+    "description": "This string is used as a title for the tools button on the popup page."
+  },
+  "popup_html_whitelist_button": {
+    "message": "የተፈቀደላቸው ዝርዝር",
+    "description": "This string is used for the whitelist button on the popup page."
+  },
+  "popup_nav_license": {
+    "message": "ፍቃድ",
+    "description": "Navigation label for license section"
+  },
+  "popup_nav_main": {
+    "message": "ዋና",
+    "description": "Navigation label for main content section"
+  },
+  "privacyCopied": {
+    "message": "የግላዊነት ፖሊሲ ተቀድቷል!",
+    "description": "Toast message after copying privacy policy content"
+  },
+  "privacyDescription": {
+    "message": "እባኮትን የግላዊነት መመሪያችንን ከዚህ በታች ይገምግሙ።",
+    "description": "Description text for privacy policy section"
+  },
+  "privacyDownloaded": {
+    "message": "የግላዊነት መመሪያ ወርዷል!",
+    "description": "Toast message after downloading privacy policy content"
+  },
+  "privacyPolicySection": {
+    "message": "የግላዊነት ፖሊሲ",
+    "description": "Section header for privacy policy"
+  },
+  "privacyVersionDescription": {
+    "message": "የትኛውን የግላዊነት ፖሊሲ ማየት እንደፈለግክ ምረጥ።እባክህ አሁን የእንግሊዝኛ ቅጂ ብቻ እንዳለ እና ወደፊት ሌሎች ቋንቋዎች ሊታከሉ እንደሚችሉ አስተውል።",
+    "description": "Helper description for privacy version selector"
+  },
+  "privacyVersionEnGlobal": {
+    "message": "English",
+    "description": "Option label for global English privacy policy file"
+  },
+  "privacyVersionLabel": {
+    "message": "የግላዊነት ፖሊሲ",
+    "description": "Label for selecting English privacy policy version"
+  },
+  "privacyVersionLoadFailed": {
+    "message": "የተመረጠው የመመሪያ ፋይል አልተገኘም። በምትኩ ነባሪ የግላዊነት ፖሊሲ ተጭኗል።",
+    "description": "Notification shown when selected privacy version file cannot be loaded"
+  },
+  "privacyVersionMapLoadFailed": {
+    "message": "የግላዊነት መመሪያ ሥሪት ካርታ መጫን አልተሳካም።",
+    "description": "Notification shown when privacy version mapping config cannot be loaded"
+  },
+  "providerImport_bundledRules": {
+    "message": "ንቁ የታጠፈ/የርቀት ህጎች/ብጁ ህጎች",
+    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  },
+  "providerImport_button": {
+    "message": "አስመጣ/ያሰናክሉ አቅራቢዎች",
+    "description": "Button text to import selected providers"
+  },
+  "providerImport_clearSelection": {
+    "message": "ግልጽ",
+    "description": "Button text to clear all selected providers."
+  },
+  "providerImport_complete": {
+    "message": "ተጠናቀቀ"
+  },
+  "providerImport_completeProvider": {
+    "message": "የተሟላ አቅራቢ"
+  },
+  "providerImport_completed": {
+    "message": "ማስመጣት ተጠናቅቋል!"
+  },
+  "providerImport_confirmExclude": {
+    "message": "ይህንን የአቅራቢ ፊርማ ያስወግዱ? ዩ አር ኤል/የጎራ ጥለት አቅራቢዎች ማዛመድ የተደበቁ እና ብጁ ደንቦችን ይወገዳሉ ።",
+    "description": "Confirmation shown before excluding a provider signature from import"
+  },
+  "providerImport_disableSelected": {
+    "message": "የተመረጠውን አሰናክል",
+    "description": "Button text to disable selected providers by signature"
+  },
+  "providerImport_disableSelectedConfirm": {
+    "message": "ለ$1 የተመረጡ አቅራቢ(ዎች) ፊርማ ይሰናከል?",
+    "description": "Confirmation before disabling selected providers in batch. $1 is selected count"
+  },
+  "providerImport_disableSelectedResult": {
+    "message": "የተሰናከሉ ፊርማዎች፡ $1። የተወገዱ ተዛማጅ ብጁ አቅራቢዎች፡- $2።",
+    "description": "Batch disable result. $1 is disabled signature count and $2 removed custom provider count"
+  },
+  "providerImport_disabledClear": {
+    "message": "ሁሉንም አጽዳ",
+    "description": "Button label to clear all excluded signatures for selected source"
+  },
+  "providerImport_disabledClearAll": {
+    "message": "ሁሉንም የአካል ጉዳተኛ ደንቦችን ያጽዱ",
+    "description": "Button label to clear all disabled signatures from all sources"
+  },
+  "providerImport_disabledClearAllConfirm": {
+    "message": "ሁሉንም የተሰናከሉ ፊርማዎች ከሁሉም ምንጮች ይጽዱ?",
+    "description": "Confirmation before clearing all disabled signatures globally"
+  },
+  "providerImport_disabledClearConfirm": {
+    "message": "ለዚህ ምንጭ ሁሉም የተሰናከሉ ፊርማዎች ይጽዱ?",
+    "description": "Confirmation before clearing disabled signatures for selected source"
+  },
+  "providerImport_disabledEmpty": {
+    "message": "ምንም የተሰናከሉ ፊርማዎች የሉም",
+    "description": "Empty state text when no disabled signatures exist for selected source"
+  },
+  "providerImport_disabledRestore": {
+    "message": "እነበረበት መልስ",
+    "description": "Button label to restore an excluded signature"
+  },
+  "providerImport_disabledTitle": {
+    "message": "የተሰናከሉ ህጎች",
+    "description": "Title for disabled provider signature list in provider import sidebar"
+  },
+  "providerImport_domainExceptions": {
+    "message": "የጎራ ልዩ ሁኔታዎች",
+    "description": "Full text for domain exceptions tooltip in provider cards"
+  },
+  "providerImport_domainExceptionsAbbr": {
+    "message": "ዲ.ኢ",
+    "description": "Abbreviation for domain exceptions count in provider cards"
+  },
+  "providerImport_domainPatterns": {
+    "message": "የጎራ ቅጦች",
+    "description": "Full text for domain patterns tooltip in provider cards"
+  },
+  "providerImport_domainPatternsAbbr": {
+    "message": "ዲ.ፒ",
+    "description": "Abbreviation for domain patterns count in provider cards"
+  },
+  "providerImport_domainRedirections": {
+    "message": "የጎራ አቅጣጫ አቅጣጫዎች",
+    "description": "Full text for domain redirections tooltip in provider cards"
+  },
+  "providerImport_domainRedirectionsAbbr": {
+    "message": "ዶር",
+    "description": "Abbreviation for domain redirections count in provider cards"
+  },
+  "providerImport_exceptions": {
+    "message": "ልዩ ሁኔታዎች"
+  },
+  "providerImport_exceptionsAbbr": {
+    "message": "ኤክስ"
+  },
+  "providerImport_excludeNoPattern": {
+    "message": "ይህ አቅራቢ ዩ አር ኤል/ጎራ ጥለት የለውም እና በምልክት ሊገለል አይችልም ።",
+    "description": "Shown when user tries to exclude a provider without URL/domain patterns"
+  },
+  "providerImport_excludedSuccess": {
+    "message": "የአቅራቢ ፊርማ አልተካተተም። ተወግዷል $1 ተዛማጅ ብጁ አቅራቢ(ዎች)።",
+    "description": "Success message after excluding a provider signature. $1 is removed custom count"
+  },
+  "providerImport_existsInCustom": {
+    "message": "(በተለምዶ አለ)"
+  },
+  "providerImport_failed": {
+    "message": "አቅራቢዎችን ማስመጣት አልተሳካም፦ $1"
+  },
+  "providerImport_import": {
+    "message": "ማስመጣት ተመርጧል"
+  },
+  "providerImport_importedCount": {
+    "message": "መጥቷል፡ $1 አቅራቢዎች"
+  },
+  "providerImport_importedRulesCount": {
+    "message": "ገብቷል፦ $1 ሕጎች",
+    "description": "Import result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_importing": {
+    "message": "በማስመጣት ላይ..."
+  },
+  "providerImport_linkumoriData": {
+    "message": "ነባር የLinkumori ተግባቦት ሕጎች",
+    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
+  },
+  "providerImport_loading": {
+    "message": "አቅራቢዎችን በመጫን ላይ...",
+    "description": "Displayed while providers are being loaded into the grid."
+  },
+  "providerImport_noProvidersAvailable": {
+    "message": "ለ$1 ደንቦች ምንም አቅራቢዎች የሉም"
+  },
+  "providerImport_noProvidersFound": {
+    "message": "በ$1 ደንቦች ውስጥ ምንም አቅራቢዎች አልተገኙም።"
+  },
+  "providerImport_noRulesAvailable": {
+    "message": "ለማስመጣት ምንም ደንቦች የሉም"
+  },
+  "providerImport_noUrlPattern": {
+    "message": "ምንም የዩአርኤል ንድፍ የለም።"
+  },
+  "providerImport_overwrittenCount": {
+    "message": "የተገለበጠ፡ $1 አቅራቢዎች"
+  },
+  "providerImport_rawRules": {
+    "message": "ጥሬ ደንቦች",
+    "description": "Full text for raw rules tooltip in provider cards"
+  },
+  "providerImport_rawRulesAbbr": {
+    "message": "ጥሬ",
+    "description": "Abbreviation for raw rules count in provider cards"
+  },
+  "providerImport_redirections": {
+    "message": "አቅጣጫ መቀየር"
+  },
+  "providerImport_redirectionsAbbr": {
+    "message": "ቀይ"
+  },
+  "providerImport_referralAbbr": {
+    "message": "ማጣቀሻ",
+    "description": "Abbreviation for referral marketing count in provider cards"
+  },
+  "providerImport_referralMarketing": {
+    "message": "ሪፈራል ግብይት",
+    "description": "Full text for referral marketing tooltip in provider cards"
+  },
+  "providerImport_rules": {
+    "message": "ደንቦች"
+  },
+  "providerImport_rulesAbbr": {
+    "message": "ደንቦች",
+    "description": "Abbreviation for rules count in provider cards"
+  },
+  "providerImport_searchPlaceholder": {
+    "message": "አቅራቢዎችን ይፈልጉ...",
+    "description": "Placeholder text in the search input field to filter providers."
+  },
+  "providerImport_selectAll": {
+    "message": "ሁሉንም ይምረጡ",
+    "description": "Button text to select all providers in the list/grid."
+  },
+  "providerImport_selectedCount": {
+    "message": "$1 ተመርጧል"
+  },
+  "providerImport_skippedCount": {
+    "message": "ተዘሏል፡ $1 አቅራቢዎች"
+  },
+  "providerImport_skippedRulesCount": {
+    "message": "ተዘሏል፦ $1 ሕጎች",
+    "description": "Skipped result count for Linkumori URL interoperability rules."
+  },
+  "providerImport_sources": {
+    "message": "ደንብ ምንጭ",
+    "description": "Heading for the sidebar that lists available rule sources."
+  },
+  "providerImport_title": {
+    "message": "አቅራቢዎችን አስመጣ ወይም አሰናክል",
+    "description": "Title of the provider import modal dialog."
+  },
+  "providerList_button": {
+    "message": "ሁሉንም ብጁ አቅራቢዎችን ይዘርዝሩ እና ይፈልጉ",
+    "description": "Button text to open the provider list modal"
+  },
+  "providerList_complete": {
+    "message": "ተጠናቀቀ",
+    "description": "Label indicating a provider is a complete provider"
+  },
+  "providerList_confirmDelete": {
+    "message": "እርግጠኛ ነዎት አቅራቢን \"$1\" መሰረዝ ይፈልጋሉ?",
+    "description": "Confirmation message when deleting a provider",
+    "placeholders": {
+      "providerName": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+  "providerList_copySuffix": {
+    "message": "ቅዳ",
+    "description": "Suffix added to provider names when duplicating (e.g., 'Google_Copy')"
+  },
+  "providerList_createFirst": {
+    "message": "የመጀመሪያ አቅራቢ ይፍጠሩ",
+    "description": "Button text to create the first provider when none exist"
+  },
+  "providerList_delete": {
+    "message": "ሰርዝ",
+    "description": "Button text to delete a provider"
+  },
+  "providerList_deleteFailed": {
+    "message": "አቅራቢውን መሰረዝ አልተሳካም። እባክዎ እንደገና ይሞክሩ።",
+    "description": "Error message when provider deletion fails"
+  },
+  "providerList_deleteTooltip": {
+    "message": "አቅራቢን ሰርዝ",
+    "description": "Tooltip text for the delete provider button"
+  },
+  "providerList_duplicate": {
+    "message": "ቅዳ",
+    "description": "Button text to duplicate/copy a provider"
+  },
+  "providerList_duplicateTooltip": {
+    "message": "የተባዛ አቅራቢ",
+    "description": "Tooltip text for the duplicate provider button"
+  },
+  "providerList_edit": {
+    "message": "አርትዕ",
+    "description": "Button text to edit a provider"
+  },
+  "providerList_editTooltip": {
+    "message": "አቅራቢን ያርትዑ",
+    "description": "Tooltip text for the edit provider button"
+  },
+  "providerList_exceptions": {
+    "message": "ልዩ ሁኔታዎች",
+    "description": "Label for exceptions count in provider statistics"
+  },
+  "providerList_noProvidersFound": {
+    "message": "ምንም ብጁ አቅራቢዎች አልተገኙም።",
+    "description": "Message shown when there are no custom providers to display"
+  },
+  "providerList_noUrlPattern": {
+    "message": "ምንም የዩአርኤል ንድፍ የለም።",
+    "description": "Text shown when a provider has no URL pattern defined"
+  },
+  "providerList_rawRules": {
+    "message": "ጥሬ ደንቦች",
+    "description": "Label for raw rules count in provider statistics"
+  },
+  "providerList_redirections": {
+    "message": "ተሃድሶዎች",
+    "description": "Label for redirections count in provider statistics"
+  },
+  "providerList_referral": {
+    "message": "Referral.",
+    "description": "Label for referral marketing count in provider statistics"
+  },
+  "providerList_rules": {
+    "message": "ደንቦች (Rules)",
+    "description": "Label for rules count in provider statistics"
+  },
+  "providerList_searchPlaceholder": {
+    "message": "የፍለጋ አቅራቢዎች...",
+    "description": "Placeholder text for the provider search input"
+  },
+  "providerList_title": {
+    "message": "ሁሉም አቅራቢዎች",
+    "description": "Title of the provider list modal"
+  },
+  "referral_marketing_enabled": {
+    "message": "የማጣቀሻ ግብይት ይፍቀዱ",
+    "description": "This string is used as label for the referral marketing switch"
+  },
+  "referral_marketing_enabled_description": {
+    "message": "የማጣቀሻ እና ተባባሪ የመከታተያ መለኪያዎችን ያስወግዱ ።",
+    "description": "Description for the referral marketing toggle."
+  },
+  "redirection_enabled": {
+    "message": "የሶስተኛ ወገን ባዮፓስን ዳግም ያስጀምሩ",
+    "description": "Label for the toggle that enables regex redirections and domain redirections"
+  },
+  "redirection_enabled_description": {
+    "message": "Bypass የሶስተኛ ወገን መካከለኛ ሰው ከተዋሃዱ ፣ ከርቀት እና ከጉምሩክ ህጎች regex redirections እና የጎራ ማስተካከያዎችን በመጠቀም ዩአርኤሎችን እንደገና ያስተካክሉ እና ይከታተሉ ። አስፈላጊ ከሆነ በመጀመሪያ የኦዲት ህጎች ፣ ከዚያ ብጁ ደንቦችን አርታዒን በግለሰብ ደረጃ ለማርትዕ ወይም ለመሻር ይጠቀሙ ።",
+    "description": "Description for the toggle that enables or disables redirection handling"
+  },
+  "remote_rule_sets_error_expected_pair": {
+    "message": "መስመር $LINE$: የሚጠበቀው \"ruleURL | hashURL\"",
+    "description": "Validation message when an additional remote rule set line is malformed.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_hash_url": {
+    "message": "መስመር $LINE$: ልክ ያልሆነ HTTPS ሃሽ ዩአርኤል",
+    "description": "Validation message when additional remote hash URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rule_sets_error_invalid_rule_url": {
+    "message": "መስመር $LINE$: ልክ ያልሆነ HTTPS ደንብ ዩአርኤል",
+    "description": "Validation message when additional remote rule URL is invalid.",
+    "placeholders": {
+      "line": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "remote_rules_disabled_description": {
+    "message": "የርቀት ደንቦች ተሰናክለዋል. የርቀት ደንቦችን ዩአርኤሎችን ለማዋቀር ከዚህ በታች ያለውን toggle ያንቁ ።",
+    "description": "Description shown when remote rules are disabled"
+  },
+  "remote_rules_disabled_placeholder": {
+    "message": "የርቀት ህጎች ተሰናክለዋል - ለማንቃት ከታች toggle",
+    "description": "Placeholder text shown when remote rules are disabled"
+  },
+  "remote_rules_gatekeeper_disabled_enable_remote_rule_alert": {
+    "message": "የደህንነት ማንቂያ፡ በር ጠባቂው ተሰናክሏል። የርቀት ዩአርኤል መስኮችን ለመድረስ የርቀት ህጎችን አንቃ።",
+    "description": "Alert shown when Gatekeeper is disabled while remote rules are turned off."
+  },
+  "remote_rules_enabled": {
+    "message": "የርቀት ደንቦችን አንቃ",
+    "description": "Label for the toggle that enables or disables remote rule fetching"
+  },
+  "remote_rules_enabled_description": {
+    "message": "ቅጥያው ከሩቅ አገልጋዮች ደንቦችን እንዲያመጣ ይፍቀዱለት። ሲሰናከል፣ የታሸጉ ሕጎች ብቻ ጥቅም ላይ ይውላሉ።",
+    "description": "Description for the remote rules enabled toggle"
+  },
+  "remote_rules_loaded": {
+    "message": "የርቀት ህጎች ብቻ ተጭነዋል",
+    "description": "Message shown when remote rules are loaded"
+  },
+  "remote_rules_restriction_notice": {
+    "message": "የርቀት ሕጎች የተገደቡት በራሳቸው ለሚስተናገዱ አገልጋዮች ብቻ ነው። የሶስተኛ ወገን ዩአርኤሎችን አይጠቀሙ።",
+    "description": "Notice explaining remote rules restrictions"
+  },
+  "remote_rules_security_notice": {
+    "message": "የደህንነት ማስታወቂያ፡ እርስዎ ባለቤት የሆኑዎትን እና የሚቆጣጠሩትን ዩአርኤሎችን ብቻ ይጠቀሙ",
+    "description": "Small security notice near URL fields"
+  },
+  "settings_change_pending_save_apply": {
+    "message": "የቅንብሮች ለውጥ በመጠባበቅ ላይ ነው። ለማመልከት አስቀምጥ የሚለውን ጠቅ ያድርጉ።",
+    "description": "Status message shown after toggling a setting that will apply when the user clicks Save."
+  },
+  "removeDomainFromWhitelist": {
+    "message": "$1ን ከተፈቀደላቸው ዝርዝር ውስጥ ያስወግዱ",
+    "description": "Button label to remove a domain from the whitelist. $1 is replaced with the domain."
+  },
+  "rule_url_placeholder": {
+    "message": "https://example.com/rules.json",
+    "description": "Placeholder text for rule URL field after confirmation"
+  },
+  "rules_author_label": {
+    "message": "ደራሲ፡",
+    "description": "Label for the author of the rules dataset"
+  },
+  "rules_composition_label": {
+    "message": "የአቅራቢ ቅንብር፡",
+    "description": "Section label for provider composition details."
+  },
+  "rules_disabled_providers_label": {
+    "message": "የአካል ጉዳተኛ አቅራቢዎች፡-",
+    "description": "Label for the number of disabled provider signatures"
+  },
+  "rules_hash_status_label": {
+    "message": "የመጫኛ ሁኔታ፡",
+    "description": "Label for the current loading status of the rules"
+  },
+  "rules_last_updated_label": {
+    "message": "መጨረሻ የዘመነው፡-",
+    "description": "Label for the last update date of the rules dataset"
+  },
+  "rules_license_label": {
+    "message": "ፍቃድ፡",
+    "description": "Label for the license of the rules dataset"
+  },
+  "rules_metadata_name_remote_merged": {
+    "message": "የተዋሃዱ የርቀት ህጎች",
+    "description": "Display name for merged remote rules metadata in settings."
+  },
+  "rules_metadata_section": {
+    "message": "የደንቦች መረጃ፡-",
+    "description": "Section header for rules metadata information"
+  },
+  "rules_name_label": {
+    "message": "ደንቦች ስም:",
+    "description": "Label for the name of the rules dataset"
+  },
+  "rules_source_bundled": {
+    "message": "የተጠቀለለ",
+    "description": "Source text when bundled rules are active."
+  },
+  "rules_source_bundled_fallback": {
+    "message": "የተጠቀለለ ውድቀት",
+    "description": "Source text when bundled fallback rules are active."
+  },
+  "rules_source_fallback": {
+    "message": "መውደቅ",
+    "description": "Source text when minimal fallback rules are active."
+  },
+  "rules_source_label": {
+    "message": "ምንጭ፡-",
+    "description": "Label for current active rules source."
+  },
+  "rules_source_remote": {
+    "message": "የርቀት",
+    "description": "Source text when remote rules are active."
+  },
+  "rules_source_remote_built_in_merged": {
+    "message": "የርቀት + አብሮ የተሰራ (የተዋሃደ)",
+    "description": "Source text when remote and built-in rules are merged."
+  },
+  "rules_status_active": {
+    "message": "ንቁ",
+    "description": "Value for active rules status."
+  },
+  "rules_status_error": {
+    "message": "ደንቦችን መጫን ላይ ስህተት",
+    "description": "Value for when rules fail to load."
+  },
+  "rules_status_label": {
+    "message": "ሁኔታ፡",
+    "description": "Label for rules status."
+  },
+  "rules_status_not_loaded": {
+    "message": "ምንም ህጎች አልተጫኑም።",
+    "description": "Value for when no rules are loaded."
+  },
+  "rules_total_providers_label": {
+    "message": "ጠቅላላ አቅራቢዎች፡",
+    "description": "Label for the total number of rule providers (bundled + custom)"
+  },
+  "rules_total_rules_label": {
+    "message": "ጠቅላላ ደንቦች፡-",
+    "description": "Label for total rules count."
+  },
+  "rules_version_label": {
+    "message": "የሕጎች ሥሪት፡-",
+    "description": "Label for the version of the rules dataset"
+  },
+  "rules_whitelist_manage_recommendation": {
+    "message": "የተፈቀደላቸው ጎራዎችን ለማከል፣ ለማርትዕ ወይም ለማስወገድ",
+    "description": "Recommendation text in rules information section for whitelist management."
+  },
+  "rules_whitelist_open_editor": {
+    "message": "እዚህ ጠቅ ያድርጉ",
+    "description": "Link text to open custom rules editor from rules information section."
+  },
+  "rules_whitelist_total_label": {
+    "message": "ጠቅላላ የተፈቀደላቸው ጎራዎች፡",
+    "description": "Label for total whitelist domain count in rules information section."
+  },
+  "save_invalid_hash_url": {
+    "message": "ልክ ያልሆነ የሃሽ ዩአርኤል ቅርጸት",
+    "description": "Validation message when primary hash URL is not a valid URL."
+  },
+  "save_invalid_rule_url": {
+    "message": "ልክ ያልሆነ የደንብ ዩአርኤል ቅርጸት",
+    "description": "Validation message when primary rule URL is not a valid URL."
+  },
+  "save_primary_hash_https_required": {
+    "message": "ዋና ሃሽ URL HTTPS መጠቀም አለበት።",
+    "description": "Validation message when primary hash URL is not HTTPS."
+  },
+  "save_primary_remote_pair_required": {
+    "message": "የመጀመሪያ ደረጃ ሀሽ URL የሚያስፈልገው ዋናው ደንብ URL ወደ Linkumori (ClearURLs 2.0) JSON ሲመዘን ብቻ ነው።",
+    "description": "Validation message when only one of primary rule/hash URL is set."
+  },
+  "save_primary_rule_https_required": {
+    "message": "ዋናው ደንብ URL HTTPS መጠቀም አለበት።",
+    "description": "Validation message when primary rule URL is not HTTPS."
+  },
+  "security_confirmation_cancelled": {
+    "message": "የደህንነት ማረጋገጫ ተሰርዟል።",
+    "description": "Status message when user cancels confirmation modal"
+  },
+  "security_confirmation_phrase": {
+    "message": "ሙሉ ሃላፊነት እቀበላለሁ",
+    "description": "The exact phrase users must type to confirm (can be localized)"
+  },
+  "security_confirmation_required_placeholder": {
+    "message": "የደህንነት ማረጋገጫ ያስፈልጋል",
+    "description": "Placeholder text shown in URL fields before security confirmation"
+  },
+  "security_confirmation_reset": {
+    "message": "የደህንነት ማረጋገጫ ዳግም ተጀምሯል።",
+    "description": "Status message when security confirmation is reset"
+  },
+  "security_confirmation_session_success": {
+    "message": "የደህንነት ማረጋገጫ ተሳክቷል።",
+    "description": "Message shown when security confirmation is successful"
+  },
+  "security_confirmation_tooltip": {
+    "message": "የደህንነት ማረጋገጫ ያስፈልጋል - ለመጀመር ጠቅ ያድርጉ",
+    "description": "Tooltip text for the security confirmation icon next to remote URLs"
+  },
+  "security_modal_advanced_warning": {
+    "message": "ማስጠንቀቂያ፡ የላቀ ባህሪ የታሰበ በራስ ለሚስተናገዱ አገልጋዮች ብቻ ነው።",
+    "description": "Main warning banner text in security modal"
+  },
+  "security_modal_cancel": {
+    "message": "መቀጠል አልፈልግም - ሰርዝ",
+    "description": "Cancel button text in security modal"
+  },
+  "security_modal_cancelled": {
+    "message": "ለደህንነት ሲባል የርቀት ዩአርኤል ውቅር ተሰርዟል።",
+    "description": "Status message when user cancels security modal"
+  },
+  "security_modal_continue": {
+    "message": "ስጋቶቹን ተረድቻለሁ - ቀጥል",
+    "description": "Continue button text in security modal"
+  },
+  "security_modal_final_warning": {
+    "message": "ምንጭዎ Linkumori (ClearURLs 2.0) JSON ደንቡሴት ወይም Linkumori 9876500945678መተላለፊያ ዝርዝር መሆኑን ሙሉ በሙሉ ካልተረዱ የርቀት ህጎችን በመጠቀም እንደገና ያስቡበት።",
+    "description": "Final warning message in security modal"
+  },
+  "security_modal_main_warning": {
+    "message": "ይህ የርቀት ህጎች ባህሪ የተነደፈው የሚጫኑትን የምንጭ ቅርጸት ለሚረዱ ለላቁ ተጠቃሚዎች ነው። Linkumori (ClearURLs 2.0) JSON የርቀት ደንቦች ለማረጋገጫ ተዛማጅ ሃሽ URL ያስፈልጋቸዋል። Linkumori URL የማጣሪያ መስተጋብር ዝርዝሮች ያለ ሃሽ URL ሊጫኑ እና ተለይተው ይቀመጣሉ።",
+    "description": "Main warning text explaining the purpose and risks"
+  },
+  "security_modal_privacy_text": {
+    "message": "የርቀት ደንብ URL ካከሉ፣ ቅጥያው Linkumori (ClearURLs 2.0) JSON ሲዋቀር ወይም 90876 90876 ሀሽ ፋይል ለማምጣት ከተሰየመው አገልጋይ ጋር ይገናኛል። URL የአጣር መስተጋብር ዝርዝር። እያንዳንዱ ማምጣት የIP አድራሻዎን እና አጠቃላይ መረጃን እንደ የኤክስቴንሽን ሥሪት፣ አሳሽ እና የአሳሽ ሥሪት ለአስተናጋጅ አገልጋይ ሊያጋልጥ ይችላል። ይህ ውሂብ ለዚያ ድር ጣቢያ ወይም የድር አገልጋይ የግላዊነት ፖሊሲ ተገዢ ነው።",
+    "description": "Privacy notice explaining data collection policy"
+  },
+  "security_modal_privacy_link_text": {
+    "message": "ካስፈለገ ከመቀጠልዎ በፊት %PRIVACY_POLICY_LINK% እንደገና ያንብቡ።",
+    "description": "Follow-up sentence in the remote rules warning modal with a privacy policy link placeholder"
+  },
+  "security_modal_privacy_title": {
+    "message": "የማስጠንቀቂያ ማስታወቂያ፡-",
+    "description": "Header for privacy notice section"
+  },
+  "security_modal_recommendation": {
+    "message": "የርቀት ምንጩን ካላመኑ እና ካልተቆጣጠሩ በስተቀር አብሮ የተሰሩ ደንቦችን ይጠቀሙ። ለ Linkumori (ClearURLs 2.0) JSON ሕጎች፣ ተዛማጅ ሃሽ ያቅርቡ URL። ለተግባቦት ማጣሪያ ዝርዝሮች፣ ሃሽ URL ባዶ ይተዉት።",
+    "description": "Recommendation to use built-in rules instead"
+  },
+  "security_modal_risk_1": {
+    "message": "የእርስዎ የአይፒ አድራሻ እና የአሳሽ መረጃ ለተዋቀሩ አገልጋዮች ይጋለጣሉ",
+    "description": "First security risk point"
+  },
+  "security_modal_risk_2": {
+    "message": "የደንቡ ምንጭ ከተጣሰ ተንኮል አዘል ህጎች ወደ አሳሽዎ ሊቀርቡ ይችላሉ።",
+    "description": "Second security risk point"
+  },
+  "security_modal_risk_3": {
+    "message": "የሃሽ ማረጋገጫ የሚመለከተው ለLinkumori (ClearURLs 2.0) JSON ደንቦች ብቻ ነው፤ ከተንኮል-አዘል ህግ ምንጮች ሳይሆን ከስርጭት መዛባት ይከላከላል.",
+    "description": "Third security risk point"
+  },
+  "security_modal_risk_4": {
+    "message": "የተግባቦት ማጣሪያ ዝርዝሮች ሃሽ ማረጋገጫን አይጠቀሙም፣ ስለዚህ በምንጩ URL ማመን በተለይ አስፈላጊ ነው።",
+    "description": "Fourth security risk point"
+  },
+  "security_modal_risks_title": {
+    "message": "የደህንነት ስጋቶች፡-",
+    "description": "Header for security risks section"
+  },
+  "security_modal_title": {
+    "message": "የርቀት ደንቦች የደህንነት ማስጠንቀቂያ",
+    "description": "Title for the security disclaimer modal"
+  },
+  "setting_hash_url_description": {
+    "message": "የሃሽ ፋይል ዩአርኤል ለደንብ ማረጋገጫ፡-",
+    "description": "Description for the custom hash URL input field"
+  },
+  "setting_hash_url_label": {
+    "message": "ዩአርኤል ወደ ደንቡ።hash ፋይል (ሃሽ)",
+    "description": "This string is used as name for the rule.hash url label."
+  },
+  "setting_hash_url_mandatory": {
+    "message": "ለ ClearURLs JSON የርቀት ደንቦች ያስፈልጋል። ለታዋቂ ቅጥያ URL የመከታተያ ማጣሪያ ዝርዝሮች ባዶ ይተዉ።",
+    "description": "Description for hash URL field explaining when it is required"
+  },
+  "setting_html_export_button": {
+    "message": "ወደ ውጪ ላክ",
+    "description": "This string is used as name for the export button on the settings page."
+  },
+  "setting_html_export_button_title": {
+    "message": "ሁሉንም ነገር ወደ ውጭ ይላካል",
+    "description": "This string is used as title for the export button on the settings page."
+  },
+  "setting_html_import_button": {
+    "message": "አስመጣ",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_import_button_title": {
+    "message": "ሁሉንም ነገር ያስመጣል።",
+    "description": "This string is used as title for the import button on the settings page."
+  },
+  "setting_html_reset_button": {
+    "message": "ዳግም አስጀምር",
+    "description": "This string is used as name for the reset button on the settings page."
+  },
+  "setting_html_reset_button_title": {
+    "message": "ሁሉንም ነገር ዳግም ያስጀምራል።",
+    "description": "This string is used as title for the reset button on the settings page."
+  },
+  "setting_html_audit_button": {
+    "message": "ኦዲት",
+    "description": "This string is used as name for the audit button on the settings page."
+  },
+  "setting_html_audit_button_title": {
+    "message": "የኦዲት ገጹን ይክፈቱ",
+    "description": "This string is used as title for the audit button on the settings page."
+  },
+  "setting_log_limit_label": {
+    "message": "ምዝግብ ማስታወሻውን ወደ $LIMIT$ ግቤቶች ገድብ።",
+    "description": "This string is used as name for the log limit label.",
+    "placeholders": {
+      "limit": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "setting_log_limit_label_with_range": {
+    "message": "የምዝግብ ማስታወሻ ገደብ (0-5000)",
+    "description": "Label for the log limit input field."
+  },
+  "setting_remote_rule_sets_description": {
+    "message": "ተጨማሪ የርቀት ምንጮች አንድ ላይ ተቀላቅለዋል። <code>ruleURL | hashURL</code> ለ ClearURLs JSON ወይም <code>ruleURL</code> ለታዋቂ ቅጥያ URL የመከታተያ ዝርዝሮች ይጠቀሙ።",
+    "description": "Description for additional remote rule sources."
+  },
+  "setting_remote_rule_sets_label": {
+    "message": "ተጨማሪ የርቀት ደንብ ስብስቦች",
+    "description": "Label for additional remote rule+hash URL pairs."
+  },
+  "setting_remote_rule_sets_placeholder": {
+    "message": "https://example.com/rules-2.json | https://example.com/hash-2.txt",
+    "description": "Placeholder for additional remote rule set entries."
+  },
+  "setting_rule_url_description": {
+    "message": "ብጁ የርቀት URL ለ ClearURLs JSON ደንቦች ወይም ታዋቂ ቅጥያ URL የመከታተያ ማጣሪያዎች",
+    "description": "Description for the custom rule URL input field"
+  },
+  "setting_rule_url_label": {
+    "message": "ወደ data.json ፋይል ዩአርኤል (ህጎች) ወይም .txt (ለታዋቂ)",
+    "description": "This string is used as name for the rule url label."
+  },
+  "setting_rule_url_mandatory_hash": {
+    "message": "ማስታወሻ፡ Hash URL የግዴታ የሚሆነው ለClearURLs JSON የርቀት ደንቦች ብቻ ነው። ታዋቂ ቅጥያ URL የመከታተያ ዝርዝሮች እንደ Linkumori URL ማጣሪያዎች ተለይተዋል።",
+    "description": "Note about when hash URL is mandatory"
+  },
+  "setting_types_label": {
+    "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>የጥያቄ ዓይነቶች</a> (የባለሙያ ደረጃ)",
+    "description": "This string is used as name for the types label."
+  },
+  "settings_html_page_title": {
+    "message": "Linkumori (ንጹህ URLS) ቅንብሮች",
+    "description": "This string is used as title on the settings page."
+  },
+  "settings_html_save_button": {
+    "message": "አድን አስቀምጥ እና እንደገና ጫን",
+    "description": "This string is used as name for the save&reload button on the settings page."
+  },
+  "settings_html_save_button_title": {
+    "message": "ቅንብሮቹን ያስቀምጣል።",
+    "description": "This string is used as title for the save&reload button on the settings page."
+  },
+  "settings_import_clearurls_badge_color_confirm": {
+    "message": "ከውጭ የመጣ ባጅ ቀለም #FFA500 ነው። ወደ Linkumori blue (#2563EB) መቀየር ይፈልጋሉ?",
+    "description": "Prompt shown during ClearURLs import when old orange badge color is detected."
+  },
+  "settings_import_clearurls_confirm": {
+    "message": "የ ClearURLs ምትኬ እያስመጡ ነው። Linkumori ተኳዃኝ ቅንብሮችን ያስመጣና ClearURLsDataን ይዘላል። ይቀጥል?",
+    "description": "Confirmation shown when importing legacy ClearURLs JSON files."
+  },
+  "settings_import_clearurls_enable_remote_confirm": {
+    "message": "ይህ የ ClearURLs ምትኬ የርቀት ደንብ ምንጭ ቅንብሮችን ያካትታል። የርቀት ደንቦቹን አሁን መቀያየርን ማንቃት ይፈልጋሉ?",
+    "description": "Second confirmation shown for ClearURLs imports when remote rule URLs are present."
+  },
+  "settings_import_clearurls_manual_save_notice": {
+    "message": "ከእርስዎ የ ClearURLs ማስመጣት የርቀት ደንቦች መቀያየር ነቅቷል። የመጨረሻውን የርቀት ውቅረትዎን ለማረጋገጥ እባክዎ ቅንብሮችን ይክፈቱ እና አስቀምጥን እራስዎ ጠቅ ያድርጉ።",
+    "description": "Notice shown after user enables remote rules during ClearURLs import."
+  },
+  "settings_import_confirm": {
+    "message": "እርግጠኛ ነዎት ቅንብሮችን ማስመጣት ይፈልጋሉ? ይህ የአሁኑን ጊዜዎን ይተካል።"
+  },
+  "settings_import_incomplete_metadata": {
+    "message": "የማስመጣት ዲበ ውሂብ አልተጠናቀቀም።",
+    "description": "Shown when import metadata is present but missing expected fields."
+  },
+  "settings_import_invalid_file": {
+    "message": "ልክ ያልሆነ ፋይል ተመርጧል",
+    "description": "Shown when imported settings file is invalid."
+  },
+  "settings_import_invalid_format": {
+    "message": "ልክ ያልሆነ የቅንብሮች ቅርጸት",
+    "description": "Shown when imported settings data cannot be parsed as expected."
+  },
+  "settings_import_no_data": {
+    "message": "በፋይል ውስጥ ምንም አስመጪ ቅንጅቶች አልተገኙም።",
+    "description": "Shown when parsed file has no supported settings keys."
+  },
+  "settings_import_no_file": {
+    "message": "ምንም ፋይል አልተመረጠም።",
+    "description": "Shown when import is triggered without selecting a file."
+  },
+  "settings_import_parse_error": {
+    "message": "የቅንብሮች ፋይልን መተንተን አልተሳካም።",
+    "description": "Shown when JSON parsing fails for imported file."
+  },
+  "settings_import_read_error": {
+    "message": "የቅንብሮች ፋይል ማንበብ አልተሳካም።",
+    "description": "Shown when browser cannot read the selected file."
+  },
+  "settings_import_wrong_extension": {
+    "message": "እባክህ የሚሰራ የLinkumori/ClearURLs ቅንጅቶች ፋይል (.json ወይም .conf) ምረጥ",
+    "description": "Shown when imported settings file does not match supported Linkumori or ClearURLs formats."
+  },
+  "settings_imported": {
+    "message": "ቅንብሮች በተሳካ ሁኔታ መጥተዋል።"
+  },
+  "statistics_reset_success": {
+    "message": "ዳግም ማስጀመር ተሳክቷል!",
+    "description": "This string is used as feedback after the statistics have been reset."
+  },
+  "status_builtinOnly": {
+    "message": "አብሮገነብ ህጎች ብቻ"
+  },
+  "status_color_picker_failed": {
+    "message": "ቀለም መራጭን ማስጀመር አልተሳካም።",
+    "description": "Error message when color picker fails to load"
+  },
+  "status_customFailed": {
+    "message": "ብጁ ህጎች አልተሳኩም"
+  },
+  "status_customMerged": {
+    "message": "ብጁ ደንቦች ተዋህደዋል (defult + ብጁ)"
+  },
+  "status_deleteFailed": {
+    "message": "መሰረዝ አልተሳካም።"
+  },
+  "status_invalidJson": {
+    "message": "ልክ ያልሆነ JSON"
+  },
+  "status_language_changed_success": {
+    "message": "ቋንቋ በተሳካ ሁኔታ ወደ $1 ተቀይሯል።",
+    "description": "Success message when language is changed. $1 is the native language name"
+  },
+  "status_load_settings_failed": {
+    "message": "ቅንብሮችን መጫን አልተሳካም።",
+    "description": "Status message when settings fail to load."
+  },
+  "status_loading": {
+    "message": "በመጫን ላይ..."
+  },
+  "status_reset_failed": {
+    "message": "ቅንብሮችን ዳግም ማስጀመር አልተሳካም።",
+    "description": "Status message when settings reset fails."
+  },
+  "status_reset_successful": {
+    "message": "ቅንብሮች በተሳካ ሁኔታ ዳግም ተጀምረዋል።",
+    "description": "Status message shown after settings have been reset."
+  },
+  "status_resetting_settings": {
+    "message": "ቅንብሮችን ዳግም በማስጀመር ላይ...",
+    "description": "Status message shown while settings are being reset."
+  },
+  "status_saveFailed": {
+    "message": "ማስቀመጥ አልተሳካም።"
+  },
+  "status_save_failed": {
+    "message": "ቅንብሮችን ማስቀመጥ አልተሳካም።",
+    "description": "Status message when settings save fails."
+  },
+  "status_save_setting_failed": {
+    "message": "የ$SETTING$ ቅንብርን ማስቀመጥ አልተሳካም።",
+    "description": "Error message when a specific toggle setting fails to save.",
+    "placeholders": {
+      "setting": {
+        "content": "$1",
+        "example": "domainBlocking"
+      }
+    }
+  },
+  "status_save_successful": {
+    "message": "ቅንብሮች በተሳካ ሁኔታ ተቀምጠዋል",
+    "description": "Status message when settings save is successful."
+  },
+  "status_saved": {
+    "message": "ተቀምጧል!",
+    "description": "Button text after settings are saved."
+  },
+  "status_saving": {
+    "message": "በማስቀመጥ ላይ...",
+    "description": "Button text while saving settings."
+  },
+  "status_unavailable": {
+    "message": "ሁኔታ አይገኝም"
+  },
+  "status_unknown": {
+    "message": "ያልታወቀ"
+  },
+  "status_usingCached": {
+    "message": "የተጠቃለለ ህግን በተመለከተ ተበላሽቷል ወይም በትክክል አልተጫነም ሊሆን ይችላል. የመመለሻ ህጎች በምትኩ ተጭነዋል እና ከብጁ ህጎች ጋር ተዋህደዋል።"
+  },
+  "status_usingFallback": {
+    "message": "የመመለሻ ህጎችን በመጠቀም"
+  },
+  "status_valid": {
+    "message": "የሚሰራ"
+  },
+  "status_validJson": {
+    "message": "የሚሰራ JSON"
+  },
+  "status_validJsonUnsaved": {
+    "message": "የሚሰራ JSON - አልተቀመጠም።"
+  },
+  "sunIconAlt": {
+    "message": "የፀሐይ አዶ",
+    "description": "Alt text for sun theme icon"
+  },
+  "switchToDarkTheme": {
+    "message": "ወደ ጨለማ ገጽታ ቀይር",
+    "description": "ARIA label for theme toggle when current theme is light"
+  },
+  "switchToLightTheme": {
+    "message": "ወደ ብርሃን ገጽታ ቀይር",
+    "description": "ARIA label for theme toggle when current theme is dark"
+  },
+  "themeToggleAriaLabel": {
+    "message": "ገጽታ ቀያይር",
+    "description": "ARIA label for the theme toggle button for accessibility."
+  },
+  "theme_description": {
+    "message": "የእርስዎን ተመራጭ ገጽታ ይምረጡ",
+    "description": "Description text for theme selection"
+  },
+  "theme_name_dark": {
+    "message": "ጨለማ",
+    "description": "Name for the dark theme"
+  },
+  "theme_name_icecold": {
+    "message": "የበረዶ ቅዝቃዜ",
+    "description": "Name for the ice cold theme"
+  },
+  "theme_name_zengray": {
+    "message": "ዜን ግራጫ",
+    "description": "Name for the zen grey theme"
+  },
+  "theme_name_forest": {
+    "message": "ጫካ",
+    "description": "Name for the forest theme"
+  },
+  "theme_name_light": {
+    "message": "ብርሃን",
+    "description": "Name for the light theme"
+  },
+  "theme_name_midnight": {
+    "message": "እኩለ ሌሊት",
+    "description": "Name for the midnight theme"
+  },
+  "theme_name_sunset": {
+    "message": "ጀንበር ስትጠልቅ",
+    "description": "Name for the sunset theme"
+  },
+  "theme_name_legacy": {
+    "message": "ቅርስ",
+    "description": "Name for the legacy ClearURLs-style theme"
+  },
+  "theme_group_light_label": {
+    "message": "የብርሃን ሁነታ",
+    "description": "Label above the light theme cards group"
+  },
+  "theme_group_dark_label": {
+    "message": "ጨለማ ሁነታ",
+    "description": "Label above the dark theme cards group"
+  },
+  "theme_selection_label": {
+    "message": "ጭብጥ",
+    "description": "Label for the theme selection section"
+  },
+  "time_am": {
+    "message": "ኤም"
+  },
+  "time_am_lower": {
+    "message": "እኔ",
+    "description": "Lowercase AM marker"
+  },
+  "time_pm": {
+    "message": "GDateTime"
+  },
+  "time_pm_lower": {
+    "message": "ከሰዓት",
+    "description": "Lowercase PM marker"
+  },
+  "number_0": {
+    "message": "0",
+    "description": "Localized digit zero"
+  },
+  "number_1": {
+    "message": "1",
+    "description": "Localized digit one"
+  },
+  "number_2": {
+    "message": "2",
+    "description": "Localized digit two"
+  },
+  "number_3": {
+    "message": "3",
+    "description": "Localized digit three"
+  },
+  "number_4": {
+    "message": "4",
+    "description": "Localized digit four"
+  },
+  "number_5": {
+    "message": "5",
+    "description": "Localized digit five"
+  },
+  "number_6": {
+    "message": "6",
+    "description": "Localized digit six"
+  },
+  "number_7": {
+    "message": "7",
+    "description": "Localized digit seven"
+  },
+  "number_8": {
+    "message": "8",
+    "description": "Localized digit eight"
+  },
+  "number_9": {
+    "message": "9",
+    "description": "Localized digit nine"
+  },
+  "day_0": {
+    "message": "እሁድ",
+    "description": "Localized weekday name for Sunday"
+  },
+  "day_1": {
+    "message": "ሰኞ",
+    "description": "Localized weekday name for Monday"
+  },
+  "day_2": {
+    "message": "ማክሰኞ",
+    "description": "Localized weekday name for Tuesday"
+  },
+  "day_3": {
+    "message": "እሮብ",
+    "description": "Localized weekday name for Wednesday"
+  },
+  "day_4": {
+    "message": "ሐሙስ",
+    "description": "Localized weekday name for Thursday"
+  },
+  "day_5": {
+    "message": "አርብ",
+    "description": "Localized weekday name for Friday"
+  },
+  "day_6": {
+    "message": "ቅዳሜ",
+    "description": "Localized weekday name for Saturday"
+  },
+  "month_1": {
+    "message": "ጥር",
+    "description": "Localized month name for January"
+  },
+  "month_2": {
+    "message": "የካቲት",
+    "description": "Localized month name for February"
+  },
+  "month_3": {
+    "message": "መጋቢት",
+    "description": "Localized month name for March"
+  },
+  "month_4": {
+    "message": "ሚያዚያ",
+    "description": "Localized month name for April"
+  },
+  "month_5": {
+    "message": "ግንቦት",
+    "description": "Localized month name for May"
+  },
+  "month_6": {
+    "message": "ሰኔ",
+    "description": "Localized month name for June"
+  },
+  "month_7": {
+    "message": "ሀምሌ",
+    "description": "Localized month name for July"
+  },
+  "month_8": {
+    "message": "ነሐሴ",
+    "description": "Localized month name for August"
+  },
+  "month_9": {
+    "message": "መስከረም",
+    "description": "Localized month name for September"
+  },
+  "month_10": {
+    "message": "ጥቅምት",
+    "description": "Localized month name for October"
+  },
+  "month_11": {
+    "message": "ህዳር",
+    "description": "Localized month name for November"
+  },
+  "month_12": {
+    "message": "ታህሳስ",
+    "description": "Localized month name for December"
+  },
+  "url_field_editable_tooltip": {
+    "message": "መስክ ሊስተካከል የሚችል ነው።",
+    "description": "Tooltip shown when security confirmation is already satisfied."
+  },
+  "url_validation_https_recommended": {
+    "message": "HTTPS ለደህንነት ሲባል ይመከራል",
+    "description": "Warning shown when URL is valid but does not use HTTPS."
+  },
+  "url_validation_invalid": {
+    "message": "ልክ ያልሆነ የዩአርኤል ቅርጸት።",
+    "description": "Error message displayed when the URL format is invalid"
+  },
+  "watchdog": {
+    "message": "[Linkumori (Clean URLS)]፡ ጠባቂው ችግር ፈልጎ አግኝቶ ቀድሞውንም $TIMES$ ጊዜ ወድቋል።",
+    "description": "This string is used as text for the watchdog",
+    "placeholders": {
+      "times": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "welcomeDescription": {
+    "message": "Linkumori የመከታተያ መለኪያዎችን ከዩአርኤሎች በነባሪ ያስወግዳል እና አስፈላጊ በሚሆንበት ጊዜ የላቁ ቁጥጥሮችን ይሰጥዎታል። ከታች ያሉትን ባህሪያት ይገምግሙ፣ ከዚያ ወደ ግላዊነት መመሪያ እና ፍቃድ ይቀጥሉ።"
+  },
+  "welcomeHeading": {
+    "message": "ወደ Linkumori እንኳን በደህና መጡ"
+  },
+  "welcome_migration_description": {
+    "message": "የ ClearURLs ቅንጅቶችህ ከውጭ መጥተዋል። ከታች ያለውን የሊንኩሞሪን ባህሪያትን ይገምግሙ፣ ከዚያ የግላዊነት ፖሊሲ እና ፍቃድ ማንበብ ይቀጥሉ።",
+    "description": "Description shown on migration welcome screen."
+  },
+  "welcome_migration_feature_bundled": {
+    "message": "አብሮገነብ በግላዊነት ላይ ያተኮሩ ደንቦች በነባሪነት ነቅተዋል።",
+    "description": "Feature list item describing default bundled rule behavior."
+  },
+  "welcome_migration_feature_custom_rules": {
+    "message": "ብጁ ደንቦች አርታዒ ከአቅራቢ-ደረጃ ቁጥጥር፣ ማስመጣት/መላክ እና ደንብ አስተዳደር ጋር።",
+    "description": "Feature list item describing custom rules."
+  },
+  "welcome_migration_feature_overload": {
+    "message": "ከመጠን በላይ የመጫን ሁኔታ ብጁ ደንቦች ከመተግበራቸው በፊት የተጣመሩ እና የርቀት ደንቦችን ሊዋሃድ ይችላል።",
+    "description": "Feature list item describing overload mode."
+  },
+  "welcome_migration_feature_remote_sets": {
+    "message": "በርካታ የርቀት ደንብ ምንጮች ይደገፋሉ (ደንብ URL + hash URL ጥንዶች)።",
+    "description": "Feature list item describing multiple remote sets."
+  },
+  "welcome_migration_feature_whitelist": {
+    "message": "አስፈላጊ ሆኖ ሲገኝ በተመረጡት ጎራዎች ላይ ጽዳትን ለማለፍ የተፈቀደላቸው ዝርዝር ድጋፍ።",
+    "description": "Feature list item describing whitelist behavior."
+  },
+  "welcome_migration_heading": {
+    "message": "ClearURLs ፍልሰት ተጠናቋል",
+    "description": "Main heading on migration welcome screen."
+  },
+  "welcome_migration_open_settings": {
+    "message": "ቅንብሮችን ይክፈቱ",
+    "description": "Button label to open settings from migration welcome screen."
+  },
+  "welcome_migration_title": {
+    "message": "ወደ Linkumori እንኳን በደህና መጡ",
+    "description": "Page title for the migration welcome screen shown after ClearURLs import."
+  },
+  "welcome_next_button": {
+    "message": "ቀጣይ፡ ግላዊነት እና ፍቃድ",
+    "description": "Button shown in guided welcome mode to continue to privacy and license sections."
+  },
+  "whitelist_add_button": {
+    "message": "አክል",
+    "description": "Text for the add domain button"
+  },
+  "whitelist_add_failed": {
+    "message": "ጎራ ወደ የተፈቀደላቸው ዝርዝር ማከል አልተሳካም።",
+    "description": "Error message when adding domain fails"
+  },
+  "whitelist_added": {
+    "message": "%s ወደ የተፈቀደላቸው ዝርዝር ታክሏል።",
+    "description": "Success message when domain is added. %s is replaced with domain name."
+  },
+  "whitelist_already_exists": {
+    "message": "ጎራ አስቀድሞ በተፈቀደላቸው ዝርዝር ውስጥ ወይም ልክ ያልሆነ",
+    "description": "Error message when domain already exists or is invalid"
+  },
+  "whitelist_count": {
+    "message": "%d ጎራ(ዎች) የተፈቀደላቸው",
+    "description": "Text showing number of whitelisted domains. %d is replaced with the count."
+  },
+  "whitelist_empty": {
+    "message": "ምንም ጎራዎች አልተፈቀዱም።",
+    "description": "Text shown when whitelist is empty"
+  },
+  "whitelist_enter_domain": {
+    "message": "እባክህ የጎራ ስም አስገባ",
+    "description": "Error message when trying to add empty domain"
+  },
+  "whitelist_examples_text": {
+    "message": "ምሳሌዎች፡ <code>example.com</code>፣ <code>*.google.com</code>፣ <code>Subdomain.site.comXXTKNXXXX5",
+    "description": "Text before domain format examples"
+  },
+  "whitelist_export_button": {
+    "message": "ወደ ውጪ ላክ",
+    "description": "Button text for exporting whitelist domains"
+  },
+  "whitelist_export_done": {
+    "message": "የተፈቀደላቸው ዝርዝር በተሳካ ሁኔታ ወደ ውጭ ተልኳል።",
+    "description": "Success message when whitelist export completes"
+  },
+  "whitelist_export_empty": {
+    "message": "የተፈቀደላቸው ዝርዝር ባዶ ነው። ወደ ውጭ የሚላክ ምንም ነገር የለም።",
+    "description": "Info message when user tries to export an empty whitelist"
+  },
+  "whitelist_export_failed": {
+    "message": "የተፈቀደላቸው ዝርዝር ወደ ውጭ መላክ አልተሳካም።",
+    "description": "Error shown when whitelist export fails"
+  },
+  "whitelist_import_button": {
+    "message": "አስመጣ",
+    "description": "Button text for importing whitelist domains"
+  },
+  "whitelist_import_done": {
+    "message": "%s ጎራ(ዎች) ወደ የተፈቀደላቸው ዝርዝር መጥቷል።",
+    "description": "Success message for whitelist import. %s is replaced with imported domain count"
+  },
+  "whitelist_import_invalid_format": {
+    "message": "ልክ ያልሆነ የተፈቀደላቸው ዝርዝር ቅርጸት። የJSON ጎራዎችን ድርድር ተጠቀም።",
+    "description": "Error shown when imported whitelist structure is not supported"
+  },
+  "whitelist_import_no_valid_domain": {
+    "message": "በተፈቀደላቸው ዝርዝር ፋይል ውስጥ ምንም ትክክለኛ ጎራዎች አልተገኙም።",
+    "description": "Error shown when imported whitelist has no valid domain entries"
+  },
+  "whitelist_import_parse_failed": {
+    "message": "የተፈቀደላቸው ዝርዝር ፋይልን መተንተን አልተሳካም።",
+    "description": "Error shown when whitelist import file is invalid JSON"
+  },
+  "whitelist_input_placeholder": {
+    "message": "ለምሳሌ.com ወይም *.example.com",
+    "description": "Placeholder text for the domain input field"
+  },
+  "whitelist_invalid_format": {
+    "message": "ልክ ያልሆነ የጎራ ቅርጸት። ይጠቀሙ፡ example.com ወይም *.example.com",
+    "description": "Error message for invalid domain format"
+  },
+  "whitelist_load_failed": {
+    "message": "የተፈቀደላቸው ዝርዝር መጫን አልተሳካም።",
+    "description": "Error message when whitelist fails to load"
+  },
+  "whitelist_remove_button": {
+    "message": "አስወግድ",
+    "description": "Text for the remove domain button"
+  },
+  "whitelist_remove_failed": {
+    "message": "ጎራ ከተፈቀደላቸው ዝርዝር ውስጥ ማስወገድ አልተሳካም።",
+    "description": "Error message when removing domain fails"
+  },
+  "whitelist_removed": {
+    "message": "%s ከተፈቀደላቸው ዝርዝር ተወግዷል",
+    "description": "Success message when domain is removed. %s is replaced with domain name."
+  },
+  "whitelist_search_placeholder": {
+    "message": "የተፈቀደላቸው ጎራዎችን ፈልግ",
+    "description": "Placeholder text for searching whitelisted domains"
+  },
+  "whitelist_section_description": {
+    "message": "እዚህ የታከሉ ጎራዎች ሁሉንም የዩአርኤል ጽዳት ያልፋሉ። የመከታተያ መለኪያዎች በእነዚህ ጣቢያዎች ላይ ይጠበቃሉ።",
+    "description": "Description explaining what the whitelist does"
+  },
+  "whitelist_section_title": {
+    "message": "የተፈቀደላቸው የጎራ ዝርዝር",
+    "description": "Title for the whitelist settings section"
+  },
+  "whitelist_update_failed": {
+    "message": "የተፈቀደላቸው ዝርዝር ማዘመን አልተሳካም።",
+    "description": "Error message when updating the whitelist fails."
+  },
+  "popup_html_statistics_reset_button_title": {
+    "message": "የአለምአቀፍ ስታቲስቲክስን ዳግም ያስጀምሩ",
+    "description": "This string is used as title for the statistics reset button on the popup page."
+  },
+  "popup_html_log_head_title": {
+    "message": "መዝገቡን ይክፈቱ",
+    "description": "This string is used as title for the log button on the popup page."
+  },
+  "popup_html_settings_button_title": {
+    "message": "ቅንብሮችን ይክፈቱ",
+    "description": "This string is used as a title for the settings button on the popup page."
+  },
+  "license_title_title": {
+    "message": "የፍቃድ መረጃ",
+    "description": "Title for the license information link in the popup"
+  },
+  "license_links_title_title": {
+    "message": "ፈቃድ እና ክሬዲት",
+    "description": "Title for the license and credits link in the popup"
+  },
+  "popup_nav_main_title": {
+    "message": "ወደ ዋና የኤክስቴንሽን መቆጣጠሪያዎች ቀይር",
+    "description": "Tooltip for main navigation button"
+  },
+  "popup_nav_license_title": {
+    "message": "ወደ የፍቃድ መረጃ ቀይር",
+    "description": "Tooltip for license information button"
+  },
+  "customrules_title": {
+    "message": "ብጁ ህጎች",
+    "description": "Title for the custom rules section"
+  },
+  "popup_consent_legal_button_title": {
+    "message": "የህግ መረጃ - የግላዊነት ፖሊሲ እና ፍቃድ",
+    "description": "Title for legal information page opened from popup consent gate"
+  },
+  "popup_html_whitelist_button_title": {
+    "message": "የተፈቀደላቸው ዝርዝር",
+    "description": "Title for HTML content page opened from popup consent gate"
+  },
+  "disable_gatekeeper_enabled": {
+    "message": "በረኛውን አሰናክል",
+    "description": "Label for toggle that disables gatekeeper protections for remote URL editing"
+  },
+  "disable_gatekeeper_enabled_description": {
+    "message": "በዚህ የክፍለ-ጊዜ ፍሰት ውስጥ የርቀት ዩአርኤል አርትዖት የበር ጠባቂ ቼኮችን ያሰናክሉ።",
+    "description": "Description for disable gatekeeper toggle"
+  },
+  "disable_gatekeeper_enabled_notice": {
+    "message": "በረኛውን አሰናክል ነቅቷል። የደህንነት ማረጋገጫ በእያንዳንዱ የቅንብሮች ክፍለ ጊዜ ያስፈልጋል።",
+    "description": "Status message shown after enabling disable gatekeeper"
+  },
+  "disable_gatekeeper_disabled_notice": {
+    "message": "የበር ጠባቂን አሰናክል። ያለአፋጣኝ ማረጋገጫ አሁን ያሉ የታመኑ እሴቶች ሊስተካከል ይችላል።",
+    "description": "Status message shown after disabling disable gatekeeper"
+  },
+  "settings_remote_urls_export_button": {
+    "message": "የርቀት ዩአርኤሎችን ወደ ውጪ ላክ",
+    "description": "Button text for exporting remote URL configuration only"
+  },
+  "settings_remote_urls_import_button": {
+    "message": "የርቀት ዩአርኤሎችን ያስመጡ",
+    "description": "Button text for importing remote URL configuration only"
+  },
+  "settings_remote_urls_export_button_title": {
+    "message": "ዋና እና ተጨማሪ የርቀት URL ጥንዶችን ወደ ውጭ ላክ",
+    "description": "Tooltip for remote URL export button"
+  },
+  "settings_remote_urls_import_button_title": {
+    "message": "ዋና እና ተጨማሪ የርቀት URL ጥንዶችን አስመጣ",
+    "description": "Tooltip for remote URL import button"
+  },
+  "disable_gatekeeper_modal_title": {
+    "message": "የበር ጠባቂ ስጋት ማስጠንቀቂያን አሰናክል",
+    "description": "Title for the disable gatekeeper risk modal"
+  },
+  "disable_gatekeeper_modal_advanced_warning": {
+    "message": "ማስጠንቀቂያ፡ የላቀ ባህሪ የታሰበ በራስ ለሚስተናገዱ አገልጋዮች ብቻ ነው።",
+    "description": "Top warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_main_warning": {
+    "message": "Gatekeeper ጥበቃዎችን ለርቀት ደንብ URL ማረም እያሰናከሉ ነው። ይህ ባህሪ Linkumori (ClearURLs 2.0) JSON ደንቦችን ከሃሽ ማረጋገጫ ጋር ወይም Linkumori URL ያለ ሃሽ ማጣራት የሚግባባ ዝርዝሮችን መጫን ይችላል። የትኛውን ቅርጸት እያዋቀሩ እንደሆነ ከተረዱ ብቻ ይቀጥሉ።",
+    "description": "Main warning text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_gatekeeper_explanation": {
+    "message": "በረኛ ለደህንነት ማስጠንቀቂያው እውቅና እስኪሰጡ ድረስ እና የተተየበው ማረጋገጫ እስኪያጠናቅቁ ድረስ የርቀት ዩአርኤል አርትዖቶችን የሚያግድ አብሮ የተሰራ የደህንነት ፍሰት ነው።",
+    "description": "Explains what gatekeeper means in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_recommendation": {
+    "message": "የርቀት ምንጮችዎን ካላመኑ እና ካልተቆጣጠሩ በስተቀር Gatekeeper እንደነቃ ያቆዩት። JSON ደንቦች ተዛማጅ ሃሽ URL ማካተት አለባቸው; እርስበርስ የመተግበር ዝርዝሮች ሆን ብለው ሃሽ URL ባዶ ይተዉት።",
+    "description": "Recommendation text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_title": {
+    "message": "የማስጠንቀቂያ ማስታወቂያ፡-",
+    "description": "Privacy section title in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_text": {
+    "message": "የርቀት ደንብ URL ካከሉ፣ ቅጥያው Linkumori (ClearURLs 2.0) JSON ሲዋቀር ወይም 90876 90876 ሀሽ ፋይል ለማምጣት ከተሰየመው አገልጋይ ጋር ይገናኛል። URL የአጣር መስተጋብር ዝርዝር። እያንዳንዱ ማምጣት የIP አድራሻዎን እና አጠቃላይ መረጃን እንደ የኤክስቴንሽን ሥሪት፣ አሳሽ እና የአሳሽ ሥሪት ለአስተናጋጅ አገልጋይ ሊያጋልጥ ይችላል። ይህ ውሂብ ለዚያ ድር ጣቢያ ወይም የድር አገልጋይ የግላዊነት ፖሊሲ ተገዢ ነው።",
+    "description": "Privacy section body in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_privacy_link_text": {
+    "message": "ካስፈለገ ከመቀጠልዎ በፊት %PRIVACY_POLICY_LINK% እንደገና ያንብቡ።",
+    "description": "Follow-up sentence in the disable gatekeeper warning modal with a privacy policy link placeholder"
+  },
+  "disable_gatekeeper_modal_risks_title": {
+    "message": "የማስጠንቀቂያ ማስታወቂያ፡-",
+    "description": "Risks section title in disable gatekeeper modal"
+  },
+  "privacy_policy_link_label": {
+    "message": "የግላዊነት ፖሊሲ",
+    "description": "Label for privacy policy hyperlinks shown in warning dialogs"
+  },
+  "disable_gatekeeper_modal_risk_1": {
+    "message": "ቅጥያው በነቃ እና በአሳሽዎ ውስጥ በተጫነ ቁጥር ቅጥያው ከተሰየመው ዩአርኤል ጋር ይገናኛል።",
+    "description": "Risk bullet 1 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_2": {
+    "message": "የርቀት JSON፣ hash ወይም interoperability ማጣሪያ ፋይሎችን የሚያስተናግደው አገልጋይ IP አድራሻዎን ይደርሰዋል።",
+    "description": "Risk bullet 2 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_3": {
+    "message": "አገልጋዩ የእርስዎን የኤክስቴንሽን ስሪት፣ አሳሽ እና የአሳሽ ስሪት ሊቀበል ይችላል።",
+    "description": "Risk bullet 3 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_risk_4": {
+    "message": "ያ ውሂብ እነዚያን ፋይሎች በሚያስተናግደው የድር ጣቢያ ወይም የድር አገልጋይ የግላዊነት ፖሊሲ ተገዢ ነው።",
+    "description": "Risk bullet 4 in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_final_warning": {
+    "message": "Gatekeeper በማሰናከል፣ደህንነታቸው ያልተጠበቀ ወይም የተጠለፉ የርቀት ደንብ ምንጮች አደጋን ይጨምራሉ። የሃሽ ማረጋገጫ Linkumori (ClearURLs 2.0) JSON ማውረዶችን ብቻ ይከላከላል። በተግባራዊነት ዝርዝሮች ላይ አይተገበርም.",
+    "description": "Final warning banner text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_cancel": {
+    "message": "ሰርዝ",
+    "description": "Cancel button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_modal_continue": {
+    "message": "ቀጥል",
+    "description": "Continue button text in disable gatekeeper modal"
+  },
+  "disable_gatekeeper_confirmation_phrase": {
+    "message": "የርቀት ህግጋትን ተረድቻለሁ እና የበረኛውን አሰናክል",
+    "description": "Exact phrase user must type to confirm disabling gatekeeper"
+  },
+  "disable_gatekeeper_confirmation_modal_title": {
+    "message": "የማረጋገጫ አይነት ያስፈልጋል",
+    "description": "Title for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_modal_text": {
+    "message": "በረኛውን ለማሰናከል ትክክለኛውን የማረጋገጫ ሐረግ ከታች ይተይቡ።",
+    "description": "Instruction text for gatekeeper-specific confirmation modal"
+  },
+  "redirection_warning_modal_title": {
+    "message": "የማዘዋወር ማለፊያ ማስጠንቀቂያ",
+    "description": "Title for the warning modal shown before enabling redirect bypass."
+  },
+  "redirection_warning_modal_advanced_warning": {
+    "message": "ይህን ባህሪ ከማንቃትዎ በፊት የማዘዋወር ደንቦችን ይገምግሙ።",
+    "description": "Top warning line for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_main_warning": {
+    "message": "ይህ ባህሪ በአሁኑ ጊዜ ከጥቅል፣ ከርቀት እና ከብጁ ምንጮች የሚገኙትን የማዘዋወር ህጎችን በመተግበር ዩአርኤሎችን ማዘዋወር እና መከታተል የሶስተኛ ወገን ደላላ ማለፍ ይችላል።",
+    "description": "Main warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_recommendation": {
+    "message": "በመጀመሪያ ደንቦቹን ኦዲት ያድርጉ. የማዘዋወር መመሪያ በጣም ሰፊ ከሆነ ወይም ለአሰሳዎ ተገቢ ካልሆነ፣ ይህን ቅንብር ከማንቃትዎ በፊት በ Custom Rules Editor ውስጥ ያርትዑት ወይም ይሽሩት።",
+    "description": "Recommendation text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risks_title": {
+    "message": "ምን ማረጋገጥ",
+    "description": "Risks section title for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_1": {
+    "message": "የተጠቀለሉ ሕጎች፣ የርቀት ሕጎች እና ብጁ ሕጎች ሁሉም የማዘዋወር ባህሪን ሊያበረክቱ ይችላሉ።",
+    "description": "First risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_2": {
+    "message": "ሰፊ የማዘዋወር ህግ እርስዎ ባልጠበቁት መንገድ ማገናኛን ሊፈታው ይችላል።",
+    "description": "Second risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_3": {
+    "message": "አዲስ የተሸጎጡ የርቀት ደንቦች አዲስ የርቀት ደንብ ውሂብ ሲመጣ ሊለወጡ ይችላሉ።",
+    "description": "Third risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_risk_4": {
+    "message": "በዚህ ባህሪ ላይ ከመታመንዎ በፊት የተጠቀለሉ ህጎችን፣ የመጨረሻ ህጎችን፣ ብጁ ህጎችን እና የቅርብ ጊዜ የተሸጎጡ የርቀት ህጎችን ለመመርመር የኦዲት ገጹን ይጠቀሙ።",
+    "description": "Fourth risk item for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_final_warning": {
+    "message": "ይህንን ያንቁት በአሁኑ ጊዜ ከተለያዩ ምንጮች የሚገኙትን የማዘዋወር ደንቦችን የምታምኑ ከሆነ ብቻ ነው። ይህን ባህሪ ካልተረዳህ አታስችለው። ይህን ቅንብር ሳያነቁ የማዘዋወር ደንቦች ተፈጻሚ አይሆኑም።",
+    "description": "Final warning text for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancel": {
+    "message": "ሰርዝ",
+    "description": "Cancel button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_continue": {
+    "message": "ቀጥል",
+    "description": "Continue button for the redirect bypass warning modal."
+  },
+  "redirection_warning_modal_cancelled": {
+    "message": "ማዘዋወር ማለፊያ እንደተሰናከለ ይቆያል።",
+    "description": "Status shown when the redirect bypass warning modal is cancelled."
+  },
+  "disable_gatekeeper_confirmation_input_label": {
+    "message": "ትክክለኛ የማረጋገጫ ሐረግ ይተይቡ",
+    "description": "Input label for gatekeeper-specific confirmation modal"
+  },
+  "disable_gatekeeper_confirmation_final_text": {
+    "message": "ይህ እርምጃ ለርቀት ደንቦች መከላከያዎችን ይቀንሳል. የእርስዎን JSON እና የተጠላለፉ የማጣሪያ ምንጮችን ካመኑ ብቻ ይቀጥሉ።",
+    "description": "Final warning text for gatekeeper-specific confirmation modal"
+  },
+  "remote_urls_template_note_1": {
+    "message": "የቦታ ያዥ እሴቶችን በእውነተኛ HTTPS ዩአርኤሎች ይተኩ፣ ከዚያ ይህን ፋይል ያስመጡ።",
+    "description": "Template export note 1 for remote URL export JSON"
+  },
+  "remote_urls_template_note_2": {
+    "message": "ዋናው ዋናው ደንብ/ሃሽ ዩአርኤል ጥንድ ይዟል።",
+    "description": "Template export note 2 for remote URL export JSON"
+  },
+  "remote_urls_template_note_3": {
+    "message": "ተጨማሪ አማራጭ ነው እና በርካታ የደንብ/ሃሽ URL ጥንዶችን ይደግፋል።",
+    "description": "Template export note 3 for remote URL export JSON"
+  },
+  "remote_urls_template_note_4": {
+    "message": "እንደ አስፈላጊነቱ ተጨማሪውን ድርድር ውስጥ ያሉትን ነገሮች ይጨምሩ ወይም ያስወግዱ።",
+    "description": "Template export note 4 for remote URL export JSON"
+  },
+  "remote_urls_template_primary_rule_placeholder": {
+    "message": "RePLACE_WITH_PRIMARY_RULE_URL",
+    "description": "Placeholder value for primary rule URL in template export JSON"
+  },
+  "remote_urls_template_primary_hash_placeholder": {
+    "message": "RePLACE_WITH_PRIMARY_HASH_URL",
+    "description": "Placeholder value for primary hash URL in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_1": {
+    "message": "RePLACE_WITH_ADDITIONAL_RULE_URL_1",
+    "description": "Placeholder value for additional rule URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_1": {
+    "message": "RePLACE_WITH_ADDITIONAL_HASH_URL_1",
+    "description": "Placeholder value for additional hash URL 1 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_2": {
+    "message": "RePLACE_WITH_ADDITIONAL_RULE_URL_2",
+    "description": "Placeholder value for additional rule URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_2": {
+    "message": "RePLACE_WITH_ADDITIONAL_HASH_URL_2",
+    "description": "Placeholder value for additional hash URL 2 in template export JSON"
+  },
+  "remote_urls_template_additional_rule_placeholder_3": {
+    "message": "RePLACE_WITH_ADDITIONAL_RULE_URL_3",
+    "description": "Placeholder value for additional rule URL 3 in template export JSON"
+  },
+  "remote_urls_template_additional_hash_placeholder_3": {
+    "message": "RePLACE_WITH_ADDITIONAL_HASH_URL_3",
+    "description": "Placeholder value for additional hash URL 3 in template export JSON"
+  },
+  "remote_urls_export_success": {
+    "message": "የርቀት URL ውቅር ወደ ውጭ ተልኳል።",
+    "description": "Success status after exporting configured remote URLs"
+  },
+  "remote_urls_template_export_success": {
+    "message": "የርቀት ዩአርኤል አብነት ወደ ውጭ ተልኳል። ቦታ ያዥዎችን ይሙሉ እና ያስመጡ።",
+    "description": "Success status after exporting empty remote URL template"
+  },
+  "remote_urls_import_saved_success": {
+    "message": "የርቀት ዩአርኤል ውቅር መጥቶ ተቀምጧል።",
+    "description": "Success status after importing and saving remote URL configuration"
+  },
+  "remote_urls_import_save_failed": {
+    "message": "ማስመጣት ተተነተነ፣ ነገር ግን የርቀት ዩአርኤል ውቅር ማስቀመጥ አልተሳካም።",
+    "description": "Error status when import parsing succeeded but saving failed"
+  },
+  "remote_urls_import_invalid_file": {
+    "message": "ልክ ያልሆነ የርቀት URL ውቅር ፋይል።",
+    "description": "Error status when imported remote URL JSON is invalid"
+  },
+  "remote_urls_import_read_failed": {
+    "message": "የተመረጠውን ፋይል ማንበብ አልተቻለም።",
+    "description": "Error status when file reader fails for remote URL import"
+  },
+  "remote_urls_import_no_valid_pairs": {
+    "message": "በፋይሉ ውስጥ ምንም የሚሰራ የርቀት ዩአርኤል ጥንዶች አልተገኙም።",
+    "description": "Error status when no valid pairs are found during remote URL import"
+  },
+  "popup_consent_title_title": {
+    "message": "ፈቃድ ያስፈልጋል",
+    "description": "Title for the legal information section in the popup"
+  },
+  "popup_html_configs_switch_filter_title": {
+    "message": "ወደ ዋናው ተግባራዊነት ቀይር/አጥፋ",
+    "description": "Title for the button that switches to the filter configuration view in the popup"
+  },
+  "popup_html_configs_switch_log_title": {
+    "message": "በመሳሪያዎ ውስጥ የተከማቸ ሁሉንም ቀን የምዝግብ ማስታወሻዎች አፈጻጸምን ይቀይሩ",
+    "description": "Title for the button that switches to the statistics view in the popup"
+  },
+  "popup_html_configs_switch_badges_title": {
+    "message": "የማብራት/አጥፋ ባጅ አዶን ቀይር",
+    "description": "Title for the statistics section in the popup"
+  },
+  "configs_switch_statistics_title": {
+    "message": "ለማብራት/ማጥፋት ስታቲስቲክስ ይቀይሩ",
+    "description": "Title for the button that switches to the license and credits view in the popup"
+  },
+  "popup_html_statistics_element_title": {
+    "message": "ንጥረ ነገሮች",
+    "description": "Title for the statistics section in the popup"
+  },
+  "popup_html_statistics_blocked_title": {
+    "message": "ታግዷል",
+    "description": "Description for the elements statistic in the popup"
+  },
+  "popup_html_statistics_percentage_title": {
+    "message": "መቶኛ",
+    "description": "Description for the blocked statistic in the popup"
+  },
+  "audit_html_page_title": {
+    "message": "Linkumori ደንቦች ኦዲት",
+    "description": "Title for the audit page"
+  },
+  "audit_badge_label": {
+    "message": "ኦዲት",
+    "description": "Small badge label in the audit page header"
+  },
+  "audit_section_title": {
+    "message": "ደንቦች ኦዲት",
+    "description": "Main section title for the audit page"
+  },
+  "audit_viewer_title": {
+    "message": "ደንቦች ምንጭ መመልከቻ",
+    "description": "Title for the audit source viewer card"
+  },
+  "audit_viewer_description": {
+    "message": "የተጣመሩ ደንቦችን፣ የመጨረሻ የተዋሃዱ ሕጎችን፣ ብጁ ደንቦችን ወይም በመሸጎጫ ውስጥ እንደ ጥሬ JSON የተከማቹ የቅርብ ጊዜ የተገኙ የርቀት ሕጎችን ለመመርመር ከታች ያሉትን የምንጭ አዝራሮች ይጠቀሙ።",
+    "description": "Description for the audit source viewer"
+  },
+  "audit_refresh_button": {
+    "message": "ምንጮችን ያድሱ",
+    "description": "Refresh button label on the audit page"
+  },
+  "audit_faq_button": {
+    "message": "የሚጠየቁ ጥያቄዎች",
+    "description": "FAQ button label on the audit page"
+  },
+  "audit_theme_toggle_aria": {
+    "message": "ገጽታ ቀያይር",
+    "description": "Accessible label for the theme toggle on the audit page"
+  },
+  "audit_faq_close_aria": {
+    "message": "የሚጠየቁ ጥያቄዎችን ዝጋ",
+    "description": "Accessible label for the FAQ modal close button"
+  },
+  "audit_source_bundled": {
+    "message": "የተዋሃዱ ህጎች",
+    "description": "Button and title for bundled rules audit source"
+  },
+  "audit_source_final": {
+    "message": "የመጨረሻ ህጎች",
+    "description": "Button and title for final merged rules audit source"
+  },
+  "audit_source_custom": {
+    "message": "ብጁ ህጎች",
+    "description": "Button and title for custom rules audit source"
+  },
+  "audit_source_remote": {
+    "message": "የቅርብ ጊዜ የተሸጎጡ የርቀት ህጎች",
+    "description": "Button and title for latest cached remote rules audit source"
+  },
+  "audit_source_bundled_description": {
+    "message": "ምንጭ፡- የተጠቀለለ ፋይል ዳታ/linkumori-clearurls-min.json",
+    "description": "Source description for bundled rules"
+  },
+  "audit_source_final_description": {
+    "message": "ምንጭ፡ የሩጫ ጊዜ ማከማቻ ClearURLsData",
+    "description": "Source description for final rules"
+  },
+  "audit_source_custom_description": {
+    "message": "ምንጭ፡ የአሂድ ጊዜ ማከማቻ ብጁ_ደንቦች",
+    "description": "Source description for custom rules"
+  },
+  "audit_source_remote_description": {
+    "message": "ምንጭ፡ የአሂድ ጊዜ ማከማቻ remoteRulescache.data (በአካባቢው የተሸጎጡ የቅርብ ጊዜ የርቀት ሕጎች)",
+    "description": "Source description for latest cached remote rules"
+  },
+  "audit_meta_waiting": {
+    "message": "በመጠበቅ ላይ...",
+    "description": "Meta text shown before audit data is loaded"
+  },
+  "audit_meta_error": {
+    "message": "ስህተት",
+    "description": "Meta text shown when a selected audit source has an error"
+  },
+  "audit_meta_source_bundled": {
+    "message": "የተጣመሩ ደንቦች",
+    "description": "Meta label for bundled rules source"
+  },
+  "audit_meta_source_final": {
+    "message": "የመጨረሻ ደንቦች",
+    "description": "Meta label for final rules source"
+  },
+  "audit_meta_source_custom": {
+    "message": "ብጁ ደንቦች",
+    "description": "Meta label for custom rules source"
+  },
+  "audit_meta_source_remote": {
+    "message": "የርቀት መሸጎጫ",
+    "description": "Meta label for latest cached remote rules source"
+  },
+  "audit_meta_template": {
+    "message": "$1 | አቅራቢዎች፡ $2 | chars: $3",
+    "description": "Template for audit source meta information"
+  },
+  "audit_status_loading": {
+    "message": "የኦዲት ምንጮችን በመጫን ላይ...",
+    "description": "Status shown while loading audit sources"
+  },
+  "audit_status_loaded": {
+    "message": "ሁሉም የኦዲት ምንጮች ተጭነዋል።",
+    "description": "Status shown when all audit sources load successfully"
+  },
+  "audit_status_remote_unavailable": {
+    "message": "የኦዲት ምንጮች ተጭነዋል። የቅርብ ጊዜ የተሸጎጡ የርቀት ደንቦች እስካሁን አይገኙም።",
+    "description": "Status shown when audit sources load but remote cache is not yet available"
+  },
+  "audit_status_partial_error": {
+    "message": "አንዳንድ የኦዲት ምንጮች ሊጫኑ አልቻሉም። JSON ስህተቱን ለመመርመር ምንጮችን ይቀይሩ።",
+    "description": "Status shown when one or more audit sources fail to load"
+  },
+  "audit_status_refresh_failed": {
+    "message": "የኦዲት ምንጮችን ማደስ አልተሳካም።",
+    "description": "Fallback error shown when refreshing audit sources fails"
+  },
+  "audit_error_bundled_fetch": {
+    "message": "የተጠቀለሉ ደንቦች ማምጣት ከ $1 ሁኔታ ጋር አልተሳካም።",
+    "description": "Error shown when fetching bundled rules fails"
+  },
+  "audit_error_final_missing": {
+    "message": "የሩጫ ጊዜ ClearURLsData አልመለሰም።",
+    "description": "Error shown when final rules are missing from runtime storage"
+  },
+  "audit_error_custom_missing": {
+    "message": "የሩጫ ጊዜ ብጁ_ደንቦችን አልመለሰም።",
+    "description": "Error shown when custom rules are missing from runtime storage"
+  },
+  "audit_error_remote_cache_missing": {
+    "message": "Runtime የርቀት ደንብ አልተመለሰም።",
+    "description": "Error shown when remote cache is missing from runtime storage"
+  },
+  "audit_error_unknown_bundled": {
+    "message": "ያልታወቀ የተጠቀለሉ ደንቦች ስህተት",
+    "description": "Fallback bundled rules error"
+  },
+  "audit_error_unknown_final": {
+    "message": "ያልታወቀ የመጨረሻ ህጎች ስህተት",
+    "description": "Fallback final rules error"
+  },
+  "audit_error_unknown_custom": {
+    "message": "ያልታወቀ ብጁ ደንቦች ስህተት",
+    "description": "Fallback custom rules error"
+  },
+  "audit_error_unknown_remote": {
+    "message": "ያልታወቀ የርቀት ደንቦች ስህተት",
+    "description": "Fallback remote rules error"
+  },
+  "audit_remote_unavailable": {
+    "message": "እስካሁን ምንም የተሸጎጡ የርቀት ደንቦች የሉም",
+    "description": "Message shown when remote cache has not been populated yet"
+  },
+  "audit_remote_payload_unavailable": {
+    "message": "ምንም የተሸጎጠ የርቀት ደንቦች ክፍያ ገና የለም።",
+    "description": "Message shown when remote cache exists but has no data payload"
+  },
+  "audit_faq_modal_title": {
+    "message": "የኦዲት ተደጋጋሚ ጥያቄዎች",
+    "description": "Title for the audit FAQ modal"
+  },
+  "audit_faq_intro": {
+    "message": "እነዚህ ማስታወሻዎች clearurls.js ህጎችን ሲገነባ እና ሲተገበር የሚያነባቸውን የአቅራቢ መስኮችን ይገልፃሉ።",
+    "description": "Intro text for the audit FAQ modal"
+  },
+  "audit_faq_audit_provider_title": {
+    "message": "አቅራቢውን እንዴት ኦዲት አደርጋለሁ?",
+    "description": "FAQ title for auditing a provider"
+  },
+  "audit_faq_audit_provider_body": {
+    "message": "<p> በተመልካቹ ውስጥ ምንጩን ይክፈቱ ፣ አቅራቢውን በ <span class=\"faq-code\">X አቅራቢዎችXXTKNX2XXTKNXX ውስጥ ይፈልጉ እና በአቅራቢው ነገር ላይ ቁልፎቹን ይፈትሹ። የተላኩትን ህጎች ለመፈተሽ ህጎች</span> ፣የተዋሃደውን የሩጫ ጊዜ ውጤት ለመፈተሽ <span class=\"faq-code\">XFinal Rules</span> <span class=\"faq-code\">X<span class=\"faq-code\">X</span> በጣም በቅርብ ጊዜ የተገኘውን የርቀት ክፍያ በመሸጎጫ ውስጥ የተቀመጠን ለመመርመር።</p>",
+    "description": "FAQ body for auditing a provider"
+  },
+  "audit_faq_override_title": {
+    "message": "የግለሰብ ደንቦችን እንዴት ማንቃት፣ ማሰናከል፣ ማስመጣት፣ ማርትዕ ወይም መሻር እችላለሁ?",
+    "description": "FAQ title for custom rule editing and overrides"
+  },
+  "audit_faq_override_body": {
+    "message": "<p> የደንብ-በ-ደንብ ቁጥጥር ሲፈልጉ ብጁ ደንቦችን አርታዒ ይጠቀሙ። ያ ነው ደንቦችን እንደ ብጁ ህግ የሚያስገቡበት፣ የአቅራቢ መስኮችን አርትዕ ለማድረግ እና የእራስዎን የአቅራቢ ሥሪት ያስቀምጡ። ያ ብጁ እትም ወደ የሩጫ ጊዜ ህጎች ይዋሃዳል። የፈለጉትን አቅራቢ ለማግኘት XXTKNX5XXTKNXXየተጠረዙ ሕጎች</span> ወይም <span class=\"faq-code\"> የቅርብ ጊዜ የተሸጎጡ የርቀት ሕጎች የእርስዎን ብጁ ማረም ወይም መሻር ተግባራዊ መሆኑን ለማረጋገጥ <span class=\"faq-code\">XFinal Rules</span>። እንዳሰቡት ያደርጋል።</p>",
+    "description": "FAQ body for custom rule editing and overrides"
+  },
+  "audit_faq_url_pattern_title": {
+    "message": "urlPattern ምንድን ነው?",
+    "description": "FAQ title for urlPattern"
+  },
+  "audit_faq_url_pattern_body": {
+    "message": "<p><span class=\"faq-code\">urlPatternXXTKNX2XXTKNXX አቅራቢው ከዩአርኤል ጋር ይዛመዳል ወይም አይዛመድ ለመወሰን የሚያገለግል regex ነው። <span class=\"faq-code\">XurlPattern</span>፣ ClearURLs ያንን regex መጀመሪያ ይጠቀማል። clearurls.js ውስጥ፣ ይህ በ<span class=\"faq-code\">setURLPattern()</span>.</p> ወደ እውነተኛ RegExp ተቀይሯል።",
+    "description": "FAQ body for urlPattern"
+  },
+  "audit_faq_domain_patterns_title": {
+    "message": "domainPatterns ምንድን ነው?",
+    "description": "FAQ title for domainPatterns"
+  },
+  "audit_faq_domain_patterns_body": {
+    "message": "<p><span class=\"faq-code\"> ዶሜይን ፓተርንስ</span> አቅራቢው በማይታመንበት ጊዜ ጥቅም ላይ የሚውለው በጎራ ላይ የተመሠረተ አዛማጅ ነው። <span class=\"faq-code\">XurlPattern</span>.</p><p>ClearURLs እነዚህን በ<span class=\"faq-code\">setURLDomainPattern()ማስተካከያ እና ከXXTKNXX8 URL ተዛማጅ።</p>",
+    "description": "FAQ body for domainPatterns"
+  },
+  "audit_faq_rules_title": {
+    "message": "ደንቦች፣ ጥሬ ደንቦች እና ሪፈራል ማርኬቲንግ ምንድን ናቸው?",
+    "description": "FAQ title for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_rules_body": {
+    "message": "<p><span class=\"faq-code\">RUlesXXTKNX2XXTKNXX ከዩአርኤል መወገድ ያለባቸው የመለኪያ ስሞች ወይም ቁርጥራጭ ስሞች ናቸው። መላው የዩአርኤል ሕብረቁምፊ ከመጠይቁ በፊት ከማጽዳት በፊት።",
+    "description": "FAQ body for rules, rawRules, and referralMarketing"
+  },
+  "audit_faq_exceptions_title": {
+    "message": "የማይካተቱ እና domainExceptions ምንድን ናቸው?",
+    "description": "FAQ title for exceptions and domainExceptions"
+  },
+  "audit_faq_exceptions_body": {
+    "message": "<p><span class=\"faq-code\"> ልዩ ሁኔታዎችXXTKNX2XXTKNXX አንድ አቅራቢ በተዛማጅ ዩአርኤሎች ላይ እርምጃ እንዳይወስድ የሚያቆሙት regex ቅጦች ናቸው። ከዩአርኤል regex ማዛመድ ይልቅ በጎራ ላይ የተመሰረተ ተዛማጅ።",
+    "description": "FAQ body for exceptions and domainExceptions"
+  },
+  "audit_faq_redirections_title": {
+    "message": "ማዞሪያዎች እና ጎራ ማዞሪያዎች ምንድን ናቸው?",
+    "description": "FAQ title for redirections and domainRedirections"
+  },
+  "audit_faq_redirections_body": {
+    "message": "<p><span class=\"faq-code\">redirectionsXXTKNX2XXTKNXX በ regex ላይ የተመሰረቱ ፈታዎች ናቸው። አብዛኛውን ጊዜ በቡድን 1 ውስጥ ትክክለኛውን የመድረሻ ዩአርኤል ይቀርፃሉ፣ እና ClearURLs ወደተያዘው እሴት ያዞራሉ። በዚህ ኮድ ቤዝ ውስጥ እንደ <span class=\"faq-code\">Xpattern $redirect= target</span>.</p><p>XXXXXX10XXTKNXXX<p>XXXXTKNXXX10XXTKNXXX ያሉ ምዝግቦች እንዲገኙ ይፈተሻሉ። ካልሆነ፣ ClearURLs የሚቀጥለውን የጎራ አቅጣጫ አቅጣጫ ይፈትሻል።</p>",
+    "description": "FAQ body for redirections and domainRedirections"
+  },
+  "audit_faq_methods_resources_title": {
+    "message": "ዘዴዎች እና ምንጮች ምንድ ናቸው?",
+    "description": "FAQ title for methods and resourceTypes"
+  },
+  "audit_faq_methods_resources_body": {
+    "message": "<p><span class=\"faq-code\"> ዘዴዎችXXTKNX2XXTKNXX እንደ XXTKNXX3XXTKNXGET</span> ወይም <span class=\"faq-code\"> ወይም <span class=\"faq-code\"> ወይም <span class=\"faq-code\"> ላሉ የተወሰኑ የኤችቲቲፒ ዘዴዎች ገድብ። ምንም ዘዴዎች ካልተዘረዘሩ ሁሉም ዘዴዎች ይፈቀዳሉ ። <span class=\"faq-code\">Sub_frame</span> ወይም <span class=\"faq-code\">mlhttpጥያቄXXTKNX16XXTKNXX.XXTKNX17XXTKNXX<p>.</p>XXTKNX18XXTKNXL ወደ ኋላ መመለስ አይነት ከተዘረዘሩ አይፈቀዱም ከዳግም መውደቅ አይነቶች settings.</p>",
+    "description": "FAQ body for methods and resourceTypes"
+  },
+  "audit_faq_complete_force_title": {
+    "message": "የተሟሉ አቅራቢዎች እና አስገድዶ ማዘዋወር ምንድናቸው?",
+    "description": "FAQ title for completeProvider and forceRedirection"
+  },
+  "audit_faq_complete_force_body": {
+    "message": "<p><span class=\"faq-code\"> የተሟላ አቅራቢXXTKNX2XXTKNXX አቅራቢውን ወደ ማገድ አቅራቢነት ይለውጠዋል። clearurls.js ውስጥ፣ ይህ ማለት ጎራ ማገድ ሲነቃ አቅራቢው ተዛማጅ ጥያቄዎችን መሰረዝ ይችላል ማለት ነው። በ<span class=\"faq-code\">main_frame</span> ጥያቄ ላይ ማዘዋወር ሲገኝ ClearURLs መደበኛ የማዘዋወር ምላሽ ከመመለስ ይልቅ በቀጥታ የአሳሹን ትር ማዘመን ይችላል።",
+    "description": "FAQ body for completeProvider and forceRedirection"
+  },
+  "audit_faq_fields_title": {
+    "message": "clearurls.js የትኛዎቹ አቅራቢዎች እዚህ ይጠቀማሉ?",
+    "description": "FAQ title for the list of provider fields used by clearurls.js"
+  },
+  "audit_faq_fields_body": {
+    "message": "<p> በዚህ ቅርንጫፍ ውስጥ ያለው የአቅራቢ-ግንባታ መንገድ እነዚህን ቁልፎች ያነባል፡- <span class=\"faq-code\"> የተሟላ አቅራቢ <span class=\"faq-code\">XURlPattern</span>፣ <span class=\"faq-code\"> ዶሜይን ፓተርንስ</span>፣ <span class=\"faq-code\">RUles</span>፣ <span class=\"faq-code\">XrawRules</span>፣ <span class=\"faq-code\">ሪፈራራል ማርኬቲንግ <span class=\"faq-code\">ዶሜይን ልዩ ሁኔታዎች</span>፣ <span class=\"faq-code\">አቅጣጫዎች <span class=\"faq-code\">X ዘዴዎች</span> እና <span class=\"faq-code\">resourceTypesXXTKNX26XXTKNXX.XXTKNX27XXTKNXXXXXXTKNX27XXTKNXXXXXTKNX28XXTKNXXXXXTKNX27XXTKNXXXXXXTKNX28XXTKNXX.XXTKNX27XXTKNXXX<p>X. <span class=\"faq-code\">X የመጨረሻ ህጎች</span> ምክንያቱም ይህ የሚያሳየው ከጥቅል ፣ ከርቀት እና ብጁ ምንጮች ከተዋሃዱ በኋላ የተዋሃደውን ውጤት ያሳያል።</p>",
+    "description": "FAQ body for the list of provider fields used by clearurls.js"
+  },
+  "popup_temporary_pause_title": {
+    "message": "ጊዜያዊ ባለበት ማቆም",
+    "description": "Auto-added i18n key: popup_temporary_pause_title"
+  },
+  "popup_pause_15m": {
+    "message": "15 ደቂቃ ለአፍታ አቁም",
+    "description": "Auto-added i18n key: popup_pause_15m"
+  },
+  "popup_pause_1h": {
+    "message": "1 ሰዓት ለአፍታ አቁም",
+    "description": "Auto-added i18n key: popup_pause_1h"
+  },
+  "popup_pause_until_restart": {
+    "message": "እንደገና እስኪጀመር ድረስ",
+    "description": "Auto-added i18n key: popup_pause_until_restart"
+  },
+  "popup_pause_resume_now": {
+    "message": "አሁን ከቆመበት ቀጥል",
+    "description": "Auto-added i18n key: popup_pause_resume_now"
+  },
+  "popup_pause_status_active": {
+    "message": "ንቁ",
+    "description": "Auto-added i18n key: popup_pause_status_active"
+  },
+  "popup_pause_status_until_restart": {
+    "message": "አሳሹ እንደገና እስኪጀምር ድረስ ባለበት ቆሟል",
+    "description": "Auto-added i18n key: popup_pause_status_until_restart"
+  },
+  "popup_pause_status_timed": {
+    "message": "ባለበት ቆሟል (%s ይቀራል)",
+    "description": "Auto-added i18n key: popup_pause_status_timed"
+  },
+  "popup_pause_error_update": {
+    "message": "ጊዜያዊ ባለበት ማቆም ሁኔታን ማዘመን አልተሳካም።",
+    "description": "Auto-added i18n key: popup_pause_error_update"
+  },
+  "popup_pause_error_resume": {
+    "message": "ጽዳትን መቀጠል አልተሳካም።",
+    "description": "Auto-added i18n key: popup_pause_error_resume"
+  },
+  "popup_pause_less_than_minute": {
+    "message": "ከአንድ ደቂቃ ያነሰ",
+    "description": "Auto-added i18n key: popup_pause_less_than_minute"
+  },
+  "popup_pause_unit_min_short": {
+    "message": "ደቂቃ",
+    "description": "Auto-added i18n key: popup_pause_unit_min_short"
+  },
+  "popup_pause_unit_hour_short": {
+    "message": "ሸ",
+    "description": "Auto-added i18n key: popup_pause_unit_hour_short"
+  },
+  "settings_remote_health_title": {
+    "message": "የርቀት ደንቦች ጤና",
+    "description": "Auto-added i18n key: settings_remote_health_title"
+  },
+  "settings_remote_health_refresh": {
+    "message": "አሁን አድስ",
+    "description": "Auto-added i18n key: settings_remote_health_refresh"
+  },
+  "settings_remote_health_fetch_attempt_label": {
+    "message": "የመጨረሻው የማምጣት ሙከራ፡-",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_attempt_label"
+  },
+  "settings_remote_health_fetch_success_label": {
+    "message": "የመጨረሻው የተሳካ ውጤት:",
+    "description": "Auto-added i18n key: settings_remote_health_fetch_success_label"
+  },
+  "settings_remote_health_hash_verification_label": {
+    "message": "የመጨረሻው የሃሽ ማረጋገጫ፡-",
+    "description": "Auto-added i18n key: settings_remote_health_hash_verification_label"
+  },
+  "settings_remote_health_failure_reason_label": {
+    "message": "የመጨረሻው ውድቀት ምክንያት፡-",
+    "description": "Auto-added i18n key: settings_remote_health_failure_reason_label"
+  },
+  "settings_remote_health_hash_status_label": {
+    "message": "የአሁኑ ሃሽ ሁኔታ፡-",
+    "description": "Auto-added i18n key: settings_remote_health_hash_status_label"
+  },
+  "settings_remote_health_na": {
+    "message": "ኤን/ኤ",
+    "description": "Auto-added i18n key: settings_remote_health_na"
+  },
+  "settings_remote_health_none": {
+    "message": "ምንም",
+    "description": "Auto-added i18n key: settings_remote_health_none"
+  },
+  "settings_remote_health_unknown": {
+    "message": "የማይታወቅ",
+    "description": "Auto-added i18n key: settings_remote_health_unknown"
+  },
+  "settings_remote_health_refreshing": {
+    "message": "በማደስ ላይ...",
+    "description": "Auto-added i18n key: settings_remote_health_refreshing"
+  },
+  "settings_remote_health_refresh_success": {
+    "message": "የርቀት ሕጎች መታደስ ተጠናቅቋል።",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_success"
+  },
+  "settings_remote_health_refresh_failed": {
+    "message": "የርቀት ደንቦችን ማደስ አልተሳካም።",
+    "description": "Auto-added i18n key: settings_remote_health_refresh_failed"
+  },
+  "customRulesEditor_ruleTestLab_button": {
+    "message": "ደንብ ሙከራ ቤተ ሙከራ",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_button"
+  },
+  "customRulesEditor_ruleTestLab_title": {
+    "message": "ደንብ ሙከራ ቤተ ሙከራ",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_title"
+  },
+  "customRulesEditor_ruleTestLab_description": {
+    "message": "ከማጽዳቱ በፊት/በኋላ ለማየት ዩአርኤል ለጥፍ እና መጀመሪያ የተዛመደ አቅራቢ/ደንብ።",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_description"
+  },
+  "customRulesEditor_ruleTestLab_input_placeholder": {
+    "message": "https://example.com/?utm_source=newsletter",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_input_placeholder"
+  },
+  "customRulesEditor_ruleTestLab_run": {
+    "message": "ሙከራን አሂድ",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_run"
+  },
+  "customRulesEditor_ruleTestLab_testing": {
+    "message": "በመሞከር ላይ...",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_testing"
+  },
+  "customRulesEditor_ruleTestLab_enter_url": {
+    "message": "መጀመሪያ ዩአርኤል ያስገቡ።",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_enter_url"
+  },
+  "customRulesEditor_ruleTestLab_failed": {
+    "message": "የደንብ ሙከራ አልተሳካም።",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_failed"
+  },
+  "customRulesEditor_ruleTestLab_success_changed": {
+    "message": "የተዛመደ እና በተሳካ ሁኔታ ጸድቷል።",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_changed"
+  },
+  "customRulesEditor_ruleTestLab_success_unchanged": {
+    "message": "ለዚህ URL ምንም ለውጦች አልተተገበሩም።",
+    "description": "Auto-added i18n key: customRulesEditor_ruleTestLab_success_unchanged"
+  },
+  "rule_test_error_url_required": {
+    "message": "URL ያስፈልጋል",
+    "description": "Auto-added i18n key: rule_test_error_url_required"
+  },
+  "rule_test_error_invalid_url": {
+    "message": "ልክ ያልሆነ የዩአርኤል ቅርጸት",
+    "description": "Auto-added i18n key: rule_test_error_invalid_url"
+  },
+  "rule_test_error_failed": {
+    "message": "የደንብ ሙከራ አልተሳካም።",
+    "description": "Auto-added i18n key: rule_test_error_failed"
+  },
+  "popup_theme_toggle_aria": {
+    "message": "ገጽታ ቀያይር",
+    "description": "ARIA label for popup theme toggle button"
+  },
+  "popup_dynamic_whitelist_detecting": {
+    "message": "ጎራ በማግኘት ላይ...",
+    "description": "Temporary label shown while popup detects current tab domain for whitelist button"
+  },
+  "popup_dynamic_whitelist_loading_add": {
+    "message": "%s በማከል ላይ...",
+    "description": "Whitelist button loading label when adding domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_loading_remove": {
+    "message": "%sን በማስወገድ ላይ...",
+    "description": "Whitelist button loading label when removing domain. %s is replaced with the domain."
+  },
+  "popup_dynamic_whitelist_unavailable_title": {
+    "message": "የዚህ ገጽ ጎራ ማግኘት አልተቻለም",
+    "description": "Tooltip for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_dynamic_whitelist_unavailable_aria": {
+    "message": "ይህ ገጽ ምንም የሚደገፍ ጎራ ስለሌለው የተፈቀደላቸው ዝርዝር አዝራር ተሰናክሏል።",
+    "description": "ARIA label for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_pause_15m_title": {
+    "message": "ለ 15 ደቂቃዎች ጽዳትን ለጊዜው ያቁሙ",
+    "description": "Tooltip and ARIA label for the 15-minute temporary pause button in popup"
+  },
+  "popup_pause_1h_title": {
+    "message": "ለ 1 ሰዓት ማጽዳቱን ለጊዜው ያቁሙ",
+    "description": "Tooltip and ARIA label for the 1-hour temporary pause button in popup"
+  },
+  "popup_pause_until_restart_title": {
+    "message": "አሳሹ እንደገና እስኪጀምር ድረስ ማጽዳቱን ለአፍታ ያቁሙ",
+    "description": "Tooltip and ARIA label for the pause-until-restart button in popup"
+  },
+  "popup_pause_resume_now_title": {
+    "message": "የዩአርኤል ማፅዳትን አሁን ከቆመበት ቀጥል",
+    "description": "Tooltip and ARIA label for the resume-now button in popup"
+  },
+  "popup_temporary_pause_title_title": {
+    "message": "የዩአርኤል ማፅዳትን ለጊዜው ያቁሙ",
+    "description": "Tooltip for temporary pause section title in popup"
+  },
+  "popup_html_statistics_elements_title": {
+    "message": "በአሁኑ ገጽ ላይ የተከናወኑ አጠቃላይ ክፍሎች",
+    "description": "Tooltip for popup total elements label"
+  },
+  "popup_consent_description_title": {
+    "message": "ከመቀበላችሁ በፊት ይህንን ያንብቡ",
+    "description": "Tooltip for popup consent description"
+  },
+  "popup_consent_checkbox_title": {
+    "message": "ማንበብዎን እና መቀበሉን ያረጋግጡ",
+    "description": "Tooltip for popup consent checkbox label"
+  },
+  "popup_consent_accept_button_title": {
+    "message": "ፈቃድ ተቀበል እና ብቅ ባይን ይክፈቱ",
+    "description": "Tooltip for popup consent accept button"
+  },
+  "license_third_party_title_title": {
+    "message": "የሶስተኛ ወገን አካል መረጃ",
+    "description": "Tooltip for third-party section title"
+  },
+  "popup_html_firefox_signature_title_title": {
+    "message": "የፋየርፎክስ ተጨማሪ ፊርማ መፍቻ",
+    "description": "Tooltip for Firefox signature title label"
+  },
+  "invalid_date_label": {
+    "message": "ልክ ያልሆነ ቀን",
+    "description": "Fallback text when a date value cannot be parsed."
+  },
+  "log_i18n_load_failed": {
+    "message": "አለማቀፋዊነትን መጫን አልተሳካም። አንዳንድ ባህሪያት በትክክል ላይሰሩ ይችላሉ።",
+    "description": "Error message shown when log page translations fail to load."
+  },
+  "log_html_sort_oldest_first": {
+    "message": "መጀመሪያ የቆዩትን ለማሳየት ጠቅ ያድርጉ",
+    "description": "Tooltip for log timestamp sort button when currently newest-first."
+  },
+  "log_html_sort_newest_first": {
+    "message": "መጀመሪያ አዲሱን ለማሳየት ጠቅ ያድርጉ",
+    "description": "Tooltip for log timestamp sort button when currently oldest-first."
+  },
+  "customRulesEditor_ruleTestLab_close_aria": {
+    "message": "የደንብ ሙከራ ቤተ ሙከራን ዝጋ",
+    "description": "ARIA label for closing the Rule Test Lab modal."
+  },
+  "customRulesEditor_ruleTestLab_field_input": {
+    "message": "የግቤት URL",
+    "description": "Label for input URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_output": {
+    "message": "የውጤት URL",
+    "description": "Label for output URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_changed": {
+    "message": "ተለውጧል",
+    "description": "Label indicating whether URL was changed in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedProvider": {
+    "message": "ተዛማጅ አቅራቢ",
+    "description": "Label for matched provider in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRule": {
+    "message": "ተዛማጅ ደንብ",
+    "description": "Label for matched rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternType": {
+    "message": "የስርዓተ-ጥለት ዓይነት",
+    "description": "Label for pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_patternValue": {
+    "message": "ስርዓተ-ጥለት እሴት",
+    "description": "Label for pattern value in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_action": {
+    "message": "ድርጊት",
+    "description": "Label for matched action in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_param_placeholder": {
+    "message": "ለመፈተሽ አማራጭ ፓራም (ለምሳሌ utm_source ወይም ref=abc)",
+    "description": "Placeholder for optional parameter probe input in Rule Test Lab."
+  },
+  "customRulesEditor_ruleTestLab_field_testedParam": {
+    "message": "የተፈተነ ፓራም",
+    "description": "Label for tested parameter probe in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedException": {
+    "message": "ተዛማጅ ልዩ",
+    "description": "Label for matched URL regex exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainException": {
+    "message": "የተዛመደ የጎራ ልዩነት",
+    "description": "Label for matched domain exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRedirection": {
+    "message": "የተዛመደ አቅጣጫ አቅጣጫ",
+    "description": "Label for matched regex redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedDomainRedirection": {
+    "message": "ተዛማጅ የጎራ አቅጣጫ አቅጣጫ",
+    "description": "Label for matched domain redirection in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRuleRegex": {
+    "message": "ተዛማጅ ደንብ Regex",
+    "description": "Label for matched standard rule regex in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRawRule": {
+    "message": "የተጣጣመ ጥሬ ህግ",
+    "description": "Label for matched raw rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedReferralMarketing": {
+    "message": "ተዛማጅ ሪፈራል ደንብ",
+    "description": "Label for matched referral marketing rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamRule": {
+    "message": "የተዛመደ የማስወገድ ፓራም ደንብ",
+    "description": "Label for matched $removeparam rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_matchedRemoveParamException": {
+    "message": "የተዛመደ RemoveParam ልዩ",
+    "description": "Label for matched @@$removeparam exception in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_completeProvider": {
+    "message": "የተሟላ አቅራቢ",
+    "description": "Label for completeProvider boolean in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_none": {
+    "message": "ምንም",
+    "description": "Fallback value in Rule Test Lab output when there is no value."
+  },
+  "customRulesEditor_ruleTestLab_value_true": {
+    "message": "አዎ",
+    "description": "Boolean true label in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_value_false": {
+    "message": "አይ",
+    "description": "Boolean false label in Rule Test Lab output."
+  },
+  "color_picket_clear": {
+    "message": "ግልጽ",
+    "description": "Clear button in color picker."
+  },
+  "customRulesAnswer_enforceRules": {
+    "message": "ደንቦችን ማስፈጸም",
+    "description": "Legacy/alias label for enforcing custom rules."
+  },
+  "log_stats_chart_type_bar": {
+    "message": "የአሞሌ ገበታ",
+    "description": "Label for the bar chart option."
+  },
+  "log_stats_chart_type_line": {
+    "message": "የመስመር ገበታ",
+    "description": "Label for the line chart option."
+  },
+  "log_stats_daily_activity": {
+    "message": "ዕለታዊ እንቅስቃሴ (ያለፉት 14 ቀናት)",
+    "description": "Stats section title for daily activity chart/table."
+  },
+  "log_stats_date_col": {
+    "message": "ቀን",
+    "description": "Header for the date column in daily stats table."
+  },
+  "log_stats_entries_col": {
+    "message": "ግቤቶች",
+    "description": "Header for the entries column in daily stats table."
+  },
+  "log_stats_no_activity": {
+    "message": "ምንም እንቅስቃሴ የለም።",
+    "description": "Fallback row label when no daily stats data is available."
+  },
+  "linkumori_url_rules_section": {
+    "description": "Section header for popular extension URL filter rules in settings",
+    "message": "Linkumori URL ማጣሪያዎች (መጠላለፍ):"
+  },
+  "clearurls_json_rules_section": {
+    "description": "Section header for native ClearURLs JSON rule statistics in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON ደንቦች፡"
+  },
+  "clearurls_json_rules_metadata_section": {
+    "description": "Section header for native ClearURLs JSON rule metadata in settings",
+    "message": "Linkumori (ClearURLs 2.0) JSON ደንቦች መረጃ፡-"
+  },
+  "linkumori_url_rules_count_label": {
+    "description": "Label for the number of Linkumori URL filter rules",
+    "message": "URL የማጣሪያ ህጎች፡-"
+  },
+  "linkumori_url_sources_count_label": {
+    "description": "Label for the number of Linkumori URL filter sources",
+    "message": "URL የማጣሪያ ምንጮች፡-"
+  },
+  "linkumori_url_rule_status_label": {
+    "description": "Label for Linkumori URL filter load status",
+    "message": "ደንብ ሁኔታ፡-"
+  },
+  "linkumori_url_hash_status_label": {
+    "description": "Label for Linkumori URL filter hash status",
+    "message": "የሃሽ ሁኔታ፡-"
+  },
+  "settings_remote_health_linkumori_url_status_label": {
+    "description": "Status label for hashless popular extension Linkumori URL filters",
+    "message": "Linkumori URL የማጣሪያ ሁኔታ፡"
+  },
+  "linkumori_url_status_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ተጭኗል"
+  },
+  "linkumori_url_status_partially_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "በከፊል ተጭኗል"
+  },
+  "linkumori_url_status_all_sources_failed": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ሁሉም ምንጮች አልተሳኩም"
+  },
+  "linkumori_url_status_no_sources": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ምንም ሃሽ አልባ URL የማጣሪያ ምንጮች አልተዋቀሩም።"
+  },
+  "linkumori_url_status_remote_disabled": {
+    "description": "Linkumori URL filter rule status",
+    "message": "የርቀት ህጎች ተሰናክለዋል።"
+  },
+  "linkumori_url_status_not_loaded": {
+    "description": "Linkumori URL filter rule status",
+    "message": "አልተጫነም።"
+  },
+  "linkumori_url_status_empty": {
+    "description": "Linkumori URL filter rule status",
+    "message": "ባዶ"
+  },
+  "linkumori_url_hash_not_required": {
+    "description": "Hash status for popular extension URL filter lists",
+    "message": "አያስፈልግም"
+  },
+  "linkumori_url_filter_name": {
+    "description": "Display name for Linkumori URL filter interoperability rules.",
+    "message": "Linkumori URL ማጣሪያዎች"
+  },
+  "linkumori_url_filter_single_name": {
+    "description": "Display name for a single Linkumori URL filter source.",
+    "message": "Linkumori URL ማጣሪያ"
+  },
+  "linkumori_url_filter_merged_name": {
+    "description": "Display name when multiple Linkumori URL filter sources are merged.",
+    "message": "Linkumori URL ማጣሪያዎች ተዋህደዋል"
+  },
+  "linkumori_url_filter_custom_name": {
+    "description": "Display name for custom Linkumori URL filter rules.",
+    "message": "ብጁ Linkumori URL ደንቦች"
+  },
+  "linkumori_url_filter_parser_unavailable": {
+    "description": "Error when the Linkumori URL filter parser is unavailable.",
+    "message": "Linkumori URL ማጣሪያ የለም"
+  },
+  "linkumori_url_filter_custom_failed": {
+    "description": "Error when custom Linkumori URL rules cannot be parsed.",
+    "message": "ብጁ Linkumori URL ደንቦች አልተሳኩም"
+  },
+  "linkumori_url_filter_sources_failed_count": {
+    "description": "Summary of failed Linkumori URL filter sources.",
+    "message": "$1 URL የማጣሪያ ምንጭ(ዎች) አልተሳካም"
+  },
+  "linkumori_url_filter_remote_empty": {
+    "description": "Error when a remote Linkumori URL filter file is empty.",
+    "message": "የርቀት URL የማጣሪያ ፋይል ባዶ ነው።"
+  },
+  "linkumori_url_filter_fetch_failed": {
+    "description": "Error when fetching Linkumori URL filters fails.",
+    "message": "Linkumori URL ማጣሪያ ማምጣት አልተሳካም"
+  },
+  "linkumori_url_filter_unknown_error": {
+    "description": "Fallback error for Linkumori URL filters.",
+    "message": "ያልታወቀ URL የማጣሪያ ስህተት"
+  },
+  "linkumori_url_filter_all_sources_failed": {
+    "description": "Error when all Linkumori URL filter sources fail.",
+    "message": "ሁሉም Linkumori URL የማጣሪያ ምንጮች አልተሳኩም"
+  },
+  "linkumori_url_filter_log_pattern_value": {
+    "description": "Log pattern value for Linkumori URL filter interoperability.",
+    "message": "ታዋቂ ቅጥያ URL የመከታተያ ማጣሪያ"
+  },
+  "linkumori_url_filter_no_supported_rules": {
+    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
+    "message": "ምንም የሚደገፍ Linkumori መስተጋብር $removeparam ሕጎች አልተገኙም"
+  },
+  "linkumori_url_filter_interoperability_name": {
+    "description": "Parser metadata name for Linkumori URL filter interoperability.",
+    "message": "Linkumori URL የማጣሪያ መስተጋብር"
+  },
+  "linkumori_url_filter_interoperability_author": {
+    "description": "Parser metadata author for Linkumori URL filter interoperability.",
+    "message": "Linkumori የተጠላለፈ የማጣሪያ ምንጭ"
+  },
+  "linkumoriUrlRules_button": {
+    "description": "Button that opens the custom Linkumori URL filter modal.",
+    "message": "Linkumori URL ደንቦች"
+  },
+  "linkumoriUrlRules_modalTitle": {
+    "description": "Title for the custom Linkumori URL rules modal.",
+    "message": "Linkumori ብጁ URL ደንቦች"
+  },
+  "linkumoriUrlRules_modalDescription": {
+    "description": "Description for the custom Linkumori URL rules modal.",
+    "message": "ታዋቂ ቅጥያ $removeparam ወይም $queryprune ደንቦችን እዚህ ያክሉ። እነዚህ ደንቦች ከClearURLs ብጁ አቅራቢዎች ተለይተው የተከማቹ እና ወደ Linkumori URL ማጣሪያዎች ይዋሃዳሉ።"
+  },
+  "linkumoriUrlRules_textareaPlaceholder": {
+    "description": "Placeholder for custom Linkumori URL filter rules.",
+    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
+  },
+  "linkumoriUrlRules_validate": {
+    "description": "Button label for validating custom Linkumori URL rules.",
+    "message": "አረጋግጥ"
+  },
+  "linkumoriUrlRules_validationEmpty": {
+    "description": "Validation message for an empty Linkumori URL rules editor.",
+    "message": "ምንም ብጁ Linkumori URL ደንቦች አልተዋቀሩም።"
+  },
+  "linkumoriUrlRules_validationSuccess": {
+    "description": "Validation success summary for Linkumori URL rules.",
+    "message": "$1 የተደገፈ ህግ(ዎች)፣ $2 የማይደገፍ ተዘለለ፣ $3 የተባዛ ተዘሏል።"
+  },
+  "linkumoriUrlRules_validationFailed": {
+    "description": "Validation failure prefix for Linkumori URL rules.",
+    "message": "ማረጋገጥ አልተሳካም።"
+  },
+  "linkumoriUrlRules_saveSuccess": {
+    "description": "Success message after saving Linkumori URL custom rules.",
+    "message": "ተቀምጧል እና ዳግም ተጭኗል Linkumori URL ደንቦች."
+  },
+  "linkumoriUrlRules_saveFailed": {
+    "description": "Failure message after saving Linkumori URL custom rules.",
+    "message": "ማስቀመጥ አልተሳካም።"
+  },
+  "linkumoriUrlRules_previewEmpty": {
+    "description": "Empty preview message for Linkumori URL custom rules.",
+    "message": "ከተረጋገጠ በኋላ የሚደገፉ ህጎች እዚህ ይታያሉ።"
+  },
+  "linkumoriUrlRules_parserUnavailable": {
+    "description": "Error shown when the popular extension URL filter parser script is missing.",
+    "message": "Linkumori URL የማጣሪያ ተንታኝ የለም።"
+  },
+  "linkumoriClearUrlsStatusGroup": {
+    "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
+    "message": "Linkumori (ClearURLs 2.0)"
+  },
+  "linkumoriUrlFiltersStatusGroup": {
+    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
+    "message": "Linkumori URL ማጣሪያዎች (ተግባቦት)"
+  },
+  "linkumoriUrlRules_statusLabel": {
+    "description": "Status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL ሁኔታ"
+  },
+  "linkumoriUrlRules_runtimeRulesLabel": {
+    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
+    "message": "የአሂድ ጊዜ ህጎች"
+  },
+  "linkumoriUrlRules_customRulesLabel": {
+    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
+    "message": "ብጁ ህጎች"
+  },
+  "linkumoriUrlRules_hashStatusLabel": {
+    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
+    "message": "Linkumori URL ሃሽ"
+  },
+  "linkumoriUrlRules_statusSummary": {
+    "description": "Rules status summary for Linkumori URL rules.",
+    "message": "$1\n$2 የአሂድ ጊዜ ደንብ(ዎች)\n$3 ብጁ ህግ(ዎች)"
+  },
+  "linkumoriUrlRules_close_aria": {
+    "description": "Accessible label for closing the Linkumori URL rules modal.",
+    "message": "Linkumori ብጁ URL ደንቦችን ዝጋ"
+  },
+  "faq_linkumori_url_rules": {
+    "description": "FAQ question for Linkumori URL custom rules.",
+    "message": "Linkumori URL ሕጎች ምንድን ናቸው?"
+  },
+  "faq_linkumori_url_rules_answer": {
+    "description": "FAQ answer explaining Linkumori URL custom rules.",
+    "message": "Linkumori URL rules are popular extension tracking URL filter lines focused on $removeparam. They are useful when you want to paste filter-list syntax directly instead of creating ClearURLs provider JSON."
+  },
+  "faq_linkumori_url_rules_note": {
+    "description": "FAQ note for Linkumori URL custom rules.",
+    "message": "የርቀት ታዋቂ ቅጥያ URL ማጣሪያዎች እና እነዚህ ብጁ ደንቦች ሃሽ ማረጋገጥ አያስፈልጋቸውም። ከተተነተነ በኋላ በLinkumoriURLsData ከClearURLsData ተለይተዋል።"
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
+    "message": "ተግባቦት ተቀይሯል",
+    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
+    "message": "የተግባቦት ውጤት URL",
+    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
+    "message": "የተዛመደ የተግባቦት ሕግ",
+    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
+    "message": "የተግባቦት ንድፍ ዓይነት",
+    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
+  },
+  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
+    "message": "የተግባቦት እርምጃ",
+    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
+  },
+  "popup_whitelist_state_permanent": {
+    "message": "የተፈቀደላቸው፡ $1 — ለትር-ብቻ እንደገና ጠቅ ያድርጉ",
+    "description": "Button label when domain is permanently whitelisted. $1 is replaced with the domain. Second click converts to tab-only temporary whitelist."
+  },
+  "popup_whitelist_state_temporary": {
+    "message": "ትር-ብቻ፡ $1 — ለማስወገድ ጠቅ ያድርጉ",
+    "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
+  },
+  "logger_nav_label": {
+    "message": "የቀጥታ Logger"
+  },
+  "logger_btn_pause": {
+    "message": "⏸ ለአፍታ አቁም"
+  },
+  "logger_btn_resume": {
+    "message": "▶ ከቆመበት ቀጥል"
+  },
+  "logger_btn_clear": {
+    "message": "🗑 ግልጽ"
+  },
+  "logger_btn_autoscroll": {
+    "message": "↕ በራስ-ማሸብለል"
+  },
+  "logger_filter_label": {
+    "message": "አጣራ"
+  },
+  "logger_filter_placeholder": {
+    "message": "ግቤቶችን አጣራ…"
+  },
+  "logger_tab_filter_label": {
+    "message": "ትር"
+  },
+  "logger_tab_all": {
+    "message": "ሁሉም ትሮች"
+  },
+  "logger_col_time": {
+    "message": "ጊዜ"
+  },
+  "logger_col_action": {
+    "message": "ድርጊት"
+  },
+  "logger_col_rule": {
+    "message": "ደንብ"
+  },
+  "logger_col_provider": {
+    "message": "አቅራቢ"
+  },
+  "logger_col_pattern": {
+    "message": "ስርዓተ-ጥለት"
+  },
+  "logger_col_type": {
+    "message": "ዓይነት"
+  },
+  "logger_col_method": {
+    "message": "ዘዴ"
+  },
+  "logger_col_url": {
+    "message": "URL"
+  },
+  "logger_status_entries": {
+    "message": "ግቤቶች"
+  },
+  "logger_empty_state": {
+    "message": "እስካሁን ምንም የምዝግብ ማስታወሻዎች የሉም። ማሰስ ይህን ዝርዝር ይሞላል።"
+  },
+  "logger_logging_disabled_banner": {
+    "message": "መግባት ተሰናክሏል - አዲስ ግቤቶችን ለመቅረጽ በቅንብሮች ውስጥ ያንቁት።"
+  },
+  "logger_detail_title": {
+    "message": "የመግቢያ ዝርዝሮች"
+  },
+  "logger_detail_before": {
+    "message": "ከዚህ በፊት"
+  },
+  "logger_detail_after": {
+    "message": "በኋላ"
+  },
+  "logger_detail_rule": {
+    "message": "ደንብ"
+  },
+  "logger_detail_provider": {
+    "message": "አቅራቢ"
+  },
+  "logger_detail_pattern": {
+    "message": "ስርዓተ-ጥለት"
+  },
+  "logger_detail_type": {
+    "message": "ዓይነት"
+  },
+  "logger_detail_method": {
+    "message": "ዘዴ"
+  },
+  "logger_detail_time": {
+    "message": "የጊዜ ማህተም"
+  }
+}
