@@ -34,6 +34,7 @@
  * 2025-09-05   Subham Mahesh   Third modification
  * 2026-03-14   Subham Mahesh   Fourth modification
  * 2026-05-07   Subham Mahesh   fifth modification removed useless feature
+ * 2026-05-07   Subham Mahesh   sixth modification restored some removed features
 
  * Note: Due to inline constraints, subsequent modifications may
  * not appear here. To view the full history, run:
@@ -219,14 +220,17 @@ function setSourceData(sourceKey, data) {
 }
 
 async function loadBundledRules() {
-    const bundledUrl = browser.runtime.getURL('data/linkumori-clearurls-min.json');
+ const bundledUrl = browser.runtime.getURL('data/linkumori-clearurls-min.json.lz4');
     const response = await fetch(bundledUrl, { cache: 'no-store' });
 
     if (!response.ok) {
         throw new Error(translate('audit_error_bundled_fetch', String(response.status)));
     }
 
-    return response.json();
+   if (!globalThis.LinkumoriLZ4 || typeof globalThis.LinkumoriLZ4.decompressToString !== 'function') {
+       throw new Error(translate('audit_error_bundled_fetch', 'LZ4'));
+   }
+    return JSON.parse(globalThis.LinkumoriLZ4.decompressToString(new Uint8Array(await response.arrayBuffer())));
 }
 
 async function loadFinalRules() {
