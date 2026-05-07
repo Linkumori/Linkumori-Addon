@@ -1144,26 +1144,35 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.1.2 RegexAnalyzer
+### 3.2 Third-Party Components Modified by Linkumori
+
+#### 3.2.1 RegexAnalyzer
 
 **File:** `external_js/regex_analyzer.js`
+
+##### Original Copyright
 
 **Upstream Project:** RegexAnalyzer
 **Repository:** <https://github.com/foo123/RegexAnalyzer>
 **Source File:** <https://github.com/foo123/RegexAnalyzer/blob/master/src/js/Regex.js>
-
 **Copyright:** Public domain dedication by the upstream author(s)
 **License:** The Unlicense
 
-
-
 {{LICENSE:UNLICENSE}}
+
+##### Linkumori Modifications
+
+**Modified By:** © 2026 Subham Mahesh
+
+**Modification Summary:** Removed the deprecated Firefox XPCOM `Components` loader detection branch from the UMD wrapper to avoid accessing the deprecated `Components` object in WebExtension contexts.
+
+**License for Modified Portions:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
 
 ---
 
-### 3.2 Third-Party Components Modified by Linkumori
-
-#### 3.2.1 Decode-URI-Component.js
+#### 3.2.2 Decode-URI-Component.js
 
 **File:** `external_js/decode-uri-component.js`
 
@@ -1188,7 +1197,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.2.2 Linkumori-Pickr
+#### 3.2.3 Linkumori-Pickr
 
 **Files:**
 - `external_js/linkumori-pickr.js`
@@ -1210,7 +1219,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.2.3 SHA256.js
+#### 3.2.4 SHA256.js
 
 **File:** `external_js/sha256.js`
 
@@ -1230,7 +1239,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.2.4 Light-Punycode.js
+#### 3.2.5 Light-Punycode.js
 
 **File:** `external_js/light-punycode.js`
 
@@ -1250,7 +1259,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.2.5 Marked.js
+#### 3.2.6 Marked.js
 
 **Files:**
 - `external_js/marked.js`
@@ -1281,7 +1290,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
-#### 3.2.6 Custom Rules Editor & Settings
+#### 3.2.7 Custom Rules Editor & Settings
 
 **Files:**
 - `core_js/custom_rules_editor.js`
@@ -1289,7 +1298,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 - `html/settings.html`
 - `html/audit.html`
 
-##### 3.2.6.1 Custom Rules Editor (`html/customrules.html`)
+##### 3.2.7.1 Custom Rules Editor (`html/customrules.html`)
 
 **Title:** LINKUMORI - Custom Rules Editor (i18n) with Provider Import Feature and Provider List Modal
 
@@ -1355,7 +1364,7 @@ The following enhancements have been implemented:
 - Added provider list and disabled-rules full-page flows
 - Fully internationalized (i18n) provider list/editor interface
 
-##### 3.2.6.2 Settings Page (`html/settings.html`)
+##### 3.2.7.2 Settings Page (`html/settings.html`)
 
 **Based On:** Linkumori Settings Page / ClearURLs Settings Page
 
@@ -1432,7 +1441,7 @@ Copyright (c) 2013-2026 Cole Bemis
 
 {{LICENSE:APACHE-2.0}}
 
-##### 3.2.6.3 Audit Page (`html/audit.html`)
+##### 3.2.7.3 Audit Page (`html/audit.html`)
 
 **Title:** Linkumori Audit Page
 
@@ -1485,7 +1494,7 @@ Modification history notice:
 
 ---
 
-##### 3.2.6.4 Custom Rules Editor Script (`core_js/custom_rules_editor.js`)
+##### 3.2.7.4 Custom Rules Editor Script (`core_js/custom_rules_editor.js`)
 
 **Copyright:** © 2025-2026 Subham Mahesh
 
@@ -1524,7 +1533,7 @@ All embedded SVG icons are Modified Google Material SVG Icons (Apache License 2.
 
 ---
 
-#### 3.2.7 PublicSuffixList Parser
+#### 3.2.8 PublicSuffixList Parser
 
 **File:** `external_js/publicsuffixlist.js`
 
@@ -1562,7 +1571,7 @@ documented in-file in `external_js/publicsuffixlist.js`.
 
 ---
 
-#### 3.2.8 Public Suffix List Data
+#### 3.2.9 Public Suffix List Data
 
 **File:** `data/public_suffix_list.dat`
 
