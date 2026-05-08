@@ -16,6 +16,12 @@ Required to intercept browser requests before they are sent. `webRequest` provid
 
 ---
 
+## `dns`
+
+Required on Firefox to detect CNAME-cloaked trackers. When a subrequest is otherwise allowed, Linkumori can ask Firefox's local DNS API for the request hostname's canonical name, then replay the existing filtering logic against that canonical hostname. This helps catch first-party-looking subdomains that resolve to third-party tracking hosts. No data is collected.
+
+---
+
 ## `storage`
 
 Required to persist user settings, logs, rules, and the whitelist across browser sessions. This includes all feature toggles, the activity log, and any custom rules or whitelist entries you have configured.
@@ -69,4 +75,3 @@ Required for two purposes:
 ## `downloads`
 
 Required to export your activity logs and settings to a file on your device. This permission may become optional in a future release.
-

@@ -63,6 +63,14 @@
     "message": "Apply Linkumori URL Filter interoperability rules, including compatible $removeparam lists, alongside native Linkumori/ClearURLs JSON rules.",
     "description": "Description for the Linkumori interoperability mode toggle"
   },
+  "linkumori_cname_uncloak_enabled": {
+    "message": "Uncloak CNAME trackers",
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
+  },
+  "linkumori_cname_uncloak_enabled_description": {
+    "message": "Use Firefox's local DNS API to reveal canonical hostnames for subrequests and replay filtering against them.",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
   "bundled_rules_description": {
     "message": "Linkumori uses two rule categories: Linkumori (ClearURLs 2.0) JSON rules for native providers, and Linkumori URL Filter interoperability rules for popular extension $removeparam lists. Each category is counted separately.",
     "description": "Description for the bundled rules section."
