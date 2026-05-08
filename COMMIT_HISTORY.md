@@ -1,11 +1,127 @@
 # Git Commit History
 
-**Generated**: 2026-05-08T07:48:55.696Z
-**Total Commits**: 21
+**Generated**: 2026-05-08T11:11:57.206Z
+**Total Commits**: 24
 
 ---
 
-## Commit 1: release 58.0
+## Commit 1: feat: add Firefox CNAME uncloaking controls
+
+**Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
+**Date**: 2026-05-08 16:40:55 +0530
+**Commit Hash**: `30a0ffc8b69f3437072f30056e45507818506c00`
+**Short Hash**: `30a0ffc`
+
+### Files Modified
+
+- **Modified**: `_locales/am/messages.json`
+- **Modified**: `_locales/ar/messages.json`
+- **Modified**: `_locales/bg/messages.json`
+- **Modified**: `_locales/bn/messages.json`
+- **Modified**: `_locales/ca/messages.json`
+- **Modified**: `_locales/cs/messages.json`
+- **Modified**: `_locales/da/messages.json`
+- **Modified**: `_locales/de/messages.json`
+- **Modified**: `_locales/el/messages.json`
+- **Modified**: `_locales/en/messages.json`
+- **Modified**: `_locales/en_AU/messages.json`
+- **Modified**: `_locales/en_GB/messages.json`
+- **Modified**: `_locales/en_US/messages.json`
+- **Modified**: `_locales/es/messages.json`
+- **Modified**: `_locales/es_419/messages.json`
+- **Modified**: `_locales/et/messages.json`
+- **Modified**: `_locales/fa/messages.json`
+- **Modified**: `_locales/fi/messages.json`
+- **Modified**: `_locales/fil/messages.json`
+- **Modified**: `_locales/fr/messages.json`
+- **Modified**: `_locales/gu/messages.json`
+- **Modified**: `_locales/he/messages.json`
+- **Modified**: `_locales/hi/messages.json`
+- **Modified**: `_locales/hr/messages.json`
+- **Modified**: `_locales/hu/messages.json`
+- **Modified**: `_locales/id/messages.json`
+- **Modified**: `_locales/it/messages.json`
+- **Modified**: `_locales/ja/messages.json`
+- **Modified**: `_locales/kn/messages.json`
+- **Modified**: `_locales/ko/messages.json`
+- **Modified**: `_locales/lt/messages.json`
+- **Modified**: `_locales/lv/messages.json`
+- **Modified**: `_locales/ml/messages.json`
+- **Modified**: `_locales/mr/messages.json`
+- **Modified**: `_locales/ms/messages.json`
+- **Modified**: `_locales/nl/messages.json`
+- **Modified**: `_locales/no/messages.json`
+- **Modified**: `_locales/pl/messages.json`
+- **Modified**: `_locales/pt_BR/messages.json`
+- **Modified**: `_locales/pt_PT/messages.json`
+- **Modified**: `_locales/ro/messages.json`
+- **Modified**: `_locales/ru/messages.json`
+- **Modified**: `_locales/sk/messages.json`
+- **Modified**: `_locales/sl/messages.json`
+- **Modified**: `_locales/sr/messages.json`
+- **Modified**: `_locales/sv/messages.json`
+- **Modified**: `_locales/sw/messages.json`
+- **Modified**: `_locales/ta/messages.json`
+- **Modified**: `_locales/te/messages.json`
+- **Modified**: `_locales/th/messages.json`
+- **Modified**: `_locales/tr/messages.json`
+- **Modified**: `_locales/uk/messages.json`
+- **Modified**: `_locales/vi/messages.json`
+- **Modified**: `_locales/zh_CN/messages.json`
+- **Modified**: `_locales/zh_TW/messages.json`
+- **Modified**: `core_js/linkumori_dns.js`
+- **Modified**: `core_js/settings.js`
+- **Modified**: `core_js/storage.js`
+- **Modified**: `css/settings.css`
+- **Modified**: `html/settings.html`
+
+### Commit Message
+
+```
+feat: add Firefox CNAME uncloaking controls
+```
+
+---
+
+## Commit 2: chore: update changelog for v58.0
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-05-08 07:48:57 +0000
+**Commit Hash**: `6076863f1f9c838e61086afca548703b64c55058`
+**Short Hash**: `6076863`
+
+### Files Modified
+
+- **Modified**: `CHANGELOG.md`
+
+### Commit Message
+
+```
+chore: update changelog for v58.0
+```
+
+---
+
+## Commit 3: chore: update commit history for v58.0
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-05-08 07:48:55 +0000
+**Commit Hash**: `de12a24322d0c0dec7a491fb6c0c2f3daf358e6d`
+**Short Hash**: `de12a24`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```
+chore: update commit history for v58.0
+```
+
+---
+
+## Commit 4: release 58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:54 +0000
@@ -24,7 +140,7 @@ release 58.0
 
 ---
 
-## Commit 2: chore: update commit history
+## Commit 5: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 06:53:53 +0000
@@ -43,7 +159,7 @@ chore: update commit history
 
 ---
 
-## Commit 3: Update privacy-policy-cli.md
+## Commit 6: Update privacy-policy-cli.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 12:23:34 +0530
@@ -62,7 +178,7 @@ Update privacy-policy-cli.md
 
 ---
 
-## Commit 4: chore: update changelog for v57.0
+## Commit 7: chore: update changelog for v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:48 +0000
@@ -81,7 +197,7 @@ chore: update changelog for v57.0
 
 ---
 
-## Commit 5: chore: update commit history for v57.0
+## Commit 8: chore: update commit history for v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:47 +0000
@@ -100,7 +216,7 @@ chore: update commit history for v57.0
 
 ---
 
-## Commit 6: release 57.0
+## Commit 9: release 57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:46 +0000
@@ -119,7 +235,7 @@ release 57.0
 
 ---
 
-## Commit 7: chore: update commit history
+## Commit 10: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:03 +0000
@@ -138,7 +254,7 @@ chore: update commit history
 
 ---
 
-## Commit 8: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
+## Commit 11: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 11:21:50 +0530
@@ -224,7 +340,7 @@ feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 ---
 
-## Commit 9: chore: update commit history
+## Commit 12: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 03:39:22 +0000
@@ -243,7 +359,7 @@ chore: update commit history
 
 ---
 
-## Commit 10: Fix deprecated Components warning
+## Commit 13: Fix deprecated Components warning
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 09:07:23 +0530
@@ -264,7 +380,7 @@ Fix deprecated Components warning
 
 ---
 
-## Commit 11: chore: update commit history
+## Commit 14: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 02:27:49 +0000
@@ -283,7 +399,7 @@ chore: update commit history
 
 ---
 
-## Commit 12: reverse some change made earlier reapplied
+## Commit 15: reverse some change made earlier reapplied
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:56:57 +0530
@@ -302,7 +418,7 @@ reverse some change made earlier reapplied
 
 ---
 
-## Commit 13: chore: update commit history
+## Commit 16: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 01:59:03 +0000
@@ -321,7 +437,7 @@ chore: update commit history
 
 ---
 
-## Commit 14: Update audit.js
+## Commit 17: Update audit.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:28:53 +0530
@@ -340,7 +456,7 @@ Update audit.js
 
 ---
 
-## Commit 15: chore: update changelog for v56.0
+## Commit 18: chore: update changelog for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:21 +0000
@@ -359,7 +475,7 @@ chore: update changelog for v56.0
 
 ---
 
-## Commit 16: chore: update commit history for v56.0
+## Commit 19: chore: update commit history for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:19 +0000
@@ -378,7 +494,7 @@ chore: update commit history for v56.0
 
 ---
 
-## Commit 17: release 56.0
+## Commit 20: release 56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:18 +0000
@@ -402,7 +518,7 @@ release 56.0
 
 ---
 
-## Commit 18: chore: update commit history
+## Commit 21: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:09:44 +0000
@@ -421,7 +537,7 @@ chore: update commit history
 
 ---
 
-## Commit 19: Update manifest.json
+## Commit 22: Update manifest.json
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:39:32 +0530
@@ -440,7 +556,7 @@ Update manifest.json
 
 ---
 
-## Commit 20: chore: update commit history
+## Commit 23: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:04:03 +0000
@@ -459,7 +575,7 @@ chore: update commit history
 
 ---
 
-## Commit 21: linkumori release
+## Commit 24: linkumori release
 
 **Author**: subham8907 <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:32:17 +0530
@@ -759,4 +875,4 @@ linkumori release
 
 *End of Commit History*
 
-**Generated by Linkumori CLI** - 2026-05-08T07:48:55.696Z
+**Generated by Linkumori CLI** - 2026-05-08T11:11:57.206Z
