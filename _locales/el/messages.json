@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "Ξεκλειδώστε τους ιχνηλάτες CNAME",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Χρησιμοποιήστε το τοπικό API DNS του Firefox για να αποκαλύψετε τα κανονικά ονόματα κεντρικού υπολογιστή για δευτερεύοντα αιτήματα και να επαναλάβετε το φιλτράρισμα σε σχέση με αυτά.",
-    "description": ""
+    "message": "Χρησιμοποιήστε το τοπικό DNS API του Firefox για την αποκάλυψη True Domain",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Αγνοήστε τον κεντρικό υπολογιστή του εγγράφου για την αποκάλυψη CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Παράλειψη ελέγχου CNAME DNS όταν το όνομα κεντρικού υπολογιστή αιτήματος ταιριάζει με το όνομα κεντρικού υπολογιστή του τρέχοντος εγγράφου.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Επαναλάβετε τις πλήρεις διευθύνσεις URL κατά την αποκάλυψη του CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Συμπεριλάβετε την αρχική διαδρομή, το ερώτημα και το τμήμα κατά την αναπαραγωγή του φιλτραρίσματος με ένα όνομα κεντρικού υπολογιστή CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

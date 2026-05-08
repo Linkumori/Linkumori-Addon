@@ -2639,6 +2639,8 @@ function setData(key, value) {
         case "builtInRulesEnabled":
         case "linkumoriInteroperabilityMode":
         case "linkumoriCNAMEUncloakEnabled":
+        case "cnameIgnoreRootDocument":
+        case "cnameReplayFullURL":
         case "redirectionEnabled":
             storage[key] = value === true || value === "true";
             break;
@@ -2728,6 +2730,8 @@ function initSettings() {
     storage.builtInRulesEnabled = true;
     storage.linkumoriInteroperabilityMode = true;
     storage.linkumoriCNAMEUncloakEnabled = true;
+    storage.cnameIgnoreRootDocument = true;
+    storage.cnameReplayFullURL = false;
     storage.remoteRulesEnabled = false;
     storage.disableGatekeeper = false;
     storage.overloadModeEnabled = false;

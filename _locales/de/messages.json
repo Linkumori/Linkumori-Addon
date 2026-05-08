@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "CNAME-Tracker enttarnen",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Verwenden Sie die lokale DNS-API von Firefox, um kanonische Hostnamen für Unteranfragen anzuzeigen und die Filterung anhand dieser erneut durchzuführen.",
-    "description": ""
+    "message": "Verwenden Sie die lokale DNS-API von Firefox, um die wahre Domäne anzuzeigen",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignorieren Sie den Root-Dokument-Host für das CNAME-Uncloaking",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Überspringen Sie CNAME-DNS-Prüfungen, wenn der Hostname der Anforderung mit dem Hostnamen des aktuellen Dokuments übereinstimmt.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Vollständige URLs beim CNAME-Uncloaking wiedergeben",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Schließen Sie den ursprünglichen Pfad, die ursprüngliche Abfrage und das ursprüngliche Fragment ein, wenn Sie die Filterung anhand eines CNAME-Hostnamens wiederholen.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

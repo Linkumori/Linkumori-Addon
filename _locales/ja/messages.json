@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "CNAME トラッカーのクロークを解除する",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Firefox のローカル DNS API を使用して、サブリクエストの正規のホスト名を明らかにし、それらに対するフィルタリングを再生します。",
-    "description": ""
+    "message": "Firefox のローカル DNS API を使用して True Domain を明らかにする",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME のクローキング解除のルート ドキュメント ホストを無視する",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "リクエストのホスト名が現在のドキュメントのホスト名と一致する場合、CNAME DNS チェックをスキップします。",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME のクローキング解除中に完全な URL を再生する",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "CNAME ホスト名に対するフィルタリングを再実行する場合は、元のパス、クエリ、およびフラグメントを含めます。",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

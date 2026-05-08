@@ -2365,6 +2365,8 @@ function setupToggleSwitches() {
         { id: 'builtInRulesEnabled', storageKey: 'builtInRulesEnabled' },
         { id: 'linkumoriInteroperabilityMode', storageKey: 'linkumoriInteroperabilityMode' },
         { id: 'linkumoriCNAMEUncloakEnabled', storageKey: 'linkumoriCNAMEUncloakEnabled' },
+        { id: 'cnameIgnoreRootDocument', storageKey: 'cnameIgnoreRootDocument' },
+        { id: 'cnameReplayFullURL', storageKey: 'cnameReplayFullURL' },
         { id: 'overloadModeEnabled', storageKey: 'overloadModeEnabled' }
 
     ];
@@ -2752,6 +2754,8 @@ function save() {
         { id: 'builtInRulesEnabled', key: 'builtInRulesEnabled' },
         { id: 'linkumoriInteroperabilityMode', key: 'linkumoriInteroperabilityMode' },
         { id: 'linkumoriCNAMEUncloakEnabled', key: 'linkumoriCNAMEUncloakEnabled' },
+        { id: 'cnameIgnoreRootDocument', key: 'cnameIgnoreRootDocument' },
+        { id: 'cnameReplayFullURL', key: 'cnameReplayFullURL' },
         { id: 'overloadModeEnabled', key: 'overloadModeEnabled' }
     ];
     const toggleValues = {};
@@ -3262,7 +3266,9 @@ async function getData() {
             loadData("eTagFiltering"),
             loadData("builtInRulesEnabled"),
             loadData("linkumoriInteroperabilityMode"),
-            loadData("linkumoriCNAMEUncloakEnabled")
+            loadData("linkumoriCNAMEUncloakEnabled"),
+            loadData("cnameIgnoreRootDocument"),
+            loadData("cnameReplayFullURL")
         ]);
 
         if (settings.remoteRulesEnabled) {
@@ -3702,7 +3708,12 @@ function changeSwitchButton(id, storageID) {
     setSwitchButton(id, storageID);
 
     // Add click handler
-    element.onclick = function() {
+    element.onclick = function(event) {
+        if (event && element.closest('summary')) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
         const isActive = element.classList.contains('active');
         const newValue = !isActive;
 
@@ -3729,6 +3740,15 @@ function changeSwitchButton(id, storageID) {
         }
 
         if (storageID === "disableGatekeeper") {
+            applyToggleChange(id, storageID, newValue);
+            return;
+        }
+
+        if (
+            storageID === "linkumoriCNAMEUncloakEnabled" ||
+            storageID === "cnameIgnoreRootDocument" ||
+            storageID === "cnameReplayFullURL"
+        ) {
             applyToggleChange(id, storageID, newValue);
             return;
         }
@@ -4041,6 +4061,10 @@ setElementText('language_selector_description', 'language_selector_description')
     setElementText('linkumori_interoperability_mode_enabled_description', 'linkumori_interoperability_mode_enabled_description');
     setElementText('linkumori_cname_uncloak_enabled', 'linkumori_cname_uncloak_enabled');
     setElementText('linkumori_cname_uncloak_enabled_description', 'linkumori_cname_uncloak_enabled_description');
+    setElementText('cname_ignore_root_document_enabled', 'cname_ignore_root_document_enabled');
+    setElementText('cname_ignore_root_document_enabled_description', 'cname_ignore_root_document_enabled_description');
+    setElementText('cname_replay_full_url_enabled', 'cname_replay_full_url_enabled');
+    setElementText('cname_replay_full_url_enabled_description', 'cname_replay_full_url_enabled_description');
     setElementText('overload_mode_enabled', 'overload_mode_enabled');
     setElementText('overload_mode_enabled_description', 'overload_mode_enabled_description');
     

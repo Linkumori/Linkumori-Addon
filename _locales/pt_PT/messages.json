@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Use a API DNS local do Firefox para revelar nomes de host canônicos para subsolicitações e repetir a filtragem contra eles.",
+    "message": "Use a API DNS local do Firefox para revelar o verdadeiro domínio",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignorar o host do documento raiz para desobstrução do CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Ignore as verificações de DNS CNAME quando o nome do host da solicitação corresponder ao nome do host do documento atual.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Reproduzir URLs completos durante a abertura do CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Inclua o caminho, a consulta e o fragmento originais ao reproduzir a filtragem em um nome de host CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

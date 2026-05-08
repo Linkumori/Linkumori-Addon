@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "Poista CNAME-seurantalaitteet",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Käytä Firefoxin paikallista DNS-sovellusliittymää paljastamaan alipyyntöjen kanoniset isäntänimet ja toistosuodatus niitä vastaan.",
-    "description": ""
+    "message": "Käytä Firefoxin paikallista DNS-sovellusliittymää paljastaaksesi todellisen verkkotunnuksen",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ohita pääasiakirjan isäntä CNAME-suojauksen poistamisessa",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Ohita CNAME DNS-tarkistukset, kun pyynnön isäntänimi vastaa nykyistä asiakirjan isäntänimeä.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Toista täydelliset URL-osoitteet CNAME:n peittämisen aikana",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Sisällytä alkuperäinen polku, kysely ja fragmentti, kun toistat suodatuksen CNAME-isäntänimeä vastaan.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

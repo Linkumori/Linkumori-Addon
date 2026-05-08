@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "ఉప అభ్యర్థనల కోసం కానానికల్ హోస్ట్ పేర్లను బహిర్గతం చేయడానికి మరియు వాటికి వ్యతిరేకంగా ఫిల్టరింగ్‌ని రీప్లే చేయడానికి Firefox యొక్క స్థానిక DNS APIని ఉపయోగించండి.",
+    "message": "నిజమైన డొమైన్‌ను బహిర్గతం చేయడానికి Firefox యొక్క స్థానిక DNS APIని ఉపయోగించండి",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME అన్‌క్లోకింగ్ కోసం రూట్ డాక్యుమెంట్ హోస్ట్‌ని విస్మరించండి",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "అభ్యర్థన హోస్ట్ పేరు ప్రస్తుత డాక్యుమెంట్ హోస్ట్ పేరుతో సరిపోలినప్పుడు CNAME DNS తనిఖీలను దాటవేయి.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME అన్‌క్లోకింగ్ సమయంలో పూర్తి URLలను రీప్లే చేయండి",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "CNAME హోస్ట్ పేరుకు వ్యతిరేకంగా ఫిల్టరింగ్‌ని రీప్లే చేస్తున్నప్పుడు అసలు మార్గం, ప్రశ్న మరియు భాగాన్ని చేర్చండి.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

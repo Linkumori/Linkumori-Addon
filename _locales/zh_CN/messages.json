@@ -3557,7 +3557,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "使用 Firefox 的本地 DNS API 来显示子请求的规范主机名并针对它们进行重播过滤。",
+    "message": "使用 Firefox 的本地 DNS API 来显示 True Domain",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "忽略根文档主机以进行 CNAME 解密",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "当请求主机名与当前文档主机名匹配时，跳过 CNAME DNS 检查。",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "在 CNAME 取消隐藏期间重播完整 URL",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "重播针对 CNAME 主机名的过滤时，包括原始路径、查询和片段。",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

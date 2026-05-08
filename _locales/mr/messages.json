@@ -4466,7 +4466,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "सबरिक्वेस्टसाठी कॅनॉनिकल होस्टनावे उघड करण्यासाठी आणि त्यांच्या विरुद्ध फिल्टरिंग पुन्हा प्ले करण्यासाठी Firefox चे स्थानिक DNS API वापरा.",
+    "message": "खरे डोमेन उघड करण्यासाठी फायरफॉक्सचे स्थानिक DNS API वापरा",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME अनक्लोकिंगसाठी रूट दस्तऐवज होस्टकडे दुर्लक्ष करा",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "विनंती होस्टनाव वर्तमान दस्तऐवज होस्टनावाशी जुळते तेव्हा CNAME DNS तपासा वगळा.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME अनक्लोकिंग दरम्यान पूर्ण URL पुन्हा प्ले करा",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "CNAME होस्टनावाच्या विरूद्ध फिल्टरिंग पुन्हा प्ले करताना मूळ मार्ग, क्वेरी आणि खंड समाविष्ट करा.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

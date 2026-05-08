@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "ردیاب های CNAME را باز کنید",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "از API محلی DNS فایرفاکس برای نمایش نام های میزبان متعارف برای درخواست های فرعی و پخش مجدد فیلتر بر روی آنها استفاده کنید.",
-    "description": ""
+    "message": "از API محلی DNS فایرفاکس برای نشان دادن دامنه واقعی استفاده کنید",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "میزبان سند ریشه برای بازگشایی CNAME نادیده گرفته شود",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "وقتی نام میزبان درخواستی با نام میزبان سند فعلی مطابقت دارد، از بررسی DNS CNAME صرفنظر کنید.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "نشانی‌های اینترنتی کامل را در طول بازگشایی CNAME دوباره پخش کنید",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "هنگام پخش مجدد فیلتر در برابر نام میزبان CNAME، مسیر، پرس و جو و قطعه اصلی را وارد کنید.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

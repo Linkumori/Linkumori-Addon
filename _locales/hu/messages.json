@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "A CNAME-követők feloldása",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Használja a Firefox helyi DNS API-ját, hogy felfedje az alkérelmek kanonikus gazdagépneveit, és visszajátszási szűrést végezzen ellenük.",
-    "description": ""
+    "message": "Használja a Firefox helyi DNS API-ját a valódi tartomány felfedéséhez",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "A gyökérdokumentum gazdagép figyelmen kívül hagyása a CNAME álcázás feloldásához",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "A CNAME DNS-ellenőrzéseinek kihagyása, ha a kérés gazdagépneve megegyezik az aktuális dokumentum gazdagépnevével.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "A teljes URL-ek újrajátszása a CNAME álcázása során",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Adja meg az eredeti elérési utat, lekérdezést és töredéket, amikor egy CNAME gazdagépnévvel szembeni szűrést játszik le.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

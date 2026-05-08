@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Utilizați API-ul DNS local al Firefox pentru a dezvălui numele de gazdă canonice pentru subcereri și filtrarea reluării împotriva acestora.",
+    "message": "Utilizați API-ul DNS local al Firefox pentru a dezvălui domeniul adevărat",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignorați gazda documentului rădăcină pentru deblocarea CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Omiteți verificările CNAME DNS când numele de gazdă a cererii se potrivește cu numele de gazdă a documentului curent.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Redați adresele URL complete în timpul dezactivării CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Includeți calea inițială, interogarea și fragmentul atunci când redați filtrarea împotriva unui nume de gazdă CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "Odhalte sledovače CNAME",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Použijte místní DNS API Firefoxu k odhalení kanonických názvů hostitelů pro dílčí požadavky a opětovnému filtrování proti nim.",
-    "description": ""
+    "message": "Použijte místní DNS API Firefoxu k odhalení skutečné domény",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignorovat hostitele kořenového dokumentu pro odmaskování CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Přeskočit CNAME DNS kontroly, když se název hostitele požadavku shoduje s názvem hostitele aktuálního dokumentu.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Znovu přehrajte celé adresy URL během odmaskování CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Při opakovaném přehrávání filtrování proti názvu hostitele CNAME zahrňte původní cestu, dotaz a fragment.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

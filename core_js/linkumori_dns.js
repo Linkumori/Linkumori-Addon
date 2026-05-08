@@ -87,6 +87,39 @@
         return reIPv4.test(hostname);
     }
 
+    function isProxiedRequest(requestDetails) {
+        const proxyInfo = requestDetails && requestDetails.proxyInfo;
+        if (!proxyInfo || typeof proxyInfo !== 'object') return false;
+
+        if (proxyInfo.proxyDNS) return true;
+
+        const proxyType = String(proxyInfo.type || '').toLowerCase();
+        if (!proxyType || proxyType === 'direct') return false;
+
+        if (proxyType.charCodeAt(0) === 0x68) return true;
+
+        return true;
+    }
+
+    function isSettingEnabled(key, fallback) {
+        if (typeof storage === 'undefined' || !storage || storage[key] === undefined) {
+            return fallback;
+        }
+
+        return storage[key] === true || storage[key] === 'true';
+    }
+
+    function shouldIgnoreRootDocument(requestDetails, hostname) {
+        if (!isSettingEnabled('cnameIgnoreRootDocument', true)) {
+            return false;
+        }
+
+        const documentHostname = hostnameFromURL(
+            requestDetails && (requestDetails.documentUrl || requestDetails.url)
+        );
+        return !!documentHostname && documentHostname === hostname;
+    }
+
     function fallbackRegistrableDomain(hostname) {
         const parts = normalizeHostname(hostname).split('.').filter(Boolean);
         if (parts.length <= 2) return parts.join('.');
@@ -122,14 +155,12 @@
 
     function shouldResolve(requestDetails, hostname) {
         if (!requestDetails || requestDetails.linkumoriAliasURL) return false;
-        if (
-            typeof storage !== 'undefined' &&
-            storage &&
-            storage.linkumoriCNAMEUncloakEnabled === false
-        ) {
+        if (!isSettingEnabled('linkumoriCNAMEUncloakEnabled', true)) {
             return false;
         }
+        if (isProxiedRequest(requestDetails)) return false;
         if (requestDetails.type === 'main_frame') return false;
+        if (shouldIgnoreRootDocument(requestDetails, hostname)) return false;
         if (!/^https?:\/\//i.test(requestDetails.url || '')) return false;
         if (!hostname || isIPAddress(hostname)) return false;
 
@@ -218,6 +249,27 @@
         }
     }
 
+    function buildCNAMEReplayURL(rawUrl, fromHostname, toHostname) {
+        try {
+            const url = new URL(rawUrl);
+            if (normalizeHostname(url.hostname) !== normalizeHostname(fromHostname)) {
+                return '';
+            }
+
+            url.hostname = toHostname;
+            if (isSettingEnabled('cnameReplayFullURL', false)) {
+                return url.toString();
+            }
+
+            url.pathname = '/';
+            url.search = '';
+            url.hash = '';
+            return url.toString();
+        } catch (e) {
+            return '';
+        }
+    }
+
     function hasBlockingDecision(result) {
         return !!(
             result &&
@@ -250,7 +302,7 @@
         const cname = await resolveCanonicalName(originalHostname);
         if (!cname) return {};
 
-        const aliasURL = replaceHostname(requestDetails.url, originalHostname, cname);
+        const aliasURL = buildCNAMEReplayURL(requestDetails.url, originalHostname, cname);
         if (!aliasURL || aliasURL === requestDetails.url) return {};
 
         const aliasRequest = Object.assign({}, requestDetails, {
@@ -270,6 +322,7 @@
         replayCNAMEIfNeeded,
         _test: {
             canonicalNameFromRecord,
+            buildCNAMEReplayURL,
             replaceHostname,
             registrableDomain,
             sameRegistrableDomain

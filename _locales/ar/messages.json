@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "كشف النقاب عن أجهزة تعقب CNAME",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "استخدم واجهة برمجة تطبيقات DNS المحلية الخاصة بـ Firefox للكشف عن أسماء المضيفين الأساسية للطلبات الفرعية وإعادة تشغيل التصفية مقابلها.",
-    "description": ""
+    "message": "استخدم واجهة برمجة تطبيقات DNS المحلية الخاصة بـ Firefox للكشف عن المجال الحقيقي",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "تجاهل مضيف المستند الجذري لإلغاء حماية CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "تخطي عمليات فحص CNAME DNS عندما يتطابق اسم مضيف الطلب مع اسم مضيف المستند الحالي.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "إعادة تشغيل عناوين URL الكاملة أثناء إلغاء حماية CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "قم بتضمين المسار الأصلي والاستعلام والجزء عند إعادة تشغيل التصفية مقابل اسم مضيف CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

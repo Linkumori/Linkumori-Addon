@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Použite lokálne DNS API Firefoxu na odhalenie kanonických názvov hostiteľov pre čiastkové požiadavky a prehrajte proti nim filtrovanie.",
+    "message": "Na odhalenie skutočnej domény použite lokálne DNS API Firefoxu",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignorovať hostiteľa koreňového dokumentu pre odhaľovanie CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Preskočiť CNAME DNS kontroly, keď sa názov hostiteľa požiadavky zhoduje s názvom hostiteľa aktuálneho dokumentu.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Počas odhaľovania CNAME znova prehrajte celé adresy URL",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Pri prehrávaní filtrovania podľa názvu hostiteľa CNAME zahrňte pôvodnú cestu, dotaz a fragment.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

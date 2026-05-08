@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "הסר עוקבים של CNAME",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "השתמש ב-DNS API המקומי של Firefox כדי לחשוף שמות מארחים קנוניים עבור בקשות משנה וסינון חוזר נגדם.",
-    "description": ""
+    "message": "השתמש בממשק ה-DNS המקומי של Firefox כדי לחשוף את הדומיין האמיתי",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "התעלם מארח מסמך בסיס עבור ביטול הסוואה של CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "דלג על בדיקת CNAME DNS כאשר שם המארח של הבקשה תואם לשם המארח הנוכחי של המסמך.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "הפעל מחדש כתובות אתרים מלאות במהלך ביטול הסוואה של CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "כלול את הנתיב, השאילתה והקטע המקורי בעת הפעלה חוזרת של סינון מול שם מארח CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

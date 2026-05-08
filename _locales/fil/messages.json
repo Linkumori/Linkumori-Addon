@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "Alisin ang balabal ng mga tagasubaybay ng CNAME",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Gamitin ang lokal na DNS API ng Firefox upang ipakita ang mga canonical na hostname para sa mga subrequest at pag-filter ng replay laban sa kanila.",
-    "description": ""
+    "message": "Gamitin ang lokal na DNS API ng Firefox upang Ibunyag ang True Domain",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Huwag pansinin ang root document host para sa CNAME uncloaking",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Laktawan ang mga pagsusuri sa CNAME DNS kapag tumugma ang hostname ng kahilingan sa kasalukuyang hostname ng dokumento.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "I-replay ang buong URL sa panahon ng CNAME uncloaking",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Isama ang orihinal na landas, query, at fragment kapag nire-replay ang pag-filter laban sa isang hostname ng CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Sử dụng API DNS cục bộ của Firefox để hiển thị tên máy chủ chuẩn cho các yêu cầu phụ và lọc lại chúng.",
+    "message": "Sử dụng API DNS cục bộ của Firefox để tiết lộ tên miền thực",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Bỏ qua máy chủ tài liệu gốc để giải mã CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Bỏ qua kiểm tra DNS CNAME khi tên máy chủ yêu cầu khớp với tên máy chủ tài liệu hiện tại.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Phát lại các URL đầy đủ trong quá trình tiết lộ CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Bao gồm đường dẫn, truy vấn và đoạn ban đầu khi phát lại quá trình lọc theo tên máy chủ CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

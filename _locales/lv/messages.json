@@ -4466,7 +4466,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Izmantojiet Firefox vietējo DNS API, lai atklātu apakšpieprasījumu kanoniskos saimniekdatoru nosaukumus un atkārtotu filtrēšanu pret tiem.",
+    "message": "Izmantojiet Firefox vietējo DNS API, lai atklātu patieso domēnu",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignorēt saknes dokumenta saimniekdatoru CNAME atmaskošanai",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Izlaist CNAME DNS pārbaudes, kad pieprasījuma resursdatora nosaukums atbilst pašreizējā dokumenta resursdatora nosaukumam.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Atkārtoti atskaņojiet pilnus URL CNAME atmaskošanas laikā",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Atkārtoti atskaņojot filtrēšanu pret CNAME saimniekdatora nosaukumu, iekļaujiet sākotnējo ceļu, vaicājumu un fragmentu.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

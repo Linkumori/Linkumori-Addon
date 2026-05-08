@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Använd Firefoxs lokala DNS API för att avslöja kanoniska värdnamn för underförfrågningar och spela upp filtrering mot dem.",
+    "message": "Använd Firefoxs lokala DNS API för att avslöja True Domain",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignorera rotdokumentvärd för CNAME-uncloaking",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Hoppa över CNAME DNS kontrollerar när begäran värdnamn matchar det aktuella dokumentet värdnamn.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Spela upp fullständiga webbadresser igen under CNAME-uncloaking",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Inkludera den ursprungliga sökvägen, frågan och fragmentet när du spelar upp filtrering mot ett CNAME-värdnamn.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }
