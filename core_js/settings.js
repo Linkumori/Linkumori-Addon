@@ -2364,6 +2364,7 @@ function setupToggleSwitches() {
         { id: 'disableGatekeeper', storageKey: 'disableGatekeeper' },
         { id: 'builtInRulesEnabled', storageKey: 'builtInRulesEnabled' },
         { id: 'linkumoriInteroperabilityMode', storageKey: 'linkumoriInteroperabilityMode' },
+        { id: 'linkumoriCNAMEUncloakEnabled', storageKey: 'linkumoriCNAMEUncloakEnabled' },
         { id: 'overloadModeEnabled', storageKey: 'overloadModeEnabled' }
 
     ];
@@ -2750,6 +2751,7 @@ function save() {
         { id: 'disableGatekeeper', key: 'disableGatekeeper' },
         { id: 'builtInRulesEnabled', key: 'builtInRulesEnabled' },
         { id: 'linkumoriInteroperabilityMode', key: 'linkumoriInteroperabilityMode' },
+        { id: 'linkumoriCNAMEUncloakEnabled', key: 'linkumoriCNAMEUncloakEnabled' },
         { id: 'overloadModeEnabled', key: 'overloadModeEnabled' }
     ];
     const toggleValues = {};
@@ -3259,7 +3261,8 @@ async function getData() {
             loadData("redirectionEnabled"),
             loadData("eTagFiltering"),
             loadData("builtInRulesEnabled"),
-            loadData("linkumoriInteroperabilityMode")
+            loadData("linkumoriInteroperabilityMode"),
+            loadData("linkumoriCNAMEUncloakEnabled")
         ]);
 
         if (settings.remoteRulesEnabled) {
@@ -4036,6 +4039,8 @@ setElementText('language_selector_description', 'language_selector_description')
     setElementText('built_in_rules_enabled_description', 'built_in_rules_enabled_description');
     setElementText('linkumori_interoperability_mode_enabled', 'linkumori_interoperability_mode_enabled');
     setElementText('linkumori_interoperability_mode_enabled_description', 'linkumori_interoperability_mode_enabled_description');
+    setElementText('linkumori_cname_uncloak_enabled', 'linkumori_cname_uncloak_enabled');
+    setElementText('linkumori_cname_uncloak_enabled_description', 'linkumori_cname_uncloak_enabled_description');
     setElementText('overload_mode_enabled', 'overload_mode_enabled');
     setElementText('overload_mode_enabled_description', 'overload_mode_enabled_description');
     

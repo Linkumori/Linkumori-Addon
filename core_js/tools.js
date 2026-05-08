@@ -420,6 +420,8 @@ function pushToLog(beforeProcessing, afterProcessing, rule, providerMatch = null
             "providerResourceTypes": Array.isArray(safeProviderMatch.providerResourceTypes)
                 ? safeProviderMatch.providerResourceTypes.filter((t) => typeof t === 'string')
                 : null,
+            "aliasURL": typeof safeProviderMatch.aliasURL === 'string' ? safeProviderMatch.aliasURL : null,
+            "cname": typeof safeProviderMatch.cname === 'string' ? safeProviderMatch.cname : null,
             "tabId": typeof safeProviderMatch.tabId === 'number' ? safeProviderMatch.tabId : -1,
             "timestamp": Date.now()
         };

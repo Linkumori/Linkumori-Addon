@@ -27,7 +27,7 @@
 
 | Category | Files |
 |----------|-------| 
-| **JavaScript** | `external_js/IP-Ranger.js`<br>`external_js/linkumori-i18n.js`<br>`external_js/linkumori_lz4_block.js`<br>`external_js/theme_bootstrap.js`<br>`external_js/theme_favicon.js`<br>`core_js/clipboard-helper.js`<br>`core_js/about.js`<br>`core_js/consent_config.js`<br>`core_js/content_script_manager.js`<br>`core_js/audit.js`<br>`core_js/modal_dialog.js`<br>`core_js/linkumori_biditrie.js`<br>`core_js/linkumori_hntrie.js`<br>`core_js/linkumori_filtering_context.js`<br>`core_js/linkumori_url_filter_interoperability.js`<br>`core_js/linkumori_url_filter_runtime.js` |
+| **JavaScript** | `external_js/IP-Ranger.js`<br>`external_js/linkumori-i18n.js`<br>`external_js/linkumori_lz4_block.js`<br>`external_js/theme_bootstrap.js`<br>`external_js/theme_favicon.js`<br>`core_js/clipboard-helper.js`<br>`core_js/about.js`<br>`core_js/consent_config.js`<br>`core_js/content_script_manager.js`<br>`core_js/audit.js`<br>`core_js/modal_dialog.js`<br>`core_js/linkumori_biditrie.js`<br>`core_js/linkumori_hntrie.js`<br>`core_js/linkumori_filtering_context.js`<br>`core_js/linkumori_url_filter_interoperability.js`<br>`core_js/linkumori_url_filter_runtime.js`<br>`core_js/linkumori_dns.js` |
 | **HTML** | - |
 | **CSS** | `css/settings.css`<br>`css/siteBlockedAlert.css` |
 | **Icons (PNG)** | `img/icon16.png`<br>`img/icon19.png`<br>`img/icon20.png`<br>`img/icon24.png`<br>`img/icon30.png`<br>`img/icon32.png`<br>`img/icon38.png`<br>`img/icon48.png`<br>`img/icon64.png`<br>`img/icon96.png`<br>`img/icon128.png`<br>`img/icon128_gray.png` |

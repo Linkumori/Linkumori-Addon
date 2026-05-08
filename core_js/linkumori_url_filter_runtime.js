@@ -798,7 +798,9 @@ function handleLinkumoriURLFilterRequest(requestDetails) {
             logCategory: 'provider',
             requestMethod: requestDetails && typeof requestDetails.method === 'string' ? requestDetails.method : null,
             requestType: requestDetails && typeof requestDetails.type === 'string' ? requestDetails.type : null,
-            tabId: requestDetails && typeof requestDetails.tabId === 'number' ? requestDetails.tabId : -1
+            tabId: requestDetails && typeof requestDetails.tabId === 'number' ? requestDetails.tabId : -1,
+            aliasURL: requestDetails && typeof requestDetails.linkumoriAliasURL === 'string' ? requestDetails.linkumoriAliasURL : null,
+            cname: requestDetails && typeof requestDetails.linkumoriCNAME === 'string' ? requestDetails.linkumoriCNAME : null
         });
     }
 
