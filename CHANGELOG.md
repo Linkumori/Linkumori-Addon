@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v59.0] - 2026-05-08 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v58.0...linkumori-v59.0))
+### Added
+- Introduce Firefox CNAME uncloaking controls (`2026-05-08`, hash: [`30a0ffc`](https://github.com/Linkumori/Linkumori-Addon/commit/30a0ffc))
+
 ## [v58.0] - 2026-05-08 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v57.0...linkumori-v58.0))
 ### Changed
 - Update privacy-policy-cli.md (`2026-05-08`, hash: [`a8abad5`](https://github.com/Linkumori/Linkumori-Addon/commit/a8abad5))
