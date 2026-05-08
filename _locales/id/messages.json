@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "Buka selubung pelacak CNAME",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Gunakan API DNS lokal Firefox untuk menampilkan nama host kanonik untuk subpermintaan dan memutar ulang pemfilteran terhadap subpermintaan tersebut.",
-    "description": ""
+    "message": "Gunakan API DNS lokal Firefox untuk Mengungkap Domain Sejati",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Abaikan host dokumen root untuk pembukaan CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Lewati pemeriksaan DNS CNAME ketika nama host permintaan cocok dengan nama host dokumen saat ini.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Putar ulang URL lengkap selama pembukaan CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Sertakan jalur asli, kueri, dan fragmen saat memutar ulang pemfilteran terhadap nama host CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

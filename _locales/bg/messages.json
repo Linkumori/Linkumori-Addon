@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "Разкрийте CNAME тракерите",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Използвайте локалния DNS API на Firefox, за да разкриете канонични имена на хостове за подзаявки и филтриране за повторно възпроизвеждане срещу тях.",
-    "description": ""
+    "message": "Използвайте локалния DNS API на Firefox, за да разкриете истинския домейн",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Игнорирайте основния хост на документа за разкриване на CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Пропуснете CNAME DNS проверките, когато името на хоста на заявката съвпада с името на хоста на текущия документ.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Възпроизвеждане на пълни URL адреси по време на разкриване на CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Включете оригиналния път, заявка и фрагмент, когато възпроизвеждате филтриране срещу CNAME име на хост.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

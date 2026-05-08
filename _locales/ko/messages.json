@@ -4466,7 +4466,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Firefox의 로컬 DNS API를 사용하여 하위 요청에 대한 정식 호스트 이름을 표시하고 이에 대한 재생 필터링을 수행합니다.",
+    "message": "Firefox의 로컬 DNS API를 사용하여 실제 도메인 공개",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME 공개를 위해 루트 문서 호스트 무시",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "요청 호스트 이름이 현재 문서 호스트 이름과 일치하면 CNAME DNS 확인을 건너뜁니다.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME 클로킹 해제 중 전체 URL 재생",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "CNAME 호스트 이름에 대한 필터링을 재생할 때 원래 경로, 쿼리 및 조각을 포함합니다.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

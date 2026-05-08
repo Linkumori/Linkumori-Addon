@@ -3579,7 +3579,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Використовуйте локальний DNS API Firefox, щоб виявити канонічні імена хостів для підзапитів і відтворити фільтрацію для них.",
+    "message": "Використовуйте локальний DNS API Firefox, щоб виявити справжній домен",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ігнорувати хост кореневого документа для розкриття CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Пропустити перевірки DNS CNAME, якщо ім’я хосту запиту збігається з ім’ям хоста поточного документа.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Відтворення повних URL-адрес під час розкриття CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Включайте оригінальний шлях, запит і фрагмент під час відтворення фільтрації за іменем хоста CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

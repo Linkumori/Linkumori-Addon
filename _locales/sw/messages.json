@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Tumia API ya ndani ya Firefox ya DNS ili kufichua majina ya kawaida ya wapangishaji kwa maombi madogo na kucheza tena uchujaji dhidi yao.",
+    "message": "Tumia API ya ndani ya Firefox ya DNS ili Kufichua Kikoa cha Kweli",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Puuza mpangishi wa hati mzizi kwa ufunguaji wa CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Ruka CNAME DNS hukagua wakati jina la mpangishi wa ombi linalingana na jina la mpangishi wa hati ya sasa.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Cheza tena URL kamili wakati CNAME inafungua",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Jumuisha njia asili, hoja, na kipande wakati wa kucheza tena uchujaji dhidi ya jina la mpangishi wa CNAME.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

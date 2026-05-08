@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "ใช้ DNS API ในเครื่องของ Firefox เพื่อเปิดเผยชื่อโฮสต์ตามรูปแบบบัญญัติสำหรับคำขอย่อยและกรองการเล่นซ้ำกับชื่อโฮสต์เหล่านั้น",
+    "message": "ใช้ DNS API ในเครื่องของ Firefox เพื่อเปิดเผยโดเมนที่แท้จริง",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "ละเว้นโฮสต์เอกสารรูทสำหรับการยกเลิกการปิดบัง CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "ข้ามการตรวจสอบ CNAME DNS เมื่อชื่อโฮสต์ของคำขอตรงกับชื่อโฮสต์ของเอกสารปัจจุบัน",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "เล่นซ้ำ URL แบบเต็มระหว่างการปิดบัง CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "รวมเส้นทางดั้งเดิม ข้อความค้นหา และส่วนย่อยเมื่อเล่นซ้ำการกรองกับชื่อโฮสต์ CNAME",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

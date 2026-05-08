@@ -3601,7 +3601,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Gebruik de lokale DNS API van Firefox om canonieke hostnamen voor subverzoeken te onthullen en hierop opnieuw afspeelfilters te plaatsen.",
+    "message": "Gebruik de lokale DNS API van Firefox om True Domain te onthullen",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Negeer de hoofddocumenthost voor het ontmantelen van CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Sla CNAME DNS-controles over wanneer de hostnaam van het verzoek overeenkomt met de huidige hostnaam van het document.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Speel volledige URL's opnieuw af tijdens het ontgrendelen van CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Voeg het oorspronkelijke pad, de query en het fragment toe wanneer u het filter opnieuw afspeelt op basis van een CNAME-hostnaam.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

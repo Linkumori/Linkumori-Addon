@@ -4466,7 +4466,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "ഉപഅഭ്യർത്ഥനകൾക്കായുള്ള കാനോനിക്കൽ ഹോസ്റ്റ്നാമങ്ങൾ വെളിപ്പെടുത്തുന്നതിനും അവയ്‌ക്കെതിരായ ഫിൽട്ടറിംഗ് റീപ്ലേ ചെയ്യുന്നതിനും Firefox-ൻ്റെ പ്രാദേശിക DNS API ഉപയോഗിക്കുക.",
+    "message": "ട്രൂ ഡൊമെയ്ൻ വെളിപ്പെടുത്താൻ ഫയർഫോക്സിൻ്റെ പ്രാദേശിക DNS API ഉപയോഗിക്കുക",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME അൺക്ലോക്കിംഗിനായി റൂട്ട് ഡോക്യുമെൻ്റ് ഹോസ്റ്റ് അവഗണിക്കുക",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "അഭ്യർത്ഥന ഹോസ്റ്റ്നാമം നിലവിലെ പ്രമാണ ഹോസ്റ്റ്നാമവുമായി പൊരുത്തപ്പെടുമ്പോൾ CNAME DNS പരിശോധനകൾ ഒഴിവാക്കുക.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME അൺക്ലോക്കിംഗ് സമയത്ത് മുഴുവൻ URL-കളും വീണ്ടും പ്ലേ ചെയ്യുക",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "ഒരു CNAME ഹോസ്റ്റ് നെയിമിനെതിരെ ഫിൽട്ടറിംഗ് റീപ്ലേ ചെയ്യുമ്പോൾ യഥാർത്ഥ പാത, ചോദ്യം, ശകലം എന്നിവ ഉൾപ്പെടുത്തുക.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

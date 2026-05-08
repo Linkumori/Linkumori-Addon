@@ -68,8 +68,24 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Use Firefox's local DNS API to reveal canonical hostnames for subrequests and replay filtering against them.",
+    "message": "Use Firefox's local DNS API to Reveal True Domain",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignore root document host for CNAME uncloaking",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Skip CNAME DNS checks when the request hostname matches the current document hostname.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Replay full URLs during CNAME uncloaking",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Include the original path, query, and fragment when replaying filtering against a CNAME hostname.",
+    "description": "Description for the CNAME full URL replay toggle"
   },
   "bundled_rules_description": {
     "message": "Linkumori uses two rule categories: Linkumori (ClearURLs 2.0) JSON rules for native providers, and Linkumori URL Filter interoperability rules for popular extension $removeparam lists. Each category is counted separately.",
@@ -4382,11 +4398,9 @@
     "message": "Tab-only: $1 — click to remove",
     "description": "Button label when domain is on the temporary tab whitelist. $1 is replaced with the domain. Click removes it entirely."
   },
-  
   "logger_nav_label": {
     "message": "Live Logger"
   },
-
   "logger_btn_pause": {
     "message": "⏸ Pause"
   },
@@ -4399,7 +4413,6 @@
   "logger_btn_autoscroll": {
     "message": "↕ Auto-scroll"
   },
-
   "logger_filter_label": {
     "message": "Filter"
   },
@@ -4412,7 +4425,6 @@
   "logger_tab_all": {
     "message": "All tabs"
   },
-
   "logger_col_time": {
     "message": "Time"
   },
@@ -4437,19 +4449,15 @@
   "logger_col_url": {
     "message": "URL"
   },
-
   "logger_status_entries": {
     "message": "entries"
   },
-
   "logger_empty_state": {
     "message": "No log entries yet. Browsing will populate this list."
   },
-
   "logger_logging_disabled_banner": {
     "message": "Logging is disabled — enable it in Settings to capture new entries."
   },
-
   "logger_detail_title": {
     "message": "Entry detail"
   },
@@ -4477,5 +4485,4 @@
   "logger_detail_time": {
     "message": "Timestamp"
   }
-
 }

@@ -4466,7 +4466,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Naudokite „Firefox“ vietinę DNS API, kad atskleistumėte kanoninius antrinių užklausų prieglobos pavadinimus ir pakartokite jų filtravimą.",
+    "message": "Norėdami atskleisti tikrąjį domeną, naudokite vietinę „Firefox“ DNS API",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Nepaisykite pagrindinio dokumento pagrindinio kompiuterio CNAME atskleidimo",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Praleisti CNAME DNS patikrinimus, kai užklausos prieglobos pavadinimas atitinka dabartinį dokumento pagrindinio kompiuterio pavadinimą.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Pakartokite visus URL, kai atskleidžiama CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Pakartodami filtravimą pagal CNAME prieglobos pavadinimą įtraukite pradinį kelią, užklausą ir fragmentą.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

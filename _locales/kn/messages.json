@@ -4466,7 +4466,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "ಉಪ ವಿನಂತಿಗಳಿಗಾಗಿ ಅಂಗೀಕೃತ ಹೋಸ್ಟ್ ಹೆಸರುಗಳನ್ನು ಬಹಿರಂಗಪಡಿಸಲು ಮತ್ತು ಅವುಗಳ ವಿರುದ್ಧ ಫಿಲ್ಟರಿಂಗ್ ಅನ್ನು ಮರುಪಂದ್ಯ ಮಾಡಲು Firefox ನ ಸ್ಥಳೀಯ DNS API ಬಳಸಿ.",
+    "message": "ನಿಜವಾದ ಡೊಮೇನ್ ಅನ್ನು ಬಹಿರಂಗಪಡಿಸಲು Firefox ನ ಸ್ಥಳೀಯ DNS API ಬಳಸಿ",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME ಅನ್‌ಕ್ಲೋಕಿಂಗ್‌ಗಾಗಿ ರೂಟ್ ಡಾಕ್ಯುಮೆಂಟ್ ಹೋಸ್ಟ್ ಅನ್ನು ನಿರ್ಲಕ್ಷಿಸಿ",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "ವಿನಂತಿಯ ಹೋಸ್ಟ್ ಹೆಸರು ಪ್ರಸ್ತುತ ಡಾಕ್ಯುಮೆಂಟ್ ಹೋಸ್ಟ್ ಹೆಸರಿಗೆ ಹೊಂದಿಕೆಯಾದಾಗ CNAME DNS ಪರಿಶೀಲನೆಗಳನ್ನು ಬಿಟ್ಟುಬಿಡಿ.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME ಅನ್‌ಕ್ಲೋಕಿಂಗ್ ಸಮಯದಲ್ಲಿ ಪೂರ್ಣ URL ಗಳನ್ನು ಮರುಪ್ಲೇ ಮಾಡಿ",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "CNAME ಹೋಸ್ಟ್ ಹೆಸರಿನ ವಿರುದ್ಧ ಫಿಲ್ಟರಿಂಗ್ ಅನ್ನು ಮರುಪಂದ್ಯ ಮಾಡುವಾಗ ಮೂಲ ಮಾರ್ಗ, ಪ್ರಶ್ನೆ ಮತ್ತು ತುಣುಕನ್ನು ಸೇರಿಸಿ.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

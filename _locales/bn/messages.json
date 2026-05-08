@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "CNAME ট্র্যাকার আনক্লোক করুন",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "সাবরিকোয়েস্টের জন্য ক্যানোনিকাল হোস্টনাম প্রকাশ করতে এবং তাদের বিরুদ্ধে ফিল্টারিং রিপ্লে করতে Firefox-এর স্থানীয় DNS API ব্যবহার করুন।",
-    "description": ""
+    "message": "সত্যিকারের ডোমেন প্রকাশ করতে Firefox-এর স্থানীয় DNS API ব্যবহার করুন",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME আনক্লোকিংয়ের জন্য রুট নথি হোস্ট উপেক্ষা করুন",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "যখন অনুরোধ হোস্টনাম বর্তমান নথির হোস্টনামের সাথে মেলে তখন CNAME DNS চেক এড়িয়ে যান।",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME আনক্লোকিংয়ের সময় সম্পূর্ণ ইউআরএল পুনরায় চালান",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "একটি CNAME হোস্টনামের বিরুদ্ধে ফিল্টারিং রিপ্লে করার সময় মূল পথ, ক্যোয়ারী এবং খণ্ডটি অন্তর্ভুক্ত করুন।",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

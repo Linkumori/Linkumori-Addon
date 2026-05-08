@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "Uncloak CNAME-trackere",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Brug Firefox's lokale DNS API til at afsløre kanoniske værtsnavne for underanmodninger og genafspille filtrering mod dem.",
-    "description": ""
+    "message": "Brug Firefox's lokale DNS API til at afsløre True Domain",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignorer roddokumentvært for CNAME-tilsløring",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Spring over CNAME DNS kontrollerer, når anmodningens værtsnavn matcher det aktuelle dokumentværtsnavn.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Afspil hele URL'er igen under CNAME uncloaking",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Inkluder den originale sti, forespørgsel og fragment, når du afspiller filtrering mod et CNAME-værtsnavn.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

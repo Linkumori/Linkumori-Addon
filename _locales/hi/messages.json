@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "CNAME ट्रैकर्स को अनक्लोक करें",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "उपअनुरोधों के लिए कैनोनिकल होस्टनाम प्रकट करने और उनके विरुद्ध फ़िल्टरिंग को फिर से चलाने के लिए फ़ायरफ़ॉक्स के स्थानीय डीएनएस एपीआई का उपयोग करें।",
-    "description": ""
+    "message": "ट्रू डोमेन को प्रकट करने के लिए फ़ायरफ़ॉक्स के स्थानीय DNS API का उपयोग करें",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME अनक्लोकिंग के लिए रूट दस्तावेज़ होस्ट को अनदेखा करें",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "जब अनुरोध होस्टनाम वर्तमान दस्तावेज़ होस्टनाम से मेल खाता हो तो CNAME DNS जांच छोड़ें।",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME अनक्लोकिंग के दौरान पूर्ण URL पुनः चलाएँ",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "CNAME होस्टनाम के विरुद्ध फ़िल्टरिंग दोबारा चलाते समय मूल पथ, क्वेरी और फ़्रैगमेंट शामिल करें।",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

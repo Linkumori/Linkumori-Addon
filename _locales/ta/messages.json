@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "பயர்பாக்ஸின் உள்ளூர் DNS API ஐப் பயன்படுத்தி துணைக் கோரிக்கைகளுக்கான நியமன ஹோஸ்ட்பெயர்களை வெளிப்படுத்தவும், அவற்றிற்கு எதிராக மீண்டும் வடிகட்டவும்.",
+    "message": "உண்மையான டொமைனை வெளிப்படுத்த பயர்பாக்ஸின் உள்ளூர் DNS API ஐப் பயன்படுத்தவும்",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME அன்க்ளோக்கிங்கிற்கான ரூட் ஆவண ஹோஸ்ட்டைப் புறக்கணிக்கவும்",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "கோரிக்கை ஹோஸ்ட்பெயர் தற்போதைய ஆவண ஹோஸ்ட்பெயருடன் பொருந்தும்போது CNAME DNS சரிபார்ப்புகளைத் தவிர்க்கவும்.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME அன்க்ளோக்கிங்கின் போது முழு URLகளை மீண்டும் இயக்கவும்",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "CNAME ஹோஸ்ட்பெயருக்கு எதிராக வடிகட்டலை மீண்டும் இயக்கும்போது அசல் பாதை, வினவல் மற்றும் துண்டுகளைச் சேர்க்கவும்.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

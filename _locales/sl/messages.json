@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Uporabite Firefoxov lokalni DNS API, da razkrijete kanonična imena gostiteljev za podzahteve in ponovno predvajate filtriranje proti njim.",
+    "message": "Za razkritje prave domene uporabite Firefoxov lokalni DNS API",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Prezri gostitelja korenskega dokumenta za odkrivanje CNAME",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Preskoči preverjanja DNS CNAME, ko se ime gostitelja zahteve ujema s trenutnim imenom gostitelja dokumenta.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Znova predvajajte celotne URL-je med odkrivanjem CNAME",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Pri ponovnem predvajanju filtriranja glede na ime gostitelja CNAME vključi izvirno pot, poizvedbo in fragment.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

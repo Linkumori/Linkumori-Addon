@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "የCNAME መከታተያዎችን ያውጡ",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "የንዑስ መጠይቆችን ቀኖናዊ የአስተናጋጅ ስሞችን ለማሳየት እና በእነሱ ላይ ማጣሪያን እንደገና ለማጫወት የፋየርፎክስን አካባቢያዊ ዲ ኤን ኤስን ይጠቀሙ።",
-    "description": ""
+    "message": "እውነተኛውን ጎራ ለማሳየት የፋየርፎክስን አካባቢያዊ ዲ ኤን ኤስ ይጠቀሙ",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "የCNAMEን መክፈቻ ስርወ ሰነድ አስተናጋጅ ችላ በል",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "የጥያቄው አስተናጋጅ ስም ከአሁኑ የሰነድ አስተናጋጅ ስም ጋር ሲመሳሰል የCNAME ዲ ኤን ኤስ ፍተሻዎችን ይዝለሉ።",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME በሚፈታበት ጊዜ ሙሉ ዩአርኤሎችን እንደገና ያጫውቱ",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "በCNAME አስተናጋጅ ስም ላይ ማጣሪያን እንደገና በሚጫወቱበት ጊዜ ዋናውን መንገድ፣ ጥያቄ እና ቁርጥራጭ ያካትቱ።",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

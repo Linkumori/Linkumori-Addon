@@ -4463,10 +4463,26 @@
   },
   "linkumori_cname_uncloak_enabled": {
     "message": "Eemaldage CNAME-jälgijad",
-    "description": ""
+    "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Kasutage Firefoxi kohalikku DNS-i API-t, et paljastada alamtaotluste kanoonilised hostinimed ja nende vastu taasesitada.",
-    "description": ""
+    "message": "Tõelise domeeni kuvamiseks kasutage Firefoxi kohalikku DNS-i API-t",
+    "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "Ignoreeri juurdokumendi hosti CNAME-i varjamise tühistamisel",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "Jäta vahele CNAME DNS-i kontrollid, kui päringu hostinimi ühtib praeguse dokumendi hostinimega.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "Taasesitage täielikud URL-id CNAME-i varjamise tühistamise ajal",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Kaasake algne tee, päring ja fragment, kui esitate filtreerimise CNAME hostinime alusel.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }

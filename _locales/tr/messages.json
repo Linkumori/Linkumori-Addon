@@ -4464,7 +4464,23 @@
     "description": "Label for the toggle that enables Firefox DNS CNAME uncloaking"
   },
   "linkumori_cname_uncloak_enabled_description": {
-    "message": "Alt isteklere yönelik kurallı ana bilgisayar adlarını ortaya çıkarmak ve bunlara göre yeniden oynatma filtrelemesi yapmak için Firefox'un yerel DNS API'sini kullanın.",
+    "message": "Gerçek Etki Alanını Ortaya Çıkarmak için Firefox'un yerel DNS API'sini kullanın",
     "description": "Description for the Firefox DNS CNAME uncloaking toggle"
+  },
+  "cname_ignore_root_document_enabled": {
+    "message": "CNAME perdelemesinin kaldırılması için kök belge barındırıcısını yoksay",
+    "description": "Label for the toggle that skips CNAME DNS checks when the request host is the root document host"
+  },
+  "cname_ignore_root_document_enabled_description": {
+    "message": "İstek ana bilgisayar adı geçerli belge ana bilgisayar adıyla eşleştiğinde CNAME DNS kontrollerini atlayın.",
+    "description": "Description for the CNAME root document ignore toggle"
+  },
+  "cname_replay_full_url_enabled": {
+    "message": "CNAME perdelemesinin kaldırılması sırasında tam URL'leri tekrar oynat",
+    "description": "Label for the toggle that replays the full original URL against the CNAME hostname"
+  },
+  "cname_replay_full_url_enabled_description": {
+    "message": "Bir CNAME ana makine adına göre filtrelemeyi yeniden oynatırken orijinal yolu, sorguyu ve parçayı ekleyin.",
+    "description": "Description for the CNAME full URL replay toggle"
   }
 }
