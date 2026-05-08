@@ -1,11 +1,68 @@
 # Git Commit History
 
-**Generated**: 2026-05-08T05:54:47.239Z
-**Total Commits**: 16
+**Generated**: 2026-05-08T06:53:53.815Z
+**Total Commits**: 19
 
 ---
 
-## Commit 1: release 57.0
+## Commit 1: Update privacy-policy-cli.md
+
+**Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
+**Date**: 2026-05-08 12:23:34 +0530
+**Commit Hash**: `a8abad5c07b14014fb5613d8c97588bae36a89b6`
+**Short Hash**: `a8abad5`
+
+### Files Modified
+
+- **Modified**: `privacy-policy-cli.md`
+
+### Commit Message
+
+```
+Update privacy-policy-cli.md
+```
+
+---
+
+## Commit 2: chore: update changelog for v57.0
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-05-08 05:54:48 +0000
+**Commit Hash**: `1def31d121e80981bb2786734b27cb3d33e2dc83`
+**Short Hash**: `1def31d`
+
+### Files Modified
+
+- **Modified**: `CHANGELOG.md`
+
+### Commit Message
+
+```
+chore: update changelog for v57.0
+```
+
+---
+
+## Commit 3: chore: update commit history for v57.0
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-05-08 05:54:47 +0000
+**Commit Hash**: `10c16997efa023951658c0bc18900988f88b2ff9`
+**Short Hash**: `10c1699`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```
+chore: update commit history for v57.0
+```
+
+---
+
+## Commit 4: release 57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:46 +0000
@@ -24,7 +81,7 @@ release 57.0
 
 ---
 
-## Commit 2: chore: update commit history
+## Commit 5: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:03 +0000
@@ -43,7 +100,7 @@ chore: update commit history
 
 ---
 
-## Commit 3: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
+## Commit 6: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 11:21:50 +0530
@@ -129,7 +186,7 @@ feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 ---
 
-## Commit 4: chore: update commit history
+## Commit 7: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 03:39:22 +0000
@@ -148,7 +205,7 @@ chore: update commit history
 
 ---
 
-## Commit 5: Fix deprecated Components warning
+## Commit 8: Fix deprecated Components warning
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 09:07:23 +0530
@@ -169,7 +226,7 @@ Fix deprecated Components warning
 
 ---
 
-## Commit 6: chore: update commit history
+## Commit 9: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 02:27:49 +0000
@@ -188,7 +245,7 @@ chore: update commit history
 
 ---
 
-## Commit 7: reverse some change made earlier reapplied
+## Commit 10: reverse some change made earlier reapplied
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:56:57 +0530
@@ -207,7 +264,7 @@ reverse some change made earlier reapplied
 
 ---
 
-## Commit 8: chore: update commit history
+## Commit 11: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 01:59:03 +0000
@@ -226,7 +283,7 @@ chore: update commit history
 
 ---
 
-## Commit 9: Update audit.js
+## Commit 12: Update audit.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:28:53 +0530
@@ -245,7 +302,7 @@ Update audit.js
 
 ---
 
-## Commit 10: chore: update changelog for v56.0
+## Commit 13: chore: update changelog for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:21 +0000
@@ -264,7 +321,7 @@ chore: update changelog for v56.0
 
 ---
 
-## Commit 11: chore: update commit history for v56.0
+## Commit 14: chore: update commit history for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:19 +0000
@@ -283,7 +340,7 @@ chore: update commit history for v56.0
 
 ---
 
-## Commit 12: release 56.0
+## Commit 15: release 56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:18 +0000
@@ -307,7 +364,7 @@ release 56.0
 
 ---
 
-## Commit 13: chore: update commit history
+## Commit 16: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:09:44 +0000
@@ -326,7 +383,7 @@ chore: update commit history
 
 ---
 
-## Commit 14: Update manifest.json
+## Commit 17: Update manifest.json
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:39:32 +0530
@@ -345,7 +402,7 @@ Update manifest.json
 
 ---
 
-## Commit 15: chore: update commit history
+## Commit 18: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:04:03 +0000
@@ -364,7 +421,7 @@ chore: update commit history
 
 ---
 
-## Commit 16: linkumori release
+## Commit 19: linkumori release
 
 **Author**: subham8907 <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:32:17 +0530
@@ -664,4 +721,4 @@ linkumori release
 
 *End of Commit History*
 
-**Generated by Linkumori CLI** - 2026-05-08T05:54:47.239Z
+**Generated by Linkumori CLI** - 2026-05-08T06:53:53.815Z
