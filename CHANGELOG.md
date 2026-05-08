@@ -16,6 +16,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v57.0] - 2026-05-08 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v56.0...linkumori-v57.0))
+### Added
+- Introduce Firefox DNS CNAME uncloaking and localized settings toggle (`2026-05-08`, hash: [`0032076`](https://github.com/Linkumori/Linkumori-Addon/commit/0032076))
+
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-05-08`, hash: [`0032076`](https://github.com/Linkumori/Linkumori-Addon/commit/0032076))
+- Reverse some change made earlier reapplied (`2026-05-07`, hash: [`ffac0e0`](https://github.com/Linkumori/Linkumori-Addon/commit/ffac0e0))
+- Update audit.js (`2026-05-07`, hash: [`1252062`](https://github.com/Linkumori/Linkumori-Addon/commit/1252062))
+
+### Fixed
+- Resolve deprecated Components warning (`2026-05-07`, hash: [`e55a6ce`](https://github.com/Linkumori/Linkumori-Addon/commit/e55a6ce))
+
 ## [v56.0] - 2026-05-06
 ### Changed
 - Downloaded latest public suffix list from upstream (`2026-05-06`, hash: [`48e5aad`](https://github.com/Linkumori/Linkumori-Addon/commit/48e5aad))
