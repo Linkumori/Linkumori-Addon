@@ -1,6 +1,6 @@
 # Linkumori CLI — Privacy Policy
 
-**Last Updated:** May 8, 2026
+**Last Updated:** May 9, 2026
 
 Linkumori is a free, non-commercial, open-source tool.
 "CLI tool" in this document refers to `linkumori-cli-tool.js`.
@@ -9,7 +9,7 @@ Linkumori is a free, non-commercial, open-source tool.
 
 ## Why This Tool Exists
 
-The CLI exists mainly to support open-source licence compliance. Linkumori bundles and modifies third-party code under LGPL-3.0, which requires that source code, modification history, and build instructions be made available. The CLI provides a reproducible build process to meet these requirements — generating copyright docs, commit history, and a verifiable build.
+The CLI exists mainly to support open-source licence compliance. Linkumori bundles and modifies third-party code under LGPL-3.0, which requires that source code, modification history, and build instructions be made available. The CLI provides a reproducible build process to meet these requirements — generating copyright notices, commit history, and a verifiable build.
 
 It also handles practical tasks: merging URL-cleaning rule sets, managing the Public Suffix List, compiling font assets, packaging, and optionally signing the extension.
 
@@ -37,7 +37,7 @@ When you run a build, the CLI asks two questions:
 
 **Most users should choose Offline for both.** This keeps the CLI fully local with zero network activity.
 
-Online mode is intended only for developers who control or have independently verified the configured endpoints. If you choose online, the build is functionally equivalent but not binary-identical to an offline build. That choice is your responsibility.
+Online mode is intended only for developers who control or have independently verified the configured endpoints. If you choose **Online**, the build is functionally equivalent but not binary-identical to an offline build. That choice is your responsibility.
 
 ---
 
@@ -61,10 +61,10 @@ The distributed `url-config.json` is a transparency record and a developer conve
 
 ## Network Requests & Third-Party Services
 
-`data/url-config.json` was added for our own purposes. Network requests are made only when we select online mode( our configured data/url-config.json) for clarification you delete or edit that json) or use a signed-build workflow.
+`data/url-config.json` was added for our own purposes. Before using this tool, you should either delete or edit `data/url-config.json` to reflect your own needs — the distributed file is our configuration, not a recommendation. Network requests are made only when you select online mode or use a signed-build workflow.
 
 **Rules source (online mode only)**
-Contacted when you choose "Choose a merge mode → Online." The default points to a GitHub-hosted ClearURLs rules source. If you modify `url-config.json`, the CLI contacts your configured URL instead.
+This endpoint is contacted when you select **Online** under the merge mode prompt. The default points to a GitHub-hosted ClearURLs rules source. If you modify `url-config.json`, the CLI contacts your configured URL instead.
 - [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service)
 - [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
 
@@ -72,7 +72,7 @@ Contacted when you choose "Choose a merge mode → Online." The default points t
 - [Public Suffix List](https://publicsuffix.org/)
 
 **Mozilla / web-ext (signed builds only)**
-Contacted only when running a signed-build workflow. The CLI invokes `web-ext` (an external dependency you must install manually), which submits your extension package and API credentials to Mozilla's signing service.
+This endpoint is contacted only when running a signed-build workflow. The CLI invokes `web-ext` (an external dependency you must install manually), which submits your extension package and API credentials to Mozilla's signing service.
 - [Mozilla Legal](https://www.mozilla.org/en-US/about/legal/)
 
 Linkumori does not control, monitor, or store any data from these connections.
@@ -90,14 +90,14 @@ The CLI uses `web-ext` for signing. You must:
 
 These credentials belong to your Mozilla developer account. Linkumori never receives, stores, or accesses them. Any data sent during signing is handled solely by `web-ext` and Mozilla. Review Mozilla's terms and conditions before proceeding.
 
-For unsigned local builds, choose offline for both prompts — no network connection is made at all.
+For unsigned local builds, choose Offline for both prompts — no network connection is made at all.
 
 ---
 
 ## Your Control
 
 You control your privacy exposure entirely:
-- Choose **offline** or **online** at each build prompt
+- Choose **Offline** or **Online** at each build prompt
 - Choose **signed** or **unsigned** builds
 
 All consequences of those choices are yours.
