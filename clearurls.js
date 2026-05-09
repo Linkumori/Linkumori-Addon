@@ -41,7 +41,7 @@
  * 2025-09-05   Subham Mahesh   Third modification
  * 2026-01-25   Subham Mahesh   Fourth modification
  * 2026-02-22   Subham Mahesh   Fifth modification
- *
+ * 2026-05-09   Subham Mahesh   Sixth modification(we taken some of patches from clearurls and adapt from ithttps://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads)
  * Note: Due to inline constraints, subsequent modifications may
  * not appear here. To view the full history, run:
  *
@@ -72,6 +72,8 @@
  */
 
 var providers = [];
+var providersByToken = {}; // Map<string, Provider[]>
+var globalProviders = []; // Provider[]
 var prvKeys = [];
 var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
@@ -1128,13 +1130,16 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         }
     }
 
-    rawRules.forEach(function (rawRule) {
+    const rawRulesMap = provider.getRawRulesMap();
+    Object.keys(rawRulesMap).forEach(function (rawRuleStr) {
+        const regex = rawRulesMap[rawRuleStr];
+        const activeRegex = regex instanceof RegExp ? regex : new RegExp(rawRuleStr, "gi");
         let beforeReplace = url;
-        url = url.replace(new RegExp(rawRule, "gi"), "");
+        url = url.replace(activeRegex, "");
 
         if (beforeReplace !== url) {
             if (storage.loggingStatus && !quiet) {
-                pushToLog(beforeReplace, url, rawRule, providerMatch);
+                pushToLog(beforeReplace, url, rawRuleStr, providerMatch);
             }
 
             increaseBadged(false, request);
@@ -1143,7 +1148,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 actionType = 'raw_rule';
             }
             if (!matchedRuleForTrace) {
-                matchedRuleForTrace = rawRule;
+                matchedRuleForTrace = rawRuleStr;
             }
         }
     });
@@ -1184,7 +1189,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             return decision;
         };
 
-        rules.forEach(rule => {
+        const rulesMap = provider.getRulesMap();
+        Object.keys(rulesMap).forEach(rule => {
+            const regex = rulesMap[rule];
+            const activeRegex = regex instanceof RegExp ? regex : new RegExp("^"+rule+"$", "gi");
             const beforeFields = fields.toString();
             const beforeFragments = fragments.toString();
             let localChange = false;
@@ -1197,7 +1205,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 // independent regex rules — @@$removeparam only excepts that system.
                 if (decision.handled && decision.remove) continue;
 
-                if (new RegExp("^"+rule+"$", "gi").test(field)) {
+                if (activeRegex.test(field)) {
                     fieldsToDelete.push(field);
                     localChange = true;
                 }
@@ -1209,7 +1217,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 const decision = getLinkumoriDecision(fragment);
                 if (decision.handled && decision.remove) continue;
 
-                if (new RegExp("^"+rule+"$", "gi").test(fragment)) {
+                if (activeRegex.test(fragment)) {
                     fragmentsToDelete.push(fragment);
                     localChange = true;
                 }
@@ -1303,7 +1311,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
         if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
 
-        url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
+        url = finalURL.replace(/\?&/, "?").replace(/#&/, "#");
     }
 
     return {
@@ -1392,6 +1400,17 @@ function start() {
             for (let rt = 0; rt < resourceTypes.length; rt++) {
                 providers[p].addResourceType(resourceTypes[rt]);
             }
+
+            // Indexing logic
+            const token = providers[p].getLookupToken();
+            if (token) {
+                if (!providersByToken[token]) {
+                    providersByToken[token] = [];
+                }
+                providersByToken[token].push(providers[p]);
+            } else {
+                globalProviders.push(providers[p]);
+            }
         }
     }
 
@@ -1408,10 +1427,14 @@ function start() {
     function rebuildProvidersFromStorage() {
         if (!storage.ClearURLsData || !storage.ClearURLsData.providers) {
             providers = [];
+            providersByToken = {};
+            globalProviders = [];
             prvKeys = [];
             return false;
         }
 
+        providersByToken = {};
+        globalProviders = [];
         getKeys(storage.ClearURLsData.providers);
         createProviders();
         return true;
@@ -1547,6 +1570,32 @@ function start() {
             return name;
         };
 
+        /**
+         * Returns the lookup token for this provider, or null if global.
+         * Extracts "domain" from patterns like ^https?://(?:[a-z0-9-]+\.)*?domain...
+         * @return {String|null}
+         */
+        this.getLookupToken = function () {
+            if (!urlPattern) return null;
+            const source = urlPattern.source;
+
+            // Case 1: Wildcard prefix pattern (e.g. ...*?amazon...)
+            const wildcardMatch = source.match(/\*\?([a-z0-9-]+)/i);
+            if (wildcardMatch && wildcardMatch[1]) {
+                return wildcardMatch[1].toLowerCase();
+            }
+
+            // Case 2: Explicit start pattern (e.g. ^https?://vk.com...)
+            // Matches ^https?://(optional www.)token
+            // We strip standard regex start structure to find the first meaningful domain token.
+            const explicitMatch = source.match(/^(\^?https?:\\?\/\\?\/)(?:www(?:\\?\.))?([a-z0-9-]+)/i);
+            if (explicitMatch && explicitMatch[2]) {
+                return explicitMatch[2].toLowerCase();
+            }
+
+            return null;
+        };
+
         this.setURLPattern = function (urlPatterns) {
             urlPatternSource = urlPatterns || '';
             urlPattern = new RegExp(urlPatterns, "i");
@@ -1597,19 +1646,19 @@ function start() {
             return false;
         };
 
-        this.applyRule = (enabledRuleArray, disabledRulesArray, rule, isActive = true) => {
+        this.applyRule = (enabledRuleMap, disabledRulesArray, rule, isActive = true, compileFn) => {
             if (isActive) {
-                enabledRuleArray[rule] = true;
-
                 if (disabledRulesArray[rule] !== undefined) {
                     delete disabledRulesArray[rule];
                 }
-            } else {
-                disabledRulesArray[rule] = true;
-
-                if (enabledRuleArray[rule] !== undefined) {
-                    delete enabledRuleArray[rule];
+                if (enabledRuleMap[rule] === undefined) {
+                    enabledRuleMap[rule] = compileFn ? compileFn(rule) : true;
                 }
+            } else {
+                if (enabledRuleMap[rule] !== undefined) {
+                    delete enabledRuleMap[rule];
+                }
+                disabledRulesArray[rule] = true;
             }
         };
 
@@ -1626,23 +1675,34 @@ function start() {
                 return;
             }
 
-            this.applyRule(enabled_rules, disabled_rules, rule, isActive);
+            this.applyRule(enabled_rules, disabled_rules, rule, isActive, r => new RegExp("^" + r + "$", "i"));
         };
 
         this.getRules = function () {
             if (!storage.referralMarketing) {
-                return Object.keys(Object.assign(enabled_rules, enabled_referralMarketing));
+                return Object.keys(Object.assign({}, enabled_rules, enabled_referralMarketing));
             }
 
             return Object.keys(enabled_rules);
         };
 
+        this.getRulesMap = function () {
+            if (!storage.referralMarketing) {
+                return Object.assign({}, enabled_rules, enabled_referralMarketing);
+            }
+            return enabled_rules;
+        };
+
         this.addRawRule = function (rule, isActive = true) {
-            this.applyRule(enabled_rawRules, disabled_rawRules, rule, isActive);
+            this.applyRule(enabled_rawRules, disabled_rawRules, rule, isActive, r => new RegExp(r, "gi"));
         };
 
         this.getRawRules = function () {
             return Object.keys(enabled_rawRules);
+        };
+
+        this.getRawRulesMap = function () {
+            return enabled_rawRules;
         };
 
         this.getLinkumoriRemoveParamRules = function () {
@@ -1654,23 +1714,11 @@ function start() {
         };
 
         this.addReferralMarketing = function (rule, isActive = true) {
-            this.applyRule(enabled_referralMarketing, disabled_referralMarketing, rule, isActive);
+            this.applyRule(enabled_referralMarketing, disabled_referralMarketing, rule, isActive, r => new RegExp("^" + r + "$", "i"));
         };
 
         this.addException = function (exception, isActive = true) {
-            if (isActive) {
-                enabled_exceptions[exception] = true;
-
-                if (disabled_exceptions[exception] !== undefined) {
-                    delete disabled_exceptions[exception];
-                }
-            } else {
-                disabled_exceptions[exception] = true;
-
-                if (enabled_exceptions[exception] !== undefined) {
-                    delete enabled_exceptions[exception];
-                }
-            }
+            this.applyRule(enabled_exceptions, disabled_exceptions, exception, isActive, r => new RegExp(exception, "i"));
         };
 
         this.addDomainException = function (exception) {
@@ -1722,10 +1770,14 @@ function start() {
             for (const exception in enabled_exceptions) {
                 if (result) break;
 
-                let exception_regex = new RegExp(exception, "i");
-                result = exception_regex.test(url);
+                const exception_regex = enabled_exceptions[exception];
+                if (exception_regex instanceof RegExp) {
+                    result = exception_regex.test(url);
+                } else {
+                    result = (new RegExp(exception, "i")).test(url);
+                }
             }
-            
+
             if (!result && enabled_domain_exceptions.length > 0) {
                 result = matchDomainPattern(url, enabled_domain_exceptions);
             }
@@ -1734,19 +1786,7 @@ function start() {
         };
 
         this.addRedirection = function (redirection, isActive = true) {
-            if (isActive) {
-                enabled_redirections[redirection] = true;
-
-                if (disabled_redirections[redirection] !== undefined) {
-                    delete disabled_redirections[redirection];
-                }
-            } else {
-                disabled_redirections[redirection] = true;
-
-                if (enabled_redirections[redirection] !== undefined) {
-                    delete enabled_redirections[redirection];
-                }
-            }
+            this.applyRule(enabled_redirections, disabled_redirections, redirection, isActive, r => new RegExp(redirection, "i"));
         };
 
         this.addDomainRedirection = function (redirection) {
@@ -1759,16 +1799,17 @@ function start() {
             let re = null;
 
             for (const redirection in enabled_redirections) {
-                let result = (url.match(new RegExp(redirection, "i")));
+                const regex = enabled_redirections[redirection];
+                const activeRegex = regex instanceof RegExp ? regex : new RegExp(redirection, "i");
+                let result = url.match(activeRegex);
 
                 if (result && result.length > 0 && redirection) {
-                    const captured = (new RegExp(redirection, "i")).exec(url);
+                    const captured = activeRegex.exec(url);
                     // Guard: [1] is undefined when regex has no capture group.
                     if (captured && captured[1] !== undefined) re = captured[1];
                     break;
                 }
-            }
-            
+            }            
             if (!re && enabled_domain_redirections.length > 0) {
                 for (const domainRedirection of enabled_domain_redirections) {
                     if (domainRedirection.includes('$redirect=')) {
@@ -1847,7 +1888,23 @@ function start() {
                 : [];
             const globalLinkumoriExceptions = [];
 
-            for (const provider of providers) {
+            // Optimized context provider lookup
+            let contextCandidateProviders = new Set(globalProviders);
+            for (const ctxUrl of contextUrls) {
+                try {
+                    const ctxHost = new URL(ctxUrl).hostname;
+                    const ctxTokens = ctxHost.split('.').map(t => t.toLowerCase());
+                    for (const token of ctxTokens) {
+                        if (providersByToken[token]) {
+                            for (const p of providersByToken[token]) {
+                                contextCandidateProviders.add(p);
+                            }
+                        }
+                    }
+                } catch (e) {}
+            }
+
+            for (const provider of contextCandidateProviders) {
                 const matchesContext = contextUrls.some(ctxUrl => {
                     try { return provider.matchURL(ctxUrl); } catch (e) { return false; }
                 });
@@ -1856,15 +1913,33 @@ function start() {
                 }
             }
 
-            for (let i = 0; i < providers.length; i++) {
-                if (!providers[i].matchMethod(request)) continue;
-                if (!providers[i].matchResourceType(request)) continue;
-                if (providers[i].matchURL(request.url)) {
-                    result = removeFieldsFormURL(providers[i], request.url, false, request, null, globalLinkumoriExceptions);
+            // Optimized request provider lookup
+            let requestHost = "";
+            try {
+                requestHost = new URL(request.url).hostname;
+            } catch (e) {}
+            const requestHostTokens = requestHost.split('.').map(t => t.toLowerCase());
+
+            let requestCandidateProviders = new Set(globalProviders);
+            for (const token of requestHostTokens) {
+                if (providersByToken[token]) {
+                    for (const p of providersByToken[token]) {
+                        requestCandidateProviders.add(p);
+                    }
+                }
+            }
+
+            const candidates = Array.from(requestCandidateProviders);
+            for (let i = 0; i < candidates.length; i++) {
+                const provider = candidates[i];
+                if (!provider.matchMethod(request)) continue;
+                if (!provider.matchResourceType(request)) continue;
+                if (provider.matchURL(request.url)) {
+                    result = removeFieldsFormURL(provider, request.url, false, request, null, globalLinkumoriExceptions);
                 }
 
                 if (result.redirect) {
-                    if (providers[i].shouldForceRedirect() &&
+                    if (provider.shouldForceRedirect() &&
                         request.type === 'main_frame') {
                         browser.tabs.update(request.tabId, {url: result.url}).catch(handleError);
                         return {cancel: true};
