@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v60.0] - 2026-05-10 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v59.0...linkumori-v60.0))
+### Changed
+- Update privacy-policy-cli.md (`2026-05-09`, hash: [`49134e8`](https://github.com/Linkumori/Linkumori-Addon/commit/49134e8))
+- We taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads and adapt from it to our codebase. We have made some modifications to the original code to fit our requirements and improve performance (`2026-05-09`, hash: [`3ff3614`](https://github.com/Linkumori/Linkumori-Addon/commit/3ff3614))
+
 ## [v59.0] - 2026-05-08 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v58.0...linkumori-v59.0))
 ### Added
 - Introduce Firefox CNAME uncloaking controls (`2026-05-08`, hash: [`30a0ffc`](https://github.com/Linkumori/Linkumori-Addon/commit/30a0ffc))
