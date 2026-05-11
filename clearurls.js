@@ -42,7 +42,8 @@
  * 2026-01-25   Subham Mahesh   Fourth modification
  * 2026-02-22   Subham Mahesh   Fifth modification
  * 2026-05-09   Subham Mahesh   Sixth modification(we taken some of patches from clearurls and adapt from ithttps://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads)
- * Note: Due to inline constraints, subsequent modifications may
+ * 2026-05-11 subham mahesh seventh modification
+ Note: Due to inline constraints, subsequent modifications may
  * not appear here. To view the full history, run:
  *
  *   node linkumori-cli-tool.js
@@ -746,22 +747,41 @@ function matchDomainPattern(url, patterns) {
         const fullUrl = url.toLowerCase();
 
         return patterns.some((pattern) => {
-            const p = String(pattern || '').trim().toLowerCase();
+            const p = String(pattern || '').trim();
             if (!p) return false;
 
-            if (p.startsWith('||')) {
-                const structured = matchStructuredDomainAnchorPattern(p, urlObj, hostname);
+            // Regex literal: /pattern/ or /pattern/flags
+            // Tested against the original-case full URL so the author controls
+            // case sensitivity via the i flag. The closing slash is the last '/'
+            // so flags like /pattern/i work correctly.
+            if (p.charAt(0) === '/') {
+                const closingSlash = p.lastIndexOf('/');
+                if (closingSlash > 0) {
+                    const body  = p.slice(1, closingSlash);
+                    const flags = p.slice(closingSlash + 1);
+                    try {
+                        return new RegExp(body, flags).test(url);
+                    } catch (e) {
+                        return false;
+                    }
+                }
+            }
+
+            const pLower = p.toLowerCase();
+
+            if (pLower.startsWith('||')) {
+                const structured = matchStructuredDomainAnchorPattern(pLower, urlObj, hostname);
                 if (structured !== null) {
                     return structured;
                 }
             }
 
-            const regex = compileLinkumoriRegex(p);
+            const regex = compileLinkumoriRegex(pLower);
             if (regex) {
                 return regex.test(fullUrl);
             }
 
-            return fullUrl.includes(p);
+            return fullUrl.includes(pLower);
         });
     } catch (e) {
         return false;
@@ -1348,10 +1368,14 @@ function start() {
                 data.providers[prvKeys[p]].getOrDefault('forceRedirection', false)));
 
             let urlPattern = data.providers[prvKeys[p]].getOrDefault('urlPattern', '');
+            let indexPattern = data.providers[prvKeys[p]].getOrDefault('indexPattern', '');
             let domainPatterns = data.providers[prvKeys[p]].getOrDefault('domainPatterns', []);
-            
+
             if (urlPattern) {
                 providers[p].setURLPattern(urlPattern);
+                if (indexPattern) {
+                    providers[p].setIndexPattern(indexPattern);
+                }
             } else if (domainPatterns.length > 0) {
                 providers[p].setURLDomainPattern(domainPatterns);
             }
@@ -1402,12 +1426,16 @@ function start() {
             }
 
             // Indexing logic
-            const token = providers[p].getLookupToken();
-            if (token) {
-                if (!providersByToken[token]) {
-                    providersByToken[token] = [];
+            const lookupTokens = providers[p].getLookupTokens();
+
+            if (lookupTokens.length > 0) {
+                for (const token of lookupTokens) {
+                    if (!providersByToken[token]) {
+                        providersByToken[token] = [];
+                    }
+
+                    providersByToken[token].push(providers[p]);
                 }
-                providersByToken[token].push(providers[p]);
             } else {
                 globalProviders.push(providers[p]);
             }
@@ -1538,6 +1566,7 @@ function start() {
         let name = _name;
         let urlPattern;
         let urlPatternSource = '';
+        let indexPattern = null;  // domainPattern-syntax hint for providersByToken index only
         let domainPatterns = [];
         let enabled_rules = {};
         let disabled_rules = {};
@@ -1571,34 +1600,190 @@ function start() {
         };
 
         /**
-         * Returns the lookup token for this provider, or null if global.
-         * Extracts "domain" from patterns like ^https?://(?:[a-z0-9-]+\.)*?domain...
-         * @return {String|null}
+         * Extracts lookup tokens from domainPatterns and indexPattern.
+         *
+         * domainPatterns — used for both matching (matchURL) and indexing.
+         * indexPattern   — used for indexing only; lets urlPattern providers
+         *                  declare their target domain explicitly in the simple
+         *                  domainPattern syntax (||youtube.com^) without having
+         *                  to infer it by parsing the regex source.
+         *
+         * Examples:
+         *   ||amazon.*^        -> amazon
+         *   *.google.com       -> google
+         *   example.co.uk      -> example
+         *   ||sub.domain.com/  -> domain
+         *
+         * @return {String[]}
          */
-        this.getLookupToken = function () {
-            if (!urlPattern) return null;
-            const source = urlPattern.source;
+        this.getDomainLookupTokens = function () {
+            const tokens = new Set();
 
-            // Case 1: Wildcard prefix pattern (e.g. ...*?amazon...)
-            const wildcardMatch = source.match(/\*\?([a-z0-9-]+)/i);
-            if (wildcardMatch && wildcardMatch[1]) {
-                return wildcardMatch[1].toLowerCase();
+            function cleanDomainPattern(pattern) {
+                let value = String(pattern || '').trim().toLowerCase();
+                if (!value) return '';
+
+                // Regex literals (/pattern/flags) have no hostname to extract —
+                // return '' so the provider stays in globalProviders for this pattern.
+                if (value.charAt(0) === '/') return '';
+
+                if (value.startsWith('@@')) {
+                    value = value.slice(2);
+                }
+
+                if (value.startsWith('||')) {
+                    value = value.slice(2);
+                } else if (value.startsWith('|')) {
+                    value = value.slice(1);
+                }
+
+                if (value.endsWith('|')) {
+                    value = value.slice(0, -1);
+                }
+
+                if (value.startsWith('*.')) {
+                    value = value.slice(2);
+                }
+
+                if (value.startsWith('http://')) {
+                    value = value.slice(7);
+                } else if (value.startsWith('https://')) {
+                    value = value.slice(8);
+                }
+
+                const stopIndexes = [
+                    value.indexOf('/'),
+                    value.indexOf('^'),
+                    value.indexOf('$'),
+                    value.indexOf('?'),
+                    value.indexOf('#')
+                ].filter(index => index !== -1);
+
+                if (stopIndexes.length > 0) {
+                    value = value.slice(0, Math.min(...stopIndexes));
+                }
+
+                if (value.endsWith('.*')) {
+                    value = value.slice(0, -2);
+                }
+
+                return value;
             }
 
-            // Case 2: Explicit start pattern (e.g. ^https?://vk.com...)
-            // Matches ^https?://(optional www.)token
-            // We strip standard regex start structure to find the first meaningful domain token.
-            const explicitMatch = source.match(/^(\^?https?:\\?\/\\?\/)(?:www(?:\\?\.))?([a-z0-9-]+)/i);
-            if (explicitMatch && explicitMatch[2]) {
-                return explicitMatch[2].toLowerCase();
+            function tokenFromHostnameLikePattern(hostnameLikePattern) {
+                const normalized = normalizeAsciiHostname(hostnameLikePattern);
+                if (!normalized) return [];
+
+                /*
+                 * Prefer PSL parsing when available.
+                 *
+                 * Examples:
+                 *   example.co.uk -> parsed.domain = example.co.uk
+                 *   google.com    -> parsed.domain = google.com
+                 *
+                 * Token should be the registrable-domain label:
+                 *   example.co.uk -> example
+                 *   google.com    -> google
+                 */
+                const parsed = parseHostnameWithPsl(normalized);
+                if (parsed && parsed.domain && parsed.tld) {
+                    const suffix = '.' + parsed.tld;
+                    const domainWithoutTld = parsed.domain.endsWith(suffix)
+                        ? parsed.domain.slice(0, -suffix.length)
+                        : parsed.domain;
+
+                    const labels = domainWithoutTld
+                        .split('.')
+                        .map(label => label.trim())
+                        .filter(Boolean);
+
+                    if (labels.length > 0) {
+                        return [labels[labels.length - 1].toLowerCase()];
+                    }
+                }
+
+                /*
+                 * Fallback when PSL is not ready during provider creation.
+                 * No hardcoded TLDs are used here.
+                 *
+                 * Returns ALL labels except the last (probable bare TLD like "com",
+                 * "uk", "org") so that a provider for sub.example.co.uk is indexed
+                 * under both "sub" and "example" — fixing the miss when a sibling
+                 * subdomain makes the request and "sub" is not among its tokens.
+                 * Indexing under the bare TLD label is skipped to avoid every .com
+                 * request pulling in unrelated providers as candidates.
+                 * Final matching is still verified by provider.matchURL(), so
+                 * extra tokens here create false-positive candidates only, never
+                 * false rule application.
+                 */
+                const labels = normalized
+                    .split('.')
+                    .map(label => label.trim())
+                    .filter(label => /^[a-z0-9-]+$/i.test(label))
+                    .filter(label => label !== '*');
+
+                if (labels.length > 1) {
+                    return labels.slice(0, -1).map(l => l.toLowerCase());
+                }
+                return labels.map(l => l.toLowerCase());
             }
 
-            return null;
+            // Combine domainPatterns and indexPattern into one source list.
+            // indexPattern is a single string; domainPatterns is an array.
+            // Both use the same domainPattern syntax so the same pipeline handles them.
+            const sources = [...domainPatterns];
+            if (indexPattern) sources.push(indexPattern);
+
+            for (const pattern of sources) {
+                const cleaned = cleanDomainPattern(pattern);
+                if (!cleaned) continue;
+
+                for (const token of tokenFromHostnameLikePattern(cleaned)) {
+                    tokens.add(token);
+                }
+            }
+
+            return Array.from(tokens);
+        };
+
+        /**
+         * Returns all lookup tokens for this provider.
+         *
+         * Tokens come exclusively from domainPatterns and indexPattern —
+         * both use the domainPattern syntax which maps cleanly to hostname
+         * labels. urlPattern never self-indexes: if a provider uses urlPattern
+         * without an indexPattern it falls to globalProviders, which is the
+         * correct conservative behaviour.
+         *
+         * @return {String[]}
+         */
+        this.getLookupTokens = function () {
+            const tokens = new Set();
+            for (const t of this.getDomainLookupTokens()) {
+                if (t) tokens.add(t);
+            }
+            return Array.from(tokens);
         };
 
         this.setURLPattern = function (urlPatterns) {
             urlPatternSource = urlPatterns || '';
             urlPattern = new RegExp(urlPatterns, "i");
+        };
+
+        /**
+         * Sets the indexPattern for this provider.
+         *
+         * indexPattern uses domainPattern syntax (||youtube.com^, ||amazon.*^)
+         * and is the explicit declaration of which hostname this provider
+         * targets for index purposes. It feeds providersByToken only —
+         * it is never used in matchURL(). This lets path-specific urlPattern
+         * providers (e.g. youtube.com/pagead) be indexed correctly without
+         * the engine having to parse regex source to guess the target domain.
+         *
+         * @param {string} pattern - domainPattern-syntax string
+         */
+        this.setIndexPattern = function (pattern) {
+            indexPattern = pattern || null;
         };
 
         this.setURLDomainPattern = function (patterns) {
