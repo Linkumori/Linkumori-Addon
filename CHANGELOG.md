@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v62.0] - 2026-05-11 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v60.0...linkumori-v62.0))
+### Changed
+- Update manifest.json (`2026-05-11`, hash: [`e6473b0`](https://github.com/Linkumori/Linkumori-Addon/commit/e6473b0))
+
 ## [v60.0] - 2026-05-10 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v59.0...linkumori-v60.0))
 ### Changed
 - Update privacy-policy-cli.md (`2026-05-09`, hash: [`49134e8`](https://github.com/Linkumori/Linkumori-Addon/commit/49134e8))
