@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "כלול את הנתיב, השאילתה והקטע המקורי בעת הפעלה חוזרת של סינון מול שם מארח CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "תבנית אינדקס"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "דפוס דומיין המשמש לרמז לאיזה דומיין מכוון ספק זה. זה משמש לאופטימיזציה של חיפושי ספקים. פורמט: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "מה זה indexPatern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "ה-indexPattern הוא דפוס תחום (לדוגמה, ||example.com^) שפועל כרמז למערכת האינדקס. מכיוון שקשה לנתח ביטויים רגולריים ב-urlPattern עבור שמות מארח, indexPattern מספק יעד מפורש לאופטימיזציה. זה מבטיח שהספק מתווסף בצורה נכונה ויעילה.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Kaasake algne tee, päring ja fragment, kui esitate filtreerimise CNAME hostinime alusel.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indeksi muster"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Domeenimuster, mida kasutatakse vihjeks, millist domeeni see pakkuja sihib. Seda kasutatakse pakkuja otsingute optimeerimiseks. Vorming: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Mis on indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "Indeksi muster on domeenimuster (nt ||example.com^), mis toimib vihjena indekseerimissüsteemile. Kuna urlPattern regulaaravaldisi on hostinimede jaoks raske sõeluda, pakub indexPattern optimeerimiseks selget sihtmärki. See tagab pakkuja korrektse ja tõhusa indekseerimise.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

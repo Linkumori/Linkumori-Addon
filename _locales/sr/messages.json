@@ -4482,5 +4482,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Укључите оригиналну путању, упит и фрагмент када поново репродукујете филтрирање према ЦНАМЕ имену хоста.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Индек Паттерн"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Образац домена који се користи да наговештава који домен циља овај провајдер. Ово се користи за оптимизацију тражења добављача. Формат: ||екампле.цом^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Шта је индекПаттерн?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "индекПаттерн је образац домена (нпр. ||екампле.цом^) који делује као наговештај за систем индексирања. Пошто је регуларне изразе у урлПаттерн тешко анализирати за имена хостова, индекПаттерн пружа експлицитни циљ за оптимизацију. Осигурава да је провајдер исправно и ефикасно индексиран.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "একটি CNAME হোস্টনামের বিরুদ্ধে ফিল্টারিং রিপ্লে করার সময় মূল পথ, ক্যোয়ারী এবং খণ্ডটি অন্তর্ভুক্ত করুন।",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "সূচক প্যাটার্ন"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "এই প্রদানকারী কোন ডোমেনকে লক্ষ্য করে তা নির্দেশ করতে ব্যবহৃত একটি ডোমেন প্যাটার্ন। এটি প্রদানকারীর সন্ধান অপ্টিমাইজ করতে ব্যবহৃত হয়। বিন্যাস: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "indexPattern কি?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern হল একটি ডোমেন প্যাটার্ন (যেমন, ||example.com^) যা ইন্ডেক্সিং সিস্টেমের জন্য একটি ইঙ্গিত হিসাবে কাজ করে। যেহেতু urlPattern-এ রেগুলার এক্সপ্রেশনগুলি হোস্টনামের জন্য পার্স করা কঠিন, তাই indexPattern অপ্টিমাইজেশনের জন্য একটি সুস্পষ্ট লক্ষ্য প্রদান করে। এটি নিশ্চিত করে যে প্রদানকারী সঠিকভাবে এবং দক্ষতার সাথে সূচিত হয়েছে।",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

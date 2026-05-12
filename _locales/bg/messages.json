@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Включете оригиналния път, заявка и фрагмент, когато възпроизвеждате филтриране срещу CNAME име на хост.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Индекс модел"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Образец на домейн, използван за подсказване към кой домейн е насочен този доставчик. Това се използва за оптимизиране на търсенето на доставчик. Формат: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Какво е indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern е модел на домейн (напр. ||example.com^), който действа като подсказка за системата за индексиране. Тъй като регулярните изрази в urlPattern са трудни за анализиране за имена на хостове, indexPattern предоставя изрична цел за оптимизиране. Той гарантира, че доставчикът е индексиран правилно и ефективно.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

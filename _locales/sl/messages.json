@@ -4482,5 +4482,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Pri ponovnem predvajanju filtriranja glede na ime gostitelja CNAME vključi izvirno pot, poizvedbo in fragment.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indeksni vzorec"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Vzorec domene, ki se uporablja za namig, na katero domeno ta ponudnik cilja. To se uporablja za optimizacijo iskanja ponudnikov. Oblika: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Kaj je indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "IndexPattern je vzorec domene (npr. ||example.com^), ki deluje kot namig za sistem indeksiranja. Ker je regularne izraze v urlPattern težko razčleniti za imena gostiteljev, indexPattern zagotavlja eksplicitni cilj za optimizacijo. Zagotavlja, da je ponudnik pravilno in učinkovito indeksiran.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

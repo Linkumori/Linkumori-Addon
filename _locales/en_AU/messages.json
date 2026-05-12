@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Include the original path, query, and fragment when replaying filtering against a CNAME hostname.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Index Pattern"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "A domain pattern used to hint which domain this provider targets. This is used to optimize provider lookups. Format: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "What is indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "The indexPattern is a domain pattern (e.g., ||example.com^) that acts as a hint for the indexing system. Since regular expressions in urlPattern are hard to parse for hostnames, indexPattern provides an explicit target for optimization. It ensures the provider is indexed correctly and efficiently.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

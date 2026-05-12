@@ -4482,5 +4482,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Pri prehrávaní filtrovania podľa názvu hostiteľa CNAME zahrňte pôvodnú cestu, dotaz a fragment.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indexový vzor"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Vzor domény používaný na označenie domény, na ktorú sa tento poskytovateľ zameriava. Používa sa na optimalizáciu vyhľadávania poskytovateľov. Formát: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Čo je indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "IndexPattern je vzor domény (napr. ||example.com^), ktorý funguje ako pomôcka pre systém indexovania. Keďže regulárne výrazy v urlPattern sa ťažko analyzujú pre názvy hostiteľov, indexPattern poskytuje explicitný cieľ optimalizácie. Zabezpečuje správne a efektívne indexovanie poskytovateľa.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

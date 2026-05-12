@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Pakartodami filtravimą pagal CNAME prieglobos pavadinimą įtraukite pradinį kelią, užklausą ir fragmentą.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indekso modelis"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Domeno šablonas, naudojamas nurodant, į kurį domeną taiko šis teikėjas. Tai naudojama siekiant optimizuoti tiekėjo paieškas. Formatas: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Kas yra indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "„IndexPattern“ yra domeno šablonas (pvz., ||example.com^), kuris veikia kaip indeksavimo sistemos užuomina. Kadangi įprastas urlPattern išraiškas sunku išanalizuoti prieglobos pavadinimams, indexPattern yra aiškus optimizavimo tikslas. Tai užtikrina, kad teikėjas būtų tinkamai ir efektyviai indeksuojamas.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

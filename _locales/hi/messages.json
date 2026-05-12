@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "CNAME होस्टनाम के विरुद्ध फ़िल्टरिंग दोबारा चलाते समय मूल पथ, क्वेरी और फ़्रैगमेंट शामिल करें।",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "सूचकांक पैटर्न"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "एक डोमेन पैटर्न यह संकेत देने के लिए उपयोग किया जाता है कि यह प्रदाता किस डोमेन को लक्षित करता है। इसका उपयोग प्रदाता लुकअप को अनुकूलित करने के लिए किया जाता है। प्रारूप: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "इंडेक्स पैटर्न क्या है?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "इंडेक्सपैटर्न एक डोमेन पैटर्न है (उदाहरण के लिए, ||example.com^) जो इंडेक्सिंग सिस्टम के लिए एक संकेत के रूप में कार्य करता है। चूंकि होस्टनाम के लिए urlPattern में नियमित अभिव्यक्तियों को पार्स करना कठिन है, इसलिए IndexPattern अनुकूलन के लिए एक स्पष्ट लक्ष्य प्रदान करता है। यह सुनिश्चित करता है कि प्रदाता सही और कुशलता से अनुक्रमित है।",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Adja meg az eredeti elérési utat, lekérdezést és töredéket, amikor egy CNAME gazdagépnévvel szembeni szűrést játszik le.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Index minta"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Egy tartományminta, amely utal arra, hogy a szolgáltató melyik tartományt célozza meg. Ez a szolgáltató keresésének optimalizálására szolgál. Formátum: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Mi az indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "Az indexPattern egy tartományminta (pl. ||example.com^), amely tippként szolgál az indexelő rendszer számára. Mivel az urlPattern reguláris kifejezéseit nehéz feldolgozni a gazdagépnevekhez, az indexPattern kifejezett célpontot biztosít az optimalizáláshoz. Biztosítja a szolgáltató helyes és hatékony indexelését.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

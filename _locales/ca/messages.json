@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Incloeu el camí, la consulta i el fragment originals quan reproduïu el filtratge amb un nom d'amfitrió CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Patró d'índex"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Un patró de domini utilitzat per indicar a quin domini s'orienta aquest proveïdor. S'utilitza per optimitzar les cerques de proveïdors. Format: ||exemple.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Què és indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "L'indexPattern és un patró de domini (p. ex., ||example.com^) que actua com una pista per al sistema d'indexació. Com que les expressions regulars a urlPattern són difícils d'analitzar per als noms d'amfitrió, indexPattern proporciona un objectiu explícit per a l'optimització. Assegura que el proveïdor estigui indexat correctament i de manera eficient.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

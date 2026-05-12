@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "CNAME 호스트 이름에 대한 필터링을 재생할 때 원래 경로, 쿼리 및 조각을 포함합니다.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "인덱스 패턴"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "이 공급자가 대상으로 하는 도메인을 힌트하는 데 사용되는 도메인 패턴입니다. 이는 공급자 조회를 최적화하는 데 사용됩니다. 형식: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "indexPattern이란 무엇입니까?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern은 인덱싱 시스템에 대한 힌트 역할을 하는 도메인 패턴(예: ||example.com^)입니다. urlPattern의 정규식은 호스트 이름을 구문 분석하기 어렵기 때문에 indexPattern은 최적화를 위한 명시적인 대상을 제공합니다. 이는 공급자가 정확하고 효율적으로 색인화되도록 보장합니다.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

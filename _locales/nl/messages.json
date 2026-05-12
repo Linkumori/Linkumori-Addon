@@ -3619,5 +3619,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Voeg het oorspronkelijke pad, de query en het fragment toe wanneer u het filter opnieuw afspeelt op basis van een CNAME-hostnaam.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indexpatroon"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Een domeinpatroon dat wordt gebruikt om aan te geven op welk domein deze provider zich richt. Dit wordt gebruikt om zoekopdrachten van providers te optimaliseren. Formaat: ||voorbeeld.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Wat is indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "Het indexPattern is een domeinpatroon (bijvoorbeeld ||example.com^) dat fungeert als hint voor het indexeringssysteem. Omdat reguliere expressies in urlPattern moeilijk te parseren zijn voor hostnamen, biedt indexPattern een expliciet doel voor optimalisatie. Het zorgt ervoor dat de aanbieder correct en efficiënt wordt geïndexeerd.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

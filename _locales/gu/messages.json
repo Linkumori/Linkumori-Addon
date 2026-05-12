@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "CNAME હોસ્ટનામ સામે ફિલ્ટરિંગને ફરીથી ચલાવતી વખતે મૂળ પાથ, ક્વેરી અને ફ્રેગમેન્ટનો સમાવેશ કરો.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "ઇન્ડેક્સ પેટર્ન"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "આ પ્રદાતા કયા ડોમેનને લક્ષ્ય બનાવે છે તેનો સંકેત આપવા માટે વપરાતી ડોમેન પેટર્ન. આનો ઉપયોગ પ્રદાતા લુકઅપને ઑપ્ટિમાઇઝ કરવા માટે થાય છે. ફોર્મેટ: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "ઈન્ડેક્સ પેટર્ન શું છે?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern એ ડોમેન પેટર્ન છે (દા.ત., ||example.com^) જે ઇન્ડેક્સીંગ સિસ્ટમ માટે સંકેત તરીકે કામ કરે છે. યજમાનનામો માટે urlPattern માં રેગ્યુલર એક્સપ્રેશન્સનું વિશ્લેષણ કરવું મુશ્કેલ હોવાથી, indexPattern ઑપ્ટિમાઇઝેશન માટે સ્પષ્ટ લક્ષ્ય પૂરું પાડે છે. તે ખાતરી કરે છે કે પ્રદાતા યોગ્ય રીતે અને કાર્યક્ષમ રીતે અનુક્રમિત છે.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }
