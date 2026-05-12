@@ -4045,6 +4045,7 @@ function getDefaultValueForJsonKey(key) {
         completeProvider: false,
         forceRedirection: false,
         urlPattern: '',
+        indexPattern: '',
         domainPatterns: [],
         methods: [],
         resourceTypes: []

@@ -3597,5 +3597,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Включайте оригінальний шлях, запит і фрагмент під час відтворення фільтрації за іменем хоста CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Шаблон індексу"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Шаблон домену, який використовується для підказки, на який домен націлений цей постачальник. Це використовується для оптимізації пошуку постачальників. Формат: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Що таке indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern — це шаблон домену (наприклад, ||example.com^), який діє як підказка для системи індексування. Оскільки регулярні вирази в urlPattern важко проаналізувати для імен хостів, indexPattern забезпечує явну ціль для оптимізації. Це забезпечує правильну та ефективну індексацію постачальника.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

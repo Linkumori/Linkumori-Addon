@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Inkluder den originale sti, forespørgsel og fragment, når du afspiller filtrering mod et CNAME-værtsnavn.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indeks mønster"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Et domænemønster, der bruges til at antyde, hvilket domæne denne udbyder målretter mod. Dette bruges til at optimere udbyderopslag. Format: ||eksempel.dk^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Hvad er indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "Indeksmønsteret er et domænemønster (f.eks. ||example.com^), der fungerer som et tip til indekseringssystemet. Da regulære udtryk i urlPattern er svære at parse for værtsnavne, giver indexPattern et eksplicit mål for optimering. Det sikrer, at udbyderen indekseres korrekt og effektivt.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

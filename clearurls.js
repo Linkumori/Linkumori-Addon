@@ -1370,12 +1370,15 @@ function start() {
                 data.providers[prvKeys[p]].getOrDefault('forceRedirection', false)));
 
             let urlPattern = data.providers[prvKeys[p]].getOrDefault('urlPattern', '');
-            let indexPattern = data.providers[prvKeys[p]].getOrDefault('indexPattern', '');
+            let indexPattern = data.providers[prvKeys[p]].getOrDefault('indexPattern', []);
             let domainPatterns = data.providers[prvKeys[p]].getOrDefault('domainPatterns', []);
 
             if (urlPattern) {
                 providers[p].setURLPattern(urlPattern);
-                if (indexPattern) {
+                const hasIndex = Array.isArray(indexPattern)
+                    ? indexPattern.length > 0
+                    : Boolean(indexPattern);
+                if (hasIndex) {
                     providers[p].setIndexPattern(indexPattern);
                 }
             } else if (domainPatterns.length > 0) {
@@ -1578,7 +1581,7 @@ function start() {
         let name = _name;
         let urlPattern;
         let urlPatternSource = '';
-        let indexPattern = null;  // domainPattern-syntax hint for providersByToken index only
+        let indexPatterns = [];  // domainPattern-syntax hints for providersByToken index only
         let domainPatterns = [];
         let enabled_rules = {};
         let disabled_rules = {};
@@ -1615,10 +1618,10 @@ function start() {
          * Extracts lookup tokens from domainPatterns and indexPattern.
          *
          * domainPatterns — used for both matching (matchURL) and indexing.
-         * indexPattern   — used for indexing only; lets urlPattern providers
-         *                  declare their target domain explicitly in the simple
+         * indexPatterns  — used for indexing only; lets urlPattern providers
+         *                  declare their target domains explicitly in the simple
          *                  domainPattern syntax (||youtube.com^) without having
-         *                  to infer it by parsing the regex source.
+         *                  to infer them by parsing the regex source.
          *
          * Examples:
          *   ||amazon.*^        -> amazon
@@ -1740,11 +1743,9 @@ function start() {
                 return labels.map(l => l.toLowerCase());
             }
 
-            // Combine domainPatterns and indexPattern into one source list.
-            // indexPattern is a single string; domainPatterns is an array.
+            // Combine domainPatterns and indexPatterns into one source list.
             // Both use the same domainPattern syntax so the same pipeline handles them.
-            const sources = [...domainPatterns];
-            if (indexPattern) sources.push(indexPattern);
+            const sources = [...domainPatterns, ...indexPatterns];
 
             for (const pattern of sources) {
                 const cleaned = cleanDomainPattern(pattern);
@@ -1783,19 +1784,62 @@ function start() {
         };
 
         /**
-         * Sets the indexPattern for this provider.
+         * Sets the indexPatterns for this provider.
          *
-         * indexPattern uses domainPattern syntax (||youtube.com^, ||amazon.*^)
-         * and is the explicit declaration of which hostname this provider
-         * targets for index purposes. It feeds providersByToken only —
-         * it is never used in matchURL(). This lets path-specific urlPattern
-         * providers (e.g. youtube.com/pagead) be indexed correctly without
-         * the engine having to parse regex source to guess the target domain.
+         * indexPattern is HOSTNAME-ONLY. It declares which hostname(s) this
+         * provider targets so the engine can index it in providersByToken.
+         * providersByToken is queried with dot-split hostname labels, so any
+         * path, query, or fragment portion is meaningless and stripped at
+         * write time.
          *
-         * @param {string} pattern - domainPattern-syntax string
+         * Valid forms:
+         *   "||amazon.com^"          registrable domain, any subdomain
+         *   "||amazon.*^"            registrable domain, any TLD
+         *   "*.amazon.com"           any subdomain of amazon.com
+         *   "*.amazon.*"             any subdomain, any TLD
+         *   "amazon.com"             exact hostname (substring fallback)
+         *
+         * Invalid (path will be stripped, write a warning to console):
+         *   "||youtube.com/pagead"   → stored as "||youtube.com"
+         *
+         * Accepts a single string or an array for providers whose urlPattern
+         * covers multiple unrelated hostnames:
+         *   ["||youtube.com^", "||youtu.be^"]
+         *
+         * @param {string|string[]} pattern - hostname-only domainPattern-syntax string or array
          */
         this.setIndexPattern = function (pattern) {
-            indexPattern = pattern || null;
+            // Strip everything from the first path separator so callers that
+            // accidentally include a path get the hostname portion only.
+            function hostnameOnly(p) {
+                if (!p) return '';
+                let v = String(p).trim();
+                // Strip anchors for the path-check, but preserve them in output
+                const prefix = v.startsWith('||') ? '||'
+                             : v.startsWith('|')  ? '|'
+                             : '';
+                const body = v.slice(prefix.length);
+                const pathStart = Math.min(
+                    ...[body.indexOf('/'), body.indexOf('?'), body.indexOf('#')]
+                        .filter(i => i !== -1)
+                        .concat([body.length])
+                );
+                if (pathStart < body.length) {
+                   
+                    // Rebuild: keep prefix + hostname + trailing ^ if present
+                    const host = body.slice(0, pathStart);
+                    v = prefix + host;
+                }
+                return v;
+            }
+
+            if (Array.isArray(pattern)) {
+                indexPatterns = pattern.map(hostnameOnly).filter(Boolean);
+            } else if (pattern) {
+                indexPatterns = [hostnameOnly(pattern)].filter(Boolean);
+            } else {
+                indexPatterns = [];
+            }
         };
 
         this.setURLDomainPattern = function (patterns) {

@@ -4482,5 +4482,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Includeți calea inițială, interogarea și fragmentul atunci când redați filtrarea împotriva unui nume de gazdă CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Model de index"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Un model de domeniu folosit pentru a indica domeniul pe care îl vizează acest furnizor. Acesta este folosit pentru a optimiza căutările furnizorilor. Format: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Ce este indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern este un model de domeniu (de exemplu, ||example.com^) care acționează ca un indiciu pentru sistemul de indexare. Deoarece expresiile regulate din urlPattern sunt greu de analizat pentru numele de gazdă, indexPattern oferă o țintă explicită pentru optimizare. Se asigură că furnizorul este indexat corect și eficient.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

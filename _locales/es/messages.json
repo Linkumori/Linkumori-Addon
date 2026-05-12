@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Incluya la ruta, la consulta y el fragmento originales al reproducir el filtrado con un nombre de host CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Patrón de índice"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Un patrón de dominio utilizado para indicar a qué dominio se dirige este proveedor. Esto se utiliza para optimizar las búsquedas de proveedores. Formato: ||ejemplo.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "¿Qué es el patrón de índice?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern es un patrón de dominio (por ejemplo, ||example.com^) que actúa como una pista para el sistema de indexación. Dado que las expresiones regulares en urlPattern son difíciles de analizar para nombres de host, indexPattern proporciona un objetivo explícito para la optimización. Garantiza que el proveedor esté indexado de forma correcta y eficiente.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

@@ -3601,5 +3601,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Dołącz oryginalną ścieżkę, zapytanie i fragment podczas odtwarzania filtrowania według nazwy hosta CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Wzór indeksu"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Wzorzec domeny używany do wskazania, na którą domenę kieruje ten dostawca. Służy to do optymalizacji wyszukiwania dostawców. Format: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Co to jest wzór indeksu?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "IndexPattern to wzorzec domeny (np. ||example.com^), który działa jako wskazówka dla systemu indeksowania. Ponieważ wyrażenia regularne w urlPattern są trudne do przeanalizowania pod kątem nazw hostów, IndexPattern zapewnia wyraźny cel optymalizacji. Zapewnia prawidłowe i skuteczne indeksowanie dostawcy.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

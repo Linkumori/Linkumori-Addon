@@ -3575,5 +3575,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "重播针对 CNAME 主机名的过滤时，包括原始路径、查询和片段。",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "指数形态"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "用于提示该提供程序针对哪个域的域模式。这用于优化提供商查找。格式： ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "什么是索引模式？",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern 是一个域模式（例如 ||example.com^），充当索引系统的提示。由于 urlPattern 中的正则表达式很难解析主机名，因此 indexPattern 提供了明确的优化目标。它确保提供者被正确有效地索引。",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "CNAME ホスト名に対するフィルタリングを再実行する場合は、元のパス、クエリ、およびフラグメントを含めます。",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "インデックスパターン"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "このプロバイダーがターゲットとするドメインを示すために使用されるドメイン パターン。これは、プロバイダーの検索を最適化するために使用されます。形式: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "インデックスパターンとは何ですか?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "IndexPattern は、インデックス作成システムのヒントとして機能するドメイン パターン (例: ||example.com^) です。 urlPattern の正規表現はホスト名を解析するのが難しいため、indexPattern は最適化の明示的なターゲットを提供します。これにより、プロバイダーのインデックスが正しく効率的に作成されるようになります。",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

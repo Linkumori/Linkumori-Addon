@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Συμπεριλάβετε την αρχική διαδρομή, το ερώτημα και το τμήμα κατά την αναπαραγωγή του φιλτραρίσματος με ένα όνομα κεντρικού υπολογιστή CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Μοτίβο ευρετηρίου"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Ένα μοτίβο τομέα που χρησιμοποιείται για να υποδείξει ποιον τομέα στοχεύει αυτός ο πάροχος. Αυτό χρησιμοποιείται για τη βελτιστοποίηση των αναζητήσεων παρόχων. Μορφή: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Τι είναι το indexPattern;",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "Το indexPattern είναι ένα μοτίβο τομέα (π.χ., ||example.com^) που λειτουργεί ως υπόδειξη για το σύστημα ευρετηρίου. Δεδομένου ότι οι τυπικές εκφράσεις στο urlPattern είναι δύσκολο να αναλυθούν για ονόματα κεντρικών υπολογιστών, το indexPattern παρέχει έναν ρητό στόχο για βελτιστοποίηση. Διασφαλίζει ότι ο πάροχος ευρετηριάζεται σωστά και αποτελεσματικά.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Sisällytä alkuperäinen polku, kysely ja fragmentti, kun toistat suodatuksen CNAME-isäntänimeä vastaan.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indeksikuvio"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Verkkotunnusmalli, jota käytetään vihjaamaan, mihin verkkotunnukseen tämä palveluntarjoaja kohdistaa. Tätä käytetään tarjoajan hakujen optimointiin. Muoto: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Mikä on indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "IndeksiPattern on verkkotunnuksen malli (esim. ||example.com^), joka toimii vihjeenä indeksointijärjestelmälle. Koska urlPatternin säännöllisiä lausekkeita on vaikea jäsentää isäntänimille, indexPattern tarjoaa selkeän kohteen optimointia varten. Se varmistaa, että palveluntarjoaja indeksoidaan oikein ja tehokkaasti.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

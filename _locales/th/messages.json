@@ -4482,5 +4482,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "รวมเส้นทางดั้งเดิม ข้อความค้นหา และส่วนย่อยเมื่อเล่นซ้ำการกรองกับชื่อโฮสต์ CNAME",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "รูปแบบดัชนี"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "รูปแบบโดเมนที่ใช้เพื่อบอกเป็นนัยว่าผู้ให้บริการรายนี้กำหนดเป้าหมายโดเมนใด ใช้เพื่อเพิ่มประสิทธิภาพการค้นหาผู้ให้บริการ รูปแบบ: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "ดัชนีรูปแบบคืออะไร?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "indexPattern คือรูปแบบโดเมน (เช่น ||example.com^) ที่ทำหน้าที่เป็นคำใบ้สำหรับระบบการจัดทำดัชนี เนื่องจากนิพจน์ทั่วไปใน urlPattern นั้นแยกวิเคราะห์ชื่อโฮสต์ได้ยาก ดังนั้น indexPattern จึงมีเป้าหมายที่ชัดเจนสำหรับการเพิ่มประสิทธิภาพ ช่วยให้มั่นใจได้ว่าผู้ให้บริการได้รับการจัดทำดัชนีอย่างถูกต้องและมีประสิทธิภาพ",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

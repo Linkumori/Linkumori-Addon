@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Isama ang orihinal na landas, query, at fragment kapag nire-replay ang pag-filter laban sa isang hostname ng CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Pattern ng Index"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Isang pattern ng domain na ginamit upang ipahiwatig kung aling domain ang tina-target ng provider na ito. Ito ay ginagamit upang i-optimize ang mga paghahanap ng provider. Format: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Ano ang indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "Ang indexPattern ay isang pattern ng domain (hal., ||example.com^) na nagsisilbing pahiwatig para sa indexing system. Dahil ang mga regular na expression sa urlPattern ay mahirap i-parse para sa mga hostname, ang indexPattern ay nagbibigay ng isang tahasang target para sa pag-optimize. Tinitiyak nito na ang provider ay nai-index nang tama at mahusay.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

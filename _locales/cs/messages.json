@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Při opakovaném přehrávání filtrování proti názvu hostitele CNAME zahrňte původní cestu, dotaz a fragment.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indexový vzor"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Vzor domény používaný k nápovědě, na kterou doménu tento poskytovatel cílí. To se používá k optimalizaci vyhledávání poskytovatelů. Formát: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Co je indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "IndexPattern je vzor domény (např. ||example.com^), který funguje jako nápověda pro systém indexování. Vzhledem k tomu, že regulární výrazy v urlPattern je obtížné analyzovat pro názvy hostitelů, indexPattern poskytuje explicitní cíl pro optimalizaci. Zajišťuje, že poskytovatel je indexován správně a efektivně.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

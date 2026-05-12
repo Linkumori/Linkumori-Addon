@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "قم بتضمين المسار الأصلي والاستعلام والجزء عند إعادة تشغيل التصفية مقابل اسم مضيف CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "نمط الفهرس"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "نمط المجال المستخدم للإشارة إلى المجال الذي يستهدفه هذا الموفر. يتم استخدام هذا لتحسين عمليات البحث عن الموفر. التنسيق: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "ما هو نمط الفهرس؟",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "إن نمط الفهرس هو نمط مجال (على سبيل المثال، ||example.com^) يعمل بمثابة تلميح لنظام الفهرسة. نظرًا لصعوبة تحليل التعبيرات العادية في urlPattern لأسماء المضيفين، يوفر مؤشر IndexPattern هدفًا واضحًا للتحسين. فهو يضمن فهرسة الموفر بشكل صحيح وفعال.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

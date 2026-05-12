@@ -4482,5 +4482,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Inkludera den ursprungliga sökvägen, frågan och fragmentet när du spelar upp filtrering mot ett CNAME-värdnamn.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Indexmönster"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Ett domänmönster som används för att antyda vilken domän denna leverantör riktar sig till. Detta används för att optimera leverantörssökningar. Format: ||exempel.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Vad är indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "IndexPattern är ett domänmönster (t.ex. ||example.com^) som fungerar som en ledtråd för indexeringssystemet. Eftersom reguljära uttryck i urlPattern är svåra att analysera för värdnamn, tillhandahåller indexPattern ett explicit mål för optimering. Det säkerställer att leverantören indexeras korrekt och effektivt.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }

@@ -4484,5 +4484,22 @@
   "cname_replay_full_url_enabled_description": {
     "message": "Sertakan jalur asli, kueri, dan fragmen saat memutar ulang pemfilteran terhadap nama host CNAME.",
     "description": "Description for the CNAME full URL replay toggle"
+  },
+  "customRulesEditor_indexPattern": {
+    "message": "Pola Indeks"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "Pola domain yang digunakan untuk memberi petunjuk domain mana yang ditargetkan penyedia ini. Ini digunakan untuk mengoptimalkan pencarian penyedia. Format: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
+  "faq_index_pattern": {
+    "message": "Apa itu pola indeks?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "IndexPattern adalah pola domain (misalnya ||example.com^) yang bertindak sebagai petunjuk untuk sistem pengindeksan. Karena ekspresi reguler di urlPattern sulit diurai untuk nama host, indexPattern memberikan target eksplisit untuk pengoptimalan. Ini memastikan penyedia diindeks dengan benar dan efisien.",
+    "description": "FAQ answer explaining indexPattern"
   }
 }
