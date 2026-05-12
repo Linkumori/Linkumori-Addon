@@ -1,11 +1,126 @@
 # Git Commit History
 
-**Generated**: 2026-05-12T15:54:55.345Z
-**Total Commits**: 57
+**Generated**: 2026-05-12T18:40:38.416Z
+**Total Commits**: 60
 
 ---
 
-## Commit 1: feat: added index pattern in other subsytem
+## Commit 1: add rules with index with cli updated
+
+**Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
+**Date**: 2026-05-13 00:03:18 +0530
+**Commit Hash**: `3f92ac8dd65407100e07e4d51760f27f58a5f00b`
+**Short Hash**: `3f92ac8`
+
+### Files Modified
+
+- **Modified**: `data/NOTICE.md`
+- **Modified**: `data/linkumori-clearurls-min.json.lz4`
+- **Modified**: `linkumori-cli-tool.js`
+
+### Commit Message
+
+```
+add rules with index with cli updated
+```
+
+---
+
+## Commit 2: feat: updated all translation added multiple indexpattern in one provider and some bug fixes
+
+**Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
+**Date**: 2026-05-12 23:37:07 +0530
+**Commit Hash**: `9cf017772c9689f40929579c44b2c6c8f2319e77`
+**Short Hash**: `9cf0177`
+
+### Files Modified
+
+- **Modified**: `_locales/am/messages.json`
+- **Modified**: `_locales/ar/messages.json`
+- **Modified**: `_locales/bg/messages.json`
+- **Modified**: `_locales/bn/messages.json`
+- **Modified**: `_locales/ca/messages.json`
+- **Modified**: `_locales/cs/messages.json`
+- **Modified**: `_locales/da/messages.json`
+- **Modified**: `_locales/de/messages.json`
+- **Modified**: `_locales/el/messages.json`
+- **Modified**: `_locales/en_AU/messages.json`
+- **Modified**: `_locales/en_GB/messages.json`
+- **Modified**: `_locales/en_US/messages.json`
+- **Modified**: `_locales/es/messages.json`
+- **Modified**: `_locales/es_419/messages.json`
+- **Modified**: `_locales/et/messages.json`
+- **Modified**: `_locales/fa/messages.json`
+- **Modified**: `_locales/fi/messages.json`
+- **Modified**: `_locales/fil/messages.json`
+- **Modified**: `_locales/fr/messages.json`
+- **Modified**: `_locales/gu/messages.json`
+- **Modified**: `_locales/he/messages.json`
+- **Modified**: `_locales/hi/messages.json`
+- **Modified**: `_locales/hr/messages.json`
+- **Modified**: `_locales/hu/messages.json`
+- **Modified**: `_locales/id/messages.json`
+- **Modified**: `_locales/it/messages.json`
+- **Modified**: `_locales/ja/messages.json`
+- **Modified**: `_locales/kn/messages.json`
+- **Modified**: `_locales/ko/messages.json`
+- **Modified**: `_locales/lt/messages.json`
+- **Modified**: `_locales/lv/messages.json`
+- **Modified**: `_locales/ml/messages.json`
+- **Modified**: `_locales/mr/messages.json`
+- **Modified**: `_locales/ms/messages.json`
+- **Modified**: `_locales/nl/messages.json`
+- **Modified**: `_locales/no/messages.json`
+- **Modified**: `_locales/pl/messages.json`
+- **Modified**: `_locales/pt_BR/messages.json`
+- **Modified**: `_locales/pt_PT/messages.json`
+- **Modified**: `_locales/ro/messages.json`
+- **Modified**: `_locales/ru/messages.json`
+- **Modified**: `_locales/sk/messages.json`
+- **Modified**: `_locales/sl/messages.json`
+- **Modified**: `_locales/sr/messages.json`
+- **Modified**: `_locales/sv/messages.json`
+- **Modified**: `_locales/sw/messages.json`
+- **Modified**: `_locales/ta/messages.json`
+- **Modified**: `_locales/te/messages.json`
+- **Modified**: `_locales/th/messages.json`
+- **Modified**: `_locales/tr/messages.json`
+- **Modified**: `_locales/uk/messages.json`
+- **Modified**: `_locales/vi/messages.json`
+- **Modified**: `_locales/zh_CN/messages.json`
+- **Modified**: `_locales/zh_TW/messages.json`
+- **Modified**: `clearurls.js`
+- **Modified**: `core_js/custom_rules_editor.js`
+- **Modified**: `html/customrules.html`
+
+### Commit Message
+
+```
+feat: updated all translation added multiple indexpattern in one provider and some bug fixes
+```
+
+---
+
+## Commit 3: chore: update commit history
+
+**Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+**Date**: 2026-05-12 15:54:55 +0000
+**Commit Hash**: `c6f050993bde1501cfa3ae98fe588ddbb37f0763`
+**Short Hash**: `c6f0509`
+
+### Files Modified
+
+- **Modified**: `COMMIT_HISTORY.md`
+
+### Commit Message
+
+```
+chore: update commit history
+```
+
+---
+
+## Commit 4: feat: added index pattern in other subsytem
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-12 20:33:43 +0530
@@ -28,7 +143,7 @@ feat: added index pattern in other subsytem
 
 ---
 
-## Commit 2: chore: update commit history
+## Commit 5: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 15:44:35 +0000
@@ -47,7 +162,7 @@ chore: update commit history
 
 ---
 
-## Commit 3: chore: update changelog for v64.0
+## Commit 6: chore: update changelog for v64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:46:08 +0000
@@ -66,7 +181,7 @@ chore: update changelog for v64.0
 
 ---
 
-## Commit 4: chore: update commit history for v64.0
+## Commit 7: chore: update commit history for v64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:46:07 +0000
@@ -85,7 +200,7 @@ chore: update commit history for v64.0
 
 ---
 
-## Commit 5: release 64.0
+## Commit 8: release 64.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:46:07 +0000
@@ -104,7 +219,7 @@ release 64.0
 
 ---
 
-## Commit 6: chore: update changelog for v63.0
+## Commit 9: chore: update changelog for v63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:43:25 +0000
@@ -123,7 +238,7 @@ chore: update changelog for v63.0
 
 ---
 
-## Commit 7: chore: update commit history for v63.0
+## Commit 10: chore: update commit history for v63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:43:24 +0000
@@ -142,7 +257,7 @@ chore: update commit history for v63.0
 
 ---
 
-## Commit 8: release 63.0
+## Commit 11: release 63.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:43:23 +0000
@@ -161,7 +276,7 @@ release 63.0
 
 ---
 
-## Commit 9: chore: update commit history
+## Commit 12: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-12 07:41:48 +0000
@@ -180,7 +295,7 @@ chore: update commit history
 
 ---
 
-## Commit 10: change linkumori to "ClearURLs(Linkumori)" in manifest.json
+## Commit 13: change linkumori to "ClearURLs(Linkumori)" in manifest.json
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-12 13:11:01 +0530
@@ -199,7 +314,7 @@ change linkumori to "ClearURLs(Linkumori)" in manifest.json
 
 ---
 
-## Commit 11: chore: update commit history
+## Commit 14: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:49:46 +0000
@@ -218,7 +333,7 @@ chore: update commit history
 
 ---
 
-## Commit 12: Merge pull request #1 from Linkumori/subham8907-patch-1
+## Commit 15: Merge pull request #1 from Linkumori/subham8907-patch-1
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-11 21:19:24 +0530
@@ -237,7 +352,7 @@ Merge pull request #1 from Linkumori/subham8907-patch-1
 
 ---
 
-## Commit 13: chore: update commit history
+## Commit 16: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:38:14 +0000
@@ -256,7 +371,7 @@ chore: update commit history
 
 ---
 
-## Commit 14: feat(provider-index): replace regex-heuristic token extraction with explicit indexPattern; add regex literal support in domainPatterns  ── Problem ──────────────────────────────────────────────────────────  providersByToken was populated by getLookupToken(), which parsed the urlPattern regex source to guess which hostname the provider targets. This approach had three compounding failure modes:  1. Alternation groups like (?:youtube\.com
+## Commit 17: feat(provider-index): replace regex-heuristic token extraction with explicit indexPattern; add regex literal support in domainPatterns  ── Problem ──────────────────────────────────────────────────────────  providersByToken was populated by getLookupToken(), which parsed the urlPattern regex source to guess which hostname the provider targets. This approach had three compounding failure modes:  1. Alternation groups like (?:youtube\.com
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-11 21:07:56 +0530
@@ -275,7 +390,7 @@ feat(provider-index): replace regex-heuristic token extraction with explicit ind
 
 ---
 
-## Commit 15: chore: update changelog for v62.0
+## Commit 18: chore: update changelog for v62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:21:30 +0000
@@ -294,7 +409,7 @@ chore: update changelog for v62.0
 
 ---
 
-## Commit 16: chore: update commit history for v62.0
+## Commit 19: chore: update commit history for v62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:21:29 +0000
@@ -313,7 +428,7 @@ chore: update commit history for v62.0
 
 ---
 
-## Commit 17: release 62.0
+## Commit 20: release 62.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:21:27 +0000
@@ -332,7 +447,7 @@ release 62.0
 
 ---
 
-## Commit 18: chore: update commit history
+## Commit 21: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 15:20:18 +0000
@@ -351,7 +466,7 @@ chore: update commit history
 
 ---
 
-## Commit 19: Update manifest.json
+## Commit 22: Update manifest.json
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-11 20:50:00 +0530
@@ -370,7 +485,7 @@ Update manifest.json
 
 ---
 
-## Commit 20: chore: update commit history
+## Commit 23: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-11 09:11:05 +0000
@@ -389,7 +504,7 @@ chore: update commit history
 
 ---
 
-## Commit 21: chore: update changelog for v60.0
+## Commit 24: chore: update changelog for v60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-10 02:25:28 +0000
@@ -408,7 +523,7 @@ chore: update changelog for v60.0
 
 ---
 
-## Commit 22: chore: update commit history for v60.0
+## Commit 25: chore: update commit history for v60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-10 02:25:27 +0000
@@ -427,7 +542,7 @@ chore: update commit history for v60.0
 
 ---
 
-## Commit 23: release 60.0
+## Commit 26: release 60.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-10 02:25:26 +0000
@@ -446,7 +561,7 @@ release 60.0
 
 ---
 
-## Commit 24: chore: update commit history
+## Commit 27: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-09 11:21:19 +0000
@@ -465,7 +580,7 @@ chore: update commit history
 
 ---
 
-## Commit 25: Merge pull request #1 from Linkumori/beta_performance
+## Commit 28: Merge pull request #1 from Linkumori/beta_performance
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-09 16:51:07 +0530
@@ -484,7 +599,7 @@ Merge pull request #1 from Linkumori/beta_performance
 
 ---
 
-## Commit 26: chore: update commit history
+## Commit 29: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-09 10:57:16 +0000
@@ -503,7 +618,7 @@ chore: update commit history
 
 ---
 
-## Commit 27: we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads and adapt from it to our codebase. We have made some modifications to the original code to fit our requirements and improve performance.
+## Commit 30: we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads and adapt from it to our codebase. We have made some modifications to the original code to fit our requirements and improve performance.
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-09 16:04:46 +0530
@@ -522,7 +637,7 @@ we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-
 
 ---
 
-## Commit 28: chore: update commit history
+## Commit 31: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 18:38:01 +0000
@@ -541,7 +656,7 @@ chore: update commit history
 
 ---
 
-## Commit 29: Update privacy-policy-cli.md
+## Commit 32: Update privacy-policy-cli.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-09 00:07:47 +0530
@@ -560,7 +675,7 @@ Update privacy-policy-cli.md
 
 ---
 
-## Commit 30: chore: update changelog for v59.0
+## Commit 33: chore: update changelog for v59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:15:26 +0000
@@ -579,7 +694,7 @@ chore: update changelog for v59.0
 
 ---
 
-## Commit 31: chore: update commit history for v59.0
+## Commit 34: chore: update commit history for v59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:15:25 +0000
@@ -598,7 +713,7 @@ chore: update commit history for v59.0
 
 ---
 
-## Commit 32: release 59.0
+## Commit 35: release 59.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:15:24 +0000
@@ -617,7 +732,7 @@ release 59.0
 
 ---
 
-## Commit 33: chore: update commit history
+## Commit 36: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 11:11:57 +0000
@@ -636,7 +751,7 @@ chore: update commit history
 
 ---
 
-## Commit 34: feat: add Firefox CNAME uncloaking controls
+## Commit 37: feat: add Firefox CNAME uncloaking controls
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 16:40:55 +0530
@@ -714,7 +829,7 @@ feat: add Firefox CNAME uncloaking controls
 
 ---
 
-## Commit 35: chore: update changelog for v58.0
+## Commit 38: chore: update changelog for v58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:57 +0000
@@ -733,7 +848,7 @@ chore: update changelog for v58.0
 
 ---
 
-## Commit 36: chore: update commit history for v58.0
+## Commit 39: chore: update commit history for v58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:55 +0000
@@ -752,7 +867,7 @@ chore: update commit history for v58.0
 
 ---
 
-## Commit 37: release 58.0
+## Commit 40: release 58.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 07:48:54 +0000
@@ -771,7 +886,7 @@ release 58.0
 
 ---
 
-## Commit 38: chore: update commit history
+## Commit 41: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 06:53:53 +0000
@@ -790,7 +905,7 @@ chore: update commit history
 
 ---
 
-## Commit 39: Update privacy-policy-cli.md
+## Commit 42: Update privacy-policy-cli.md
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 12:23:34 +0530
@@ -809,7 +924,7 @@ Update privacy-policy-cli.md
 
 ---
 
-## Commit 40: chore: update changelog for v57.0
+## Commit 43: chore: update changelog for v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:48 +0000
@@ -828,7 +943,7 @@ chore: update changelog for v57.0
 
 ---
 
-## Commit 41: chore: update commit history for v57.0
+## Commit 44: chore: update commit history for v57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:47 +0000
@@ -847,7 +962,7 @@ chore: update commit history for v57.0
 
 ---
 
-## Commit 42: release 57.0
+## Commit 45: release 57.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:46 +0000
@@ -866,7 +981,7 @@ release 57.0
 
 ---
 
-## Commit 43: chore: update commit history
+## Commit 46: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-08 05:54:03 +0000
@@ -885,7 +1000,7 @@ chore: update commit history
 
 ---
 
-## Commit 44: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
+## Commit 47: feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-08 11:21:50 +0530
@@ -971,7 +1086,7 @@ feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 ---
 
-## Commit 45: chore: update commit history
+## Commit 48: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 03:39:22 +0000
@@ -990,7 +1105,7 @@ chore: update commit history
 
 ---
 
-## Commit 46: Fix deprecated Components warning
+## Commit 49: Fix deprecated Components warning
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 09:07:23 +0530
@@ -1011,7 +1126,7 @@ Fix deprecated Components warning
 
 ---
 
-## Commit 47: chore: update commit history
+## Commit 50: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 02:27:49 +0000
@@ -1030,7 +1145,7 @@ chore: update commit history
 
 ---
 
-## Commit 48: reverse some change made earlier reapplied
+## Commit 51: reverse some change made earlier reapplied
 
 **Author**: Linkumori <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:56:57 +0530
@@ -1049,7 +1164,7 @@ reverse some change made earlier reapplied
 
 ---
 
-## Commit 49: chore: update commit history
+## Commit 52: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-07 01:59:03 +0000
@@ -1068,7 +1183,7 @@ chore: update commit history
 
 ---
 
-## Commit 50: Update audit.js
+## Commit 53: Update audit.js
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 07:28:53 +0530
@@ -1087,7 +1202,7 @@ Update audit.js
 
 ---
 
-## Commit 51: chore: update changelog for v56.0
+## Commit 54: chore: update changelog for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:21 +0000
@@ -1106,7 +1221,7 @@ chore: update changelog for v56.0
 
 ---
 
-## Commit 52: chore: update commit history for v56.0
+## Commit 55: chore: update commit history for v56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:19 +0000
@@ -1125,7 +1240,7 @@ chore: update commit history for v56.0
 
 ---
 
-## Commit 53: release 56.0
+## Commit 56: release 56.0
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:10:18 +0000
@@ -1149,7 +1264,7 @@ release 56.0
 
 ---
 
-## Commit 54: chore: update commit history
+## Commit 57: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:09:44 +0000
@@ -1168,7 +1283,7 @@ chore: update commit history
 
 ---
 
-## Commit 55: Update manifest.json
+## Commit 58: Update manifest.json
 
 **Author**: Subham Mahesh <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:39:32 +0530
@@ -1187,7 +1302,7 @@ Update manifest.json
 
 ---
 
-## Commit 56: chore: update commit history
+## Commit 59: chore: update commit history
 
 **Author**: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 **Date**: 2026-05-06 23:04:03 +0000
@@ -1206,7 +1321,7 @@ chore: update commit history
 
 ---
 
-## Commit 57: linkumori release
+## Commit 60: linkumori release
 
 **Author**: subham8907 <142691487+subham8907@users.noreply.github.com>
 **Date**: 2026-05-07 04:32:17 +0530
@@ -1506,4 +1621,4 @@ linkumori release
 
 *End of Commit History*
 
-**Generated by Linkumori CLI** - 2026-05-12T15:54:55.345Z
+**Generated by Linkumori CLI** - 2026-05-12T18:40:38.416Z
