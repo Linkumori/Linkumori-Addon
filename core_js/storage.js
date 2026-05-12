@@ -510,6 +510,7 @@ function getConfiguredLinkumoriURLFilterURLs() {
 function mergeRemoteProviderGroup(providerGroup) {
     const merged = {
         urlPattern: providerGroup[0].data?.urlPattern,
+        indexPattern: providerGroup[0].data?.indexPattern,
         rules: [],
         rawRules: [],
         referralMarketing: [],
@@ -526,6 +527,10 @@ function mergeRemoteProviderGroup(providerGroup) {
 
     providerGroup.forEach(provider => {
         const data = provider.data || {};
+
+        if (!merged.indexPattern && data.indexPattern) {
+            merged.indexPattern = data.indexPattern;
+        }
 
         if (Array.isArray(data.rules)) {
             merged.rules = [...new Set([...merged.rules, ...data.rules])];
@@ -917,9 +922,13 @@ function minifyCustomRules(data) {
             self.urlPattern = data.providers[provider].urlPattern;
             hasContent = true;
         }
-        
-        if (data.providers[provider].rules && data.providers[provider].rules.length !== 0) {
-            self.rules = data.providers[provider].rules;
+
+        if (data.providers[provider].indexPattern && data.providers[provider].indexPattern !== "") {
+            self.indexPattern = data.providers[provider].indexPattern;
+            hasContent = true;
+        }
+
+        if (data.providers[provider].rules && data.providers[provider].rules.length !== 0) {            self.rules = data.providers[provider].rules;
             hasContent = true;
         }
         

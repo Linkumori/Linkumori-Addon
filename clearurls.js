@@ -73,7 +73,9 @@
  */
 
 var providers = [];
-var providersByToken = {}; // Map<string, Provider[]>
+// Linkumori optimized indexes
+var providersByToken = typeof LinkumoriBidiTrie === 'function' ? new LinkumoriBidiTrie() : {}; // BidiTrie for O(1) token lookup
+var domainPatternTrie = typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null; // HNTrie for O(L) domain matching
 var globalProviders = []; // Provider[]
 var prvKeys = [];
 var siteBlockedAlert = 'javascript:void(0)';
@@ -1378,6 +1380,11 @@ function start() {
                 }
             } else if (domainPatterns.length > 0) {
                 providers[p].setURLDomainPattern(domainPatterns);
+                if (domainPatternTrie) {
+                    for (const pattern of domainPatterns) {
+                        domainPatternTrie.add(pattern, providers[p]);
+                    }
+                }
             }
 
             let rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
@@ -1430,11 +1437,14 @@ function start() {
 
             if (lookupTokens.length > 0) {
                 for (const token of lookupTokens) {
-                    if (!providersByToken[token]) {
-                        providersByToken[token] = [];
+                    if (typeof providersByToken.add === 'function') {
+                        providersByToken.add(token, providers[p]);
+                    } else {
+                        if (!providersByToken[token]) {
+                            providersByToken[token] = [];
+                        }
+                        providersByToken[token].push(providers[p]);
                     }
-
-                    providersByToken[token].push(providers[p]);
                 }
             } else {
                 globalProviders.push(providers[p]);
@@ -1455,13 +1465,15 @@ function start() {
     function rebuildProvidersFromStorage() {
         if (!storage.ClearURLsData || !storage.ClearURLsData.providers) {
             providers = [];
-            providersByToken = {};
+            providersByToken = typeof LinkumoriBidiTrie === 'function' ? new LinkumoriBidiTrie() : {};
+            domainPatternTrie = typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null;
             globalProviders = [];
             prvKeys = [];
             return false;
         }
 
-        providersByToken = {};
+        providersByToken = typeof LinkumoriBidiTrie === 'function' ? new LinkumoriBidiTrie() : {};
+        domainPatternTrie = typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null;
         globalProviders = [];
         getKeys(storage.ClearURLsData.providers);
         createProviders();
@@ -2080,8 +2092,11 @@ function start() {
                     const ctxHost = new URL(ctxUrl).hostname;
                     const ctxTokens = ctxHost.split('.').map(t => t.toLowerCase());
                     for (const token of ctxTokens) {
-                        if (providersByToken[token]) {
-                            for (const p of providersByToken[token]) {
+                        const tokenProviders = (typeof providersByToken.get === 'function') 
+                            ? providersByToken.get(token) 
+                            : providersByToken[token];
+                        if (tokenProviders) {
+                            for (const p of tokenProviders) {
                                 contextCandidateProviders.add(p);
                             }
                         }
@@ -2107,8 +2122,21 @@ function start() {
 
             let requestCandidateProviders = new Set(globalProviders);
             for (const token of requestHostTokens) {
-                if (providersByToken[token]) {
-                    for (const p of providersByToken[token]) {
+                const tokenProviders = (typeof providersByToken.get === 'function') 
+                    ? providersByToken.get(token) 
+                    : providersByToken[token];
+                if (tokenProviders) {
+                    for (const p of tokenProviders) {
+                        requestCandidateProviders.add(p);
+                    }
+                }
+            }
+
+            // Additionally add providers matching via HNTrie for domainPatterns
+            if (domainPatternTrie && requestHost) {
+                const hntrieMatches = domainPatternTrie.matches(requestHost);
+                if (hntrieMatches) {
+                    for (const p of hntrieMatches) {
                         requestCandidateProviders.add(p);
                     }
                 }

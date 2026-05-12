@@ -2866,6 +2866,19 @@
                 </div>
 
                 <div class="faq-item">
+                    <button class="faq-question" data-faq="index-pattern">
+                        <span data-i18n="faq_index_pattern"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_index_pattern_explanation"></p>
+                            <div class="faq-code">||example.com^</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
                     <button class="faq-question" data-faq="domain-patterns">
                         <span data-i18n="faq_domain_patterns"></span>
                         <span class="faq-question-icon">▼</span>
@@ -3546,9 +3559,14 @@ admin.example.com
                     <input type="text" class="form-input" id="url-pattern" data-i18n-placeholder="customRulesEditor_urlPatternPlaceholder">
                     <div class="form-help" data-i18n="customRulesEditor_urlPatternHelp"></div>
                 </div>
-                
-                <div class="form-group u-hidden" id="domain-patterns-group">
-                    <label class="form-label" for="domain-patterns" data-i18n="customRulesEditor_domainPatterns"></label>
+
+                <div class="form-group" id="index-pattern-group">
+                    <label class="form-label" for="index-pattern" data-i18n="customRulesEditor_indexPattern"></label>
+                    <input type="text" class="form-input" id="index-pattern" data-i18n-placeholder="customRulesEditor_indexPatternPlaceholder">
+                    <div class="form-help" data-i18n="customRulesEditor_indexPatternHelp"></div>
+                </div>
+
+                <div class="form-group u-hidden" id="domain-patterns-group">                    <label class="form-label" for="domain-patterns" data-i18n="customRulesEditor_domainPatterns"></label>
                     <textarea class="form-input" id="domain-patterns" rows="3" data-i18n-placeholder="customRulesEditor_domainPatternsPlaceholder"></textarea>
                     <div class="form-help" data-i18n="customRulesEditor_domainPatternsHelp"></div>
                 </div>
