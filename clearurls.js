@@ -74,7 +74,7 @@
 
 var providers = [];
 // Linkumori optimized indexes
-var providersByToken = typeof LinkumoriBidiTrie === 'function' ? new LinkumoriBidiTrie() : {}; // BidiTrie for O(1) token lookup
+var providersByToken = Object.create(null); // Exact hostname-label lookup table for provider candidates
 var domainPatternTrie = typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null; // HNTrie for O(L) domain matching
 var globalProviders = []; // Provider[]
 var prvKeys = [];
@@ -1440,14 +1440,10 @@ function start() {
 
             if (lookupTokens.length > 0) {
                 for (const token of lookupTokens) {
-                    if (typeof providersByToken.add === 'function') {
-                        providersByToken.add(token, providers[p]);
-                    } else {
-                        if (!providersByToken[token]) {
-                            providersByToken[token] = [];
-                        }
-                        providersByToken[token].push(providers[p]);
+                    if (!providersByToken[token]) {
+                        providersByToken[token] = [];
                     }
+                    providersByToken[token].push(providers[p]);
                 }
             } else {
                 globalProviders.push(providers[p]);
@@ -1468,14 +1464,14 @@ function start() {
     function rebuildProvidersFromStorage() {
         if (!storage.ClearURLsData || !storage.ClearURLsData.providers) {
             providers = [];
-            providersByToken = typeof LinkumoriBidiTrie === 'function' ? new LinkumoriBidiTrie() : {};
+            providersByToken = Object.create(null);
             domainPatternTrie = typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null;
             globalProviders = [];
             prvKeys = [];
             return false;
         }
 
-        providersByToken = typeof LinkumoriBidiTrie === 'function' ? new LinkumoriBidiTrie() : {};
+        providersByToken = Object.create(null);
         domainPatternTrie = typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null;
         globalProviders = [];
         getKeys(storage.ClearURLsData.providers);
@@ -2136,9 +2132,7 @@ function start() {
                     const ctxHost = new URL(ctxUrl).hostname;
                     const ctxTokens = ctxHost.split('.').map(t => t.toLowerCase());
                     for (const token of ctxTokens) {
-                        const tokenProviders = (typeof providersByToken.get === 'function') 
-                            ? providersByToken.get(token) 
-                            : providersByToken[token];
+                        const tokenProviders = providersByToken[token];
                         if (tokenProviders) {
                             for (const p of tokenProviders) {
                                 contextCandidateProviders.add(p);
@@ -2166,9 +2160,7 @@ function start() {
 
             let requestCandidateProviders = new Set(globalProviders);
             for (const token of requestHostTokens) {
-                const tokenProviders = (typeof providersByToken.get === 'function') 
-                    ? providersByToken.get(token) 
-                    : providersByToken[token];
+                const tokenProviders = providersByToken[token];
                 if (tokenProviders) {
                     for (const p of tokenProviders) {
                         requestCandidateProviders.add(p);
