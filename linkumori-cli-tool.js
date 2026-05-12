@@ -1200,6 +1200,7 @@ documentation when you run the build process.
   mergeProvidersGroup(providerGroup) {
     const merged = {
       urlPattern: providerGroup[0].data?.urlPattern,
+      indexPattern: providerGroup[0].data?.indexPattern,
       rules: [],
       rawRules: [],
       referralMarketing: [],
@@ -1216,6 +1217,10 @@ documentation when you run the build process.
     
     for (const provider of providerGroup) {
       const data = provider.data || {};
+
+      if (!merged.indexPattern && data.indexPattern) {
+        merged.indexPattern = data.indexPattern;
+      }
       
       // Merge arrays (deduplicate)
       if (Array.isArray(data.rules)) {
@@ -1268,6 +1273,10 @@ documentation when you run the build process.
     }
 
     if (typeof merged.urlPattern !== 'string' || merged.urlPattern.length === 0) delete merged.urlPattern;
+    if (
+      !merged.indexPattern ||
+      (Array.isArray(merged.indexPattern) && merged.indexPattern.length === 0)
+    ) delete merged.indexPattern;
     if (merged.rules.length === 0) delete merged.rules;
     if (merged.rawRules.length === 0) delete merged.rawRules;
     if (merged.referralMarketing.length === 0) delete merged.referralMarketing;
@@ -1315,6 +1324,165 @@ documentation when you run the build process.
       if (text.length >= 2) return text.toLowerCase();
     } catch (_) {}
     return null;
+  }
+
+  normalizeIndexHostname(hostname) {
+    const normalized = String(hostname || '')
+      .replace(/\\\./g, '.')
+      .replace(/^\.+|\.+$/g, '')
+      .trim()
+      .toLowerCase();
+
+    if (!normalized || !/^[a-z0-9-]+(?:\.[a-z0-9-]+)+$/i.test(normalized)) {
+      return null;
+    }
+
+    // Avoid indexing bare public-suffix-looking fragments extracted from TLD alternations.
+    if (/^(?:ac|co|com|edu|gov|net|or|org)\.[a-z]{2}$/i.test(normalized)) {
+      return null;
+    }
+
+    return normalized;
+  }
+
+  extractConcreteIndexHostnames(urlPattern) {
+    const source = String(urlPattern || '');
+    const hostnames = new Set();
+
+    const addHostname = (hostname) => {
+      const normalized = this.normalizeIndexHostname(hostname);
+      if (normalized) {
+        hostnames.add(normalized);
+      }
+    };
+
+    // site(?:2|3)?\.com -> site.com, site2.com, site3.com
+    for (const match of source.matchAll(/([a-z0-9-]+)\(\?:([a-z0-9-]+(?:\|[a-z0-9-]+)+)\)\?\\\.([a-z0-9-]+(?:\\\.[a-z0-9-]+)*)/gi)) {
+      const base = match[1];
+      const branches = match[2].split('|');
+      const suffix = match[3];
+      addHostname(`${base}\\.${suffix}`);
+      branches.forEach(branch => addHostname(`${base}${branch}\\.${suffix}`));
+    }
+
+    // airbnb\.(com|co\.uk) -> airbnb.com, airbnb.co.uk
+    for (const match of source.matchAll(/([a-z0-9-]+(?:\\\.[a-z0-9-]+)*)\\\.\(([^()]+)\)/gi)) {
+      const prefix = match[1];
+      const branches = match[2].split('|');
+      if (!branches.every(branch => /^[a-z0-9-]+(?:\\\.[a-z0-9-]+)*$/i.test(branch))) {
+        continue;
+      }
+      branches.forEach(branch => addHostname(`${prefix}\\.${branch}`));
+    }
+
+    // (?:govexec|nextgov)\.com -> govexec.com, nextgov.com
+    for (const match of source.matchAll(/\(\?:([^()]+)\)\\\.([a-z0-9-]+(?:\\\.[a-z0-9-]+)*)/gi)) {
+      const branches = match[1].split('|');
+      const suffix = match[2];
+      if (!branches.every(branch => /^[a-z0-9-]+(?:\\\.[a-z0-9-]+)*$/i.test(branch))) {
+        continue;
+      }
+      branches.forEach(branch => addHostname(`${branch}\\.${suffix}`));
+    }
+
+    // youtube\.com|youtu\.be, explicit hosts inside larger alternations, etc.
+    for (const match of source.matchAll(/[a-z0-9-]+(?:\\\.[a-z0-9-]+)+/gi)) {
+      addHostname(match[0]);
+    }
+
+    return Array.from(hostnames);
+  }
+
+  extractWildcardIndexPatterns(urlPattern) {
+    const source = String(urlPattern || '');
+    const roots = new Set();
+
+    const addRoot = (root) => {
+      const normalized = String(root || '')
+        .replace(/^\.+|\.+$/g, '')
+        .trim()
+        .toLowerCase();
+      if (/^[a-z0-9-]+$/i.test(normalized)) {
+        roots.add(`||${normalized}.*^`);
+      }
+    };
+
+    // amazon(?:\.[a-z]{2,}){1,} -> ||amazon.*^
+    for (const match of source.matchAll(/([a-z0-9-]+)\(\?:\\\.\[a-z\]\{2,\}\)\{1,\}/gi)) {
+      addRoot(match[1]);
+    }
+
+    // zalando\. or audible\. -> ||zalando.*^ / ||audible.*^
+    for (const match of source.matchAll(/([a-z0-9-]+)\\\.(?![a-z0-9-])/gi)) {
+      addRoot(match[1]);
+    }
+
+    return Array.from(roots);
+  }
+
+  deriveIndexPatternFromUrlPattern(urlPattern) {
+    const hostnames = this.extractConcreteIndexHostnames(urlPattern);
+    const wildcardPatterns = this.extractWildcardIndexPatterns(urlPattern);
+
+    if (hostnames.length === 0 && wildcardPatterns.length === 0) {
+      const fallback = this.normalizeIndexHostname(this.deriveNameFromUrlPattern(urlPattern));
+      if (fallback) {
+        hostnames.push(fallback);
+      }
+    }
+
+    const patterns = [
+      ...hostnames.map(hostname => `||${hostname}^`),
+      ...wildcardPatterns
+    ].sort((a, b) => a.localeCompare(b));
+
+    if (patterns.length === 0) {
+      return null;
+    }
+
+    return patterns.length === 1 ? patterns[0] : patterns;
+  }
+
+  hasUsableIndexPattern(indexPattern) {
+    if (Array.isArray(indexPattern)) {
+      return indexPattern.some(pattern => typeof pattern === 'string' && pattern.trim() !== '');
+    }
+    return typeof indexPattern === 'string' && indexPattern.trim() !== '';
+  }
+
+  addIndexPatternsForUrlProviders(providers) {
+    let added = 0;
+    let preserved = 0;
+    const unresolved = [];
+
+    Object.entries(providers || {}).forEach(([providerName, providerData]) => {
+      if (!providerData || typeof providerData.urlPattern !== 'string' || providerData.urlPattern.trim() === '') {
+        return;
+      }
+
+      if (this.hasUsableIndexPattern(providerData.indexPattern)) {
+        preserved++;
+        return;
+      }
+
+      const derived = this.deriveIndexPatternFromUrlPattern(providerData.urlPattern);
+      if (!derived) {
+        unresolved.push(providerName);
+        return;
+      }
+
+      providerData.indexPattern = derived;
+      added++;
+    });
+
+    this.success(`✅ Index patterns ready: ${added} derived, ${preserved} preserved`);
+    if (unresolved.length > 0) {
+      this.warning(
+        `⚠️  ${unresolved.length} URL-pattern provider(s) remain without indexPattern because their regex is global or has no hostname hint: ${unresolved.join(', ')}`
+      );
+    }
+
+    return { added, preserved, unresolved };
   }
 
   // Derive a clean provider name from an array of domain pattern strings
@@ -1419,6 +1587,10 @@ documentation when you run the build process.
       // Only include non-empty strings and arrays
       if (data.providers[provider].urlPattern && data.providers[provider].urlPattern !== "") {
         self.urlPattern = data.providers[provider].urlPattern;
+      }
+
+      if (this.hasUsableIndexPattern(data.providers[provider].indexPattern)) {
+        self.indexPattern = data.providers[provider].indexPattern;
       }
 
       if (data.providers[provider].rules && data.providers[provider].rules.length !== 0) {
@@ -2421,6 +2593,7 @@ this.info(
       
       // Use bundled+remote style merge logic for official + custom sources
       const mergedProviders = this.mergeOfficialWithCustomRules(officialRules, customRules);
+      this.addIndexPatternsForUrlProviders(mergedProviders);
       
       const mergedRules = {
         ...officialRules,
