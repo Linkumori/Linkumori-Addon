@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v65.0] - 2026-05-12 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v64.0...linkumori-v65.0))
+### Added
+- Add index pattern in other subsytem (`2026-05-12`, hash: [`13bcb9a`](https://github.com/Linkumori/Linkumori-Addon/commit/13bcb9a))
+- Introduce rules with index with cli updated (`2026-05-13`, hash: [`3f92ac8`](https://github.com/Linkumori/Linkumori-Addon/commit/3f92ac8))
+- Update all translation added multiple indexpattern in one provider and some bug fixes (`2026-05-12`, hash: [`9cf0177`](https://github.com/Linkumori/Linkumori-Addon/commit/9cf0177))
+
 ## [v64.0] - 2026-05-12 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v63.0...linkumori-v64.0))
 ### Changed
 - Release v64.0 (hash: `d5aa27e`).
