@@ -479,6 +479,15 @@
   "customRulesEditor_unsavedChanges": {
     "message": "You have unsaved changes. Continue without saving?"
   },
+  "customRulesEditor_indexPattern": {
+    "message": "Index Pattern"
+  },
+  "customRulesEditor_indexPatternHelp": {
+    "message": "A domain pattern used to hint which domain this provider targets. This is used to optimize provider lookups. Format: ||example.com^"
+  },
+  "customRulesEditor_indexPatternPlaceholder": {
+    "message": "||example.com^"
+  },
   "customRulesEditor_urlPattern": {
     "message": "URL Pattern *"
   },
@@ -720,6 +729,14 @@
   "faq_how_providers_work": {
     "message": "How do providers work?",
     "description": "FAQ question about how providers work"
+  },
+  "faq_index_pattern": {
+    "message": "What is indexPattern?",
+    "description": "FAQ question about indexPattern"
+  },
+  "faq_index_pattern_explanation": {
+    "message": "The indexPattern is a domain pattern (e.g., ||example.com^) that acts as a hint for the indexing system. Since regular expressions in urlPattern are hard to parse for hostnames, indexPattern provides an explicit target for optimization. It ensures the provider is indexed correctly and efficiently.",
+    "description": "FAQ answer explaining indexPattern"
   },
   "faq_http_methods": {
     "message": "What are HTTP Methods?",

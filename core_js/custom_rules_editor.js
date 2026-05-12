@@ -1790,6 +1790,7 @@ function createProviderListItemHTML(providerName, provider) {
     if (domainPatternsCount > 0) stats.push(`${getLocalizedNumber(domainPatternsCount)} ${i18n('customRulesEditor_domainPatterns')}`);
     if (domainExceptionsCount > 0) stats.push(`${getLocalizedNumber(domainExceptionsCount)} ${i18n('customRulesEditor_domainExceptions')}`);
     if (domainRedirectionsCount > 0) stats.push(`${getLocalizedNumber(domainRedirectionsCount)} ${i18n('customRulesEditor_domainRedirections')}`);
+    if (provider.indexPattern) stats.push(`Index: ${provider.indexPattern}`);
     if (provider.completeProvider) stats.push(i18n('providerList_complete'));
     
     return `
@@ -3807,6 +3808,7 @@ function createProviderEditorHTML(provider) {
         { key: 'completeProvider', label: i18n('customRulesEditor_completeProvider') },
         { key: 'forceRedirection', label: i18n('customRulesEditor_forceRedirection') },
         { key: 'urlPattern', label: i18n('customRulesEditor_urlPattern') },
+        { key: 'indexPattern', label: i18n('customRulesEditor_indexPattern') },
         { key: 'domainPatterns', label: i18n('customRulesEditor_domainPatterns') },
         { key: 'methods', label: i18n('customRulesEditor_httpMethods') },
         { key: 'resourceTypes', label: i18n('customRulesEditor_resourceTypes') }
@@ -3833,6 +3835,11 @@ function createProviderEditorHTML(provider) {
                 <div class="form-group" id="edit-url-pattern-group" style="${hasUrlPattern ? '' : 'display:none;'}">
                     <label class="form-label">${i18n('customRulesEditor_urlPattern')}</label>
                     <input type="text" class="form-input" id="edit-url-pattern" value="${escapeHtml(provider.urlPattern || '')}" placeholder="${i18n('customRulesEditor_urlPatternPlaceholder')}">
+                </div>
+
+                <div class="form-group" id="edit-index-pattern-group" style="${hasUrlPattern ? '' : 'display:none;'}">
+                    <label class="form-label">${i18n('customRulesEditor_indexPattern')}</label>
+                    <input type="text" class="form-input" id="edit-index-pattern" value="${escapeHtml(provider.indexPattern || '')}" placeholder="${i18n('customRulesEditor_indexPatternPlaceholder')}">
                 </div>
 
                 <div class="form-group" id="edit-domain-patterns-group" style="${hasUrlPattern ? 'display:none;' : ''}">
@@ -3895,6 +3902,7 @@ function setupPatternEditorEvents() {
     const urlRadio = document.getElementById('edit-pattern-type-url');
     const domainRadio = document.getElementById('edit-pattern-type-domain');
     const urlInput = document.getElementById('edit-url-pattern');
+    const indexInput = document.getElementById('edit-index-pattern');
     const domainInput = document.getElementById('edit-domain-patterns');
 
     if (urlRadio) {
@@ -3912,6 +3920,9 @@ function setupPatternEditorEvents() {
     if (urlInput) {
         urlInput.addEventListener('input', applyPatternEditorToJson);
     }
+    if (indexInput) {
+        indexInput.addEventListener('input', applyPatternEditorToJson);
+    }
     if (domainInput) {
         domainInput.addEventListener('input', applyPatternEditorToJson);
     }
@@ -3920,10 +3931,12 @@ function setupPatternEditorEvents() {
 function updatePatternEditorDisplay() {
     const urlRadio = document.getElementById('edit-pattern-type-url');
     const urlGroup = document.getElementById('edit-url-pattern-group');
+    const indexGroup = document.getElementById('edit-index-pattern-group');
     const domainGroup = document.getElementById('edit-domain-patterns-group');
     const useUrl = !!(urlRadio && urlRadio.checked);
 
     if (urlGroup) urlGroup.style.display = useUrl ? 'block' : 'none';
+    if (indexGroup) indexGroup.style.display = useUrl ? 'block' : 'none';
     if (domainGroup) domainGroup.style.display = useUrl ? 'none' : 'block';
 }
 
@@ -3952,13 +3965,22 @@ function applyPatternEditorToJson() {
     if (useUrlPattern) {
         delete provider.domainPatterns;
         const value = (urlInput?.value || '').trim();
+        const indexValue = (document.getElementById('edit-index-pattern')?.value || '').trim();
+
         if (value) {
             provider.urlPattern = value;
         } else {
             delete provider.urlPattern;
         }
+
+        if (indexValue) {
+            provider.indexPattern = indexValue;
+        } else {
+            delete provider.indexPattern;
+        }
     } else {
         delete provider.urlPattern;
+        delete provider.indexPattern;
         const domainPatterns = (domainInput?.value || '')
             .split('\n')
             .map(p => p.trim())
@@ -3980,6 +4002,7 @@ function syncPatternEditorFromJson() {
     const urlRadio = document.getElementById('edit-pattern-type-url');
     const domainRadio = document.getElementById('edit-pattern-type-domain');
     const urlInput = document.getElementById('edit-url-pattern');
+    const indexInput = document.getElementById('edit-index-pattern');
     const domainInput = document.getElementById('edit-domain-patterns');
     if (!jsonEditor || !urlRadio || !domainRadio) return;
 
@@ -3992,11 +4015,13 @@ function syncPatternEditorFromJson() {
             urlRadio.checked = true;
             domainRadio.checked = false;
             if (urlInput) urlInput.value = provider.urlPattern;
+            if (indexInput) indexInput.value = provider.indexPattern || '';
             if (domainInput) domainInput.value = '';
         } else {
             urlRadio.checked = false;
             domainRadio.checked = true;
             if (urlInput) urlInput.value = '';
+            if (indexInput) indexInput.value = '';
             if (domainInput) domainInput.value = domainPatterns.join('\n');
         }
         updatePatternEditorDisplay();
@@ -4342,38 +4367,43 @@ function showAddProviderModal(editProvider = null) {
         const provider = customRules.providers[editProvider];
         const providerNameInput = document.getElementById('provider-name');
         const urlPatternInput = document.getElementById('url-pattern');
+        const indexPatternInput = document.getElementById('index-pattern');
         const domainPatternsInput = document.getElementById('domain-patterns');
         const completeProviderInput = document.getElementById('complete-provider');
         const forceRedirectionInput = document.getElementById('force-redirection');
         const urlPatternRadio = document.getElementById('pattern-type-url');
         const domainPatternsRadio = document.getElementById('pattern-type-domain');
-        
+
         if (providerNameInput) providerNameInput.value = editProvider;
         if (completeProviderInput) completeProviderInput.checked = provider.completeProvider || false;
         if (forceRedirectionInput) forceRedirectionInput.checked = provider.forceRedirection || false;
-        
+
         // Set pattern type and values based on provider data
         if (provider.urlPattern) {
             if (urlPatternRadio) urlPatternRadio.checked = true;
             if (urlPatternInput) urlPatternInput.value = provider.urlPattern;
+            if (indexPatternInput) indexPatternInput.value = provider.indexPattern || '';
             if (domainPatternsInput) domainPatternsInput.value = '';
         } else if (toDomainPatternArray(provider.domainPatterns).length > 0) {
             if (domainPatternsRadio) domainPatternsRadio.checked = true;
             if (domainPatternsInput) domainPatternsInput.value = toDomainPatternArray(provider.domainPatterns).join('\n');
             if (urlPatternInput) urlPatternInput.value = '';
+            if (indexPatternInput) indexPatternInput.value = '';
         } else {
             // Default to URL pattern for new providers
             if (urlPatternRadio) urlPatternRadio.checked = true;
             if (urlPatternInput) urlPatternInput.value = '';
+            if (indexPatternInput) indexPatternInput.value = '';
             if (domainPatternsInput) domainPatternsInput.value = '';
         }
-        
+
         updatePatternTypeDisplay();
     } else {
         providerForm.reset();
+        const indexPatternInput = document.getElementById('index-pattern');
+        if (indexPatternInput) indexPatternInput.value = '';
         // Default to URL pattern for new providers
-        const urlPatternRadio = document.getElementById('pattern-type-url');
-        if (urlPatternRadio) urlPatternRadio.checked = true;
+        const urlPatternRadio = document.getElementById('pattern-type-url');        if (urlPatternRadio) urlPatternRadio.checked = true;
         updatePatternTypeDisplay();
     }
     
@@ -4405,17 +4435,19 @@ function setupPatternTypeListeners() {
 function updatePatternTypeDisplay() {
     const urlPatternRadio = document.getElementById('pattern-type-url');
     const urlPatternGroup = document.getElementById('url-pattern-group');
+    const indexPatternGroup = document.getElementById('index-pattern-group');
     const domainPatternsGroup = document.getElementById('domain-patterns-group');
-    
+
     if (urlPatternRadio && urlPatternRadio.checked) {
         if (urlPatternGroup) urlPatternGroup.style.display = 'block';
+        if (indexPatternGroup) indexPatternGroup.style.display = 'block';
         if (domainPatternsGroup) domainPatternsGroup.style.display = 'none';
     } else {
         if (urlPatternGroup) urlPatternGroup.style.display = 'none';
+        if (indexPatternGroup) indexPatternGroup.style.display = 'none';
         if (domainPatternsGroup) domainPatternsGroup.style.display = 'block';
     }
 }
-
 /**
  * Hide provider modal
  */
@@ -4439,6 +4471,7 @@ async function handleProviderSubmit(e) {
     const providerName = formData.get('provider-name') || document.getElementById('provider-name').value;
     const patternType = formData.get('pattern-type');
     const urlPattern = document.getElementById('url-pattern').value || '';
+    const indexPattern = document.getElementById('index-pattern').value || '';
     const domainPatternsText = document.getElementById('domain-patterns').value || '';
     const domainPatterns = domainPatternsText.split('\n').map(p => p.trim()).filter(p => p !== '');
     const completeProvider = document.getElementById('complete-provider').checked;
@@ -4515,10 +4548,12 @@ async function handleProviderSubmit(e) {
     // Update selected pattern type and clear the mutually exclusive field.
     if (patternType === 'urlPattern') {
         provider.urlPattern = urlPattern;
+        provider.indexPattern = indexPattern;
         delete provider.domainPatterns;
     } else if (patternType === 'domainPatterns') {
         provider.domainPatterns = domainPatterns;
         delete provider.urlPattern;
+        delete provider.indexPattern;
     }
     
     try {
