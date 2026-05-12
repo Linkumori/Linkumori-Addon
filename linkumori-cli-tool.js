@@ -97,6 +97,8 @@ class LinkumoriCLI {
     this.env = {};
     this.pslPrepared = false;
     this.pslPreparedMode = null;
+    this.localPslParser = null;
+    this.localPslLoadFailed = false;
     this.loadEnvironment();
     
     // ClearURLs builder configuration
@@ -1342,27 +1344,147 @@ documentation when you run the build process.
       return null;
     }
 
+    const parsed = this.parseHostnameWithLocalPsl(normalized);
+    if (parsed && !parsed.domain) {
+      return null;
+    }
+
     return normalized;
   }
 
-  extractConcreteIndexHostnames(urlPattern) {
-    const source = String(urlPattern || '');
-    const hostnames = new Set();
+  getLocalPslParser() {
+    if (this.localPslParser || this.localPslLoadFailed) {
+      return this.localPslParser;
+    }
 
-    const addHostname = (hostname) => {
+    try {
+      const context = {
+        module: { exports: {} },
+        exports: {},
+        globalThis: null
+      };
+      context.globalThis = context;
+
+      vm.runInNewContext(
+        fs.readFileSync('external_js/light-punycode.js', 'utf8'),
+        context,
+        { filename: 'external_js/light-punycode.js' }
+      );
+      const punycodeApi = context.module.exports || context.punycode;
+
+      context.module = { exports: {} };
+      context.exports = {};
+      vm.runInNewContext(
+        fs.readFileSync('external_js/publicsuffixlist.js', 'utf8'),
+        context,
+        { filename: 'external_js/publicsuffixlist.js' }
+      );
+
+      const pslModule = context.module.exports || {};
+      const parser = pslModule.publicSuffixList || context.publicSuffixList;
+      if (!parser || typeof parser.parse !== 'function') {
+        throw new Error('PublicSuffixList parser unavailable');
+      }
+
+      const pslText = fs.readFileSync(this.pslConfig.localFile, 'utf8');
+      const toAscii = (label) => punycodeApi && typeof punycodeApi.toASCII === 'function'
+        ? punycodeApi.toASCII(String(label || ''))
+        : String(label || '');
+      parser.parse(pslText, toAscii);
+      this.localPslParser = parser;
+    } catch (error) {
+      this.localPslLoadFailed = true;
+      this.warning(`⚠️  Local PSL validation unavailable: ${error.message}`);
+    }
+
+    return this.localPslParser;
+  }
+
+  parseHostnameWithLocalPsl(hostname) {
+    const parser = this.getLocalPslParser();
+    if (!parser) return null;
+
+    const normalized = String(hostname || '').trim().toLowerCase();
+    if (!normalized) return null;
+
+    return {
+      suffix: parser.getPublicSuffix(normalized) || null,
+      domain: parser.getDomain(normalized) || null
+    };
+  }
+
+  getUrlPatternHostSource(urlPattern) {
+    let source = String(urlPattern || '');
+    source = source.replace(/^\^?https?\??:(?:\\\/|\/){2}/i, '');
+    source = source.replace(/^\(\?:\[a-z0-9-\]\+\\\.\)\*\??/i, '');
+
+    let depth = 0;
+    for (let index = 0; index < source.length; index++) {
+      const ch = source.charAt(index);
+      if (ch === '(') {
+        depth += 1;
+        continue;
+      }
+      if (ch === ')') {
+        depth = Math.max(0, depth - 1);
+        continue;
+      }
+
+      const isEscapedSlash = ch === '\\' && source.charAt(index + 1) === '/';
+      const isPlainSlash = ch === '/';
+      if (depth === 0 && (isEscapedSlash || isPlainSlash)) {
+        source = source.slice(0, index);
+        break;
+      }
+
+      if (isEscapedSlash) {
+        index += 1;
+      }
+    }
+
+    return source;
+  }
+
+  extractConcreteIndexHostnames(urlPattern) {
+    const source = this.getUrlPatternHostSource(urlPattern);
+    const hostnames = new Set();
+    const protectedHostnames = new Set();
+
+    const addHostname = (hostname, protect = false) => {
       const normalized = this.normalizeIndexHostname(hostname);
       if (normalized) {
         hostnames.add(normalized);
+        if (protect) {
+          protectedHostnames.add(normalized);
+        }
       }
     };
+
+    // mercadoli[bv]re\.com -> mercadolibre.com, mercadolivre.com
+    for (const match of source.matchAll(/([a-z0-9-]*)\[([a-z0-9]+)\]([a-z0-9-]*(?:\\\.[a-z0-9-]+)+)/gi)) {
+      const prefix = match[1];
+      const variants = match[2].split('');
+      const suffix = match[3];
+      variants.forEach((variant) => addHostname(`${prefix}${variant}${suffix}`, true));
+    }
+
+    // nikkei\.co(?:m|\.jp) -> nikkei.com, nikkei.co.jp
+    for (const match of source.matchAll(/([a-z0-9-]+(?:\\\.[a-z0-9-]+)*)\(\?:([^()]+)\)/gi)) {
+      const prefix = match[1];
+      const branches = match[2].split('|');
+      if (!branches.every(branch => /^[a-z0-9-]+$/.test(branch) || /^\\\.[a-z0-9-]+(?:\\\.[a-z0-9-]+)*$/.test(branch))) {
+        continue;
+      }
+      branches.forEach((branch) => addHostname(`${prefix}${branch}`, true));
+    }
 
     // site(?:2|3)?\.com -> site.com, site2.com, site3.com
     for (const match of source.matchAll(/([a-z0-9-]+)\(\?:([a-z0-9-]+(?:\|[a-z0-9-]+)+)\)\?\\\.([a-z0-9-]+(?:\\\.[a-z0-9-]+)*)/gi)) {
       const base = match[1];
       const branches = match[2].split('|');
       const suffix = match[3];
-      addHostname(`${base}\\.${suffix}`);
-      branches.forEach(branch => addHostname(`${base}${branch}\\.${suffix}`));
+      addHostname(`${base}\\.${suffix}`, true);
+      branches.forEach(branch => addHostname(`${base}${branch}\\.${suffix}`, true));
     }
 
     // airbnb\.(com|co\.uk) -> airbnb.com, airbnb.co.uk
@@ -1372,7 +1494,7 @@ documentation when you run the build process.
       if (!branches.every(branch => /^[a-z0-9-]+(?:\\\.[a-z0-9-]+)*$/i.test(branch))) {
         continue;
       }
-      branches.forEach(branch => addHostname(`${prefix}\\.${branch}`));
+      branches.forEach(branch => addHostname(`${prefix}\\.${branch}`, true));
     }
 
     // (?:govexec|nextgov)\.com -> govexec.com, nextgov.com
@@ -1382,7 +1504,19 @@ documentation when you run the build process.
       if (!branches.every(branch => /^[a-z0-9-]+(?:\\\.[a-z0-9-]+)*$/i.test(branch))) {
         continue;
       }
-      branches.forEach(branch => addHostname(`${branch}\\.${suffix}`));
+      branches.forEach(branch => addHostname(`${branch}\\.${suffix}`, true));
+    }
+
+    // (?:track\.a\.com\/click|trck\.b\.net|join\.c\.eu) -> all hostname branches.
+    for (const match of source.matchAll(/\(\?:([^()]+)\)/gi)) {
+      const branches = match[1].split('|');
+      if (branches.length < 2) continue;
+      const followingSource = source.slice((match.index || 0) + match[0].length);
+      if (followingSource.startsWith('\\.')) continue;
+      for (const branch of branches) {
+        const hostOnly = branch.split(/(?:\\\/|\/)/)[0];
+        addHostname(hostOnly, true);
+      }
     }
 
     // youtube\.com|youtu\.be, explicit hosts inside larger alternations, etc.
@@ -1390,11 +1524,22 @@ documentation when you run the build process.
       addHostname(match[0]);
     }
 
-    return Array.from(hostnames);
+    const expandedHostnames = Array.from(hostnames);
+    return expandedHostnames.filter((hostname) =>
+      protectedHostnames.has(hostname) ||
+      !expandedHostnames.some((other) =>
+        other !== hostname &&
+        (
+          other.startsWith(`${hostname}.`) ||
+          other.endsWith(`.${hostname}`) ||
+          other.endsWith(hostname)
+        )
+      )
+    );
   }
 
   extractWildcardIndexPatterns(urlPattern) {
-    const source = String(urlPattern || '');
+    const source = this.getUrlPatternHostSource(urlPattern);
     const roots = new Set();
 
     const addRoot = (root) => {
@@ -1412,9 +1557,10 @@ documentation when you run the build process.
       addRoot(match[1]);
     }
 
-    // zalando\. or audible\. -> ||zalando.*^ / ||audible.*^
-    for (const match of source.matchAll(/([a-z0-9-]+)\\\.(?![a-z0-9-])/gi)) {
-      addRoot(match[1]);
+    // zalando\. or practicum\.yandex\. -> ||zalando.*^ / ||yandex.*^
+    const trailingWildcard = source.match(/([a-z0-9-]+)\\\.$/i);
+    if (trailingWildcard) {
+      addRoot(trailingWildcard[1]);
     }
 
     return Array.from(roots);

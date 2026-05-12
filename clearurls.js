@@ -595,6 +595,14 @@ function matchDomainPattern(url, patterns) {
             raw = raw.slice(0, -1);
         }
 
+        if (domainAnchor) {
+            const hostBoundary = firstSpecialIndex(raw);
+            const hostExpr = hostBoundary === -1 ? raw : raw.slice(0, hostBoundary);
+            if (hostExpr.startsWith('*.')) {
+                raw = raw.slice(2);
+            }
+        }
+
         const source = linkumoriTokensToRegexSource(raw);
         const prefix = domainAnchor
             ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?'
@@ -653,50 +661,31 @@ function matchDomainPattern(url, patterns) {
         return /^[a-z0-9*.-]+$/i.test(input);
     }
 
-    function matchWildcardSubdomainAcrossAnyTld(hostname, patternBase) {
-        const parsed = parseHostnameWithPsl(hostname);
-        if (!parsed || !parsed.tld) return false;
-
-        const suffixToken = '.' + parsed.tld;
-        if (!hostname.endsWith(suffixToken)) return false;
-
-        const prefix = hostname.slice(0, -suffixToken.length);
-        if (!prefix || prefix === patternBase) return false;
-        return prefix.endsWith('.' + patternBase);
-    }
-
     function matchHostPattern(hostname, pattern) {
         if (pslSupport.status !== 'ready') return false;
 
         const normalizedHost = normalizeAsciiHostname(hostname);
-        const normalizedPattern = normalizeAsciiHostname(pattern);
+        let normalizedPattern = normalizeAsciiHostname(pattern);
         if (!normalizedHost || !normalizedPattern) return false;
 
         const hostParsed = parseHostnameWithPsl(normalizedHost);
         if (!hostParsed || !hostParsed.tld) return false;
 
-        const wildcardSubdomain = normalizedPattern.startsWith('*.');
-        const corePattern = wildcardSubdomain ? normalizedPattern.slice(2) : normalizedPattern;
-        if (!corePattern) return false;
+        if (normalizedPattern.startsWith('*.')) {
+            normalizedPattern = normalizedPattern.slice(2);
+        }
+        if (!normalizedPattern) return false;
 
-        const wildcardTld = corePattern.endsWith('.*');
-        const basePattern = wildcardTld ? corePattern.slice(0, -2) : corePattern;
+        const wildcardTld = normalizedPattern.endsWith('.*');
+        const basePattern = wildcardTld ? normalizedPattern.slice(0, -2) : normalizedPattern;
         if (!basePattern) return false;
 
-        if (wildcardTld && wildcardSubdomain) {
-            return matchWildcardSubdomainAcrossAnyTld(normalizedHost, basePattern);
-        }
-
         if (wildcardTld) {
-            return matchRootDomainWildcardTldWithPsl(normalizedHost, corePattern);
+            return matchRootDomainWildcardTldWithPsl(normalizedHost, normalizedPattern);
         }
 
         const patternParsed = parseHostnameWithPsl(basePattern);
         if (!patternParsed || !patternParsed.tld) return false;
-
-        if (wildcardSubdomain) {
-            return normalizedHost !== basePattern && normalizedHost.endsWith('.' + basePattern);
-        }
 
         return normalizedHost === basePattern || normalizedHost.endsWith('.' + basePattern);
     }
