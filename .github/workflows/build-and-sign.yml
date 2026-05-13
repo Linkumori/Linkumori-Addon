@@ -5,8 +5,17 @@ on:
     - cron: '0 0 * * 0'
   workflow_dispatch:
     inputs:
+      release_type:
+        description: 'Version bump type: stable/minor, patch fix, or explicit final version.'
+        required: false
+        default: stable
+        type: choice
+        options:
+          - stable
+          - patch
+          - final
       version:
-        description: 'New extension version (e.g. 2.0). Leave empty to auto-increment major version.'
+        description: 'Final extension version (e.g. 67.1.0). Required for release_type=final; optional override for stable/patch.'
         required: false
         type: string
 
@@ -46,14 +55,50 @@ jobs:
       - name: Determine version
         id: version
         run: |
-          if [ -n "${{ inputs.version }}" ]; then
-            echo "value=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          RELEASE_TYPE="${{ inputs.release_type || 'stable' }}"
+          REQUESTED_VERSION="${{ inputs.version }}"
+          CURRENT=$(jq -r '.version' manifest.json)
+
+          normalize_version() {
+            local version="$1"
+            if ! echo "$version" | grep -Eq '^[0-9]+(\.[0-9]+){1,2}$'; then
+              echo "ERROR: Version must be numeric MAJOR.MINOR or MAJOR.MINOR.PATCH, got: $version" >&2
+              exit 1
+            fi
+
+            IFS='.' read -r major minor patch <<< "$version"
+            patch="${patch:-0}"
+            echo "${major}.${minor}.${patch}"
+          }
+
+          CURRENT="$(normalize_version "$CURRENT")"
+
+          if [ -n "$REQUESTED_VERSION" ]; then
+            NEXT="$(normalize_version "$REQUESTED_VERSION")"
           else
-            CURRENT=$(jq -r '.version' manifest.json)
-            MAJOR=$(echo "$CURRENT" | cut -d. -f1)
-            NEXT=$((MAJOR + 1))
-            echo "value=${NEXT}.0" >> "$GITHUB_OUTPUT"
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
+
+            case "$RELEASE_TYPE" in
+              stable)
+                NEXT="${MAJOR}.$((MINOR + 1)).0"
+                ;;
+              patch)
+                NEXT="${MAJOR}.${MINOR}.$((PATCH + 1))"
+                ;;
+              final)
+                echo "ERROR: release_type=final requires an explicit version input." >&2
+                exit 1
+                ;;
+              *)
+                echo "ERROR: Unknown release_type: $RELEASE_TYPE" >&2
+                exit 1
+                ;;
+            esac
           fi
+
+          echo "value=$NEXT" >> "$GITHUB_OUTPUT"
+          echo "release_type=$RELEASE_TYPE" >> "$GITHUB_OUTPUT"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
 
       - name: Bump manifest version
         run: |
