@@ -2528,10 +2528,6 @@ async function importSettings(evt) {
         "mergeStats",
         "hashValidationStatus"
     ]);
-    if (isExternalClearURLsImport) {
-        keysToSkip.add("ClearURLsData");
-    }
-
     const parseJSONObject = (value, fallback) => {
         if (typeof value === 'string') {
             try {
@@ -2618,6 +2614,25 @@ async function importSettings(evt) {
         return Array.from(mapped.entries());
     };
 
+    const hasExternalClearURLsPayload = isExternalClearURLsImport && (
+        Object.prototype.hasOwnProperty.call(parsed, 'ClearURLsData')
+        || Object.prototype.hasOwnProperty.call(parsed, 'providers')
+        || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterRules')
+        || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterMetadata')
+    );
+    const externalClearURLsData = hasExternalClearURLsPayload
+        ? normalizeImportValue(
+            'ClearURLsData',
+            Object.prototype.hasOwnProperty.call(parsed, 'ClearURLsData')
+                ? parsed.ClearURLsData
+                : {
+                    providers: parsed.providers,
+                    urlFilterRules: parsed.urlFilterRules,
+                    urlFilterMetadata: parsed.urlFilterMetadata
+                }
+        )
+        : null;
+
     try {
         const currentDataResponse = await browser.runtime.sendMessage({
             function: "storageAsJSON",
@@ -2632,6 +2647,15 @@ async function importSettings(evt) {
             Object.entries(parsed).filter(([key]) => !keysToSkip.has(key)),
             knownKeys
         );
+
+        if (externalClearURLsData && knownKeys.has('ClearURLsData')) {
+            const existingIdx = filteredEntries.findIndex(([key]) => key === 'ClearURLsData');
+            if (existingIdx >= 0) {
+                filteredEntries[existingIdx] = ['ClearURLsData', externalClearURLsData];
+            } else {
+                filteredEntries.push(['ClearURLsData', externalClearURLsData]);
+            }
+        }
 
         if (isExternalClearURLsImport && enableRemoteRulesForClearURLsImport && knownKeys.has('remoteRulesEnabled')) {
             const existingIdx = filteredEntries.findIndex(([key]) => key === 'remoteRulesEnabled');
@@ -3416,7 +3440,7 @@ function displayBundledRulesInfo() {
                     }
                 }
 
-                if (urlFilterRuleCount > 0 || urlFilterMetadata.status) {
+                if (urlFilterRuleCount > 0 || urlFilterMetadata.status || urlFilterMetadata.ruleStatus) {
                     const sectionLabel = translate('linkumori_url_rules_section');
                     const countLabel = translate('linkumori_url_rules_count_label');
                     const sourceCountLabel = translate('linkumori_url_sources_count_label');

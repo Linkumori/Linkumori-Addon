@@ -19,7 +19,7 @@
 
 ### Commit Message
 
-```
+```text
 fix: align settings import with unified ClearURLsData
 ```
 
@@ -38,7 +38,7 @@ fix: align settings import with unified ClearURLsData
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -60,7 +60,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 refactor: unify CLI clearurls URL filter output
 ```
 
@@ -79,7 +79,7 @@ refactor: unify CLI clearurls URL filter output
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -106,7 +106,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 refactor: unify url filter rules under ClearURLsData
 ```
 
@@ -125,7 +125,7 @@ refactor: unify url filter rules under ClearURLsData
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -153,7 +153,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 docs: add maintainer wiki and refresh rule syntax
 ```
 
@@ -172,7 +172,7 @@ docs: add maintainer wiki and refresh rule syntax
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -193,7 +193,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Tighten index pattern extraction
 ```
 
@@ -212,7 +212,7 @@ Tighten index pattern extraction
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -236,7 +236,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Improve trie persistence and index pattern generation
 ```
 
@@ -255,7 +255,7 @@ Improve trie persistence and index pattern generation
 
 ### Commit Message
 
-```
+```text
 removed more stuff for enchanced speed
 ```
 
@@ -274,7 +274,7 @@ removed more stuff for enchanced speed
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v66.0
 ```
 
@@ -293,7 +293,7 @@ chore: update changelog for v66.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v66.0
 ```
 
@@ -312,7 +312,7 @@ chore: update commit history for v66.0
 
 ### Commit Message
 
-```
+```text
 release 66.0
 ```
 
@@ -331,7 +331,7 @@ release 66.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -353,7 +353,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 updated index logic and update matching logic
 ```
 
@@ -372,7 +372,7 @@ updated index logic and update matching logic
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -391,7 +391,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 removed useless fuction to get best speed
 ```
 
@@ -410,7 +410,7 @@ removed useless fuction to get best speed
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v65.0
 ```
 
@@ -429,7 +429,7 @@ chore: update changelog for v65.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v65.0
 ```
 
@@ -448,7 +448,7 @@ chore: update commit history for v65.0
 
 ### Commit Message
 
-```
+```text
 release 65.0
 ```
 
@@ -467,7 +467,7 @@ release 65.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -488,7 +488,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 add rules with index with cli updated
 ```
 
@@ -563,7 +563,7 @@ add rules with index with cli updated
 
 ### Commit Message
 
-```
+```text
 feat: updated all translation added multiple indexpattern in one provider and some bug fixes
 ```
 
@@ -582,7 +582,7 @@ feat: updated all translation added multiple indexpattern in one provider and so
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -605,7 +605,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 feat: added index pattern in other subsytem
 ```
 
@@ -624,7 +624,7 @@ feat: added index pattern in other subsytem
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -643,7 +643,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v64.0
 ```
 
@@ -662,7 +662,7 @@ chore: update changelog for v64.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v64.0
 ```
 
@@ -681,7 +681,7 @@ chore: update commit history for v64.0
 
 ### Commit Message
 
-```
+```text
 release 64.0
 ```
 
@@ -700,7 +700,7 @@ release 64.0
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v63.0
 ```
 
@@ -719,7 +719,7 @@ chore: update changelog for v63.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v63.0
 ```
 
@@ -738,7 +738,7 @@ chore: update commit history for v63.0
 
 ### Commit Message
 
-```
+```text
 release 63.0
 ```
 
@@ -757,7 +757,7 @@ release 63.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -776,7 +776,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 change linkumori to "ClearURLs(Linkumori)" in manifest.json
 ```
 
@@ -795,7 +795,7 @@ change linkumori to "ClearURLs(Linkumori)" in manifest.json
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -814,7 +814,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Merge pull request #1 from Linkumori/subham8907-patch-1
 ```
 
@@ -833,7 +833,7 @@ Merge pull request #1 from Linkumori/subham8907-patch-1
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -852,7 +852,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 feat(provider-index): replace regex-heuristic token extraction with explicit indexPattern; add regex literal support in domainPatterns  ── Problem ──────────────────────────────────────────────────────────  providersByToken was populated by getLookupToken(), which parsed the urlPattern regex source to guess which hostname the provider targets. This approach had three compounding failure modes:  1. Alternation groups like (?:youtube\.com
 ```
 
@@ -871,7 +871,7 @@ feat(provider-index): replace regex-heuristic token extraction with explicit ind
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v62.0
 ```
 
@@ -890,7 +890,7 @@ chore: update changelog for v62.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v62.0
 ```
 
@@ -909,7 +909,7 @@ chore: update commit history for v62.0
 
 ### Commit Message
 
-```
+```text
 release 62.0
 ```
 
@@ -928,7 +928,7 @@ release 62.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -947,7 +947,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Update manifest.json
 ```
 
@@ -966,7 +966,7 @@ Update manifest.json
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -985,7 +985,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v60.0
 ```
 
@@ -1004,7 +1004,7 @@ chore: update changelog for v60.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v60.0
 ```
 
@@ -1023,7 +1023,7 @@ chore: update commit history for v60.0
 
 ### Commit Message
 
-```
+```text
 release 60.0
 ```
 
@@ -1042,7 +1042,7 @@ release 60.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1061,7 +1061,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Merge pull request #1 from Linkumori/beta_performance
 ```
 
@@ -1080,7 +1080,7 @@ Merge pull request #1 from Linkumori/beta_performance
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1099,7 +1099,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-/blob/refactoring/clearurls.js?ref_type=heads and adapt from it to our codebase. We have made some modifications to the original code to fit our requirements and improve performance.
 ```
 
@@ -1118,7 +1118,7 @@ we taken some of patches from clearurls https://gitlab.com/ClearURLs/ClearUrls/-
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1137,7 +1137,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Update privacy-policy-cli.md
 ```
 
@@ -1156,7 +1156,7 @@ Update privacy-policy-cli.md
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v59.0
 ```
 
@@ -1175,7 +1175,7 @@ chore: update changelog for v59.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v59.0
 ```
 
@@ -1194,7 +1194,7 @@ chore: update commit history for v59.0
 
 ### Commit Message
 
-```
+```text
 release 59.0
 ```
 
@@ -1213,7 +1213,7 @@ release 59.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1291,7 +1291,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 feat: add Firefox CNAME uncloaking controls
 ```
 
@@ -1310,7 +1310,7 @@ feat: add Firefox CNAME uncloaking controls
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v58.0
 ```
 
@@ -1329,7 +1329,7 @@ chore: update changelog for v58.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v58.0
 ```
 
@@ -1348,7 +1348,7 @@ chore: update commit history for v58.0
 
 ### Commit Message
 
-```
+```text
 release 58.0
 ```
 
@@ -1367,7 +1367,7 @@ release 58.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1386,7 +1386,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Update privacy-policy-cli.md
 ```
 
@@ -1405,7 +1405,7 @@ Update privacy-policy-cli.md
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v57.0
 ```
 
@@ -1424,7 +1424,7 @@ chore: update changelog for v57.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v57.0
 ```
 
@@ -1443,7 +1443,7 @@ chore: update commit history for v57.0
 
 ### Commit Message
 
-```
+```text
 release 57.0
 ```
 
@@ -1462,7 +1462,7 @@ release 57.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1548,7 +1548,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 ```
 
@@ -1567,7 +1567,7 @@ feat: add Firefox DNS CNAME uncloaking and localized settings toggle
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1588,7 +1588,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Fix deprecated Components warning
 ```
 
@@ -1607,7 +1607,7 @@ Fix deprecated Components warning
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1626,7 +1626,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 reverse some change made earlier reapplied
 ```
 
@@ -1645,7 +1645,7 @@ reverse some change made earlier reapplied
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1664,7 +1664,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Update audit.js
 ```
 
@@ -1683,7 +1683,7 @@ Update audit.js
 
 ### Commit Message
 
-```
+```text
 chore: update changelog for v56.0
 ```
 
@@ -1702,7 +1702,7 @@ chore: update changelog for v56.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history for v56.0
 ```
 
@@ -1726,7 +1726,7 @@ chore: update commit history for v56.0
 
 ### Commit Message
 
-```
+```text
 release 56.0
 ```
 
@@ -1745,7 +1745,7 @@ release 56.0
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -1764,7 +1764,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 Update manifest.json
 ```
 
@@ -1783,7 +1783,7 @@ Update manifest.json
 
 ### Commit Message
 
-```
+```text
 chore: update commit history
 ```
 
@@ -2080,7 +2080,7 @@ chore: update commit history
 
 ### Commit Message
 
-```
+```text
 linkumori release
 ```
 

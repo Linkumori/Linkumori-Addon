@@ -2181,7 +2181,7 @@ documentation when you run the build process.
 
       markdown += `### Commit Message
 
-\`\`\`
+\`\`\`text
 ${commit.message}
 \`\`\`
 
@@ -2889,8 +2889,10 @@ this.info(
       this.success(`🗜️ LZ4 rules saved to: ${lz4Stats.outputFile}`);
       
       // Calculate statistics
-      const optimizedCount = officialCount + customCount - finalCount;
-      const efficiency = ((optimizedCount / (officialCount + customCount)) * 100).toFixed(1);
+      const optimizedCount = totalBeforeMerge - finalCount;
+      const efficiency = totalBeforeMerge > 0
+        ? ((optimizedCount / totalBeforeMerge) * 100).toFixed(1)
+        : '0.0';
       
       const stats = {
         originalCount: officialCount,
