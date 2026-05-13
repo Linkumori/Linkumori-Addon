@@ -107,7 +107,7 @@ Built-in rules ship with the extension and are updated with each release.
 For the syntax Linkumori currently implements, see the [Current Rule Syntax guide](docs/wiki/current-rule-syntax.md). It covers:
 - `ClearURLsData` provider JSON
 - inline provider `$removeparam` rules
-- standalone `LinkumoriURLsData`
+- consolidated `ClearURLsData.urlFilterRules`
 
 ---
 

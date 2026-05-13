@@ -2315,40 +2315,15 @@ async function loadBundledRulesForImport() {
 }
 
 async function loadExistingLinkumoriDataForImport() {
-    try {
-        const response = await browser.runtime.sendMessage({
-            function: "getExistingLinkumoriDataForImport"
-        });
+    const response = await browser.runtime.sendMessage({
+        function: "getExistingLinkumoriDataForImport"
+    });
 
-        if (response && response.response && Array.isArray(response.response.rules)) {
-            return response.response;
-        }
-    } catch (_) {
+    if (response && response.success !== false && response.response && Array.isArray(response.response.rules)) {
+        return response.response;
     }
 
-    try {
-        const fallbackResponse = await browser.runtime.sendMessage({
-            function: "getData",
-            params: ['LinkumoriURLsData']
-        });
-        if (fallbackResponse && fallbackResponse.response && Array.isArray(fallbackResponse.response.rules)) {
-            return {
-                ...(fallbackResponse.response || {}),
-                type: 'linkumori-url-rules'
-            };
-        }
-    } catch (_) {
-    }
-
-    return {
-        metadata: {
-            name: 'Linkumori Data',
-            source: 'linkumori_urls_data'
-        },
-        format: 'linkumori-url-filter-interoperability',
-        type: 'linkumori-url-rules',
-        rules: []
-    };
+    throw new Error(response?.error || i18n('providerImport_failedToLoadSources', 'Linkumori URL filter data unavailable'));
 }
 
 /**
@@ -3573,7 +3548,7 @@ async function updateRulesStatus() {
         const [linkumoriDataResponse, linkumoriCustomResponse] = await Promise.all([
             browser.runtime.sendMessage({
                 function: "getData",
-                params: ['LinkumoriURLsData']
+                params: ['ClearURLsData']
             }),
             browser.runtime.sendMessage({
                 function: "getData",
@@ -3581,14 +3556,14 @@ async function updateRulesStatus() {
             })
         ]);
 
-        const linkumoriData = linkumoriDataResponse?.response || {};
-        const linkumoriMetadata = linkumoriData.metadata || {};
+        const clearURLsRuntimeData = linkumoriDataResponse?.response || {};
+        const linkumoriMetadata = clearURLsRuntimeData.urlFilterMetadata || {};
         const linkumoriCustom = normalizeLinkumoriURLCustomRulesValue(linkumoriCustomResponse?.response);
         const linkumoriStatusElement = document.getElementById('linkumori-url-rule-status');
         const linkumoriRuntimeCountElement = document.getElementById('linkumori-url-runtime-count');
         const linkumoriCustomCountElement = document.getElementById('linkumori-url-custom-count');
         const linkumoriHashElement = document.getElementById('linkumori-url-hash-status');
-        const runtimeCount = Number(linkumoriMetadata.supportedRuleCount || (Array.isArray(linkumoriData.rules) ? linkumoriData.rules.length : 0));
+        const runtimeCount = Number(linkumoriMetadata.supportedRuleCount || (Array.isArray(clearURLsRuntimeData.urlFilterRules) ? clearURLsRuntimeData.urlFilterRules.length : 0));
 
         // Parse custom rules to get the actual supported rule count (not raw stored line count,
         // which includes comment lines and filter-list headers that the parser silently ignores).
