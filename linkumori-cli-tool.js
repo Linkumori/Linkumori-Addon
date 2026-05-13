@@ -3348,6 +3348,7 @@ web-ext-artifacts/**
 build/**
 dist/**
 CHANGELOG.md
+docs/**
 # Assets & Fonts (sources only, keep compiled)
 svg/**
 Old-Country-Nobility/Old-Country-Nobility.sfd
@@ -3362,6 +3363,7 @@ downloaded-official-rules.min.hash
 linkumori-cli-tool.js
 scripts/**
 Template.md
+COMMIT_HISTORY.md
 
 # Environment
 .env
