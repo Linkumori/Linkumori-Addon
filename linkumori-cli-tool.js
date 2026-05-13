@@ -170,7 +170,9 @@ class LinkumoriCLI {
 
   requireConfiguredUrl(value, configPath) {
     const url = String(value || '').trim();
-    if (!/^https?:\/\//i.test(url)) {
+    const urlPattern = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
+    const hostLikePattern = /^(?:http(?:s?):\/\/(?:www\.)?)?([A-Za-z0-9_:.-]+)\/?$/;
+    if (!urlPattern.test(url) && !hostLikePattern.test(url)) {
       throw new Error(`Missing or invalid URL config "${configPath}" in ${config.urlConfigFile}`);
     }
     return url;
@@ -1331,6 +1333,7 @@ documentation when you run the build process.
   normalizeIndexHostname(hostname) {
     const normalized = String(hostname || '')
       .replace(/\\\./g, '.')
+      .replace(/\\-/g, '-')
       .replace(/^\.+|\.+$/g, '')
       .trim()
       .toLowerCase();
@@ -1446,7 +1449,7 @@ documentation when you run the build process.
   }
 
   extractConcreteIndexHostnames(urlPattern) {
-    const source = this.getUrlPatternHostSource(urlPattern);
+    const source = this.getUrlPatternHostSource(urlPattern).replace(/\\-/g, '-');
     const hostnames = new Set();
     const protectedHostnames = new Set();
 
@@ -1566,7 +1569,38 @@ documentation when you run the build process.
     return Array.from(roots);
   }
 
+  deriveSimpleIndexPatternFromUrlPattern(urlPattern) {
+    const source = String(urlPattern || '').trim();
+    if (!source) return null;
+
+    const explicitWildcardPatterns = this.extractWildcardIndexPatterns(source);
+    if (explicitWildcardPatterns.length === 1) {
+      return explicitWildcardPatterns[0];
+    }
+
+    // Explicit URL start with a concrete hostname:
+    //   ^https?:\/\/vk\.com
+    //   ^https?:\/\/www\.example\.org
+    const hostSource = this.getUrlPatternHostSource(source);
+    const explicitMatch = hostSource.match(
+      /^(?:www\\\.)?([a-z0-9-]+(?:\\\.[a-z0-9-]+)+)/i
+    );
+    if (explicitMatch && explicitMatch[1] && explicitMatch[0] === hostSource) {
+      const hostname = this.normalizeIndexHostname(explicitMatch[1]);
+      if (hostname) {
+        return `||${hostname}^`;
+      }
+    }
+
+    return null;
+  }
+
   deriveIndexPatternFromUrlPattern(urlPattern) {
+    const simple = this.deriveSimpleIndexPatternFromUrlPattern(urlPattern);
+    if (simple) {
+      return simple;
+    }
+
     const hostnames = this.extractConcreteIndexHostnames(urlPattern);
     const wildcardPatterns = this.extractWildcardIndexPatterns(urlPattern);
 
