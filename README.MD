@@ -94,14 +94,20 @@ All required permissions are explained in [SECURITY.md](SECURITY.md). The short 
 
 ---
 
+## Developer Wiki
+
+For a deep codebase walkthrough, see the [Linkumori Maintainer Wiki](docs/wiki/README.md). It covers architecture, runtime flow, rule loading, performance decisions, the current implemented rule syntax, and a file-by-file module map.
+
+---
+
 ## Rules
 
 Built-in rules ship with the extension and are updated with each release.
 
-For syntax and compatibility details, see [INTEROPERABILITY.md](INTEROPERABILITY.md) for:
-- the ClearURLs provider format
-- Linkumori's ClearURLs-compatible extensions
-- the supported subset of uBlock Origin / AdGuard `removeparam` and `queryprune` rules
+For the syntax Linkumori currently implements, see the [Current Rule Syntax guide](docs/wiki/current-rule-syntax.md). It covers:
+- `ClearURLsData` provider JSON
+- inline provider `$removeparam` rules
+- standalone `LinkumoriURLsData`
 
 ---
 
@@ -140,5 +146,3 @@ Third-party libraries and their licenses are listed in [THIRD-PARTY-NOTICE](THIR
 ---
 
 [Source](https://github.com/Linkumori/Linkumori-Addon) · [License](License.md) · [Privacy Policy](privacy.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md)
-
-
