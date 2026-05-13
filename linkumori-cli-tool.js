@@ -1578,6 +1578,19 @@ documentation when you run the build process.
       return explicitWildcardPatterns[0];
     }
 
+    // Exact safe shape with an unescaped dot in the host portion:
+    //   ^https?:\/\/(?:[a-z0-9-]+\.)*?domain.com
+    // These appear in a few imported rules and are treated as concrete hosts.
+    const looseDotHostMatch = source.match(
+      /^\^https\?:\\\/\\\/\(\?:\[a-z0-9-\]\+\\\.\)\*\?([a-z0-9-]+\.[a-z0-9-]+)$/i
+    );
+    if (looseDotHostMatch && looseDotHostMatch[1]) {
+      const hostname = this.normalizeIndexHostname(looseDotHostMatch[1]);
+      if (hostname) {
+        return `||${hostname}^`;
+      }
+    }
+
     // Explicit URL start with a concrete hostname:
     //   ^https?:\/\/vk\.com
     //   ^https?:\/\/www\.example\.org
@@ -1603,13 +1616,6 @@ documentation when you run the build process.
 
     const hostnames = this.extractConcreteIndexHostnames(urlPattern);
     const wildcardPatterns = this.extractWildcardIndexPatterns(urlPattern);
-
-    if (hostnames.length === 0 && wildcardPatterns.length === 0) {
-      const fallback = this.normalizeIndexHostname(this.deriveNameFromUrlPattern(urlPattern));
-      if (fallback) {
-        hostnames.push(fallback);
-      }
-    }
 
     const patterns = [
       ...hostnames.map(hostname => `||${hostname}^`),
