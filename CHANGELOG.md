@@ -16,6 +16,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v67.0] - 2026-05-13 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v66.0...linkumori-v67.0))
+### Added
+- Introduce updated rules (`2026-05-13`, hash: [`f034c94`](https://github.com/Linkumori/Linkumori-Addon/commit/f034c94))
+
+### Changed
+- Improve trie persistence and index pattern generation (`2026-05-13`, hash: [`19ae20a`](https://github.com/Linkumori/Linkumori-Addon/commit/19ae20a))
+- Remove more stuff for enchanced speed (`2026-05-13`, hash: [`ba246b8`](https://github.com/Linkumori/Linkumori-Addon/commit/ba246b8))
+- Tighten index pattern extraction (`2026-05-13`, hash: [`d102adc`](https://github.com/Linkumori/Linkumori-Addon/commit/d102adc))
+- Unify CLI clearurls URL filter output (`2026-05-13`, hash: [`be4caf2`](https://github.com/Linkumori/Linkumori-Addon/commit/be4caf2))
+- Unify url filter rules under ClearURLsData (`2026-05-13`, hash: [`b6d7804`](https://github.com/Linkumori/Linkumori-Addon/commit/b6d7804))
+
+### Fixed
+- Address PR review findings (`2026-05-13`, hash: [`30afe95`](https://github.com/Linkumori/Linkumori-Addon/commit/30afe95))
+- Align settings import with unified ClearURLsData (`2026-05-13`, hash: [`f6bcb1d`](https://github.com/Linkumori/Linkumori-Addon/commit/f6bcb1d))
+
+### Documentation
+- Add maintainer wiki and refresh rule syntax (`2026-05-13`, hash: [`e882869`](https://github.com/Linkumori/Linkumori-Addon/commit/e882869))
+
 ## [v66.0] - 2026-05-13 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v65.0...linkumori-v66.0))
 ### Changed
 - Remove useless fuction to get best speed (`2026-05-13`, hash: [`1881a5e`](https://github.com/Linkumori/Linkumori-Addon/commit/1881a5e))
