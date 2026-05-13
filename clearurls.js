@@ -75,7 +75,6 @@
 var providers = [];
 // Linkumori optimized indexes
 var providersByToken = Object.create(null); // Exact hostname-label lookup table for provider candidates
-var domainPatternTrie = typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null; // HNTrie for O(L) domain matching
 var globalProviders = []; // Provider[]
 var prvKeys = [];
 var siteBlockedAlert = 'javascript:void(0)';
@@ -1372,11 +1371,6 @@ function start() {
                 }
             } else if (domainPatterns.length > 0) {
                 providers[p].setURLDomainPattern(domainPatterns);
-                if (domainPatternTrie) {
-                    for (const pattern of domainPatterns) {
-                        domainPatternTrie.add(pattern, providers[p]);
-                    }
-                }
             }
 
             let rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
@@ -1454,14 +1448,12 @@ function start() {
         if (!storage.ClearURLsData || !storage.ClearURLsData.providers) {
             providers = [];
             providersByToken = Object.create(null);
-            domainPatternTrie = typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null;
             globalProviders = [];
             prvKeys = [];
             return false;
         }
 
         providersByToken = Object.create(null);
-        domainPatternTrie = typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null;
         globalProviders = [];
         getKeys(storage.ClearURLsData.providers);
         createProviders();
@@ -2152,16 +2144,6 @@ function start() {
                 const tokenProviders = providersByToken[token];
                 if (tokenProviders) {
                     for (const p of tokenProviders) {
-                        requestCandidateProviders.add(p);
-                    }
-                }
-            }
-
-            // Additionally add providers matching via HNTrie for domainPatterns
-            if (domainPatternTrie && requestHost) {
-                const hntrieMatches = domainPatternTrie.matches(requestHost);
-                if (hntrieMatches) {
-                    for (const p of hntrieMatches) {
                         requestCandidateProviders.add(p);
                     }
                 }
