@@ -181,19 +181,12 @@ function handleGetBundledRulesOnly() {
 
 function handleGetExistingLinkumoriDataForImport() {
     try {
-        if (typeof window.getExistingLinkumoriDataForImport === 'function') {
-            return Promise.resolve({
-                response: window.getExistingLinkumoriDataForImport(),
-                success: true
-            });
+        if (typeof window.getExistingLinkumoriDataForImport !== 'function') {
+            throw new Error('getExistingLinkumoriDataForImport function not available');
         }
 
-        const fallback = (typeof window.getData === 'function')
-            ? window.getData('LinkumoriURLsData') || { rules: [] }
-            : { rules: [] };
-
         return Promise.resolve({
-            response: fallback,
+            response: window.getExistingLinkumoriDataForImport(),
             success: true
         });
     } catch (error) {
@@ -225,7 +218,7 @@ function handleSetData(request) {
             window.setData(key, value);
             
             // Auto-save to disk for important data
-            if (['custom_rules', 'linkumori_url_custom_rules', 'linkumori_url_disabled_rules', 'userWhitelist', 'ClearURLsData', 'LinkumoriURLsData'].includes(key)) {
+            if (['custom_rules', 'linkumori_url_custom_rules', 'linkumori_url_disabled_rules', 'userWhitelist', 'ClearURLsData'].includes(key)) {
                 if (typeof window.saveOnDisk === 'function') {
                     try {
                         window.saveOnDisk([key]);

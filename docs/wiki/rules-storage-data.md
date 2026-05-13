@@ -24,9 +24,9 @@ Typical provider fields:
 
 This path powers the long-standing ClearURLs-style behavior and Linkumori's extended provider editing model.
 
-### 2. `LinkumoriURLsData`
+### 2. `ClearURLsData.urlFilterRules`
 
-Filter-list-style structure used by the interoperability runtime.
+Filter-list-style rule lines stored inside the unified `ClearURLsData` container and used by the interoperability runtime.
 
 Supported syntax is intentionally narrow:
 
@@ -175,4 +175,3 @@ It handles tasks like:
 - return rule statistics
 
 That keeps UI modules from mutating the rule engine directly.
-

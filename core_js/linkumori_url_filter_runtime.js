@@ -22,8 +22,8 @@
  * -----------
  * Linkumori URL Filter Runtime
  *
- * Runtime support for LinkumoriURLsData. It intentionally keeps the
- * LinkumoriURLsData parsing/compilation logic separate from ClearURLs provider
+ * Runtime support for ClearURLsData.urlFilterRules. It intentionally keeps the
+ * URL-filter parsing/compilation logic separate from ClearURLs provider
  * parsing, while delegating actual webRequest interception to the single
  * onBeforeRequest listener registered in clearurls.js.
  *
@@ -313,7 +313,9 @@ function restoreLinkumoriURLFilterTrieSnapshots(compiled, snapshots) {
 
 function rebuildLinkumoriURLFilterRuntimeData() {
     const parser = globalThis.LinkumoriURLFilterInteroperability;
-    const data = storage && storage.LinkumoriURLsData ? storage.LinkumoriURLsData : null;
+    const data = typeof getUnifiedURLFilterData === 'function'
+        ? getUnifiedURLFilterData()
+        : null;
     const rawRules = Array.isArray(data && data.rules) ? data.rules : [];
     const badfilterTargets = new Set();
     const retainedRulesByCanonical = new Map();
@@ -379,22 +381,25 @@ function rebuildLinkumoriURLFilterRuntimeData() {
         linkumoriURLFilterRuntime.exceptions
     );
     const snapshotKey = getLinkumoriURLFilterTrieSnapshotKey(dataVersion, rawRules.length);
-    const snapshotStore = data && data.runtimeTrieSnapshots && typeof data.runtimeTrieSnapshots === 'object'
-        ? data.runtimeTrieSnapshots
+    const snapshotStore = storage &&
+        storage.ClearURLsData &&
+        storage.ClearURLsData.urlFilterRuntimeTrieSnapshots &&
+        typeof storage.ClearURLsData.urlFilterRuntimeTrieSnapshots === 'object'
+        ? storage.ClearURLsData.urlFilterRuntimeTrieSnapshots
         : null;
     const restoredSnapshots = snapshotStore && snapshotStore.key === snapshotKey
         ? restoreLinkumoriURLFilterTrieSnapshots(linkumoriURLFilterRuntime.compiled, snapshotStore.payload)
         : false;
 
-    if (!restoredSnapshots && data && typeof data === 'object') {
+    if (!restoredSnapshots && storage && storage.ClearURLsData && typeof storage.ClearURLsData === 'object') {
         const payload = serializeLinkumoriURLFilterTrieSnapshots(linkumoriURLFilterRuntime.compiled);
         if (payload) {
-            data.runtimeTrieSnapshots = {
+            storage.ClearURLsData.urlFilterRuntimeTrieSnapshots = {
                 key: snapshotKey,
                 payload
             };
             if (typeof saveOnDisk === 'function') {
-                saveOnDisk(['LinkumoriURLsData']);
+                saveOnDisk(['ClearURLsData']);
             }
         }
     }
@@ -851,7 +856,7 @@ function handleLinkumoriURLFilterRequest(requestDetails) {
     if (storage.loggingStatus && typeof pushToLog === 'function') {
         pushToLog(requestDetails.url, result.url, result.matchedRule || '$removeparam', {
             providerName: linkumoriURLFilterRuntimeI18n('linkumori_url_filter_name'),
-            patternType: 'LinkumoriURLsData',
+            patternType: 'ClearURLsData.urlFilterRules',
             patternValue: linkumoriURLFilterRuntimeI18n('linkumori_url_filter_log_pattern_value'),
             logCategory: 'provider',
             requestMethod: requestDetails && typeof requestDetails.method === 'string' ? requestDetails.method : null,
@@ -886,7 +891,7 @@ function traceLinkumoriURLFilterRuleTest(url, requestOverrides = {}) {
         output: result.url || url,
         changed: !!result.changed && result.url !== url,
         matchedRule: result.matchedRule || null,
-        patternType: result.matchedRule ? 'LinkumoriURLsData' : null,
+        patternType: result.matchedRule ? 'ClearURLsData.urlFilterRules' : null,
         action: result.changed ? 'removeparam' : null
     };
 }
