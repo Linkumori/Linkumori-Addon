@@ -1089,16 +1089,37 @@ documentation when you run the build process.
     try {
       const fileContent = fs.readFileSync(filePath, 'utf8');
       const parsed = JSON.parse(fileContent);
-      const customRules = (parsed && typeof parsed === 'object' && !Array.isArray(parsed) && parsed.providers)
-        ? parsed.providers
-        : parsed;
-
-      if (!customRules || typeof customRules !== 'object' || Array.isArray(customRules)) {
-        throw new Error('Custom rules must be an object or { providers: { ... } }');
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+        throw new Error('Custom rules must be an object');
       }
 
-      this.success(`✅ Loaded ${Object.keys(customRules).length} custom providers`);
-      return customRules;
+      const hasWrappedShape = Object.prototype.hasOwnProperty.call(parsed, 'providers')
+        || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterRules')
+        || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterMetadata');
+      const providers = hasWrappedShape ? (parsed.providers || {}) : parsed;
+
+      if (!providers || typeof providers !== 'object' || Array.isArray(providers)) {
+        throw new Error('Custom providers must be an object');
+      }
+
+      const urlFilterRules = Array.isArray(parsed.urlFilterRules)
+        ? parsed.urlFilterRules
+        : [];
+      const urlFilterMetadata = parsed.urlFilterMetadata
+        && typeof parsed.urlFilterMetadata === 'object'
+        && !Array.isArray(parsed.urlFilterMetadata)
+        ? parsed.urlFilterMetadata
+        : {};
+
+      this.success(
+        `✅ Loaded ${Object.keys(providers).length} custom providers and ${urlFilterRules.length} URL filter rules`
+      );
+
+      return {
+        providers,
+        urlFilterRules,
+        urlFilterMetadata
+      };
     } catch (error) {
       this.error(`❌ Error loading custom rules: ${error.message}`);
       return null;
@@ -1730,6 +1751,7 @@ documentation when you run the build process.
   // Apply same bundled + remote merge flow to official + custom in CLI.
   mergeOfficialWithCustomRules(officialRules, customRules) {
     const officialProviders = officialRules?.providers || {};
+    const customProviders = customRules?.providers || {};
     const combinedProviders = {};
     const primaryProviderNames = new Set();
 
@@ -1737,7 +1759,7 @@ documentation when you run the build process.
       combinedProviders[providerName] = providerData;
     });
 
-    Object.entries(customRules || {}).forEach(([providerName, providerData]) => {
+    Object.entries(customProviders).forEach(([providerName, providerData]) => {
       let finalName = providerName;
       let counter = 1;
       while (combinedProviders[finalName]) {
@@ -1750,12 +1772,54 @@ documentation when you run the build process.
     return this.mergeProvidersByUrlPattern(combinedProviders, primaryProviderNames);
   }
 
+  mergeUrlFilterRules(...ruleLists) {
+    const seen = new Set();
+    const merged = [];
+
+    ruleLists.forEach(ruleList => {
+      if (!Array.isArray(ruleList)) return;
+
+      ruleList.forEach(rule => {
+        if (typeof rule !== 'string') return;
+        const normalizedRule = rule.trim();
+        if (!normalizedRule || seen.has(normalizedRule)) return;
+        seen.add(normalizedRule);
+        merged.push(normalizedRule);
+      });
+    });
+
+    return merged;
+  }
+
+  mergeUrlFilterMetadata(...metadataSources) {
+    return metadataSources.reduce((merged, metadata) => {
+      if (!metadata || typeof metadata !== 'object' || Array.isArray(metadata)) {
+        return merged;
+      }
+
+      return {
+        ...merged,
+        ...metadata
+      };
+    }, {});
+  }
+
   // Minify rules data
   minifyRules(data) {
     this.info('🗜️  Creating minified version...');
 
     let minifiedData = { "providers": {} };
     let removedProviders = 0;
+
+    const urlFilterRules = this.mergeUrlFilterRules(data.urlFilterRules);
+    if (urlFilterRules.length > 0) {
+      minifiedData.urlFilterRules = urlFilterRules;
+    }
+
+    const urlFilterMetadata = this.mergeUrlFilterMetadata(data.urlFilterMetadata);
+    if (Object.keys(urlFilterMetadata).length > 0) {
+      minifiedData.urlFilterMetadata = urlFilterMetadata;
+    }
 
     for (let provider in data.providers) {
       minifiedData.providers[provider] = {};
@@ -1834,9 +1898,13 @@ documentation when you run the build process.
   formatMinifiedOutput(data) {
     const metadata = data.metadata || {};
     const providers = data.providers || {};
+    const urlFilterMetadata = data.urlFilterMetadata || {};
+    const urlFilterRules = Array.isArray(data.urlFilterRules) ? data.urlFilterRules : [];
 
     const metadataJson = JSON.stringify(metadata, null, 2);
     const metadataInline = metadataJson.replace(/\n/g, '\n  ');
+    const urlFilterMetadataJson = JSON.stringify(urlFilterMetadata, null, 2).replace(/\n/g, '\n  ');
+    const urlFilterRulesJson = JSON.stringify(urlFilterRules, null, 2).replace(/\n/g, '\n  ');
 
     const providerEntries = Object.entries(providers);
     const providerLines = providerEntries
@@ -1845,7 +1913,7 @@ documentation when you run the build process.
 
     const providersBlock = providerLines ? `\n${providerLines}\n` : '\n';
 
-    return `{\n  "metadata": ${metadataInline},\n  "providers": {${providersBlock}  }\n}\n`;
+    return `{\n  "metadata": ${metadataInline},\n  "urlFilterMetadata": ${urlFilterMetadataJson},\n  "urlFilterRules": ${urlFilterRulesJson},\n  "providers": {${providersBlock}  }\n}\n`;
   }
 
   loadLZ4Codec() {
@@ -2151,7 +2219,7 @@ ${commit.message}
   // Lint a ClearURLs rules JSON file by replaying clearurls.js logic.
   // Accepts both formats:
   //   • flat  { providerName: { urlPattern, rules, ... }, ... }  ← custom-rules.json
-  //   • wrapped { providers: { providerName: {...}, ... } }       ← linkumori-clearurls-min.json.lz4
+  //   • wrapped { providers, urlFilterRules?, urlFilterMetadata? } ← linkumori-clearurls-min.json.lz4
   async lintClearURLsRules(rulesFile = null) {
     this.section('🔍 ClearURLs Rules Linter');
 
@@ -2218,9 +2286,9 @@ ${commit.message}
     let providersObj;
     let formatLabel;
     if (data.providers && typeof data.providers === 'object' && !Array.isArray(data.providers)) {
-      // Wrapped format: { metadata?: {...}, providers: { ... } }
+      // Wrapped format: { metadata?, providers, urlFilterRules?, urlFilterMetadata? }
       providersObj = data.providers;
-      formatLabel  = 'wrapped ({ providers: {...} })';
+      formatLabel  = 'wrapped unified ClearURLsData';
     } else {
       // Flat format: { providerName: { urlPattern, rules, ... }, ... }
       // Validate that values look like provider objects (not metadata fields)
@@ -2627,7 +2695,9 @@ ${currentBuildInfo}`;
       }
       
       // Load custom rules if not disabled
-      const customRules = noCustom ? {} : this.loadCustomRules(customFile);
+      const customRules = noCustom
+        ? { providers: {}, urlFilterRules: [], urlFilterMetadata: {} }
+        : this.loadCustomRules(customFile);
       if (customRules === null && !noCustom) {
         return false;
       }
@@ -2760,10 +2830,21 @@ this.info(
       }
       
       // Check if we have any rules at all
-      const customCount = Object.keys(customRules || {}).length;
+      const customCount = Object.keys(customRules?.providers || {}).length;
+      const customUrlFilterCount = Array.isArray(customRules?.urlFilterRules)
+        ? customRules.urlFilterRules.length
+        : 0;
       const officialCount = Object.keys(officialRules.providers).length;
+      const officialUrlFilterCount = Array.isArray(officialRules.urlFilterRules)
+        ? officialRules.urlFilterRules.length
+        : 0;
       
-      if (customCount === 0 && officialCount === 0) {
+      if (
+        customCount === 0
+        && customUrlFilterCount === 0
+        && officialCount === 0
+        && officialUrlFilterCount === 0
+      ) {
         this.error('No rules to process. Provide either custom rules or enable official rules.');
         return false;
       }
@@ -2772,6 +2853,9 @@ this.info(
       
       if (customCount > 0) {
         this.info(`📝 Adding ${customCount} custom providers from ${customFile}`);
+      }
+      if (customUrlFilterCount > 0) {
+        this.info(`🧹 Adding ${customUrlFilterCount} custom URL filter rules from ${customFile}`);
       }
       
       const totalBeforeMerge = officialCount + customCount;
@@ -2783,7 +2867,15 @@ this.info(
       
       const mergedRules = {
         ...officialRules,
-        providers: mergedProviders
+        providers: mergedProviders,
+        urlFilterRules: this.mergeUrlFilterRules(
+          officialRules.urlFilterRules,
+          customRules?.urlFilterRules
+        ),
+        urlFilterMetadata: this.mergeUrlFilterMetadata(
+          officialRules.urlFilterMetadata,
+          customRules?.urlFilterMetadata
+        )
       };
       
       const finalCount = Object.keys(mergedProviders).length;
@@ -4199,7 +4291,8 @@ coverage/**
     this.log('  Default target: data/custom-rules.json', 'white');
     this.log('  Auto-detects both JSON formats:', 'dim');
     this.log('    • Flat  { providerName: {...} }          ← custom-rules.json', 'dim');
-    this.log('    • Wrapped { providers: { ... } }         ← linkumori-clearurls-min.json.lz4', 'dim');
+    this.log('    • Wrapped { providers, urlFilterRules?, urlFilterMetadata? }', 'dim');
+    this.log('      ← linkumori-clearurls-min.json.lz4', 'dim');
     this.log('  Checks per provider:', 'dim');
     this.log('    - urlPattern compiles as a valid JS regex', 'dim');
     this.log('    - rules / rawRules / referralMarketing / exceptions all compile', 'dim');
