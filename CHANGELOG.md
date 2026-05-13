@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.0.2] - 2026-05-13 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.0.1...linkumori-v100.0.2))
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-05-13`, hash: [`2b779ed`](https://github.com/Linkumori/Linkumori-Addon/commit/2b779ed))
+- Recompile from same source code using new version of fontforge (`2026-05-13`, hash: [`a6386d8`](https://github.com/Linkumori/Linkumori-Addon/commit/a6386d8))
+
 ## [v100.0.1] - 2026-05-13 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v67.0...linkumori-v100.0.1))
 ### Changed
 - Add stable and patch version semantics (`2026-05-13`, hash: [`66dd949`](https://github.com/Linkumori/Linkumori-Addon/commit/66dd949))
