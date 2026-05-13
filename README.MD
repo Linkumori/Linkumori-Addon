@@ -117,7 +117,7 @@ For the syntax Linkumori currently implements, see the [Current Rule Syntax guid
 
 Or download a signed build from [Releases](https://github.com/Linkumori/Linkumori-Addon/releases/).
 
-Official Linkumori releases started with **v1.0** on **March 23, 2026**. See [CHANGELOG.md](CHANGELOG.md) for the full version history.
+
 
 ---
 
