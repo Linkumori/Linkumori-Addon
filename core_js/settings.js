@@ -2442,9 +2442,9 @@ async function importSettings(evt) {
     const isLinkumoriMetadata = extensionName.includes('Linkumori');
     const isClearURLsMetadata = extensionName.includes('ClearURLs');
     const hasClearURLsData = Object.prototype.hasOwnProperty.call(parsed, 'ClearURLsData');
-    const isClearURLsFormat = hasClearURLsData || isClearURLsMetadata;
+    const isExternalClearURLsImport = !isLinkumoriMetadata && (hasClearURLsData || isClearURLsMetadata);
 
-    if (!hasExportMetadata && !isClearURLsFormat) {
+    if (!hasExportMetadata && !hasClearURLsData) {
         await showSettingsImportInfo(translate('settings_import_invalid_format'));
         input.value = '';
         return;
@@ -2467,7 +2467,7 @@ async function importSettings(evt) {
     }
 
     let enableRemoteRulesForClearURLsImport = false;
-    if (isClearURLsFormat) {
+    if (isExternalClearURLsImport) {
         const shouldImportClearUrls = await showSettingsImportConfirm(
             translate('settings_import_clearurls_confirm'),
             translate('security_modal_continue')
@@ -2528,7 +2528,7 @@ async function importSettings(evt) {
         "mergeStats",
         "hashValidationStatus"
     ]);
-    if (isClearURLsFormat) {
+    if (isExternalClearURLsImport) {
         keysToSkip.add("ClearURLsData");
     }
 
@@ -2561,6 +2561,20 @@ async function importSettings(evt) {
             case 'remoteRuleSets': {
                 const sets = parseJSONObject(value, []);
                 return Array.isArray(sets) ? sets : [];
+            }
+            case 'ClearURLsData': {
+                const clearURLsData = parseJSONObject(value, {
+                    providers: {},
+                    urlFilterRules: [],
+                    urlFilterMetadata: {}
+                });
+                return clearURLsData && typeof clearURLsData === 'object' && !Array.isArray(clearURLsData)
+                    ? clearURLsData
+                    : {
+                        providers: {},
+                        urlFilterRules: [],
+                        urlFilterMetadata: {}
+                    };
             }
             case 'pingRequestTypes': {
                 const types = parseJSONObject(value, []);
@@ -2619,7 +2633,7 @@ async function importSettings(evt) {
             knownKeys
         );
 
-        if (isClearURLsFormat && enableRemoteRulesForClearURLsImport && knownKeys.has('remoteRulesEnabled')) {
+        if (isExternalClearURLsImport && enableRemoteRulesForClearURLsImport && knownKeys.has('remoteRulesEnabled')) {
             const existingIdx = filteredEntries.findIndex(([key]) => key === 'remoteRulesEnabled');
             if (existingIdx >= 0) {
                 filteredEntries[existingIdx] = ['remoteRulesEnabled', true];
@@ -2643,7 +2657,7 @@ async function importSettings(evt) {
 
         await showSettingsImportInfo(translate('settings_imported'));
 
-        if (isClearURLsFormat) {
+        if (isExternalClearURLsImport) {
             const welcomeUrl = browser.runtime.getURL('html/legal.html?source=clearurls_import');
             browser.tabs.create({ url: welcomeUrl }).catch(handleError);
         }
@@ -3287,7 +3301,7 @@ async function getData() {
  * Display information about bundled rules with metadata and custom rules - ENHANCED WITH LOCALIZED NUMBERS AND OVERRIDE STATISTICS
  */
 function displayBundledRulesInfo() {
-    // Get ClearURLsData, rulesMetadata, custom_rules, and merge statistics in parallel
+    // Get ClearURLsData, rulesMetadata, custom_rules, and merge statistics in parallel.
     Promise.all([
         browser.runtime.sendMessage({
             function: "getData",
@@ -3320,12 +3334,8 @@ function displayBundledRulesInfo() {
         browser.runtime.sendMessage({
             function: "getCustomRulesStats",
             params: []
-        }),
-        browser.runtime.sendMessage({
-            function: "getData",
-            params: ["ClearURLsData"]
         })
-    ]).then(([rulesResponse, metadataResponse, customRulesResponse, hashStatusResponse, sourceInfoResponse, mergeStatsResponse, whitelistResponse, customStatsResponse, linkumoriURLsResponse]) => {
+    ]).then(([rulesResponse, metadataResponse, customRulesResponse, hashStatusResponse, sourceInfoResponse, mergeStatsResponse, whitelistResponse, customStatsResponse]) => {
         const rulesData = rulesResponse.response;
         const metadata = metadataResponse.response;
         const customRules = customRulesResponse.response;
@@ -3334,9 +3344,9 @@ function displayBundledRulesInfo() {
         const mergeStats = mergeStatsResponse.response || {};
         const whitelist = Array.isArray(whitelistResponse.response) ? whitelistResponse.response : [];
         const customStats = customStatsResponse && customStatsResponse.response ? customStatsResponse.response : {};
-        const clearURLsRuntimeData = linkumoriURLsResponse && linkumoriURLsResponse.response ? linkumoriURLsResponse.response : {};
-        const linkumoriURLsMetadata = clearURLsRuntimeData.urlFilterMetadata || {};
-        const linkumoriURLRuleCount = Array.isArray(clearURLsRuntimeData.urlFilterRules) ? clearURLsRuntimeData.urlFilterRules.length : 0;
+        const clearURLsRuntimeData = rulesData && typeof rulesData === 'object' ? rulesData : {};
+        const urlFilterMetadata = clearURLsRuntimeData.urlFilterMetadata || {};
+        const urlFilterRuleCount = Array.isArray(clearURLsRuntimeData.urlFilterRules) ? clearURLsRuntimeData.urlFilterRules.length : 0;
         const statusElement = document.getElementById('bundled_rules_status');
         
         const statusLabel = translate('rules_status_label');
@@ -3406,26 +3416,26 @@ function displayBundledRulesInfo() {
                     }
                 }
 
-                if (linkumoriURLRuleCount > 0 || linkumoriURLsMetadata.status) {
+                if (urlFilterRuleCount > 0 || urlFilterMetadata.status) {
                     const sectionLabel = translate('linkumori_url_rules_section');
                     const countLabel = translate('linkumori_url_rules_count_label');
                     const sourceCountLabel = translate('linkumori_url_sources_count_label');
                     const statusLabelText = translate('linkumori_url_rule_status_label');
                     const hashLabel = translate('linkumori_url_hash_status_label');
-                    const sourceCount = Number(linkumoriURLsMetadata.sourceCount || 0);
-                    const failedSourceCount = Number(linkumoriURLsMetadata.failedSourceCount || 0);
-                    const unsupportedCount = Number(linkumoriURLsMetadata.skippedUnsupportedRuleCount || 0);
-                    const duplicateCount = Number(linkumoriURLsMetadata.skippedDuplicateRuleCount || 0);
+                    const sourceCount = Number(urlFilterMetadata.sourceCount || 0);
+                    const failedSourceCount = Number(urlFilterMetadata.failedSourceCount || 0);
+                    const unsupportedCount = Number(urlFilterMetadata.skippedUnsupportedRuleCount || 0);
+                    const duplicateCount = Number(urlFilterMetadata.skippedDuplicateRuleCount || 0);
                     const ruleStatus = getLocalizedLinkumoriURLRuleStatus(
-                        linkumoriURLsMetadata.ruleStatus || linkumoriURLsMetadata.status || 'not_loaded'
+                        urlFilterMetadata.ruleStatus || urlFilterMetadata.status || 'not_loaded'
                     );
-                    const hashStatus = linkumoriURLsMetadata.hashStatus === 'not_required'
+                    const hashStatus = urlFilterMetadata.hashStatus === 'not_required'
                         ? translate('linkumori_url_hash_not_required')
-                        : (linkumoriURLsMetadata.hashStatus || translate('settings_remote_health_unknown'));
+                        : (urlFilterMetadata.hashStatus || translate('settings_remote_health_unknown'));
 
                     html += `<br><br><strong>${sectionLabel}</strong><br>`;
                     html += `<strong>${statusLabelText}</strong> ${ruleStatus}<br>`;
-                    html += `<strong>${countLabel}</strong> ${getLocalizedNumber(linkumoriURLRuleCount)}<br>`;
+                    html += `<strong>${countLabel}</strong> ${getLocalizedNumber(urlFilterRuleCount)}<br>`;
                     html += `<strong>${sourceCountLabel}</strong> ${getLocalizedNumber(sourceCount)}`;
                     if (failedSourceCount > 0) {
                         html += `, ${getLocalizedNumber(failedSourceCount)} source(s) failed`;
