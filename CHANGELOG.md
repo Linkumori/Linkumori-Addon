@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v66.0] - 2026-05-13 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v65.0...linkumori-v66.0))
+### Changed
+- Remove useless fuction to get best speed (`2026-05-13`, hash: [`1881a5e`](https://github.com/Linkumori/Linkumori-Addon/commit/1881a5e))
+- Update index logic and update matching logic (`2026-05-13`, hash: [`4401705`](https://github.com/Linkumori/Linkumori-Addon/commit/4401705))
+
 ## [v65.0] - 2026-05-12 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v64.0...linkumori-v65.0))
 ### Added
 - Add index pattern in other subsytem (`2026-05-12`, hash: [`13bcb9a`](https://github.com/Linkumori/Linkumori-Addon/commit/13bcb9a))
