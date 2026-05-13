@@ -85,7 +85,6 @@ function createLinkumoriURLFilterBuckets() {
         literalCaseSensitive: Object.create(null),
         literalCaseInsensitive: Object.create(null),
         regex: [],
-        tokenTrie: typeof LinkumoriBidiTrie === 'function' ? new LinkumoriBidiTrie() : null,
         includeDomainTrie: typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null,
         excludeDomainTrie: typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null,
         denyallowDomainTrie: typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null
@@ -140,9 +139,6 @@ function addLinkumoriURLFilterRuleToBuckets(buckets, rule, indexToken) {
             ? buckets.literalCaseSensitive
             : buckets.literalCaseInsensitive;
         addLinkumoriURLFilterBucketEntry(target, rule.literalParam, rule);
-        if (buckets.tokenTrie) {
-            buckets.tokenTrie.add(rule.literalParam, rule);
-        }
         return;
     }
 
@@ -268,6 +264,53 @@ function compileLinkumoriURLFilterRules(rules, exceptions) {
     return compiled;
 }
 
+function getLinkumoriURLFilterTrieSnapshotKey(dataVersion, ruleCount) {
+    return String(dataVersion || 'noversion') + ':' + String(ruleCount || 0);
+}
+
+function serializeLinkumoriURLFilterTrieSnapshots(compiled) {
+    if (!compiled) return null;
+
+    const encode = trie => (
+        trie && typeof trie.toCompressedSelfie === 'function'
+            ? trie.toCompressedSelfie()
+            : null
+    );
+
+    return {
+        rules: {
+            include: encode(compiled.rules.includeDomainTrie),
+            exclude: encode(compiled.rules.excludeDomainTrie),
+            denyallow: encode(compiled.rules.denyallowDomainTrie)
+        },
+        exceptions: {
+            include: encode(compiled.exceptions.includeDomainTrie),
+            exclude: encode(compiled.exceptions.excludeDomainTrie),
+            denyallow: encode(compiled.exceptions.denyallowDomainTrie)
+        }
+    };
+}
+
+function restoreLinkumoriURLFilterTrieSnapshots(compiled, snapshots) {
+    if (!compiled || !snapshots) return false;
+
+    const restore = (trie, payload) => (
+        trie &&
+        payload &&
+        typeof trie.fromCompressedSelfie === 'function' &&
+        trie.fromCompressedSelfie(payload)
+    );
+
+    return [
+        restore(compiled.rules.includeDomainTrie, snapshots.rules && snapshots.rules.include),
+        restore(compiled.rules.excludeDomainTrie, snapshots.rules && snapshots.rules.exclude),
+        restore(compiled.rules.denyallowDomainTrie, snapshots.rules && snapshots.rules.denyallow),
+        restore(compiled.exceptions.includeDomainTrie, snapshots.exceptions && snapshots.exceptions.include),
+        restore(compiled.exceptions.excludeDomainTrie, snapshots.exceptions && snapshots.exceptions.exclude),
+        restore(compiled.exceptions.denyallowDomainTrie, snapshots.exceptions && snapshots.exceptions.denyallow)
+    ].some(Boolean);
+}
+
 function rebuildLinkumoriURLFilterRuntimeData() {
     const parser = globalThis.LinkumoriURLFilterInteroperability;
     const data = storage && storage.LinkumoriURLsData ? storage.LinkumoriURLsData : null;
@@ -335,6 +378,26 @@ function rebuildLinkumoriURLFilterRuntimeData() {
         linkumoriURLFilterRuntime.rules,
         linkumoriURLFilterRuntime.exceptions
     );
+    const snapshotKey = getLinkumoriURLFilterTrieSnapshotKey(dataVersion, rawRules.length);
+    const snapshotStore = data && data.runtimeTrieSnapshots && typeof data.runtimeTrieSnapshots === 'object'
+        ? data.runtimeTrieSnapshots
+        : null;
+    const restoredSnapshots = snapshotStore && snapshotStore.key === snapshotKey
+        ? restoreLinkumoriURLFilterTrieSnapshots(linkumoriURLFilterRuntime.compiled, snapshotStore.payload)
+        : false;
+
+    if (!restoredSnapshots && data && typeof data === 'object') {
+        const payload = serializeLinkumoriURLFilterTrieSnapshots(linkumoriURLFilterRuntime.compiled);
+        if (payload) {
+            data.runtimeTrieSnapshots = {
+                key: snapshotKey,
+                payload
+            };
+            if (typeof saveOnDisk === 'function') {
+                saveOnDisk(['LinkumoriURLsData']);
+            }
+        }
+    }
     linkumoriURLFilterRuntime.lastDataRef = data;
     linkumoriURLFilterRuntime.lastRulesRef = rawRules;
     linkumoriURLFilterRuntime.lastDataVersion = dataVersion;
@@ -419,13 +482,8 @@ function getLinkumoriURLFilterCandidates(buckets, name) {
 
     pushUniqueLinkumoriURLFilterRules(rules, seen, buckets.removeAll);
     pushUniqueLinkumoriURLFilterRules(rules, seen, buckets.negated);
-    if (buckets.tokenTrie) {
-        pushUniqueLinkumoriURLFilterRules(rules, seen, buckets.tokenTrie.get(lowerName));
-    } else {
-        pushUniqueLinkumoriURLFilterRules(rules, seen, buckets.literalCaseSensitive[exactName]);
-        pushUniqueLinkumoriURLFilterRules(rules, seen, buckets.literalCaseInsensitive[lowerName]);
-    }
     pushUniqueLinkumoriURLFilterRules(rules, seen, buckets.literalCaseSensitive[exactName]);
+    pushUniqueLinkumoriURLFilterRules(rules, seen, buckets.literalCaseInsensitive[lowerName]);
     pushUniqueLinkumoriURLFilterRules(rules, seen, buckets.regex);
 
     return rules;

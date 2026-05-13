@@ -64,62 +64,246 @@
 
     function createNode() {
         return {
-            next: Object.create(null),
+            edges: Object.create(null),
             values: []
         };
+    }
+
+    function createEdge(label, node) {
+        return { label, node };
+    }
+
+    function commonPrefixLength(left, right) {
+        const limit = Math.min(left.length, right.length);
+        let index = 0;
+        while (index < limit && left.charCodeAt(index) === right.charCodeAt(index)) {
+            index += 1;
+        }
+        return index;
+    }
+
+    function addValue(values, value) {
+        if (!values.includes(value)) {
+            values.push(value);
+        }
     }
 
     class LinkumoriBidiTrie {
         constructor() {
             this.root = createNode();
+            this.exact = Object.create(null);
+            this.packed = null;
         }
 
         add(token, value) {
             const normalized = String(token || '').toLowerCase();
             if (!normalized) return false;
+            this.packed = null;
+            if (!this.exact[normalized]) {
+                this.exact[normalized] = [];
+            }
+            addValue(this.exact[normalized], value);
 
             let node = this.root;
-            for (let i = 0; i < normalized.length; i++) {
-                const ch = normalized.charAt(i);
-                if (!node.next[ch]) {
-                    node.next[ch] = createNode();
+            let offset = 0;
+
+            while (offset < normalized.length) {
+                const key = normalized.charAt(offset);
+                const edge = node.edges[key];
+                const remaining = normalized.slice(offset);
+
+                if (!edge) {
+                    const child = createNode();
+                    addValue(child.values, value);
+                    node.edges[key] = createEdge(remaining, child);
+                    return true;
                 }
-                node = node.next[ch];
+
+                const shared = commonPrefixLength(edge.label, remaining);
+                if (shared === edge.label.length) {
+                    node = edge.node;
+                    offset += shared;
+                    continue;
+                }
+
+                const split = createNode();
+                const oldSuffix = edge.label.slice(shared);
+                split.edges[oldSuffix.charAt(0)] = createEdge(oldSuffix, edge.node);
+
+                edge.label = edge.label.slice(0, shared);
+                edge.node = split;
+
+                const newSuffix = remaining.slice(shared);
+                if (!newSuffix) {
+                    addValue(split.values, value);
+                } else {
+                    const child = createNode();
+                    addValue(child.values, value);
+                    split.edges[newSuffix.charAt(0)] = createEdge(newSuffix, child);
+                }
+                return true;
             }
 
-            node.values.push(value);
+            addValue(node.values, value);
             return true;
         }
 
         get(token) {
             const normalized = String(token || '').toLowerCase();
             if (!normalized) return [];
-
-            let node = this.root;
-            for (let i = 0; i < normalized.length; i++) {
-                node = node.next[normalized.charAt(i)];
-                if (!node) return [];
-            }
-
-            return node.values;
+            return this.exact[normalized] || [];
         }
 
         collectTokensFromText(text) {
+            if (this.packed) {
+                return this.collectTokensFromPackedText(text);
+            }
+
             const found = [];
             const seen = new Set();
             const source = String(text || '').toLowerCase();
 
             for (let start = 0; start < source.length; start++) {
                 let node = this.root;
-                for (let i = start; i < source.length; i++) {
-                    node = node.next[source.charAt(i)];
+                let offset = start;
+
+                while (offset < source.length) {
+                    const edge = node.edges[source.charAt(offset)];
+                    if (!edge || !source.startsWith(edge.label, offset)) {
+                        break;
+                    }
+
+                    offset += edge.label.length;
+                    node = edge.node;
+                    if (node.values.length === 0) {
+                        continue;
+                    }
+
+                    node.values.forEach(value => {
+                        if (seen.has(value)) return;
+                        seen.add(value);
+                        found.push(value);
+                    });
+                }
+            }
+
+            return found;
+        }
+
+        optimize() {
+            const nodes = [];
+            const edges = [];
+            const values = [];
+
+            const visit = (node) => {
+                const index = nodes.length;
+                const record = {
+                    edgeStart: 0,
+                    edgeCount: 0,
+                    valueStart: values.length,
+                    valueCount: node.values.length
+                };
+                nodes.push(record);
+                values.push(...node.values);
+
+                const packedEdges = Object.keys(node.edges).sort().map(key => {
+                    const edge = node.edges[key];
+                    const childIndex = visit(edge.node);
+                    return {
+                        first: key,
+                        label: edge.label,
+                        node: childIndex
+                    };
+                });
+                record.edgeStart = edges.length;
+                record.edgeCount = packedEdges.length;
+                edges.push(...packedEdges);
+                return index;
+            };
+
+            visit(this.root);
+            this.packed = { nodes, edges, values, exact: this.exact };
+            return this.toSelfie();
+        }
+
+        toSelfie() {
+            return this.packed;
+        }
+
+        toCompressedSelfie() {
+            if (!globalThis.LinkumoriLZ4 || typeof globalThis.LinkumoriLZ4.compress !== 'function') {
+                return null;
+            }
+            const selfie = this.packed || this.optimize();
+            return globalThis.LinkumoriLZ4.compress(JSON.stringify(selfie));
+        }
+
+        fromSelfie(selfie) {
+            if (
+                !selfie ||
+                !Array.isArray(selfie.nodes) ||
+                !Array.isArray(selfie.edges) ||
+                !Array.isArray(selfie.values)
+            ) {
+                return false;
+            }
+            this.packed = selfie;
+            this.exact = selfie.exact || Object.create(null);
+            return true;
+        }
+
+        fromCompressedSelfie(payload) {
+            if (
+                !globalThis.LinkumoriLZ4 ||
+                typeof globalThis.LinkumoriLZ4.decompressToString !== 'function'
+            ) {
+                return false;
+            }
+            try {
+                return this.fromSelfie(JSON.parse(globalThis.LinkumoriLZ4.decompressToString(payload)));
+            } catch (e) {
+                return false;
+            }
+        }
+
+        collectTokensFromPackedText(text) {
+            const packed = this.packed;
+            const found = [];
+            const seen = new Set();
+            const source = String(text || '').toLowerCase();
+
+            for (let start = 0; start < source.length; start++) {
+                let nodeIndex = 0;
+                let offset = start;
+
+                while (offset < source.length) {
+                    const node = packed.nodes[nodeIndex];
                     if (!node) break;
-                    if (node.values.length > 0) {
-                        node.values.forEach(value => {
-                            if (seen.has(value)) return;
-                            seen.add(value);
-                            found.push(value);
-                        });
+
+                    let matchedEdge = null;
+                    for (let i = 0; i < node.edgeCount; i++) {
+                        const edge = packed.edges[node.edgeStart + i];
+                        if (
+                            edge &&
+                            edge.first === source.charAt(offset) &&
+                            source.startsWith(edge.label, offset)
+                        ) {
+                            matchedEdge = edge;
+                            break;
+                        }
+                    }
+                    if (!matchedEdge) break;
+
+                    offset += matchedEdge.label.length;
+                    nodeIndex = matchedEdge.node;
+                    const nextNode = packed.nodes[nodeIndex];
+                    if (!nextNode || nextNode.valueCount === 0) continue;
+
+                    for (let i = 0; i < nextNode.valueCount; i++) {
+                        const value = packed.values[nextNode.valueStart + i];
+                        if (seen.has(value)) continue;
+                        seen.add(value);
+                        found.push(value);
                     }
                 }
             }
