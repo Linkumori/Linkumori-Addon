@@ -287,7 +287,11 @@ function attachUnifiedURLFilterFields(clearURLsData) {
         : {};
     return {
         ...next,
-        providers: next.providers && typeof next.providers === 'object' ? next.providers : {},
+        providers: next.providers
+            && typeof next.providers === 'object'
+            && !Array.isArray(next.providers)
+            ? next.providers
+            : {},
         urlFilterRules: Array.isArray(next.urlFilterRules) ? next.urlFilterRules : existing.rules.slice(),
         urlFilterMetadata: next.urlFilterMetadata && typeof next.urlFilterMetadata === 'object'
             ? next.urlFilterMetadata
@@ -2634,7 +2638,12 @@ function setData(key, value) {
     switch (key) {
         case "ClearURLsData":
             if (typeof value === 'string') {
-                storage[key] = attachUnifiedURLFilterFields(JSON.parse(value));
+                try {
+                    storage[key] = attachUnifiedURLFilterFields(JSON.parse(value));
+                } catch (error) {
+                    console.warn('Invalid ClearURLsData JSON, restoring defaults:', error);
+                    storage[key] = attachUnifiedURLFilterFields({});
+                }
             } else {
                 storage[key] = attachUnifiedURLFilterFields(value);
             }
