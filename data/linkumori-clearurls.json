@@ -1,0 +1,6944 @@
+{
+  "metadata": {
+    "name": "Linkumori URL Cleaning Rules",
+    "version": "13.05.2026.1318",
+    "buildTimestamp": "2026-05-13T07:48:39.438Z",
+    "description": "Comprehensive URL cleaning rules for tracking parameter removal and privacy protection",
+    "license": "GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.",
+    "license-Url": "https://www.gnu.org/licenses/lgpl-3.0.en.html",
+    "SPDX-Identifier": "https://spdx.org/licenses/LGPL-3.0-or-later.html",
+    "project": "Linkumori",
+    "originalProject": "ClearURLs",
+    "first-modified-By": "Subham Mahesh in 2026 with significant enhancements and optimizations",
+    "Notice-Of-Modification": "It can be found in data/NOTICE.md file",
+    "urls": {
+      "repository": "https://github.com/Linkumori/Linkumori-Addon",
+      "homepage": "https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/",
+      "orginal-clearurls-rulesSource-URL": "https://github.com/ClearURLs/Rules",
+      "cleaurls-repo-addon": "https://github.com/ClearURLs/Addon",
+      "License-URL": "https://www.gnu.org/licenses/lgpl-3.0.en.html",
+      "issues": "https://github.com/Linkumori/Linkumori-Addon/issues"
+    }
+  },
+  "urlFilterMetadata": {},
+  "urlFilterRules": [],
+  "providers": {
+    "amazon": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amazon(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||amazon.*^",
+      "rules": [
+        "p[fd]_rd_[a-z]*",
+        "qid",
+        "srs?",
+        "__mk_[a-z]{1,3}_[a-z]{1,3}",
+        "spIA",
+        "ms3_c",
+        "[a-z%0-9]*ie",
+        "refRID",
+        "colii?d",
+        "[^a-z%0-9]adId",
+        "qualifier",
+        "_encoding",
+        "smid",
+        "field-lbr_brands_browse-bin",
+        "ref_?",
+        "th",
+        "sprefix",
+        "crid",
+        "keywords",
+        "cv_ct_[a-z]+",
+        "linkCode",
+        "creativeASIN",
+        "ascsubtag",
+        "aaxitk",
+        "hsa_cr_id",
+        "sb-ci-[a-z]+",
+        "rnid",
+        "dchild",
+        "camp",
+        "creative",
+        "content-id",
+        "dib",
+        "dib_tag",
+        "social_share",
+        "starsLeft",
+        "skipTwisterOG"
+      ],
+      "rawRules": [
+        "\\/ref=[^/?]*"
+      ],
+      "referralMarketing": [
+        "tag",
+        "ascsubtag"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amazon(?:\\.[a-z]{2,}){1,}\\/gp\\/.*?(?:redirector.html|cart\\/ajax-update.html|video\\/api\\/)",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amazon(?:\\.[a-z]{2,}){1,}\\/(?:hz\\/reviews-render\\/ajax\\/|message-us\\?|s\\?)"
+      ]
+    },
+    "msn.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?msn\\.com",
+      "indexPattern": "||msn.com^",
+      "rules": [
+        "cvid",
+        "ocid"
+      ]
+    },
+    "amazon_1": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amazon(?:\\.[a-z]{2,}){1,}\\/s\\?",
+      "indexPattern": "||amazon.*^",
+      "rules": [
+        "p[fd]_rd_[a-z]*",
+        "qid",
+        "srs?",
+        "__mk_[a-z]{1,3}_[a-z]{1,3}",
+        "spIA",
+        "ms3_c",
+        "[a-z%0-9]*ie",
+        "refRID",
+        "colii?d",
+        "[^a-z%0-9]adId",
+        "qualifier",
+        "_encoding",
+        "smid",
+        "field-lbr_brands_browse-bin",
+        "ref_?",
+        "th",
+        "sprefix",
+        "crid",
+        "cv_ct_[a-z]+",
+        "linkCode",
+        "creativeASIN",
+        "ascsubtag",
+        "aaxitk",
+        "hsa_cr_id",
+        "sb-ci-[a-z]+",
+        "rnid",
+        "dchild",
+        "camp",
+        "creative"
+      ],
+      "rawRules": [
+        "\\/ref=[^/?]*"
+      ],
+      "referralMarketing": [
+        "tag"
+      ]
+    },
+    "fls-na.amazon": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?fls-na\\.amazon(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||amazon.*^"
+    },
+    "google": {
+      "forceRedirection": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||google.*^",
+      "rules": [
+        "ved",
+        "bi[a-z]*",
+        "gfe_[a-z]*",
+        "ei",
+        "source",
+        "gs_[a-z]*",
+        "site",
+        "oq",
+        "esrc",
+        "uact",
+        "cd",
+        "cad",
+        "gws_[a-z]*",
+        "atyp",
+        "vet",
+        "_u",
+        "je",
+        "dcr",
+        "ie",
+        "sei",
+        "sa",
+        "dpr",
+        "btn[a-z]*",
+        "usg",
+        "cd",
+        "cad",
+        "uact",
+        "aqs",
+        "sourceid",
+        "sxsrf",
+        "rlz",
+        "i-would-rather-use-firefox",
+        "pcampaignid",
+        "sca_(?:esv|upv)",
+        "iflsig",
+        "fbs",
+        "ictx",
+        "cshid"
+      ],
+      "referralMarketing": [
+        "referrer"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/mail\\.google\\.com\\/mail\\/u\\/",
+        "^https?:\\/\\/accounts\\.google\\.com\\/o\\/oauth2\\/",
+        "^https?:\\/\\/accounts\\.google\\.com\\/signin\\/oauth\\/",
+        "^https?:\\/\\/(?:docs|accounts)\\.google(?:\\.[a-z]{2,}){1,}",
+        "^https?:\\/\\/([a-z0-9-\\.])*(chat|drive)\\.google\\.com\\/videoplayback",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}(?:\\/upload)?\\/drive\\/",
+        "^https?:\\/\\/news\\.google\\.com.*\\?hl=.",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/s\\?tbm=map.*?gs_[a-z]*=.",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/(?:complete\\/search|setprefs|searchbyimage)",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/(?:appsactivity|aclk\\?)",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/safe[-]?browsing\\/([^&]+)"
+      ],
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/url\\?.*?(?:url|q)=(https?[^&]+)",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/.*?adurl=([^&]+)",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/amp\\/s\\/([^&]+)"
+      ]
+    },
+    "googlesyndication.com": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?googlesyndication\\.com",
+      "indexPattern": "||googlesyndication.com^"
+    },
+    "doubleclick": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?doubleclick(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||doubleclick.*^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?doubleclick(?:\\.[a-z]{2,}){1,}\\/.*?tag_for_child_directed_treatment=;%3F([^&]*)"
+      ]
+    },
+    "googleadservices.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?googleadservices\\.com",
+      "indexPattern": "||googleadservices.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?googleadservices\\.com\\/.*?adurl=([^&]*)"
+      ]
+    },
+    "globalRules": {
+      "urlPattern": ".*",
+      "rules": [
+        "(?:%3F)?utm(?:_[a-z_]*)?",
+        "(?:%3F)?mtm(?:_[a-z_]*)?",
+        "(?:%3F)?ga_[a-z_]+",
+        "(?:%3F)?yclid",
+        "(?:%3F)?_openstat",
+        "(?:%3F)?fb_action_(?:types|ids)",
+        "(?:%3F)?fb_(?:source|ref)",
+        "(?:%3F)?fbclid",
+        "(?:%3F)?action_(?:object|type|ref)_map",
+        "(?:%3F)?gs_l",
+        "(?:%3F)?mkt_tok",
+        "(?:%3F)?hmb_(?:campaign|medium|source)",
+        "(?:%3F)?gclid",
+        "(?:%3F)?srsltid",
+        "(?:%3F)?otm_[a-z_]*",
+        "(?:%3F)?cmpid",
+        "(?:%3F)?os_ehash",
+        "(?:%3F)?_ga",
+        "(?:%3F)?_gl",
+        "(?:%3F)?__twitter_impression",
+        "(?:%3F)?wt_?z?mc",
+        "(?:%3F)?wtrid",
+        "(?:%3F)?[a-z]?mc",
+        "(?:%3F)?dclid",
+        "Echobox",
+        "(?:%3F)?spm",
+        "(?:%3F)?vn(?:_[a-z]*)+",
+        "(?:%3F)?tracking_source",
+        "(?:%3F)?ceneo_spo",
+        "(?:%3F)?itm_(?:campaign|medium|source)",
+        "(?:%3F)?__hsfp",
+        "(?:%3F)?__hssc",
+        "(?:%3F)?__hstc",
+        "(?:%3F)?_hsenc",
+        "(?:%3F)?__s",
+        "(?:%3F)?hsCtaTracking",
+        "(?:%3F)?mc_(?:eid|cid|tc)",
+        "(?:%3F)?ml_subscriber",
+        "(?:%3F)?ml_subscriber_hash",
+        "(?:%3F)?msclkid",
+        "(?:%3F)?oly_anon_id",
+        "(?:%3F)?oly_enc_id",
+        "(?:%3F)?rb_clickid",
+        "(?:%3F)?s_cid",
+        "(?:%3F)?vero_conv",
+        "(?:%3F)?vero_id",
+        "(?:%3F)?wickedid",
+        "(?:%3F)?twclid"
+      ],
+      "referralMarketing": [
+        "(?:%3F)?ref_?",
+        "(?:%3F)?referrer"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?matrix\\.org\\/_matrix\\/",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:cloudflare\\.com|prismic\\.io|tangerine\\.ca|gitlab\\.com)",
+        "^https?:\\/\\/myaccount.google(?:\\.[a-z]{2,}){1,}",
+        "^https?:\\/\\/accounts.google(?:\\.[a-z]{2,}){1,}",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gcsip\\.(?:com|nl)[^?]*\\?.*?&?ref_?=.",
+        "^https?:\\/\\/[^/]+/[^/]+/[^/]+\\/-\\/refs\\/switch[^?]*\\?.*?&?ref_?=.",
+        "^https?:\\/\\/bugtracker\\.[^/]*\\/[^?]+\\?.*?&?ref_?=[^/?&]*",
+        "^https?:\\/\\/comment-cdn\\.9gag\\.com\\/.*?comment-list.json\\?",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?battle\\.net\\/login",
+        "^https?:\\/\\/blizzard\\.com\\/oauth2",
+        "^https?:\\/\\/kreditkarten-banking\\.lbb\\.de",
+        "^https?:\\/\\/www\\.tinkoff\\.ru",
+        "^https?:\\/\\/www\\.cyberport\\.de\\/adscript\\.php",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tweakers\\.net\\/ext\\/lt\\.dsp\\?.*?(?:%3F)?&?ref_?=.",
+        "^https?:\\/\\/git(lab)?\\.[^/]*\\/[^?]+\\?.*?&?ref_?=[^/?&]*",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amazon(?:\\.[a-z]{2,}){1,}\\/message-us\\?",
+        "^https?:\\/\\/authorization\\.td\\.com",
+        "^https?:\\/\\/support\\.steampowered\\.com",
+        "^https?:\\/\\/privacy\\.vakmedianet\\.nl\\/.*?ref=",
+        "^https?:\\/\\/sso\\.serverplan\\.com\\/manage2fa\\/check\\?ref=",
+        "^https?:\\/\\/login\\.meijer\\.com\\/.*?\\?ref=",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?facebook\\.com\\/(?:login_alerts|ajax|should_add_browser)/",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?facebook\\.com\\/groups\\/member_bio\\/bio_dialog\\/",
+        "^https?:\\/\\/api\\.taiga\\.io",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gog\\.com\\/click\\.html",
+        "^https?:\\/\\/login\\.progressive\\.com",
+        "^https?:\\/\\/www\\.sephora\\.com\\/api\\/",
+        "^https?:\\/\\/www\\.contestgirl\\.com",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?agenciatributaria\\.gob\\.es",
+        "^https?:\\/\\/login\\.ingbank\\.pl",
+        "^wss?:\\/\\/(?:[a-z0-9-]+\\.)*?zoom\\.us",
+        "^https?:\\/\\/api\\.bilibili\\.com",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?onet\\.pl\\/[^?]*\\?.*?utm_campaign=.",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?stripe\\.com\\/[^?]+.*?&?referrer=[^/?&]*",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?lichess\\.org\\/login.*?&?referrer=.*?",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?microsoft\\.com\\/.*?research\\/redirect",
+        "^https?:\\/\\/like.co\\/api\\/like\\/likebutton\\/[^?]+.*?&?referrer=[^/?&]*",
+        "^https?:\\/\\/button.like.co\\/in\\/.*?&?referrer=[^/?&]*",
+        "^https?:\\/\\/www\\.mma\\.go\\.kr",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?github\\.com",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?billiger\\.de\\/.*?mc=",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?youtrack\\.cloud",
+        "^https?:\\/\\/cu\\.bankid\\.com",
+        "^https?:\\/\\/login\\.aliexpress\\.us",
+        "^https?:\\/\\/ieeexplore\\.ieee\\.org",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?sendgb\\.com\\/upload\\/?.*?utm_source=",
+        "^https?:\\/\\/firebaseappdistribution\\.googleapis\\.com\\/app-binary-downloads\\/projects\\/?.*?utm_source=",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?irs\\.gov"
+      ]
+    },
+    "adtech": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?adtech(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||adtech.*^"
+    },
+    "bf-ad": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bf-ad(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||bf-ad.*^"
+    },
+    "amazon-adsystem": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amazon-adsystem(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||amazon-adsystem.*^",
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amazon-adsystem(?:\\.[a-z]{2,}){1,}\\/v3\\/oor\\?"
+      ],
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amazon-adsystem(?:\\.[a-z]{2,}){1,}\\/x\\/c\\/.+?\\/([^&]+)"
+      ]
+    },
+    "adsensecustomsearchads": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?adsensecustomsearchads(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||adsensecustomsearchads.*^"
+    },
+    "youtube.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(youtube\\.com|youtu\\.be)",
+      "indexPattern": [
+        "||youtu.be^",
+        "||youtube.com^"
+      ],
+      "rules": [
+        "feature",
+        "gclid",
+        "kw",
+        "si",
+        "pp"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?youtube\\.com\\/signin\\?.*?"
+      ],
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?youtube\\.com\\/redirect?.*?q=([^&]*)"
+      ]
+    },
+    "youtube.com_pagead": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?youtube\\.com\\/pagead",
+      "indexPattern": "||youtube.com^"
+    },
+    "youtube.com_api": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?youtube\\.com\\/api\\/stats\\/ads",
+      "indexPattern": "||youtube.com^"
+    },
+    "facebook.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?facebook\\.com",
+      "indexPattern": "||facebook.com^",
+      "rules": [
+        "hc_[a-z_%\\[\\]0-9]*",
+        "[a-z]*ref[a-z]*",
+        "__tn__",
+        "eid",
+        "__(?:xts|cft)__(?:\\[|%5B)\\d(?:\\]|%5D)",
+        "comment_tracking",
+        "dti",
+        "app",
+        "video_source",
+        "ftentidentifier",
+        "pageid",
+        "padding",
+        "ls_ref",
+        "action_history",
+        "tracking",
+        "referral_code",
+        "referral_story_type",
+        "eav",
+        "sfnsn",
+        "idorvanity",
+        "wtsid",
+        "rdc",
+        "rdr",
+        "paipv",
+        "_nc_x",
+        "_rdr",
+        "mibextid"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?facebook\\.com\\/.*?(plugins|ajax)\\/",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?facebook\\.com\\/dialog\\/(?:share|send)",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?facebook\\.com\\/groups\\/member_bio\\/bio_dialog\\/",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?facebook\\.com\\/photo\\.php\\?",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?facebook\\.com\\/privacy\\/specific_audience_selector_dialog\\/",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?facebook\\.com\\/photo\\/download\\/"
+      ],
+      "redirections": [
+        "^https?:\\/\\/l[a-z]?\\.facebook\\.com/l\\.php\\?.*?u=(https?%3A%2F%2F[^&]*)"
+      ]
+    },
+    "twitter.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?twitter.com",
+      "indexPattern": "||twitter.com^",
+      "rules": [
+        "(?:ref_?)?src",
+        "s",
+        "cn",
+        "ref_url",
+        "t"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/twitter.com\\/i\\/redirect"
+      ]
+    },
+    "x.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?x.com",
+      "indexPattern": "||x.com^",
+      "rules": [
+        "(?:ref_?)?src",
+        "s",
+        "cn",
+        "ref_url",
+        "t"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/x.com\\/i\\/redirect"
+      ]
+    },
+    "reddit.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?reddit.com",
+      "indexPattern": "||reddit.com^",
+      "rules": [
+        "%24deep_link",
+        "\\$deep_link",
+        "correlation_id",
+        "ref_campaign",
+        "ref_source",
+        "%243p",
+        "rdt",
+        "\\$3p",
+        "%24original_url",
+        "\\$original_url",
+        "_branch_match_id",
+        "share_id"
+      ],
+      "redirections": [
+        "^https?:\\/\\/out\\.reddit\\.com\\/.*?url=([^&]*)",
+        "^https?:\\/\\/click\\.redditmail\\.com\\/.*?url=([^&]*)"
+      ]
+    },
+    "netflix.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?netflix.com",
+      "indexPattern": "||netflix.com^",
+      "rules": [
+        "trackId",
+        "tctx",
+        "jb[a-z]*?"
+      ]
+    },
+    "techcrunch.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?techcrunch\\.com",
+      "indexPattern": "||techcrunch.com^",
+      "rules": [
+        "ncid",
+        "sr",
+        "sr_share",
+        "guccounter",
+        "guce_referrer",
+        "guce_referrer_sig"
+      ]
+    },
+    "bing": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bing(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||bing.*^",
+      "rules": [
+        "cvid",
+        "sk",
+        "sp",
+        "sc",
+        "qs",
+        "qp"
+      ],
+      "referralMarketing": [
+        "form"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bing(?:\\.[a-z]{2,}){1,}\\/WS\\/redirect\\/"
+      ]
+    },
+    "tweakers.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tweakers\\.net",
+      "indexPattern": "||tweakers.net^",
+      "rules": [
+        "nb",
+        "u"
+      ]
+    },
+    "twitch.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?twitch\\.com",
+      "indexPattern": "||twitch.com^",
+      "rules": [
+        "tt_medium",
+        "tt_content"
+      ]
+    },
+    "vivaldi.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?vivaldi\\.com",
+      "indexPattern": "||vivaldi.com^",
+      "rules": [
+        "pk_campaign",
+        "pk_kwd"
+      ]
+    },
+    "indeed.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?indeed\\.com",
+      "indexPattern": "||indeed.com^",
+      "rules": [
+        "from",
+        "alid",
+        "[a-z]*tk"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?indeed\\.com\\/rc\\/clk"
+      ]
+    },
+    "hh.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hh\\.ru",
+      "indexPattern": "||hh.ru^",
+      "rules": [
+        "vss",
+        "t",
+        "swnt",
+        "grpos",
+        "ptl",
+        "stl",
+        "exp",
+        "plim"
+      ]
+    },
+    "ebay": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ebay(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||ebay.*^",
+      "rules": [
+        "_trkparms",
+        "_trksid",
+        "_from",
+        "hash"
+      ],
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rover\\.ebay(?:\\.[a-z]{2,}){1,}\\/rover.*mpre=([^&]*)"
+      ]
+    },
+    "cnet.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cnet\\.com",
+      "indexPattern": "||cnet.com^",
+      "rules": [
+        "ftag"
+      ]
+    },
+    "imdb.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?imdb\\.com",
+      "indexPattern": "||imdb.com^",
+      "rules": [
+        "ref_",
+        "pf_rd_[a-z]*"
+      ]
+    },
+    "govdelivery.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?govdelivery\\.com",
+      "indexPattern": "||govdelivery.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?links\\.govdelivery\\.com.*\\/track\\?.*(https?:\\/\\/.*)"
+      ]
+    },
+    "walmart.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?walmart\\.com",
+      "indexPattern": "||walmart.com^",
+      "rules": [
+        "u1",
+        "ath[a-z]*",
+        "from"
+      ]
+    },
+    "net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?net\\-parade\\.it",
+      "indexPattern": "||net-parade.it^",
+      "rules": [
+        "pl"
+      ]
+    },
+    "prvnizpravy.cz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?prvnizpravy\\.cz",
+      "indexPattern": "||prvnizpravy.cz^",
+      "rules": [
+        "xid"
+      ]
+    },
+    "youku.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?youku\\.com",
+      "indexPattern": "||youku.com^",
+      "rules": [
+        "tpa"
+      ]
+    },
+    "nytimes.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nytimes\\.com",
+      "indexPattern": "||nytimes.com^",
+      "rules": [
+        "smid",
+        "referringSource",
+        "sgrp",
+        "impression_id"
+      ]
+    },
+    "tchibo.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tchibo\\.de",
+      "indexPattern": "||tchibo.de^",
+      "rules": [
+        "wbdcd"
+      ]
+    },
+    "steampowered.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?steampowered\\.com",
+      "indexPattern": "||steampowered.com^",
+      "rules": [
+        "snr"
+      ]
+    },
+    "steamcommunity.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?steamcommunity\\.com",
+      "indexPattern": "||steamcommunity.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?steamcommunity\\.com\\/linkfilter\\/\\?url=([^&]*)"
+      ]
+    },
+    "outgoing.prod.mozaws.net": {
+      "urlPattern": "https?:\\/\\/outgoing\\.prod\\.mozaws\\.net\\/",
+      "indexPattern": "||outgoing.prod.mozaws.net^",
+      "redirections": [
+        "https?:\\/\\/[^/]+\\/v1\\/[0-9a-f]{64}\\/(.*)"
+      ]
+    },
+    "shutterstock.com": {
+      "urlPattern": "https?:\\/\\/([a-z0-9-.]*\\.)shutterstock\\.com",
+      "indexPattern": "||shutterstock.com^",
+      "rules": [
+        "src"
+      ]
+    },
+    "mozilla.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mozilla\\.org",
+      "indexPattern": "||mozilla.org^",
+      "rules": [
+        "src",
+        "platform",
+        "redirect_source"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mozilla.org\\/api"
+      ]
+    },
+    "readdc.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?readdc\\.com",
+      "indexPattern": "||readdc.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "dailycodingproblem.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dailycodingproblem\\.com",
+      "indexPattern": "||dailycodingproblem.com^",
+      "rules": [
+        "email"
+      ]
+    },
+    "github.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?github\\.com",
+      "indexPattern": "||github.com^",
+      "rules": [
+        "email_token",
+        "email_source",
+        "reference_location"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?github\\.com"
+      ]
+    },
+    "deviantart.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?deviantart\\.com",
+      "indexPattern": "||deviantart.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?deviantart\\.com\\/.*?\\/outgoing\\?(.*)"
+      ]
+    },
+    "site2.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site2\\.com",
+      "indexPattern": "||site2.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site2\\.com.*?\\?.*=(.*)"
+      ]
+    },
+    "site.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site\\.com",
+      "indexPattern": "||site.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site\\.com.*?\\?to=([^&]*)"
+      ]
+    },
+    "site3.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site3\\.com",
+      "indexPattern": "||site3.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site3\\.com.*?\\?r=([^&]*)"
+      ]
+    },
+    "aliexpress": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?aliexpress(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||aliexpress.*^",
+      "rules": [
+        "ws_ab_test",
+        "btsid",
+        "algo_expid",
+        "algo_pvid",
+        "gps-id",
+        "scm[_a-z-]*",
+        "cv",
+        "af",
+        "mall_affr",
+        "sk",
+        "dp",
+        "terminal_id",
+        "aff_request_id"
+      ]
+    },
+    "mozillazine.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mozillazine\\.org",
+      "indexPattern": "||mozillazine.org^",
+      "rules": [
+        "sid"
+      ]
+    },
+    "9gag.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?9gag\\.com",
+      "indexPattern": "||9gag.com^",
+      "rules": [
+        "ref"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/comment-cdn\\.9gag\\.com\\/.*?comment-list.json\\?"
+      ]
+    },
+    "linksynergy.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?linksynergy\\.com",
+      "indexPattern": "||linksynergy.com^",
+      "rules": [
+        "u1",
+        "u2"
+      ],
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?linksynergy\\.com\\/.*?murl=([^&]*)"
+      ]
+    },
+    "giphy.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?giphy\\.com",
+      "indexPattern": "||giphy.com^",
+      "rules": [
+        "ref",
+        "cid",
+        "ct",
+        "rid"
+      ]
+    },
+    "gate.sc": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gate\\.sc",
+      "indexPattern": "||gate.sc^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gate\\.sc\\/.*?url=([^&]*)"
+      ]
+    },
+    "vk.com": {
+      "urlPattern": "^https?:\\/\\/vk\\.com",
+      "indexPattern": "||vk.com^",
+      "redirections": [
+        "^https?:\\/\\/vk\\.com\\/away\\.php\\?to=([^&]*)"
+      ]
+    },
+    "woot.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?woot\\.com",
+      "indexPattern": "||woot.com^",
+      "rules": [
+        "ref_?"
+      ]
+    },
+    "vitamix.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?vitamix\\.com",
+      "indexPattern": "||vitamix.com^",
+      "rules": [
+        "_requestid",
+        "cid",
+        "dl",
+        "di",
+        "sd",
+        "bi"
+      ]
+    },
+    "curseforge.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?curseforge\\.com",
+      "indexPattern": "||curseforge.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?curseforge\\.com\\/linkout\\?remoteUrl=([^&]*)"
+      ]
+    },
+    "messenger.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?messenger\\.com",
+      "indexPattern": "||messenger.com^",
+      "redirections": [
+        "^https?:\\/\\/l\\.messenger\\.com\\/l\\.php\\?u=([^&]*)"
+      ]
+    },
+    "nypost.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nypost\\.com",
+      "indexPattern": "||nypost.com^",
+      "rules": [
+        "__twitter_impression"
+      ]
+    },
+    "ozon.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ozon\\.ru",
+      "indexPattern": "||ozon.ru^",
+      "rules": [
+        "partner",
+        "origin_referer",
+        "__rr",
+        "abt_att",
+        "asb",
+        "advert",
+        "asb2",
+        "avtc",
+        "avte",
+        "avts",
+        "from_url",
+        "from_sku",
+        "keywords"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ozon\\.ru\\/my\\/points.*?__rr"
+      ]
+    },
+    "norml.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?norml\\.org",
+      "indexPattern": "||norml.org^",
+      "rules": [
+        "link_id",
+        "can_id",
+        "source",
+        "email_referrer",
+        "email_subject"
+      ]
+    },
+    "linkedin.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?linkedin\\.com",
+      "indexPattern": "||linkedin.com^",
+      "rules": [
+        "refId",
+        "trk",
+        "li[a-z]{2}",
+        "trackingId",
+        "courseClaim",
+        "lipi",
+        "isSS",
+        "referenceId",
+        "upsellOrderOrigin",
+        "destRedirectURL",
+        "original_referer",
+        "trkInfo",
+        "originalReferer",
+        "u",
+        "origin"
+      ]
+    },
+    "linkedin.com_learning": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?linkedin\\.com\\/learning",
+      "indexPattern": "||linkedin.com^",
+      "rules": [
+        "u"
+      ]
+    },
+    "smartredirect.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?smartredirect\\.de",
+      "indexPattern": "||smartredirect.de^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?smartredirect\\.de.*?url=([^&]*)"
+      ]
+    },
+    "spiegel.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?spiegel\\.de",
+      "indexPattern": "||spiegel.de^",
+      "rules": [
+        "b"
+      ]
+    },
+    "rutracker.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rutracker\\.org",
+      "indexPattern": "||rutracker.org^",
+      "redirections": [
+        ".*url=([^&]*)"
+      ]
+    },
+    "instagram.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?instagram\\.com",
+      "indexPattern": "||instagram.com^",
+      "rules": [
+        "igshid",
+        "igsh"
+      ],
+      "redirections": [
+        ".*u=([^&]*)"
+      ]
+    },
+    "imgsrc.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?imgsrc\\.ru",
+      "indexPattern": "||imgsrc.ru^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dlp\\.imgsrc\\.ru\\/go\\/\\d+\\/\\d+\\/\\d+\\/([^&]*)"
+      ]
+    },
+    "boredpanda.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?boredpanda\\.com",
+      "indexPattern": "||boredpanda.com^",
+      "rules": [
+        "h",
+        "cexp_id",
+        "cexp_var"
+      ]
+    },
+    "awstrack.me": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?awstrack\\.me",
+      "indexPattern": "||awstrack.me^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?awstrack\\.me\\/.*\\/(https?.*?)\\/"
+      ]
+    },
+    "exactag.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?exactag\\.com",
+      "indexPattern": "||exactag.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?exactag\\.com.*url=([^&]*)"
+      ]
+    },
+    "bahn.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bahn\\.de",
+      "indexPattern": "||bahn.de^",
+      "rules": [
+        "dbkanal_[0-9]{3}"
+      ]
+    },
+    "disq.us": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?disq\\.us",
+      "indexPattern": "||disq.us^",
+      "rules": [
+        "cuid"
+      ],
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?disq\\.us\\/.*?url=([^&]*)%3A"
+      ]
+    },
+    "anonym.to": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?anonym\\.to",
+      "indexPattern": "||anonym.to^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?anonym\\.to.*\\?([^&]*)"
+      ]
+    },
+    "moosejaw.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?moosejaw\\.com",
+      "indexPattern": "||moosejaw.com^",
+      "rules": [
+        "cm_lm",
+        "cm_mmc",
+        "webUserId",
+        "spMailingID",
+        "spUserID",
+        "spJobID",
+        "spReportId"
+      ]
+    },
+    "80000hours.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?80000hours\\.org",
+      "indexPattern": "||80000hours.org^",
+      "rules": [
+        "int_campaign"
+      ]
+    },
+    "spotify.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?spotify\\.com",
+      "indexPattern": "||spotify.com^",
+      "rules": [
+        "si"
+      ]
+    },
+    "ya.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:yandex(?:\\.[a-z]{2,}){1,}|ya\\.ru)",
+      "indexPattern": "||yandex.*^",
+      "rules": [
+        "lr",
+        "redircnt"
+      ]
+    },
+    "healio.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?healio\\.com",
+      "indexPattern": "||healio.com^",
+      "rules": [
+        "ecp",
+        "m_bt"
+      ]
+    },
+    "zoho.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?zoho\\.com",
+      "indexPattern": "||zoho.com^",
+      "rules": [
+        "iref"
+      ]
+    },
+    "snapchat.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?snapchat\\.com",
+      "indexPattern": "||snapchat.com^",
+      "rules": [
+        "sc_referrer",
+        "sc_ua"
+      ]
+    },
+    "medium.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?medium\\.com",
+      "indexPattern": "||medium.com^",
+      "rules": [
+        "source"
+      ]
+    },
+    "swp.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?swp\\.de",
+      "indexPattern": "||swp.de^",
+      "rules": [
+        "source"
+      ]
+    },
+    "wps.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wps\\.com",
+      "indexPattern": "||wps.com^",
+      "rules": [
+        "from"
+      ]
+    },
+    "firefox.com": {
+      "urlPattern": "^https?:\\/\\/(?:accounts\\.)?firefox\\.com",
+      "indexPattern": "||firefox.com^",
+      "rules": [
+        "entrypoint",
+        "form_type"
+      ]
+    },
+    "mozilla.org_1": {
+      "urlPattern": "^https?:\\/\\/(?:support\\.)?mozilla\\.org",
+      "indexPattern": "||mozilla.org^",
+      "rules": [
+        "as"
+      ]
+    },
+    "kevinroebert.gitlab.io": {
+      "urlPattern": "^https?:\\/\\/kevinroebert\\.gitlab\\.io\\/ClearUrls\\/void\\/index\\.html",
+      "indexPattern": "||kevinroebert.gitlab.io^",
+      "rules": [
+        "test"
+      ],
+      "redirections": [
+        "^https?:\\/\\/kevinroebert\\.gitlab\\.io\\/ClearUrls\\/void\\/index\\.html\\?url=([^&]*)"
+      ]
+    },
+    "kevinroebert.gitlab.io_clearurls": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/kevinroebert\\.gitlab\\.io\\/ClearUrls\\/void\\/block\\.svg",
+      "indexPattern": "||kevinroebert.gitlab.io^"
+    },
+    "test.clearurls.xyz": {
+      "urlPattern": "^https?:\\/\\/test\\.clearurls\\.xyz\\/void\\/index\\.html",
+      "indexPattern": "||test.clearurls.xyz^",
+      "rules": [
+        "test"
+      ],
+      "redirections": [
+        "^https?:\\/\\/test\\.clearurls\\.xyz\\/void\\/index\\.html\\?url=([^&]*)"
+      ]
+    },
+    "test.clearurls.xyz_void": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/test\\.clearurls\\.xyz\\/void\\/block\\.svg",
+      "indexPattern": "||test.clearurls.xyz^"
+    },
+    "diepresse.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?diepresse\\.com",
+      "indexPattern": "||diepresse.com^",
+      "rules": [
+        "from",
+        "xtor",
+        "xt_at"
+      ]
+    },
+    "newsletter.lidl": {
+      "urlPattern": "^https?:\\/\\/newsletter\\.lidl(?:\\.[a-z]{2,}){1,}",
+      "indexPattern": "||lidl.*^",
+      "rules": [
+        "x"
+      ]
+    },
+    "allegro.pl": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?allegro\\.pl",
+      "indexPattern": "||allegro.pl^",
+      "rules": [
+        "reco_id",
+        "sid",
+        "clickId"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?allegro\\.pl\\/affiliate\\?redirect_url=.*?clickId",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?allegro\\.pl\\/affiliate\\?redirect_url=.*?utm_source",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?allegro\\.pl\\/affiliate\\?redirect_url=.*?utm_campaign"
+      ]
+    },
+    "backcountry.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?backcountry\\.com",
+      "indexPattern": "||backcountry.com^",
+      "rules": [
+        "CMP_SKU",
+        "MER",
+        "mr:trackingCode",
+        "mr:device",
+        "mr:adType",
+        "iv_",
+        "CMP_ID",
+        "k_clickid",
+        "rmatt",
+        "INT_ID",
+        "ti",
+        "fl"
+      ],
+      "referralMarketing": [
+        "mr:referralID"
+      ]
+    },
+    "meetup.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?meetup\\.com",
+      "indexPattern": "||meetup.com^",
+      "rules": [
+        "rv",
+        "_xtd",
+        "eventOrigin",
+        "recSource",
+        "recId",
+        "searchId"
+      ]
+    },
+    "apple.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?apple\\.com",
+      "indexPattern": "||apple.com^",
+      "rules": [
+        "app",
+        "ign-itsc[a-z]+",
+        "afid",
+        "cid",
+        "ct",
+        "pt"
+      ]
+    },
+    "alabout.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?alabout\\.com",
+      "indexPattern": "||alabout.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?alabout\\.com.*url=([^&]*)"
+      ]
+    },
+    "newyorker.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?newyorker\\.com",
+      "indexPattern": "||newyorker.com^",
+      "rules": [
+        "source",
+        "bxid",
+        "cndid",
+        "esrc",
+        "mbid"
+      ]
+    },
+    "gog.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gog\\.com",
+      "indexPattern": "||gog.com^",
+      "rules": [
+        "track_click",
+        "link_id",
+        "pp"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gog\\.com\\/click\\.html"
+      ]
+    },
+    "tradedoubler.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tradedoubler\\.com",
+      "indexPattern": "||tradedoubler.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tradedoubler\\.com.*(?:url|_td_deeplink)=([^&]*)"
+      ]
+    },
+    "theguardian.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?theguardian\\.com",
+      "indexPattern": "||theguardian.com^",
+      "rules": [
+        "CMP"
+      ]
+    },
+    "srvtrck.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?srvtrck\\.com",
+      "indexPattern": "||srvtrck.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?srvtrck\\.com.*url=([^&]*)"
+      ]
+    },
+    "mysku.ru": {
+      "urlPattern": "^https?:\\/\\/mysku\\.ru",
+      "indexPattern": "||mysku.ru^",
+      "redirections": [
+        "^https?:\\/\\/mysku\\.ru.*r=([^&]*)"
+      ]
+    },
+    "admitad.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?admitad\\.com",
+      "indexPattern": "||admitad.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?admitad\\.com.*ulp=([^&]*)"
+      ]
+    },
+    "taobao.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?taobao\\.com",
+      "indexPattern": "||taobao.com^",
+      "rules": [
+        "price",
+        "sourceType",
+        "suid",
+        "ut_sk",
+        "un",
+        "share_crt_v",
+        "sp_tk",
+        "cpp",
+        "shareurl",
+        "short_name",
+        "app",
+        "scm[_a-z-]*",
+        "pvid",
+        "algo_expid",
+        "algo_pvid",
+        "ns",
+        "abbucket",
+        "ali_refid",
+        "ali_trackid",
+        "acm",
+        "utparam",
+        "pos",
+        "abtest",
+        "trackInfo",
+        "utkn",
+        "scene",
+        "mytmenu",
+        "turing_bucket",
+        "lygClk",
+        "impid",
+        "bftTag",
+        "bftRwd",
+        "spm",
+        "_u"
+      ]
+    },
+    "tmall.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tmall\\.com",
+      "indexPattern": "||tmall.com^",
+      "rules": [
+        "price",
+        "sourceType",
+        "suid",
+        "ut_sk",
+        "un",
+        "share_crt_v",
+        "sp_tk",
+        "cpp",
+        "shareurl",
+        "short_name",
+        "app",
+        "scm[_a-z-]*",
+        "pvid",
+        "algo_expid",
+        "algo_pvid",
+        "ns",
+        "abbucket",
+        "ali_refid",
+        "ali_trackid",
+        "acm",
+        "utparam",
+        "pos",
+        "abtest",
+        "trackInfo",
+        "user_number_id",
+        "utkn",
+        "scene",
+        "mytmenu",
+        "turing_bucket",
+        "lygClk",
+        "impid",
+        "bftTag",
+        "bftRwd",
+        "activity_id"
+      ]
+    },
+    "tb.cn": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tb\\.cn",
+      "indexPattern": "||tb.cn^",
+      "rules": [
+        "sm"
+      ]
+    },
+    "bilibili.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bilibili\\.com",
+      "indexPattern": "||bilibili.com^",
+      "rules": [
+        "callback",
+        "spm_id_from",
+        "from_source",
+        "from",
+        "seid",
+        "mid",
+        "share_source",
+        "msource",
+        "refer_from",
+        "share_from",
+        "share_medium",
+        "share_source",
+        "share_plat",
+        "share_tag",
+        "share_session_id",
+        "timestamp",
+        "unique_k",
+        "vd_source",
+        "plat_id",
+        "buvid",
+        "is_story_h5",
+        "up_id"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/api\\.bilibili\\.com",
+        "^https?:\\/\\/space\\.bilibili\\.com"
+      ]
+    },
+    "space.bilibili.com": {
+      "urlPattern": "^https?:\\/\\/space\\.bilibili\\.com",
+      "indexPattern": "||space.bilibili.com^",
+      "rules": [
+        "spm_id_from"
+      ]
+    },
+    "m.bilibili.com": {
+      "urlPattern": "^https?:\\/\\/m\\.bilibili\\.com",
+      "indexPattern": "||m.bilibili.com^",
+      "rules": [
+        "bbid",
+        "ts"
+      ]
+    },
+    "live.bilibili.com": {
+      "urlPattern": "^https?:\\/\\/live\\.bilibili\\.com",
+      "indexPattern": "||live.bilibili.com^",
+      "rules": [
+        "visit_id",
+        "session_id",
+        "broadcast_type",
+        "is_room_feed"
+      ]
+    },
+    "marketscreener.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?marketscreener\\.com",
+      "indexPattern": "||marketscreener.com^",
+      "rules": [
+        "type_recherche",
+        "mots",
+        "noredirect",
+        "RewriteLast",
+        "lien",
+        "aComposeInputSearch",
+        "type_recherche_forum",
+        "add_mots",
+        "countview"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?marketscreener\\.com\\/search\\/\\?"
+      ]
+    },
+    "marketscreener.com_search": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?marketscreener\\.com\\/search\\/\\?",
+      "indexPattern": "||marketscreener.com^",
+      "rules": [
+        "type_recherche",
+        "noredirect",
+        "RewriteLast",
+        "lien",
+        "aComposeInputSearch",
+        "type_recherche_forum",
+        "countview"
+      ]
+    },
+    "bestbuy.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bestbuy\\.com",
+      "indexPattern": "||bestbuy.com^",
+      "rules": [
+        "irclickid",
+        "irgwc",
+        "loc",
+        "acampID",
+        "mpid",
+        "intl"
+      ]
+    },
+    "digidip.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?digidip\\.net",
+      "indexPattern": "||digidip.net^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?digidip\\.net.*url=([^&]*)"
+      ]
+    },
+    "tiktok.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tiktok\\.com",
+      "indexPattern": "||tiktok.com^",
+      "rules": [
+        "u_code",
+        "preview_pb",
+        "_d",
+        "_t",
+        "_r",
+        "timestamp",
+        "user_id",
+        "share_app_name",
+        "share_iid",
+        "source"
+      ]
+    },
+    "xiaohongshu.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?xiaohongshu\\.com",
+      "indexPattern": "||xiaohongshu.com^",
+      "rules": [
+        "xhsshare",
+        "author_share",
+        "type",
+        "xsec_source",
+        "share_from_user_hidden",
+        "app_version",
+        "ignoreEngage",
+        "app_platform",
+        "apptime",
+        "appuid",
+        "shareRedId",
+        "share_id",
+        "exSource",
+        "verifyUuid",
+        "verifyType",
+        "verifyBiz"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/edith\\.xiaohongshu\\.com\\/api\\/sns\\/web\\/v1\\/user\\/hover_card"
+      ]
+    },
+    "autoplus.fr": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?autoplus\\.fr",
+      "indexPattern": "||autoplus.fr^",
+      "rules": [
+        "idprob",
+        "hash",
+        "sending_id",
+        "site_id",
+        "dr_tracker"
+      ]
+    },
+    "bigfishgames.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bigfishgames\\.com",
+      "indexPattern": "||bigfishgames.com^",
+      "rules": [
+        "pc",
+        "npc",
+        "npv[0-9]+",
+        "npi"
+      ],
+      "rawRules": [
+        "\\?pc$"
+      ]
+    },
+    "dpbolvw.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dpbolvw\\.net",
+      "indexPattern": "||dpbolvw.net^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dpbolvw\\.net.*url=([^&]*)"
+      ]
+    },
+    "humblebundle.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?humblebundle\\.com",
+      "indexPattern": "||humblebundle.com^",
+      "rules": [
+        "hmb_medium",
+        "hmb_campaign",
+        "hmb_source",
+        "mcID",
+        "linkID"
+      ],
+      "referralMarketing": [
+        "partner"
+      ]
+    },
+    "cafepedagogique.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cafepedagogique\\.net",
+      "indexPattern": "||cafepedagogique.net^",
+      "rules": [
+        "actId",
+        "actCampaignType",
+        "actSource"
+      ]
+    },
+    "bloculus.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bloculus\\.com",
+      "indexPattern": "||bloculus.com^",
+      "rules": [
+        "tl_[a-z_]+"
+      ]
+    },
+    "mailpanion.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mailpanion\\.com",
+      "indexPattern": "||mailpanion.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mailpanion\\.com.*destination=([^&]*)"
+      ]
+    },
+    "signtr.website": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?signtr\\.website",
+      "indexPattern": "||signtr.website^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?signtr\\.website.*redirect=([^&]*)"
+      ]
+    },
+    "mailtrack.io": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mailtrack\\.io",
+      "indexPattern": "||mailtrack.io^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mailtrack\\.io.*url=([^&]*)"
+      ]
+    },
+    "zillow.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?zillow\\.com",
+      "indexPattern": "||zillow.com^",
+      "rules": [
+        "rtoken"
+      ]
+    },
+    "realtor.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?realtor\\.com",
+      "indexPattern": "||realtor.com^",
+      "rules": [
+        "ex",
+        "identityID",
+        "MID",
+        "RID",
+        "rdc_visitor_id",
+        "cid",
+        "flow"
+      ]
+    },
+    "redfin.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?redfin\\.com",
+      "indexPattern": "||redfin.com^",
+      "rules": [
+        "riftinfo"
+      ]
+    },
+    "epicgames.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?epicgames\\.com",
+      "indexPattern": "||epicgames.com^",
+      "rules": [
+        "epic_affiliate",
+        "epic_gameId"
+      ]
+    },
+    "onet.pl": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?onet\\.pl",
+      "indexPattern": "||onet.pl^",
+      "rules": [
+        "srcc",
+        "utm_v",
+        "utm_medium",
+        "utm_source"
+      ]
+    },
+    "allrecipes.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?allrecipes\\.com",
+      "indexPattern": "||allrecipes.com^",
+      "rules": [
+        "internalSource",
+        "referringId",
+        "referringContentType",
+        "clickId"
+      ]
+    },
+    "europe1.fr": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?europe1\\.fr",
+      "indexPattern": "||europe1.fr^",
+      "rules": [
+        "xtor"
+      ]
+    },
+    "effiliation.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?effiliation\\.com",
+      "indexPattern": "||effiliation.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?effiliation\\.com.*url=([^&]*)"
+      ]
+    },
+    "argos.co.uk": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?argos\\.co\\.uk",
+      "indexPattern": "||argos.co.uk^",
+      "rules": [
+        "istCompanyId",
+        "istFeedId",
+        "istItemId",
+        "istBid",
+        "clickOrigin"
+      ]
+    },
+    "hlserve.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hlserve\\.com",
+      "indexPattern": "||hlserve.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hlserve\\.com.*dest=([^&]*)"
+      ]
+    },
+    "thunderbird.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?thunderbird\\.net",
+      "indexPattern": "||thunderbird.net^",
+      "rules": [
+        "src"
+      ]
+    },
+    "cnbc.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cnbc\\.com",
+      "indexPattern": "||cnbc.com^",
+      "rules": [
+        "__source",
+        "par"
+      ]
+    },
+    "roblox.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?roblox\\.com",
+      "indexPattern": "||roblox.com^",
+      "rules": [
+        "refPageId"
+      ]
+    },
+    "cell.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cell\\.com",
+      "indexPattern": "||cell.com^",
+      "rules": [
+        "_returnURL"
+      ]
+    },
+    "academic.oup.com": {
+      "urlPattern": "^https?:\\/\\/academic\\.oup\\.com",
+      "indexPattern": "||academic.oup.com^",
+      "rules": [
+        "redirectedFrom"
+      ]
+    },
+    "flexlinkspro.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?flexlinkspro\\.com",
+      "indexPattern": "||flexlinkspro.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?flexlinkspro\\.com.*url=([^&]*)"
+      ]
+    },
+    "agata88.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?agata88\\.com",
+      "indexPattern": "||agata88.com^",
+      "rules": [
+        "source"
+      ]
+    },
+    "hs.fi": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hs\\.fi",
+      "indexPattern": "||hs.fi^",
+      "rules": [
+        "share"
+      ]
+    },
+    "yle.fi": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?yle\\.fi",
+      "indexPattern": "||yle.fi^",
+      "rules": [
+        "origin"
+      ]
+    },
+    "refer.ccbill.com": {
+      "urlPattern": "^https?:\\/\\/refer\\.ccbill\\.com",
+      "indexPattern": "||refer.ccbill.com^",
+      "redirections": [
+        "^https?:\\/\\/refer\\.ccbill\\.com.*HTML=([^&]*)"
+      ]
+    },
+    "flipkart.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?flipkart\\.com",
+      "indexPattern": "||flipkart.com^",
+      "rules": [
+        "otracker.?",
+        "ssid",
+        "[cilp]id",
+        "marketplace",
+        "store",
+        "srno",
+        "store",
+        "ppn",
+        "ppt",
+        "fm",
+        "collection-tab-name",
+        "sattr\\[\\]",
+        "p\\[\\]",
+        "st",
+        "qH",
+        "hpid",
+        "ctx",
+        "nnc"
+      ]
+    },
+    "idealo.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?idealo\\.de",
+      "indexPattern": "||idealo.de^",
+      "rules": [
+        "sid",
+        "src",
+        "siteId",
+        "lcb",
+        "leadOutUrl",
+        "offerListId",
+        "osId",
+        "cancelUrl",
+        "disc"
+      ]
+    },
+    "idealo-partner.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?idealo-partner\\.com",
+      "indexPattern": "||idealo-partner.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?idealo-partner\\.com.*trg=([^&]*)"
+      ]
+    },
+    "teletrader.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?teletrader\\.com",
+      "indexPattern": "||teletrader.com^",
+      "rules": [
+        "internal"
+      ]
+    },
+    "webgains.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?webgains\\.com",
+      "indexPattern": "||webgains.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?webgains\\.com.*wgtarget=([^&]*)"
+      ]
+    },
+    "deeplearning.ai": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?deeplearning\\.ai",
+      "indexPattern": "||deeplearning.ai^",
+      "rules": [
+        "ecid",
+        "_hsmi",
+        "_hsenc"
+      ]
+    },
+    "getpocket.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?getpocket\\.com",
+      "indexPattern": "||getpocket.com^",
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?getpocket\\.com.*url=([^&]*)"
+      ]
+    },
+    "gamespot.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gamespot\\.com",
+      "indexPattern": "||gamespot.com^",
+      "rules": [
+        "PostType",
+        "ServiceType",
+        "ftag",
+        "UniqueID",
+        "TheTime"
+      ]
+    },
+    "tokopedia.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tokopedia\\.com",
+      "indexPattern": "||tokopedia.com^",
+      "rules": [
+        "src",
+        "trkid",
+        "whid",
+        "extParam",
+        "refined"
+      ],
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tokopedia\\.com\\/promo.*r=([^&]*)"
+      ]
+    },
+    "wkorea.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wkorea\\.com",
+      "indexPattern": "||wkorea.com^",
+      "rules": [
+        "ddw",
+        "ds_ch"
+      ]
+    },
+    "eonline.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?eonline\\.com",
+      "indexPattern": "||eonline.com^",
+      "rules": [
+        "source",
+        "medium",
+        "content"
+      ]
+    },
+    "reuters.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?reuters\\.com",
+      "indexPattern": "||reuters.com^",
+      "rules": [
+        "taid"
+      ]
+    },
+    "app.adjust.com": {
+      "urlPattern": "^https?:\\/\\/app\\.adjust\\.com",
+      "indexPattern": "||app.adjust.com^",
+      "redirections": [
+        "^https?:\\/\\/app\\.adjust\\.com.*redirect=([^&]*)"
+      ]
+    },
+    "change.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?change\\.org",
+      "indexPattern": "||change.org^",
+      "rules": [
+        "source_location",
+        "psf_variant",
+        "share_intent",
+        "user_flow"
+      ]
+    },
+    "ceneo.pl": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ceneo\\.pl",
+      "indexPattern": "||ceneo.pl^",
+      "rules": [
+        "tag"
+      ]
+    },
+    "wired.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wired\\.com",
+      "indexPattern": "||wired.com^",
+      "rules": [
+        "intcid"
+      ]
+    },
+    "arms-retcode.aliyuncs.com": {
+      "urlPattern": "^https?:\\/\\/arms-retcode\\.aliyuncs\\.com",
+      "indexPattern": "||arms-retcode.aliyuncs.com^",
+      "rules": [
+        "pid",
+        "uid",
+        "tag",
+        "release",
+        "environment",
+        "sample",
+        "behavior",
+        "enableSPA",
+        "enableLinkTrace",
+        "page",
+        "begin",
+        "c2",
+        "c3",
+        "success",
+        "code",
+        "msg",
+        "api",
+        "traceId",
+        "pv_id",
+        "flag",
+        "sr",
+        "vp",
+        "ct",
+        "_v",
+        "sampling",
+        "dl",
+        "post_res"
+      ]
+    },
+    "nikkei.co": {
+      "urlPattern": "^https?://(?:[a-z0-9-]+\\.)*?nikkei\\.co(?:m|\\.jp)",
+      "indexPattern": [
+        "||nikkei.co.jp^",
+        "||nikkei.com^"
+      ],
+      "rules": [
+        "adid",
+        "i_cid",
+        "n_cid",
+        "waad"
+      ]
+    },
+    "weibo": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?weibo\\.(cn|com)",
+      "indexPattern": [
+        "||weibo.cn^",
+        "||weibo.com^"
+      ],
+      "rules": [
+        "weibo_id",
+        "dt_dapp"
+      ]
+    },
+    "fiverr.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?fiverr\\.com",
+      "indexPattern": "||fiverr.com^",
+      "rules": [
+        "context_referrer",
+        "source",
+        "ref_ctx_id",
+        "funnel",
+        "context_type",
+        "filtered_price",
+        "imp_id",
+        "pckg_id",
+        "pos"
+      ]
+    },
+    "etsy.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?etsy\\.com",
+      "indexPattern": "||etsy.com^",
+      "rules": [
+        "click_key",
+        "click_sum",
+        "organic_search_click",
+        "ref"
+      ]
+    },
+    "magento.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?magento\\.com",
+      "indexPattern": "||magento.com^",
+      "rules": [
+        "itm_campaign",
+        "itm_medium",
+        "itm_source",
+        "itm_term"
+      ]
+    },
+    "novinky.cz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?novinky\\.cz",
+      "indexPattern": "||novinky.cz^",
+      "rules": [
+        "dop_ab_variant",
+        "dop_source_zone_name",
+        "dop_req_id",
+        "dop_id",
+        "source",
+        "seq_no"
+      ]
+    },
+    "aktualne.cz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?aktualne\\.cz",
+      "indexPattern": "||aktualne.cz^",
+      "rules": [
+        "dop_ab_variant",
+        "dop_source_zone_name",
+        "dop_req_id",
+        "dop_id"
+      ]
+    },
+    "seznamzpravy.cz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?seznamzpravy\\.cz",
+      "indexPattern": "||seznamzpravy.cz^",
+      "rules": [
+        "dop_ab_variant",
+        "dop_source_zone_name",
+        "dop_req_id",
+        "dop_id",
+        "source",
+        "seq_no"
+      ]
+    },
+    "billiger.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?billiger\\.de",
+      "indexPattern": "||billiger.de^",
+      "rules": [
+        "log",
+        "p"
+      ]
+    },
+    "respekt.cz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?respekt\\.cz",
+      "indexPattern": "||respekt.cz^",
+      "rules": [
+        "sznclid",
+        "dop_ab_variant",
+        "dop_source_zone_name",
+        "dop_req_id",
+        "dop_id"
+      ]
+    },
+    "faei.cz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?faei\\.cz",
+      "indexPattern": "||faei.cz^",
+      "rules": [
+        "sznclid",
+        "dop_ab_variant",
+        "dop_source_zone_name",
+        "dop_req_id",
+        "dop_id"
+      ]
+    },
+    "iprima.cz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?iprima\\.cz",
+      "indexPattern": "||iprima.cz^",
+      "rules": [
+        "sznclid",
+        "dop_ab_variant",
+        "dop_source_zone_name",
+        "dop_req_id",
+        "dop_id"
+      ]
+    },
+    "nova.cz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nova\\.cz",
+      "indexPattern": "||nova.cz^",
+      "rules": [
+        "sznclid",
+        "dop_ab_variant",
+        "dop_source_zone_name",
+        "dop_req_id",
+        "dop_id"
+      ]
+    },
+    "duckduckgo.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?duckduckgo\\.com",
+      "indexPattern": "||duckduckgo.com^",
+      "redirections": [
+        "^https?:\\/\\/duckduckgo\\.com\\/l\\/.*?uddg=([^&]+)"
+      ]
+    },
+    "mercadoli": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mercadoli[bv]re\\.com",
+      "indexPattern": [
+        "||mercadolibre.com^",
+        "||mercadolivre.com^"
+      ],
+      "rules": [
+        "DEAL_ID",
+        "L",
+        "S",
+        "T",
+        "V",
+        "pdp_filters",
+        "position",
+        "search_layout",
+        "tracking_id",
+        "type",
+        "c_[_a-zA-Z]+",
+        "me\\.[_a-zA-Z]+",
+        "reco_[_a-zA-Z]+",
+        "ad_click_id"
+      ]
+    },
+    "quizlet.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?quizlet\\.com",
+      "indexPattern": "||quizlet.com^",
+      "rules": [
+        "funnelUUID"
+      ]
+    },
+    "bbc.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bbc\\.com",
+      "indexPattern": "||bbc.com^",
+      "rules": [
+        "xtor",
+        "at_[a-z_]+"
+      ]
+    },
+    "airbnb": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?airbnb\\.(com|ae|ca|co\\.in|co\\.nz|co\\.uk|co\\.za|com\\.au|com\\.mt|com\\.sg|de|gy|ie)",
+      "indexPattern": [
+        "||airbnb.ae^",
+        "||airbnb.ca^",
+        "||airbnb.co.in^",
+        "||airbnb.co.nz^",
+        "||airbnb.co.uk^",
+        "||airbnb.co.za^",
+        "||airbnb.com.au^",
+        "||airbnb.com.mt^",
+        "||airbnb.com.sg^",
+        "||airbnb.com^",
+        "||airbnb.de^",
+        "||airbnb.gy^",
+        "||airbnb.ie^"
+      ],
+      "rules": [
+        "federated_search_id",
+        "search_type",
+        "source",
+        "source_impression_id"
+      ]
+    },
+    "partner-ads.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?partner-ads\\.com",
+      "indexPattern": "||partner-ads.com^",
+      "redirections": [
+        "^https?:\\/\\/.*?partner-ads\\.com\\/.*?htmlurl=([^&]+)"
+      ]
+    },
+    "kahoot.it": {
+      "urlPattern": "^https?://(?:[a-z0-9-]+\\.)*?kahoot\\.it",
+      "indexPattern": "||kahoot.it^",
+      "rules": [
+        "refer_method"
+      ]
+    },
+    "href.li": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?href\\.li",
+      "indexPattern": "||href.li^",
+      "redirections": [
+        "^https?:\\/\\/href\\.li\\/\\?(http.+)"
+      ]
+    },
+    "adform.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?adform\\.net",
+      "indexPattern": "||adform.net^",
+      "redirections": [
+        "^https?:\\/\\/track\\.adform\\.net\\/C\\/.*?ckurl=([^&]+)"
+      ]
+    },
+    "artefact.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?artefact\\.com",
+      "indexPattern": "||artefact.com^",
+      "redirections": [
+        "^https?:\\/\\/.*?artefact\\.com\\/trck\\/.*?deeplinkurl=([^&]+)"
+      ]
+    },
+    "awin1.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?awin1\\.com",
+      "indexPattern": "||awin1.com^",
+      "redirections": [
+        "^https?:\\/\\/.*?awin1\\.com\\/.*?ued=([^&]+)"
+      ]
+    },
+    "telekom.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?telekom\\.de",
+      "indexPattern": "||telekom.de^",
+      "redirections": [
+        "^https?:\\/\\/aaa\\.telekom\\.de\\/trck\\/.*?deeplinkurl=([^&]+)"
+      ]
+    },
+    "loginfra.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?loginfra\\.com",
+      "indexPattern": "||loginfra.com^",
+      "redirections": [
+        "^https?:\\/\\/cc\\.loginfra\\.com\\/.*?u=([^&]+)"
+      ]
+    },
+    "umblr.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?umblr\\.com",
+      "indexPattern": "||umblr.com^",
+      "redirections": [
+        "^https?:\\/\\/t\\.umblr\\.com\\/redirect\\?z=([^&]+)"
+      ]
+    },
+    "goodreads.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?goodreads\\.com",
+      "indexPattern": "||goodreads.com^",
+      "rules": [
+        "from_search",
+        "from_srp",
+        "qid",
+        "rank",
+        "ac",
+        "ref"
+      ]
+    },
+    "sohu.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?sohu\\.com",
+      "indexPattern": "||sohu.com^",
+      "rules": [
+        "pvid",
+        "scm"
+      ]
+    },
+    "shopee": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?shopee\\.(com|co\\.th|tw)",
+      "indexPattern": [
+        "||shopee.co.th^",
+        "||shopee.com^",
+        "||shopee.tw^"
+      ],
+      "rules": [
+        "publish_id",
+        "sp_atk",
+        "xptdk"
+      ]
+    },
+    "lazada": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?lazada\\.(com|co\\.th|co\\.id|com\\.my|com\\.ph|sg|vn)",
+      "indexPattern": [
+        "||lazada.co.id^",
+        "||lazada.co.th^",
+        "||lazada.com.my^",
+        "||lazada.com.ph^",
+        "||lazada.com^",
+        "||lazada.sg^",
+        "||lazada.vn^"
+      ],
+      "rules": [
+        "clickTrackInfo",
+        "abid",
+        "pvid",
+        "ad_src",
+        "spm",
+        "src",
+        "from",
+        "scm",
+        "pa",
+        "pid_pvid",
+        "did",
+        "mp",
+        "cid",
+        "impsrc",
+        "pos"
+      ]
+    },
+    "pantip.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?pantip\\.com",
+      "indexPattern": "||pantip.com^",
+      "rawRules": [
+        "#lead.*"
+      ]
+    },
+    "skimresources.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?skimresources\\.com",
+      "indexPattern": "||skimresources.com^",
+      "redirections": [
+        "^https?:\\/\\/go\\.skimresources\\.com\\/.*?url=([^&]+)"
+      ]
+    },
+    "office-partner.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?office-partner\\.de",
+      "indexPattern": "||office-partner.de^",
+      "rules": [
+        "sPartner",
+        "campaign"
+      ]
+    },
+    "mozgcp.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mozgcp\\.net",
+      "indexPattern": "||mozgcp.net^",
+      "redirections": [
+        "^https?:\\/\\/prod\\.outgoing\\.prod\\.webservices\\.mozgcp\\.net\\/v1\\/.+?\\/([^&]+)"
+      ]
+    },
+    "thetimes.co.uk": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?thetimes\\.co\\.uk",
+      "indexPattern": "||thetimes.co.uk^",
+      "rules": [
+        "shareToken"
+      ]
+    },
+    "metro.co.uk": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?metro\\.co\\.uk",
+      "indexPattern": "||metro.co.uk^",
+      "rules": [
+        "ito"
+      ]
+    },
+    "forbes.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?forbes\\.com",
+      "indexPattern": "||forbes.com^",
+      "rules": [
+        "sh"
+      ]
+    },
+    "viglink.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?viglink\\.com",
+      "indexPattern": "||viglink.com^",
+      "redirections": [
+        "^https?:\\/\\/redirect\\.viglink\\.com\\/.*?u=([^&]+)"
+      ]
+    },
+    "nordwolle.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nordwolle\\.com",
+      "indexPattern": "||nordwolle.com^",
+      "rules": [
+        "_sc",
+        "_sid",
+        "_ss"
+      ]
+    },
+    "v.youku.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?v\\.youku\\.com",
+      "indexPattern": "||v.youku.com^",
+      "rules": [
+        "ptag",
+        "scm",
+        "spm",
+        "tpa"
+      ]
+    },
+    "iqiyi.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?iqiyi\\.com",
+      "indexPattern": "||iqiyi.com^",
+      "rules": [
+        "vfrm",
+        "vfrmblk",
+        "vfrmrst"
+      ]
+    },
+    "theregister.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?theregister\\.com",
+      "indexPattern": "||theregister.com^",
+      "rules": [
+        "td"
+      ]
+    },
+    "deezer.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?deezer\\.com",
+      "indexPattern": "||deezer.com^",
+      "rules": [
+        "origin",
+        "deferredFl"
+      ]
+    },
+    "gamesplanet.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gamesplanet\\.com",
+      "indexPattern": "||gamesplanet.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "firefox.com_1": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:accounts\\.)?firefox\\.com",
+      "indexPattern": "||firefox.com^",
+      "rules": [
+        "entrypoint",
+        "form_type"
+      ]
+    },
+    "mozilla.org_2": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:support\\.)?mozilla\\.org",
+      "indexPattern": "||mozilla.org^",
+      "rules": [
+        "src",
+        "platform",
+        "redirect_source",
+        "as"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mozilla.org\\/api"
+      ]
+    },
+    "download.mozilla.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?download\\.mozilla\\.org",
+      "indexPattern": "||download.mozilla.org^",
+      "rules": [
+        "attribution_sig",
+        "attribution_code"
+      ]
+    },
+    "addons.mozilla.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:services|versioncheck)\\.addons\\.mozilla\\.org",
+      "indexPattern": [
+        "||services.addons.mozilla.org^",
+        "||versioncheck.addons.mozilla.org^"
+      ],
+      "rules": [
+        "telemetry-client-id",
+        "appID"
+      ]
+    },
+    "defenseonegovexecnextgovroutefifty.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:defenseone|govexec|nextgov|route-fifty)\\.com",
+      "indexPattern": [
+        "||defenseone.com^",
+        "||govexec.com^",
+        "||nextgov.com^",
+        "||route-fifty.com^"
+      ],
+      "rules": [
+        "oref"
+      ]
+    },
+    "whistleout.com.au": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?whistleout\\.com\\.au",
+      "indexPattern": "||whistleout.com.au^"
+    },
+    "rac.co.uk": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rac\\.co\\.uk",
+      "indexPattern": "||rac.co.uk^",
+      "rules": [
+        "cid"
+      ]
+    },
+    "heraldcorp.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?heraldcorp\\.com\\/view\\.php",
+      "indexPattern": "||heraldcorp.com^",
+      "rules": [
+        "pos"
+      ]
+    },
+    "toomics.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?toomics\\.com",
+      "indexPattern": "||toomics.com^",
+      "rules": [
+        "pid",
+        "subpid",
+        "channel",
+        "gen"
+      ]
+    },
+    "get-express-vpns.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?get-express-vpns\\.com",
+      "indexPattern": "||get-express-vpns.com^",
+      "rules": [
+        "sxid",
+        "ttorigin"
+      ]
+    },
+    "zavvi.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?zavvi\\.com",
+      "indexPattern": "||zavvi.com^",
+      "rules": [
+        "affil",
+        "sv_campaign_id"
+      ]
+    },
+    "mkaff.com": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mkaff\\.com\\/landings\\/",
+      "indexPattern": "||mkaff.com^"
+    },
+    "trib.al": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?trib\\.al",
+      "indexPattern": "||trib.al^",
+      "rules": [
+        "fbclid",
+        "h",
+        "__tn__",
+        "c[0]"
+      ]
+    },
+    "mailsportmail.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:mail|sportmail)\\.ru",
+      "indexPattern": [
+        "||mail.ru^",
+        "||sportmail.ru^"
+      ],
+      "rules": [
+        "utm_partner_id",
+        "frommail"
+      ]
+    },
+    "pulse.mail.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?pulse\\.mail\\.ru",
+      "indexPattern": "||pulse.mail.ru^",
+      "rules": [
+        "udid",
+        "DeviceID",
+        "ver",
+        "appbuild",
+        "vendor",
+        "model",
+        "device_name",
+        "device_type",
+        "instanceid",
+        "device_year",
+        "connection_class",
+        "appsflyerid"
+      ]
+    },
+    "trk.mail.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?trk\\.mail\\.ru",
+      "indexPattern": "||trk.mail.ru^",
+      "rules": [
+        "mt_click_id"
+      ]
+    },
+    "typekit.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:use|p)\\.typekit\\.net",
+      "indexPattern": [
+        "||p.typekit.net^",
+        "||use.typekit.net^"
+      ],
+      "rules": [
+        "primer",
+        "subset_id"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?use\\.typekit\\.net.*?primer",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?use\\.typekit\\.net.*?subset_id"
+      ]
+    },
+    "qcplay.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?qcplay\\.co\\.jp",
+      "indexPattern": "||qcplay.co.jp^",
+      "rules": [
+        "c",
+        "pid",
+        "shortlink"
+      ]
+    },
+    "jin115.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:jin115\\.com|bipblog\\.com|animember\\.net|sbbit\\.jp|blog\\.livedoor\\.jp|blog\\.jp|2chblog\\.jp)",
+      "indexPattern": [
+        "||2chblog.jp^",
+        "||animember.net^",
+        "||bipblog.com^",
+        "||blog.jp^",
+        "||blog.livedoor.jp^",
+        "||jin115.com^",
+        "||sbbit.jp^"
+      ],
+      "rules": [
+        "ref"
+      ]
+    },
+    "cinematoday.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cinematoday\\.jp",
+      "indexPattern": "||cinematoday.jp^",
+      "rules": [
+        "g_clk"
+      ]
+    },
+    "xxvidsx.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?xxvidsx\\.com",
+      "indexPattern": "||xxvidsx.com^",
+      "rules": [
+        "ad",
+        "site"
+      ]
+    },
+    "atlassian.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?atlassian\\.net",
+      "indexPattern": "||atlassian.net^",
+      "rules": [
+        "atlOrigin"
+      ]
+    },
+    "so-net.ne.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?so-net\\.ne\\.jp",
+      "indexPattern": "||so-net.ne.jp^",
+      "rules": [
+        "SmRcid"
+      ]
+    },
+    "ameblo.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ameblo\\.jp",
+      "indexPattern": "||ameblo.jp^",
+      "rules": [
+        "adxarea",
+        "frm_id"
+      ]
+    },
+    "popin.cc": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?popin\\.cc\\/popin_discovery\\/",
+      "indexPattern": "||popin.cc^",
+      "rules": [
+        "info",
+        "uid"
+      ]
+    },
+    "cancanlah.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cancanlah\\.com",
+      "indexPattern": "||cancanlah.com^",
+      "rules": [
+        "click_id"
+      ]
+    },
+    "player.theplatform.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?player\\.theplatform\\.com",
+      "indexPattern": "||player.theplatform.com^",
+      "rules": [
+        "playeranalytics",
+        "targetedlink"
+      ]
+    },
+    "zalando": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?zalando\\.",
+      "indexPattern": "||zalando.*^",
+      "rules": [
+        "wmc",
+        "cd\\d+",
+        "wt_cd",
+        "tm_hem"
+      ]
+    },
+    "iguru.gr": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?iguru\\.gr",
+      "indexPattern": "||iguru.gr^",
+      "rules": [
+        "_unique_id",
+        "feed_id"
+      ]
+    },
+    "quora.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?quora\\.com\\/qemail\\/tc",
+      "indexPattern": "||quora.com^",
+      "rules": [
+        "al_imp",
+        "uid"
+      ]
+    },
+    "netkeiba.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?netkeiba\\.com",
+      "indexPattern": "||netkeiba.com^",
+      "rules": [
+        "rf"
+      ]
+    },
+    "otto.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:otto\\.de|ottoversand\\.at)",
+      "indexPattern": [
+        "||otto.de^",
+        "||ottoversand.at^"
+      ],
+      "rules": [
+        "ActionID",
+        "AffiliateID",
+        "campid"
+      ]
+    },
+    "search.naver.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?search\\.naver\\.com\\/p\\/crd\\/rd",
+      "indexPattern": "||search.naver.com^",
+      "rules": [
+        "i",
+        "px",
+        "py",
+        "sx",
+        "sy",
+        "p",
+        "s",
+        "time"
+      ]
+    },
+    "buzzfeednews.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?buzzfeednews\\.com",
+      "indexPattern": "||buzzfeednews.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "coconala.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?coconala\\.com",
+      "indexPattern": "||coconala.com^",
+      "rules": [
+        "ref",
+        "ref_kind",
+        "ref_no"
+      ]
+    },
+    "atlanticcouncil.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:atlanticcouncil\\.org|digikey\\.com)",
+      "indexPattern": [
+        "||atlanticcouncil.org^",
+        "||digikey.com^"
+      ],
+      "rules": [
+        "mkt_tok",
+        "utm_cid"
+      ]
+    },
+    "xkcd.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?xkcd\\.com",
+      "indexPattern": "||xkcd.com^",
+      "rules": [
+        "trk"
+      ]
+    },
+    "video.laxd.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?video\\.laxd\\.com",
+      "indexPattern": "||video.laxd.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "approach.yahoo.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?approach\\.yahoo\\.co\\.jp",
+      "indexPattern": "||approach.yahoo.co.jp^",
+      "rules": [
+        "code"
+      ]
+    },
+    "weidian.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?weidian\\.com",
+      "indexPattern": "||weidian.com^",
+      "rules": [
+        "distributorid",
+        "wfr",
+        "ifr",
+        "share_relation"
+      ]
+    },
+    "jasonsavard.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?jasonsavard\\.com",
+      "indexPattern": "||jasonsavard.com^",
+      "rules": [
+        "cUrl",
+        "ref"
+      ]
+    },
+    "expressvpn.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:expressvpn\\.com|vpnarea\\.com|wook\\.pt|affiliate\\.privatevpn\\.com)",
+      "indexPattern": [
+        "||affiliate.privatevpn.com^",
+        "||expressvpn.com^",
+        "||vpnarea.com^",
+        "||wook.pt^"
+      ],
+      "rules": [
+        "a_aid"
+      ]
+    },
+    "hog": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hog\\.",
+      "indexPattern": "||hog.*^",
+      "rules": [
+        "ad"
+      ]
+    },
+    "lcs.naver.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?lcs\\.naver\\.com\\/m",
+      "indexPattern": "||lcs.naver.com^",
+      "rules": [
+        "os",
+        "ln",
+        "sr",
+        "bw",
+        "bh",
+        "ls",
+        "navigationStart",
+        "requestStart",
+        "responseStart",
+        "responseEnd",
+        "domLoading",
+        "domInteractive",
+        "domContentLoadedEventStart",
+        "domContentLoadedEventEnd",
+        "domComplete",
+        "loadEventStart",
+        "loadEventEnd",
+        "pid",
+        "ts"
+      ]
+    },
+    "edx.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?edx\\.org",
+      "indexPattern": "||edx.org^",
+      "rules": [
+        "source"
+      ]
+    },
+    "infoq.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?infoq\\.com",
+      "indexPattern": "||infoq.com^",
+      "rules": [
+        "topicPageSponsorship",
+        "itm_"
+      ],
+      "rawRules": [
+        "itm_"
+      ]
+    },
+    "adshares.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?adshares\\.net",
+      "indexPattern": "||adshares.net^",
+      "rules": [
+        "cid"
+      ]
+    },
+    "creativecloud.adobe.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?creativecloud\\.adobe\\.com",
+      "indexPattern": "||creativecloud.adobe.com^",
+      "rules": [
+        "trackingid"
+      ]
+    },
+    "get.adobe.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?get\\.adobe\\.com",
+      "indexPattern": "||get.adobe.com^",
+      "rules": [
+        "browser_type",
+        "browser_dist",
+        "type",
+        "workflow",
+        "promoid",
+        "TRILIBIS_EMULATOR_UA"
+      ]
+    },
+    "ups.xplosion.de": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ups\\.xplosion\\.de\\/ctx",
+      "indexPattern": "||ups.xplosion.de^"
+    },
+    "app": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?app\\.5-delivery\\.ru",
+      "indexPattern": "||app.5-delivery.ru^",
+      "rules": [
+        "c",
+        "pid"
+      ]
+    },
+    "voyeur-house.tv": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?voyeur-house\\.tv",
+      "indexPattern": "||voyeur-house.tv^",
+      "rules": [
+        "clickid"
+      ]
+    },
+    "cht.com.tw": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cht\\.com\\.tw",
+      "indexPattern": "||cht.com.tw^",
+      "rules": [
+        "Source",
+        "Identifier"
+      ]
+    },
+    "aufast.co": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?aufast\\.co",
+      "indexPattern": "||aufast.co^",
+      "rules": [
+        "utm_",
+        "clickid"
+      ],
+      "rawRules": [
+        "^utm_"
+      ]
+    },
+    "iqbroker.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?iqbroker\\.com",
+      "indexPattern": "||iqbroker.com^",
+      "rules": [
+        "afftrack",
+        "clickid",
+        "aff_model"
+      ]
+    },
+    "dailymotion.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dailymotion\\.com\\/embed\\/video",
+      "indexPattern": "||dailymotion.com^",
+      "rules": [
+        "ads_params",
+        "origin"
+      ]
+    },
+    "wired": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wired\\.(co\\.uk|com)",
+      "indexPattern": [
+        "||wired.co.uk^",
+        "||wired.com^"
+      ],
+      "rules": [
+        "mbid",
+        "intcid"
+      ]
+    },
+    "wikihow.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wikihow\\.com",
+      "indexPattern": "||wikihow.com^",
+      "rules": [
+        "utm_source"
+      ]
+    },
+    "kohls.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?kohls\\.com",
+      "indexPattern": "||kohls.com^",
+      "rules": [
+        "CID"
+      ]
+    },
+    "t.myvisualiq.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?t\\.myvisualiq\\.net",
+      "indexPattern": "||t.myvisualiq.net^",
+      "rules": [
+        "red"
+      ]
+    },
+    "uspoloassnarcelik.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:uspoloassn|arcelik)\\.com",
+      "indexPattern": [
+        "||arcelik.com^",
+        "||uspoloassn.com^"
+      ],
+      "rules": [
+        "ref"
+      ]
+    },
+    "expressksta.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:express|ksta)\\.de",
+      "indexPattern": [
+        "||express.de^",
+        "||ksta.de^"
+      ],
+      "rules": [
+        "cb"
+      ]
+    },
+    "bbc": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bbc\\.",
+      "indexPattern": "||bbc.*^",
+      "rules": [
+        "facebook_page",
+        "at_bbc_team",
+        "ns_mchannel",
+        "ns_source",
+        "ns_campaign",
+        "ns_linkname",
+        "ns_fee"
+      ]
+    },
+    "jlcpcb.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?jlcpcb\\.com",
+      "indexPattern": "||jlcpcb.com^",
+      "rules": [
+        "from"
+      ]
+    },
+    "event.hoken": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?event\\.hoken-mammoth\\.jp",
+      "indexPattern": "||event.hoken-mammoth.jp^",
+      "rules": [
+        "s_mf"
+      ]
+    },
+    "123chat.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:123chat\\.jp|kanochat\\.jp|live\\.fc2\\.com)",
+      "indexPattern": [
+        "||123chat.jp^",
+        "||kanochat.jp^",
+        "||live.fc2.com^"
+      ],
+      "rules": [
+        "afid"
+      ]
+    },
+    "investing.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?investing\\.com",
+      "indexPattern": "||investing.com^"
+    },
+    "basketballking.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?basketballking\\.jp",
+      "indexPattern": "||basketballking.jp^",
+      "rules": [
+        "cx_art"
+      ]
+    },
+    "japan.cnet.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?japan\\.cnet\\.com",
+      "indexPattern": "||japan.cnet.com^",
+      "rules": [
+        "tag"
+      ]
+    },
+    "asahi.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?asahi\\.com",
+      "indexPattern": "||asahi.com^",
+      "rules": [
+        "iref",
+        "ref",
+        "cid"
+      ]
+    },
+    "cnn.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cnn\\.co\\.jp",
+      "indexPattern": "||cnn.co.jp^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "jiji.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?jiji\\.com",
+      "indexPattern": "||jiji.com^",
+      "rules": [
+        "m"
+      ]
+    },
+    "fashion-press.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?fashion-press\\.net",
+      "indexPattern": "||fashion-press.net^",
+      "rules": [
+        "media"
+      ]
+    },
+    "douban.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?douban\\.com",
+      "indexPattern": "||douban.com^",
+      "rules": [
+        "_i",
+        "dt_dapp",
+        "dt_platform"
+      ]
+    },
+    "oshiete.goo.ne.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?oshiete\\.goo\\.ne\\.jp",
+      "indexPattern": "||oshiete.goo.ne.jp^",
+      "rules": [
+        "from"
+      ]
+    },
+    "immobilienscout24.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?immobilienscout24\\.de",
+      "indexPattern": "||immobilienscout24.de^",
+      "rules": [
+        "referrer",
+        "navigationServiceUrl",
+        "searchId",
+        "searchGeoPath",
+        "source",
+        "enteredFrom"
+      ]
+    },
+    "tumblr.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:tumblr\\.com|tumblr\\.app\\.link)",
+      "indexPattern": [
+        "||tumblr.app.link^",
+        "||tumblr.com^"
+      ],
+      "rules": [
+        "source",
+        "_p"
+      ],
+      "redirections": [
+        "^https?:\\/\\/t\\.umblr\\.com\\/redirect\\?z=([^&]+)"
+      ]
+    },
+    "dhits.docomo.ne.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dhits\\.docomo\\.ne\\.jp",
+      "indexPattern": "||dhits.docomo.ne.jp^",
+      "rules": [
+        "affiliate"
+      ]
+    },
+    "promo.korabli.su": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?promo\\.korabli\\.su",
+      "indexPattern": "||promo.korabli.su^"
+    },
+    "elgato.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?elgato\\.com",
+      "indexPattern": "||elgato.com^",
+      "rules": [
+        "platform",
+        "link_id",
+        "token",
+        "contact_id",
+        "attribution_window"
+      ]
+    },
+    "vercel.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?vercel\\.com",
+      "indexPattern": "||vercel.com^",
+      "rules": [
+        "redirected",
+        "sfmc_channel",
+        "sfmc_activity_name",
+        "sfmc_activity_id",
+        "sfmc_journey_name",
+        "sfmc_journey_id",
+        "sfmc_asset_id",
+        "sfmc_activityid"
+      ]
+    },
+    "getir.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?getir\\.com",
+      "indexPattern": "||getir.com^",
+      "rules": [
+        "is_retargeting",
+        "shortlink",
+        "deep_link_value",
+        "c",
+        "source_caller",
+        "pid",
+        "af_reengagement_window"
+      ]
+    },
+    "mirror.co.uk": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mirror\\.co\\.uk",
+      "indexPattern": "||mirror.co.uk^",
+      "rules": [
+        "int_source"
+      ]
+    },
+    "wiley.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wiley\\.com",
+      "indexPattern": "||wiley.com^",
+      "rules": [
+        "elq"
+      ]
+    },
+    "thumbs4.redgifs.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?thumbs4\\.redgifs\\.com",
+      "indexPattern": "||thumbs4.redgifs.com^",
+      "rules": [
+        "for"
+      ]
+    },
+    "politica.com.ua": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?politica\\.com\\.ua",
+      "indexPattern": "||politica.com.ua^",
+      "rules": [
+        "isUser"
+      ]
+    },
+    "cc.naver.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cc\\.naver\\.com\\/cc",
+      "indexPattern": "||cc.naver.com^",
+      "rules": [
+        "bw",
+        "px",
+        "py",
+        "sx",
+        "sy"
+      ]
+    },
+    "campaigns-serving.cognativex.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?campaigns-serving\\.cognativex\\.com",
+      "indexPattern": "||campaigns-serving.cognativex.com^",
+      "rules": [
+        "history_postids",
+        "device_code",
+        "exc_ads",
+        "history_adids"
+      ]
+    },
+    "dzen.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dzen\\.ru",
+      "indexPattern": "||dzen.ru^",
+      "rules": [
+        "from",
+        "cl4url",
+        "tst",
+        "clid",
+        "yredirect",
+        "stid",
+        "persistent_id"
+      ]
+    },
+    "bunte.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bunte\\.de",
+      "indexPattern": "||bunte.de^",
+      "rules": [
+        "umt_source"
+      ]
+    },
+    "store.udiscovermusic.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?store\\.udiscovermusic\\.com",
+      "indexPattern": "||store.udiscovermusic.com^",
+      "rules": [
+        "utm_"
+      ]
+    },
+    "hktvmall.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hktvmall\\.com\\/yuicombo",
+      "indexPattern": "||hktvmall.com^",
+      "rules": [
+        "_ui\\/shared\\/common\\/js\\/analytics\\/with-intersection-track.js"
+      ]
+    },
+    "go.xlivrdr.com": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?go\\.xlivrdr\\.com",
+      "indexPattern": "||go.xlivrdr.com^"
+    },
+    "stripchat.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?stripchat\\.com",
+      "indexPattern": "||stripchat.com^",
+      "rules": [
+        "affiliateId",
+        "referrer",
+        "campaignId",
+        "sourceId",
+        "realDomain"
+      ]
+    },
+    "1password.university": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?1password\\.university",
+      "indexPattern": "||1password.university^",
+      "rules": [
+        "utm_ref"
+      ]
+    },
+    "blog.twitch.tv": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?blog\\.twitch\\.tv",
+      "indexPattern": "||blog.twitch.tv^",
+      "rules": [
+        "web_only"
+      ]
+    },
+    "michaelkors.global": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?michaelkors\\.global",
+      "indexPattern": "||michaelkors.global^",
+      "rules": [
+        "ecid"
+      ]
+    },
+    "doctolib.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?doctolib\\.de",
+      "indexPattern": "||doctolib.de^",
+      "rules": [
+        "utm_website",
+        "utm_page-url",
+        "utm_content-group",
+        "utm_button"
+      ]
+    },
+    "nationalgeographic.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nationalgeographic\\.com",
+      "indexPattern": "||nationalgeographic.com^",
+      "rules": [
+        "utm_rd",
+        "__F__",
+        "__dU__"
+      ]
+    },
+    "ficbook.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ficbook\\.net",
+      "indexPattern": "||ficbook.net^",
+      "rules": [
+        "premiumVisit",
+        "utm_compaign"
+      ]
+    },
+    "fmworld.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?fmworld\\.net",
+      "indexPattern": "||fmworld.net^",
+      "rules": [
+        "from"
+      ]
+    },
+    "kaspersky": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?kaspersky\\.",
+      "indexPattern": "||kaspersky.*^",
+      "rules": [
+        "icid"
+      ]
+    },
+    "zenaps.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:zenaps\\.com|awin1\\.com)",
+      "indexPattern": [
+        "||awin1.com^",
+        "||zenaps.com^"
+      ],
+      "rules": [
+        "cookie",
+        "bId",
+        "linkid",
+        "clickref",
+        "awinaffid"
+      ]
+    },
+    "music.apple.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?music\\.apple\\.com",
+      "indexPattern": "||music.apple.com^",
+      "rules": [
+        "itsct",
+        "itscg"
+      ]
+    },
+    "target.georiot.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?target\\.georiot\\.com\\/Proxy\\.ashx",
+      "indexPattern": "||target.georiot.com^",
+      "rules": [
+        "tsid"
+      ]
+    },
+    "kamigame.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?kamigame\\.jp",
+      "indexPattern": "||kamigame.jp^",
+      "rules": [
+        "kamigame_source"
+      ]
+    },
+    "shop.hololivepro.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?shop\\.hololivepro\\.com",
+      "indexPattern": "||shop.hololivepro.com^",
+      "rules": [
+        "pr_rec_id",
+        "pr_rec_pid",
+        "pr_ref_pid",
+        "pr_seq",
+        "pr_prod_strat"
+      ]
+    },
+    "wq.jd.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wq\\.jd\\.com",
+      "indexPattern": "||wq.jd.com^",
+      "rules": [
+        "pvid"
+      ]
+    },
+    "coolblue.nl": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?coolblue\\.nl",
+      "indexPattern": "||coolblue.nl^",
+      "rules": [
+        "clickref",
+        "ref",
+        "PHGref",
+        "cmt"
+      ]
+    },
+    "banggood.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?banggood\\.com",
+      "indexPattern": "||banggood.com^",
+      "rules": [
+        "utmid"
+      ]
+    },
+    "dell.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dell\\.com",
+      "indexPattern": "||dell.com^",
+      "rules": [
+        "gacd"
+      ]
+    },
+    "revolut.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?revolut\\.com",
+      "indexPattern": "||revolut.com^",
+      "rules": [
+        "%7Ecampaign_id",
+        "%7Eclick_id",
+        "ext",
+        "%7Esecondary_publisher",
+        "%243p"
+      ]
+    },
+    "wise.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wise\\.com",
+      "indexPattern": "||wise.com^",
+      "rules": [
+        "partnerizecampaignID",
+        "adref",
+        "clickref",
+        "partnerID"
+      ]
+    },
+    "join.worldoftanks": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?join\\.worldoftanks\\.",
+      "indexPattern": "||worldoftanks.*^",
+      "rules": [
+        "xid",
+        "sid",
+        "enctid",
+        "pub_id"
+      ]
+    },
+    "weather.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?weather\\.com",
+      "indexPattern": "||weather.com^",
+      "rules": [
+        "par"
+      ]
+    },
+    "mirtesen.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mirtesen\\.ru",
+      "indexPattern": "||mirtesen.ru^",
+      "rules": [
+        "nvuuid",
+        "bvuuid",
+        "ad"
+      ]
+    },
+    "site": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site(?:2|3)?\\.com",
+      "indexPattern": [
+        "||site.com^",
+        "||site2.com^",
+        "||site3.com^"
+      ],
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site2\\.com.*?\\?.*=(.*)",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site\\.com.*?\\?to=([^&]*)",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?site3\\.com.*?\\?r=([^&]*)"
+      ]
+    },
+    "olybet.lv": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?olybet\\.lv",
+      "indexPattern": "||olybet.lv^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "provereno.media": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?provereno\\.media",
+      "indexPattern": "||provereno.media^",
+      "rules": [
+        "tg_rhash"
+      ]
+    },
+    "weathernews.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?weathernews\\.jp",
+      "indexPattern": "||weathernews.jp^",
+      "rules": [
+        "fm"
+      ]
+    },
+    "grok.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?grok\\.com",
+      "indexPattern": "||grok.com^",
+      "rules": [
+        "referrer"
+      ]
+    },
+    "nikke-jp.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nikke-jp\\.com",
+      "indexPattern": "||nikke-jp.com^",
+      "rules": [
+        "pid"
+      ]
+    },
+    "nikke.onelink.me": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nikke\\.onelink\\.me",
+      "indexPattern": "||nikke.onelink.me^",
+      "rules": [
+        "pid"
+      ]
+    },
+    "ssg.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:m-emart|emart)\\.ssg\\.com",
+      "indexPattern": [
+        "||emart.ssg.com^",
+        "||m-emart.ssg.com^"
+      ],
+      "rules": [
+        "siteNo",
+        "ckwhere",
+        "appPopYn",
+        "service_id"
+      ]
+    },
+    "gettranny.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gettranny\\.com",
+      "indexPattern": "||gettranny.com^",
+      "rules": [
+        "campaign"
+      ]
+    },
+    "stanby.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?stanby\\.com",
+      "indexPattern": "||stanby.com^",
+      "rules": [
+        "sr_fr"
+      ]
+    },
+    "myaccount.google.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?myaccount\\.google\\.com",
+      "indexPattern": "||myaccount.google.com^",
+      "rules": [
+        "source"
+      ]
+    },
+    "hcaptcha.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hcaptcha\\.com",
+      "indexPattern": "||hcaptcha.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "korona.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?korona\\.ru",
+      "indexPattern": "||korona.ru^",
+      "rules": [
+        "pr-source",
+        "pr-medium",
+        "pr-campaign"
+      ]
+    },
+    "k2s.cc": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?k2s\\.cc",
+      "indexPattern": "||k2s.cc^",
+      "rules": [
+        "site"
+      ]
+    },
+    "skyengskysmart.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:skyeng|skysmart)\\.ru",
+      "indexPattern": [
+        "||skyeng.ru^",
+        "||skysmart.ru^"
+      ],
+      "rules": [
+        "source_type",
+        "manager",
+        "workflow",
+        "product"
+      ]
+    },
+    "em.dynamicyield.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?em\\.dynamicyield\\.com",
+      "indexPattern": "||em.dynamicyield.com^",
+      "rules": [
+        "tag_ids"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?em\\.dynamicyield\\.com.*?cuid"
+      ]
+    },
+    "ebikes.ca": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ebikes\\.ca",
+      "indexPattern": "||ebikes.ca^",
+      "rules": [
+        "___store",
+        "___from_store"
+      ]
+    },
+    "html5.gamedistribution.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?html5\\.gamedistribution\\.com",
+      "indexPattern": "||html5.gamedistribution.com^",
+      "rules": [
+        "mp_site_url",
+        "mp_site_name",
+        "mp_view_type",
+        "mp_api_js_url_bc",
+        "mp_site_https_url",
+        "mp_locale",
+        "mp_timezone",
+        "xdm_p",
+        "xdm_c",
+        "xdm_e",
+        "mini_signature",
+        "mp_game_uid",
+        "mp_player_type",
+        "mp_int",
+        "mp_game_url",
+        "mp_game_id",
+        "mp_game_assets",
+        "mp_game_embed",
+        "mp_api_js_url_bck",
+        "mp_embed",
+        "mp_assets",
+        "mp_api_js_url",
+        "mp_api_id",
+        "mp_api_as3_url_bck",
+        "mp_api_as3_url"
+      ]
+    },
+    "wesleyfinancialgroup.typeform.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wesleyfinancialgroup\\.typeform\\.com",
+      "indexPattern": "||wesleyfinancialgroup.typeform.com^",
+      "rules": [
+        "taboola_click_id",
+        "typeform-source",
+        "tblci"
+      ]
+    },
+    "m24.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?m24\\.ru",
+      "indexPattern": "||m24.ru^",
+      "rules": [
+        "from"
+      ]
+    },
+    "litres.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?litres\\.ru",
+      "indexPattern": "||litres.ru^",
+      "rules": [
+        "lfrom_processed"
+      ]
+    },
+    "hokkaido-np.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hokkaido-np\\.co\\.jp",
+      "indexPattern": "||hokkaido-np.co.jp^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "tv.apple.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tv\\.apple\\.com",
+      "indexPattern": "||tv.apple.com^",
+      "rules": [
+        "itscg",
+        "itsct"
+      ]
+    },
+    "m": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?m\\.1688\\.com",
+      "indexPattern": "||m.1688.com^",
+      "rules": [
+        "src",
+        "__removesafearea__",
+        "src_cna"
+      ]
+    },
+    "gofundme.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gofundme\\.com",
+      "indexPattern": "||gofundme.com^",
+      "rules": [
+        "attribution_id"
+      ]
+    },
+    "deepl.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?deepl\\.com",
+      "indexPattern": "||deepl.com^",
+      "rules": [
+        "share",
+        "cta"
+      ]
+    },
+    "threads": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?threads\\.(com|net)",
+      "indexPattern": [
+        "||threads.com^",
+        "||threads.net^"
+      ],
+      "rules": [
+        "xmt",
+        "igshid"
+      ]
+    },
+    "nintendo.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nintendo\\.com",
+      "indexPattern": "||nintendo.com^",
+      "rules": [
+        "nt_redirect_referrer"
+      ]
+    },
+    "code-wallets.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?code-wallets\\.com",
+      "indexPattern": "||code-wallets.com^",
+      "rules": [
+        "tw_adid"
+      ]
+    },
+    "autodaily.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?autodaily\\.ru",
+      "indexPattern": "||autodaily.ru^",
+      "rules": [
+        "from"
+      ]
+    },
+    "practicum.yandex": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?practicum\\.yandex\\.",
+      "indexPattern": "||yandex.*^",
+      "rules": [
+        "from"
+      ]
+    },
+    "shop.asus.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?shop\\.asus\\.com",
+      "indexPattern": "||shop.asus.com^",
+      "rules": [
+        "campaign_id",
+        "ad_id"
+      ]
+    },
+    "read.amazon": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?read\\.amazon\\.",
+      "indexPattern": "||amazon.*^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "support.bluestacks.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?support\\.bluestacks\\.com",
+      "indexPattern": "||support.bluestacks.com^",
+      "rules": [
+        "email",
+        "guid",
+        "oem",
+        "client_ver",
+        "install_id",
+        "country"
+      ]
+    },
+    "carwow.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?carwow\\.de",
+      "indexPattern": "||carwow.de^",
+      "rules": [
+        "utm_group",
+        "affiliate_ref",
+        "impact_ad_id",
+        "impact_click_id",
+        "impact_product_sku"
+      ]
+    },
+    "assetstore.unity.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?assetstore\\.unity\\.com",
+      "indexPattern": "||assetstore.unity.com^",
+      "rules": [
+        "aid"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?assetstore\\.unity\\.com\\/packages\\/.*?aid=.*?utm_"
+      ]
+    },
+    "airvpn.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?airvpn\\.org",
+      "indexPattern": "||airvpn.org^",
+      "rules": [
+        "referred_by"
+      ]
+    },
+    "go.getproton.me": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?go\\.getproton\\.me",
+      "indexPattern": "||go.getproton.me^",
+      "rules": [
+        "aff_c",
+        "ref"
+      ]
+    },
+    "billing.purevpn.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?billing\\.purevpn\\.com\\/aff\\.php",
+      "indexPattern": "||billing.purevpn.com^",
+      "rules": [
+        "aff"
+      ]
+    },
+    "strongvpn.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?strongvpn\\.com",
+      "indexPattern": "||strongvpn.com^",
+      "rules": [
+        "tr_aid"
+      ]
+    },
+    "trustzonevpn.info": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?trustzonevpn\\.info\\/r\\.php",
+      "indexPattern": "||trustzonevpn.info^",
+      "rules": [
+        "RID"
+      ]
+    },
+    "get.surfshark.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?get\\.surfshark\\.net",
+      "indexPattern": "||get.surfshark.net^",
+      "rules": [
+        "aff_c",
+        "aff_id",
+        "offer_id"
+      ]
+    },
+    "hide.me": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hide\\.me",
+      "indexPattern": "||hide.me^",
+      "rules": [
+        "friend"
+      ]
+    },
+    "weareholy.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?weareholy\\.com",
+      "indexPattern": "||weareholy.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "eventbrite.ca": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?eventbrite\\.ca",
+      "indexPattern": "||eventbrite.ca^",
+      "rules": [
+        "aff"
+      ]
+    },
+    "accounts.adblockplus.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?accounts\\.adblockplus\\.org",
+      "indexPattern": "||accounts.adblockplus.org^",
+      "rules": [
+        "an",
+        "av",
+        "ap",
+        "apv",
+        "p",
+        "pv",
+        "s"
+      ]
+    },
+    "engage.cloud.microsoft": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?engage\\.cloud\\.microsoft\\/main\\/.*thread",
+      "indexPattern": "||engage.cloud.microsoft^",
+      "rules": [
+        "trk_user",
+        "trk_thread_id",
+        "trk_outlook_origin",
+        "trk_notif_id",
+        "trk_network",
+        "trk_event",
+        "trk_email_type",
+        "trk_ecs_etag",
+        "allow_app_redirect"
+      ]
+    },
+    "comic": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?comic\\.k-manga\\.jp",
+      "indexPattern": "||comic.k-manga.jp^",
+      "rules": [
+        "xuid",
+        "ad",
+        "adtype",
+        "ad_flag"
+      ]
+    },
+    "sharepoint.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?sharepoint\\.com",
+      "indexPattern": "||sharepoint.com^",
+      "rules": [
+        "referrerScenario",
+        "referrer",
+        "xsdata",
+        "sdata",
+        "clickparams",
+        "ovuser",
+        "OR",
+        "CT",
+        "e",
+        "CID"
+      ]
+    },
+    "ure.pia.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ure\\.pia\\.co\\.jp",
+      "indexPattern": "||ure.pia.co.jp^",
+      "rules": [
+        "c"
+      ]
+    },
+    "kitbash3d.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?kitbash3d\\.com",
+      "indexPattern": "||kitbash3d.com^",
+      "rules": [
+        "campaign_id",
+        "ad_id"
+      ]
+    },
+    "expressvpn.com_1": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?expressvpn\\.com",
+      "indexPattern": "||expressvpn.com^",
+      "rules": [
+        "xvcid",
+        "shareid",
+        "a_aid"
+      ],
+      "referralMarketing": [
+        "a_aid"
+      ]
+    },
+    "golfdigest.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?golfdigest\\.co\\.jp",
+      "indexPattern": "||golfdigest.co.jp^",
+      "rules": [
+        "car"
+      ]
+    },
+    "ho-mobile.it": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ho-mobile\\.it",
+      "indexPattern": "||ho-mobile.it^",
+      "rules": [
+        "icmp"
+      ]
+    },
+    "semrush.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?semrush\\.com",
+      "indexPattern": "||semrush.com^",
+      "rules": [
+        "source"
+      ]
+    },
+    "bookshop.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bookshop\\.org",
+      "indexPattern": "||bookshop.org^",
+      "rules": [
+        "affiliate"
+      ]
+    },
+    "marketplace.navitime.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?marketplace\\.navitime\\.co\\.jp",
+      "indexPattern": "||marketplace.navitime.co.jp^",
+      "rules": [
+        "from"
+      ]
+    },
+    "gaming.amazon.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gaming\\.amazon\\.com",
+      "indexPattern": "||gaming.amazon.com^",
+      "rules": [
+        "ref_",
+        "twitchReferral",
+        "yTwchPos",
+        "tag"
+      ]
+    },
+    "blog.naver.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?blog\\.naver\\.com",
+      "indexPattern": "||blog.naver.com^",
+      "rules": [
+        "trackingCode",
+        "proxyReferer",
+        "referrerCode"
+      ]
+    },
+    "muskelmacher-shop.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?muskelmacher-shop\\.de",
+      "indexPattern": "||muskelmacher-shop.de^",
+      "rules": [
+        "sv_campaign_id",
+        "sv1"
+      ]
+    },
+    "rd.bizrate.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rd\\.bizrate\\.com",
+      "indexPattern": "||rd.bizrate.com^",
+      "rules": [
+        "af_creative_id",
+        "af_assettype_id",
+        "rf_code",
+        "af_placement_id",
+        "cobrand",
+        "af_permalink_id",
+        "af_rid",
+        "af_id",
+        "bidType",
+        "bId",
+        "tokenId",
+        "dMid"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rd\\.bizrate\\.com.*?utm_campaign",
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rd\\.bizrate\\.com.*?utm_medium"
+      ]
+    },
+    "metro": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?metro\\.",
+      "indexPattern": "||metro.*^",
+      "rules": [
+        "cnxclid"
+      ]
+    },
+    "ehon.alphapolis.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ehon\\.alphapolis\\.co\\.jp",
+      "indexPattern": "||ehon.alphapolis.co.jp^",
+      "rules": [
+        "from"
+      ]
+    },
+    "liferbc.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?liferbc\\.ru",
+      "indexPattern": "||liferbc.ru^",
+      "rules": [
+        "from"
+      ]
+    },
+    "luisaviaroma.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?luisaviaroma\\.com\\/.*\\/p",
+      "indexPattern": "||luisaviaroma.com^",
+      "rules": [
+        "lvrid"
+      ]
+    },
+    "dailymail.co.uk": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dailymail\\.co\\.uk",
+      "indexPattern": "||dailymail.co.uk^",
+      "rules": [
+        "ns_mchannel",
+        "ns_campaign",
+        "ito"
+      ]
+    },
+    "vpnpay.io": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?vpnpay\\.io",
+      "indexPattern": "||vpnpay.io^",
+      "rules": [
+        "sr",
+        "pr",
+        "arf"
+      ]
+    },
+    "fanatical.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?fanatical\\.com",
+      "indexPattern": "||fanatical.com^",
+      "rules": [
+        "cj_pid",
+        "cj_aid",
+        "aff_track",
+        "CJEVENT"
+      ]
+    },
+    "ca.indeed.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ca\\.indeed\\.com",
+      "indexPattern": "||ca.indeed.com^",
+      "rules": [
+        "from",
+        "tk",
+        "fromjk",
+        "attributionid",
+        "vjs",
+        "cmp",
+        "t",
+        "q",
+        "l",
+        "xpse",
+        "xfps",
+        "xkcb",
+        "hl",
+        "rjptk",
+        "advn",
+        "adid",
+        "ad",
+        "sjdu",
+        "acatk",
+        "pub",
+        "i2af",
+        "camk",
+        "jrtk"
+      ]
+    },
+    "target.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?target\\.com",
+      "indexPattern": "||target.com^",
+      "rules": [
+        "ref",
+        "AFID",
+        "fndsrc",
+        "DFA",
+        "adgroup",
+        "LNM",
+        "network",
+        "device",
+        "location",
+        "targetid",
+        "CPNG",
+        "LID"
+      ]
+    },
+    "comfy.ua": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?comfy\\.ua",
+      "indexPattern": "||comfy.ua^",
+      "rules": [
+        "sc_content"
+      ]
+    },
+    "app.startpage.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?app\\.startpage\\.com",
+      "indexPattern": "||app.startpage.com^",
+      "rules": [
+        "source"
+      ]
+    },
+    "americanas.com.br": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?americanas\\.com\\.br",
+      "indexPattern": "||americanas.com.br^",
+      "rules": [
+        "offerId",
+        "nm_origem",
+        "DCSext.recom",
+        "pfm_type",
+        "nm_ranking_rec",
+        "pfm_carac",
+        "pfm_pos",
+        "pfm_page",
+        "pfm_index"
+      ]
+    },
+    "hepsiburada.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hepsiburada\\.com",
+      "indexPattern": "||hepsiburada.com^",
+      "rules": [
+        "ftid",
+        "wt_inf",
+        "wt_ds",
+        "url_src",
+        "wt_so",
+        "shortlink",
+        "wt_af",
+        "wt_gl"
+      ]
+    },
+    "moebel.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?moebel\\.de",
+      "indexPattern": "||moebel.de^",
+      "rules": [
+        "visitor_id",
+        "visitor_status"
+      ]
+    },
+    "nhk": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nhk\\.(jp|or\\.jp)",
+      "indexPattern": [
+        "||nhk.jp^",
+        "||nhk.or.jp^"
+      ],
+      "rules": [
+        "cid"
+      ]
+    },
+    "edge.curalate.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?edge\\.curalate\\.com",
+      "indexPattern": "||edge.curalate.com^",
+      "rules": [
+        "appId",
+        "fpcuid",
+        "rid",
+        "spatialTags"
+      ]
+    },
+    "action.metaffiliation.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?action\\.metaffiliation\\.com",
+      "indexPattern": "||action.metaffiliation.com^",
+      "rules": [
+        "argsite"
+      ]
+    },
+    "rentio.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rentio\\.jp",
+      "indexPattern": "||rentio.jp^",
+      "rules": [
+        "click_from"
+      ]
+    },
+    "readyfor.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?readyfor\\.jp",
+      "indexPattern": "||readyfor.jp^",
+      "rules": [
+        "sns_share_token"
+      ]
+    },
+    "newspicks.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?newspicks\\.com",
+      "indexPattern": "||newspicks.com^",
+      "rules": [
+        "a",
+        "adid",
+        "ref",
+        "block",
+        "ref_t"
+      ]
+    },
+    "wsj.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wsj\\.com",
+      "indexPattern": "||wsj.com^",
+      "rules": [
+        "mod",
+        "reflink"
+      ]
+    },
+    "tagomago.pl": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tagomago\\.pl",
+      "indexPattern": "||tagomago.pl^",
+      "rules": [
+        "subid",
+        "subid1",
+        "variant"
+      ]
+    },
+    "linkbux.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?linkbux\\.com\\/track\\/",
+      "indexPattern": "||linkbux.com^",
+      "rules": [
+        "uid"
+      ]
+    },
+    "trip.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?trip\\.com",
+      "indexPattern": "||trip.com^",
+      "rules": [
+        "trip_sub1",
+        "allianceid"
+      ]
+    },
+    "dls.igg.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dls\\.igg\\.com",
+      "indexPattern": "||dls.igg.com^",
+      "rules": [
+        "media_source",
+        "campaign_name"
+      ]
+    },
+    "health.tvbs.com.tw": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?health\\.tvbs\\.com\\.tw",
+      "indexPattern": "||health.tvbs.com.tw^",
+      "rules": [
+        "from"
+      ]
+    },
+    "dvdfab": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dvdfab\\.(cn|org)",
+      "indexPattern": [
+        "||dvdfab.cn^",
+        "||dvdfab.org^"
+      ],
+      "rules": [
+        "trackid",
+        "soft",
+        "ad",
+        "ver",
+        "clientusertype",
+        "client_e",
+        "c_ex",
+        "c_id",
+        "c_ad",
+        "c_app",
+        "c_app_from",
+        "c_bm",
+        "c_dt",
+        "c_sys",
+        "c_u",
+        "c_ut",
+        "c_ver",
+        "c_wh",
+        "client_m",
+        "client_t"
+      ]
+    },
+    "puma.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?puma\\.com",
+      "indexPattern": "||puma.com^",
+      "rules": [
+        "sc_src",
+        "sc_lid",
+        "sc_uid",
+        "sc_llid",
+        "sc_eh"
+      ]
+    },
+    "boosty.to": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?boosty\\.to",
+      "indexPattern": "||boosty.to^",
+      "rules": [
+        "_1ld",
+        "_1lp",
+        "from"
+      ]
+    },
+    "avansas.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?avansas\\.com",
+      "indexPattern": "||avansas.com^",
+      "rules": [
+        "sc_src",
+        "sc_llid",
+        "sc_lid",
+        "sc_uid",
+        "sc_customer"
+      ]
+    },
+    "keepstreams": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?keepstreams\\.(jp|com)",
+      "indexPattern": [
+        "||keepstreams.com^",
+        "||keepstreams.jp^"
+      ],
+      "rules": [
+        "c_app",
+        "client_m",
+        "c_sys",
+        "c_dt",
+        "c_wh",
+        "c_ad",
+        "c_ver",
+        "soft",
+        "ad",
+        "downloadmode"
+      ]
+    },
+    "kickstarter.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?kickstarter\\.com",
+      "indexPattern": "||kickstarter.com^",
+      "rules": [
+        "ref",
+        "event",
+        "term",
+        "total_hits"
+      ]
+    },
+    "washingtonpost.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?washingtonpost\\.com",
+      "indexPattern": "||washingtonpost.com^",
+      "rules": [
+        "itid"
+      ]
+    },
+    "tezfiles.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tezfiles\\.com",
+      "indexPattern": "||tezfiles.com^",
+      "rules": [
+        "site"
+      ]
+    },
+    "calciomatome.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?calciomatome\\.net",
+      "indexPattern": "||calciomatome.net^",
+      "rules": [
+        "seesaa_related"
+      ]
+    },
+    "smocca.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?smocca\\.jp",
+      "indexPattern": "||smocca.jp^",
+      "rules": [
+        "cb_ref_code"
+      ]
+    },
+    "rtrp.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rtrp\\.jp",
+      "indexPattern": "||rtrp.jp^",
+      "rules": [
+        "p_s"
+      ]
+    },
+    "lidea.today": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?lidea\\.today",
+      "indexPattern": "||lidea.today^",
+      "rules": [
+        "from"
+      ]
+    },
+    "rbc.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rbc\\.ru",
+      "indexPattern": "||rbc.ru^",
+      "rules": [
+        "from"
+      ]
+    },
+    "fontanka.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?fontanka\\.ru",
+      "indexPattern": "||fontanka.ru^",
+      "rules": [
+        "from"
+      ]
+    },
+    "p.liadm.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?p\\.liadm\\.com\\/click",
+      "indexPattern": "||p.liadm.com^",
+      "rules": [
+        "i6",
+        "_lc2_fpi",
+        "stpe",
+        "li"
+      ]
+    },
+    "microsoftmsnbing.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:microsoft|msn|bing)\\.com",
+      "indexPattern": [
+        "||bing.com^",
+        "||microsoft.com^",
+        "||msn.com^"
+      ],
+      "rules": [
+        "pc",
+        "ei",
+        "ranEAID",
+        "ranSiteID",
+        "ocid",
+        "nclid",
+        "cvid",
+        "epi",
+        "FORM",
+        "sk",
+        "sp",
+        "sc",
+        "qs",
+        "qp"
+      ],
+      "referralMarketing": [
+        "form"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bing(?:\\.[a-z]{2,}){1,}\\/WS\\/redirect\\/"
+      ]
+    },
+    "comemo.nikkei.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:comemo\\.nikkei\\.com|diehardtales\\.com|greenplanet\\.kaneka\\.co\\.jp|j-yokatsu2\\.edu\\.city\\.uruma\\.okinawa\\.jp|labo\\.rheos\\.jp|note-harumi\\.sbfoods\\.co\\.jp|note\\.basicinc\\.jp|note\\.bcnretail\\.com|note\\.calbee\\.jp|note\\.com|note\\.gallery\\.intage\\.com|note\\.kogakuin\\.ac\\.jp|note\\.jp|note\\.minne\\.com|note\\.montblanc\\.design|note\\.nhkso\\.or\\.jp|note\\.pokkasapporo-fb\\.jp|note\\.roxx\\.co\\.jp|note\\.smartnews-ads\\.com|note\\.universal-music\\.co\\.jp|note\\.yamap\\.com|note\\.zochang\\.com|refalover-note\\.mainichi\\.jp|shanaiho\\.itandi\\.co\\.jp|uragawa-note\\.jpn\\.panasonic\\.com|webtripper\\.jp)",
+      "indexPattern": [
+        "||comemo.nikkei.com^",
+        "||diehardtales.com^",
+        "||greenplanet.kaneka.co.jp^",
+        "||j-yokatsu2.edu.city.uruma.okinawa.jp^",
+        "||labo.rheos.jp^",
+        "||note-harumi.sbfoods.co.jp^",
+        "||note.basicinc.jp^",
+        "||note.bcnretail.com^",
+        "||note.calbee.jp^",
+        "||note.com^",
+        "||note.gallery.intage.com^",
+        "||note.jp^",
+        "||note.kogakuin.ac.jp^",
+        "||note.minne.com^",
+        "||note.montblanc.design^",
+        "||note.nhkso.or.jp^",
+        "||note.pokkasapporo-fb.jp^",
+        "||note.roxx.co.jp^",
+        "||note.smartnews-ads.com^",
+        "||note.universal-music.co.jp^",
+        "||note.yamap.com^",
+        "||note.zochang.com^",
+        "||refalover-note.mainichi.jp^",
+        "||shanaiho.itandi.co.jp^",
+        "||uragawa-note.jpn.panasonic.com^",
+        "||webtripper.jp^"
+      ],
+      "rules": [
+        "sub_rt"
+      ]
+    },
+    "undressher.app": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?undressher\\.app",
+      "indexPattern": "||undressher.app^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "xingga.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?xingga\\.com",
+      "indexPattern": "||xingga.com^",
+      "rules": [
+        "showid"
+      ]
+    },
+    "h-taikendan.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?h-taikendan\\.net",
+      "indexPattern": "||h-taikendan.net^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "camp-fire.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?camp-fire\\.jp\\/projects\\/.*\\/view",
+      "indexPattern": "||camp-fire.jp^",
+      "rules": [
+        "list"
+      ]
+    },
+    "privatbank.ua": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?privatbank\\.ua",
+      "indexPattern": "||privatbank.ua^",
+      "rules": [
+        "utm_addrid",
+        "utm_jeref",
+        "utm_positionUrl"
+      ]
+    },
+    "baseballchannel.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?baseballchannel\\.jp",
+      "indexPattern": "||baseballchannel.jp^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "money.smt.docomo.ne.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?money\\.smt\\.docomo\\.ne\\.jp",
+      "indexPattern": "||money.smt.docomo.ne.jp^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "store.shopping.yahoo.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?store\\.shopping\\.yahoo\\.co\\.jp",
+      "indexPattern": "||store.shopping.yahoo.co.jp^",
+      "rules": [
+        "sc_i"
+      ]
+    },
+    "kwiky.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?kwiky\\.com",
+      "indexPattern": "||kwiky.com^",
+      "rules": [
+        "AFNO"
+      ]
+    },
+    "ai-porn.ai": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ai-porn\\.ai",
+      "indexPattern": "||ai-porn.ai^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "camsoda.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?camsoda\\.com",
+      "indexPattern": "||camsoda.com^",
+      "rules": [
+        "id"
+      ]
+    },
+    "aeza.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?aeza\\.net",
+      "indexPattern": "||aeza.net^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "gptgirlfriend.online": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gptgirlfriend\\.online",
+      "indexPattern": "||gptgirlfriend.online^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "fantasygf.ai": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?fantasygf\\.ai",
+      "indexPattern": "||fantasygf.ai^",
+      "rules": [
+        "linkId"
+      ]
+    },
+    "land.muah.ai": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?land\\.muah\\.ai",
+      "indexPattern": "||land.muah.ai^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "getidol.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?getidol\\.com",
+      "indexPattern": "||getidol.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "vodafone.com.tr": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?vodafone\\.com\\.tr",
+      "indexPattern": "||vodafone.com.tr^",
+      "rules": [
+        "tracking_cid"
+      ]
+    },
+    "juicy-ai.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?juicy-ai\\.com",
+      "indexPattern": "||juicy-ai.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "angelgf.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?angelgf\\.com",
+      "indexPattern": "||angelgf.com^",
+      "rules": [
+        "via"
+      ]
+    },
+    "slushy.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?slushy\\.com",
+      "indexPattern": "||slushy.com^",
+      "rules": [
+        "af"
+      ]
+    },
+    "deepmode.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?deepmode\\.com",
+      "indexPattern": "||deepmode.com^",
+      "rules": [
+        "fpr"
+      ]
+    },
+    "candy.ai": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?candy\\.ai",
+      "indexPattern": "||candy.ai^",
+      "rules": [
+        "cid"
+      ]
+    },
+    "darkroomvr.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?darkroomvr\\.com",
+      "indexPattern": "||darkroomvr.com^",
+      "rules": [
+        "nats"
+      ]
+    },
+    "rozetka.com.ua": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rozetka\\.com\\.ua",
+      "indexPattern": "||rozetka.com.ua^",
+      "rules": [
+        "afclid"
+      ]
+    },
+    "temu.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?temu\\.com",
+      "indexPattern": "||temu.com^",
+      "rules": [
+        "_p_jump_id",
+        "_x_vst_scene",
+        "_p_rfs",
+        "_x_ads_channel",
+        "_x_ads_sub_channel",
+        "_x_campaign",
+        "_x_cid",
+        "g_site",
+        "g_lg",
+        "g_region",
+        "g_ccy",
+        "refer_page_el_sn",
+        "refer_page_sn",
+        "_bg_fs",
+        "_x_sessn_id",
+        "refer_page_name",
+        "refer_page_id",
+        "sku_id",
+        "refer_share_channel",
+        "refer_share_id",
+        "_oak_page_source",
+        "_oak_region",
+        "refer_share_suin",
+        "_oak_mp_inf",
+        "top_gallery_url",
+        "spec_gallery_id",
+        "refer_source",
+        "freesia_scene",
+        "_oak_freesia_scene",
+        "_oak_rec_ext_1",
+        "_oak_gallery_order",
+        "_x_channel_scene",
+        "_x_channel_src",
+        "share_img",
+        "from_share"
+      ]
+    },
+    "vedomosti.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?vedomosti\\.ru",
+      "indexPattern": "||vedomosti.ru^",
+      "rules": [
+        "from"
+      ]
+    },
+    "cyber.sports.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cyber\\.sports\\.ru",
+      "indexPattern": "||cyber.sports.ru^",
+      "rules": [
+        "p_a",
+        "p_n",
+        "p_c"
+      ]
+    },
+    "audible": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?audible\\.",
+      "indexPattern": "||audible.*^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "camcam.cc": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?camcam\\.cc",
+      "indexPattern": "||camcam.cc^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "igromania.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?igromania\\.ru",
+      "indexPattern": "||igromania.ru^",
+      "rules": [
+        "from_button_waterfall_knb"
+      ]
+    },
+    "fikfapcams.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?fikfapcams\\.com",
+      "indexPattern": "||fikfapcams.com^",
+      "rules": [
+        "referrer",
+        "realDomain",
+        "affiliateId"
+      ]
+    },
+    "go.xliirdr.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?go\\.xliirdr\\.com",
+      "indexPattern": "||go.xliirdr.com^",
+      "rules": [
+        "p",
+        "userId",
+        "campaignId"
+      ]
+    },
+    "windscribe.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?windscribe\\.com",
+      "indexPattern": "||windscribe.com^",
+      "rules": [
+        "pcpid",
+        "temp_session"
+      ]
+    },
+    "samsung.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?samsung\\.com",
+      "indexPattern": "||samsung.com^",
+      "rules": [
+        "cid"
+      ]
+    },
+    "nikkansports.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nikkansports\\.com",
+      "indexPattern": "||nikkansports.com^",
+      "rules": [
+        "nsgid"
+      ]
+    },
+    "game.hiroba.dpoint.docomo.ne.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?game\\.hiroba\\.dpoint\\.docomo\\.ne\\.jp",
+      "indexPattern": "||game.hiroba.dpoint.docomo.ne.jp^",
+      "rules": [
+        "mks_referer_event"
+      ]
+    },
+    "news.yahoo.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?news\\.yahoo\\.co\\.jp",
+      "indexPattern": "||news.yahoo.co.jp^",
+      "rules": [
+        "source",
+        "dv",
+        "mid",
+        "date",
+        "ctg",
+        "bt"
+      ]
+    },
+    "lumosvpn.com": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?lumosvpn\\.com",
+      "indexPattern": "||lumosvpn.com^"
+    },
+    "shop.adidas.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?shop\\.adidas\\.jp",
+      "indexPattern": "||shop.adidas.jp^",
+      "rules": [
+        "source_caller",
+        "shortlink"
+      ]
+    },
+    "daohang.qq.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?daohang\\.qq\\.com",
+      "indexPattern": "||daohang.qq.com^",
+      "rules": [
+        "fr"
+      ]
+    },
+    "hoyoverse.com": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hoyoverse\\.com\\/branding",
+      "indexPattern": "||hoyoverse.com^"
+    },
+    "qianfan.cloud": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:cloud|qianfan\\.cloud)\\.baidu\\.com",
+      "indexPattern": [
+        "||cloud.baidu.com^",
+        "||qianfan.cloud.baidu.com^"
+      ],
+      "rules": [
+        "from",
+        "track"
+      ]
+    },
+    "qjweb.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?qjweb\\.jp",
+      "indexPattern": "||qjweb.jp^",
+      "rules": [
+        "from"
+      ]
+    },
+    "sport.sky.it": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?sport\\.sky\\.it",
+      "indexPattern": "||sport.sky.it^",
+      "rules": [
+        "social",
+        "share_id"
+      ]
+    },
+    "darkfans.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?darkfans\\.com",
+      "indexPattern": "||darkfans.com^",
+      "rules": [
+        "ref",
+        "af"
+      ]
+    },
+    "porntube.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?porntube\\.com",
+      "indexPattern": "||porntube.com^",
+      "rules": [
+        "cid"
+      ]
+    },
+    "3movs.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?3movs\\.com",
+      "indexPattern": "||3movs.com^",
+      "rules": [
+        "site_id"
+      ]
+    },
+    "jpsk.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?jpsk\\.jp",
+      "indexPattern": "||jpsk.jp^",
+      "rules": [
+        "click"
+      ]
+    },
+    "savefrom.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?savefrom\\.net",
+      "indexPattern": "||savefrom.net^",
+      "rules": [
+        "from"
+      ]
+    },
+    "doujinnomori.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:doujinnomori\\.com|shinshi-manga\\.net|echiman\\.com|dojin-navi\\.com)",
+      "indexPattern": [
+        "||dojin-navi.com^",
+        "||doujinnomori.com^",
+        "||echiman.com^",
+        "||shinshi-manga.net^"
+      ],
+      "rules": [
+        "from"
+      ]
+    },
+    "videoproc.com": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?videoproc\\.com\\/.*install\\/",
+      "indexPattern": "||videoproc.com^"
+    },
+    "m.otenki.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?m\\.otenki\\.com",
+      "indexPattern": "||m.otenki.com^",
+      "rules": [
+        "af"
+      ]
+    },
+    "carseven.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?carseven\\.co\\.jp",
+      "indexPattern": "||carseven.co.jp^",
+      "rules": [
+        "from"
+      ]
+    },
+    "blogmura.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?blogmura\\.com",
+      "indexPattern": "||blogmura.com^",
+      "rules": [
+        "p_cid"
+      ]
+    },
+    "nvidia.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nvidia\\.com",
+      "indexPattern": "||nvidia.com^",
+      "rules": [
+        "jso"
+      ]
+    },
+    "shimotsuke.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?shimotsuke\\.co\\.jp",
+      "indexPattern": "||shimotsuke.co.jp^",
+      "rules": [
+        "rankinghour",
+        "top",
+        "newsletter",
+        "relatedarticle",
+        "ref"
+      ]
+    },
+    "boncharge.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?boncharge\\.com",
+      "indexPattern": "||boncharge.com^",
+      "rules": [
+        "shpxid"
+      ]
+    },
+    "plarium.com": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?plarium\\.com\\/landings\\/",
+      "indexPattern": "||plarium.com^"
+    },
+    "lancasterarchery.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?lancasterarchery\\.com",
+      "indexPattern": "||lancasterarchery.com^",
+      "rules": [
+        "af_lnk",
+        "dt_id"
+      ]
+    },
+    "lenta.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?lenta\\.ru",
+      "indexPattern": "||lenta.ru^",
+      "rules": [
+        "es"
+      ]
+    },
+    "finance.yahoo.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?finance\\.yahoo\\.co\\.jp",
+      "indexPattern": "||finance.yahoo.co.jp^",
+      "rules": [
+        "cpt_m",
+        "cpt_n",
+        "cpt_s"
+      ]
+    },
+    "sbisec.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?sbisec\\.co\\.jp",
+      "indexPattern": "||sbisec.co.jp^",
+      "rules": [
+        "waad"
+      ]
+    },
+    "ejje.weblio.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ejje\\.weblio\\.jp",
+      "indexPattern": "||ejje.weblio.jp^",
+      "rules": [
+        "erl"
+      ]
+    },
+    "map.yahoo.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?map\\.yahoo\\.co\\.jp",
+      "indexPattern": "||map.yahoo.co.jp^",
+      "rules": [
+        "from_srv"
+      ]
+    },
+    "quora.com_1": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?quora\\.com",
+      "indexPattern": "||quora.com^",
+      "rules": [
+        "share",
+        "al_imp",
+        "uid"
+      ]
+    },
+    "tcgplayer.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tcgplayer\\.com",
+      "indexPattern": "||tcgplayer.com^",
+      "rules": [
+        "source"
+      ]
+    },
+    "kyujin.navitime.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?kyujin\\.navitime\\.co\\.jp",
+      "indexPattern": "||kyujin.navitime.co.jp^",
+      "rules": [
+        "from"
+      ]
+    },
+    "avira.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?avira\\.com",
+      "indexPattern": "||avira.com^",
+      "rules": [
+        "track"
+      ]
+    },
+    "foodpanda": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?foodpanda\\.",
+      "indexPattern": "||foodpanda.*^",
+      "rules": [
+        "src"
+      ]
+    },
+    "plusgaming.yandex.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?plusgaming\\.yandex\\.ru",
+      "indexPattern": "||plusgaming.yandex.ru^",
+      "rules": [
+        "clckid"
+      ]
+    },
+    "iotransfer.itopvpn.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?iotransfer\\.itopvpn\\.com",
+      "indexPattern": "||iotransfer.itopvpn.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "tradingview.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tradingview\\.com",
+      "indexPattern": "||tradingview.com^",
+      "rules": [
+        "exchange",
+        "aff_id",
+        "aff_sub",
+        "source"
+      ]
+    },
+    "tmz.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tmz\\.com",
+      "indexPattern": "||tmz.com^",
+      "rules": [
+        "adid"
+      ]
+    },
+    "substack.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?substack\\.com",
+      "indexPattern": "||substack.com^",
+      "rules": [
+        "triedRedirect",
+        "publication_id",
+        "post_id",
+        "r",
+        "isFreemail"
+      ]
+    },
+    "m.weathercn.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?m\\.weathercn\\.com",
+      "indexPattern": "||m.weathercn.com^",
+      "rules": [
+        "partner",
+        "id",
+        "p_source",
+        "p_type"
+      ]
+    },
+    "freebies.indiegala.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?freebies\\.indiegala\\.com",
+      "indexPattern": "||freebies.indiegala.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "qzone.qq.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:qzone\\.qq\\.com|urlshare\\.cn)",
+      "indexPattern": [
+        "||qzone.qq.com^",
+        "||urlshare.cn^"
+      ],
+      "rules": [
+        "loginfrom",
+        "apptype",
+        "loginuin",
+        "plateform",
+        "src_uin",
+        "srctype"
+      ]
+    },
+    "crunchyroll.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?crunchyroll\\.com",
+      "indexPattern": "||crunchyroll.com^",
+      "rules": [
+        "referrer"
+      ]
+    },
+    "zapiska.substack.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?zapiska\\.substack\\.com",
+      "indexPattern": "||zapiska.substack.com^",
+      "rules": [
+        "publication_id",
+        "post_id",
+        "r"
+      ]
+    },
+    "eplus.by": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?eplus\\.by",
+      "indexPattern": "||eplus.by^",
+      "rules": [
+        "de_utm_source"
+      ]
+    },
+    "travelist.pl": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?travelist\\.pl",
+      "indexPattern": "||travelist.pl^",
+      "rules": [
+        "MWID"
+      ]
+    },
+    "perfo.salestube.pl": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?perfo\\.salestube\\.pl",
+      "indexPattern": "||perfo.salestube.pl^",
+      "rules": [
+        "aff_click_id"
+      ]
+    },
+    "clickserve.dartsearch.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?clickserve\\.dartsearch\\.net",
+      "indexPattern": "||clickserve.dartsearch.net^",
+      "rules": [
+        "lid",
+        "ds_s_kwgid"
+      ]
+    },
+    "rakumachi.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rakumachi\\.jp",
+      "indexPattern": "||rakumachi.jp^",
+      "rules": [
+        "device_type",
+        "uiaid"
+      ]
+    },
+    "carousell": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?carousell\\.",
+      "indexPattern": "||carousell.*^",
+      "rules": [
+        "t-id",
+        "t-referrer_browse_type",
+        "t-referrer_category_id",
+        "t-referrer_page_type",
+        "t-referrer_request_id",
+        "t-referrer_search_query",
+        "t-referrer_search_query_source",
+        "t-referrer_sort_by",
+        "t-referrer_source",
+        "t-source",
+        "t-tap_index"
+      ]
+    },
+    "ubereatsuber.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:ubereats|uber)\\.com",
+      "indexPattern": [
+        "||uber.com^",
+        "||ubereats.com^"
+      ],
+      "rules": [
+        "campaign",
+        "sub-campaign",
+        "marketing-visitor-id",
+        "uclick_id"
+      ]
+    },
+    "controld.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?controld\\.com",
+      "indexPattern": "||controld.com^",
+      "rules": [
+        "cid"
+      ]
+    },
+    "track.wargaming": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:track\\.wargaming-aff\\.com\\/click|trck\\.wargaming\\.net|join\\.worldoftanks\\.eu)",
+      "indexPattern": [
+        "||join.worldoftanks.eu^",
+        "||track.wargaming-aff.com^",
+        "||trck.wargaming.net^"
+      ]
+    },
+    "streamable.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?streamable\\.com",
+      "indexPattern": "||streamable.com^",
+      "rules": [
+        "src_internal",
+        "src_player"
+      ]
+    },
+    "smartrecruiters.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?smartrecruiters\\.com",
+      "indexPattern": "||smartrecruiters.com^",
+      "rules": [
+        "km_adgroup",
+        "km_matchtype",
+        "km_partner"
+      ]
+    },
+    "nuuvem.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nuuvem\\.com",
+      "indexPattern": "||nuuvem.com^",
+      "rules": [
+        "ranMID",
+        "ranEAID",
+        "ranSiteID"
+      ]
+    },
+    "chitai-gorod.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?chitai-gorod\\.ru",
+      "indexPattern": "||chitai-gorod.ru^",
+      "rules": [
+        "partnerId"
+      ]
+    },
+    "mall.kinarino.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mall\\.kinarino\\.jp",
+      "indexPattern": "||mall.kinarino.jp^",
+      "rules": [
+        "karea",
+        "klay"
+      ]
+    },
+    "ilsecoloxix.it": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ilsecoloxix\\.it",
+      "indexPattern": "||ilsecoloxix.it^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "gelocal.it": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gelocal\\.it",
+      "indexPattern": "||gelocal.it^",
+      "rules": [
+        "ref",
+        "cnt"
+      ]
+    },
+    "allabout.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?allabout\\.co\\.jp",
+      "indexPattern": "||allabout.co.jp^",
+      "rules": [
+        "FM"
+      ]
+    },
+    "mora.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mora\\.jp",
+      "indexPattern": "||mora.jp^",
+      "rules": [
+        "fmid"
+      ]
+    },
+    "go2jump.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:go2jump\\.org|tr\\.)?rdrtr\\.com",
+      "indexPattern": [
+        "||go2jump.org^",
+        "||rdrtr.com^"
+      ],
+      "rules": [
+        "source",
+        "aff_sub",
+        "aff_sub2",
+        "aff_sub3",
+        "aff_sub4",
+        "aff_sub5"
+      ]
+    },
+    "plus.yandex": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?plus\\.yandex\\.",
+      "indexPattern": "||yandex.*^",
+      "rules": [
+        "source",
+        "state",
+        "origin"
+      ]
+    },
+    "ziprecruiter.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ziprecruiter\\.com",
+      "indexPattern": "||ziprecruiter.com^",
+      "rules": [
+        "zrclid"
+      ]
+    },
+    "huffingtonpost.it": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?huffingtonpost\\.it",
+      "indexPattern": "||huffingtonpost.it^",
+      "rules": [
+        "cnt",
+        "ref"
+      ]
+    },
+    "oh-my-teeth.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?oh-my-teeth\\.com",
+      "indexPattern": "||oh-my-teeth.com^",
+      "rules": [
+        "clid"
+      ]
+    },
+    "olegmakarenko.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?olegmakarenko\\.ru",
+      "indexPattern": "||olegmakarenko.ru^",
+      "rules": [
+        "from"
+      ]
+    },
+    "dragonquest.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dragonquest\\.jp",
+      "indexPattern": "||dragonquest.jp^",
+      "rules": [
+        "_bdld"
+      ]
+    },
+    "raretech.site": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?raretech\\.site",
+      "indexPattern": "||raretech.site^",
+      "rules": [
+        "from"
+      ]
+    },
+    "booster.osnova.io": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?booster\\.osnova\\.io",
+      "indexPattern": "||booster.osnova.io^",
+      "rules": [
+        "place",
+        "boosterUid"
+      ]
+    },
+    "smotreshka.tv": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?smotreshka\\.tv",
+      "indexPattern": "||smotreshka.tv^",
+      "rules": [
+        "from"
+      ]
+    },
+    "announcements.bybit.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?announcements\\.bybit\\.com",
+      "indexPattern": "||announcements.bybit.com^",
+      "rules": [
+        "pid",
+        "sa_utm_ci",
+        "sa_utm_channel",
+        "sa_utm_tcn"
+      ]
+    },
+    "game-i.daa.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?game-i\\.daa\\.jp",
+      "indexPattern": "||game-i.daa.jp^",
+      "rules": [
+        "cmd"
+      ]
+    },
+    "slickdeals.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?slickdeals\\.net",
+      "indexPattern": "||slickdeals.net^",
+      "rules": [
+        "sdtrk",
+        "attr_track",
+        "trd",
+        "sdtid",
+        "prop",
+        "pv",
+        "au",
+        "peid",
+        "adobeRef",
+        "attrsrc",
+        "src",
+        "sdpid",
+        "sdfid"
+      ]
+    },
+    "beacon-recommend.tower.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?beacon-recommend\\.tower\\.jp",
+      "indexPattern": "||beacon-recommend.tower.jp^",
+      "rules": [
+        "tracking_id"
+      ]
+    },
+    "hd.kinopoisk.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hd\\.kinopoisk\\.ru",
+      "indexPattern": "||hd.kinopoisk.ru^",
+      "rules": [
+        "from_block"
+      ]
+    },
+    "bizhint.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bizhint\\.jp",
+      "indexPattern": "||bizhint.jp^",
+      "rules": [
+        "trcd"
+      ]
+    },
+    "teknosa.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?teknosa\\.com",
+      "indexPattern": "||teknosa.com^",
+      "rules": [
+        "adj_adgroup",
+        "adj_campaign",
+        "adj_creative",
+        "adj_t",
+        "adp_cid",
+        "adp_oid",
+        "shopId",
+        "aid",
+        "campid",
+        "cid",
+        "crid",
+        "plid",
+        "sid",
+        "source"
+      ]
+    },
+    "stacksocial.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?stacksocial\\.com",
+      "indexPattern": "||stacksocial.com^",
+      "rules": [
+        "partnerid",
+        "rid",
+        "aid"
+      ]
+    },
+    "gillian-guide.github.io": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gillian-guide\\.github\\.io",
+      "indexPattern": "||gillian-guide.github.io^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "pcmag.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?pcmag\\.com",
+      "indexPattern": "||pcmag.com^",
+      "rules": [
+        "taid"
+      ]
+    },
+    "vk.com_1": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:vk\\.com|vk\\.ru|vkplay\\.ru)",
+      "indexPattern": [
+        "||vk.com^",
+        "||vk.ru^",
+        "||vkplay.ru^"
+      ],
+      "rules": [
+        "trackcode",
+        "recom",
+        "_1ld",
+        "_1lp",
+        "mt_adset",
+        "mt_sub1",
+        "mt_sub2"
+      ],
+      "redirections": [
+        "^https?:\\/\\/vk\\.com\\/away\\.php\\?to=([^&]*)"
+      ]
+    },
+    "incogni.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?incogni\\.com",
+      "indexPattern": "||incogni.com^",
+      "rules": [
+        "transaction_id",
+        "offer_id",
+        "affiliate_id",
+        "aff_sub",
+        "source"
+      ]
+    },
+    "coolapk.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?coolapk\\.com",
+      "indexPattern": "||coolapk.com^",
+      "rules": [
+        "shareUid",
+        "shareFrom"
+      ]
+    },
+    "sportbank.ua": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?sportbank\\.ua",
+      "indexPattern": "||sportbank.ua^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "streamfab": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?streamfab\\.",
+      "indexPattern": "||streamfab.*^",
+      "rules": [
+        "soft",
+        "ad",
+        "c_try",
+        "c_bm",
+        "c_app",
+        "c_sys",
+        "c_ver",
+        "c_ut",
+        "c_app_from",
+        "c_dt",
+        "c_wh",
+        "_csrc_",
+        "_cus_",
+        "_cut_",
+        "client_t",
+        "client_m",
+        "trackid"
+      ]
+    },
+    "stvkr.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?stvkr\\.com\\/v.*\\/click-",
+      "indexPattern": "||stvkr.com^",
+      "rules": [
+        "sa",
+        "rfr",
+        "widht",
+        "height",
+        "timezone"
+      ]
+    },
+    "dashboard.wedare.pl": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dashboard\\.wedare\\.pl",
+      "indexPattern": "||dashboard.wedare.pl^",
+      "rules": [
+        "smc1",
+        "smc2"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dashboard\\.wedare\\.pl"
+      ]
+    },
+    "cmswire.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cmswire\\.com",
+      "indexPattern": "||cmswire.com^",
+      "rules": [
+        "source"
+      ]
+    },
+    "v.daum.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?v\\.daum\\.net",
+      "indexPattern": "||v.daum.net^",
+      "rules": [
+        "x_imp",
+        "x_hk"
+      ]
+    },
+    "dmm": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dmm\\.(co\\.jp|com)",
+      "indexPattern": [
+        "||dmm.co.jp^",
+        "||dmm.com^"
+      ],
+      "rules": [
+        "dmmref",
+        "i3_ref",
+        "i3_ord"
+      ]
+    },
+    "mootoon.co.kr": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mootoon\\.co\\.kr",
+      "indexPattern": "||mootoon.co.kr^",
+      "rules": [
+        "in_id"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mootoon\\.co\\.kr.*?cuid"
+      ]
+    },
+    "researchgate.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?researchgate\\.net",
+      "indexPattern": "||researchgate.net^",
+      "rules": [
+        "_tp"
+      ]
+    },
+    "peacocktv.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?peacocktv\\.com",
+      "indexPattern": "||peacocktv.com^",
+      "rules": [
+        "orig_ref",
+        "method"
+      ]
+    },
+    "slack.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?slack\\.com\\/downloads\\/",
+      "indexPattern": "||slack.com^",
+      "rules": [
+        "t"
+      ]
+    },
+    "shopping.naver.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:msearch|search)\\.shopping\\.naver\\.com",
+      "indexPattern": [
+        "||msearch.shopping.naver.com^",
+        "||search.shopping.naver.com^"
+      ],
+      "rules": [
+        "frm",
+        "NaPm"
+      ]
+    },
+    "tutanota.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tutanota\\.com",
+      "indexPattern": "||tutanota.com^",
+      "rules": [
+        "t-src"
+      ]
+    },
+    "donga.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?donga\\.com",
+      "indexPattern": "||donga.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "adcell.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:t\\.adcell\\.com|track\\.webgains\\.com)",
+      "indexPattern": [
+        "||t.adcell.com^",
+        "||track.webgains.com^"
+      ],
+      "rules": [
+        "subId",
+        "clickref",
+        "bid",
+        "adcref",
+        "cvrid",
+        "cvrpid",
+        "cvrsid",
+        "tag3",
+        "wgu",
+        "wgexpiry"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?converti\\.se\\/click\\/.*?wgexpiry"
+      ],
+      "redirections": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?track\\.webgains\\.com.*?wgtarget=([^&]*)"
+      ]
+    },
+    "rapidgator.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rapidgator\\.net",
+      "indexPattern": "||rapidgator.net^",
+      "rules": [
+        "referer",
+        "Referer"
+      ]
+    },
+    "donation.yahoo.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?donation\\.yahoo\\.co\\.jp",
+      "indexPattern": "||donation.yahoo.co.jp^",
+      "rules": [
+        "cpt_n",
+        "cpt_s",
+        "cpt_m",
+        "cpt_c"
+      ]
+    },
+    "tinkoff.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?tinkoff\\.ru",
+      "indexPattern": "||tinkoff.ru^",
+      "rules": [
+        "dsp_click_id"
+      ]
+    },
+    "yahoo.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?yahoo\\.co\\.jp",
+      "indexPattern": "||yahoo.co.jp^",
+      "rules": [
+        "ikCo",
+        "sc_e"
+      ]
+    },
+    "happymail.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?happymail\\.co\\.jp",
+      "indexPattern": "||happymail.co.jp^",
+      "rules": [
+        "Log"
+      ]
+    },
+    "gotanynudes.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gotanynudes\\.com",
+      "indexPattern": "||gotanynudes.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "nitter.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nitter\\.net",
+      "indexPattern": "||nitter.net^",
+      "rules": [
+        "referer"
+      ]
+    },
+    "gitlab": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gitlab\\.",
+      "indexPattern": "||gitlab.*^",
+      "rules": [
+        "referrer_action",
+        "glm_source",
+        "glm_content"
+      ]
+    },
+    "myprotein.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?myprotein\\.jp",
+      "indexPattern": "||myprotein.jp^",
+      "rules": [
+        "affil"
+      ]
+    },
+    "pixiv.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?pixiv\\.net",
+      "indexPattern": "||pixiv.net^",
+      "rules": [
+        "from"
+      ]
+    },
+    "querie.me": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?querie\\.me",
+      "indexPattern": "||querie.me^",
+      "rules": [
+        "timestamp"
+      ]
+    },
+    "mailchimp.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mailchimp\\.com",
+      "indexPattern": "||mailchimp.com^",
+      "rules": [
+        "amp%3Butm_medium",
+        "amp%3Butm_campaign",
+        "amp%3Baid",
+        "amp%3Bafl"
+      ]
+    },
+    "wetransfer.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wetransfer\\.com",
+      "indexPattern": "||wetransfer.com^",
+      "rules": [
+        "t_lsid",
+        "t_rid",
+        "t_exp",
+        "t_ts",
+        "trk",
+        "amp;utm_campaign",
+        "amp;utm_medium",
+        "amp;utm_source"
+      ]
+    },
+    "wetransfer.zendesk.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wetransfer\\.zendesk\\.com",
+      "indexPattern": "||wetransfer.zendesk.com^",
+      "rules": [
+        "amp%3Btrk",
+        "amp%3Btoken",
+        "amp%3Butm_campaign",
+        "amp%3Butm_source",
+        "amp%3Butm_medium"
+      ]
+    },
+    "douyin.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?douyin\\.com",
+      "indexPattern": "||douyin.com^",
+      "rules": [
+        "extra_params",
+        "previous_page"
+      ]
+    },
+    "bandcamp.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?bandcamp\\.com",
+      "indexPattern": "||bandcamp.com^",
+      "rules": [
+        "from"
+      ]
+    },
+    "wikipedia.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wikipedia\\.org",
+      "indexPattern": "||wikipedia.org^",
+      "rules": [
+        "wprov"
+      ]
+    },
+    "sportschosun.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?sportschosun\\.com",
+      "indexPattern": "||sportschosun.com^",
+      "rules": [
+        "f_url"
+      ]
+    },
+    "clickfunnels.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?clickfunnels\\.com",
+      "indexPattern": "||clickfunnels.com^",
+      "rules": [
+        "aff_sub"
+      ]
+    },
+    "promote.betcity.ru": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?promote\\.betcity\\.ru",
+      "indexPattern": "||promote.betcity.ru^",
+      "rules": [
+        "widget_id",
+        "refcode",
+        "icm"
+      ]
+    },
+    "yna.co.kr": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?yna\\.co\\.kr",
+      "indexPattern": "||yna.co.kr^",
+      "rules": [
+        "site"
+      ]
+    },
+    "easyfundraising.org.uk": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?easyfundraising\\.org\\.uk",
+      "indexPattern": "||easyfundraising.org.uk^",
+      "rules": [
+        "efr_campaign",
+        "efr_medium",
+        "efr_source"
+      ]
+    },
+    "blogtrottr.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?blogtrottr\\.com",
+      "indexPattern": "||blogtrottr.com^",
+      "rules": [
+        "lctg"
+      ]
+    },
+    "wowma.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wowma\\.jp",
+      "indexPattern": "||wowma.jp^",
+      "rules": [
+        "wadd"
+      ]
+    },
+    "mypage.otsuka": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mypage\\.otsuka-shokai\\.co\\.jp",
+      "indexPattern": "||mypage.otsuka-shokai.co.jp^",
+      "rules": [
+        "oiid"
+      ]
+    },
+    "hatalike.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hatalike\\.jp",
+      "indexPattern": "||hatalike.jp^",
+      "rules": [
+        "track"
+      ]
+    },
+    "ieagent.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ieagent\\.jp",
+      "indexPattern": "||ieagent.jp^",
+      "rules": [
+        "ct",
+        "cv",
+        "p",
+        "ref"
+      ]
+    },
+    "doda.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?doda\\.jp",
+      "indexPattern": "||doda.jp^",
+      "rules": [
+        "fm",
+        "from",
+        "recommendID",
+        "usrclk",
+        "usrclk_searchListCassette"
+      ]
+    },
+    "hatarako.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hatarako\\.net",
+      "indexPattern": "||hatarako.net^",
+      "rules": [
+        "prelink"
+      ]
+    },
+    "myoji-kamon.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?myoji-kamon\\.net",
+      "indexPattern": "||myoji-kamon.net^",
+      "rules": [
+        "from"
+      ]
+    },
+    "zozo.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?zozo\\.jp",
+      "indexPattern": "||zozo.jp^",
+      "rules": [
+        "t"
+      ]
+    },
+    "am730.com.hk": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?am730\\.com\\.hk",
+      "indexPattern": "||am730.com.hk^",
+      "rules": [
+        "ncid"
+      ]
+    },
+    "roboform.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?roboform\\.com",
+      "indexPattern": "||roboform.com^",
+      "rules": [
+        "frm",
+        "affid",
+        "a",
+        "c",
+        "s1"
+      ]
+    },
+    "shareasale-analytics.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?shareasale-analytics\\.com",
+      "indexPattern": "||shareasale-analytics.com^",
+      "rules": [
+        "ref",
+        "afftrack",
+        "lplid",
+        "shrsl_analytics_sscid",
+        "shrsl_analytics_sstid"
+      ]
+    },
+    "sportsbull.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?sportsbull\\.jp",
+      "indexPattern": "||sportsbull.jp^",
+      "rules": [
+        "vkTop"
+      ]
+    },
+    "hbol.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hbol\\.jp",
+      "indexPattern": "||hbol.jp^",
+      "rules": [
+        "cx_clicks_art_mdl"
+      ]
+    },
+    "singtao.ca": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?singtao\\.ca",
+      "indexPattern": "||singtao.ca^",
+      "rules": [
+        "referid"
+      ]
+    },
+    "orbis.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?orbis\\.co\\.jp",
+      "indexPattern": "||orbis.co.jp^",
+      "rules": [
+        "adid"
+      ]
+    },
+    "record.pt": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?record\\.pt",
+      "indexPattern": "||record.pt^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "column.sp.baseball.findfriends.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?column\\.sp\\.baseball\\.findfriends\\.jp",
+      "indexPattern": "||column.sp.baseball.findfriends.jp^",
+      "rules": [
+        "from"
+      ]
+    },
+    "fon.bet": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?fon\\.bet",
+      "indexPattern": "||fon.bet^",
+      "rules": [
+        "affijet-click",
+        "partner_id",
+        "sub_1"
+      ]
+    },
+    "you": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?you\\.163\\.com",
+      "indexPattern": "||you.163.com^",
+      "rules": [
+        "from"
+      ]
+    },
+    "jetbrains.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?jetbrains\\.com",
+      "indexPattern": "||jetbrains.com^",
+      "rules": [
+        "from"
+      ]
+    },
+    "middleware": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?middleware\\.p7s1\\.io\\/galileo\\/v1\\/tracking",
+      "indexPattern": "||middleware.p7s1.io^",
+      "rules": [
+        "device",
+        "country",
+        "path"
+      ]
+    },
+    "theathletic.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?theathletic\\.com",
+      "indexPattern": "||theathletic.com^",
+      "rules": [
+        "login_source",
+        "ref_page",
+        "source"
+      ]
+    },
+    "productcatalog.channeladvisor.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?productcatalog\\.channeladvisor\\.com",
+      "indexPattern": "||productcatalog.channeladvisor.com^",
+      "rules": [
+        "InteractionSessionId",
+        "UniqueUserId",
+        "DeviceTypeId",
+        "PCAT_vNextTracking_LocalWidget",
+        "PCAT_vNextTracking_OnlinePlrss",
+        "PCAT_vNextTracking_OnlineItrack",
+        "PCAT_vNextTracking_RetailerScoring",
+        "profileId"
+      ]
+    },
+    "go.skimresources.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?go\\.skimresources\\.com",
+      "indexPattern": "||go.skimresources.com^",
+      "rules": [
+        "id",
+        "xcust"
+      ],
+      "redirections": [
+        "^https?:\\/\\/go\\.skimresources\\.com\\/.*?url=([^&]+)"
+      ]
+    },
+    "chemistwarehouse.com.au": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?chemistwarehouse\\.com\\.au",
+      "indexPattern": "||chemistwarehouse.com.au^",
+      "rules": [
+        "ranMID",
+        "ranEAID",
+        "ranSiteID"
+      ]
+    },
+    "playstation.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?playstation\\.com",
+      "indexPattern": "||playstation.com^",
+      "rules": [
+        "emcid"
+      ]
+    },
+    "gamersgate.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gamersgate\\.com",
+      "indexPattern": "||gamersgate.com^",
+      "rules": [
+        "caff"
+      ]
+    },
+    "minfin.com.ua": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?minfin\\.com\\.ua",
+      "indexPattern": "||minfin.com.ua^",
+      "rules": [
+        "mpr",
+        "mpl",
+        "mcr"
+      ]
+    },
+    "sbs.co.kr": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:sbs\\.co\\.kr|khan\\.co\\.kr|dt\\.co\\.kr|fnnews\\.com|dailian\\.co\\.kr|sedaily\\.com|sportalkorea\\.com)",
+      "indexPattern": [
+        "||dailian.co.kr^",
+        "||dt.co.kr^",
+        "||fnnews.com^",
+        "||khan.co.kr^",
+        "||sbs.co.kr^",
+        "||sedaily.com^",
+        "||sportalkorea.com^"
+      ],
+      "rules": [
+        "plink",
+        "cooper",
+        "nv",
+        "naver",
+        "pg",
+        "sc",
+        "OutLink",
+        "newsstand"
+      ]
+    },
+    "agoda.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?agoda\\.com",
+      "indexPattern": "||agoda.com^",
+      "rules": [
+        "tag"
+      ]
+    },
+    "editor.flixier.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?editor\\.flixier\\.com",
+      "indexPattern": "||editor.flixier.com^",
+      "rules": [
+        "fx_source",
+        "fx_medium",
+        "fx_campaign"
+      ]
+    },
+    "github.com_signup": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?github\\.com\\/signup",
+      "indexPattern": "||github.com^",
+      "rules": [
+        "source",
+        "ref_"
+      ]
+    },
+    "api.cxense.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?api\\.cxense\\.com",
+      "indexPattern": "||api.cxense.com^",
+      "rules": [
+        "cx_",
+        "pickup_list_click",
+        "sid",
+        "experienceId",
+        "trackingId",
+        "prnd",
+        "getId",
+        "usi",
+        "widgetId"
+      ]
+    },
+    "nikki.ne.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:nikki\\.ne\\.jp|rakuten\\.co\\.jp|rebates\\.jp|rakuten-wallet\\.co\\.jp)",
+      "indexPattern": [
+        "||nikki.ne.jp^",
+        "||rakuten-wallet.co.jp^",
+        "||rakuten.co.jp^",
+        "||rebates.jp^"
+      ],
+      "rules": [
+        "l-id",
+        "scid",
+        "sc2id",
+        "ref",
+        "trflg"
+      ]
+    },
+    "azby.fmworld.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?azby\\.fmworld\\.net",
+      "indexPattern": "||azby.fmworld.net^",
+      "rules": [
+        "affitest",
+        "mc_pc"
+      ]
+    },
+    "toku.yahoo.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?toku\\.yahoo\\.co\\.jp",
+      "indexPattern": "||toku.yahoo.co.jp^",
+      "rules": [
+        "fr"
+      ]
+    },
+    "cyberlink.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cyberlink\\.com",
+      "indexPattern": "||cyberlink.com^",
+      "rules": [
+        "affid"
+      ]
+    },
+    "zestradar.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?zestradar\\.com",
+      "indexPattern": "||zestradar.com^",
+      "rules": [
+        "adclid"
+      ]
+    },
+    "hit.gemius.pl": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?hit\\.gemius\\.pl\\/hitredir",
+      "indexPattern": "||hit.gemius.pl^",
+      "rules": [
+        "id",
+        "extra"
+      ]
+    },
+    "adorama.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?adorama\\.com",
+      "indexPattern": "||adorama.com^",
+      "rules": [
+        "obem",
+        "bc_pid"
+      ]
+    },
+    "adjust.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:adjust\\.com|adj\\.st)",
+      "indexPattern": [
+        "||adj.st^",
+        "||adjust.com^"
+      ],
+      "rules": [
+        "adgroup",
+        "CollectionId",
+        "adjust_deeplink",
+        "pt",
+        "pd",
+        "adj_campaign",
+        "adj_adgroup",
+        "adj_creative",
+        "adj_adnomia_click_id",
+        "pfx",
+        "adj_deeplink",
+        "adj_install_callback",
+        "adj_event_callback_dn2j7g_5mdnim",
+        "nend_click_id",
+        "install_callback",
+        "ip_address",
+        "user_agent",
+        "campaign",
+        "creative"
+      ],
+      "redirections": [
+        "^https?:\\/\\/app\\.adjust\\.com.*redirect=([^&]*)"
+      ]
+    },
+    "reddit.app.link": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?reddit\\.app\\.link",
+      "indexPattern": "||reddit.app.link^",
+      "rules": [
+        "adblock",
+        "compact_view",
+        "dnt",
+        "geoip_country",
+        "referrer_domain",
+        "referrer_url"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?reddit\\.app\\.link.*?utm_content"
+      ]
+    },
+    "dmkt-sp.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dmkt-sp\\.jp",
+      "indexPattern": "||dmkt-sp.jp^",
+      "rules": [
+        "impressionId"
+      ]
+    },
+    "livedoor.biz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?livedoor\\.biz",
+      "indexPattern": "||livedoor.biz^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "data.alexa.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?data\\.alexa\\.com\\/data\\/",
+      "indexPattern": "||data.alexa.com^",
+      "rules": [
+        "cdt",
+        "ref"
+      ]
+    },
+    "comodo.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?comodo\\.com",
+      "indexPattern": "||comodo.com^",
+      "rules": [
+        "key5sk1",
+        "track",
+        "af"
+      ]
+    },
+    "link.coupang.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:link\\.coupang\\.com|coupang\\.com)",
+      "indexPattern": [
+        "||coupang.com^",
+        "||link.coupang.com^"
+      ],
+      "rules": [
+        "lptag",
+        "isshortened",
+        "src",
+        "spec",
+        "addtag",
+        "ctag",
+        "itime",
+        "pageType",
+        "pageValue",
+        "redirect",
+        "mcid",
+        "sharesource",
+        "style",
+        "settlement",
+        "adType",
+        "sourceType",
+        "wTrackId",
+        "filterKey",
+        "TrackId",
+        "wEntrySource",
+        "uriScheme",
+        "q",
+        "searchId",
+        "wRef",
+        "traceid",
+        "wTime",
+        "wPcid"
+      ]
+    },
+    "wuzhuiso.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wuzhuiso\\.com",
+      "indexPattern": "||wuzhuiso.com^",
+      "rules": [
+        "src"
+      ]
+    },
+    "nordvpn.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nordvpn\\.com",
+      "indexPattern": "||nordvpn.com^",
+      "rules": [
+        "data1"
+      ]
+    },
+    "upgrad.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?upgrad\\.com",
+      "indexPattern": "||upgrad.com^",
+      "rules": [
+        "UTM_MEDIUM"
+      ]
+    },
+    "adweek.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?adweek\\.com",
+      "indexPattern": "||adweek.com^",
+      "rules": [
+        "traffic_source"
+      ]
+    },
+    "adguard-dns.io": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:adguard-vpn\\.|adguard-dns\\.io|adguard\\.com|adguard\\.info|adgardvpn-help\\.|adguard\\.)",
+      "indexPattern": [
+        "||adguard-dns.io^",
+        "||adguard.com^",
+        "||adguard.info^"
+      ],
+      "rules": [
+        "aid",
+        "clid"
+      ]
+    },
+    "kitbag.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?kitbag\\.com",
+      "indexPattern": "||kitbag.com^",
+      "rules": [
+        "_ref",
+        "ab"
+      ]
+    },
+    "web.vstat.info": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?web\\.vstat\\.info",
+      "indexPattern": "||web.vstat.info^",
+      "rules": [
+        "guid",
+        "user_agent"
+      ]
+    },
+    "start.pm.by": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?start\\.pm\\.by",
+      "indexPattern": "||start.pm.by^",
+      "rules": [
+        "adtag"
+      ]
+    },
+    "redhotpawn.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?redhotpawn\\.com",
+      "indexPattern": "||redhotpawn.com^",
+      "rules": [
+        "cbqsid"
+      ]
+    },
+    "trendyol.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?trendyol\\.com",
+      "indexPattern": "||trendyol.com^",
+      "rules": [
+        "adjust_t",
+        "tyutm_source",
+        "tyutm_medium",
+        "tyutm_campaign",
+        "utm_subaff"
+      ]
+    },
+    "cc.loginfra.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cc\\.loginfra\\.com\\/cc",
+      "indexPattern": "||cc.loginfra.com^",
+      "rules": [
+        "a",
+        "bw",
+        "px",
+        "py",
+        "sx",
+        "sy",
+        "nsc"
+      ],
+      "redirections": [
+        "^https?:\\/\\/cc\\.loginfra\\.com\\/.*?u=([^&]+)"
+      ]
+    },
+    "mein.onlinekonto.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mein\\.onlinekonto\\.de",
+      "indexPattern": "||mein.onlinekonto.de^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "dengekionline.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dengekionline\\.com",
+      "indexPattern": "||dengekionline.com^",
+      "rules": [
+        "osusume_banner"
+      ]
+    },
+    "aliyun.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?aliyun\\.com",
+      "indexPattern": "||aliyun.com^",
+      "rules": [
+        "scm"
+      ]
+    },
+    "163.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?163\\.com",
+      "indexPattern": "||163.com^",
+      "rules": [
+        "dt_dapp"
+      ]
+    },
+    "cyber-ad01.cc": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cyber-ad01\\.cc",
+      "indexPattern": "||cyber-ad01.cc^",
+      "rules": [
+        "ip"
+      ]
+    },
+    "d-markets.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?d-markets\\.net",
+      "indexPattern": "||d-markets.net^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "vpnarea.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?vpnarea\\.com",
+      "indexPattern": "||vpnarea.com^",
+      "rules": [
+        "a_aid"
+      ]
+    },
+    "wook.pt": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?wook\\.pt",
+      "indexPattern": "||wook.pt^",
+      "rules": [
+        "a_aid"
+      ]
+    },
+    "affiliate.privatevpn.com": {
+      "urlPattern": "^https?:\\/\\/affiliate\\.privatevpn\\.com",
+      "indexPattern": "||affiliate.privatevpn.com^",
+      "rules": [
+        "a_aid"
+      ]
+    },
+    "lcs.naver.com_1": {
+      "urlPattern": "^https?:\\/\\/lcs\\.naver\\.com\\/m\\?u=",
+      "indexPattern": "||lcs.naver.com^",
+      "rules": [
+        "os",
+        "ln",
+        "sr",
+        "bw",
+        "bh",
+        "ls",
+        "navigationStart",
+        "requestStart",
+        "responseStart",
+        "responseEnd",
+        "domLoading",
+        "domInteractive",
+        "domContentLoadedEventStart",
+        "domContentLoadedEventEnd",
+        "domComplete",
+        "loadEventStart",
+        "loadEventEnd",
+        "pid",
+        "ts"
+      ]
+    },
+    "creativecloud.adobe.com_1": {
+      "urlPattern": "^https?:\\/\\/creativecloud\\.adobe\\.com",
+      "indexPattern": "||creativecloud.adobe.com^",
+      "rules": [
+        "trackingid"
+      ]
+    },
+    "get.adobe.com_1": {
+      "urlPattern": "^https?:\\/\\/get\\.adobe\\.com",
+      "indexPattern": "||get.adobe.com^",
+      "rules": [
+        "browser_type",
+        "browser_dist",
+        "type",
+        "workflow",
+        "promoid",
+        "TRILIBIS_EMULATOR_UA"
+      ]
+    },
+    "ups.xplosion.de_ctx": {
+      "completeProvider": true,
+      "urlPattern": "^https?:\\/\\/ups\\.xplosion\\.de\\/ctx\\?event_id=",
+      "indexPattern": "||ups.xplosion.de^"
+    },
+    "app_1": {
+      "urlPattern": "^https?:\\/\\/app\\.5-delivery\\.ru",
+      "indexPattern": "||app.5-delivery.ru^",
+      "rules": [
+        "c",
+        "pid"
+      ]
+    },
+    "dailymotion.com_embed": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?dailymotion\\.com\\/embed\\/video\\/",
+      "indexPattern": "||dailymotion.com^",
+      "rules": [
+        "ads_params",
+        "origin"
+      ]
+    },
+    "threads.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?threads\\.com",
+      "indexPattern": "||threads.com^",
+      "rules": [
+        "igshid"
+      ]
+    },
+    "threads.net": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?threads\\.net",
+      "indexPattern": "||threads.net^",
+      "rules": [
+        "igshid"
+      ]
+    },
+    "mediamarkt.com.tr": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mediamarkt\\.com\\.tr",
+      "indexPattern": "||mediamarkt.com.tr^",
+      "rules": [
+        "rbtc"
+      ]
+    },
+    "t.myvisualiq.net_1": {
+      "urlPattern": "^https?:\\/\\/t\\.myvisualiq\\.net",
+      "indexPattern": "||t.myvisualiq.net^",
+      "exceptions": [
+        "^https?:\\/\\/t\\.myvisualiq\\.net.*red"
+      ]
+    },
+    "uspoloassn.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?uspoloassn\\.com",
+      "indexPattern": "||uspoloassn.com^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "arcelik.com.tr": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?arcelik\\.com\\.tr",
+      "indexPattern": "||arcelik.com.tr^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "express.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?express\\.de",
+      "indexPattern": "||express.de^",
+      "rules": [
+        "cb"
+      ]
+    },
+    "ksta.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ksta\\.de",
+      "indexPattern": "||ksta.de^",
+      "rules": [
+        "cb"
+      ]
+    },
+    "digikey.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?digikey\\.com",
+      "indexPattern": "||digikey.com^",
+      "rawRules": [
+        "^utm_cid"
+      ]
+    },
+    "nicovideo.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nicovideo\\.jp",
+      "indexPattern": "||nicovideo.jp^",
+      "rules": [
+        "via",
+        "at",
+        "state",
+        "transition_id",
+        "transition_type",
+        "rf",
+        "rp",
+        "ra",
+        "rd",
+        "transit_from",
+        "track",
+        "ss_id",
+        "ss_pos",
+        "cp_in",
+        "cnt_transit",
+        "viewing_source",
+        "news_ref",
+        "cmnhd_ref",
+        "ref"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/(?:anime|dic)\\.nicovideo\\.jp"
+      ]
+    },
+    "anime.nicovideo.jp": {
+      "urlPattern": "^https?:\\/\\/anime\\.nicovideo\\.jp",
+      "indexPattern": "||anime.nicovideo.jp^",
+      "rules": [
+        "from"
+      ]
+    },
+    "dic.nicovideo.jp": {
+      "urlPattern": "^https?:\\/\\/dic\\.nicovideo\\.jp",
+      "indexPattern": "||dic.nicovideo.jp^",
+      "rules": [
+        "from"
+      ]
+    },
+    "live.nicovideo.jp": {
+      "urlPattern": "^https?:\\/\\/live\\.nicovideo\\.jp",
+      "indexPattern": "||live.nicovideo.jp^",
+      "rules": [
+        "ch_anime_ref"
+      ]
+    },
+    "seiga.nicovideo.jp": {
+      "urlPattern": "^https?:\\/\\/seiga\\.nicovideo\\.jp",
+      "indexPattern": "||seiga.nicovideo.jp^",
+      "rules": [
+        "track"
+      ]
+    },
+    "manga.nicovideo.jp": {
+      "urlPattern": "^https?:\\/\\/manga\\.nicovideo\\.jp",
+      "indexPattern": "||manga.nicovideo.jp^",
+      "rules": [
+        "track"
+      ]
+    },
+    "sp.nicovideo.jp": {
+      "urlPattern": "^https?:\\/\\/sp\\.nicovideo\\.jp",
+      "indexPattern": "||sp.nicovideo.jp^",
+      "rules": [
+        "ss_id",
+        "ss_pos",
+        "cp_in",
+        "cnt_transit",
+        "viewing_source"
+      ]
+    },
+    "nicoft.io": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nicoft\\.io",
+      "indexPattern": "||nicoft.io^",
+      "rules": [
+        "cmnhd_ref"
+      ]
+    },
+    "nicoebook.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?nicoebook\\.jp",
+      "indexPattern": "||nicoebook.jp^",
+      "rules": [
+        "track"
+      ]
+    },
+    "search.naver.com_search": {
+      "urlPattern": "^https?:\\/\\/search\\.naver\\.com\\/search\\.naver",
+      "indexPattern": "||search.naver.com^",
+      "rules": [
+        "tqi"
+      ]
+    },
+    "cc.naver.com_cc": {
+      "urlPattern": "^https?:\\/\\/cc\\.naver\\.com\\/cc\\?a",
+      "indexPattern": "||cc.naver.com^",
+      "rules": [
+        "bw",
+        "px",
+        "py",
+        "sx",
+        "sy"
+      ]
+    },
+    "ya.ru_1": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ya\\.ru",
+      "indexPattern": "||ya.ru^",
+      "rules": [
+        "search_source",
+        "search_domain",
+        "clid",
+        "source"
+      ]
+    },
+    "market.yandex": {
+      "urlPattern": "^https?:\\/\\/market\\.yandex\\.",
+      "indexPattern": "||yandex.*^",
+      "rules": [
+        "offerid",
+        "show-uid",
+        "uniqueId",
+        "vid",
+        "mclid",
+        "clid"
+      ]
+    },
+    "docs.yandex": {
+      "urlPattern": "^https?:\\/\\/docs\\.yandex\\.",
+      "indexPattern": "||yandex.*^",
+      "rules": [
+        "uid"
+      ]
+    },
+    "amc.yandex.ru": {
+      "urlPattern": "^https?:\\/\\/amc\\.yandex\\.ru",
+      "indexPattern": "||amc.yandex.ru^",
+      "rules": [
+        "cmn_id",
+        "ad_type",
+        "crv_id"
+      ]
+    },
+    "www.baidu.com": {
+      "urlPattern": "^https?:\\/\\/www\\.baidu\\.com",
+      "indexPattern": "||baidu.com^",
+      "rules": [
+        "rsv_pq",
+        "rsv_t"
+      ],
+      "redirections": [
+        "^https?:\\/\\/www\\.baidu\\.com\\/link\\?url=.*eqid=([^&]*)"
+      ]
+    },
+    "cod.bitrec.com": {
+      "urlPattern": "^https?:\\/\\/cod\\.bitrec\\.com\\/topocentras-services\\/js\\/recs\\?",
+      "indexPattern": "||cod.bitrec.com^",
+      "rules": [
+        "visitorId",
+        "externalVisitorId",
+        "r"
+      ]
+    },
+    "aboutamazon.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?aboutamazon\\.com",
+      "indexPattern": "||aboutamazon.com^",
+      "rules": [
+        "asc_campaign",
+        "asc_refurl",
+        "asc_source"
+      ]
+    },
+    "amzn.to": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amzn\\.to",
+      "indexPattern": "||amzn.to^",
+      "rules": [
+        "asc_campaign",
+        "asc_refurl",
+        "asc_source"
+      ]
+    },
+    "app.mi.com": {
+      "urlPattern": "^https?:\\/\\/app\\.mi\\.com\\/download\\/",
+      "indexPattern": "||app.mi.com^",
+      "rules": [
+        "ref",
+        "nonce",
+        "appClientId",
+        "appSignature"
+      ]
+    },
+    "mp.weixin.qq.com": {
+      "urlPattern": "^https?:\\/\\/mp\\.weixin\\.qq\\.com",
+      "indexPattern": "||mp.weixin.qq.com^",
+      "rules": [
+        "chksm",
+        "key",
+        "uin",
+        "devicetype",
+        "exportkey",
+        "mpshare",
+        "scene",
+        "srcid",
+        "nettype",
+        "WBAPIAnalysisOriUICodes",
+        "v_p",
+        "launchid",
+        "from",
+        "aid"
+      ]
+    },
+    "pixel.adsafeprotected.com": {
+      "urlPattern": "^https?:\\/\\/pixel\\.adsafeprotected\\.com\\/services\\/pub\\?",
+      "indexPattern": "||pixel.adsafeprotected.com^",
+      "rules": [
+        "slot",
+        "sessionId",
+        "anId",
+        "wr",
+        "sr",
+        "url"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/pixel\\.adsafeprotected\\.com\\/services\\/pub\\?.*slot.*reuters\\.com"
+      ]
+    },
+    "cam4.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?cam4\\.com",
+      "indexPattern": "||cam4.com^",
+      "rules": [
+        "act",
+        "suid",
+        "showSignupPopup"
+      ]
+    },
+    "office.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?office\\.com",
+      "indexPattern": "||office.com^",
+      "rules": [
+        "ocid"
+      ]
+    },
+    "zerkalo.io": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?zerkalo\\.io",
+      "indexPattern": "||zerkalo.io^",
+      "rules": [
+        "tg",
+        "vk"
+      ]
+    },
+    "nbcume.sc.omtrdc.net": {
+      "urlPattern": "^https?:\\/\\/nbcume\\.sc\\.omtrdc\\.net\\/id\\?d_visid_ver=",
+      "indexPattern": "||nbcume.sc.omtrdc.net^",
+      "rules": [
+        "mcorgid",
+        "mid",
+        "ts"
+      ]
+    },
+    "realitykings.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?realitykings\\.com",
+      "indexPattern": "||realitykings.com^",
+      "rules": [
+        "ats"
+      ]
+    },
+    "marktjagd.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?marktjagd\\.de",
+      "indexPattern": "||marktjagd.de^",
+      "rules": [
+        "client"
+      ]
+    },
+    "coursera.org": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?coursera\\.org",
+      "indexPattern": "||coursera.org^",
+      "rules": [
+        "siteID"
+      ]
+    },
+    "mag2.com": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mag2\\.com",
+      "indexPattern": "||mag2.com^",
+      "rules": [
+        "trflg"
+      ]
+    },
+    "mioga.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?mioga\\.de",
+      "indexPattern": "||mioga.de^",
+      "rules": [
+        "pl",
+        "idealoid"
+      ]
+    },
+    "ejoker.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?ejoker\\.de",
+      "indexPattern": "||ejoker.de^",
+      "rules": [
+        "sPartner",
+        "idealoid"
+      ]
+    },
+    "gmx": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?gmx\\.",
+      "indexPattern": "||gmx.*^",
+      "rules": [
+        "p",
+        "mc",
+        "partnerId",
+        "advertisementId",
+        "origin"
+      ]
+    },
+    "web.de": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?web\\.de",
+      "indexPattern": "||web.de^",
+      "rules": [
+        "p",
+        "mc",
+        "partnerId",
+        "advertisementId",
+        "origin"
+      ]
+    },
+    "ad.doubleclick.net": {
+      "urlPattern": "^https?:\\/\\/ad\\.doubleclick\\.net\\/ddm\\/trackclk\\/",
+      "indexPattern": "||ad.doubleclick.net^",
+      "rawRules": [
+        "^dc_trk_"
+      ],
+      "exceptions": [
+        "^https?:\\/\\/ad\\.doubleclick\\.net\\/ddm\\/trackclk\\/.*https:\\/\\/www\\.thegoodguys\\.com\\.au\\/.*\\?utm_source=Partner"
+      ]
+    },
+    "daraz": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?daraz\\.",
+      "indexPattern": "||daraz.*^",
+      "rules": [
+        "spm",
+        "scm",
+        "from",
+        "keyori",
+        "sugg",
+        "search",
+        "mp",
+        "c",
+        "abtest",
+        "abbucket",
+        "pos",
+        "themeID",
+        "algArgs",
+        "clickTrackInfo",
+        "acm",
+        "item_id",
+        "version",
+        "up_id",
+        "pvid"
+      ],
+      "rawRules": [
+        "spm=",
+        "scm=",
+        "from=",
+        "keyori=",
+        "sugg=",
+        "search=",
+        "mp=",
+        "c=",
+        "^abtest",
+        "^abbucket",
+        "pos=",
+        "themeID=",
+        "algArgs=",
+        "clickTrackInfo=",
+        "acm=",
+        "item_id=",
+        "version=",
+        "up_id=",
+        "pvid="
+      ]
+    },
+    "websearch.rakuten.co.jp": {
+      "urlPattern": "^https?:\\/\\/websearch\\.rakuten\\.co\\.jp\\/Web\\?",
+      "indexPattern": "||websearch.rakuten.co.jp^",
+      "rules": [
+        "ref"
+      ]
+    },
+    "rakuten.co.jp": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?rakuten\\.co\\.jp",
+      "indexPattern": "||rakuten.co.jp^",
+      "rules": [
+        "trflg"
+      ]
+    },
+    "search.yahoo.co.jp": {
+      "urlPattern": "^https?:\\/\\/search\\.yahoo\\.co\\.jp",
+      "indexPattern": "||search.yahoo.co.jp^",
+      "rules": [
+        "fr"
+      ]
+    }
+  }
+}
