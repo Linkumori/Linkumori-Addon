@@ -16,6 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.0.1] - 2026-05-13 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v67.0...linkumori-v100.0.1))
+### Changed
+- Add stable and patch version semantics (`2026-05-13`, hash: [`66dd949`](https://github.com/Linkumori/Linkumori-Addon/commit/66dd949))
+- Adjust to manfiest.json (`2026-05-13`, hash: [`1bf5b4a`](https://github.com/Linkumori/Linkumori-Addon/commit/1bf5b4a))
+- Update package-lock.json (`2026-05-13`, hash: [`abf3869`](https://github.com/Linkumori/Linkumori-Addon/commit/abf3869))
+
+### Fixed
+- Resolve inaccuracy in README.MD (`2026-05-13`, hash: [`9f9e45f`](https://github.com/Linkumori/Linkumori-Addon/commit/9f9e45f))
+
 ## [v67.0] - 2026-05-13 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v66.0...linkumori-v67.0))
 ### Added
 - Introduce updated rules (`2026-05-13`, hash: [`f034c94`](https://github.com/Linkumori/Linkumori-Addon/commit/f034c94))
