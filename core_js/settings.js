@@ -3323,7 +3323,7 @@ function displayBundledRulesInfo() {
         }),
         browser.runtime.sendMessage({
             function: "getData",
-            params: ["LinkumoriURLsData"]
+            params: ["ClearURLsData"]
         })
     ]).then(([rulesResponse, metadataResponse, customRulesResponse, hashStatusResponse, sourceInfoResponse, mergeStatsResponse, whitelistResponse, customStatsResponse, linkumoriURLsResponse]) => {
         const rulesData = rulesResponse.response;
@@ -3334,9 +3334,9 @@ function displayBundledRulesInfo() {
         const mergeStats = mergeStatsResponse.response || {};
         const whitelist = Array.isArray(whitelistResponse.response) ? whitelistResponse.response : [];
         const customStats = customStatsResponse && customStatsResponse.response ? customStatsResponse.response : {};
-        const linkumoriURLsData = linkumoriURLsResponse && linkumoriURLsResponse.response ? linkumoriURLsResponse.response : {};
-        const linkumoriURLsMetadata = linkumoriURLsData.metadata || {};
-        const linkumoriURLRuleCount = Array.isArray(linkumoriURLsData.rules) ? linkumoriURLsData.rules.length : 0;
+        const clearURLsRuntimeData = linkumoriURLsResponse && linkumoriURLsResponse.response ? linkumoriURLsResponse.response : {};
+        const linkumoriURLsMetadata = clearURLsRuntimeData.urlFilterMetadata || {};
+        const linkumoriURLRuleCount = Array.isArray(clearURLsRuntimeData.urlFilterRules) ? clearURLsRuntimeData.urlFilterRules.length : 0;
         const statusElement = document.getElementById('bundled_rules_status');
         
         const statusLabel = translate('rules_status_label');

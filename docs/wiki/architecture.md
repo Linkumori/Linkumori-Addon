@@ -136,7 +136,7 @@ At a high level:
 
 1. `storage.js` initializes persisted state and bundled/remote/custom rules.
 2. The provider engine rebuilds from `ClearURLsData`.
-3. The removeparam runtime rebuilds from `LinkumoriURLsData`.
+3. The removeparam runtime rebuilds from `ClearURLsData.urlFilterRules`.
 4. Network requests enter the `onBeforeRequest` listener in `clearurls.js`.
 5. Provider cleaning runs first.
 6. If no decisive result is returned, optional CNAME replay may run.
@@ -157,4 +157,3 @@ At a high level:
 - `storage.js` is powerful but large, so changes there have broad blast radius.
 - The UI layer is feature-rich and correspondingly dense, especially `popup.js` and `custom_rules_editor.js`.
 - There are two cleaning models in play, which is flexible but requires careful coordination.
-
