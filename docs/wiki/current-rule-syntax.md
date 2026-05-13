@@ -6,7 +6,7 @@ It covers:
 
 1. `ClearURLsData`
 2. inline removeparam rules accepted inside `ClearURLsData.providers.*.rules`
-3. standalone `LinkumoriURLsData`
+3. consolidated `ClearURLsData.urlFilterRules`
 
 ## 1. `ClearURLsData`
 
@@ -422,28 +422,30 @@ Behavior:
 }
 ```
 
-## 2. `LinkumoriURLsData`
+## 2. `ClearURLsData.urlFilterRules`
 
-`LinkumoriURLsData` is a filter-list-style JSON object.
+Standalone removeparam-style filter rules now live inside the unified `ClearURLsData` JSON object.
 
 Typical shape:
 
 ```json
 {
   "metadata": {
+    "name": "Provider Rules"
+  },
+  "providers": {},
+  "urlFilterMetadata": {
     "name": "Linkumori URL Filters",
     "version": "2026-05-13T00:00:00.000Z"
   },
-  "format": "linkumori-url-filter-interoperability",
-  "type": "linkumori-url-rules",
-  "rules": [
+  "urlFilterRules": [
     "||example.com^$removeparam=utm_source",
     "@@||example.com/login^$removeparam=utm_source"
   ]
 }
 ```
 
-Only `rules` are consumed by the runtime. Metadata is used for display, health, and status.
+Only `urlFilterRules` are consumed by the removeparam runtime. `urlFilterMetadata` is used for display, health, and status.
 
 ## Standalone Rule Grammar
 
@@ -708,7 +710,7 @@ They do not change matching.
 
 ## Unsupported Modifier Behavior
 
-If a standalone `LinkumoriURLsData` rule contains an unsupported modifier, the parser rejects the whole rule.
+If a standalone `ClearURLsData.urlFilterRules` rule contains an unsupported modifier, the parser rejects the whole rule.
 
 During list import:
 
@@ -773,7 +775,7 @@ Skipped line types:
 - provider-level exception sets
 - custom-provider editing in the Linkumori UI
 
-### Use `LinkumoriURLsData` when you need:
+### Use `ClearURLsData.urlFilterRules` when you need:
 
 - filter-list-style removeparam rules
 - precise modifier-rich matching
