@@ -16,6 +16,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.0.3] - 2026-05-15 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.0.2...linkumori-v100.0.3))
+### Changed
+- Address pr review feedback (`2026-05-15`, hash: [`327c2fa`](https://github.com/Linkumori/Linkumori-Addon/commit/327c2fa))
+- Downloaded latest public suffix list from upstream (`2026-05-15`, hash: [`f4be0b7`](https://github.com/Linkumori/Linkumori-Addon/commit/f4be0b7))
+
+### Fixed
+- Resolve url filter syntax handling and provider indexing (`2026-05-15`, hash: [`ca1bcd2`](https://github.com/Linkumori/Linkumori-Addon/commit/ca1bcd2))
+
+### Removed
+- Remove inferred main frame source fallback (`2026-05-15`, hash: [`b68dcf1`](https://github.com/Linkumori/Linkumori-Addon/commit/b68dcf1))
+
 ## [v100.0.2] - 2026-05-13 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.0.1...linkumori-v100.0.2))
 ### Changed
 - Downloaded latest public suffix list from upstream (`2026-05-13`, hash: [`2b779ed`](https://github.com/Linkumori/Linkumori-Addon/commit/2b779ed))
