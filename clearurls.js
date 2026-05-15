@@ -1163,6 +1163,11 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         }
     });
 
+    // Raw rules can remove the first query segment together with its leading
+    // delimiter (for example `[?&]raw=[^&#]*`), leaving `/&keep=1`. Normalize
+    // that orphaned separator before rebuilding the URL.
+    url = url.replace(/([/?])&(?=[^#]*$)/, '$1?');
+
     urlObject = new URL(url);
     fields = urlObject.searchParams;
     fragments = extractFragments(urlObject);
