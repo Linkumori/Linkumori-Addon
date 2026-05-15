@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linkumori Regression</title>
+  <script src="../external_js/theme_bootstrap.js"></script>
+  <script src="../external_js/theme_favicon.js"></script>
+  <link rel="stylesheet" href="../css/settings.css">
+  <style>
+    .regression-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.regression-summary{font-size:18px;margin:18px 0}.regression-muted{color:var(--text-muted)}.regression-results{display:grid;gap:10px}.regression-result{padding:12px 14px;border:1px solid var(--border-color);border-radius:12px;background:var(--bg-tertiary)}.regression-result.pass{border-left:5px solid #16a34a}.regression-result.fail{border-left:5px solid #dc2626}.regression-urls{margin-top:8px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;word-break:break-all}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
+        <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" fill="none" stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round"/>
+        <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35" fill="none" stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round"/>
+        <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" fill="var(--logo-accent)"/>
+      </svg>
+      <div class="header-text"><h1>Regression Test</h1><span class="version-badge" id="version"></span></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <div class="regression-toolbar">
+        <button id="run" class="btn btn-primary">Run again</button>
+        <button id="export" class="btn btn-secondary" disabled>Export results</button>
+        <span id="status" class="regression-muted">Loading suite…</span>
+      </div>
+      <div id="summary" class="regression-summary"></div>
+    </div>
+    <div id="results" class="regression-results"></div>
+  </div>
+  <script src="../core_js/regression_page.js"></script>
+  <script src="../core_js/write_version.js"></script>
+</body>
+</html>

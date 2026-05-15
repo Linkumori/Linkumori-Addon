@@ -2438,6 +2438,42 @@ function mergeCustomRules(bundledRules) {
     });
 }
 
+let pendingRegressionSuite = null;
+
+function setPendingRegressionSuite(suite) {
+    pendingRegressionSuite = suite && typeof suite === 'object' ? suite : null;
+    return !!pendingRegressionSuite;
+}
+
+function getPendingRegressionSuite() {
+    return pendingRegressionSuite;
+}
+
+globalThis.setPendingRegressionSuite = setPendingRegressionSuite;
+globalThis.getPendingRegressionSuite = getPendingRegressionSuite;
+
+function applyRegressionRuleData(data) {
+    const safeData = data && typeof data === 'object' && !Array.isArray(data)
+        ? data
+        : { providers: {}, urlFilterRules: [] };
+    storage.ClearURLsData = {
+        providers: safeData.providers && typeof safeData.providers === 'object' && !Array.isArray(safeData.providers)
+            ? safeData.providers
+            : {},
+        urlFilterRules: Array.isArray(safeData.urlFilterRules) ? safeData.urlFilterRules : []
+    };
+    let appliedLive = false;
+    if (typeof globalThis.updateProviderData === 'function') {
+        appliedLive = !!globalThis.updateProviderData();
+    }
+    if (typeof globalThis.updateLinkumoriURLFilterRuntimeData === 'function') {
+        globalThis.updateLinkumoriURLFilterRuntimeData();
+    }
+    return { appliedLive };
+}
+
+globalThis.applyRegressionRuleData = applyRegressionRuleData;
+
 function reloadCustomRules() {
     return loadBundledRules().then(() => loadLinkumoriURLFilters()).then(() => {
         let appliedLive = false;

@@ -992,11 +992,13 @@
         }
 
         if (rule.denyallowDomains.length > 0) {
-            const denied = rule.denyallowDomains.some(pattern => hostnameMatches(targetHost, pattern));
+            const denied = rule.denyallowDomains.some(pattern => {
+                return context.sourceHosts.some(host => hostnameMatches(host, pattern));
+            });
             if (denied) return false;
         }
 
-        if (hostnameMatchesRegex(targetHost, rule.denyallowDomainRegexes)) {
+        if (context.sourceHosts.some(host => hostnameMatchesRegex(host, rule.denyallowDomainRegexes))) {
             return false;
         }
 
@@ -1024,8 +1026,8 @@
         const documentSite = context.registrableDomain(documentHost);
         const sameSite = !!targetSite && !!documentSite && targetSite === documentSite;
 
-        if (rule.strictFirstPartyOnly && !sameHost) return false;
-        if (rule.strictThirdPartyOnly && sameHost) return false;
+        if (rule.strictFirstPartyOnly && !sameSite) return false;
+        if (rule.strictThirdPartyOnly && sameSite) return false;
         if (rule.firstPartyOnly && !sameSite) return false;
         if (rule.thirdPartyOnly && sameSite) return false;
 
@@ -1045,7 +1047,7 @@
             if (excludeMask !== 0 && requestMethodBit !== 0 && (excludeMask & requestMethodBit) !== 0) {
                 return false;
             }
-            if (includeMask === 0 && requestMethodBit !== 0 && (ContextClass.DEFAULT_METHOD_MASK & requestMethodBit) === 0) {
+            if (includeMask === 0 && excludeMask === 0 && requestMethodBit !== 0 && (ContextClass.DEFAULT_METHOD_MASK & requestMethodBit) === 0) {
                 return false;
             }
 
@@ -1059,7 +1061,7 @@
         if (rule.excludeMethods.length > 0 && rule.excludeMethods.includes(requestMethod)) {
             return false;
         }
-        if (rule.includeMethods.length === 0 && requestMethod && !['GET', 'HEAD', 'OPTIONS'].includes(requestMethod)) {
+        if (rule.includeMethods.length === 0 && rule.excludeMethods.length === 0 && requestMethod && !['GET', 'HEAD', 'OPTIONS'].includes(requestMethod)) {
             return false;
         }
 
