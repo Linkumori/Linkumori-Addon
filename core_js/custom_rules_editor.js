@@ -187,6 +187,41 @@ function getLocalizedNumber(number) {
     return String(number);
 }
 
+function normalizeIndexPatternValue(value) {
+    const values = Array.isArray(value)
+        ? value
+        : (typeof value === 'string'
+            ? value.split(/\r?\n|,/)
+            : []);
+    const normalized = [...new Set(values
+        .filter(item => typeof item === 'string')
+        .map(item => item.trim())
+        .filter(Boolean))];
+    if (normalized.length === 0) return '';
+    return normalized.length === 1 ? normalized[0] : normalized;
+}
+
+function formatIndexPatternValue(value) {
+    return Array.isArray(value)
+        ? value.filter(item => typeof item === 'string' && item.trim()).join('\n')
+        : (typeof value === 'string' ? value : '');
+}
+
+function assertDomainRedirectionSyntax(provider, providerName = '') {
+    const rules = Array.isArray(provider?.domainRedirections) ? provider.domainRedirections : [];
+    rules.forEach((rule) => {
+        if (typeof rule !== 'string') {
+            throw new Error(`${providerName || 'Provider'}: domainRedirections entries must be strings`);
+        }
+        const markerIndex = rule.indexOf('$redirect=');
+        const pattern = markerIndex === -1 ? '' : rule.slice(0, markerIndex).trim();
+        const target = markerIndex === -1 ? '' : rule.slice(markerIndex + '$redirect='.length).trim();
+        if (!pattern || !target) {
+            throw new Error(`${providerName || 'Provider'}: invalid domainRedirections entry "${rule}"`);
+        }
+    });
+}
+
 // i18n helper function
 function i18n(key, ...substitutions) {
     return LinkumoriI18n.getMessage(key, substitutions);
@@ -3814,7 +3849,7 @@ function createProviderEditorHTML(provider) {
 
                 <div class="form-group" id="edit-index-pattern-group" style="${hasUrlPattern ? '' : 'display:none;'}">
                     <label class="form-label">${i18n('customRulesEditor_indexPattern')}</label>
-                    <input type="text" class="form-input" id="edit-index-pattern" value="${escapeHtml(provider.indexPattern || '')}" placeholder="${i18n('customRulesEditor_indexPatternPlaceholder')}">
+                    <textarea class="form-input" id="edit-index-pattern" rows="3" placeholder="${i18n('customRulesEditor_indexPatternPlaceholder')}">${escapeHtml(formatIndexPatternValue(provider.indexPattern))}</textarea>
                 </div>
 
                 <div class="form-group" id="edit-domain-patterns-group" style="${hasUrlPattern ? 'display:none;' : ''}">
@@ -3940,7 +3975,7 @@ function applyPatternEditorToJson() {
     if (useUrlPattern) {
         delete provider.domainPatterns;
         const value = (urlInput?.value || '').trim();
-        const indexValue = (document.getElementById('edit-index-pattern')?.value || '').trim();
+        const indexValue = normalizeIndexPatternValue(document.getElementById('edit-index-pattern')?.value || '');
 
         if (value) {
             provider.urlPattern = value;
@@ -3990,7 +4025,7 @@ function syncPatternEditorFromJson() {
             urlRadio.checked = true;
             domainRadio.checked = false;
             if (urlInput) urlInput.value = provider.urlPattern;
-            if (indexInput) indexInput.value = provider.indexPattern || '';
+            if (indexInput) indexInput.value = formatIndexPatternValue(provider.indexPattern);
             if (domainInput) domainInput.value = '';
         } else {
             urlRadio.checked = false;
@@ -4129,17 +4164,22 @@ async function saveCurrentProvider() {
             return;
         }
         const provider = JSON.parse(jsonEditor.value);
+        assertProviderArrayFields(provider, currentProvider || '');
+        assertDomainRedirectionSyntax(provider, currentProvider || '');
+        provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
+        if (!provider.indexPattern) delete provider.indexPattern;
         
         // Validate required fields - either urlPattern or domainPatterns must be present
-        if ((!provider.urlPattern || provider.urlPattern.trim() === '') && 
-            (!provider.domainPatterns || provider.domainPatterns.length === 0)) {
+        const normalizedDomainPatterns = toDomainPatternArray(provider.domainPatterns);
+        if ((!provider.urlPattern || provider.urlPattern.trim() === '') &&
+            normalizedDomainPatterns.length === 0) {
             await modalAlert(i18n('customRulesEditor_urlPatternOrDomainPatternsRequired'));
             return;
         }
         
         // Validate mutual exclusivity
-        if (provider.urlPattern && provider.urlPattern.trim() !== '' && 
-            provider.domainPatterns && provider.domainPatterns.length > 0) {
+        if (provider.urlPattern && provider.urlPattern.trim() !== '' &&
+            normalizedDomainPatterns.length > 0) {
             await modalAlert(i18n('customRulesEditor_urlPatternAndDomainPatternsExclusive'));
             return;
         }
@@ -4155,8 +4195,9 @@ async function saveCurrentProvider() {
         }
         
         // Validate domain patterns format if present
-        if (provider.domainPatterns && provider.domainPatterns.length > 0) {
-            for (const pattern of provider.domainPatterns) {
+        if (normalizedDomainPatterns.length > 0) {
+            provider.domainPatterns = normalizedDomainPatterns;
+            for (const pattern of normalizedDomainPatterns) {
                 if (!pattern || pattern.trim() === '') {
                     await modalAlert(i18n('customRulesEditor_emptyDomainPattern'));
                     return;
@@ -4358,7 +4399,7 @@ function showAddProviderModal(editProvider = null) {
         if (provider.urlPattern) {
             if (urlPatternRadio) urlPatternRadio.checked = true;
             if (urlPatternInput) urlPatternInput.value = provider.urlPattern;
-            if (indexPatternInput) indexPatternInput.value = provider.indexPattern || '';
+            if (indexPatternInput) indexPatternInput.value = formatIndexPatternValue(provider.indexPattern);
             if (domainPatternsInput) domainPatternsInput.value = '';
         } else if (toDomainPatternArray(provider.domainPatterns).length > 0) {
             if (domainPatternsRadio) domainPatternsRadio.checked = true;
@@ -4447,7 +4488,7 @@ async function handleProviderSubmit(e) {
     const providerName = formData.get('provider-name') || document.getElementById('provider-name').value;
     const patternType = formData.get('pattern-type');
     const urlPattern = document.getElementById('url-pattern').value || '';
-    const indexPattern = document.getElementById('index-pattern').value || '';
+    const indexPattern = normalizeIndexPatternValue(document.getElementById('index-pattern').value || '');
     const domainPatternsText = document.getElementById('domain-patterns').value || '';
     const domainPatterns = domainPatternsText.split('\n').map(p => p.trim()).filter(p => p !== '');
     const completeProvider = document.getElementById('complete-provider').checked;
@@ -4697,11 +4738,16 @@ function validateImportedProviders(providersData) {
     }
 
     for (const [name, provider] of Object.entries(providersData)) {
-        if (!provider.urlPattern && (!provider.domainPatterns || provider.domainPatterns.length === 0)) {
+        assertProviderArrayFields(provider, name);
+        assertDomainRedirectionSyntax(provider, name);
+        provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
+        if (!provider.indexPattern) delete provider.indexPattern;
+        const normalizedDomainPatterns = toDomainPatternArray(provider.domainPatterns);
+        if (!provider.urlPattern && normalizedDomainPatterns.length === 0) {
             throw new Error(i18n('customRulesEditor_providerMissingUrlPatternOrDomainPatterns', name));
         }
 
-        if (provider.urlPattern && provider.domainPatterns && provider.domainPatterns.length > 0) {
+        if (provider.urlPattern && normalizedDomainPatterns.length > 0) {
             throw new Error(i18n('customRulesEditor_providerHasBothPatternTypes', name));
         }
 
@@ -4709,14 +4755,33 @@ function validateImportedProviders(providersData) {
             new RegExp(provider.urlPattern);
         }
 
-        if (provider.domainPatterns && provider.domainPatterns.length > 0) {
-            for (const pattern of provider.domainPatterns) {
+        if (normalizedDomainPatterns.length > 0) {
+            provider.domainPatterns = normalizedDomainPatterns;
+            for (const pattern of normalizedDomainPatterns) {
                 if (!pattern || pattern.trim() === '') {
                     throw new Error(i18n('customRulesEditor_providerHasEmptyDomainPattern', name) || `Provider "${name}" has empty domain patterns`);
                 }
             }
         }
     }
+}
+
+function assertProviderArrayFields(provider, providerName = '') {
+    [
+        'rules',
+        'rawRules',
+        'referralMarketing',
+        'exceptions',
+        'redirections',
+        'domainExceptions',
+        'domainRedirections',
+        'methods',
+        'resourceTypes'
+    ].forEach((key) => {
+        if (provider[key] !== undefined && !Array.isArray(provider[key])) {
+            throw new Error(`${providerName || 'Provider'}: ${key} must be an array`);
+        }
+    });
 }
 
 /**

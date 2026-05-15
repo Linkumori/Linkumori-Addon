@@ -1428,6 +1428,9 @@ function start() {
                     }
                     providersByToken[token].push(providers[p]);
                 }
+                if (providers[p].requiresGlobalFallback()) {
+                    globalProviders.push(providers[p]);
+                }
             } else {
                 globalProviders.push(providers[p]);
             }
@@ -1755,6 +1758,13 @@ function start() {
             return Array.from(tokens);
         };
 
+        this.requiresGlobalFallback = function () {
+            return (
+                domainPatterns.some(pattern => String(pattern || '').trim().charAt(0) === '/') ||
+                (!!urlPattern && indexPatterns.length > 0)
+            );
+        };
+
         this.setURLPattern = function (urlPatterns) {
             urlPatternSource = urlPatterns || '';
             urlPattern = new RegExp(urlPatterns, "i");
@@ -1820,7 +1830,9 @@ function start() {
         };
 
         this.setURLDomainPattern = function (patterns) {
-            domainPatterns = patterns || [];
+            domainPatterns = Array.isArray(patterns)
+                ? patterns
+                : (patterns ? [patterns] : []);
         };
 
         this.getAppliedPatternForUrl = function (url) {
@@ -1946,8 +1958,9 @@ function start() {
         };
 
         this.addMethod = function (method) {
-            if (methods.indexOf(method) === -1) {
-                methods.push(method);
+            const normalized = String(method || '').toUpperCase();
+            if (normalized && methods.indexOf(normalized) === -1) {
+                methods.push(normalized);
             }
         }
 
@@ -1957,12 +1970,13 @@ function start() {
 
         this.matchMethod = function (details) {
             if (!methods.length) return true;
-            return methods.indexOf(details['method']) > -1;
+            return methods.indexOf(String(details['method'] || '').toUpperCase()) > -1;
         }
 
         this.addResourceType = function (resourceType) {
-            if (resourceTypes.indexOf(resourceType) === -1) {
-                resourceTypes.push(resourceType);
+            const normalized = String(resourceType || '').toLowerCase();
+            if (normalized && resourceTypes.indexOf(normalized) === -1) {
+                resourceTypes.push(normalized);
             }
         };
 
@@ -1977,7 +1991,7 @@ function start() {
                 }
                 return true;
             }
-            return resourceTypes.indexOf(details['type']) > -1;
+            return resourceTypes.indexOf(String(details['type'] || '').toLowerCase()) > -1;
         };
 
         this.matchException = function (url) {
