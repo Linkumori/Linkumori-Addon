@@ -68,7 +68,8 @@ var linkumoriURLFilterRuntime = {
     lastDataRef: null,
     lastRulesRef: null,
     lastDataVersion: null,
-    lastRuleCount: 0
+    lastRuleCount: 0,
+    lastRulesSignature: ''
 };
 
 function linkumoriURLFilterRuntimeI18n(key, substitutions = []) {
@@ -114,14 +115,14 @@ function addLinkumoriURLFilterRuleToBuckets(buckets, rule, indexToken) {
     buckets.all.push(rule);
     addLinkumoriURLFilterReverseIndexEntry(buckets, indexToken, rule);
 
-    if (buckets.includeDomainTrie && Array.isArray(rule.includeTargetDomains)) {
-        rule.includeTargetDomains.forEach(hostname => buckets.includeDomainTrie.add(hostname, rule));
+    if (buckets.includeDomainTrie && Array.isArray(rule._linkumoriTrieIncludeTargetDomains)) {
+        rule._linkumoriTrieIncludeTargetDomains.forEach(hostname => buckets.includeDomainTrie.add(hostname, rule));
     }
-    if (buckets.excludeDomainTrie && Array.isArray(rule.excludeTargetDomains)) {
-        rule.excludeTargetDomains.forEach(hostname => buckets.excludeDomainTrie.add(hostname, rule));
+    if (buckets.excludeDomainTrie && Array.isArray(rule._linkumoriTrieExcludeTargetDomains)) {
+        rule._linkumoriTrieExcludeTargetDomains.forEach(hostname => buckets.excludeDomainTrie.add(hostname, rule));
     }
-    if (buckets.denyallowDomainTrie && Array.isArray(rule.denyallowDomains)) {
-        rule.denyallowDomains.forEach(hostname => buckets.denyallowDomainTrie.add(hostname, rule));
+    if (buckets.denyallowDomainTrie && Array.isArray(rule._linkumoriTrieDenyallowDomains)) {
+        rule._linkumoriTrieDenyallowDomains.forEach(hostname => buckets.denyallowDomainTrie.add(hostname, rule));
     }
 
     if (rule.removeAll) {
@@ -179,8 +180,16 @@ function getLinkumoriURLPatternHostnameToken(rule) {
 function getLinkumoriURLFilterIndexTokenCandidates(rule) {
     const tokens = [];
 
+    if (rule && rule.negate) {
+        return tokens;
+    }
+
     if (rule && rule.literalParam !== null) {
-        tokens.push('pc:' + String(rule.literalParam));
+        if (rule.matchCase) {
+            tokens.push('pc:' + String(rule.literalParam));
+        } else {
+            tokens.push('p:' + String(rule.literalParam).toLowerCase());
+        }
     }
 
     if (
@@ -203,7 +212,7 @@ function getLinkumoriURLFilterIndexTokenCandidates(rule) {
         rule && rule.includeTargetDomains,
         rule && rule.includeDomains
     ].forEach(domainList => {
-        if (!Array.isArray(domainList)) return;
+        if (!Array.isArray(domainList) || domainList.length !== 1) return;
         domainList.forEach(pattern => {
             const hostname = normalizeLinkumoriURLFilterHostnamePattern(pattern);
             if (hostname) tokens.push('h:' + hostname);
@@ -243,10 +252,12 @@ function compileLinkumoriURLFilterRules(rules, exceptions) {
 
     rules.forEach(rule => {
         rule._linkumoriRuleId = ++ruleId;
+        prepareLinkumoriURLFilterTrieDomains(rule);
         countLinkumoriURLFilterTokenFrequency(rule, tokenFrequency);
     });
     exceptions.forEach(rule => {
         rule._linkumoriRuleId = ++ruleId;
+        prepareLinkumoriURLFilterTrieDomains(rule);
         countLinkumoriURLFilterTokenFrequency(rule, tokenFrequency);
     });
 
@@ -264,8 +275,28 @@ function compileLinkumoriURLFilterRules(rules, exceptions) {
     return compiled;
 }
 
-function getLinkumoriURLFilterTrieSnapshotKey(dataVersion, ruleCount) {
-    return String(dataVersion || 'noversion') + ':' + String(ruleCount || 0);
+function prepareLinkumoriURLFilterTrieDomains(rule) {
+    const normalizeAll = values => {
+        const source = Array.isArray(values) ? values : [];
+        const normalized = source.map(normalizeLinkumoriURLFilterHostnamePattern).filter(Boolean);
+        return normalized.length === source.length ? normalized : [];
+    };
+    rule._linkumoriTrieIncludeTargetDomains = normalizeAll(rule.includeTargetDomains);
+    rule._linkumoriTrieExcludeTargetDomains = normalizeAll(rule.excludeTargetDomains);
+    rule._linkumoriTrieDenyallowDomains = normalizeAll(rule.denyallowDomains);
+}
+
+function computeLinkumoriURLFilterRulesSignature(rawRules) {
+    let hash = 5381;
+    const text = (Array.isArray(rawRules) ? rawRules : []).join('\n');
+    for (let i = 0; i < text.length; i++) {
+        hash = ((hash << 5) + hash) ^ text.charCodeAt(i);
+    }
+    return `${text.length}:${hash >>> 0}`;
+}
+
+function getLinkumoriURLFilterTrieSnapshotKey(dataVersion, ruleCount, rulesSignature) {
+    return String(dataVersion || 'noversion') + ':' + String(ruleCount || 0) + ':' + String(rulesSignature || '');
 }
 
 function serializeLinkumoriURLFilterTrieSnapshots(compiled) {
@@ -317,6 +348,7 @@ function rebuildLinkumoriURLFilterRuntimeData() {
         ? getUnifiedURLFilterData()
         : null;
     const rawRules = Array.isArray(data && data.rules) ? data.rules : [];
+    const rulesSignature = computeLinkumoriURLFilterRulesSignature(rawRules);
     const badfilterTargets = new Set();
     const retainedRulesByCanonical = new Map();
     const dataVersion = data && data.metadata && typeof data.metadata.version === 'string'
@@ -330,6 +362,7 @@ function rebuildLinkumoriURLFilterRuntimeData() {
         linkumoriURLFilterRuntime.lastRulesRef === rawRules &&
         linkumoriURLFilterRuntime.lastDataVersion === dataVersion &&
         linkumoriURLFilterRuntime.lastRuleCount === rawRules.length &&
+        linkumoriURLFilterRuntime.lastRulesSignature === rulesSignature &&
         linkumoriURLFilterRuntime.compiled
     ) {
         return true;
@@ -380,7 +413,7 @@ function rebuildLinkumoriURLFilterRuntimeData() {
         linkumoriURLFilterRuntime.rules,
         linkumoriURLFilterRuntime.exceptions
     );
-    const snapshotKey = getLinkumoriURLFilterTrieSnapshotKey(dataVersion, rawRules.length);
+    const snapshotKey = getLinkumoriURLFilterTrieSnapshotKey(dataVersion, rawRules.length, rulesSignature);
     const snapshotStore = storage &&
         storage.ClearURLsData &&
         storage.ClearURLsData.urlFilterRuntimeTrieSnapshots &&
@@ -407,6 +440,7 @@ function rebuildLinkumoriURLFilterRuntimeData() {
     linkumoriURLFilterRuntime.lastRulesRef = rawRules;
     linkumoriURLFilterRuntime.lastDataVersion = dataVersion;
     linkumoriURLFilterRuntime.lastRuleCount = rawRules.length;
+    linkumoriURLFilterRuntime.lastRulesSignature = rulesSignature;
 
     return true;
 }
@@ -426,8 +460,14 @@ function shouldRunLinkumoriURLFilterRuntime(requestDetails) {
         return false;
     }
 
-    if (storage.types && storage.types.length > 0 && requestDetails.type) {
-        return storage.types.indexOf(requestDetails.type) > -1;
+    if (requestDetails.type) {
+        const allowedTypes = [
+            ...(Array.isArray(storage.types) ? storage.types : []),
+            ...(Array.isArray(storage.pingRequestTypes) ? storage.pingRequestTypes : [])
+        ];
+        if (allowedTypes.length > 0) {
+            return allowedTypes.indexOf(requestDetails.type) > -1;
+        }
     }
 
     return true;
@@ -627,7 +667,7 @@ function getLinkumoriURLFilterTargetMatcher(requestDetails) {
                 : linkumoriURLFilterRuntime.compiled.rules.includeDomainTrie;
             if (includeTrie) {
                 const includeMatches = includeTrie.matches(hostname);
-                if (!includeMatches.includes(rule)) {
+                if (!linkumoriURLFilterTrieMatchesRule(includeMatches, rule)) {
                     cache.set(key, false);
                     return false;
                 }
@@ -640,7 +680,7 @@ function getLinkumoriURLFilterTargetMatcher(requestDetails) {
                 : linkumoriURLFilterRuntime.compiled.rules.excludeDomainTrie;
             if (excludeTrie) {
                 const excludeMatches = excludeTrie.matches(hostname);
-                if (excludeMatches.includes(rule)) {
+                if (linkumoriURLFilterTrieMatchesRule(excludeMatches, rule)) {
                     cache.set(key, false);
                     return false;
                 }
@@ -653,7 +693,7 @@ function getLinkumoriURLFilterTargetMatcher(requestDetails) {
                 : linkumoriURLFilterRuntime.compiled.rules.denyallowDomainTrie;
             if (denyallowTrie) {
                 const denyallowMatches = denyallowTrie.matches(hostname);
-                if (denyallowMatches.includes(rule)) {
+                if (linkumoriURLFilterTrieMatchesRule(denyallowMatches, rule)) {
                     cache.set(key, false);
                     return false;
                 }
@@ -666,6 +706,17 @@ function getLinkumoriURLFilterTargetMatcher(requestDetails) {
         cache.set(key, matched);
         return matched;
     };
+}
+
+function linkumoriURLFilterTrieMatchesRule(matches, rule) {
+    return (Array.isArray(matches) ? matches : []).some(match => {
+        if (match === rule) return true;
+        return match &&
+            rule &&
+            match._linkumoriRuleId &&
+            rule._linkumoriRuleId &&
+            match._linkumoriRuleId === rule._linkumoriRuleId;
+    });
 }
 
 function createLinkumoriURLFilterCandidatePlan(ruleCandidates, exceptionCandidates, matchesTarget) {

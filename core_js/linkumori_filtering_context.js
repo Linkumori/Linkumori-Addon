@@ -149,18 +149,27 @@
             this.requestMethodBit = LinkumoriFilteringContext.getMethodBit(this.requestMethod);
             this.requestTypeBit = LinkumoriFilteringContext.getResourceTypeBit(this.requestType);
             this.appName = normalizeHostname(request && typeof request.appName === 'string' ? request.appName : '');
+            const explicitDocumentHosts = collectUniqueHostnames([
+                request && request.documentUrl,
+                request && request.originUrl,
+                request && request.initiator
+            ]);
+            this.documentHost = explicitDocumentHosts[0] || (
+                this.requestType === 'main_frame' ? this.targetHost : ''
+            );
             this.sourceHosts = collectUniqueHostnames([
                 request && request.initiator,
                 request && request.originUrl,
                 request && request.documentUrl
             ]);
             this.domainModifierHosts = collectUniqueHostnames([
-                request && request.initiator,
-                request && request.originUrl,
                 request && request.documentUrl,
-                request && request.url,
-                fullUrl
+                request && request.originUrl,
+                request && request.initiator
             ]);
+            if (this.domainModifierHosts.length === 0 && this.requestType === 'main_frame' && this.targetHost) {
+                this.domainModifierHosts.push(this.targetHost);
+            }
             this._registrableDomainResolver = typeof registrableDomainResolver === 'function'
                 ? registrableDomainResolver
                 : null;
