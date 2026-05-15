@@ -84,7 +84,7 @@ function pureCleaning(url, quiet = false) {
     return after;
 }
 
-function buildRuleLabDiagnostics(provider, url, testParamName = '') {
+function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetails = null) {
     const providerName = typeof provider?.getName === 'function' ? provider.getName() : null;
     const appliedPattern = typeof provider?.getAppliedPatternForUrl === 'function'
         ? provider.getAppliedPatternForUrl(url)
@@ -233,8 +233,8 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '') {
 
             const activeRules = parsed.filter((r) => !r.isException);
             const activeExceptions = parsed.filter((r) => r.isException);
-            const activeMatchedRules = evaluateLinkumoriRemoveParamRules(url, activeRules, null);
-            const activeMatchedExceptions = evaluateLinkumoriRemoveParamRules(url, activeExceptions, null);
+            const activeMatchedRules = evaluateLinkumoriRemoveParamRules(url, activeRules, requestDetails);
+            const activeMatchedExceptions = evaluateLinkumoriRemoveParamRules(url, activeExceptions, requestDetails);
 
             for (const [param, value] of candidateParamPairs) {
                 const decision = resolveLinkumoriParamDecision(param, activeMatchedRules, activeMatchedExceptions, value);
@@ -252,7 +252,7 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '') {
     return diagnostics;
 }
 
-function pureCleaningTrace(url, testParamName = '') {
+function pureCleaningTrace(url, testParamName = '', requestDetails = null) {
     let before = url;
     let after = url;
     const trace = [];
@@ -261,7 +261,7 @@ function pureCleaningTrace(url, testParamName = '') {
 
     do {
         before = after;
-        after = _cleaning(before, true, trace, providerDiagnostics, iterations + 1, testParamName);
+        after = _cleaning(before, true, trace, providerDiagnostics, iterations + 1, testParamName, requestDetails);
         iterations++;
     } while (after !== before && iterations < 20);
 
@@ -300,7 +300,7 @@ function pureCleaningTrace(url, testParamName = '') {
     };
 }
 
-function runRuleTestLab(inputUrl, testParamRaw = '') {
+function runRuleTestLab(inputUrl, testParamRaw = '', requestOverrides = {}) {
     const t = (key, fallback) => {
         try {
             const value = translate(key);
@@ -359,11 +359,17 @@ function runRuleTestLab(inputUrl, testParamRaw = '') {
     }
 
     try {
-        const result = pureCleaningTrace(effectiveUrl, normalizedTestParam);
+        const requestDetails = {
+            url: effectiveUrl,
+            method: 'GET',
+            type: 'main_frame',
+            tabId: -1,
+            ...requestOverrides
+        };
+        const result = pureCleaningTrace(effectiveUrl, normalizedTestParam, requestDetails);
         const linkumoriURLResult = typeof globalThis.traceLinkumoriURLFilterRuleTest === 'function'
             ? globalThis.traceLinkumoriURLFilterRuleTest(effectiveUrl, {
-                method: 'GET',
-                type: 'main_frame'
+                ...requestDetails
             })
             : null;
         const linkumoriURLChanged = !!(linkumoriURLResult && linkumoriURLResult.changed);
@@ -407,7 +413,7 @@ function runRuleTestLab(inputUrl, testParamRaw = '') {
 /**
  * Internal function to clean the given URL.
  */
-function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollector = null, iteration = 1, testParamName = '') {
+function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollector = null, iteration = 1, testParamName = '', requestDetails = null) {
     let cleanURL = url;
     const URLbeforeReplaceCount = countFields(url);
 
@@ -417,7 +423,16 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
     }
 
     for (let i = 0; i < providers.length; i++) {
-        const providerDiagnostics = buildRuleLabDiagnostics(providers[i], cleanURL, testParamName);
+        const effectiveRequest = requestDetails
+            ? { ...requestDetails, url: cleanURL }
+            : null;
+        const requestMatches = !effectiveRequest || (
+            providers[i].matchMethod(effectiveRequest) &&
+            providers[i].matchResourceType(effectiveRequest)
+        );
+        const providerDiagnostics = requestMatches
+            ? buildRuleLabDiagnostics(providers[i], cleanURL, testParamName, effectiveRequest)
+            : null;
         if (Array.isArray(diagnosticsCollector) && providerDiagnostics) {
             diagnosticsCollector.push({
                 ...providerDiagnostics,
@@ -432,8 +447,8 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
             "cancel": false
         };
 
-        if (providers[i].matchURL(cleanURL)) {
-            result = removeFieldsFormURL(providers[i], cleanURL, quiet);
+        if (requestMatches && providers[i].matchURL(cleanURL)) {
+            result = removeFieldsFormURL(providers[i], cleanURL, quiet, effectiveRequest);
             cleanURL = result.url;
         }
 

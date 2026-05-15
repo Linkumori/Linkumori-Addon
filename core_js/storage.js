@@ -392,11 +392,28 @@ function resumeCleaningNow() {
  * @returns {string} A key string for grouping.
  */
 function getProviderGroupKey(providerData, providerName) {
+    const normalizedList = value => {
+        const items = Array.isArray(value)
+            ? value
+            : (typeof value === 'string' && value.trim() ? [value] : []);
+        return [...new Set(items.filter(item => typeof item === 'string' && item.trim()).map(item => item.trim()))]
+            .sort((a, b) => a.localeCompare(b));
+    };
+    const scopeSignature = JSON.stringify({
+        exceptions: normalizedList(providerData?.exceptions),
+        redirections: normalizedList(providerData?.redirections),
+        domainExceptions: normalizedList(providerData?.domainExceptions),
+        domainRedirections: normalizedList(providerData?.domainRedirections),
+        methods: normalizedList(providerData?.methods).map(method => method.toUpperCase()),
+        resourceTypes: normalizedList(providerData?.resourceTypes).map(type => type.toLowerCase()),
+        completeProvider: providerData?.completeProvider === true,
+        forceRedirection: providerData?.forceRedirection === true
+    });
     const urlPattern = (typeof providerData?.urlPattern === 'string')
         ? providerData.urlPattern.trim()
         : '';
     if (urlPattern) {
-        return `url:${urlPattern}`;
+        return `url:${urlPattern}|scope:${scopeSignature}`;
     }
 
     const domainPatterns = [];
@@ -412,7 +429,7 @@ function getProviderGroupKey(providerData, providerName) {
 
     if (domainPatterns.length > 0) {
         const normalized = [...new Set(domainPatterns)].sort((a, b) => a.localeCompare(b));
-        return `domain:${normalized.join('||')}`;
+        return `domain:${normalized.join('||')}|scope:${scopeSignature}`;
     }
 
     return `no-pattern:${providerName}`;
@@ -594,7 +611,7 @@ function getConfiguredLinkumoriURLFilterURLs() {
 function mergeRemoteProviderGroup(providerGroup) {
     const merged = {
         urlPattern: providerGroup[0].data?.urlPattern,
-        indexPattern: providerGroup[0].data?.indexPattern,
+        indexPattern: [],
         rules: [],
         rawRules: [],
         referralMarketing: [],
@@ -612,8 +629,16 @@ function mergeRemoteProviderGroup(providerGroup) {
     providerGroup.forEach(provider => {
         const data = provider.data || {};
 
-        if (!merged.indexPattern && data.indexPattern) {
-            merged.indexPattern = data.indexPattern;
+        if (data.indexPattern) {
+            const indexPatterns = Array.isArray(data.indexPattern)
+                ? data.indexPattern
+                : [data.indexPattern];
+            merged.indexPattern = [...new Set([
+                ...merged.indexPattern,
+                ...indexPatterns
+                    .filter(pattern => typeof pattern === 'string' && pattern.trim())
+                    .map(pattern => pattern.trim())
+            ])];
         }
 
         if (Array.isArray(data.rules)) {
@@ -680,6 +705,11 @@ function mergeRemoteProviderGroup(providerGroup) {
     if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
     if (merged.completeProvider !== true) delete merged.completeProvider;
     if (merged.forceRedirection !== true) delete merged.forceRedirection;
+    if (merged.indexPattern.length === 0) {
+        delete merged.indexPattern;
+    } else if (merged.indexPattern.length === 1) {
+        merged.indexPattern = merged.indexPattern[0];
+    }
 
     return merged;
 }
