@@ -193,6 +193,7 @@
 
         /* Larger input fields for provider modal */
         #provider-form #url-pattern,
+        #provider-form #index-pattern,
         #provider-form #domain-patterns {
             width: 100%;
             min-width: 400px;
@@ -213,6 +214,7 @@
 
         @media (max-width: 600px) {
             #provider-form #url-pattern,
+            #provider-form #index-pattern,
             #provider-form #domain-patterns {
                 min-width: 100%;
             }
@@ -3042,7 +3044,7 @@ admin.example.com
                         <div class="faq-answer-content">
                             <p data-i18n="faq_domain_redirections_explanation"></p>
                             <div class="faq-code">redirect.example.com$redirect=https://target.com
-||short.ly^$redirect=extracted_url</div>
+||short.ly^$redirect=https://target.example/landing</div>
                             <div class="faq-info">
                                 <strong data-i18n="faq_example"></strong> <span data-i18n="faq_domain_redirections_example"></span>
                             </div>
@@ -3564,7 +3566,7 @@ admin.example.com
 
                 <div class="form-group" id="index-pattern-group">
                     <label class="form-label" for="index-pattern" data-i18n="customRulesEditor_indexPattern"></label>
-                    <input type="text" class="form-input" id="index-pattern" data-i18n-placeholder="customRulesEditor_indexPatternPlaceholder">
+                    <textarea class="form-input" id="index-pattern" rows="3" data-i18n-placeholder="customRulesEditor_indexPatternPlaceholder"></textarea>
                     <div class="form-help" data-i18n="customRulesEditor_indexPatternHelp"></div>
                 </div>
 

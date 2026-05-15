@@ -83,6 +83,7 @@
         ping: ['ping'],
         other: ['other']
     };
+    const SUPPORTED_METHODS = new Set(['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE', 'CONNECT']);
 
     function i18n(key, substitutions = []) {
         return globalThis.LinkumoriI18n.getMessage(key, substitutions);
@@ -360,6 +361,10 @@
             }
 
             if (normalized === 'important') {
+                if (isException) {
+                    unsupportedModifier = token;
+                    return;
+                }
                 parsed.important = true;
                 return;
             }
@@ -378,12 +383,22 @@
                 return;
             }
 
-            if (normalized === 'third-party' || normalized === '3p') {
+            if (
+                normalized === 'third-party' ||
+                normalized === '3p' ||
+                normalized === '~first-party' ||
+                normalized === '~1p'
+            ) {
                 parsed.thirdPartyOnly = true;
                 return;
             }
 
-            if (normalized === '~third-party' || normalized === '~3p') {
+            if (
+                normalized === 'first-party' ||
+                normalized === '1p' ||
+                normalized === '~third-party' ||
+                normalized === '~3p'
+            ) {
                 parsed.firstPartyOnly = true;
                 return;
             }
@@ -399,8 +414,13 @@
             }
 
             if (normalized.startsWith('domain=') || normalized.startsWith('from=')) {
+                const domainValue = token.slice(token.indexOf('=') + 1);
+                if (!domainValue || splitDelimitedModifierValues(domainValue).length === 0) {
+                    unsupportedModifier = token;
+                    return;
+                }
                 addDomainValues(
-                    token.slice(token.indexOf('=') + 1),
+                    domainValue,
                     parsed.includeDomains,
                     parsed.excludeDomains,
                     parsed.includeDomainRegexes,
@@ -410,8 +430,13 @@
             }
 
             if (normalized.startsWith('to=')) {
+                const targetValue = token.slice(token.indexOf('=') + 1);
+                if (!targetValue || splitDelimitedModifierValues(targetValue).length === 0) {
+                    unsupportedModifier = token;
+                    return;
+                }
                 addDomainValues(
-                    token.slice(token.indexOf('=') + 1),
+                    targetValue,
                     parsed.includeTargetDomains,
                     parsed.excludeTargetDomains,
                     parsed.includeTargetDomainRegexes,
@@ -421,8 +446,13 @@
             }
 
             if (normalized.startsWith('denyallow=')) {
+                const denyallowValue = token.slice(token.indexOf('=') + 1);
+                if (!denyallowValue || splitDelimitedModifierValues(denyallowValue).some(value => String(value || '').trim().startsWith('~'))) {
+                    unsupportedModifier = token;
+                    return;
+                }
                 addDomainValues(
-                    token.slice(token.indexOf('=') + 1),
+                    denyallowValue,
                     parsed.denyallowDomains,
                     [],
                     parsed.denyallowDomainRegexes,
@@ -432,8 +462,17 @@
             }
 
             if (normalized.startsWith('method=')) {
+                const methodValue = token.slice(token.indexOf('=') + 1);
+                const methodTokens = splitDelimitedModifierValues(methodValue);
+                if (
+                    methodTokens.length === 0 ||
+                    methodTokens.some(value => !SUPPORTED_METHODS.has(String(value || '').replace(/^~/, '').toUpperCase()))
+                ) {
+                    unsupportedModifier = token;
+                    return;
+                }
                 addDelimitedValues(
-                    token.slice(token.indexOf('=') + 1),
+                    methodValue,
                     parsed.includeMethods,
                     parsed.excludeMethods,
                     value => value.toUpperCase()
@@ -442,8 +481,13 @@
             }
 
             if (normalized.startsWith('app=')) {
+                const appValue = token.slice(token.indexOf('=') + 1);
+                if (!appValue || splitDelimitedModifierValues(appValue).length === 0) {
+                    unsupportedModifier = token;
+                    return;
+                }
                 addDomainValues(
-                    token.slice(token.indexOf('=') + 1),
+                    appValue,
                     parsed.includeApps,
                     parsed.excludeApps,
                     parsed.includeAppRegexes,
@@ -461,6 +505,14 @@
 
         if (!removeParamToken) return null;
         if (unsupportedModifier) return null;
+        if (
+            (parsed.firstPartyOnly && parsed.thirdPartyOnly) ||
+            (parsed.strictFirstPartyOnly && parsed.strictThirdPartyOnly) ||
+            (parsed.strictFirstPartyOnly && parsed.thirdPartyOnly) ||
+            (parsed.strictThirdPartyOnly && parsed.firstPartyOnly)
+        ) {
+            return null;
+        }
 
         const removeValue = removeParamToken.indexOf('=') === -1
             ? ''
@@ -713,22 +765,21 @@
         return hosts;
     }
 
-    function collectDomainModifierHostnames(fullUrl, request) {
-        const hosts = [];
-        const candidateUrls = [
-            request && request.initiator,
-            request && request.originUrl,
+    function getDocumentHostname(request) {
+        const candidates = [
             request && request.documentUrl,
-            request && request.url,
-            fullUrl
+            request && request.originUrl,
+            request && request.initiator
         ];
-
-        candidateUrls.forEach(url => {
+        for (const url of candidates) {
             const host = typeof url === 'string' ? getHostname(url) : '';
-            if (host && !hosts.includes(host)) hosts.push(host);
-        });
+            if (host) return host;
+        }
+        return '';
+    }
 
-        return hosts;
+    function collectDomainModifierHostnames(request) {
+        return collectSourceHostnames(request);
     }
 
     function createRequestMatchContext(fullUrl, request) {
@@ -744,8 +795,9 @@
             fullUrl,
             request,
             targetHost,
+            documentHost: getDocumentHostname(request),
             sourceHosts: collectSourceHostnames(request),
-            domainModifierHosts: collectDomainModifierHostnames(fullUrl, request),
+            domainModifierHosts: collectDomainModifierHostnames(request),
             requestMethod: request && typeof request.method === 'string'
                 ? request.method.toUpperCase()
                 : '',
@@ -962,15 +1014,15 @@
         }
 
         const targetHost = context.targetHost;
-        const sourceHosts = context.sourceHosts;
-        if (!targetHost || sourceHosts.length === 0) {
+        const documentHost = context.documentHost || '';
+        if (!targetHost || !documentHost) {
             return false;
         }
 
-        const sameHost = sourceHosts.some(sourceHost => sourceHost === targetHost);
-        const sameSite = sourceHosts.some(sourceHost => {
-            return context.registrableDomain(sourceHost) === context.registrableDomain(targetHost);
-        });
+        const sameHost = documentHost === targetHost;
+        const targetSite = context.registrableDomain(targetHost);
+        const documentSite = context.registrableDomain(documentHost);
+        const sameSite = !!targetSite && !!documentSite && targetSite === documentSite;
 
         if (rule.strictFirstPartyOnly && !sameHost) return false;
         if (rule.strictThirdPartyOnly && sameHost) return false;
@@ -1026,7 +1078,7 @@
             return false;
         }
         if (includeMask === 0 && excludeMask === 0) {
-            return !context.requestType || context.requestType === 'main_frame';
+            return true;
         }
 
         return true;
@@ -1142,7 +1194,9 @@
             rule.regexParam.lastIndex = 0;
             matched = rule.regexParam.test(normalizedPair);
         } else if (rule.literalParam !== null) {
-            matched = normalizedName === rule.literalParam;
+            matched = rule.matchCase
+                ? normalizedName === rule.literalParam
+                : normalizedName.toLowerCase() === String(rule.literalParam).toLowerCase();
         }
 
         return rule.negate ? !matched : matched;
