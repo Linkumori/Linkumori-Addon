@@ -423,7 +423,16 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
     }
 
     for (let i = 0; i < providers.length; i++) {
-        const providerDiagnostics = buildRuleLabDiagnostics(providers[i], cleanURL, testParamName, requestDetails);
+        const effectiveRequest = requestDetails
+            ? { ...requestDetails, url: cleanURL }
+            : null;
+        const requestMatches = !effectiveRequest || (
+            providers[i].matchMethod(effectiveRequest) &&
+            providers[i].matchResourceType(effectiveRequest)
+        );
+        const providerDiagnostics = requestMatches
+            ? buildRuleLabDiagnostics(providers[i], cleanURL, testParamName, effectiveRequest)
+            : null;
         if (Array.isArray(diagnosticsCollector) && providerDiagnostics) {
             diagnosticsCollector.push({
                 ...providerDiagnostics,
@@ -437,14 +446,6 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
             "redirect": false,
             "cancel": false
         };
-
-        const effectiveRequest = requestDetails
-            ? { ...requestDetails, url: cleanURL }
-            : null;
-        const requestMatches = !effectiveRequest || (
-            providers[i].matchMethod(effectiveRequest) &&
-            providers[i].matchResourceType(effectiveRequest)
-        );
 
         if (requestMatches && providers[i].matchURL(cleanURL)) {
             result = removeFieldsFormURL(providers[i], cleanURL, quiet, effectiveRequest);

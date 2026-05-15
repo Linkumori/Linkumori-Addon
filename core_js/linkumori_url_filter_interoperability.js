@@ -507,7 +507,9 @@
         if (unsupportedModifier) return null;
         if (
             (parsed.firstPartyOnly && parsed.thirdPartyOnly) ||
-            (parsed.strictFirstPartyOnly && parsed.strictThirdPartyOnly)
+            (parsed.strictFirstPartyOnly && parsed.strictThirdPartyOnly) ||
+            (parsed.strictFirstPartyOnly && parsed.thirdPartyOnly) ||
+            (parsed.strictThirdPartyOnly && parsed.firstPartyOnly)
         ) {
             return null;
         }
@@ -763,7 +765,7 @@
         return hosts;
     }
 
-    function getDocumentHostname(request) {
+    function getDocumentHostname(fullUrl, request) {
         const candidates = [
             request && request.documentUrl,
             request && request.originUrl,
@@ -773,8 +775,16 @@
             const host = typeof url === 'string' ? getHostname(url) : '';
             if (host) return host;
         }
-        if (request && request.type === 'main_frame' && typeof request.url === 'string') {
-            return getHostname(request.url);
+        if (request && request.type === 'main_frame') {
+            if (typeof request.fullUrl === 'string') {
+                const fullRequestHost = getHostname(request.fullUrl);
+                if (fullRequestHost) return fullRequestHost;
+            }
+            if (typeof request.url === 'string') {
+                const requestHost = getHostname(request.url);
+                if (requestHost) return requestHost;
+            }
+            return getHostname(fullUrl);
         }
         return '';
     }
@@ -801,7 +811,7 @@
             fullUrl,
             request,
             targetHost,
-            documentHost: getDocumentHostname(request),
+            documentHost: getDocumentHostname(fullUrl, request),
             sourceHosts: collectSourceHostnames(request),
             domainModifierHosts: collectDomainModifierHostnames(fullUrl, request),
             requestMethod: request && typeof request.method === 'string'

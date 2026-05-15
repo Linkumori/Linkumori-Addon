@@ -635,7 +635,9 @@ function mergeRemoteProviderGroup(providerGroup) {
                 : [data.indexPattern];
             merged.indexPattern = [...new Set([
                 ...merged.indexPattern,
-                ...indexPatterns.filter(pattern => typeof pattern === 'string' && pattern.trim())
+                ...indexPatterns
+                    .filter(pattern => typeof pattern === 'string' && pattern.trim())
+                    .map(pattern => pattern.trim())
             ])];
         }
 
