@@ -154,9 +154,7 @@
                 request && request.originUrl,
                 request && request.initiator
             ]);
-            this.documentHost = explicitDocumentHosts[0] || (
-                this.requestType === 'main_frame' ? this.targetHost : ''
-            );
+            this.documentHost = explicitDocumentHosts[0] || '';
             this.sourceHosts = collectUniqueHostnames([
                 request && request.initiator,
                 request && request.originUrl,
@@ -167,9 +165,6 @@
                 request && request.originUrl,
                 request && request.initiator
             ]);
-            if (this.domainModifierHosts.length === 0 && this.requestType === 'main_frame' && this.targetHost) {
-                this.domainModifierHosts.push(this.targetHost);
-            }
             this._registrableDomainResolver = typeof registrableDomainResolver === 'function'
                 ? registrableDomainResolver
                 : null;
