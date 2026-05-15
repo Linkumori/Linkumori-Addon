@@ -71,6 +71,7 @@ var linkumoriURLFilterRuntime = {
     lastRuleCount: 0,
     lastRulesSignature: ''
 };
+const LINKUMORI_URL_FILTER_TRIE_SNAPSHOT_SCHEMA = 2;
 
 function linkumoriURLFilterRuntimeI18n(key, substitutions = []) {
     return globalThis.LinkumoriI18n.getMessage(key, substitutions);
@@ -296,7 +297,12 @@ function computeLinkumoriURLFilterRulesSignature(rawRules) {
 }
 
 function getLinkumoriURLFilterTrieSnapshotKey(dataVersion, ruleCount, rulesSignature) {
-    return String(dataVersion || 'noversion') + ':' + String(ruleCount || 0) + ':' + String(rulesSignature || '');
+    return [
+        LINKUMORI_URL_FILTER_TRIE_SNAPSHOT_SCHEMA,
+        String(dataVersion || 'noversion'),
+        String(ruleCount || 0),
+        String(rulesSignature || '')
+    ].join(':');
 }
 
 function serializeLinkumoriURLFilterTrieSnapshots(compiled) {
