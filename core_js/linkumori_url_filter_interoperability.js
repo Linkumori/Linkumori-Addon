@@ -765,7 +765,7 @@
         return hosts;
     }
 
-    function getDocumentHostname(fullUrl, request) {
+    function getDocumentHostname(request) {
         const candidates = [
             request && request.documentUrl,
             request && request.originUrl,
@@ -775,27 +775,11 @@
             const host = typeof url === 'string' ? getHostname(url) : '';
             if (host) return host;
         }
-        if (request && request.type === 'main_frame') {
-            if (typeof request.fullUrl === 'string') {
-                const fullRequestHost = getHostname(request.fullUrl);
-                if (fullRequestHost) return fullRequestHost;
-            }
-            if (typeof request.url === 'string') {
-                const requestHost = getHostname(request.url);
-                if (requestHost) return requestHost;
-            }
-            return getHostname(fullUrl);
-        }
         return '';
     }
 
-    function collectDomainModifierHostnames(fullUrl, request) {
-        const hosts = collectSourceHostnames(request);
-        if (hosts.length === 0 && request && request.type === 'main_frame') {
-            const host = getHostname(fullUrl);
-            if (host) hosts.push(host);
-        }
-        return hosts;
+    function collectDomainModifierHostnames(request) {
+        return collectSourceHostnames(request);
     }
 
     function createRequestMatchContext(fullUrl, request) {
@@ -811,9 +795,9 @@
             fullUrl,
             request,
             targetHost,
-            documentHost: getDocumentHostname(fullUrl, request),
+            documentHost: getDocumentHostname(request),
             sourceHosts: collectSourceHostnames(request),
-            domainModifierHosts: collectDomainModifierHostnames(fullUrl, request),
+            domainModifierHosts: collectDomainModifierHostnames(request),
             requestMethod: request && typeof request.method === 'string'
                 ? request.method.toUpperCase()
                 : '',
