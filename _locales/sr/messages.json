@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "индекПаттерн је образац домена (нпр. ||екампле.цом^) који делује као наговештај за систем индексирања. Пошто је регуларне изразе у урлПаттерн тешко анализирати за имена хостова, индекПаттерн пружа експлицитни циљ за оптимизацију. Осигурава да је провајдер исправно и ефикасно индексиран.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Откривен је пакет регресије. Да ли желите да покренете регресијски тест?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Покрените регресијски тест",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Линкумори Регрессион",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Тест регресије",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Трчи поново",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Извези резултате",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Учитавање пакета…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Није пронађен увезени пакет регресије.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Извршено __П1__ од __П2__. Положено: __П3__. Неуспешно: __П4__. Прескочено по жељи: __П5__.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "__П1__: очекивано __П2__, стварно __П3__",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "очекивано",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "стварни",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Трчање",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Завршено.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Покретање није успело",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern என்பது ஒரு டொமைன் பேட்டர்ன் (எ.கா., ||example.com^) இது குறியீட்டு முறைக்கான குறிப்பாக செயல்படுகிறது. urlPattern இல் உள்ள வழக்கமான வெளிப்பாடுகள் புரவலன் பெயர்களை அலசுவது கடினமாக இருப்பதால், indexPattern தேர்வுமுறைக்கான தெளிவான இலக்கை வழங்குகிறது. வழங்குநர் சரியாகவும் திறமையாகவும் குறியிடப்படுவதை இது உறுதி செய்கிறது.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "பின்னடைவு தொகுப்பு கண்டறியப்பட்டது. பின்னடைவு சோதனையை இயக்க விரும்புகிறீர்களா?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "பின்னடைவு சோதனையை இயக்கவும்",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "லிங்குமோரி பின்னடைவு",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "பின்னடைவு சோதனை",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "மீண்டும் ஓடு",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "ஏற்றுமதி முடிவுகள்",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "தொகுப்பை ஏற்றுகிறது…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "இறக்குமதி செய்யப்பட்ட பின்னடைவு தொகுப்பு எதுவும் இல்லை.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$2 இன் $1 செயல்படுத்தப்பட்டது. தேர்ச்சி: $3. தோல்வி: $4. முன்னுரிமை மூலம் தவிர்க்கப்பட்டது: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: எதிர்பார்க்கப்படுகிறது $2, உண்மையான $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "எதிர்பார்க்கப்படுகிறது",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "உண்மையான",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "ஓடுகிறது",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "முடிந்தது.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "ஓட்டம் தோல்வியடைந்தது",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

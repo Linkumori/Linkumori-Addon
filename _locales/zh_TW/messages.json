@@ -4502,5 +4502,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern 是一個網域模式（例如 ||example.com^），可作為索引系統的提示。由於 urlPattern 中的正規表示式很難解析主機名，因此 indexPattern 提供了明確的最佳化目標。它確保提供者被正確有效地索引。",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "偵測到回歸套件。您想執行回歸測試嗎？",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "運行回歸測試",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "林科森回歸",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "回歸測試",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "再次運行",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "匯出結果",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "正在加載套件...",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "未找到導入的回歸套件。",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "執行 $2 的 $1。通過：$3。失敗：$4。依偏好跳過：$5。",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1：預期 $2，實際 $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "預期的",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "實際的",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "跑步",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "完成的。",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "運行失敗",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

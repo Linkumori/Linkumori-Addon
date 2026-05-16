@@ -2398,21 +2398,28 @@ function exportSettings() {
     }).catch(handleError);
 }
 
+function isRegressionSuiteImport(value) {
+    return !!(
+        value &&
+        typeof value === 'object' &&
+        Array.isArray(value.cases) &&
+        value.cases.length > 0 &&
+        value.cases.every(testCase => (
+            testCase &&
+            typeof testCase.id === 'string' &&
+            (testCase.dialect === 'provider' || testCase.dialect === 'urlFilter') &&
+            typeof testCase.input === 'string' &&
+            typeof testCase.expectedOutput === 'string'
+        ))
+    );
+}
+
 async function importSettings(evt) {
     const input = evt.target;
     const file = input.files[0];
 
     if (!file) {
         await showSettingsImportInfo(translate('settings_import_no_file'));
-        return;
-    }
-
-    const shouldImport = await showSettingsImportConfirm(
-        translate('settings_import_confirm'),
-        translate('security_modal_continue')
-    );
-    if (!shouldImport) {
-        input.value = '';
         return;
     }
 
@@ -2433,6 +2440,36 @@ async function importSettings(evt) {
 
     if (!parsed || typeof parsed !== 'object') {
         await showSettingsImportInfo(translate('settings_import_invalid_file'));
+        input.value = '';
+        return;
+    }
+
+    if (isRegressionSuiteImport(parsed)) {
+        const shouldRunRegression = await showSettingsImportConfirm(
+            translate('settings_import_regression_detected'),
+            translate('settings_import_regression_run_confirm')
+        );
+        if (shouldRunRegression) {
+            try {
+                await browser.runtime.sendMessage({
+                    function: 'setPendingRegressionSuite',
+                    params: [parsed]
+                });
+                await browser.tabs.create({ url: browser.runtime.getURL('html/regression.html') });
+            } catch (error) {
+                console.error('Failed to launch regression runner:', error);
+                await showSettingsImportInfo(translate('settings_import_parse_error'));
+            }
+        }
+        input.value = '';
+        return;
+    }
+
+    const shouldImport = await showSettingsImportConfirm(
+        translate('settings_import_confirm'),
+        translate('security_modal_continue')
+    );
+    if (!shouldImport) {
         input.value = '';
         return;
     }

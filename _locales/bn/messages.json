@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern হল একটি ডোমেন প্যাটার্ন (যেমন, ||example.com^) যা ইন্ডেক্সিং সিস্টেমের জন্য একটি ইঙ্গিত হিসাবে কাজ করে। যেহেতু urlPattern-এ রেগুলার এক্সপ্রেশনগুলি হোস্টনামের জন্য পার্স করা কঠিন, তাই indexPattern অপ্টিমাইজেশনের জন্য একটি সুস্পষ্ট লক্ষ্য প্রদান করে। এটি নিশ্চিত করে যে প্রদানকারী সঠিকভাবে এবং দক্ষতার সাথে সূচিত হয়েছে।",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "রিগ্রেশন স্যুট সনাক্ত করা হয়েছে। আপনি কি রিগ্রেশন পরীক্ষা চালাতে চান?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "রিগ্রেশন পরীক্ষা চালান",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "লিঙ্কুমোরি রিগ্রেশন",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "রিগ্রেশন টেস্ট",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "আবার চালান",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "রপ্তানি ফলাফল",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "স্যুট লোড হচ্ছে...",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "কোনো আমদানিকৃত রিগ্রেশন স্যুট পাওয়া যায়নি।",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$2 এর $1 কার্যকর করা হয়েছে। উত্তীর্ণ: $3। ব্যর্থ হয়েছে: $4। পছন্দ দ্বারা এড়িয়ে যাওয়া: $5।",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: প্রত্যাশিত $2, প্রকৃত $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "প্রত্যাশিত",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "প্রকৃত",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "চলমান",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "সমাপ্ত",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "রান ব্যর্থ হয়েছে",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

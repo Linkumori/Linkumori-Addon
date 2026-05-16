@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "IndexPattern は、インデックス作成システムのヒントとして機能するドメイン パターン (例: ||example.com^) です。 urlPattern の正規表現はホスト名を解析するのが難しいため、indexPattern は最適化の明示的なターゲットを提供します。これにより、プロバイダーのインデックスが正しく効率的に作成されるようになります。",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "回帰スイートが検出されました。回帰テストを実行しますか?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "回帰テストを実行する",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "リンクモリ回帰",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "回帰テスト",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "もう一度実行します",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "結果のエクスポート",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "スイートを読み込み中…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "インポートされた回帰スイートが見つかりません。",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$1/$2を実行しました。合格: $3。失敗しました: $4。優先によりスキップされます: $5。",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: 予期された $2、実際の $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "期待される",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "実際の",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "ランニング",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "終了した。",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "実行に失敗しました",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

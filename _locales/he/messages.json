@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "ה-indexPattern הוא דפוס תחום (לדוגמה, ||example.com^) שפועל כרמז למערכת האינדקס. מכיוון שקשה לנתח ביטויים רגולריים ב-urlPattern עבור שמות מארח, indexPattern מספק יעד מפורש לאופטימיזציה. זה מבטיח שהספק מתווסף בצורה נכונה ויעילה.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "זוהתה חבילת רגרסיה. האם אתה רוצה להריץ את מבחן הרגרסיה?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "הפעל מבחן רגרסיה",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "רגרסיה של לינקומורי",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "מבחן רגרסיה",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "רץ שוב",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "ייצוא תוצאות",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "טוען חבילה...",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "לא נמצאה חבילת רגרסיה מיובאת.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "בוצע $1 של $2. עבר: $3. נכשל: $4. דילוג לפי העדפה: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: צפוי $2, בפועל $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "צָפוּי",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "מַמָשִׁי",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "רִיצָה",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "גָמוּר.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "הריצה נכשלה",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

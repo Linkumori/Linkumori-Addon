@@ -27,12 +27,12 @@
 
 | Category | Files |
 |----------|-------| 
-| **JavaScript** | `external_js/IP-Ranger.js`<br>`external_js/linkumori-i18n.js`<br>`external_js/linkumori_lz4_block.js`<br>`external_js/theme_bootstrap.js`<br>`external_js/theme_favicon.js`<br>`core_js/clipboard-helper.js`<br>`core_js/about.js`<br>`core_js/consent_config.js`<br>`core_js/content_script_manager.js`<br>`core_js/audit.js`<br>`core_js/modal_dialog.js`<br>`core_js/linkumori_biditrie.js`<br>`core_js/linkumori_hntrie.js`<br>`core_js/linkumori_filtering_context.js`<br>`core_js/linkumori_url_filter_interoperability.js`<br>`core_js/linkumori_url_filter_runtime.js`<br>`core_js/linkumori_dns.js` |
-| **HTML** | - |
+| **JavaScript** | `external_js/IP-Ranger.js`<br>`external_js/linkumori-i18n.js`<br>`external_js/linkumori_lz4_block.js`<br>`external_js/theme_bootstrap.js`<br>`external_js/theme_favicon.js`<br>`core_js/clipboard-helper.js`<br>`core_js/about.js`<br>`core_js/consent_config.js`<br>`core_js/content_script_manager.js`<br>`core_js/audit.js`<br>`core_js/modal_dialog.js`<br>`core_js/linkumori_biditrie.js`<br>`core_js/linkumori_hntrie.js`<br>`core_js/linkumori_filtering_context.js`<br>`core_js/linkumori_url_filter_interoperability.js`<br>`core_js/linkumori_url_filter_runtime.js`<br>`core_js/linkumori_dns.js`<br>`core_js/regression_page.js` |
+| **HTML** | `html/regression.html` |
 | **CSS** | `css/settings.css`<br>`css/siteBlockedAlert.css` |
 | **Icons (PNG)** | `img/icon16.png`<br>`img/icon19.png`<br>`img/icon20.png`<br>`img/icon24.png`<br>`img/icon30.png`<br>`img/icon32.png`<br>`img/icon38.png`<br>`img/icon48.png`<br>`img/icon64.png`<br>`img/icon96.png`<br>`img/icon128.png`<br>`img/icon128_gray.png` |
 | **Icons (SVG)** | `img/linkumori_icon_disabled.svg`<br>`img/linkumori_icons.svg`<br>`img/linkumori_icon_theme_dark.svg`<br>`img/linkumori_icon_theme_light.svg`<br>`img/linkumori_icon_theme_icecold.svg`<br>`img/linkumori_icon_theme_midnight.svg`<br>`img/linkumori_icon_theme_sunset.svg`<br>`img/linkumori_icon_theme_legacy.svg`<br>`img/linkumori_icon_theme_legacy_disabled.svg` |
-| **Data** | `data/custom-rules.json`<br>`data/privacy-policy-map.json`<br>`data/url-config.json` |
+| **Data** | `data/custom-rules.json`<br>`data/privacy-policy-map.json`<br>`data/url-config.json`<br>`tests/regression-suite.json` |
 
 ### 1.2 Copyright & License
 

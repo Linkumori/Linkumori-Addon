@@ -1045,7 +1045,7 @@
             if (excludeMask !== 0 && requestMethodBit !== 0 && (excludeMask & requestMethodBit) !== 0) {
                 return false;
             }
-            if (includeMask === 0 && requestMethodBit !== 0 && (ContextClass.DEFAULT_METHOD_MASK & requestMethodBit) === 0) {
+            if (includeMask === 0 && excludeMask === 0 && requestMethodBit !== 0 && (ContextClass.DEFAULT_METHOD_MASK & requestMethodBit) === 0) {
                 return false;
             }
 
@@ -1059,7 +1059,7 @@
         if (rule.excludeMethods.length > 0 && rule.excludeMethods.includes(requestMethod)) {
             return false;
         }
-        if (rule.includeMethods.length === 0 && requestMethod && !['GET', 'HEAD', 'OPTIONS'].includes(requestMethod)) {
+        if (rule.includeMethods.length === 0 && rule.excludeMethods.length === 0 && requestMethod && !['GET', 'HEAD', 'OPTIONS'].includes(requestMethod)) {
             return false;
         }
 
