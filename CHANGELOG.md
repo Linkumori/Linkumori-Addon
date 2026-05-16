@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.1.0] - 2026-05-16 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.0.4...linkumori-v100.1.0))
+### Fixed
+- Regression suite, URL filter interoperability, and AdGuard spec compliance (`2026-05-16`, hash: [`05de749`](https://github.com/Linkumori/Linkumori-Addon/commit/05de749))
+
 ## [v100.0.4] - 2026-05-16 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.0.3...linkumori-v100.0.4))
 ### Added
 - Introduce in-extension regression suite runner (`2026-05-16`, hash: [`0b3aa2b`](https://github.com/Linkumori/Linkumori-Addon/commit/0b3aa2b))
