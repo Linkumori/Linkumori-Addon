@@ -310,6 +310,7 @@
                 skippedByPreference: results.filter(entry => entry.classification === 'skipped_preference').length,
                 results
             };
+            window.linkumoriRegressionReport = latestReport;
             exportButton.disabled = false;
             status.textContent = t('regression_finished');
         } catch (error) {
