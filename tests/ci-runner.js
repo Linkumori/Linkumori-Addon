@@ -103,7 +103,7 @@ async function injectSuite(driver, suite) {
 }
 
 async function runRegressionPage(driver) {
-    const regressionUrl = `moz-extension://${EXTENSION_UUID}/html/regression.html`;
+    const regressionUrl = `moz-extension://${EXTENSION_UUID}/html/regression.html?ci=1`;
     console.log(`[ci] Navigating to regression page: ${regressionUrl}`);
     await driver.get(regressionUrl);
 
