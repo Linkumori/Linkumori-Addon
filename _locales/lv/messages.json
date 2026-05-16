@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "Indeksa modelis ir domēna modelis (piemēram, ||example.com^), kas darbojas kā mājiens indeksēšanas sistēmai. Tā kā urlPattern regulārās izteiksmes ir grūti parsēt resursdatora nosaukumiem, indexPattern nodrošina skaidru optimizācijas mērķi. Tas nodrošina, ka pakalpojumu sniedzējs tiek indeksēts pareizi un efektīvi.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Atklāts regresijas komplekts. Vai vēlaties veikt regresijas testu?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Palaidiet regresijas testu",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Linkumori regresija",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Regresijas tests",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Skrien vēlreiz",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Eksportēt rezultātus",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Notiek komplekta ielāde…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Importēts regresijas komplekts netika atrasts.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Izpildīts $1 no $2. Nokārtots: $3. Neizdevās: $4. Izlaists pēc izvēles: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: paredzamais $2, faktiskais $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "gaidāms",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "faktiskais",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Skriešana",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Pabeigts.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Skrējiens neizdevās",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

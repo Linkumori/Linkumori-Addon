@@ -2456,11 +2456,17 @@ function applyRegressionRuleData(data) {
     const safeData = data && typeof data === 'object' && !Array.isArray(data)
         ? data
         : { providers: {}, urlFilterRules: [] };
+    const cloneValue = value => {
+        if (typeof structuredClone === 'function') {
+            return structuredClone(value);
+        }
+        return JSON.parse(JSON.stringify(value));
+    };
     storage.ClearURLsData = {
         providers: safeData.providers && typeof safeData.providers === 'object' && !Array.isArray(safeData.providers)
-            ? safeData.providers
+            ? cloneValue(safeData.providers)
             : {},
-        urlFilterRules: Array.isArray(safeData.urlFilterRules) ? safeData.urlFilterRules : []
+        urlFilterRules: Array.isArray(safeData.urlFilterRules) ? cloneValue(safeData.urlFilterRules) : []
     };
     let appliedLive = false;
     if (typeof globalThis.updateProviderData === 'function') {

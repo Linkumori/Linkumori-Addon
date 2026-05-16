@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "IndexPattern adalah pola domain (misalnya ||example.com^) yang bertindak sebagai petunjuk untuk sistem pengindeksan. Karena ekspresi reguler di urlPattern sulit diurai untuk nama host, indexPattern memberikan target eksplisit untuk pengoptimalan. Ini memastikan penyedia diindeks dengan benar dan efisien.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Rangkaian regresi terdeteksi. Apakah Anda ingin menjalankan uji regresi?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Jalankan uji regresi",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Regresi Linkumori",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Uji Regresi",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Jalankan lagi",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Ekspor hasil",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Memuat rangkaian…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Tidak ditemukan rangkaian regresi yang diimpor.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Dieksekusi $1 dari $2. Lulus: $3. Gagal: $4. Dilewati berdasarkan preferensi: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: diharapkan $2, sebenarnya $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "mengharapkan",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "sebenarnya",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Berlari",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Selesai.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Jalankan gagal",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

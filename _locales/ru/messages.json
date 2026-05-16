@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern — это шаблон домена (например, ||example.com^), который действует как подсказка для системы индексирования. Поскольку регулярные выражения в urlPattern сложно проанализировать на предмет имен хостов, indexPattern предоставляет явную цель для оптимизации. Это гарантирует, что поставщик индексируется правильно и эффективно.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Обнаружен пакет регрессии. Хотите запустить регрессионный тест?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Запустить регрессионный тест",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Регрессия Линкумори",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Регрессионный тест",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Беги снова",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Экспортировать результаты",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Загрузка пакета…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Импортированный пакет регрессии не найден.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Выполнено $1 из $2. Пройдено: $3. Не удалось: $4. Пропускается по предпочтениям: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: ожидаемое $2, фактическое $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "ожидал",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "действительный",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Бег",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Законченный.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Запустить не удалось",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

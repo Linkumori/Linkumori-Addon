@@ -2446,15 +2446,20 @@ async function importSettings(evt) {
 
     if (isRegressionSuiteImport(parsed)) {
         const shouldRunRegression = await showSettingsImportConfirm(
-            'Regression suite detected. Do you want to run the regression test?',
-            'Run regression test'
+            translate('settings_import_regression_detected'),
+            translate('settings_import_regression_run_confirm')
         );
         if (shouldRunRegression) {
-            await browser.runtime.sendMessage({
-                function: 'setPendingRegressionSuite',
-                params: [parsed]
-            });
-            await browser.tabs.create({ url: browser.runtime.getURL('html/regression.html') });
+            try {
+                await browser.runtime.sendMessage({
+                    function: 'setPendingRegressionSuite',
+                    params: [parsed]
+                });
+                await browser.tabs.create({ url: browser.runtime.getURL('html/regression.html') });
+            } catch (error) {
+                console.error('Failed to launch regression runner:', error);
+                await showSettingsImportInfo(translate('settings_import_parse_error'));
+            }
         }
         input.value = '';
         return;

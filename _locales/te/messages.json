@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern అనేది డొమైన్ నమూనా (ఉదా., ||example.com^) ఇది ఇండెక్సింగ్ సిస్టమ్‌కు సూచనగా పనిచేస్తుంది. urlPatternలోని సాధారణ వ్యక్తీకరణలు హోస్ట్ పేర్లను అన్వయించడం కష్టం కాబట్టి, indexPattern ఆప్టిమైజేషన్ కోసం స్పష్టమైన లక్ష్యాన్ని అందిస్తుంది. ఇది ప్రొవైడర్ సరిగ్గా మరియు సమర్ధవంతంగా సూచిక చేయబడిందని నిర్ధారిస్తుంది.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "రిగ్రెషన్ సూట్ కనుగొనబడింది. మీరు రిగ్రెషన్ పరీక్షను అమలు చేయాలనుకుంటున్నారా?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "రిగ్రెషన్ పరీక్షను అమలు చేయండి",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "లింకుమోరి తిరోగమనం",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "తిరోగమన పరీక్ష",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "మళ్లీ పరుగు",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "ఎగుమతి ఫలితాలు",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "సూట్ లోడ్ అవుతోంది…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "దిగుమతి చేయబడిన రిగ్రెషన్ సూట్ కనుగొనబడలేదు.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$2లో $1 అమలు చేయబడింది. ఉత్తీర్ణత: $3. విఫలమైంది: $4. ప్రాధాన్యత ద్వారా దాటవేయబడింది: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: అంచనా $2, వాస్తవ $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "ఊహించబడింది",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "అసలు",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "నడుస్తోంది",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "పూర్తయింది.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "పరుగు విఫలమైంది",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

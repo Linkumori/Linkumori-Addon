@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern คือรูปแบบโดเมน (เช่น ||example.com^) ที่ทำหน้าที่เป็นคำใบ้สำหรับระบบการจัดทำดัชนี เนื่องจากนิพจน์ทั่วไปใน urlPattern นั้นแยกวิเคราะห์ชื่อโฮสต์ได้ยาก ดังนั้น indexPattern จึงมีเป้าหมายที่ชัดเจนสำหรับการเพิ่มประสิทธิภาพ ช่วยให้มั่นใจได้ว่าผู้ให้บริการได้รับการจัดทำดัชนีอย่างถูกต้องและมีประสิทธิภาพ",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "ตรวจพบชุดการถดถอย คุณต้องการทดสอบการถดถอยหรือไม่?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "เรียกใช้การทดสอบการถดถอย",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "การถดถอยของลินกุโมริ",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "การทดสอบการถดถอย",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "วิ่งอีกครั้ง",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "ส่งออกผลลัพธ์",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "กำลังโหลดชุด...",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "ไม่พบชุดการถดถอยที่นำเข้า",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "ดำเนินการ $1 จาก $2 ผ่านแล้ว: $3. ล้มเหลว: $4 ข้ามไปตามความต้องการ: $5",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: คาดหวัง $2 จริง $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "ที่คาดหวัง",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "แท้จริง",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "วิ่ง",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "ที่เสร็จเรียบร้อย.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "เรียกใช้ล้มเหลว",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

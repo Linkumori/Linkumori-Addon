@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "IndexPattern je vzorec domene (npr. ||example.com^), ki deluje kot namig za sistem indeksiranja. Ker je regularne izraze v urlPattern težko razčleniti za imena gostiteljev, indexPattern zagotavlja eksplicitni cilj za optimizacijo. Zagotavlja, da je ponudnik pravilno in učinkovito indeksiran.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Zaznan regresijski paket. Ali želite izvesti regresijski test?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Izvedite regresijski test",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Regresija Linkumorija",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Regresijski test",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Znova teči",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Izvoz rezultatov",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Nalaganje paketa …",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Uvožene regresijske zbirke niso bile najdene.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Izvedeno $1 od $2. Uspešno: $3. Neuspešno: $4. Preskočeno glede na prednost: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: pričakovano $2, dejansko $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "pričakovano",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "dejansko",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "tek",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Končano.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Zagon ni uspel",
+    "description": "Status prefix shown when the regression run fails."
   }
 }
