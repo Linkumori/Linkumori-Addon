@@ -122,24 +122,39 @@ async function runRegressionPage(driver) {
     const regressionUrl = `moz-extension://${EXTENSION_UUID}/html/regression.html?ci=1`;
     console.log(`[ci] Navigating to regression page: ${regressionUrl}`);
     await driver.get(regressionUrl);
+    await driver.sleep(1000);
 
-    const statusEl = await driver.findElement(By.id('status'));
-
-    // Wait for the suite to auto-start (status changes from "Loading..." or "Running...")
-    // then wait for it to finish
     console.log('[ci] Waiting for regression suite to complete...');
     const start = Date.now();
+    let lastStatus = '';
+    let lastSummary = '';
 
-    await driver.wait(async () => {
-        const text = await statusEl.getText().catch(() => '');
-        if (Date.now() - start > 15000 && text === '') return true; // stuck
-        const lower = text.toLowerCase();
-        return lower.includes('finished') || lower.includes('failed') || lower.includes('no suite') || lower.includes('run failed');
-    }, CI_TIMEOUT_MS, `Regression suite did not finish within ${CI_TIMEOUT_MS / 1000}s`);
+    while (Date.now() - start < CI_TIMEOUT_MS) {
+        const statusText  = await driver.findElement(By.id('status')).getText().catch(() => '');
+        const summaryText = await driver.findElement(By.id('summary')).getText().catch(() => '');
 
-    const finalStatus = await statusEl.getText().catch(() => '');
-    console.log(`[ci] Status: ${finalStatus}`);
-    return finalStatus;
+        if (statusText !== lastStatus || summaryText !== lastSummary) {
+            const elapsed = Math.round((Date.now() - start) / 1000);
+            console.log(`[ci] [${elapsed}s] ${statusText}${summaryText ? ' | ' + summaryText : ''}`);
+            lastStatus = statusText;
+            lastSummary = summaryText;
+        }
+
+        const lower = statusText.toLowerCase();
+        if (
+            lower.includes('finished') ||
+            lower.includes('no suite') ||
+            lower.includes('run failed')
+        ) break;
+
+        await driver.sleep(2000);
+    }
+
+    if (Date.now() - start >= CI_TIMEOUT_MS) {
+        throw new Error(`Regression suite did not finish within ${CI_TIMEOUT_MS / 1000}s`);
+    }
+
+    return lastStatus;
 }
 
 async function collectResults(driver) {
