@@ -29,7 +29,23 @@ const RESULTS_PATH = join(__dirname, 'regression-results.json');
 
 const EXTENSION_ID = 'linkumori-addon-official@ClearURLs';
 const EXTENSION_UUID = process.env.EXTENSION_UUID || 'a7b8c9d0-e1f2-3456-7890-abcdef012345';
-const FIREFOX_BINARY = process.env.FIREFOX_BINARY || 'firefox';
+function detectFirefox() {
+    if (process.env.FIREFOX_BINARY) return process.env.FIREFOX_BINARY;
+    const candidates = process.platform === 'darwin'
+        ? [
+            '/Applications/Firefox.app/Contents/MacOS/firefox',
+            '/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox',
+            '/Applications/Firefox Nightly.app/Contents/MacOS/firefox'
+          ]
+        : process.platform === 'win32'
+        ? [
+            'C:\\Program Files\\Mozilla Firefox\\firefox.exe',
+            'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'
+          ]
+        : ['/usr/bin/firefox', '/usr/bin/firefox-esr', 'firefox'];
+    return candidates.find(p => existsSync(p)) || 'firefox';
+}
+const FIREFOX_BINARY = detectFirefox();
 const CI_TIMEOUT_MS = parseInt(process.env.CI_TIMEOUT_MS || '900000', 10);
 
 function findExistingXpi() {
