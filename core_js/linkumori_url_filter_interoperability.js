@@ -447,7 +447,15 @@
 
             if (normalized.startsWith('denyallow=')) {
                 const denyallowValue = token.slice(token.indexOf('=') + 1);
-                if (!denyallowValue || splitDelimitedModifierValues(denyallowValue).some(value => String(value || '').trim().startsWith('~'))) {
+                const denyallowParts = splitDelimitedModifierValues(denyallowValue);
+                if (
+                    !denyallowValue ||
+                    denyallowParts.length === 0 ||
+                    denyallowParts.some(value => {
+                        const v = String(value || '').trim();
+                        return v.startsWith('~') || v.endsWith('.*') || parseRegexLiteral(v) !== null;
+                    })
+                ) {
                     unsupportedModifier = token;
                     return;
                 }
@@ -806,7 +814,10 @@
                 : '',
             requestMethodBit: 0,
             requestTypeBit: 0,
-            appName: normalizeHostname(request && typeof request.appName === 'string' ? request.appName : ''),
+            appName: normalizeHostname(
+                request && (typeof request.appName === 'string' ? request.appName
+                    : (typeof request.app === 'string' ? request.app : ''))
+            ),
             registrableDomain(hostname) {
                 const normalized = normalizeHostname(hostname);
                 if (!normalized) return '';
@@ -1015,8 +1026,13 @@
 
         const targetHost = context.targetHost;
         const documentHost = context.documentHost || '';
-        if (!targetHost || !documentHost) {
+        if (!targetHost) {
             return false;
+        }
+
+        if (!documentHost) {
+            // No referrer is treated as first-party per AdGuard spec
+            return !rule.thirdPartyOnly && !rule.strictThirdPartyOnly;
         }
 
         const sameHost = documentHost === targetHost;
@@ -1078,25 +1094,16 @@
             return false;
         }
         if (includeMask === 0 && excludeMask === 0) {
+            if (Array.isArray(rule.includeResourceTypes) && rule.includeResourceTypes.length > 0) {
+                return rule.includeResourceTypes.includes(context.requestType || '');
+            }
+            if (Array.isArray(rule.excludeResourceTypes) && rule.excludeResourceTypes.length > 0) {
+                return !(context.requestType && rule.excludeResourceTypes.includes(context.requestType));
+            }
             return true;
         }
 
         return true;
-
-        /*
-        const requestType = context.requestType;
-        if (rule.includeResourceTypes.length > 0 && !rule.includeResourceTypes.includes(requestType)) {
-            return false;
-        }
-        if (rule.excludeResourceTypes.length > 0 && rule.excludeResourceTypes.includes(requestType)) {
-            return false;
-        }
-        if (rule.includeResourceTypes.length === 0 && rule.excludeResourceTypes.length === 0) {
-            return !requestType || requestType === 'main_frame';
-        }
-
-        return true;
-        */
     }
 
     function matchesAppModifier(rule, context) {

@@ -53,7 +53,8 @@
       },
       "urlFilterRules": [],
       "preferences": {
-        "globalStatus": true
+        "globalStatus": true,
+        "referralMarketing": true
       }
     },
     {
@@ -164,7 +165,6 @@
       "id": "provider completeProvider",
       "dialect": "provider",
       "input": "https://example.com/provider-complete/?a=1&b=2",
-      "expectedOutput": "https://example.com/provider-complete/",
       "providers": {
         "provider-complete": {
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-complete(?:[/?#]|$)",
@@ -175,7 +175,8 @@
       "preferences": {
         "globalStatus": true,
         "domainBlocking": true
-      }
+      },
+      "expectedBlocked": true
     },
     {
       "id": "provider removeparam literal",
@@ -253,6 +254,108 @@
       "urlFilterRules": [],
       "preferences": {
         "globalStatus": true
+      }
+    },
+    {
+      "id": "provider inline removeparam remove all",
+      "dialect": "provider",
+      "input": "https://example.com/provider-inline-all/?a=1&b=2",
+      "expectedOutput": "https://example.com/provider-inline-all/",
+      "providers": {
+        "provider-inline-all": {
+          "domainPatterns": [
+            "||example.com^"
+          ],
+          "rules": [
+            "||example.com/provider-inline-all^$removeparam"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider inline removeparam domain",
+      "dialect": "provider",
+      "input": "https://example.com/provider-inline-domain/?campaign=x",
+      "expectedOutput": "https://example.com/provider-inline-domain/",
+      "providers": {
+        "provider-inline-domain": {
+          "domainPatterns": [
+            "||example.com^"
+          ],
+          "rules": [
+            "||example.com/provider-inline-domain^$removeparam=campaign,domain=example.com"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider inline removeparam method",
+      "dialect": "provider",
+      "input": "https://example.com/provider-inline-method/?campaign=x",
+      "expectedOutput": "https://example.com/provider-inline-method/",
+      "request": {
+        "method": "POST"
+      },
+      "providers": {
+        "provider-inline-method": {
+          "domainPatterns": [
+            "||example.com^"
+          ],
+          "rules": [
+            "||example.com/provider-inline-method^$removeparam=campaign,method=POST"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider indexPattern with urlPattern",
+      "dialect": "provider",
+      "input": "https://example.com/provider-index/?campaign=x",
+      "expectedOutput": "https://example.com/provider-index/",
+      "providers": {
+        "provider-index": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-index(?:[/?#]|$)",
+          "indexPattern": "||example.com^",
+          "rules": [
+            "campaign"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider forceRedirection",
+      "dialect": "provider",
+      "input": "https://example.com/provider-force-redirect/?url=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-force-redirect": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-force-redirect(?:[/?#]|$)",
+          "forceRedirection": true,
+          "redirections": [
+            "^https?:\\/\\/example\\.com\\/provider-force-redirect\\/?\\?url=([^&]+)"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "redirection": true
       }
     },
     {
@@ -435,10 +538,10 @@
       "id": "url-filter prefix",
       "dialect": "urlFilter",
       "input": "https://example.com/url-prefix/?campaign=x",
-      "expectedOutput": "https://example.com/url-prefix/?campaign=x",
+      "expectedOutput": "https://example.com/url-prefix/",
       "providers": {},
       "urlFilterRules": [
-        "||example.com/url-prefix^$removeparam=camp"
+        "||example.com/url-prefix^$removeparam=|camp"
       ],
       "preferences": {
         "globalStatus": true
@@ -1536,10 +1639,10 @@
       }
     },
     {
-      "id": "url-filter no type means any request type",
+      "id": "url-filter no type defaults away from object",
       "dialect": "urlFilter",
       "input": "https://example.com/url-no-type/?campaign=x",
-      "expectedOutput": "https://example.com/url-no-type/",
+      "expectedOutput": "https://example.com/url-no-type/?campaign=x",
       "request": {
         "type": "object"
       },
@@ -1665,6 +1768,92 @@
       "providers": {},
       "urlFilterRules": [
         "||example.com/url-to-alt^$removeparam=campaign,to=example.com"
+      ],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "url-filter unsupported modifier rejected",
+      "dialect": "urlFilter",
+      "input": "https://example.com/url-unsupported/?campaign=x",
+      "expectedOutput": "https://example.com/url-unsupported/?campaign=x",
+      "providers": {},
+      "urlFilterRules": [
+        "||example.com/url-unsupported^$removeparam=campaign,unsupported-modifier"
+      ],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "url-filter comments and headers skipped",
+      "dialect": "urlFilter",
+      "input": "https://example.com/url-comment-skip/?campaign=x",
+      "expectedOutput": "https://example.com/url-comment-skip/",
+      "providers": {},
+      "urlFilterRules": [
+        "! comment line",
+        "[Adblock Plus 2.0]",
+        "||example.com/url-comment-skip^$removeparam=campaign"
+      ],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "url-filter negated third-party alias first-party",
+      "dialect": "urlFilter",
+      "input": "https://developer.mozilla.org/url-neg-third/?campaign=x",
+      "expectedOutput": "https://developer.mozilla.org/url-neg-third/",
+      "request": {
+        "documentUrl": "https://www.mozilla.org/"
+      },
+      "providers": {},
+      "urlFilterRules": [
+        "||developer.mozilla.org/url-neg-third^$removeparam=campaign,~third-party"
+      ],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "url-filter negated third-party short alias first-party",
+      "dialect": "urlFilter",
+      "input": "https://developer.mozilla.org/url-neg-3p/?campaign=x",
+      "expectedOutput": "https://developer.mozilla.org/url-neg-3p/",
+      "request": {
+        "documentUrl": "https://www.mozilla.org/"
+      },
+      "providers": {},
+      "urlFilterRules": [
+        "||developer.mozilla.org/url-neg-3p^$removeparam=campaign,~3p"
+      ],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "url-filter app include without app context",
+      "dialect": "urlFilter",
+      "input": "https://example.com/url-app-no-context/?campaign=x",
+      "expectedOutput": "https://example.com/url-app-no-context/?campaign=x",
+      "providers": {},
+      "urlFilterRules": [
+        "||example.com/url-app-no-context^$removeparam=campaign,app=firefox"
+      ],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "url-filter app exclude without app context",
+      "dialect": "urlFilter",
+      "input": "https://example.com/url-app-exclude-no-context/?campaign=x",
+      "expectedOutput": "https://example.com/url-app-exclude-no-context/",
+      "providers": {},
+      "urlFilterRules": [
+        "||example.com/url-app-exclude-no-context^$removeparam=campaign,app=~chrome"
       ],
       "preferences": {
         "globalStatus": true
