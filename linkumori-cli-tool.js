@@ -89,7 +89,8 @@ const config = {
   licenseOutputFile: 'License.md',
   licenseOutputDir: './',
   noticeFile: './data/NOTICE.md',
-  urlConfigFile: './data/url-config.json'
+  urlConfigFile: './data/url-config.json',
+  regressionSuiteFile: './tests/regression-suite.json'
 };
 
 class LinkumoriCLI {
@@ -3124,7 +3125,10 @@ Quit()
   // Build ignore patterns
   getIgnorePatterns() {
     const normalizeIgnorePath = (pattern) => pattern.replace(/\\/g, '/').replace(/^\.\//, '');
-    const urlConfigPattern = normalizeIgnorePath(config.urlConfigFile);
+    const requiredIgnorePatterns = [
+      normalizeIgnorePath(config.urlConfigFile),
+      normalizeIgnorePath(config.regressionSuiteFile)
+    ];
 
     try {
       const content = fs.readFileSync(config.buildIgnoreFile, 'utf8');
@@ -3142,14 +3146,17 @@ Quit()
         }
       }
 
-      if (!expandedPatterns.map(normalizeIgnorePath).includes(urlConfigPattern)) {
-        expandedPatterns.push(urlConfigPattern);
+      const normalizedPatterns = expandedPatterns.map(normalizeIgnorePath);
+      for (const requiredPattern of requiredIgnorePatterns) {
+        if (!normalizedPatterns.includes(requiredPattern)) {
+          expandedPatterns.push(requiredPattern);
+        }
       }
       
       return expandedPatterns;
     } catch {
       this.warning('No .build-ignore file found, using defaults');
-      return [urlConfigPattern];
+      return requiredIgnorePatterns;
     }
   }
 
@@ -3466,6 +3473,7 @@ COMMIT_HISTORY.md
 # Testing
 test/**
 tests/**
+tests/regression-suite.json
 coverage/**
 `;
 
