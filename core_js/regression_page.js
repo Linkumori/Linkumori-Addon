@@ -83,15 +83,20 @@
 
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+    let _lastRulesKey = null;
     async function applyRulesForCase(testCase) {
-        const response = await call('applyRegressionRuleData', [{
+        const ruleData = {
             providers: testCase.providers || suite.providers || {},
             urlFilterRules: testCase.urlFilterRules || suite.urlFilterRules || []
-        }]);
+        };
+        const key = JSON.stringify(ruleData);
+        if (key === _lastRulesKey) return;
+        _lastRulesKey = key;
+        const response = await call('applyRegressionRuleData', [ruleData]);
         if (response && response.error) {
             throw new Error(response.error);
         }
-        await sleep(75);
+        await sleep(ciMode ? 20 : 75);
         return response && response.response;
     }
 
@@ -300,7 +305,7 @@
                     ? 'SKIP'
                     : (result.passed ? 'PASS' : 'FAIL');
                 status.textContent = `${statusLabel} ${index + 1} / ${suite.cases.length}: ${testCase.id}`;
-                await sleep(25);
+                if (!ciMode) await sleep(25);
             }
             latestReport = {
                 startedAt,
