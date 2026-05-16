@@ -79,30 +79,76 @@
     const setData = (key, value) => call('setData', [key, value]);
     const getData = async key => (await call('getData', [key])).response;
 
-    function waitForTab(tabId) {
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+    async function applyRulesForCase(testCase) {
+        const response = await call('applyRegressionRuleData', [{
+            providers: testCase.providers || suite.providers || {},
+            urlFilterRules: testCase.urlFilterRules || suite.urlFilterRules || []
+        }]);
+        if (response && response.error) {
+            throw new Error(response.error);
+        }
+        await sleep(75);
+        return response && response.response;
+    }
+
+    function isBlockedNavigation(url) {
+        if (typeof url !== 'string') return false;
+        try {
+            const parsed = new URL(url);
+            return parsed.pathname.endsWith('/html/siteBlockedAlert.html')
+                && parsed.searchParams.has('source');
+        } catch (_) {
+            return false;
+        }
+    }
+
+    function waitForTab(tabId, expectedBlocked = false) {
         return new Promise(resolve => {
+            let finished = false;
             const timer = setTimeout(() => finish('timeout'), 10000);
-            const finish = value => {
+            const readCurrentUrl = async () => {
+                try {
+                    return (await browser.tabs.get(tabId)).url || null;
+                } catch (_) {
+                    return null;
+                }
+            };
+            const finish = async statusValue => {
+                if (finished) return;
+                finished = true;
                 clearTimeout(timer);
                 browser.tabs.onUpdated.removeListener(onUpdated);
-                resolve(value);
+                resolve({ status: statusValue, url: await readCurrentUrl() });
+            };
+            const maybeFinish = async statusValue => {
+                const currentUrl = await readCurrentUrl();
+                if (!currentUrl || currentUrl === 'about:blank') return;
+                if (expectedBlocked && !isBlockedNavigation(currentUrl)) return;
+                setTimeout(() => finish(statusValue), expectedBlocked ? 150 : 0);
             };
             const onUpdated = (id, info) => {
-                if (id === tabId && info.status === 'complete') finish('complete');
+                if (id !== tabId) return;
+                if (info.url && expectedBlocked && isBlockedNavigation(info.url)) {
+                    maybeFinish('complete');
+                    return;
+                }
+                if (info.status === 'complete') maybeFinish('complete');
             };
             browser.tabs.onUpdated.addListener(onUpdated);
         });
     }
 
-    async function visit(url) {
+    async function visit(url, expectedBlocked = false) {
         let tab = null;
         try {
             tab = await browser.tabs.create({ active: false, url: 'about:blank' });
-            const loaded = waitForTab(tab.id);
+            const loaded = waitForTab(tab.id, expectedBlocked);
             await browser.tabs.update(tab.id, { url });
             return await loaded;
         } catch (_) {
-            return 'failed';
+            return { status: 'failed', url: null };
         } finally {
             if (tab && tab.id) {
                 try { await browser.tabs.remove(tab.id); } catch (_) {}
@@ -152,7 +198,9 @@
         if (result.classification === 'fail') {
             const urls = document.createElement('div');
             urls.className = 'regression-urls';
-            urls.textContent = `${t('regression_expected_label')}: ${result.expectedOutput}\n${t('regression_actual_label')}:   ${result.actualOutput}`;
+            urls.textContent = result.expectedBlocked
+                ? `${t('regression_expected_label')}: blocked page\n${t('regression_actual_label')}:   ${result.actualNavigation || result.actualOutput}`
+                : `${t('regression_expected_label')}: ${result.expectedOutput}\n${t('regression_actual_label')}:   ${result.actualOutput}`;
             row.appendChild(urls);
         }
         resultsEl.appendChild(row);
@@ -198,11 +246,9 @@
             for (let index = 0; index < suite.cases.length; index++) {
                 const testCase = suite.cases[index];
                 status.textContent = `${t('regression_running')} ${index + 1} / ${suite.cases.length}: ${testCase.id}`;
-                await call('applyRegressionRuleData', [{
-                    providers: testCase.providers || suite.providers || {},
-                    urlFilterRules: testCase.urlFilterRules || suite.urlFilterRules || []
-                }]);
-                const loadStatus = await visit(testCase.input);
+                await applyRulesForCase(testCase);
+                const visitResult = await visit(testCase.input, testCase.expectedBlocked === true);
+                const loadStatus = visitResult.status;
                 const fn = testCase.dialect === 'urlFilter' ? 'traceLinkumoriURLFilterRuleTest' : 'runRuleTestLab';
                 const params = testCase.dialect === 'urlFilter'
                     ? [testCase.input, testCase.request || {}]
@@ -210,8 +256,11 @@
                 const response = await call(fn, params);
                 const output = response.response || {};
                 const actualOutput = output.output || output.after || testCase.input;
+                const actualNavigation = visitResult.url;
                 const preferenceState = evaluatePreferences(testCase, extensionSettings);
-                const behaviorPassed = actualOutput === testCase.expectedOutput;
+                const behaviorPassed = testCase.expectedBlocked === true
+                    ? isBlockedNavigation(actualNavigation)
+                    : actualOutput === testCase.expectedOutput;
                 const classification = preferenceState.mismatches.length > 0
                     ? 'skipped_preference'
                     : (behaviorPassed ? 'pass' : 'fail');
@@ -221,6 +270,8 @@
                     loadStatus,
                     expectedOutput: testCase.expectedOutput,
                     actualOutput,
+                    expectedBlocked: testCase.expectedBlocked === true,
+                    actualNavigation,
                     passed: classification !== 'fail',
                     behaviorPassed,
                     classification,
@@ -246,7 +297,7 @@
                     ? 'SKIP'
                     : (result.passed ? 'PASS' : 'FAIL');
                 status.textContent = `${statusLabel} ${index + 1} / ${suite.cases.length}: ${testCase.id}`;
-                await new Promise(resolve => setTimeout(resolve, 0));
+                await sleep(25);
             }
             latestReport = {
                 startedAt,

@@ -2409,7 +2409,10 @@ function isRegressionSuiteImport(value) {
             typeof testCase.id === 'string' &&
             (testCase.dialect === 'provider' || testCase.dialect === 'urlFilter') &&
             typeof testCase.input === 'string' &&
-            typeof testCase.expectedOutput === 'string'
+            (
+                typeof testCase.expectedOutput === 'string' ||
+                testCase.expectedBlocked === true
+            )
         ))
     );
 }
