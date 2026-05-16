@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "IndexPattern là một mẫu miền (ví dụ: ||example.com^) hoạt động như một gợi ý cho hệ thống lập chỉ mục. Vì các biểu thức chính quy trong urlPattern khó phân tích cú pháp cho tên máy chủ, nên indexPattern cung cấp mục tiêu rõ ràng để tối ưu hóa. Nó đảm bảo nhà cung cấp được lập chỉ mục chính xác và hiệu quả.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Đã phát hiện thấy bộ hồi quy. Bạn có muốn chạy thử nghiệm hồi quy không?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Chạy thử nghiệm hồi quy",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Hồi quy Linkumori",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Kiểm tra hồi quy",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Chạy lại",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Xuất kết quả",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Đang tải bộ phần mềm…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Không tìm thấy bộ hồi quy đã nhập.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Đã thực thi $1 trong số $2. Đã đậu: $3. Thất bại: $4. Bỏ qua theo sở thích: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: dự kiến ​​$2, thực tế $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "hy vọng",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "thật sự",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Đang chạy",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Hoàn thành.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Chạy không thành công",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

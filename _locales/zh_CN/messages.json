@@ -3592,5 +3592,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern 是一个域模式（例如 ||example.com^），充当索引系统的提示。由于 urlPattern 中的正则表达式很难解析主机名，因此 indexPattern 提供了明确的优化目标。它确保提供者被正确有效地索引。",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "检测到回归套件。您想运行回归测试吗？",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "运行回归测试",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "林科森回归",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "回归测试",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "再次运行",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "导出结果",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "正在加载套件...",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "未找到导入的回归套件。",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "执行 $2 的 $1。通过：$3。失败：$4。按偏好跳过：$5。",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1：预期 $2，实际 $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "预期的",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "实际的",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "跑步",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "完成的。",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "运行失败",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

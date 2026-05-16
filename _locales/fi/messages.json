@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "IndeksiPattern on verkkotunnuksen malli (esim. ||example.com^), joka toimii vihjeenä indeksointijärjestelmälle. Koska urlPatternin säännöllisiä lausekkeita on vaikea jäsentää isäntänimille, indexPattern tarjoaa selkeän kohteen optimointia varten. Se varmistaa, että palveluntarjoaja indeksoidaan oikein ja tehokkaasti.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Regressiosarja havaittu. Haluatko suorittaa regressiotestin?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Suorita regressiotesti",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Linkumorin regressio",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Regressiotesti",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Juokse uudestaan",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Vie tulokset",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Ladataan sviittiä…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Tuotua regressiosarjaa ei löytynyt.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Suoritettu $1 / $2. Hyväksytty: $3. Epäonnistui: $4. Ohitettu mieltymysten mukaan: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: odotettu $2, todellinen $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "odotettavissa",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "todellinen",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Juoksemassa",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Valmis.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Juoksu epäonnistui",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern یک الگوی دامنه است (به عنوان مثال، ||example.com^) که به عنوان یک راهنمایی برای سیستم نمایه سازی عمل می کند. از آنجایی که عبارات منظم در urlPattern تجزیه نام هاست سخت است، indexPattern یک هدف صریح برای بهینه سازی فراهم می کند. این تضمین می کند که ارائه دهنده به درستی و کارآمد ایندکس شده است.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "مجموعه رگرسیون شناسایی شد. آیا می خواهید تست رگرسیون را اجرا کنید؟",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "تست رگرسیون را اجرا کنید",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "رگرسیون لینکوموری",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "آزمون رگرسیون",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "دوباره بدوید",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "نتایج صادرات",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "در حال بارگیری مجموعه…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "هیچ مجموعه رگرسیون وارداتی یافت نشد.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$1 از $2 اجرا شد. گذشت: $3. ناموفق: $4. رد شده بر اساس اولویت: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: مورد انتظار $2، واقعی $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "انتظار می رود",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "واقعی",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "در حال دویدن",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "تمام شد.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "اجرا ناموفق بود",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

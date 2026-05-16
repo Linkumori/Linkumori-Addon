@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "Az indexPattern egy tartományminta (pl. ||example.com^), amely tippként szolgál az indexelő rendszer számára. Mivel az urlPattern reguláris kifejezéseit nehéz feldolgozni a gazdagépnevekhez, az indexPattern kifejezett célpontot biztosít az optimalizáláshoz. Biztosítja a szolgáltató helyes és hatékony indexelését.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Regressziós csomag észlelve. Le akarja futtatni a regressziós tesztet?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Futtassa le a regressziós tesztet",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Linkumori regresszió",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Regressziós teszt",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Fuss újra",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Eredmények exportálása",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Lakosztály betöltése…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Nem található importált regressziós csomag.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Végrehajtás: $2/$1. Sikerült: $3. Sikertelen: $4. Preferencia szerint kihagyva: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: várható $2, tényleges $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "várható",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "tényleges",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Futás",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Befejezett.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "A futás nem sikerült",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

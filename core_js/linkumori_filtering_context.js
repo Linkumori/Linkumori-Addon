@@ -148,7 +148,9 @@
                 : '';
             this.requestMethodBit = LinkumoriFilteringContext.getMethodBit(this.requestMethod);
             this.requestTypeBit = LinkumoriFilteringContext.getResourceTypeBit(this.requestType);
-            this.appName = normalizeHostname(request && typeof request.appName === 'string' ? request.appName : '');
+            this.appName = normalizeHostname(request && typeof request.appName === 'string'
+                ? request.appName
+                : (request && typeof request.app === 'string' ? request.app : ''));
             const explicitDocumentHosts = collectUniqueHostnames([
                 request && request.documentUrl,
                 request && request.originUrl,

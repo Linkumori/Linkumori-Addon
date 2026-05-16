@@ -1,0 +1,98 @@
+<!--
+ * ============================================================
+ * Linkumori — regression page
+ * ============================================================
+ * Copyright (c) 2026 Subham Mahesh
+ *
+ * This program is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation, either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this program. If not, see
+ * <http://www.gnu.org/licenses/>.
+ *
+ * DESCRIPTION
+ * -----------
+ * Added regression page.
+ *
+ * ============================================================
+ * MODIFICATION HISTORY
+ * ============================================================
+ * 2026-05-15   Subham Mahesh   File created
+ *
+ * Note: Due to inline constraints, subsequent modifications may
+ * not appear here. To view the full history, run:
+ *
+ *   node linkumori-cli-tool.js
+ *
+ * Select "Generate Commit History" to produce a Markdown file
+ * listing all modifications by file, author, and date.
+ *
+ * IMPORTANT NOTES
+ * ---------------
+ * - git clone is required before running "Generate Commit History";
+ *   otherwise commit history generation will not work.
+ * - Older modifications may not appear in the generated
+ *   COMMIT_HISTORY.md.
+ * - If a file's inline notice is limited, check for a separate
+ *   file-specific notice and COMMIT_HISTORY.md; if neither exists,
+ *   treat the inline notice as the final modification record.
+ * - If a separate file-specific notice is provided, check the
+ *   file's inline notice and COMMIT_HISTORY.md; if neither exists,
+ *   treat the separate notice as the final modification record.
+ * - Review individual modified source files for earlier notices.
+ * - Some files may not contain notices within the file itself or
+ *   may not be listed in COMMIT_HISTORY.md; a separate notice
+ *   file may be provided instead.
+ * - Not all source files have been modified, but review notices
+ *   in all source files and any separate notice files (.md or .txt).
+ * ============================================================
+ -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title id="page-title"></title>
+  <script src="../external_js/theme_bootstrap.js"></script>
+  <script src="../external_js/theme_favicon.js"></script>
+  <link rel="stylesheet" href="../css/settings.css">
+  <style>
+    .regression-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.regression-summary{font-size:18px;margin:18px 0}.regression-muted{color:var(--text-muted)}.regression-results{display:grid;gap:10px}.regression-result{padding:12px 14px;border:1px solid var(--border-color);border-radius:12px;background:var(--bg-tertiary)}.regression-result.pass{border-left:5px solid #16a34a}.regression-result.fail{border-left:5px solid #dc2626}.regression-urls{margin-top:8px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;word-break:break-all}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
+        <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" fill="none" stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round"/>
+        <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35" fill="none" stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round"/>
+        <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" fill="var(--logo-accent)"/>
+      </svg>
+      <div class="header-text"><h1 id="page-heading"></h1><span class="version-badge" id="version"></span></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <div class="regression-toolbar">
+        <button id="run" class="btn btn-primary"></button>
+        <button id="export" class="btn btn-secondary" disabled></button>
+        <span id="status" class="regression-muted" role="status" aria-live="polite" aria-atomic="true"></span>
+      </div>
+      <div id="summary" class="regression-summary" aria-live="polite" aria-atomic="true"></div>
+    </div>
+    <div id="results" class="regression-results" aria-live="polite" aria-atomic="true"></div>
+  </div>
+  <script src="../external_js/linkumori-i18n.js"></script>
+  <script src="../core_js/regression_page.js"></script>
+  <script src="../core_js/write_version.js"></script>
+</body>
+</html>

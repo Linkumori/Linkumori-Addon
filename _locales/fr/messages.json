@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "L'indexPattern est un modèle de domaine (par exemple, ||example.com^) qui sert d'indice pour le système d'indexation. Étant donné que les expressions régulières dans urlPattern sont difficiles à analyser pour les noms d'hôtes, indexPattern fournit une cible explicite pour l'optimisation. Il garantit que le fournisseur est indexé correctement et efficacement.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Suite de régression détectée. Voulez-vous exécuter le test de régression ?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Exécuter un test de régression",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Régression de Linkumori",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Test de régression",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Courez à nouveau",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Exporter les résultats",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Chargement de la suite…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Aucune suite de régression importée trouvée.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Exécuté $1 de $2. Réussi : $3. Échec : $4. Sauté de préférence : $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1 : $2 attendu, $3 réel",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "attendu",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "réel",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "En cours d'exécution",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Fini.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Échec de l'exécution",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

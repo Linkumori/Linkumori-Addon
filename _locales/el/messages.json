@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "Το indexPattern είναι ένα μοτίβο τομέα (π.χ., ||example.com^) που λειτουργεί ως υπόδειξη για το σύστημα ευρετηρίου. Δεδομένου ότι οι τυπικές εκφράσεις στο urlPattern είναι δύσκολο να αναλυθούν για ονόματα κεντρικών υπολογιστών, το indexPattern παρέχει έναν ρητό στόχο για βελτιστοποίηση. Διασφαλίζει ότι ο πάροχος ευρετηριάζεται σωστά και αποτελεσματικά.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Εντοπίστηκε σουίτα παλινδρόμησης. Θέλετε να εκτελέσετε τη δοκιμή παλινδρόμησης;",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Εκτέλεση δοκιμής παλινδρόμησης",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Παλινδρόμηση Linkumori",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Δοκιμή παλινδρόμησης",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Τρέξτε ξανά",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Εξαγωγή αποτελεσμάτων",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Φόρτωση σουίτας…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Δεν βρέθηκε εισηγμένη σουίτα παλινδρόμησης.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Εκτελέστηκε $1 από $2. Πέρασε: $3. Απέτυχε: $4. Παράβλεψη κατά προτίμηση: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: αναμενόμενο $2, πραγματικό $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "αναμενόμενο",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "πραγματικός",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Τρέξιμο",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Πεπερασμένος.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Η εκτέλεση απέτυχε",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

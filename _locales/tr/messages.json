@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern, indeksleme sistemi için ipucu görevi gören bir etki alanı modelidir (örneğin, ||example.com^). UrlPattern'deki normal ifadelerin ana makine adları için ayrıştırılması zor olduğundan, indexPattern optimizasyon için açık bir hedef sağlar. Sağlayıcının doğru ve verimli bir şekilde indekslenmesini sağlar.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Regresyon paketi algılandı. Regresyon testini çalıştırmak istiyor musunuz?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Regresyon testini çalıştır",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Linkumori Regresyon",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Regresyon Testi",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Tekrar koş",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Sonuçları dışa aktar",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Paket yükleniyor…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "İçe aktarılan regresyon paketi bulunamadı.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$1 / $2 yürütüldü. Geçildi: $3. Başarısız: $4. Tercihe göre atlandı: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: beklenen $2, gerçek $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "beklenen",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "gerçek",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Koşma",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Bitti.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Çalıştırma başarısız oldu",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

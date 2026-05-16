@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern은 인덱싱 시스템에 대한 힌트 역할을 하는 도메인 패턴(예: ||example.com^)입니다. urlPattern의 정규식은 호스트 이름을 구문 분석하기 어렵기 때문에 indexPattern은 최적화를 위한 명시적인 대상을 제공합니다. 이는 공급자가 정확하고 효율적으로 색인화되도록 보장합니다.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "회귀 스위트가 감지되었습니다. 회귀 테스트를 실행하시겠습니까?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "회귀 테스트 실행",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "린쿠모리 회귀",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "회귀 테스트",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "다시 실행",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "결과 내보내기",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "제품군 로드 중…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "가져온 회귀 제품군을 찾을 수 없습니다.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$2 중 $1을 실행했습니다. 통과됨: $3. 실패: $4. 기본 설정에 따라 건너뛰기: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: 예상 $2, 실제 $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "예상되는",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "실제",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "달리기",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "완성된.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "실행 실패",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

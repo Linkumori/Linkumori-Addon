@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern este un model de domeniu (de exemplu, ||example.com^) care acționează ca un indiciu pentru sistemul de indexare. Deoarece expresiile regulate din urlPattern sunt greu de analizat pentru numele de gazdă, indexPattern oferă o țintă explicită pentru optimizare. Se asigură că furnizorul este indexat corect și eficient.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Suita de regresie a fost detectată. Doriți să rulați testul de regresie?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Rulați testul de regresie",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Regresia Linkumori",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Test de regresie",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Fugi din nou",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Exportați rezultatele",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Se încarcă suita…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Nu a fost găsită nicio suită de regresie importată.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "S-a executat $1 din $2. Aprobat: $3. Eșuat: $4. Omis de preferință: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: așteptat $2, actual $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "aşteptat",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "real",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Funcţionare",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Terminat.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Executarea a eșuat",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

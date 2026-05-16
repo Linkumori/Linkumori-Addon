@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "ഇൻഡെക്‌സിംഗ് സിസ്റ്റത്തിൻ്റെ സൂചനയായി പ്രവർത്തിക്കുന്ന ഒരു ഡൊമെയ്ൻ പാറ്റേൺ (ഉദാ. ||example.com^) ആണ് indexPattern. urlPattern-ലെ പതിവ് എക്സ്പ്രഷനുകൾ ഹോസ്റ്റ്നാമങ്ങൾക്കായി പാഴ്സ് ചെയ്യാൻ പ്രയാസമുള്ളതിനാൽ, ഒപ്റ്റിമൈസേഷനായി indexPattern ഒരു വ്യക്തമായ ലക്ഷ്യം നൽകുന്നു. ദാതാവ് കൃത്യമായും കാര്യക്ഷമമായും സൂചികയിലാക്കിയിട്ടുണ്ടെന്ന് ഇത് ഉറപ്പാക്കുന്നു.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "റിഗ്രഷൻ സ്യൂട്ട് കണ്ടെത്തി. നിങ്ങൾക്ക് റിഗ്രഷൻ ടെസ്റ്റ് നടത്തണോ?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "റിഗ്രഷൻ ടെസ്റ്റ് പ്രവർത്തിപ്പിക്കുക",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "ലിങ്കുമോരി റിഗ്രഷൻ",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "റിഗ്രഷൻ ടെസ്റ്റ്",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "വീണ്ടും ഓടുക",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "കയറ്റുമതി ഫലങ്ങൾ",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "സ്യൂട്ട് ലോഡുചെയ്യുന്നു...",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "ഇറക്കുമതി ചെയ്ത റിഗ്രഷൻ സ്യൂട്ടൊന്നും കണ്ടെത്തിയില്ല.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$2-ൻ്റെ $1 നിർവ്വഹിച്ചു. പാസായി: $3. പരാജയപ്പെട്ടു: $4. മുൻഗണന പ്രകാരം ഒഴിവാക്കി: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: പ്രതീക്ഷിക്കുന്നത് $2, യഥാർത്ഥ $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "പ്രതീക്ഷിച്ചത്",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "യഥാർത്ഥമായ",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "ഓടുന്നു",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "തീർന്നു.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "ഓട്ടം പരാജയപ്പെട്ടു",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "इंडेक्सपैटर्न एक डोमेन पैटर्न है (उदाहरण के लिए, ||example.com^) जो इंडेक्सिंग सिस्टम के लिए एक संकेत के रूप में कार्य करता है। चूंकि होस्टनाम के लिए urlPattern में नियमित अभिव्यक्तियों को पार्स करना कठिन है, इसलिए IndexPattern अनुकूलन के लिए एक स्पष्ट लक्ष्य प्रदान करता है। यह सुनिश्चित करता है कि प्रदाता सही और कुशलता से अनुक्रमित है।",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "रिग्रेशन सुइट का पता चला. क्या आप प्रतिगमन परीक्षण चलाना चाहते हैं?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "प्रतिगमन परीक्षण चलाएँ",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "लिंकुमोरी प्रतिगमन",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "प्रतिगमन परीक्षण",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "दोबारा दौड़ें",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "निर्यात परिणाम",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "सुइट लोड हो रहा है...",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "कोई आयातित प्रतिगमन सुइट नहीं मिला.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$2 का $1 निष्पादित। उत्तीर्ण: $3. विफल: $4. प्राथमिकता के आधार पर छोड़ दिया गया: $5।",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: अपेक्षित $2, वास्तविक $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "अपेक्षित",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "वास्तविक",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "दौड़ना",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "खत्म।",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "रन विफल",
+    "description": "Status prefix shown when the regression run fails."
   }
 }
