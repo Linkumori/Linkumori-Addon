@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.0.4] - 2026-05-16 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.0.3...linkumori-v100.0.4))
+### Added
+- Introduce in-extension regression suite runner (`2026-05-16`, hash: [`0b3aa2b`](https://github.com/Linkumori/Linkumori-Addon/commit/0b3aa2b))
+
+### Changed
+- Address regression suite review feedback (`2026-05-16`, hash: [`4df27f5`](https://github.com/Linkumori/Linkumori-Addon/commit/4df27f5))
+- Exclude regression suite from builds (`2026-05-16`, hash: [`26696b3`](https://github.com/Linkumori/Linkumori-Addon/commit/26696b3))
+
 ## [v100.0.3] - 2026-05-15 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.0.2...linkumori-v100.0.3))
 ### Changed
 - Address pr review feedback (`2026-05-15`, hash: [`327c2fa`](https://github.com/Linkumori/Linkumori-Addon/commit/327c2fa))
