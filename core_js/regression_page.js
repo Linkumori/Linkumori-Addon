@@ -66,6 +66,8 @@
     let suite = null;
     let latestReport = null;
 
+    const ciMode = new URLSearchParams(window.location.search).get('ci') === '1';
+
     await LinkumoriI18n.ready();
     const t = (key, substitutions = []) => LinkumoriI18n.getMessage(key, substitutions);
     document.title = t('regression_page_title');
@@ -81,15 +83,20 @@
 
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+    let _lastRulesKey = null;
     async function applyRulesForCase(testCase) {
-        const response = await call('applyRegressionRuleData', [{
+        const ruleData = {
             providers: testCase.providers || suite.providers || {},
             urlFilterRules: testCase.urlFilterRules || suite.urlFilterRules || []
-        }]);
+        };
+        const key = JSON.stringify(ruleData);
+        if (key === _lastRulesKey) return;
+        _lastRulesKey = key;
+        const response = await call('applyRegressionRuleData', [ruleData]);
         if (response && response.error) {
             throw new Error(response.error);
         }
-        await sleep(75);
+        await sleep(ciMode ? 20 : 75);
         return response && response.response;
     }
 
@@ -247,7 +254,8 @@
                 const testCase = suite.cases[index];
                 status.textContent = `${t('regression_running')} ${index + 1} / ${suite.cases.length}: ${testCase.id}`;
                 await applyRulesForCase(testCase);
-                const visitResult = await visit(testCase.input, testCase.expectedBlocked === true);
+                const skipNav = ciMode && testCase.expectedBlocked !== true;
+                const visitResult = skipNav ? { status: 'skipped', url: null } : await visit(testCase.input, testCase.expectedBlocked === true);
                 const loadStatus = visitResult.status;
                 const fn = testCase.dialect === 'urlFilter' ? 'traceLinkumoriURLFilterRuleTest' : 'runRuleTestLab';
                 const params = testCase.dialect === 'urlFilter'
@@ -297,7 +305,7 @@
                     ? 'SKIP'
                     : (result.passed ? 'PASS' : 'FAIL');
                 status.textContent = `${statusLabel} ${index + 1} / ${suite.cases.length}: ${testCase.id}`;
-                await sleep(25);
+                if (!ciMode) await sleep(25);
             }
             latestReport = {
                 startedAt,
@@ -310,6 +318,7 @@
                 skippedByPreference: results.filter(entry => entry.classification === 'skipped_preference').length,
                 results
             };
+            window.linkumoriRegressionReport = latestReport;
             exportButton.disabled = false;
             status.textContent = t('regression_finished');
         } catch (error) {

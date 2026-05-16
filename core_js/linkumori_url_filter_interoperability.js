@@ -1100,7 +1100,8 @@
             if (Array.isArray(rule.excludeResourceTypes) && rule.excludeResourceTypes.length > 0) {
                 return !(context.requestType && rule.excludeResourceTypes.includes(context.requestType));
             }
-            return true;
+            // Untyped rules default to document type only per AdGuard spec
+            return requestTypeBit === 0 || context.requestType === 'main_frame';
         }
 
         return true;
