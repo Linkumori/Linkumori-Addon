@@ -732,7 +732,7 @@
       },
       "providers": {},
       "urlFilterRules": [
-        "||example.com/url-denyallow-block^$removeparam=campaign,denyallow=www.mozilla.org"
+        "||example.com/url-denyallow-block^$removeparam=campaign,denyallow=example.com"
       ],
       "preferences": {
         "globalStatus": true
@@ -841,7 +841,7 @@
       "id": "url-filter strict first party",
       "dialect": "urlFilter",
       "input": "https://developer.mozilla.org/url-strict-first/?campaign=x",
-      "expectedOutput": "https://developer.mozilla.org/url-strict-first/",
+      "expectedOutput": "https://developer.mozilla.org/url-strict-first/?campaign=x",
       "request": {
         "documentUrl": "https://www.mozilla.org/"
       },
@@ -858,7 +858,7 @@
       "id": "url-filter strict first alias",
       "dialect": "urlFilter",
       "input": "https://developer.mozilla.org/url-strict-first-alias/?campaign=x",
-      "expectedOutput": "https://developer.mozilla.org/url-strict-first-alias/",
+      "expectedOutput": "https://developer.mozilla.org/url-strict-first-alias/?campaign=x",
       "request": {
         "documentUrl": "https://www.mozilla.org/"
       },
@@ -1402,7 +1402,7 @@
       },
       "providers": {},
       "urlFilterRules": [
-        "||example.com/url-denyallow-regex^$removeparam=campaign,denyallow=/^www\\.mozilla\\.org$/"
+        "||example.com/url-denyallow-regex^$removeparam=campaign,denyallow=/^example\\.com$/"
       ],
       "preferences": {
         "globalStatus": true

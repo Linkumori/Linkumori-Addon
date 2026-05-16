@@ -4499,5 +4499,65 @@
   "faq_index_pattern_explanation": {
     "message": "Indeksmønsteret er et domenemønster (f.eks. ||example.com^) som fungerer som et hint for indekseringssystemet. Siden regulære uttrykk i urlPattern er vanskelige å analysere for vertsnavn, gir indexPattern et eksplisitt mål for optimalisering. Det sikrer at leverandøren blir indeksert riktig og effektivt.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Regresjonssuite oppdaget. Vil du kjøre regresjonstesten?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Kjør regresjonstest",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Linkumori-regresjon",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Regresjonstest",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Løp igjen",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Eksporter resultater",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Laster inn suite …",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Fant ingen importert regresjonspakke.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Utførte $1 av $2. Bestått: $3. Mislyktes: $4. Hoppet over etter preferanse: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: forventet $2, faktisk $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "forventet",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "faktisk",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Løper",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Ferdig.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Kjør mislyktes",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

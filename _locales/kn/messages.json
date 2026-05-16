@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "indexPattern ಒಂದು ಡೊಮೇನ್ ಮಾದರಿಯಾಗಿದೆ (ಉದಾ., ||example.com^) ಇದು ಇಂಡೆಕ್ಸಿಂಗ್ ಸಿಸ್ಟಮ್‌ಗೆ ಸುಳಿವಿನಂತೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. urlPattern ನಲ್ಲಿನ ನಿಯಮಿತ ಅಭಿವ್ಯಕ್ತಿಗಳು ಹೋಸ್ಟ್ ಹೆಸರುಗಳಿಗಾಗಿ ಪಾರ್ಸ್ ಮಾಡಲು ಕಷ್ಟವಾಗುವುದರಿಂದ, indexPattern ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗೆ ಸ್ಪಷ್ಟ ಗುರಿಯನ್ನು ಒದಗಿಸುತ್ತದೆ. ಇದು ಪೂರೈಕೆದಾರರನ್ನು ಸರಿಯಾಗಿ ಮತ್ತು ಪರಿಣಾಮಕಾರಿಯಾಗಿ ಸೂಚಿಕೆ ಮಾಡಲಾಗಿದೆ ಎಂದು ಖಚಿತಪಡಿಸುತ್ತದೆ.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "ರಿಗ್ರೆಶನ್ ಸೂಟ್ ಪತ್ತೆಯಾಗಿದೆ. ನೀವು ರಿಗ್ರೆಷನ್ ಪರೀಕ್ಷೆಯನ್ನು ಚಲಾಯಿಸಲು ಬಯಸುವಿರಾ?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "ರಿಗ್ರೆಷನ್ ಪರೀಕ್ಷೆಯನ್ನು ರನ್ ಮಾಡಿ",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "ಲಿಂಕ್ಮೋರಿ ರಿಗ್ರೆಶನ್",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "ಹಿಂಜರಿತ ಪರೀಕ್ಷೆ",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "ಮತ್ತೆ ಓಡಿ",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "ರಫ್ತು ಫಲಿತಾಂಶಗಳು",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "ಸೂಟ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "ಯಾವುದೇ ಆಮದು ಮಾಡಿದ ರಿಗ್ರೆಷನ್ ಸೂಟ್ ಕಂಡುಬಂದಿಲ್ಲ.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$2 ರ $1 ಕಾರ್ಯಗತಗೊಳಿಸಲಾಗಿದೆ. ಉತ್ತೀರ್ಣ: $3. ವಿಫಲವಾಗಿದೆ: $4. ಆದ್ಯತೆಯಿಂದ ಸ್ಕಿಪ್ ಮಾಡಲಾಗಿದೆ: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: ನಿರೀಕ್ಷಿಸಲಾಗಿದೆ $2, ನಿಜವಾದ $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "ನಿರೀಕ್ಷಿಸಲಾಗಿದೆ",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "ನಿಜವಾದ",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "ಓಡುತ್ತಿದೆ",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "ಮುಗಿದಿದೆ.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "ರನ್ ವಿಫಲವಾಗಿದೆ",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

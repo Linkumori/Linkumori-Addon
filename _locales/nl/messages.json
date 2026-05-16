@@ -3636,5 +3636,65 @@
   "faq_index_pattern_explanation": {
     "message": "Het indexPattern is een domeinpatroon (bijvoorbeeld ||example.com^) dat fungeert als hint voor het indexeringssysteem. Omdat reguliere expressies in urlPattern moeilijk te parseren zijn voor hostnamen, biedt indexPattern een expliciet doel voor optimalisatie. Het zorgt ervoor dat de aanbieder correct en efficiënt wordt geïndexeerd.",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "Regressiesuite gedetecteerd. Wilt u de regressietest uitvoeren?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "Regressietest uitvoeren",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "Linkumori-regressie",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "Regressietest",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "Opnieuw rennen",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "Resultaten exporteren",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "Suite laden…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "Geen geïmporteerde regressiesuite gevonden.",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "Uitgevoerd $1 van $2. Geslaagd: $3. Mislukt: $4. Bij voorkeur overgeslagen: $5.",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1: verwacht $2, feitelijk $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "verwacht",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "feitelijk",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "Rennen",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "Afgerond.",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "Uitvoering mislukt",
+    "description": "Status prefix shown when the regression run fails."
   }
 }

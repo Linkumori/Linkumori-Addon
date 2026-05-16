@@ -992,13 +992,11 @@
         }
 
         if (rule.denyallowDomains.length > 0) {
-            const denied = rule.denyallowDomains.some(pattern => {
-                return context.sourceHosts.some(host => hostnameMatches(host, pattern));
-            });
+            const denied = rule.denyallowDomains.some(pattern => hostnameMatches(targetHost, pattern));
             if (denied) return false;
         }
 
-        if (context.sourceHosts.some(host => hostnameMatchesRegex(host, rule.denyallowDomainRegexes))) {
+        if (hostnameMatchesRegex(targetHost, rule.denyallowDomainRegexes)) {
             return false;
         }
 
@@ -1026,8 +1024,8 @@
         const documentSite = context.registrableDomain(documentHost);
         const sameSite = !!targetSite && !!documentSite && targetSite === documentSite;
 
-        if (rule.strictFirstPartyOnly && !sameSite) return false;
-        if (rule.strictThirdPartyOnly && sameSite) return false;
+        if (rule.strictFirstPartyOnly && !sameHost) return false;
+        if (rule.strictThirdPartyOnly && sameHost) return false;
         if (rule.firstPartyOnly && !sameSite) return false;
         if (rule.thirdPartyOnly && sameSite) return false;
 

@@ -4501,5 +4501,65 @@
   "faq_index_pattern_explanation": {
     "message": "የመረጃ ጠቋሚው ስርዓተ-ጥለት (ለምሳሌ ||example.com^) ለጠቋሚ ስርዓቱ ፍንጭ ሆኖ የሚያገለግል ነው። በ urlPattern ውስጥ ያሉ መደበኛ አገላለጾች የአስተናጋጅ ስሞችን ለመተንተን አስቸጋሪ ስለሆኑ፣ indexPattern ለማመቻቸት ግልጽ ኢላማ ይሰጣል። አቅራቢው በትክክል እና በብቃት መያዙን ያረጋግጣል።",
     "description": "FAQ answer explaining indexPattern"
+  },
+  "settings_import_regression_detected": {
+    "message": "ሪግሬሽን ስብስብ ተገኝቷል። የድጋሚ ፈተናውን ማካሄድ ይፈልጋሉ?",
+    "description": "Prompt shown when an imported JSON file is a regression suite."
+  },
+  "settings_import_regression_run_confirm": {
+    "message": "የድጋሚ ፈተናን ያሂዱ",
+    "description": "Confirm button for launching an imported regression suite."
+  },
+  "regression_page_title": {
+    "message": "የሊንኩሞሪ ሪግሬሽን",
+    "description": "Browser page title for the regression runner."
+  },
+  "regression_heading": {
+    "message": "የመመለሻ ሙከራ",
+    "description": "Heading for the regression runner page."
+  },
+  "regression_run_again": {
+    "message": "እንደገና ሩጡ",
+    "description": "Button label to rerun the regression suite."
+  },
+  "regression_export_results": {
+    "message": "ውጤቶችን ወደ ውጭ ላክ",
+    "description": "Button label to export regression results."
+  },
+  "regression_loading_suite": {
+    "message": "ስብስብን በመጫን ላይ…",
+    "description": "Status shown while loading the imported regression suite."
+  },
+  "regression_no_suite": {
+    "message": "ከውጪ የመጣ የተሃድሶ ስብስብ አልተገኘም።",
+    "description": "Status shown when the regression page has no imported suite to run."
+  },
+  "regression_summary": {
+    "message": "$1 ከ$2 ተፈጽሟል። አልፏል: $3. አልተሳካም: $4. በምርጫ የተዘለለ፡ $5",
+    "description": "Summary of regression execution. $1 executed, $2 total, $3 passed, $4 failed, $5 skipped."
+  },
+  "regression_preference_mismatch": {
+    "message": "$1፡ የሚጠበቀው $2፣ ትክክለኛው $3",
+    "description": "Preference mismatch line. $1 setting name, $2 expected value, $3 actual value."
+  },
+  "regression_expected_label": {
+    "message": "የሚጠበቀው",
+    "description": "Label before the expected regression output."
+  },
+  "regression_actual_label": {
+    "message": "ትክክለኛ",
+    "description": "Label before the actual regression output."
+  },
+  "regression_running": {
+    "message": "መሮጥ",
+    "description": "Status prefix shown while a regression case is running."
+  },
+  "regression_finished": {
+    "message": "ጨርሷል።",
+    "description": "Status shown when the regression run finishes."
+  },
+  "regression_run_failed": {
+    "message": "መሮጥ አልተሳካም።",
+    "description": "Status prefix shown when the regression run fails."
   }
 }
