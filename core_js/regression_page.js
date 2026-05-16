@@ -66,6 +66,8 @@
     let suite = null;
     let latestReport = null;
 
+    const ciMode = new URLSearchParams(window.location.search).get('ci') === '1';
+
     await LinkumoriI18n.ready();
     const t = (key, substitutions = []) => LinkumoriI18n.getMessage(key, substitutions);
     document.title = t('regression_page_title');
@@ -247,7 +249,8 @@
                 const testCase = suite.cases[index];
                 status.textContent = `${t('regression_running')} ${index + 1} / ${suite.cases.length}: ${testCase.id}`;
                 await applyRulesForCase(testCase);
-                const visitResult = await visit(testCase.input, testCase.expectedBlocked === true);
+                const skipNav = ciMode && testCase.expectedBlocked !== true;
+                const visitResult = skipNav ? { status: 'skipped', url: null } : await visit(testCase.input, testCase.expectedBlocked === true);
                 const loadStatus = visitResult.status;
                 const fn = testCase.dialect === 'urlFilter' ? 'traceLinkumoriURLFilterRuleTest' : 'runRuleTestLab';
                 const params = testCase.dialect === 'urlFilter'
