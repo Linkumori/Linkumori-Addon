@@ -116,7 +116,9 @@
 
     function safeDecode(value) {
         try {
-            return decodeURIComponent(String(value || '').replace(/\+/g, '%20'));
+            // Match uBO's removeparam path: decode percent escapes only.
+            // A literal "+" remains "+", it is not converted to a space.
+            return decodeURIComponent(String(value || ''));
         } catch (e) {
             return String(value || '');
         }
@@ -1100,8 +1102,8 @@
             if (Array.isArray(rule.excludeResourceTypes) && rule.excludeResourceTypes.length > 0) {
                 return !(context.requestType && rule.excludeResourceTypes.includes(context.requestType));
             }
-            // Untyped rules default to document type only per AdGuard spec
-            return requestTypeBit === 0 || context.requestType === 'main_frame';
+            // uBO applies untyped $removeparam rules across request types.
+            return true;
         }
 
         return true;
