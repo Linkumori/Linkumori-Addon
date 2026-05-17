@@ -1639,10 +1639,10 @@
       }
     },
     {
-      "id": "url-filter no type defaults away from object",
+      "id": "url-filter no type applies to object",
       "dialect": "urlFilter",
       "input": "https://example.com/url-no-type/?campaign=x",
-      "expectedOutput": "https://example.com/url-no-type/?campaign=x",
+      "expectedOutput": "https://example.com/url-no-type/",
       "request": {
         "type": "object"
       },
@@ -1726,6 +1726,33 @@
       "providers": {},
       "urlFilterRules": [
         "*$removeparam=~keepglobal"
+      ],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "url-filter multiple negated directives are independent",
+      "dialect": "urlFilter",
+      "input": "https://example.com/url-multi-negated/?a=1&b=2&c=3",
+      "expectedOutput": "https://example.com/url-multi-negated/",
+      "providers": {},
+      "urlFilterRules": [
+        "||example.com/url-multi-negated^$removeparam=~a",
+        "||example.com/url-multi-negated^$removeparam=~b"
+      ],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "url-filter regex keeps plus literal like ubo",
+      "dialect": "urlFilter",
+      "input": "https://example.com/url-plus/?campaign=a+b",
+      "expectedOutput": "https://example.com/url-plus/?campaign=a+b",
+      "providers": {},
+      "urlFilterRules": [
+        "||example.com/url-plus^$removeparam=/^campaign=a b$/"
       ],
       "preferences": {
         "globalStatus": true

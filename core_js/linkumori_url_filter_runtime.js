@@ -796,17 +796,12 @@ function findLinkumoriURLFilterDecision(name, value, rawName, rawValue, candidat
 }
 
 function findLinkumoriURLFilterMatchedRule(candidates, name, value, rawName, rawValue, parser) {
-    const directRule = candidates.find(rule => {
-        return !rule.negate && parser.matchesParameter(rule, name, value, rawName, rawValue);
-    });
-    if (directRule) return directRule;
-
-    const negatedRules = candidates.filter(rule => rule.negate);
-    if (negatedRules.length === 0) return null;
-
-    return negatedRules.every(rule => parser.matchesParameter(rule, name, value, rawName, rawValue))
-        ? negatedRules[0]
-        : null;
+    // uBO evaluates each matching removeparam directive independently.
+    // The first matching rule is enough; multiple negated directives are not
+    // combined into one synthetic "all negations must match" condition.
+    return candidates.find(rule => {
+        return parser.matchesParameter(rule, name, value, rawName, rawValue);
+    }) || null;
 }
 
 function cleanLinkumoriURLFilterQueryEntries(entries, candidatePlan) {
