@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.4.0] - 2026-05-17 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.3.0...linkumori-v100.4.0))
+### Changed
+- Run regression suite as single background batch call (`2026-05-17`, hash: [`807b930`](https://github.com/Linkumori/Linkumori-Addon/commit/807b930))
+
 ## [v100.3.0] - 2026-05-17 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.2.0...linkumori-v100.3.0))
 ### Changed
 - Release v100.3.0 (hash: `076f0bc`).
