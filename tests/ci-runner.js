@@ -26,6 +26,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const SUITE_PATH = join(__dirname, 'regression-suite.json');
 const RESULTS_PATH = join(__dirname, 'regression-results.json');
+const BATCH_SCRIPT_PATH = join(ROOT, 'core_js', 'regression_batch.js');
 
 const EXTENSION_ID = 'linkumori-addon-official@ClearURLs';
 const EXTENSION_UUID = process.env.EXTENSION_UUID || 'a7b8c9d0-e1f2-3456-7890-abcdef012345';
@@ -118,52 +119,63 @@ async function injectSuite(driver, suite) {
     console.log('[ci] Suite injected successfully.');
 }
 
-async function runRegressionPage(driver) {
-    const regressionUrl = `moz-extension://${EXTENSION_UUID}/html/regression.html?ci=1`;
-    console.log(`[ci] Navigating to regression page: ${regressionUrl}`);
-    await driver.get(regressionUrl);
-    await driver.sleep(1000);
+async function runBatch(driver, suite) {
+    const popupUrl = `moz-extension://${EXTENSION_UUID}/html/popup.html`;
+    console.log('[ci] Navigating to popup to run batch...');
+    await driver.get(popupUrl);
+    await driver.sleep(500);
 
-    console.log('[ci] Waiting for regression suite to complete...');
+    // Set script timeout high enough to cover the full suite
+    await driver.manage().setTimeouts({ script: CI_TIMEOUT_MS });
+
+    const batchScript = readFileSync(BATCH_SCRIPT_PATH, 'utf8');
+
+    console.log('[ci] Running batch...');
     const start = Date.now();
-    let lastStatus = '';
-    let lastSummary = '';
 
-    while (Date.now() - start < CI_TIMEOUT_MS) {
-        const statusText  = await driver.findElement(By.id('status')).getText().catch(() => '');
-        const summaryText = await driver.findElement(By.id('summary')).getText().catch(() => '');
+    // Concatenate into one executeAsyncScript so all code shares one sandbox.
+    // WebDriver injection bypasses extension CSP, so this always works.
+    const raw = await driver.executeAsyncScript(`
+        const done = arguments[arguments.length - 1];
+        ${batchScript}
+        globalThis.runCIRegressionBatch()
+            .then(r => done(r))
+            .catch(e => done({ error: String(e) }));
+    `);
 
-        if (statusText !== lastStatus || summaryText !== lastSummary) {
-            const elapsed = Math.round((Date.now() - start) / 1000);
-            console.log(`[ci] [${elapsed}s] ${statusText}${summaryText ? ' | ' + summaryText : ''}`);
-            lastStatus = statusText;
-            lastSummary = summaryText;
+    const elapsed = Math.round((Date.now() - start) / 1000);
+    if (!raw || raw.error) throw new Error(`Batch call failed: ${raw && raw.error}`);
+
+    const batchResults = Array.isArray(raw) ? raw : (raw.results || []);
+    if (!Array.isArray(batchResults)) throw new Error('Unexpected batch response shape');
+
+    console.log(`[ci] Batch completed in ${elapsed}s — ${batchResults.length} results received`);
+
+    // Evaluate pass/fail against expectedOutput
+    const caseMap = Object.fromEntries(suite.cases.map(c => [c.id, c]));
+    let passed = 0, failed = 0, skipped = 0;
+    const results = batchResults.map(r => {
+        const tc = caseMap[r.id];
+        if (!tc) return { ...r, classification: 'fail' };
+        if (r.skippedNav || r.skippedPreference) {
+            skipped++;
+            return { ...r, classification: r.skippedNav ? 'skipped_nav' : 'skipped_preference' };
         }
+        const ok = r.actualOutput === tc.expectedOutput;
+        ok ? passed++ : failed++;
+        return {
+            id: r.id,
+            dialect: r.dialect,
+            actualOutput: r.actualOutput,
+            expectedOutput: tc.expectedOutput,
+            passed: ok,
+            classification: ok ? 'pass' : 'fail',
+            error: r.error || null
+        };
+    });
 
-        const lower = statusText.toLowerCase();
-        if (
-            lower.includes('finished') ||
-            lower.includes('no suite') ||
-            lower.includes('run failed')
-        ) break;
-
-        await driver.sleep(2000);
-    }
-
-    if (Date.now() - start >= CI_TIMEOUT_MS) {
-        throw new Error(`Regression suite did not finish within ${CI_TIMEOUT_MS / 1000}s`);
-    }
-
-    return lastStatus;
-}
-
-async function collectResults(driver) {
-    const report = await driver.executeScript('return window.linkumoriRegressionReport || null;');
-    if (report) return report;
-
-    // Fallback: parse summary text from DOM
-    const summaryText = await driver.findElement(By.id('summary')).getText().catch(() => '');
-    return { summaryText, results: [], parsed: true };
+    console.log(`[ci] ${passed} passed, ${failed} failed, ${skipped} skipped (nav)`);
+    return { total: suite.cases.length, executed: batchResults.length, passed, failed, skippedByNav: skipped, results };
 }
 
 async function main() {
@@ -187,33 +199,20 @@ async function main() {
         // Launch Firefox with the extension
         driver = await launchDriver(xpiPath);
 
-        // Inject the suite into the extension background
+        // Inject suite and run batch in background
         await injectSuite(driver, suite);
+        const report = await runBatch(driver, suite);
 
-        // Run the regression page
-        const finalStatus = await runRegressionPage(driver);
-
-        // Collect results
-        const report = await collectResults(driver);
         writeFileSync(RESULTS_PATH, JSON.stringify(report, null, 2));
         console.log(`[ci] Results written to ${RESULTS_PATH}`);
 
-        if (report && typeof report.total === 'number') {
-            const { total, executed, passed, failed, skippedByPreference } = report;
-            console.log(`\n[ci] Results: ${executed}/${total} executed — ${passed} passed, ${failed} failed, ${skippedByPreference} skipped`);
-            if (failed > 0) {
-                console.log('\n[ci] Failed cases:');
-                (report.results || [])
-                    .filter(r => r.classification === 'fail')
-                    .forEach(r => console.log(`  FAIL — ${r.dialect} — ${r.id}`));
-            }
-            exitCode = failed > 0 ? 1 : 0;
-        } else if (finalStatus.toLowerCase().includes('finished')) {
-            exitCode = 0;
-        } else {
-            console.log(`[ci] Unknown finish state: ${finalStatus}`);
-            exitCode = 1;
+        if (report.failed > 0) {
+            console.log('\n[ci] Failed cases:');
+            report.results
+                .filter(r => r.classification === 'fail')
+                .forEach(r => console.log(`  FAIL — ${r.dialect} — ${r.id}\n       expected: ${r.expectedOutput}\n       actual:   ${r.actualOutput}`));
         }
+        exitCode = report.failed > 0 ? 1 : 0;
     } catch (err) {
         console.error('[ci] Fatal error:', err.message || err);
         exitCode = 1;
