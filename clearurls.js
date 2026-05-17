@@ -1064,6 +1064,71 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
     };
 }
 
+function createNativeRulePreprocessor(spec) {
+    const type = spec && spec.type;
+    const inputs = spec && spec.inputs === undefined ? 'all' : spec.inputs;
+    const transforms = {
+        urlEncode: encodeURIComponent,
+        urlDecode: value => { try { return decodeURIComponent(value); } catch (_) { return value; } },
+        doubleUrlEncode: value => encodeURIComponent(encodeURIComponent(value)),
+        doubleUrlDecode: value => { try { return decodeURIComponent(decodeURIComponent(value)); } catch (_) { return value; } },
+        base64Encode: value => { try { return btoa(unescape(encodeURIComponent(value))); } catch (_) { return value; } },
+        base64Decode: value => { try { return decodeURIComponent(escape(atob(value))); } catch (_) { return value; } }
+    };
+    const transform = transforms[type] || (value => value);
+    return values => values.map((value, index) => (
+        inputs === 'all' || (Array.isArray(inputs) && inputs.includes(index + 1))
+            ? transform(String(value || ''))
+            : value
+    ));
+}
+
+function isNativeSupersetRule(rule) {
+    return !!rule && typeof rule === 'object' && (
+        typeof rule.field === 'string' ||
+        typeof rule.raw === 'string' ||
+        typeof rule.url === 'string'
+    );
+}
+
+function compileNativeSupersetRule(rule) {
+    const subject = typeof rule.field === 'string' ? 'field' : typeof rule.raw === 'string' ? 'raw' : 'url';
+    const pattern = rule[subject];
+    const action = typeof rule.redirect === 'string'
+        ? 'redirect'
+        : typeof rule.rewrite === 'string'
+            ? 'rewrite'
+            : 'remove';
+    return {
+        source: rule,
+        subject,
+        pattern,
+        action,
+        replace: action === 'redirect' ? rule.redirect : action === 'rewrite' ? rule.rewrite : '',
+        regex: new RegExp(subject === 'field' ? '^' + pattern + '$' : pattern, subject === 'raw' ? 'gi' : 'i'),
+        active: rule.active !== false,
+        referral: rule.referral === true,
+        types: rule.types === undefined ? 'all' : rule.types,
+        exceptions: (Array.isArray(rule.except) ? rule.except : []).map(pattern => new RegExp(pattern, 'i')),
+        preprocessors: (Array.isArray(rule.preprocess) ? rule.preprocess : []).map(createNativeRulePreprocessor)
+    };
+}
+
+function nativeRuleApplies(rule, url, request) {
+    if (!rule.active) return false;
+    if (rule.types !== 'all') {
+        if (!Array.isArray(rule.types)) return false;
+        const type = String(request && request.type || '').toLowerCase();
+        if (!type || !rule.types.map(value => String(value).toLowerCase()).includes(type)) return false;
+    }
+    return !rule.exceptions.some(regex => regex.test(url));
+}
+
+function nativeReplace(template, captures, preprocessors) {
+    const values = preprocessors.reduce((current, fn) => fn(current), captures.map(value => value === undefined ? '' : String(value)));
+    return String(template || '').replace(/§(\d+)§/g, (_, index) => values[Number(index) - 1] || '');
+}
+
 
 // FIX: extraExceptions — cross-provider context exceptions collected in clearUrl()
 // and injected directly into activeLinkumoriExceptions, bypassing the URL-pattern
@@ -1108,7 +1173,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         }
     }
 
-    let re = storage.redirectionEnabled ? provider.getRedirection(url) : null;
+    let re = storage.redirectionEnabled ? provider.getRedirection(url, request) : null;
     if (re !== null) {
         url = decodeURL(re);
 
@@ -1162,6 +1227,23 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             }
         }
     });
+
+    for (const rule of provider.getNativeRules('raw')) {
+        if (!nativeRuleApplies(rule, url, request)) continue;
+        const beforeReplace = url;
+        rule.regex.lastIndex = 0;
+        url = url.replace(rule.regex, (...args) => (
+            rule.action === 'remove'
+                ? ''
+                : nativeReplace(rule.replace, args.slice(1, -2), rule.preprocessors)
+        ));
+        if (beforeReplace !== url) {
+            changes = true;
+            if (!actionType) actionType = rule.action === 'rewrite' ? 'rewrite' : 'raw_rule';
+            if (!matchedRuleForTrace) matchedRuleForTrace = rule.pattern;
+            increaseBadged(false, request);
+        }
+    }
 
     // Raw rules can remove the first query segment together with its leading
     // delimiter (for example `[?&]raw=[^&#]*`), leaving `/&keep=1`. Normalize
@@ -1263,6 +1345,50 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 increaseBadged(false, request);
             }
         });
+
+        for (const rule of provider.getNativeRules('field')) {
+            if (!nativeRuleApplies(rule, url, request)) continue;
+            const fieldsToDelete = [];
+            let localChange = false;
+            for (const field of fields.keys()) {
+                rule.regex.lastIndex = 0;
+                if (!rule.regex.test(field)) continue;
+                if (rule.action === 'remove') {
+                    fieldsToDelete.push(field);
+                    localChange = true;
+                } else {
+                    const nextValue = nativeReplace(rule.replace, [fields.get(field)], rule.preprocessors);
+                    if (fields.get(field) !== nextValue) {
+                        fields.set(field, nextValue);
+                        localChange = true;
+                    }
+                }
+            }
+            fieldsToDelete.forEach(field => fields.delete(field));
+            const fragmentsToDelete = [];
+            for (const fragment of fragments.keys()) {
+                rule.regex.lastIndex = 0;
+                if (!rule.regex.test(fragment)) continue;
+                if (rule.action === 'remove') {
+                    fragmentsToDelete.push(fragment);
+                    localChange = true;
+                } else {
+                    const nextValue = nativeReplace(rule.replace, [fragments.get(fragment)], rule.preprocessors);
+                    if (fragments.get(fragment) !== nextValue) {
+                        fragments.delete(fragment);
+                        fragments.append(fragment, nextValue);
+                        localChange = true;
+                    }
+                }
+            }
+            fragmentsToDelete.forEach(fragment => fragments.delete(fragment));
+            if (localChange) {
+                changes = true;
+                if (!actionType) actionType = rule.action;
+                if (!matchedRuleForTrace) matchedRuleForTrace = rule.pattern;
+                increaseBadged(false, request);
+            }
+        }
 
         if (activeLinkumoriRules.length > 0 || activeLinkumoriExceptions.length > 0) {
             const beforeFields = fields.toString();
@@ -1584,6 +1710,7 @@ function start() {
         let disabled_referralMarketing = {};
         let enabled_linkumoriRemoveParamRules = [];
         let enabled_linkumoriRemoveParamExceptions = [];
+        let enabled_nativeRules = [];
         let methods = [];
         let resourceTypes = [];
 
@@ -1898,6 +2025,10 @@ function start() {
         };
 
         this.addRule = function (rule, isActive = true) {
+            if (isNativeSupersetRule(rule)) {
+                if (isActive) enabled_nativeRules.push(compileNativeSupersetRule(rule));
+                return;
+            }
             const parsedLinkumoriRule = parseLinkumoriRemoveParamRule(rule);
             if (parsedLinkumoriRule) {
                 if (!isActive) return;
@@ -1926,6 +2057,13 @@ function start() {
                 return Object.assign({}, enabled_rules, enabled_referralMarketing);
             }
             return enabled_rules;
+        };
+
+        this.getNativeRules = function (subject) {
+            return enabled_nativeRules.filter(rule => {
+                if (rule.subject !== subject) return false;
+                return subject !== 'field' || !rule.referral || !storage.referralMarketing;
+            });
         };
 
         this.addRawRule = function (rule, isActive = true) {
@@ -2032,10 +2170,21 @@ function start() {
             }
         };
 
-        this.getRedirection = function (url) {
+        this.getRedirection = function (url, request = null) {
             let re = null;
 
+            for (const rule of enabled_nativeRules) {
+                if (rule.subject !== 'url' || rule.action !== 'redirect' || !nativeRuleApplies(rule, url, request)) continue;
+                rule.regex.lastIndex = 0;
+                const captured = rule.regex.exec(url);
+                if (captured) {
+                    re = nativeReplace(rule.replace, captured.slice(1), rule.preprocessors);
+                    break;
+                }
+            }
+
             for (const redirection in enabled_redirections) {
+                if (re) break;
                 const regex = enabled_redirections[redirection];
                 const activeRegex = regex instanceof RegExp ? regex : new RegExp(redirection, "i");
                 let result = url.match(activeRegex);

@@ -1606,7 +1606,7 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
                 storage.rulesMetadata.sourceURL = url;
             }
 
-            const remoteRules = remoteRulesData;
+            const remoteRules = normalizeImportedRulesDocument(remoteRulesData);
 
             if (!remoteRules.providers || typeof remoteRules.providers !== 'object') {
                 throw new Error('Remote rules missing providers object');
@@ -1699,7 +1699,7 @@ function fetchRemoteHash(hashUrl, ruleURLForHealth = null) {
 
 async function fetchBundledRulesRaw() {
     const payload = await fetchBundledRulesText();
-    const rawRulesData = JSON.parse(payload.text);
+    const rawRulesData = normalizeImportedRulesDocument(JSON.parse(payload.text));
     validateBundledRulesData(rawRulesData);
     return rawRulesData;
 }
@@ -1723,7 +1723,7 @@ async function fetchBundledRulesText() {
     if (!text || text.trim().length === 0) {
         throw new Error('LZ4 rules file is empty after decompression');
     }
-    validateBundledRulesData(JSON.parse(text));
+    validateBundledRulesData(normalizeImportedRulesDocument(JSON.parse(text)));
 
     return {
         text,
@@ -1743,7 +1743,84 @@ function validateBundledRulesData(rawRulesData) {
     }
 }
 
+// ClearURLs v2 is accepted as an interchange format, then reduced into the
+// Linkumori-native superset authoring shape:
+//   "utm_source"
+//   { field: "session", rewrite: "clean" }
+//   { raw: "...", remove: true }
+//   { url: "...", redirect: "§1§", preprocess: [...] }
+function normalizeImportedRulesDocument(rulesData) {
+    if (!rulesData || typeof rulesData !== 'object' || rulesData.version !== 2) {
+        return rulesData;
+    }
+    const defaults = rulesData.defaults && typeof rulesData.defaults === 'object'
+        ? rulesData.defaults
+        : {};
+    const providers = {};
+
+    Object.entries(rulesData.providers || {}).forEach(([name, provider]) => {
+        if (!provider || typeof provider !== 'object') return;
+        const normalized = {
+            urlPattern: provider.urlPattern,
+            rules: []
+        };
+        ['completeProvider', 'forceRedirection'].forEach(key => {
+            if (provider[key] === true) normalized[key] = true;
+        });
+        ['methods', 'exceptions'].forEach(key => {
+            if (Array.isArray(provider[key]) && provider[key].length) normalized[key] = provider[key].slice();
+        });
+        (Array.isArray(provider.rules) ? provider.rules : []).forEach(rule => {
+            const resolved = resolveImportedV2Rule(rule, defaults);
+            normalized.rules.push(toNativeLinkumoriRule(resolved));
+        });
+        providers[name] = normalized;
+    });
+
+    return {
+        ...(rulesData.metadata && typeof rulesData.metadata === 'object' ? { metadata: rulesData.metadata } : {}),
+        providers
+    };
+}
+
+function resolveImportedV2Rule(rule, defaults) {
+    const source = typeof rule === 'string'
+        ? { kind: 'field', match: rule }
+        : (rule && typeof rule === 'object' ? rule : {});
+    if (typeof source.match !== 'string') {
+        throw new Error('Rules v2 rule must include match');
+    }
+    return {
+        kind: source.kind || 'field',
+        match: source.match,
+        active: source.active === undefined ? defaults.active !== false : source.active === true,
+        action: source.action && typeof source.action === 'object' ? source.action : { type: 'remove' },
+        exceptions: Array.isArray(source.exceptions) ? source.exceptions.slice() : (Array.isArray(defaults.exceptions) ? defaults.exceptions.slice() : []),
+        preprocessors: Array.isArray(source.preprocessors) ? source.preprocessors.slice() : (Array.isArray(defaults.preprocessors) ? defaults.preprocessors.slice() : []),
+        referralMarketing: source.referralMarketing === true,
+        requestTypes: source.requestTypes === undefined ? (defaults.requestTypes === undefined ? 'all' : defaults.requestTypes) : source.requestTypes
+    };
+}
+
+function toNativeLinkumoriRule(rule) {
+    const native = rule.kind === 'raw'
+        ? { raw: rule.match }
+        : rule.kind === 'redirection'
+            ? { url: rule.match }
+            : { field: rule.match };
+    if (rule.action.type === 'rewrite') native.rewrite = rule.action.replacePattern || '';
+    else if (rule.action.type === 'redirect') native.redirect = rule.action.replacePattern || '';
+    else native.remove = true;
+    if (rule.active === false) native.active = false;
+    if (rule.referralMarketing) native.referral = true;
+    if (rule.requestTypes !== 'all') native.types = rule.requestTypes;
+    if (rule.exceptions.length) native.except = rule.exceptions;
+    if (rule.preprocessors.length) native.preprocess = rule.preprocessors;
+    return native;
+}
+
 function normalizeRulesForProviderImport(rulesData, fallbackName, fallbackSource) {
+    rulesData = normalizeImportedRulesDocument(rulesData);
     const providers = (rulesData && typeof rulesData === 'object' && rulesData.providers && typeof rulesData.providers === 'object')
         ? rulesData.providers
         : {};

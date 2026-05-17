@@ -21,6 +21,110 @@
       }
     },
     {
+      "id": "provider native superset field rewrite",
+      "dialect": "provider",
+      "input": "https://example.com/native-field/?session=dirty&keep=1",
+      "expectedOutput": "https://example.com/native-field/?session=clean&keep=1",
+      "providers": {
+        "native-field": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/native-field(?:[/?#]|$)",
+          "rules": [
+            {
+              "field": "session",
+              "rewrite": "clean"
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider native superset raw rewrite preprocess",
+      "dialect": "provider",
+      "input": "https://example.com/native-raw/?target=https%253A%252F%252Fiana.org&keep=1",
+      "expectedOutput": "https://example.com/native-raw/?target=https%3A%2F%2Fiana.org&keep=1",
+      "providers": {
+        "native-raw": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/native-raw(?:[/?#]|$)",
+          "rules": [
+            {
+              "raw": "target=([^&]+)",
+              "rewrite": "target=\u00a71\u00a7",
+              "preprocess": [
+                {
+                  "type": "urlDecode",
+                  "inputs": [
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider native superset redirect",
+      "dialect": "provider",
+      "input": "https://example.com/native-redirect/?url=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "native-redirect": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/native-redirect(?:[/?#]|$)",
+          "rules": [
+            {
+              "url": "^https?:\\/\\/example\\.com\\/native-redirect/\\?url=([^&]+)$",
+              "redirect": "\u00a71\u00a7",
+              "preprocess": [
+                {
+                  "type": "urlDecode",
+                  "inputs": [
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider native superset exception",
+      "dialect": "provider",
+      "input": "https://example.com/native-except/keep/?session=dirty",
+      "expectedOutput": "https://example.com/native-except/keep/?session=dirty",
+      "providers": {
+        "native-except": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/native-except(?:[/?#]|$)",
+          "rules": [
+            {
+              "field": "session",
+              "rewrite": "clean",
+              "except": [
+                "/keep/"
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "provider rawRules",
       "dialect": "provider",
       "input": "https://example.com/provider-raw/?raw=x&keep=1",

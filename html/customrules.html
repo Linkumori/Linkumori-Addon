@@ -2945,6 +2945,13 @@ subdomain.example.com
                         <div class="faq-answer-content">
                             <p><strong data-i18n="faq_rules_title"></strong> <span data-i18n="faq_rules_explanation"></span></p>
                             <div class="faq-code">"rules": ["utm_source", "fbclid", "||example.com^$removeparam=/^utm_/", "@@||example.com^$removeparam=utm_source"]</div>
+                            <div class="faq-code">"rules": [
+  "utm_source",
+  { "field": "session", "rewrite": "clean", "types": ["main_frame"] },
+  { "raw": "[?&]target=([^&]+)", "rewrite": "?target=§1§", "preprocess": [{ "type": "urlDecode", "inputs": [1] }] },
+  { "url": "^https?://example\\.com/go\\?to=([^&]+)", "redirect": "§1§", "preprocess": [{ "type": "urlDecode", "inputs": [1] }] }
+]</div>
+                            <p>Linkumori keeps simple removals as strings, then adds one superset object form only when a rule needs field/raw/url targeting, rewrite, redirect, preprocess, request-type scope, or exceptions.</p>
                             <p data-i18n="faq_rules_converted"></p>
                             
                             <p><strong data-i18n="faq_raw_rules_title"></strong> <span data-i18n="faq_raw_rules_explanation"></span></p>
