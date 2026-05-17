@@ -222,6 +222,40 @@ function assertDomainRedirectionSyntax(provider, providerName = '') {
     });
 }
 
+function assertNativeSupersetRule(rule, providerName = '') {
+    if (typeof rule === 'string') return;
+    if (!rule || typeof rule !== 'object' || Array.isArray(rule)) {
+        throw new Error(`${providerName || 'Provider'}: rules entries must be strings or objects`);
+    }
+    const subjects = ['field', 'raw', 'url'].filter(key => typeof rule[key] === 'string');
+    if (subjects.length !== 1) {
+        throw new Error(`${providerName || 'Provider'}: object rules need exactly one of field, raw, or url`);
+    }
+    const actions = ['remove', 'rewrite', 'redirect'].filter(key => rule[key] !== undefined);
+    if (actions.length > 1) {
+        throw new Error(`${providerName || 'Provider'}: object rules can define only one action`);
+    }
+    if (rule.rewrite !== undefined && typeof rule.rewrite !== 'string') {
+        throw new Error(`${providerName || 'Provider'}: rewrite must be a string`);
+    }
+    if (rule.redirect !== undefined && typeof rule.redirect !== 'string') {
+        throw new Error(`${providerName || 'Provider'}: redirect must be a string`);
+    }
+    if (rule.except !== undefined && (!Array.isArray(rule.except) || rule.except.some(value => typeof value !== 'string'))) {
+        throw new Error(`${providerName || 'Provider'}: except must be an array of strings`);
+    }
+    if (rule.types !== undefined && rule.types !== 'all' && (!Array.isArray(rule.types) || rule.types.some(value => typeof value !== 'string'))) {
+        throw new Error(`${providerName || 'Provider'}: types must be "all" or an array of strings`);
+    }
+    if (rule.preprocess !== undefined && !Array.isArray(rule.preprocess)) {
+        throw new Error(`${providerName || 'Provider'}: preprocess must be an array`);
+    }
+}
+
+function assertProviderRuleEntries(provider, providerName = '') {
+    (provider.rules || []).forEach(rule => assertNativeSupersetRule(rule, providerName));
+}
+
 // i18n helper function
 function i18n(key, ...substitutions) {
     return LinkumoriI18n.getMessage(key, substitutions);
@@ -4165,6 +4199,7 @@ async function saveCurrentProvider() {
         }
         const provider = JSON.parse(jsonEditor.value);
         assertProviderArrayFields(provider, currentProvider || '');
+        assertProviderRuleEntries(provider, currentProvider || '');
         assertDomainRedirectionSyntax(provider, currentProvider || '');
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
@@ -4711,6 +4746,39 @@ function getProvidersFromImportedCustomRules(imported) {
     return null;
 }
 
+function normalizeImportedClearURLsV2ForEditor(imported) {
+    if (!imported || imported.version !== 2 || !imported.providers) return imported;
+    const defaults = imported.defaults || {};
+    const providers = {};
+    Object.entries(imported.providers).forEach(([name, provider]) => {
+        const normalized = { urlPattern: provider.urlPattern, rules: [] };
+        (provider.rules || []).forEach((rawRule) => {
+            const rule = typeof rawRule === 'string' ? { match: rawRule } : rawRule;
+            const kind = rule.kind || 'field';
+            const action = rule.action || { type: 'remove' };
+            const native = kind === 'raw' ? { raw: rule.match } : kind === 'redirection' ? { url: rule.match } : { field: rule.match };
+            if (action.type === 'rewrite') native.rewrite = action.replacePattern || '';
+            else if (action.type === 'redirect') native.redirect = action.replacePattern || '';
+            else native.remove = true;
+            const active = rule.active === undefined ? defaults.active : rule.active;
+            const types = rule.requestTypes === undefined ? defaults.requestTypes : rule.requestTypes;
+            const except = rule.exceptions === undefined ? defaults.exceptions : rule.exceptions;
+            const preprocess = rule.preprocessors === undefined ? defaults.preprocessors : rule.preprocessors;
+            if (active === false) native.active = false;
+            if (rule.referralMarketing === true) native.referral = true;
+            if (types !== undefined && types !== 'all') native.types = types;
+            if (Array.isArray(except) && except.length) native.except = except;
+            if (Array.isArray(preprocess) && preprocess.length) native.preprocess = preprocess;
+            normalized.rules.push(native);
+        });
+        ['completeProvider', 'forceRedirection', 'methods', 'exceptions'].forEach(key => {
+            if (provider[key] !== undefined) normalized[key] = JSON.parse(JSON.stringify(provider[key]));
+        });
+        providers[name] = normalized;
+    });
+    return { providers };
+}
+
 function getLinkumoriURLRulesFromImportedCustomRules(imported) {
     if (!imported || typeof imported !== 'object') {
         return null;
@@ -4739,6 +4807,7 @@ function validateImportedProviders(providersData) {
 
     for (const [name, provider] of Object.entries(providersData)) {
         assertProviderArrayFields(provider, name);
+        assertProviderRuleEntries(provider, name);
         assertDomainRedirectionSyntax(provider, name);
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
@@ -4794,7 +4863,7 @@ async function handleFileImport(e) {
     const reader = new FileReader();
     reader.onload = async function(event) {
         try {
-            const imported = JSON.parse(event.target.result);
+            const imported = normalizeImportedClearURLsV2ForEditor(JSON.parse(event.target.result));
 
             if (!imported || typeof imported !== 'object' || Array.isArray(imported)) {
                 throw new Error(i18n('customRulesEditor_invalidFileStructure'));
