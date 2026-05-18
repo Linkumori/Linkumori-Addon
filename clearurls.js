@@ -1129,6 +1129,18 @@ function nativeReplace(template, captures, preprocessors) {
     return String(template || '').replace(/§(\d+)§/g, (_, index) => values[Number(index) - 1] || '');
 }
 
+function nativeFieldRewriteKey(rule, source, fieldName) {
+    return [source, fieldName, rule.pattern, rule.replace].join('\u0000');
+}
+
+function getNativeRewriteGuard(request) {
+    if (!request || typeof request !== 'object') return new Set();
+    if (!(request.__linkumoriNativeFieldRewrites instanceof Set)) {
+        request.__linkumoriNativeFieldRewrites = new Set();
+    }
+    return request.__linkumoriNativeFieldRewrites;
+}
+
 
 // FIX: extraExceptions — cross-provider context exceptions collected in clearUrl()
 // and injected directly into activeLinkumoriExceptions, bypassing the URL-pattern
@@ -1357,9 +1369,15 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                     fieldsToDelete.push(field);
                     localChange = true;
                 } else {
-                    const nextValue = nativeReplace(rule.replace, [fields.get(field)], rule.preprocessors);
-                    if (fields.get(field) !== nextValue) {
-                        fields.set(field, nextValue);
+                    const rewriteKey = nativeFieldRewriteKey(rule, 'search', field);
+                    const guard = getNativeRewriteGuard(request);
+                    if (guard.has(rewriteKey)) continue;
+                    const currentValues = fields.getAll(field);
+                    const nextValues = currentValues.map(value => nativeReplace(rule.replace, [value], rule.preprocessors));
+                    if (currentValues.some((value, index) => value !== nextValues[index])) {
+                        fields.delete(field);
+                        nextValues.forEach(value => fields.append(field, value));
+                        guard.add(rewriteKey);
                         localChange = true;
                     }
                 }
@@ -1373,10 +1391,18 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                     fragmentsToDelete.push(fragment);
                     localChange = true;
                 } else {
-                    const nextValue = nativeReplace(rule.replace, [fragments.get(fragment)], rule.preprocessors);
-                    if (fragments.get(fragment) !== nextValue) {
+                    const rewriteKey = nativeFieldRewriteKey(rule, 'fragment', fragment);
+                    const guard = getNativeRewriteGuard(request);
+                    if (guard.has(rewriteKey)) continue;
+                    const currentValues = Array.from(fragments.getAll(fragment));
+                    const nextValues = currentValues.map(value => {
+                        const nextValue = nativeReplace(rule.replace, [value], rule.preprocessors);
+                        return nextValue === '' ? null : nextValue;
+                    });
+                    if (currentValues.some((value, index) => value !== nextValues[index])) {
                         fragments.delete(fragment);
-                        fragments.append(fragment, nextValue);
+                        nextValues.forEach(value => fragments.append(fragment, value));
+                        guard.add(rewriteKey);
                         localChange = true;
                     }
                 }

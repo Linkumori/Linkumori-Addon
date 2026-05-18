@@ -1250,7 +1250,7 @@ documentation when you run the build process.
       
       // Merge arrays (deduplicate)
       if (Array.isArray(data.rules)) {
-        merged.rules = [...new Set([...merged.rules, ...data.rules])];
+        merged.rules = this.dedupeRuleEntries([...merged.rules, ...data.rules]);
       }
       if (Array.isArray(data.rawRules)) {
         merged.rawRules = [...new Set([...merged.rawRules, ...data.rawRules])];
@@ -1317,6 +1317,32 @@ documentation when you run the build process.
     if (merged.forceRedirection !== true) delete merged.forceRedirection;
     
     return merged;
+  }
+
+  stableRuleKey(rule) {
+    if (typeof rule === 'string') return `s:${rule}`;
+    if (!rule || typeof rule !== 'object') return `x:${String(rule)}`;
+    const sortValue = (value) => {
+      if (Array.isArray(value)) return value.map(sortValue);
+      if (value && typeof value === 'object') {
+        return Object.keys(value).sort().reduce((out, key) => {
+          out[key] = sortValue(value[key]);
+          return out;
+        }, {});
+      }
+      return value;
+    };
+    return `o:${JSON.stringify(sortValue(rule))}`;
+  }
+
+  dedupeRuleEntries(entries) {
+    const seen = new Set();
+    return entries.filter((entry) => {
+      const key = this.stableRuleKey(entry);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   }
 
   // Derive a clean provider name from a urlPattern regex string
@@ -2351,7 +2377,27 @@ ${commit.message}
 
       // rules
       for (const rule of (Array.isArray(provider.rules) ? provider.rules : [])) {
-        tryRegex(`^${rule}$`, 'gi', `${tag} rule "${rule}"`);
+        if (typeof rule === 'string') {
+          tryRegex(`^${rule}$`, 'gi', `${tag} rule "${rule}"`);
+          continue;
+        }
+        if (!rule || typeof rule !== 'object') {
+          errors.push(`${tag} rule entries must be strings or objects`);
+          continue;
+        }
+        const subjects = ['field', 'raw', 'url'].filter((key) => typeof rule[key] === 'string');
+        if (subjects.length !== 1) {
+          errors.push(`${tag} object rule must define exactly one of field/raw/url`);
+          continue;
+        }
+        const subject = subjects[0];
+        tryRegex(subject === 'field' ? `^${rule[subject]}$` : rule[subject], subject === 'raw' ? 'gi' : 'i', `${tag} ${subject} rule`);
+        if (rule.except !== undefined && (!Array.isArray(rule.except) || rule.except.some((value) => typeof value !== 'string'))) {
+          errors.push(`${tag} rule except must be an array of strings`);
+        }
+        if (rule.types !== undefined && rule.types !== 'all' && (!Array.isArray(rule.types) || rule.types.some((value) => typeof value !== 'string'))) {
+          errors.push(`${tag} rule types must be "all" or an array of strings`);
+        }
       }
 
       // rawRules
@@ -2422,6 +2468,15 @@ ${commit.message}
           ...(Array.isArray(provider.referralMarketing) ? provider.referralMarketing : [])
         ];
         for (const rule of allRules) {
+          if (rule && typeof rule === 'object') {
+            if (typeof rule.raw === 'string') {
+              try {
+                const replacement = typeof rule.rewrite === 'string' ? rule.rewrite : '';
+                urlStr = urlStr.replace(new RegExp(rule.raw, 'gi'), replacement);
+              } catch {}
+            }
+            continue;
+          }
           const toDelete = [];
           for (const key of params.keys()) {
             // Fresh RegExp each time — avoids stateful lastIndex with 'g' flag
@@ -3495,7 +3550,16 @@ coverage/**
         "rules": [
           "param1",
           "tracking_param",
-          "utm_campaign"
+          "utm_campaign",
+          {
+            "field": "session",
+            "rewrite": "clean"
+          },
+          {
+            "url": "^https?:\\\\/\\\\/example\\\\.com\\\\/go\\\\?to=([^&]+)",
+            "redirect": "§1§",
+            "preprocess": [{ "type": "urlDecode", "inputs": [1] }]
+          }
         ],
         "rawRules": [],
         "referralMarketing": [

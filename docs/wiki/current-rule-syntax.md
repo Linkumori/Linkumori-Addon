@@ -169,6 +169,37 @@ utm_medium
 
 Important: `rules` also accepts a special inline removeparam syntax. That separate grammar is documented in [Inline Removeparam Rules](#inline-removeparam-rules).
 
+`rules` is also the Linkumori-native superset array. Keep simple removals as strings; use an object only when behavior needs more shape:
+
+```json
+[
+  "utm_source",
+  { "field": "session", "rewrite": "clean" },
+  { "raw": "target=([^&]+)", "rewrite": "target=§1§", "preprocess": [{ "type": "urlDecode", "inputs": [1] }] },
+  { "url": "^https?://example\\.com/go\\?to=([^&]+)", "redirect": "§1§" }
+]
+```
+
+Each object defines exactly one target:
+
+- `field` — query/hash parameter name matcher
+- `raw` — full-URL regex matcher
+- `url` — redirect regex matcher
+
+And at most one action:
+
+- `remove: true` — remove the match; this is the default if no action is provided
+- `rewrite: "..."` — replace with a string; `§1§` uses capture 1
+- `redirect: "..."` — produce a redirect target
+
+Optional controls:
+
+- `types`: `"all"` or request-type array
+- `except`: URL-regex exceptions for this rule
+- `preprocess`: capture transformations such as `urlDecode`, `urlEncode`, `doubleUrlDecode`, `doubleUrlEncode`, `base64Decode`, `base64Encode`
+- `active`: set `false` to keep a disabled rule in the data
+- `referral`: mark a field rule as referral-marketing gated
+
 ### `rawRules`
 
 Type:
