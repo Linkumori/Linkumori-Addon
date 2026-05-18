@@ -3897,26 +3897,26 @@ function showProviderEditor() {
 function createProviderEditorHTML(provider) {
     const hasUrlPattern = typeof provider.urlPattern === 'string' && provider.urlPattern.trim() !== '';
     const domainPatternText = toDomainPatternArray(provider.domainPatterns).join('\n');
-    const jsonFieldButtons = [
-        { key: 'rules', label: i18n('customRulesEditor_rules') },
-        { key: 'referralMarketing', label: i18n('customRulesEditor_referralMarketing') },
-        { key: 'rawRules', label: i18n('customRulesEditor_rawRules') },
-        { key: 'exceptions', label: i18n('customRulesEditor_exceptions') },
-        { key: 'domainExceptions', label: i18n('customRulesEditor_domainExceptions') },
-        { key: 'redirections', label: i18n('customRulesEditor_redirections') },
-        { key: 'domainRedirections', label: i18n('customRulesEditor_domainRedirections') },
-        { key: 'completeProvider', label: i18n('customRulesEditor_completeProvider') },
-        { key: 'forceRedirection', label: i18n('customRulesEditor_forceRedirection') },
-        { key: 'urlPattern', label: i18n('customRulesEditor_urlPattern') },
-        { key: 'indexPattern', label: i18n('customRulesEditor_indexPattern') },
-        { key: 'domainPatterns', label: i18n('customRulesEditor_domainPatterns') },
-        { key: 'methods', label: i18n('customRulesEditor_httpMethods') },
-        { key: 'resourceTypes', label: i18n('customRulesEditor_resourceTypes') }
-    ];
-
+    const syntaxMode = getProviderSyntaxMode(provider);
+    const jsonFieldButtons = getJsonFieldButtonsForSyntax(syntaxMode);
     return `
         <div class="editor-layout">
             <section class="editor-section pattern-section">
+                <h4 class="editor-section-title">${i18n('customRulesEditor_syntaxModeLabel')}</h4>
+                <div class="form-group pattern-type-selector">
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="edit-syntax-mode" value="legacy" ${syntaxMode === 'legacy' ? 'checked' : ''}>
+                            <span>${i18n('customRulesEditor_syntaxLegacy')}</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="edit-syntax-mode" value="v3" ${syntaxMode === 'v3' ? 'checked' : ''}>
+                            <span>${i18n('customRulesEditor_syntaxV3')}</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-help">${syntaxMode === 'v3' ? i18n('customRulesEditor_syntaxV3EditorHelp') : i18n('customRulesEditor_syntaxLegacyEditorHelp')}</div>
+
                 <h4 class="editor-section-title">${i18n('customRulesEditor_patternType')}</h4>
 
                 <div class="form-group pattern-type-selector">
@@ -3960,7 +3960,16 @@ function createProviderEditorHTML(provider) {
                             </button>
                         `).join('')}
                     </div>
-                    <div class="json-key-toolbar-help">${i18n('customRulesEditor_jsonToolbarHelp')}</div>
+                    ${syntaxMode === 'v3' ? `
+                        <div class="json-rule-template-buttons">
+                            <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="field">+ ${i18n('customRulesEditor_addFieldRule')}</button>
+                            <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="raw">+ ${i18n('customRulesEditor_addRawRule')}</button>
+                            <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="redirection">+ ${i18n('customRulesEditor_addRedirectRule')}</button>
+                        </div>
+                    ` : ''}
+                    <div class="json-key-toolbar-help">${syntaxMode === 'v3'
+                        ? i18n('customRulesEditor_syntaxV3ToolbarHelp')
+                        : i18n('customRulesEditor_jsonToolbarHelp')}</div>
                 </div>
                 <div class="json-editor-content">
                     <div class="json-textmate-input-shell">
@@ -3972,6 +3981,23 @@ function createProviderEditorHTML(provider) {
             </div>
         </div>
     `;
+}
+
+function handleEditorSyntaxModeChange(event) {
+    const jsonEditor = document.getElementById('json-editor');
+    if (!jsonEditor) return;
+    try {
+        const provider = JSON.parse(jsonEditor.value);
+        const next = applyProviderSyntaxMode(provider, event.target.value);
+        jsonEditor.value = JSON.stringify(next, null, 2);
+        updateJsonTextMateHighlighting(jsonEditor);
+        hasUnsavedChanges = true;
+        if (currentProvider && customRules.providers[currentProvider]) {
+            setHTMLContent(editorContent, createProviderEditorHTML(next));
+            setupProviderEditorEvents();
+        }
+    } catch (_) {
+    }
 }
 
 /**
@@ -3988,6 +4014,9 @@ function setupProviderEditorEvents() {
         editorContent.removeEventListener('click', handleJsonKeyButtonClick);
         editorContent.addEventListener('click', handleJsonKeyButtonClick);
     }
+    document.querySelectorAll('input[name="edit-syntax-mode"]').forEach((input) => {
+        input.addEventListener('change', handleEditorSyntaxModeChange);
+    });
     setupPatternEditorEvents();
     syncPatternEditorFromJson();
 }
@@ -4130,6 +4159,119 @@ function syncPatternEditorFromJson() {
     }
 }
 
+const LINKUMORI_V3_SYNTAX = 'linkumori-v3';
+
+function providerUsesCanonicalRules(provider) {
+    return Array.isArray(provider?.rules) && provider.rules.some(rule =>
+        isPlainObject(rule) && typeof rule.match === 'string' && isPlainObject(rule.action));
+}
+
+function getProviderSyntaxMode(provider) {
+    return provider?.syntax === LINKUMORI_V3_SYNTAX || providerUsesCanonicalRules(provider)
+        ? 'v3'
+        : 'legacy';
+}
+
+function createProviderSkeleton(mode = 'legacy') {
+    if (mode === 'v3') {
+        return {
+            syntax: LINKUMORI_V3_SYNTAX,
+            rules: [],
+            exceptions: [],
+            domainExceptions: [],
+            domainRedirections: []
+        };
+    }
+
+    return {
+        rules: [],
+        referralMarketing: [],
+        rawRules: [],
+        exceptions: [],
+        domainExceptions: [],
+        redirections: [],
+        domainRedirections: []
+    };
+}
+
+function applyProviderSyntaxMode(provider, mode) {
+    const next = JSON.parse(JSON.stringify(provider || {}));
+    if (mode === 'v3') {
+        next.syntax = LINKUMORI_V3_SYNTAX;
+        if (!Array.isArray(next.rules)) next.rules = [];
+        ['rawRules', 'referralMarketing', 'redirections'].forEach((key) => {
+            if (Array.isArray(next[key]) && next[key].length === 0) delete next[key];
+        });
+        return next;
+    }
+
+    delete next.syntax;
+    ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions', 'domainExceptions', 'domainRedirections'].forEach((key) => {
+        if (!Array.isArray(next[key])) next[key] = [];
+    });
+    return next;
+}
+
+function getJsonFieldButtonsForSyntax(mode) {
+    const fields = mode === 'v3'
+        ? ['rules', 'exceptions', 'domainExceptions', 'domainRedirections', 'completeProvider', 'forceRedirection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes']
+        : ['rules', 'referralMarketing', 'rawRules', 'exceptions', 'domainExceptions', 'redirections', 'domainRedirections', 'completeProvider', 'forceRedirection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
+    const labels = {
+        rules: i18n('customRulesEditor_rules'),
+        referralMarketing: i18n('customRulesEditor_referralMarketing'),
+        rawRules: i18n('customRulesEditor_rawRules'),
+        exceptions: i18n('customRulesEditor_exceptions'),
+        domainExceptions: i18n('customRulesEditor_domainExceptions'),
+        redirections: i18n('customRulesEditor_redirections'),
+        domainRedirections: i18n('customRulesEditor_domainRedirections'),
+        completeProvider: i18n('customRulesEditor_completeProvider'),
+        forceRedirection: i18n('customRulesEditor_forceRedirection'),
+        urlPattern: i18n('customRulesEditor_urlPattern'),
+        indexPattern: i18n('customRulesEditor_indexPattern'),
+        domainPatterns: i18n('customRulesEditor_domainPatterns'),
+        methods: i18n('customRulesEditor_httpMethods'),
+        resourceTypes: i18n('customRulesEditor_resourceTypes')
+    };
+    return fields.map(key => ({ key, label: labels[key] }));
+}
+
+function createCanonicalRuleTemplate(kind) {
+    const idBase = kind === 'redirection' ? 'redirect-rule' : `${kind}-rule`;
+    if (kind === 'raw') {
+        return {
+            id: idBase,
+            kind: 'raw',
+            match: '[?&]param=[^&#]*',
+            action: { type: 'remove' }
+        };
+    }
+    if (kind === 'redirection') {
+        return {
+            id: idBase,
+            kind: 'redirection',
+            match: '^https?:\/\/example\.com\/redirect\?url=(.+)$',
+            action: { type: 'redirect', replacePattern: '§1§' },
+            preprocessors: [{ type: 'urlDecode', inputs: [1] }]
+        };
+    }
+    return {
+        id: idBase,
+        kind: 'field',
+        match: 'utm_source',
+        action: { type: 'remove' }
+    };
+}
+
+function createUniqueRuleId(provider, baseId) {
+    const occupied = new Set((provider.rules || [])
+        .filter(rule => isPlainObject(rule) && typeof rule.id === 'string')
+        .map(rule => rule.id));
+    if (!occupied.has(baseId)) return baseId;
+    let counter = 2;
+    while (occupied.has(`${baseId}-${counter}`)) counter++;
+    return `${baseId}-${counter}`;
+}
+
 /**
  * Get default value for provider JSON key
  */
@@ -4160,6 +4302,12 @@ function getDefaultValueForJsonKey(key) {
  * Handle add-field button clicks in JSON editor
  */
 function handleJsonKeyButtonClick(e) {
+    const templateButton = e.target.closest('.json-rule-template-btn');
+    if (templateButton) {
+        addCanonicalRuleTemplate(templateButton.dataset.ruleTemplate);
+        return;
+    }
+
     const button = e.target.closest('.json-key-add-btn');
     if (!button) return;
 
@@ -4167,6 +4315,29 @@ function handleJsonKeyButtonClick(e) {
     if (!key) return;
 
     addJsonFieldIfMissing(key);
+}
+
+function addCanonicalRuleTemplate(kind) {
+    const jsonEditor = document.getElementById('json-editor');
+    const validation = document.getElementById('json-validation');
+    if (!jsonEditor || !['field', 'raw', 'redirection'].includes(kind)) return;
+
+    try {
+        const provider = applyProviderSyntaxMode(JSON.parse(jsonEditor.value), 'v3');
+        const template = createCanonicalRuleTemplate(kind);
+        template.id = createUniqueRuleId(provider, template.id);
+        provider.rules.push(template);
+        jsonEditor.value = JSON.stringify(provider, null, 2);
+        updateJsonTextMateHighlighting(jsonEditor);
+        hasUnsavedChanges = true;
+        if (validation) validation.style.display = 'none';
+    } catch (error) {
+        if (validation) {
+            validation.style.display = 'block';
+            validation.className = 'json-editor-error';
+            validation.textContent = i18n('customRulesEditor_jsonError', error.message);
+        }
+    }
 }
 
 /**
@@ -4483,10 +4654,15 @@ function showAddProviderModal(editProvider = null) {
         const forceRedirectionInput = document.getElementById('force-redirection');
         const urlPatternRadio = document.getElementById('pattern-type-url');
         const domainPatternsRadio = document.getElementById('pattern-type-domain');
+        const legacySyntaxRadio = document.getElementById('syntax-mode-legacy');
+        const v3SyntaxRadio = document.getElementById('syntax-mode-v3');
 
         if (providerNameInput) providerNameInput.value = editProvider;
         if (completeProviderInput) completeProviderInput.checked = provider.completeProvider || false;
         if (forceRedirectionInput) forceRedirectionInput.checked = provider.forceRedirection || false;
+        const syntaxMode = getProviderSyntaxMode(provider);
+        if (legacySyntaxRadio) legacySyntaxRadio.checked = syntaxMode === 'legacy';
+        if (v3SyntaxRadio) v3SyntaxRadio.checked = syntaxMode === 'v3';
 
         // Set pattern type and values based on provider data
         if (provider.urlPattern) {
@@ -4510,6 +4686,8 @@ function showAddProviderModal(editProvider = null) {
         updatePatternTypeDisplay();
     } else {
         providerForm.reset();
+        const legacySyntaxRadio = document.getElementById('syntax-mode-legacy');
+        if (legacySyntaxRadio) legacySyntaxRadio.checked = true;
         const indexPatternInput = document.getElementById('index-pattern');
         if (indexPatternInput) indexPatternInput.value = '';
         // Default to URL pattern for new providers
@@ -4530,6 +4708,7 @@ function showAddProviderModal(editProvider = null) {
 function setupPatternTypeListeners() {
     const urlPatternRadio = document.getElementById('pattern-type-url');
     const domainPatternsRadio = document.getElementById('pattern-type-domain');
+    const syntaxRadios = document.querySelectorAll('input[name="syntax-mode"]');
     
     if (urlPatternRadio) {
         urlPatternRadio.addEventListener('change', updatePatternTypeDisplay);
@@ -4537,6 +4716,17 @@ function setupPatternTypeListeners() {
     if (domainPatternsRadio) {
         domainPatternsRadio.addEventListener('change', updatePatternTypeDisplay);
     }
+    syntaxRadios.forEach((radio) => radio.addEventListener('change', updateSyntaxModeHelp));
+    updateSyntaxModeHelp();
+}
+
+function updateSyntaxModeHelp() {
+    const help = document.getElementById('syntax-mode-help');
+    const v3 = document.getElementById('syntax-mode-v3');
+    if (!help) return;
+    help.textContent = v3 && v3.checked
+        ? i18n('customRulesEditor_syntaxV3Help')
+        : i18n('customRulesEditor_syntaxLegacyHelp');
 }
 
 /**
@@ -4584,6 +4774,7 @@ async function handleProviderSubmit(e) {
     const indexPattern = normalizeIndexPatternValue(document.getElementById('index-pattern').value || '');
     const domainPatternsText = document.getElementById('domain-patterns').value || '';
     const domainPatterns = domainPatternsText.split('\n').map(p => p.trim()).filter(p => p !== '');
+    const syntaxMode = formData.get('syntax-mode') || 'legacy';
     const completeProvider = document.getElementById('complete-provider').checked;
     const forceRedirection = document.getElementById('force-redirection').checked;
     
@@ -4642,28 +4833,21 @@ async function handleProviderSubmit(e) {
         : null;
     const provider = existingProvider
         ? JSON.parse(JSON.stringify(existingProvider))
-        : {
-            rules: [],
-            referralMarketing: [],
-            rawRules: [],
-            exceptions: [],
-            domainExceptions: [],
-            redirections: [],
-            domainRedirections: []
-        };
+        : createProviderSkeleton(syntaxMode);
+    const syntaxAdjustedProvider = applyProviderSyntaxMode(provider, syntaxMode);
 
-    provider.completeProvider = completeProvider;
-    provider.forceRedirection = forceRedirection;
+    syntaxAdjustedProvider.completeProvider = completeProvider;
+    syntaxAdjustedProvider.forceRedirection = forceRedirection;
 
     // Update selected pattern type and clear the mutually exclusive field.
     if (patternType === 'urlPattern') {
-        provider.urlPattern = urlPattern;
-        provider.indexPattern = indexPattern;
-        delete provider.domainPatterns;
+        syntaxAdjustedProvider.urlPattern = urlPattern;
+        syntaxAdjustedProvider.indexPattern = indexPattern;
+        delete syntaxAdjustedProvider.domainPatterns;
     } else if (patternType === 'domainPatterns') {
-        provider.domainPatterns = domainPatterns;
-        delete provider.urlPattern;
-        delete provider.indexPattern;
+        syntaxAdjustedProvider.domainPatterns = domainPatterns;
+        delete syntaxAdjustedProvider.urlPattern;
+        delete syntaxAdjustedProvider.indexPattern;
     }
     
     try {
@@ -4672,7 +4856,7 @@ async function handleProviderSubmit(e) {
             delete customRules.providers[editProvider];
         }
         
-        customRules.providers[providerName] = provider;
+        customRules.providers[providerName] = syntaxAdjustedProvider;
         await saveCustomRules();
         
         hideProviderModal();

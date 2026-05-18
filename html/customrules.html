@@ -1240,6 +1240,23 @@
             font-family: "Old-Country-Nobility", serif;
         }
 
+        .json-rule-template-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .json-rule-template-btn {
+            justify-content: flex-start;
+            border-radius: 999px;
+            padding: 7px 12px;
+            border: 1px solid var(--input-border);
+            background: color-mix(in srgb, var(--button-info) 12%, var(--bg-primary));
+            color: var(--text-secondary);
+            font-size: 11px;
+        }
+
         .json-key-add-btn {
             justify-content: flex-start;
             border-radius: 999px;
@@ -3539,6 +3556,23 @@ admin.example.com
                     <label class="form-label" for="provider-name" data-i18n="customRulesEditor_providerName"></label>
                     <input type="text" class="form-input" id="provider-name" required data-i18n-placeholder="customRulesEditor_providerNamePlaceholder">
                     <div class="form-help" data-i18n="customRulesEditor_providerNameHelp"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" data-i18n="customRulesEditor_syntaxModeLabel"></label>
+                    <div class="pattern-type-selector">
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="syntax-mode" value="legacy" id="syntax-mode-legacy" checked>
+                                <span data-i18n="customRulesEditor_syntaxLegacy"></span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="syntax-mode" value="v3" id="syntax-mode-v3">
+                                <span data-i18n="customRulesEditor_syntaxV3"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-help" id="syntax-mode-help" data-i18n="customRulesEditor_syntaxLegacyHelp"></div>
                 </div>
 
                 <div class="form-group">
