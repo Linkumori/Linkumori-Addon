@@ -1066,7 +1066,7 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
 
 function createNativeRulePreprocessor(spec) {
     const type = spec && spec.type;
-    const inputs = spec && spec.inputs === undefined ? 'all' : spec.inputs;
+    const inputs = spec && spec.inputs !== undefined ? spec.inputs : 'all';
     const transforms = {
         urlEncode: encodeURIComponent,
         urlDecode: value => { try { return decodeURIComponent(value); } catch (_) { return value; } },
@@ -1105,7 +1105,7 @@ function compileNativeSupersetRule(rule) {
         pattern,
         action,
         replace: action === 'redirect' ? rule.redirect : action === 'rewrite' ? rule.rewrite : '',
-        regex: new RegExp(subject === 'field' ? '^' + pattern + '$' : pattern, subject === 'raw' ? 'gi' : 'i'),
+        regex: new RegExp(subject === 'field' ? `^(?:${pattern})$` : pattern, subject === 'raw' ? 'gi' : 'i'),
         active: rule.active !== false,
         referral: rule.referral === true,
         types: rule.types === undefined ? 'all' : rule.types,
@@ -1291,6 +1291,9 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             changes = true;
             if (!actionType) actionType = rule.action === 'rewrite' ? 'rewrite' : 'raw_rule';
             if (!matchedRuleForTrace) matchedRuleForTrace = rule.pattern;
+            if (storage.loggingStatus && !quiet) {
+                pushToLog(beforeReplace, url, rule.pattern, providerMatch);
+            }
             increaseBadged(false, request);
         }
     }
@@ -1398,6 +1401,8 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
         for (const rule of provider.getNativeRules('field')) {
             if (!nativeRuleApplies(rule, url, request)) continue;
+            const beforeFields = fields.toString();
+            const beforeFragments = fragments.toString();
             const fieldsToDelete = [];
             let localChange = false;
             for (const field of fields.keys()) {
@@ -1450,6 +1455,15 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 changes = true;
                 if (!actionType) actionType = rule.action;
                 if (!matchedRuleForTrace) matchedRuleForTrace = rule.pattern;
+                if (storage.loggingStatus && !quiet) {
+                    let tempURL = domain;
+                    let tempBeforeURL = domain;
+                    if (fields.toString() !== "") tempURL += "?" + fields.toString();
+                    if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
+                    if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
+                    if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
+                    pushToLog(tempBeforeURL, tempURL, rule.pattern, providerMatch);
+                }
                 increaseBadged(false, request);
             }
         }
@@ -2090,8 +2104,11 @@ function start() {
 
         this.addRule = function (rule, isActive = true) {
             if (isNativeSupersetRule(rule)) {
-                if (isActive && !isNativeRuleDisabled(name, rule)) {
+                if (!isActive || isNativeRuleDisabled(name, rule)) return;
+                try {
                     enabled_nativeRules.push(compileNativeSupersetRule(rule));
+                } catch (_) {
+                    // Ignore invalid native rules instead of breaking provider init.
                 }
                 return;
             }

@@ -746,10 +746,10 @@ function normalizeDisabledRuleIds(value) {
         try {
             return normalizeDisabledRuleIds(JSON.parse(value));
         } catch (_) {
-            return value
+            return [...new Set(value
                 .split(/\r?\n|,/)
                 .map(entry => entry.trim())
-                .filter(Boolean);
+                .filter(Boolean))];
         }
     }
 
@@ -1836,7 +1836,7 @@ function resolveImportedV2Rule(rule, defaults) {
     const source = typeof rule === 'string'
         ? { kind: 'field', match: rule }
         : (rule && typeof rule === 'object' ? rule : {});
-    if (typeof source.match !== 'string') {
+    if (typeof source.match !== 'string' || source.match.trim() === '') {
         throw new Error('Rules v2 rule must include match');
     }
     const kind = source.kind || 'field';
@@ -1850,9 +1850,15 @@ function resolveImportedV2Rule(rule, defaults) {
     if (!['remove', 'rewrite', 'redirect'].includes(actionType)) {
         throw new Error(`Unsupported rules v2 action type: ${actionType}`);
     }
+    if (
+        (actionType === 'rewrite' || actionType === 'redirect') &&
+        (typeof action.replacePattern !== 'string' || action.replacePattern.trim() === '')
+    ) {
+        throw new Error(`Rules v2 action "${actionType}" must include replacePattern`);
+    }
     return {
         kind,
-        match: source.match,
+        match: source.match.trim(),
         id: typeof source.id === 'string' ? source.id : null,
         aliases: Array.isArray(source.aliases) ? source.aliases.slice() : [],
         description: typeof source.description === 'string' ? source.description : '',
