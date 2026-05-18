@@ -19710,6 +19710,178 @@
         "globalStatus": true,
         "redirectionEnabled": true
       }
+    },
+    {
+      "id": "provider canonical v2 field rewrite",
+      "dialect": "provider",
+      "input": "https://example.com/v2-field/?token=abc&keep=1",
+      "expectedOutput": "https://example.com/v2-field/?keep=1&token=v2-abc",
+      "defaults": {
+        "active": true,
+        "requestTypes": "all",
+        "preprocessors": [],
+        "exceptions": []
+      },
+      "providers": {
+        "provider-v2-field": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-field(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "rewrite-token",
+              "kind": "field",
+              "match": "token",
+              "action": {
+                "type": "rewrite",
+                "replacePattern": "v2-\u00a71\u00a7"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical v2 raw remove",
+      "dialect": "provider",
+      "input": "https://example.com/v2-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/v2-raw/?keep=1",
+      "defaults": {
+        "active": true,
+        "requestTypes": "all",
+        "preprocessors": [],
+        "exceptions": []
+      },
+      "providers": {
+        "provider-v2-raw": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-raw(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-raw",
+              "kind": "raw",
+              "match": "[?&]raw=[^&#]*",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical v2 redirect",
+      "dialect": "provider",
+      "input": "https://example.com/v2-redirect/?url=https%253A%252F%252Fwww.iana.org%252F",
+      "expectedOutput": "https://www.iana.org/",
+      "defaults": {
+        "active": true,
+        "requestTypes": "all",
+        "preprocessors": [],
+        "exceptions": []
+      },
+      "providers": {
+        "provider-v2-redirect": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-redirect(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "redirect-out",
+              "kind": "redirection",
+              "match": "^https?:\\/\\/example\\.com\\/v2-redirect\\/\\?url=(.+)$",
+              "action": {
+                "type": "redirect",
+                "replacePattern": "\u00a71\u00a7"
+              },
+              "preprocessors": [
+                {
+                  "type": "doubleUrlDecode",
+                  "inputs": [
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider canonical v2 defaults request type",
+      "dialect": "provider",
+      "input": "https://example.com/v2-defaults/?token=abc",
+      "expectedOutput": "https://example.com/v2-defaults/?token=abc",
+      "defaults": {
+        "active": true,
+        "requestTypes": [
+          "xmlhttprequest"
+        ],
+        "preprocessors": [],
+        "exceptions": []
+      },
+      "providers": {
+        "provider-v2-defaults": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-defaults(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "default-gated",
+              "kind": "field",
+              "match": "token",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "main_frame"
+      }
+    },
+    {
+      "id": "provider canonical v2 indexPattern",
+      "dialect": "provider",
+      "input": "https://example.com/v2-index/?token=abc",
+      "expectedOutput": "https://example.com/v2-index/",
+      "defaults": {
+        "active": true,
+        "requestTypes": "all",
+        "preprocessors": [],
+        "exceptions": []
+      },
+      "providers": {
+        "provider-v2-index": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-index(?:[/?#]|$)",
+          "indexPattern": "||example.com^",
+          "rules": [
+            {
+              "id": "remove-token",
+              "kind": "field",
+              "match": "token",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }
