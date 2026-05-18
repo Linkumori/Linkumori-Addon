@@ -243,11 +243,25 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     if (!isPlainObject(rule)) {
         throw new Error(`${prefix} must be a string or rule object`);
     }
-    if (typeof rule.matchPattern !== 'string') {
-        throw new Error(`${prefix}.matchPattern must be a string`);
+
+    const usesCanonicalShape = typeof rule.match === 'string';
+    const match = usesCanonicalShape ? rule.match : rule.matchPattern;
+    if (typeof match !== 'string') {
+        throw new Error(`${prefix}.${usesCanonicalShape ? 'match' : 'matchPattern'} must be a string`);
     }
     if (rule.replacePattern !== undefined && typeof rule.replacePattern !== 'string') {
         throw new Error(`${prefix}.replacePattern must be a string`);
+    }
+    if (rule.action !== undefined) {
+        if (!isPlainObject(rule.action) || !['remove', 'rewrite', 'redirect'].includes(rule.action.type)) {
+            throw new Error(`${prefix}.action must be remove, rewrite, or redirect`);
+        }
+        if ((rule.action.type === 'rewrite' || rule.action.type === 'redirect') && typeof rule.action.replacePattern !== 'string') {
+            throw new Error(`${prefix}.action.replacePattern must be a string`);
+        }
+    }
+    if (rule.kind !== undefined && !['field', 'raw', 'redirection'].includes(rule.kind)) {
+        throw new Error(`${prefix}.kind must be field, raw, or redirection`);
     }
     if (rule.flags !== undefined && typeof rule.flags !== 'string') {
         throw new Error(`${prefix}.flags must be a string`);
@@ -255,20 +269,31 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     if (rule.active !== undefined && typeof rule.active !== 'boolean') {
         throw new Error(`${prefix}.active must be a boolean`);
     }
+    if (rule.id !== undefined && typeof rule.id !== 'string') {
+        throw new Error(`${prefix}.id must be a string`);
+    }
+    if (rule.aliases !== undefined && (!Array.isArray(rule.aliases) || rule.aliases.some(item => typeof item !== 'string'))) {
+        throw new Error(`${prefix}.aliases must be an array of strings`);
+    }
+    if (rule.description !== undefined && typeof rule.description !== 'string') {
+        throw new Error(`${prefix}.description must be a string`);
+    }
+    if (rule.referralMarketing !== undefined && typeof rule.referralMarketing !== 'boolean') {
+        throw new Error(`${prefix}.referralMarketing must be a boolean`);
+    }
     if (rule.exceptions !== undefined &&
         (!Array.isArray(rule.exceptions) || rule.exceptions.some(item => typeof item !== 'string'))) {
         throw new Error(`${prefix}.exceptions must be an array of strings`);
     }
-    if (rule.requestTypes !== undefined &&
+    if (rule.requestTypes !== undefined && rule.requestTypes !== 'all' &&
         (!Array.isArray(rule.requestTypes) || rule.requestTypes.some(item => typeof item !== 'string'))) {
-        throw new Error(`${prefix}.requestTypes must be an array of strings`);
+        throw new Error(`${prefix}.requestTypes must be "all" or an array of strings`);
     }
     if (rule.preprocessors !== undefined && !Array.isArray(rule.preprocessors)) {
         throw new Error(`${prefix}.preprocessors must be an array`);
     }
 
-    // Keep UI validation aligned with what the core engine can actually compile.
-    new RegExp(rule.matchPattern, rule.flags === undefined ? 'i' : rule.flags);
+    new RegExp(match, rule.flags === undefined ? 'i' : rule.flags);
     (rule.exceptions || []).forEach(exception => new RegExp(exception, 'i'));
 }
 
@@ -4754,6 +4779,9 @@ function getProvidersFromImportedCustomRules(imported) {
             continue;
         }
         if (candidate.providers && typeof candidate.providers === 'object' && !Array.isArray(candidate.providers)) {
+            if (candidate.version === 2 && candidate.defaults && typeof candidate.defaults === 'object') {
+                return applyImportedV2Defaults(candidate.providers, candidate.defaults);
+            }
             return candidate.providers;
         }
     }
@@ -4777,6 +4805,24 @@ function getProvidersFromImportedCustomRules(imported) {
     }
 
     return null;
+}
+
+function applyImportedV2Defaults(providers, defaults) {
+    const result = JSON.parse(JSON.stringify(providers || {}));
+    Object.values(result).forEach((provider) => {
+        if (!provider || !Array.isArray(provider.rules)) return;
+        provider.rules = provider.rules.map((rule) => {
+            if (!isPlainObject(rule) || typeof rule.match !== 'string') return rule;
+            return {
+                ...rule,
+                ...(rule.active === undefined && typeof defaults.active === 'boolean' ? { active: defaults.active } : {}),
+                ...(rule.requestTypes === undefined && defaults.requestTypes !== undefined ? { requestTypes: defaults.requestTypes } : {}),
+                ...(rule.preprocessors === undefined && Array.isArray(defaults.preprocessors) ? { preprocessors: defaults.preprocessors } : {}),
+                ...(rule.exceptions === undefined && Array.isArray(defaults.exceptions) ? { exceptions: defaults.exceptions } : {})
+            };
+        });
+    });
+    return result;
 }
 
 function getLinkumoriURLRulesFromImportedCustomRules(imported) {
