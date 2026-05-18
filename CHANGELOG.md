@@ -16,6 +16,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.5.1] - 2026-05-18 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.5.0...linkumori-v100.5.1))
+### Added
+- (rules): introduce Linkumori-native superset format https://gitlab.com/ClearURLs/core/-/merge_requests/4 - Simple removals remain plain strings - Advanced rules use explicit object keys (field/raw/url + remove/rewrite/redirect) - Editor docs, validation, and examples updated to reflect native format (`2026-05-18`, hash: [`0255e8e`](https://github.com/Linkumori/Linkumori-Addon/commit/0255e8e))
+- Implement native superset rules across tooling (`2026-05-18`, hash: [`f26f882`](https://github.com/Linkumori/Linkumori-Addon/commit/f26f882))
+- Introduce durable native rule identity support (`2026-05-18`, hash: [`112fb7e`](https://github.com/Linkumori/Linkumori-Addon/commit/112fb7e))
+- Introduce localized Linkumori v3 editor mode (`2026-05-19`, hash: [`71b0bb2`](https://github.com/Linkumori/Linkumori-Addon/commit/71b0bb2))
+- Introduce rich ClearURLs rule syntax support (`2026-05-18`, hash: [`f0b5911`](https://github.com/Linkumori/Linkumori-Addon/commit/f0b5911))
+- Introduce rich syntax support based on clearurls based on dev branch (`2026-05-18`, hash: [`b9b5071`](https://github.com/Linkumori/Linkumori-Addon/commit/b9b5071))
+
+### Changed
+- Support canonical v2 ClearURLs rules (`2026-05-18`, hash: [`593757d`](https://github.com/Linkumori/Linkumori-Addon/commit/593757d))
+- Support canonical v2 ClearURLs rules (`2026-05-18`, hash: [`6f4c43c`](https://github.com/Linkumori/Linkumori-Addon/commit/6f4c43c))
+- Update ci-runner.js (`2026-05-18`, hash: [`0e0cac2`](https://github.com/Linkumori/Linkumori-Addon/commit/0e0cac2))
+- Update regression-server.js (`2026-05-18`, hash: [`b72de95`](https://github.com/Linkumori/Linkumori-Addon/commit/b72de95))
+
+### Fixed
+- Address native rule review feedback (`2026-05-18`, hash: [`35b5e6b`](https://github.com/Linkumori/Linkumori-Addon/commit/35b5e6b))
+- Harden native rule runtime edge cases (`2026-05-18`, hash: [`253ccdd`](https://github.com/Linkumori/Linkumori-Addon/commit/253ccdd))
+- Resolve ubo removeparam interoperability (`2026-05-17`, hash: [`645f681`](https://github.com/Linkumori/Linkumori-Addon/commit/645f681))
+
+### Reverted
+- Revert "feat: add durable native rule identity support" (reverts `112fb7e`) (`2026-05-18`, hash: [`2c860e7`](https://github.com/Linkumori/Linkumori-Addon/commit/2c860e7))
+- Revert "feat:(rules): introduce Linkumori-native superset format" (reverts `0255e8e`) (`2026-05-18`, hash: [`b950ecd`](https://github.com/Linkumori/Linkumori-Addon/commit/b950ecd))
+- Revert "fix: address native rule review feedback" (reverts `35b5e6b`) (`2026-05-18`, hash: [`ad980b6`](https://github.com/Linkumori/Linkumori-Addon/commit/ad980b6))
+- Revert "fix: harden native rule runtime edge cases" (reverts `253ccdd`) (`2026-05-18`, hash: [`80eda8f`](https://github.com/Linkumori/Linkumori-Addon/commit/80eda8f))
+
 ## [v100.5.0] - 2026-05-17 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.4.0...linkumori-v100.5.0))
 ### Changed
 - Release v100.5.0 (hash: `b277cc9`).
