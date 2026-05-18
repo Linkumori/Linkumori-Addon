@@ -2391,7 +2391,11 @@ ${commit.message}
           continue;
         }
         const subject = subjects[0];
-        tryRegex(subject === 'field' ? `^${rule[subject]}$` : rule[subject], subject === 'raw' ? 'gi' : 'i', `${tag} ${subject} rule`);
+        const actions = ['remove', 'rewrite', 'redirect'].filter((key) => rule[key] !== undefined);
+        if (actions.length > 1) {
+          errors.push(`${tag} object rule can define only one action`);
+        }
+        tryRegex(subject === 'field' ? `^(?:${rule[subject]})$` : rule[subject], subject === 'raw' ? 'gi' : 'i', `${tag} ${subject} rule`);
         if (rule.except !== undefined && (!Array.isArray(rule.except) || rule.except.some((value) => typeof value !== 'string'))) {
           errors.push(`${tag} rule except must be an array of strings`);
         }
@@ -2472,7 +2476,9 @@ ${commit.message}
             if (typeof rule.raw === 'string') {
               try {
                 const replacement = typeof rule.rewrite === 'string' ? rule.rewrite : '';
-                urlStr = urlStr.replace(new RegExp(rule.raw, 'gi'), replacement);
+                urlStr = urlStr.replace(new RegExp(rule.raw, 'gi'), (...args) => (
+                  replacement.replace(/§(\d+)§/g, (_, index) => args[Number(index)] || '')
+                ));
               } catch {}
             }
             continue;
