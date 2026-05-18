@@ -1075,6 +1075,7 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
 <<<<<<< HEAD
 function createNativeRulePreprocessor(spec) {
     const type = spec && spec.type;
+<<<<<<< HEAD
     const inputs = spec && spec.inputs !== undefined ? spec.inputs : 'all';
     if (!nativeRulePreprocessorTypes.has(type)) {
         throw new Error(`Unsupported native rule preprocessor: ${type}`);
@@ -1085,6 +1086,9 @@ function createNativeRulePreprocessor(spec) {
     ) {
         throw new Error('Invalid native rule preprocessor inputs');
     }
+=======
+    const inputs = spec && spec.inputs === undefined ? 'all' : spec.inputs;
+>>>>>>> parent of 35b5e6b (fix: address native rule review feedback)
     const transforms = {
         urlEncode: encodeURIComponent,
         urlDecode: value => { try { return decodeURIComponent(value); } catch (_) { return value; } },
@@ -1140,7 +1144,7 @@ function compileNativeSupersetRule(rule) {
         pattern,
         action,
         replace: action === 'redirect' ? rule.redirect : action === 'rewrite' ? rule.rewrite : '',
-        regex: new RegExp(subject === 'field' ? `^(?:${pattern})$` : pattern, subject === 'raw' ? 'gi' : 'i'),
+        regex: new RegExp(subject === 'field' ? '^' + pattern + '$' : pattern, subject === 'raw' ? 'gi' : 'i'),
         active: rule.active !== false,
         referral: rule.referral === true,
         types: rule.types === undefined ? 'all' : rule.types,
@@ -1292,6 +1296,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             changes = true;
             if (!actionType) actionType = rule.action === 'rewrite' ? 'rewrite' : 'raw_rule';
             if (!matchedRuleForTrace) matchedRuleForTrace = rule.pattern;
+<<<<<<< HEAD
             if (!nativeRawMutation) {
                 nativeRawMutation = {
                     before: beforeReplace,
@@ -1301,6 +1306,9 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             } else {
                 nativeRawMutation.after = url;
             }
+=======
+            increaseBadged(false, request);
+>>>>>>> parent of 35b5e6b (fix: address native rule review feedback)
         }
     }
 
@@ -1410,8 +1418,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 <<<<<<< HEAD
         for (const rule of provider.getNativeRules('field')) {
             if (!nativeRuleApplies(rule, url, request)) continue;
-            const beforeFields = fields.toString();
-            const beforeFragments = fragments.toString();
             const fieldsToDelete = [];
             let localChange = false;
             for (const field of fields.keys()) {
@@ -1464,15 +1470,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 changes = true;
                 if (!actionType) actionType = rule.action;
                 if (!matchedRuleForTrace) matchedRuleForTrace = rule.pattern;
-                if (storage.loggingStatus && !quiet) {
-                    let tempURL = domain;
-                    let tempBeforeURL = domain;
-                    if (fields.toString() !== "") tempURL += "?" + fields.toString();
-                    if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
-                    if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
-                    if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
-                    pushToLog(tempBeforeURL, tempURL, rule.pattern, providerMatch);
-                }
                 increaseBadged(false, request);
             }
         }
@@ -2133,11 +2130,13 @@ function start() {
 <<<<<<< HEAD
             if (isNativeSupersetRule(rule)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (!isActive || isNativeRuleDisabled(name, rule)) return;
                 try {
+=======
+                if (isActive && !isNativeRuleDisabled(name, rule)) {
+>>>>>>> parent of 35b5e6b (fix: address native rule review feedback)
                     enabled_nativeRules.push(compileNativeSupersetRule(rule));
-                } catch (_) {
-                    // Ignore invalid native rules instead of breaking provider init.
                 }
 =======
                 if (isActive) enabled_nativeRules.push(compileNativeSupersetRule(rule));

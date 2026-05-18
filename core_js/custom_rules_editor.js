@@ -4308,9 +4308,7 @@ async function saveCurrentProvider() {
         await saveCustomRules();
         
     } catch (error) {
-        const message = error?.message || i18n('status_saveFailed');
-        updateEditorStatus('error', message);
-        await modalAlert(message);
+        updateEditorStatus('error', i18n('status_saveFailed'));
     }
 }
 
@@ -4816,11 +4814,9 @@ function normalizeImportedClearURLsV2ForEditor(imported) {
         const normalized = { urlPattern: provider.urlPattern, rules: [] };
         (provider.rules || []).forEach((rawRule) => {
             const rule = typeof rawRule === 'string' ? { match: rawRule } : rawRule;
-            if (!rule || typeof rule.match !== 'string' || rule.match.trim() === '') {
-                throw new Error('Rules v2 rule must include match');
-            }
             const kind = rule.kind || 'field';
             const action = rule.action || { type: 'remove' };
+<<<<<<< HEAD
             if (!['field', 'raw', 'redirection'].includes(kind)) {
                 throw new Error(`Unsupported rules v2 kind: ${kind}`);
             }
@@ -4838,6 +4834,11 @@ function normalizeImportedClearURLsV2ForEditor(imported) {
             const native = kind === 'raw' ? { raw: match } : kind === 'redirection' ? { url: match } : { field: match };
             if (actionType === 'rewrite') native.rewrite = action.replacePattern;
             else if (actionType === 'redirect') native.redirect = action.replacePattern;
+=======
+            const native = kind === 'raw' ? { raw: rule.match } : kind === 'redirection' ? { url: rule.match } : { field: rule.match };
+            if (action.type === 'rewrite') native.rewrite = action.replacePattern || '';
+            else if (action.type === 'redirect') native.redirect = action.replacePattern || '';
+>>>>>>> parent of 35b5e6b (fix: address native rule review feedback)
             else native.remove = true;
             const active = rule.active === undefined ? defaults.active : rule.active;
             const types = rule.requestTypes === undefined ? defaults.requestTypes : rule.requestTypes;
