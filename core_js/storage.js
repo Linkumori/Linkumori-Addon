@@ -642,7 +642,7 @@ function mergeRemoteProviderGroup(providerGroup) {
         }
 
         if (Array.isArray(data.rules)) {
-            merged.rules = [...new Set([...merged.rules, ...data.rules])];
+            merged.rules = dedupeRuleEntries([...merged.rules, ...data.rules]);
         }
         if (Array.isArray(data.rawRules)) {
             merged.rawRules = [...new Set([...merged.rawRules, ...data.rawRules])];
@@ -712,6 +712,32 @@ function mergeRemoteProviderGroup(providerGroup) {
     }
 
     return merged;
+}
+
+function stableRuleKey(rule) {
+    if (typeof rule === 'string') return `s:${rule}`;
+    if (!rule || typeof rule !== 'object') return `x:${String(rule)}`;
+    const sortValue = value => {
+        if (Array.isArray(value)) return value.map(sortValue);
+        if (value && typeof value === 'object') {
+            return Object.keys(value).sort().reduce((out, key) => {
+                out[key] = sortValue(value[key]);
+                return out;
+            }, {});
+        }
+        return value;
+    };
+    return `o:${JSON.stringify(sortValue(rule))}`;
+}
+
+function dedupeRuleEntries(entries) {
+    const seen = new Set();
+    return entries.filter(entry => {
+        const key = stableRuleKey(entry);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
 }
 
 function deriveNameFromUrlPattern(urlPattern) {
@@ -1790,11 +1816,22 @@ function resolveImportedV2Rule(rule, defaults) {
     if (typeof source.match !== 'string') {
         throw new Error('Rules v2 rule must include match');
     }
+    const kind = source.kind || 'field';
+    if (!['field', 'raw', 'redirection'].includes(kind)) {
+        throw new Error(`Unsupported rules v2 kind: ${kind}`);
+    }
+    const action = source.action && typeof source.action === 'object'
+        ? source.action
+        : { type: 'remove' };
+    const actionType = action.type || 'remove';
+    if (!['remove', 'rewrite', 'redirect'].includes(actionType)) {
+        throw new Error(`Unsupported rules v2 action type: ${actionType}`);
+    }
     return {
-        kind: source.kind || 'field',
+        kind,
         match: source.match,
         active: source.active === undefined ? defaults.active !== false : source.active === true,
-        action: source.action && typeof source.action === 'object' ? source.action : { type: 'remove' },
+        action: { ...action, type: actionType },
         exceptions: Array.isArray(source.exceptions) ? source.exceptions.slice() : (Array.isArray(defaults.exceptions) ? defaults.exceptions.slice() : []),
         preprocessors: Array.isArray(source.preprocessors) ? source.preprocessors.slice() : (Array.isArray(defaults.preprocessors) ? defaults.preprocessors.slice() : []),
         referralMarketing: source.referralMarketing === true,
@@ -1803,14 +1840,15 @@ function resolveImportedV2Rule(rule, defaults) {
 }
 
 function toNativeLinkumoriRule(rule) {
-    const native = rule.kind === 'raw'
-        ? { raw: rule.match }
-        : rule.kind === 'redirection'
-            ? { url: rule.match }
-            : { field: rule.match };
+    let native;
+    if (rule.kind === 'raw') native = { raw: rule.match };
+    else if (rule.kind === 'redirection') native = { url: rule.match };
+    else if (rule.kind === 'field') native = { field: rule.match };
+    else throw new Error(`Unsupported rules v2 kind: ${rule.kind}`);
     if (rule.action.type === 'rewrite') native.rewrite = rule.action.replacePattern || '';
     else if (rule.action.type === 'redirect') native.redirect = rule.action.replacePattern || '';
-    else native.remove = true;
+    else if (rule.action.type === 'remove') native.remove = true;
+    else throw new Error(`Unsupported rules v2 action type: ${rule.action.type}`);
     if (rule.active === false) native.active = false;
     if (rule.referralMarketing) native.referral = true;
     if (rule.requestTypes !== 'all') native.types = rule.requestTypes;

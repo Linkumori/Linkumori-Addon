@@ -231,9 +231,21 @@ function assertNativeSupersetRule(rule, providerName = '') {
     if (subjects.length !== 1) {
         throw new Error(`${providerName || 'Provider'}: object rules need exactly one of field, raw, or url`);
     }
+    const [subject] = subjects;
     const actions = ['remove', 'rewrite', 'redirect'].filter(key => rule[key] !== undefined);
     if (actions.length > 1) {
         throw new Error(`${providerName || 'Provider'}: object rules can define only one action`);
+    }
+    if (subject === 'url' && (actions.length === 0 || actions[0] !== 'redirect')) {
+        throw new Error(`${providerName || 'Provider'}: url rules must use redirect`);
+    }
+    if ((subject === 'field' || subject === 'raw') && actions[0] === 'redirect') {
+        throw new Error(`${providerName || 'Provider'}: ${subject} rules cannot use redirect`);
+    }
+    try {
+        new RegExp(subject === 'field' ? `^(?:${rule[subject]})$` : rule[subject], subject === 'raw' ? 'gi' : 'i');
+    } catch (error) {
+        throw new Error(`${providerName || 'Provider'}: invalid ${subject} regex: ${error.message}`);
     }
     if (rule.rewrite !== undefined && typeof rule.rewrite !== 'string') {
         throw new Error(`${providerName || 'Provider'}: rewrite must be a string`);
@@ -244,12 +256,34 @@ function assertNativeSupersetRule(rule, providerName = '') {
     if (rule.except !== undefined && (!Array.isArray(rule.except) || rule.except.some(value => typeof value !== 'string'))) {
         throw new Error(`${providerName || 'Provider'}: except must be an array of strings`);
     }
+    (rule.except || []).forEach((pattern, index) => {
+        try {
+            new RegExp(pattern, 'i');
+        } catch (error) {
+            throw new Error(`${providerName || 'Provider'}: except[${index}] is not a valid regex: ${error.message}`);
+        }
+    });
     if (rule.types !== undefined && rule.types !== 'all' && (!Array.isArray(rule.types) || rule.types.some(value => typeof value !== 'string'))) {
         throw new Error(`${providerName || 'Provider'}: types must be "all" or an array of strings`);
     }
     if (rule.preprocess !== undefined && !Array.isArray(rule.preprocess)) {
         throw new Error(`${providerName || 'Provider'}: preprocess must be an array`);
     }
+    (rule.preprocess || []).forEach((step, index) => {
+        if (!step || typeof step !== 'object' || Array.isArray(step)) {
+            throw new Error(`${providerName || 'Provider'}: preprocess[${index}] must be an object`);
+        }
+        if (typeof step.type !== 'string' || !step.type.trim()) {
+            throw new Error(`${providerName || 'Provider'}: preprocess[${index}].type must be a string`);
+        }
+        if (
+            step.inputs !== undefined &&
+            step.inputs !== 'all' &&
+            (!Array.isArray(step.inputs) || step.inputs.some(value => !Number.isInteger(value) || value < 1))
+        ) {
+            throw new Error(`${providerName || 'Provider'}: preprocess[${index}].inputs must be "all" or an array of positive integers`);
+        }
+    });
 }
 
 function assertProviderRuleEntries(provider, providerName = '') {
@@ -3559,7 +3593,9 @@ async function saveCustomRules() {
         }
         
     } catch (error) {
-        updateEditorStatus('error', i18n('status_saveFailed'));
+        const message = error?.message || i18n('status_saveFailed');
+        updateEditorStatus('error', message);
+        await modalAlert(message);
     }
 }
 

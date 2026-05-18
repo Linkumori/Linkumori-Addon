@@ -24,10 +24,31 @@
       "id": "provider native superset field rewrite",
       "dialect": "provider",
       "input": "https://example.com/native-field/?session=dirty&keep=1",
-      "expectedOutput": "https://example.com/native-field/?session=clean&keep=1",
+      "expectedOutput": "https://example.com/native-field/?keep=1&session=clean",
       "providers": {
         "native-field": {
           "urlPattern": "^https?:\\/\\/example\\.com\\/native-field(?:[/?#]|$)",
+          "rules": [
+            {
+              "field": "session",
+              "rewrite": "clean"
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider native superset field rewrite duplicate values",
+      "dialect": "provider",
+      "input": "https://example.com/native-field-many/?session=one&session=two",
+      "expectedOutput": "https://example.com/native-field-many/?session=clean&session=clean",
+      "providers": {
+        "native-field-many": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/native-field-many(?:[/?#]|$)",
           "rules": [
             {
               "field": "session",

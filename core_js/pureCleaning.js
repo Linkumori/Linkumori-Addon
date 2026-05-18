@@ -120,6 +120,7 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetai
     const rulesFromConfig = Array.isArray(providerConfig.rules) ? providerConfig.rules : [];
     const referralMarketing = Array.isArray(providerConfig.referralMarketing) ? providerConfig.referralMarketing : [];
     const rawRules = typeof provider.getRawRules === 'function' ? provider.getRawRules() : [];
+    const nativeRules = rulesFromConfig.filter(rule => rule && typeof rule === 'object');
 
     for (const exception of exceptions) {
         try {
@@ -207,6 +208,10 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetai
             .filter((rule) => typeof rule === 'string' && !rule.includes('$removeparam'))
             .find((rule) => matchesParamRule(rule)) || null;
 
+        diagnostics.matchedRuleRegex = diagnostics.matchedRuleRegex || nativeRules
+            .filter(rule => typeof rule.field === 'string')
+            .find(rule => matchesParamRule(rule.field))?.field || null;
+
         diagnostics.matchedReferralMarketing = referralMarketing
             .filter((rule) => typeof rule === 'string')
             .find((rule) => matchesParamRule(rule)) || null;
@@ -220,6 +225,12 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetai
                     return false;
                 }
             }) || null;
+
+        diagnostics.matchedRawRule = diagnostics.matchedRawRule || nativeRules
+            .filter(rule => typeof rule.raw === 'string')
+            .find(rule => {
+                try { return (new RegExp(rule.raw, 'gi')).test(url); } catch (_) { return false; }
+            })?.raw || null;
 
         if (
             typeof parseLinkumoriRemoveParamRule === 'function' &&
@@ -257,11 +268,12 @@ function pureCleaningTrace(url, testParamName = '', requestDetails = null) {
     let after = url;
     const trace = [];
     const providerDiagnostics = [];
+    const nativeFieldRewrites = new Set();
     let iterations = 0;
 
     do {
         before = after;
-        after = _cleaning(before, true, trace, providerDiagnostics, iterations + 1, testParamName, requestDetails);
+        after = _cleaning(before, true, trace, providerDiagnostics, iterations + 1, testParamName, requestDetails, nativeFieldRewrites);
         iterations++;
     } while (after !== before && iterations < 20);
 
@@ -413,7 +425,7 @@ function runRuleTestLab(inputUrl, testParamRaw = '', requestOverrides = {}) {
 /**
  * Internal function to clean the given URL.
  */
-function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollector = null, iteration = 1, testParamName = '', requestDetails = null) {
+function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollector = null, iteration = 1, testParamName = '', requestDetails = null, nativeFieldRewrites = null) {
     let cleanURL = url;
     const URLbeforeReplaceCount = countFields(url);
 
@@ -424,7 +436,11 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
 
     for (let i = 0; i < providers.length; i++) {
         const effectiveRequest = requestDetails
-            ? { ...requestDetails, url: cleanURL }
+            ? {
+                ...requestDetails,
+                url: cleanURL,
+                ...(nativeFieldRewrites instanceof Set ? { __linkumoriNativeFieldRewrites: nativeFieldRewrites } : {})
+            }
             : null;
         const requestMatches = !effectiveRequest || (
             providers[i].matchMethod(effectiveRequest) &&
