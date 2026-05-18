@@ -212,7 +212,10 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetai
 
         const getRulePattern = (rule) => {
             if (typeof rule === 'string') return rule;
-            if (rule && typeof rule === 'object' && typeof rule.matchPattern === 'string') return rule.matchPattern;
+            if (rule && typeof rule === 'object') {
+                if (typeof rule.match === 'string') return rule.match;
+                if (typeof rule.matchPattern === 'string') return rule.matchPattern;
+            }
             return null;
         };
 
