@@ -21,134 +21,6 @@
       }
     },
     {
-<<<<<<< HEAD
-      "id": "provider native superset field rewrite",
-      "dialect": "provider",
-      "input": "https://example.com/native-field/?session=dirty&keep=1",
-      "expectedOutput": "https://example.com/native-field/?keep=1&session=clean",
-      "providers": {
-        "native-field": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/native-field(?:[/?#]|$)",
-          "rules": [
-            {
-              "field": "session",
-              "rewrite": "clean"
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider native superset field rewrite duplicate values",
-      "dialect": "provider",
-      "input": "https://example.com/native-field-many/?session=one&session=two",
-      "expectedOutput": "https://example.com/native-field-many/?session=clean&session=clean",
-      "providers": {
-        "native-field-many": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/native-field-many(?:[/?#]|$)",
-          "rules": [
-            {
-              "field": "session",
-              "rewrite": "clean"
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider native superset raw rewrite preprocess",
-      "dialect": "provider",
-      "input": "https://example.com/native-raw/?target=https%253A%252F%252Fiana.org&keep=1",
-      "expectedOutput": "https://example.com/native-raw/?target=https%3A%2F%2Fiana.org&keep=1",
-      "providers": {
-        "native-raw": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/native-raw(?:[/?#]|$)",
-          "rules": [
-            {
-              "raw": "target=([^&]+)",
-              "rewrite": "target=\u00a71\u00a7",
-              "preprocess": [
-                {
-                  "type": "urlDecode",
-                  "inputs": [
-                    1
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider native superset redirect",
-      "dialect": "provider",
-      "input": "https://example.com/native-redirect/?url=https%3A%2F%2Fwww.iana.org%2F",
-      "expectedOutput": "https://www.iana.org/",
-      "providers": {
-        "native-redirect": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/native-redirect(?:[/?#]|$)",
-          "rules": [
-            {
-              "url": "^https?:\\/\\/example\\.com\\/native-redirect/\\?url=([^&]+)$",
-              "redirect": "\u00a71\u00a7",
-              "preprocess": [
-                {
-                  "type": "urlDecode",
-                  "inputs": [
-                    1
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true,
-        "redirectionEnabled": true
-      }
-    },
-    {
-      "id": "provider native superset exception",
-      "dialect": "provider",
-      "input": "https://example.com/native-except/keep/?session=dirty",
-      "expectedOutput": "https://example.com/native-except/keep/?session=dirty",
-      "providers": {
-        "native-except": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/native-except(?:[/?#]|$)",
-          "rules": [
-            {
-              "field": "session",
-              "rewrite": "clean",
-              "except": [
-                "/keep/"
-              ]
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-=======
->>>>>>> parent of 0255e8e (feat:(rules): introduce Linkumori-native superset format)
       "id": "provider rawRules",
       "dialect": "provider",
       "input": "https://example.com/provider-raw/?raw=x&keep=1",
@@ -19764,6 +19636,79 @@
       },
       "preferences": {
         "globalStatus": true
+      }
+    },
+    {
+      "id": "provider object rule rewrite",
+      "dialect": "provider",
+      "input": "https://example.com/object-rule/?token=abc&keep=1",
+      "expectedOutput": "https://example.com/object-rule/?keep=1&token=clean-abc",
+      "providers": {
+        "provider-object-rule": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/object-rule(?:[/?#]|$)",
+          "rules": [
+            {
+              "matchPattern": "token",
+              "replacePattern": "clean-\u00a71\u00a7",
+              "preprocessors": []
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider object raw rewrite",
+      "dialect": "provider",
+      "input": "https://example.com/object-raw/?wrapped=abc&keep=1",
+      "expectedOutput": "https://example.com/object-raw/?clean=abc&keep=1",
+      "providers": {
+        "provider-object-raw": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/object-raw(?:[/?#]|$)",
+          "rawRules": [
+            {
+              "matchPattern": "wrapped=([^&#]+)",
+              "replacePattern": "clean=\u00a71\u00a7"
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider object redirection",
+      "dialect": "provider",
+      "input": "https://example.com/object-redirect/?url=https%253A%252F%252Fwww.iana.org%252F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-object-redirect": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/object-redirect(?:[/?#]|$)",
+          "redirections": [
+            {
+              "matchPattern": "^https?:\\/\\/example\\.com\\/object-redirect\\/\\?url=(.+)$",
+              "replacePattern": "\u00a71\u00a7",
+              "preprocessors": [
+                {
+                  "type": "doubleUrlDecode",
+                  "inputs": [
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
       }
     }
   ]

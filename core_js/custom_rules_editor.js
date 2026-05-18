@@ -222,95 +222,71 @@ function assertDomainRedirectionSyntax(provider, providerName = '') {
     });
 }
 
-<<<<<<< HEAD
-function assertNativeSupersetRule(rule, providerName = '') {
-    if (typeof rule === 'string') return;
-    if (!rule || typeof rule !== 'object' || Array.isArray(rule)) {
-        throw new Error(`${providerName || 'Provider'}: rules entries must be strings or objects`);
+const OBJECT_STYLE_RULE_FIELDS = Object.freeze([
+    'rules',
+    'rawRules',
+    'referralMarketing',
+    'exceptions',
+    'redirections'
+]);
+
+function isPlainObject(value) {
+    return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+function countRuleEntries(entries) {
+    return Array.isArray(entries) ? entries.length : 0;
+}
+
+function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
+    const prefix = `${providerName || 'Provider'}: ${fieldName}[${index}]`;
+    if (!isPlainObject(rule)) {
+        throw new Error(`${prefix} must be a string or rule object`);
     }
-    const subjects = ['field', 'raw', 'url'].filter(key => typeof rule[key] === 'string');
-    if (subjects.length !== 1) {
-        throw new Error(`${providerName || 'Provider'}: object rules need exactly one of field, raw, or url`);
+    if (typeof rule.matchPattern !== 'string') {
+        throw new Error(`${prefix}.matchPattern must be a string`);
     }
-    const [subject] = subjects;
-    const actions = ['remove', 'rewrite', 'redirect'].filter(key => rule[key] !== undefined);
-    if (actions.length > 1) {
-        throw new Error(`${providerName || 'Provider'}: object rules can define only one action`);
+    if (rule.replacePattern !== undefined && typeof rule.replacePattern !== 'string') {
+        throw new Error(`${prefix}.replacePattern must be a string`);
     }
-    if (subject === 'url' && (actions.length === 0 || actions[0] !== 'redirect')) {
-        throw new Error(`${providerName || 'Provider'}: url rules must use redirect`);
+    if (rule.flags !== undefined && typeof rule.flags !== 'string') {
+        throw new Error(`${prefix}.flags must be a string`);
     }
-    if ((subject === 'field' || subject === 'raw') && actions[0] === 'redirect') {
-        throw new Error(`${providerName || 'Provider'}: ${subject} rules cannot use redirect`);
+    if (rule.active !== undefined && typeof rule.active !== 'boolean') {
+        throw new Error(`${prefix}.active must be a boolean`);
     }
-    try {
-        new RegExp(subject === 'field' ? `^(?:${rule[subject]})$` : rule[subject], subject === 'raw' ? 'gi' : 'i');
-    } catch (error) {
-        throw new Error(`${providerName || 'Provider'}: invalid ${subject} regex: ${error.message}`);
+    if (rule.exceptions !== undefined &&
+        (!Array.isArray(rule.exceptions) || rule.exceptions.some(item => typeof item !== 'string'))) {
+        throw new Error(`${prefix}.exceptions must be an array of strings`);
     }
-    if (rule.rewrite !== undefined && typeof rule.rewrite !== 'string') {
-        throw new Error(`${providerName || 'Provider'}: rewrite must be a string`);
+    if (rule.requestTypes !== undefined &&
+        (!Array.isArray(rule.requestTypes) || rule.requestTypes.some(item => typeof item !== 'string'))) {
+        throw new Error(`${prefix}.requestTypes must be an array of strings`);
     }
-    if (rule.redirect !== undefined && typeof rule.redirect !== 'string') {
-        throw new Error(`${providerName || 'Provider'}: redirect must be a string`);
+    if (rule.preprocessors !== undefined && !Array.isArray(rule.preprocessors)) {
+        throw new Error(`${prefix}.preprocessors must be an array`);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-    if (subject === 'url' && typeof rule.redirect === 'string' && !rule.redirect.trim()) {
-        throw new Error(`${providerName || 'Provider'}: redirect must be a non-empty string`);
-    }
-=======
->>>>>>> parent of 253ccdd (fix: harden native rule runtime edge cases)
-    if (rule.id !== undefined && (typeof rule.id !== 'string' || !rule.id.trim())) {
-        throw new Error(`${providerName || 'Provider'}: id must be a non-empty string`);
-    }
-    if (rule.aliases !== undefined && (!Array.isArray(rule.aliases) || rule.aliases.some(value => typeof value !== 'string' || !value.trim()))) {
-        throw new Error(`${providerName || 'Provider'}: aliases must be an array of non-empty strings`);
-    }
-    if (rule.description !== undefined && typeof rule.description !== 'string') {
-        throw new Error(`${providerName || 'Provider'}: description must be a string`);
-    }
-=======
->>>>>>> parent of 112fb7e (feat: add durable native rule identity support)
-    if (rule.except !== undefined && (!Array.isArray(rule.except) || rule.except.some(value => typeof value !== 'string'))) {
-        throw new Error(`${providerName || 'Provider'}: except must be an array of strings`);
-    }
-    (rule.except || []).forEach((pattern, index) => {
-        try {
-            new RegExp(pattern, 'i');
-        } catch (error) {
-            throw new Error(`${providerName || 'Provider'}: except[${index}] is not a valid regex: ${error.message}`);
+
+    // Keep UI validation aligned with what the core engine can actually compile.
+    new RegExp(rule.matchPattern, rule.flags === undefined ? 'i' : rule.flags);
+    (rule.exceptions || []).forEach(exception => new RegExp(exception, 'i'));
+}
+
+function assertRuleEntrySyntax(provider, providerName = '') {
+    OBJECT_STYLE_RULE_FIELDS.forEach((fieldName) => {
+        const entries = provider[fieldName];
+        if (!Array.isArray(entries)) {
+            return;
         }
-    });
-    if (rule.types !== undefined && rule.types !== 'all' && (!Array.isArray(rule.types) || rule.types.some(value => typeof value !== 'string'))) {
-        throw new Error(`${providerName || 'Provider'}: types must be "all" or an array of strings`);
-    }
-    if (rule.preprocess !== undefined && !Array.isArray(rule.preprocess)) {
-        throw new Error(`${providerName || 'Provider'}: preprocess must be an array`);
-    }
-    (rule.preprocess || []).forEach((step, index) => {
-        if (!step || typeof step !== 'object' || Array.isArray(step)) {
-            throw new Error(`${providerName || 'Provider'}: preprocess[${index}] must be an object`);
-        }
-        if (typeof step.type !== 'string' || !step.type.trim()) {
-            throw new Error(`${providerName || 'Provider'}: preprocess[${index}].type must be a string`);
-        }
-        if (
-            step.inputs !== undefined &&
-            step.inputs !== 'all' &&
-            (!Array.isArray(step.inputs) || step.inputs.some(value => !Number.isInteger(value) || value < 1))
-        ) {
-            throw new Error(`${providerName || 'Provider'}: preprocess[${index}].inputs must be "all" or an array of positive integers`);
-        }
+        entries.forEach((entry, index) => {
+            if (typeof entry === 'string') {
+                return;
+            }
+            assertObjectStyleRuleSyntax(entry, providerName, fieldName, index);
+        });
     });
 }
 
-function assertProviderRuleEntries(provider, providerName = '') {
-    (provider.rules || []).forEach(rule => assertNativeSupersetRule(rule, providerName));
-}
-
-=======
->>>>>>> parent of 0255e8e (feat:(rules): introduce Linkumori-native superset format)
 // i18n helper function
 function i18n(key, ...substitutions) {
     return LinkumoriI18n.getMessage(key, substitutions);
@@ -1896,11 +1872,11 @@ function populateProviderListModal() {
 function createProviderListItemHTML(providerName, provider) {
     const domainPatterns = toDomainPatternArray(provider.domainPatterns);
     // Calculate provider statistics
-    const rulesCount = (provider.rules || []).length;
-    const rawRulesCount = (provider.rawRules || []).length;
-    const exceptionsCount = (provider.exceptions || []).length;
-    const redirectionsCount = (provider.redirections || []).length;
-    const referralCount = (provider.referralMarketing || []).length;
+    const rulesCount = countRuleEntries(provider.rules);
+    const rawRulesCount = countRuleEntries(provider.rawRules);
+    const exceptionsCount = countRuleEntries(provider.exceptions);
+    const redirectionsCount = countRuleEntries(provider.redirections);
+    const referralCount = countRuleEntries(provider.referralMarketing);
     const domainPatternsCount = domainPatterns.length;
     const domainExceptionsCount = (provider.domainExceptions || []).length;
     const domainRedirectionsCount = (provider.domainRedirections || []).length;
@@ -2632,11 +2608,11 @@ function createLinkumoriURLRuleCard(rule, source) {
 function createProviderCard(name, provider, source) {
     const domainPatterns = toDomainPatternArray(provider.domainPatterns);
     // Calculate provider statistics
-    const rulesCount = (provider.rules || []).length;
-    const rawRulesCount = (provider.rawRules || []).length;
-    const exceptionsCount = (provider.exceptions || []).length;
-    const redirectionsCount = (provider.redirections || []).length;
-    const referralCount = (provider.referralMarketing || []).length;
+    const rulesCount = countRuleEntries(provider.rules);
+    const rawRulesCount = countRuleEntries(provider.rawRules);
+    const exceptionsCount = countRuleEntries(provider.exceptions);
+    const redirectionsCount = countRuleEntries(provider.redirections);
+    const referralCount = countRuleEntries(provider.referralMarketing);
     const domainPatternsCount = domainPatterns.length;
     const domainExceptionsCount = (provider.domainExceptions || []).length;
     const domainRedirectionsCount = (provider.domainRedirections || []).length;
@@ -3614,9 +3590,7 @@ async function saveCustomRules() {
         }
         
     } catch (error) {
-        const message = error?.message || i18n('status_saveFailed');
-        updateEditorStatus('error', message);
-        await modalAlert(message);
+        updateEditorStatus('error', i18n('status_saveFailed'));
     }
 }
 
@@ -4228,7 +4202,9 @@ function validateAndUpdateJSON() {
     if (!jsonEditor || !validation) return;
 
     try {
-        JSON.parse(jsonEditor.value);
+        const provider = JSON.parse(jsonEditor.value);
+        assertProviderArrayFields(provider, currentProvider || '');
+        assertRuleEntrySyntax(provider, currentProvider || '');
         updateJsonTextMateHighlighting(jsonEditor);
         validation.style.display = 'none';
         hasUnsavedChanges = true;
@@ -4256,6 +4232,7 @@ async function saveCurrentProvider() {
         }
         const provider = JSON.parse(jsonEditor.value);
         assertProviderArrayFields(provider, currentProvider || '');
+        assertRuleEntrySyntax(provider, currentProvider || '');
         assertDomainRedirectionSyntax(provider, currentProvider || '');
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
@@ -4802,70 +4779,6 @@ function getProvidersFromImportedCustomRules(imported) {
     return null;
 }
 
-<<<<<<< HEAD
-function normalizeImportedClearURLsV2ForEditor(imported) {
-    if (!imported || imported.version !== 2 || !imported.providers) return imported;
-    const defaults = imported.defaults || {};
-    const providers = {};
-    Object.entries(imported.providers).forEach(([name, provider]) => {
-        const normalized = { urlPattern: provider.urlPattern, rules: [] };
-        (provider.rules || []).forEach((rawRule) => {
-            const rule = typeof rawRule === 'string' ? { match: rawRule } : rawRule;
-            const kind = rule.kind || 'field';
-            const action = rule.action || { type: 'remove' };
-<<<<<<< HEAD
-<<<<<<< HEAD
-            if (!['field', 'raw', 'redirection'].includes(kind)) {
-                throw new Error(`Unsupported rules v2 kind: ${kind}`);
-            }
-            const actionType = action.type || 'remove';
-            if (!['remove', 'rewrite', 'redirect'].includes(actionType)) {
-                throw new Error(`Unsupported rules v2 action type: ${actionType}`);
-            }
-=======
->>>>>>> parent of 253ccdd (fix: harden native rule runtime edge cases)
-            if (
-                (action.type === 'rewrite' || action.type === 'redirect') &&
-                (typeof action.replacePattern !== 'string' || action.replacePattern.trim() === '')
-            ) {
-                throw new Error(`Rules v2 action "${action.type}" must include replacePattern`);
-            }
-            const match = rule.match.trim();
-            const native = kind === 'raw' ? { raw: match } : kind === 'redirection' ? { url: match } : { field: match };
-<<<<<<< HEAD
-            if (actionType === 'rewrite') native.rewrite = action.replacePattern;
-            else if (actionType === 'redirect') native.redirect = action.replacePattern;
-=======
-            const native = kind === 'raw' ? { raw: rule.match } : kind === 'redirection' ? { url: rule.match } : { field: rule.match };
-            if (action.type === 'rewrite') native.rewrite = action.replacePattern || '';
-            else if (action.type === 'redirect') native.redirect = action.replacePattern || '';
->>>>>>> parent of 35b5e6b (fix: address native rule review feedback)
-=======
-            if (action.type === 'rewrite') native.rewrite = action.replacePattern;
-            else if (action.type === 'redirect') native.redirect = action.replacePattern;
->>>>>>> parent of 253ccdd (fix: harden native rule runtime edge cases)
-            else native.remove = true;
-            const active = rule.active === undefined ? defaults.active : rule.active;
-            const types = rule.requestTypes === undefined ? defaults.requestTypes : rule.requestTypes;
-            const except = rule.exceptions === undefined ? defaults.exceptions : rule.exceptions;
-            const preprocess = rule.preprocessors === undefined ? defaults.preprocessors : rule.preprocessors;
-            if (active === false) native.active = false;
-            if (rule.referralMarketing === true) native.referral = true;
-            if (types !== undefined && types !== 'all') native.types = types;
-            if (Array.isArray(except) && except.length) native.except = except;
-            if (Array.isArray(preprocess) && preprocess.length) native.preprocess = preprocess;
-            normalized.rules.push(native);
-        });
-        ['completeProvider', 'forceRedirection', 'methods', 'exceptions'].forEach(key => {
-            if (provider[key] !== undefined) normalized[key] = JSON.parse(JSON.stringify(provider[key]));
-        });
-        providers[name] = normalized;
-    });
-    return { providers };
-}
-
-=======
->>>>>>> parent of 0255e8e (feat:(rules): introduce Linkumori-native superset format)
 function getLinkumoriURLRulesFromImportedCustomRules(imported) {
     if (!imported || typeof imported !== 'object') {
         return null;
@@ -4894,6 +4807,7 @@ function validateImportedProviders(providersData) {
 
     for (const [name, provider] of Object.entries(providersData)) {
         assertProviderArrayFields(provider, name);
+        assertRuleEntrySyntax(provider, name);
         assertDomainRedirectionSyntax(provider, name);
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
