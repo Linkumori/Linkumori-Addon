@@ -120,7 +120,10 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetai
     const rulesFromConfig = Array.isArray(providerConfig.rules) ? providerConfig.rules : [];
     const referralMarketing = Array.isArray(providerConfig.referralMarketing) ? providerConfig.referralMarketing : [];
     const rawRules = typeof provider.getRawRules === 'function' ? provider.getRawRules() : [];
-    const nativeRules = rulesFromConfig.filter(rule => rule && typeof rule === 'object');
+    const nativeRules = rulesFromConfig.filter(rule => {
+        if (!rule || typeof rule !== 'object') return false;
+        return typeof isNativeRuleDisabled !== 'function' || !isNativeRuleDisabled(providerName, rule);
+    });
 
     for (const exception of exceptions) {
         try {
