@@ -1856,6 +1856,18 @@ function resolveImportedV2Rule(rule, defaults) {
     ) {
         throw new Error(`Rules v2 action "${actionType}" must include replacePattern`);
     }
+    const preprocessors = Array.isArray(source.preprocessors)
+        ? source.preprocessors.slice()
+        : (Array.isArray(defaults.preprocessors) ? defaults.preprocessors.slice() : []);
+    preprocessors.forEach((step, index) => {
+        if (
+            !step ||
+            typeof step !== 'object' ||
+            !['urlEncode', 'urlDecode', 'doubleUrlEncode', 'doubleUrlDecode', 'base64Encode', 'base64Decode'].includes(step.type)
+        ) {
+            throw new Error(`Rules v2 preprocessor at index ${index} is unsupported`);
+        }
+    });
     return {
         kind,
         match: source.match.trim(),
@@ -1865,7 +1877,7 @@ function resolveImportedV2Rule(rule, defaults) {
         active: source.active === undefined ? defaults.active !== false : source.active === true,
         action: { ...action, type: actionType },
         exceptions: Array.isArray(source.exceptions) ? source.exceptions.slice() : (Array.isArray(defaults.exceptions) ? defaults.exceptions.slice() : []),
-        preprocessors: Array.isArray(source.preprocessors) ? source.preprocessors.slice() : (Array.isArray(defaults.preprocessors) ? defaults.preprocessors.slice() : []),
+        preprocessors,
         referralMarketing: source.referralMarketing === true,
         requestTypes: source.requestTypes === undefined ? (defaults.requestTypes === undefined ? 'all' : defaults.requestTypes) : source.requestTypes
     };

@@ -243,6 +243,9 @@ function assertNativeSupersetRule(rule, providerName = '') {
     if ((subject === 'field' || subject === 'raw') && actions[0] === 'redirect') {
         throw new Error(`${providerName || 'Provider'}: ${subject} rules cannot use redirect`);
     }
+    if (rule.remove !== undefined && rule.remove !== true) {
+        throw new Error(`${providerName || 'Provider'}: remove must be true when present`);
+    }
     try {
         new RegExp(subject === 'field' ? `^(?:${rule[subject]})$` : rule[subject], subject === 'raw' ? 'gi' : 'i');
     } catch (error) {
@@ -253,6 +256,9 @@ function assertNativeSupersetRule(rule, providerName = '') {
     }
     if (rule.redirect !== undefined && typeof rule.redirect !== 'string') {
         throw new Error(`${providerName || 'Provider'}: redirect must be a string`);
+    }
+    if (subject === 'url' && typeof rule.redirect === 'string' && !rule.redirect.trim()) {
+        throw new Error(`${providerName || 'Provider'}: redirect must be a non-empty string`);
     }
     if (rule.id !== undefined && (typeof rule.id !== 'string' || !rule.id.trim())) {
         throw new Error(`${providerName || 'Provider'}: id must be a non-empty string`);
@@ -285,6 +291,9 @@ function assertNativeSupersetRule(rule, providerName = '') {
         }
         if (typeof step.type !== 'string' || !step.type.trim()) {
             throw new Error(`${providerName || 'Provider'}: preprocess[${index}].type must be a string`);
+        }
+        if (!['urlEncode', 'urlDecode', 'doubleUrlEncode', 'doubleUrlDecode', 'base64Encode', 'base64Decode'].includes(step.type)) {
+            throw new Error(`${providerName || 'Provider'}: preprocess[${index}].type is unsupported`);
         }
         if (
             step.inputs !== undefined &&
@@ -4882,21 +4891,37 @@ function normalizeImportedClearURLsV2ForEditor(imported) {
             }
             const kind = rule.kind || 'field';
             const action = rule.action || { type: 'remove' };
+            if (!['field', 'raw', 'redirection'].includes(kind)) {
+                throw new Error(`Unsupported rules v2 kind: ${kind}`);
+            }
+            const actionType = action.type || 'remove';
+            if (!['remove', 'rewrite', 'redirect'].includes(actionType)) {
+                throw new Error(`Unsupported rules v2 action type: ${actionType}`);
+            }
             if (
-                (action.type === 'rewrite' || action.type === 'redirect') &&
+                (actionType === 'rewrite' || actionType === 'redirect') &&
                 (typeof action.replacePattern !== 'string' || action.replacePattern.trim() === '')
             ) {
-                throw new Error(`Rules v2 action "${action.type}" must include replacePattern`);
+                throw new Error(`Rules v2 action "${actionType}" must include replacePattern`);
             }
             const match = rule.match.trim();
             const native = kind === 'raw' ? { raw: match } : kind === 'redirection' ? { url: match } : { field: match };
-            if (action.type === 'rewrite') native.rewrite = action.replacePattern;
-            else if (action.type === 'redirect') native.redirect = action.replacePattern;
+            if (actionType === 'rewrite') native.rewrite = action.replacePattern;
+            else if (actionType === 'redirect') native.redirect = action.replacePattern;
             else native.remove = true;
             const active = rule.active === undefined ? defaults.active : rule.active;
             const types = rule.requestTypes === undefined ? defaults.requestTypes : rule.requestTypes;
             const except = rule.exceptions === undefined ? defaults.exceptions : rule.exceptions;
             const preprocess = rule.preprocessors === undefined ? defaults.preprocessors : rule.preprocessors;
+            (Array.isArray(preprocess) ? preprocess : []).forEach((step, index) => {
+                if (
+                    !step ||
+                    typeof step !== 'object' ||
+                    !['urlEncode', 'urlDecode', 'doubleUrlEncode', 'doubleUrlDecode', 'base64Encode', 'base64Decode'].includes(step.type)
+                ) {
+                    throw new Error(`Rules v2 preprocessor at index ${index} is unsupported`);
+                }
+            });
             if (active === false) native.active = false;
             if (rule.referralMarketing === true) native.referral = true;
             if (types !== undefined && types !== 'all') native.types = types;
