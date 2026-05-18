@@ -19637,6 +19637,79 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "provider object rule rewrite",
+      "dialect": "provider",
+      "input": "https://example.com/object-rule/?token=abc&keep=1",
+      "expectedOutput": "https://example.com/object-rule/?keep=1&token=clean-abc",
+      "providers": {
+        "provider-object-rule": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/object-rule(?:[/?#]|$)",
+          "rules": [
+            {
+              "matchPattern": "token",
+              "replacePattern": "clean-\u00a71\u00a7",
+              "preprocessors": []
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider object raw rewrite",
+      "dialect": "provider",
+      "input": "https://example.com/object-raw/?wrapped=abc&keep=1",
+      "expectedOutput": "https://example.com/object-raw/?clean=abc&keep=1",
+      "providers": {
+        "provider-object-raw": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/object-raw(?:[/?#]|$)",
+          "rawRules": [
+            {
+              "matchPattern": "wrapped=([^&#]+)",
+              "replacePattern": "clean=\u00a71\u00a7"
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider object redirection",
+      "dialect": "provider",
+      "input": "https://example.com/object-redirect/?url=https%253A%252F%252Fwww.iana.org%252F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-object-redirect": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/object-redirect(?:[/?#]|$)",
+          "redirections": [
+            {
+              "matchPattern": "^https?:\\/\\/example\\.com\\/object-redirect\\/\\?url=(.+)$",
+              "replacePattern": "\u00a71\u00a7",
+              "preprocessors": [
+                {
+                  "type": "doubleUrlDecode",
+                  "inputs": [
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
     }
   ]
 }

@@ -1065,6 +1065,141 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
 }
 
 
+function normalizeCoreRuleDefinition(rule, defaultFlags = "i") {
+    if (typeof rule === "string") {
+        return {
+            active: true,
+            exceptions: [],
+            flags: defaultFlags,
+            matchPattern: rule,
+            preprocessors: [],
+            replacePattern: null,
+            requestTypes: null,
+            raw: rule,
+            sourceType: "legacy"
+        };
+    }
+
+    if (!rule || typeof rule !== "object" || typeof rule.matchPattern !== "string") {
+        return null;
+    }
+
+    return {
+        active: rule.active !== false,
+        exceptions: Array.isArray(rule.exceptions) ? rule.exceptions.filter((item) => typeof item === "string") : [],
+        flags: typeof rule.flags === "string" ? rule.flags : defaultFlags,
+        matchPattern: rule.matchPattern,
+        preprocessors: Array.isArray(rule.preprocessors) ? rule.preprocessors : [],
+        replacePattern: typeof rule.replacePattern === "string" ? rule.replacePattern : null,
+        requestTypes: Array.isArray(rule.requestTypes)
+            ? rule.requestTypes.map((item) => String(item || "").toLowerCase()).filter(Boolean)
+            : null,
+        raw: rule,
+        sourceType: "object"
+    };
+}
+
+function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = false) {
+    const normalized = normalizeCoreRuleDefinition(rule, defaultFlags);
+    if (!normalized) return null;
+
+    const source = wrapFieldRule ? "^" + normalized.matchPattern + "$" : normalized.matchPattern;
+    try {
+        return {
+            ...normalized,
+            regex: new RegExp(source, normalized.flags)
+        };
+    } catch (_) {
+        return null;
+    }
+}
+
+function coreRuleAppliesToRequest(compiledRule, url, request) {
+    // Legacy maps may still contain bare RegExp values from persisted or older
+    // in-memory provider instances. Treat those as unconditional rules.
+    if (compiledRule instanceof RegExp) return true;
+    if (!compiledRule) return false;
+    if (compiledRule.active === false) return false;
+
+    if (compiledRule.requestTypes && compiledRule.requestTypes.length > 0) {
+        const requestType = String(request && request.type || "").toLowerCase();
+        if (!requestType || compiledRule.requestTypes.indexOf(requestType) === -1) return false;
+    }
+
+    const exceptions = Array.isArray(compiledRule.exceptions) ? compiledRule.exceptions : [];
+    return !exceptions.some((exception) => {
+        try {
+            return (new RegExp(exception, "i")).test(url);
+        } catch (_) {
+            return false;
+        }
+    });
+}
+
+function applyCoreRulePreprocessors(values, preprocessors) {
+    let next = values.slice();
+    for (const preprocessor of preprocessors || []) {
+        if (!preprocessor || typeof preprocessor.type !== "string") continue;
+        const indexes = preprocessor.inputs === "all"
+            ? next.map((_, index) => index)
+            : (Array.isArray(preprocessor.inputs) ? preprocessor.inputs.map((value) => Number(value) - 1) : []);
+
+        for (const index of indexes) {
+            if (index < 0 || index >= next.length) continue;
+            const current = String(next[index] == null ? "" : next[index]);
+            try {
+                switch (preprocessor.type) {
+                    case "urlEncode":
+                        next[index] = encodeURIComponent(current);
+                        break;
+                    case "urlDecode":
+                        next[index] = decodeURIComponent(current);
+                        break;
+                    case "doubleUrlEncode":
+                        next[index] = encodeURIComponent(encodeURIComponent(current));
+                        break;
+                    case "doubleUrlDecode":
+                        next[index] = decodeURIComponent(decodeURIComponent(current));
+                        break;
+                    case "base64Encode":
+                        next[index] = btoa(unescape(encodeURIComponent(current)));
+                        break;
+                    case "base64Decode":
+                        next[index] = decodeURIComponent(escape(atob(current)));
+                        break;
+                }
+            } catch (_) {
+                // Keep original value when a preprocessor cannot transform it.
+            }
+        }
+    }
+    return next;
+}
+
+function applyCoreReplacePattern(pattern, values) {
+    if (pattern === null || pattern === undefined) return "";
+    return String(pattern).replace(/§\d+?§/g, (placeholder) => {
+        const index = parseInt(placeholder.slice(1, -1), 10) - 1;
+        return values[index] === undefined ? "" : values[index];
+    });
+}
+
+function removeRawRuleMatchesPreservingQueryBoundary(value, regex) {
+    return value.replace(regex, (match, ...args) => {
+        const hasNamedGroups = args.length >= 3 && typeof args[args.length - 1] === 'object' && args[args.length - 1] !== null;
+        const offsetIndex = hasNamedGroups ? args.length - 3 : args.length - 2;
+        const offset = args[offsetIndex];
+        const nextCharacter = value[offset + match.length];
+
+        // If a raw rule removes the first query item including its leading '?',
+        // keep the query boundary when additional items remain. Otherwise the
+        // surviving '&foo=bar' becomes part of the URL path when reparsed.
+        return match.startsWith('?') && nextCharacter === '&' ? '?' : '';
+    });
+}
+
+
+
 // FIX: extraExceptions — cross-provider context exceptions collected in clearUrl()
 // and injected directly into activeLinkumoriExceptions, bypassing the URL-pattern
 // re-check in evaluateLinkumoriRemoveParamRules. They are already pre-qualified by
@@ -1142,10 +1277,22 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
     const rawRulesMap = provider.getRawRulesMap();
     Object.keys(rawRulesMap).forEach(function (rawRuleStr) {
-        const regex = rawRulesMap[rawRuleStr];
-        const activeRegex = regex instanceof RegExp ? regex : new RegExp(rawRuleStr, "gi");
+        const compiled = rawRulesMap[rawRuleStr];
+        if (!coreRuleAppliesToRequest(compiled, url, request)) return;
+        const activeRegex = compiled && compiled.regex instanceof RegExp
+            ? compiled.regex
+            : new RegExp(rawRuleStr, "gi");
         let beforeReplace = url;
-        url = url.replace(activeRegex, "");
+        if (compiled && compiled.replacePattern !== null) {
+            url = url.replace(activeRegex, (...args) => {
+                const hasNamedGroups = args.length >= 3 && typeof args[args.length - 1] === 'object' && args[args.length - 1] !== null;
+                const endIndex = hasNamedGroups ? args.length - 3 : args.length - 2;
+                const values = applyCoreRulePreprocessors(args.slice(1, endIndex).map((value) => value === undefined ? '' : String(value)), compiled.preprocessors);
+                return applyCoreReplacePattern(compiled.replacePattern, values);
+            });
+        } else {
+            url = removeRawRuleMatchesPreservingQueryBoundary(url, activeRegex);
+        }
 
         if (beforeReplace !== url) {
             if (storage.loggingStatus && !quiet) {
@@ -1162,11 +1309,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             }
         }
     });
-
-    // Raw rules can remove the first query segment together with its leading
-    // delimiter (for example `[?&]raw=[^&#]*`), leaving `/&keep=1`. Normalize
-    // that orphaned separator before rebuilding the URL.
-    url = url.replace(/([/?])&(?=[^#]*$)/, '$1?');
 
     urlObject = new URL(url);
     fields = urlObject.searchParams;
@@ -1206,34 +1348,65 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
         const rulesMap = provider.getRulesMap();
         Object.keys(rulesMap).forEach(rule => {
-            const regex = rulesMap[rule];
-            const activeRegex = regex instanceof RegExp ? regex : new RegExp("^"+rule+"$", "gi");
+            const compiled = rulesMap[rule];
+            if (!coreRuleAppliesToRequest(compiled, url, request)) return;
+            const activeRegex = compiled && compiled.regex instanceof RegExp
+                ? compiled.regex
+                : new RegExp("^"+rule+"$", "gi");
             const beforeFields = fields.toString();
             const beforeFragments = fragments.toString();
             let localChange = false;
 
             const fieldsToDelete = [];
-            for (const field of fields.keys()) {
+            for (const field of Array.from(fields.keys())) {
                 const decision = getLinkumoriDecision(field);
                 // Only skip when $removeparam is actively removing this field.
                 // An exception (handled:true, remove:false) must not suppress
                 // independent regex rules — @@$removeparam only excepts that system.
                 if (decision.handled && decision.remove) continue;
 
+                activeRegex.lastIndex = 0;
                 if (activeRegex.test(field)) {
-                    fieldsToDelete.push(field);
+                    if (compiled && compiled.replacePattern !== null) {
+                        const rewriteKey = provider.getName() + "::search::" + field + "::" + rule;
+                        const appliedFieldRewrites = globalThis.linkumoriAppliedFieldRewrites || (globalThis.linkumoriAppliedFieldRewrites = new Set());
+                        if (appliedFieldRewrites.has(rewriteKey)) continue;
+                        const currentValues = fields.getAll(field);
+                        fields.delete(field);
+                        currentValues.forEach((value) => {
+                            const values = applyCoreRulePreprocessors([value], compiled.preprocessors);
+                            fields.append(field, applyCoreReplacePattern(compiled.replacePattern, values));
+                        });
+                        appliedFieldRewrites.add(rewriteKey);
+                    } else {
+                        fieldsToDelete.push(field);
+                    }
                     localChange = true;
                 }
             }
             fieldsToDelete.forEach(field => fields.delete(field));
 
             const fragmentsToDelete = [];
-            for (const fragment of fragments.keys()) {
+            for (const fragment of Array.from(fragments.keys())) {
                 const decision = getLinkumoriDecision(fragment);
                 if (decision.handled && decision.remove) continue;
 
+                activeRegex.lastIndex = 0;
                 if (activeRegex.test(fragment)) {
-                    fragmentsToDelete.push(fragment);
+                    if (compiled && compiled.replacePattern !== null) {
+                        const rewriteKey = provider.getName() + "::fragment::" + fragment + "::" + rule;
+                        const appliedFieldRewrites = globalThis.linkumoriAppliedFieldRewrites || (globalThis.linkumoriAppliedFieldRewrites = new Set());
+                        if (appliedFieldRewrites.has(rewriteKey)) continue;
+                        const currentValues = fragments.getAll(fragment);
+                        fragments.delete(fragment);
+                        currentValues.forEach((value) => {
+                            const values = applyCoreRulePreprocessors([value], compiled.preprocessors);
+                            fragments.append(fragment, applyCoreReplacePattern(compiled.replacePattern, values));
+                        });
+                        appliedFieldRewrites.add(rewriteKey);
+                    } else {
+                        fragmentsToDelete.push(fragment);
+                    }
                     localChange = true;
                 }
             }
@@ -1898,7 +2071,7 @@ function start() {
         };
 
         this.addRule = function (rule, isActive = true) {
-            const parsedLinkumoriRule = parseLinkumoriRemoveParamRule(rule);
+            const parsedLinkumoriRule = typeof rule === 'string' ? parseLinkumoriRemoveParamRule(rule) : null;
             if (parsedLinkumoriRule) {
                 if (!isActive) return;
 
@@ -1910,7 +2083,9 @@ function start() {
                 return;
             }
 
-            this.applyRule(enabled_rules, disabled_rules, rule, isActive, r => new RegExp("^" + r + "$", "i"));
+            const compiled = compileCoreRuleDefinition(rule, "i", true);
+            if (!compiled || !isActive || compiled.active === false) return;
+            enabled_rules[compiled.matchPattern] = compiled;
         };
 
         this.getRules = function () {
@@ -1929,7 +2104,9 @@ function start() {
         };
 
         this.addRawRule = function (rule, isActive = true) {
-            this.applyRule(enabled_rawRules, disabled_rawRules, rule, isActive, r => new RegExp(r, "gi"));
+            const compiled = compileCoreRuleDefinition(rule, "gi", false);
+            if (!compiled || !isActive || compiled.active === false) return;
+            enabled_rawRules[compiled.matchPattern] = compiled;
         };
 
         this.getRawRules = function () {
@@ -1949,11 +2126,15 @@ function start() {
         };
 
         this.addReferralMarketing = function (rule, isActive = true) {
-            this.applyRule(enabled_referralMarketing, disabled_referralMarketing, rule, isActive, r => new RegExp("^" + r + "$", "i"));
+            const compiled = compileCoreRuleDefinition(rule, "i", true);
+            if (!compiled || !isActive || compiled.active === false) return;
+            enabled_referralMarketing[compiled.matchPattern] = compiled;
         };
 
         this.addException = function (exception, isActive = true) {
-            this.applyRule(enabled_exceptions, disabled_exceptions, exception, isActive, r => new RegExp(exception, "i"));
+            const compiled = compileCoreRuleDefinition(exception, "i", false);
+            if (!compiled || !isActive || compiled.active === false) return;
+            enabled_exceptions[compiled.matchPattern] = compiled;
         };
 
         this.addDomainException = function (exception) {
@@ -2007,11 +2188,13 @@ function start() {
             for (const exception in enabled_exceptions) {
                 if (result) break;
 
-                const exception_regex = enabled_exceptions[exception];
-                if (exception_regex instanceof RegExp) {
-                    result = exception_regex.test(url);
-                } else {
-                    result = (new RegExp(exception, "i")).test(url);
+                const exceptionRule = enabled_exceptions[exception];
+                const exceptionRegex = exceptionRule && exceptionRule.regex instanceof RegExp
+                    ? exceptionRule.regex
+                    : (exceptionRule instanceof RegExp ? exceptionRule : new RegExp(exception, "i"));
+                if (coreRuleAppliesToRequest(exceptionRule, url, null)) {
+                    exceptionRegex.lastIndex = 0;
+                    result = exceptionRegex.test(url);
                 }
             }
 
@@ -2023,7 +2206,9 @@ function start() {
         };
 
         this.addRedirection = function (redirection, isActive = true) {
-            this.applyRule(enabled_redirections, disabled_redirections, redirection, isActive, r => new RegExp(redirection, "i"));
+            const compiled = compileCoreRuleDefinition(redirection, "i", false);
+            if (!compiled || !isActive || compiled.active === false) return;
+            enabled_redirections[compiled.matchPattern] = compiled;
         };
 
         this.addDomainRedirection = function (redirection) {
@@ -2036,14 +2221,21 @@ function start() {
             let re = null;
 
             for (const redirection in enabled_redirections) {
-                const regex = enabled_redirections[redirection];
-                const activeRegex = regex instanceof RegExp ? regex : new RegExp(redirection, "i");
-                let result = url.match(activeRegex);
+                const compiled = enabled_redirections[redirection];
+                const activeRegex = compiled && compiled.regex instanceof RegExp
+                    ? compiled.regex
+                    : new RegExp(redirection, "i");
+                if (!coreRuleAppliesToRequest(compiled, url, null)) continue;
+                activeRegex.lastIndex = 0;
+                const captured = activeRegex.exec(url);
 
-                if (result && result.length > 0 && redirection) {
-                    const captured = activeRegex.exec(url);
-                    // Guard: [1] is undefined when regex has no capture group.
-                    if (captured && captured[1] !== undefined) re = captured[1];
+                if (captured && captured.length > 0 && redirection) {
+                    const values = applyCoreRulePreprocessors(captured.slice(1), compiled.preprocessors);
+                    if (compiled.replacePattern !== null) {
+                        re = applyCoreReplacePattern(compiled.replacePattern, values);
+                    } else if (captured[1] !== undefined) {
+                        re = values[0];
+                    }
                     break;
                 }
             }            

@@ -606,12 +606,21 @@ function inferProviderMatch(entry, rulesData) {
     return null;
 }
 
+
+function formatRuleForDisplay(rule) {
+    if (typeof rule === 'string') return rule.trim();
+    if (rule && typeof rule === 'object' && typeof rule.matchPattern === 'string') {
+        return rule.matchPattern.trim();
+    }
+    return '';
+}
+
 function shouldInferProviderMatch(entry) {
     if (!entry || typeof entry !== 'object') return false;
     const explicitCategory = typeof entry.logCategory === 'string' ? entry.logCategory.toLowerCase() : '';
     if (explicitCategory === 'feature') return false;
     if (explicitCategory === 'provider') return true;
-    const ruleText = typeof entry.rule === 'string' ? entry.rule.trim() : '';
+    const ruleText = formatRuleForDisplay(entry.rule);
     if (!ruleText) return false;
     const featureRules = new Set([
         translate('eTag_filtering_log'),
@@ -1026,7 +1035,7 @@ function renderStatsChart(topRulesSeries) {
 function renderOverallStats(logs, clearUrlsData = null) {
     const safeLogs = Array.isArray(logs) ? logs : [];
     const contexts = safeLogs.map(entry => resolveLogContext(entry, clearUrlsData));
-    const rules      = safeLogs.map(x => (typeof x?.rule === 'string' ? x.rule : null)).filter(Boolean);
+    const rules      = safeLogs.map(x => formatRuleForDisplay(x?.rule)).filter(Boolean);
     const domains    = safeLogs.map(x => extractHost(x?.before)).filter(Boolean);
     const timestamps = safeLogs.map(x => toMillis(x?.timestamp)).filter(x => x != null);
     const providers  = contexts.map(c => c.providerName).filter(Boolean);

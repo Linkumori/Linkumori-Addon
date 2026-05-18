@@ -391,12 +391,63 @@ function resumeCleaningNow() {
  * @param {string} providerName - The provider's name (used as fallback).
  * @returns {string} A key string for grouping.
  */
+function getStableRuleSignature(rule) {
+    if (typeof rule === 'string') {
+        return `string:${rule.trim()}`;
+    }
+
+    if (!rule || typeof rule !== 'object' || Array.isArray(rule)) {
+        return '';
+    }
+
+    const normalized = {
+        active: rule.active !== false,
+        exceptions: Array.isArray(rule.exceptions) ? rule.exceptions.filter(item => typeof item === 'string').slice().sort() : [],
+        flags: typeof rule.flags === 'string' ? rule.flags : '',
+        matchPattern: typeof rule.matchPattern === 'string' ? rule.matchPattern : '',
+        preprocessors: Array.isArray(rule.preprocessors) ? rule.preprocessors : [],
+        replacePattern: typeof rule.replacePattern === 'string' ? rule.replacePattern : null,
+        requestTypes: Array.isArray(rule.requestTypes) ? rule.requestTypes.map(item => String(item || '').toLowerCase()).filter(Boolean).sort() : []
+    };
+
+    if (!normalized.matchPattern) {
+        return '';
+    }
+
+    return `object:${JSON.stringify(normalized)}`;
+}
+
+function dedupeRuleLikeArray(values) {
+    const result = [];
+    const seen = new Set();
+
+    (Array.isArray(values) ? values : []).forEach(value => {
+        const signature = getStableRuleSignature(value);
+        if (!signature || seen.has(signature)) {
+            return;
+        }
+        seen.add(signature);
+        result.push(value);
+    });
+
+    return result;
+}
+
+function mergeRuleLikeArrays(left, right) {
+    return dedupeRuleLikeArray([...(Array.isArray(left) ? left : []), ...(Array.isArray(right) ? right : [])]);
+}
+
 function getProviderGroupKey(providerData, providerName) {
     const normalizedList = value => {
         const items = Array.isArray(value)
             ? value
             : (typeof value === 'string' && value.trim() ? [value] : []);
-        return [...new Set(items.filter(item => typeof item === 'string' && item.trim()).map(item => item.trim()))]
+        return [...new Set(items
+            .map(item => {
+                if (typeof item === 'string' && item.trim()) return item.trim();
+                return getStableRuleSignature(item);
+            })
+            .filter(Boolean))]
             .sort((a, b) => a.localeCompare(b));
     };
     const scopeSignature = JSON.stringify({
@@ -642,19 +693,19 @@ function mergeRemoteProviderGroup(providerGroup) {
         }
 
         if (Array.isArray(data.rules)) {
-            merged.rules = [...new Set([...merged.rules, ...data.rules])];
+            merged.rules = mergeRuleLikeArrays(merged.rules, data.rules);
         }
         if (Array.isArray(data.rawRules)) {
-            merged.rawRules = [...new Set([...merged.rawRules, ...data.rawRules])];
+            merged.rawRules = mergeRuleLikeArrays(merged.rawRules, data.rawRules);
         }
         if (Array.isArray(data.referralMarketing)) {
-            merged.referralMarketing = [...new Set([...merged.referralMarketing, ...data.referralMarketing])];
+            merged.referralMarketing = mergeRuleLikeArrays(merged.referralMarketing, data.referralMarketing);
         }
         if (Array.isArray(data.exceptions)) {
-            merged.exceptions = [...new Set([...merged.exceptions, ...data.exceptions])];
+            merged.exceptions = mergeRuleLikeArrays(merged.exceptions, data.exceptions);
         }
         if (Array.isArray(data.redirections)) {
-            merged.redirections = [...new Set([...merged.redirections, ...data.redirections])];
+            merged.redirections = mergeRuleLikeArrays(merged.redirections, data.redirections);
         }
         // Handle domainPatterns: could be array or string
         if (data.domainPatterns) {
