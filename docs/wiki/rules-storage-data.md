@@ -22,15 +22,6 @@ Typical provider fields:
 - `methods`
 - `resourceTypes`
 
-`rules` is now the canonical Linkumori authoring array. It accepts:
-
-- compact string removals such as `"utm_source"`
-- native advanced objects such as `{ "field": "session", "rewrite": "clean" }`
-- native raw objects such as `{ "raw": "...", "rewrite": "..." }`
-- native redirect objects such as `{ "url": "...", "redirect": "§1§" }`
-
-Legacy `rawRules`, `referralMarketing`, and `redirections` still load for compatibility, but new advanced authoring should stay inside `rules` so one provider has one behavioral rule stream.
-
 This path powers the long-standing ClearURLs-style behavior and Linkumori's extended provider editing model.
 
 ### 2. `ClearURLsData.urlFilterRules`
@@ -103,16 +94,6 @@ The custom rules system supports:
 - disabling imported providers by signature
 - Linkumori removeparam custom rules
 - disabled rule tracking
-- native advanced-rule template insertion in the editor
-- ClearURLs v2 import normalization into Linkumori-native rules
-
-Native advanced rules may carry `id`, `aliases`, and `description`. `id` is not
-required for execution, but it enables durable rule lifecycle state:
-
-- `clearurls_disabled_rule_ids` stores disabled native-rule ids
-- a bare id disables matching rules globally
-- `provider/id` disables one provider's rule
-- `aliases` keep older disable choices valid after a rule rename
 
 Most of that orchestration lives in:
 

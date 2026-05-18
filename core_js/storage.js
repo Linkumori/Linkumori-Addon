@@ -105,7 +105,6 @@ var tempVerificationCache = {
 let temporaryPauseUntilBrowserRestart = false;
 const IMPORT_EXCLUSIONS_KEY = 'customrules_import_exclusions';
 const LINKUMORI_URL_DISABLED_RULES_KEY = 'linkumori_url_disabled_rules';
-const CLEARURLS_DISABLED_RULE_IDS_KEY = 'clearurls_disabled_rule_ids';
 
 function linkumoriStorageI18n(key, substitutions = []) {
     return globalThis.LinkumoriI18n.getMessage(key, substitutions);
@@ -741,6 +740,7 @@ function dedupeRuleEntries(entries) {
     });
 }
 
+<<<<<<< HEAD
 function normalizeDisabledRuleIds(value) {
     if (typeof value === 'string') {
         try {
@@ -763,6 +763,8 @@ function normalizeDisabledRuleIds(value) {
         .filter(Boolean))];
 }
 
+=======
+>>>>>>> parent of 112fb7e (feat: add durable native rule identity support)
 function deriveNameFromUrlPattern(urlPattern) {
     try {
         // Unescape common regex escapes: \/ -> /  and  \. -> .
@@ -1871,10 +1873,14 @@ function resolveImportedV2Rule(rule, defaults) {
     });
     return {
         kind,
+<<<<<<< HEAD
         match: source.match.trim(),
         id: typeof source.id === 'string' ? source.id : null,
         aliases: Array.isArray(source.aliases) ? source.aliases.slice() : [],
         description: typeof source.description === 'string' ? source.description : '',
+=======
+        match: source.match,
+>>>>>>> parent of 112fb7e (feat: add durable native rule identity support)
         active: source.active === undefined ? defaults.active !== false : source.active === true,
         action: { ...action, type: actionType },
         exceptions: Array.isArray(source.exceptions) ? source.exceptions.slice() : (Array.isArray(defaults.exceptions) ? defaults.exceptions.slice() : []),
@@ -1899,9 +1905,6 @@ function toNativeLinkumoriRule(rule) {
     if (rule.requestTypes !== 'all') native.types = rule.requestTypes;
     if (rule.exceptions.length) native.except = rule.exceptions;
     if (rule.preprocessors.length) native.preprocess = rule.preprocessors;
-    if (rule.id) native.id = rule.id;
-    if (Array.isArray(rule.aliases) && rule.aliases.length) native.aliases = rule.aliases;
-    if (rule.description) native.description = rule.description;
     return native;
 }
 
@@ -2915,9 +2918,6 @@ function setData(key, value) {
                 storage[key] = [];
             }
             break;
-        case CLEARURLS_DISABLED_RULE_IDS_KEY:
-            storage[key] = normalizeDisabledRuleIds(value);
-            break;
         case "userWhitelist":
             if (typeof value === 'string') {
                 try {
@@ -3123,7 +3123,6 @@ function initSettings() {
     storage.custom_rules = { providers: {} };
     storage.linkumori_url_custom_rules = { rules: [] };
     storage.linkumori_url_disabled_rules = [];
-    storage.clearurls_disabled_rule_ids = [];
     storage.popupConsentAccepted = false;
     storage.popupConsentPolicyVersionAccepted = 0;
     storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] = '';
