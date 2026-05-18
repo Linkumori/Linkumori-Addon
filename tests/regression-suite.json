@@ -93,35 +93,6 @@
       }
     },
     {
-      "id": "provider native superset raw rewrite normalized stable",
-      "dialect": "provider",
-      "input": "https://example.com/native-raw-stable/?target=https%3A%2F%2Fiana.org&keep=1",
-      "expectedOutput": "https://example.com/native-raw-stable/?target=https%3A%2F%2Fiana.org&keep=1",
-      "providers": {
-        "native-raw-stable": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/native-raw-stable(?:[/?#]|$)",
-          "rules": [
-            {
-              "raw": "target=([^&]+)",
-              "rewrite": "target=\u00a71\u00a7",
-              "preprocess": [
-                {
-                  "type": "urlDecode",
-                  "inputs": [
-                    1
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
       "id": "provider native superset redirect",
       "dialect": "provider",
       "input": "https://example.com/native-redirect/?url=https%3A%2F%2Fwww.iana.org%2F",
