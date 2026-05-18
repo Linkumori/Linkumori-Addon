@@ -391,12 +391,63 @@ function resumeCleaningNow() {
  * @param {string} providerName - The provider's name (used as fallback).
  * @returns {string} A key string for grouping.
  */
+function getStableRuleSignature(rule) {
+    if (typeof rule === 'string') {
+        return `string:${rule.trim()}`;
+    }
+
+    if (!rule || typeof rule !== 'object' || Array.isArray(rule)) {
+        return '';
+    }
+
+    const normalized = {
+        active: rule.active !== false,
+        exceptions: Array.isArray(rule.exceptions) ? rule.exceptions.filter(item => typeof item === 'string').slice().sort() : [],
+        flags: typeof rule.flags === 'string' ? rule.flags : '',
+        matchPattern: typeof rule.matchPattern === 'string' ? rule.matchPattern : '',
+        preprocessors: Array.isArray(rule.preprocessors) ? rule.preprocessors : [],
+        replacePattern: typeof rule.replacePattern === 'string' ? rule.replacePattern : null,
+        requestTypes: Array.isArray(rule.requestTypes) ? rule.requestTypes.map(item => String(item || '').toLowerCase()).filter(Boolean).sort() : []
+    };
+
+    if (!normalized.matchPattern) {
+        return '';
+    }
+
+    return `object:${JSON.stringify(normalized)}`;
+}
+
+function dedupeRuleLikeArray(values) {
+    const result = [];
+    const seen = new Set();
+
+    (Array.isArray(values) ? values : []).forEach(value => {
+        const signature = getStableRuleSignature(value);
+        if (!signature || seen.has(signature)) {
+            return;
+        }
+        seen.add(signature);
+        result.push(value);
+    });
+
+    return result;
+}
+
+function mergeRuleLikeArrays(left, right) {
+    return dedupeRuleLikeArray([...(Array.isArray(left) ? left : []), ...(Array.isArray(right) ? right : [])]);
+}
+
 function getProviderGroupKey(providerData, providerName) {
     const normalizedList = value => {
         const items = Array.isArray(value)
             ? value
             : (typeof value === 'string' && value.trim() ? [value] : []);
-        return [...new Set(items.filter(item => typeof item === 'string' && item.trim()).map(item => item.trim()))]
+        return [...new Set(items
+            .map(item => {
+                if (typeof item === 'string' && item.trim()) return item.trim();
+                return getStableRuleSignature(item);
+            })
+            .filter(Boolean))]
             .sort((a, b) => a.localeCompare(b));
     };
     const scopeSignature = JSON.stringify({
@@ -642,19 +693,19 @@ function mergeRemoteProviderGroup(providerGroup) {
         }
 
         if (Array.isArray(data.rules)) {
-            merged.rules = dedupeRuleEntries([...merged.rules, ...data.rules]);
+            merged.rules = mergeRuleLikeArrays(merged.rules, data.rules);
         }
         if (Array.isArray(data.rawRules)) {
-            merged.rawRules = [...new Set([...merged.rawRules, ...data.rawRules])];
+            merged.rawRules = mergeRuleLikeArrays(merged.rawRules, data.rawRules);
         }
         if (Array.isArray(data.referralMarketing)) {
-            merged.referralMarketing = [...new Set([...merged.referralMarketing, ...data.referralMarketing])];
+            merged.referralMarketing = mergeRuleLikeArrays(merged.referralMarketing, data.referralMarketing);
         }
         if (Array.isArray(data.exceptions)) {
-            merged.exceptions = [...new Set([...merged.exceptions, ...data.exceptions])];
+            merged.exceptions = mergeRuleLikeArrays(merged.exceptions, data.exceptions);
         }
         if (Array.isArray(data.redirections)) {
-            merged.redirections = [...new Set([...merged.redirections, ...data.redirections])];
+            merged.redirections = mergeRuleLikeArrays(merged.redirections, data.redirections);
         }
         // Handle domainPatterns: could be array or string
         if (data.domainPatterns) {
@@ -714,57 +765,6 @@ function mergeRemoteProviderGroup(providerGroup) {
     return merged;
 }
 
-function stableRuleKey(rule) {
-    if (typeof rule === 'string') return `s:${rule}`;
-    if (!rule || typeof rule !== 'object') return `x:${String(rule)}`;
-    const sortValue = value => {
-        if (Array.isArray(value)) return value.map(sortValue);
-        if (value && typeof value === 'object') {
-            return Object.keys(value).sort().reduce((out, key) => {
-                out[key] = sortValue(value[key]);
-                return out;
-            }, {});
-        }
-        return value;
-    };
-    return `o:${JSON.stringify(sortValue(rule))}`;
-}
-
-function dedupeRuleEntries(entries) {
-    const seen = new Set();
-    return entries.filter(entry => {
-        const key = stableRuleKey(entry);
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-    });
-}
-
-<<<<<<< HEAD
-function normalizeDisabledRuleIds(value) {
-    if (typeof value === 'string') {
-        try {
-            return normalizeDisabledRuleIds(JSON.parse(value));
-        } catch (_) {
-            return value
-                .split(/\r?\n|,/)
-                .map(entry => entry.trim())
-                .filter(Boolean);
-        }
-    }
-
-    if (!Array.isArray(value)) {
-        return [];
-    }
-
-    return [...new Set(value
-        .filter(entry => typeof entry === 'string')
-        .map(entry => entry.trim())
-        .filter(Boolean))];
-}
-
-=======
->>>>>>> parent of 112fb7e (feat: add durable native rule identity support)
 function deriveNameFromUrlPattern(urlPattern) {
     try {
         // Unescape common regex escapes: \/ -> /  and  \. -> .
@@ -1794,116 +1794,6 @@ function validateBundledRulesData(rawRulesData) {
     }
 }
 
-<<<<<<< HEAD
-// ClearURLs v2 is accepted as an interchange format, then reduced into the
-// Linkumori-native superset authoring shape:
-//   "utm_source"
-//   { field: "session", rewrite: "clean" }
-//   { raw: "...", remove: true }
-//   { url: "...", redirect: "§1§", preprocess: [...] }
-function normalizeImportedRulesDocument(rulesData) {
-    if (!rulesData || typeof rulesData !== 'object' || rulesData.version !== 2) {
-        return rulesData;
-    }
-    const defaults = rulesData.defaults && typeof rulesData.defaults === 'object'
-        ? rulesData.defaults
-        : {};
-    const providers = {};
-
-    Object.entries(rulesData.providers || {}).forEach(([name, provider]) => {
-        if (!provider || typeof provider !== 'object') return;
-        const normalized = {
-            urlPattern: provider.urlPattern,
-            rules: []
-        };
-        ['completeProvider', 'forceRedirection'].forEach(key => {
-            if (provider[key] === true) normalized[key] = true;
-        });
-        ['methods', 'exceptions'].forEach(key => {
-            if (Array.isArray(provider[key]) && provider[key].length) normalized[key] = provider[key].slice();
-        });
-        (Array.isArray(provider.rules) ? provider.rules : []).forEach(rule => {
-            const resolved = resolveImportedV2Rule(rule, defaults);
-            normalized.rules.push(toNativeLinkumoriRule(resolved));
-        });
-        providers[name] = normalized;
-    });
-
-    return {
-        ...(rulesData.metadata && typeof rulesData.metadata === 'object' ? { metadata: rulesData.metadata } : {}),
-        providers
-    };
-}
-
-function resolveImportedV2Rule(rule, defaults) {
-    const source = typeof rule === 'string'
-        ? { kind: 'field', match: rule }
-        : (rule && typeof rule === 'object' ? rule : {});
-    if (typeof source.match !== 'string') {
-        throw new Error('Rules v2 rule must include match');
-    }
-    const kind = source.kind || 'field';
-    if (!['field', 'raw', 'redirection'].includes(kind)) {
-        throw new Error(`Unsupported rules v2 kind: ${kind}`);
-    }
-    const action = source.action && typeof source.action === 'object'
-        ? source.action
-        : { type: 'remove' };
-    const actionType = action.type || 'remove';
-    if (!['remove', 'rewrite', 'redirect'].includes(actionType)) {
-        throw new Error(`Unsupported rules v2 action type: ${actionType}`);
-    }
-<<<<<<< HEAD
-    if (
-        (actionType === 'rewrite' || actionType === 'redirect') &&
-        (typeof action.replacePattern !== 'string' || action.replacePattern.trim() === '')
-    ) {
-        throw new Error(`Rules v2 action "${actionType}" must include replacePattern`);
-    }
-    return {
-        kind,
-<<<<<<< HEAD
-        match: source.match.trim(),
-=======
-    return {
-        kind,
-        match: source.match,
->>>>>>> parent of 35b5e6b (fix: address native rule review feedback)
-        id: typeof source.id === 'string' ? source.id : null,
-        aliases: Array.isArray(source.aliases) ? source.aliases.slice() : [],
-        description: typeof source.description === 'string' ? source.description : '',
-=======
-        match: source.match,
->>>>>>> parent of 112fb7e (feat: add durable native rule identity support)
-        active: source.active === undefined ? defaults.active !== false : source.active === true,
-        action: { ...action, type: actionType },
-        exceptions: Array.isArray(source.exceptions) ? source.exceptions.slice() : (Array.isArray(defaults.exceptions) ? defaults.exceptions.slice() : []),
-        preprocessors: Array.isArray(source.preprocessors) ? source.preprocessors.slice() : (Array.isArray(defaults.preprocessors) ? defaults.preprocessors.slice() : []),
-        referralMarketing: source.referralMarketing === true,
-        requestTypes: source.requestTypes === undefined ? (defaults.requestTypes === undefined ? 'all' : defaults.requestTypes) : source.requestTypes
-    };
-}
-
-function toNativeLinkumoriRule(rule) {
-    let native;
-    if (rule.kind === 'raw') native = { raw: rule.match };
-    else if (rule.kind === 'redirection') native = { url: rule.match };
-    else if (rule.kind === 'field') native = { field: rule.match };
-    else throw new Error(`Unsupported rules v2 kind: ${rule.kind}`);
-    if (rule.action.type === 'rewrite') native.rewrite = rule.action.replacePattern || '';
-    else if (rule.action.type === 'redirect') native.redirect = rule.action.replacePattern || '';
-    else if (rule.action.type === 'remove') native.remove = true;
-    else throw new Error(`Unsupported rules v2 action type: ${rule.action.type}`);
-    if (rule.active === false) native.active = false;
-    if (rule.referralMarketing) native.referral = true;
-    if (rule.requestTypes !== 'all') native.types = rule.requestTypes;
-    if (rule.exceptions.length) native.except = rule.exceptions;
-    if (rule.preprocessors.length) native.preprocess = rule.preprocessors;
-    return native;
-}
-
-=======
->>>>>>> parent of 0255e8e (feat:(rules): introduce Linkumori-native superset format)
 function normalizeRulesForProviderImport(rulesData, fallbackName, fallbackSource) {
     const providers = (rulesData && typeof rulesData === 'object' && rulesData.providers && typeof rulesData.providers === 'object')
         ? rulesData.providers
