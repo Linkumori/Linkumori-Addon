@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.5.2] - 2026-05-18 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.5.1...linkumori-v100.5.2))
+### Changed
+- Release v100.5.2 (hash: `596ae98`).
+- Updated files:
+  - `COMMIT_HISTORY.md`
+
 ## [v100.5.1] - 2026-05-18 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.5.0...linkumori-v100.5.1))
 ### Added
 - (rules): introduce Linkumori-native superset format https://gitlab.com/ClearURLs/core/-/merge_requests/4 - Simple removals remain plain strings - Advanced rules use explicit object keys (field/raw/url + remove/rewrite/redirect) - Editor docs, validation, and examples updated to reflect native format (`2026-05-18`, hash: [`0255e8e`](https://github.com/Linkumori/Linkumori-Addon/commit/0255e8e))
