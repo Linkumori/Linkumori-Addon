@@ -71,10 +71,17 @@ The implementation carefully avoids applying those context exceptions to `main_f
 
 If a provider matches:
 
-- parameter rules remove query/hash fields
-- raw rules can rewrite whole URL substrings
-- redirection rules can produce a redirect target
+- simple string rules remove query/hash fields
+- native `field` object rules can remove or rewrite parameter and fragment values
+- native `raw` object rules can remove or rewrite whole URL substrings
+- native `url` object rules and legacy redirections can produce redirect targets
+- optional per-rule `types`, `except`, `preprocess`, and `active` fields narrow or transform execution
+- native object rules with `id` can be durably disabled through `clearurls_disabled_rule_ids`
 - cancellation logic can block matching requests
+
+Disabled native-rule ids may be bare (`remove-utm-source`) or provider-scoped
+(`example/remove-utm-source`). Runtime matching also checks `aliases`, so a
+renamed imported rule does not silently wake back up after a catalog update.
 
 The output shape is standardized into webRequest decisions:
 
@@ -160,4 +167,3 @@ Across the pipeline, Linkumori records:
 - alias/CNAME context when present
 
 The logger UI uses this to show both live and historical cleaning behavior.
-

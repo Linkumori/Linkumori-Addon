@@ -1114,6 +1114,44 @@ function compileNativeSupersetRule(rule) {
     };
 }
 
+function getDisabledNativeRuleIds() {
+    const raw = storage && storage.clearurls_disabled_rule_ids;
+    const values = Array.isArray(raw)
+        ? raw
+        : (typeof raw === 'string'
+            ? (() => { try { return JSON.parse(raw); } catch (_) { return raw.split(/\r?\n|,/); } })()
+            : []);
+    return new Set((Array.isArray(values) ? values : [])
+        .filter(value => typeof value === 'string')
+        .map(value => value.trim())
+        .filter(Boolean));
+}
+
+function getNativeRuleIdentityKeys(providerName, rule) {
+    const ids = [];
+    if (rule && typeof rule.id === 'string' && rule.id.trim()) {
+        ids.push(rule.id.trim());
+    }
+    if (rule && Array.isArray(rule.aliases)) {
+        rule.aliases.forEach(alias => {
+            if (typeof alias === 'string' && alias.trim()) ids.push(alias.trim());
+        });
+    }
+
+    const keys = new Set(ids);
+    ids.forEach(id => keys.add(`${providerName}/${id}`));
+    return keys;
+}
+
+function isNativeRuleDisabled(providerName, rule) {
+    const disabledIds = getDisabledNativeRuleIds();
+    if (disabledIds.size === 0) return false;
+    for (const key of getNativeRuleIdentityKeys(providerName, rule)) {
+        if (disabledIds.has(key)) return true;
+    }
+    return false;
+}
+
 function nativeRuleApplies(rule, url, request) {
     if (!rule.active) return false;
     if (rule.types !== 'all') {
@@ -2052,7 +2090,9 @@ function start() {
 
         this.addRule = function (rule, isActive = true) {
             if (isNativeSupersetRule(rule)) {
-                if (isActive) enabled_nativeRules.push(compileNativeSupersetRule(rule));
+                if (isActive && !isNativeRuleDisabled(name, rule)) {
+                    enabled_nativeRules.push(compileNativeSupersetRule(rule));
+                }
                 return;
             }
             const parsedLinkumoriRule = parseLinkumoriRemoveParamRule(rule);

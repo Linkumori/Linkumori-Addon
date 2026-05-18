@@ -218,7 +218,7 @@ function handleSetData(request) {
             window.setData(key, value);
             
             // Auto-save to disk for important data
-            if (['custom_rules', 'linkumori_url_custom_rules', 'linkumori_url_disabled_rules', 'userWhitelist', 'ClearURLsData'].includes(key)) {
+            if (['custom_rules', 'linkumori_url_custom_rules', 'linkumori_url_disabled_rules', 'clearurls_disabled_rule_ids', 'userWhitelist', 'ClearURLsData'].includes(key)) {
                 if (typeof window.saveOnDisk === 'function') {
                     try {
                         window.saveOnDisk([key]);
