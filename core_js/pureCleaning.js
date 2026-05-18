@@ -75,6 +75,7 @@
 function pureCleaning(url, quiet = false) {
     let before = url;
     let after = url;
+    globalThis.linkumoriAppliedFieldRewrites = new Set();
 
     do {
         before = after;
@@ -122,8 +123,11 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetai
     const rawRules = typeof provider.getRawRules === 'function' ? provider.getRawRules() : [];
 
     for (const exception of exceptions) {
+        const pattern = typeof exception === 'string'
+            ? exception
+            : (exception && typeof exception === 'object' ? exception.matchPattern : null);
         try {
-            if ((new RegExp(exception, 'i')).test(url)) {
+            if (pattern && (new RegExp(pattern, 'i')).test(url)) {
                 diagnostics.matchedException = exception;
                 break;
             }
@@ -139,8 +143,11 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetai
     }
 
     for (const redirection of redirections) {
+        const pattern = typeof redirection === 'string'
+            ? redirection
+            : (redirection && typeof redirection === 'object' ? redirection.matchPattern : null);
         try {
-            if ((new RegExp(redirection, 'i')).test(url)) {
+            if (pattern && (new RegExp(pattern, 'i')).test(url)) {
                 diagnostics.matchedRedirection = redirection;
                 break;
             }
@@ -203,23 +210,30 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetai
             }
         };
 
+        const getRulePattern = (rule) => {
+            if (typeof rule === 'string') return rule;
+            if (rule && typeof rule === 'object' && typeof rule.matchPattern === 'string') return rule.matchPattern;
+            return null;
+        };
+
         diagnostics.matchedRuleRegex = rulesFromConfig
-            .filter((rule) => typeof rule === 'string' && !rule.includes('$removeparam'))
-            .find((rule) => matchesParamRule(rule)) || null;
+            .map((rule) => ({ raw: rule, pattern: getRulePattern(rule) }))
+            .filter(({ raw, pattern }) => pattern && !(typeof raw === 'string' && raw.includes('$removeparam')))
+            .find(({ pattern }) => matchesParamRule(pattern))?.raw || null;
 
         diagnostics.matchedReferralMarketing = referralMarketing
-            .filter((rule) => typeof rule === 'string')
-            .find((rule) => matchesParamRule(rule)) || null;
+            .map((rule) => ({ raw: rule, pattern: getRulePattern(rule) }))
+            .find(({ pattern }) => pattern && matchesParamRule(pattern))?.raw || null;
 
         diagnostics.matchedRawRule = rawRules
-            .filter((rule) => typeof rule === 'string')
-            .find((rule) => {
+            .map((rule) => ({ raw: rule, pattern: getRulePattern(rule) }))
+            .find(({ pattern }) => {
                 try {
-                    return (new RegExp(rule, 'gi')).test(url);
+                    return pattern && (new RegExp(pattern, 'gi')).test(url);
                 } catch (_) {
                     return false;
                 }
-            }) || null;
+            })?.raw || null;
 
         if (
             typeof parseLinkumoriRemoveParamRule === 'function' &&

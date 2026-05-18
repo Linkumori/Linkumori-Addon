@@ -222,6 +222,71 @@ function assertDomainRedirectionSyntax(provider, providerName = '') {
     });
 }
 
+const OBJECT_STYLE_RULE_FIELDS = Object.freeze([
+    'rules',
+    'rawRules',
+    'referralMarketing',
+    'exceptions',
+    'redirections'
+]);
+
+function isPlainObject(value) {
+    return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+function countRuleEntries(entries) {
+    return Array.isArray(entries) ? entries.length : 0;
+}
+
+function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
+    const prefix = `${providerName || 'Provider'}: ${fieldName}[${index}]`;
+    if (!isPlainObject(rule)) {
+        throw new Error(`${prefix} must be a string or rule object`);
+    }
+    if (typeof rule.matchPattern !== 'string') {
+        throw new Error(`${prefix}.matchPattern must be a string`);
+    }
+    if (rule.replacePattern !== undefined && typeof rule.replacePattern !== 'string') {
+        throw new Error(`${prefix}.replacePattern must be a string`);
+    }
+    if (rule.flags !== undefined && typeof rule.flags !== 'string') {
+        throw new Error(`${prefix}.flags must be a string`);
+    }
+    if (rule.active !== undefined && typeof rule.active !== 'boolean') {
+        throw new Error(`${prefix}.active must be a boolean`);
+    }
+    if (rule.exceptions !== undefined &&
+        (!Array.isArray(rule.exceptions) || rule.exceptions.some(item => typeof item !== 'string'))) {
+        throw new Error(`${prefix}.exceptions must be an array of strings`);
+    }
+    if (rule.requestTypes !== undefined &&
+        (!Array.isArray(rule.requestTypes) || rule.requestTypes.some(item => typeof item !== 'string'))) {
+        throw new Error(`${prefix}.requestTypes must be an array of strings`);
+    }
+    if (rule.preprocessors !== undefined && !Array.isArray(rule.preprocessors)) {
+        throw new Error(`${prefix}.preprocessors must be an array`);
+    }
+
+    // Keep UI validation aligned with what the core engine can actually compile.
+    new RegExp(rule.matchPattern, rule.flags === undefined ? 'i' : rule.flags);
+    (rule.exceptions || []).forEach(exception => new RegExp(exception, 'i'));
+}
+
+function assertRuleEntrySyntax(provider, providerName = '') {
+    OBJECT_STYLE_RULE_FIELDS.forEach((fieldName) => {
+        const entries = provider[fieldName];
+        if (!Array.isArray(entries)) {
+            return;
+        }
+        entries.forEach((entry, index) => {
+            if (typeof entry === 'string') {
+                return;
+            }
+            assertObjectStyleRuleSyntax(entry, providerName, fieldName, index);
+        });
+    });
+}
+
 // i18n helper function
 function i18n(key, ...substitutions) {
     return LinkumoriI18n.getMessage(key, substitutions);
@@ -1807,11 +1872,11 @@ function populateProviderListModal() {
 function createProviderListItemHTML(providerName, provider) {
     const domainPatterns = toDomainPatternArray(provider.domainPatterns);
     // Calculate provider statistics
-    const rulesCount = (provider.rules || []).length;
-    const rawRulesCount = (provider.rawRules || []).length;
-    const exceptionsCount = (provider.exceptions || []).length;
-    const redirectionsCount = (provider.redirections || []).length;
-    const referralCount = (provider.referralMarketing || []).length;
+    const rulesCount = countRuleEntries(provider.rules);
+    const rawRulesCount = countRuleEntries(provider.rawRules);
+    const exceptionsCount = countRuleEntries(provider.exceptions);
+    const redirectionsCount = countRuleEntries(provider.redirections);
+    const referralCount = countRuleEntries(provider.referralMarketing);
     const domainPatternsCount = domainPatterns.length;
     const domainExceptionsCount = (provider.domainExceptions || []).length;
     const domainRedirectionsCount = (provider.domainRedirections || []).length;
@@ -2543,11 +2608,11 @@ function createLinkumoriURLRuleCard(rule, source) {
 function createProviderCard(name, provider, source) {
     const domainPatterns = toDomainPatternArray(provider.domainPatterns);
     // Calculate provider statistics
-    const rulesCount = (provider.rules || []).length;
-    const rawRulesCount = (provider.rawRules || []).length;
-    const exceptionsCount = (provider.exceptions || []).length;
-    const redirectionsCount = (provider.redirections || []).length;
-    const referralCount = (provider.referralMarketing || []).length;
+    const rulesCount = countRuleEntries(provider.rules);
+    const rawRulesCount = countRuleEntries(provider.rawRules);
+    const exceptionsCount = countRuleEntries(provider.exceptions);
+    const redirectionsCount = countRuleEntries(provider.redirections);
+    const referralCount = countRuleEntries(provider.referralMarketing);
     const domainPatternsCount = domainPatterns.length;
     const domainExceptionsCount = (provider.domainExceptions || []).length;
     const domainRedirectionsCount = (provider.domainRedirections || []).length;
@@ -4137,7 +4202,9 @@ function validateAndUpdateJSON() {
     if (!jsonEditor || !validation) return;
 
     try {
-        JSON.parse(jsonEditor.value);
+        const provider = JSON.parse(jsonEditor.value);
+        assertProviderArrayFields(provider, currentProvider || '');
+        assertRuleEntrySyntax(provider, currentProvider || '');
         updateJsonTextMateHighlighting(jsonEditor);
         validation.style.display = 'none';
         hasUnsavedChanges = true;
@@ -4165,6 +4232,7 @@ async function saveCurrentProvider() {
         }
         const provider = JSON.parse(jsonEditor.value);
         assertProviderArrayFields(provider, currentProvider || '');
+        assertRuleEntrySyntax(provider, currentProvider || '');
         assertDomainRedirectionSyntax(provider, currentProvider || '');
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
@@ -4739,6 +4807,7 @@ function validateImportedProviders(providersData) {
 
     for (const [name, provider] of Object.entries(providersData)) {
         assertProviderArrayFields(provider, name);
+        assertRuleEntrySyntax(provider, name);
         assertDomainRedirectionSyntax(provider, name);
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
