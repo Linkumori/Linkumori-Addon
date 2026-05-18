@@ -2945,6 +2945,7 @@ subdomain.example.com
                         <div class="faq-answer-content">
                             <p><strong data-i18n="faq_rules_title"></strong> <span data-i18n="faq_rules_explanation"></span></p>
                             <div class="faq-code">"rules": ["utm_source", "fbclid", "||example.com^$removeparam=/^utm_/", "@@||example.com^$removeparam=utm_source"]</div>
+<<<<<<< HEAD
                             <div class="faq-code">"rules": [
   "utm_source",
   { "field": "session", "rewrite": "clean", "types": ["main_frame"] },
@@ -2952,6 +2953,8 @@ subdomain.example.com
   { "url": "^https?://example\\.com/go\\?to=([^&]+)", "redirect": "§1§", "preprocess": [{ "type": "urlDecode", "inputs": [1] }] }
 ]</div>
                             <p data-i18n="faq_rules_native_object_form"></p>
+=======
+>>>>>>> parent of 0255e8e (feat:(rules): introduce Linkumori-native superset format)
                             <p data-i18n="faq_rules_converted"></p>
                             
                             <p><strong data-i18n="faq_raw_rules_title"></strong> <span data-i18n="faq_raw_rules_explanation"></span></p>

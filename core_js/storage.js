@@ -1655,7 +1655,7 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
                 storage.rulesMetadata.sourceURL = url;
             }
 
-            const remoteRules = normalizeImportedRulesDocument(remoteRulesData);
+            const remoteRules = remoteRulesData;
 
             if (!remoteRules.providers || typeof remoteRules.providers !== 'object') {
                 throw new Error('Remote rules missing providers object');
@@ -1748,7 +1748,7 @@ function fetchRemoteHash(hashUrl, ruleURLForHealth = null) {
 
 async function fetchBundledRulesRaw() {
     const payload = await fetchBundledRulesText();
-    const rawRulesData = normalizeImportedRulesDocument(JSON.parse(payload.text));
+    const rawRulesData = JSON.parse(payload.text);
     validateBundledRulesData(rawRulesData);
     return rawRulesData;
 }
@@ -1772,7 +1772,7 @@ async function fetchBundledRulesText() {
     if (!text || text.trim().length === 0) {
         throw new Error('LZ4 rules file is empty after decompression');
     }
-    validateBundledRulesData(normalizeImportedRulesDocument(JSON.parse(text)));
+    validateBundledRulesData(JSON.parse(text));
 
     return {
         text,
@@ -1792,6 +1792,7 @@ function validateBundledRulesData(rawRulesData) {
     }
 }
 
+<<<<<<< HEAD
 // ClearURLs v2 is accepted as an interchange format, then reduced into the
 // Linkumori-native superset authoring shape:
 //   "utm_source"
@@ -1904,8 +1905,9 @@ function toNativeLinkumoriRule(rule) {
     return native;
 }
 
+=======
+>>>>>>> parent of 0255e8e (feat:(rules): introduce Linkumori-native superset format)
 function normalizeRulesForProviderImport(rulesData, fallbackName, fallbackSource) {
-    rulesData = normalizeImportedRulesDocument(rulesData);
     const providers = (rulesData && typeof rulesData === 'object' && rulesData.providers && typeof rulesData.providers === 'object')
         ? rulesData.providers
         : {};

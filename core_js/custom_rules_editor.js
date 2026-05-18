@@ -223,6 +223,7 @@ function assertDomainRedirectionSyntax(provider, providerName = '') {
     });
 }
 
+<<<<<<< HEAD
 function assertNativeSupersetRule(rule, providerName = '') {
     if (typeof rule === 'string') return;
     if (!rule || typeof rule !== 'object' || Array.isArray(rule)) {
@@ -309,6 +310,8 @@ function assertProviderRuleEntries(provider, providerName = '') {
     (provider.rules || []).forEach(rule => assertNativeSupersetRule(rule, providerName));
 }
 
+=======
+>>>>>>> parent of 0255e8e (feat:(rules): introduce Linkumori-native superset format)
 // i18n helper function
 function i18n(key, ...substitutions) {
     return LinkumoriI18n.getMessage(key, substitutions);
@@ -4329,7 +4332,6 @@ async function saveCurrentProvider() {
         }
         const provider = JSON.parse(jsonEditor.value);
         assertProviderArrayFields(provider, currentProvider || '');
-        assertProviderRuleEntries(provider, currentProvider || '');
         assertDomainRedirectionSyntax(provider, currentProvider || '');
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
@@ -4878,6 +4880,7 @@ function getProvidersFromImportedCustomRules(imported) {
     return null;
 }
 
+<<<<<<< HEAD
 function normalizeImportedClearURLsV2ForEditor(imported) {
     if (!imported || imported.version !== 2 || !imported.providers) return imported;
     const defaults = imported.defaults || {};
@@ -4937,6 +4940,8 @@ function normalizeImportedClearURLsV2ForEditor(imported) {
     return { providers };
 }
 
+=======
+>>>>>>> parent of 0255e8e (feat:(rules): introduce Linkumori-native superset format)
 function getLinkumoriURLRulesFromImportedCustomRules(imported) {
     if (!imported || typeof imported !== 'object') {
         return null;
@@ -4965,7 +4970,6 @@ function validateImportedProviders(providersData) {
 
     for (const [name, provider] of Object.entries(providersData)) {
         assertProviderArrayFields(provider, name);
-        assertProviderRuleEntries(provider, name);
         assertDomainRedirectionSyntax(provider, name);
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
@@ -5021,7 +5025,7 @@ async function handleFileImport(e) {
     const reader = new FileReader();
     reader.onload = async function(event) {
         try {
-            const imported = normalizeImportedClearURLsV2ForEditor(JSON.parse(event.target.result));
+            const imported = JSON.parse(event.target.result);
 
             if (!imported || typeof imported !== 'object' || Array.isArray(imported)) {
                 throw new Error(i18n('customRulesEditor_invalidFileStructure'));
