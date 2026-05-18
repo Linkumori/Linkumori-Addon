@@ -84,14 +84,6 @@ var os;
 var initializationComplete = false;
 var linkumoriPatternRegexCache = new Map();
 var clearurlsWebRequestHandler = null;
-const nativeRulePreprocessorTypes = new Set([
-    'urlEncode',
-    'urlDecode',
-    'doubleUrlEncode',
-    'doubleUrlDecode',
-    'base64Encode',
-    'base64Decode'
-]);
 var pslSupport = {
     status: 'idle',
     parser: null,
@@ -1077,6 +1069,7 @@ function createNativeRulePreprocessor(spec) {
     const type = spec && spec.type;
 <<<<<<< HEAD
     const inputs = spec && spec.inputs !== undefined ? spec.inputs : 'all';
+<<<<<<< HEAD
     if (!nativeRulePreprocessorTypes.has(type)) {
         throw new Error(`Unsupported native rule preprocessor: ${type}`);
     }
@@ -1089,6 +1082,8 @@ function createNativeRulePreprocessor(spec) {
 =======
     const inputs = spec && spec.inputs === undefined ? 'all' : spec.inputs;
 >>>>>>> parent of 35b5e6b (fix: address native rule review feedback)
+=======
+>>>>>>> parent of 253ccdd (fix: harden native rule runtime edge cases)
     const transforms = {
         urlEncode: encodeURIComponent,
         urlDecode: value => { try { return decodeURIComponent(value); } catch (_) { return value; } },
@@ -1097,7 +1092,7 @@ function createNativeRulePreprocessor(spec) {
         base64Encode: value => { try { return btoa(unescape(encodeURIComponent(value))); } catch (_) { return value; } },
         base64Decode: value => { try { return decodeURIComponent(escape(atob(value))); } catch (_) { return value; } }
     };
-    const transform = transforms[type];
+    const transform = transforms[type] || (value => value);
     return values => values.map((value, index) => (
         inputs === 'all' || (Array.isArray(inputs) && inputs.includes(index + 1))
             ? transform(String(value || ''))
@@ -1114,24 +1109,7 @@ function isNativeSupersetRule(rule) {
 }
 
 function compileNativeSupersetRule(rule) {
-    const subjects = ['field', 'raw', 'url'].filter(key => typeof rule[key] === 'string');
-    if (subjects.length !== 1) {
-        throw new Error('Native rule must define exactly one subject');
-    }
-    const [subject] = subjects;
-    const actions = ['remove', 'rewrite', 'redirect'].filter(key => rule[key] !== undefined);
-    if (actions.length > 1) {
-        throw new Error('Native rule can define only one action');
-    }
-    if (rule.remove !== undefined && rule.remove !== true) {
-        throw new Error('Native rule remove action must be true');
-    }
-    if (subject === 'url' && (actions.length === 0 || actions[0] !== 'redirect' || !rule.redirect.trim())) {
-        throw new Error('Native url rule must use a non-empty redirect');
-    }
-    if ((subject === 'field' || subject === 'raw') && actions[0] === 'redirect') {
-        throw new Error(`Native ${subject} rule cannot redirect`);
-    }
+    const subject = typeof rule.field === 'string' ? 'field' : typeof rule.raw === 'string' ? 'raw' : 'url';
     const pattern = rule[subject];
     const action = typeof rule.redirect === 'string'
         ? 'redirect'
@@ -1201,7 +1179,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     let changes = false;
     let actionType = null;
     let matchedRuleForTrace = null;
-    let nativeRawMutation = null;
     let rawRules = provider.getRawRules();
     let urlObject = new URL(url);
     const providerMatch = {
@@ -1297,6 +1274,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             if (!actionType) actionType = rule.action === 'rewrite' ? 'rewrite' : 'raw_rule';
             if (!matchedRuleForTrace) matchedRuleForTrace = rule.pattern;
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (!nativeRawMutation) {
                 nativeRawMutation = {
                     before: beforeReplace,
@@ -1309,6 +1287,12 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 =======
             increaseBadged(false, request);
 >>>>>>> parent of 35b5e6b (fix: address native rule review feedback)
+=======
+            if (storage.loggingStatus && !quiet) {
+                pushToLog(beforeReplace, url, rule.pattern, providerMatch);
+            }
+            increaseBadged(false, request);
+>>>>>>> parent of 253ccdd (fix: harden native rule runtime edge cases)
         }
     }
 
@@ -1539,23 +1523,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
 
         url = finalURL.replace(/\?&/, "?").replace(/#&/, "#");
-    }
-
-    // Some native raw rewrites intentionally transform an intermediate
-    // representation that URL reconstruction normalizes back to the original
-    // external URL. Do not emit a same-URL redirect in that case: Firefox treats
-    // it as an aborted navigation loop (NS_BINDING_ABORTED).
-    if (changes && url === pureUrl) {
-        changes = false;
-        actionType = null;
-        matchedRuleForTrace = null;
-    }
-
-    if (changes && nativeRawMutation) {
-        if (storage.loggingStatus && !quiet) {
-            pushToLog(nativeRawMutation.before, nativeRawMutation.after, nativeRawMutation.rule, providerMatch);
-        }
-        increaseBadged(false, request);
     }
 
     return {

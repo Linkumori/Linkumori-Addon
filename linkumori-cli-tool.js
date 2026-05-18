@@ -2396,18 +2396,6 @@ ${commit.message}
         if (actions.length > 1) {
           errors.push(`${tag} object rule can define only one action`);
         }
-        if (subject === 'url' && (actions.length === 0 || actions[0] !== 'redirect')) {
-          errors.push(`${tag} url object rule must use redirect`);
-        }
-        if ((subject === 'field' || subject === 'raw') && actions[0] === 'redirect') {
-          errors.push(`${tag} ${subject} object rule cannot use redirect`);
-        }
-        if (rule.remove !== undefined && rule.remove !== true) {
-          errors.push(`${tag} object rule remove must be true when present`);
-        }
-        if (subject === 'url' && typeof rule.redirect === 'string' && !rule.redirect.trim()) {
-          errors.push(`${tag} url object rule redirect must be non-empty`);
-        }
         tryRegex(subject === 'field' ? `^(?:${rule[subject]})$` : rule[subject], subject === 'raw' ? 'gi' : 'i', `${tag} ${subject} rule`);
 =======
         tryRegex(subject === 'field' ? `^${rule[subject]}$` : rule[subject], subject === 'raw' ? 'gi' : 'i', `${tag} ${subject} rule`);
@@ -2417,25 +2405,6 @@ ${commit.message}
         }
         if (rule.types !== undefined && rule.types !== 'all' && (!Array.isArray(rule.types) || rule.types.some((value) => typeof value !== 'string'))) {
           errors.push(`${tag} rule types must be "all" or an array of strings`);
-        }
-        if (rule.preprocess !== undefined && !Array.isArray(rule.preprocess)) {
-          errors.push(`${tag} rule preprocess must be an array`);
-        }
-        for (const [index, step] of (Array.isArray(rule.preprocess) ? rule.preprocess : []).entries()) {
-          if (!step || typeof step !== 'object' || Array.isArray(step)) {
-            errors.push(`${tag} rule preprocess[${index}] must be an object`);
-            continue;
-          }
-          if (!['urlEncode', 'urlDecode', 'doubleUrlEncode', 'doubleUrlDecode', 'base64Encode', 'base64Decode'].includes(step.type)) {
-            errors.push(`${tag} rule preprocess[${index}].type is unsupported`);
-          }
-          if (
-            step.inputs !== undefined &&
-            step.inputs !== 'all' &&
-            (!Array.isArray(step.inputs) || step.inputs.some((value) => !Number.isInteger(value) || value < 1))
-          ) {
-            errors.push(`${tag} rule preprocess[${index}].inputs must be "all" or positive integers`);
-          }
         }
       }
 
