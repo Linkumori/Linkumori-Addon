@@ -609,8 +609,9 @@ function inferProviderMatch(entry, rulesData) {
 
 function formatRuleForDisplay(rule) {
     if (typeof rule === 'string') return rule.trim();
-    if (rule && typeof rule === 'object' && typeof rule.matchPattern === 'string') {
-        return rule.matchPattern.trim();
+    if (rule && typeof rule === 'object') {
+        if (typeof rule.match === 'string') return rule.match.trim();
+        if (typeof rule.matchPattern === 'string') return rule.matchPattern.trim();
     }
     return '';
 }

@@ -404,7 +404,7 @@ function getStableRuleSignature(rule) {
         active: rule.active !== false,
         exceptions: Array.isArray(rule.exceptions) ? rule.exceptions.filter(item => typeof item === 'string').slice().sort() : [],
         flags: typeof rule.flags === 'string' ? rule.flags : '',
-        matchPattern: typeof rule.matchPattern === 'string' ? rule.matchPattern : '',
+        matchPattern: typeof rule.match === 'string' ? rule.match : (typeof rule.matchPattern === 'string' ? rule.matchPattern : ''),
         preprocessors: Array.isArray(rule.preprocessors) ? rule.preprocessors : [],
         replacePattern: typeof rule.replacePattern === 'string' ? rule.replacePattern : null,
         requestTypes: Array.isArray(rule.requestTypes) ? rule.requestTypes.map(item => String(item || '').toLowerCase()).filter(Boolean).sort() : []
@@ -2514,6 +2514,9 @@ function applyRegressionRuleData(data) {
         return JSON.parse(JSON.stringify(value));
     };
     storage.ClearURLsData = {
+        ...(safeData.defaults && typeof safeData.defaults === 'object' && !Array.isArray(safeData.defaults)
+            ? { defaults: cloneValue(safeData.defaults) }
+            : {}),
         providers: safeData.providers && typeof safeData.providers === 'object' && !Array.isArray(safeData.providers)
             ? cloneValue(safeData.providers)
             : {},

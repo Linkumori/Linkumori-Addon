@@ -1065,14 +1065,35 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
 }
 
 
-function normalizeCoreRuleDefinition(rule, defaultFlags = "i") {
+function resolveCoreRuleDefaults(rule, defaults = null) {
+    if (!rule || typeof rule !== "object" || Array.isArray(rule)) {
+        return rule;
+    }
+
+    const safeDefaults = defaults && typeof defaults === "object" ? defaults : {};
+    return {
+        ...rule,
+        ...(rule.active === undefined && typeof safeDefaults.active === "boolean" ? { active: safeDefaults.active } : {}),
+        ...(rule.requestTypes === undefined && safeDefaults.requestTypes !== undefined ? { requestTypes: safeDefaults.requestTypes } : {}),
+        ...(rule.preprocessors === undefined && Array.isArray(safeDefaults.preprocessors) ? { preprocessors: safeDefaults.preprocessors } : {}),
+        ...(rule.exceptions === undefined && Array.isArray(safeDefaults.exceptions) ? { exceptions: safeDefaults.exceptions } : {})
+    };
+}
+
+function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) {
     if (typeof rule === "string") {
         return {
+            actionType: "remove",
             active: true,
+            aliases: [],
+            description: "",
             exceptions: [],
             flags: defaultFlags,
+            id: null,
+            kind: null,
             matchPattern: rule,
             preprocessors: [],
+            referralMarketing: false,
             replacePattern: null,
             requestTypes: null,
             raw: rule,
@@ -1080,27 +1101,53 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i") {
         };
     }
 
-    if (!rule || typeof rule !== "object" || typeof rule.matchPattern !== "string") {
+    const resolvedRule = resolveCoreRuleDefaults(rule, defaults);
+    if (!resolvedRule || typeof resolvedRule !== "object") {
         return null;
     }
 
+    const isCanonical = typeof resolvedRule.match === "string";
+    const matchPattern = isCanonical ? resolvedRule.match : resolvedRule.matchPattern;
+    if (typeof matchPattern !== "string") {
+        return null;
+    }
+
+    const action = resolvedRule.action && typeof resolvedRule.action === "object"
+        ? resolvedRule.action
+        : null;
+    const actionType = action && typeof action.type === "string"
+        ? action.type
+        : (typeof resolvedRule.replacePattern === "string" ? "rewrite" : "remove");
+    const replacePattern = action && typeof action.replacePattern === "string"
+        ? action.replacePattern
+        : (typeof resolvedRule.replacePattern === "string" ? resolvedRule.replacePattern : null);
+    const requestTypes = resolvedRule.requestTypes === "all"
+        ? null
+        : (Array.isArray(resolvedRule.requestTypes)
+            ? resolvedRule.requestTypes.map((item) => String(item || "").toLowerCase()).filter(Boolean)
+            : null);
+
     return {
-        active: rule.active !== false,
-        exceptions: Array.isArray(rule.exceptions) ? rule.exceptions.filter((item) => typeof item === "string") : [],
-        flags: typeof rule.flags === "string" ? rule.flags : defaultFlags,
-        matchPattern: rule.matchPattern,
-        preprocessors: Array.isArray(rule.preprocessors) ? rule.preprocessors : [],
-        replacePattern: typeof rule.replacePattern === "string" ? rule.replacePattern : null,
-        requestTypes: Array.isArray(rule.requestTypes)
-            ? rule.requestTypes.map((item) => String(item || "").toLowerCase()).filter(Boolean)
-            : null,
-        raw: rule,
-        sourceType: "object"
+        actionType,
+        active: resolvedRule.active !== false,
+        aliases: Array.isArray(resolvedRule.aliases) ? resolvedRule.aliases.filter((item) => typeof item === "string") : [],
+        description: typeof resolvedRule.description === "string" ? resolvedRule.description : "",
+        exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter((item) => typeof item === "string") : [],
+        flags: typeof resolvedRule.flags === "string" ? resolvedRule.flags : defaultFlags,
+        id: typeof resolvedRule.id === "string" ? resolvedRule.id : null,
+        kind: typeof resolvedRule.kind === "string" ? resolvedRule.kind : null,
+        matchPattern,
+        preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
+        referralMarketing: resolvedRule.referralMarketing === true,
+        replacePattern,
+        requestTypes,
+        raw: resolvedRule,
+        sourceType: isCanonical ? "canonical" : "legacy-object"
     };
 }
 
-function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = false) {
-    const normalized = normalizeCoreRuleDefinition(rule, defaultFlags);
+function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = false, defaults = null) {
+    const normalized = normalizeCoreRuleDefinition(rule, defaultFlags, defaults);
     if (!normalized) return null;
 
     const source = wrapFieldRule ? "^" + normalized.matchPattern + "$" : normalized.matchPattern;
@@ -1551,19 +1598,33 @@ function start() {
                 providers[p].setURLDomainPattern(domainPatterns);
             }
 
+            const providerDefaults = data && data.defaults && typeof data.defaults === 'object' ? data.defaults : null;
             let rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
             for (let r = 0; r < rules.length; r++) {
-                providers[p].addRule(rules[r]);
+                const normalizedRule = normalizeCoreRuleDefinition(rules[r], "i", providerDefaults);
+                if (normalizedRule && normalizedRule.sourceType === 'canonical') {
+                    if (normalizedRule.kind === 'raw') {
+                        providers[p].addRawRule(rules[r], true, providerDefaults);
+                    } else if (normalizedRule.kind === 'redirection' || normalizedRule.actionType === 'redirect') {
+                        providers[p].addRedirection(rules[r], true, providerDefaults);
+                    } else if (normalizedRule.referralMarketing === true) {
+                        providers[p].addReferralMarketing(rules[r], true, providerDefaults);
+                    } else {
+                        providers[p].addRule(rules[r], true, providerDefaults);
+                    }
+                    continue;
+                }
+                providers[p].addRule(rules[r], true, providerDefaults);
             }
 
             let rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
             for (let raw = 0; raw < rawRules.length; raw++) {
-                providers[p].addRawRule(rawRules[raw]);
+                providers[p].addRawRule(rawRules[raw], true, providerDefaults);
             }
 
             let referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
             for (let referralMarketing = 0; referralMarketing < referralMarketingRules.length; referralMarketing++) {
-                providers[p].addReferralMarketing(referralMarketingRules[referralMarketing]);
+                providers[p].addReferralMarketing(referralMarketingRules[referralMarketing], true, providerDefaults);
             }
 
             let exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
@@ -1578,7 +1639,7 @@ function start() {
 
             let redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
             for (let re = 0; re < redirections.length; re++) {
-                providers[p].addRedirection(redirections[re]);
+                providers[p].addRedirection(redirections[re], true, providerDefaults);
             }
             
             let domainRedirections = data.providers[prvKeys[p]].getOrDefault('domainRedirections', []);
@@ -2070,7 +2131,7 @@ function start() {
             }
         };
 
-        this.addRule = function (rule, isActive = true) {
+        this.addRule = function (rule, isActive = true, defaults = null) {
             const parsedLinkumoriRule = typeof rule === 'string' ? parseLinkumoriRemoveParamRule(rule) : null;
             if (parsedLinkumoriRule) {
                 if (!isActive) return;
@@ -2083,7 +2144,7 @@ function start() {
                 return;
             }
 
-            const compiled = compileCoreRuleDefinition(rule, "i", true);
+            const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             enabled_rules[compiled.matchPattern] = compiled;
         };
@@ -2103,8 +2164,8 @@ function start() {
             return enabled_rules;
         };
 
-        this.addRawRule = function (rule, isActive = true) {
-            const compiled = compileCoreRuleDefinition(rule, "gi", false);
+        this.addRawRule = function (rule, isActive = true, defaults = null) {
+            const compiled = compileCoreRuleDefinition(rule, "gi", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             enabled_rawRules[compiled.matchPattern] = compiled;
         };
@@ -2125,8 +2186,8 @@ function start() {
             return enabled_linkumoriRemoveParamExceptions.slice();
         };
 
-        this.addReferralMarketing = function (rule, isActive = true) {
-            const compiled = compileCoreRuleDefinition(rule, "i", true);
+        this.addReferralMarketing = function (rule, isActive = true, defaults = null) {
+            const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             enabled_referralMarketing[compiled.matchPattern] = compiled;
         };
@@ -2205,8 +2266,8 @@ function start() {
             return result;
         };
 
-        this.addRedirection = function (redirection, isActive = true) {
-            const compiled = compileCoreRuleDefinition(redirection, "i", false);
+        this.addRedirection = function (redirection, isActive = true, defaults = null) {
+            const compiled = compileCoreRuleDefinition(redirection, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             enabled_redirections[compiled.matchPattern] = compiled;
         };
