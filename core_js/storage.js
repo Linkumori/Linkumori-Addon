@@ -746,10 +746,10 @@ function normalizeDisabledRuleIds(value) {
         try {
             return normalizeDisabledRuleIds(JSON.parse(value));
         } catch (_) {
-            return [...new Set(value
+            return value
                 .split(/\r?\n|,/)
                 .map(entry => entry.trim())
-                .filter(Boolean))];
+                .filter(Boolean);
         }
     }
 
@@ -1839,7 +1839,7 @@ function resolveImportedV2Rule(rule, defaults) {
     const source = typeof rule === 'string'
         ? { kind: 'field', match: rule }
         : (rule && typeof rule === 'object' ? rule : {});
-    if (typeof source.match !== 'string' || source.match.trim() === '') {
+    if (typeof source.match !== 'string') {
         throw new Error('Rules v2 rule must include match');
     }
     const kind = source.kind || 'field';
@@ -1853,6 +1853,7 @@ function resolveImportedV2Rule(rule, defaults) {
     if (!['remove', 'rewrite', 'redirect'].includes(actionType)) {
         throw new Error(`Unsupported rules v2 action type: ${actionType}`);
     }
+<<<<<<< HEAD
     if (
         (actionType === 'rewrite' || actionType === 'redirect') &&
         (typeof action.replacePattern !== 'string' || action.replacePattern.trim() === '')
@@ -1875,6 +1876,11 @@ function resolveImportedV2Rule(rule, defaults) {
         kind,
 <<<<<<< HEAD
         match: source.match.trim(),
+=======
+    return {
+        kind,
+        match: source.match,
+>>>>>>> parent of 35b5e6b (fix: address native rule review feedback)
         id: typeof source.id === 'string' ? source.id : null,
         aliases: Array.isArray(source.aliases) ? source.aliases.slice() : [],
         description: typeof source.description === 'string' ? source.description : '',
