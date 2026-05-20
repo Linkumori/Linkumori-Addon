@@ -24,6 +24,61 @@ Compatibility aliases accepted by the editor:
 - `linkumori-clearursl-dialect` is accepted as a typo-compatible alias for `linkumori-clearurls-dialect`.
 - `linkumori-v3` is accepted as an older alias for `clearurls-dialect`. New saves normalize to the current names above.
 
+
+### Side-by-side dialect mapping
+
+Both dialects can live in the same `providers` object. The editor chooses the mode per provider from `syntax` and from the rule shape.
+
+| Intent | Linkumori-ClearURLs dialect | ClearURLs dialect |
+| --- | --- | --- |
+| Dialect marker | `"syntax": "linkumori-clearurls-dialect"` | `"syntax": "clearurls-dialect"` |
+| Remove query parameter by name | `"rules": ["fbclid"]` | `"rules": [{ "kind": "field", "match": "fbclid", "action": { "type": "remove" } }]` |
+| Referral marketing rule | `"referralMarketing": ["tag"]` | `"rules": [{ "kind": "field", "match": "tag", "referralMarketing": true, "action": { "type": "remove" } }]` |
+| Raw URL cleanup | `"rawRules": ["/ref=[^/?#]*"]` | `"rules": [{ "kind": "raw", "match": "/ref=[^/?#]*", "action": { "type": "remove" } }]` |
+| Regex redirect extraction | `"redirections": ["^https?:\\/\\/example\\.com\\/go\\?target=([^&]+)$"]` | `"rules": [{ "kind": "redirection", "match": "^https?:\\/\\/example\\.com\\/go\\?target=([^&]+)$", "action": { "type": "redirect", "replacePattern": "§1§" } }]` |
+| Provider URL matching | `urlPattern`, `indexPattern`, or `domainPatterns` | same |
+| Provider exceptions | `exceptions`, `domainExceptions` | same |
+| Domain redirections | `domainRedirections` | same provider-level field |
+| Request constraints | `methods`, `resourceTypes` | same |
+
+Use **Linkumori-ClearURLs dialect** when importing or hand-editing classic ClearURLs-style data. Use **ClearURLs dialect** when you want one canonical object per rule, stable IDs, and clearer editor templates.
+
+### Mixed-provider example
+
+```json
+{
+  "providers": {
+    "classic-provider": {
+      "syntax": "linkumori-clearurls-dialect",
+      "urlPattern": "^https?:\\/\\/(?:[^/]+\\.)?classic\\.example",
+      "indexPattern": "||classic.example^",
+      "rules": ["utm_[a-z]+", "fbclid"],
+      "rawRules": ["/ref=[^/?#]*"],
+      "referralMarketing": ["tag"]
+    },
+    "canonical-provider": {
+      "syntax": "clearurls-dialect",
+      "urlPattern": "^https?:\\/\\/(?:[^/]+\\.)?canonical\\.example",
+      "indexPattern": "||canonical.example^",
+      "rules": [
+        {
+          "id": "remove-utm-source",
+          "kind": "field",
+          "match": "utm_source",
+          "action": { "type": "remove" }
+        },
+        {
+          "id": "remove-ref-raw",
+          "kind": "raw",
+          "match": "/ref=[^/?#]*",
+          "action": { "type": "remove" }
+        }
+      ]
+    }
+  }
+}
+```
+
 ## 2. `ClearURLsData`
 
 `ClearURLsData` is provider-based JSON. Providers may use either dialect. The classic Linkumori-ClearURLs dialect is shown first because it matches the historical ClearURLs provider layout.
