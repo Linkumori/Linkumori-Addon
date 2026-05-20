@@ -1998,10 +1998,7 @@ function start() {
         };
 
         this.requiresGlobalFallback = function () {
-            return (
-                domainPatterns.some(pattern => String(pattern || '').trim().charAt(0) === '/') ||
-                (!!urlPattern && indexPatterns.length > 0)
-            );
+            return domainPatterns.some(pattern => String(pattern || '').trim().charAt(0) === '/');
         };
 
         this.setURLPattern = function (urlPatterns) {
