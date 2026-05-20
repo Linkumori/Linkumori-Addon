@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - (rules): introduce Linkumori-native superset format https://gitlab.com/ClearURLs/core/-/merge_requests/4 - Simple removals remain plain strings - Advanced rules use explicit object keys (field/raw/url + remove/rewrite/redirect) - Editor docs, validation, and examples updated to reflect native format (`2026-05-18`, hash: [`0255e8e`](https://github.com/Linkumori/Linkumori-Addon/commit/0255e8e))
 - Implement native superset rules across tooling (`2026-05-18`, hash: [`f26f882`](https://github.com/Linkumori/Linkumori-Addon/commit/f26f882))
 - Introduce durable native rule identity support (`2026-05-18`, hash: [`112fb7e`](https://github.com/Linkumori/Linkumori-Addon/commit/112fb7e))
-- Introduce localized Linkumori v3 editor mode (`2026-05-19`, hash: [`71b0bb2`](https://github.com/Linkumori/Linkumori-Addon/commit/71b0bb2))
+- Introduce localized ClearURLs dialect editor mode (`2026-05-19`, hash: [`71b0bb2`](https://github.com/Linkumori/Linkumori-Addon/commit/71b0bb2))
 - Introduce rich ClearURLs rule syntax support (`2026-05-18`, hash: [`f0b5911`](https://github.com/Linkumori/Linkumori-Addon/commit/f0b5911))
 - Introduce rich syntax support based on clearurls based on dev branch (`2026-05-18`, hash: [`b9b5071`](https://github.com/Linkumori/Linkumori-Addon/commit/b9b5071))
 

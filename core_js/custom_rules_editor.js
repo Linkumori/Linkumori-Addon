@@ -4169,15 +4169,20 @@ function syncPatternEditorFromJson() {
     }
 }
 
-const LINKUMORI_V3_SYNTAX = 'linkumori-v3';
+const CLEARURLS_DIALECT_SYNTAX = 'clearurls-dialect';
+const LEGACY_LINKUMORI_V3_SYNTAX = 'linkumori-v3';
 
 function providerUsesCanonicalRules(provider) {
     return Array.isArray(provider?.rules) && provider.rules.some(rule =>
         isPlainObject(rule) && typeof rule.match === 'string' && isPlainObject(rule.action));
 }
 
+function isClearUrlsDialectSyntax(syntax) {
+    return syntax === CLEARURLS_DIALECT_SYNTAX || syntax === LEGACY_LINKUMORI_V3_SYNTAX;
+}
+
 function getProviderSyntaxMode(provider) {
-    return provider?.syntax === LINKUMORI_V3_SYNTAX || providerUsesCanonicalRules(provider)
+    return isClearUrlsDialectSyntax(provider?.syntax) || providerUsesCanonicalRules(provider)
         ? 'v3'
         : 'legacy';
 }
@@ -4185,7 +4190,7 @@ function getProviderSyntaxMode(provider) {
 function createProviderSkeleton(mode = 'legacy') {
     if (mode === 'v3') {
         return {
-            syntax: LINKUMORI_V3_SYNTAX,
+            syntax: CLEARURLS_DIALECT_SYNTAX,
             urlPattern: '',
             rules: []
         };
@@ -4222,7 +4227,7 @@ function normalizeProviderForEditor(provider, mode = 'legacy') {
     const next = JSON.parse(JSON.stringify(provider || {}));
     if (mode === 'v3') {
         const clean = compactProviderForEditor(next, 'v3');
-        clean.syntax = LINKUMORI_V3_SYNTAX;
+        clean.syntax = CLEARURLS_DIALECT_SYNTAX;
         if (!Array.isArray(clean.rules)) clean.rules = [];
         delete clean.rawRules;
         delete clean.referralMarketing;

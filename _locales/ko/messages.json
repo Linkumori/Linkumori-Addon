@@ -4571,28 +4571,28 @@
     "description": "Auto-added i18n key: customRulesEditor_syntaxLegacy"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "린쿠모리 v3",
-    "description": "Auto-added i18n key: customRulesEditor_syntaxV3"
+    "message": "ClearURLs dialect",
+    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
   },
   "customRulesEditor_syntaxLegacyHelp": {
     "message": "레거시는 rawRules 및 리디렉션과 같은 섹션 배열을 유지합니다.",
     "description": "Auto-added i18n key: customRulesEditor_syntaxLegacyHelp"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "Linkumori v3는 종류 + 작업을 사용하여 규칙[]에 정식 규칙을 저장합니다. 빠른 조회를 위해 urlPattern과 함께 indexPattern을 사용하세요.",
-    "description": "Auto-added i18n key: customRulesEditor_syntaxV3Help"
+    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
+    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "표준 규칙은 일치, 종류 및 작업을 사용합니다.",
-    "description": "Auto-added i18n key: customRulesEditor_syntaxV3EditorHelp"
+    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
+    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
     "message": "레거시 규칙은 rawRules 및 리디렉션과 같은 섹션 배열을 사용합니다.",
     "description": "Auto-added i18n key: customRulesEditor_syntaxLegacyEditorHelp"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "Linkumori v3 규칙은 rule[]에 있으며 ID, 종류, 일치 및 작업을 사용합니다.",
-    "description": "Auto-added i18n key: customRulesEditor_syntaxV3ToolbarHelp"
+    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
+    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
   },
   "customRulesEditor_addFieldRule": {
     "message": "필드 규칙 추가",
@@ -4608,10 +4608,10 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "제공자 필드",
-    "description": "Custom rules editor label for provider fields in Linkumori v3 mode"
+    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "규칙 템플릿",
-    "description": "Custom rules editor label for rule templates in Linkumori v3 mode"
+    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
   }
 }
