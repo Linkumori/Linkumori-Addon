@@ -16,6 +16,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.7.0] - 2026-05-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.6.1...linkumori-v100.7.0))
+### Changed
+- Create npm-publish-github-packages.yml (`2026-05-20`, hash: [`bd70d63`](https://github.com/Linkumori/Linkumori-Addon/commit/bd70d63))
+
+### Removed
+- Delete .github/workflows/npm-publish-github-packages.yml (`2026-05-20`, hash: [`91a6074`](https://github.com/Linkumori/Linkumori-Addon/commit/91a6074))
+
 ## [v100.6.1] - 2026-05-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.6.0...linkumori-v100.6.1))
 ### Added
 - Implement ClearURLs dialect runtime snapshots (`2026-05-20`, hash: [`6682fbb`](https://github.com/Linkumori/Linkumori-Addon/commit/6682fbb))
