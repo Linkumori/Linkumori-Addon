@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.6.1] - 2026-05-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.6.0...linkumori-v100.6.1))
+### Added
+- Implement ClearURLs dialect runtime snapshots (`2026-05-20`, hash: [`6682fbb`](https://github.com/Linkumori/Linkumori-Addon/commit/6682fbb))
+
+### Changed
+- Align ClearURLs dialect with core engine (`2026-05-20`, hash: [`e74dfac`](https://github.com/Linkumori/Linkumori-Addon/commit/e74dfac))
+- Improve regression runner diagnostics (`2026-05-20`, hash: [`a38c68b`](https://github.com/Linkumori/Linkumori-Addon/commit/a38c68b))
+
 ## [v100.6.0] - 2026-05-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.5.2...linkumori-v100.6.0))
 ### Changed
 - Name legacy syntax Linkumori ClearURLs dialect (`2026-05-20`, hash: [`fadc702`](https://github.com/Linkumori/Linkumori-Addon/commit/fadc702))
