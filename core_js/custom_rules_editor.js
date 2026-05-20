@@ -4169,6 +4169,8 @@ function syncPatternEditorFromJson() {
     }
 }
 
+const LINKUMORI_CLEARURLS_DIALECT_SYNTAX = 'linkumori-clearurls-dialect';
+const LEGACY_LINKUMORI_CLEARURSL_DIALECT_SYNTAX = 'linkumori-clearursl-dialect';
 const CLEARURLS_DIALECT_SYNTAX = 'clearurls-dialect';
 const LEGACY_LINKUMORI_V3_SYNTAX = 'linkumori-v3';
 
@@ -4177,11 +4179,17 @@ function providerUsesCanonicalRules(provider) {
         isPlainObject(rule) && typeof rule.match === 'string' && isPlainObject(rule.action));
 }
 
+function isLinkumoriClearUrlsDialectSyntax(syntax) {
+    return syntax === LINKUMORI_CLEARURLS_DIALECT_SYNTAX
+        || syntax === LEGACY_LINKUMORI_CLEARURSL_DIALECT_SYNTAX;
+}
+
 function isClearUrlsDialectSyntax(syntax) {
     return syntax === CLEARURLS_DIALECT_SYNTAX || syntax === LEGACY_LINKUMORI_V3_SYNTAX;
 }
 
 function getProviderSyntaxMode(provider) {
+    if (isLinkumoriClearUrlsDialectSyntax(provider?.syntax)) return 'legacy';
     return isClearUrlsDialectSyntax(provider?.syntax) || providerUsesCanonicalRules(provider)
         ? 'v3'
         : 'legacy';
@@ -4197,6 +4205,7 @@ function createProviderSkeleton(mode = 'legacy') {
     }
 
     return {
+        syntax: LINKUMORI_CLEARURLS_DIALECT_SYNTAX,
         urlPattern: '',
         rules: [],
         referralMarketing: [],
@@ -4234,7 +4243,7 @@ function normalizeProviderForEditor(provider, mode = 'legacy') {
         delete clean.redirections;
         return clean;
     }
-    delete next.syntax;
+    next.syntax = LINKUMORI_CLEARURLS_DIALECT_SYNTAX;
     return next;
 }
 
