@@ -105,7 +105,8 @@ For a deep codebase walkthrough, see the [Linkumori Maintainer Wiki](docs/wiki/R
 Built-in rules ship with the extension and are updated with each release.
 
 For the syntax Linkumori currently implements, see the [Current Rule Syntax guide](docs/wiki/current-rule-syntax.md). It covers:
-- `ClearURLsData` provider JSON
+- **Linkumori-ClearURLs dialect**: classic ClearURLs-style provider arrays saved as `syntax: "linkumori-clearurls-dialect"`
+- **ClearURLs dialect**: canonical object rules saved as `syntax: "clearurls-dialect"`
 - inline provider `$removeparam` rules
 - consolidated `ClearURLsData.urlFilterRules`
 
