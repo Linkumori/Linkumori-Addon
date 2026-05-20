@@ -138,6 +138,212 @@
       }
     },
     {
+      "id": "core parity canonical section rawRules",
+      "dialect": "provider",
+      "input": "https://example.com/core-section-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/core-section-raw/?keep=1",
+      "providers": {
+        "core-section-raw": {
+          "syntax": "clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-raw(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "raw-section",
+              "section": "rawRules",
+              "match": "[?&]raw=[^&#]*",
+              "action": {
+                "type": "remove"
+              },
+              "flags": "gi"
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "core parity canonical section redirections",
+      "dialect": "provider",
+      "input": "https://example.com/core-section-redirect/go?target=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "core-section-redirection": {
+          "syntax": "clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-redirect(?:[/?#]|$)",
+          "forceRedirection": true,
+          "rules": [
+            {
+              "id": "redirect-section",
+              "section": "redirections",
+              "match": "^https?:\\/\\/example\\.com\\/core-section-redirect\\/go\\?target=([^&]+)$",
+              "action": {
+                "type": "redirect",
+                "replacePattern": "\u00a71\u00a7"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "core parity canonical section referralMarketing",
+      "dialect": "provider",
+      "input": "https://example.com/core-section-referral/?tag=abc&keep=1",
+      "expectedOutput": "https://example.com/core-section-referral/?keep=1",
+      "providers": {
+        "core-section-referral": {
+          "syntax": "clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-referral(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "referral-section",
+              "section": "referralMarketing",
+              "match": "tag",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "referralMarketing": false
+      }
+    },
+    {
+      "id": "core parity canonical section exceptions",
+      "dialect": "provider",
+      "input": "https://example.com/core-section-exception/keep/?utm_source=x",
+      "expectedOutput": "https://example.com/core-section-exception/keep/?utm_source=x",
+      "providers": {
+        "core-section-exception": {
+          "syntax": "clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-exception(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "provider-exception",
+              "section": "exceptions",
+              "match": "^https?:\\/\\/example\\.com\\/core-section-exception/keep",
+              "action": {
+                "type": "remove"
+              }
+            },
+            {
+              "id": "remove-utm",
+              "kind": "field",
+              "match": "utm_source",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "core parity canonical activeDefault false rule",
+      "dialect": "provider",
+      "input": "https://example.com/core-inactive-rule/?utm_source=x",
+      "expectedOutput": "https://example.com/core-inactive-rule/?utm_source=x",
+      "providers": {
+        "core-inactive-rule": {
+          "syntax": "clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/core-inactive-rule(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "inactive-remove",
+              "kind": "field",
+              "match": "utm_source",
+              "activeDefault": false,
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "core parity canonical provider defaultActive false",
+      "dialect": "provider",
+      "input": "https://example.com/core-inactive-provider/?utm_source=x",
+      "expectedOutput": "https://example.com/core-inactive-provider/?utm_source=x",
+      "providers": {
+        "core-inactive-provider": {
+          "syntax": "clearurls-dialect",
+          "defaultActive": false,
+          "urlPattern": "^https?:\\/\\/example\\.com\\/core-inactive-provider(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-utm",
+              "kind": "field",
+              "match": "utm_source",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "core parity canonical urlDecodeRepeated preprocessor",
+      "dialect": "provider",
+      "input": "https://example.com/core-preprocessor/?target=hello%2520world",
+      "expectedOutput": "https://example.com/core-preprocessor/?target=hello%20world",
+      "providers": {
+        "core-preprocessor": {
+          "syntax": "clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/core-preprocessor(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "decode-rewrite",
+              "kind": "field",
+              "match": "target",
+              "action": {
+                "type": "rewrite",
+                "replacePattern": "\u00a71\u00a7"
+              },
+              "preprocessors": [
+                {
+                  "type": "urlDecodeRepeated",
+                  "inputs": [
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "provider rawRules",
       "dialect": "provider",
       "input": "https://example.com/provider-raw/?raw=x&keep=1",

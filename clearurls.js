@@ -1112,6 +1112,7 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         return null;
     }
 
+    const section = typeof resolvedRule.section === "string" ? resolvedRule.section : null;
     const action = resolvedRule.action && typeof resolvedRule.action === "object"
         ? resolvedRule.action
         : null;
@@ -1129,17 +1130,22 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
 
     return {
         actionType,
-        active: resolvedRule.active !== false,
+        active: typeof resolvedRule.active === "boolean"
+            ? resolvedRule.active
+            : (typeof resolvedRule.activeDefault === "boolean" ? resolvedRule.activeDefault : true),
         aliases: Array.isArray(resolvedRule.aliases) ? resolvedRule.aliases.filter((item) => typeof item === "string") : [],
         description: typeof resolvedRule.description === "string" ? resolvedRule.description : "",
         exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter((item) => typeof item === "string") : [],
         flags: typeof resolvedRule.flags === "string" ? resolvedRule.flags : defaultFlags,
         id: typeof resolvedRule.id === "string" ? resolvedRule.id : null,
-        kind: typeof resolvedRule.kind === "string" ? resolvedRule.kind : null,
+        kind: typeof resolvedRule.kind === "string"
+            ? resolvedRule.kind
+            : (section === "rawRules" ? "raw" : (section === "redirections" ? "redirection" : null)),
         matchPattern,
         preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
         referralMarketing: resolvedRule.referralMarketing === true,
         replacePattern,
+        section,
         requestTypes,
         raw: resolvedRule,
         sourceType: isCanonical ? "canonical" : "legacy-object"
@@ -1176,7 +1182,7 @@ function coreRuleAppliesToRequest(compiledRule, url, request) {
     const exceptions = Array.isArray(compiledRule.exceptions) ? compiledRule.exceptions : [];
     return !exceptions.some((exception) => {
         try {
-            return (new RegExp(exception, "i")).test(url);
+            return (new RegExp(exception)).test(url);
         } catch (_) {
             return false;
         }
@@ -1203,9 +1209,11 @@ function applyCoreRulePreprocessors(values, preprocessors) {
                         next[index] = decodeURIComponent(current);
                         break;
                     case "doubleUrlEncode":
+                    case "urlEncodeRepeated":
                         next[index] = encodeURIComponent(encodeURIComponent(current));
                         break;
                     case "doubleUrlDecode":
+                    case "urlDecodeRepeated":
                         next[index] = decodeURIComponent(decodeURIComponent(current));
                         break;
                     case "base64Encode":
@@ -1579,23 +1587,28 @@ function start() {
         providers = [];
 
         for (let p = 0; p < prvKeys.length; p++) {
-            providers.push(new Provider(prvKeys[p], data.providers[prvKeys[p]].getOrDefault('completeProvider', false),
-                data.providers[prvKeys[p]].getOrDefault('forceRedirection', false)));
+            const providerData = data.providers[prvKeys[p]];
+            if (providerData.getOrDefault('active', providerData.getOrDefault('defaultActive', true)) === false) {
+                continue;
+            }
+            const provider = new Provider(prvKeys[p], providerData.getOrDefault('completeProvider', false),
+                providerData.getOrDefault('forceRedirection', false));
+            providers.push(provider);
 
-            let urlPattern = data.providers[prvKeys[p]].getOrDefault('urlPattern', '');
-            let indexPattern = data.providers[prvKeys[p]].getOrDefault('indexPattern', []);
-            let domainPatterns = data.providers[prvKeys[p]].getOrDefault('domainPatterns', []);
+            let urlPattern = providerData.getOrDefault('urlPattern', '');
+            let indexPattern = providerData.getOrDefault('indexPattern', []);
+            let domainPatterns = providerData.getOrDefault('domainPatterns', []);
 
             if (urlPattern) {
-                providers[p].setURLPattern(urlPattern);
+                provider.setURLPattern(urlPattern);
                 const hasIndex = Array.isArray(indexPattern)
                     ? indexPattern.length > 0
                     : Boolean(indexPattern);
                 if (hasIndex) {
-                    providers[p].setIndexPattern(indexPattern);
+                    provider.setIndexPattern(indexPattern);
                 }
             } else if (domainPatterns.length > 0) {
-                providers[p].setURLDomainPattern(domainPatterns);
+                provider.setURLDomainPattern(domainPatterns);
             }
 
             const providerDefaults = data && data.defaults && typeof data.defaults === 'object' ? data.defaults : null;
@@ -1603,75 +1616,77 @@ function start() {
             for (let r = 0; r < rules.length; r++) {
                 const normalizedRule = normalizeCoreRuleDefinition(rules[r], "i", providerDefaults);
                 if (normalizedRule && normalizedRule.sourceType === 'canonical') {
-                    if (normalizedRule.kind === 'raw') {
-                        providers[p].addRawRule(rules[r], true, providerDefaults);
-                    } else if (normalizedRule.kind === 'redirection' || normalizedRule.actionType === 'redirect') {
-                        providers[p].addRedirection(rules[r], true, providerDefaults);
-                    } else if (normalizedRule.referralMarketing === true) {
-                        providers[p].addReferralMarketing(rules[r], true, providerDefaults);
+                    if (normalizedRule.section === 'exceptions') {
+                        provider.addException(rules[r], true, providerDefaults);
+                    } else if (normalizedRule.section === 'rawRules' || normalizedRule.kind === 'raw') {
+                        provider.addRawRule(rules[r], true, providerDefaults);
+                    } else if (normalizedRule.section === 'redirections' || normalizedRule.kind === 'redirection' || normalizedRule.actionType === 'redirect') {
+                        provider.addRedirection(rules[r], true, providerDefaults);
+                    } else if (normalizedRule.section === 'referralMarketing' || normalizedRule.referralMarketing === true) {
+                        provider.addReferralMarketing(rules[r], true, providerDefaults);
                     } else {
-                        providers[p].addRule(rules[r], true, providerDefaults);
+                        provider.addRule(rules[r], true, providerDefaults);
                     }
                     continue;
                 }
-                providers[p].addRule(rules[r], true, providerDefaults);
+                provider.addRule(rules[r], true, providerDefaults);
             }
 
             let rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
             for (let raw = 0; raw < rawRules.length; raw++) {
-                providers[p].addRawRule(rawRules[raw], true, providerDefaults);
+                provider.addRawRule(rawRules[raw], true, providerDefaults);
             }
 
             let referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
             for (let referralMarketing = 0; referralMarketing < referralMarketingRules.length; referralMarketing++) {
-                providers[p].addReferralMarketing(referralMarketingRules[referralMarketing], true, providerDefaults);
+                provider.addReferralMarketing(referralMarketingRules[referralMarketing], true, providerDefaults);
             }
 
             let exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
             for (let e = 0; e < exceptions.length; e++) {
-                providers[p].addException(exceptions[e]);
+                provider.addException(exceptions[e]);
             }
             
             let domainExceptions = data.providers[prvKeys[p]].getOrDefault('domainExceptions', []);
             for (let ude = 0; ude < domainExceptions.length; ude++) {
-                providers[p].addDomainException(domainExceptions[ude]);
+                provider.addDomainException(domainExceptions[ude]);
             }
 
             let redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
             for (let re = 0; re < redirections.length; re++) {
-                providers[p].addRedirection(redirections[re], true, providerDefaults);
+                provider.addRedirection(redirections[re], true, providerDefaults);
             }
             
             let domainRedirections = data.providers[prvKeys[p]].getOrDefault('domainRedirections', []);
             for (let udr = 0; udr < domainRedirections.length; udr++) {
-                providers[p].addDomainRedirection(domainRedirections[udr]);
+                provider.addDomainRedirection(domainRedirections[udr]);
             }
 
             let methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
             for (let re = 0; re < methods.length; re++) {
-                providers[p].addMethod(methods[re]);
+                provider.addMethod(methods[re]);
             }
 
             let resourceTypes = data.providers[prvKeys[p]].getOrDefault('resourceTypes', []);
             for (let rt = 0; rt < resourceTypes.length; rt++) {
-                providers[p].addResourceType(resourceTypes[rt]);
+                provider.addResourceType(resourceTypes[rt]);
             }
 
             // Indexing logic
-            const lookupTokens = providers[p].getLookupTokens();
+            const lookupTokens = provider.getLookupTokens();
 
             if (lookupTokens.length > 0) {
                 for (const token of lookupTokens) {
                     if (!providersByToken[token]) {
                         providersByToken[token] = [];
                     }
-                    providersByToken[token].push(providers[p]);
+                    providersByToken[token].push(provider);
                 }
-                if (providers[p].requiresGlobalFallback()) {
-                    globalProviders.push(providers[p]);
+                if (provider.requiresGlobalFallback()) {
+                    globalProviders.push(provider);
                 }
             } else {
-                globalProviders.push(providers[p]);
+                globalProviders.push(provider);
             }
         }
     }
