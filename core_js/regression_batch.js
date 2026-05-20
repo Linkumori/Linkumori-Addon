@@ -6,6 +6,18 @@
  * to reach the live background globals without touching the manifest.
  */
 (function defineRegressionBatch() {
+    function entriesFromSnapshotIndex(value) {
+        if (!value) return [];
+        if (typeof value.entries === 'function') return Array.from(value.entries());
+        if (Array.isArray(value)) return value;
+        if (typeof value === 'object') return Object.entries(value);
+        return [];
+    }
+
+    function keysFromSnapshotIndex(value) {
+        return entriesFromSnapshotIndex(value).map(([key]) => key);
+    }
+
     async function runCIRegressionBatch() {
         const bgWin = await browser.runtime.getBackgroundPage();
 
@@ -67,6 +79,7 @@
 
                 if (typeof applyFn === 'function') {
                     const ruleData = {
+                        activationState: testCase.activationState || suite.activationState || undefined,
                         defaults: testCase.defaults || suite.defaults || undefined,
                         providers: testCase.providers || suite.providers || {},
                         urlFilterRules: testCase.urlFilterRules || suite.urlFilterRules || []
@@ -87,10 +100,24 @@
                         const r = labFn(testCase.input, '', testCase.request || {});
                         raw = (r instanceof Promise ? await r : r) || {};
                     }
+                    let snapshot = null;
+                    const snapshotFn = bgWin.getClearUrlsRuntimeSnapshot;
+                    if (typeof snapshotFn === 'function' && (testCase.expectedSnapshotRuleIds || testCase.expectedSnapshotAliasRuleIds || testCase.expectedSnapshotProviders)) {
+                        const runtimeSnapshot = snapshotFn();
+                        snapshot = runtimeSnapshot ? {
+                            aliasRuleIds: entriesFromSnapshotIndex(runtimeSnapshot.aliasRuleIds),
+                            providerIds: Array.isArray(runtimeSnapshot.providers) ? runtimeSnapshot.providers.map(provider => provider.providerId) : [],
+                            providers: Array.isArray(runtimeSnapshot.providers) ? runtimeSnapshot.providers : [],
+                            ruleIds: keysFromSnapshotIndex(runtimeSnapshot.ruleIds)
+                        } : null;
+                    }
                     results.push({
                         id: testCase.id,
                         dialect: testCase.dialect,
-                        actualOutput: raw.output || raw.after || testCase.input
+                        actualOutput: raw.output || raw.after || testCase.input,
+                        matchedProvider: raw.matchedProvider || null,
+                        matchedRule: raw.matchedRule || null,
+                        snapshot
                     });
                 } catch (e) {
                     results.push({ id: testCase.id, dialect: testCase.dialect,

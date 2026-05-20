@@ -76,6 +76,7 @@ var providers = [];
 // Linkumori optimized indexes
 var providersByToken = Object.create(null); // Exact hostname-label lookup table for provider candidates
 var globalProviders = []; // Provider[]
+var clearUrlsRuntimeSnapshot = createEmptyClearUrlsRuntimeSnapshot();
 var prvKeys = [];
 var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
@@ -1065,6 +1066,97 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
 }
 
 
+
+function createEmptyClearUrlsRuntimeSnapshot() {
+    return {
+        aliasRuleIds: new Map(),
+        globalProviders: [],
+        listId: 'linkumori',
+        providers: [],
+        providersByToken: Object.create(null),
+        ruleIds: new Map(),
+        version: 1
+    };
+}
+
+function getCoreCatalogListId(data) {
+    const metadata = data && data.metadata && typeof data.metadata === 'object' ? data.metadata : {};
+    return String(data && (data.id || metadata.id || metadata.name) || 'linkumori');
+}
+
+function buildCoreRuntimeRuleId(listId, providerId, ruleId) {
+    return [listId, providerId, ruleId].join('::');
+}
+
+function getCoreActivationState(data) {
+    const state = data && data.activationState && typeof data.activationState === 'object'
+        ? data.activationState
+        : null;
+    return state && state.version === 1 ? state : null;
+}
+
+function getCoreActivationOverrideValue(state, scope, path) {
+    if (!state || !state[scope]) return undefined;
+    let current = state[scope];
+    for (const key of path) {
+        if (!current || typeof current !== 'object') return undefined;
+        current = current[key];
+    }
+    return typeof current === 'boolean' ? current : undefined;
+}
+
+function resolveCoreActivation(defaultActive, state, scope, path) {
+    const override = getCoreActivationOverrideValue(state, scope, path);
+    return override === undefined ? defaultActive : override;
+}
+
+function isCoreRuntimeRuleActive(compiledRule, activationState) {
+    if (!compiledRule) return false;
+    const direct = getCoreActivationOverrideValue(activationState, 'rules', [compiledRule.runtimeId]);
+    if (typeof direct === 'boolean') return direct;
+    for (const aliasRuntimeId of compiledRule.aliasRuntimeIds || []) {
+        const aliasOverride = getCoreActivationOverrideValue(activationState, 'rules', [aliasRuntimeId]);
+        if (typeof aliasOverride === 'boolean') return aliasOverride;
+    }
+    return compiledRule.active !== false;
+}
+
+function normalizeCoreRuleSection(section, fallback = 'rules') {
+    const value = String(section || fallback || 'rules');
+    return ['rules', 'rawRules', 'redirections', 'referralMarketing', 'exceptions', 'domainExceptions', 'domainRedirections'].indexOf(value) === -1
+        ? fallback
+        : value;
+}
+
+function createCoreRuleRuntimeIdBase(section, index) {
+    return normalizeCoreRuleSection(section).replace(/Rules$/, '').replace(/s$/, '') + '-' + index;
+}
+
+function buildClearUrlsRuntimeSnapshot(listId, activeProviders, tokenIndex, globalIndex) {
+    const snapshot = createEmptyClearUrlsRuntimeSnapshot();
+    snapshot.listId = listId;
+    snapshot.globalProviders = (globalIndex || []).map(provider => typeof provider.getName === 'function' ? provider.getName() : String(provider));
+    snapshot.providersByToken = Object.create(null);
+    Object.keys(tokenIndex || {}).forEach((token) => {
+        snapshot.providersByToken[token] = (tokenIndex[token] || []).map(provider => typeof provider.getName === 'function' ? provider.getName() : String(provider));
+    });
+    snapshot.providers = activeProviders.map(provider => provider.getRuntimeSnapshot());
+    snapshot.providers.forEach((provider) => {
+        const indexedRules = []
+            .concat(provider.rules || [])
+            .concat(provider.domainExceptions || [])
+            .concat(provider.domainRedirections || []);
+        indexedRules.forEach((rule) => {
+            if (!rule.runtimeId) return;
+            snapshot.ruleIds.set(rule.runtimeId, rule);
+            (rule.aliasRuntimeIds || []).forEach((aliasRuntimeId) => {
+                snapshot.aliasRuleIds.set(aliasRuntimeId, rule.runtimeId);
+            });
+        });
+    });
+    return snapshot;
+}
+
 function resolveCoreRuleDefaults(rule, defaults = null) {
     if (!rule || typeof rule !== "object" || Array.isArray(rule)) {
         return rule;
@@ -1133,6 +1225,7 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         active: typeof resolvedRule.active === "boolean"
             ? resolvedRule.active
             : (typeof resolvedRule.activeDefault === "boolean" ? resolvedRule.activeDefault : true),
+        activeDefault: typeof resolvedRule.activeDefault === "boolean" ? resolvedRule.activeDefault : true,
         aliases: Array.isArray(resolvedRule.aliases) ? resolvedRule.aliases.filter((item) => typeof item === "string") : [],
         description: typeof resolvedRule.description === "string" ? resolvedRule.description : "",
         exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter((item) => typeof item === "string") : [],
@@ -1165,6 +1258,64 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
     } catch (_) {
         return null;
     }
+}
+
+function normalizeCoreDomainEntryDefinition(entry, section, defaults = null) {
+    if (typeof entry === "string") {
+        return {
+            actionType: section === 'domainRedirections' ? 'redirect' : 'match',
+            active: true,
+            activeDefault: true,
+            aliases: [],
+            description: '',
+            exceptions: [],
+            flags: '',
+            id: null,
+            kind: section,
+            matchPattern: entry,
+            preprocessors: [],
+            replacePattern: null,
+            requestTypes: null,
+            raw: entry,
+            section,
+            sourceType: 'legacy'
+        };
+    }
+
+    const resolved = resolveCoreRuleDefaults(entry, defaults);
+    if (!resolved || typeof resolved !== 'object' || Array.isArray(resolved)) return null;
+    const matchPattern = typeof resolved.match === 'string' ? resolved.match : resolved.matchPattern;
+    if (typeof matchPattern !== 'string') return null;
+    const action = resolved.action && typeof resolved.action === 'object' ? resolved.action : null;
+    const replacePattern = action && typeof action.replacePattern === 'string'
+        ? action.replacePattern
+        : (typeof resolved.replacePattern === 'string' ? resolved.replacePattern : null);
+    const requestTypes = resolved.requestTypes === 'all'
+        ? null
+        : (Array.isArray(resolved.requestTypes)
+            ? resolved.requestTypes.map((item) => String(item || '').toLowerCase()).filter(Boolean)
+            : null);
+
+    return {
+        actionType: action && typeof action.type === 'string' ? action.type : (section === 'domainRedirections' ? 'redirect' : 'match'),
+        active: typeof resolved.active === 'boolean'
+            ? resolved.active
+            : (typeof resolved.activeDefault === 'boolean' ? resolved.activeDefault : true),
+        activeDefault: typeof resolved.activeDefault === 'boolean' ? resolved.activeDefault : true,
+        aliases: Array.isArray(resolved.aliases) ? resolved.aliases.filter((item) => typeof item === 'string') : [],
+        description: typeof resolved.description === 'string' ? resolved.description : '',
+        exceptions: Array.isArray(resolved.exceptions) ? resolved.exceptions.filter((item) => typeof item === 'string') : [],
+        flags: typeof resolved.flags === 'string' ? resolved.flags : '',
+        id: typeof resolved.id === 'string' ? resolved.id : null,
+        kind: typeof resolved.kind === 'string' ? resolved.kind : section,
+        matchPattern,
+        preprocessors: Array.isArray(resolved.preprocessors) ? resolved.preprocessors : [],
+        replacePattern,
+        requestTypes,
+        raw: resolved,
+        section,
+        sourceType: typeof resolved.match === 'string' ? 'canonical' : 'legacy-object'
+    };
 }
 
 function coreRuleAppliesToRequest(compiledRule, url, request) {
@@ -1360,7 +1511,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 actionType = 'raw_rule';
             }
             if (!matchedRuleForTrace) {
-                matchedRuleForTrace = rawRuleStr;
+                matchedRuleForTrace = compiled && compiled.runtimeId ? compiled.runtimeId : rawRuleStr;
             }
         }
     });
@@ -1473,7 +1624,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                     actionType = 'rule';
                 }
                 if (!matchedRuleForTrace) {
-                    matchedRuleForTrace = rule;
+                    matchedRuleForTrace = compiled && compiled.runtimeId ? compiled.runtimeId : rule;
                 }
                 
                 if (storage.loggingStatus) {
@@ -1571,10 +1722,7 @@ function start() {
     requestContextManager.init();
 
     function getKeys(obj) {
-        prvKeys = [];
-        for (const key in obj) {
-            prvKeys.push(key);
-        }
+        prvKeys = Object.keys(obj || {}).filter(key => Object.prototype.hasOwnProperty.call(obj, key));
     }
 
     function createProviders() {
@@ -1585,14 +1733,22 @@ function start() {
         }
 
         providers = [];
+        const listId = getCoreCatalogListId(data);
+        const activationState = getCoreActivationState(data);
+        const listDefaultActive = data.getOrDefault ? data.getOrDefault('defaultActive', true) : (data.defaultActive !== false);
+        if (!resolveCoreActivation(listDefaultActive, activationState, 'lists', [listId])) {
+            clearUrlsRuntimeSnapshot = buildClearUrlsRuntimeSnapshot(listId, providers, providersByToken, globalProviders);
+            return;
+        }
 
         for (let p = 0; p < prvKeys.length; p++) {
             const providerData = data.providers[prvKeys[p]];
-            if (providerData.getOrDefault('active', providerData.getOrDefault('defaultActive', true)) === false) {
+            const providerDefaultActive = providerData.getOrDefault('active', providerData.getOrDefault('defaultActive', true));
+            if (!resolveCoreActivation(providerDefaultActive, activationState, 'providers', [listId, prvKeys[p]])) {
                 continue;
             }
             const provider = new Provider(prvKeys[p], providerData.getOrDefault('completeProvider', false),
-                providerData.getOrDefault('forceRedirection', false));
+                providerData.getOrDefault('forceRedirection', false), listId, activationState);
             providers.push(provider);
 
             let urlPattern = providerData.getOrDefault('urlPattern', '');
@@ -1649,7 +1805,7 @@ function start() {
             
             let domainExceptions = data.providers[prvKeys[p]].getOrDefault('domainExceptions', []);
             for (let ude = 0; ude < domainExceptions.length; ude++) {
-                provider.addDomainException(domainExceptions[ude]);
+                provider.addDomainException(domainExceptions[ude], true, providerDefaults);
             }
 
             let redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
@@ -1659,7 +1815,7 @@ function start() {
             
             let domainRedirections = data.providers[prvKeys[p]].getOrDefault('domainRedirections', []);
             for (let udr = 0; udr < domainRedirections.length; udr++) {
-                provider.addDomainRedirection(domainRedirections[udr]);
+                provider.addDomainRedirection(domainRedirections[udr], true, providerDefaults);
             }
 
             let methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
@@ -1689,6 +1845,7 @@ function start() {
                 globalProviders.push(provider);
             }
         }
+        clearUrlsRuntimeSnapshot = buildClearUrlsRuntimeSnapshot(listId, providers, providersByToken, globalProviders);
     }
 
     function initializeProviders() {
@@ -1706,6 +1863,7 @@ function start() {
             providers = [];
             providersByToken = Object.create(null);
             globalProviders = [];
+            clearUrlsRuntimeSnapshot = createEmptyClearUrlsRuntimeSnapshot();
             prvKeys = [];
             return false;
         }
@@ -1779,6 +1937,10 @@ function start() {
 
     // Called by storage.js after remote/custom rule refresh to apply changes
     // immediately without reloading the extension background context.
+    globalThis.getClearUrlsRuntimeSnapshot = function () {
+        return clearUrlsRuntimeSnapshot;
+    };
+
     globalThis.updateProviderData = function () {
         const refreshed = rebuildProvidersFromStorage();
         if (refreshed) {
@@ -1811,7 +1973,7 @@ function start() {
     loadOldDataFromStore();
     setBadgedStatus();
 
-    function Provider(_name, _completeProvider = false, _forceRedirection = false, _isActive = true) {
+    function Provider(_name, _completeProvider = false, _forceRedirection = false, _listId = 'linkumori', _activationState = null, _isActive = true) {
         let name = _name;
         let urlPattern;
         let urlPatternSource = '';
@@ -1835,6 +1997,10 @@ function start() {
         let enabled_linkumoriRemoveParamExceptions = [];
         let methods = [];
         let resourceTypes = [];
+        let runtimeRuleIndex = 0;
+        let runtimeRules = [];
+        let runtimeDomainExceptions = [];
+        let runtimeDomainRedirections = [];
 
         if (_completeProvider) {
             enabled_rules[".*"] = true;
@@ -1994,18 +2160,40 @@ function start() {
         };
 
         /**
+         * Extracts the same simple urlPattern lookup token used by the
+         * ClearURLs core snapshot builder. indexPattern remains a Linkumori
+         * speed hint, but it must not hide an inferable core urlPattern token.
+         *
+         * @return {String|null}
+         */
+        this.getUrlPatternLookupToken = function () {
+            const source = String(urlPatternSource || '');
+            const wildcardMatch = source.match(/\*\?([a-z0-9-]+)/i);
+            if (wildcardMatch && wildcardMatch[1]) {
+                return wildcardMatch[1].toLowerCase();
+            }
+            const explicitMatch = source.match(/^(\^?https?:\\?\/\\?\/)(?:www(?:\\?\.))?([a-z0-9-]+)/i);
+            if (explicitMatch && explicitMatch[2]) {
+                return explicitMatch[2].toLowerCase();
+            }
+            return null;
+        };
+
+        /**
          * Returns all lookup tokens for this provider.
          *
-         * Tokens come exclusively from domainPatterns and indexPattern —
-         * both use the domainPattern syntax which maps cleanly to hostname
-         * labels. urlPattern never self-indexes: if a provider uses urlPattern
-         * without an indexPattern it falls to globalProviders, which is the
-         * correct conservative behaviour.
+         * ClearURLs core indexes inferable urlPattern providers using a simple
+         * token extracted from the regex source. Linkumori additionally accepts
+         * indexPattern/domainPatterns as explicit speed hints. We merge both so
+         * clearurls-dialect providers behave like core while still allowing
+         * explicit indexing for complex regexes.
          *
          * @return {String[]}
          */
         this.getLookupTokens = function () {
             const tokens = new Set();
+            const urlPatternToken = this.getUrlPatternLookupToken();
+            if (urlPatternToken) tokens.add(urlPatternToken);
             for (const t of this.getDomainLookupTokens()) {
                 if (t) tokens.add(t);
             }
@@ -2114,6 +2302,63 @@ function start() {
             };
         };
 
+
+        const enrichRuntimeRule = function (compiled, section, collector = runtimeRules) {
+            if (!compiled) return null;
+            const normalizedSection = normalizeCoreRuleSection(compiled.section, section);
+            runtimeRuleIndex += 1;
+            const ruleId = compiled.id || createCoreRuleRuntimeIdBase(normalizedSection, runtimeRuleIndex);
+            compiled.section = normalizedSection;
+            compiled.runtimeId = buildCoreRuntimeRuleId(_listId, name, ruleId);
+            compiled.aliasRuntimeIds = (compiled.aliases || []).map(alias => buildCoreRuntimeRuleId(_listId, name, alias));
+            compiled.activeDefault = compiled.activeDefault !== false;
+            if (!isCoreRuntimeRuleActive(compiled, _activationState)) {
+                return null;
+            }
+            collector.push(compiled);
+            return compiled;
+        };
+
+        const snapshotRule = function (rule) {
+            return {
+                action: rule.actionType || null,
+                aliases: (rule.aliases || []).slice(),
+                aliasRuntimeIds: (rule.aliasRuntimeIds || []).slice(),
+                active: rule.active !== false,
+                activeDefault: rule.activeDefault !== false,
+                description: rule.description || '',
+                exceptions: Array.isArray(rule.exceptions) ? rule.exceptions.slice() : [],
+                flags: rule.flags,
+                id: rule.id,
+                kind: rule.kind,
+                match: rule.matchPattern,
+                preprocessors: Array.isArray(rule.preprocessors) ? rule.preprocessors.slice() : [],
+                replacePattern: rule.replacePattern,
+                requestTypes: Array.isArray(rule.requestTypes) ? rule.requestTypes.slice() : null,
+                runtimeId: rule.runtimeId,
+                section: rule.section,
+                sourceType: rule.sourceType || null
+            };
+        };
+
+        this.getRuntimeSnapshot = function () {
+            return {
+                completeProvider: canceling,
+                forceRedirection: _forceRedirection,
+                listId: _listId,
+                domainExceptions: runtimeDomainExceptions.map(snapshotRule),
+                domainPatterns: domainPatterns.slice(),
+                domainRedirections: runtimeDomainRedirections.map(snapshotRule),
+                indexPattern: indexPatterns.slice(),
+                methods: methods.slice(),
+                providerId: name,
+                resourceTypes: resourceTypes.slice(),
+                rules: runtimeRules.map(snapshotRule),
+                syntax: 'clearurls-dialect',
+                urlPattern: urlPatternSource
+            };
+        };
+
         this.isCaneling = function () {
             return canceling;
         };
@@ -2156,8 +2401,10 @@ function start() {
                 return;
             }
 
-            const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
+            let compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
+            compiled = enrichRuntimeRule(compiled, 'rules');
+            if (!compiled) return;
             enabled_rules[compiled.matchPattern] = compiled;
         };
 
@@ -2177,8 +2424,10 @@ function start() {
         };
 
         this.addRawRule = function (rule, isActive = true, defaults = null) {
-            const compiled = compileCoreRuleDefinition(rule, "gi", false, defaults);
+            let compiled = compileCoreRuleDefinition(rule, "gi", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
+            compiled = enrichRuntimeRule(compiled, 'rawRules');
+            if (!compiled) return;
             enabled_rawRules[compiled.matchPattern] = compiled;
         };
 
@@ -2199,20 +2448,28 @@ function start() {
         };
 
         this.addReferralMarketing = function (rule, isActive = true, defaults = null) {
-            const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
+            let compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
+            compiled = enrichRuntimeRule(compiled, 'referralMarketing');
+            if (!compiled) return;
             enabled_referralMarketing[compiled.matchPattern] = compiled;
         };
 
         this.addException = function (exception, isActive = true) {
-            const compiled = compileCoreRuleDefinition(exception, "i", false);
+            let compiled = compileCoreRuleDefinition(exception, "i", false);
             if (!compiled || !isActive || compiled.active === false) return;
+            compiled = enrichRuntimeRule(compiled, 'exceptions');
+            if (!compiled) return;
             enabled_exceptions[compiled.matchPattern] = compiled;
         };
 
-        this.addDomainException = function (exception) {
-            if (enabled_domain_exceptions.indexOf(exception) === -1) {
-                enabled_domain_exceptions.push(exception);
+        this.addDomainException = function (exception, isActive = true, defaults = null) {
+            let compiled = normalizeCoreDomainEntryDefinition(exception, 'domainExceptions', defaults);
+            if (!compiled || !isActive || compiled.active === false) return;
+            compiled = enrichRuntimeRule(compiled, 'domainExceptions', runtimeDomainExceptions);
+            if (!compiled) return;
+            if (enabled_domain_exceptions.indexOf(compiled.matchPattern) === -1) {
+                enabled_domain_exceptions.push(compiled.matchPattern);
             }
         };
 
@@ -2279,15 +2536,31 @@ function start() {
         };
 
         this.addRedirection = function (redirection, isActive = true, defaults = null) {
-            const compiled = compileCoreRuleDefinition(redirection, "i", false, defaults);
+            let compiled = compileCoreRuleDefinition(redirection, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
+            compiled = enrichRuntimeRule(compiled, 'redirections');
+            if (!compiled) return;
             enabled_redirections[compiled.matchPattern] = compiled;
         };
 
-        this.addDomainRedirection = function (redirection) {
-            if (enabled_domain_redirections.indexOf(redirection) === -1) {
-                enabled_domain_redirections.push(redirection);
+        this.addDomainRedirection = function (redirection, isActive = true, defaults = null) {
+            let compiled = normalizeCoreDomainEntryDefinition(redirection, 'domainRedirections', defaults);
+            if (!compiled || !isActive || compiled.active === false) return;
+            compiled = enrichRuntimeRule(compiled, 'domainRedirections', runtimeDomainRedirections);
+            if (!compiled) return;
+
+            let entry = compiled.matchPattern;
+            if (compiled.replacePattern !== null) {
+                entry = { pattern: compiled.matchPattern, redirectTarget: compiled.replacePattern, compiled };
+            } else if (typeof redirection === 'string' && redirection.includes('$redirect=')) {
+                const [pattern, redirectTarget] = redirection.split('$redirect=');
+                entry = { pattern: pattern.trim(), redirectTarget: redirectTarget.trim(), compiled };
             }
+            const duplicate = enabled_domain_redirections.some(existing => {
+                if (typeof existing === 'string') return existing === entry;
+                return existing.pattern === entry.pattern && existing.redirectTarget === entry.redirectTarget;
+            });
+            if (!duplicate) enabled_domain_redirections.push(entry);
         };
 
         this.getRedirection = function (url) {
@@ -2314,12 +2587,23 @@ function start() {
             }            
             if (!re && enabled_domain_redirections.length > 0) {
                 for (const domainRedirection of enabled_domain_redirections) {
-                    if (domainRedirection.includes('$redirect=')) {
-                        const [pattern, redirectTarget] = domainRedirection.split('$redirect=');
-                        if (matchDomainPattern(url, [pattern.trim()])) {
-                            re = redirectTarget;
-                            break;
-                        }
+                    let pattern = '';
+                    let redirectTarget = '';
+                    let compiled = null;
+                    if (typeof domainRedirection === 'string') {
+                        if (!domainRedirection.includes('$redirect=')) continue;
+                        const parts = domainRedirection.split('$redirect=');
+                        pattern = parts[0].trim();
+                        redirectTarget = parts.slice(1).join('$redirect=').trim();
+                    } else if (domainRedirection && typeof domainRedirection === 'object') {
+                        pattern = domainRedirection.pattern || '';
+                        redirectTarget = domainRedirection.redirectTarget || '';
+                        compiled = domainRedirection.compiled || null;
+                    }
+                    if (!pattern || !redirectTarget || !coreRuleAppliesToRequest(compiled, url, null)) continue;
+                    if (matchDomainPattern(url, [pattern])) {
+                        re = redirectTarget;
+                        break;
                     }
                 }
             }

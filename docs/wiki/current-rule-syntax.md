@@ -580,6 +580,18 @@ Raw rules apply against the full URL text. Use them only when parameter-name cle
 
 Redirection rules extract or rewrite a destination URL. `§1§`, `§2§`, etc. reference regex capture groups from `match`.
 
+### Runtime IDs and snapshot
+
+ClearURLs dialect rules with `id` compile to stable runtime IDs in the form:
+
+```txt
+<listId>::<providerId>::<ruleId>
+```
+
+The runtime snapshot exposed by the engine indexes regular rules, raw rules, referral-marketing rules, exceptions, redirections, `domainExceptions`, and `domainRedirections`. Snapshot entries preserve supported metadata such as `aliases`, `description`, `requestTypes`, `exceptions`, `preprocessors`, `activeDefault`, `indexPattern`, `methods`, and `resourceTypes`, so editor/debug tooling can reason about the same compiled objects the cleaner uses.
+
+Aliases are indexed as alternate runtime IDs and activation overrides can target either the primary `id` or an alias.
+
 ### ClearURLs dialect example
 
 ```json

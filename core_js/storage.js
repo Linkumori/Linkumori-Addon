@@ -2517,6 +2517,9 @@ function applyRegressionRuleData(data) {
         ...(safeData.defaults && typeof safeData.defaults === 'object' && !Array.isArray(safeData.defaults)
             ? { defaults: cloneValue(safeData.defaults) }
             : {}),
+        ...(safeData.activationState && typeof safeData.activationState === 'object' && !Array.isArray(safeData.activationState)
+            ? { activationState: cloneValue(safeData.activationState) }
+            : {}),
         providers: safeData.providers && typeof safeData.providers === 'object' && !Array.isArray(safeData.providers)
             ? cloneValue(safeData.providers)
             : {},
