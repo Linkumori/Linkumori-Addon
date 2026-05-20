@@ -21,6 +21,123 @@
       }
     },
     {
+      "id": "provider dialect marker linkumori-clearurls",
+      "dialect": "provider",
+      "input": "https://example.com/provider-syntax/?fbclid=1&keep=1",
+      "expectedOutput": "https://example.com/provider-syntax/?keep=1",
+      "providers": {
+        "provider-syntax-clearurls": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-syntax(?:[/?#]|$)",
+          "rules": [
+            "fbclid"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider dialect typo alias linkumori-clearursl",
+      "dialect": "provider",
+      "input": "https://example.com/provider-syntax-alias/?fbclid=1&keep=1",
+      "expectedOutput": "https://example.com/provider-syntax-alias/?keep=1",
+      "providers": {
+        "provider-syntax-clearursl-alias": {
+          "syntax": "linkumori-clearursl-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-syntax-alias(?:[/?#]|$)",
+          "rules": [
+            "fbclid"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical clearurls dialect field rule",
+      "dialect": "provider",
+      "input": "https://example.com/provider-canonical/?utm_source=x&keep=1",
+      "expectedOutput": "https://example.com/provider-canonical/?keep=1",
+      "providers": {
+        "provider-canonical-clearurls": {
+          "syntax": "clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-canonical(?:[/?#]|$)",
+          "indexPattern": "||example.com^",
+          "rules": [
+            {
+              "id": "remove-utm-source",
+              "kind": "field",
+              "match": "utm_source",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical legacy linkumori-v3 alias",
+      "dialect": "provider",
+      "input": "https://example.com/provider-canonical-alias/?utm_medium=x&keep=1",
+      "expectedOutput": "https://example.com/provider-canonical-alias/?keep=1",
+      "providers": {
+        "provider-canonical-linkumori-v3-alias": {
+          "syntax": "linkumori-v3",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-canonical-alias(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-utm-medium",
+              "kind": "field",
+              "match": "utm_medium",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical clearurls dialect raw rule",
+      "dialect": "provider",
+      "input": "https://example.com/provider-canonical-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/provider-canonical-raw/?keep=1",
+      "providers": {
+        "provider-canonical-raw": {
+          "syntax": "clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-canonical-raw(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-raw",
+              "kind": "raw",
+              "match": "[?&]raw=[^&#]*",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "provider rawRules",
       "dialect": "provider",
       "input": "https://example.com/provider-raw/?raw=x&keep=1",
