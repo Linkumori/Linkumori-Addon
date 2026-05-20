@@ -16,6 +16,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.6.0] - 2026-05-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.5.2...linkumori-v100.6.0))
+### Changed
+- Name legacy syntax Linkumori ClearURLs dialect (`2026-05-20`, hash: [`fadc702`](https://github.com/Linkumori/Linkumori-Addon/commit/fadc702))
+- Rename v3 editor mode to ClearURLs dialect (`2026-05-20`, hash: [`e9fe7f9`](https://github.com/Linkumori/Linkumori-Addon/commit/e9fe7f9))
+
+### Fixed
+- Resolve neutral v3 custom rule templates (`2026-05-20`, hash: [`221ffea`](https://github.com/Linkumori/Linkumori-Addon/commit/221ffea))
+
+### Performance
+- Performance boost for index (`2026-05-20`, hash: [`587793d`](https://github.com/Linkumori/Linkumori-Addon/commit/587793d))
+
+### Documentation
+- Document ClearURLs rule dialects (`2026-05-20`, hash: [`ee64b97`](https://github.com/Linkumori/Linkumori-Addon/commit/ee64b97))
+- Document both custom rule dialects side by side (`2026-05-20`, hash: [`38ef20c`](https://github.com/Linkumori/Linkumori-Addon/commit/38ef20c))
+
 ## [v100.5.2] - 2026-05-18 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.5.1...linkumori-v100.5.2))
 ### Changed
 - Release v100.5.2 (hash: `596ae98`).
