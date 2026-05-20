@@ -3952,21 +3952,31 @@ function createProviderEditorHTML(provider) {
                     <span class="json-editor-title">${i18n('customRulesEditor_advancedJsonEditor')}</span>
                 </div>
                 <div class="json-key-toolbar">
-                    <div class="json-key-toolbar-title">${i18n('customRulesEditor_jsonToolbarTitle')}</div>
-                    <div class="json-key-buttons">
-                        ${jsonFieldButtons.map(field => `
-                            <button type="button" class="btn btn-secondary btn-sm json-key-add-btn" data-json-key="${field.key}" title="${escapeHtml(field.label)}">
-                                ${field.key}
-                            </button>
-                        `).join('')}
-                    </div>
+                    <div class="json-key-toolbar-title">${syntaxMode === 'v3' ? i18n('customRulesEditor_syntaxV3') : i18n('customRulesEditor_jsonToolbarTitle')}</div>
                     ${syntaxMode === 'v3' ? `
+                        <div class="json-key-toolbar-help">${i18n('customRulesEditor_v3ProviderFields')}</div>
+                        <div class="json-rule-template-buttons">
+                            ${getV3ProviderFieldDefinitions().map(field => `
+                                <button type="button" class="btn btn-secondary btn-sm json-v3-field-btn" data-v3-field="${field.key}" title="${escapeHtml(field.label)}">
+                                    + ${field.key}
+                                </button>
+                            `).join('')}
+                        </div>
+                        <div class="json-key-toolbar-help">${i18n('customRulesEditor_v3RuleTemplates')}</div>
                         <div class="json-rule-template-buttons">
                             <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="field">+ ${i18n('customRulesEditor_addFieldRule')}</button>
                             <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="raw">+ ${i18n('customRulesEditor_addRawRule')}</button>
                             <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="redirection">+ ${i18n('customRulesEditor_addRedirectRule')}</button>
                         </div>
-                    ` : ''}
+                    ` : `
+                        <div class="json-key-buttons">
+                            ${jsonFieldButtons.map(field => `
+                                <button type="button" class="btn btn-secondary btn-sm json-key-add-btn" data-json-key="${field.key}" title="${escapeHtml(field.label)}">
+                                    ${field.key}
+                                </button>
+                            `).join('')}
+                        </div>
+                    `}
                     <div class="json-key-toolbar-help">${syntaxMode === 'v3'
                         ? i18n('customRulesEditor_syntaxV3ToolbarHelp')
                         : i18n('customRulesEditor_jsonToolbarHelp')}</div>
@@ -4176,46 +4186,61 @@ function createProviderSkeleton(mode = 'legacy') {
     if (mode === 'v3') {
         return {
             syntax: LINKUMORI_V3_SYNTAX,
-            rules: [],
-            exceptions: [],
-            domainExceptions: [],
-            domainRedirections: []
+            urlPattern: '',
+            rules: []
         };
     }
 
     return {
+        urlPattern: '',
         rules: [],
         referralMarketing: [],
         rawRules: [],
         exceptions: [],
-        domainExceptions: [],
-        redirections: [],
-        domainRedirections: []
+        redirections: []
     };
 }
 
-function applyProviderSyntaxMode(provider, mode) {
+function compactProviderForEditor(provider, mode = 'legacy') {
     const next = JSON.parse(JSON.stringify(provider || {}));
-    if (mode === 'v3') {
-        next.syntax = LINKUMORI_V3_SYNTAX;
-        if (!Array.isArray(next.rules)) next.rules = [];
-        ['rawRules', 'referralMarketing', 'redirections'].forEach((key) => {
-            if (Array.isArray(next[key]) && next[key].length === 0) delete next[key];
-        });
-        return next;
-    }
+    const optionalArrays = mode === 'v3'
+        ? ['exceptions', 'domainExceptions', 'domainRedirections', 'methods', 'resourceTypes']
+        : ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'domainExceptions', 'redirections', 'domainRedirections', 'methods', 'resourceTypes'];
 
-    delete next.syntax;
-    ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions', 'domainExceptions', 'domainRedirections'].forEach((key) => {
-        if (!Array.isArray(next[key])) next[key] = [];
+    optionalArrays.forEach((key) => {
+        if (Array.isArray(next[key]) && next[key].length === 0) delete next[key];
     });
+    ['urlPattern', 'indexPattern'].forEach((key) => {
+        if (typeof next[key] === 'string' && next[key].trim() === '') delete next[key];
+    });
+    if (next.completeProvider === false) delete next.completeProvider;
+    if (next.forceRedirection === false) delete next.forceRedirection;
     return next;
 }
 
+function normalizeProviderForEditor(provider, mode = 'legacy') {
+    const next = JSON.parse(JSON.stringify(provider || {}));
+    if (mode === 'v3') {
+        const clean = compactProviderForEditor(next, 'v3');
+        clean.syntax = LINKUMORI_V3_SYNTAX;
+        if (!Array.isArray(clean.rules)) clean.rules = [];
+        delete clean.rawRules;
+        delete clean.referralMarketing;
+        delete clean.redirections;
+        return clean;
+    }
+    delete next.syntax;
+    return next;
+}
+
+function applyProviderSyntaxMode(provider, mode) {
+    return normalizeProviderForEditor(provider, mode);
+}
+
+
 function getJsonFieldButtonsForSyntax(mode) {
-    const fields = mode === 'v3'
-        ? ['rules', 'exceptions', 'domainExceptions', 'domainRedirections', 'completeProvider', 'forceRedirection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes']
-        : ['rules', 'referralMarketing', 'rawRules', 'exceptions', 'domainExceptions', 'redirections', 'domainRedirections', 'completeProvider', 'forceRedirection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
+    if (mode === 'v3') return [];
+    const fields = ['rules', 'referralMarketing', 'rawRules', 'exceptions', 'domainExceptions', 'redirections', 'domainRedirections', 'completeProvider', 'forceRedirection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
     const labels = {
         rules: i18n('customRulesEditor_rules'),
         referralMarketing: i18n('customRulesEditor_referralMarketing'),
@@ -4235,13 +4260,34 @@ function getJsonFieldButtonsForSyntax(mode) {
     return fields.map(key => ({ key, label: labels[key] }));
 }
 
+
+function getV3ProviderFieldDefinitions() {
+    return [
+        { key: 'urlPattern', label: i18n('customRulesEditor_urlPattern'), value: '' },
+        { key: 'indexPattern', label: i18n('customRulesEditor_indexPattern'), value: '' },
+        { key: 'domainPatterns', label: i18n('customRulesEditor_domainPatterns'), value: [], exclusiveWith: ['urlPattern', 'indexPattern'] },
+        { key: 'exceptions', label: i18n('customRulesEditor_exceptions'), value: [] },
+        { key: 'domainExceptions', label: i18n('customRulesEditor_domainExceptions'), value: [] },
+        { key: 'domainRedirections', label: i18n('customRulesEditor_domainRedirections'), value: [] },
+        { key: 'methods', label: i18n('customRulesEditor_httpMethods'), value: [] },
+        { key: 'resourceTypes', label: i18n('customRulesEditor_resourceTypes'), value: [] },
+        { key: 'completeProvider', label: i18n('customRulesEditor_completeProvider'), value: true },
+        { key: 'forceRedirection', label: i18n('customRulesEditor_forceRedirection'), value: true }
+    ];
+}
+
+function getV3ProviderFieldDefinition(key) {
+    return getV3ProviderFieldDefinitions().find(field => field.key === key) || null;
+}
+
 function createCanonicalRuleTemplate(kind) {
     const idBase = kind === 'redirection' ? 'redirect-rule' : `${kind}-rule`;
+    const inertMatch = '(?!)';
     if (kind === 'raw') {
         return {
             id: idBase,
             kind: 'raw',
-            match: '[?&]param=[^&#]*',
+            match: inertMatch,
             action: { type: 'remove' }
         };
     }
@@ -4249,15 +4295,14 @@ function createCanonicalRuleTemplate(kind) {
         return {
             id: idBase,
             kind: 'redirection',
-            match: '^https?:\/\/example\.com\/redirect\?url=(.+)$',
-            action: { type: 'redirect', replacePattern: '§1§' },
-            preprocessors: [{ type: 'urlDecode', inputs: [1] }]
+            match: inertMatch,
+            action: { type: 'redirect', replacePattern: '' }
         };
     }
     return {
         id: idBase,
         kind: 'field',
-        match: 'utm_source',
+        match: inertMatch,
         action: { type: 'remove' }
     };
 }
@@ -4302,6 +4347,12 @@ function getDefaultValueForJsonKey(key) {
  * Handle add-field button clicks in JSON editor
  */
 function handleJsonKeyButtonClick(e) {
+    const v3FieldButton = e.target.closest('.json-v3-field-btn');
+    if (v3FieldButton) {
+        addV3ProviderField(v3FieldButton.dataset.v3Field);
+        return;
+    }
+
     const templateButton = e.target.closest('.json-rule-template-btn');
     if (templateButton) {
         addCanonicalRuleTemplate(templateButton.dataset.ruleTemplate);
@@ -4317,6 +4368,40 @@ function handleJsonKeyButtonClick(e) {
     addJsonFieldIfMissing(key);
 }
 
+function addV3ProviderField(key) {
+    const jsonEditor = document.getElementById('json-editor');
+    const validation = document.getElementById('json-validation');
+    const field = getV3ProviderFieldDefinition(key);
+    if (!jsonEditor || !field) return;
+
+    try {
+        const provider = normalizeProviderForEditor(JSON.parse(jsonEditor.value), 'v3');
+        (field.exclusiveWith || []).forEach(otherKey => delete provider[otherKey]);
+        if (key === 'urlPattern' || key === 'indexPattern') {
+            delete provider.domainPatterns;
+        }
+        if (!Object.prototype.hasOwnProperty.call(provider, key)) {
+            provider[key] = JSON.parse(JSON.stringify(field.value));
+        }
+        const nextProvider = normalizeProviderForEditor(provider, 'v3');
+        if (!Object.prototype.hasOwnProperty.call(nextProvider, key)) {
+            nextProvider[key] = JSON.parse(JSON.stringify(field.value));
+        }
+        jsonEditor.value = JSON.stringify(nextProvider, null, 2);
+        updateJsonTextMateHighlighting(jsonEditor);
+        syncPatternEditorFromJson();
+        hasUnsavedChanges = true;
+        if (validation) validation.style.display = 'none';
+        updateEditorStatus('valid', i18n('status_validJsonUnsaved'));
+    } catch (error) {
+        if (validation) {
+            validation.style.display = 'block';
+            validation.className = 'json-editor-error';
+            validation.textContent = i18n('customRulesEditor_jsonError', error.message);
+        }
+    }
+}
+
 function addCanonicalRuleTemplate(kind) {
     const jsonEditor = document.getElementById('json-editor');
     const validation = document.getElementById('json-validation');
@@ -4327,7 +4412,7 @@ function addCanonicalRuleTemplate(kind) {
         const template = createCanonicalRuleTemplate(kind);
         template.id = createUniqueRuleId(provider, template.id);
         provider.rules.push(template);
-        jsonEditor.value = JSON.stringify(provider, null, 2);
+        jsonEditor.value = JSON.stringify(compactProviderForEditor(provider, 'v3'), null, 2);
         updateJsonTextMateHighlighting(jsonEditor);
         hasUnsavedChanges = true;
         if (validation) validation.style.display = 'none';
@@ -4358,6 +4443,12 @@ function addJsonFieldIfMissing(key) {
             validation.textContent = i18n('customRulesEditor_jsonError', error.message);
         }
         updateEditorStatus('invalid', i18n('status_invalidJson'));
+        return;
+    }
+
+    if (getProviderSyntaxMode(provider) === 'v3') {
+        jsonEditor.value = JSON.stringify(compactProviderForEditor(provider, 'v3'), null, 2);
+        updateJsonTextMateHighlighting(jsonEditor);
         return;
     }
 
@@ -4836,13 +4927,16 @@ async function handleProviderSubmit(e) {
         : createProviderSkeleton(syntaxMode);
     const syntaxAdjustedProvider = applyProviderSyntaxMode(provider, syntaxMode);
 
-    syntaxAdjustedProvider.completeProvider = completeProvider;
-    syntaxAdjustedProvider.forceRedirection = forceRedirection;
+    if (completeProvider) syntaxAdjustedProvider.completeProvider = true;
+    else delete syntaxAdjustedProvider.completeProvider;
+    if (forceRedirection) syntaxAdjustedProvider.forceRedirection = true;
+    else delete syntaxAdjustedProvider.forceRedirection;
 
     // Update selected pattern type and clear the mutually exclusive field.
     if (patternType === 'urlPattern') {
         syntaxAdjustedProvider.urlPattern = urlPattern;
-        syntaxAdjustedProvider.indexPattern = indexPattern;
+        if (indexPattern) syntaxAdjustedProvider.indexPattern = indexPattern;
+        else delete syntaxAdjustedProvider.indexPattern;
         delete syntaxAdjustedProvider.domainPatterns;
     } else if (patternType === 'domainPatterns') {
         syntaxAdjustedProvider.domainPatterns = domainPatterns;
@@ -4856,7 +4950,7 @@ async function handleProviderSubmit(e) {
             delete customRules.providers[editProvider];
         }
         
-        customRules.providers[providerName] = syntaxAdjustedProvider;
+        customRules.providers[providerName] = compactProviderForEditor(syntaxAdjustedProvider, syntaxMode);
         await saveCustomRules();
         
         hideProviderModal();
