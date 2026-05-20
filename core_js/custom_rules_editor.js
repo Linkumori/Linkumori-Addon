@@ -209,9 +209,26 @@ function formatIndexPatternValue(value) {
 
 function assertDomainRedirectionSyntax(provider, providerName = '') {
     const rules = Array.isArray(provider?.domainRedirections) ? provider.domainRedirections : [];
-    rules.forEach((rule) => {
+    rules.forEach((rule, index) => {
+        if (isPlainObject(rule)) {
+            const match = typeof rule.match === 'string' ? rule.match : rule.matchPattern;
+            const action = isPlainObject(rule.action) ? rule.action : null;
+            const target = action && typeof action.replacePattern === 'string'
+                ? action.replacePattern
+                : (typeof rule.replacePattern === 'string' ? rule.replacePattern : '');
+            if (!match || !target) {
+                throw new Error(`${providerName || 'Provider'}: domainRedirections[${index}] object requires match and action.replacePattern`);
+            }
+            if (rule.id !== undefined && typeof rule.id !== 'string') {
+                throw new Error(`${providerName || 'Provider'}: domainRedirections[${index}].id must be a string`);
+            }
+            if (rule.aliases !== undefined && (!Array.isArray(rule.aliases) || rule.aliases.some(item => typeof item !== 'string'))) {
+                throw new Error(`${providerName || 'Provider'}: domainRedirections[${index}].aliases must be an array of strings`);
+            }
+            return;
+        }
         if (typeof rule !== 'string') {
-            throw new Error(`${providerName || 'Provider'}: domainRedirections entries must be strings`);
+            throw new Error(`${providerName || 'Provider'}: domainRedirections entries must be strings or rule objects`);
         }
         const markerIndex = rule.indexOf('$redirect=');
         const pattern = markerIndex === -1 ? '' : rule.slice(0, markerIndex).trim();
@@ -4285,6 +4302,8 @@ function getV3ProviderFieldDefinitions() {
         { key: 'domainRedirections', label: i18n('customRulesEditor_domainRedirections'), value: [] },
         { key: 'methods', label: i18n('customRulesEditor_httpMethods'), value: [] },
         { key: 'resourceTypes', label: i18n('customRulesEditor_resourceTypes'), value: [] },
+        { key: 'active', label: 'active', value: true },
+        { key: 'defaultActive', label: 'defaultActive', value: true },
         { key: 'completeProvider', label: i18n('customRulesEditor_completeProvider'), value: true },
         { key: 'forceRedirection', label: i18n('customRulesEditor_forceRedirection'), value: true }
     ];
@@ -4302,6 +4321,12 @@ function createCanonicalRuleTemplate(kind) {
             id: idBase,
             kind: 'raw',
             match: inertMatch,
+            description: '',
+            aliases: [],
+            exceptions: [],
+            requestTypes: 'all',
+            preprocessors: [],
+            activeDefault: true,
             action: { type: 'remove' }
         };
     }
@@ -4310,6 +4335,12 @@ function createCanonicalRuleTemplate(kind) {
             id: idBase,
             kind: 'redirection',
             match: inertMatch,
+            description: '',
+            aliases: [],
+            exceptions: [],
+            requestTypes: 'all',
+            preprocessors: [],
+            activeDefault: true,
             action: { type: 'redirect', replacePattern: '' }
         };
     }
@@ -4317,6 +4348,12 @@ function createCanonicalRuleTemplate(kind) {
         id: idBase,
         kind: 'field',
         match: inertMatch,
+        description: '',
+        aliases: [],
+        exceptions: [],
+        requestTypes: 'all',
+        preprocessors: [],
+        activeDefault: true,
         action: { type: 'remove' }
     };
 }
