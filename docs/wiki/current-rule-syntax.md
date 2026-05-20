@@ -525,13 +525,15 @@ Supported rule fields:
 | Field | Type | Meaning |
 | --- | --- | --- |
 | `id` | string | Stable editor/debug identifier. The editor generates unique IDs when adding templates. |
-| `kind` | `field`, `raw`, or `redirection` | Selects parameter-name cleanup, raw URL rewrite, or redirect extraction. Missing `kind` defaults to field-style cleanup. |
+| `kind` | `field`, `raw`, or `redirection` | Selects parameter-name cleanup, raw URL rewrite, or redirect extraction. Missing `kind` defaults to field-style cleanup unless `section` says otherwise. |
+| `section` | `rules`, `rawRules`, `redirections`, `referralMarketing`, or `exceptions` | Core ClearURLs section name. Linkumori accepts this for parity with `/core`; `kind` remains the editor-friendly shorthand. |
 | `match` | string | JavaScript regex source or literal-like field pattern, depending on `kind`. |
 | `action` | object | Currently supports `remove`, `rewrite`, and `redirect` shapes. |
-| `preprocessors` | array | Optional preprocessing steps before replacement/redirect actions. |
+| `preprocessors` | array | Optional preprocessing steps before replacement/redirect actions. Supported types match `/core`: `urlEncode`, `urlDecode`, `doubleUrlEncode`/`urlEncodeRepeated`, `doubleUrlDecode`/`urlDecodeRepeated`, `base64Encode`, and `base64Decode`. |
 | `aliases` | array | Optional extra match strings for the same rule intent. |
 | `description` | string | Human-facing note. |
 | `referralMarketing` | boolean | Marks a field rule as referral-marketing-sensitive. |
+| `activeDefault` | boolean | Core ClearURLs default activation flag. When no explicit `active` is present, `false` keeps the rule inactive. |
 
 ### Field rule
 
