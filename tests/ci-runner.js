@@ -25,7 +25,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 
  * Usage:
- *   node tests/ci-runner.js [--xpi path/to/extension.xpi]
+ *   node tests/ci-runner.js [--xpi path/to/extension.xpi] [--full-battery]
  *
  * Environment variables:
  *   FIREFOX_BINARY   Path to the Firefox binary (default: "firefox")
@@ -48,6 +48,8 @@ const BATCH_SCRIPT_PATH = join(ROOT, 'core_js', 'regression_batch.js');
 
 const EXTENSION_ID = 'linkumori-addon-official@ClearURLs';
 const EXTENSION_UUID = process.env.EXTENSION_UUID || 'a7b8c9d0-e1f2-3456-7890-abcdef012345';
+const CLI_ARGS = process.argv.slice(2);
+const FULL_BATTERY = CLI_ARGS.includes('--full-battery') || process.env.FULL_BATTERY === '1';
 function detectFirefox() {
     if (process.env.FIREFOX_BINARY) return process.env.FIREFOX_BINARY;
     const candidates = process.platform === 'darwin'
@@ -68,9 +70,8 @@ const FIREFOX_BINARY = detectFirefox();
 const CI_TIMEOUT_MS = parseInt(process.env.CI_TIMEOUT_MS || '900000', 10);
 
 function findExistingXpi() {
-    const args = process.argv.slice(2);
-    const xpiArg = args.indexOf('--xpi');
-    if (xpiArg !== -1 && args[xpiArg + 1]) return resolve(args[xpiArg + 1]);
+    const xpiArg = CLI_ARGS.indexOf('--xpi');
+    if (xpiArg !== -1 && CLI_ARGS[xpiArg + 1]) return resolve(CLI_ARGS[xpiArg + 1]);
 
     for (const dir of ['web-ext-artifacts', 'dist']) {
         const base = join(ROOT, dir);
@@ -79,6 +80,102 @@ function findExistingXpi() {
         if (files.length > 0) return join(base, files[files.length - 1]);
     }
     return null;
+}
+
+function toTypeCount(cases, key) {
+    return cases.reduce((acc, testCase) => {
+        const value = testCase[key] || 'unknown';
+        acc[value] = (acc[value] || 0) + 1;
+        return acc;
+    }, {});
+}
+
+function normalizeRegressionSuite(rawSuite, { fullBattery = false } = {}) {
+    const suite = rawSuite && typeof rawSuite === 'object' ? rawSuite : {};
+    const cases = Array.isArray(suite.cases) ? suite.cases : [];
+    const normalizedCases = [];
+    const errors = [];
+    const seen = new Set();
+
+    cases.forEach((testCase, index) => {
+        if (!testCase || typeof testCase !== 'object') {
+            errors.push(`case[${index}] must be an object`);
+            return;
+        }
+
+        const id = String(testCase.id || '').trim();
+        if (!id) errors.push(`case[${index}] is missing id`);
+        if (seen.has(id)) errors.push(`duplicate regression id: ${id}`);
+        seen.add(id);
+
+        const dialect = testCase.dialect || 'provider';
+        if (!['provider', 'urlFilter'].includes(dialect)) {
+            errors.push(`${id || `case[${index}]`} has unsupported dialect: ${dialect}`);
+        }
+
+        if (typeof testCase.input !== 'string') {
+            errors.push(`${id || `case[${index}]`} is missing string input`);
+        }
+
+        const expectedBlocked = testCase.expectedBlocked === true;
+        if (!expectedBlocked && typeof testCase.expectedOutput !== 'string') {
+            errors.push(`${id || `case[${index}]`} needs expectedOutput or expectedBlocked`);
+        }
+
+        if (testCase.fullBattery === true && !fullBattery) return;
+
+        normalizedCases.push({
+            providers: suite.providers || {},
+            urlFilterRules: suite.urlFilterRules || [],
+            preferences: suite.preferences || {},
+            ...testCase,
+            id,
+            dialect,
+            request: normalizeRequest(testCase)
+        });
+    });
+
+    if (errors.length > 0) {
+        throw new Error(`Invalid regression suite:\n${errors.map(e => `  - ${e}`).join('\n')}`);
+    }
+
+    return {
+        ...suite,
+        cases: normalizedCases,
+        metadata: {
+            ...(suite.metadata || {}),
+            fullBattery,
+            skippedFullBattery: cases.length - normalizedCases.length,
+            byDialect: toTypeCount(normalizedCases, 'dialect')
+        }
+    };
+}
+
+function normalizeRequest(testCase) {
+    const request = testCase.request && typeof testCase.request === 'object'
+        ? { ...testCase.request }
+        : {};
+    if (!request.method) request.method = 'GET';
+    if (!request.type) request.type = 'main_frame';
+    return request;
+}
+
+function diffStrings(expected, actual) {
+    const exp = String(expected ?? '');
+    const act = String(actual ?? '');
+    if (exp === act) return { at: -1, expectedTail: '', actualTail: '' };
+    let at = 0;
+    while (at < exp.length && at < act.length && exp[at] === act[at]) at++;
+    return {
+        at,
+        expectedTail: exp.slice(Math.max(0, at - 24), at + 96),
+        actualTail: act.slice(Math.max(0, at - 24), at + 96)
+    };
+}
+
+function formatCaseLabel(testCase) {
+    const request = testCase.request || {};
+    return `${testCase.dialect} :: ${testCase.id} [${request.method || 'GET'} ${request.type || 'main_frame'}]`;
 }
 
 async function buildExtension() {
@@ -174,26 +271,55 @@ async function runBatch(driver, suite) {
     let passed = 0, failed = 0, skipped = 0;
     const results = batchResults.map(r => {
         const tc = caseMap[r.id];
-        if (!tc) return { ...r, classification: 'fail' };
+        if (!tc) return { ...r, classification: 'fail', label: `unknown :: ${r.id || '(missing id)'}` };
+        const label = formatCaseLabel(tc);
         if (r.skippedNav || r.skippedPreference) {
             skipped++;
-            return { ...r, classification: r.skippedNav ? 'skipped_nav' : 'skipped_preference' };
+            return { ...r, label, classification: r.skippedNav ? 'skipped_nav' : 'skipped_preference' };
         }
         const ok = r.actualOutput === tc.expectedOutput;
         ok ? passed++ : failed++;
         return {
             id: r.id,
+            label,
             dialect: r.dialect,
+            request: tc.request,
             actualOutput: r.actualOutput,
             expectedOutput: tc.expectedOutput,
             passed: ok,
             classification: ok ? 'pass' : 'fail',
+            diff: ok ? null : diffStrings(tc.expectedOutput, r.actualOutput),
+            matchedRule: r.matchedRule || null,
+            matchedProvider: r.matchedProvider || null,
             error: r.error || null
         };
     });
 
-    console.log(`[ci] ${passed} passed, ${failed} failed, ${skipped} skipped (nav)`);
-    return { total: suite.cases.length, executed: batchResults.length, passed, failed, skippedByNav: skipped, results };
+    const byDialect = results.reduce((acc, result) => {
+        const key = result.dialect || 'unknown';
+        acc[key] ||= { passed: 0, failed: 0, skipped: 0 };
+        if (result.classification === 'pass') acc[key].passed++;
+        else if (result.classification === 'fail') acc[key].failed++;
+        else acc[key].skipped++;
+        return acc;
+    }, {});
+
+    console.log(`[ci] ${passed} passed, ${failed} failed, ${skipped} skipped (nav/preferences)`);
+    Object.entries(byDialect).forEach(([dialect, counts]) => {
+        console.log(`[ci]   ${dialect}: ${counts.passed} passed, ${counts.failed} failed, ${counts.skipped} skipped`);
+    });
+
+    return {
+        total: suite.cases.length,
+        executed: batchResults.length,
+        passed,
+        failed,
+        skippedByNav: results.filter(r => r.classification === 'skipped_nav').length,
+        skippedByPreference: results.filter(r => r.classification === 'skipped_preference').length,
+        skippedFullBattery: suite.metadata?.skippedFullBattery || 0,
+        byDialect,
+        results
+    };
 }
 
 async function main() {
@@ -211,8 +337,15 @@ async function main() {
         console.log(`[ci] Using XPI: ${xpiPath}`);
 
         // Load the regression suite
-        const suite = JSON.parse(readFileSync(SUITE_PATH, 'utf8'));
+        const rawSuite = JSON.parse(readFileSync(SUITE_PATH, 'utf8'));
+        const suite = normalizeRegressionSuite(rawSuite, { fullBattery: FULL_BATTERY });
         console.log(`[ci] Loaded suite: ${suite.cases.length} test cases`);
+        if (suite.metadata?.skippedFullBattery) {
+            console.log(`[ci] Skipped ${suite.metadata.skippedFullBattery} full-battery cases; pass --full-battery to include them.`);
+        }
+        Object.entries(suite.metadata?.byDialect || {}).forEach(([dialect, count]) => {
+            console.log(`[ci]   ${dialect}: ${count} cases`);
+        });
 
         // Launch Firefox with the extension
         driver = await launchDriver(xpiPath);
@@ -228,7 +361,13 @@ async function main() {
             console.log('\n[ci] Failed cases:');
             report.results
                 .filter(r => r.classification === 'fail')
-                .forEach(r => console.log(`  FAIL — ${r.dialect} — ${r.id}\n       expected: ${r.expectedOutput}\n       actual:   ${r.actualOutput}`));
+                .forEach(r => {
+                    console.log(`  FAIL — ${r.label}\n       expected: ${r.expectedOutput}\n       actual:   ${r.actualOutput}`);
+                    if (r.diff) {
+                        console.log(`       first diff @ ${r.diff.at}\n       expected tail: ${r.diff.expectedTail}\n       actual tail:   ${r.diff.actualTail}`);
+                    }
+                    if (r.error) console.log(`       error: ${r.error}`);
+                });
         }
         exitCode = report.failed > 0 ? 1 : 0;
     } catch (err) {
