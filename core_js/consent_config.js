@@ -59,6 +59,6 @@
  * ============================================================
  */
 
-const Linkumoriversion = 7;
+const Linkumoriversion = 8;
 
 globalThis.Linkumoriversion = Linkumoriversion;
