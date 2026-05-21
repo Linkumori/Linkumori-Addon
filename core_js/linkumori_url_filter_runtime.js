@@ -87,6 +87,9 @@ function createLinkumoriURLFilterBuckets() {
         literalCaseSensitive: Object.create(null),
         literalCaseInsensitive: Object.create(null),
         regex: [],
+        fastSimpleLiteralCaseInsensitive: Object.create(null),
+        fastSimpleLiteralCaseSensitive: Object.create(null),
+        hasBroadExceptions: false,
         includeDomainTrie: typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null,
         excludeDomainTrie: typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null,
         denyallowDomainTrie: typeof LinkumoriHNTrie === 'function' ? new LinkumoriHNTrie() : null
@@ -115,6 +118,27 @@ function addLinkumoriURLFilterBucketEntry(bucket, key, rule) {
 function addLinkumoriURLFilterRuleToBuckets(buckets, rule, indexToken) {
     buckets.all.push(rule);
     addLinkumoriURLFilterReverseIndexEntry(buckets, indexToken, rule);
+
+    if (
+        rule._linkumoriSimpleTarget &&
+        !rule.negate &&
+        !rule.removeAll &&
+        rule.literalParam !== null
+    ) {
+        const fastBucket = rule.matchCase
+            ? buckets.fastSimpleLiteralCaseSensitive
+            : buckets.fastSimpleLiteralCaseInsensitive;
+        const key = rule.matchCase
+            ? String(rule.literalParam)
+            : String(rule._linkumoriLiteralParamLower || rule.literalParam).toLowerCase();
+        if (!fastBucket[key]) {
+            fastBucket[key] = rule;
+        }
+    }
+
+    if (rule.isException && (rule.removeAll || rule.negate || rule.regexParam)) {
+        buckets.hasBroadExceptions = true;
+    }
 
     if (buckets.includeDomainTrie && Array.isArray(rule._linkumoriTrieIncludeTargetDomains)) {
         rule._linkumoriTrieIncludeTargetDomains.forEach(hostname => buckets.includeDomainTrie.add(hostname, rule));
@@ -651,28 +675,53 @@ function buildLinkumoriURLFilterURL(parts, queryEntries) {
     return parts.base + (query ? '?' + query : '') + parts.hash;
 }
 
+function isLinkumoriURLFilterSimpleMethodAllowed(requestDetails) {
+    const requestMethod = requestDetails && typeof requestDetails.method === 'string'
+        ? requestDetails.method.toUpperCase()
+        : '';
+    return !requestMethod || requestMethod === 'GET' || requestMethod === 'HEAD' || requestMethod === 'OPTIONS';
+}
+
 function getLinkumoriURLFilterTargetMatcher(requestDetails) {
     const parser = globalThis.LinkumoriURLFilterInteroperability;
     const cache = new Map();
-    const requestContext = parser && typeof parser.createRequestMatchContext === 'function'
-        ? parser.createRequestMatchContext(requestDetails.url, requestDetails)
-        : null;
-    const hostname = requestContext && requestContext.targetHost
-        ? requestContext.targetHost
-        : getLinkumoriURLFilterHostname(requestDetails.url);
+    const simpleMethodAllowed = isLinkumoriURLFilterSimpleMethodAllowed(requestDetails);
+    let requestContext = null;
+    let hostname = null;
+
+    const ensureRequestContext = () => {
+        if (!requestContext && parser && typeof parser.createRequestMatchContext === 'function') {
+            requestContext = parser.createRequestMatchContext(requestDetails.url, requestDetails);
+        }
+        return requestContext;
+    };
+    const ensureHostname = () => {
+        if (hostname === null) {
+            const context = ensureRequestContext();
+            hostname = context && context.targetHost
+                ? context.targetHost
+                : getLinkumoriURLFilterHostname(requestDetails.url);
+        }
+        return hostname;
+    };
 
     return rule => {
+        if (rule && rule._linkumoriSimpleTarget && simpleMethodAllowed) {
+            return true;
+        }
+
         const key = rule && rule.raw ? rule.raw : String(rule);
         if (cache.has(key)) {
             return cache.get(key);
         }
 
-        if (hostname && rule.includeTargetDomains && rule.includeTargetDomains.length > 0) {
+        const hostnameValue = ensureHostname();
+        if (hostnameValue && rule.includeTargetDomains && rule.includeTargetDomains.length > 0) {
             const includeTrie = rule.isException
                 ? linkumoriURLFilterRuntime.compiled.exceptions.includeDomainTrie
                 : linkumoriURLFilterRuntime.compiled.rules.includeDomainTrie;
             if (includeTrie) {
-                const includeMatches = includeTrie.matches(hostname);
+                const includeMatches = includeTrie.matches(hostnameValue);
                 if (!linkumoriURLFilterTrieMatchesRule(includeMatches, rule)) {
                     cache.set(key, false);
                     return false;
@@ -680,12 +729,12 @@ function getLinkumoriURLFilterTargetMatcher(requestDetails) {
             }
         }
 
-        if (hostname && rule.excludeTargetDomains && rule.excludeTargetDomains.length > 0) {
+        if (hostnameValue && rule.excludeTargetDomains && rule.excludeTargetDomains.length > 0) {
             const excludeTrie = rule.isException
                 ? linkumoriURLFilterRuntime.compiled.exceptions.excludeDomainTrie
                 : linkumoriURLFilterRuntime.compiled.rules.excludeDomainTrie;
             if (excludeTrie) {
-                const excludeMatches = excludeTrie.matches(hostname);
+                const excludeMatches = excludeTrie.matches(hostnameValue);
                 if (linkumoriURLFilterTrieMatchesRule(excludeMatches, rule)) {
                     cache.set(key, false);
                     return false;
@@ -693,12 +742,12 @@ function getLinkumoriURLFilterTargetMatcher(requestDetails) {
             }
         }
 
-        if (hostname && rule.denyallowDomains && rule.denyallowDomains.length > 0) {
+        if (hostnameValue && rule.denyallowDomains && rule.denyallowDomains.length > 0) {
             const denyallowTrie = rule.isException
                 ? linkumoriURLFilterRuntime.compiled.exceptions.denyallowDomainTrie
                 : linkumoriURLFilterRuntime.compiled.rules.denyallowDomainTrie;
             if (denyallowTrie) {
-                const denyallowMatches = denyallowTrie.matches(hostname);
+                const denyallowMatches = denyallowTrie.matches(hostnameValue);
                 if (linkumoriURLFilterTrieMatchesRule(denyallowMatches, rule)) {
                     cache.set(key, false);
                     return false;
@@ -706,11 +755,70 @@ function getLinkumoriURLFilterTargetMatcher(requestDetails) {
             }
         }
 
-        const matched = requestContext && typeof parser.matchesTargetWithContext === 'function'
-            ? !!parser.matchesTargetWithContext(rule, requestContext)
+        const context = ensureRequestContext();
+        const matched = context && typeof parser.matchesTargetWithContext === 'function'
+            ? !!parser.matchesTargetWithContext(rule, context)
             : !!parser.matchesTarget(rule, requestDetails.url, requestDetails);
         cache.set(key, matched);
         return matched;
+    };
+}
+
+function applyFastSimpleLinkumoriURLFilterRules(entries, compiled, requestDetails) {
+    if (
+        !isLinkumoriURLFilterSimpleMethodAllowed(requestDetails) ||
+        !compiled ||
+        !compiled.rules ||
+        !compiled.exceptions
+    ) {
+        return {
+            entries,
+            changed: false,
+            matchedRule: null
+        };
+    }
+
+    if (compiled.exceptions.hasBroadExceptions) {
+        return {
+            entries,
+            changed: false,
+            matchedRule: null
+        };
+    }
+
+    const normalInsensitive = compiled.rules.fastSimpleLiteralCaseInsensitive || {};
+    const normalSensitive = compiled.rules.fastSimpleLiteralCaseSensitive || {};
+    const exceptionInsensitive = compiled.exceptions.literalCaseInsensitive || {};
+    const exceptionSensitive = compiled.exceptions.literalCaseSensitive || {};
+    const keptEntries = [];
+    let matchedRule = null;
+    let changed = false;
+
+    for (let i = 0; i < entries.length; i++) {
+        const entry = entries[i];
+        const rawName = String(entry.rawName || '');
+        const lowerName = rawName.toLowerCase();
+        const rule = normalSensitive[rawName] || normalInsensitive[lowerName] || null;
+
+        if (
+            rule &&
+            !exceptionSensitive[rawName] &&
+            !exceptionInsensitive[lowerName]
+        ) {
+            changed = true;
+            if (!matchedRule) {
+                matchedRule = rule.raw || '$removeparam';
+            }
+            continue;
+        }
+
+        keptEntries.push(entry);
+    }
+
+    return {
+        entries: keptEntries,
+        changed,
+        matchedRule
     };
 }
 
@@ -805,8 +913,9 @@ function findLinkumoriURLFilterMatchedRule(candidates, name, value, rawName, raw
 }
 
 function cleanLinkumoriURLFilterQueryEntries(entries, candidatePlan) {
-    const indexesToDelete = new Set();
+    const keptEntries = [];
     let matchedRule = null;
+    let removedCount = 0;
 
     entries.forEach(entry => {
         const decision = findLinkumoriURLFilterDecision(
@@ -817,16 +926,18 @@ function cleanLinkumoriURLFilterQueryEntries(entries, candidatePlan) {
             candidatePlan
         );
         if (decision.remove) {
-            indexesToDelete.add(entry.index);
+            removedCount++;
             if (!matchedRule && decision.rule) {
                 matchedRule = decision.rule.raw || '$removeparam';
             }
+            return;
         }
+        keptEntries.push(entry);
     });
 
     return {
-        entries: entries.filter(entry => !indexesToDelete.has(entry.index)),
-        changed: indexesToDelete.size > 0,
+        entries: keptEntries,
+        changed: removedCount > 0,
         matchedRule
     };
 }
@@ -846,13 +957,26 @@ function cleanLinkumoriURLFilterURL(requestDetails) {
         return { changed: false, url: requestDetails.url, matchedRule: null };
     }
 
-    const matchesTarget = getLinkumoriURLFilterTargetMatcher(requestDetails);
     const parts = splitLinkumoriURLFilterURL(requestDetails.url);
-    const queryEntries = parseLinkumoriURLFilterQuery(parts.query);
+    const fastResult = applyFastSimpleLinkumoriURLFilterRules(
+        parseLinkumoriURLFilterQuery(parts.query),
+        compiled,
+        requestDetails
+    );
+    const queryEntries = fastResult.entries;
+    if (fastResult.changed && queryEntries.length === 0) {
+        return {
+            changed: true,
+            url: buildLinkumoriURLFilterURL(parts, queryEntries),
+            matchedRule: fastResult.matchedRule
+        };
+    }
+
     const fragmentEntries = [];
     const requestTokens = collectLinkumoriURLFilterRequestTokens(requestDetails, queryEntries, fragmentEntries);
     const ruleCandidates = getLinkumoriURLFilterRequestCandidates(compiled.rules, requestTokens);
     const exceptionCandidates = getLinkumoriURLFilterRequestCandidates(compiled.exceptions, requestTokens);
+    const matchesTarget = getLinkumoriURLFilterTargetMatcher(requestDetails);
     const candidatePlan = createLinkumoriURLFilterCandidatePlan(
         ruleCandidates,
         exceptionCandidates,
@@ -863,6 +987,14 @@ function cleanLinkumoriURLFilterURL(requestDetails) {
         candidatePlan.normalRules.length === 0 &&
         candidatePlan.normalExceptions.length === 0
     ) {
+        if (fastResult.changed) {
+            return {
+                changed: true,
+                url: buildLinkumoriURLFilterURL(parts, queryEntries),
+                matchedRule: fastResult.matchedRule
+            };
+        }
+
         return {
             changed: false,
             url: requestDetails.url,
@@ -875,6 +1007,14 @@ function cleanLinkumoriURLFilterURL(requestDetails) {
         candidatePlan
     );
     if (!queryResult.changed) {
+        if (fastResult.changed) {
+            return {
+                changed: true,
+                url: buildLinkumoriURLFilterURL(parts, queryEntries),
+                matchedRule: fastResult.matchedRule
+            };
+        }
+
         return {
             changed: false,
             url: requestDetails.url,
@@ -891,7 +1031,7 @@ function cleanLinkumoriURLFilterURL(requestDetails) {
     return {
         changed: true,
         url: nextUrl,
-        matchedRule: queryResult.matchedRule
+        matchedRule: fastResult.matchedRule || queryResult.matchedRule
     };
 }
 
