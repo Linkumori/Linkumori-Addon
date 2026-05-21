@@ -16,6 +16,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.8.0] - 2026-05-21 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.7.1...linkumori-v100.8.0))
+### Added
+- Introduce bug report button and GitHub issue report page (`2026-05-21`, hash: [`9b584c9`](https://github.com/Linkumori/Linkumori-Addon/commit/9b584c9))
+
+### Performance
+- Speed up up removeparam matching (`2026-05-21`, hash: [`7c74de5`](https://github.com/Linkumori/Linkumori-Addon/commit/7c74de5))
+
 ## [v100.7.1] - 2026-05-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.7.0...linkumori-v100.7.1))
 ### Changed
 - Release v100.7.1 (hash: `d6a0dc6`).
