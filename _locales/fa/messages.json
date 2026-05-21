@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "الگوهای قوانین",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "یک مشکل را گزارش کنید",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "گزارش مسئله",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "گزارش مشکلات یا پیشنهاد بهبود",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "مشکلی با تمیز کردن URL پیدا کردید یا پیشنهادی دارید؟ با ارسال گزارش به ما در بهبود Linkumori کمک کنید.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "مسائل موجود را پیدا کنید",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "قبل از گزارش، بررسی کنید که آیا مشکل شما قبلاً گزارش شده است:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "نوع مسئله:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "انتخاب نوع مشکل...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "پارامتر ردیابی حذف نشد",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL بعد از تمیز کردن شکسته شد",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "مثبت کاذب (تمیز کردن غیر ضروری)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "مسئله عملکرد",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "مشکل رابط کاربری/نمایشگر",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "درخواست ویژگی",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "پیشنهاد قانون",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "آدرس اینترنتی محل بروز مشکل:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "URL سفارشی را وارد کنید",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "صفحه حاوی محتوای بزرگسالان است (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "اطلاعات تکمیلی:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "لطفا هر گونه توضیحات یا نظر اضافی در مورد این موضوع ارائه دهید...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "من متوجه هستم که با کلیک بر روی \"گزارش در GitHub\" یک URL GitHub حاوی اطلاعاتی که من وارد کرده‌ام و داده‌های پیکربندی نشان داده شده در زیر می‌سازد، سپس من را به آن URL هدایت کنید. هیچ داده ای مستقیماً توسط این افزونه منتقل نمی شود. برنامه افزودنی قبل از باز کردن URL کامل آن را به من نشان می دهد و من می توانم دقیقاً چه اطلاعاتی را شامل می شود بررسی کنم. پس از هدایت به GitHub، کنترل کاملی برای ارسال فرم مشکل از پیش پر شده یا لغو بدون ارسال چیزی دارم. من می دانم که دسترسی به GitHub من را در معرض $privacy_link$ قرار می دهد. ایجاد یک مشکل به یک حساب GitHub نیاز دارد، و هنگامی که انتخاب کردید ادامه دهید و به GitHub هدایت شوید، فعالیت شما توسط $privacy_statement$ و $terms_service$ کنترل می شود. پس از هدایت مجدد با اطلاعات از پیش پر شده، شما کنترل کامل را حفظ می کنید و می توانید انتخاب کنید که ایجاد مشکل را در مخزن ما در $repo_link$ ارسال کنید یا لغو کنید. حتی اگر ایجاد مشکل را لغو کنید، GitHub همچنان ممکن است به دلیل تعامل شما با پلتفرم خود، داده ها را مطابق خط مشی رازداری خود جمع آوری کند. اگر به ارسال موضوع ادامه دهید، اطلاعاتی که ارسال می‌کنید، از جمله نظرات اضافی، برای عموم قابل دسترسی خواهند بود. این به این دلیل است که مخزن عمومی است و هر مشکل گزارش شده برای هر کسی که از GitHub یا خدمات مرتبط استفاده می کند قابل مشاهده است.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "گزارش در GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "اطلاعات پیکربندی",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "می‌دانم که با کلیک کردن روی \"یافتن مشکلات موجود\" یک URL جستجوی GitHub با استفاده از نام دامنه و جزئیات موضوعی که وارد کرده‌ام ایجاد می‌کند و سپس من را به آن URL هدایت می‌کنید. هیچ داده ای مستقیماً توسط این افزونه منتقل نمی شود. برنامه افزودنی قبل از باز کردن URL جستجوی کامل، آن را به من نشان می دهد، بنابراین می توانم بررسی کنم که از کدام عبارت جستجو استفاده می شود. پس از هدایت به GitHub، مشمول $link$ و $terms_service$ خواهم شد.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "پیش نمایش URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "لطفاً URL باز شده را بررسی کنید. این URL حاوی اطلاعاتی است که شما وارد کرده اید و شما را به GitHub هدایت می کند.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL برای باز شدن (فرمت فنی):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "نمایش قالب قابل خواندن (URL رمزگشایی شده)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "URL را کپی کنید",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "کپی شده!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "لغو کنید",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "GitHub را باز کنید",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "این URL شما را به GitHub هدایت می کند. پس از تغییر مسیر داده های شما مشمول $link$ می شوند.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "لطفاً برای ادامه، کادر تأیید رضایت را علامت بزنید.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "لطفاً با علامت زدن کادر رضایت، تأیید کنید که متوجه شده‌اید چگونه از داده‌های شما استفاده می‌شود.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "لطفاً یک نوع مشکل را انتخاب کنید.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "لطفا یک URL ارائه دهید.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "لطفاً یک URL معتبر وارد کنید.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "خطا در ایجاد مشکل GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "خطا در یافتن مشکلات موجود:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "API مرورگر در دسترس نیست. این صفحه باید به عنوان افزونه مرورگر بارگیری شود.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "خطا در بازیابی اطلاعات پیکربندی:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "ደንብ አብነቶች",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "ጉዳይ ሪፖርት አድርግ",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "ጉዳይ ሪፖርት አድርግ",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "ጉዳዮችን ሪፖርት ያድርጉ ወይም ማሻሻያዎችን ይጠቁሙ",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "በዩአርኤል ማፅዳት ላይ ችግር አጋጥሞታል ወይም አስተያየት አለዎት? ሪፖርት በማስገባት Linkumori እንድናሻሽል ያግዙን።",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "ነባር ጉዳዮችን ያግኙ",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "ሪፖርት ከማድረግዎ በፊት ችግርዎ አስቀድሞ ሪፖርት የተደረገ መሆኑን ያረጋግጡ፡",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "የችግር አይነት፡-",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "የችግር አይነት ምረጥ...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "የመከታተያ መለኪያ አልተወገደም።",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "ዩአርኤል ከተጣራ በኋላ ተሰብሯል።",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "የውሸት አወንታዊ (አላስፈላጊ ጽዳት)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "የአፈጻጸም ጉዳይ",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "የዩአይ/ማሳያ ችግር",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "የባህሪ ጥያቄ",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "ደንብ ጥቆማ",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "ችግሩ የሚከሰትበት URL፡",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "ብጁ URL አስገባ",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "ገጹ የአዋቂዎች ይዘት (NSFW) ይዟል",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "ተጨማሪ መረጃ፡-",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "እባክዎን ስለ ጉዳዩ ማንኛውንም ተጨማሪ ዝርዝሮችን ወይም አስተያየቶችን ይስጡ…",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "\"በ GitHub ላይ ሪፖርት አድርግ\" የሚለውን ጠቅ ማድረግ የገባሁትን መረጃ እና ከታች የሚታየውን የውቅር ውሂብ የያዘ የ GitHub URL እንደሚገነባ ተረድቻለሁ፣ ከዚያም ወደዚያ ዩአርኤል ይመራኛል። ምንም ውሂብ በቀጥታ በዚህ ቅጥያ አይተላለፍም። ቅጥያው ከመክፈቱ በፊት ሙሉውን ዩአርኤል ያሳየኛል፣ እና ምን አይነት መረጃ እንደሚካተት በትክክል መገምገም እችላለሁ። አንዴ ወደ GitHub ከተዘዋወረ፣ ምንም ሳላስገባ ቀድሞ የተሞላውን እትም ቅጽ ለማስገባት ወይም ለመሰረዝ ሙሉ ቁጥጥር ይኖረኛል። GitHubን ማግኘት $privacy_link$ እንደሚያስገድደኝ ተረድቻለሁ። ችግር መፍጠር የ GitHub መለያ ያስፈልገዋል፣ እና አንዴ ለመቀጠል ከመረጡ እና ወደ GitHub ከተመሩ፣ የእርስዎ እንቅስቃሴ በ$privacy_statement$ እና $terms_service$ ነው የሚተዳደረው። ቀድሞ በተሞላ መረጃ ከተዘዋወረ በኋላ፣ ሙሉ ቁጥጥርዎን ያቆያሉ እና በ$repo_link$ ማከማቻችን ላይ ያለውን ችግር ለመፍጠር ወይም ለመሰረዝ መምረጥ ይችላሉ። ችግሩን መፍጠሩን ቢሰርዙትም እንኳ፣ GitHub ከመድረክ ጋር ባለዎት ግንኙነት በግላዊነት መመሪያቸው መሰረት ውሂብ ሊሰበስብ ይችላል። ችግሩን በማስረከብ ከቀጠሉ፣ የሚያስገቡት መረጃ፣ ተጨማሪ አስተያየቶችን ጨምሮ፣ ለሕዝብ ተደራሽ ይሆናል። ይህ የሆነበት ምክንያት ማከማቻው ይፋዊ ስለሆነ ማንኛውም ሪፖርት የተደረገ ችግር GitHub ወይም ተዛማጅ አገልግሎቶችን ለሚጠቀም ለማንኛውም ሰው የሚታይ ይሆናል።",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "በ GitHub ላይ ሪፖርት ያድርጉ",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "የማዋቀር መረጃ",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "\"ነባር ጉዳዮችን ፈልግ\" የሚለውን ጠቅ ማድረግ የገባሁትን የጎራ ስም እና የጉዳይ ዝርዝሮችን በመጠቀም የ GitHub ፍለጋ ዩአርኤል እንደሚገነባ እና ከዚያም ወደዚያ ዩአርኤል እንደሚያዞረኝ ተረድቻለሁ። ምንም ውሂብ በቀጥታ በዚህ ቅጥያ አይተላለፍም። ቅጥያው ከመክፈቱ በፊት ሙሉውን የፍለጋ ዩአርኤል ያሳየኛል፣ ስለዚህ የትኞቹ የፍለጋ ቃላት ጥቅም ላይ እንደሚውሉ መገምገም እችላለሁ። አንዴ ወደ GitHub ከተዘዋወረ፣ ለ$link$ እና $terms_service$ ተገዢ እሆናለሁ።",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "የዩአርኤል ቅድመ እይታ",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "እባክዎ የሚከፈተውን ዩአርኤል ይገምግሙ። ይህ ዩአርኤል ያስገቡትን መረጃ ይዟል እና ወደ GitHub ይመራዎታል።",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "የሚከፈተው URL (ቴክኒካዊ ቅርጸት)",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "ሊነበብ የሚችል ቅርጸት አሳይ (ዲኮድ የተደረገ ዩአርኤል)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "URL ቅዳ",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "ተቀድቷል!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "ሰርዝ",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "GitHubን ይክፈቱ",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "ይህ ዩአርኤል ወደ GitHub ይመራዎታል። የእርስዎ ውሂብ አንዴ ከተዛወረ በ$link$ ተገዢ ይሆናል።",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "ለመቀጠል እባክዎ የፍቃድ አመልካች ሳጥኑን ምልክት ያድርጉ።",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "የፈቃድ ሳጥኑ ላይ ምልክት በማድረግ ውሂብዎ እንዴት ጥቅም ላይ እንደሚውል መረዳቱን እባክዎ ያረጋግጡ።",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "እባክዎ የችግር አይነት ይምረጡ።",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "እባክዎ URL ያቅርቡ።",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "እባክህ የሚሰራ URL አስገባ።",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "የ GitHub ጉዳይ መፍጠር ላይ ስህተት፡-",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "ነባር ጉዳዮችን መፈለግ ላይ ስህተት",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "አሳሽ ኤፒአይ አይገኝም። ይህ ገጽ እንደ አሳሽ ቅጥያ መጫን አለበት።",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "የውቅር ውሂብን ሰርስሮ ማውጣት ላይ ስህተት፡-",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

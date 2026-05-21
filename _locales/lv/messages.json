@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Noteikumu veidnes",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Ziņot par problēmu",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Ziņot par problēmu",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Ziņojiet par problēmām vai iesakiet uzlabojumus",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Vai atradāt problēmu ar URL tīrīšanu vai jums ir ieteikums? Palīdziet mums uzlabot Linkumori, iesniedzot ziņojumu.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Atrodiet esošās problēmas",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Pirms ziņošanas pārbaudiet, vai par jūsu problēmu jau ir ziņots:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Problēmas veids:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Atlasiet problēmas veidu...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Izsekošanas parametrs nav noņemts",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL bojāts pēc tīrīšanas",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Viltus pozitīvs (nevajadzīga tīrīšana)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Veiktspējas problēma",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "UI/displeja problēma",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Funkcijas pieprasījums",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Noteikumu ieteikums",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL, kur rodas problēma:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Ievadiet pielāgotu URL",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Lapā ir pieaugušajiem paredzēts saturs (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Papildu informācija:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Lūdzu, sniedziet jebkādu papildu informāciju vai komentārus par problēmu...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Es saprotu, ka, noklikšķinot uz “Ziņot par GitHub”, tiks izveidots GitHub URL, kurā būs ietverta manis ievadītā informācija un tālāk redzamie konfigurācijas dati, un pēc tam mani novirzīs uz šo URL. Šis paplašinājums tieši nepārsūta datus. Pirms paplašinājuma atvēršanas man tiks parādīts pilns URL, un es varu precīzi pārskatīt, kāda informācija tiks iekļauta. Tiklīdz tiks novirzīts uz GitHub, man būs pilnīga kontrole vai nu iesniegt iepriekš aizpildītu problēmas veidlapu, vai atcelt, neko neiesniedzot. Es saprotu, ka, piekļūstot GitHub, esmu pakļauts $privacy_link$. Lai radītu problēmu, ir nepieciešams GitHub konts, un, tiklīdz izvēlaties turpināt un tiekat novirzīts uz GitHub, jūsu darbību regulē $privacy_statement$ un $terms_service$. Pēc pāradresācijas ar iepriekš aizpildītu informāciju jūs saglabājat pilnu kontroli un varat izvēlēties, vai iesniegt vai atcelt problēmas izveidi mūsu repozitorijā $repo_link$. Pat ja atceļat problēmas izveidi, GitHub joprojām var vākt datus saskaņā ar savu konfidencialitātes politiku, jo mijiedarbojaties ar viņu platformu. Ja turpināsit iesniegt problēmu, jūsu iesniegtā informācija, tostarp visi papildu komentāri, kļūs publiski pieejama. Tas ir tāpēc, ka repozitorijs ir publisks, un visas ziņotās problēmas būs redzamas ikvienam, kas izmanto GitHub vai saistītos pakalpojumus.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Ziņojums vietnē GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Konfigurācijas informācija",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Es saprotu, ka, noklikšķinot uz “Atrast esošās problēmas”, tiks izveidots GitHub meklēšanas URL, izmantojot manis ievadīto domēna nosaukumu un informāciju par problēmu, un pēc tam mani novirzīs uz šo URL. Šis paplašinājums tieši nepārsūta datus. Pirms paplašinājuma atvēršanas man tiks parādīts pilns meklēšanas URL, lai es varētu pārskatīt, kuri meklēšanas vienumi tiks izmantoti. Kad tiks novirzīts uz GitHub, uz mani attieksies $link$ un $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL priekšskatījums",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Lūdzu, pārskatiet URL, kas tiks atvērts. Šajā URL ir ietverta jūsu ievadītā informācija, un tas jūs novirzīs uz GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "Atveramais URL (tehniskais formāts):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Rādīt lasāmu formātu (dekodēts URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Kopēt URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Kopēts!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Atcelt",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Atveriet GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Šis URL novirzīs jūs uz GitHub. Pēc novirzīšanas uz jūsu datiem attieksies $link$.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Lai turpinātu, lūdzu, atzīmējiet piekrišanas izvēles rūtiņu.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Lūdzu, apstipriniet, ka saprotat, kā jūsu dati tiks izmantoti, atzīmējot piekrišanas lodziņu.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Lūdzu, atlasiet problēmas veidu.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Lūdzu, norādiet URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Lūdzu, ievadiet derīgu URL.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Veidojot GitHub problēmu, radās kļūda:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Kļūda, meklējot esošās problēmas:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "pārlūkprogrammas API nav pieejama. Šī lapa ir jāielādē kā pārlūkprogrammas paplašinājums.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Kļūda, izgūstot konfigurācijas datus:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

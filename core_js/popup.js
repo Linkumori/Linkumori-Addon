@@ -2040,6 +2040,12 @@ function setText() {
             cleaningToolsIcon.setAttribute('title', toolsTitle);
             cleaningToolsIcon.setAttribute('aria-label', toolsTitle);
         }
+        const reportButton = document.getElementById('reportButton');
+        if (reportButton) {
+            const reportTitle = getLocalizedText('popup_report_issue_button_title', 'Report an issue');
+            reportButton.setAttribute('title', reportTitle);
+            reportButton.setAttribute('aria-label', reportTitle);
+        }
         const themeToggle = document.getElementById('themeToggle');
         if (themeToggle) {
             const themeAria = getLocalizedText('popup_theme_toggle_aria', 'Toggle theme');
@@ -2291,4 +2297,26 @@ function translate(key) {
 * @param {Error} error
 */
 function handleError(error) {
+}
+
+const reportBtn = document.getElementById('reportButton');
+if (reportBtn) {
+    reportBtn.addEventListener('click', async () => {
+        try {
+            // Get current tab URL for the report
+            const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+            const reportURL = new URL(browser.runtime.getURL('html/report.html'));
+            
+            if (tab?.url) {
+                reportURL.searchParams.set('url', tab.url);
+            }
+            
+            // Open report page in a new tab
+            browser.tabs.create({
+                url: reportURL.toString()
+            });
+        } catch (error) {
+            console.error('Error opening report page:', error);
+        }
+    });
 }

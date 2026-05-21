@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Templat peraturan",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Laporkan isu",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Laporan Isu",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Laporkan Isu atau Cadangkan Penambahbaikan",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Menemui masalah dengan pembersihan URL atau mempunyai cadangan? Bantu kami menambah baik Linkumori dengan menyerahkan laporan.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Cari Isu Sedia Ada",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Sebelum melaporkan, semak sama ada isu anda telah dilaporkan:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Jenis isu:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Pilih jenis isu...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Parameter penjejakan tidak dialih keluar",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL rosak selepas dibersihkan",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Positif palsu (pembersihan yang tidak perlu)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Isu prestasi",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Isu UI/Paparan",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Permintaan ciri",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Cadangan peraturan",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL tempat isu itu berlaku:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Masukkan URL tersuai",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Halaman mengandungi kandungan dewasa (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Maklumat Tambahan:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Sila berikan sebarang butiran atau ulasan tambahan tentang isu tersebut...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Saya faham bahawa mengklik \"Laporkan pada GitHub\" akan membina URL GitHub yang mengandungi maklumat yang saya masukkan dan data konfigurasi yang ditunjukkan di bawah, kemudian mengubah hala saya ke URL tersebut. Tiada data dihantar terus oleh sambungan ini. Sambungan itu akan menunjukkan kepada saya URL lengkap sebelum membukanya dan saya boleh menyemak dengan tepat maklumat yang akan disertakan. Setelah diubah hala ke GitHub, saya akan mempunyai kawalan penuh untuk sama ada menyerahkan borang terbitan yang telah diisi sebelumnya atau membatalkan tanpa menyerahkan apa-apa. Saya faham bahawa mengakses GitHub menjadikan saya $privacy_link$. Mencipta isu memerlukan akaun GitHub dan setelah anda memilih untuk meneruskan dan diubah hala ke GitHub, aktiviti anda dikawal oleh $privacy_statement$ dan $terms_service$. Selepas diubah hala dengan maklumat yang telah diisi, anda mengekalkan kawalan penuh dan boleh memilih sama ada untuk menyerahkan atau membatalkan penciptaan isu pada repositori kami di $repo_link$. Walaupun anda membatalkan penciptaan isu, GitHub mungkin masih mengumpul data mengikut dasar privasi mereka kerana interaksi anda dengan platform mereka. Jika anda meneruskan dengan menyerahkan isu tersebut, maklumat yang anda serahkan, termasuk sebarang ulasan tambahan, akan boleh diakses secara umum. Ini kerana repositori adalah awam dan sebarang isu yang dilaporkan akan dapat dilihat oleh sesiapa sahaja yang menggunakan GitHub atau perkhidmatan berkaitan.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Laporan pada GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Maklumat Konfigurasi",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Saya faham bahawa mengklik \"Cari Isu Sedia Ada\" akan membina URL carian GitHub menggunakan nama domain dan butiran isu yang telah saya masukkan, dan kemudian mengubah hala saya ke URL tersebut. Tiada data dihantar terus oleh sambungan ini. Sambungan akan menunjukkan kepada saya URL carian lengkap sebelum membukanya, jadi saya boleh menyemak istilah carian yang akan digunakan. Setelah diubah hala ke GitHub, saya akan tertakluk kepada $link$ dan $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Pratonton URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Sila semak URL yang akan dibuka. URL ini mengandungi maklumat yang anda masukkan dan akan mengubah hala anda ke GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL yang akan dibuka (format teknikal):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Tunjukkan format boleh dibaca (URL dinyahkod)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Salin URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "disalin!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Batal",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Buka GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "URL ini akan mengubah hala anda ke GitHub. Data anda akan tertakluk kepada $link$ setelah diubah hala.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Sila tandai kotak semak persetujuan untuk meneruskan.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Sila sahkan bahawa anda memahami cara data anda akan digunakan dengan menandai kotak persetujuan.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Sila pilih jenis isu.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Sila berikan URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Sila masukkan URL yang sah.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Ralat mencipta isu GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Ralat mencari isu sedia ada:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "API pelayar tidak tersedia. Halaman ini mesti dimuatkan sebagai sambungan penyemak imbas.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Ralat mendapatkan semula data konfigurasi:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

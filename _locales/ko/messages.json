@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "규칙 템플릿",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "문제 신고",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "문제 보고",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "문제 보고 또는 개선 제안",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "URL 정리 관련 문제를 발견했거나 제안사항이 있으십니까? 보고서를 제출하여 Linkumori 개선에 도움을 주세요.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "기존 문제 찾기",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "신고하기 전에 문제가 이미 신고되었는지 확인하세요.",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "문제 유형:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "문제 유형 선택...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "추적 매개변수가 삭제되지 않음",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "청소 후 URL이 깨졌습니다.",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "거짓양성(불필요한 청소)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "성능 문제",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "UI/디스플레이 문제",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "기능 요청",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "규칙 제안",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "문제가 발생한 URL:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "맞춤 URL을 입력하세요.",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "페이지에 성인용 콘텐츠(NSFW)가 포함되어 있습니다.",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "추가 정보:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "문제에 대한 추가 세부정보나 의견을 제공해 주세요.",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "\"GitHub에 보고\"를 클릭하면 내가 입력한 정보와 아래에 표시된 구성 데이터가 포함된 GitHub URL이 생성되고 해당 URL로 리디렉션된다는 점을 이해합니다. 이 확장 프로그램에서는 데이터가 직접 전송되지 않습니다. 확장 프로그램을 열기 전에 전체 URL이 표시되며, 어떤 정보가 포함될지 정확히 검토할 수 있습니다. GitHub로 리디렉션되면 미리 채워진 문제 양식을 제출하거나 아무것도 제출하지 않고 취소할 수 있는 모든 권한을 갖게 됩니다. GitHub에 액세스하면 $privacy_link$가 발생한다는 것을 이해합니다. 문제를 생성하려면 GitHub 계정이 필요하며, 계속하기로 선택하고 GitHub로 리디렉션되면 활동은 $privacy_statement$ 및 $terms_service$에 의해 관리됩니다. 미리 채워진 정보로 리디렉션된 후에도 귀하는 모든 권한을 보유하며 $repo_link$의 저장소에 이슈 생성을 제출하거나 취소할지 여부를 선택할 수 있습니다. 이슈 생성을 취소하더라도 GitHub는 플랫폼과의 상호 작용으로 인해 개인 정보 보호 정책에 따라 데이터를 계속 수집할 수 있습니다. 문제 제출을 진행하면 추가 의견을 포함하여 제출한 정보가 공개적으로 접근 가능해집니다. 이는 저장소가 공개되어 있고 보고된 문제가 GitHub 또는 관련 서비스를 사용하는 모든 사람에게 표시되기 때문입니다.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "GitHub에 보고",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "구성 정보",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "\"기존 문제 찾기\"를 클릭하면 내가 입력한 도메인 이름과 문제 세부 정보를 사용하여 GitHub 검색 URL이 생성되고 해당 URL로 리디렉션된다는 점을 이해합니다. 이 확장 프로그램에서는 데이터가 직접 전송되지 않습니다. 확장 프로그램을 열기 전에 전체 검색 URL이 표시되므로 어떤 검색어가 사용될지 검토할 수 있습니다. GitHub로 리디렉션되면 $link$ 및 $terms_service$의 적용을 받게 됩니다.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL 미리보기",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "공개될 URL을 검토해 주세요. 이 URL에는 귀하가 입력한 정보가 포함되어 있으며 GitHub로 리디렉션됩니다.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "열려는 URL(기술적 형식):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "읽을 수 있는 형식 표시(디코딩된 URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "URL 복사",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "복사되었습니다!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "취소",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "GitHub 열기",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "이 URL은 GitHub로 리디렉션됩니다. 귀하의 데이터는 리디렉션되면 $link$의 적용을 받습니다.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "계속하려면 동의 확인란을 선택하세요.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "동의 상자를 선택하여 귀하의 데이터가 어떻게 사용되는지 이해했는지 확인하십시오.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "문제 유형을 선택해 주세요.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "URL을 제공해 주세요.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "유효한 URL을 입력하세요.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "GitHub 문제 생성 중 오류 발생:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "기존 문제를 찾는 동안 오류가 발생했습니다.",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "브라우저 API를 사용할 수 없습니다. 이 페이지는 브라우저 확장으로 로드되어야 합니다.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "구성 데이터를 검색하는 중 오류가 발생했습니다.",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

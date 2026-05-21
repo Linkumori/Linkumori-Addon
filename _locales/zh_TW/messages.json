@@ -4614,5 +4614,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "規則模板",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "報告問題",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "報告問題",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "報告問題或提出改進建議",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "發現 URL 清理問題或有建議？提交報告幫助我們改進 Linkumori。",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "尋找現有問題",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "在報告之前，請檢查您的問題是否已被報告：",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "問題類型：",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "選擇問題類型...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "追蹤參數未刪除",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "清理後網址損壞",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "誤報（不必要的清潔）",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "效能問題",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "使用者介面/顯示問題",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "功能請求",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "規則建議",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "出現問題的網址：",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "輸入自訂網址",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "頁麵包含成人內容 (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "附加資訊：",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "請提供有關該問題的任何其他詳細資訊或評論...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "據我了解，單擊「在 GitHub 上報告」將建立一個 GitHub URL，其中包含我輸入的資訊和如下所示的配置數據，然後將我重定向到該 URL。此擴充功能不直接傳輸任何資料。該擴充功能會在打開之前向我顯示完整的 URL，我可以準確地查看將包含哪些資訊。一旦重定向到 GitHub，我將完全控制提交預先填寫的問題表單或取消而不提交任何內容。我了解造訪 GitHub 會讓我受到 $privacy_link$ 的影響。建立問題需要 GitHub 帳戶，一旦您選擇繼續並重新導向至 GitHub，您的活動將受到 $privacy_statement$ 和 $terms_service$ 的管轄。使用預先填寫的資訊進行重定向後，您保留完全控制權，並可以選擇是否在我們的儲存庫（$repo_link$）上提交或取消問題建立。即使您取消問題創建，由於您與其平台的交互，GitHub 仍可能根據其隱私權政策收集資料。如果您繼續提交問題，您提交的資訊（包括任何其他評論）將可供公開存取。這是因為儲存庫是公共的，使用 GitHub 或相關服務的任何人都可以看到任何報告的問題。",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "在 GitHub 上報告",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "配置資訊",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "據我了解，點擊「尋找現有問題」將使用我輸入的網域和問題詳細資訊建立 GitHub 搜尋 URL，然後將我重定向到該 URL。此擴充功能不直接傳輸任何資料。該擴充功能將在打開之前向我顯示完整的搜尋 URL，以便我可以查看將使用哪些搜尋字詞。一旦重定向到 GitHub，我將受到 $link$ 和 $terms_service$ 的限制。",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "網址預覽",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "請檢查將開啟的 URL。此 URL 包含您輸入的資訊並將您重新導向至 GitHub。",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "要開啟的URL（技術格式）：",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "顯示可讀格式（解碼後的 URL）",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "複製網址",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "複製了！",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "取消",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "開啟 GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "此 URL 會將您重新導向至 GitHub。一旦重定向，您的資料將受到 $link$ 的約束。",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "請選取同意複選框以繼續。",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "請勾選同意框，確認您了解您的資料將如何使用。",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "請選擇問題類型。",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "請提供一個網址。",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "請輸入有效的網址。",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "建立 GitHub 問題時出錯：",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "發現現有問題時發生錯誤：",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "瀏覽器 API 不可用。該頁面必須作為瀏覽器擴充功能載入。",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "檢索配置資料時發生錯誤：",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

@@ -4611,5 +4611,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Regelmallar",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Rapportera ett problem",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Rapportera problem",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Rapportera problem eller föreslå förbättringar",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Hittade du ett problem med URL-rensning eller har du ett förslag? Hjälp oss att förbättra Linkumori genom att skicka in en rapport.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Hitta befintliga problem",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Innan du rapporterar, kontrollera om ditt problem redan har rapporterats:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Problemtyp:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Välj problemtyp...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Spårningsparametern har inte tagits bort",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL bruten efter rengöring",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Falsk positiv (onödig rengöring)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Prestandaproblem",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Problem med UI/display",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Funktionsbegäran",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Regelförslag",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL där problemet uppstår:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Ange anpassad URL",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Sidan innehåller barnförbjudet innehåll (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Ytterligare information:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Ange ytterligare information eller kommentarer om problemet...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Jag förstår att genom att klicka på \"Rapportera på GitHub\" skapas en GitHub-URL som innehåller informationen jag har angett och konfigurationsdata som visas nedan, och omdirigerar mig sedan till den URL:en. Ingen data överförs direkt av denna anknytning. Tillägget kommer att visa mig den fullständiga webbadressen innan den öppnas, och jag kan granska exakt vilken information som kommer att inkluderas. När jag har omdirigerats till GitHub kommer jag att ha full kontroll att antingen skicka in det förifyllda ärendeformuläret eller avbryta utan att skicka in något. Jag förstår att åtkomst till GitHub utsätter mig för $privacy_link$. Att skapa ett problem kräver ett GitHub-konto, och när du väl väljer att fortsätta och omdirigeras till GitHub, styrs din aktivitet av $privacy_statement$ och $terms_service$. Efter att ha blivit omdirigerad med förifylld information behåller du full kontroll och kan välja om du vill skicka in eller avbryta problemskapandet på vårt arkiv på $repo_link$. Även om du avbryter problemskapandet kan GitHub fortfarande samla in data enligt deras integritetspolicy på grund av din interaktion med deras plattform. Om du fortsätter med att skicka in ärendet kommer informationen du skickar, inklusive eventuella ytterligare kommentarer, att bli tillgänglig för allmänheten. Detta beror på att förvaret är offentligt och alla rapporterade problem kommer att vara synliga för alla som använder GitHub eller relaterade tjänster.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Rapportera på GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Konfigurationsinformation",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Jag förstår att genom att klicka på \"Hitta befintliga problem\" skapas en GitHub-sök-URL med domännamnet och probleminformationen jag har angett, och sedan omdirigerar jag mig till den webbadressen. Ingen data överförs direkt av denna anknytning. Tillägget kommer att visa mig den fullständiga sökadressen innan jag öppnar den, så att jag kan granska vilka söktermer som kommer att användas. När jag omdirigeras till GitHub kommer jag att vara föremål för $link$ och $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL-förhandsgranskning",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Granska webbadressen som kommer att öppnas. Denna URL innehåller informationen du angett och kommer att omdirigera dig till GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL som ska öppnas (tekniskt format):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Visa läsbart format (avkodad URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Kopiera URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Kopierade!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Avbryt",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Öppna GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Denna URL omdirigerar dig till GitHub. Dina uppgifter kommer att omfattas av $link$ när de omdirigeras.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Markera kryssrutan för samtycke för att fortsätta.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Vänligen bekräfta att du förstår hur dina uppgifter kommer att användas genom att markera samtyckesrutan.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Välj en problemtyp.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Ange en URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Ange en giltig URL.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Det gick inte att skapa GitHub-problem:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Det gick inte att hitta befintliga problem:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "webbläsarens API är inte tillgängligt. Den här sidan måste laddas som ett webbläsartillägg.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Fel vid hämtning av konfigurationsdata:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

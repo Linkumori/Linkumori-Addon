@@ -47,6 +47,8 @@
   Source:    https://fonts.google.com/icons
 
   - Paintbrush Icon — ../LinkumorI_HTML_SVG/paintbrush.svg
+  - Bug Icon        — ../LinkumorI_HTML_SVG/bug-material-icon-dark.svg
+                       ../LinkumorI_HTML_SVG/bug-material-icon-light.svg
 
   ============================================================
   MODIFICATION HISTORY
@@ -503,6 +505,27 @@
             height: 14px;
             display: block;
             filter: var(--theme-icon-filter);
+        }
+
+        .tools-icon-btn .bug-icon-light {
+            display: none;
+            filter: none;
+        }
+
+        .tools-icon-btn .bug-icon-dark {
+            filter: none;
+        }
+
+        :root[data-theme="light"] .tools-icon-btn .bug-icon-dark,
+        :root[data-theme="icecold"] .tools-icon-btn .bug-icon-dark,
+        :root[data-theme="sunset"] .tools-icon-btn .bug-icon-dark {
+            display: none;
+        }
+
+        :root[data-theme="light"] .tools-icon-btn .bug-icon-light,
+        :root[data-theme="icecold"] .tools-icon-btn .bug-icon-light,
+        :root[data-theme="sunset"] .tools-icon-btn .bug-icon-light {
+            display: block;
         }
 
         .theme-toggle-btn:hover {
@@ -1140,6 +1163,10 @@
         <div class="header-actions">
             <button id="cleaning_tools_icon" class="tools-icon-btn" aria-label="" title="">
                 <img src="../LinkumorI_HTML_SVG/paintbrush.svg" alt="" aria-hidden="true">
+            </button>
+            <button id="reportButton" class="tools-icon-btn" aria-label="" title="">
+                <img src="../LinkumorI_HTML_SVG/bug-material-icon-dark.svg" alt="" class="bug-icon-dark" aria-hidden="true">
+                <img src="../LinkumorI_HTML_SVG/bug-material-icon-light.svg" alt="" class="bug-icon-light" aria-hidden="true">
             </button>
             <button id="themeToggle" class="theme-toggle-btn" aria-label="" title="">
                 <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" aria-hidden="true">

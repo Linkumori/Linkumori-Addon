@@ -4611,5 +4611,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Шаблоны правил",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Сообщить о проблеме",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Сообщить о проблеме",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Сообщите о проблемах или предложите улучшения",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Обнаружили проблему с очисткой URL-адресов или у вас есть предложение? Помогите нам улучшить Linkumori, отправив отчет.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Найдите существующие проблемы",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Прежде чем сообщить о проблеме, проверьте, не сообщалось ли уже о вашей проблеме:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Тип проблемы:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Выберите тип проблемы...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Параметр отслеживания не удален",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL-адрес поврежден после очистки",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Ложное срабатывание (ненужная очистка)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Проблема с производительностью",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Проблема с пользовательским интерфейсом/дисплеем",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Запрос функции",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Предложение правила",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL-адрес, по которому возникает проблема:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Введите собственный URL-адрес",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Страница содержит контент для взрослых (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Дополнительная информация:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Пожалуйста, предоставьте дополнительную информацию или комментарии по этому вопросу...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Я понимаю, что нажатие кнопки «Отчет на GitHub» создаст URL-адрес GitHub, содержащий введенную мной информацию и данные конфигурации, показанные ниже, а затем перенаправит меня на этот URL-адрес. Никакие данные не передаются напрямую через это расширение. Расширение покажет мне полный URL-адрес перед его открытием, и я смогу точно просмотреть, какая информация будет включена. После перенаправления на GitHub у меня будет полный контроль: либо отправить предварительно заполненную форму задачи, либо отменить ее, не отправляя ничего. Я понимаю, что доступ к GitHub подвергает меня $privacy_link$. Для создания проблемы требуется учетная запись GitHub, и как только вы решите продолжить и будете перенаправлены на GitHub, ваша деятельность будет регулироваться $privacy_statement$ и $terms_service$. После перенаправления с предварительно заполненной информацией вы сохраняете полный контроль и можете выбрать, отправить или отменить создание задачи в нашем репозитории по адресу $repo_link$. Даже если вы отмените создание задачи, GitHub все равно может собирать данные в соответствии со своей политикой конфиденциальности из-за вашего взаимодействия с их платформой. Если вы продолжите отправку проблемы, предоставленная вами информация, включая любые дополнительные комментарии, станет общедоступной. Это связано с тем, что репозиторий является общедоступным, и любая сообщенная проблема будет видна любому, кто использует GitHub или связанные сервисы.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Отчет на GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Информация о конфигурации",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Я понимаю, что нажатие кнопки «Найти существующие проблемы» создаст URL-адрес поиска GitHub, используя введенное мной имя домена и сведения о проблеме, а затем перенаправит меня на этот URL-адрес. Никакие данные не передаются напрямую через это расширение. Расширение покажет мне полный URL-адрес поиска перед его открытием, чтобы я мог просмотреть, какие поисковые запросы будут использоваться. После перенаправления на GitHub на меня будут распространяться $link$ и $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Предварительный просмотр URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Пожалуйста, просмотрите URL-адрес, который будет открыт. Этот URL-адрес содержит введенную вами информацию и перенаправит вас на GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL для открытия (технический формат):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Показать читаемый формат (расшифрованный URL-адрес)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Копировать URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Скопировано!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Отмена",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Открыть GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Этот URL-адрес перенаправит вас на GitHub. После перенаправления ваши данные будут подвергнуты $link$.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Пожалуйста, установите флажок согласия, чтобы продолжить.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Подтвердите, что вы понимаете, как будут использоваться ваши данные, установив флажок согласия.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Пожалуйста, выберите тип проблемы.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Укажите URL-адрес.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Введите действительный URL-адрес.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Ошибка создания проблемы GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Ошибка при обнаружении существующих проблем:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "API браузера недоступен. Эта страница должна быть загружена как расширение браузера.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Ошибка получения данных конфигурации:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

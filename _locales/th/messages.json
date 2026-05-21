@@ -4611,5 +4611,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Rule templates",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "รายงานปัญหา",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "รายงานปัญหา",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "รายงานปัญหาหรือแนะนำการปรับปรุง",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "พบปัญหาเกี่ยวกับการล้าง URL หรือมีข้อเสนอแนะหรือไม่ ช่วยเราปรับปรุง Linkumori โดยการส่งรายงาน",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "ค้นหาปัญหาที่มีอยู่",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "ก่อนรายงาน ให้ตรวจสอบว่าปัญหาของคุณได้รับการรายงานแล้วหรือไม่:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "ประเภทปัญหา:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "เลือกประเภทปัญหา...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "ไม่ได้นำพารามิเตอร์การติดตามออก",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL ใช้งานไม่ได้หลังจากทำความสะอาด",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "ผลบวกลวง (ทำความสะอาดโดยไม่จำเป็น)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "ปัญหาด้านประสิทธิภาพ",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "ปัญหา UI/การแสดงผล",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "คำขอคุณลักษณะ",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "ข้อเสนอแนะกฎ",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL ที่เกิดปัญหา:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "ป้อน URL ที่กำหนดเอง",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "หน้ามีเนื้อหาสำหรับผู้ใหญ่ (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "ข้อมูลเพิ่มเติม:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "กรุณาให้รายละเอียดเพิ่มเติมหรือความคิดเห็นเกี่ยวกับปัญหา...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "ฉันเข้าใจว่าการคลิก \"รายงานเกี่ยวกับ GitHub\" จะสร้าง URL ของ GitHub ที่มีข้อมูลที่ฉันได้ป้อนและข้อมูลการกำหนดค่าที่แสดงด้านล่าง จากนั้นเปลี่ยนเส้นทางฉันไปยัง URL นั้น ไม่มีข้อมูลถูกส่งโดยตรงจากส่วนขยายนี้ ส่วนขยายจะแสดง URL ที่สมบูรณ์ก่อนที่จะเปิด และฉันสามารถตรวจสอบได้อย่างชัดเจนว่าข้อมูลใดบ้างที่จะรวมไว้ เมื่อเปลี่ยนเส้นทางไปที่ GitHub แล้ว ฉันจะมีสิทธิ์เต็มที่ในการส่งแบบฟอร์มปัญหาที่กรอกไว้ล่วงหน้าหรือยกเลิกโดยไม่ต้องส่งอะไรเลย ฉันเข้าใจว่าการเข้าถึง GitHub ทำให้ฉันต้องทำ $privacy_link$ การสร้างปัญหาจำเป็นต้องมีบัญชี GitHub และเมื่อคุณเลือกที่จะดำเนินการต่อและถูกเปลี่ยนเส้นทางไปยัง GitHub กิจกรรมของคุณจะถูกควบคุมโดย $privacy_statement$ และ $terms_service$ หลังจากถูกเปลี่ยนเส้นทางด้วยข้อมูลที่กรอกไว้ล่วงหน้า คุณจะยังคงควบคุมได้อย่างเต็มที่และสามารถเลือกได้ว่าจะส่งหรือยกเลิกการสร้างปัญหาในพื้นที่เก็บข้อมูลของเราที่ $repo_link$ แม้ว่าคุณจะยกเลิกการสร้างปัญหา GitHub อาจยังคงรวบรวมข้อมูลตามนโยบายความเป็นส่วนตัวเนื่องจากการโต้ตอบของคุณกับแพลตฟอร์มของพวกเขา หากคุณดำเนินการส่งปัญหาต่อ ข้อมูลที่คุณส่ง รวมถึงความคิดเห็นเพิ่มเติม จะสามารถเข้าถึงได้แบบสาธารณะ เนื่องจากพื้นที่เก็บข้อมูลเป็นแบบสาธารณะ และทุกคนที่ใช้ GitHub หรือบริการที่เกี่ยวข้องจะมองเห็นปัญหาที่มีการรายงานได้",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "รายงานเกี่ยวกับ GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "ข้อมูลการกำหนดค่า",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "ฉันเข้าใจว่าการคลิก \"ค้นหาปัญหาที่มีอยู่\" จะสร้าง URL ค้นหา GitHub โดยใช้ชื่อโดเมนและรายละเอียดปัญหาที่ฉันป้อน จากนั้นเปลี่ยนเส้นทางฉันไปยัง URL นั้น ไม่มีข้อมูลถูกส่งโดยตรงจากส่วนขยายนี้ ส่วนขยายจะแสดง URL การค้นหาที่สมบูรณ์ก่อนที่จะเปิด ดังนั้นฉันจึงสามารถตรวจสอบได้ว่าจะใช้คำค้นหาใด เมื่อเปลี่ยนเส้นทางไปที่ GitHub ฉันจะอยู่ภายใต้ $link$ และ $terms_service$",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "ดูตัวอย่าง URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "โปรดตรวจสอบ URL ที่จะเปิด URL นี้มีข้อมูลที่คุณป้อนและจะนำคุณไปยัง GitHub",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL ที่จะเปิด (รูปแบบทางเทคนิค):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "แสดงรูปแบบที่อ่านได้ (URL ที่ถอดรหัส)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "คัดลอก URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "คัดลอก!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "ยกเลิก",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "เปิด GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "URL นี้จะนำคุณไปยัง GitHub ข้อมูลของคุณจะอยู่ภายใต้ $link$ เมื่อเปลี่ยนเส้นทางแล้ว",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "โปรดทำเครื่องหมายในช่องยินยอมเพื่อดำเนินการต่อ",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "โปรดยืนยันว่าคุณเข้าใจว่าข้อมูลของคุณจะถูกนำไปใช้อย่างไรโดยทำเครื่องหมายในช่องยินยอม",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "โปรดเลือกประเภทปัญหา",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "กรุณาระบุ URL",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "โปรดป้อน URL ที่ถูกต้อง",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "เกิดข้อผิดพลาดในการสร้างปัญหา GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "เกิดข้อผิดพลาดในการค้นหาปัญหาที่มีอยู่:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "API ของเบราว์เซอร์ไม่พร้อมใช้งาน หน้านี้จะต้องโหลดเป็นส่วนขยายของเบราว์เซอร์",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "เกิดข้อผิดพลาดในการเรียกข้อมูลการกำหนดค่า:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

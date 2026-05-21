@@ -4611,5 +4611,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Mẫu quy tắc",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Báo cáo sự cố",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Báo cáo vấn đề",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Báo cáo vấn đề hoặc đề xuất cải tiến",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Tìm thấy sự cố với việc dọn dẹp URL hoặc bạn có đề xuất? Hãy giúp chúng tôi cải thiện Linkumori bằng cách gửi báo cáo.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Tìm các vấn đề hiện có",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Trước khi báo cáo, hãy kiểm tra xem sự cố của bạn đã được báo cáo chưa:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Loại vấn đề:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Chọn loại sự cố...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Tham số theo dõi không bị xóa",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL bị hỏng sau khi làm sạch",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Dương tính giả (làm sạch không cần thiết)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Vấn đề về hiệu suất",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Vấn đề về giao diện người dùng/hiển thị",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Yêu cầu tính năng",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Đề xuất quy tắc",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL nơi xảy ra sự cố:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Nhập URL tùy chỉnh",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Trang chứa nội dung người lớn (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Thông tin bổ sung:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Vui lòng cung cấp thêm thông tin chi tiết hoặc nhận xét về vấn đề này...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Tôi hiểu rằng việc nhấp vào \"Báo cáo trên GitHub\" sẽ tạo URL GitHub chứa thông tin tôi đã nhập và dữ liệu cấu hình được hiển thị bên dưới, sau đó chuyển hướng tôi đến URL đó. Không có dữ liệu nào được truyền trực tiếp bởi phần mở rộng này. Tiện ích mở rộng sẽ hiển thị cho tôi URL đầy đủ trước khi mở và tôi có thể xem lại chính xác thông tin nào sẽ được đưa vào. Sau khi được chuyển hướng đến GitHub, tôi sẽ có toàn quyền gửi biểu mẫu vấn đề được điền sẵn hoặc hủy mà không gửi bất kỳ thứ gì. Tôi hiểu rằng việc truy cập GitHub buộc tôi phải tuân theo $privacy_link$. Việc tạo sự cố cần có tài khoản GitHub và sau khi bạn chọn tiếp tục và được chuyển hướng đến GitHub, hoạt động của bạn sẽ bị chi phối bởi $privacy_statement$ và $terms_service$. Sau khi được chuyển hướng với thông tin được điền sẵn, bạn có toàn quyền kiểm soát và có thể chọn gửi hoặc hủy việc tạo vấn đề trên kho lưu trữ của chúng tôi tại $repo_link$. Ngay cả khi bạn hủy việc tạo vấn đề, GitHub vẫn có thể thu thập dữ liệu theo chính sách quyền riêng tư của họ do sự tương tác của bạn với nền tảng của họ. Nếu bạn tiếp tục gửi vấn đề, thông tin bạn gửi, bao gồm mọi nhận xét bổ sung, sẽ có thể truy cập công khai. Điều này là do kho lưu trữ ở chế độ công khai và mọi vấn đề được báo cáo sẽ hiển thị với bất kỳ ai sử dụng GitHub hoặc các dịch vụ liên quan.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Báo cáo trên GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Thông tin cấu hình",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Tôi hiểu rằng việc nhấp vào \"Tìm sự cố hiện tại\" sẽ tạo URL tìm kiếm GitHub bằng cách sử dụng tên miền và thông tin chi tiết về sự cố mà tôi đã nhập, sau đó chuyển hướng tôi đến URL đó. Không có dữ liệu nào được truyền trực tiếp bởi phần mở rộng này. Tiện ích mở rộng sẽ hiển thị cho tôi URL tìm kiếm đầy đủ trước khi mở nó, để tôi có thể xem lại cụm từ tìm kiếm nào sẽ được sử dụng. Sau khi được chuyển hướng đến GitHub, tôi sẽ phải tuân theo $link$ và $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Xem trước URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Vui lòng xem lại URL sẽ được mở. URL này chứa thông tin bạn đã nhập và sẽ chuyển hướng bạn đến GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL sẽ được mở (định dạng kỹ thuật):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Hiển thị định dạng có thể đọc được (URL được giải mã)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Sao chép URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Đã sao chép!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Hủy bỏ",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Mở GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "URL này sẽ chuyển hướng bạn đến GitHub. Dữ liệu của bạn sẽ phải tuân theo $link$ sau khi được chuyển hướng.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Vui lòng chọn hộp kiểm đồng ý để tiếp tục.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Vui lòng xác nhận rằng bạn hiểu cách dữ liệu của mình sẽ được sử dụng bằng cách chọn hộp đồng ý.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Vui lòng chọn một loại vấn đề.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Vui lòng cung cấp một URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Vui lòng nhập một URL hợp lệ.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Lỗi khi tạo sự cố GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Lỗi tìm kiếm các vấn đề hiện có:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "API trình duyệt không có sẵn. Trang này phải được tải dưới dạng tiện ích mở rộng của trình duyệt.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Lỗi truy xuất dữ liệu cấu hình:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

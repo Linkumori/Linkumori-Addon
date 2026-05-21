@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Πρότυπα κανόνων",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Αναφέρετε ένα πρόβλημα",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Αναφορά ζητήματος",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Αναφέρετε προβλήματα ή προτείνετε βελτιώσεις",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Βρήκατε κάποιο πρόβλημα με τον καθαρισμό της διεύθυνσης URL ή έχετε κάποια πρόταση; Βοηθήστε μας να βελτιώσουμε το Linkumori υποβάλλοντας μια αναφορά.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Βρείτε τα υπάρχοντα ζητήματα",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Πριν από την αναφορά, ελέγξτε εάν το πρόβλημά σας έχει ήδη αναφερθεί:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Τύπος προβλήματος:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Επιλέξτε τύπο προβλήματος...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Η παράμετρος παρακολούθησης δεν καταργήθηκε",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "Η διεύθυνση URL έχει σπάσει μετά τον καθαρισμό",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Λάθος θετικό (περιττός καθαρισμός)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Ζήτημα απόδοσης",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Ζήτημα διεπαφής χρήστη/οθόνης",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Αίτημα δυνατότητας",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Πρόταση κανόνα",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL όπου παρουσιάζεται το πρόβλημα:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Εισαγάγετε προσαρμοσμένη διεύθυνση URL",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Η σελίδα περιέχει περιεχόμενο για ενηλίκους (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Πρόσθετες πληροφορίες:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Δώστε οποιεσδήποτε πρόσθετες λεπτομέρειες ή σχόλια σχετικά με το θέμα...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Κατανοώ ότι κάνοντας κλικ στην \"Αναφορά στο GitHub\" θα δημιουργηθεί μια διεύθυνση URL του GitHub που περιέχει τις πληροφορίες που έχω εισαγάγει και τα δεδομένα διαμόρφωσης που εμφανίζονται παρακάτω και, στη συνέχεια, θα με ανακατευθύνει σε αυτήν τη διεύθυνση URL. Δεν μεταδίδονται δεδομένα απευθείας από αυτήν την επέκταση. Η επέκταση θα μου δείξει το πλήρες URL πριν το ανοίξω και μπορώ να ελέγξω ακριβώς ποιες πληροφορίες θα συμπεριληφθούν. Μόλις ανακατευθυνθώ στο GitHub, θα έχω τον πλήρη έλεγχο είτε να υποβάλω την προσυμπληρωμένη φόρμα ζητήματος είτε να ακυρώσω χωρίς να υποβάλω τίποτα. Κατανοώ ότι η πρόσβαση στο GitHub με υποβάλλει στο $privacy_link$. Η δημιουργία ενός προβλήματος απαιτεί έναν λογαριασμό GitHub και μόλις επιλέξετε να συνεχίσετε και ανακατευθυνθείτε στο GitHub, η δραστηριότητά σας διέπεται από τα $privacy_statement$ και $terms_service$. Αφού ανακατευθυνθείτε με προσυμπληρωμένες πληροφορίες, διατηρείτε τον πλήρη έλεγχο και μπορείτε να επιλέξετε εάν θα υποβάλετε ή θα ακυρώσετε τη δημιουργία του ζητήματος στο αποθετήριο μας στο $repo_link$. Ακόμα κι αν ακυρώσετε τη δημιουργία προβλήματος, το GitHub μπορεί να συλλέγει δεδομένα σύμφωνα με την πολιτική απορρήτου του λόγω της αλληλεπίδρασής σας με την πλατφόρμα του. Εάν προχωρήσετε στην υποβολή του ζητήματος, οι πληροφορίες που υποβάλλετε, συμπεριλαμβανομένων τυχόν πρόσθετων σχολίων, θα γίνουν δημόσια προσβάσιμες. Αυτό συμβαίνει επειδή το αποθετήριο είναι δημόσιο και κάθε αναφερόμενο πρόβλημα θα είναι ορατό σε οποιονδήποτε χρησιμοποιεί το GitHub ή σχετικές υπηρεσίες.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Αναφορά στο GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Πληροφορίες διαμόρφωσης",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Κατανοώ ότι κάνοντας κλικ στο \"Εύρεση υπαρχόντων ζητημάτων\" θα δημιουργηθεί μια διεύθυνση URL αναζήτησης GitHub χρησιμοποιώντας το όνομα τομέα και τις λεπτομέρειες του ζητήματος που έχω καταχωρίσει και, στη συνέχεια, θα με ανακατευθύνει σε αυτήν τη διεύθυνση URL. Δεν μεταδίδονται δεδομένα απευθείας από αυτήν την επέκταση. Η επέκταση θα μου δείξει την πλήρη διεύθυνση URL αναζήτησης πριν την ανοίξω, ώστε να μπορώ να ελέγξω ποιοι όροι αναζήτησης θα χρησιμοποιηθούν. Μόλις ανακατευθυνθώ στο GitHub, θα υπόκεινται στους $link$ και $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Προεπισκόπηση URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Ελέγξτε τη διεύθυνση URL που θα ανοίξει. Αυτή η διεύθυνση URL περιέχει τις πληροφορίες που εισαγάγατε και θα σας ανακατευθύνει στο GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL που θα ανοίξει (τεχνική μορφή):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Εμφάνιση αναγνώσιμης μορφής (αποκωδικοποιημένη διεύθυνση URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Αντιγραφή διεύθυνσης URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Αντιγράφηκε!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Ακύρωση",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Ανοίξτε το GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Αυτή η διεύθυνση URL θα σας ανακατευθύνει στο GitHub. Τα δεδομένα σας θα υπόκεινται σε $link$ μόλις ανακατευθυνθούν.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Επιλέξτε το πλαίσιο ελέγχου συναίνεσης για να συνεχίσετε.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Επιβεβαιώστε ότι κατανοείτε πώς θα χρησιμοποιηθούν τα δεδομένα σας επιλέγοντας το πλαίσιο συναίνεσης.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Επιλέξτε έναν τύπο προβλήματος.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Δώστε μια διεύθυνση URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Εισαγάγετε μια έγκυρη διεύθυνση URL.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Σφάλμα δημιουργίας προβλήματος GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Σφάλμα εύρεσης υπαρχόντων προβλημάτων:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "Το API του προγράμματος περιήγησης δεν είναι διαθέσιμο. Αυτή η σελίδα πρέπει να φορτωθεί ως επέκταση προγράμματος περιήγησης.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Σφάλμα κατά την ανάκτηση δεδομένων διαμόρφωσης:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }
