@@ -1911,15 +1911,14 @@ async function openLoggerWindow() {
         const customrulesBtn =document.getElementById('customrules');
         if (customrulesBtn) {
             customrulesBtn.onclick = () => {
-                browser.tabs.create({url: browser.runtime.getURL('./html/customrules.html')})
+                browser.tabs.create({url: browser.runtime.getURL('./html/customrules.html#customrule')})
             }
         }
 
         const whitelistPageBtn = document.getElementById('whitelist_page');
         if (whitelistPageBtn) {
             whitelistPageBtn.onclick = () => {
-                localStorage.setItem('customrules-active-view', 'whitelist');
-                browser.tabs.create({url: browser.runtime.getURL('./html/customrules.html')});
+                browser.tabs.create({url: browser.runtime.getURL('./html/customrules.html#whitelist')});
             };
         }
         
