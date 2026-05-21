@@ -270,6 +270,7 @@ function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetai
 }
 
 function pureCleaningTrace(url, testParamName = '', requestDetails = null) {
+    globalThis.linkumoriAppliedFieldRewrites = new Set();
     let before = url;
     let after = url;
     const trace = [];
