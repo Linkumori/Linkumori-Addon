@@ -1,0 +1,861 @@
+<!--
+  ============================================================
+  Linkumori — report.html
+  ============================================================
+  Copyright (c) 2025-2026 Subham Mahesh
+
+  This program is free software: you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation, either
+  version 3 of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this program. If not, see
+  <http://www.gnu.org/licenses/>.
+
+  ============================================================
+  SVG ICON ATTRIBUTIONS
+  ============================================================
+
+  EXTERNAL FILE REFERENCES — Google Material Icons (Unmodified)
+  -------------------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+  Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+
+  - Sun Icon  — ../LinkumorI_HTML_SVG/sun.svg
+                 Unmodified local Material icon SVG used for the theme toggle
+  - Moon Icon — ../LinkumorI_HTML_SVG/moon.svg
+                 Unmodified local Material icon SVG used for the theme toggle
+
+  ============================================================
+  MODIFICATION HISTORY
+  ============================================================
+  2025-05-16   Subham Mahesh   Modified report page
+  2025-05-16   Subham Mahesh   Modified report page
+  2025-05-16   Subham Mahesh   Modified report page
+  2025-05-16   Subham Mahesh   Modified report page
+  2025-05-25   Subham Mahesh   Modified report page
+  2026-05-21   Subham Mahesh   Adapted report page for Linkumori i18n and themes
+
+  Note: Due to inline constraints, subsequent modifications may
+  not appear here. To view the full history, run:
+
+    node linkumori-cli-tool.js
+
+  Select "Generate Commit History" to produce a Markdown file
+  listing all modifications by file, author, and date.
+
+  IMPORTANT NOTES
+  ---------------
+  - git clone is required before running "Generate Commit History";
+    otherwise commit history generation will not work.
+  - Older modifications may not appear in the generated
+    COMMIT_HISTORY.md.
+  - If a file's inline notice is limited, check for a separate
+    file-specific notice and COMMIT_HISTORY.md; if neither exists,
+    treat the inline notice as the final modification record.
+  - If a separate file-specific notice is provided, check the
+    file's inline notice and COMMIT_HISTORY.md; if neither exists,
+    treat the separate notice as the final modification record.
+  - Review individual modified source files for earlier notices.
+  - Some files may not contain notices within the file itself or
+    may not be listed in COMMIT_HISTORY.md; a separate notice
+    file may be provided instead.
+  - Not all source files have been modified, but review notices
+    in all source files and any separate notice files (.md or .txt).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <title data-i18n="reportIssueTitle"></title>
+    <script src="../external_js/theme_bootstrap.js"></script>
+    <style>
+        /* Base styles from original CSS - color scheme, etc. */
+        @font-face {
+            font-family: 'Liberation Serif';
+            src: url('../liberation-fonts/LiberationSerif-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-primary: #0f111a;
+            --bg-secondary: #161a24;
+            --bg-tertiary: #232838;
+            --bg-tertiary-license: #232838;
+            --bg-primary-theme: #161a24;
+            --button-primary: #2f3648;
+            --button-hover: #232838;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #2f3648;
+            --button-success-hover: #232838;
+            --button-text: #ffffff;
+            --logo-bg: #ffffff;
+            --logo-accent: #2f3648;
+            --text-primary: #f1f5f9;
+            --text-primary-domain: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.12);
+            --shadow-color: rgba(0, 0, 0, 0.35);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.14);
+            --input-focus: #8ab4e6;
+            --button-primary-toogle: rgba(47, 54, 72, 0.45);
+            --nav-bg: #161a24;
+            --nav-item-hover: #232838;
+            --nav-item-active: #8ab4e6;
+            --nav-border: rgba(255, 255, 255, 0.12);
+            --nav-text: var(--text-secondary);
+            --nav-text-active: var(--text-primary);
+            --theme-icon-filter: brightness(0) invert(1);
+            --link-color: #ffffff;
+            --link-color-hover: #dbeafe;
+        }
+
+        :root[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f1f5f9;
+            --bg-tertiary: #2563eb;
+            --bg-primary-theme: #f1f5f9;
+            --bg-tertiary-license: #818892;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-primary-domain: #334155;
+            --button-text: #ffffff;
+            --text-muted: #64748b;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --input-bg: rgba(0, 0, 0, 0.05);
+            --input-border: rgba(0, 0, 0, 0.1);
+            --button-primary: #2563eb;
+            --button-hover: #1e40af;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #2563eb;
+            --button-success-hover: #2563eb;
+            --input-focus: #1e3a8a;
+            --logo-bg: #2563eb;
+            --logo-accent: #f1f5f9;
+            --button-primary-toogle: #71a7ff;
+            --nav-bg: #f1f5f9;
+            --nav-item-hover: #2563eb;
+            --nav-item-active: #2563eb;
+            --nav-border: rgba(0, 0, 0, 0.1);
+            --nav-text: #334155;
+            --nav-text-active: #ffffff;
+            --theme-icon-filter: brightness(0) saturate(100%);
+            --link-color: var(--text-secondary);
+            --link-color-hover: var(--text-primary);
+        }
+
+        :root[data-theme="icecold"] {
+            --bg-primary: #e5eaf5;
+            --bg-secondary: #f3f7fd;
+            --bg-tertiary: #d7e8f6;
+            --bg-tertiary-license: #d7e8f6;
+            --bg-primary-theme: #f3f7fd;
+            --button-primary: #8458b3;
+            --button-hover: #a28089;
+            --button-danger: #8458b3;
+            --button-danger-hover: #a28089;
+            --button-success: #8458b3;
+            --button-success-hover: #a28089;
+            --button-text: #ffffff;
+            --logo-bg: #ffffff;
+            --logo-accent: #8458b3;
+            --text-primary: #1f2937;
+            --text-primary-domain: #1f2937;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: rgba(148, 163, 184, 0.35);
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --input-bg: #ffffff;
+            --input-border: rgba(148, 163, 184, 0.45);
+            --input-focus: #8458b3;
+            --button-primary-toogle: rgba(132, 88, 179, 0.2);
+            --nav-bg: #f3f7fd;
+            --nav-item-hover: #d7e8f6;
+            --nav-item-active: #8458b3;
+            --nav-border: rgba(148, 163, 184, 0.35);
+            --nav-text: var(--text-secondary);
+            --nav-text-active: var(--text-primary);
+            --theme-icon-filter: brightness(0) saturate(100%);
+            --link-color: var(--text-secondary);
+            --link-color-hover: var(--text-primary);
+        }
+
+        :root[data-theme="midnight"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --bg-tertiary-license: #334155;
+            --bg-primary-theme: #1e293b;
+            --button-primary: #2563eb;
+            --button-hover: #3b82f6;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #2563eb;
+            --button-success-hover: #2563eb;
+            --button-text: #ffffff;
+            --logo-bg: #ffffff;
+            --logo-accent: #2563eb;
+            --text-primary: #f8fafc;
+            --text-primary-domain: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.25);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-focus: #3b82f6;
+            --button-primary-toogle: rgba(255, 255, 255, 0.2);
+            --nav-bg: #1e293b;
+            --nav-item-hover: #334155;
+            --nav-item-active: #2563eb;
+            --nav-border: rgba(255, 255, 255, 0.1);
+            --nav-text: var(--text-secondary);
+            --nav-text-active: var(--text-primary);
+            --theme-icon-filter: brightness(0) invert(1);
+            --link-color: var(--text-secondary);
+            --link-color-hover: var(--text-primary);
+        }
+
+        :root[data-theme="sunset"] {
+            --bg-primary: #f5f3f0;
+            --bg-secondary: #fffdfb;
+            --bg-tertiary: #fff6f2;
+            --bg-tertiary-license: #fff6f2;
+            --bg-primary-theme: #fffdfb;
+            --button-primary: #f76f53;
+            --button-hover: #c85a3e;
+            --button-danger: #dc2626;
+            --button-danger-hover: #ef4444;
+            --button-success: #f76f53;
+            --button-success-hover: #c85a3e;
+            --button-text: #ffffff;
+            --logo-bg: #ffffff;
+            --logo-accent: #f76f53;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --text-primary-domain: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow-color: rgba(0, 0, 0, 0.06);
+            --input-bg: rgba(0, 0, 0, 0.04);
+            --input-border: rgba(0, 0, 0, 0.15);
+            --input-focus: #f76f53;
+            --button-primary-toogle: rgba(247, 111, 83, 0.2);
+            --nav-bg: #fffdfb;
+            --nav-item-hover: rgba(247, 111, 83, 0.08);
+            --nav-item-active: #f76f53;
+            --nav-border: rgba(0, 0, 0, 0.07);
+            --nav-text: var(--text-secondary);
+            --nav-text-active: var(--text-primary);
+            --theme-icon-filter: brightness(0) saturate(100%);
+            --link-color: var(--text-secondary);
+            --link-color-hover: var(--text-primary);
+        }
+
+        :root[data-theme="legacy"] {
+            --bg-primary: #212529;
+            --bg-secondary: #343a40;
+            --bg-tertiary: #495057;
+            --bg-tertiary-license: #495057;
+            --bg-primary-theme: #212529;
+            --button-primary: #FF7800;
+            --button-hover: #FF7800;
+            --button-danger: #dc3545;
+            --button-danger-hover: #c82333;
+            --button-success: #FF7800;
+            --button-success-hover: #FF7800;
+            --button-text: #ffffff;
+            --logo-bg: #ffffff;
+            --logo-accent: #2563eb;
+            --text-primary: #f8f9fa;
+            --text-secondary: #dee2e6;
+            --text-primary-domain: #f8f9fa;
+            --text-muted: #adb5bd;
+            --border-color: rgba(255, 255, 255, 0.14);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --input-bg: rgba(255, 255, 255, 0.06);
+            --input-border: rgba(255, 255, 255, 0.2);
+            --input-focus: #FF7800;
+            --button-primary-toogle: rgba(255, 120, 0, 0.25);
+            --nav-bg: #343a40;
+            --nav-item-hover: #495057;
+            --nav-item-active: #FF7800;
+            --nav-border: rgba(255, 255, 255, 0.15);
+            --nav-text: #e9ecef;
+            --nav-text-active: #ffffff;
+            --theme-icon-filter: brightness(0) invert(1);
+            --link-color: #dee2e6;
+            --link-color-hover: #f8f9fa;
+        }
+
+        /* Basic layout styles */
+        body {
+            max-width: 700px;
+            margin: 0 auto;
+            font-family: "Liberation Serif";
+            background: var(--bg-primary);
+            transition: background-color 0.2s;
+            color: var(--text-secondary);
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .header {
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px var(--shadow-color);
+            position: relative;
+            justify-content: space-between;
+            border-radius: 0 0 6px 6px;
+            margin-bottom: 16px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 24px;
+            height: 24px;
+        }
+
+        .header h1 {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        section {
+            padding: 16px;
+            max-width: 100%;
+        }
+
+        /* Theme Toggle Styles */
+        .theme-toggle-btn {
+            background: var(--bg-primary-theme);
+            padding: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .sun-icon, .moon-icon {
+            display: none;
+            width: 16px;
+            height: 16px;
+            filter: var(--theme-icon-filter);
+        }
+
+        :root[data-theme="light"] .sun-icon { display: block; }
+        :root[data-theme="light"] .moon-icon { display: none; }
+        :root:not([data-theme="light"]) .sun-icon { display: none; }
+        :root:not([data-theme="light"]) .moon-icon { display: block; }
+
+        /* Professional Form Redesign - New CSS */
+        /* Base Form Element Styling */
+        select, input[type="text"], textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: "Liberation Serif";
+            background: var(--input-bg);
+            color: var(--text-primary-domain);
+            transition: all 0.2s ease;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            box-sizing: border-box; /* Ensures padding doesn't add to width */
+        }
+
+        /* Select Dropdown Styling */
+        select {
+            appearance: none; /* Remove default styling */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 30px;
+            cursor: pointer;
+        }
+
+        /* Textarea specific styling */
+        textarea {
+            resize: vertical;
+            min-height: 80px; /* Reduced height */
+            max-height: 200px;
+            padding: 10px;
+            font-family: "Liberation Serif";
+            margin-top: 5px;
+            overflow-y: auto; /* Added scrolling for overflow content */
+        }
+
+        /* Focus States */
+        select:focus, input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 1px var(--input-focus);
+        }
+
+        /* Disabled Input Styling */
+        input[type="text"]:disabled {
+            background-color: var(--input-bg);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            opacity: 0.75;
+            border-color: var(--input-border);
+        }
+
+        /* Button Styling */
+        button {
+            padding: 7px 12px;
+            background: var(--button-primary);
+            color: var(--text-primary);
+            border: none;
+            font-family: "Liberation Serif";
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Checkbox styling */
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        .checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkbox svg {
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--input-border);
+            border-radius: 3px;
+            transition: all 0.2s;
+            background: var(--input-bg);
+        }
+
+        .checkbox input:checked ~ svg {
+            background: var(--button-primary);
+            border-color: var(--button-primary);
+        }
+
+        .checkbox svg path {
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            display: none;
+        }
+
+        .checkbox input:checked ~ svg path {
+            display: block;
+        }
+
+        /* Label styling */
+        label {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Support Entry Container */
+        .supportEntry {
+            margin-bottom: 16px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            padding: 16px;
+            box-shadow: 0 1px 3px var(--shadow-color);
+        }
+
+        /* URL-related containers */
+        .url-input-container,
+        .nsfw-container {
+            margin-bottom: 12px;
+        }
+
+        /* Field groups for better organization */
+        .field-group {
+            margin-bottom: 14px;
+        }
+
+        .field-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Elegant section headers */
+        h2 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        /* Configuration section styling */
+        details {
+            margin-top: 8px;
+        }
+
+        details summary {
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        details pre {
+            background: var(--bg-primary);
+            padding: 12px;
+            border-radius: 4px;
+            color: var(--text-secondary);
+            overflow-x: auto;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+            margin-top: 8px;
+        }
+
+        /* Error message styling */
+        .error {
+            color: var(--button-danger);
+            padding: 10px;
+            border-radius: 4px;
+            background: rgba(220, 38, 38, 0.1);
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        /* Ensuring proper vertical alignment */
+        p {
+            margin: 0 0 10px 0;
+        }
+
+        /* Subtle horizontal rule */
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 12px 0;
+        }
+
+        /* URL Dropdown Specific Styling */
+        .url-select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: "Liberation Serif";
+            background: var(--input-bg);
+            color: var(--text-primary-domain);
+            transition: all 0.2s ease;
+            margin-bottom: 10px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 30px;
+            cursor: pointer;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .url-select:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 1px var(--input-focus);
+        }
+
+        #customUrlInput {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        /* Consent message styling */
+        .consent-container {
+            margin: 15px 0;
+        }
+
+        .consent-text {
+            display: inline-block;
+            font-size: 12px;
+            line-height: 1.4;
+            margin-left: 5px;
+            margin-top: 1px;
+            vertical-align: top;
+        }
+
+        .consent-text a {
+            color: var(--button-primary);
+            text-decoration: none;
+        }
+
+        .consent-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* URL Preview Modal Styling */
+        .url-preview-modal {
+            font-family: "Liberation Serif";
+        }
+
+        .url-preview-modal button:focus {
+            outline: 2px solid var(--button-primary);
+            outline-offset: 2px;
+        }
+
+        .url-preview-modal [style*="user-select: all"]:focus {
+            outline: 2px solid var(--input-focus);
+            outline-offset: 2px;
+        }
+
+        /* Mobile responsiveness for URL preview modal */
+        @media (max-width: 600px) {
+            section {
+                padding: 12px;
+            }
+            
+            .supportEntry {
+                padding: 14px;
+            }
+            
+            body {
+                font-size: 13px;
+            }
+
+            /* Modal adjustments for mobile */
+            .url-preview-modal {
+                margin: 10px !important;
+                padding: 16px !important;
+                max-height: 90vh !important;
+            }
+            
+            /* Button container for mobile */
+            .url-preview-modal [style*="display: flex"]:last-child {
+                flex-direction: column !important;
+                gap: 8px !important;
+            }
+            
+            .url-preview-modal [style*="display: flex"]:last-child button {
+                width: 100% !important;
+                padding: 10px 16px !important;
+            }
+            
+            /* URL display adjustments */
+            .url-preview-modal [style*="font-family: monospace"] {
+                font-size: 11px !important;
+                max-height: 150px !important;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            .url-preview-modal button {
+                transition: none !important;
+            }
+            
+            .url-preview-modal button:hover {
+                transform: none !important;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .url-preview-modal > div {
+                border: 2px solid var(--text-secondary) !important;
+            }
+            
+            .url-preview-modal [style*="font-family: monospace"] {
+                border: 2px solid var(--border-color) !important;
+            }
+            
+            .url-preview-modal [style*="rgba(59, 130, 246"] {
+                border: 2px solid var(--button-primary) !important;
+            }
+        }
+     </style>
+</head>
+
+<body>
+    <section>
+        <header class="header">
+            <div class="header-content">
+                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">             
+                    <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>             
+                    <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" 
+                          fill="none" 
+                          stroke="var(--logo-accent)" 
+                          stroke-width="8" 
+                          stroke-linecap="round"/>             
+                    <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35" 
+                          fill="none" 
+                          stroke="var(--logo-accent)" 
+                          stroke-width="8" 
+                          stroke-linecap="round"/>             
+                    <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" 
+                             fill="var(--logo-accent)"/>         
+                </svg>
+                <h1 data-i18n="reportIssueTitle"></h1>
+            </div>
+            <div class="header-buttons">
+                <button class="theme-toggle-btn" id="themeToggle" data-i18n-title="popup_theme_toggle_aria" data-i18n-aria="popup_theme_toggle_aria">
+                    <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" width="16" height="16" class="sun-icon" aria-hidden="true">
+                    <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" width="16" height="16" class="moon-icon" aria-hidden="true">
+                </button>
+            </div>
+        </header>
+
+        <h2 data-i18n="reportIssueHeader"></h2>
+        <p data-i18n="reportIssueDescription"></p>
+        
+        <div class="supportEntry">
+            <p data-i18n="beforeReporting"></p>
+            <div class="consent-container">
+                <label class="checkbox-wrapper">
+                    <span class="input checkbox">
+                        <input id="findExistingConsentCheckbox" type="checkbox">
+                        <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                    </span>
+                    <span class="consent-text" data-i18n="findExistingConsentMessage"></span>
+                </label>
+            </div>
+            <button type="button" id="findExistingButton" data-i18n="findExistingButton"></button>
+        </div>
+        
+        <div class="supportEntry">
+            <div class="field-group">
+                <label for="issueTypeSelect" data-i18n="issueTypeLabel"></label>
+                <select name="type" id="issueTypeSelect">
+                    <option value="[unknown]" selected disabled data-i18n="issueTypeSelect"></option>
+                    <option value="tracking-not-removed" data-i18n="issueTypeTrackingNotRemoved"></option>
+                    <option value="url-broken" data-i18n="issueTypeUrlBroken"></option>
+                    <option value="false-positive" data-i18n="issueTypeFalsePositive"></option>
+                    <option value="performance" data-i18n="issueTypePerformance"></option>
+                    <option value="ui-issue" data-i18n="issueTypeUi"></option>
+                    <option value="feature-request" data-i18n="issueTypeFeatureRequest"></option>
+                    <option value="rule-suggestion" data-i18n="issueTypeRuleSuggestion"></option>
+                </select>
+            </div>
+            
+            <!-- URL input container with dropdown -->
+            <div class="url-input-container field-group">
+                <label for="urlSelect" data-i18n="urlLabel"></label>
+                <select id="urlSelect" name="urlSelect" class="url-select">
+                    <!-- Options will be populated dynamically -->
+                </select>
+                
+                <div id="customUrlContainer" style="display: none; margin-top: 10px;">
+                    <input type="text" 
+                           id="customUrlInput" 
+                           name="customUrlInput" 
+                           data-i18n-placeholder="customUrlPlaceholder">
+                </div>
+            </div>
+            
+            <!-- NSFW container -->
+            <div class="nsfw-container field-group">
+                <label class="checkbox-wrapper">
+                    <span class="input checkbox">
+                        <input id="isNSFW" type="checkbox">
+                        <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                    </span>
+                    <span data-i18n="nsfwLabel"></span>
+                </label>
+            </div>
+            
+            <div class="field-group">
+                <label for="additionalInfo" data-i18n="additionalInfoLabel"></label>
+                <textarea 
+                    id="additionalInfo" 
+                    name="additionalInfo" 
+                    rows="4" 
+                    data-i18n-placeholder="additionalInfoPlaceholder"></textarea>
+            </div>
+            
+            <!-- Consent checkbox -->
+            <div class="consent-container">
+                <label class="checkbox-wrapper">
+                    <span class="input checkbox">
+                        <input id="consentCheckbox" type="checkbox">
+                        <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                    </span>
+                    <span class="consent-text" data-i18n="consentMessage"></span>
+                </label>
+            </div>
+            
+            <button type="button" id="reportIssueButton" class="preferred" data-i18n="reportOnGitHub"></button>
+        </div>
+        
+        <div class="supportEntry" style="font-size: smaller;">
+            <details>
+                <summary data-i18n="configInformation"></summary>
+                <pre id="configData" style="user-select: all;"></pre>
+            </details>
+        </div>
+    </section>
+
+    <script src="../external_js/linkumori-i18n.js"></script>
+    <script src="../core_js/report.js"></script>
+</body>
+</html>

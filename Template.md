@@ -119,8 +119,8 @@
 
 | Category | Files |
 |----------|-------|
-| **Core JavaScript** | `core_js/badgedHandler.js`<br>`core_js/historyListener.js`<br>`core_js/settings.js`<br>`core_js/watchdog.js`<br>`core_js/cleaning_tool.js`<br>`core_js/log.js`<br>`core_js/siteBlockedAlert.js`<br>`core_js/write_version.js`<br>`core_js/context_menu.js`<br>`core_js/message_handler.js`<br>`core_js/storage.js`<br>`core_js/eTagFilter.js`<br>`core_js/popup.js`<br>`core_js/tools.js`<br>`core_js/pureCleaning.js`<br>`./clearurls.js` |
-| **HTML** | `html/log.html`<br>`html/siteBlockedAlert.html` |
+| **Core JavaScript** | `core_js/badgedHandler.js`<br>`core_js/historyListener.js`<br>`core_js/settings.js`<br>`core_js/watchdog.js`<br>`core_js/cleaning_tool.js`<br>`core_js/log.js`<br>`core_js/report.js`<br>`core_js/siteBlockedAlert.js`<br>`core_js/write_version.js`<br>`core_js/context_menu.js`<br>`core_js/message_handler.js`<br>`core_js/storage.js`<br>`core_js/eTagFilter.js`<br>`core_js/popup.js`<br>`core_js/tools.js`<br>`core_js/pureCleaning.js`<br>`./clearurls.js` |
+| **HTML** | `html/log.html`<br>`html/report.html`<br>`html/siteBlockedAlert.html` |
 | **Other** | `linkumori-cli-tool.js`<br>`linkumori-clearurls-min.json.lz4`<br>`manifest.json` |
 
 #### 2.3.2 Original Copyright
@@ -157,6 +157,8 @@
 | Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
 | Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
 | Paintbrush Icon | `../LinkumorI_HTML_SVG/paintbrush.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Bug Icon (dark) | `../LinkumorI_HTML_SVG/bug-material-icon-dark.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Bug Icon (light) | `../LinkumorI_HTML_SVG/bug-material-icon-light.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
 
 **Google Material Icons Information:**
 - **Source:** <https://fonts.google.com/icons>
@@ -165,7 +167,32 @@
 
 {{LICENSE:APACHE-2.0}}
 
-#### 2.3.5 Cleaning Tool Page (`html/cleaningTool.html`)
+#### 2.3.5 Report Page (`html/report.html`)
+
+**Based On:** ClearURLs report issue page
+
+**Original Copyright:** © 2017-2025 Kevin Röbert
+**Modified By:** © 2025-2026 Subham Mahesh
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+**External File References (Google Material Icons - Apache License 2.0, Unmodified)**
+
+| Icon | Source | License | Copyright |
+|------|--------|---------|-----------|
+| Sun Icon | `../LinkumorI_HTML_SVG/sun.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+| Moon Icon | `../LinkumorI_HTML_SVG/moon.svg` | Apache-2.0 | Google Material Icons / Google Fonts |
+
+**Google Material Icons Information:**
+- **Source:** <https://fonts.google.com/icons>
+- **License:** Apache License 2.0
+- **Documentation:** <https://developers.google.com/fonts/docs/material_icons#licensing>
+
+{{LICENSE:APACHE-2.0}}
+
+#### 2.3.6 Cleaning Tool Page (`html/cleaningTool.html`)
 
 **Based On:** ClearURLs Cleaning Tool Page
 
@@ -190,7 +217,7 @@
 
 {{LICENSE:APACHE-2.0}}
 
-#### 2.3.6 Localization Credits
+#### 2.3.7 Localization Credits
 
 ##### English (`_locales/en/messages.json`)
 

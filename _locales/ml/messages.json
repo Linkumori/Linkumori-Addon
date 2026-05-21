@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "റൂൾ ടെംപ്ലേറ്റുകൾ",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "ഒരു പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "റിപ്പോർട്ട് പ്രശ്നം",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "പ്രശ്നങ്ങൾ റിപ്പോർട്ടുചെയ്യുക അല്ലെങ്കിൽ മെച്ചപ്പെടുത്തലുകൾ നിർദ്ദേശിക്കുക",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "URL വൃത്തിയാക്കുന്നതിൽ ഒരു പ്രശ്നം കണ്ടെത്തിയോ അല്ലെങ്കിൽ എന്തെങ്കിലും നിർദ്ദേശമുണ്ടോ? ഒരു റിപ്പോർട്ട് സമർപ്പിച്ചുകൊണ്ട് Linkumori മെച്ചപ്പെടുത്താൻ ഞങ്ങളെ സഹായിക്കൂ.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "നിലവിലുള്ള പ്രശ്നങ്ങൾ കണ്ടെത്തുക",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "റിപ്പോർട്ടുചെയ്യുന്നതിന് മുമ്പ്, നിങ്ങളുടെ പ്രശ്നം ഇതിനകം റിപ്പോർട്ട് ചെയ്തിട്ടുണ്ടോയെന്ന് പരിശോധിക്കുക:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "പ്രശ്ന തരം:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "പ്രശ്നത്തിൻ്റെ തരം തിരഞ്ഞെടുക്കുക...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "ട്രാക്കിംഗ് പാരാമീറ്റർ നീക്കം ചെയ്തിട്ടില്ല",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "വൃത്തിയാക്കിയ ശേഷം യുആർഎൽ തകർന്നു",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "തെറ്റായ പോസിറ്റീവ് (അനാവശ്യമായ വൃത്തിയാക്കൽ)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "പ്രകടന പ്രശ്നം",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "UI/Display പ്രശ്നം",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "ഫീച്ചർ അഭ്യർത്ഥന",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "നിയമ നിർദ്ദേശം",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "പ്രശ്നം സംഭവിക്കുന്ന URL:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "ഇഷ്‌ടാനുസൃത URL നൽകുക",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "പേജിൽ മുതിർന്നവർക്കുള്ള ഉള്ളടക്കം (NSFW) അടങ്ങിയിരിക്കുന്നു",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "അധിക വിവരങ്ങൾ:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "പ്രശ്‌നത്തെക്കുറിച്ചുള്ള കൂടുതൽ വിശദാംശങ്ങളോ അഭിപ്രായങ്ങളോ നൽകുക...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "\"GitHub-ൽ റിപ്പോർട്ട് ചെയ്യുക\" ക്ലിക്കുചെയ്യുന്നത്, ഞാൻ നൽകിയ വിവരങ്ങളും താഴെ കാണിച്ചിരിക്കുന്ന കോൺഫിഗറേഷൻ ഡാറ്റയും അടങ്ങുന്ന ഒരു GitHub URL നിർമ്മിക്കുമെന്ന് ഞാൻ മനസ്സിലാക്കുന്നു, തുടർന്ന് എന്നെ ആ URL-ലേക്ക് റീഡയറക്‌ട് ചെയ്യും. ഈ വിപുലീകരണത്തിലൂടെ ഒരു ഡാറ്റയും നേരിട്ട് കൈമാറില്ല. വിപുലീകരണം തുറക്കുന്നതിന് മുമ്പ് പൂർണ്ണമായ URL എന്നെ കാണിക്കും, കൂടാതെ എന്ത് വിവരങ്ങളാണ് ഉൾപ്പെടുത്തേണ്ടതെന്ന് എനിക്ക് കൃത്യമായി അവലോകനം ചെയ്യാൻ കഴിയും. GitHub-ലേക്ക് റീഡയറക്‌ട് ചെയ്‌തുകഴിഞ്ഞാൽ, ഒന്നുകിൽ മുൻകൂട്ടി പൂരിപ്പിച്ച ഇഷ്യൂ ഫോം സമർപ്പിക്കാനോ ഒന്നും സമർപ്പിക്കാതെ തന്നെ റദ്ദാക്കാനോ എനിക്ക് പൂർണ്ണ നിയന്ത്രണം ഉണ്ടായിരിക്കും. GitHub ആക്സസ് ചെയ്യുന്നത് എന്നെ $privacy_link$-ലേക്ക് വിധേയമാക്കുന്നുവെന്ന് ഞാൻ മനസ്സിലാക്കുന്നു. ഒരു പ്രശ്‌നം സൃഷ്‌ടിക്കുന്നതിന് ഒരു GitHub അക്കൗണ്ട് ആവശ്യമാണ്, നിങ്ങൾ തുടരാൻ തിരഞ്ഞെടുത്ത് GitHub-ലേക്ക് റീഡയറക്‌ട് ചെയ്‌തുകഴിഞ്ഞാൽ, നിങ്ങളുടെ പ്രവർത്തനം നിയന്ത്രിക്കുന്നത് $privacy_statement$, $terms_service$ എന്നിവയാണ്. മുൻകൂട്ടി പൂരിപ്പിച്ച വിവരങ്ങൾ ഉപയോഗിച്ച് റീഡയറക്‌ട് ചെയ്‌തതിന് ശേഷം, നിങ്ങൾക്ക് പൂർണ്ണ നിയന്ത്രണം ഉണ്ടായിരിക്കും കൂടാതെ $repo_link$-ൽ ഞങ്ങളുടെ ശേഖരത്തിൽ പ്രശ്‌നം സൃഷ്‌ടിക്കൽ സമർപ്പിക്കണോ റദ്ദാക്കണോ എന്ന് തിരഞ്ഞെടുക്കാം. നിങ്ങൾ പ്രശ്‌നം സൃഷ്‌ടിക്കുന്നത് റദ്ദാക്കിയാലും, അവരുടെ പ്ലാറ്റ്‌ഫോമുമായുള്ള നിങ്ങളുടെ ഇടപെടൽ കാരണം GitHub അവരുടെ സ്വകാര്യതാ നയമനുസരിച്ച് ഡാറ്റ ശേഖരിക്കാനിടയുണ്ട്. നിങ്ങൾ പ്രശ്നം സമർപ്പിക്കുന്നത് തുടരുകയാണെങ്കിൽ, ഏതെങ്കിലും അധിക അഭിപ്രായങ്ങൾ ഉൾപ്പെടെ നിങ്ങൾ സമർപ്പിക്കുന്ന വിവരങ്ങൾ എല്ലാവർക്കും ആക്സസ് ചെയ്യാവുന്നതാണ്. റിപ്പോസിറ്ററി എല്ലാവർക്കുമായി ഉള്ളതാണ് ഇതിന് കാരണം, റിപ്പോർട്ടുചെയ്‌ത ഏത് പ്രശ്‌നവും GitHub അല്ലെങ്കിൽ അനുബന്ധ സേവനങ്ങൾ ഉപയോഗിക്കുന്ന ആർക്കും ദൃശ്യമാകും.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "GitHub-നെക്കുറിച്ചുള്ള റിപ്പോർട്ട്",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "കോൺഫിഗറേഷൻ വിവരങ്ങൾ",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "\"നിലവിലുള്ള പ്രശ്നങ്ങൾ കണ്ടെത്തുക\" ക്ലിക്കുചെയ്യുന്നത്, ഞാൻ നൽകിയ ഡൊമെയ്ൻ നാമവും ഇഷ്യൂ വിശദാംശങ്ങളും ഉപയോഗിച്ച് ഒരു GitHub തിരയൽ URL നിർമ്മിക്കുമെന്നും തുടർന്ന് ആ URL-ലേക്ക് എന്നെ റീഡയറക്‌ട് ചെയ്യുമെന്നും ഞാൻ മനസ്സിലാക്കുന്നു. ഈ വിപുലീകരണത്തിലൂടെ ഒരു ഡാറ്റയും നേരിട്ട് കൈമാറില്ല. വിപുലീകരണം തുറക്കുന്നതിന് മുമ്പ് പൂർണ്ണമായ തിരയൽ URL എന്നെ കാണിക്കും, അതിനാൽ ഏതൊക്കെ തിരയൽ പദങ്ങളാണ് ഉപയോഗിക്കേണ്ടതെന്ന് എനിക്ക് അവലോകനം ചെയ്യാൻ കഴിയും. GitHub-ലേക്ക് റീഡയറക്‌ട് ചെയ്‌തുകഴിഞ്ഞാൽ, ഞാൻ $link$, $terms_service$ എന്നിവയ്‌ക്ക് വിധേയമായിരിക്കും.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL പ്രിവ്യൂ",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "തുറക്കുന്ന URL ദയവായി അവലോകനം ചെയ്യുക. ഈ URL-ൽ നിങ്ങൾ നൽകിയ വിവരങ്ങൾ അടങ്ങിയിരിക്കുന്നു, അത് നിങ്ങളെ GitHub-ലേക്ക് റീഡയറക്ട് ചെയ്യും.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL to be opened (technical format):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "വായിക്കാനാകുന്ന ഫോർമാറ്റ് കാണിക്കുക (ഡീകോഡ് ചെയ്ത URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "URL പകർത്തുക",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "പകർത്തി!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "റദ്ദാക്കുക",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "GitHub തുറക്കുക",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "ഈ URL നിങ്ങളെ GitHub-ലേക്ക് റീഡയറക്‌ട് ചെയ്യും. ഒരിക്കൽ റീഡയറക്‌ട് ചെയ്‌താൽ നിങ്ങളുടെ ഡാറ്റ $link$-ന് വിധേയമായിരിക്കും.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "തുടരാൻ സമ്മത ചെക്ക്ബോക്സ് പരിശോധിക്കുക.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "സമ്മത ബോക്‌സ് ചെക്ക് ചെയ്യുന്നതിലൂടെ നിങ്ങളുടെ ഡാറ്റ എങ്ങനെ ഉപയോഗിക്കുമെന്ന് നിങ്ങൾ മനസ്സിലാക്കുന്നുവെന്ന് ദയവായി സ്ഥിരീകരിക്കുക.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "ദയവായി ഒരു പ്രശ്ന തരം തിരഞ്ഞെടുക്കുക.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "ദയവായി ഒരു URL നൽകുക.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "ദയവായി സാധുവായ ഒരു URL നൽകുക.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "GitHub പ്രശ്നം സൃഷ്ടിക്കുന്നതിൽ പിശക്:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "നിലവിലുള്ള പ്രശ്നങ്ങൾ കണ്ടെത്തുന്നതിൽ പിശക്:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "ബ്രൗസർ API ലഭ്യമല്ല. ഈ പേജ് ഒരു ബ്രൗസർ വിപുലീകരണമായി ലോഡ് ചെയ്യണം.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "കോൺഫിഗറേഷൻ ഡാറ്റ വീണ്ടെടുക്കുന്നതിൽ പിശക്:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

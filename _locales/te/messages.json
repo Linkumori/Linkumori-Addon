@@ -4611,5 +4611,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "రూల్ టెంప్లేట్లు",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "సమస్యను నివేదించండి",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "సమస్యను నివేదించండి",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "సమస్యలను నివేదించండి లేదా మెరుగుదలలను సూచించండి",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "URL క్లీనింగ్‌లో సమస్య కనుగొనబడిందా లేదా ఏదైనా సూచన ఉందా? నివేదికను సమర్పించడం ద్వారా లింక్‌మోరిని మెరుగుపరచడంలో మాకు సహాయపడండి.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "ఇప్పటికే ఉన్న సమస్యలను కనుగొనండి",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "నివేదించడానికి ముందు, మీ సమస్య ఇప్పటికే నివేదించబడిందో లేదో తనిఖీ చేయండి:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "సమస్య రకం:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "సమస్య రకాన్ని ఎంచుకోండి...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "ట్రాకింగ్ పరామితి తీసివేయబడలేదు",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "శుభ్రపరిచిన తర్వాత URL విచ్ఛిన్నమైంది",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "తప్పుడు పాజిటివ్ (అనవసరమైన శుభ్రపరచడం)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "పనితీరు సమస్య",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "UI/డిస్‌ప్లే సమస్య",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "ఫీచర్ అభ్యర్థన",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "నియమం సూచన",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "సమస్య సంభవించే URL:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "అనుకూల URLని నమోదు చేయండి",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "పేజీ పెద్దల కంటెంట్‌ను కలిగి ఉంది (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "అదనపు సమాచారం:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "దయచేసి సమస్య గురించి ఏవైనా అదనపు వివరాలు లేదా వ్యాఖ్యలను అందించండి...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "\"GitHubపై నివేదించు\"ని క్లిక్ చేయడం వలన నేను నమోదు చేసిన సమాచారం మరియు క్రింద చూపబడిన కాన్ఫిగరేషన్ డేటాతో కూడిన GitHub URL రూపొందుతుందని, ఆ తర్వాత నన్ను ఆ URLకి మళ్లించవచ్చని నేను అర్థం చేసుకున్నాను. ఈ పొడిగింపు ద్వారా ఏ డేటా నేరుగా ప్రసారం చేయబడదు. పొడిగింపు దాన్ని తెరవడానికి ముందు నాకు పూర్తి URLని చూపుతుంది మరియు నేను ఖచ్చితంగా ఏ సమాచారాన్ని చేర్చాలో సమీక్షించగలను. GitHubకి మళ్లించబడిన తర్వాత, ముందుగా పూరించిన ఇష్యూ ఫారమ్‌ను సమర్పించడం లేదా దేనినీ సమర్పించకుండా రద్దు చేయడంపై నాకు పూర్తి నియంత్రణ ఉంటుంది. GitHubని యాక్సెస్ చేయడం వలన నన్ను $privacy_link$కి చేర్చవచ్చని నేను అర్థం చేసుకున్నాను. సమస్యను సృష్టించడానికి GitHub ఖాతా అవసరం మరియు మీరు కొనసాగాలని ఎంచుకుని, GitHubకి మళ్లించబడిన తర్వాత, మీ కార్యాచరణ $privacy_statement$ మరియు $terms_service$ ద్వారా నిర్వహించబడుతుంది. ముందుగా పూరించిన సమాచారంతో దారి మళ్లించిన తర్వాత, మీరు పూర్తి నియంత్రణను కలిగి ఉంటారు మరియు $repo_link$ వద్ద మా రిపోజిటరీలో సమస్య సృష్టిని సమర్పించాలా లేదా రద్దు చేయాలా అని ఎంచుకోవచ్చు. మీరు సమస్యను సృష్టించడాన్ని రద్దు చేసినప్పటికీ, GitHub వారి ప్లాట్‌ఫారమ్‌తో మీ పరస్పర చర్య కారణంగా వారి గోప్యతా విధానం ప్రకారం డేటాను సేకరించవచ్చు. మీరు సమస్యను సమర్పించడాన్ని కొనసాగిస్తే, ఏవైనా అదనపు వ్యాఖ్యలతో సహా మీరు సమర్పించిన సమాచారం పబ్లిక్‌గా యాక్సెస్ చేయబడుతుంది. ఎందుకంటే రిపోజిటరీ పబ్లిక్‌గా ఉంది మరియు ఏదైనా నివేదించబడిన సమస్య GitHub లేదా సంబంధిత సేవలను ఉపయోగించే ఎవరికైనా కనిపిస్తుంది.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "GitHubపై నివేదిక",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "కాన్ఫిగరేషన్ సమాచారం",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "\"ఇప్పటికే ఉన్న సమస్యలను కనుగొనండి\"ని క్లిక్ చేయడం వలన నేను నమోదు చేసిన డొమైన్ పేరు మరియు ఇష్యూ వివరాలను ఉపయోగించి GitHub శోధన URL రూపొందుతుందని, ఆపై నన్ను ఆ URLకి మళ్లించవచ్చని నేను అర్థం చేసుకున్నాను. ఈ పొడిగింపు ద్వారా ఏ డేటా నేరుగా ప్రసారం చేయబడదు. పొడిగింపు దాన్ని తెరవడానికి ముందు నాకు పూర్తి శోధన URLని చూపుతుంది, కాబట్టి నేను ఏ శోధన పదాలను ఉపయోగించాలో సమీక్షించగలను. GitHubకి మళ్లించబడిన తర్వాత, నేను $link$ మరియు $terms_service$కి లోబడి ఉంటాను.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL ప్రివ్యూ",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "దయచేసి తెరవబడే URLని సమీక్షించండి. ఈ URL మీరు నమోదు చేసిన సమాచారాన్ని కలిగి ఉంది మరియు మిమ్మల్ని GitHubకి మళ్లిస్తుంది.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "తెరవాల్సిన URL (సాంకేతిక ఆకృతి):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "చదవగలిగే ఆకృతిని చూపు (డీకోడ్ చేసిన URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "URLని కాపీ చేయండి",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "కాపీ చేయబడింది!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "రద్దు చేయి",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "GitHub తెరవండి",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "ఈ URL మిమ్మల్ని GitHubకి దారి మళ్లిస్తుంది. మీ డేటా ఒకసారి దారి మళ్లించబడిన తర్వాత $link$కి లోబడి ఉంటుంది.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "దయచేసి కొనసాగించడానికి సమ్మతి చెక్‌బాక్స్‌ని చెక్ చేయండి.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "దయచేసి సమ్మతి పెట్టెను ఎంచుకోవడం ద్వారా మీ డేటా ఎలా ఉపయోగించబడుతుందో మీరు అర్థం చేసుకున్నారని నిర్ధారించండి.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "దయచేసి సమస్య రకాన్ని ఎంచుకోండి.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "దయచేసి URLని అందించండి.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "దయచేసి చెల్లుబాటు అయ్యే URLని నమోదు చేయండి.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "GitHub సమస్యను సృష్టించడంలో లోపం:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "ఇప్పటికే ఉన్న సమస్యలను కనుగొనడంలో లోపం:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "బ్రౌజర్ API అందుబాటులో లేదు. ఈ పేజీ తప్పనిసరిగా బ్రౌజర్ పొడిగింపుగా లోడ్ చేయబడాలి.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "కాన్ఫిగరేషన్ డేటాను తిరిగి పొందడంలో లోపం:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

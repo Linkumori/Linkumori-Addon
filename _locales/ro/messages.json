@@ -4611,5 +4611,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Șabloane de reguli",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Raportați o problemă",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Raportați o problemă",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Raportați probleme sau sugerați îmbunătățiri",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Ați găsit o problemă cu curățarea URL-ului sau aveți o sugestie? Ajutați-ne să îmbunătățim Linkumori trimițând un raport.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Găsiți probleme existente",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Înainte de a raporta, verificați dacă problema dvs. a fost deja raportată:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Tipul problemei:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Selectați tipul problemei...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Parametrul de urmărire nu a fost eliminat",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL rupt după curățare",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Fals pozitiv (curățare inutilă)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Problemă de performanță",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Problemă UI/Afișaj",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Cerere de caracteristici",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Sugestie de reguli",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "Adresa URL unde apare problema:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Introduceți o adresă URL personalizată",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Pagina conține conținut pentru adulți (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Informații suplimentare:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Vă rugăm să furnizați orice detalii sau comentarii suplimentare despre problemă...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Înțeleg că făcând clic pe „Raportați pe GitHub” va crea o adresă URL GitHub care conține informațiile pe care le-am introdus și datele de configurare afișate mai jos, apoi mă va redirecționa către acea adresă URL. Nicio dată nu este transmisă direct de această extensie. Extensia îmi va arăta adresa URL completă înainte de a o deschide și pot examina exact ce informații vor fi incluse. Odată redirecționat către GitHub, voi avea control deplin fie să trimit formularul de problemă precompletat, fie să anulez fără a trimite nimic. Înțeleg că accesarea GitHub mă supune la $privacy_link$. Crearea unei probleme necesită un cont GitHub și, odată ce alegeți să continuați și sunteți redirecționat către GitHub, activitatea dvs. este guvernată de $privacy_statement$ și $terms_service$. După ce ați fost redirecționat cu informații precompletate, păstrați controlul deplin și puteți alege dacă trimiteți sau anulați crearea problemei în depozitul nostru la $repo_link$. Chiar dacă anulați crearea problemei, GitHub poate colecta în continuare date conform politicii de confidențialitate din cauza interacțiunii dvs. cu platforma sa. Dacă continuați cu trimiterea problemei, informațiile pe care le trimiteți, inclusiv orice comentarii suplimentare, vor deveni accesibile publicului. Acest lucru se datorează faptului că depozitul este public și orice problemă raportată va fi vizibilă pentru oricine folosește GitHub sau servicii conexe.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Raportați pe GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Informații de configurare",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Înțeleg că făcând clic pe „Găsiți probleme existente” va crea o adresă URL de căutare GitHub folosind numele de domeniu și detaliile problemei pe care le-am introdus, apoi mă va redirecționa către acea adresă URL. Nicio dată nu este transmisă direct de această extensie. Extensia îmi va afișa adresa URL completă de căutare înainte de a o deschide, astfel încât să pot examina ce termeni de căutare vor fi utilizați. Odată redirecționat către GitHub, voi fi supus $link$ și $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Previzualizare URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Vă rugăm să examinați adresa URL care va fi deschisă. Această adresă URL conține informațiile pe care le-ați introdus și vă va redirecționa către GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL de deschis (format tehnic):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Afișați formatul care poate fi citit (adresa URL decodificată)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Copiați adresa URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Copiat!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Anulează",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Deschideți GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Această adresă URL vă va redirecționa către GitHub. Datele dumneavoastră vor fi supuse $link$ odată redirecționate.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Vă rugăm să bifați caseta de validare pentru a continua.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Vă rugăm să confirmați că înțelegeți cum vor fi utilizate datele dvs. bifând caseta de consimțământ.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Vă rugăm să selectați un tip de problemă.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Vă rugăm să furnizați o adresă URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Vă rugăm să introduceți o adresă URL validă.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Eroare la crearea problemei GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Eroare la găsirea problemelor existente:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "API-ul browserului nu este disponibil. Această pagină trebuie să fie încărcată ca extensie de browser.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Eroare la preluarea datelor de configurare:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

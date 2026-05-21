@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Mga template ng panuntunan",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Mag-ulat ng isyu",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Iulat ang Isyu",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Mag-ulat ng Mga Isyu o Magmungkahi ng mga Pagpapabuti",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Nakakita ng isyu sa paglilinis ng URL o may mungkahi? Tulungan kaming pagbutihin ang Linkumori sa pamamagitan ng pagsusumite ng ulat.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Maghanap ng Mga Umiiral na Isyu",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Bago mag-ulat, tingnan kung naiulat na ang iyong isyu:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Uri ng isyu:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Piliin ang uri ng isyu...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Hindi naalis ang parameter sa pagsubaybay",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "Nasira ang URL pagkatapos linisin",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Maling positibo (hindi kinakailangang paglilinis)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Isyu sa pagganap",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Isyu sa UI/Display",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Kahilingan sa feature",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Panuntunan mungkahi",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL kung saan nangyayari ang isyu:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Maglagay ng custom na URL",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Naglalaman ang page ng adult content (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Karagdagang Impormasyon:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Mangyaring magbigay ng anumang karagdagang mga detalye o komento tungkol sa isyu...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Naiintindihan ko na ang pag-click sa \"Mag-ulat sa GitHub\" ay bubuo ng isang URL ng GitHub na naglalaman ng impormasyong inilagay ko at ang data ng configuration na ipinapakita sa ibaba, pagkatapos ay ire-redirect ako sa URL na iyon. Walang data na direktang ipinadala ng extension na ito. Ipapakita sa akin ng extension ang kumpletong URL bago ito buksan, at masusuri ko nang eksakto kung anong impormasyon ang isasama. Kapag na-redirect sa GitHub, magkakaroon ako ng ganap na kontrol na isumite ang paunang napunan na form ng isyu o kanselahin nang hindi nagsusumite ng anuman. Naiintindihan ko na ang pag-access sa GitHub ay sumasailalim sa akin sa $privacy_link$. Ang paggawa ng isyu ay nangangailangan ng isang GitHub account, at kapag pinili mong magpatuloy at na-redirect sa GitHub, ang iyong aktibidad ay pinamamahalaan ng $privacy_statement$ at $terms_service$. Pagkatapos ma-redirect gamit ang paunang napunan na impormasyon, mananatili kang ganap na kontrol at mapipili kung isusumite o kanselahin ang paggawa ng isyu sa aming repository sa $repo_link$. Kahit na kanselahin mo ang paggawa ng isyu, maaaring mangolekta pa rin ng data ang GitHub ayon sa kanilang patakaran sa privacy dahil sa iyong pakikipag-ugnayan sa kanilang platform. Kung magpapatuloy ka sa pagsusumite ng isyu, ang impormasyong isusumite mo, kasama ang anumang karagdagang komento, ay magiging maa-access ng publiko. Ito ay dahil ang repositoryo ay pampubliko, at anumang naiulat na isyu ay makikita ng sinumang gumagamit ng GitHub o mga kaugnay na serbisyo.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Mag-ulat sa GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Impormasyon ng Configuration",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Naiintindihan ko na ang pag-click sa \"Hanapin ang Mga Umiiral na Isyu\" ay bubuo ng URL sa paghahanap sa GitHub gamit ang domain name at mga detalye ng isyu na inilagay ko, at pagkatapos ay ire-redirect ako sa URL na iyon. Walang data na direktang ipinadala ng extension na ito. Ipapakita sa akin ng extension ang kumpletong URL sa paghahanap bago ito buksan, para masuri ko kung aling mga termino para sa paghahanap ang gagamitin. Kapag na-redirect sa GitHub, sasailalim ako sa $link$ at $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Preview ng URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Pakisuri ang URL na bubuksan. Ang URL na ito ay naglalaman ng impormasyong iyong inilagay at ire-redirect ka sa GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL na bubuksan (teknikal na format):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Ipakita ang nababasang format (na-decode na URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Kopyahin ang URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Kinopya!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Kanselahin",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Buksan ang GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Ire-redirect ka ng URL na ito sa GitHub. Ang iyong data ay sasailalim sa $link$ kapag na-redirect.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Pakilagyan ng check ang checkbox ng pahintulot upang magpatuloy.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Pakikumpirma na naiintindihan mo kung paano gagamitin ang iyong data sa pamamagitan ng paglalagay ng check sa kahon ng pahintulot.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Mangyaring pumili ng uri ng isyu.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Mangyaring magbigay ng URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Mangyaring magpasok ng wastong URL.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Error sa paggawa ng isyu sa GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Error sa paghahanap ng mga kasalukuyang isyu:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "hindi available ang browser API. Dapat na mai-load ang page na ito bilang extension ng browser.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Error sa pagkuha ng data ng configuration:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

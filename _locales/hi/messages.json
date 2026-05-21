@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "नियम टेम्पलेट",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "किसी समस्या की रिपोर्ट करें",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "रिपोर्ट मुद्दा",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "समस्याओं की रिपोर्ट करें या सुधार का सुझाव दें",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "यूआरएल सफाई में कोई समस्या मिली या कोई सुझाव है? एक रिपोर्ट सबमिट करके लिंकुमोरी को बेहतर बनाने में हमारी सहायता करें।",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "मौजूदा मुद्दे खोजें",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "रिपोर्ट करने से पहले, जाँच लें कि क्या आपकी समस्या पहले ही रिपोर्ट की जा चुकी है:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "समस्या का प्रकार:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "समस्या प्रकार चुनें...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "ट्रैकिंग पैरामीटर हटाया नहीं गया",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "सफाई के बाद यूआरएल टूट गया",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "ग़लत सकारात्मक (अनावश्यक सफ़ाई)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "प्रदर्शन मुद्दा",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "यूआई/डिस्प्ले समस्या",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "सुविधा अनुरोध",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "नियम सुझाव",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "वह URL जहां समस्या उत्पन्न होती है:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "कस्टम यूआरएल दर्ज करें",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "पेज में वयस्क सामग्री है (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "अतिरिक्त जानकारी:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "कृपया मुद्दे के बारे में कोई अतिरिक्त विवरण या टिप्पणी प्रदान करें...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "मैं समझता हूं कि \"रिपोर्ट ऑन गिटहब\" पर क्लिक करने से एक गिटहब यूआरएल बनेगा जिसमें मेरे द्वारा दर्ज की गई जानकारी और नीचे दिखाया गया कॉन्फ़िगरेशन डेटा होगा, फिर मुझे उस यूआरएल पर रीडायरेक्ट किया जाएगा। इस एक्सटेंशन द्वारा कोई भी डेटा सीधे प्रसारित नहीं किया जाता है। एक्सटेंशन मुझे खोलने से पहले पूरा यूआरएल दिखाएगा, और मैं समीक्षा कर सकता हूं कि वास्तव में कौन सी जानकारी शामिल की जाएगी। एक बार GitHub पर रीडायरेक्ट होने के बाद, मेरे पास पहले से भरे हुए इश्यू फॉर्म को जमा करने या कुछ भी सबमिट किए बिना रद्द करने का पूरा नियंत्रण होगा। मैं समझता हूं कि GitHub तक पहुंच मुझे $privacy_link$ पर ले जाती है। किसी समस्या को बनाने के लिए GitHub खाते की आवश्यकता होती है, और एक बार जब आप आगे बढ़ना चुनते हैं और GitHub पर पुनर्निर्देशित हो जाते हैं, तो आपकी गतिविधि $privacy_statement$ और $terms_service$ द्वारा नियंत्रित होती है। पहले से भरी हुई जानकारी के साथ पुनर्निर्देशित होने के बाद, आप पूर्ण नियंत्रण बनाए रखते हैं और $repo_link$ पर हमारे भंडार पर समस्या निर्माण को सबमिट करना या रद्द करना चुन सकते हैं। भले ही आप समस्या निर्माण को रद्द कर दें, फिर भी GitHub उनके प्लेटफ़ॉर्म के साथ आपकी बातचीत के कारण उनकी गोपनीयता नीति के अनुसार डेटा एकत्र कर सकता है। यदि आप समस्या प्रस्तुत करने के साथ आगे बढ़ते हैं, तो आपके द्वारा सबमिट की गई जानकारी, किसी भी अतिरिक्त टिप्पणी सहित, सार्वजनिक रूप से पहुंच योग्य हो जाएगी। ऐसा इसलिए है क्योंकि रिपॉजिटरी सार्वजनिक है, और रिपोर्ट की गई कोई भी समस्या GitHub या संबंधित सेवाओं का उपयोग करने वाले किसी भी व्यक्ति को दिखाई देगी।",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "GitHub पर रिपोर्ट करें",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "कॉन्फ़िगरेशन जानकारी",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "मैं समझता हूं कि \"मौजूदा समस्याएं ढूंढें\" पर क्लिक करने से मेरे द्वारा दर्ज किए गए डोमेन नाम और समस्या विवरण का उपयोग करके एक GitHub खोज यूआरएल बनाया जाएगा, और फिर मुझे उस यूआरएल पर रीडायरेक्ट किया जाएगा। इस एक्सटेंशन द्वारा कोई भी डेटा सीधे प्रसारित नहीं किया जाता है। एक्सटेंशन मुझे खोलने से पहले पूरा खोज यूआरएल दिखाएगा, ताकि मैं समीक्षा कर सकूं कि कौन से खोज शब्दों का उपयोग किया जाएगा। एक बार GitHub पर रीडायरेक्ट होने पर, मैं $link$ और $terms_service$ के अधीन हो जाऊंगा।",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "यूआरएल पूर्वावलोकन",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "कृपया उस यूआरएल की समीक्षा करें जो खोला जाएगा। इस URL में आपके द्वारा दर्ज की गई जानकारी शामिल है और यह आपको GitHub पर रीडायरेक्ट कर देगा।",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "खोला जाने वाला यूआरएल (तकनीकी प्रारूप):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "पढ़ने योग्य प्रारूप दिखाएं (डीकोड किया गया यूआरएल)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "यूआरएल कॉपी करें",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "नकल की गई!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "रद्द करें",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "गिटहब खोलें",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "यह यूआरएल आपको GitHub पर रीडायरेक्ट करेगा। एक बार पुनर्निर्देशित होने पर आपका डेटा $link$ के अधीन होगा।",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "कृपया आगे बढ़ने के लिए सहमति चेकबॉक्स को जांचें।",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "कृपया सहमति बॉक्स को चेक करके पुष्टि करें कि आप समझते हैं कि आपके डेटा का उपयोग कैसे किया जाएगा।",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "कृपया एक समस्या प्रकार चुनें.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "कृपया एक यूआरएल प्रदान करें.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "कृपया एक मान्य यूआरएल दर्ज करें.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "GitHub समस्या बनाने में त्रुटि:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "मौजूदा समस्याएँ ढूंढने में त्रुटि:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "ब्राउज़र एपीआई उपलब्ध नहीं है. इस पेज को ब्राउज़र एक्सटेंशन के रूप में लोड किया जाना चाहिए।",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "कॉन्फ़िगरेशन डेटा पुनर्प्राप्त करने में त्रुटि:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

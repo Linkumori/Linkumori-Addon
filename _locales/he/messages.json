@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "תבניות כללים",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "דווח על בעיה",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "דווח על בעיה",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "דווח על בעיות או הצע שיפורים",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "מצאת בעיה בניקוי כתובות אתרים או יש לך הצעה? עזור לנו לשפר את Linkumori על ידי שליחת דוח.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "מצא בעיות קיימות",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "לפני הדיווח, בדוק אם הבעיה שלך כבר דווחה:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "סוג הבעיה:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "בחר סוג בעיה...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "פרמטר המעקב לא הוסר",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "כתובת האתר נשברה לאחר הניקוי",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "חיובי כוזב (ניקוי מיותר)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "בעיית ביצועים",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "בעיה בממשק המשתמש/תצוגה",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "בקשת תכונה",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "הצעת כלל",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "כתובת האתר שבה מתרחשת הבעיה:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "הזן כתובת אתר מותאמת אישית",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "הדף מכיל תוכן למבוגרים בלבד (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "מידע נוסף:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "אנא ספק פרטים נוספים או הערות לגבי הבעיה...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "אני מבין שלחיצה על \"דווח על GitHub\" תבנה כתובת URL של GitHub המכילה את המידע שהזנתי ואת נתוני התצורה המוצגים למטה, ולאחר מכן תפנה אותי לכתובת האתר הזו. שום נתונים לא מועברים ישירות על ידי שלוחה זו. התוסף יראה לי את כתובת האתר המלאה לפני פתיחתו, ואני יכול לבדוק בדיוק איזה מידע ייכלל. לאחר הפנייה מחדש אל GitHub, תהיה לי שליטה מלאה על הגשת טופס הבעיה המולא מראש או לבטל מבלי לשלוח דבר. אני מבין שהגישה ל-GitHub מכניסה אותי ל-$privacy_link$. יצירת בעיה דורשת חשבון GitHub, וברגע שתבחר להמשיך ולהפנות ל-GitHub, הפעילות שלך נשלטת על ידי $privacy_statement$ ו-$terms_service$. לאחר הפנייה מחדש עם מידע שמלא מראש, אתה שומר על שליטה מלאה ויכול לבחור אם לשלוח או לבטל את יצירת הבעיה במאגר שלנו בכתובת $repo_link$. גם אם תבטל את יצירת הבעיה, GitHub עדיין עשוי לאסוף נתונים בהתאם למדיניות הפרטיות שלהם עקב האינטראקציה שלך עם הפלטפורמה שלהם. אם תמשיך בהגשת הנושא, המידע שתשלח, כולל הערות נוספות, יהפוך לנגיש לציבור. הסיבה לכך היא שהמאגר הוא ציבורי, וכל בעיה שדווחה תהיה גלויה לכל מי שמשתמש ב-GitHub או בשירותים קשורים.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "דווח על GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "מידע תצורה",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "אני מבין שלחיצה על \"מצא בעיות קיימות\" תבנה כתובת URL לחיפוש GitHub באמצעות שם הדומיין ופרטי הבעיה שהזנתי, ולאחר מכן תפנה אותי לכתובת האתר הזו. שום נתונים לא מועברים ישירות על ידי שלוחה זו. התוסף יראה לי את כתובת האתר המלאה של החיפוש לפני פתיחתו, כדי שאוכל לבדוק באילו מונחי חיפוש ייעשה שימוש. לאחר הפנייה מחדש אל GitHub, אהיה כפוף ל-$link$ ו-$terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "תצוגה מקדימה של כתובת אתר",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "אנא עיין בכתובת האתר שתיפתח. כתובת האתר הזו מכילה את המידע שהזנת ותפנה אותך אל GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "כתובת אתר לפתיחה (פורמט טכני):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "הצג פורמט קריא (כתובת אתר מפוענחת)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "העתק כתובת URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "הועתק!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "בטל",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "פתח את GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "כתובת האתר הזו תפנה אותך אל GitHub. הנתונים שלך יהיו כפופים ל-$link$ לאחר הפניה מחדש.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "אנא סמן את תיבת הסימון כדי להמשיך.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "אנא אשר שאתה מבין כיצד ישמש הנתונים שלך על ידי סימון תיבת ההסכמה.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "אנא בחר סוג בעיה.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "אנא ספק כתובת אתר.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "אנא הזן כתובת אתר חוקית.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "שגיאה ביצירת בעיית GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "שגיאה באיתור בעיות קיימות:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "API של הדפדפן אינו זמין. יש לטעון דף זה כתוסף לדפדפן.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "שגיאה באחזור נתוני תצורה:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

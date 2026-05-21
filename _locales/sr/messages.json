@@ -4611,5 +4611,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Шаблони правила",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Пријавите проблем",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Пријави проблем",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Пријавите проблеме или предложите побољшања",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Пронашли сте проблем са чишћењем УРЛ-а или имате предлог? Помозите нам да побољшамо Линкумори тако што ћете послати извештај.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Пронађите постојеће проблеме",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Пре него што пријавите, проверите да ли је ваш проблем већ пријављен:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Тип проблема:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Изаберите тип проблема...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Параметар праћења није уклоњен",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "УРЛ је прекинут након чишћења",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Лажно позитиван (непотребно чишћење)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Проблем са перформансама",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Проблем са корисничким интерфејсом/приказом",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Захтев за функцију",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Предлог правила",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "УРЛ на коме се проблем јавља:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "хттпс://екампле.цом",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Унесите прилагођени УРЛ",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Страница садржи садржај за одрасле (НСФВ)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Додатне информације:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Наведите додатне детаље или коментаре о проблему...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Разумем да ће кликом на „Извештај на ГитХуб-у“ бити направљен ГитХуб УРЛ који садржи информације које сам унео и конфигурационе податке приказане у наставку, а затим ће ме преусмерити на ту УРЛ адресу. Овим екстензијом се подаци не преносе директно. Екстензија ће ми показати комплетну УРЛ адресу пре него што је отворим и могу да прегледам тачно које информације ће бити укључене. Када будем преусмерен на ГитХуб, имаћу потпуну контролу да или пошаљем унапред попуњен образац за издавање или да откажем без слања било чега. Разумем да ме приступање ГитХубу подвргава $privacy_link$. За креирање проблема је потребан ГитХуб налог, а када одаберете да наставите и будете преусмерени на ГитХуб, вашом активношћу управљају $privacy_statement$ и $terms_service$. Након што будете преусмерени са унапред попуњеним информацијама, задржавате потпуну контролу и можете да изаберете да ли да пошаљете или откажете креирање проблема у нашем спремишту на $repo_link$. Чак и ако откажете креирање проблема, ГитХуб може и даље прикупљати податке у складу са својом политиком приватности због ваше интеракције са њиховом платформом. Ако наставите са слањем проблема, информације које пошаљете, укључујући све додатне коментаре, постаће јавно доступне. То је зато што је спремиште јавно и сваки пријављени проблем ће бити видљив свима који користе ГитХуб или сродне услуге.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Извештај на ГитХуб-у",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Информације о конфигурацији",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Разумем да ће клик на „Пронађи постојеће проблеме“ направити УРЛ за претрагу на ГитХуб-у користећи име домена и детаље о проблему које сам унео, а затим ће ме преусмерити на ту УРЛ адресу. Овим екстензијом се подаци не преносе директно. Екстензија ће ми показати комплетан УРЛ за претрагу пре него што га отворим, тако да могу да прегледам који термини за претрагу ће се користити. Када будем преусмерен на ГитХуб, биће подложан $link$ и $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Преглед УРЛ-а",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Прегледајте УРЛ који ће се отворити. Ова УРЛ адреса садржи информације које сте унели и преусмериће вас на ГитХуб.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "УРЛ за отварање (технички формат):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Прикажи читљив формат (декодирани УРЛ)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Копирај УРЛ",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Копирано!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Откажи",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Отворите ГитХуб",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Ова УРЛ адреса ће вас преусмерити на ГитХуб. Ваши подаци ће бити предмет $link$ када буду преусмерени.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Означите поље за потврду сагласности да бисте наставили.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Потврдите да разумете како ће се ваши подаци користити тако што ћете означити поље за сагласност.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Изаберите тип проблема.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Наведите УРЛ.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Унесите важећи УРЛ.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Грешка при креирању ГитХуб проблема:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Грешка при проналажењу постојећих проблема:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "АПИ претраживача није доступан. Ова страница мора бити учитана као проширење претраживача.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Грешка при преузимању података о конфигурацији:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

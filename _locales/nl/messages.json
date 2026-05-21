@@ -3748,5 +3748,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Regelsjablonen",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Rapporteer een probleem",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Rapporteer probleem",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Rapporteer problemen of stel verbeteringen voor",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Heeft u een probleem gevonden met het opschonen van URL's of heeft u een suggestie? Help ons Linkumori te verbeteren door een rapport in te dienen.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Vind bestaande problemen",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Controleer voordat u rapporteert of uw probleem al is gemeld:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Probleemtype:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Selecteer probleemtype...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Trackingparameter niet verwijderd",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL verbroken na opschonen",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Vals positief (onnodig schoonmaken)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Prestatieprobleem",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "UI/weergaveprobleem",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Functieverzoek",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Regel suggestie",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL waar het probleem zich voordoet:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://voorbeeld.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Voer een aangepaste URL in",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Pagina bevat inhoud voor volwassenen (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Aanvullende informatie:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Geef eventuele aanvullende details of opmerkingen over het probleem op...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Ik begrijp dat als ik op 'Rapporteer op GitHub' klik, er een GitHub-URL wordt aangemaakt met de informatie die ik heb ingevoerd en de hieronder weergegeven configuratiegegevens, en dat ik vervolgens naar die URL wordt doorgestuurd. Er worden door deze extensie geen gegevens rechtstreeks verzonden. De extensie toont mij de volledige URL voordat deze wordt geopend, en ik kan precies bekijken welke informatie wordt opgenomen. Eenmaal doorgestuurd naar GitHub, heb ik de volledige controle om het vooraf ingevulde probleemformulier in te dienen of te annuleren zonder iets in te dienen. Ik begrijp dat toegang tot GitHub mij onderwerpt aan $privacy_link$. Voor het maken van een probleem is een GitHub-account vereist, en zodra u ervoor kiest om door te gaan en wordt doorgestuurd naar GitHub, wordt uw activiteit bepaald door $privacy_statement$ en $terms_service$. Nadat u bent doorgestuurd met vooraf ingevulde informatie, behoudt u de volledige controle en kunt u kiezen of u het aanmaken van het probleem in onze repository op $repo_link$ wilt indienen of annuleren. Zelfs als je het aanmaken van een probleem annuleert, kan GitHub nog steeds gegevens verzamelen volgens hun privacybeleid vanwege jouw interactie met hun platform. Als u doorgaat met het indienen van de kwestie, wordt de informatie die u indient, inclusief eventuele aanvullende opmerkingen, openbaar toegankelijk. Dit komt omdat de repository openbaar is en elk gerapporteerd probleem zichtbaar zal zijn voor iedereen die GitHub of gerelateerde services gebruikt.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Verslag op GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Configuratie-informatie",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Ik begrijp dat als ik op 'Bestaande problemen zoeken' klik, er een GitHub-zoek-URL wordt samengesteld met behulp van de domeinnaam en probleemgegevens die ik heb ingevoerd, en dat ik vervolgens naar die URL wordt doorgestuurd. Er worden door deze extensie geen gegevens rechtstreeks verzonden. De extensie toont mij de volledige zoek-URL voordat deze wordt geopend, zodat ik kan bekijken welke zoektermen worden gebruikt. Eenmaal doorgestuurd naar GitHub, zal ik onderworpen zijn aan $link$ en $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL-voorbeeld",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Controleer de URL die wordt geopend. Deze URL bevat de informatie die u heeft ingevoerd en zal u doorsturen naar GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "Te openen URL (technisch formaat):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Toon leesbaar formaat (gedecodeerde URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Kopieer URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Gekopieerd!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Annuleer",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Open GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Deze URL leidt u door naar GitHub. Uw gegevens zijn onderworpen aan $link$ zodra ze worden doorgestuurd.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Vink het toestemmingsvakje aan om door te gaan.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Bevestig dat u begrijpt hoe uw gegevens zullen worden gebruikt door het toestemmingsvakje aan te vinken.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Selecteer een probleemtype.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Geef een URL op.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Voer een geldige URL in.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Fout bij het maken van GitHub-probleem:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Fout bij het vinden van bestaande problemen:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "browser-API niet beschikbaar. Deze pagina moet als browserextensie worden geladen.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Fout bij het ophalen van configuratiegegevens:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

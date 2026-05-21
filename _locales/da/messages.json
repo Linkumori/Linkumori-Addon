@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Regel skabeloner",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Rapporter et problem",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Rapportér problem",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Rapportér problemer eller foreslå forbedringer",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Har du fundet et problem med URL-rensning eller har du et forslag? Hjælp os med at forbedre Linkumori ved at indsende en rapport.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Find eksisterende problemer",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Før du rapporterer, skal du kontrollere, om dit problem allerede er rapporteret:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Problemtype:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Vælg problemtype...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Sporingsparameter blev ikke fjernet",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL brudt efter rengøring",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Falsk positiv (unødvendig rengøring)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Performance problem",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "UI/skærm problem",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Funktionsanmodning",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Regelforslag",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL, hvor problemet opstår:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Indtast tilpasset URL",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Siden indeholder voksenindhold (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Yderligere oplysninger:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Angiv venligst yderligere oplysninger eller kommentarer om problemet...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Jeg forstår, at et klik på \"Rapporter på GitHub\" vil konstruere en GitHub-URL indeholdende de oplysninger, jeg har indtastet, og konfigurationsdataene vist nedenfor, og derefter omdirigere mig til den URL. Ingen data overføres direkte af denne udvidelse. Udvidelsen viser mig den komplette URL, før jeg åbner den, og jeg kan gennemgå præcis, hvilke oplysninger der vil blive inkluderet. Når jeg er omdirigeret til GitHub, har jeg fuld kontrol over enten at indsende den forududfyldte problemformular eller annullere uden at indsende noget. Jeg forstår, at adgang til GitHub udsætter mig for $privacy_link$. Oprettelse af et problem kræver en GitHub-konto, og når du vælger at fortsætte og bliver omdirigeret til GitHub, er din aktivitet styret af $privacy_statement$ og $terms_service$. Efter at være blevet omdirigeret med forududfyldte oplysninger, bevarer du fuld kontrol og kan vælge, om du vil indsende eller annullere oprettelsen af ​​problemet på vores lager på $repo_link$. Selvom du annullerer problemoprettelsen, kan GitHub stadig indsamle data i henhold til deres privatlivspolitik på grund af din interaktion med deres platform. Hvis du fortsætter med at indsende problemet, vil de oplysninger, du indsender, inklusive eventuelle yderligere kommentarer, blive offentligt tilgængelige. Dette skyldes, at lageret er offentligt, og ethvert rapporteret problem vil være synligt for alle, der bruger GitHub eller relaterede tjenester.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Rapportér på GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Konfigurationsoplysninger",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Jeg forstår, at et klik på \"Find eksisterende problemer\" vil konstruere en GitHub-søge-URL ved hjælp af det domænenavn og problemoplysninger, jeg har indtastet, og derefter omdirigere mig til denne URL. Ingen data overføres direkte af denne udvidelse. Udvidelsen viser mig den komplette søge-URL, før jeg åbner den, så jeg kan gennemgå, hvilke søgeord der vil blive brugt. Når jeg er omdirigeret til GitHub, vil jeg være underlagt $link$ og $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Forhåndsvisning af URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Gennemgå venligst den URL, der vil blive åbnet. Denne URL indeholder de oplysninger, du har indtastet, og vil omdirigere dig til GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL, der skal åbnes (teknisk format):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Vis læsbart format (afkodet URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Kopiér URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Kopieret!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Annuller",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Åbn GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Denne URL vil omdirigere dig til GitHub. Dine data vil være underlagt $link$, når de er omdirigeret.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Marker venligst afkrydsningsfeltet for samtykke for at fortsætte.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Bekræft venligst, at du forstår, hvordan dine data vil blive brugt ved at markere samtykkefeltet.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Vælg venligst en problemtype.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Angiv venligst en URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Indtast venligst en gyldig URL.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Fejl ved oprettelse af GitHub-problem:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Fejl ved at finde eksisterende problemer:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "browser API ikke tilgængelig. Denne side skal indlæses som en browserudvidelse.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Fejl ved hentning af konfigurationsdata:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

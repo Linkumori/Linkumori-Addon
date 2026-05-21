@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Modelli di regole",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Segnala un problema",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Segnala problema",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Segnala problemi o suggerisci miglioramenti",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Hai riscontrato un problema con la pulizia degli URL o hai un suggerimento? Aiutaci a migliorare Linkumori inviando una segnalazione.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Trova problemi esistenti",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Prima di segnalare, controlla se il tuo problema è già stato segnalato:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Tipo di problema:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Seleziona il tipo di problema...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Parametro di monitoraggio non rimosso",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL interrotto dopo la pulizia",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Falso positivo (pulizia non necessaria)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Problema di prestazioni",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Problema di interfaccia utente/visualizzazione",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Richiesta di funzionalità",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Suggerimento di regole",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL in cui si verifica il problema:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://esempio.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Inserisci l'URL personalizzato",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "La pagina contiene contenuti per adulti (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Informazioni aggiuntive:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Si prega di fornire ulteriori dettagli o commenti sul problema...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Comprendo che facendo clic su \"Segnala su GitHub\" verrà costruito un URL GitHub contenente le informazioni che ho inserito e i dati di configurazione mostrati di seguito, quindi mi reindirizzerà a quell'URL. Nessun dato viene trasmesso direttamente da questa estensione. L'estensione mi mostrerà l'URL completo prima di aprirlo e potrò verificare esattamente quali informazioni verranno incluse. Una volta reindirizzato a GitHub, avrò il pieno controllo per inviare il modulo di problema precompilato o annullare senza inviare nulla. Capisco che l'accesso a GitHub mi sottopone a $privacy_link$. La creazione di un problema richiede un account GitHub e, una volta che scegli di procedere e vieni reindirizzato a GitHub, la tua attività è regolata da $privacy_statement$ e $terms_service$. Dopo essere stato reindirizzato con le informazioni precompilate, mantieni il pieno controllo e puoi scegliere se inviare o annullare la creazione del problema sul nostro repository su $repo_link$. Anche se annulli la creazione del problema, GitHub potrebbe comunque raccogliere dati in base alla loro politica sulla privacy a causa della tua interazione con la loro piattaforma. Se procedi con l'invio del problema, le informazioni inviate, inclusi eventuali commenti aggiuntivi, diventeranno accessibili al pubblico. Questo perché il repository è pubblico e qualsiasi problema segnalato sarà visibile a chiunque utilizzi GitHub o servizi correlati.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Segnala su GitHub",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Informazioni sulla configurazione",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Comprendo che facendo clic su \"Trova problemi esistenti\" verrà creato un URL di ricerca GitHub utilizzando il nome di dominio e i dettagli del problema che ho inserito, quindi mi reindirizzerà a quell'URL. Nessun dato viene trasmesso direttamente da questa estensione. L'estensione mi mostrerà l'URL di ricerca completo prima di aprirlo, così posso verificare quali termini di ricerca verranno utilizzati. Una volta reindirizzato su GitHub, sarò soggetto a $link$ e $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Anteprima dell'URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Controlla l'URL che verrà aperto. Questo URL contiene le informazioni che hai inserito e ti reindirizzerà a GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL da aprire (formato tecnico):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Mostra formato leggibile (URL decodificato)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Copia l'URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Copiato!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Annulla",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Apri GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Questo URL ti reindirizzerà a GitHub. I tuoi dati saranno soggetti a $link$ una volta reindirizzati.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Seleziona la casella di consenso per procedere.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Conferma di aver compreso come verranno utilizzati i tuoi dati selezionando la casella di consenso.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Seleziona un tipo di problema.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Fornisci un URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Inserisci un URL valido.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Errore durante la creazione del problema GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Errore durante la ricerca dei problemi esistenti:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "API del browser non disponibile. Questa pagina deve essere caricata come estensione del browser.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Errore durante il recupero dei dati di configurazione:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

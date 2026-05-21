@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Reeglite mallid",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Teatage probleemist",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Teata probleemist",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Teatage probleemidest või soovitage parandusi",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Kas leidsite URL-i puhastamisel probleemi või teil on soovitusi? Aidake meil Linkumorit täiustada, esitades aruande.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Otsige üles olemasolevad probleemid",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Enne teatamist kontrollige, kas teie probleemist on juba teatatud:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Probleemi tüüp:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Valige probleemi tüüp...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Jälgimisparameetrit ei eemaldatud",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "URL on pärast puhastamist katki",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Valepositiivne (tarbetu puhastamine)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Tulemuslikkuse probleem",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Kasutajaliidese/kuvari probleem",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Funktsiooni taotlus",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Reegli soovitus",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL, kus probleem ilmneb:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Sisestage kohandatud URL",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Leht sisaldab täiskasvanutele mõeldud sisu (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Lisainfo:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Esitage probleemi kohta täiendavaid üksikasju või kommentaare...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Mõistan, et kui klõpsate nupul „Teavita GitHubis”, luuakse GitHubi URL, mis sisaldab minu sisestatud teavet ja allpool näidatud konfiguratsiooniandmeid, ning seejärel suunatakse mind sellele URL-ile. See laiendus ei edasta andmeid otse. Laiendus näitab mulle enne selle avamist täielikku URL-i ja ma saan täpselt üle vaadata, millist teavet see kaasatakse. Kui olen GitHubisse ümber suunanud, on mul täielik kontroll eeltäidetud väljastamise vormi esitamiseks või tühistamiseks midagi esitamata. Saan aru, et GitHubile juurdepääsemisel tuleb järgida $privacy_link$. Probleemi loomiseks on vaja GitHubi kontot ja kui otsustate jätkata ja teid suunatakse GitHubisse, juhivad teie tegevust $privacy_statement$ ja $terms_service$. Pärast eeltäidetud teabega ümbersuunamist säilitate täieliku kontrolli ja saate valida, kas esitada või tühistada probleemi loomine meie hoidlas aadressil $repo_link$. Isegi kui tühistate probleemi loomise, võib GitHub siiski koguda andmeid vastavalt oma privaatsuseeskirjadele, kuna suhtlete nende platvormiga. Kui jätkate probleemi esitamist, muutub teie esitatud teave, sealhulgas kõik lisakommentaarid, avalikult kättesaadavaks. Selle põhjuseks on asjaolu, et hoidla on avalik ja kõik teatatud probleemid on nähtavad kõigile, kes kasutavad GitHubi või sellega seotud teenuseid.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Aruanne GitHubis",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Konfiguratsiooniteave",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Mõistan, et nupul „Otsi olemasolevaid probleeme” klõpsamine loob GitHubi otsingu URL-i, kasutades minu sisestatud domeeninime ja probleemi üksikasju, ning suunab mind seejärel sellele URL-ile. See laiendus ei edasta andmeid otse. Laiend näitab mulle enne selle avamist täielikku otsingu URL-i, et saaksin vaadata, milliseid otsingutermineid kasutatakse. Pärast GitHubi ümbersuunamist kehtivad mulle $link$ ja $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL-i eelvaade",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Vaadake avatav URL üle. See URL sisaldab teie sisestatud teavet ja suunab teid GitHubisse.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "Avatav URL (tehniline vorming):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Kuva loetav vorming (dekodeeritud URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Kopeeri URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Kopeeritud!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Tühista",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Avage GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "See URL suunab teid GitHubisse. Teie andmetele kehtib pärast ümbersuunamist $link$.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Jätkamiseks märkige nõusoleku märkeruut.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Kinnitage, et saate aru, kuidas teie andmeid kasutatakse, märkides nõusoleku kasti.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Valige probleemi tüüp.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Sisestage URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Sisestage kehtiv URL.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Viga GitHubi probleemi loomisel:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Viga olemasolevate probleemide leidmisel:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "brauseri API pole saadaval. See leht tuleb laadida brauseri laiendusena.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Viga konfiguratsiooniandmete toomisel:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

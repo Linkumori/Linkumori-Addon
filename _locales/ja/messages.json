@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "ルールテンプレート",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "問題を報告する",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "レポートの問題",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "問題の報告または改善の提案",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "URL クリーニングで問題が見つかりましたか? それとも提案がありますか?レポートを提出して Linkumori の改善にご協力ください。",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "既存の問題を見つける",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "報告する前に、問題がすでに報告されているかどうかを確認してください。",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Issue type:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "問題の種類を選択してください...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "追跡パラメータは削除されませんでした",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "クリーニング後に URL が破損しました",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "誤検知（不必要なクリーニング）",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "パフォーマンスの問題",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "UI/表示の問題",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "機能リクエスト",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "ルールの提案",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "問題が発生する URL:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "カスタム URL を入力してください",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "ページにはアダルト コンテンツが含まれています (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "追加情報:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "この問題に関する追加の詳細やコメントがあればお知らせください...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "「GitHub でレポート」をクリックすると、入力した情報と以下に示す構成データを含む GitHub URL が構築され、その URL にリダイレクトされることを理解しています。この拡張機能によってデータが直接送信されることはありません。拡張機能を開く前に完全な URL が表示されるので、どのような情報が含まれるかを正確に確認できます。 GitHub にリダイレクトされると、事前に入力された問題フォームを送信するか、何も送信せずにキャンセルするかを完全に制御できるようになります。 GitHub にアクセスすると、$privacy_link$ の対象となることを理解しています。問題の作成には GitHub アカウントが必要です。続行を選択して GitHub にリダイレクトされると、アクティビティは $privacy_statement$ および $terms_service$ によって管理されます。事前に入力された情報でリダイレクトされた後は、完全な制御を保持し、リポジトリ ($repo_link$) で問題の作成を送信するかキャンセルするかを選択できます。問題の作成をキャンセルした場合でも、GitHub はプラットフォームとのやり取りにより、プライバシー ポリシーに従ってデータを収集する場合があります。問題の送信を続行すると、追加のコメントを含め、送信した情報に一般にアクセスできるようになります。これは、リポジトリが公開されており、報告された問題は GitHub または関連サービスを使用しているすべてのユーザーに表示されるためです。",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "GitHub に関するレポート",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "構成情報",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "「既存の問題を検索」をクリックすると、入力したドメイン名と問題の詳細を使用して GitHub 検索 URL が構築され、その URL にリダイレクトされることを理解しています。この拡張機能によってデータが直接送信されることはありません。 The extension will show me the complete search URL before opening it, so I can review which search terms will be used. GitHub にリダイレクトされると、$link$ および $terms_service$ の対象になります。",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL プレビュー",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "開いたURLを確認してください。この URL には入力した情報が含まれており、GitHub にリダイレクトされます。",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "開くURL（テクニカルフォーマット）：",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "読み取り可能な形式を表示 (デコードされた URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "URLをコピー",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "コピーしました！",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "キャンセル",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "GitHubを開く",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "この URL は GitHub にリダイレクトします。リダイレクトされると、データは $link$ の対象となります。",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "同意チェックボックスにチェックを入れて続行してください。",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "同意ボックスにチェックを入れて、データがどのように使用されるかを理解していることを確認してください。",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "問題の種類を選択してください。",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "URLを入力してください。",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "有効な URL を入力してください。",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "GitHub 作成エラーの問題:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "既存の問題の検索エラー:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "ブラウザAPIは利用できません。このページはブラウザ拡張機能として読み込む必要があります。",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "構成データの取得中にエラーが発生しました:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

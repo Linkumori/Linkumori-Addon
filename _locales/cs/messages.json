@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "Šablony pravidel",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "Nahlásit problém",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "Nahlásit problém",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "Nahlaste problémy nebo navrhněte zlepšení",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "Našli jste problém s čištěním adres URL nebo máte návrh? Pomozte nám vylepšit Linkumori odesláním zprávy.",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "Najděte existující problémy",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "Před nahlášením zkontrolujte, zda váš problém již nebyl nahlášen:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "Typ problému:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "Vyberte typ problému...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "Parametr sledování nebyl odstraněn",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "Adresa URL je po vyčištění nefunkční",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "Falešně pozitivní (zbytečné čištění)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "Problém s výkonem",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "Problém s uživatelským rozhraním/zobrazením",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "Žádost o funkci",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "Návrh pravidla",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "Adresa URL, kde k problému dochází:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "Zadejte vlastní adresu URL",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "Stránka obsahuje obsah pro dospělé (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "Další informace:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "Uveďte prosím další podrobnosti nebo komentáře k problému...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "Chápu, že kliknutím na „Nahlásit na GitHubu“ vytvoříte adresu URL GitHubu obsahující informace, které jsem zadal, a konfigurační data uvedená níže, a poté mě přesměruje na tuto adresu URL. Toto rozšíření přímo nepřenáší žádná data. Rozšíření mi před otevřením zobrazí úplnou adresu URL a mohu přesně zkontrolovat, jaké informace budou zahrnuty. Jakmile budu přesměrován na GitHub, budu mít plnou kontrolu nad odesláním předvyplněného formuláře problému nebo zrušením bez odeslání čehokoli. Chápu, že přístup na GitHub mě vystavuje $privacy_link$. Vytvoření problému vyžaduje účet GitHub, a jakmile se rozhodnete pokračovat a budete přesměrováni na GitHub, vaše aktivita se bude řídit $privacy_statement$ a $terms_service$. Po přesměrování s předvyplněnými informacemi si ponecháte plnou kontrolu a můžete si vybrat, zda chcete odeslat nebo zrušit vytvoření problému v našem úložišti na adrese $repo_link$. I když zrušíte vytváření problému, GitHub může stále shromažďovat data v souladu se svými zásadami ochrany osobních údajů kvůli vaší interakci s jejich platformou. Pokud budete pokračovat v odesílání problému, informace, které odešlete, včetně případných dalších komentářů, se stanou veřejně přístupnými. Důvodem je to, že úložiště je veřejné a každý nahlášený problém bude viditelný každému, kdo používá GitHub nebo související služby.",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "Zpráva na GitHubu",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "Informace o konfiguraci",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "Chápu, že kliknutím na „Najít existující problémy“ vytvoříte vyhledávací adresu GitHub pomocí názvu domény a podrobností o problému, které jsem zadal, a poté mě přesměruje na tuto adresu URL. Toto rozšíření přímo nepřenáší žádná data. Rozšíření mi před otevřením zobrazí úplnou adresu URL pro vyhledávání, abych si mohl zkontrolovat, které hledané výrazy budou použity. Po přesměrování na GitHub budu podléhat $link$ a $terms_service$.",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "Náhled URL",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "Zkontrolujte prosím adresu URL, která se otevře. Tato adresa URL obsahuje vámi zadané informace a přesměruje vás na GitHub.",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "Adresa URL k otevření (technický formát):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "Zobrazit čitelný formát (dekódovaná adresa URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "Kopírovat URL",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "Zkopírováno!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "Zrušit",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "Otevřete GitHub",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "Tato adresa URL vás přesměruje na GitHub. Vaše údaje budou po přesměrování podléhat $link$.",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "Chcete-li pokračovat, zaškrtněte políčko souhlas.",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "Zaškrtnutím políčka souhlasu potvrďte, že rozumíte tomu, jak budou vaše údaje používány.",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "Vyberte typ problému.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "Uveďte prosím adresu URL.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "Zadejte prosím platnou adresu URL.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "Chyba při vytváření problému GitHub:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "Chyba při hledání existujících problémů:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "API prohlížeče není k dispozici. Tato stránka musí být načtena jako rozšíření prohlížeče.",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "Chyba při načítání konfiguračních dat:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }

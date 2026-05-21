@@ -4613,5 +4613,204 @@
   "customRulesEditor_v3RuleTemplates": {
     "message": "নিয়ম টেমপ্লেট",
     "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+  },
+  "popup_report_issue_button_title": {
+    "message": "একটি সমস্যা রিপোর্ট করুন",
+    "description": "Tooltip and aria label for the popup bug report button"
+  },
+  "reportIssueTitle": {
+    "message": "রিপোর্ট ইস্যু",
+    "description": "Title for the report issue page"
+  },
+  "reportIssueHeader": {
+    "message": "সমস্যা রিপোর্ট করুন বা উন্নতির পরামর্শ দিন",
+    "description": "Header for the report issue page"
+  },
+  "reportIssueDescription": {
+    "message": "URL পরিষ্কারের সাথে একটি সমস্যা পাওয়া গেছে বা একটি পরামর্শ আছে? একটি প্রতিবেদন জমা দিয়ে Linkumori উন্নত করতে আমাদের সাহায্য করুন।",
+    "description": "Introductory text for the report issue page"
+  },
+  "findExistingButton": {
+    "message": "বিদ্যমান সমস্যা খুঁজুন",
+    "description": "Button label for searching existing GitHub issues"
+  },
+  "beforeReporting": {
+    "message": "রিপোর্ট করার আগে, আপনার সমস্যা ইতিমধ্যে রিপোর্ট করা হয়েছে কিনা তা পরীক্ষা করুন:",
+    "description": "Text shown before the existing issue search consent"
+  },
+  "issueTypeLabel": {
+    "message": "সমস্যার ধরন:",
+    "description": "Label for report issue type selector"
+  },
+  "issueTypeSelect": {
+    "message": "সমস্যার ধরন নির্বাচন করুন...",
+    "description": "Placeholder option for report issue type selector"
+  },
+  "issueTypeTrackingNotRemoved": {
+    "message": "ট্র্যাকিং প্যারামিটার সরানো হয়নি",
+    "description": "Report issue type option"
+  },
+  "issueTypeUrlBroken": {
+    "message": "ইউআরএল পরিষ্কার করার পরে ভেঙে গেছে",
+    "description": "Report issue type option"
+  },
+  "issueTypeFalsePositive": {
+    "message": "মিথ্যা ইতিবাচক (অপ্রয়োজনীয় পরিষ্কার)",
+    "description": "Report issue type option"
+  },
+  "issueTypePerformance": {
+    "message": "কর্মক্ষমতা সমস্যা",
+    "description": "Report issue type option"
+  },
+  "issueTypeUi": {
+    "message": "ইউআই/ডিসপ্লে সমস্যা",
+    "description": "Report issue type option"
+  },
+  "issueTypeFeatureRequest": {
+    "message": "বৈশিষ্ট্য অনুরোধ",
+    "description": "Report issue type option"
+  },
+  "issueTypeRuleSuggestion": {
+    "message": "নিয়ম পরামর্শ",
+    "description": "Report issue type option"
+  },
+  "urlLabel": {
+    "message": "URL যেখানে সমস্যাটি ঘটে:",
+    "description": "Label for report URL selector"
+  },
+  "customUrlPlaceholder": {
+    "message": "https://example.com",
+    "description": "Placeholder for custom report URL input"
+  },
+  "enterCustomUrl": {
+    "message": "কাস্টম URL লিখুন",
+    "description": "Option label for custom report URL entry"
+  },
+  "nsfwLabel": {
+    "message": "পৃষ্ঠায় প্রাপ্তবয়স্কদের সামগ্রী রয়েছে (NSFW)",
+    "description": "Report form NSFW checkbox label"
+  },
+  "additionalInfoLabel": {
+    "message": "অতিরিক্ত তথ্য:",
+    "description": "Label for report additional information textarea"
+  },
+  "additionalInfoPlaceholder": {
+    "message": "সমস্যা সম্পর্কে কোনো অতিরিক্ত বিবরণ বা মন্তব্য প্রদান করুন...",
+    "description": "Placeholder for report additional information textarea"
+  },
+  "consentMessage": {
+    "message": "আমি বুঝি যে \"GitHub-এ প্রতিবেদন\" ক্লিক করা একটি গিটহাব ইউআরএল তৈরি করবে যেখানে আমি যে তথ্য প্রবেশ করিয়েছি এবং নীচে দেখানো কনফিগারেশন ডেটা রয়েছে, তারপর আমাকে সেই URL-এ পুনঃনির্দেশিত করবে। এই এক্সটেনশনের মাধ্যমে সরাসরি কোনো তথ্য প্রেরণ করা হয় না। এক্সটেনশনটি খোলার আগে আমাকে সম্পূর্ণ URL দেখাবে এবং আমি ঠিক কী তথ্য অন্তর্ভুক্ত করা হবে তা পর্যালোচনা করতে পারি। একবার GitHub-এ পুনঃনির্দেশিত হলে, হয় আগে থেকে পূরণ করা ইস্যু ফর্ম জমা দিতে বা কিছু জমা না করে বাতিল করার সম্পূর্ণ নিয়ন্ত্রণ আমার থাকবে। আমি বুঝতে পেরেছি যে GitHub অ্যাক্সেস করা আমাকে $privacy_link$ এর বিষয় নিয়ে আসে। একটি সমস্যা তৈরি করার জন্য একটি GitHub অ্যাকাউন্টের প্রয়োজন, এবং একবার আপনি এগিয়ে যেতে বেছে নিলে এবং GitHub-এ পুনঃনির্দেশিত হলে, আপনার কার্যকলাপ $privacy_statement$ এবং $terms_service$ দ্বারা নিয়ন্ত্রিত হয়। পূর্ব-পূর্ণ তথ্যের সাথে পুনঃনির্দেশিত হওয়ার পরে, আপনি সম্পূর্ণ নিয়ন্ত্রণ বজায় রাখেন এবং $repo_link$ এ আমাদের সংগ্রহস্থলে ইস্যু তৈরি জমা বা বাতিল করতে পারেন কিনা তা চয়ন করতে পারেন। এমনকি আপনি যদি ইস্যু তৈরি বাতিল করেন, তবুও GitHub তাদের প্ল্যাটফর্মের সাথে আপনার ইন্টারঅ্যাকশনের কারণে তাদের গোপনীয়তা নীতি অনুযায়ী ডেটা সংগ্রহ করতে পারে। আপনি যদি সমস্যাটি জমা দিয়ে এগিয়ে যান, আপনার জমা দেওয়া তথ্য, যেকোন অতিরিক্ত মন্তব্য সহ, সর্বজনীনভাবে অ্যাক্সেসযোগ্য হয়ে যাবে। এর কারণ হল রিপোজিটরিটি সর্বজনীন, এবং যেকোন রিপোর্ট করা সমস্যা GitHub বা সম্পর্কিত পরিষেবাগুলি ব্যবহার করে যে কেউ দৃশ্যমান হবে।",
+    "description": "Consent text shown before opening GitHub issue creation",
+    "placeholders": {
+      "privacy_link": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's Privacy Statement</a>"
+      },
+      "privacy_statement": {
+        "content": "<a href='https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement' target='_blank' rel='noopener noreferrer'>GitHub's privacy statement</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      },
+      "repo_link": {
+        "content": "<a href='https://github.com/Linkumori/Linkumori-Addon' target='_blank' rel='noopener noreferrer'>https://github.com/Linkumori/Linkumori-Addon</a>"
+      }
+    }
+  },
+  "reportOnGitHub": {
+    "message": "GitHub এ রিপোর্ট করুন",
+    "description": "Submit report button label"
+  },
+  "configInformation": {
+    "message": "কনফিগারেশন তথ্য",
+    "description": "Summary label for report configuration details"
+  },
+  "findExistingConsentMessage": {
+    "message": "আমি বুঝি যে \"বিদ্যমান সমস্যা খুঁজুন\" এ ক্লিক করা ডোমেন নাম এবং সমস্যার বিবরণ ব্যবহার করে একটি গিটহাব সার্চ ইউআরএল তৈরি করবে এবং তারপর আমাকে সেই ইউআরএলে রিডাইরেক্ট করবে। এই এক্সটেনশনের মাধ্যমে সরাসরি কোনো তথ্য প্রেরণ করা হয় না। এক্সটেনশনটি খোলার আগে আমাকে সম্পূর্ণ অনুসন্ধান URL দেখাবে, তাই আমি পর্যালোচনা করতে পারি কোন অনুসন্ধান শব্দগুলি ব্যবহার করা হবে৷ একবার GitHub এ পুনঃনির্দেশিত হলে, আমি $link$ এবং $terms_service$ এর অধীন থাকব।",
+    "description": "Consent text shown before opening GitHub issue search",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      },
+      "terms_service": {
+        "content": "<a href='https://docs.github.com/en/site-policy/github-terms/github-terms-of-service' target='_blank' rel='noopener noreferrer'>terms of service</a>"
+      }
+    }
+  },
+  "urlPreviewTitle": {
+    "message": "URL প্রিভিউ",
+    "description": "Title for URL preview dialog"
+  },
+  "urlPreviewWarning": {
+    "message": "খোলা হবে যে URL পর্যালোচনা করুন. এই ইউআরএলে আপনার দেওয়া তথ্য রয়েছে এবং আপনাকে গিটহাবে রিডাইরেক্ট করবে।",
+    "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewEncodedUrl": {
+    "message": "URL খুলতে হবে (প্রযুক্তিগত বিন্যাস):",
+    "description": "Label for encoded URL display"
+  },
+  "urlPreviewShowDecoded": {
+    "message": "পঠনযোগ্য বিন্যাস দেখান (ডিকোড করা URL)",
+    "description": "Label for decoded URL toggle button"
+  },
+  "urlPreviewCopy": {
+    "message": "ইউআরএল কপি করুন",
+    "description": "Label for copy URL button"
+  },
+  "urlPreviewCopied": {
+    "message": "অনুলিপি করা হয়েছে!",
+    "description": "Confirmation message after copying URL"
+  },
+  "urlPreviewCancelButton": {
+    "message": "বাতিল করুন",
+    "description": "Label for cancel button in URL preview"
+  },
+  "urlPreviewProceedButton": {
+    "message": "GitHub খুলুন",
+    "description": "Label for proceed button in URL preview"
+  },
+  "urlPreviewSecurityNotice": {
+    "message": "এই URL আপনাকে GitHub-এ পুনঃনির্দেশিত করবে। একবার পুনঃনির্দেশিত হলে আপনার ডেটা $link$ সাপেক্ষে হবে।",
+    "description": "Security notice in URL preview dialog",
+    "placeholders": {
+      "link": {
+        "content": "<a href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement#github-search' target='_blank' rel='noopener noreferrer'>GitHub's Search Privacy Policy</a>"
+      }
+    }
+  },
+  "consentRequired": {
+    "message": "এগিয়ে যেতে অনুগ্রহ করে সম্মতি চেকবক্স চেক করুন।",
+    "description": "Error message when consent is not given"
+  },
+  "findExistingConsentRequired": {
+    "message": "সম্মতি বাক্সে চেক করে আপনার ডেটা কীভাবে ব্যবহার করা হবে তা আপনি বুঝতে পেরেছেন তা নিশ্চিত করুন।",
+    "description": "Error message when existing issue search consent is not given"
+  },
+  "issueTypeRequired": {
+    "message": "একটি সমস্যার ধরন নির্বাচন করুন.",
+    "description": "Error message when issue type is not selected"
+  },
+  "urlRequired": {
+    "message": "একটি URL প্রদান করুন.",
+    "description": "Error message when URL is missing"
+  },
+  "urlInvalid": {
+    "message": "একটি বৈধ URL লিখুন.",
+    "description": "Error message when URL is invalid"
+  },
+  "errorCreatingIssue": {
+    "message": "GitHub সমস্যা তৈরিতে ত্রুটি:",
+    "description": "Error message prefix when GitHub issue URL creation fails"
+  },
+  "errorFindingIssues": {
+    "message": "বিদ্যমান সমস্যাগুলি খুঁজে পেতে ত্রুটি:",
+    "description": "Error message prefix when searching for existing issues fails"
+  },
+  "report_browser_api_unavailable": {
+    "message": "ব্রাউজার API উপলব্ধ নয়। এই পৃষ্ঠাটি ব্রাউজার এক্সটেনশন হিসাবে লোড করা আবশ্যক।",
+    "description": "Report page error when extension APIs are unavailable"
+  },
+  "report_config_error": {
+    "message": "কনফিগারেশন ডেটা পুনরুদ্ধারে ত্রুটি:",
+    "description": "Report page configuration retrieval error prefix"
   }
 }
