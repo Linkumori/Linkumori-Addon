@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.9.0] - 2026-05-21 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.8.0...linkumori-v100.9.0))
+### Documentation
+- **privacy**: Add Issue Reporting Feature clause and bump consent version (`2026-05-21`, hash: [`6bc4ae1`](https://github.com/Linkumori/Linkumori-Addon/commit/6bc4ae1))
+
 ## [v100.8.0] - 2026-05-21 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.7.1...linkumori-v100.8.0))
 ### Added
 - Introduce bug report button and GitHub issue report page (`2026-05-21`, hash: [`9b584c9`](https://github.com/Linkumori/Linkumori-Addon/commit/9b584c9))
