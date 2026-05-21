@@ -1,6 +1,6 @@
 # Linkumori Privacy Policy
 
-**Last Updated:** 7 May, 2026
+**Last Updated:** 21 May, 2026
 
 Linkumori is a free, non-commercial, open-source tool.
 
@@ -52,6 +52,56 @@ Linkumori is a tool that operates strictly on your instructions: it fetches only
 ### When Remote Rules Are Disabled
 
 Linkumori operates entirely offline using only its built-in rules. No external network requests are made.
+
+---
+
+## Issue Reporting Feature
+
+The issue reporting feature is an optional, user-initiated tool accessible via the bug icon button in the popup toolbar.
+
+**Linkumori does not collect, transmit, or store any data through this feature.**
+
+### How It Works
+
+When you click the report button, a dedicated report page opens in a new browser tab. You may fill in:
+
+- An issue type (e.g., tracking parameter not removed, broken URL, false positive)
+- A URL where the issue occurs (pre-filled from your active tab, or entered manually)
+- Whether the page contains adult content (NSFW) — selecting this suppresses the URL from the constructed report
+- Optional additional information describing the issue
+
+The Add-on then constructs a GitHub issue URL or GitHub search URL entirely within your browser. **The Add-on does not transmit any data and does not contact any server.** The constructed URL is only a string; no network request is made until you explicitly choose to proceed, at which point your browser opens the URL as a normal tab navigation — not a connection initiated by the extension.
+
+### Consent and URL Preview
+
+Before any redirect takes place, the Add-on:
+
+1. Presents a consent notice describing exactly what information will be included in the URL and what will happen after you are redirected.
+2. Displays a full preview of the constructed URL (in both encoded and human-readable decoded form) so you can review every piece of information before it leaves your browser.
+3. Gives you the option to copy the URL, cancel entirely, or proceed.
+
+No redirect occurs unless you explicitly click **"Open GitHub"**. You retain full control at every step.
+
+### What Happens After You Proceed
+
+When you click **"Open GitHub"**, the Add-on instructs your browser to open a new tab pointed at the constructed URL. **The Add-on does not make any network connection itself.** All information is encoded directly in the URL as query parameters; your browser navigates to that URL exactly as it would if you had typed or clicked any other link.
+
+Once your browser loads the GitHub page:
+
+- You remain in full control and may choose to submit or discard the issue.
+- Your interaction with GitHub is governed by [GitHub's Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement) and [GitHub's Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service).
+- As with any website you visit, GitHub receives a standard browser request and may log data such as your IP address, browser type, and the URL parameters, in accordance with their own privacy policy — regardless of whether you ultimately submit the issue.
+- If you submit the issue, the information you provide — including any additional comments — will be publicly visible on the repository, as it is a public GitHub repository.
+
+Linkumori has no access to, and bears no responsibility for, any data processed by GitHub once your browser navigates to their site.
+
+### Configuration Data
+
+The report page may optionally collect and include a snapshot of your Add-on configuration (such as enabled features and active rule sets) in the pre-filled report body. This information is assembled locally in your browser and displayed to you in the URL preview before any redirect. You can review, modify, or cancel before proceeding.
+
+### No Account Required to Cancel
+
+Accessing the GitHub redirect URL requires no GitHub account. However, submitting or creating an issue on GitHub requires a GitHub account, and doing so subjects you to GitHub's terms and privacy practices.
 
 ---
 
