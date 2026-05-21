@@ -16,6 +16,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.9.1] - 2026-05-21 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.9.0...linkumori-v100.9.1))
+### Added
+- **nav**: Replace localStorage view state with URL fragment navigation (`2026-05-21`, hash: [`ae7c1f1`](https://github.com/Linkumori/Linkumori-Addon/commit/ae7c1f1))
+
+### Fixed
+- **regression**: Resolve 5 failing provider snapshot and preprocessor tests (`2026-05-21`, hash: [`bd9d4e8`](https://github.com/Linkumori/Linkumori-Addon/commit/bd9d4e8))
+
 ## [v100.9.0] - 2026-05-21 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.8.0...linkumori-v100.9.0))
 ### Documentation
 - **privacy**: Add Issue Reporting Feature clause and bump consent version (`2026-05-21`, hash: [`6bc4ae1`](https://github.com/Linkumori/Linkumori-Addon/commit/6bc4ae1))
