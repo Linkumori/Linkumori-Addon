@@ -1577,8 +1577,23 @@ function setupCustomRulesViews() {
         return;
     }
 
+    // Fragment ↔ view-name mapping
+    const HASH_TO_VIEW = {
+        '#customrule':    'rules',
+        '#whitelist':     'whitelist',
+        '#provider-list': 'provider-list',
+        '#disabled-rules': 'disabled-rules',
+    };
+    const VIEW_TO_HASH = {
+        'rules':           '#customrule',
+        'whitelist':       '#whitelist',
+        'provider-list':   '#provider-list',
+        'disabled-rules':  '#disabled-rules',
+    };
+
+    // Apply DOM classes for the given view — no side effects on the URL
     const applyView = (viewName) => {
-        const showWhitelist = viewName === 'whitelist';
+        const showWhitelist    = viewName === 'whitelist';
         const showProviderList = viewName === 'provider-list';
         const showDisabledRules = viewName === 'disabled-rules';
         navRules.classList.toggle('active', !showWhitelist);
@@ -1587,15 +1602,38 @@ function setupCustomRulesViews() {
         whitelistView.classList.toggle('active', showWhitelist);
         providerListPageView.classList.toggle('active', showProviderList);
         disabledRulesPageView.classList.toggle('active', showDisabledRules);
-        localStorage.setItem('customrules-active-view', showWhitelist ? 'whitelist' : 'rules');
     };
-    applyCustomRulesView = applyView;
 
-    navRules.addEventListener('click', () => applyView('rules'));
-    navWhitelist.addEventListener('click', () => applyView('whitelist'));
+    // Navigate by updating the fragment; hashchange handler calls applyView.
+    // If the hash is already correct the event won't fire, so apply directly.
+    const navigateTo = (viewName) => {
+        const hash = VIEW_TO_HASH[viewName] || '#customrule';
+        if (window.location.hash === hash) {
+            applyView(viewName);
+        } else {
+            window.location.hash = hash;
+        }
+    };
 
-    const savedView = localStorage.getItem('customrules-active-view');
-    applyView(savedView === 'whitelist' ? 'whitelist' : 'rules');
+    applyCustomRulesView = navigateTo;
+
+    // Navbar button clicks update the fragment
+    navRules.addEventListener('click', () => navigateTo('rules'));
+    navWhitelist.addEventListener('click', () => navigateTo('whitelist'));
+
+    // React to fragment changes (includes browser back/forward)
+    window.addEventListener('hashchange', () => {
+        const viewName = HASH_TO_VIEW[window.location.hash] || 'rules';
+        applyView(viewName);
+    });
+
+    // Seed the fragment on first load if it is missing or unrecognised,
+    // then apply the corresponding view
+    const initialView = HASH_TO_VIEW[window.location.hash] || 'rules';
+    if (!HASH_TO_VIEW[window.location.hash]) {
+        history.replaceState(null, '', '#customrule');
+    }
+    applyView(initialView);
 }
 
 function switchCustomRulesView(viewName) {
