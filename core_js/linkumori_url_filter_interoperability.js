@@ -1146,6 +1146,34 @@
     function prepareRule(rule) {
         if (!rule) return rule;
         getUrlPatternMatcher(rule);
+        if (rule.literalParam !== null && !rule.matchCase) {
+            rule._linkumoriLiteralParamLower = String(rule.literalParam).toLowerCase();
+        }
+        rule._linkumoriSimpleTarget = (
+            (rule.urlPattern === '*' || rule.urlPattern === '') &&
+            rule.includeDomains.length === 0 &&
+            rule.excludeDomains.length === 0 &&
+            rule.includeDomainRegexes.length === 0 &&
+            rule.excludeDomainRegexes.length === 0 &&
+            rule.includeTargetDomains.length === 0 &&
+            rule.excludeTargetDomains.length === 0 &&
+            rule.includeTargetDomainRegexes.length === 0 &&
+            rule.excludeTargetDomainRegexes.length === 0 &&
+            rule.denyallowDomains.length === 0 &&
+            rule.denyallowDomainRegexes.length === 0 &&
+            rule.includeMethods.length === 0 &&
+            rule.excludeMethods.length === 0 &&
+            rule.includeResourceTypes.length === 0 &&
+            rule.excludeResourceTypes.length === 0 &&
+            !rule.firstPartyOnly &&
+            !rule.thirdPartyOnly &&
+            !rule.strictFirstPartyOnly &&
+            !rule.strictThirdPartyOnly &&
+            rule.includeApps.length === 0 &&
+            rule.excludeApps.length === 0 &&
+            rule.includeAppRegexes.length === 0 &&
+            rule.excludeAppRegexes.length === 0
+        );
         const ContextClass = globalThis.LinkumoriFilteringContext;
         if (ContextClass) {
             rule._linkumoriIncludeMethodMask = ContextClass.buildMask(
@@ -1206,7 +1234,7 @@
         } else if (rule.literalParam !== null) {
             matched = rule.matchCase
                 ? normalizedName === rule.literalParam
-                : normalizedName.toLowerCase() === String(rule.literalParam).toLowerCase();
+                : normalizedName.toLowerCase() === (rule._linkumoriLiteralParamLower || String(rule.literalParam).toLowerCase());
         }
 
         return rule.negate ? !matched : matched;
