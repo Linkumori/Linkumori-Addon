@@ -207,19 +207,50 @@ function formatIndexPatternValue(value) {
         : (typeof value === 'string' ? value : '');
 }
 
+function normalizeDomainRedirectionEntry(rule) {
+    if (typeof rule === 'string') {
+        return rule.trim();
+    }
+    if (!isPlainObject(rule)) {
+        return null;
+    }
+
+    const pattern = typeof rule.match === 'string' ? rule.match : rule.matchPattern;
+    const action = isPlainObject(rule.action) ? rule.action : null;
+    const target = action && typeof action.replacePattern === 'string'
+        ? action.replacePattern
+        : rule.replacePattern;
+
+    if (typeof pattern !== 'string' || typeof target !== 'string') {
+        return null;
+    }
+
+    const normalizedPattern = pattern.trim();
+    const normalizedTarget = target.trim();
+    return normalizedPattern && normalizedTarget
+        ? `${normalizedPattern}$redirect=${normalizedTarget}`
+        : null;
+}
+
 function assertDomainRedirectionSyntax(provider, providerName = '') {
     const rules = Array.isArray(provider?.domainRedirections) ? provider.domainRedirections : [];
-    rules.forEach((rule) => {
-        if (typeof rule !== 'string') {
-            throw new Error(`${providerName || 'Provider'}: domainRedirections entries must be strings`);
+    const normalizedRules = [];
+    rules.forEach((rule, index) => {
+        const normalizedRule = normalizeDomainRedirectionEntry(rule);
+        if (typeof normalizedRule !== 'string') {
+            throw new Error(`${providerName || 'Provider'}: domainRedirections[${index}] must be a string or redirect rule object`);
         }
-        const markerIndex = rule.indexOf('$redirect=');
-        const pattern = markerIndex === -1 ? '' : rule.slice(0, markerIndex).trim();
-        const target = markerIndex === -1 ? '' : rule.slice(markerIndex + '$redirect='.length).trim();
+        const markerIndex = normalizedRule.indexOf('$redirect=');
+        const pattern = markerIndex === -1 ? '' : normalizedRule.slice(0, markerIndex).trim();
+        const target = markerIndex === -1 ? '' : normalizedRule.slice(markerIndex + '$redirect='.length).trim();
         if (!pattern || !target) {
-            throw new Error(`${providerName || 'Provider'}: invalid domainRedirections entry "${rule}"`);
+            throw new Error(`${providerName || 'Provider'}: invalid domainRedirections entry "${normalizedRule}"`);
         }
+        normalizedRules.push(normalizedRule);
     });
+    if (provider && Array.isArray(provider.domainRedirections)) {
+        provider.domainRedirections = normalizedRules;
+    }
 }
 
 const OBJECT_STYLE_RULE_FIELDS = Object.freeze([

@@ -1167,6 +1167,34 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
     }
 }
 
+function normalizeCoreDomainRedirection(redirection) {
+    if (typeof redirection === "string") {
+        return redirection.trim();
+    }
+
+    if (!redirection || typeof redirection !== "object" || Array.isArray(redirection)) {
+        return null;
+    }
+
+    const matchPattern = typeof redirection.match === "string"
+        ? redirection.match
+        : redirection.matchPattern;
+    const action = redirection.action && typeof redirection.action === "object"
+        ? redirection.action
+        : null;
+    const replacePattern = action && typeof action.replacePattern === "string"
+        ? action.replacePattern
+        : redirection.replacePattern;
+
+    if (typeof matchPattern !== "string" || typeof replacePattern !== "string") {
+        return null;
+    }
+
+    const pattern = matchPattern.trim();
+    const target = replacePattern.trim();
+    return pattern && target ? `${pattern}$redirect=${target}` : null;
+}
+
 function getCoreRuleTraceName(compiledRule, fallback) {
     return compiledRule && typeof compiledRule.id === "string" && compiledRule.id
         ? compiledRule.id
@@ -1650,7 +1678,7 @@ function start() {
 
             let exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
             for (let e = 0; e < exceptions.length; e++) {
-                provider.addException(exceptions[e]);
+                provider.addException(exceptions[e], true, providerDefaults);
             }
             
             let domainExceptions = data.providers[prvKeys[p]].getOrDefault('domainExceptions', []);
@@ -2210,8 +2238,8 @@ function start() {
             enabled_referralMarketing[compiled.matchPattern] = compiled;
         };
 
-        this.addException = function (exception, isActive = true) {
-            const compiled = compileCoreRuleDefinition(exception, "i", false);
+        this.addException = function (exception, isActive = true, defaults = null) {
+            const compiled = compileCoreRuleDefinition(exception, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             enabled_exceptions[compiled.matchPattern] = compiled;
         };
@@ -2291,8 +2319,9 @@ function start() {
         };
 
         this.addDomainRedirection = function (redirection) {
-            if (enabled_domain_redirections.indexOf(redirection) === -1) {
-                enabled_domain_redirections.push(redirection);
+            const normalized = normalizeCoreDomainRedirection(redirection);
+            if (normalized && enabled_domain_redirections.indexOf(normalized) === -1) {
+                enabled_domain_redirections.push(normalized);
             }
         };
 
@@ -2320,12 +2349,13 @@ function start() {
             }            
             if (!re && enabled_domain_redirections.length > 0) {
                 for (const domainRedirection of enabled_domain_redirections) {
-                    if (domainRedirection.includes('$redirect=')) {
-                        const [pattern, redirectTarget] = domainRedirection.split('$redirect=');
-                        if (matchDomainPattern(url, [pattern.trim()])) {
-                            re = redirectTarget;
-                            break;
-                        }
+                    if (typeof domainRedirection !== 'string' || !domainRedirection.includes('$redirect=')) {
+                        continue;
+                    }
+                    const [pattern, redirectTarget] = domainRedirection.split('$redirect=');
+                    if (matchDomainPattern(url, [pattern.trim()])) {
+                        re = redirectTarget;
+                        break;
                     }
                 }
             }
