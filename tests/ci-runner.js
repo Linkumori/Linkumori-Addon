@@ -277,7 +277,7 @@ async function runBatch(driver, suite) {
             skipped++;
             return { ...r, label, classification: r.skippedNav ? 'skipped_nav' : 'skipped_preference' };
         }
-        const ok = r.actualOutput === tc.expectedOutput;
+        const ok = !r.error && r.actualOutput === tc.expectedOutput;
         ok ? passed++ : failed++;
         return {
             id: r.id,
