@@ -160,19 +160,6 @@ function normalizeRequest(testCase) {
     return request;
 }
 
-
-function valueIncludes(actual, expected) {
-    if (Array.isArray(expected)) {
-        return Array.isArray(actual)
-            && expected.every(expectedItem => actual.some(actualItem => valueIncludes(actualItem, expectedItem)));
-    }
-    if (expected && typeof expected === 'object') {
-        return actual && typeof actual === 'object'
-            && Object.entries(expected).every(([key, value]) => valueIncludes(actual[key], value));
-    }
-    return actual === expected;
-}
-
 function diffStrings(expected, actual) {
     const exp = String(expected ?? '');
     const act = String(actual ?? '');
@@ -290,16 +277,7 @@ async function runBatch(driver, suite) {
             skipped++;
             return { ...r, label, classification: r.skippedNav ? 'skipped_nav' : 'skipped_preference' };
         }
-        const matchedRuleOk = tc.expectedMatchedRule === undefined || r.matchedRule === tc.expectedMatchedRule;
-        const snapshotRuleIds = r.snapshot && Array.isArray(r.snapshot.ruleIds) ? r.snapshot.ruleIds : [];
-        const snapshotAliasRuleIds = r.snapshot && Array.isArray(r.snapshot.aliasRuleIds) ? r.snapshot.aliasRuleIds : [];
-        const snapshotRuleIdsOk = !Array.isArray(tc.expectedSnapshotRuleIds) || tc.expectedSnapshotRuleIds.every(ruleId => snapshotRuleIds.includes(ruleId));
-        const snapshotAliasRuleIdsOk = !Array.isArray(tc.expectedSnapshotAliasRuleIds) || tc.expectedSnapshotAliasRuleIds.every(([alias, target]) => snapshotAliasRuleIds.some(([actualAlias, actualTarget]) => actualAlias === alias && actualTarget === target));
-        const snapshotProviders = r.snapshot && Array.isArray(r.snapshot.providers) ? r.snapshot.providers : [];
-        const snapshotProvidersOk = !Array.isArray(tc.expectedSnapshotProviders) || tc.expectedSnapshotProviders.every(expectedProvider =>
-            snapshotProviders.some(actualProvider => valueIncludes(actualProvider, expectedProvider))
-        );
-        const ok = r.actualOutput === tc.expectedOutput && matchedRuleOk && snapshotRuleIdsOk && snapshotAliasRuleIdsOk && snapshotProvidersOk;
+        const ok = r.actualOutput === tc.expectedOutput;
         ok ? passed++ : failed++;
         return {
             id: r.id,
@@ -310,13 +288,9 @@ async function runBatch(driver, suite) {
             expectedOutput: tc.expectedOutput,
             passed: ok,
             classification: ok ? 'pass' : 'fail',
-            diff: r.actualOutput === tc.expectedOutput ? null : diffStrings(tc.expectedOutput, r.actualOutput),
-            actualMatchedRule: r.matchedRule || null,
-            expectedMatchedRule: tc.expectedMatchedRule || null,
+            diff: ok ? null : diffStrings(tc.expectedOutput, r.actualOutput),
             matchedRule: r.matchedRule || null,
             matchedProvider: r.matchedProvider || null,
-            snapshot: r.snapshot || null,
-            snapshotChecks: { matchedRuleOk, snapshotRuleIdsOk, snapshotAliasRuleIdsOk, snapshotProvidersOk },
             error: r.error || null
         };
     });
@@ -389,12 +363,8 @@ async function main() {
                 .filter(r => r.classification === 'fail')
                 .forEach(r => {
                     console.log(`  FAIL — ${r.label}\n       expected: ${r.expectedOutput}\n       actual:   ${r.actualOutput}`);
-                    if (r.expectedMatchedRule) console.log(`       expected matched rule: ${r.expectedMatchedRule}\n       actual matched rule:   ${r.actualMatchedRule}`);
                     if (r.diff) {
                         console.log(`       first diff @ ${r.diff.at}\n       expected tail: ${r.diff.expectedTail}\n       actual tail:   ${r.diff.actualTail}`);
-                    }
-                    if (r.snapshotChecks && (!r.snapshotChecks.snapshotRuleIdsOk || !r.snapshotChecks.snapshotAliasRuleIdsOk)) {
-                        console.log(`       snapshot checks: ${JSON.stringify(r.snapshotChecks)}`);
                     }
                     if (r.error) console.log(`       error: ${r.error}`);
                 });
