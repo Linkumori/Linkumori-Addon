@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.10.0] - 2026-05-22 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.9.1...linkumori-v100.10.0))
+### Changed
+- Address valid cleanup review feedback (`2026-05-22`, hash: [`95dab88`](https://github.com/Linkumori/Linkumori-Addon/commit/95dab88))
+- Tool.js now integerate with ip-ranger.js (`2026-05-22`, hash: [`d483341`](https://github.com/Linkumori/Linkumori-Addon/commit/d483341))
+
+### Removed
+- Remove redundant runtime snapshot plumbing (`2026-05-22`, hash: [`8294ca3`](https://github.com/Linkumori/Linkumori-Addon/commit/8294ca3))
+
 ## [v100.9.1] - 2026-05-21 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.9.0...linkumori-v100.9.1))
 ### Added
 - **nav**: Replace localStorage view state with URL fragment navigation (`2026-05-21`, hash: [`ae7c1f1`](https://github.com/Linkumori/Linkumori-Addon/commit/ae7c1f1))
