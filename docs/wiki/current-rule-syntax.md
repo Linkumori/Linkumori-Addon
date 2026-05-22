@@ -642,6 +642,26 @@ Typical shape:
 
 Only `urlFilterRules` are consumed by the removeparam runtime. `urlFilterMetadata` is used for display, health, and status.
 
+## uBlock Origin Compatibility
+
+This is a uBlock-Origin-like subset, not a full uBlock Origin static network filter engine.
+
+Matches uBO for the core `$removeparam` behavior:
+
+- `queryprune` is accepted as a deprecated alias of `removeparam`.
+- `removeparam` with no value removes all query parameters.
+- literal values remove one query parameter name.
+- regex literal values are tested against `name=value`.
+- `@@` exception rules, `badfilter`, `match-case`, `domain=`/`from=`, `to=`, `method=`, party modifiers, and request-type modifiers are supported in the standalone parser.
+
+Known differences from uBO:
+
+- Linkumori intentionally rejects any standalone rule that is not `$removeparam`/`$queryprune`.
+- uBO supports the broader EasyList/ABP static network filter language; Linkumori does not implement request blocking, cosmetic filters, scriptlets, redirects, CSP, `urlskip`, `replace`, `uritransform`, or other non-cleaning modifiers here.
+- uBO documents `important` as applying only to network block filters. Linkumori accepts `important` on standalone removal rules and uses it only to run those removals before normal `$removeparam` exceptions.
+- uBO documents `denyallow` as requiring `domain=` in normal static network filters. Linkumori accepts `denyallow=` without requiring `domain=` because it is used only as a target-host rejection check for URL-cleaning rules.
+- Linkumori accepts `stealth` and `cookie` as no-op modifiers for importer tolerance. They do not make Linkumori implement uBO or AdGuard cookie/stealth behavior.
+
 ## Standalone Rule Grammar
 
 General shape:
@@ -735,6 +755,8 @@ Example:
 
 Important removal rules run before normal exceptions.
 
+`important` is valid only on removal rules. Exception rules with `important` are rejected by the standalone parser.
+
 ### `badfilter`
 
 ```txt
@@ -749,7 +771,7 @@ Marks the canonical target rule as disabled during runtime rebuild.
 ||example.com^$removeparam=CaseSensitiveName,match-case
 ```
 
-In the current implementation, this changes URL-pattern matcher case sensitivity and the compiled lookup bucket selected for literal parameters. Literal parameter comparison itself is already performed as exact raw-name equality during final matching.
+In the current implementation, this changes URL-pattern matcher case sensitivity and literal parameter comparison. Without `match-case`, literal parameter names are compared case-insensitively. Regex parameter values keep the flags from the regex literal.
 
 ### Party modifiers
 
@@ -758,8 +780,12 @@ Supported:
 ```txt
 third-party
 3p
+first-party
+1p
 ~third-party
 ~3p
+~first-party
+~1p
 strict-third-party
 strict3p
 strict-first-party
@@ -769,7 +795,8 @@ strict1p
 Interpretation:
 
 - `third-party` / `3p`: registrable domain differs
-- `~third-party` / `~3p`: first-party only
+- `first-party` / `1p` / `~third-party` / `~3p`: registrable domain matches
+- `~first-party` / `~1p`: third-party only
 - `strict-third-party`: host must differ
 - `strict-first-party`: host must match exactly
 
@@ -822,8 +849,9 @@ If the target host matches one of these, the rule is rejected.
 
 Supports:
 
-- plain host patterns
-- regex literals
+- plain host patterns only
+
+Unsupported `denyallow` values reject the whole rule. That includes negated values with `~`, regex literals, and wildcard public-suffix forms ending in `.*`.
 
 ### `method=`
 
@@ -872,10 +900,7 @@ Negate with `~`, for example:
 ~script
 ```
 
-When no include/exclude content-type modifier is present, the runtime defaults to:
-
-- no request type, or
-- `main_frame`
+When no include/exclude content-type modifier is present, untyped `$removeparam` rules apply across request types. Add content-type modifiers when a rule should be limited to document, script, image, or another request family.
 
 ### `app=`
 
