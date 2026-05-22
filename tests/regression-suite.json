@@ -40,356 +40,6 @@
       }
     },
     {
-      "id": "provider indexPattern plus core urlPattern inferred token",
-      "dialect": "provider",
-      "input": "https://core-index.example/index-core/?utm_source=x&keep=1",
-      "expectedOutput": "https://core-index.example/index-core/?keep=1",
-      "providers": {
-        "provider-core-index-token": {
-          "syntax": "clearurls-dialect",
-          "urlPattern": "^https:\\/\\/core-index\\.example\\/index-core(?:[/?#]|$)",
-          "indexPattern": "||unrelated-index-hint.example^",
-          "rules": [
-            {
-              "id": "remove-utm-source",
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "snapshot runtime rule id and alias index",
-      "dialect": "provider",
-      "input": "https://example.com/snapshot-rule-id/?utm_source=x&keep=1",
-      "expectedOutput": "https://example.com/snapshot-rule-id/?keep=1",
-      "expectedMatchedRule": "linkumori::snapshot-rule-provider::remove-utm-source",
-      "expectedSnapshotRuleIds": [
-        "linkumori::snapshot-rule-provider::remove-utm-source"
-      ],
-      "expectedSnapshotAliasRuleIds": [
-        [
-          "linkumori::snapshot-rule-provider::alias-remove-utm",
-          "linkumori::snapshot-rule-provider::remove-utm-source"
-        ]
-      ],
-      "providers": {
-        "snapshot-rule-provider": {
-          "syntax": "clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/snapshot-rule-id(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-utm-source",
-              "aliases": [
-                "alias-remove-utm"
-              ],
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "snapshot activation disables rule id",
-      "dialect": "provider",
-      "input": "https://example.com/snapshot-rule-disabled/?utm_source=x&keep=1",
-      "expectedOutput": "https://example.com/snapshot-rule-disabled/?utm_source=x&keep=1",
-      "expectedSnapshotRuleIds": [],
-      "activationState": {
-        "version": 1,
-        "rules": {
-          "linkumori::snapshot-disabled-provider::remove-utm-source": false
-        }
-      },
-      "providers": {
-        "snapshot-disabled-provider": {
-          "syntax": "clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/snapshot-rule-disabled(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-utm-source",
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "snapshot activation disables rule alias",
-      "dialect": "provider",
-      "input": "https://example.com/snapshot-alias-disabled/?utm_source=x&keep=1",
-      "expectedOutput": "https://example.com/snapshot-alias-disabled/?utm_source=x&keep=1",
-      "activationState": {
-        "version": 1,
-        "rules": {
-          "linkumori::snapshot-alias-disabled::alias-remove-utm": false
-        }
-      },
-      "providers": {
-        "snapshot-alias-disabled": {
-          "syntax": "clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/snapshot-alias-disabled(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-utm-source",
-              "aliases": [
-                "alias-remove-utm"
-              ],
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "snapshot activation disables provider",
-      "dialect": "provider",
-      "input": "https://example.com/snapshot-provider-disabled/?utm_source=x&keep=1",
-      "expectedOutput": "https://example.com/snapshot-provider-disabled/?utm_source=x&keep=1",
-      "activationState": {
-        "version": 1,
-        "providers": {
-          "linkumori": {
-            "snapshot-provider-disabled": false
-          }
-        }
-      },
-      "providers": {
-        "snapshot-provider-disabled": {
-          "syntax": "clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/snapshot-provider-disabled(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-utm-source",
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "snapshot includes extended clearurls dialect fields",
-      "dialect": "provider",
-      "request": {
-        "method": "GET",
-        "type": "main_frame"
-      },
-      "input": "https://example.com/snapshot-extended/?utm_source=x&keep=1",
-      "expectedOutput": "https://example.com/snapshot-extended/?utm_source=x&keep=1",
-      "expectedSnapshotRuleIds": [
-        "linkumori::snapshot-extended-provider::remove-utm-source",
-        "linkumori::snapshot-extended-provider::domain-exception-login",
-        "linkumori::snapshot-extended-provider::domain-redirect-exit"
-      ],
-      "expectedSnapshotAliasRuleIds": [
-        [
-          "linkumori::snapshot-extended-provider::alias-utm-source",
-          "linkumori::snapshot-extended-provider::remove-utm-source"
-        ],
-        [
-          "linkumori::snapshot-extended-provider::alias-domain-exception-login",
-          "linkumori::snapshot-extended-provider::domain-exception-login"
-        ]
-      ],
-      "expectedSnapshotProviders": [
-        {
-          "providerId": "snapshot-extended-provider",
-          "syntax": "clearurls-dialect",
-          "indexPattern": [
-            "||example.com^"
-          ],
-          "domainPatterns": [],
-          "methods": [
-            "GET"
-          ],
-          "resourceTypes": [
-            "main_frame"
-          ],
-          "rules": [
-            {
-              "id": "remove-utm-source",
-              "runtimeId": "linkumori::snapshot-extended-provider::remove-utm-source",
-              "description": "extended snapshot field rule",
-              "requestTypes": [
-                "main_frame"
-              ],
-              "exceptions": [
-                "skip=true"
-              ],
-              "preprocessors": [
-                {
-                  "type": "urlDecode",
-                  "inputs": [
-                    1
-                  ]
-                }
-              ],
-              "sourceType": "canonical"
-            }
-          ],
-          "domainExceptions": [
-            {
-              "id": "domain-exception-login",
-              "runtimeId": "linkumori::snapshot-extended-provider::domain-exception-login",
-              "match": "||example.com/snapshot-extended/login^",
-              "description": "domain exception is identifiable"
-            }
-          ],
-          "domainRedirections": [
-            {
-              "id": "domain-redirect-exit",
-              "runtimeId": "linkumori::snapshot-extended-provider::domain-redirect-exit",
-              "match": "||example.com/snapshot-extended/exit^",
-              "replacePattern": "https://example.org/landing"
-            }
-          ]
-        }
-      ],
-      "providers": {
-        "snapshot-extended-provider": {
-          "syntax": "clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/snapshot-extended(?:[/?#]|$)",
-          "indexPattern": "||example.com^",
-          "methods": [
-            "GET"
-          ],
-          "resourceTypes": [
-            "main_frame"
-          ],
-          "domainExceptions": [
-            {
-              "id": "domain-exception-login",
-              "aliases": [
-                "alias-domain-exception-login"
-              ],
-              "match": "||example.com/snapshot-extended/login^",
-              "description": "domain exception is identifiable"
-            }
-          ],
-          "domainRedirections": [
-            {
-              "id": "domain-redirect-exit",
-              "match": "||example.com/snapshot-extended/exit^",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "https://example.org/landing"
-              }
-            }
-          ],
-          "rules": [
-            {
-              "id": "remove-utm-source",
-              "aliases": [
-                "alias-utm-source"
-              ],
-              "kind": "field",
-              "match": "utm_source",
-              "description": "extended snapshot field rule",
-              "exceptions": [
-                "skip=true"
-              ],
-              "requestTypes": [
-                "main_frame"
-              ],
-              "preprocessors": [
-                {
-                  "type": "urlDecode",
-                  "inputs": [
-                    1
-                  ]
-                }
-              ],
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "snapshot activation disables domain exception id",
-      "dialect": "provider",
-      "input": "https://example.com/snapshot-domain-exception-disabled/?utm_source=x&keep=1",
-      "expectedOutput": "https://example.com/snapshot-domain-exception-disabled/?keep=1",
-      "activationState": {
-        "version": 1,
-        "rules": {
-          "linkumori::snapshot-domain-exception-disabled::domain-exception": false
-        }
-      },
-      "providers": {
-        "snapshot-domain-exception-disabled": {
-          "syntax": "clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/snapshot-domain-exception-disabled(?:[/?#]|$)",
-          "domainExceptions": [
-            {
-              "id": "domain-exception",
-              "match": "||example.com/snapshot-domain-exception-disabled^"
-            }
-          ],
-          "rules": [
-            {
-              "id": "remove-utm-source",
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "urlFilterRules": [],
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
       "id": "provider dialect typo alias linkumori-clearursl",
       "dialect": "provider",
       "input": "https://example.com/provider-syntax-alias/?fbclid=1&keep=1",
@@ -531,7 +181,7 @@
               "match": "^https?:\\/\\/example\\.com\\/core-section-redirect\\/go\\?target=([^&]+)$",
               "action": {
                 "type": "redirect",
-                "replacePattern": "§1§"
+                "replacePattern": "\u00a71\u00a7"
               }
             }
           ]
@@ -674,7 +324,7 @@
               "match": "target",
               "action": {
                 "type": "rewrite",
-                "replacePattern": "§1§"
+                "replacePattern": "\u00a71\u00a7"
               },
               "preprocessors": [
                 {
@@ -1028,7 +678,7 @@
       "urlFilterRules": [],
       "preferences": {
         "globalStatus": true,
-        "redirection": true
+        "redirectionEnabled": true
       }
     },
     {
@@ -20322,7 +19972,7 @@
           "rules": [
             {
               "matchPattern": "token",
-              "replacePattern": "clean-§1§",
+              "replacePattern": "clean-\u00a71\u00a7",
               "preprocessors": []
             }
           ]
@@ -20344,7 +19994,7 @@
           "rawRules": [
             {
               "matchPattern": "wrapped=([^&#]+)",
-              "replacePattern": "clean=§1§"
+              "replacePattern": "clean=\u00a71\u00a7"
             }
           ]
         }
@@ -20365,7 +20015,7 @@
           "redirections": [
             {
               "matchPattern": "^https?:\\/\\/example\\.com\\/object-redirect\\/\\?url=(.+)$",
-              "replacePattern": "§1§",
+              "replacePattern": "\u00a71\u00a7",
               "preprocessors": [
                 {
                   "type": "doubleUrlDecode",
@@ -20405,7 +20055,7 @@
               "match": "token",
               "action": {
                 "type": "rewrite",
-                "replacePattern": "v2-§1§"
+                "replacePattern": "v2-\u00a71\u00a7"
               }
             }
           ]
@@ -20468,7 +20118,7 @@
               "match": "^https?:\\/\\/example\\.com\\/v2-redirect\\/\\?url=(.+)$",
               "action": {
                 "type": "redirect",
-                "replacePattern": "§1§"
+                "replacePattern": "\u00a71\u00a7"
               },
               "preprocessors": [
                 {

@@ -85,188 +85,20 @@ function pureCleaning(url, quiet = false) {
     return after;
 }
 
-function buildRuleLabDiagnostics(provider, url, testParamName = '', requestDetails = null) {
+function buildProviderMatchDiagnostics(provider, url, testParamName = '') {
     const providerName = typeof provider?.getName === 'function' ? provider.getName() : null;
     const appliedPattern = typeof provider?.getAppliedPatternForUrl === 'function'
         ? provider.getAppliedPatternForUrl(url)
         : { patternType: null, patternValue: null };
 
-    const diagnostics = {
+    return {
         providerName: providerName || null,
         patternMatched: !!appliedPattern?.patternType,
         patternType: appliedPattern?.patternType || null,
         patternValue: appliedPattern?.patternValue || null,
-        matchedException: null,
-        matchedDomainException: null,
-        matchedRedirection: null,
-        matchedDomainRedirection: null,
-        matchedRuleRegex: null,
-        matchedRawRule: null,
-        matchedReferralMarketing: null,
-        matchedRemoveParamRule: null,
-        matchedRemoveParamException: null,
         testedParam: typeof testParamName === 'string' && testParamName.trim() ? testParamName.trim() : null,
         completeProvider: typeof provider?.isCaneling === 'function' ? !!provider.isCaneling() : null
     };
-
-    if (!diagnostics.patternMatched || !providerName) {
-        return diagnostics;
-    }
-
-    const providerConfig = storage?.ClearURLsData?.providers?.[providerName] || {};
-    const exceptions = Array.isArray(providerConfig.exceptions) ? providerConfig.exceptions : [];
-    const domainExceptions = Array.isArray(providerConfig.domainExceptions) ? providerConfig.domainExceptions : [];
-    const redirections = Array.isArray(providerConfig.redirections) ? providerConfig.redirections : [];
-    const domainRedirections = Array.isArray(providerConfig.domainRedirections) ? providerConfig.domainRedirections : [];
-    const rulesFromConfig = Array.isArray(providerConfig.rules) ? providerConfig.rules : [];
-    const referralMarketing = Array.isArray(providerConfig.referralMarketing) ? providerConfig.referralMarketing : [];
-    const rawRules = typeof provider.getRawRules === 'function' ? provider.getRawRules() : [];
-
-    for (const exception of exceptions) {
-        const pattern = typeof exception === 'string'
-            ? exception
-            : (exception && typeof exception === 'object' ? exception.matchPattern : null);
-        try {
-            if (pattern && (new RegExp(pattern, 'i')).test(url)) {
-                diagnostics.matchedException = exception;
-                break;
-            }
-        } catch (_) {
-        }
-    }
-
-    for (const pattern of domainExceptions) {
-        if (matchDomainPattern(url, [pattern])) {
-            diagnostics.matchedDomainException = pattern;
-            break;
-        }
-    }
-
-    for (const redirection of redirections) {
-        const pattern = typeof redirection === 'string'
-            ? redirection
-            : (redirection && typeof redirection === 'object' ? redirection.matchPattern : null);
-        try {
-            if (pattern && (new RegExp(pattern, 'i')).test(url)) {
-                diagnostics.matchedRedirection = redirection;
-                break;
-            }
-        } catch (_) {
-        }
-    }
-
-    for (const domainRedirection of domainRedirections) {
-        if (!domainRedirection) continue;
-
-        if (typeof parseFilterDomainRedirection === 'function') {
-            const parsed = parseFilterDomainRedirection(domainRedirection);
-            if (parsed && !parsed.isException && parsed.pattern && matchDomainPattern(url, [parsed.pattern])) {
-                diagnostics.matchedDomainRedirection = domainRedirection;
-                break;
-            }
-            continue;
-        }
-
-        if (domainRedirection.includes('$redirect=')) {
-            const [pattern] = domainRedirection.split('$redirect=');
-            if (pattern && matchDomainPattern(url, [pattern.trim()])) {
-                diagnostics.matchedDomainRedirection = domainRedirection;
-                break;
-            }
-        }
-    }
-
-    try {
-        const urlObject = new URL(url);
-        const fields = urlObject.searchParams;
-        const fragments = extractFragments(urlObject);
-        const candidateParams = new Set();
-        const candidateParamPairs = [];
-
-        if (diagnostics.testedParam) {
-            const eqIndex = diagnostics.testedParam.indexOf('=');
-            const key = (eqIndex === -1 ? diagnostics.testedParam : diagnostics.testedParam.slice(0, eqIndex)).trim();
-            const value = eqIndex === -1 ? '' : diagnostics.testedParam.slice(eqIndex + 1);
-            if (key) candidateParams.add(key.toLowerCase());
-            if (key) candidateParamPairs.push([key, value]);
-        }
-        for (const [field, value] of fields.entries()) {
-            candidateParams.add(String(field || '').toLowerCase());
-            candidateParamPairs.push([field, value]);
-        }
-        for (const [fragment, value] of fragments.entries()) {
-            candidateParams.add(String(fragment || '').toLowerCase());
-            candidateParamPairs.push([fragment, value]);
-        }
-
-        const matchesParamRule = (rule) => {
-            try {
-                const regex = new RegExp(`^${rule}$`, 'gi');
-                for (const field of fields.keys()) if (regex.test(field)) return true;
-                for (const fragment of fragments.keys()) if (regex.test(fragment)) return true;
-                return false;
-            } catch (_) {
-                return false;
-            }
-        };
-
-        const getRulePattern = (rule) => {
-            if (typeof rule === 'string') return rule;
-            if (rule && typeof rule === 'object') {
-                if (typeof rule.match === 'string') return rule.match;
-                if (typeof rule.matchPattern === 'string') return rule.matchPattern;
-            }
-            return null;
-        };
-
-        diagnostics.matchedRuleRegex = rulesFromConfig
-            .map((rule) => ({ raw: rule, pattern: getRulePattern(rule) }))
-            .filter(({ raw, pattern }) => pattern && !(typeof raw === 'string' && raw.includes('$removeparam')))
-            .find(({ pattern }) => matchesParamRule(pattern))?.raw || null;
-
-        diagnostics.matchedReferralMarketing = referralMarketing
-            .map((rule) => ({ raw: rule, pattern: getRulePattern(rule) }))
-            .find(({ pattern }) => pattern && matchesParamRule(pattern))?.raw || null;
-
-        diagnostics.matchedRawRule = rawRules
-            .map((rule) => ({ raw: rule, pattern: getRulePattern(rule) }))
-            .find(({ pattern }) => {
-                try {
-                    return pattern && (new RegExp(pattern, 'gi')).test(url);
-                } catch (_) {
-                    return false;
-                }
-            })?.raw || null;
-
-        if (
-            typeof parseLinkumoriRemoveParamRule === 'function' &&
-            typeof evaluateLinkumoriRemoveParamRules === 'function' &&
-            typeof resolveLinkumoriParamDecision === 'function'
-        ) {
-            const parsed = rulesFromConfig
-                .filter((rule) => typeof rule === 'string' && rule.includes('$removeparam'))
-                .map((rule) => parseLinkumoriRemoveParamRule(rule))
-                .filter(Boolean);
-
-            const activeRules = parsed.filter((r) => !r.isException);
-            const activeExceptions = parsed.filter((r) => r.isException);
-            const activeMatchedRules = evaluateLinkumoriRemoveParamRules(url, activeRules, requestDetails);
-            const activeMatchedExceptions = evaluateLinkumoriRemoveParamRules(url, activeExceptions, requestDetails);
-
-            for (const [param, value] of candidateParamPairs) {
-                const decision = resolveLinkumoriParamDecision(param, activeMatchedRules, activeMatchedExceptions, value);
-                if (decision.handled && decision.remove && !diagnostics.matchedRemoveParamRule) {
-                    diagnostics.matchedRemoveParamRule = decision.matchedRule || '$removeparam';
-                }
-                if (decision.handled && !decision.remove && !diagnostics.matchedRemoveParamException) {
-                    diagnostics.matchedRemoveParamException = decision.matchedRule || '@@removeparam';
-                }
-            }
-        }
-    } catch (_) {
-    }
-
-    return diagnostics;
 }
 
 function pureCleaningTrace(url, testParamName = '', requestDetails = null) {
@@ -301,15 +133,15 @@ function pureCleaningTrace(url, testParamName = '', requestDetails = null) {
         patternType: firstMatch?.patternType || primaryDiagnostics?.patternType || null,
         patternValue: firstMatch?.patternValue || primaryDiagnostics?.patternValue || null,
         action: firstMatch?.action || (primaryDiagnostics?.patternMatched ? 'pattern_match_only' : null),
-        matchedException: primaryDiagnostics?.matchedException || null,
-        matchedDomainException: primaryDiagnostics?.matchedDomainException || null,
-        matchedRedirection: primaryDiagnostics?.matchedRedirection || null,
-        matchedDomainRedirection: primaryDiagnostics?.matchedDomainRedirection || null,
-        matchedRuleRegex: primaryDiagnostics?.matchedRuleRegex || null,
-        matchedRawRule: primaryDiagnostics?.matchedRawRule || null,
-        matchedReferralMarketing: primaryDiagnostics?.matchedReferralMarketing || null,
-        matchedRemoveParamRule: primaryDiagnostics?.matchedRemoveParamRule || null,
-        matchedRemoveParamException: primaryDiagnostics?.matchedRemoveParamException || null,
+        matchedException: null,
+        matchedDomainException: null,
+        matchedRedirection: null,
+        matchedDomainRedirection: null,
+        matchedRuleRegex: firstMatch?.action === 'rule' ? firstMatch.matchedRule : null,
+        matchedRawRule: firstMatch?.action === 'raw_rule' ? firstMatch.matchedRule : null,
+        matchedReferralMarketing: null,
+        matchedRemoveParamRule: firstMatch?.action === 'removeparam' ? firstMatch.matchedRule : null,
+        matchedRemoveParamException: null,
         testedParam: primaryDiagnostics?.testedParam || null,
         completeProvider: typeof primaryDiagnostics?.completeProvider === 'boolean'
             ? primaryDiagnostics.completeProvider
@@ -449,7 +281,7 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
             providers[i].matchResourceType(effectiveRequest)
         );
         const providerDiagnostics = requestMatches
-            ? buildRuleLabDiagnostics(providers[i], cleanURL, testParamName, effectiveRequest)
+            ? buildProviderMatchDiagnostics(providers[i], cleanURL, testParamName)
             : null;
         if (Array.isArray(diagnosticsCollector) && providerDiagnostics) {
             diagnosticsCollector.push({
