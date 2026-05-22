@@ -207,36 +207,50 @@ function formatIndexPatternValue(value) {
         : (typeof value === 'string' ? value : '');
 }
 
+function normalizeDomainRedirectionEntry(rule) {
+    if (typeof rule === 'string') {
+        return rule.trim();
+    }
+    if (!isPlainObject(rule)) {
+        return null;
+    }
+
+    const pattern = typeof rule.match === 'string' ? rule.match : rule.matchPattern;
+    const action = isPlainObject(rule.action) ? rule.action : null;
+    const target = action && typeof action.replacePattern === 'string'
+        ? action.replacePattern
+        : rule.replacePattern;
+
+    if (typeof pattern !== 'string' || typeof target !== 'string') {
+        return null;
+    }
+
+    const normalizedPattern = pattern.trim();
+    const normalizedTarget = target.trim();
+    return normalizedPattern && normalizedTarget
+        ? `${normalizedPattern}$redirect=${normalizedTarget}`
+        : null;
+}
+
 function assertDomainRedirectionSyntax(provider, providerName = '') {
     const rules = Array.isArray(provider?.domainRedirections) ? provider.domainRedirections : [];
+    const normalizedRules = [];
     rules.forEach((rule, index) => {
-        if (isPlainObject(rule)) {
-            const match = typeof rule.match === 'string' ? rule.match : rule.matchPattern;
-            const action = isPlainObject(rule.action) ? rule.action : null;
-            const target = action && typeof action.replacePattern === 'string'
-                ? action.replacePattern
-                : (typeof rule.replacePattern === 'string' ? rule.replacePattern : '');
-            if (!match || !target) {
-                throw new Error(`${providerName || 'Provider'}: domainRedirections[${index}] object requires match and action.replacePattern`);
-            }
-            if (rule.id !== undefined && typeof rule.id !== 'string') {
-                throw new Error(`${providerName || 'Provider'}: domainRedirections[${index}].id must be a string`);
-            }
-            if (rule.aliases !== undefined && (!Array.isArray(rule.aliases) || rule.aliases.some(item => typeof item !== 'string'))) {
-                throw new Error(`${providerName || 'Provider'}: domainRedirections[${index}].aliases must be an array of strings`);
-            }
-            return;
+        const normalizedRule = normalizeDomainRedirectionEntry(rule);
+        if (typeof normalizedRule !== 'string') {
+            throw new Error(`${providerName || 'Provider'}: domainRedirections[${index}] must be a string or redirect rule object`);
         }
-        if (typeof rule !== 'string') {
-            throw new Error(`${providerName || 'Provider'}: domainRedirections entries must be strings or rule objects`);
-        }
-        const markerIndex = rule.indexOf('$redirect=');
-        const pattern = markerIndex === -1 ? '' : rule.slice(0, markerIndex).trim();
-        const target = markerIndex === -1 ? '' : rule.slice(markerIndex + '$redirect='.length).trim();
+        const markerIndex = normalizedRule.indexOf('$redirect=');
+        const pattern = markerIndex === -1 ? '' : normalizedRule.slice(0, markerIndex).trim();
+        const target = markerIndex === -1 ? '' : normalizedRule.slice(markerIndex + '$redirect='.length).trim();
         if (!pattern || !target) {
-            throw new Error(`${providerName || 'Provider'}: invalid domainRedirections entry "${rule}"`);
+            throw new Error(`${providerName || 'Provider'}: invalid domainRedirections entry "${normalizedRule}"`);
         }
+        normalizedRules.push(normalizedRule);
     });
+    if (provider && Array.isArray(provider.domainRedirections)) {
+        provider.domainRedirections = normalizedRules;
+    }
 }
 
 const OBJECT_STYLE_RULE_FIELDS = Object.freeze([
@@ -285,6 +299,9 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     }
     if (rule.active !== undefined && typeof rule.active !== 'boolean') {
         throw new Error(`${prefix}.active must be a boolean`);
+    }
+    if (rule.activeDefault !== undefined && typeof rule.activeDefault !== 'boolean') {
+        throw new Error(`${prefix}.activeDefault must be a boolean`);
     }
     if (rule.id !== undefined && typeof rule.id !== 'string') {
         throw new Error(`${prefix}.id must be a string`);
