@@ -156,8 +156,11 @@ function checkLocalURL(url) {
         return true;
     }
 
-    // If hostname is not an IP address and not localhost, it's not local
-    if (!host.match(/^\d/) && host !== 'localhost') {
+    // Ask IP-Ranger whether the host is a valid IP address before trying to
+    // parse it. Hostnames that start with a digit (e.g. "2.rome.api.flipkart.com")
+    // are not IP addresses; IP.isValid() catches that internally and returns false,
+    // so we exit early without hitting the noisy "Invalid IPv4 format" error.
+    if (!IP.isValid(host)) {
         return false;
     }
 
