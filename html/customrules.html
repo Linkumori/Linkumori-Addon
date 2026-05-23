@@ -2965,7 +2965,7 @@ subdomain.example.com
                             <p data-i18n="faq_rules_converted"></p>
                             
                             <p><strong data-i18n="faq_raw_rules_title"></strong> <span data-i18n="faq_raw_rules_explanation"></span></p>
-                            <div class="faq-code">"rawRules": ["/ref=[^/|?]*", "#comment-\\d+"]</div>
+                            <div class="faq-code">"rules": [{ "id": "remove-ref", "kind": "raw", "match": "/ref=[^/|?]*", "action": { "type": "remove" } }]</div>
                             <p data-i18n="faq_raw_rules_usage"></p>
                         </div>
                     </div>
@@ -2979,7 +2979,7 @@ subdomain.example.com
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <p data-i18n="faq_referral_explanation"></p>
-                            <div class="faq-code">"referralMarketing": ["ref", "tag", "affiliate_id"]</div>
+                            <div class="faq-code">"rules": [{ "id": "referral-tag", "kind": "field", "match": "tag", "referralMarketing": true, "action": { "type": "remove" } }]</div>
                             <div class="faq-warning">
                                 <strong data-i18n="faq_default_note"></strong> <span data-i18n="faq_referral_default"></span>
                             </div>
@@ -3009,7 +3009,7 @@ subdomain.example.com
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <p data-i18n="faq_redirections_explanation"></p>
-                            <div class="faq-code">"redirections": ["^https?://example\.com.*url=([^&]+)"]</div>
+                            <div class="faq-code">"rules": [{ "id": "extract-target", "kind": "redirection", "match": "^https?://example\\.com.*url=([^&]+)", "action": { "type": "redirect", "replacePattern": "§1§" } }]</div>
                             <p data-i18n="faq_redirections_process"></p>
                             <div class="faq-info">
                                 <strong data-i18n="faq_example"></strong> <span data-i18n="faq_redirections_example"></span>
@@ -3192,17 +3192,16 @@ admin.example.com
                             <p data-i18n="faq_simple_example_intro"></p>
                             <div class="faq-code">{
   "MyShop": {
+    "syntax": "linkumori-clearurls-dialect",
     "urlPattern": "^https?://(?:[a-z0-9-]+\\.)*?myshop\\.com",
     "completeProvider": false,
     "rules": [
       "utm_source",
       "utm_medium", 
       "utm_campaign",
-      "fbclid"
-    ],
-    "referralMarketing": [
-      "affiliate_id",
-      "ref"
+      "fbclid",
+      { "id": "affiliate-id", "kind": "field", "match": "affiliate_id", "referralMarketing": true, "action": { "type": "remove" } },
+      { "id": "ref", "kind": "field", "match": "ref", "referralMarketing": true, "action": { "type": "remove" } }
     ],
     "forceRedirection": false
   }
@@ -3222,18 +3221,21 @@ admin.example.com
                             <p data-i18n="faq_complex_example_intro"></p>
                             <div class="faq-code">{
   "ComplexSite": {
+    "syntax": "linkumori-clearurls-dialect",
     "urlPattern": "^https?://(?:[a-z0-9-]+\\.)*?complex\\.com",
     "completeProvider": false,
-    "rules": ["sessionId", "trackingId"],
-    "rawRules": ["/[?&]temp=[^&]*", "#section\\d+"],
+    "rules": [
+      "sessionId",
+      "trackingId",
+      { "id": "remove-temp", "kind": "raw", "match": "/[?&]temp=[^&]*", "action": { "type": "remove" } },
+      { "id": "remove-section", "kind": "raw", "match": "#section\\d+", "action": { "type": "remove" } },
+      { "id": "redirect-query-url", "kind": "redirection", "match": "^https?://complex\\.com/redirect\\?url=([^&]+)", "action": { "type": "redirect", "replacePattern": "§1§" } },
+      { "id": "redirect-go", "kind": "redirection", "match": "complex\\.com/go/([^?]+)", "action": { "type": "redirect", "replacePattern": "§1§" } }
+    ],
     "exceptions": [
       "^https?://complex\\.com/api/",
       "complex\\.com/login",
       "complex\\.com/checkout"
-    ],
-    "redirections": [
-      "^https?://complex\\.com/redirect\\?url=([^&]+)",
-      "complex\\.com/go/([^?]+)"
     ],
     "forceRedirection": false
   }
@@ -3556,23 +3558,6 @@ admin.example.com
                     <label class="form-label" for="provider-name" data-i18n="customRulesEditor_providerName"></label>
                     <input type="text" class="form-input" id="provider-name" required data-i18n-placeholder="customRulesEditor_providerNamePlaceholder">
                     <div class="form-help" data-i18n="customRulesEditor_providerNameHelp"></div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" data-i18n="customRulesEditor_syntaxModeLabel"></label>
-                    <div class="pattern-type-selector">
-                        <div class="radio-group">
-                            <label class="radio-option">
-                                <input type="radio" name="syntax-mode" value="legacy" id="syntax-mode-legacy" checked>
-                                <span data-i18n="customRulesEditor_syntaxLegacy"></span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="syntax-mode" value="v3" id="syntax-mode-v3">
-                                <span data-i18n="customRulesEditor_syntaxV3"></span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-help" id="syntax-mode-help" data-i18n="customRulesEditor_syntaxLegacyHelp"></div>
                 </div>
 
                 <div class="form-group">
