@@ -7,60 +7,56 @@ It covers:
 1. Linkumori rule dialects
 2. `ClearURLsData` provider JSON
 3. inline removeparam rules accepted inside `ClearURLsData.providers.*.rules`
-4. canonical ClearURLs dialect provider rules
+4. canonical Linkumori-ClearURLs provider rules
 5. consolidated `ClearURLsData.urlFilterRules`
 
 ## 1. Linkumori Rule Dialects
 
-The custom-rules editor exposes two dialects. The dialect name is saved in each provider's optional `syntax` field. Older providers without `syntax` still load as classic provider JSON.
+The custom-rules editor exposes one provider dialect: `linkumori-clearurls-dialect`. Older providers without `syntax` still load, old ClearURLs provider fields are retained, and new saves use the unified dialect marker.
 
-| Editor label | Saved `syntax` value | Shape | Notes |
+| Dialect | Saved `syntax` value | Rule home | Notes |
 | --- | --- | --- | --- |
-| Linkumori-ClearURLs dialect | `linkumori-clearurls-dialect` | classic ClearURLs-style provider arrays | Uses `rules`, `rawRules`, `referralMarketing`, `redirections`, `exceptions`, `domainExceptions`, and `domainRedirections`. This is the compatibility dialect for older ClearURLs provider JSON. |
-| ClearURLs dialect | `clearurls-dialect` | canonical object rules | Uses `rules[]` objects with `id`, `kind`, `match`, and `action`. Supports `indexPattern` as a Linkumori speed hint. |
+| Linkumori-ClearURLs dialect | `linkumori-clearurls-dialect` | `rules[]` plus retained ClearURLs fields | Accepts simple field strings, old ClearURLs `rawRules`, `referralMarketing`, and `redirections`, inline `$removeparam` / `@@$removeparam` filter rules, and canonical rule objects with `id`, `kind`, `match`, and `action`. Supports `indexPattern` as a Linkumori speed hint. |
 
-Compatibility aliases accepted by the editor:
-
-- `linkumori-clearursl-dialect` is accepted as a typo-compatible alias for `linkumori-clearurls-dialect`.
-- `linkumori-v3` is accepted as an older alias for `clearurls-dialect`. New saves normalize to the current names above.
+New saves use `linkumori-clearurls-dialect`.
 
 
-### Side-by-side dialect mapping
+### Unified Rule Mapping
 
-Both dialects can live in the same `providers` object. The editor chooses the mode per provider from `syntax` and from the rule shape.
+New cleanup rules should live in `rules[]`, but old ClearURLs provider fields remain valid for compatibility.
 
-| Intent | Linkumori-ClearURLs dialect | ClearURLs dialect |
-| --- | --- | --- |
-| Dialect marker | `"syntax": "linkumori-clearurls-dialect"` | `"syntax": "clearurls-dialect"` |
-| Remove query parameter by name | `"rules": ["fbclid"]` | `"rules": [{ "kind": "field", "match": "fbclid", "action": { "type": "remove" } }]` |
-| Referral marketing rule | `"referralMarketing": ["tag"]` | `"rules": [{ "kind": "field", "match": "tag", "referralMarketing": true, "action": { "type": "remove" } }]` |
-| Raw URL cleanup | `"rawRules": ["/ref=[^/?#]*"]` | `"rules": [{ "kind": "raw", "match": "/ref=[^/?#]*", "action": { "type": "remove" } }]` |
-| Regex redirect extraction | `"redirections": ["^https?:\\/\\/example\\.com\\/go\\?target=([^&]+)$"]` | `"rules": [{ "kind": "redirection", "match": "^https?:\\/\\/example\\.com\\/go\\?target=([^&]+)$", "action": { "type": "redirect", "replacePattern": "§1§" } }]` |
-| Provider URL matching | `urlPattern`, `indexPattern`, or `domainPatterns` | same |
-| Provider exceptions | `exceptions`, `domainExceptions` | same |
-| Domain redirections | `domainRedirections` | same provider-level field |
-| Request constraints | `methods`, `resourceTypes` | same |
+| Intent | Unified Linkumori-ClearURLs syntax |
+| --- | --- |
+| Dialect marker | `"syntax": "linkumori-clearurls-dialect"` |
+| Remove query parameter by name | `"rules": ["fbclid"]` or `"rules": [{ "kind": "field", "match": "fbclid", "action": { "type": "remove" } }]` |
+| Inline removeparam rule | `"rules": ["\|\|example.com^$removeparam=clid"]` |
+| Inline removeparam exception | `"rules": ["@@\|\|example.com/login^$removeparam=clid"]` |
+| Referral marketing rule | `"rules": [{ "kind": "field", "match": "tag", "referralMarketing": true, "action": { "type": "remove" } }]` |
+| Raw URL cleanup | `"rules": [{ "kind": "raw", "match": "/ref=[^/?#]*", "action": { "type": "remove" } }]` |
+| Regex redirect extraction | `"rules": [{ "kind": "redirection", "match": "^https?:\\/\\/example\\.com\\/go\\?target=([^&]+)$", "action": { "type": "redirect", "replacePattern": "§1§" } }]` |
+| Old raw URL cleanup | `rawRules` |
+| Old referral-marketing cleanup | `referralMarketing` |
+| Old regex redirect extraction | `redirections` |
+| Provider URL matching | `urlPattern`, `indexPattern`, or `domainPatterns` |
+| Provider exceptions | `exceptions`, `domainExceptions` |
+| Domain redirections | `domainRedirections` |
+| Request constraints | `methods`, `resourceTypes` |
 
-Use **Linkumori-ClearURLs dialect** when importing or hand-editing classic ClearURLs-style data. Use **ClearURLs dialect** when you want one canonical object per rule, stable IDs, and clearer editor templates.
+Use simple strings for straightforward field removal, inline `$removeparam` rules for filter-list-compatible behavior, retained ClearURLs fields for old provider parity, and canonical objects when a rule needs stable IDs, raw URL cleanup, redirects, request constraints, aliases, preprocessors, or per-rule exceptions.
 
-### Mixed-provider example
+### Unified Provider Example
 
 ```json
 {
   "providers": {
-    "classic-provider": {
+    "example-provider": {
       "syntax": "linkumori-clearurls-dialect",
-      "urlPattern": "^https?:\\/\\/(?:[^/]+\\.)?classic\\.example",
-      "indexPattern": "||classic.example^",
-      "rules": ["utm_[a-z]+", "fbclid"],
-      "rawRules": ["/ref=[^/?#]*"],
-      "referralMarketing": ["tag"]
-    },
-    "canonical-provider": {
-      "syntax": "clearurls-dialect",
-      "urlPattern": "^https?:\\/\\/(?:[^/]+\\.)?canonical\\.example",
-      "indexPattern": "||canonical.example^",
+      "urlPattern": "^https?:\\/\\/(?:[^/]+\\.)?example\\.com",
+      "indexPattern": "||example.com^",
       "rules": [
+        "utm_[a-z]+",
+        "||example.com^$removeparam=clid",
+        "@@||example.com/login^$removeparam=clid",
         {
           "id": "remove-utm-source",
           "kind": "field",
@@ -72,8 +68,17 @@ Use **Linkumori-ClearURLs dialect** when importing or hand-editing classic Clear
           "kind": "raw",
           "match": "/ref=[^/?#]*",
           "action": { "type": "remove" }
+        },
+        {
+          "id": "extract-target",
+          "kind": "redirection",
+          "match": "^https?:\\/\\/example\\.com\\/go\\?target=([^&]+)$",
+          "action": { "type": "redirect", "replacePattern": "§1§" }
         }
-      ]
+      ],
+      "exceptions": ["^https?:\\/\\/example\\.com\\/checkout"],
+      "domainExceptions": ["||safe.example.com^"],
+      "domainRedirections": ["||example.com^$redirect=https://target.example/"]
     }
   }
 }
@@ -81,9 +86,9 @@ Use **Linkumori-ClearURLs dialect** when importing or hand-editing classic Clear
 
 ## 2. `ClearURLsData`
 
-`ClearURLsData` is provider-based JSON. Providers may use either dialect. The classic Linkumori-ClearURLs dialect is shown first because it matches the historical ClearURLs provider layout.
+`ClearURLsData` is provider-based JSON. Providers use the Linkumori-ClearURLs dialect.
 
-Minimal Linkumori-ClearURLs dialect shape:
+Minimal Linkumori-ClearURLs shape:
 
 ```json
 {
@@ -97,13 +102,13 @@ Minimal Linkumori-ClearURLs dialect shape:
 }
 ```
 
-Minimal ClearURLs dialect shape:
+Minimal canonical-object rule inside Linkumori-ClearURLs:
 
 ```json
 {
   "providers": {
     "example-provider": {
-      "syntax": "clearurls-dialect",
+      "syntax": "linkumori-clearurls-dialect",
       "urlPattern": "^https?:\\/\\/(?:[^/]+\\.)?example\\.com",
       "indexPattern": "||example.com^",
       "rules": [
@@ -263,35 +268,7 @@ utm_medium
 
 Important: `rules` also accepts a special inline removeparam syntax. That separate grammar is documented in [Inline Removeparam Rules](#inline-removeparam-rules).
 
-### `rawRules`
-
-Type:
-
-```json
-["\\/ref=[^/?#]*"]
-```
-
-Semantics:
-
-- JavaScript regex source
-- compiled with `gi`
-- applied against the full URL
-- matches are removed from the URL text
-
-Use sparingly. This is more powerful and broader than parameter-name cleanup.
-
-### `referralMarketing`
-
-Type:
-
-```json
-["tag", "ascsubtag"]
-```
-
-Semantics:
-
-- same compilation model as `rules`
-- these rules are only merged into active parameter cleanup when the referral-marketing setting allows it
+Advanced cleanup behavior can live in `rules[]` or the retained ClearURLs fields. Use `rawRules` for old full-URL cleanup parity, `redirections` for old regex redirect parity, and `referralMarketing` for old referral-marketing parity. Use canonical `rules[]` objects with `kind: "raw"`, `kind: "redirection"`, or `referralMarketing: true` when you need IDs, actions, preprocessors, request constraints, or per-rule exceptions.
 
 ### `exceptions`
 
@@ -319,22 +296,6 @@ Semantics:
 
 - same pattern family as `domainPatterns`
 - if one matches, the provider does not run
-
-### `redirections`
-
-Type:
-
-```json
-["^https?:\\/\\/out\\.example\\.com\\/\\?url=([^&]+)"]
-```
-
-Semantics:
-
-- JavaScript regex source
-- compiled with `i`
-- first capture group becomes the redirect target
-
-If capture group 1 is absent, no redirect target is produced.
 
 ### `domainRedirections`
 
@@ -389,22 +350,32 @@ Semantics:
       "rules": [
         "utm_[a-z]+",
         "fbclid",
-        "||example.com^$removeparam=clid,domain=example.com,method=GET|HEAD"
-      ],
-      "rawRules": [
-        "\\/ref=[^/?#]*"
-      ],
-      "referralMarketing": [
-        "tag"
+        "||example.com^$removeparam=clid,domain=example.com,method=GET|HEAD",
+        {
+          "id": "remove-ref-raw",
+          "kind": "raw",
+          "match": "\\/ref=[^/?#]*",
+          "action": { "type": "remove" }
+        },
+        {
+          "id": "referral-tag",
+          "kind": "field",
+          "match": "tag",
+          "referralMarketing": true,
+          "action": { "type": "remove" }
+        },
+        {
+          "id": "extract-out-url",
+          "kind": "redirection",
+          "match": "^https?:\\/\\/out\\.example\\.com\\/\\?url=([^&]+)",
+          "action": { "type": "redirect", "replacePattern": "§1§" }
+        }
       ],
       "exceptions": [
         "^https?:\\/\\/example\\.com\\/checkout"
       ],
       "domainExceptions": [
         "||auth.example.com^"
-      ],
-      "redirections": [
-        "^https?:\\/\\/out\\.example\\.com\\/\\?url=([^&]+)"
       ],
       "domainRedirections": [
         "||go.example.com^$redirect=https://example.com/"
@@ -516,24 +487,41 @@ Behavior:
 }
 ```
 
-## 4. ClearURLs Dialect Canonical Provider Rules
+## 4. Canonical Linkumori-ClearURLs Provider Rules
 
-The ClearURLs dialect keeps provider-level fields such as `urlPattern`, `indexPattern`, `domainPatterns`, `exceptions`, `domainExceptions`, `domainRedirections`, `methods`, `resourceTypes`, `completeProvider`, and `forceRedirection`, but stores cleanup behavior as objects in `rules[]`.
+The Linkumori-ClearURLs dialect keeps provider-level fields such as `urlPattern`, `indexPattern`, `domainPatterns`, `rawRules`, `referralMarketing`, `exceptions`, `domainExceptions`, `redirections`, `domainRedirections`, `methods`, `resourceTypes`, `completeProvider`, and `forceRedirection`, while also allowing new cleanup behavior in `rules[]`.
 
 Supported rule fields:
 
 | Field | Type | Meaning |
 | --- | --- | --- |
-| `id` | string | Stable editor/debug identifier. The editor generates unique IDs when adding templates. |
-| `kind` | `field`, `raw`, or `redirection` | Selects parameter-name cleanup, raw URL rewrite, or redirect extraction. Missing `kind` defaults to field-style cleanup unless `section` says otherwise. |
-| `section` | `rules`, `rawRules`, `redirections`, `referralMarketing`, or `exceptions` | Core ClearURLs section name. Linkumori accepts this for parity with `/core`; `kind` remains the editor-friendly shorthand. |
+| `id` | string | Required for canonical object rules. Must match `^[a-z0-9][a-z0-9_-]*$`. The editor generates unique IDs when adding templates. |
+| `kind` | `field`, `raw`, or `redirection` | Selects parameter-name cleanup, raw URL rewrite, or redirect extraction. Missing `kind` defaults to field-style cleanup. |
 | `match` | string | JavaScript regex source or literal-like field pattern, depending on `kind`. |
 | `action` | object | Currently supports `remove`, `rewrite`, and `redirect` shapes. |
-| `preprocessors` | array | Optional preprocessing steps before replacement/redirect actions. Supported types match `/core`: `urlEncode`, `urlDecode`, `doubleUrlEncode`/`urlEncodeRepeated`, `doubleUrlDecode`/`urlDecodeRepeated`, `base64Encode`, and `base64Decode`. |
-| `aliases` | array | Optional extra match strings for the same rule intent. |
-| `description` | string | Human-facing note. |
-| `referralMarketing` | boolean | Marks a field rule as referral-marketing-sensitive. |
-| `activeDefault` | boolean | Core ClearURLs default activation flag. When no explicit `active` is present, `false` keeps the rule inactive. |
+| `active` | boolean | Explicit activation switch evaluated at build time. When `false` the rule is excluded entirely. Takes priority over `activeDefault`. |
+| `activeDefault` | boolean | Fallback activation flag used when `active` is absent. When `false` the rule is inactive by default. |
+| `flags` | string | Regex flags for the `match` pattern. Default is `"i"` for `field` and `redirection` rules, `"gi"` for `raw` rules. Override only when custom case sensitivity is needed. |
+| `requestTypes` | `"all"` or string array | Limits the rule to specific browser request types such as `main_frame`, `sub_frame`, `script`, `xmlhttprequest`, `image`, `media`, `font`, `ping`. Omit or use `"all"` for no restriction. Values are normalized to lowercase. |
+| `exceptions` | string array | Per-rule URL exception patterns. Each entry is a JavaScript regex source compiled without flags. If any pattern matches the full request URL the rule is skipped, independently of provider-level `exceptions`. Exception regexes are precompiled at provider build time. |
+| `preprocessors` | array | Optional preprocessing steps before replacement/redirect actions. Supported types: `urlEncode`, `urlDecode`, `doubleUrlEncode`/`urlEncodeRepeated`, `doubleUrlDecode`/`urlDecodeRepeated`, `base64Encode`, `base64Decode`. |
+| `aliases` | array | Optional extra rule identifiers for the same rule intent. They use the same pattern as `id`, must be unique, and must not repeat the rule `id`. Stored on compiled rules but not currently used for activation lookups. |
+| `description` | string | Human-facing note. Stored on compiled rules. |
+| `referralMarketing` | boolean | Marks a field rule as referral-marketing-sensitive. When the user enables referral-marketing filtering, these rules are included alongside normal field rules. |
+
+Runtime-only properties (not user-specified, set by the engine at build time):
+
+| Property | Value | Meaning |
+| --- | --- | --- |
+| `section` | `rules`, `rawRules`, `referralMarketing`, `exceptions`, or `redirections` | Reflects which rule section the compiled rule was stored in. Derived from the `addRule` / `addRawRule` / `addReferralMarketing` / `addException` / `addRedirection` call path. Useful for introspection and logging. |
+| `exceptionRegexes` | `RegExp[]` | Precompiled form of the `exceptions` array. Built once at provider initialization. Used by `coreRuleAppliesToRequest` to avoid per-request `new RegExp()` allocation. |
+
+Supported action combinations follow ClearURLs core:
+
+- `field` rules support `remove` and `rewrite`
+- `raw` rules support `remove` and `rewrite`
+- `redirection` rules support `redirect`
+- `field`/`raw` redirect actions and non-redirect redirection rules are rejected by the editor and ignored by the runtime
 
 ### Field rule
 
@@ -561,6 +549,21 @@ Field rules match query parameter names and remove matching parameters.
 
 Raw rules apply against the full URL text. Use them only when parameter-name cleanup is not expressive enough.
 
+### Field rule with requestTypes and per-rule exceptions
+
+```json
+{
+  "id": "remove-session-xhr",
+  "kind": "field",
+  "match": "session_[a-z]+",
+  "action": { "type": "remove" },
+  "requestTypes": ["xmlhttprequest", "script"],
+  "exceptions": ["^https?:\\/\\/example\\.com\\/auth"]
+}
+```
+
+`requestTypes` restricts the rule to XHR and script requests only. `exceptions` prevents the rule from firing on the authentication path, independently of the provider-level `exceptions` list. Both are evaluated at request time using regexes precompiled at provider build time.
+
 ### Redirection rule
 
 ```json
@@ -580,13 +583,13 @@ Raw rules apply against the full URL text. Use them only when parameter-name cle
 
 Redirection rules extract or rewrite a destination URL. `§1§`, `§2§`, etc. reference regex capture groups from `match`.
 
-### ClearURLs dialect example
+### Canonical Linkumori-ClearURLs example
 
 ```json
 {
   "providers": {
     "example": {
-      "syntax": "clearurls-dialect",
+      "syntax": "linkumori-clearurls-dialect",
       "urlPattern": "^https?:\\/\\/(?:[^/]+\\.)?example\\.com",
       "indexPattern": "||example.com^",
       "forceRedirection": true,
@@ -987,26 +990,17 @@ Skipped line types:
 
 ### Use Linkumori-ClearURLs dialect when you need:
 
-- historical ClearURLs-compatible provider arrays
-- direct compatibility with older custom-provider JSON
-- sectioned rule lists like `rules`, `rawRules`, `referralMarketing`, and `redirections`
-
-### Use ClearURLs dialect when you need:
-
+- provider bundles
+- regex URL selection with `urlPattern`
+- `indexPattern` speed hints
+- inline `$removeparam` and `@@$removeparam` rules
 - canonical object rules in `rules[]`
 - one rule object carrying `id`, `kind`, `match`, and `action`
-- cleaner custom-rule editing
-- `indexPattern` speed hints with canonical rules
-
-### Use general `ClearURLsData` provider JSON when you need:
-
-- provider bundles
-- regex URL selection
+- retained ClearURLs fields: `rawRules`, `referralMarketing`, and `redirections`
 - raw URL rewriting
 - redirects
 - domain redirections
 - provider-level exception sets
-- custom-provider editing in the Linkumori UI
 
 ### Use `ClearURLsData.urlFilterRules` when you need:
 
@@ -1014,6 +1008,24 @@ Skipped line types:
 - precise modifier-rich matching
 - imported uBO/AdGuard-like pruning rules
 - strong deduplication and badfilter behavior
+
+## Engine Implementation Notes
+
+### Provider token lookup dedup
+
+When resolving candidate providers for a request, the engine splits the request hostname into dot-separated labels and walks `providersByToken`. Duplicate labels (e.g. the two `a` tokens in `a.a.com`) are skipped using a per-lookup `Set`, avoiding redundant map reads while still relying on the candidate `Set` for provider deduplication.
+
+### Field rewrite loop guard
+
+When a canonical rule carries a `replacePattern` (rewrite action), a per-call `Set` named `appliedFieldRewrites` tracks `(provider, source, field, rule)` tuples and prevents the same rewrite from applying more than once within a single URL cleaning call. The guard resets on every new request; it is not shared across calls.
+
+### Per-rule exception precompilation
+
+Each `exceptions` entry on a canonical rule object is compiled into a `RegExp` once during provider initialization and stored on the compiled rule as `exceptionRegexes`. The engine uses these cached instances in `coreRuleAppliesToRequest` rather than constructing a new `RegExp` per request. A string-based fallback path remains for legacy compiled rules that predate this optimization.
+
+### Rule section tracking
+
+Every compiled rule produced by `addRule`, `addRawRule`, `addReferralMarketing`, `addException`, or `addRedirection` carries a `section` string set at build time. This mirrors the `section` field on `CompiledRule` in clearurls-core and enables introspection, logging, and trace output without requiring the caller to know which internal map holds the rule.
 
 ## Source-of-Truth Files
 

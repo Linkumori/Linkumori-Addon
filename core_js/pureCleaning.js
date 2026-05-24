@@ -75,11 +75,11 @@
 function pureCleaning(url, quiet = false) {
     let before = url;
     let after = url;
-    globalThis.linkumoriAppliedFieldRewrites = new Set();
+    const sessionRewrites = new Set();
 
     do {
         before = after;
-        after = _cleaning(before, quiet);
+        after = _cleaning(before, quiet, null, null, 1, '', null, sessionRewrites);
     } while (after !== before); // do recursive cleaning
 
     return after;
@@ -102,7 +102,7 @@ function buildProviderMatchDiagnostics(provider, url, testParamName = '') {
 }
 
 function pureCleaningTrace(url, testParamName = '', requestDetails = null) {
-    globalThis.linkumoriAppliedFieldRewrites = new Set();
+    const sessionRewrites = new Set();
     let before = url;
     let after = url;
     const trace = [];
@@ -111,7 +111,7 @@ function pureCleaningTrace(url, testParamName = '', requestDetails = null) {
 
     do {
         before = after;
-        after = _cleaning(before, true, trace, providerDiagnostics, iterations + 1, testParamName, requestDetails);
+        after = _cleaning(before, true, trace, providerDiagnostics, iterations + 1, testParamName, requestDetails, sessionRewrites);
         iterations++;
     } while (after !== before && iterations < 20);
 
@@ -263,7 +263,7 @@ function runRuleTestLab(inputUrl, testParamRaw = '', requestOverrides = {}) {
 /**
  * Internal function to clean the given URL.
  */
-function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollector = null, iteration = 1, testParamName = '', requestDetails = null) {
+function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollector = null, iteration = 1, testParamName = '', requestDetails = null, sessionRewrites = null) {
     let cleanURL = url;
     const URLbeforeReplaceCount = countFields(url);
 
@@ -298,7 +298,7 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
         };
 
         if (requestMatches && providers[i].matchURL(cleanURL)) {
-            result = removeFieldsFormURL(providers[i], cleanURL, quiet, effectiveRequest);
+            result = removeFieldsFormURL(providers[i], cleanURL, quiet, effectiveRequest, null, [], sessionRewrites);
             cleanURL = result.url;
         }
 
