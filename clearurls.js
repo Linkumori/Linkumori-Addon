@@ -1074,6 +1074,7 @@ function resolveCoreRuleDefaults(rule, defaults = null) {
     return {
         ...rule,
         ...(rule.active === undefined && typeof safeDefaults.active === "boolean" ? { active: safeDefaults.active } : {}),
+        ...(rule.description === undefined && typeof safeDefaults.description === "string" ? { description: safeDefaults.description } : {}),
         ...(rule.requestTypes === undefined && safeDefaults.requestTypes !== undefined ? { requestTypes: safeDefaults.requestTypes } : {}),
         ...(rule.preprocessors === undefined && Array.isArray(safeDefaults.preprocessors) ? { preprocessors: safeDefaults.preprocessors } : {}),
         ...(rule.exceptions === undefined && Array.isArray(safeDefaults.exceptions) ? { exceptions: safeDefaults.exceptions } : {})
@@ -1082,20 +1083,26 @@ function resolveCoreRuleDefaults(rule, defaults = null) {
 
 function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) {
     if (typeof rule === "string") {
+        const safeDefaults = defaults && typeof defaults === "object" ? defaults : {};
+        const requestTypes = safeDefaults.requestTypes === "all"
+            ? null
+            : (Array.isArray(safeDefaults.requestTypes)
+                ? safeDefaults.requestTypes.map((item) => String(item || "").toLowerCase()).filter(Boolean)
+                : null);
         return {
             actionType: "remove",
-            active: true,
+            active: typeof safeDefaults.active === "boolean" ? safeDefaults.active : true,
             aliases: [],
-            description: "",
-            exceptions: [],
+            description: typeof safeDefaults.description === "string" ? safeDefaults.description : "",
+            exceptions: Array.isArray(safeDefaults.exceptions) ? safeDefaults.exceptions.filter((item) => typeof item === "string") : [],
             flags: defaultFlags,
             id: null,
             kind: null,
             matchPattern: rule,
-            preprocessors: [],
+            preprocessors: Array.isArray(safeDefaults.preprocessors) ? safeDefaults.preprocessors : [],
             referralMarketing: false,
             replacePattern: null,
-            requestTypes: null,
+            requestTypes,
             raw: rule,
             sourceType: "legacy"
         };
@@ -1112,7 +1119,6 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         return null;
     }
 
-    const section = typeof resolvedRule.section === "string" ? resolvedRule.section : null;
     const action = resolvedRule.action && typeof resolvedRule.action === "object"
         ? resolvedRule.action
         : null;
@@ -1127,6 +1133,18 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         : (Array.isArray(resolvedRule.requestTypes)
             ? resolvedRule.requestTypes.map((item) => String(item || "").toLowerCase()).filter(Boolean)
             : null);
+    const sourceType = isCanonical ? "canonical" : "legacy-object";
+    const kind = typeof resolvedRule.kind === "string" ? resolvedRule.kind : null;
+
+    if (sourceType === "canonical") {
+        const effectiveKind = kind || "field";
+        if ((effectiveKind === "field" || effectiveKind === "raw") && actionType === "redirect") {
+            return null;
+        }
+        if (effectiveKind === "redirection" && actionType !== "redirect") {
+            return null;
+        }
+    }
 
     return {
         actionType,
@@ -1138,17 +1156,14 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter((item) => typeof item === "string") : [],
         flags: typeof resolvedRule.flags === "string" ? resolvedRule.flags : defaultFlags,
         id: typeof resolvedRule.id === "string" ? resolvedRule.id : null,
-        kind: typeof resolvedRule.kind === "string"
-            ? resolvedRule.kind
-            : (section === "rawRules" ? "raw" : (section === "redirections" ? "redirection" : null)),
+        kind,
         matchPattern,
         preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
         referralMarketing: resolvedRule.referralMarketing === true,
         replacePattern,
-        section,
         requestTypes,
         raw: resolvedRule,
-        sourceType: isCanonical ? "canonical" : "legacy-object"
+        sourceType
     };
 }
 
@@ -1158,8 +1173,12 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
 
     const source = wrapFieldRule ? "^" + normalized.matchPattern + "$" : normalized.matchPattern;
     try {
+        const exceptionRegexes = normalized.exceptions.map(ex => {
+            try { return new RegExp(ex); } catch (_) { return null; }
+        }).filter(Boolean);
         return {
             ...normalized,
+            exceptionRegexes,
             regex: new RegExp(source, normalized.flags)
         };
     } catch (_) {
@@ -1213,13 +1232,15 @@ function coreRuleAppliesToRequest(compiledRule, url, request) {
         if (!requestType || compiledRule.requestTypes.indexOf(requestType) === -1) return false;
     }
 
+    if (Array.isArray(compiledRule.exceptionRegexes) && compiledRule.exceptionRegexes.length > 0) {
+        return !compiledRule.exceptionRegexes.some(regex => {
+            try { regex.lastIndex = 0; return regex.test(url); } catch (_) { return false; }
+        });
+    }
+
     const exceptions = Array.isArray(compiledRule.exceptions) ? compiledRule.exceptions : [];
     return !exceptions.some((exception) => {
-        try {
-            return (new RegExp(exception)).test(url);
-        } catch (_) {
-            return false;
-        }
+        try { return (new RegExp(exception)).test(url); } catch (_) { return false; }
     });
 }
 
@@ -1296,19 +1317,21 @@ function removeRawRuleMatchesPreservingQueryBoundary(value, regex) {
 // again by the request URL would incorrectly discard them — e.g. the exception
 // @@||gemini.google.com$removeparam=ei must stay active for requests to google.com,
 // facebook.com, map.google.com, etc. that originate from a gemini.google.com page.
-function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = []) {
+function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = [], sessionRewrites = null) {
     let url = pureUrl;
     let domain = "";
     let fragments = "";
     let fields = "";
-    let rules = provider.getRules();
     let linkumoriParamRules = provider.getLinkumoriRemoveParamRules();
     let linkumoriParamExceptions = provider.getLinkumoriRemoveParamExceptions();
     let changes = false;
     let actionType = null;
     let matchedRuleForTrace = null;
-    let rawRules = provider.getRawRules();
     let urlObject = new URL(url);
+    // sessionRewrites persists across all cleaning iterations for one URL so that
+    // rewrite rules do not re-fire on the same (provider, field, rule) combination
+    // in subsequent passes of the pureCleaningTrace loop.
+    const appliedFieldRewrites = sessionRewrites instanceof Set ? sessionRewrites : new Set();
     const providerMatch = {
         ...provider.getAppliedPatternForUrl(pureUrl),
         logCategory: 'provider',
@@ -1351,7 +1374,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         }
     }
 
-    if (provider.isCaneling() && storage.domainBlocking) {
+    if (provider.isCanceling() && storage.domainBlocking) {
         if (!quiet) pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'), providerMatch);
         increaseTotalCounter(1);
         increaseBadged(false, request);
@@ -1458,7 +1481,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 if (activeRegex.test(field)) {
                     if (compiled && compiled.replacePattern !== null) {
                         const rewriteKey = provider.getName() + "::search::" + field + "::" + rule;
-                        const appliedFieldRewrites = globalThis.linkumoriAppliedFieldRewrites || (globalThis.linkumoriAppliedFieldRewrites = new Set());
                         if (appliedFieldRewrites.has(rewriteKey)) continue;
                         const currentValues = fields.getAll(field);
                         fields.delete(field);
@@ -1484,7 +1506,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 if (activeRegex.test(fragment)) {
                     if (compiled && compiled.replacePattern !== null) {
                         const rewriteKey = provider.getName() + "::fragment::" + fragment + "::" + rule;
-                        const appliedFieldRewrites = globalThis.linkumoriAppliedFieldRewrites || (globalThis.linkumoriAppliedFieldRewrites = new Set());
                         if (appliedFieldRewrites.has(rewriteKey)) continue;
                         const currentValues = fragments.getAll(fragment);
                         fragments.delete(fragment);
@@ -1650,13 +1671,11 @@ function start() {
             for (let r = 0; r < rules.length; r++) {
                 const normalizedRule = normalizeCoreRuleDefinition(rules[r], "i", providerDefaults);
                 if (normalizedRule && normalizedRule.sourceType === 'canonical') {
-                    if (normalizedRule.section === 'exceptions') {
-                        provider.addException(rules[r], true, providerDefaults);
-                    } else if (normalizedRule.section === 'rawRules' || normalizedRule.kind === 'raw') {
+                    if (normalizedRule.kind === 'raw') {
                         provider.addRawRule(rules[r], true, providerDefaults);
-                    } else if (normalizedRule.section === 'redirections' || normalizedRule.kind === 'redirection' || normalizedRule.actionType === 'redirect') {
+                    } else if (normalizedRule.kind === 'redirection' || normalizedRule.actionType === 'redirect') {
                         provider.addRedirection(rules[r], true, providerDefaults);
-                    } else if (normalizedRule.section === 'referralMarketing' || normalizedRule.referralMarketing === true) {
+                    } else if (normalizedRule.referralMarketing === true) {
                         provider.addReferralMarketing(rules[r], true, providerDefaults);
                     } else {
                         provider.addRule(rules[r], true, providerDefaults);
@@ -1845,33 +1864,27 @@ function start() {
     loadOldDataFromStore();
     setBadgedStatus();
 
-    function Provider(_name, _completeProvider = false, _forceRedirection = false, _isActive = true) {
-        let name = _name;
+    function Provider(_name, _completeProvider = false, _forceRedirection = false) {
+        const name = _name;
         let urlPattern;
         let urlPatternSource = '';
         let indexPatterns = [];  // domainPattern-syntax hints for providersByToken index only
         let domainPatterns = [];
-        let enabled_rules = {};
-        let disabled_rules = {};
-        let enabled_exceptions = {};
-        let disabled_exceptions = {};
-        let enabled_domain_exceptions = [];
-        let enabled_domain_redirections = [];
-        let canceling = _completeProvider;
-        let enabled_redirections = {};
-        let disabled_redirections = {};
-        let active = _isActive;
-        let enabled_rawRules = {};
-        let disabled_rawRules = {};
-        let enabled_referralMarketing = {};
-        let disabled_referralMarketing = {};
-        let enabled_linkumoriRemoveParamRules = [];
-        let enabled_linkumoriRemoveParamExceptions = [];
-        let methods = [];
-        let resourceTypes = [];
+        const fieldRuleMap = {};
+        const exceptionRuleMap = {};
+        const domainExceptionPatterns = [];
+        const domainRedirectionRules = [];
+        const canceling = _completeProvider;
+        const redirectionRuleMap = {};
+        const rawRuleMap = {};
+        const referralMarketingRuleMap = {};
+        const linkumoriRemoveParamRules = [];
+        const linkumoriRemoveParamExceptions = [];
+        const methods = [];
+        const resourceTypes = [];
 
         if (_completeProvider) {
-            enabled_rules[".*"] = true;
+            fieldRuleMap[".*"] = true;
         }
 
         this.shouldForceRedirect = function () {
@@ -2148,7 +2161,7 @@ function start() {
             };
         };
 
-        this.isCaneling = function () {
+        this.isCanceling = function () {
             return canceling;
         };
 
@@ -2161,92 +2174,68 @@ function start() {
             return false;
         };
 
-        this.applyRule = (enabledRuleMap, disabledRulesArray, rule, isActive = true, compileFn) => {
-            if (isActive) {
-                if (disabledRulesArray[rule] !== undefined) {
-                    delete disabledRulesArray[rule];
-                }
-                if (enabledRuleMap[rule] === undefined) {
-                    enabledRuleMap[rule] = compileFn ? compileFn(rule) : true;
-                }
-            } else {
-                if (enabledRuleMap[rule] !== undefined) {
-                    delete enabledRuleMap[rule];
-                }
-                disabledRulesArray[rule] = true;
-            }
-        };
-
         this.addRule = function (rule, isActive = true, defaults = null) {
             const parsedLinkumoriRule = typeof rule === 'string' ? parseLinkumoriRemoveParamRule(rule) : null;
             if (parsedLinkumoriRule) {
                 if (!isActive) return;
 
                 if (parsedLinkumoriRule.isException) {
-                    enabled_linkumoriRemoveParamExceptions.push(parsedLinkumoriRule);
+                    linkumoriRemoveParamExceptions.push(parsedLinkumoriRule);
                 } else {
-                    enabled_linkumoriRemoveParamRules.push(parsedLinkumoriRule);
+                    linkumoriRemoveParamRules.push(parsedLinkumoriRule);
                 }
                 return;
             }
 
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            enabled_rules[compiled.matchPattern] = compiled;
-        };
-
-        this.getRules = function () {
-            if (!storage.referralMarketing) {
-                return Object.keys(Object.assign({}, enabled_rules, enabled_referralMarketing));
-            }
-
-            return Object.keys(enabled_rules);
+            compiled.section = 'rules';
+            fieldRuleMap[compiled.matchPattern] = compiled;
         };
 
         this.getRulesMap = function () {
             if (!storage.referralMarketing) {
-                return Object.assign({}, enabled_rules, enabled_referralMarketing);
+                return Object.assign({}, fieldRuleMap, referralMarketingRuleMap);
             }
-            return enabled_rules;
+            return fieldRuleMap;
         };
 
         this.addRawRule = function (rule, isActive = true, defaults = null) {
             const compiled = compileCoreRuleDefinition(rule, "gi", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            enabled_rawRules[compiled.matchPattern] = compiled;
-        };
-
-        this.getRawRules = function () {
-            return Object.keys(enabled_rawRules);
+            compiled.section = 'rawRules';
+            rawRuleMap[compiled.matchPattern] = compiled;
         };
 
         this.getRawRulesMap = function () {
-            return enabled_rawRules;
+            return rawRuleMap;
         };
 
         this.getLinkumoriRemoveParamRules = function () {
-            return enabled_linkumoriRemoveParamRules.slice();
+            return linkumoriRemoveParamRules.slice();
         };
 
         this.getLinkumoriRemoveParamExceptions = function () {
-            return enabled_linkumoriRemoveParamExceptions.slice();
+            return linkumoriRemoveParamExceptions.slice();
         };
 
         this.addReferralMarketing = function (rule, isActive = true, defaults = null) {
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            enabled_referralMarketing[compiled.matchPattern] = compiled;
+            compiled.section = 'referralMarketing';
+            referralMarketingRuleMap[compiled.matchPattern] = compiled;
         };
 
         this.addException = function (exception, isActive = true, defaults = null) {
             const compiled = compileCoreRuleDefinition(exception, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            enabled_exceptions[compiled.matchPattern] = compiled;
+            compiled.section = 'exceptions';
+            exceptionRuleMap[compiled.matchPattern] = compiled;
         };
 
         this.addDomainException = function (exception) {
-            if (enabled_domain_exceptions.indexOf(exception) === -1) {
-                enabled_domain_exceptions.push(exception);
+            if (domainExceptionPatterns.indexOf(exception) === -1) {
+                domainExceptionPatterns.push(exception);
             }
         };
 
@@ -2292,10 +2281,10 @@ function start() {
 
             if (url === siteBlockedAlert) return true;
 
-            for (const exception in enabled_exceptions) {
+            for (const exception in exceptionRuleMap) {
                 if (result) break;
 
-                const exceptionRule = enabled_exceptions[exception];
+                const exceptionRule = exceptionRuleMap[exception];
                 const exceptionRegex = exceptionRule && exceptionRule.regex instanceof RegExp
                     ? exceptionRule.regex
                     : (exceptionRule instanceof RegExp ? exceptionRule : new RegExp(exception, "i"));
@@ -2305,8 +2294,8 @@ function start() {
                 }
             }
 
-            if (!result && enabled_domain_exceptions.length > 0) {
-                result = matchDomainPattern(url, enabled_domain_exceptions);
+            if (!result && domainExceptionPatterns.length > 0) {
+                result = matchDomainPattern(url, domainExceptionPatterns);
             }
 
             return result;
@@ -2315,21 +2304,22 @@ function start() {
         this.addRedirection = function (redirection, isActive = true, defaults = null) {
             const compiled = compileCoreRuleDefinition(redirection, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            enabled_redirections[compiled.matchPattern] = compiled;
+            compiled.section = 'redirections';
+            redirectionRuleMap[compiled.matchPattern] = compiled;
         };
 
         this.addDomainRedirection = function (redirection) {
             const normalized = normalizeCoreDomainRedirection(redirection);
-            if (normalized && enabled_domain_redirections.indexOf(normalized) === -1) {
-                enabled_domain_redirections.push(normalized);
+            if (normalized && domainRedirectionRules.indexOf(normalized) === -1) {
+                domainRedirectionRules.push(normalized);
             }
         };
 
         this.getRedirection = function (url) {
             let re = null;
 
-            for (const redirection in enabled_redirections) {
-                const compiled = enabled_redirections[redirection];
+            for (const redirection in redirectionRuleMap) {
+                const compiled = redirectionRuleMap[redirection];
                 const activeRegex = compiled && compiled.regex instanceof RegExp
                     ? compiled.regex
                     : new RegExp(redirection, "i");
@@ -2339,7 +2329,7 @@ function start() {
 
                 if (captured && captured.length > 0 && redirection) {
                     const values = applyCoreRulePreprocessors(captured.slice(1), compiled.preprocessors);
-                    if (compiled.replacePattern !== null) {
+                    if (compiled.replacePattern !== null && compiled.replacePattern !== '') {
                         re = applyCoreReplacePattern(compiled.replacePattern, values);
                     } else if (captured[1] !== undefined) {
                         re = values[0];
@@ -2347,8 +2337,8 @@ function start() {
                     break;
                 }
             }            
-            if (!re && enabled_domain_redirections.length > 0) {
-                for (const domainRedirection of enabled_domain_redirections) {
+            if (!re && domainRedirectionRules.length > 0) {
+                for (const domainRedirection of domainRedirectionRules) {
                     if (typeof domainRedirection !== 'string' || !domainRedirection.includes('$redirect=')) {
                         continue;
                     }
@@ -2432,7 +2422,10 @@ function start() {
                 try {
                     const ctxHost = new URL(ctxUrl).hostname;
                     const ctxTokens = ctxHost.split('.').map(t => t.toLowerCase());
+                    const seenCtxTokens = new Set();
                     for (const token of ctxTokens) {
+                        if (seenCtxTokens.has(token)) continue;
+                        seenCtxTokens.add(token);
                         const tokenProviders = providersByToken[token];
                         if (tokenProviders) {
                             for (const p of tokenProviders) {
@@ -2460,7 +2453,10 @@ function start() {
             const requestHostTokens = requestHost.split('.').map(t => t.toLowerCase());
 
             let requestCandidateProviders = new Set(globalProviders);
+            const seenRequestTokens = new Set();
             for (const token of requestHostTokens) {
+                if (seenRequestTokens.has(token)) continue;
+                seenRequestTokens.add(token);
                 const tokenProviders = providersByToken[token];
                 if (tokenProviders) {
                     for (const p of tokenProviders) {
