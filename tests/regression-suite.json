@@ -20329,6 +20329,209 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "canonical per-rule exceptions match (no clean)",
+      "dialect": "provider",
+      "input": "https://example.com/per-rule-ex/keep/?utm_source=x",
+      "expectedOutput": "https://example.com/per-rule-ex/keep/?utm_source=x",
+      "providers": {
+        "provider-per-rule-ex": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-ex(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-utm",
+              "kind": "field",
+              "match": "utm_source",
+              "exceptions": [
+                "^https?:\\/\\/example\\.com\\/per-rule-ex\\/keep"
+              ],
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "canonical per-rule exceptions no match (clean fires)",
+      "dialect": "provider",
+      "input": "https://example.com/per-rule-ex/other/?utm_source=x",
+      "expectedOutput": "https://example.com/per-rule-ex/other/",
+      "providers": {
+        "provider-per-rule-ex": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-ex(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-utm",
+              "kind": "field",
+              "match": "utm_source",
+              "exceptions": [
+                "^https?:\\/\\/example\\.com\\/per-rule-ex\\/keep"
+              ],
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "canonical per-rule requestTypes filtered (no clean)",
+      "dialect": "provider",
+      "input": "https://example.com/per-rule-type/?token=abc",
+      "expectedOutput": "https://example.com/per-rule-type/?token=abc",
+      "providers": {
+        "provider-per-rule-type": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-type(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-gated",
+              "kind": "field",
+              "match": "token",
+              "requestTypes": [
+                "xmlhttprequest"
+              ],
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "main_frame"
+      }
+    },
+    {
+      "id": "canonical per-rule requestTypes matched (clean fires)",
+      "dialect": "provider",
+      "input": "https://example.com/per-rule-type/?token=abc",
+      "expectedOutput": "https://example.com/per-rule-type/",
+      "providers": {
+        "provider-per-rule-type": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-type(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-gated",
+              "kind": "field",
+              "match": "token",
+              "requestTypes": [
+                "xmlhttprequest"
+              ],
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "xmlhttprequest"
+      }
+    },
+    {
+      "id": "canonical rule active false explicit (no clean)",
+      "dialect": "provider",
+      "input": "https://example.com/rule-active-false/?token=abc",
+      "expectedOutput": "https://example.com/rule-active-false/?token=abc",
+      "providers": {
+        "provider-rule-active-false": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/rule-active-false(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "disabled-rule",
+              "kind": "field",
+              "match": "token",
+              "active": false,
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "appliedFieldRewrites per-call isolation first",
+      "dialect": "provider",
+      "input": "https://example.com/rewrite-isolation/?token=abc&keep=1",
+      "expectedOutput": "https://example.com/rewrite-isolation/?keep=1&token=v2-abc",
+      "providers": {
+        "provider-rewrite-isolation": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/rewrite-isolation(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "rewrite-token",
+              "kind": "field",
+              "match": "token",
+              "action": {
+                "type": "rewrite",
+                "replacePattern": "v2-§1§"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "appliedFieldRewrites per-call isolation second",
+      "dialect": "provider",
+      "input": "https://example.com/rewrite-isolation/?token=xyz&keep=1",
+      "expectedOutput": "https://example.com/rewrite-isolation/?keep=1&token=v2-xyz",
+      "providers": {
+        "provider-rewrite-isolation": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/rewrite-isolation(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "rewrite-token",
+              "kind": "field",
+              "match": "token",
+              "action": {
+                "type": "rewrite",
+                "replacePattern": "v2-§1§"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }
