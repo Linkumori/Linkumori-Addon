@@ -1317,7 +1317,7 @@ function removeRawRuleMatchesPreservingQueryBoundary(value, regex) {
 // again by the request URL would incorrectly discard them — e.g. the exception
 // @@||gemini.google.com$removeparam=ei must stay active for requests to google.com,
 // facebook.com, map.google.com, etc. that originate from a gemini.google.com page.
-function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = []) {
+function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = [], sessionRewrites = null) {
     let url = pureUrl;
     let domain = "";
     let fragments = "";
@@ -1328,7 +1328,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     let actionType = null;
     let matchedRuleForTrace = null;
     let urlObject = new URL(url);
-    const appliedFieldRewrites = new Set();
+    // sessionRewrites persists across all cleaning iterations for one URL so that
+    // rewrite rules do not re-fire on the same (provider, field, rule) combination
+    // in subsequent passes of the pureCleaningTrace loop.
+    const appliedFieldRewrites = sessionRewrites instanceof Set ? sessionRewrites : new Set();
     const providerMatch = {
         ...provider.getAppliedPatternForUrl(pureUrl),
         logCategory: 'provider',
@@ -1478,7 +1481,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 if (activeRegex.test(field)) {
                     if (compiled && compiled.replacePattern !== null) {
                         const rewriteKey = provider.getName() + "::search::" + field + "::" + rule;
-                        // appliedFieldRewrites is scoped to this removeFieldsFormURL call
                         if (appliedFieldRewrites.has(rewriteKey)) continue;
                         const currentValues = fields.getAll(field);
                         fields.delete(field);
@@ -1504,7 +1506,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                 if (activeRegex.test(fragment)) {
                     if (compiled && compiled.replacePattern !== null) {
                         const rewriteKey = provider.getName() + "::fragment::" + fragment + "::" + rule;
-                        // appliedFieldRewrites is scoped to this removeFieldsFormURL call
                         if (appliedFieldRewrites.has(rewriteKey)) continue;
                         const currentValues = fragments.getAll(fragment);
                         fragments.delete(fragment);
