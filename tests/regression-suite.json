@@ -346,6 +346,7 @@
       "expectedOutput": "https://example.com/provider-raw/?keep=1",
       "providers": {
         "provider-raw": {
+          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-raw(?:[/?#]|$)",
           "rules": [
             {
@@ -372,6 +373,7 @@
       "expectedOutput": "https://example.com/provider-referral/?keep=1",
       "providers": {
         "provider-referral": {
+          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-referral(?:[/?#]|$)",
           "rules": [
             {
@@ -399,7 +401,6 @@
       "expectedOutput": "https://example.com/provider-legacy-raw/?keep=1",
       "providers": {
         "provider-legacy-raw": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-legacy-raw(?:[/?#]|$)",
           "rawRules": [
             "[?&]raw=[^&#]*"
@@ -418,7 +419,6 @@
       "expectedOutput": "https://example.com/provider-legacy-referral/?keep=1",
       "providers": {
         "provider-legacy-referral": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-legacy-referral(?:[/?#]|$)",
           "referralMarketing": [
             "ref"
@@ -459,6 +459,7 @@
       "expectedOutput": "https://www.iana.org/",
       "providers": {
         "provider-redirection": {
+          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-redirection(?:[/?#]|$)",
           "rules": [
             {
@@ -486,7 +487,6 @@
       "expectedOutput": "https://www.iana.org/",
       "providers": {
         "provider-legacy-redirection": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-legacy-redirection(?:[/?#]|$)",
           "redirections": [
             "^https?:\\/\\/example\\.com\\/provider-legacy-redirection/redirect\\?url=(https%3A%2F%2Fwww\\.iana\\.org%2F)$"
@@ -747,6 +747,7 @@
       "expectedOutput": "https://www.iana.org/",
       "providers": {
         "provider-force-redirect": {
+          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-force-redirect(?:[/?#]|$)",
           "forceRedirection": true,
           "rules": [
@@ -20077,6 +20078,7 @@
       "expectedOutput": "https://example.com/object-raw/?clean=abc&keep=1",
       "providers": {
         "provider-object-raw": {
+          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/object-raw(?:[/?#]|$)",
           "rules": [
             {
@@ -20103,6 +20105,7 @@
       "expectedOutput": "https://www.iana.org/",
       "providers": {
         "provider-object-redirect": {
+          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/object-redirect(?:[/?#]|$)",
           "rules": [
             {

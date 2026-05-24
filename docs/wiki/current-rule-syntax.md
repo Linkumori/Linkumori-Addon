@@ -29,8 +29,8 @@ New cleanup rules should live in `rules[]`, but old ClearURLs provider fields re
 | --- | --- |
 | Dialect marker | `"syntax": "linkumori-clearurls-dialect"` |
 | Remove query parameter by name | `"rules": ["fbclid"]` or `"rules": [{ "kind": "field", "match": "fbclid", "action": { "type": "remove" } }]` |
-| Inline removeparam rule | `"rules": ["||example.com^$removeparam=clid"]` |
-| Inline removeparam exception | `"rules": ["@@||example.com/login^$removeparam=clid"]` |
+| Inline removeparam rule | `"rules": ["\|\|example.com^$removeparam=clid"]` |
+| Inline removeparam exception | `"rules": ["@@\|\|example.com/login^$removeparam=clid"]` |
 | Referral marketing rule | `"rules": [{ "kind": "field", "match": "tag", "referralMarketing": true, "action": { "type": "remove" } }]` |
 | Raw URL cleanup | `"rules": [{ "kind": "raw", "match": "/ref=[^/?#]*", "action": { "type": "remove" } }]` |
 | Regex redirect extraction | `"rules": [{ "kind": "redirection", "match": "^https?:\\/\\/example\\.com\\/go\\?target=([^&]+)$", "action": { "type": "redirect", "replacePattern": "§1§" } }]` |
