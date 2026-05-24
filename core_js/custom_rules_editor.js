@@ -5064,7 +5064,7 @@ function getProvidersFromImportedCustomRules(imported) {
             continue;
         }
         if (candidate.providers && typeof candidate.providers === 'object' && !Array.isArray(candidate.providers)) {
-            if (candidate.version === 2 && candidate.defaults && typeof candidate.defaults === 'object') {
+            if (candidate.version === 2) {
                 validateImportedV2Document(candidate);
                 return applyImportedV2Defaults(candidate.providers, candidate.defaults);
             }
@@ -5120,6 +5120,9 @@ function validateImportedV2Document(document) {
     if (typeof document.defaults.active !== 'boolean') {
         throw new Error('Imported v2 defaults.active must be a boolean');
     }
+    if (document.defaults.description !== undefined && typeof document.defaults.description !== 'string') {
+        throw new Error('Imported v2 defaults.description must be a string');
+    }
     assertRequestTypesSelection(document.defaults.requestTypes, 'Imported v2 defaults.requestTypes');
     if (!Array.isArray(document.defaults.preprocessors)) {
         throw new Error('Imported v2 defaults.preprocessors must be an array');
@@ -5173,6 +5176,7 @@ function applyImportedV2Defaults(providers, defaults) {
             return {
                 ...rule,
                 ...(rule.active === undefined && typeof defaults.active === 'boolean' ? { active: defaults.active } : {}),
+                ...(rule.description === undefined && typeof defaults.description === 'string' ? { description: defaults.description } : {}),
                 ...(rule.requestTypes === undefined && defaults.requestTypes !== undefined ? { requestTypes: defaults.requestTypes } : {}),
                 ...(rule.preprocessors === undefined && Array.isArray(defaults.preprocessors) ? { preprocessors: defaults.preprocessors } : {}),
                 ...(rule.exceptions === undefined && Array.isArray(defaults.exceptions) ? { exceptions: defaults.exceptions } : {})
