@@ -977,7 +977,7 @@ function getSignatureLabel(signature) {
 
 function getRuleSourceLabel(source) {
     if (source === 'bundled') {
-        return i18n('providerImport_bundledRules');
+        return i18n('providerImport_activeProviderRules');
     }
     if (source === 'linkumori-data') {
         return i18n('providerImport_linkumoriData');
