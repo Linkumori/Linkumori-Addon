@@ -67,7 +67,7 @@
 
                 if (typeof applyFn === 'function') {
                     const ruleData = {
-                        activationState: testCase.activationState || suite.activationState || undefined,
+                        activationState: testCase.activationState ?? suite.activationState ?? undefined,
                         defaults: testCase.defaults || suite.defaults || undefined,
                         providers: testCase.providers || suite.providers || {},
                         urlFilterRules: testCase.urlFilterRules || suite.urlFilterRules || []
