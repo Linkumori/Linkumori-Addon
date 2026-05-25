@@ -62,7 +62,14 @@
  */
 import { spawn } from 'child_process';
 import fs from 'fs';
+import path from 'path';
 import vm from 'vm';
+
+// Resolve paths relative to this script file, not process.cwd(), so that
+// the CLI works correctly regardless of which directory it is invoked from
+// (e.g. CI runners that change the working directory before invoking the script).
+const SCRIPT_DIR = import.meta.dirname ?? path.dirname(new URL(import.meta.url).pathname);
+const isCI = !!(process.env.CI || process.env.GITHUB_ACTIONS);
 
 // Terminal colors and formatting
 const colors = {
@@ -3130,12 +3137,19 @@ Quit()
       normalizeIgnorePath(config.regressionSuiteFile)
     ];
 
+    // Always resolve relative to the script file so CI runners that change
+    // the working directory before invoking this script still find the file.
+    const buildIgnorePath = path.resolve(SCRIPT_DIR, config.buildIgnoreFile);
+    if (isCI) {
+      this.info(`[CI] Loading ignore patterns from: ${buildIgnorePath}`);
+    }
+
     try {
-      const content = fs.readFileSync(config.buildIgnoreFile, 'utf8');
+      const content = fs.readFileSync(buildIgnorePath, 'utf8');
       const patterns = content.split('\n')
         .map(line => line.trim())
         .filter(line => line && !line.startsWith('#'));
-      
+
       // Add automatic empty directory patterns
       const expandedPatterns = [];
       for (const pattern of patterns) {
@@ -3152,10 +3166,16 @@ Quit()
           expandedPatterns.push(requiredPattern);
         }
       }
-      
+
+      if (isCI) {
+        this.info(`[CI] Applying ${expandedPatterns.length} ignore pattern(s) to web-ext`);
+      }
       return expandedPatterns;
-    } catch {
-      this.warning('No .build-ignore file found, using defaults');
+    } catch (err) {
+      this.warning(`No .build-ignore file found at ${buildIgnorePath}, using defaults`);
+      if (isCI) {
+        this.warning(`[CI] ${err.message}`);
+      }
       return requiredIgnorePatterns;
     }
   }
@@ -3216,14 +3236,15 @@ Quit()
       'build',
       '--artifacts-dir=' + config.buildDir,
       '--overwrite-dest',
-      '--source-dir=' + config.sourceDir
+      '--source-dir=' + config.sourceDir,
+      '--no-config-discovery'
     ];
-    
+
     if (ignorePatterns.length > 0) {
       buildArgs.push('--ignore-files');
       buildArgs.push(...ignorePatterns);
     }
-    
+
     const buildResult = await this.exec('web-ext', buildArgs);
     
     if (!buildResult.success) {
@@ -3291,9 +3312,10 @@ Quit()
       '--api-key=' + apiKey,
       '--api-secret=' + apiSecret,
       '--channel=' + channel,
-      '--approval-timeout=' + (channel === 'listed' ? '0' : (this.env.WEB_EXT_APPROVAL_TIMEOUT || '900000'))
+      '--approval-timeout=' + (channel === 'listed' ? '0' : (this.env.WEB_EXT_APPROVAL_TIMEOUT || '900000')),
+      '--no-config-discovery'
     ];
-    
+
     const ignorePatterns = this.getIgnorePatterns();
     if (ignorePatterns.length > 0) {
       signArgs.push('--ignore-files');
