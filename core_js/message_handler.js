@@ -218,7 +218,7 @@ function handleSetData(request) {
             window.setData(key, value);
             
             // Auto-save to disk for important data
-            if (['custom_rules', 'linkumori_url_custom_rules', 'linkumori_url_disabled_rules', 'userWhitelist', 'ClearURLsData'].includes(key)) {
+            if (['custom_rules', 'linkumori_url_custom_rules', 'linkumori_url_disabled_rules', 'clearurls_disabled_rule_ids', 'userWhitelist', 'ClearURLsData'].includes(key)) {
                 if (typeof window.saveOnDisk === 'function') {
                     try {
                         window.saveOnDisk([key]);
@@ -304,28 +304,22 @@ function handleGetCustomRulesStats(request) {
 
         const totalProviderCountMerged = Object.keys(mergedRules.providers || {}).length;
 
-        // Use merge stats from storage as source of truth for built-in count.
-        // "total - custom" is incorrect when custom providers are merged/deduplicated by key.
+        // The sidebar shows the active merged provider view. Merge stats also
+        // keep source/pre-normalization counts, so overload + duplicate sources
+        // can make mergeStats.totalProviders larger than the active provider map.
         const mergeStats = (typeof window.getData === 'function')
             ? window.getData('mergeStats') || {}
             : {};
 
         const hasMergeCustom = typeof mergeStats.customProviders === 'number';
-        const hasMergeBuiltIn = typeof mergeStats.bundledProviders === 'number';
-        const hasMergeTotal = typeof mergeStats.totalProviders === 'number';
         const hasMergeDisabled = typeof mergeStats.disabledProviders === 'number';
 
-        const customProviderCount = hasMergeCustom
+        const totalProviderCount = Math.max(0, totalProviderCountMerged);
+        const customProviderCountRaw = hasMergeCustom
             ? Math.max(0, mergeStats.customProviders)
             : customProviderCountStored;
-
-        const builtInProviderCount = hasMergeBuiltIn
-            ? Math.max(0, mergeStats.bundledProviders)
-            : Math.max(0, totalProviderCountMerged);
-
-        const totalProviderCount = hasMergeTotal
-            ? Math.max(0, mergeStats.totalProviders)
-            : Math.max(0, totalProviderCountMerged);
+        const customProviderCount = Math.min(customProviderCountRaw, totalProviderCount);
+        const builtInProviderCount = Math.max(0, totalProviderCount - customProviderCount);
 
         const disabledProviderCount = hasMergeDisabled
             ? Math.max(0, mergeStats.disabledProviders)
