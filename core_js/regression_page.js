@@ -247,6 +247,7 @@
             snapshot.remoteRulesEnabled = await getData('remoteRulesEnabled');
             snapshot.referralMarketing = await getData('referralMarketing');
             snapshot.clearURLsData = await getData('ClearURLsData');
+            snapshot.clearURLsDisabledRuleIds = await getData('clearurls_disabled_rule_ids');
             await call('start');
             await setData('builtInRulesEnabled', false);
             await setData('remoteRulesEnabled', false);
@@ -331,6 +332,7 @@
             if ('remoteRulesEnabled' in snapshot) restoreOps.push(setData('remoteRulesEnabled', snapshot.remoteRulesEnabled));
             if ('referralMarketing' in snapshot) restoreOps.push(setData('referralMarketing', snapshot.referralMarketing));
             if ('clearURLsData' in snapshot) restoreOps.push(call('applyRegressionRuleData', [snapshot.clearURLsData]));
+            if ('clearURLsDisabledRuleIds' in snapshot) restoreOps.push(setData('clearurls_disabled_rule_ids', snapshot.clearURLsDisabledRuleIds || []));
             await Promise.allSettled(restoreOps);
             runButton.disabled = false;
         }

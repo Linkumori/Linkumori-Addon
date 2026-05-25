@@ -20299,6 +20299,99 @@
       }
     },
     {
+      "id": "provider canonical rule id disabled",
+      "dialect": "provider",
+      "input": "https://example.com/rule-id-disabled/?token=abc",
+      "expectedOutput": "https://example.com/rule-id-disabled/?token=abc",
+      "activationState": {
+        "disabledRuleIds": [
+          "disable-token"
+        ]
+      },
+      "providers": {
+        "provider-rule-id-disabled": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/rule-id-disabled(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "disable-token",
+              "kind": "field",
+              "match": "token",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider generated global rule id disabled",
+      "dialect": "provider",
+      "input": "https://example.com/global-rule-id-disabled/?fbclid=abc&keep=1",
+      "expectedOutput": "https://example.com/global-rule-id-disabled/?fbclid=abc&keep=1",
+      "activationState": {
+        "disabledRuleIds": [
+          "field-3f-fbclid"
+        ]
+      },
+      "providers": {
+        "globalRules": {
+          "urlPattern": ".*",
+          "rules": [
+            "(?:%3F)?fbclid"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider origin runtime rule id disabled",
+      "dialect": "provider",
+      "input": "https://example.com/origin-rule-id-disabled/?origin_token=abc&keep=1",
+      "expectedOutput": "https://example.com/origin-rule-id-disabled/?origin_token=abc&keep=1",
+      "activationState": {
+        "disabledRuleIds": [
+          "official::provider-origin-rule-id-disabled::remove-origin-token"
+        ]
+      },
+      "providers": {
+        "merged-origin-rule-id-disabled": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/origin-rule-id-disabled(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-origin-token",
+              "kind": "field",
+              "match": "origin_token",
+              "_linkumoriOrigins": [
+                {
+                  "sourceId": "official",
+                  "providerId": "provider-origin-rule-id-disabled",
+                  "ruleId": "remove-origin-token",
+                  "runtimeRuleId": "official::provider-origin-rule-id-disabled::remove-origin-token"
+                }
+              ],
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "provider canonical v2 indexPattern",
       "dialect": "provider",
       "input": "https://example.com/v2-index/?token=abc",

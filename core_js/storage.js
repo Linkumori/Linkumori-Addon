@@ -105,6 +105,8 @@ var tempVerificationCache = {
 let temporaryPauseUntilBrowserRestart = false;
 const IMPORT_EXCLUSIONS_KEY = 'customrules_import_exclusions';
 const LINKUMORI_URL_DISABLED_RULES_KEY = 'linkumori_url_disabled_rules';
+const LINKUMORI_RULE_ORIGINS_KEY = '_linkumoriOrigins';
+const LINKUMORI_PROVIDER_ORIGINS_KEY = '_linkumoriProviderOrigins';
 
 function linkumoriStorageI18n(key, substitutions = []) {
     return globalThis.LinkumoriI18n.getMessage(key, substitutions);
@@ -417,16 +419,179 @@ function getStableRuleSignature(rule) {
     return `object:${JSON.stringify(normalized)}`;
 }
 
-function dedupeRuleLikeArray(values) {
+function createStorageStableRuleHash(value) {
+    let hash = 2166136261;
+    const text = String(value || '');
+    for (let i = 0; i < text.length; i++) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
+}
+
+function slugifyStorageRuleIdPart(value) {
+    return String(value || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .replace(/-+/g, '-');
+}
+
+function createStorageGeneratedRuleId(section, matchPattern, occupiedIds = new Set()) {
+    const prefix = section === 'rawRules'
+        ? 'raw'
+        : (section === 'redirections' ? 'redirect' : (section === 'referralMarketing' ? 'referral' : (section === 'exceptions' ? 'exception' : 'field')));
+    const slug = slugifyStorageRuleIdPart(matchPattern).slice(0, 32) || createStorageStableRuleHash(matchPattern);
+    const candidate = `${prefix}-${slug}`;
+    let uniqueId = candidate;
+    let counter = 2;
+    while (occupiedIds.has(uniqueId)) {
+        uniqueId = `${candidate}-${counter++}`;
+    }
+    occupiedIds.add(uniqueId);
+    return uniqueId;
+}
+
+function normalizeRuleSourceId(value, fallback = 'official') {
+    const raw = String(value || fallback || 'official').toLowerCase();
+    if (raw.includes('custom')) return 'custom';
+    if (raw.includes('fallback')) return 'fallback';
+    if (raw.includes('remote')) return 'remote';
+    if (raw.includes('bundled') || raw.includes('official') || raw.includes('built')) return 'official';
+    return raw.replace(/[^a-z0-9_-]+/g, '-') || fallback;
+}
+
+function buildOriginRuntimeRuleId(sourceId, providerId, ruleId) {
+    return `${sourceId}::${providerId}::${ruleId}`;
+}
+
+function getRuleMatchForOrigin(section, rule) {
+    if (typeof rule === 'string') {
+        return rule;
+    }
+    if (!rule || typeof rule !== 'object' || Array.isArray(rule)) {
+        return '';
+    }
+    if (typeof rule.match === 'string') return rule.match;
+    if (typeof rule.matchPattern === 'string') return rule.matchPattern;
+    return '';
+}
+
+function cloneRuleWithOrigins(section, rule, origin) {
+    const origins = Array.isArray(rule && rule[LINKUMORI_RULE_ORIGINS_KEY])
+        ? rule[LINKUMORI_RULE_ORIGINS_KEY]
+        : [];
+    const nextOrigins = mergeRuleOrigins(origins, [origin]);
+
+    if (typeof rule === 'string') {
+        return {
+            matchPattern: rule,
+            [LINKUMORI_RULE_ORIGINS_KEY]: nextOrigins
+        };
+    }
+
+    if (rule && typeof rule === 'object' && !Array.isArray(rule)) {
+        return {
+            ...rule,
+            [LINKUMORI_RULE_ORIGINS_KEY]: nextOrigins
+        };
+    }
+
+    return rule;
+}
+
+function mergeRuleOrigins(left, right) {
     const result = [];
     const seen = new Set();
+    [...(Array.isArray(left) ? left : []), ...(Array.isArray(right) ? right : [])].forEach(origin => {
+        if (!origin || typeof origin !== 'object') return;
+        const runtimeRuleId = String(origin.runtimeRuleId || '').trim();
+        if (!runtimeRuleId || seen.has(runtimeRuleId)) return;
+        seen.add(runtimeRuleId);
+        result.push({
+            sourceId: String(origin.sourceId || '').trim(),
+            providerId: String(origin.providerId || '').trim(),
+            ruleId: String(origin.ruleId || '').trim(),
+            runtimeRuleId
+        });
+    });
+    return result;
+}
+
+function attachRuleOriginsToArray(section, rules, providerName, sourceId, occupiedIds) {
+    if (!Array.isArray(rules)) {
+        return [];
+    }
+    return rules.map(rule => {
+        if (rule && typeof rule === 'object' && !Array.isArray(rule) &&
+            Array.isArray(rule[LINKUMORI_RULE_ORIGINS_KEY]) &&
+            rule[LINKUMORI_RULE_ORIGINS_KEY].length > 0) {
+            return rule;
+        }
+        const match = getRuleMatchForOrigin(section, rule);
+        if (!match) return rule;
+        const explicitId = rule && typeof rule === 'object' && !Array.isArray(rule) && typeof rule.id === 'string'
+            ? rule.id
+            : null;
+        const ruleId = explicitId || createStorageGeneratedRuleId(section, match, occupiedIds);
+        if (explicitId) {
+            occupiedIds.add(explicitId);
+            if (Array.isArray(rule.aliases)) {
+                rule.aliases.forEach(alias => {
+                    if (typeof alias === 'string' && alias.trim()) occupiedIds.add(alias.trim());
+                });
+            }
+        }
+        const origin = {
+            sourceId,
+            providerId: providerName,
+            ruleId,
+            runtimeRuleId: buildOriginRuntimeRuleId(sourceId, providerName, ruleId)
+        };
+        return cloneRuleWithOrigins(section, rule, origin);
+    });
+}
+
+function attachProviderOrigins(providerName, providerData, sourceId) {
+    const data = providerData && typeof providerData === 'object' && !Array.isArray(providerData)
+        ? { ...providerData }
+        : {};
+    const occupiedIds = new Set();
+    ['exceptions', 'rules', 'referralMarketing', 'rawRules', 'redirections'].forEach(section => {
+        if (Array.isArray(data[section])) {
+            data[section] = attachRuleOriginsToArray(section, data[section], providerName, sourceId, occupiedIds);
+        }
+    });
+    if (!Array.isArray(data[LINKUMORI_PROVIDER_ORIGINS_KEY]) || data[LINKUMORI_PROVIDER_ORIGINS_KEY].length === 0) {
+        data[LINKUMORI_PROVIDER_ORIGINS_KEY] = mergeRuleOrigins(data[LINKUMORI_PROVIDER_ORIGINS_KEY], [{
+            sourceId,
+            providerId: providerName,
+            ruleId: 'provider',
+            runtimeRuleId: `${sourceId}::${providerName}`
+        }]);
+    }
+    return data;
+}
+
+function dedupeRuleLikeArray(values) {
+    const result = [];
+    const seen = new Map();
 
     (Array.isArray(values) ? values : []).forEach(value => {
         const signature = getStableRuleSignature(value);
-        if (!signature || seen.has(signature)) {
+        if (!signature) {
             return;
         }
-        seen.add(signature);
+        const existingIndex = seen.get(signature);
+        if (existingIndex !== undefined) {
+            const existing = result[existingIndex];
+            const mergedOrigins = mergeRuleOrigins(existing && existing[LINKUMORI_RULE_ORIGINS_KEY], value && value[LINKUMORI_RULE_ORIGINS_KEY]);
+            if (mergedOrigins.length > 0 && existing && typeof existing === 'object' && !Array.isArray(existing)) {
+                existing[LINKUMORI_RULE_ORIGINS_KEY] = mergedOrigins;
+            }
+            return;
+        }
+        seen.set(signature, result.length);
         result.push(value);
     });
 
@@ -493,7 +658,8 @@ function normalizeProviderEntries(providers, primaryProviderNames = new Set()) {
             .map(provider => ({
                 name: provider.name,
                 data: provider.data,
-                isPrimarySource: provider.isPrimarySource === true
+                isPrimarySource: provider.isPrimarySource === true,
+                sourceId: normalizeRuleSourceId(provider.sourceId, provider.isPrimarySource === true ? 'remote' : 'official')
             }));
     }
 
@@ -502,7 +668,8 @@ function normalizeProviderEntries(providers, primaryProviderNames = new Set()) {
         normalized.push({
             name: providerName,
             data: providerData,
-            isPrimarySource: primaryProviderNames.has(providerName)
+            isPrimarySource: primaryProviderNames.has(providerName),
+            sourceId: primaryProviderNames.has(providerName) ? 'remote' : 'official'
         });
     });
 
@@ -674,11 +841,17 @@ function mergeRemoteProviderGroup(providerGroup) {
         methods: [],
         resourceTypes: [],
         completeProvider: false,
-        forceRedirection: false
+        forceRedirection: false,
+        [LINKUMORI_PROVIDER_ORIGINS_KEY]: []
     };
 
     providerGroup.forEach(provider => {
-        const data = provider.data || {};
+        const sourceId = normalizeRuleSourceId(provider.sourceId, provider.isPrimarySource ? 'remote' : 'official');
+        const data = attachProviderOrigins(provider.name, provider.data || {}, sourceId);
+        merged[LINKUMORI_PROVIDER_ORIGINS_KEY] = mergeRuleOrigins(
+            merged[LINKUMORI_PROVIDER_ORIGINS_KEY],
+            data[LINKUMORI_PROVIDER_ORIGINS_KEY]
+        );
 
         if (data.indexPattern) {
             const indexPatterns = Array.isArray(data.indexPattern)
@@ -756,6 +929,7 @@ function mergeRemoteProviderGroup(providerGroup) {
     if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
     if (merged.completeProvider !== true) delete merged.completeProvider;
     if (merged.forceRedirection !== true) delete merged.forceRedirection;
+    if (merged[LINKUMORI_PROVIDER_ORIGINS_KEY].length === 0) delete merged[LINKUMORI_PROVIDER_ORIGINS_KEY];
     if (merged.indexPattern.length === 0) {
         delete merged.indexPattern;
     } else if (merged.indexPattern.length === 1) {
@@ -870,7 +1044,8 @@ function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new 
         providerGroups[key].push({
             name: providerName,
             data: providerData,
-            isPrimarySource: provider.isPrimarySource === true
+            isPrimarySource: provider.isPrimarySource === true,
+            sourceId: provider.sourceId
         });
     });
 
@@ -878,12 +1053,7 @@ function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new 
     const usedNames = new Set();
 
     Object.values(providerGroups).forEach(providerGroup => {
-        let finalProvider;
-        if (providerGroup.length === 1) {
-            finalProvider = providerGroup[0].data;
-        } else {
-            finalProvider = mergeRemoteProviderGroup(providerGroup);
-        }
+        const finalProvider = mergeRemoteProviderGroup(providerGroup);
 
         const baseName = createMergedRemoteProviderName(providerGroup);
         let finalName = baseName;
@@ -913,7 +1083,8 @@ function mergeRemoteRulesSources(successfulSources, failedSources = []) {
             combinedProviders.push({
                 name: providerName,
                 data: providerData,
-                isPrimarySource: sourceIndex === 0
+                isPrimarySource: sourceIndex === 0,
+                sourceId: normalizeRuleSourceId(source.rules?.metadata?.source || 'remote', 'remote')
             });
         });
 
@@ -987,7 +1158,8 @@ function mergeRemoteWithBundledRules(remoteRules, bundledRules) {
         combinedProviders.push({
             name: providerName,
             data: providerData,
-            isPrimarySource: false
+            isPrimarySource: false,
+            sourceId: normalizeRuleSourceId(bundledRules?.metadata?.source || 'official', 'official')
         });
     });
 
@@ -995,7 +1167,8 @@ function mergeRemoteWithBundledRules(remoteRules, bundledRules) {
         combinedProviders.push({
             name: providerName,
             data: providerData,
-            isPrimarySource: true
+            isPrimarySource: true,
+            sourceId: normalizeRuleSourceId(remoteRules?.metadata?.source || 'remote', 'remote')
         });
     });
 
@@ -2259,18 +2432,30 @@ function mergeCustomRules(bundledRules) {
             };
 
             if (!customRules || activeCustomProviderCount === 0) {
-                storage.ClearURLsData = attachUnifiedURLFilterFields(filteredBundledRules);
+                const annotatedBundledProviders = mergeRemoteProvidersByUrlPattern(
+                    Object.entries(filteredBundled.providers || {}).map(([name, data]) => ({
+                        name,
+                        data,
+                        isPrimarySource: true,
+                        sourceId: normalizeRuleSourceId(bundledRules?.metadata?.source || 'official', 'official')
+                    }))
+                );
+                const annotatedBundledRules = {
+                    ...filteredBundledRules,
+                    providers: annotatedBundledProviders
+                };
+                storage.ClearURLsData = attachUnifiedURLFilterFields(annotatedBundledRules);
                 storage.mergeStats = {
                     source: bundledRules?.metadata?.source || 'bundled',
                     bundledProviders: Object.keys(filteredBundled.providers || {}).length,
                     customProviders: 0,
                     overriddenProviders: 0,
-                    totalProviders: Object.keys(filteredBundled.providers || {}).length,
+                    totalProviders: Object.keys(annotatedBundledProviders || {}).length,
                     overriddenProviderNames: [],
                     disabledProviders: totalDisabledProviders
                 };
                 
-                const ruleString = JSON.stringify(filteredBundledRules, Object.keys(filteredBundledRules).sort());
+                const ruleString = JSON.stringify(annotatedBundledRules, Object.keys(annotatedBundledRules).sort());
                 const hash = await sha256(ruleString);
                 storage.dataHash = hash;
                 const isOverloadStatus = typeof storage.hashStatus === 'string' &&
@@ -2301,7 +2486,8 @@ function mergeCustomRules(bundledRules) {
                 const baseEntries = Object.entries(baseProviders).map(([name, data]) => ({
                     name,
                     data,
-                    key: getProviderGroupKey(data, name)
+                    key: getProviderGroupKey(data, name),
+                    sourceId: normalizeRuleSourceId(bundledRules?.metadata?.source || 'official', 'official')
                 })).filter(entry => !entry.key.startsWith('no-pattern:') && !disabledSignatures.has(entry.key));
 
                 const baseGroupsByKey = new Map();
@@ -2312,7 +2498,8 @@ function mergeCustomRules(bundledRules) {
                     baseGroupsByKey.get(entry.key).push({
                         name: entry.name,
                         data: entry.data,
-                        isPrimarySource: true
+                        isPrimarySource: true,
+                        sourceId: entry.sourceId
                     });
                 });
                 
@@ -2320,7 +2507,8 @@ function mergeCustomRules(bundledRules) {
                 const customEntries = Object.entries(customProviders).map(([name, data]) => ({
                     name,
                     data,
-                    key: getProviderGroupKey(data, name)
+                    key: getProviderGroupKey(data, name),
+                    sourceId: 'custom'
                 })).filter(entry => !entry.key.startsWith('no-pattern:') && !disabledSignatures.has(entry.key));
 
                 const customGroupsByKey = new Map();
@@ -2331,7 +2519,8 @@ function mergeCustomRules(bundledRules) {
                     customGroupsByKey.get(entry.key).push({
                         name: entry.name,
                         data: entry.data,
-                        isPrimarySource: true
+                        isPrimarySource: true,
+                        sourceId: entry.sourceId
                     });
                 });
                 
@@ -2522,6 +2711,16 @@ function applyRegressionRuleData(data) {
             : {},
         urlFilterRules: Array.isArray(safeData.urlFilterRules) ? cloneValue(safeData.urlFilterRules) : []
     };
+    if (safeData.activationState && typeof safeData.activationState === 'object' && !Array.isArray(safeData.activationState)) {
+        const disabledRuleIds = safeData.activationState.disabledRuleIds || safeData.activationState.disabledRules;
+        if (Array.isArray(disabledRuleIds)) {
+            storage.clearurls_disabled_rule_ids = disabledRuleIds.map(ruleId => String(ruleId || '').trim()).filter(Boolean);
+        } else {
+            storage.clearurls_disabled_rule_ids = [];
+        }
+    } else {
+        storage.clearurls_disabled_rule_ids = [];
+    }
     let appliedLive = false;
     if (typeof globalThis.updateProviderData === 'function') {
         appliedLive = !!globalThis.updateProviderData();
@@ -2753,6 +2952,9 @@ function genesis() {
 }
 
 function getData(key) {
+    if (key === 'clearurlsProviderSnapshot' && globalThis.linkumoriClearURLProviderSnapshot) {
+        return globalThis.linkumoriClearURLProviderSnapshot;
+    }
     return storage[key];
 }
 
@@ -2790,6 +2992,7 @@ function setData(key, value) {
             }
             break;
         case "linkumori_url_disabled_rules":
+        case "clearurls_disabled_rule_ids":
             if (typeof value === 'string') {
                 try {
                     const parsed = JSON.parse(value);
@@ -3010,6 +3213,7 @@ function initSettings() {
     storage.custom_rules = { providers: {} };
     storage.linkumori_url_custom_rules = { rules: [] };
     storage.linkumori_url_disabled_rules = [];
+    storage.clearurls_disabled_rule_ids = [];
     storage.popupConsentAccepted = false;
     storage.popupConsentPolicyVersionAccepted = 0;
     storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] = '';

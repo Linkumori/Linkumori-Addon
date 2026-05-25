@@ -76,6 +76,7 @@ var providers = [];
 // Linkumori optimized indexes
 var providersByToken = Object.create(null); // Exact hostname-label lookup table for provider candidates
 var globalProviders = []; // Provider[]
+var clearurlsProviderSnapshot = createEmptyProviderSnapshot();
 var prvKeys = [];
 var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
@@ -91,6 +92,177 @@ var pslSupport = {
     loadPromise: null,
     error: null
 };
+
+function createEmptyProviderSnapshot() {
+    return {
+        aliasRuleIds: {},
+        disabledRuleIds: [],
+        disabledRules: {},
+        globalProviders: [],
+        providerCount: 0,
+        providers: [],
+        providersByToken: {},
+        ruleIds: {}
+    };
+}
+
+function normalizeClearURLsDisabledRuleIds(value) {
+    if (!value) return [];
+    if (typeof value === 'string') {
+        try {
+            return normalizeClearURLsDisabledRuleIds(JSON.parse(value));
+        } catch (_) {
+            return value.split(/\r?\n/).map(item => item.trim()).filter(Boolean);
+        }
+    }
+    if (Array.isArray(value)) {
+        return [...new Set(value.map(item => String(item || '').trim()).filter(Boolean))];
+    }
+    return [];
+}
+
+function getClearURLsDisabledRuleIdSet() {
+    return new Set(normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids));
+}
+
+function createStableRuleHash(value) {
+    let hash = 2166136261;
+    const text = String(value || '');
+    for (let i = 0; i < text.length; i++) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
+}
+
+function slugifyCoreRuleIdPart(value) {
+    return String(value || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .replace(/-+/g, '-');
+}
+
+function createGeneratedCoreRuleId(section, matchPattern) {
+    const prefix = section === 'rawRules'
+        ? 'raw'
+        : (section === 'redirections' ? 'redirect' : (section === 'referralMarketing' ? 'referral' : (section === 'exceptions' ? 'exception' : 'field')));
+    const slug = slugifyCoreRuleIdPart(matchPattern).slice(0, 32);
+    return `${prefix}-${slug || createStableRuleHash(matchPattern)}`;
+}
+
+function buildCoreRuntimeRuleId(providerName, ruleId) {
+    return `${providerName}::${ruleId}`;
+}
+
+function normalizeCoreRuleOrigins(value) {
+    if (!Array.isArray(value)) return [];
+    const origins = [];
+    const seen = new Set();
+    value.forEach(origin => {
+        if (!origin || typeof origin !== "object") return;
+        const runtimeRuleId = String(origin.runtimeRuleId || "").trim();
+        if (!runtimeRuleId || seen.has(runtimeRuleId)) return;
+        seen.add(runtimeRuleId);
+        origins.push({
+            sourceId: String(origin.sourceId || "").trim(),
+            providerId: String(origin.providerId || "").trim(),
+            ruleId: String(origin.ruleId || "").trim(),
+            runtimeRuleId
+        });
+    });
+    return origins;
+}
+
+function attachCoreRuleIdentity(providerName, compiledRule, section) {
+    const ruleId = compiledRule.id || createGeneratedCoreRuleId(section, compiledRule.matchPattern);
+    const aliases = Array.isArray(compiledRule.aliases) ? compiledRule.aliases : [];
+    const origins = normalizeCoreRuleOrigins(compiledRule._linkumoriOrigins);
+    compiledRule.id = ruleId;
+    compiledRule.providerName = providerName;
+    compiledRule.runtimeRuleId = buildCoreRuntimeRuleId(providerName, ruleId);
+    compiledRule.aliasRuntimeIds = aliases.map(alias => buildCoreRuntimeRuleId(providerName, alias));
+    compiledRule.origins = origins.length > 0
+        ? origins
+        : [{ sourceId: "runtime", providerId: providerName, ruleId, runtimeRuleId: compiledRule.runtimeRuleId }];
+    return compiledRule;
+}
+
+function coreRuleDisableKeys(compiledRule) {
+    const keys = [];
+    if (!compiledRule) return keys;
+    if (compiledRule.runtimeRuleId) keys.push(compiledRule.runtimeRuleId);
+    if (compiledRule.id) keys.push(compiledRule.id);
+    (compiledRule.aliasRuntimeIds || []).forEach((aliasRuntimeId, index) => {
+        if (aliasRuntimeId) keys.push(aliasRuntimeId);
+        const alias = compiledRule.aliases && compiledRule.aliases[index];
+        if (alias) keys.push(alias);
+    });
+    return keys;
+}
+
+function filterCoreRuleOrigins(compiledRule, disabledRuleIds) {
+    if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return false;
+    if (coreRuleDisableKeys(compiledRule).some(key => disabledRuleIds.has(key))) {
+        compiledRule.disabledOrigins = (compiledRule.origins || []).slice();
+        compiledRule.origins = [];
+        return true;
+    }
+
+    const origins = Array.isArray(compiledRule.origins) ? compiledRule.origins : [];
+    if (origins.length === 0) return false;
+    const activeOrigins = [];
+    const disabledOrigins = [];
+    origins.forEach(origin => {
+        const disabled = disabledRuleIds.has(origin.runtimeRuleId) ||
+            disabledRuleIds.has(origin.ruleId);
+        if (disabled) disabledOrigins.push(origin);
+        else activeOrigins.push(origin);
+    });
+    compiledRule.disabledOrigins = disabledOrigins;
+    compiledRule.origins = activeOrigins;
+    return activeOrigins.length === 0;
+}
+
+function registerCoreRuleInSnapshot(compiledRule) {
+    if (!compiledRule || !clearurlsProviderSnapshot) return;
+    if (compiledRule.runtimeRuleId && !clearurlsProviderSnapshot.ruleIds[compiledRule.runtimeRuleId]) {
+        clearurlsProviderSnapshot.ruleIds[compiledRule.runtimeRuleId] = {
+            actionType: compiledRule.actionType,
+            aliases: (compiledRule.aliases || []).slice(),
+            aliasRuntimeIds: (compiledRule.aliasRuntimeIds || []).slice(),
+            id: compiledRule.id,
+            kind: compiledRule.kind,
+            match: compiledRule.matchPattern,
+            origins: (compiledRule.origins || []).map(origin => ({ ...origin })),
+            providerName: compiledRule.providerName,
+            runtimeRuleId: compiledRule.runtimeRuleId,
+            section: compiledRule.section
+        };
+    }
+    (compiledRule.aliasRuntimeIds || []).forEach((aliasRuntimeId) => {
+        if (!clearurlsProviderSnapshot.aliasRuleIds[aliasRuntimeId]) {
+            clearurlsProviderSnapshot.aliasRuleIds[aliasRuntimeId] = compiledRule.runtimeRuleId;
+        }
+    });
+}
+
+function registerDisabledCoreRuleInSnapshot(compiledRule) {
+    if (!compiledRule || !clearurlsProviderSnapshot || !compiledRule.runtimeRuleId) return;
+    clearurlsProviderSnapshot.disabledRules[compiledRule.runtimeRuleId] = {
+        actionType: compiledRule.actionType,
+        aliases: (compiledRule.aliases || []).slice(),
+        aliasRuntimeIds: (compiledRule.aliasRuntimeIds || []).slice(),
+        id: compiledRule.id,
+        kind: compiledRule.kind,
+        match: compiledRule.matchPattern,
+        disabledOrigins: (compiledRule.disabledOrigins || []).map(origin => ({ ...origin })),
+        origins: (compiledRule.origins || []).map(origin => ({ ...origin })),
+        providerName: compiledRule.providerName,
+        runtimeRuleId: compiledRule.runtimeRuleId,
+        section: compiledRule.section
+    };
+}
 
 function normalizeAsciiHostname(value) {
     const host = String(value || '').trim().toLowerCase();
@@ -1163,7 +1335,8 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         replacePattern,
         requestTypes,
         raw: resolvedRule,
-        sourceType
+        sourceType,
+        _linkumoriOrigins: normalizeCoreRuleOrigins(resolvedRule._linkumoriOrigins)
     };
 }
 
@@ -1647,7 +1820,7 @@ function start() {
                 continue;
             }
             const provider = new Provider(prvKeys[p], providerData.getOrDefault('completeProvider', false),
-                providerData.getOrDefault('forceRedirection', false));
+                providerData.getOrDefault('forceRedirection', false), getClearURLsDisabledRuleIdSet());
             providers.push(provider);
 
             let urlPattern = providerData.getOrDefault('urlPattern', '');
@@ -1742,6 +1915,16 @@ function start() {
                 globalProviders.push(provider);
             }
         }
+
+        const providersByTokenSnapshot = {};
+        Object.keys(providersByToken).forEach((token) => {
+            providersByTokenSnapshot[token] = providersByToken[token].map(provider => provider.getName());
+        });
+        clearurlsProviderSnapshot.providerCount = providers.length;
+        clearurlsProviderSnapshot.providers = providers.map(provider => provider.getSnapshotMetadata());
+        clearurlsProviderSnapshot.providersByToken = providersByTokenSnapshot;
+        clearurlsProviderSnapshot.globalProviders = globalProviders.map(provider => provider.getName());
+        globalThis.linkumoriClearURLProviderSnapshot = clearurlsProviderSnapshot;
     }
 
     function initializeProviders() {
@@ -1759,12 +1942,16 @@ function start() {
             providers = [];
             providersByToken = Object.create(null);
             globalProviders = [];
+            clearurlsProviderSnapshot = createEmptyProviderSnapshot();
+            globalThis.linkumoriClearURLProviderSnapshot = clearurlsProviderSnapshot;
             prvKeys = [];
             return false;
         }
 
         providersByToken = Object.create(null);
         globalProviders = [];
+        clearurlsProviderSnapshot = createEmptyProviderSnapshot();
+        clearurlsProviderSnapshot.disabledRuleIds = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
         getKeys(storage.ClearURLsData.providers);
         createProviders();
         return true;
@@ -1864,7 +2051,7 @@ function start() {
     loadOldDataFromStore();
     setBadgedStatus();
 
-    function Provider(_name, _completeProvider = false, _forceRedirection = false) {
+    function Provider(_name, _completeProvider = false, _forceRedirection = false, _disabledRuleIds = new Set()) {
         const name = _name;
         let urlPattern;
         let urlPatternSource = '';
@@ -1887,12 +2074,37 @@ function start() {
             fieldRuleMap[".*"] = true;
         }
 
+        function activateCompiledRule(compiled, section) {
+            if (!compiled) return null;
+            compiled.section = section;
+            attachCoreRuleIdentity(name, compiled, section);
+            if (filterCoreRuleOrigins(compiled, _disabledRuleIds)) {
+                registerDisabledCoreRuleInSnapshot(compiled);
+                return null;
+            }
+            registerCoreRuleInSnapshot(compiled);
+            return compiled;
+        }
+
         this.shouldForceRedirect = function () {
             return _forceRedirection;
         };
 
         this.getName = function () {
             return name;
+        };
+
+        this.getSnapshotMetadata = function () {
+            return {
+                completeProvider: canceling,
+                domainPatterns: domainPatterns.slice(),
+                forceRedirection: _forceRedirection,
+                indexPatterns: indexPatterns.slice(),
+                methods: methods.slice(),
+                name,
+                resourceTypes: resourceTypes.slice(),
+                urlPattern: urlPatternSource
+            };
         };
 
         /**
@@ -2189,8 +2401,9 @@ function start() {
 
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            compiled.section = 'rules';
-            fieldRuleMap[compiled.matchPattern] = compiled;
+            const activeCompiled = activateCompiledRule(compiled, 'rules');
+            if (!activeCompiled) return;
+            fieldRuleMap[activeCompiled.matchPattern] = activeCompiled;
         };
 
         this.getRulesMap = function () {
@@ -2203,8 +2416,9 @@ function start() {
         this.addRawRule = function (rule, isActive = true, defaults = null) {
             const compiled = compileCoreRuleDefinition(rule, "gi", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            compiled.section = 'rawRules';
-            rawRuleMap[compiled.matchPattern] = compiled;
+            const activeCompiled = activateCompiledRule(compiled, 'rawRules');
+            if (!activeCompiled) return;
+            rawRuleMap[activeCompiled.matchPattern] = activeCompiled;
         };
 
         this.getRawRulesMap = function () {
@@ -2222,15 +2436,17 @@ function start() {
         this.addReferralMarketing = function (rule, isActive = true, defaults = null) {
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            compiled.section = 'referralMarketing';
-            referralMarketingRuleMap[compiled.matchPattern] = compiled;
+            const activeCompiled = activateCompiledRule(compiled, 'referralMarketing');
+            if (!activeCompiled) return;
+            referralMarketingRuleMap[activeCompiled.matchPattern] = activeCompiled;
         };
 
         this.addException = function (exception, isActive = true, defaults = null) {
             const compiled = compileCoreRuleDefinition(exception, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            compiled.section = 'exceptions';
-            exceptionRuleMap[compiled.matchPattern] = compiled;
+            const activeCompiled = activateCompiledRule(compiled, 'exceptions');
+            if (!activeCompiled) return;
+            exceptionRuleMap[activeCompiled.matchPattern] = activeCompiled;
         };
 
         this.addDomainException = function (exception) {
@@ -2304,8 +2520,9 @@ function start() {
         this.addRedirection = function (redirection, isActive = true, defaults = null) {
             const compiled = compileCoreRuleDefinition(redirection, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
-            compiled.section = 'redirections';
-            redirectionRuleMap[compiled.matchPattern] = compiled;
+            const activeCompiled = activateCompiledRule(compiled, 'redirections');
+            if (!activeCompiled) return;
+            redirectionRuleMap[activeCompiled.matchPattern] = activeCompiled;
         };
 
         this.addDomainRedirection = function (redirection) {

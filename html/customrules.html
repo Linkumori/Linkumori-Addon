@@ -2121,6 +2121,47 @@
             font-size: 13px;
         }
 
+        #disabled-rules-view .rule-activation-list {
+            max-height: 320px;
+        }
+
+        #provider-rule-id-controls .provider-disabled-list {
+            list-style: none;
+            margin: 8px 0 0 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        #provider-rule-id-controls .provider-disabled-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 10px;
+            padding: 7px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-secondary);
+        }
+
+        #provider-rule-id-controls .provider-disabled-signature {
+            min-width: 0;
+            overflow-wrap: anywhere;
+            color: var(--text-secondary);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+            font-size: 11px;
+            line-height: 1.35;
+        }
+
+        #provider-rule-id-controls .provider-disabled-source {
+            display: block;
+            margin-top: 3px;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 10px;
+        }
+
         .provider-browser-content {
             background: var(--bg-tertiary);
             border-radius: 6px;

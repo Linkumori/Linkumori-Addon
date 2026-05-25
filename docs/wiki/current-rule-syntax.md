@@ -505,7 +505,7 @@ Supported rule fields:
 | `requestTypes` | `"all"` or string array | Limits the rule to specific browser request types such as `main_frame`, `sub_frame`, `script`, `xmlhttprequest`, `image`, `media`, `font`, `ping`. Omit or use `"all"` for no restriction. Values are normalized to lowercase. |
 | `exceptions` | string array | Per-rule URL exception patterns. Each entry is a JavaScript regex source compiled without flags. If any pattern matches the full request URL the rule is skipped, independently of provider-level `exceptions`. Exception regexes are precompiled at provider build time. |
 | `preprocessors` | array | Optional preprocessing steps before replacement/redirect actions. Supported types: `urlEncode`, `urlDecode`, `doubleUrlEncode`/`urlEncodeRepeated`, `doubleUrlDecode`/`urlDecodeRepeated`, `base64Encode`, `base64Decode`. |
-| `aliases` | array | Optional extra rule identifiers for the same rule intent. They use the same pattern as `id`, must be unique, and must not repeat the rule `id`. Stored on compiled rules but not currently used for activation lookups. |
+| `aliases` | array | Optional extra rule identifiers for the same rule intent. They use the same pattern as `id`, must be unique, must not repeat the rule `id`, and can be used for rule-id disabling. |
 | `description` | string | Human-facing note. Stored on compiled rules. |
 | `referralMarketing` | boolean | Marks a field rule as referral-marketing-sensitive. When the user enables referral-marketing filtering, these rules are included alongside normal field rules. |
 
@@ -515,6 +515,27 @@ Runtime-only properties (not user-specified, set by the engine at build time):
 | --- | --- | --- |
 | `section` | `rules`, `rawRules`, `referralMarketing`, `exceptions`, or `redirections` | Reflects which rule section the compiled rule was stored in. Derived from the `addRule` / `addRawRule` / `addReferralMarketing` / `addException` / `addRedirection` call path. Useful for introspection and logging. |
 | `exceptionRegexes` | `RegExp[]` | Precompiled form of the `exceptions` array. Built once at provider initialization. Used by `coreRuleAppliesToRequest` to avoid per-request `new RegExp()` allocation. |
+
+The runtime also builds a ClearURLs-core-style provider snapshot at startup/reload. It is available through `getData("clearurlsProviderSnapshot")` and contains:
+
+- `providers`
+- `globalProviders`
+- `providersByToken`
+- `ruleIds`
+- `aliasRuleIds`
+- `disabledRuleIds`
+- `disabledRules`
+
+Canonical rules can be disabled by storing ids in `clearurls_disabled_rule_ids`. Accepted ids are:
+
+- ClearURLs-core-style origin runtime id: `source-id::original-provider-id::rule-id`
+- origin runtime alias: `source-id::original-provider-id::alias-id`
+- provider runtime id: `merged-provider-name::rule-id` for compatibility
+- provider-local `id` / alias for legacy compatibility
+
+Disabled origin ids are applied before rule-origin dedupe. The executable runtime still uses merged providers and deduped rules, but each rule carries `origins[]` so one disabled source/provider/rule origin can be removed without splitting the merged provider.
+
+The custom-rules editor exposes this list in **Disabled Rules** and the **Rule Activation** section. The editor writes `source-id::original-provider-id::rule-id` ids. Plain ids and merged-provider ids remain accepted for migration and compatibility.
 
 Supported action combinations follow ClearURLs core:
 
