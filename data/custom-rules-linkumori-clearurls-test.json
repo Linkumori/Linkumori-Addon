@@ -1,0 +1,126 @@
+{
+  "format": "linkumori-custom-rules-export",
+  "version": 1,
+  "exportedAt": "2026-05-24T00:00:00.000Z",
+  "clearurlsCustomRules": {
+    "providers": {
+      "linkumori-rule-id-demo": {
+        "syntax": "linkumori-clearurls-dialect",
+        "urlPattern": "^https?:\\/\\/(?:www\\.)?example\\.com(?:[/?#]|$)",
+        "indexPattern": "||example.com^",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "resourceTypes": [
+          "main_frame",
+          "sub_frame",
+          "xmlhttprequest"
+        ],
+        "rules": [
+          "utm_[a-z]+",
+          "||example.com^$removeparam=inline_token,domain=example.com,method=GET|HEAD",
+          "@@||example.com/account^$removeparam=inline_token",
+          {
+            "id": "remove-demo-click-id",
+            "aliases": [
+              "demo-click-id-alias"
+            ],
+            "kind": "field",
+            "match": "demo_click_id",
+            "description": "Canonical field rule for testing rule-id disable controls.",
+            "action": {
+              "type": "remove"
+            }
+          },
+          {
+            "id": "remove-session-xhr-demo",
+            "kind": "field",
+            "match": "session_[a-z]+",
+            "requestTypes": [
+              "xmlhttprequest"
+            ],
+            "exceptions": [
+              "^https?:\\/\\/(?:www\\.)?example\\.com\\/auth"
+            ],
+            "action": {
+              "type": "remove"
+            }
+          },
+          {
+            "id": "remove-raw-ref-demo",
+            "kind": "raw",
+            "match": "([?&])raw_ref=[^&#]*&?",
+            "flags": "gi",
+            "action": {
+              "type": "rewrite",
+              "replacePattern": "§1§"
+            }
+          },
+          {
+            "id": "extract-target-demo",
+            "kind": "redirection",
+            "match": "^https?:\\/\\/(?:www\\.)?example\\.com\\/out\\?url=([^&]+)",
+            "action": {
+              "type": "redirect",
+              "replacePattern": "§1§"
+            },
+            "preprocessors": [
+              {
+                "type": "urlDecode",
+                "inputs": [
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "rawRules": [
+          "legacy_raw_token=[^&#]*&?"
+        ],
+        "referralMarketing": [
+          "tag"
+        ],
+        "redirections": [
+          "^https?:\\/\\/(?:www\\.)?example\\.com\\/legacy-out\\?target=([^&]+)"
+        ],
+        "exceptions": [
+          "^https?:\\/\\/(?:www\\.)?example\\.com\\/checkout"
+        ],
+        "domainExceptions": [
+          "||safe.example.com^"
+        ],
+        "domainRedirections": [
+          "||go.example.com^$redirect=https://example.com/"
+        ]
+      },
+      "linkumori-domain-pattern-demo": {
+        "syntax": "linkumori-clearurls-dialect",
+        "domainPatterns": [
+          "||example.net^",
+          "*.example.org"
+        ],
+        "rules": [
+          {
+            "id": "remove-domain-token-demo",
+            "kind": "field",
+            "match": "domain_token",
+            "action": {
+              "type": "remove"
+            }
+          },
+          "||example.net^$removeparam=net_inline"
+        ],
+        "exceptions": [
+          "^https?:\\/\\/example\\.net\\/keep"
+        ]
+      }
+    }
+  },
+  "linkumoriURLCustomRules": {
+    "rules": [
+      "||example.com^$removeparam=urlfilter_token",
+      "@@||example.com/keep^$removeparam=urlfilter_token"
+    ]
+  }
+}
