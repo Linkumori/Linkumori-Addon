@@ -420,10 +420,10 @@
     "message": "El nombre del proveedor es obligatorio."
   },
   "customRulesEditor_rawRules": {
-    "message": "Reglas sin formato (patrones de expresiones regulares)"
+    "message": "Reglas crudas"
   },
   "customRulesEditor_redirections": {
-    "message": "Redirecciones (patrones de redireccionamiento)"
+    "message": "Redirecciones"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Marketing de referencia"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Patrones de expresiones regulares aplicados a toda la URL. Úselo para patrones complejos que no se ajustan al formato de parámetro estándar.",
+    "message": "Los objetos de reglas sin formato canónicos aplican patrones de expresiones regulares a todo el URL. Úselo para patrones complejos que no se ajustan al formato de parámetro estándar.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Reglas crudas:",
+    "message": "Objetos de reglas sin procesar:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Utilice rawRules para fragmentos, segmentos de ruta o patrones de parámetros complejos.",
+    "message": "Utilice objetos rules[] con kind: \"raw\" para fragmentos, segmentos de ruta o patrones de parámetros complejos.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "¿Cuál es la diferencia entre reglas y rawRules?",
+    "message": "¿Qué formas de reglas puede contener rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "No se pudo cargar el mapa de la versión de la política de privacidad.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Paquetes activos/Reglas remotas/Reglas personalizadas",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Paquete activo/Reglas remotas/Reglas personalizadas",
+    "description": "Opción de barra lateral para reglas personalizadas, respaldadas remotamente y empaquetadas actualmente activas."
   },
   "providerImport_button": {
     "message": "Importar/deshabilitar proveedores",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "¿Qué son las reglas, las rawRules y el marketing de referencia?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "¿Qué puede contener rules[]?",
+    "description": "Título de preguntas frecuentes para las reglas unificadas de Linkumori-ClearURLs"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> son nombres de parámetros o nombres de fragmentos que deben eliminarse de la URL.</p><p><span class=\"faq-code\">rawRules</span> son reemplazos de expresiones regulares que se aplican directamente a toda la cadena URL antes de la consulta. cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> también se trata como parámetros extraíbles, pero su uso real depende de la configuración global de marketing de referencia.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> acepta cadenas de parámetros simples, en línea <span class=\"faq-code\">$removeparam</span> filtros y objetos canónicos.</p><p>Usar <span class=\"faq-code\">kind: \"raw\"</span> para limpieza de expresiones regulares de todo URL y <span class=\"faq-code\">kind: \"redirection\"</span> para extracción de redirección.</p><p>Usar <span class=\"faq-code\">referralMarketing: true</span> en una regla de campo cuando el parámetro depende de la configuración del marketing de referencia.</p>",
+    "description": "Cuerpo de preguntas frecuentes para las reglas unificadas de Linkumori-ClearURLs"
   },
   "audit_faq_exceptions_title": {
     "message": "¿Qué son las excepciones y las excepciones de dominio?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> son desencapsuladores basados ​​en expresiones regulares. Por lo general, capturan la URL de destino real en el grupo 1 y ClearURLs redirecciona a ese valor capturado. X</p><p><span class=\"faq-code\">domainRedirections</span> son reglas de redireccionamiento de estilo dominio. En este código base, se verifican las entradas con forma de <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>. Si una redirección de expresiones regulares coincide primero, gana. De lo contrario, ClearURLs comprueba las redirecciones de dominio a continuación.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> entradas con <span class=\"faq-code\">kind: \"redirection\"</span> son desenvoltorios basados ​​en expresiones regulares. Generalmente capturan el destino real URL en el grupo 1, y ClearURLs redirige a ese valor capturado.</p><p><span class=\"faq-code\">domainRedirections</span> son reglas de redireccionamiento de estilo de dominio. En esta base de código se verifican las entradas con forma <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Si una redirección de expresiones regulares coincide primero, gana. De lo contrario, ClearURLs verifica el dominio redirections a continuación.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>La ruta de creación de proveedores en esta rama lee estas claves: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">excepciones</span>, <span class=\"faq-code\">dominioExceptions</span>, <span class=\"faq-code\">redirecciones</span>, <span class=\"faq-code\">dominioRedirecciones</span>, <span class=\"faq-code\">métodos</span> y <span class=\"faq-code\">tipos de recursos</span>.</p><p>Al auditar el comportamiento, el lugar más importante para verificar es <span class=\"faq-code\">Final Rules</span>, porque muestra el resultado combinado después de combinar las fuentes empaquetadas, remotas y personalizadas.</p>",
+    "message": "<p>La ruta de creación de proveedores en esta rama lee estas claves de creación: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, y <span class=\"faq-code\">resourceTypes</span>.</p><p>La limpieza sin procesar, la limpieza de marketing de referencia y la expresión regular redirections pueden usar los campos ClearURLs retenidos u objetos canónicos internos. <span class=\"faq-code\">rules[]</span>.</p><p>Al auditar el comportamiento, el lugar más importante a verificar es <span class=\"faq-code\">Final Rules</span>, porque muestra el resultado combinado después de combinar las fuentes empaquetadas, remotas y personalizadas.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Sintaxis de reglas",
+    "message": "Diseño de reglas",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "matrices clásicas",
+    "description": "Etiqueta de modo de sintaxis del editor de reglas personalizadas para reglas clásicas de Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Objetos canónicos",
+    "description": "Etiqueta de modo de sintaxis del editor de reglas personalizadas para reglas canónicas Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs mantiene los campos antiguos de ClearURLs y agrega cadenas simples, reglas $removeparam en línea y objetos de reglas canónicas en rules[].",
+    "description": "Texto de ayuda del editor de reglas personalizado para el diseño de reglas Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Las reglas canónicas de Linkumori-ClearURLs utilizan tipo + acción dentro de rules[]. Los campos antiguos rawRules, referralMarketing y redirections todavía funcionan.",
+    "description": "Texto de ayuda del editor de reglas personalizado para reglas canónicas Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Utilice linkumori-clearurls-dialect para todas las reglas de proveedores.",
+    "description": "Texto de ayuda del editor de reglas personalizado JSON para reglas Linkumori-ClearURLs unificadas"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Utilice el dialecto Linkumori-ClearURLs para el proveedor JSON. Los nuevos guardados incluyen syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs mantiene los antiguos campos ClearURLs y agrega cadenas rules[], filtros $removeparam y objetos canónicos con identificación, tipo, coincidencia y acción.",
+    "description": "Texto de ayuda de la barra de herramientas del editor de reglas personalizadas para reglas Linkumori-ClearURLs unificadas"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Agregar regla de campo",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Campos de proveedor",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Etiqueta del editor de reglas personalizadas para campos de proveedor en modo Linkumori-ClearURLs unificado"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Plantillas de reglas",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Etiqueta de editor de reglas personalizadas para plantillas de reglas en modo Linkumori-ClearURLs unificado"
   },
   "popup_report_issue_button_title": {
     "message": "Informar un problema",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Error al recuperar datos de configuración:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Desactivar",
+    "description": "Etiqueta de botón para deshabilitar una identificación de regla de proveedor"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "ID de regla de proveedor",
+    "description": "Título de la sección para ID de regla de proveedor ClearURLs deshabilitados"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Controles de ID de regla de proveedor",
+    "description": "Título de la barra de herramientas para controles de desactivación de ID de regla en el editor de proveedores"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Deshabilite los ID de reglas de proveedores canónicos sin eliminarlos. Los identificadores almacenados utilizan la identidad provider::rule.",
+    "description": "Texto de ayuda para los controles de desactivación de ID de regla del proveedor"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Activación de reglas",
+    "description": "Título de la sección para alternar la activación de reglas de proveedores activos"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Aún no se han encontrado ID de reglas canónicas en este proveedor.",
+    "description": "Estado vacío para controles de ID de regla del proveedor"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Los controles de ID de regla están disponibles una vez que el proveedor JSON sea válido.",
+    "description": "Estado JSON no válido para los controles de ID de regla del proveedor"
   }
 }

@@ -420,10 +420,10 @@
     "message": "제공자 이름은 필수입니다"
   },
   "customRulesEditor_rawRules": {
-    "message": "원시 규칙 (정규식 패턴)"
+    "message": "원시 규칙"
   },
   "customRulesEditor_redirections": {
-    "message": "리디렉션 (리디렉션 패턴)"
+    "message": "리디렉션"
   },
   "customRulesEditor_referralMarketing": {
     "message": "추천 마케팅"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "전체 URL에 적용되는 직접적인 정규식 패턴입니다. 표준 매개변수 형식에 맞지 않는 복잡한 패턴에 사용하세요.",
+    "message": "표준 원시 규칙 객체는 전체 URL에 정규식 패턴을 적용합니다. 표준 매개변수 형식에 맞지 않는 복잡한 패턴에 사용합니다.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "원시 규칙:",
+    "message": "원시 규칙 객체:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "조각, 경로 세그먼트 또는 복잡한 매개변수 패턴에는 rawRules를 사용하세요.",
+    "message": "조각, 경로 세그먼트 또는 복잡한 매개변수 패턴의 경우 kind: \"raw\"와 함께 rules[] 개체를 사용합니다.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "rules와 rawRules의 차이점은 무엇인가요?",
+    "message": "rules[]에는 어떤 규칙 모양이 포함될 수 있나요?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "개인정보처리방침 버전 맵을 로드하지 못했습니다.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "활성 번들/원격/사용자 지정 규칙",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "활성 번들/원격 규칙/사용자 정의 규칙",
+    "description": "현재 활성화된 번들, 원격 지원 및 사용자 지정 규칙에 대한 사이드바 옵션입니다."
   },
   "providerImport_button": {
     "message": "제공자 가져오기/비활성화",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "rules, rawRules 및 referralMarketing이란 무엇인가요?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[]에는 무엇이 포함될 수 있나요?",
+    "description": "통합 Linkumori-ClearURLs 규칙에 대한 FAQ 제목"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span>는 URL에서 제거해야 하는 매개변수 이름 또는 조각 이름입니다.</p><p><span class=\"faq-code\">rawRules</span>는 쿼리 정리 전에 전체 URL 문자열에 직접 적용되는 정규식 대체입니다.</p><p><span class=\"faq-code\">referralMarketing</span>도 제거 가능한 매개변수처럼 취급되지만 실제로 사용되는지 여부는 전역 추천 마케팅 설정에 따라 다릅니다.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> 간단한 매개변수 문자열을 인라인으로 허용합니다. <span class=\"faq-code\">$removeparam</span> 필터 및 표준 개체.</p><p>사용 <span class=\"faq-code\">kind: \"raw\"</span> 전체 URL 정규식 정리 및 <span class=\"faq-code\">kind: \"redirection\"</span> 리디렉션 추출을 위해.</p><p>사용 <span class=\"faq-code\">referralMarketing: true</span> 매개변수가 추천 마케팅 설정에 따라 달라지는 경우 필드 규칙에 따릅니다.</p>",
+    "description": "통합 Linkumori-ClearURLs 규칙에 대한 FAQ 본문"
   },
   "audit_faq_exceptions_title": {
     "message": "exceptions와 domainExceptions란 무엇인가요?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span>는 정규식 기반 언래퍼입니다. 일반적으로 실제 대상 URL을 그룹 1에서 캡처하며 ClearURLs는 해당 캡처된 값으로 리디렉션합니다.</p><p><span class=\"faq-code\">domainRedirections</span>는 도메인 스타일 리디렉션 규칙입니다. 이 코드베이스에서는 <span class=\"faq-code\">pattern $redirect= target</span> 형식의 항목이 있는지 확인합니다.</p><p>정규식 리디렉션이 먼저 일치하면 그것이 적용됩니다. 그렇지 않으면 ClearURLs는 다음으로 도메인 리디렉션을 확인합니다.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> 항목 <span class=\"faq-code\">kind: \"redirection\"</span> 정규식 기반 언래퍼입니다. 일반적으로 그룹 1의 실제 대상 URL를 캡처하고 ClearURLs는 캡처된 값으로 리디렉션됩니다.</p><p><span class=\"faq-code\">domainRedirections</span> 도메인 스타일 리디렉션 규칙입니다. 이 코드베이스에서는 다음과 같은 형태의 항목이 있는지 확인됩니다. <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>정규식 리디렉션이 먼저 일치하면 그것이 승리합니다. 그렇지 않은 경우 ClearURLs는 다음으로 도메인 redirections를 확인합니다.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>이 브랜치의 제공자 빌드 경로는 다음 키를 읽습니다: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, <span class=\"faq-code\">resourceTypes</span>.</p><p>동작을 감사할 때 가장 중요한 확인 장소는 <span class=\"faq-code\">최종 규칙</span>입니다. 번들, 원격 및 사용자 지정 소스가 결합된 후의 병합 결과를 보여주기 때문입니다.</p>",
+    "message": "<p>이 분기의 공급자 구축 경로는 다음 작성 키를 읽습니다. <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, 그리고 <span class=\"faq-code\">resourceTypes</span>.</p><p>원시 정리, 추천 마케팅 정리 및 정규식 redirections는 내부에 유지된 ClearURLs 필드 또는 표준 개체를 사용할 수 있습니다. <span class=\"faq-code\">rules[]</span>.</p><p>행동을 감사할 때 확인해야 할 가장 중요한 부분은 다음과 같습니다. <span class=\"faq-code\">Final Rules</span>, 이는 번들, 원격 및 사용자 정의 소스를 결합한 후 병합된 결과를 표시하기 때문입니다.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "규칙 구문",
+    "message": "규칙 레이아웃",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "클래식 배열",
+    "description": "클래식 Linkumori-ClearURLs 규칙에 대한 사용자 정의 규칙 편집기 구문 모드 레이블"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "표준 객체",
+    "description": "표준 Linkumori-ClearURLs 규칙에 대한 사용자 정의 규칙 편집기 구문 모드 레이블"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs는 이전 ClearURLs 필드를 유지하고 rules[]에 간단한 문자열, 인라인 $removeparam 규칙 및 정식 규칙 개체를 추가합니다.",
+    "description": "Linkumori-ClearURLs 규칙 레이아웃에 대한 사용자 정의 규칙 편집기 도움말 텍스트"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "정식 Linkumori-ClearURLs 규칙은 rules[] 내부에서 종류 + 작업을 사용합니다. 이전 rawRules, referralMarketing 및 redirections 필드는 계속 작동합니다.",
+    "description": "표준 Linkumori-ClearURLs 규칙에 대한 사용자 정의 규칙 편집기 도움말 텍스트"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "모든 공급자 규칙에 대해 linkumori-clearurls-dialect를 사용하십시오.",
+    "description": "통합 Linkumori-ClearURLs 규칙에 대한 사용자 정의 규칙 편집기 JSON 도움말 텍스트"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "공급자 JSON에는 Linkumori-ClearURLs 방언을 사용합니다. 새로운 저장에는 syntax: \"linkumori-clearurls-dialect\"가 포함됩니다.",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs는 이전 ClearURLs 필드를 유지하고 rules[] 문자열, $removeparam 필터 및 ID, 종류, 일치 및 작업이 포함된 정식 객체를 추가합니다.",
+    "description": "통합 Linkumori-ClearURLs 규칙에 대한 사용자 정의 규칙 편집기 도구 모음 도움말 텍스트"
   },
   "customRulesEditor_addFieldRule": {
     "message": "필드 규칙 추가",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "제공자 필드",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "통합 Linkumori-ClearURLs 모드의 공급자 필드에 대한 사용자 정의 규칙 편집기 라벨"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "규칙 템플릿",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "통합 Linkumori-ClearURLs 모드의 규칙 템플릿에 대한 사용자 정의 규칙 편집기 라벨"
   },
   "popup_report_issue_button_title": {
     "message": "문제 신고",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "구성 데이터를 검색하는 중 오류가 발생했습니다.",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "장애를 입히다",
+    "description": "공급자 규칙 ID를 비활성화하는 버튼 라벨"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "공급자 규칙 ID",
+    "description": "비활성화된 ClearURLs 공급자 규칙 ID의 섹션 제목"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "공급자 규칙 ID 제어",
+    "description": "공급자 편집기의 규칙 ID 비활성화 컨트롤에 대한 도구 모음 제목"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "정식 공급자 규칙 ID를 삭제하지 않고 비활성화합니다. 저장된 ID는 provider::rule ID를 사용합니다.",
+    "description": "공급자 규칙 ID 비활성화 컨트롤에 대한 도움말 텍스트"
+  },
+  "providerImport_ruleActivation": {
+    "message": "규칙 활성화",
+    "description": "활성 공급자 규칙 활성화 토글의 섹션 제목"
+  },
+  "providerImport_noRuleIds": {
+    "message": "이 공급자에는 아직 표준 규칙 ID가 없습니다.",
+    "description": "공급자 규칙 ID 컨트롤의 빈 상태"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "공급자 JSON가 유효하면 규칙 ID 제어를 사용할 수 있습니다.",
+    "description": "공급자 규칙 ID 컨트롤에 대한 잘못된 JSON 상태"
   }
 }

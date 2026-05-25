@@ -420,10 +420,10 @@
     "message": "Udbyderens navn er påkrævet"
   },
   "customRulesEditor_rawRules": {
-    "message": "Rå regler (regex-mønstre)"
+    "message": "Rå regler"
   },
   "customRulesEditor_redirections": {
-    "message": "Omdirigeringer (omdirigeringsmønstre)"
+    "message": "Omdirigeringer"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Henvisningsmarkedsføring"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Direkte regex-mønstre anvendt på hele webadressen. Bruges til komplekse mønstre, der ikke passer til standardparameterformatet.",
+    "message": "Kanoniske råregelobjekter anvender regex-mønstre på hele URL. Bruges til komplekse mønstre, der ikke passer til standardparameterformatet.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Rå regler:",
+    "message": "Rå regelobjekter:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Brug rawRules til fragmenter, stisegmenter eller komplekse parametermønstre.",
+    "message": "Brug rules[]-objekter med kind: \"raw\" til fragmenter, stisegmenter eller komplekse parametermønstre.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Hvad er forskellen mellem regler og rawRules?",
+    "message": "Hvilke regelformer kan rules[] indeholde?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "Det lykkedes ikke at indlæse kortet over version af privatlivspolitikken.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aktive bundte/fjernregler/brugerdefinerede regler",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Aktive Bundled/Remote Rules/Custom regler",
+    "description": "Sidebar-mulighed for aktuelt aktive bundtede, fjernunderstøttede og tilpassede regler."
   },
   "providerImport_button": {
     "message": "Importer/deaktiver udbydere",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Hvad er regler, rawRules og henvisningsmarkedsføring?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Hvad kan rules[] indeholde?",
+    "description": "Ofte stillede spørgsmål til ensartede Linkumori-ClearURLs-regler"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">regler</span> er parameternavne eller fragmentnavne, der skal fjernes fra URL'en.</p><p><span class=\"faq-code\">rawReglerXXTKNXX6 anvendes direkte på URL-query-strengen, før XXTKN-erstatninger på hele regex oprydning.</p><p><span class=\"faq-code\">referralMarketing</span> behandles også som flytbare parametre, men om de faktisk bruges afhænger af den globale henvisningsmarkedsføringsindstilling.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> accepterer simple parameterstrenge, inline <span class=\"faq-code\">$removeparam</span> filtre og kanoniske objekter.</p><p>Bruge <span class=\"faq-code\">kind: \"raw\"</span> til oprydning af hele URL regex og <span class=\"faq-code\">kind: \"redirection\"</span> til omdirigeringsudtrækning.</p><p>Bruge <span class=\"faq-code\">referralMarketing: true</span> på en feltregel, når parameteren afhænger af indstillingen for henvisningsmarkedsføring.</p>",
+    "description": "Ofte stillede spørgsmål til ensartede Linkumori-ClearURLs-regler"
   },
   "audit_faq_exceptions_title": {
     "message": "Hvad er undtagelser og domæneundtagelser?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">omdirigeringer</span> er regex-baserede unwrappers. De fanger normalt den rigtige destinationswebadresse i gruppe 1, og ClearURL'er omdirigerer til den registrerede værdi.</p><p><span class=\"faq-code\">domæneomdirigering</span> er omdirigeringsregler i domænestil. I denne kodebase kontrolleres de for indgange formet som <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Hvis en regex-omdirigering matcher først, vinder den. Hvis ikke, kontrollerer ClearURLs domæneomdirigeringer næste.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> poster med <span class=\"faq-code\">kind: \"redirection\"</span> er regex-baserede unwrappers. De fanger normalt den rigtige destination URL i gruppe 1, og ClearURLs omdirigerer til den opfangede værdi.</p><p><span class=\"faq-code\">domainRedirections</span> er omdirigeringsregler i domænestil. I denne kodebase kontrolleres de for indgange formet som <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Hvis en regex-omdirigering matcher først, vinder den. Hvis ikke, tjekker ClearURLs domænet redirections næste gang.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p> Provider-building-stien i denne gren læser disse nøgler: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, XXKNXX5XXTKNXXTKNXXN,<span class=\"faq-code\">TXXNPattern6XXTKNXXKNXXN <span class=\"faq-code\"> domænemønstre</span>, <span class=\"faq-code\">regler</span>, <span class=\"faq-code\">rawRegler</span>, XXKNXX13XXTKXXNXXNXXNXXNXXNXXreferralNXXNXXNXXNXXNXXreferral <span class=\"faq-code\">undtagelser</span>, <span class=\"faq-code\">domæneundtagelser</span>, <span class=\"faq-code\">omdirigeringer</span>, XXKNXXdomaXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXNXXD <span class=\"faq-code\">metoder</span> og <span class=\"faq-code\">resourceTypes</span>.</p><p>Når revisionsadfærd er det vigtigste sted at kontrollere, er XXXXFINAALNXXNXXNXXF Regler</span>, fordi det viser det flettede resultat efter at bundtede, eksterne og tilpassede kilder er blevet kombineret.</p>",
+    "message": "<p>Stien til udbyderopbygning i denne gren læser disse forfatternøgler: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, og <span class=\"faq-code\">resourceTypes</span>.</p><p>Råoprydning, henvisningsmarkedsføringsoprydning og regex redirections kan bruge de bevarede ClearURLs-felter eller kanoniske objekter indeni <span class=\"faq-code\">rules[]</span>.</p><p>Ved revision af adfærd er det vigtigste sted at tjekke <span class=\"faq-code\">Final Rules</span>, fordi det viser det flettede resultat efter at bundtede, eksterne og tilpassede kilder er blevet kombineret.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Regelsyntaks",
+    "message": "Regellayout",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klassiske arrays",
+    "description": "Syntakstilstandsetikett for brugerdefineret regeleditor til klassiske Linkumori-ClearURLs-regler"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Kanoniske objekter",
+    "description": "Syntakstilstandsetikett for brugerdefineret regeleditor for kanoniske Linkumori-ClearURLs-regler"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs beholder gamle ClearURLs-felter og tilføjer simple strenge, inline $removeparam-regler og kanoniske regelobjekter i rules[].",
+    "description": "Hjælpetekst til redigering af tilpassede regler til Linkumori-ClearURLs-regellayout"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Kanoniske Linkumori-ClearURLs-regler bruger kind + action inde i rules[]. Gamle rawRules-, referralMarketing- og redirections-felter fungerer stadig.",
+    "description": "Hjælpetekst til redigering af tilpassede regler til kanoniske Linkumori-ClearURLs-regler"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Brug linkumori-clearurls-dialect til alle udbyderregler.",
+    "description": "Brugerdefinerede regeleditor JSON hjælpetekst til ensartede Linkumori-ClearURLs-regler"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Brug Linkumori-ClearURLs dialekt til udbyder JSON. Nye lagringer inkluderer syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs beholder gamle ClearURLs-felter og tilføjer rules[]-strenge, $removeparam-filtre og kanoniske objekter med id, type, match og handling.",
+    "description": "Hjælpetekst til værktøjslinje til brugerdefinerede regler til værktøjslinje for ensartede Linkumori-ClearURLs-regler"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Tilføj feltregel",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Udbyder felter",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Brugerdefinerede regeleditor-etiket for udbyderfelter i unified Linkumori-ClearURLs-tilstand"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Regel skabeloner",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Brugerdefineret regeleditor-etiket til regelskabeloner i unified Linkumori-ClearURLs-tilstand"
   },
   "popup_report_issue_button_title": {
     "message": "Rapporter et problem",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Fejl ved hentning af konfigurationsdata:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Deaktiver",
+    "description": "Knapmærkat til at deaktivere et udbyderregel-id"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Udbyderregel-id'er",
+    "description": "Sektionstitel for deaktiverede ClearURLs-udbyderregel-id'er"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Kontrolelementer for udbyderregel-id",
+    "description": "Værktøjslinjetitel for regel-id deaktivering af kontroller i udbydereditor"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Deaktiver kanoniske udbyderregel-id'er uden at slette dem. Lagrede id'er bruger provider::rule-identitet.",
+    "description": "Hjælpetekst til udbyderens regel-id deaktivering af kontroller"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Regel aktivering",
+    "description": "Sektionstitel for aktivering af aktiv udbyderregel"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Ingen kanoniske regel-id'er fundet i denne udbyder endnu.",
+    "description": "Tom tilstand for kontrol af udbyderens regel-id"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Regel-id-kontroller er tilgængelige, når udbyderen JSON er gyldig.",
+    "description": "Ugyldig JSON-tilstand for udbyderens regel-id-kontroller"
   }
 }
