@@ -16,6 +16,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.11.1] - 2026-05-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.11.0...linkumori-v100.11.1))
+### Added
+- Engine improvements and dialect documentation consolidation (`2026-05-24`, hash: [`53ebce3`](https://github.com/Linkumori/Linkumori-Addon/commit/53ebce3))
+
+### Changed
+- Add regression cases for engine improvements (`2026-05-24`, hash: [`035acb7`](https://github.com/Linkumori/Linkumori-Addon/commit/035acb7))
+- Address PR review cleanup (`2026-05-25`, hash: [`abcb3a7`](https://github.com/Linkumori/Linkumori-Addon/commit/abcb3a7))
+- Address PR review feedback (`2026-05-25`, hash: [`05e8e03`](https://github.com/Linkumori/Linkumori-Addon/commit/05e8e03))
+- Align ClearURLs rule identity and provider counts (`2026-05-25`, hash: [`e91cae1`](https://github.com/Linkumori/Linkumori-Addon/commit/e91cae1))
+- Align provider context with ClearURLs core (`2026-05-25`, hash: [`e8b6d06`](https://github.com/Linkumori/Linkumori-Addon/commit/e8b6d06))
+- Align rule activation with ClearURLs origins (`2026-05-25`, hash: [`439adc0`](https://github.com/Linkumori/Linkumori-Addon/commit/439adc0))
+- Pass activation state in regression batch (`2026-05-25`, hash: [`1cbb45f`](https://github.com/Linkumori/Linkumori-Addon/commit/1cbb45f))
+- Polish provider import labels (`2026-05-25`, hash: [`5c54395`](https://github.com/Linkumori/Linkumori-Addon/commit/5c54395))
+- Remove useless files (`2026-05-25`, hash: [`58e6b69`](https://github.com/Linkumori/Linkumori-Addon/commit/58e6b69))
+- Update rules (`2026-05-25`, hash: [`f2db5d1`](https://github.com/Linkumori/Linkumori-Addon/commit/f2db5d1))
+
+### Fixed
+- Apply PR #130 review fixes (`2026-05-24`, hash: [`c1f2a73`](https://github.com/Linkumori/Linkumori-Addon/commit/c1f2a73)) [#130](https://github.com/Linkumori/Linkumori-Addon/issues/130)
+- Thread sessionRewrites set through cleaning loop (`2026-05-24`, hash: [`d3c7d2f`](https://github.com/Linkumori/Linkumori-Addon/commit/d3c7d2f))
+
 ## [v100.11.0] - 2026-05-24 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.10.0...linkumori-v100.11.0))
 ### Changed
 - Update wiki (`2026-05-23`, hash: [`9ab23c6`](https://github.com/Linkumori/Linkumori-Addon/commit/9ab23c6))
