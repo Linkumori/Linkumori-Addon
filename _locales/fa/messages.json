@@ -420,10 +420,10 @@
     "message": "نام ارائه دهنده الزامی است"
   },
   "customRulesEditor_rawRules": {
-    "message": "قوانین خام (الگوهای ریجکس)"
+    "message": "قوانین خام"
   },
   "customRulesEditor_redirections": {
-    "message": "تغییر مسیرها (الگوهای تغییر مسیر)"
+    "message": "تغییر مسیرها"
   },
   "customRulesEditor_referralMarketing": {
     "message": "بازاریابی ارجاعی"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "الگوهای regex مستقیم روی کل URL اعمال می شود. برای الگوهای پیچیده که با فرمت پارامتر استاندارد مطابقت ندارند استفاده کنید.",
+    "message": "اشیاء قانون خام متعارف الگوهای regex را در کل URL اعمال می کنند. برای الگوهای پیچیده که با فرمت پارامتر استاندارد مطابقت ندارند استفاده کنید.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "قوانین خام:",
+    "message": "اشیاء قانون خام:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "از rawRules برای قطعات، قطعات مسیر یا الگوهای پارامتر پیچیده استفاده کنید.",
+    "message": "از اشیاء rules[] با kind: \"raw\" برای قطعات، قطعات مسیر یا الگوهای پارامتر پیچیده استفاده کنید.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "تفاوت قوانین و rawRules چیست؟",
+    "message": "rules[] می تواند شامل چه قوانینی باشد؟",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "نقشه نسخه خط مشی رازداری بارگیری نشد.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "قوانین بسته‌بندی فعال/قوانین از راه دور/قوانین سفارشی",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Active Bundled/قوانین راه دور/قوانین سفارشی",
+    "description": "گزینه نوار کناری برای قوانین دسته‌بندی شده فعال، دارای پشتیبان از راه دور و قوانین سفارشی."
   },
   "providerImport_button": {
     "message": "واردات/غیرفعال کردن ارائه دهندگان",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "قوانین، rawRules و بازاریابی ارجاعی چیست؟",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] چه چیزی می تواند داشته باشد؟",
+    "description": "عنوان سؤالات متداول برای قوانین یکپارچه Linkumori-ClearURLs"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">قوانین</span> نام پارامترها یا نام قطعاتی هستند که باید از قسمت حذف شوند. آدرس. cleanup.</p><p><span class=\"faq-code\">بازاریابی ارجاعی</span> نیز مانند پارامترهای قابل جابجایی تلقی می شود، اما اینکه آیا آنها واقعاً مورد استفاده قرار می گیرند بستگی به تنظیمات جهانی ارجاع-بازاریابی1XTXXXXXXX دارد.",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> رشته های پارامتر ساده، درون خطی را می پذیرد <span class=\"faq-code\">$removeparam</span> فیلترها و اشیاء متعارف.</p><p>استفاده کنید <span class=\"faq-code\">kind: \"raw\"</span> برای پاکسازی کامل URL regex و <span class=\"faq-code\">kind: \"redirection\"</span> برای استخراج تغییر مسیر</p><p>استفاده کنید <span class=\"faq-code\">referralMarketing: true</span> در یک قانون فیلد زمانی که پارامتر به تنظیمات بازاریابی ارجاعی بستگی دارد.</p>",
+    "description": "بدنه سوالات متداول برای قوانین یکپارچه Linkumori-ClearURLs"
   },
   "audit_faq_exceptions_title": {
     "message": "استثناها و domainExceptions چیست؟",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">Redirections</span> بازکننده های مبتنی بر regex هستند. آنها معمولاً URL مقصد واقعی را در گروه 1 می گیرند و ClearURLs به آن مقدار گرفته شده هدایت می شود. در این پایگاه کد، آن‌ها برای ورودی‌هایی به شکل <span class=\"faq-code\">pattern $redirect= target</span>.</p><p> بررسی می‌شوند. در غیر این صورت، ClearURLs مسیرهای بعدی دامنه را بررسی می کند.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> ورودی با <span class=\"faq-code\">kind: \"redirection\"</span> بازکننده های مبتنی بر regex هستند. آنها معمولاً مقصد واقعی URL را در گروه 1 می گیرند و ClearURLs به آن مقدار گرفته شده تغییر مسیر می دهد.</p><p><span class=\"faq-code\">domainRedirections</span> قوانین تغییر مسیر به سبک دامنه هستند. در این پایگاه کد، آنها را برای ورودی هایی به شکل بررسی می کنند <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>اگر ابتدا یک تغییر جهت regex مطابقت داشته باشد، برنده می شود. اگر نه، ClearURLs در مرحله بعد دامنه redirections را بررسی می کند.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>مسیر ایجاد ارائه دهنده در این شاخه این کلیدها را می خواند: الگوهای دامنه <span class=\"faq-code\">rawRules</span>، <span class=\"faq-code\">ارجاعی بازاریابی</span>، <span class=\"faq-code\">XXXXXXX <span class=\"faq-code\">استثناهای دامنه</span>، <span class=\"faq-code\">تغییر مسیرها روشهای <span class=\"faq-code\"></span> و <span class=\"faq-code\"> نوع منبع <span class=\"faq-code\">قوانین نهایی</span> است، زیرا نتیجه ادغام شده را پس از ترکیب منابع همراه، راه دور و سفارشی نشان می دهد.</p>",
+    "message": "<p>مسیر ایجاد ارائه‌دهنده در این شاخه این کلیدهای تألیف را می‌خواند: <span class=\"faq-code\">syntax</span>، <span class=\"faq-code\">completeProvider</span>، <span class=\"faq-code\">forceRedirection</span>، <span class=\"faq-code\">urlPattern</span>، <span class=\"faq-code\">indexPattern</span>، <span class=\"faq-code\">domainPatterns</span>، <span class=\"faq-code\">rules</span>، <span class=\"faq-code\">rawRules</span>، <span class=\"faq-code\">referralMarketing</span>، <span class=\"faq-code\">exceptions</span>، <span class=\"faq-code\">domainExceptions</span>، <span class=\"faq-code\">redirections</span>، <span class=\"faq-code\">domainRedirections</span>، <span class=\"faq-code\">methods</span>، و <span class=\"faq-code\">resourceTypes</span>.</p><p>پاکسازی خام، پاکسازی بازاریابی ارجاعی، و regex redirections می‌توانند از فیلدهای حفظ‌شده ClearURLs یا اشیاء متعارف داخل استفاده کنند. <span class=\"faq-code\">rules[]</span>.</p><p>هنگام حسابرسی رفتار، مهمترین مکان برای بررسی این است <span class=\"faq-code\">Final Rules</span>، زیرا نتیجه ادغام شده را پس از ترکیب منابع باندل، راه دور و سفارشی نشان می دهد.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "نحو قاعده",
+    "message": "چیدمان قوانین",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "آرایه های کلاسیک",
+    "description": "برچسب حالت نحو ویرایشگر قوانین سفارشی برای قوانین کلاسیک Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "اشیاء متعارف",
+    "description": "برچسب حالت دستوری ویرایشگر قوانین سفارشی برای قوانین متعارف Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs فیلدهای قدیمی ClearURLs را نگه می دارد و رشته های ساده، قوانین درون خطی $removeparam و اشیاء قانون متعارف را در rules[] اضافه می کند.",
+    "description": "متن راهنمای ویرایشگر قوانین سفارشی برای طرح بندی قانون Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "قوانین Canonical Linkumori-ClearURLs از kind + action در داخل rules[] استفاده می کنند. فیلدهای قدیمی rawRules، referralMarketing و redirections هنوز کار می کنند.",
+    "description": "متن راهنمای ویرایشگر قوانین سفارشی برای قوانین متعارف Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "برای همه قوانین ارائه دهنده از linkumori-clearurls-dialect استفاده کنید.",
+    "description": "ویرایشگر قوانین سفارشی متن راهنمای JSON برای قوانین یکپارچه Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "برای ارائه دهنده JSON از گویش Linkumori-ClearURLs استفاده کنید. ذخیره های جدید شامل syntax: \"linkumori-clearurls-dialect\" است.",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs فیلدهای قدیمی ClearURLs را نگه می‌دارد و رشته‌های rules[]، فیلترهای $removeparam و اشیاء متعارف را با id، kind، match و action اضافه می‌کند.",
+    "description": "متن راهنمای نوار ابزار ویرایشگر قوانین سفارشی برای قوانین یکپارچه Linkumori-ClearURLs"
   },
   "customRulesEditor_addFieldRule": {
     "message": "افزودن قانون فیلد",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "زمینه های ارائه دهنده",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "برچسب ویرایشگر قوانین سفارشی برای فیلدهای ارائه دهنده در حالت یکپارچه Linkumori-ClearURLs"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "الگوهای قوانین",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "برچسب ویرایشگر قوانین سفارشی برای الگوهای قانون در حالت یکپارچه Linkumori-ClearURLs"
   },
   "popup_report_issue_button_title": {
     "message": "یک مشکل را گزارش کنید",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "خطا در بازیابی اطلاعات پیکربندی:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "غیر فعال کردن",
+    "description": "برچسب دکمه برای غیرفعال کردن شناسه قانون ارائه دهنده"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "شناسه قوانین ارائه دهنده",
+    "description": "عنوان بخش برای شناسه‌های قانون ارائه‌دهنده غیرفعال ClearURLs"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "کنترل‌های شناسه قانون ارائه‌دهنده",
+    "description": "عنوان نوار ابزار برای کنترل های غیرفعال شناسه قانون در ویرایشگر ارائه دهنده"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "شناسه های قانون ارائه دهنده متعارف را بدون حذف آنها غیرفعال کنید. شناسه های ذخیره شده از هویت provider::rule استفاده می کنند.",
+    "description": "متن راهنما برای کنترل‌های غیرفعال کردن شناسه قانون ارائه‌دهنده"
+  },
+  "providerImport_ruleActivation": {
+    "message": "فعال سازی قانون",
+    "description": "عنوان بخش برای فعال‌سازی قانون ارائه‌دهنده فعال تغییر می‌کند"
+  },
+  "providerImport_noRuleIds": {
+    "message": "هنوز هیچ شناسه قانون متعارفی در این ارائه دهنده یافت نشده است.",
+    "description": "حالت خالی برای کنترل‌های شناسه قانون ارائه‌دهنده"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "کنترل‌های شناسه قانون پس از معتبر بودن ارائه‌دهنده JSON در دسترس هستند.",
+    "description": "وضعیت JSON برای کنترل‌های شناسه قانون ارائه‌دهنده نامعتبر است"
   }
 }

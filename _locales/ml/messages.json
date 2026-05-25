@@ -420,10 +420,10 @@
     "message": "ദാതാവിൻ്റെ പേര് ആവശ്യമാണ്"
   },
   "customRulesEditor_rawRules": {
-    "message": "അസംസ്കൃത നിയമങ്ങൾ (റീജക്സ് പാറ്റേണുകൾ)"
+    "message": "അസംസ്കൃത നിയമങ്ങൾ"
   },
   "customRulesEditor_redirections": {
-    "message": "റീഡയറക്‌ടുകൾ (റിഡയറക്‌ട് പാറ്റേണുകൾ)"
+    "message": "വഴിതിരിച്ചുവിടലുകൾ"
   },
   "customRulesEditor_referralMarketing": {
     "message": "റഫറൽ മാർക്കറ്റിംഗ്"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "മുഴുവൻ URL-ലും നേരിട്ടുള്ള റീജക്സ് പാറ്റേണുകൾ പ്രയോഗിച്ചു. സാധാരണ പാരാമീറ്റർ ഫോർമാറ്റിന് അനുയോജ്യമല്ലാത്ത സങ്കീർണ്ണ പാറ്റേണുകൾക്കായി ഉപയോഗിക്കുക.",
+    "message": "കാനോനിക്കൽ റോ റൂൾ ഒബ്‌ജക്റ്റുകൾ മുഴുവൻ URL-ലും റീജക്സ് പാറ്റേണുകൾ പ്രയോഗിക്കുന്നു. സാധാരണ പാരാമീറ്റർ ഫോർമാറ്റിന് അനുയോജ്യമല്ലാത്ത സങ്കീർണ്ണ പാറ്റേണുകൾക്കായി ഉപയോഗിക്കുക.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "അസംസ്കൃത നിയമങ്ങൾ:",
+    "message": "അസംസ്കൃത നിയമ വസ്തുക്കൾ:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "ശകലങ്ങൾ, പാത്ത് സെഗ്‌മെൻ്റുകൾ അല്ലെങ്കിൽ സങ്കീർണ്ണമായ പാരാമീറ്റർ പാറ്റേണുകൾക്കായി റോ റൂളുകൾ ഉപയോഗിക്കുക.",
+    "message": "ശകലങ്ങൾ, പാത്ത് സെഗ്‌മെൻ്റുകൾ അല്ലെങ്കിൽ സങ്കീർണ്ണമായ പാരാമീറ്റർ പാറ്റേണുകൾക്കായി kind: \"raw\" ഉള്ള rules[] ഒബ്‌ജക്റ്റുകൾ ഉപയോഗിക്കുക.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "നിയമങ്ങളും അസംസ്കൃത നിയമങ്ങളും തമ്മിലുള്ള വ്യത്യാസം എന്താണ്?",
+    "message": "rules[] ഏത് റൂൾ രൂപങ്ങൾ ഉൾക്കൊള്ളാൻ കഴിയും?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "സ്വകാര്യതാ നയ പതിപ്പ് മാപ്പ് ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
+  "providerImport_activeProviderRules": {
     "message": "സജീവ ബണ്ടിൽ/വിദൂര നിയമങ്ങൾ/ഇഷ്‌ടാനുസൃത നിയമങ്ങൾ",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+    "description": "നിലവിൽ സജീവമായ ബണ്ടിൽ, റിമോട്ട് ബാക്ക്ഡ്, ഇഷ്‌ടാനുസൃത നിയമങ്ങൾ എന്നിവയ്‌ക്കായുള്ള സൈഡ്‌ബാർ ഓപ്ഷൻ."
   },
   "providerImport_button": {
     "message": "ദാതാക്കളെ ഇറക്കുമതി ചെയ്യുക/പ്രവർത്തനരഹിതമാക്കുക",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "എന്താണ് നിയമങ്ങൾ, അസംസ്കൃത നിയമങ്ങൾ, റഫറൽ മാർക്കറ്റിംഗ്?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[]-ൽ എന്ത് അടങ്ങിയിരിക്കാം?",
+    "description": "ഏകീകൃത Linkumori-ClearURLs നിയമങ്ങൾക്കായുള്ള പതിവ് ചോദ്യങ്ങൾ"
   },
   "audit_faq_rules_body": {
-    "message": "XXX URL.</p><p><span class=\"faq-code\">rawRules</span> എന്നത് അന്വേഷണത്തിന് മുമ്പ് മുഴുവൻ URL സ്‌ട്രിംഗിലേക്കും നേരിട്ട് പ്രയോഗിക്കുന്ന റീജക്സ് റീപ്ലേസ്‌മെൻ്റുകളാണ് cleanup.</p><p>XTKNXX9XXTKNXXreferralMarketing</span> നീക്കം ചെയ്യാവുന്ന പാരാമീറ്ററുകൾ പോലെയാണ് പരിഗണിക്കുന്നത്, എന്നാൽ അവ യഥാർത്ഥത്തിൽ ഉപയോഗിക്കുന്നുണ്ടോ എന്നത് ആഗോള റഫറൽ-മാർക്കറ്റിംഗ് XXXXXXX ക്രമീകരണത്തെ ആശ്രയിച്ചിരിക്കുന്നു.",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> ലളിതമായ പാരാമീറ്റർ സ്ട്രിംഗുകൾ, ഇൻലൈൻ സ്വീകരിക്കുന്നു <span class=\"faq-code\">$removeparam</span> ഫിൽട്ടറുകൾ, കാനോനിക്കൽ വസ്തുക്കൾ.</p><p>ഉപയോഗിക്കുക <span class=\"faq-code\">kind: \"raw\"</span> മുഴുവൻ-URL റീജക്‌സ് ക്ലീനപ്പിനും <span class=\"faq-code\">kind: \"redirection\"</span> റീഡയറക്‌ട് എക്‌സ്‌ട്രാക്ഷനായി.</p><p>ഉപയോഗിക്കുക <span class=\"faq-code\">referralMarketing: true</span> പാരാമീറ്റർ റഫറൽ-മാർക്കറ്റിംഗ് ക്രമീകരണത്തെ ആശ്രയിക്കുമ്പോൾ ഒരു ഫീൽഡ് റൂളിൽ.</p>",
+    "description": "ഏകീകൃത Linkumori-ClearURLs നിയമങ്ങൾക്കായുള്ള FAQ ബോഡി"
   },
   "audit_faq_exceptions_title": {
     "message": "എന്താണ് ഒഴിവാക്കലുകളും ഡൊമെയ്ൻ ഒഴിവാക്കലുകളും?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\"> റീഡയറക്ഷൻസ്</span> റീജക്‌സ് അടിസ്ഥാനമാക്കിയുള്ള അൺറാപ്പറുകളാണ്. അവർ സാധാരണയായി ഗ്രൂപ്പ് 1-ൽ യഥാർത്ഥ ലക്ഷ്യസ്ഥാന URL ക്യാപ്‌ചർ ചെയ്യുന്നു, കൂടാതെ ClearURL-കൾ ആ ക്യാപ്‌ചർ ചെയ്‌ത മൂല്യത്തിലേക്ക് റീഡയറക്‌ടുചെയ്യുന്നു. ഈ കോഡ്‌ബേസിൽ അവ <span class=\"faq-code\">പാറ്റേൺ $redirect= target</span>.</p><p> പോലെ ആകൃതിയിലുള്ള എൻട്രികൾക്കായി പരിശോധിച്ചു, ഒരു റീജക്‌സ് റീഡയറക്‌ഷൻ ആദ്യം പൊരുത്തപ്പെടുന്നുവെങ്കിൽ. ഇല്ലെങ്കിൽ, ClearURLs അടുത്ത ഡൊമെയ്ൻ റീഡയറക്‌ടുകൾ പരിശോധിക്കുന്നു.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> കൂടെ എൻട്രികൾ <span class=\"faq-code\">kind: \"redirection\"</span> റീജക്സ് അടിസ്ഥാനമാക്കിയുള്ള അൺറാപ്പറുകളാണ്. അവർ സാധാരണയായി ഗ്രൂപ്പ് 1-ൽ യഥാർത്ഥ ലക്ഷ്യസ്ഥാനമായ URL ക്യാപ്‌ചർ ചെയ്യുന്നു, കൂടാതെ ClearURLs ആ ക്യാപ്‌ചർ ചെയ്‌ത മൂല്യത്തിലേക്ക് റീഡയറക്‌ടുചെയ്യുന്നു.</p><p><span class=\"faq-code\">domainRedirections</span> ഡൊമെയ്ൻ ശൈലിയിലുള്ള റീഡയറക്‌ട് നിയമങ്ങളാണ്. ഈ കോഡ് ബേസിൽ അവ ആകൃതിയിലുള്ള എൻട്രികൾക്കായി പരിശോധിക്കുന്നു <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>ഒരു റീജക്സ് റീഡയറക്ഷൻ ആദ്യം പൊരുത്തപ്പെടുന്നുവെങ്കിൽ, അത് വിജയിക്കും. ഇല്ലെങ്കിൽ, ClearURLs അടുത്തതായി redirections ഡൊമെയ്ൻ പരിശോധിക്കുന്നു.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>ഈ ബ്രാഞ്ചിലെ പ്രൊവൈഡർ-ബിൽഡിംഗ് പാത്ത് ഈ കീകൾ വായിക്കുന്നു: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\"> ഫോഴ്സ് റീഡയറക്ഷൻ4XXTKNX, XXX <span class=\"faq-code\"> റോറൂൾ <span class=\"faq-code\">ഡൊമെയ്ൻ ഒഴിവാക്കലുകൾ</span>, <span class=\"faq-code\"> തിരിച്ചുവിടലുകൾ</span>, <span class=\"faq-code\">, XXTKNXX21XXTKNXTKNX2, <span class=\"faq-code\"> രീതികൾ</span>, കൂടാതെ <span class=\"faq-code\"> റിസോഴ്സ് തരങ്ങൾ</span>.</span> പരിശോധിക്കുന്നത് <span class=\"faq-code\">അവസാന നിയമങ്ങൾ</span> ആണ്, കാരണം അത് ബണ്ടിൽ, റിമോട്ട്, ഇഷ്‌ടാനുസൃത ഉറവിടങ്ങൾ എന്നിവ സംയോജിപ്പിച്ചതിന് ശേഷം ലയിപ്പിച്ച ഫലം കാണിക്കുന്നു.</p>",
+    "message": "<p>ഈ ബ്രാഞ്ചിലെ പ്രൊവൈഡർ-ബിൽഡിംഗ് പാത്ത് ഈ ഓട്ടറിംഗ് കീകൾ വായിക്കുന്നു: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, ഒപ്പം <span class=\"faq-code\">resourceTypes</span>.</p><p>റോ ക്ലീനപ്പ്, റഫറൽ-മാർക്കറ്റിംഗ് ക്ലീനപ്പ്, regex redirections എന്നിവയ്‌ക്കുള്ളിൽ നിലനിർത്തിയിരിക്കുന്ന ClearURLs ഫീൽഡുകളോ കാനോനിക്കൽ ഒബ്‌ജക്റ്റുകളോ ഉപയോഗിക്കാം. <span class=\"faq-code\">rules[]</span>.</p><p>പെരുമാറ്റം ഓഡിറ്റ് ചെയ്യുമ്പോൾ, പരിശോധിക്കേണ്ട ഏറ്റവും പ്രധാനപ്പെട്ട സ്ഥലം <span class=\"faq-code\">Final Rules</span>, കാരണം അത് ബണ്ടിൽ, റിമോട്ട്, ഇഷ്‌ടാനുസൃത ഉറവിടങ്ങൾ എന്നിവ സംയോജിപ്പിച്ചതിന് ശേഷം ലയിപ്പിച്ച ഫലം കാണിക്കുന്നു.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "റൂൾ വാക്യഘടന",
+    "message": "റൂൾ ലേഔട്ട്",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "ക്ലാസിക് അറേകൾ",
+    "description": "ക്ലാസിക് Linkumori-ClearURLs നിയമങ്ങൾക്കായുള്ള കസ്റ്റം റൂൾസ് എഡിറ്റർ സിൻ്റാക്സ് മോഡ് ലേബൽ"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "കാനോനിക്കൽ വസ്തുക്കൾ",
+    "description": "കാനോനിക്കൽ Linkumori-ClearURLs നിയമങ്ങൾക്കായുള്ള കസ്റ്റം റൂൾസ് എഡിറ്റർ സിൻ്റാക്സ് മോഡ് ലേബൽ"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs പഴയ ClearURLs ഫീൽഡുകൾ സൂക്ഷിക്കുകയും rules[]-ൽ ലളിതമായ സ്ട്രിംഗുകൾ, ഇൻലൈൻ $removeparam നിയമങ്ങൾ, കാനോനിക്കൽ റൂൾ ഒബ്‌ജക്റ്റുകൾ എന്നിവ ചേർക്കുകയും ചെയ്യുന്നു.",
+    "description": "Linkumori-ClearURLs റൂൾ ലേഔട്ടിനുള്ള കസ്റ്റം റൂൾസ് എഡിറ്റർ സഹായ വാചകം"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "കാനോനിക്കൽ Linkumori-ClearURLs നിയമങ്ങൾ rules[]-നുള്ളിൽ തരം + പ്രവർത്തനം ഉപയോഗിക്കുന്നു. പഴയ rawRules, referralMarketing, redirections ഫീൽഡുകൾ ഇപ്പോഴും പ്രവർത്തിക്കുന്നു.",
+    "description": "കാനോനിക്കൽ Linkumori-ClearURLs നിയമങ്ങൾക്കായുള്ള കസ്റ്റം റൂൾസ് എഡിറ്റർ സഹായ വാചകം"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "എല്ലാ ദാതാക്കളുടെ നിയമങ്ങൾക്കും linkumori-clearurls-dialect ഉപയോഗിക്കുക.",
+    "description": "ഏകീകൃത Linkumori-ClearURLs നിയമങ്ങൾക്കായുള്ള കസ്റ്റം റൂൾസ് എഡിറ്റർ JSON സഹായ വാചകം"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "JSON ദാതാവിനായി Linkumori-ClearURLs ഭാഷ ഉപയോഗിക്കുക. പുതിയ സേവുകളിൽ syntax: \"linkumori-clearurls-dialect\" ഉൾപ്പെടുന്നു.",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs പഴയ ClearURLs ഫീൽഡുകൾ സൂക്ഷിക്കുകയും rules[] സ്ട്രിംഗുകൾ, $removeparam ഫിൽട്ടറുകൾ, ഐഡി, തരം, പൊരുത്തം, പ്രവർത്തനം എന്നിവയുള്ള കാനോനിക്കൽ ഒബ്‌ജക്‌റ്റുകൾ എന്നിവ ചേർക്കുകയും ചെയ്യുന്നു.",
+    "description": "ഏകീകൃത Linkumori-ClearURLs നിയമങ്ങൾക്കായുള്ള കസ്റ്റം റൂൾസ് എഡിറ്റർ ടൂൾബാർ സഹായ വാചകം"
   },
   "customRulesEditor_addFieldRule": {
     "message": "ഫീൽഡ് റൂൾ ചേർക്കുക",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "ദാതാവിൻ്റെ ഫീൽഡുകൾ",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "ഏകീകൃത Linkumori-ClearURLs മോഡിൽ ദാതാവിൻ്റെ ഫീൽഡുകൾക്കായുള്ള കസ്റ്റം റൂൾസ് എഡിറ്റർ ലേബൽ"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "റൂൾ ടെംപ്ലേറ്റുകൾ",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "ഏകീകൃത Linkumori-ClearURLs മോഡിൽ റൂൾ ടെംപ്ലേറ്റുകൾക്കായുള്ള കസ്റ്റം റൂൾസ് എഡിറ്റർ ലേബൽ"
   },
   "popup_report_issue_button_title": {
     "message": "ഒരു പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "കോൺഫിഗറേഷൻ ഡാറ്റ വീണ്ടെടുക്കുന്നതിൽ പിശക്:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "പ്രവർത്തനരഹിതമാക്കുക",
+    "description": "ഒരു പ്രൊവൈഡർ റൂൾ ഐഡി പ്രവർത്തനരഹിതമാക്കാനുള്ള ബട്ടൺ ലേബൽ"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "ദാതാവിൻ്റെ റൂൾ ഐഡികൾ",
+    "description": "പ്രവർത്തനരഹിതമാക്കിയ ClearURLs പ്രൊവൈഡർ റൂൾ ഐഡികൾക്കുള്ള വിഭാഗ ശീർഷകം"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "പ്രൊവൈഡർ റൂൾ ഐഡി നിയന്ത്രണങ്ങൾ",
+    "description": "റൂൾ-ഐഡിക്കുള്ള ടൂൾബാർ ശീർഷകം പ്രൊവൈഡർ എഡിറ്ററിൽ നിയന്ത്രണങ്ങൾ പ്രവർത്തനരഹിതമാക്കുക"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "കാനോനിക്കൽ പ്രൊവൈഡർ റൂൾ ഐഡികൾ ഇല്ലാതാക്കാതെ തന്നെ പ്രവർത്തനരഹിതമാക്കുക. സംഭരിച്ച ഐഡികൾ provider::rule ഐഡൻ്റിറ്റി ഉപയോഗിക്കുന്നു.",
+    "description": "പ്രൊവൈഡർ റൂൾ ഐഡിക്കുള്ള സഹായ വാചകം നിയന്ത്രണങ്ങൾ പ്രവർത്തനരഹിതമാക്കുക"
+  },
+  "providerImport_ruleActivation": {
+    "message": "റൂൾ ആക്ടിവേഷൻ",
+    "description": "സജീവ പ്രൊവൈഡർ റൂൾ ആക്ടിവേഷൻ ടോഗിളുകൾക്കുള്ള വിഭാഗ ശീർഷകം"
+  },
+  "providerImport_noRuleIds": {
+    "message": "ഈ ദാതാവിൽ ഇതുവരെ കാനോനിക്കൽ റൂൾ ഐഡികളൊന്നും കണ്ടെത്തിയില്ല.",
+    "description": "ദാതാവിൻ്റെ റൂൾ-ഐഡി നിയന്ത്രണങ്ങൾക്കുള്ള ശൂന്യമായ അവസ്ഥ"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "ദാതാവ് JSON സാധുതയുള്ളപ്പോൾ റൂൾ ഐഡി നിയന്ത്രണങ്ങൾ ലഭ്യമാണ്.",
+    "description": "പ്രൊവൈഡർ റൂൾ-ഐഡി നിയന്ത്രണങ്ങൾക്കായി അസാധുവായ JSON അവസ്ഥ"
   }
 }

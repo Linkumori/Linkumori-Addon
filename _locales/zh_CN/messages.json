@@ -364,10 +364,10 @@
     "message": "提供者名称是必需的"
   },
   "customRulesEditor_rawRules": {
-    "message": "原始规则（正则表达式模式）"
+    "message": "原始规则"
   },
   "customRulesEditor_redirections": {
-    "message": "重定向（重定向模式）"
+    "message": "重定向"
   },
   "customRulesEditor_referralMarketing": {
     "message": "引荐营销"
@@ -712,13 +712,16 @@
     "message": "提供者是将多个规则分组到同一 URL 模式下的逻辑单元。每个提供者针对一个特定的网站或服务，并包含清理该来源 URL 所需的所有规则。"
   },
   "faq_raw_rules_explanation": {
-    "message": "直接应用于整个 URL 的正则表达式模式。用于不符合标准参数格式的复杂模式。"
+    "message": "规范原始规则对象将正则表达式模式应用于整个 URL。用于不符合标准参数格式的复杂模式。",
+    "description": "FAQ rawRules 的解释"
   },
   "faq_raw_rules_title": {
-    "message": "原始规则："
+    "message": "原始规则对象：",
+    "description": "FAQ rawRules 说明的章节标题"
   },
   "faq_raw_rules_usage": {
-    "message": "对片段、路径段或复杂参数模式使用 rawRules。"
+    "message": "将 rules[] 对象与 kind: \"raw\" 结合使用用于片段、路径段或复杂参数模式。",
+    "description": "FAQ guidance 对 rawRules 的使用"
   },
   "faq_redirections": {
     "message": "重定向是如何工作的？"
@@ -808,7 +811,8 @@
     "message": "规则："
   },
   "faq_rules_vs_raw": {
-    "message": "rules 和 rawRules 有什么区别？"
+    "message": "rules[] 可以包含哪些规则形状？",
+    "description": "FAQ 关于规则的问题与 rawRules"
   },
   "faq_section_advanced": {
     "message": "高级功能"
@@ -1563,8 +1567,9 @@
   "privacyVersionMapLoadFailed": {
     "message": "无法加载隐私政策版本映射。"
   },
-  "providerImport_bundledRules": {
-    "message": "活动的捆绑/远程/自定义规则"
+  "providerImport_activeProviderRules": {
+    "message": "活动捆绑/远程规则/自定义规则",
+    "description": "当前活动的捆绑、远程支持和自定义规则的侧边栏选项。"
   },
   "providerImport_button": {
     "message": "导入/禁用提供者"
@@ -2910,10 +2915,12 @@
     "message": "<p><span class=\"faq-code\">domainPatterns</span> 是当提供者不依赖 <span class=\"faq-code\">urlPattern</span> 时使用的基于域名的匹配器。</p><p>ClearURLs 使用 <span class=\"faq-code\">setURLDomainPattern()</span> 存储这些模式，然后使用域名匹配逻辑（而不是正则表达式 URL 匹配）来检查它们。</p>"
   },
   "audit_faq_rules_title": {
-    "message": "什么是 rules、rawRules 和 referralMarketing？"
+    "message": "rules[] 可以包含什么？",
+    "description": "统一Linkumori-ClearURLs规则的常见问题解答标题"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> 是应从 URL 中移除的参数名称或片段名称。</p><p><span class=\"faq-code\">rawRules</span> 是在查询清理之前直接应用于整个 URL 字符串的正则表达式替换。</p><p><span class=\"faq-code\">referralMarketing</span> 也被视为可移除的参数，但它们是否实际使用取决于全局引荐营销设置。</p>"
+    "message": "<p><span class=\"faq-code\">rules[]</span> 接受简单的参数字符串，内联 <span class=\"faq-code\">$removeparam</span> 过滤器和规范对象。</p><p>使用 <span class=\"faq-code\">kind: \"raw\"</span> 用于整个 URL 正则表达式清理和 <span class=\"faq-code\">kind: \"redirection\"</span> 用于重定向提取。</p><p>使用 <span class=\"faq-code\">referralMarketing: true</span> 当参数取决于推荐营销设置时，基于字段规则。</p>",
+    "description": "统一Linkumori-ClearURLs规则的常见问题解答正文"
   },
   "audit_faq_exceptions_title": {
     "message": "什么是 exceptions 和 domainExceptions？"
@@ -2925,7 +2932,8 @@
     "message": "什么是 redirections 和 domainRedirections？"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> 是基于正则表达式的解包器。它们通常在组 1 中捕获真实的目标 URL，然后 ClearURLs 会重定向到该捕获的值。</p><p><span class=\"faq-code\">domainRedirections</span> 是域名风格的重定向规则。在此代码库中，它们会检查形状为 <span class=\"faq-code\">pattern $redirect= target</span> 的条目。</p><p>如果正则表达式重定向首先匹配，则它获胜。如果没有，ClearURLs 接下来会检查域名重定向。</p>"
+    "message": "<p><span class=\"faq-code\">rules[]</span> 条目与 <span class=\"faq-code\">kind: \"redirection\"</span> 是基于正则表达式的解包器。它们通常捕获组 1 中的真实目标 URL，并且 ClearURLs 重定向到该捕获的值。</p><p><span class=\"faq-code\">domainRedirections</span> 是域样式的重定向规则。在此代码库中，检查它们是否有类似形状的条目 <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>如果正则表达式重定向首先匹配，则获胜。如果不是，ClearURLs 接下来检查域 redirections。</p>",
+    "description": "redirections 和域重定向的 FAQ 主体"
   },
   "audit_faq_methods_resources_title": {
     "message": "什么是 methods 和 resourceTypes？"
@@ -2943,7 +2951,8 @@
     "message": "clearurls.js 在此处使用哪些提供者字段？"
   },
   "audit_faq_fields_body": {
-    "message": "<p>此分支中的提供者构建路径会读取以下键：<span class=\"faq-code\">completeProvider</span>、<span class=\"faq-code\">forceRedirection</span>、<span class=\"faq-code\">urlPattern</span>、<span class=\"faq-code\">domainPatterns</span>、<span class=\"faq-code\">rules</span>、<span class=\"faq-code\">rawRules</span>、<span class=\"faq-code\">referralMarketing</span>、<span class=\"faq-code\">exceptions</span>、<span class=\"faq-code\">domainExceptions</span>、<span class=\"faq-code\">redirections</span>、<span class=\"faq-code\">domainRedirections</span>、<span class=\"faq-code\">methods</span> 和 <span class=\"faq-code\">resourceTypes</span>。</p><p>在审计行为时，最重要的检查地点是 <span class=\"faq-code\">最终规则</span>，因为它显示了捆绑、远程和自定义源组合后的合并结果。</p>"
+    "message": "<p>该分支中的提供程序构建路径读取这些创作密钥： <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>， 和 <span class=\"faq-code\">resourceTypes</span>.</p><p>原始清理、推荐​​营销清理和正则表达式 redirections 可以使用内部保留的 ClearURLs 字段或规范对象 <span class=\"faq-code\">rules[]</span>.</p><p>在审计行为时，最重要的检查地方是 <span class=\"faq-code\">Final Rules</span>，因为这显示了捆绑、远程和自定义源合并后的合并结果。</p>",
+    "description": "clearurls.js 使用的 provider 字段列表的 FAQ 主体"
   },
   "popup_temporary_pause_title": {
     "message": "临时暂停"
@@ -3654,36 +3663,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "规则语法",
+    "message": "规则布局",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "经典数组",
+    "description": "经典 Linkumori-ClearURLs 规则的自定义规则编辑器语法模式标签"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "规范对象",
+    "description": "规范 Linkumori-ClearURLs 规则的自定义规则编辑器语法模式标签"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs 保留旧的 ClearURLs 字段，并在 rules[] 中添加简单字符串、内联 $removeparam 规则和规范规则对象。",
+    "description": "Linkumori-ClearURLs 规则布局的自定义规则编辑器帮助文本"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "规范的 Linkumori-ClearURLs 规则在 rules[] 中使用种类 + 动作。旧的 rawRules、referralMarketing 和 redirections 字段仍然有效。",
+    "description": "规范 Linkumori-ClearURLs 规则的自定义规则编辑器帮助文本"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "对所有提供商规则使用 linkumori-clearurls-dialect。",
+    "description": "统一 Linkumori-ClearURLs 规则的自定义规则编辑器 JSON 帮助文本"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "对提供者 JSON 使用 Linkumori-ClearURLs 方言。新存档包括 syntax: \"linkumori-clearurls-dialect\"。",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs 保留旧的 ClearURLs 字段，并添加 rules[] 字符串、$removeparam 过滤器以及具有 id、kind、match 和 action 的规范对象。",
+    "description": "统一 Linkumori-ClearURLs 规则的自定义规则编辑器工具栏帮助文本"
   },
   "customRulesEditor_addFieldRule": {
     "message": "添加字段规则",
@@ -3699,11 +3708,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "提供商字段",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "统一 Linkumori-ClearURLs 模式下提供商字段的自定义规则编辑器标签"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "规则模板",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "统一 Linkumori-ClearURLs 模式下规则模板的自定义规则编辑器标签"
   },
   "popup_report_issue_button_title": {
     "message": "报告问题",
@@ -3903,5 +3912,33 @@
   "report_config_error": {
     "message": "检索配置数据时出错：",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "禁用",
+    "description": "用于禁用提供商规则 ID 的按钮标签"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "提供商规则 ID",
+    "description": "禁用的 ClearURLs 提供商规则 ID 的部分标题"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "提供商规则 ID 控制",
+    "description": "提供程序编辑器中规则 ID 禁用控件的工具栏标题"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "禁用规范提供程序规则 ID，而不删除它们。存储的 id 使用 provider::rule 身份。",
+    "description": "提供程序规则 ID 禁用控件的帮助文本"
+  },
+  "providerImport_ruleActivation": {
+    "message": "规则激活",
+    "description": "活动提供商规则激活切换的部分标题"
+  },
+  "providerImport_noRuleIds": {
+    "message": "在此提供程序中尚未找到规范规则 ID。",
+    "description": "提供者规则 ID 控件的空状态"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "一旦提供者 JSON 有效，规则 ID 控制就可用。",
+    "description": "提供程序规则 ID 控件的 JSON 状态无效"
   }
 }
