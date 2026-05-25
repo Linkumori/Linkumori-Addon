@@ -131,7 +131,7 @@ console.log(`Channel: ${CHANNEL}`);
 // Never a .xpi at build time — .xpi is only produced by AMO after signing.
 // ---------------------------------------------------------------------------
 
-const glob      = new Bun.Glob("web-ext-artifacts/*.zip");
+const glob      = new Bun.Glob("web-ext-artifacts/*.xpi");
 const artifacts = await Array.fromAsync(glob.scan("."));
 
 if (artifacts.length === 0) {
