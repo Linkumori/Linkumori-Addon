@@ -3398,8 +3398,12 @@ function displayBundledRulesInfo() {
         browser.runtime.sendMessage({
             function: "getCustomRulesStats",
             params: []
+        }),
+        browser.runtime.sendMessage({
+            function: "getData",
+            params: ["clearurlsProviderSnapshot"]
         })
-    ]).then(([rulesResponse, metadataResponse, customRulesResponse, hashStatusResponse, sourceInfoResponse, mergeStatsResponse, whitelistResponse, customStatsResponse]) => {
+    ]).then(([rulesResponse, metadataResponse, customRulesResponse, hashStatusResponse, sourceInfoResponse, mergeStatsResponse, whitelistResponse, customStatsResponse, providerSnapshotResponse]) => {
         const rulesData = rulesResponse.response;
         const metadata = metadataResponse.response;
         const customRules = customRulesResponse.response;
@@ -3408,6 +3412,9 @@ function displayBundledRulesInfo() {
         const mergeStats = mergeStatsResponse.response || {};
         const whitelist = Array.isArray(whitelistResponse.response) ? whitelistResponse.response : [];
         const customStats = customStatsResponse && customStatsResponse.response ? customStatsResponse.response : {};
+        const providerSnapshot = providerSnapshotResponse && providerSnapshotResponse.response
+            ? providerSnapshotResponse.response
+            : null;
         const clearURLsRuntimeData = rulesData && typeof rulesData === 'object' ? rulesData : {};
         const urlFilterMetadata = clearURLsRuntimeData.urlFilterMetadata || {};
         const urlFilterRuleCount = Array.isArray(clearURLsRuntimeData.urlFilterRules) ? clearURLsRuntimeData.urlFilterRules.length : 0;
@@ -3417,8 +3424,28 @@ function displayBundledRulesInfo() {
 
         if (rulesData && rulesData.providers) {
             const providerCount = Object.keys(rulesData.providers).length;
-            const ruleCount = Object.values(rulesData.providers)
-                .reduce((total, provider) => total + (provider.rules ? provider.rules.length : 0), 0);
+            const countProviderRuleEntries = provider => {
+                if (!provider || typeof provider !== 'object') return 0;
+                return ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions']
+                    .reduce((total, key) => total + (Array.isArray(provider[key]) ? provider[key].length : 0), 0);
+            };
+            const hasSnapshotRuleIds = !!(
+                providerSnapshot &&
+                providerSnapshot.ruleIds &&
+                typeof providerSnapshot.ruleIds === 'object'
+            );
+            const snapshotRuleCount = hasSnapshotRuleIds
+                ? Object.values(providerSnapshot.ruleIds).reduce((total, rule) => {
+                    if (!rule || typeof rule !== 'object') return total;
+                    if (Array.isArray(rule.activationIds)) {
+                        return total + rule.activationIds.length;
+                    }
+                    return total + 1;
+                }, 0)
+                : 0;
+            const fallbackRuleCount = Object.values(rulesData.providers)
+                .reduce((total, provider) => total + countProviderRuleEntries(provider), 0);
+            const ruleCount = hasSnapshotRuleIds ? snapshotRuleCount : fallbackRuleCount;
             
             if (statusElement) {
                 const statusActive = translate('rules_status_active');

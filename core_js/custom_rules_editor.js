@@ -145,6 +145,8 @@ const {
 } = globalThis.LinkumoriTheme;
 let importExclusionsBySource = {};
 let linkumoriURLDisabledRules = [];
+let clearURLsDisabledRuleIds = [];
+let clearURLsProviderSnapshot = null;
 let userWhitelist = [];
 let whitelistSearchTerm = '';
 let whitelistStatusTimer = null;
@@ -980,6 +982,9 @@ function getRuleSourceLabel(source) {
     if (source === 'linkumori-data') {
         return i18n('providerImport_linkumoriData');
     }
+    if (source === 'clearurls-rule-ids') {
+        return i18n('providerImport_providerRuleIds');
+    }
     return source;
 }
 
@@ -1006,6 +1011,21 @@ function normalizeLinkumoriURLDisabledRulesValue(value) {
     return [];
 }
 
+function normalizeClearURLsDisabledRuleIdsValue(value) {
+    if (!value) return [];
+    if (typeof value === 'string') {
+        try {
+            return normalizeClearURLsDisabledRuleIdsValue(JSON.parse(value));
+        } catch (_) {
+            return value.split(/\r?\n/).map(ruleId => ruleId.trim()).filter(Boolean);
+        }
+    }
+    if (Array.isArray(value)) {
+        return [...new Set(value.map(ruleId => String(ruleId || '').trim()).filter(Boolean))];
+    }
+    return [];
+}
+
 async function loadLinkumoriURLDisabledRules() {
     try {
         const response = await browser.runtime.sendMessage({
@@ -1018,11 +1038,175 @@ async function loadLinkumoriURLDisabledRules() {
     }
 }
 
+async function loadClearURLsDisabledRuleIds() {
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: 'getData',
+            params: ['clearurls_disabled_rule_ids']
+        });
+        clearURLsDisabledRuleIds = normalizeClearURLsDisabledRuleIdsValue(response?.response);
+    } catch (_) {
+        clearURLsDisabledRuleIds = [];
+    }
+}
+
+async function loadClearURLsProviderSnapshot() {
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: 'getData',
+            params: ['clearurlsProviderSnapshot']
+        });
+        clearURLsProviderSnapshot = response?.response && typeof response.response === 'object'
+            ? response.response
+            : null;
+    } catch (_) {
+        clearURLsProviderSnapshot = null;
+    }
+}
+
 async function saveLinkumoriURLDisabledRules() {
     await browser.runtime.sendMessage({
         function: 'setData',
         params: ['linkumori_url_disabled_rules', JSON.stringify(linkumoriURLDisabledRules)]
     });
+}
+
+async function saveClearURLsDisabledRuleIds() {
+    await browser.runtime.sendMessage({
+        function: 'setData',
+        params: ['clearurls_disabled_rule_ids', JSON.stringify(clearURLsDisabledRuleIds)]
+    });
+}
+
+function buildProviderRuntimeRuleId(providerName, ruleId) {
+    return `${providerName}::${ruleId}`;
+}
+
+function getProviderRuleDisableKeys(providerName, ruleId, aliases = []) {
+    return [
+        buildProviderRuntimeRuleId(providerName, ruleId),
+        ruleId,
+        ...aliases.map(alias => buildProviderRuntimeRuleId(providerName, alias)),
+        ...aliases
+    ].filter(Boolean);
+}
+
+function collectProviderRuleIdEntries(providerName, provider) {
+    if (!providerName || !provider || typeof provider !== 'object') {
+        return [];
+    }
+
+    const entries = [];
+    const sections = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions'];
+    sections.forEach(section => {
+        const rules = provider[section];
+        if (!Array.isArray(rules)) {
+            return;
+        }
+        rules.forEach((rule, index) => {
+            if (!rule || typeof rule !== 'object' || typeof rule.id !== 'string' || !rule.id.trim()) {
+                return;
+            }
+
+            const aliases = Array.isArray(rule.aliases)
+                ? rule.aliases.map(alias => String(alias || '').trim()).filter(Boolean)
+                : [];
+            const runtimeId = buildProviderRuntimeRuleId(providerName, rule.id);
+            const disabledIds = new Set(clearURLsDisabledRuleIds);
+            const disableKeys = getProviderRuleDisableKeys(providerName, rule.id, aliases);
+            const disabled = disableKeys.some(key => disabledIds.has(key));
+
+            entries.push({
+                section,
+                index,
+                id: rule.id,
+                runtimeId,
+                aliases,
+                disableKeys,
+                kind: rule.kind || (section === 'rawRules' ? 'raw' : (section === 'redirections' ? 'redirection' : 'field')),
+                match: typeof rule.match === 'string' ? rule.match : '',
+                disabled
+            });
+        });
+    });
+
+    return entries;
+}
+
+function renderProviderRuleIdControls(providerName, provider) {
+    const container = document.getElementById('provider-rule-id-controls');
+    if (!container) {
+        return;
+    }
+
+    const entries = collectProviderRuleIdEntries(providerName, provider);
+    if (entries.length === 0) {
+        setHTMLContent(container, `
+            <div class="json-key-toolbar-help">${i18n('providerImport_noRuleIds')}</div>
+        `);
+        return;
+    }
+
+    const rows = entries.map(entry => {
+        const aliasText = entry.aliases.length > 0 ? ` aliases: ${entry.aliases.join(', ')}` : '';
+        const matchText = entry.match ? ` · ${entry.match}` : '';
+        return `
+            <li class="provider-disabled-item provider-rule-id-item" data-rule-id="${escapeHtml(entry.runtimeId)}" data-runtime-id="${escapeHtml(entry.runtimeId)}">
+                <input type="hidden" class="provider-rule-id-disable-keys" value="${escapeHtml(JSON.stringify(entry.disableKeys))}">
+                <span class="provider-disabled-signature" title="${escapeHtml(entry.runtimeId)}">
+                    <strong>${escapeHtml(entry.id)}</strong>
+                    <span class="provider-disabled-source">${escapeHtml(entry.section)} · ${escapeHtml(entry.kind)}${escapeHtml(matchText)}${escapeHtml(aliasText)}</span>
+                </span>
+                <button type="button" class="btn btn-sm ${entry.disabled ? 'btn-secondary provider-rule-id-restore-btn' : 'btn-warning provider-rule-id-disable-btn'}">
+                    ${entry.disabled ? i18n('providerImport_disabledRestore') : i18n('providerImport_disable')}
+                </button>
+            </li>
+        `;
+    }).join('');
+
+    setHTMLContent(container, `
+        <ul class="provider-disabled-list">${rows}</ul>
+    `);
+}
+
+function renderProviderRuleIdControlsFromEditor() {
+    if (!currentProvider) {
+        return;
+    }
+    const jsonEditor = document.getElementById('json-editor');
+    if (!jsonEditor) {
+        return;
+    }
+    try {
+        renderProviderRuleIdControls(currentProvider, JSON.parse(jsonEditor.value));
+    } catch (_) {
+        const container = document.getElementById('provider-rule-id-controls');
+        if (container) {
+            setHTMLContent(container, `
+                <div class="json-key-toolbar-help">${i18n('providerImport_ruleIdsRequireValidJson')}</div>
+            `);
+        }
+    }
+}
+
+async function setClearURLsProviderRuleDisabled(ruleId, shouldDisable, equivalentIds = []) {
+    const normalizedId = String(ruleId || '').trim();
+    if (!normalizedId) {
+        return;
+    }
+
+    const disabledSet = new Set(clearURLsDisabledRuleIds);
+    if (shouldDisable) {
+        disabledSet.add(normalizedId);
+    } else {
+        disabledSet.delete(normalizedId);
+        equivalentIds.forEach(ruleId => disabledSet.delete(ruleId));
+    }
+    clearURLsDisabledRuleIds = Array.from(disabledSet);
+    await saveClearURLsDisabledRuleIds();
+    await reloadRulesAfterExclusionChange();
+    updateSourceCounts();
+    renderProviderRuleIdControlsFromEditor();
 }
 
 async function removeExcludedSignature(source, signature) {
@@ -2343,6 +2527,8 @@ async function showDisabledRulesPage() {
     if (!disabledRulesView) return;
     await loadImportExclusions();
     await loadLinkumoriURLDisabledRules();
+    await loadClearURLsDisabledRuleIds();
+    await loadClearURLsProviderSnapshot();
     renderDisabledRulesPageContent();
     switchCustomRulesView('disabled-rules');
 }
@@ -2358,7 +2544,8 @@ function hideDisabledRulesPage() {
 async function clearAllDisabledRules() {
     const sources = Object.keys(importExclusionsBySource);
     const hasLinkumoriURLDisabledRules = linkumoriURLDisabledRules.length > 0;
-    if (sources.length === 0 && !hasLinkumoriURLDisabledRules) return;
+    const hasClearURLsDisabledRuleIds = clearURLsDisabledRuleIds.length > 0;
+    if (sources.length === 0 && !hasLinkumoriURLDisabledRules && !hasClearURLsDisabledRuleIds) return;
     const confirmed = await modalConfirm(i18n('providerImport_disabledClearAllConfirm'));
     if (!confirmed) {
         return;
@@ -2366,12 +2553,85 @@ async function clearAllDisabledRules() {
 
     importExclusionsBySource = {};
     linkumoriURLDisabledRules = [];
+    clearURLsDisabledRuleIds = [];
     await saveImportExclusions();
     await saveLinkumoriURLDisabledRules();
+    await saveClearURLsDisabledRuleIds();
     await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
     await reloadRulesAfterExclusionChange();
     updateSourceCounts();
+    renderProviderRuleIdControlsFromEditor();
     renderDisabledRulesPageContent();
+}
+
+function parseActivationId(activationId, fallbackRuleId = '') {
+    const parts = String(activationId || '').split('::');
+    if (parts.length >= 2) {
+        return {
+            providerId: parts.slice(0, -1).join('::'),
+            ruleId: parts[parts.length - 1]
+        };
+    }
+    return {
+        providerId: '',
+        ruleId: fallbackRuleId || String(activationId || '')
+    };
+}
+
+function getSnapshotRuleActivationRows() {
+    const ruleIds = clearURLsProviderSnapshot?.ruleIds || {};
+    const disabled = new Set(clearURLsDisabledRuleIds);
+    const rows = [];
+    Object.values(ruleIds).forEach(rule => {
+        const activationIds = Array.isArray(rule?.activationIds) && rule.activationIds.length > 0
+            ? rule.activationIds
+            : [rule?.runtimeRuleId || buildProviderRuntimeRuleId(rule?.providerName || '', rule?.id || '')];
+        activationIds.forEach(activationId => {
+            const runtimeRuleId = String(activationId || '').trim();
+            if (!runtimeRuleId || disabled.has(runtimeRuleId)) {
+                return;
+            }
+            const parsed = parseActivationId(runtimeRuleId, rule.id || '');
+            rows.push({
+                runtimeRuleId,
+                providerId: parsed.providerId,
+                ruleId: parsed.ruleId,
+                section: rule.section || '',
+                kind: rule.kind || '',
+                match: rule.match || ''
+            });
+        });
+    });
+    rows.sort((a, b) => a.runtimeRuleId.localeCompare(b.runtimeRuleId));
+    return rows;
+}
+
+function renderRuleActivationSection() {
+    const rows = getSnapshotRuleActivationRows();
+    if (rows.length === 0) {
+        return '';
+    }
+    const items = rows.map(row => `
+        <li class="provider-disabled-item rule-activation-item" data-runtime-id="${escapeHtml(row.runtimeRuleId)}">
+            <span class="provider-disabled-signature" title="${escapeHtml(row.runtimeRuleId)}">
+                <strong>${escapeHtml(row.ruleId)}</strong>
+                <span class="provider-disabled-source">
+                    ${escapeHtml(row.providerId)} · ${escapeHtml(row.section)} · ${escapeHtml(row.kind)}
+                    ${row.match ? ` · ${escapeHtml(row.match)}` : ''}
+                </span>
+            </span>
+            <button type="button" class="btn btn-sm btn-warning rule-activation-disable-btn">${i18n('providerImport_disable')}</button>
+        </li>
+    `).join('');
+    return `
+        <div class="provider-disabled-section">
+            <div class="provider-disabled-title-row">
+                <h5 class="provider-disabled-title">${escapeHtml(i18n('providerImport_ruleActivation'))}</h5>
+                <span class="provider-disabled-count-badge">${getLocalizedNumber(rows.length)}</span>
+            </div>
+            <ul class="provider-disabled-list rule-activation-list">${items}</ul>
+        </div>
+    `;
 }
 
 function renderDisabledRulesPageContent() {
@@ -2382,7 +2642,11 @@ function renderDisabledRulesPageContent() {
     if (linkumoriURLDisabledRules.length > 0 && !sources.includes('linkumori-data')) {
         sources.push('linkumori-data');
     }
-    if (sources.length === 0) {
+    if (clearURLsDisabledRuleIds.length > 0 && !sources.includes('clearurls-rule-ids')) {
+        sources.push('clearurls-rule-ids');
+    }
+    const activationSection = renderRuleActivationSection();
+    if (sources.length === 0 && !activationSection) {
         setHTMLContent(container, `
             <div class="provider-list-empty">
                 <p>${i18n('providerImport_disabledEmpty')}</p>
@@ -2395,6 +2659,9 @@ function renderDisabledRulesPageContent() {
         if (source === 'linkumori-data') {
             return sum + linkumoriURLDisabledRules.length;
         }
+        if (source === 'clearurls-rule-ids') {
+            return sum + clearURLsDisabledRuleIds.length;
+        }
         const list = importExclusionsBySource[source];
         return sum + (Array.isArray(list) ? list.length : 0);
     }, 0);
@@ -2403,11 +2670,15 @@ function renderDisabledRulesPageContent() {
     sources.forEach(source => {
         const signatures = (source === 'linkumori-data'
             ? linkumoriURLDisabledRules
+            : source === 'clearurls-rule-ids'
+                ? clearURLsDisabledRuleIds
             : (importExclusionsBySource[source] || [])).slice().sort((a, b) => a.localeCompare(b));
         signatures.forEach(signature => {
             let kind = 'other';
             if (source === 'linkumori-data') {
                 kind = 'linkumoriURL';
+            } else if (source === 'clearurls-rule-ids') {
+                kind = 'clearURLsRuleId';
             } else if (typeof signature === 'string' && signature.startsWith('url:')) {
                 kind = 'urlPattern';
             } else if (typeof signature === 'string' && signature.startsWith('domain:')) {
@@ -2421,14 +2692,16 @@ function renderDisabledRulesPageContent() {
         urlPattern: entries.filter(item => item.kind === 'urlPattern'),
         domainPatterns: entries.filter(item => item.kind === 'domainPatterns'),
         linkumoriURL: entries.filter(item => item.kind === 'linkumoriURL'),
+        clearURLsRuleId: entries.filter(item => item.kind === 'clearURLsRuleId'),
         other: entries.filter(item => item.kind === 'other')
     };
 
-    const sectionOrder = ['urlPattern', 'domainPatterns', 'linkumoriURL', 'other'];
+    const sectionOrder = ['urlPattern', 'domainPatterns', 'linkumoriURL', 'clearURLsRuleId', 'other'];
     const sectionTitle = (key) => {
         if (key === 'urlPattern') return i18n('customRulesEditor_urlPattern');
         if (key === 'domainPatterns') return i18n('customRulesEditor_domainPatterns');
         if (key === 'linkumoriURL') return i18n('providerImport_linkumoriData');
+        if (key === 'clearURLsRuleId') return i18n('providerImport_providerRuleIds');
         return i18n('customRulesEditor_rules');
     };
 
@@ -2462,8 +2735,20 @@ function renderDisabledRulesPageContent() {
                 <span>${escapeHtml(i18n('providerImport_sources'))}: <strong>${getLocalizedNumber(sources.length)}</strong></span>
             </div>
             ${sections}
+            ${activationSection}
         </div>
     `);
+
+    container.querySelectorAll('.rule-activation-disable-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            const item = e.target.closest('.rule-activation-item');
+            const runtimeId = item?.dataset?.runtimeId;
+            if (!runtimeId) return;
+            await setClearURLsProviderRuleDisabled(runtimeId, true);
+            await loadClearURLsProviderSnapshot();
+            renderDisabledRulesPageContent();
+        });
+    });
 
     container.querySelectorAll('.disabled-rules-restore-btn').forEach(btn => {
         btn.addEventListener('click', async (e) => {
@@ -2477,11 +2762,17 @@ function renderDisabledRulesPageContent() {
                 linkumoriURLDisabledRules = linkumoriURLDisabledRules.filter(rule => rule !== signature);
                 await saveLinkumoriURLDisabledRules();
                 await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
+            } else if (source === 'clearurls-rule-ids') {
+                clearURLsDisabledRuleIds = clearURLsDisabledRuleIds.filter(ruleId => ruleId !== signature);
+                await saveClearURLsDisabledRuleIds();
+                await reloadRulesAfterExclusionChange();
             } else {
                 await removeExcludedSignature(source, signature);
                 await reloadRulesAfterExclusionChange();
             }
             updateSourceCounts();
+            renderProviderRuleIdControlsFromEditor();
+            await loadClearURLsProviderSnapshot();
             renderDisabledRulesPageContent();
 
             if (providerImportModal && providerImportModal.classList.contains('show')) {
@@ -2545,9 +2836,10 @@ function hideProviderImportModal() {
  */
 async function loadAvailableRuleSources() {
     try {
-        const [bundledResult, linkumoriDataResult] = await Promise.allSettled([
+        const [bundledResult, linkumoriDataResult, activeProviderResult] = await Promise.allSettled([
             loadBundledRulesForImport(),
-            loadExistingLinkumoriDataForImport()
+            loadExistingLinkumoriDataForImport(),
+            loadActiveProviderRulesForImport()
         ]);
 
         availableRuleSources.bundled = bundledResult.status === 'fulfilled'
@@ -2561,6 +2853,9 @@ async function loadAvailableRuleSources() {
                 type: 'linkumori-url-rules',
                 rules: []
             };
+        availableRuleSources.activeProviders = activeProviderResult.status === 'fulfilled'
+            ? activeProviderResult.value
+            : null;
         
         // Update source counts
         updateSourceCounts();
@@ -2583,22 +2878,24 @@ async function loadBundledRulesForImport() {
         if (response && response.response && response.response.providers) {
             return response.response;
         }
-        
-        // Fallback: try to get current rules and extract bundled ones
-        const currentResponse = await browser.runtime.sendMessage({
-            function: "getData",
-            params: ['ClearURLsData']
-        });
-        
-        if (currentResponse && currentResponse.response && currentResponse.response.providers) {
-            // This is a merged version, but it's better than nothing
-            return currentResponse.response;
-        }
-        
+
         throw new Error(i18n('providerImport_noBundledRules'));
     } catch (error) {
         throw new Error(i18n('providerImport_failedToLoadBundled', error.message));
     }
+}
+
+async function loadActiveProviderRulesForImport() {
+    const response = await browser.runtime.sendMessage({
+        function: "getData",
+        params: ['ClearURLsData']
+    });
+
+    if (response && response.response && response.response.providers) {
+        return response.response;
+    }
+
+    throw new Error(i18n('providerImport_noBundledRules'));
 }
 
 async function loadExistingLinkumoriDataForImport() {
@@ -2617,13 +2914,14 @@ async function loadExistingLinkumoriDataForImport() {
  * Update source counts in the sidebar
  */
 function updateSourceCounts() {
-    const bundledCount = document.getElementById('bundled-count');
+    const activeProviderCount = document.getElementById('active-provider-count');
     const linkumoriDataCount = document.getElementById('linkumori-data-count');
     
-    if (bundledCount && availableRuleSources.bundled) {
-        const bundledProviders = Object.values(availableRuleSources.bundled.providers || {});
-        const visibleCount = bundledProviders.filter(provider => !isProviderExcluded('bundled', provider)).length;
-        bundledCount.textContent = getLocalizedNumber(visibleCount);
+    if (activeProviderCount && availableRuleSources.bundled) {
+        const activeProviderSource = availableRuleSources.activeProviders || availableRuleSources.bundled;
+        const activeProviders = Object.values(activeProviderSource.providers || {});
+        const visibleCount = activeProviders.filter(provider => !isProviderExcluded('bundled', provider)).length;
+        activeProviderCount.textContent = getLocalizedNumber(visibleCount);
     }
     if (linkumoriDataCount && availableRuleSources['linkumori-data']) {
         const linkumoriRules = Array.isArray(availableRuleSources['linkumori-data'].rules)
@@ -3721,6 +4019,7 @@ async function enforceRules() {
  */
 async function loadCustomRules() {
     try {
+        await loadClearURLsDisabledRuleIds();
         const response = await browser.runtime.sendMessage({
             function: "getData",
             params: ['custom_rules']
@@ -3793,12 +4092,41 @@ function updateUI() {
  */
 async function updateRulesStatus() {
     try {
-        const response = await browser.runtime.sendMessage({
-            function: "getCustomRulesStats"
-        });
+        await Promise.allSettled([
+            loadLinkumoriURLDisabledRules(),
+            loadClearURLsDisabledRuleIds()
+        ]);
+
+        const [responseResult, linkumoriDataResult, linkumoriCustomResult] = await Promise.allSettled([
+            browser.runtime.sendMessage({
+                function: "getCustomRulesStats"
+            }),
+            browser.runtime.sendMessage({
+                function: "getData",
+                params: ['ClearURLsData']
+            }),
+            browser.runtime.sendMessage({
+                function: "getData",
+                params: ['linkumori_url_custom_rules']
+            })
+        ]);
+
+        const response = responseResult.status === 'fulfilled' ? responseResult.value : null;
+        const linkumoriDataResponse = linkumoriDataResult.status === 'fulfilled' ? linkumoriDataResult.value : null;
+        const linkumoriCustomResponse = linkumoriCustomResult.status === 'fulfilled' ? linkumoriCustomResult.value : null;
+        const clearURLsRuntimeData = linkumoriDataResponse?.response || {};
+        const hasRuntimeProviders = clearURLsRuntimeData &&
+            typeof clearURLsRuntimeData.providers === 'object' &&
+            clearURLsRuntimeData.providers !== null;
         
         if (response && response.response) {
-            const stats = response.response;
+            const stats = { ...response.response };
+            if (hasRuntimeProviders) {
+                const runtimeProviderCount = Object.keys(clearURLsRuntimeData.providers || {}).length;
+                stats.totalProviders = runtimeProviderCount;
+                stats.customProviders = Math.min(Number(stats.customProviders || 0), runtimeProviderCount);
+                stats.builtInProviders = Math.max(0, runtimeProviderCount - stats.customProviders);
+            }
             
             // Use localized numbers for display
             const customCountElement = document.getElementById('custom-count');
@@ -3816,7 +4144,10 @@ async function updateRulesStatus() {
                 totalCountElement.textContent = getLocalizedNumber(stats.totalProviders || 0);
             }
             if (disabledCountElement) {
-                disabledCountElement.textContent = getLocalizedNumber(stats.disabledProviders || 0);
+                const disabledTotal = Number(stats.disabledProviders || 0) +
+                    linkumoriURLDisabledRules.length +
+                    clearURLsDisabledRuleIds.length;
+                disabledCountElement.textContent = getLocalizedNumber(disabledTotal);
             }
             
             const statusText = getHashStatusText(stats.hashStatus);
@@ -3826,18 +4157,6 @@ async function updateRulesStatus() {
             }
         }
 
-        const [linkumoriDataResponse, linkumoriCustomResponse] = await Promise.all([
-            browser.runtime.sendMessage({
-                function: "getData",
-                params: ['ClearURLsData']
-            }),
-            browser.runtime.sendMessage({
-                function: "getData",
-                params: ['linkumori_url_custom_rules']
-            })
-        ]);
-
-        const clearURLsRuntimeData = linkumoriDataResponse?.response || {};
         const linkumoriMetadata = clearURLsRuntimeData.urlFilterMetadata || {};
         const linkumoriCustom = normalizeLinkumoriURLCustomRulesValue(linkumoriCustomResponse?.response);
         const linkumoriStatusElement = document.getElementById('linkumori-url-rule-status');
@@ -4110,6 +4429,11 @@ function createProviderEditorHTML(provider) {
                     </div>
                     <div class="json-key-toolbar-help">Linkumori-ClearURLs keeps old ClearURLs fields and adds rules[] strings, $removeparam filters, and canonical objects with id, kind, match, and action.</div>
                 </div>
+                <div class="json-key-toolbar">
+                    <div class="json-key-toolbar-title">${i18n('providerImport_ruleIdControls')}</div>
+                    <div class="json-key-toolbar-help">${i18n('providerImport_ruleIdControlsHelp')}</div>
+                    <div id="provider-rule-id-controls"></div>
+                </div>
                 <div class="json-editor-content">
                     <div class="json-textmate-input-shell">
                         <pre class="json-highlight-layer" id="json-editor-highlight" aria-hidden="true"></pre>
@@ -4134,16 +4458,44 @@ function setupProviderEditorEvents() {
     }
     if (editorContent) {
         editorContent.removeEventListener('click', handleJsonKeyButtonClick);
+        editorContent.removeEventListener('click', handleProviderRuleIdControlsClick);
         editorContent.addEventListener('click', handleJsonKeyButtonClick);
+        editorContent.addEventListener('click', handleProviderRuleIdControlsClick);
     }
     setupPatternEditorEvents();
     syncPatternEditorFromJson();
+    renderProviderRuleIdControlsFromEditor();
 }
 
 function handleJsonEditorInput() {
     updateJsonTextMateHighlighting();
     validateAndUpdateJSON();
     syncPatternEditorFromJson();
+    renderProviderRuleIdControlsFromEditor();
+}
+
+async function handleProviderRuleIdControlsClick(event) {
+    const disableBtn = event.target.closest('.provider-rule-id-disable-btn');
+    const restoreBtn = event.target.closest('.provider-rule-id-restore-btn');
+    if (!disableBtn && !restoreBtn) {
+        return;
+    }
+
+    const item = event.target.closest('.provider-rule-id-item');
+    const ruleId = item?.dataset?.ruleId || item?.dataset?.runtimeId;
+    if (!ruleId) {
+        return;
+    }
+
+    let equivalentIds = [];
+    const equivalentInput = item.querySelector('.provider-rule-id-disable-keys');
+    try {
+        equivalentIds = JSON.parse(equivalentInput?.value || '[]');
+    } catch (_) {
+        equivalentIds = [];
+    }
+
+    await setClearURLsProviderRuleDisabled(ruleId, !!disableBtn, equivalentIds);
 }
 
 function setupPatternEditorEvents() {
@@ -4445,6 +4797,7 @@ function addCanonicalRuleTemplate(kind) {
         provider.rules.push(template);
         jsonEditor.value = JSON.stringify(compactProviderForEditor(provider), null, 2);
         updateJsonTextMateHighlighting(jsonEditor);
+        renderProviderRuleIdControlsFromEditor();
         hasUnsavedChanges = true;
         if (validation) validation.style.display = 'none';
     } catch (error) {
@@ -4502,6 +4855,7 @@ function addJsonFieldIfMissing(key) {
         validation.style.display = 'none';
     }
     syncPatternEditorFromJson();
+    renderProviderRuleIdControlsFromEditor();
     hasUnsavedChanges = true;
     updateEditorStatus('valid', i18n('status_validJsonUnsaved'));
 }
