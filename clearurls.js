@@ -1522,7 +1522,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         }
     }
 
-    let re = storage.redirectionEnabled ? provider.getRedirection(url) : null;
+    let re = storage.redirectionEnabled ? provider.getRedirection(url, request) : null;
     if (re !== null) {
         url = decodeURL(re);
 
@@ -2380,6 +2380,16 @@ function start() {
             return false;
         };
 
+        this.matchRequestURL = function (url, request = null) {
+            if (urlPattern) {
+                urlPattern.lastIndex = 0;
+                return urlPattern.test(url) && !(this.matchException(url, request));
+            } else if (domainPatterns.length > 0) {
+                return matchDomainPattern(url, domainPatterns) && !(this.matchException(url, request));
+            }
+            return false;
+        };
+
         this.addRule = function (rule, isActive = true, defaults = null) {
             const parsedLinkumoriRule = typeof rule === 'string' ? parseLinkumoriRemoveParamRule(rule) : null;
             if (parsedLinkumoriRule) {
@@ -2486,7 +2496,7 @@ function start() {
             return resourceTypes.indexOf(String(details['type'] || '').toLowerCase()) > -1;
         };
 
-        this.matchException = function (url) {
+        this.matchException = function (url, request = null) {
             let result = false;
 
             if (url === siteBlockedAlert) return true;
@@ -2498,7 +2508,7 @@ function start() {
                 const exceptionRegex = exceptionRule && exceptionRule.regex instanceof RegExp
                     ? exceptionRule.regex
                     : (exceptionRule instanceof RegExp ? exceptionRule : new RegExp(exception, "i"));
-                if (coreRuleAppliesToRequest(exceptionRule, url, null)) {
+                if (coreRuleAppliesToRequest(exceptionRule, url, request)) {
                     exceptionRegex.lastIndex = 0;
                     result = exceptionRegex.test(url);
                 }
@@ -2526,7 +2536,7 @@ function start() {
             }
         };
 
-        this.getRedirection = function (url) {
+        this.getRedirection = function (url, request = null) {
             let re = null;
 
             for (const redirection in redirectionRuleMap) {
@@ -2534,7 +2544,7 @@ function start() {
                 const activeRegex = compiled && compiled.regex instanceof RegExp
                     ? compiled.regex
                     : new RegExp(redirection, "i");
-                if (!coreRuleAppliesToRequest(compiled, url, null)) continue;
+                if (!coreRuleAppliesToRequest(compiled, url, request)) continue;
                 activeRegex.lastIndex = 0;
                 const captured = activeRegex.exec(url);
 
@@ -2681,7 +2691,7 @@ function start() {
                 const provider = candidates[i];
                 if (!provider.matchMethod(request)) continue;
                 if (!provider.matchResourceType(request)) continue;
-                if (provider.matchURL(request.url)) {
+                if (provider.matchRequestURL(request.url, request)) {
                     result = removeFieldsFormURL(provider, request.url, false, request, null, globalLinkumoriExceptions);
                 }
 

@@ -572,7 +572,36 @@ function mergeRuleLikeArrays(left, right) {
     return dedupeRuleLikeArray([...(Array.isArray(left) ? left : []), ...(Array.isArray(right) ? right : [])]);
 }
 
+function normalizeProviderCompatibilityList(value, transform = item => item) {
+    const items = Array.isArray(value)
+        ? value
+        : (typeof value === 'string' && value.trim() ? [value] : []);
+    return [...new Set(items
+        .map(item => transform(String(item || '').trim()))
+        .filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b));
+}
+
+function getProviderCompatibilityScope(providerData) {
+    return JSON.stringify({
+        methods: normalizeProviderCompatibilityList(providerData?.methods, item => item.toUpperCase()),
+        resourceTypes: normalizeProviderCompatibilityList(providerData?.resourceTypes, item => item.toLowerCase()),
+        completeProvider: providerData?.completeProvider === true,
+        forceRedirection: providerData?.forceRedirection === true
+    });
+}
+
 function getProviderGroupKey(providerData, providerName) {
+    const compatibilityScope = getProviderCompatibilityScope(providerData);
+    const patternOnlyKey = getProviderPatternOnlyGroupKey(providerData, providerName);
+    if (typeof patternOnlyKey === 'string' && !patternOnlyKey.startsWith('no-pattern:')) {
+        return `${patternOnlyKey}|compat:${compatibilityScope}`;
+    }
+
+    return patternOnlyKey;
+}
+
+function getProviderPatternOnlyGroupKey(providerData, providerName) {
     const urlPattern = (typeof providerData?.urlPattern === 'string')
         ? providerData.urlPattern.trim()
         : '';
@@ -711,7 +740,9 @@ function isProviderSignatureDisabled(providerData, providerName, disabledSignatu
         return false;
     }
 
-    return disabledSignatures.has(key) || disabledSignatures.has(getLegacyProviderScopedGroupKey(providerData, providerName));
+    return disabledSignatures.has(key) ||
+        disabledSignatures.has(getProviderPatternOnlyGroupKey(providerData, providerName)) ||
+        disabledSignatures.has(getLegacyProviderScopedGroupKey(providerData, providerName));
 }
 
 function filterProvidersByDisabledSignatures(providers, disabledSignatures) {
