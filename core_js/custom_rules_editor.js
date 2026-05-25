@@ -2836,9 +2836,10 @@ function hideProviderImportModal() {
  */
 async function loadAvailableRuleSources() {
     try {
-        const [bundledResult, linkumoriDataResult] = await Promise.allSettled([
+        const [bundledResult, linkumoriDataResult, activeProviderResult] = await Promise.allSettled([
             loadBundledRulesForImport(),
-            loadExistingLinkumoriDataForImport()
+            loadExistingLinkumoriDataForImport(),
+            loadActiveProviderRulesForImport()
         ]);
 
         availableRuleSources.bundled = bundledResult.status === 'fulfilled'
@@ -2852,6 +2853,9 @@ async function loadAvailableRuleSources() {
                 type: 'linkumori-url-rules',
                 rules: []
             };
+        availableRuleSources.activeProviders = activeProviderResult.status === 'fulfilled'
+            ? activeProviderResult.value
+            : null;
         
         // Update source counts
         updateSourceCounts();
@@ -2867,18 +2871,6 @@ async function loadAvailableRuleSources() {
  */
 async function loadBundledRulesForImport() {
     try {
-        // The modal source represents the active provider set after bundled,
-        // remote, overload, custom, and disabled-provider processing.
-        const currentResponse = await browser.runtime.sendMessage({
-            function: "getData",
-            params: ['ClearURLsData']
-        });
-
-        if (currentResponse && currentResponse.response && currentResponse.response.providers) {
-            return currentResponse.response;
-        }
-
-        // Fallback for early startup or storage errors.
         const response = await browser.runtime.sendMessage({
             function: "getBundledRulesOnly"
         });
@@ -2891,6 +2883,19 @@ async function loadBundledRulesForImport() {
     } catch (error) {
         throw new Error(i18n('providerImport_failedToLoadBundled', error.message));
     }
+}
+
+async function loadActiveProviderRulesForImport() {
+    const response = await browser.runtime.sendMessage({
+        function: "getData",
+        params: ['ClearURLsData']
+    });
+
+    if (response && response.response && response.response.providers) {
+        return response.response;
+    }
+
+    throw new Error(i18n('providerImport_noBundledRules'));
 }
 
 async function loadExistingLinkumoriDataForImport() {
@@ -2913,7 +2918,8 @@ function updateSourceCounts() {
     const linkumoriDataCount = document.getElementById('linkumori-data-count');
     
     if (activeProviderCount && availableRuleSources.bundled) {
-        const activeProviders = Object.values(availableRuleSources.bundled.providers || {});
+        const activeProviderSource = availableRuleSources.activeProviders || availableRuleSources.bundled;
+        const activeProviders = Object.values(activeProviderSource.providers || {});
         const visibleCount = activeProviders.filter(provider => !isProviderExcluded('bundled', provider)).length;
         activeProviderCount.textContent = getLocalizedNumber(visibleCount);
     }
@@ -4091,7 +4097,7 @@ async function updateRulesStatus() {
             loadClearURLsDisabledRuleIds()
         ]);
 
-        const [response, linkumoriDataResponse, linkumoriCustomResponse] = await Promise.all([
+        const [responseResult, linkumoriDataResult, linkumoriCustomResult] = await Promise.allSettled([
             browser.runtime.sendMessage({
                 function: "getCustomRulesStats"
             }),
@@ -4105,6 +4111,9 @@ async function updateRulesStatus() {
             })
         ]);
 
+        const response = responseResult.status === 'fulfilled' ? responseResult.value : null;
+        const linkumoriDataResponse = linkumoriDataResult.status === 'fulfilled' ? linkumoriDataResult.value : null;
+        const linkumoriCustomResponse = linkumoriCustomResult.status === 'fulfilled' ? linkumoriCustomResult.value : null;
         const clearURLsRuntimeData = linkumoriDataResponse?.response || {};
         const hasRuntimeProviders = clearURLsRuntimeData &&
             typeof clearURLsRuntimeData.providers === 'object' &&

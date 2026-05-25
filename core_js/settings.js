@@ -3429,16 +3429,23 @@ function displayBundledRulesInfo() {
                 return ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions']
                     .reduce((total, key) => total + (Array.isArray(provider[key]) ? provider[key].length : 0), 0);
             };
-            const snapshotRuleCount = providerSnapshot && providerSnapshot.ruleIds && typeof providerSnapshot.ruleIds === 'object'
+            const hasSnapshotRuleIds = !!(
+                providerSnapshot &&
+                providerSnapshot.ruleIds &&
+                typeof providerSnapshot.ruleIds === 'object'
+            );
+            const snapshotRuleCount = hasSnapshotRuleIds
                 ? Object.values(providerSnapshot.ruleIds).reduce((total, rule) => {
-                    if (rule && Array.isArray(rule.activationIds) && rule.activationIds.length > 0) {
+                    if (!rule || typeof rule !== 'object') return total;
+                    if (Array.isArray(rule.activationIds)) {
                         return total + rule.activationIds.length;
                     }
                     return total + 1;
                 }, 0)
                 : 0;
-            const ruleCount = snapshotRuleCount || Object.values(rulesData.providers)
+            const fallbackRuleCount = Object.values(rulesData.providers)
                 .reduce((total, provider) => total + countProviderRuleEntries(provider), 0);
+            const ruleCount = hasSnapshotRuleIds ? snapshotRuleCount : fallbackRuleCount;
             
             if (statusElement) {
                 const statusActive = translate('rules_status_active');
