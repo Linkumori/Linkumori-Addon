@@ -105,8 +105,7 @@ var tempVerificationCache = {
 let temporaryPauseUntilBrowserRestart = false;
 const IMPORT_EXCLUSIONS_KEY = 'customrules_import_exclusions';
 const LINKUMORI_URL_DISABLED_RULES_KEY = 'linkumori_url_disabled_rules';
-const LINKUMORI_RULE_ORIGINS_KEY = '_linkumoriOrigins';
-const LINKUMORI_PROVIDER_ORIGINS_KEY = '_linkumoriProviderOrigins';
+const LINKUMORI_RULE_ACTIVATION_IDS_KEY = '_linkumoriActivationIds';
 
 function linkumoriStorageI18n(key, substitutions = []) {
     return globalThis.LinkumoriI18n.getMessage(key, substitutions);
@@ -452,20 +451,11 @@ function createStorageGeneratedRuleId(section, matchPattern, occupiedIds = new S
     return uniqueId;
 }
 
-function normalizeRuleSourceId(value, fallback = 'official') {
-    const raw = String(value || fallback || 'official').toLowerCase();
-    if (raw.includes('custom')) return 'custom';
-    if (raw.includes('fallback')) return 'fallback';
-    if (raw.includes('remote')) return 'remote';
-    if (raw.includes('bundled') || raw.includes('official') || raw.includes('built')) return 'official';
-    return raw.replace(/[^a-z0-9_-]+/g, '-') || fallback;
+function buildProviderRuleActivationId(providerId, ruleId) {
+    return `${providerId}::${ruleId}`;
 }
 
-function buildOriginRuntimeRuleId(sourceId, providerId, ruleId) {
-    return `${sourceId}::${providerId}::${ruleId}`;
-}
-
-function getRuleMatchForOrigin(section, rule) {
+function getRuleMatchForActivation(section, rule) {
     if (typeof rule === 'string') {
         return rule;
     }
@@ -477,58 +467,52 @@ function getRuleMatchForOrigin(section, rule) {
     return '';
 }
 
-function cloneRuleWithOrigins(section, rule, origin) {
-    const origins = Array.isArray(rule && rule[LINKUMORI_RULE_ORIGINS_KEY])
-        ? rule[LINKUMORI_RULE_ORIGINS_KEY]
+function cloneRuleWithActivationIds(section, rule, activationId) {
+    const activationIds = Array.isArray(rule && rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY])
+        ? rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY]
         : [];
-    const nextOrigins = mergeRuleOrigins(origins, [origin]);
+    const nextActivationIds = mergeRuleActivationIds(activationIds, [activationId]);
 
     if (typeof rule === 'string') {
         return {
             matchPattern: rule,
-            [LINKUMORI_RULE_ORIGINS_KEY]: nextOrigins
+            [LINKUMORI_RULE_ACTIVATION_IDS_KEY]: nextActivationIds
         };
     }
 
     if (rule && typeof rule === 'object' && !Array.isArray(rule)) {
         return {
             ...rule,
-            [LINKUMORI_RULE_ORIGINS_KEY]: nextOrigins
+            [LINKUMORI_RULE_ACTIVATION_IDS_KEY]: nextActivationIds
         };
     }
 
     return rule;
 }
 
-function mergeRuleOrigins(left, right) {
+function mergeRuleActivationIds(left, right) {
     const result = [];
     const seen = new Set();
-    [...(Array.isArray(left) ? left : []), ...(Array.isArray(right) ? right : [])].forEach(origin => {
-        if (!origin || typeof origin !== 'object') return;
-        const runtimeRuleId = String(origin.runtimeRuleId || '').trim();
-        if (!runtimeRuleId || seen.has(runtimeRuleId)) return;
-        seen.add(runtimeRuleId);
-        result.push({
-            sourceId: String(origin.sourceId || '').trim(),
-            providerId: String(origin.providerId || '').trim(),
-            ruleId: String(origin.ruleId || '').trim(),
-            runtimeRuleId
-        });
+    [...(Array.isArray(left) ? left : []), ...(Array.isArray(right) ? right : [])].forEach(id => {
+        const activationId = String(id || '').trim();
+        if (!activationId || seen.has(activationId)) return;
+        seen.add(activationId);
+        result.push(activationId);
     });
     return result;
 }
 
-function attachRuleOriginsToArray(section, rules, providerName, sourceId, occupiedIds) {
+function attachRuleActivationIdsToArray(section, rules, providerName, occupiedIds) {
     if (!Array.isArray(rules)) {
         return [];
     }
     return rules.map(rule => {
         if (rule && typeof rule === 'object' && !Array.isArray(rule) &&
-            Array.isArray(rule[LINKUMORI_RULE_ORIGINS_KEY]) &&
-            rule[LINKUMORI_RULE_ORIGINS_KEY].length > 0) {
+            Array.isArray(rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY]) &&
+            rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY].length > 0) {
             return rule;
         }
-        const match = getRuleMatchForOrigin(section, rule);
+        const match = getRuleMatchForActivation(section, rule);
         if (!match) return rule;
         const explicitId = rule && typeof rule === 'object' && !Array.isArray(rule) && typeof rule.id === 'string'
             ? rule.id
@@ -542,34 +526,20 @@ function attachRuleOriginsToArray(section, rules, providerName, sourceId, occupi
                 });
             }
         }
-        const origin = {
-            sourceId,
-            providerId: providerName,
-            ruleId,
-            runtimeRuleId: buildOriginRuntimeRuleId(sourceId, providerName, ruleId)
-        };
-        return cloneRuleWithOrigins(section, rule, origin);
+        return cloneRuleWithActivationIds(section, rule, buildProviderRuleActivationId(providerName, ruleId));
     });
 }
 
-function attachProviderOrigins(providerName, providerData, sourceId) {
+function attachProviderActivationIds(providerName, providerData) {
     const data = providerData && typeof providerData === 'object' && !Array.isArray(providerData)
         ? { ...providerData }
         : {};
     const occupiedIds = new Set();
     ['exceptions', 'rules', 'referralMarketing', 'rawRules', 'redirections'].forEach(section => {
         if (Array.isArray(data[section])) {
-            data[section] = attachRuleOriginsToArray(section, data[section], providerName, sourceId, occupiedIds);
+            data[section] = attachRuleActivationIdsToArray(section, data[section], providerName, occupiedIds);
         }
     });
-    if (!Array.isArray(data[LINKUMORI_PROVIDER_ORIGINS_KEY]) || data[LINKUMORI_PROVIDER_ORIGINS_KEY].length === 0) {
-        data[LINKUMORI_PROVIDER_ORIGINS_KEY] = mergeRuleOrigins(data[LINKUMORI_PROVIDER_ORIGINS_KEY], [{
-            sourceId,
-            providerId: providerName,
-            ruleId: 'provider',
-            runtimeRuleId: `${sourceId}::${providerName}`
-        }]);
-    }
     return data;
 }
 
@@ -585,9 +555,9 @@ function dedupeRuleLikeArray(values) {
         const existingIndex = seen.get(signature);
         if (existingIndex !== undefined) {
             const existing = result[existingIndex];
-            const mergedOrigins = mergeRuleOrigins(existing && existing[LINKUMORI_RULE_ORIGINS_KEY], value && value[LINKUMORI_RULE_ORIGINS_KEY]);
-            if (mergedOrigins.length > 0 && existing && typeof existing === 'object' && !Array.isArray(existing)) {
-                existing[LINKUMORI_RULE_ORIGINS_KEY] = mergedOrigins;
+            const mergedActivationIds = mergeRuleActivationIds(existing && existing[LINKUMORI_RULE_ACTIVATION_IDS_KEY], value && value[LINKUMORI_RULE_ACTIVATION_IDS_KEY]);
+            if (mergedActivationIds.length > 0 && existing && typeof existing === 'object' && !Array.isArray(existing)) {
+                existing[LINKUMORI_RULE_ACTIVATION_IDS_KEY] = mergedActivationIds;
             }
             return;
         }
@@ -603,6 +573,33 @@ function mergeRuleLikeArrays(left, right) {
 }
 
 function getProviderGroupKey(providerData, providerName) {
+    const urlPattern = (typeof providerData?.urlPattern === 'string')
+        ? providerData.urlPattern.trim()
+        : '';
+    if (urlPattern) {
+        return `url:${urlPattern}`;
+    }
+
+    const domainPatterns = [];
+    if (Array.isArray(providerData?.domainPatterns)) {
+        providerData.domainPatterns.forEach(pattern => {
+            if (typeof pattern === 'string' && pattern.trim()) {
+                domainPatterns.push(pattern.trim());
+            }
+        });
+    } else if (typeof providerData?.domainPatterns === 'string' && providerData.domainPatterns.trim()) {
+        domainPatterns.push(providerData.domainPatterns.trim());
+    }
+
+    if (domainPatterns.length > 0) {
+        const normalized = [...new Set(domainPatterns)].sort((a, b) => a.localeCompare(b));
+        return `domain:${normalized.join('||')}`;
+    }
+
+    return `no-pattern:${providerName}`;
+}
+
+function getLegacyProviderScopedGroupKey(providerData, providerName) {
     const normalizedList = value => {
         const items = Array.isArray(value)
             ? value
@@ -658,8 +655,7 @@ function normalizeProviderEntries(providers, primaryProviderNames = new Set()) {
             .map(provider => ({
                 name: provider.name,
                 data: provider.data,
-                isPrimarySource: provider.isPrimarySource === true,
-                sourceId: normalizeRuleSourceId(provider.sourceId, provider.isPrimarySource === true ? 'remote' : 'official')
+                isPrimarySource: provider.isPrimarySource === true
             }));
     }
 
@@ -668,8 +664,7 @@ function normalizeProviderEntries(providers, primaryProviderNames = new Set()) {
         normalized.push({
             name: providerName,
             data: providerData,
-            isPrimarySource: primaryProviderNames.has(providerName),
-            sourceId: primaryProviderNames.has(providerName) ? 'remote' : 'official'
+            isPrimarySource: primaryProviderNames.has(providerName)
         });
     });
 
@@ -716,7 +711,7 @@ function isProviderSignatureDisabled(providerData, providerName, disabledSignatu
         return false;
     }
 
-    return disabledSignatures.has(key);
+    return disabledSignatures.has(key) || disabledSignatures.has(getLegacyProviderScopedGroupKey(providerData, providerName));
 }
 
 function filterProvidersByDisabledSignatures(providers, disabledSignatures) {
@@ -841,17 +836,11 @@ function mergeRemoteProviderGroup(providerGroup) {
         methods: [],
         resourceTypes: [],
         completeProvider: false,
-        forceRedirection: false,
-        [LINKUMORI_PROVIDER_ORIGINS_KEY]: []
+        forceRedirection: false
     };
 
     providerGroup.forEach(provider => {
-        const sourceId = normalizeRuleSourceId(provider.sourceId, provider.isPrimarySource ? 'remote' : 'official');
-        const data = attachProviderOrigins(provider.name, provider.data || {}, sourceId);
-        merged[LINKUMORI_PROVIDER_ORIGINS_KEY] = mergeRuleOrigins(
-            merged[LINKUMORI_PROVIDER_ORIGINS_KEY],
-            data[LINKUMORI_PROVIDER_ORIGINS_KEY]
-        );
+        const data = attachProviderActivationIds(provider.name, provider.data || {});
 
         if (data.indexPattern) {
             const indexPatterns = Array.isArray(data.indexPattern)
@@ -929,7 +918,6 @@ function mergeRemoteProviderGroup(providerGroup) {
     if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
     if (merged.completeProvider !== true) delete merged.completeProvider;
     if (merged.forceRedirection !== true) delete merged.forceRedirection;
-    if (merged[LINKUMORI_PROVIDER_ORIGINS_KEY].length === 0) delete merged[LINKUMORI_PROVIDER_ORIGINS_KEY];
     if (merged.indexPattern.length === 0) {
         delete merged.indexPattern;
     } else if (merged.indexPattern.length === 1) {
@@ -1044,8 +1032,7 @@ function mergeRemoteProvidersByUrlPattern(providers, primaryProviderNames = new 
         providerGroups[key].push({
             name: providerName,
             data: providerData,
-            isPrimarySource: provider.isPrimarySource === true,
-            sourceId: provider.sourceId
+            isPrimarySource: provider.isPrimarySource === true
         });
     });
 
@@ -1083,8 +1070,7 @@ function mergeRemoteRulesSources(successfulSources, failedSources = []) {
             combinedProviders.push({
                 name: providerName,
                 data: providerData,
-                isPrimarySource: sourceIndex === 0,
-                sourceId: normalizeRuleSourceId(source.rules?.metadata?.source || 'remote', 'remote')
+                isPrimarySource: sourceIndex === 0
             });
         });
 
@@ -1155,21 +1141,19 @@ function mergeRemoteWithBundledRules(remoteRules, bundledRules) {
     const combinedProviders = [];
 
     Object.entries(bundledProviders).forEach(([providerName, providerData]) => {
-        combinedProviders.push({
-            name: providerName,
-            data: providerData,
-            isPrimarySource: false,
-            sourceId: normalizeRuleSourceId(bundledRules?.metadata?.source || 'official', 'official')
-        });
+            combinedProviders.push({
+                name: providerName,
+                data: providerData,
+                isPrimarySource: false
+            });
     });
 
     Object.entries(remoteProviders).forEach(([providerName, providerData]) => {
-        combinedProviders.push({
-            name: providerName,
-            data: providerData,
-            isPrimarySource: true,
-            sourceId: normalizeRuleSourceId(remoteRules?.metadata?.source || 'remote', 'remote')
-        });
+            combinedProviders.push({
+                name: providerName,
+                data: providerData,
+                isPrimarySource: true
+            });
     });
 
     const mergedProviders = mergeRemoteProvidersByUrlPattern(combinedProviders);
@@ -2436,8 +2420,7 @@ function mergeCustomRules(bundledRules) {
                     Object.entries(filteredBundled.providers || {}).map(([name, data]) => ({
                         name,
                         data,
-                        isPrimarySource: true,
-                        sourceId: normalizeRuleSourceId(bundledRules?.metadata?.source || 'official', 'official')
+                        isPrimarySource: true
                     }))
                 );
                 const annotatedBundledRules = {
@@ -2486,8 +2469,7 @@ function mergeCustomRules(bundledRules) {
                 const baseEntries = Object.entries(baseProviders).map(([name, data]) => ({
                     name,
                     data,
-                    key: getProviderGroupKey(data, name),
-                    sourceId: normalizeRuleSourceId(bundledRules?.metadata?.source || 'official', 'official')
+                    key: getProviderGroupKey(data, name)
                 })).filter(entry => !entry.key.startsWith('no-pattern:') && !disabledSignatures.has(entry.key));
 
                 const baseGroupsByKey = new Map();
@@ -2498,8 +2480,7 @@ function mergeCustomRules(bundledRules) {
                     baseGroupsByKey.get(entry.key).push({
                         name: entry.name,
                         data: entry.data,
-                        isPrimarySource: true,
-                        sourceId: entry.sourceId
+                        isPrimarySource: true
                     });
                 });
                 
@@ -2507,8 +2488,7 @@ function mergeCustomRules(bundledRules) {
                 const customEntries = Object.entries(customProviders).map(([name, data]) => ({
                     name,
                     data,
-                    key: getProviderGroupKey(data, name),
-                    sourceId: 'custom'
+                    key: getProviderGroupKey(data, name)
                 })).filter(entry => !entry.key.startsWith('no-pattern:') && !disabledSignatures.has(entry.key));
 
                 const customGroupsByKey = new Map();
@@ -2519,8 +2499,7 @@ function mergeCustomRules(bundledRules) {
                     customGroupsByKey.get(entry.key).push({
                         name: entry.name,
                         data: entry.data,
-                        isPrimarySource: true,
-                        sourceId: entry.sourceId
+                        isPrimarySource: true
                     });
                 });
                 

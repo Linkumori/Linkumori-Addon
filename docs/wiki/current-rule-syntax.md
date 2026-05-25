@@ -528,14 +528,13 @@ The runtime also builds a ClearURLs-core-style provider snapshot at startup/relo
 
 Canonical rules can be disabled by storing ids in `clearurls_disabled_rule_ids`. Accepted ids are:
 
-- ClearURLs-core-style origin runtime id: `source-id::original-provider-id::rule-id`
-- origin runtime alias: `source-id::original-provider-id::alias-id`
-- provider runtime id: `merged-provider-name::rule-id` for compatibility
-- provider-local `id` / alias for legacy compatibility
+- provider runtime id: `provider-id::rule-id`
+- provider runtime alias: `provider-id::alias-id`
+- provider-local `id` / alias for legacy migration compatibility
 
-Disabled origin ids are applied before rule-origin dedupe. The executable runtime still uses merged providers and deduped rules, but each rule carries `origins[]` so one disabled source/provider/rule origin can be removed without splitting the merged provider.
+Disabled provider rule ids are applied before rule activation. The executable runtime still uses merged providers and deduped rules, but each deduped rule carries internal `activationIds[]` so one `provider-id::rule-id` can be disabled without splitting the merged provider.
 
-The custom-rules editor exposes this list in **Disabled Rules** and the **Rule Activation** section. The editor writes `source-id::original-provider-id::rule-id` ids. Plain ids and merged-provider ids remain accepted for migration and compatibility.
+The custom-rules editor exposes this list in **Disabled Rules** and the **Rule Activation** section. The editor writes `provider-id::rule-id` ids. Plain ids remain accepted for migration and compatibility, but new UI writes provider-scoped ids.
 
 Supported action combinations follow ClearURLs core:
 
