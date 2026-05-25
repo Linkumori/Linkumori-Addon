@@ -420,10 +420,10 @@
     "message": "A szolgáltató neve kötelező"
   },
   "customRulesEditor_rawRules": {
-    "message": "Nyers szabályok (regex minták)"
+    "message": "Nyers szabályok"
   },
   "customRulesEditor_redirections": {
-    "message": "Átirányítások (átirányítási minták)"
+    "message": "Átirányítások"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Ajánlói marketing"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Közvetlen regex minták, amelyeket a teljes URL-re alkalmaznak. Használd összetett mintákhoz, amelyek nem illeszkednek a szabványos paraméterformátumba.",
+    "message": "A kanonikus nyers szabályobjektumok regex mintákat alkalmaznak a teljes URL-re. Használja olyan összetett mintákhoz, amelyek nem illeszkednek a szabványos paraméterformátumhoz.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Nyers szabályok:",
+    "message": "Nyers szabályobjektumok:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Használj rawRules-t töredékekhez, útvonal szegmensekhez vagy összetett paraméter mintákhoz.",
+    "message": "Használja a rules[] objektumokat a kind: \"raw\"-vel töredékekhez, útvonalszegmensekhez vagy összetett paramétermintákhoz.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Mi a különbség a rules és a rawRules között?",
+    "message": "Milyen szabályformákat tartalmazhat a rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "Az adatvédelmi irányelvek verziótérképének betöltése sikertelen.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aktív csomagolt/távoli/egyéni szabályok",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Active Bundled/Remote Rules/Egyéni szabályok",
+    "description": "Oldalsáv opció a jelenleg aktív kötegelt, távolról támogatott és egyéni szabályokhoz."
   },
   "providerImport_button": {
     "message": "Szolgáltatók importálása/letiltása",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Mik azok a rules, rawRules és referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Mit tartalmazhat a rules[]?",
+    "description": "GYIK címe az egységes Linkumori-ClearURLs szabályokhoz"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> paraméternevek vagy töredéknevek, amelyeket el kell távolítani az URL-ből.</p><p><span class=\"faq-code\">rawRules</span> regex cserék, amelyeket közvetlenül a teljes URL karakterláncra alkalmaznak a lekérdezés tisztítása előtt.</p><p><span class=\"faq-code\">referralMarketing</span> szintén eltávolítható paraméterként kezelendő, de hogy ténylegesen használják-e, az a globális ajánlói marketing beállítástól függ.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> egyszerű paraméter-karakterláncokat fogad el, inline <span class=\"faq-code\">$removeparam</span> szűrők és kanonikus objektumok.</p><p>Használat <span class=\"faq-code\">kind: \"raw\"</span> az egész-URL regex tisztításhoz és <span class=\"faq-code\">kind: \"redirection\"</span> átirányítási kinyeréshez.</p><p>Használat <span class=\"faq-code\">referralMarketing: true</span> egy mezőszabályon, amikor a paraméter az ajánlás-marketing beállítástól függ.</p>",
+    "description": "GYIK törzse az egységes Linkumori-ClearURLs szabályokhoz"
   },
   "audit_faq_exceptions_title": {
     "message": "Mik azok az exceptions és domainExceptions?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> regex-alapú kicsomagolók. Általában a valódi cél URL-t rögzítik az 1. csoportban, és a ClearURLs erre a rögzített értékre irányít át.</p><p><span class=\"faq-code\">domainRedirections</span> tartomány-stílusú átirányítási szabályok. Ebben a kódbázisban a <span class=\"faq-code\">pattern $redirect= target</span> alakú bejegyzéseket keresik.</p><p>Ha először egy regex átirányítás illeszkedik, az nyer. Ha nem, akkor a ClearURLs ezután ellenőrzi a tartomány átirányításokat.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> bejegyzésekkel <span class=\"faq-code\">kind: \"redirection\"</span> reguláris kifejezés alapú kicsomagolók. Általában rögzítik az 1. csoportba tartozó URL valódi célhelyet, és a ClearURLs átirányít erre a rögzített értékre.</p><p><span class=\"faq-code\">domainRedirections</span> domain stílusú átirányítási szabályok. Ebben a kódbázisban a rendszer ellenőrzi az ilyen alakú bejegyzéseket <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Ha egy regex átirányítás egyezik először, az nyer. Ha nem, akkor a ClearURLs legközelebb a redirections tartományt ellenőrzi.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>A szolgáltatóépítő útvonal ebben az ágban a következő kulcsokat olvassa: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span> és <span class=\"faq-code\">resourceTypes</span>.</p><p>A viselkedés auditálásakor a legfontosabb hely a <span class=\"faq-code\">Végső szabályok</span> ellenőrzése, mert ez mutatja az egyesített eredményt a csomagolt, távoli és egyéni források egyesítése után.</p>",
+    "message": "<p>Ebben az ágban a szolgáltató-építési útvonal a következő szerzői kulcsokat olvassa: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, és <span class=\"faq-code\">resourceTypes</span>.</p><p>A nyers tisztítás, az ajánlási marketing tisztítás és a reguláris kifejezés, a redirections használhatja a megtartott ClearURLs mezőket vagy kanonikus objektumokat a belsejében <span class=\"faq-code\">rules[]</span>.</p><p>A viselkedés auditálásakor a legfontosabb ellenőrzési hely <span class=\"faq-code\">Final Rules</span>, mert ez az egyesített eredményt mutatja a csomagolt, távoli és egyéni források kombinálása után.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Szabály szintaxisa",
+    "message": "Szabály elrendezés",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klasszikus tömbök",
+    "description": "Egyéni szabályszerkesztő szintaktikai mód címke a klasszikus Linkumori-ClearURLs szabályokhoz"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Kanonikus tárgyak",
+    "description": "Egyéni szabályszerkesztő szintaxismód-címke a kanonikus Linkumori-ClearURLs-szabályokhoz"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "A Linkumori-ClearURLs megtartja a régi ClearURLs mezőket, és egyszerű karakterláncokat, soron belüli $removeparam szabályokat és kanonikus szabályobjektumokat ad hozzá a rules[]-hez.",
+    "description": "Egyéni szabályszerkesztő súgószövege a Linkumori-ClearURLs szabályelrendezéshez"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "A kanonikus Linkumori-ClearURLs szabályok a kedves + akciót használják a rules[]-n belül. A régi rawRules, referralMarketing és redirections mezők továbbra is működnek.",
+    "description": "Egyéni szabályszerkesztő súgószövege a kanonikus Linkumori-ClearURLs szabályokhoz"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Az összes szolgáltatói szabályhoz használja a linkumori-clearurls-dialect.",
+    "description": "Egyéni szabályszerkesztő JSON súgószöveg az egységes Linkumori-ClearURLs szabályokhoz"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Használja a Linkumori-ClearURLs nyelvjárást a JSON szolgáltatóhoz. Az új mentések közé tartozik a syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "A Linkumori-ClearURLs megőrzi a régi ClearURLs mezőket, és hozzáad rules[] karakterláncokat, $removeparam szűrőket és kanonikus objektumokat azonosítóval, fajtával, egyezéssel és művelettel.",
+    "description": "Egyéni szabályszerkesztő eszköztár súgószövege az egységes Linkumori-ClearURLs szabályokhoz"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Mezőszabály hozzáadása",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Szolgáltató mezők",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Egyéni szabályszerkesztő címke a szolgáltatói mezőkhöz egységes Linkumori-ClearURLs módban"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Szabálysablonok",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Egyéni szabályszerkesztő címke szabálysablonokhoz egységes Linkumori-ClearURLs módban"
   },
   "popup_report_issue_button_title": {
     "message": "Probléma bejelentése",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Hiba a konfigurációs adatok lekérésekor:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Letiltás",
+    "description": "Gombcímke a szolgáltatói szabály azonosítójának letiltásához"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Szolgáltatói szabályazonosítók",
+    "description": "A letiltott ClearURLs szolgáltatói szabályazonosítók szakaszának címe"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Szolgáltatói szabályazonosító vezérlők",
+    "description": "Eszköztár címe a szabályazonosító letiltásához a szolgáltatószerkesztőben"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "A kanonikus szolgáltatói szabályazonosítók letiltása törlés nélkül. A tárolt azonosítók provider::rule identitást használnak.",
+    "description": "Súgószöveg a szolgáltatói szabályazonosító letiltási vezérlőihez"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Szabály aktiválása",
+    "description": "Az aktív szolgáltatói szabály aktiválási kapcsolóinak szakaszcíme"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Ebben a szolgáltatóban még nem található gyűjtőszabályazonosító.",
+    "description": "Üres állapot a szolgáltatói szabályazonosító vezérlőkhöz"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "A szabályazonosító vezérlők akkor érhetők el, ha a szolgáltató JSON érvényes.",
+    "description": "Érvénytelen JSON állapot a szolgáltatói szabályazonosító vezérlőkhöz"
   }
 }

@@ -364,10 +364,10 @@
     "message": "Aanbiedernaam is verplicht"
   },
   "customRulesEditor_rawRules": {
-    "message": "Ruwe regels (regex-patronen)"
+    "message": "Ruwe regels"
   },
   "customRulesEditor_redirections": {
-    "message": "Omleidingen (omleidingspatronen)"
+    "message": "Omleidingen"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Referralmarketing"
@@ -712,13 +712,16 @@
     "message": "Aanbieders zijn logische eenheden die meerdere regels groeperen onder hetzelfde URL-patroon. Elke aanbieder richt zich op een specifieke website of dienst en bevat alle regels die nodig zijn om URL's uit die bron te schonen."
   },
   "faq_raw_rules_explanation": {
-    "message": "Directe regex-patronen toegepast op de volledige URL. Gebruik voor complexe patronen die niet in het standaardparameterformaat passen."
+    "message": "Canonieke onbewerkte regelobjecten passen regex-patronen toe op de gehele URL. Gebruik dit voor complexe patronen die niet in het standaard parameterformaat passen.",
+    "description": "FAQ uitleg van rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Ruwe regels:"
+    "message": "Ruwe regelobjecten:",
+    "description": "FAQ sectietitel voor rawRules uitleg"
   },
   "faq_raw_rules_usage": {
-    "message": "Gebruik rawRules voor fragmenten, padsegmenten of complexe parameterpatronen."
+    "message": "Gebruik rules[]-objecten met kind: \"raw\" voor fragmenten, padsegmenten of complexe parameterpatronen.",
+    "description": "FAQ guidance op rawRules gebruik"
   },
   "faq_redirections": {
     "message": "Hoe werken omleidingen?"
@@ -808,7 +811,8 @@
     "message": "Regels:"
   },
   "faq_rules_vs_raw": {
-    "message": "Wat is het verschil tussen rules en rawRules?"
+    "message": "Welke regelvormen kan rules[] bevatten?",
+    "description": "FAQ vraag over regels versus rawRules"
   },
   "faq_section_advanced": {
     "message": "Geavanceerde functies"
@@ -1578,8 +1582,9 @@
   "privacyVersionMapLoadFailed": {
     "message": "Laden van versiekaart van privacybeleid mislukt."
   },
-  "providerImport_bundledRules": {
-    "message": "Actieve gebundelde/externe/aangepaste regels"
+  "providerImport_activeProviderRules": {
+    "message": "Actief gebundeld/Remote-regels/Aangepaste regels",
+    "description": "Zijbalkoptie voor momenteel actieve gebundelde, op afstand ondersteunde en aangepaste regels."
   },
   "providerImport_button": {
     "message": "Aanbieders importeren/uitschakelen"
@@ -2952,10 +2957,12 @@
     "message": "<p><span class=\"faq-code\">domainPatterns</span> is de domeingebaseerde matcher die wordt gebruikt wanneer een aanbieder niet afhankelijk is van <span class=\"faq-code\">urlPattern</span>.</p><p>ClearURLs slaat deze op met <span class=\"faq-code\">setURLDomainPattern()</span> en controleert ze vervolgens met domeinmatchlogica in plaats van regex-URL-matching.</p>"
   },
   "audit_faq_rules_title": {
-    "message": "Wat zijn rules, rawRules en referralMarketing?"
+    "message": "Wat kan rules[] bevatten?",
+    "description": "Titel van veelgestelde vragen voor uniforme Linkumori-ClearURLs-regels"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> zijn parameternamen of fragmentnamen die uit de URL moeten worden verwijderd.</p><p><span class=\"faq-code\">rawRules</span> zijn regex-vervangingen die rechtstreeks op de volledige URL-tekenreeks worden toegepast voordat de query wordt schoongemaakt.</p><p><span class=\"faq-code\">referralMarketing</span> wordt ook behandeld als verwijderbare parameters, maar of ze daadwerkelijk worden gebruikt, hangt af van de globale instelling voor referralmarketing.</p>"
+    "message": "<p><span class=\"faq-code\">rules[]</span> accepteert eenvoudige parameterreeksen, inline <span class=\"faq-code\">$removeparam</span> filters en canonieke objecten.</p><p>Gebruik <span class=\"faq-code\">kind: \"raw\"</span> voor het opschonen van hele URL regex en <span class=\"faq-code\">kind: \"redirection\"</span> voor omleidingsextractie.</p><p>Gebruik <span class=\"faq-code\">referralMarketing: true</span> op een veldregel wanneer de parameter afhangt van de verwijzingsmarketinginstelling.</p>",
+    "description": "Hoofdtekst met veelgestelde vragen voor uniforme Linkumori-ClearURLs-regels"
   },
   "audit_faq_exceptions_title": {
     "message": "Wat zijn exceptions en domainExceptions?"
@@ -2967,7 +2974,8 @@
     "message": "Wat zijn redirections en domainRedirections?"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> zijn regex-gebaseerde uitpakkers. Ze leggen meestal de werkelijke bestemmings-URL vast in groep 1, en ClearURLs leidt om naar die vastgelegde waarde.</p><p><span class=\"faq-code\">domainRedirections</span> zijn omleidingsregels in domeinstijl. In deze codebasis worden ze gecontroleerd op vermeldingen in de vorm <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Als een regex-omleiding eerst overeenkomt, wint die. Zo niet, dan controleert ClearURLs vervolgens domeinomleidingen.</p>"
+    "message": "<p><span class=\"faq-code\">rules[]</span> inzendingen met <span class=\"faq-code\">kind: \"redirection\"</span> zijn op regex gebaseerde unwrappers. Meestal leggen ze de echte bestemming URL vast in groep 1, en ClearURLs verwijst door naar die vastgelegde waarde.</p><p><span class=\"faq-code\">domainRedirections</span> zijn omleidingsregels in domeinstijl. In deze codebase worden ze gecontroleerd op vermeldingen in de vorm van <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Als een regex-omleiding als eerste overeenkomt, wint die. Als dit niet het geval is, controleert ClearURLs vervolgens domein redirections.</p>",
+    "description": "FAQ hoofdtekst voor redirections en domeinomleidingen"
   },
   "audit_faq_methods_resources_title": {
     "message": "Wat zijn methods en resourceTypes?"
@@ -2985,7 +2993,8 @@
     "message": "Welke aanbiedervelden gebruikt clearurls.js hier?"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Het aanbiederbouwpadt in deze branch leest deze sleutels: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span> en <span class=\"faq-code\">resourceTypes</span>.</p><p>Bij het auditen van gedrag is de belangrijkste plek om te controleren <span class=\"faq-code\">Eindregels</span>, omdat die het samengevoegde resultaat laten zien nadat gebundelde, externe en aangepaste bronnen zijn gecombineerd.</p>"
+    "message": "<p>Het provideropbouwpad in deze vertakking leest deze auteurssleutels: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, En <span class=\"faq-code\">resourceTypes</span>.</p><p>Ruwe opschoning, opschoning van verwijzingsmarketing en regex redirections kunnen de bewaarde ClearURLs-velden of canonieke objecten binnenin gebruiken <span class=\"faq-code\">rules[]</span>.</p><p>Bij het auditen van gedrag is de belangrijkste plaats om te controleren: <span class=\"faq-code\">Final Rules</span>, omdat dat het samengevoegde resultaat toont nadat gebundelde, externe en aangepaste bronnen zijn gecombineerd.</p>",
+    "description": "FAQ body voor de lijst met provider-velden die worden gebruikt door clearurls.js"
   },
   "popup_temporary_pause_title": {
     "message": "Tijdelijke pauze"
@@ -3698,36 +3707,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Regelsyntaxis",
+    "message": "Indeling van regels",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klassieke arrays",
+    "description": "Aangepaste regelseditor syntaxismoduslabel voor klassieke Linkumori-ClearURLs-regels"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Canonieke objecten",
+    "description": "Aangepaste regelseditor syntaxismoduslabel voor canonieke Linkumori-ClearURLs-regels"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs behoudt oude ClearURLs-velden en voegt eenvoudige tekenreeksen, inline $removeparam-regels en canonieke regelobjecten toe in rules[].",
+    "description": "Help-tekst voor aangepaste regelseditor voor Linkumori-ClearURLs-regellay-out"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Canonieke Linkumori-ClearURLs-regels gebruiken kind + actie binnen rules[]. Oude rawRules-, referralMarketing- en redirections-velden werken nog steeds.",
+    "description": "Helptekst voor aangepaste regelseditor voor canonieke Linkumori-ClearURLs-regels"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Gebruik linkumori-clearurls-dialect voor alle providerregels.",
+    "description": "Aangepaste regelseditor JSON-helptekst voor uniforme Linkumori-ClearURLs-regels"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Gebruik het Linkumori-ClearURLs-dialect voor provider JSON. Nieuwe saves zijn onder meer syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs behoudt oude ClearURLs-velden en voegt rules[]-tekenreeksen, $removeparam-filters en canonieke objecten met id, kind, match en action toe.",
+    "description": "Helptekst op de werkbalk van de aangepaste regelseditor voor uniforme Linkumori-ClearURLs-regels"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Veldregel",
@@ -3743,11 +3752,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Providervelden",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Aangepast regelseditorlabel voor providervelden in uniforme Linkumori-ClearURLs-modus"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Regelsjablonen",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Aangepast regelseditorlabel voor regelsjablonen in uniforme Linkumori-ClearURLs-modus"
   },
   "popup_report_issue_button_title": {
     "message": "Rapporteer een probleem",
@@ -3947,5 +3956,33 @@
   "report_config_error": {
     "message": "Fout bij het ophalen van configuratiegegevens:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Uitzetten",
+    "description": "Knoplabel om een ​​providerregel-ID uit te schakelen"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Regel-ID's van provider",
+    "description": "Sectietitel voor uitgeschakelde ClearURLs-providerregel-ID's"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Beheerders van regel-ID's van provider",
+    "description": "Werkbalktitel voor bedieningselementen voor het uitschakelen van regel-ID's in de providereditor"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Schakel canonieke providerregel-ID's uit zonder ze te verwijderen. Opgeslagen ID's gebruiken de provider::rule-identiteit.",
+    "description": "Helptekst voor het uitschakelen van regel-ID's van de provider"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Regelactivering",
+    "description": "Sectietitel voor activeringsschakelaars voor actieve providerregels"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Er zijn nog geen canonieke regel-ID's gevonden in deze provider.",
+    "description": "Lege status voor besturingselementen voor providerregel-ID"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Regel-ID-controles zijn beschikbaar zodra de provider JSON geldig is.",
+    "description": "Ongeldige JSON-status voor regel-ID-controles van de provider"
   }
 }

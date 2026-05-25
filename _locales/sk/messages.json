@@ -418,10 +418,10 @@
     "message": "Vyžaduje sa názov poskytovateľa"
   },
   "customRulesEditor_rawRules": {
-    "message": "Nespracované pravidlá (vzory regulárneho výrazu)"
+    "message": "Surové pravidlá"
   },
   "customRulesEditor_redirections": {
-    "message": "Presmerovania (vzory presmerovania)"
+    "message": "Presmerovania"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Referral Marketing"
@@ -860,15 +860,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Priame vzory regulárneho výrazu použité na celú adresu URL. Použite pre zložité vzory, ktoré nezodpovedajú štandardnému formátu parametrov.",
+    "message": "Objekty kanonických nespracovaných pravidiel aplikujú vzory regulárnych výrazov na celý URL. Použite pre zložité vzory, ktoré nezodpovedajú štandardnému formátu parametrov.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Surové pravidlá:",
+    "message": "Nespracované objekty pravidiel:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Použite rawRules pre fragmenty, segmenty cesty alebo zložité vzory parametrov.",
+    "message": "Použite objekty rules[] so kind: \"raw\" pre fragmenty, segmenty cesty alebo zložité vzory parametrov.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Aký je rozdiel medzi pravidlami a rawRules?",
+    "message": "Aké tvary pravidiel môže obsahovať rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "Nepodarilo sa načítať mapu verzie zásad ochrany osobných údajov.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aktívne pravidlá pre balíky/Vzdialené pravidlá/Vlastné pravidlá",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Aktívny balík/Vzdialené pravidlá/Vlastné pravidlá",
+    "description": "Možnosť bočného panela pre aktuálne aktívne združené, vzdialene podporované a vlastné pravidlá."
   },
   "providerImport_button": {
     "message": "Importovať/zakázať poskytovateľov",
@@ -3713,12 +3713,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Čo sú pravidlá, rawRules a referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Čo môže rules[] obsahovať?",
+    "description": "Názov FAQ pre jednotné pravidlá Linkumori-ClearURLs"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">pravidlá</span> sú názvy parametrov alebo názvy fragmentov, ktoré by sa mali z adresy URL odstrániť.</p><p><span class=\"faq-code\">rawRules</span> sú nahradenia reťazcov regulárnych webových adries aplikovaných priamo na celý reťazec adresy URL cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> sa tiež považuje za vymeniteľné parametre, ale či sa skutočne použijú, závisí od globálneho nastavenia marketingu sprostredkovania.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> akceptuje jednoduché reťazce parametrov, inline <span class=\"faq-code\">$removeparam</span> filtre a kanonické objekty.</p><p>Použite <span class=\"faq-code\">kind: \"raw\"</span> na vyčistenie regulárneho výrazu celého URL a <span class=\"faq-code\">kind: \"redirection\"</span> pre presmerovanie extrakcie.</p><p>Použite <span class=\"faq-code\">referralMarketing: true</span> na pravidle poľa, keď parameter závisí od nastavenia sprostredkovania marketingu.</p>",
+    "description": "Časté otázky pre jednotné pravidlá Linkumori-ClearURLs"
   },
   "audit_faq_exceptions_title": {
     "message": "Čo sú výnimky a výnimky domény?",
@@ -3733,7 +3733,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">presmerovania</span> sú rozbalovacie nástroje založené na regulárnych výrazoch. Zvyčajne zachytávajú skutočnú cieľovú URL v skupine 1 a ClearURLs presmeruje na túto zachytenú hodnotu.</p><p><span class=\"faq-code\">domainRedirections</span> sú pravidlá presmerovania v štýle domény. V tejto kódovej základni sa kontrolujú položky v tvare <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Ak sa najskôr zhoduje presmerovanie regulárneho výrazu, vyhráva. Ak nie, ClearURLs skontroluje presmerovania domény ako ďalšie.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> záznamy s <span class=\"faq-code\">kind: \"redirection\"</span> sú rozbalovače založené na regulárnych výrazoch. Zvyčajne zachytávajú skutočný cieľ URL v skupine 1 a ClearURLs presmeruje na túto zachytenú hodnotu.</p><p><span class=\"faq-code\">domainRedirections</span> sú pravidlá presmerovania v štýle domény. V tejto kódovej základni sa kontrolujú položky v tvare ako <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Ak sa presmerovanie regulárneho výrazu zhoduje ako prvé, vyhráva. Ak nie, ClearURLs ďalej skontroluje doménu redirections.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Cesta vytvárania poskytovateľa v tejto vetve číta tieto kľúče: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPatternXXTKNXX6XXTKNTXX <span class=\"faq-code\">Vzory domény</span>, <span class=\"faq-code\">pravidlá</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketingXXTKNXX, <span class=\"faq-code\">výnimky</span>, <span class=\"faq-code\">doménaVýnimky</span>, <span class=\"faq-code\">presmerovania</span>, XXTKNNK21XXTKNXXdoména2XXNTKNXX,XXNTKNXX <span class=\"faq-code\">metódy</span> a <span class=\"faq-code\">typy zdrojov</span>.</p><p>Pri audite správania je najdôležitejším miestom na kontrolu XXTKNXX, pretože po tom, čo sa ukáže 0 pravidlách XXTKNTKXX, po zlúčení XXTKNXX3 pravidlá spojené, vzdialené a vlastné zdroje boli kombinované.</p>",
+    "message": "<p>Cesta vytvárania poskytovateľa v tejto vetve číta tieto kľúče na tvorbu obsahu: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>a <span class=\"faq-code\">resourceTypes</span>.</p><p>Neupravené vyčistenie, vyčistenie marketingu sprostredkovania a regulárny výraz redirections môžu použiť ponechané polia ClearURLs alebo kanonické objekty vo vnútri <span class=\"faq-code\">rules[]</span>.</p><p>Pri auditovaní správania je najdôležitejším miestom na kontrolu <span class=\"faq-code\">Final Rules</span>, pretože to zobrazuje zlúčený výsledok po skombinovaní združených, vzdialených a vlastných zdrojov.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Syntax pravidla",
+    "message": "Rozloženie pravidiel",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klasické polia",
+    "description": "Označenie režimu syntaxe editora vlastných pravidiel pre klasické pravidlá Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Kanonické predmety",
+    "description": "Označenie režimu syntaxe editora vlastných pravidiel pre kanonické pravidlá Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs zachováva staré polia ClearURLs a pridáva jednoduché reťazce, vložené pravidlá $removeparam a objekty kanonických pravidiel v rules[].",
+    "description": "Pomocný text editora vlastných pravidiel pre rozloženie pravidiel Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Kanonické pravidlá Linkumori-ClearURLs používajú druh + akciu vo vnútri rules[]. Staré polia rawRules, referralMarketing a redirections stále fungujú.",
+    "description": "Pomocný text editora vlastných pravidiel pre kanonické pravidlá Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Pre všetky pravidlá poskytovateľa použite linkumori-clearurls-dialect.",
+    "description": "Pomocný text editora vlastných pravidiel JSON pre jednotné pravidlá Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Pre poskytovateľa JSON použite dialekt Linkumori-ClearURLs. Medzi nové uloženia patrí syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs zachováva staré polia ClearURLs a pridáva reťazce rules[], filtre $removeparam a kanonické objekty s ID, druhom, zhodou a akciou.",
+    "description": "Text pomocníka panela nástrojov editora vlastných pravidiel pre jednotné pravidlá Linkumori-ClearURLs"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Pridať pravidlo poľa",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Polia poskytovateľa",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Štítok editora vlastných pravidiel pre polia poskytovateľa v zjednotenom režime Linkumori-ClearURLs"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Šablóny pravidiel",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Štítok editora vlastných pravidiel pre šablóny pravidiel v zjednotenom režime Linkumori-ClearURLs"
   },
   "popup_report_issue_button_title": {
     "message": "Nahláste problém",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "Chyba pri načítavaní konfiguračných údajov:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Zakázať",
+    "description": "Označenie tlačidla na zakázanie ID pravidla poskytovateľa"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "ID pravidiel poskytovateľa",
+    "description": "Názov sekcie pre deaktivované ID pravidiel poskytovateľa ClearURLs"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Ovládacie prvky ID pravidla poskytovateľa",
+    "description": "Názov panela s nástrojmi pre ovládacie prvky zakázania pomocou identifikátora pravidla v editore poskytovateľa"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Zakázať kanonické identifikátory pravidiel poskytovateľa bez ich odstránenia. Uložené ID používajú identitu provider::rule.",
+    "description": "Text pomocníka pre ovládacie prvky deaktivácie pravidiel poskytovateľa"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Aktivácia pravidla",
+    "description": "Prepne názov sekcie pre aktiváciu pravidiel aktívneho poskytovateľa"
+  },
+  "providerImport_noRuleIds": {
+    "message": "U tohto poskytovateľa sa zatiaľ nenašli žiadne kanonické ID pravidiel.",
+    "description": "Prázdny stav pre ovládacie prvky identifikátora pravidiel poskytovateľa"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Ovládacie prvky ID pravidiel sú dostupné, keď je platný poskytovateľ JSON.",
+    "description": "Neplatný stav JSON pre ovládacie prvky identifikátora pravidiel poskytovateľa"
   }
 }

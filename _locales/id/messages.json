@@ -420,10 +420,10 @@
     "message": "Nama penyedia wajib diisi"
   },
   "customRulesEditor_rawRules": {
-    "message": "Aturan Mentah (pola regex)"
+    "message": "Aturan Mentah"
   },
   "customRulesEditor_redirections": {
-    "message": "Pengalihan (pola pengalihan)"
+    "message": "Pengalihan"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Pemasaran Rujukan"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Pola regex langsung yang diterapkan ke seluruh URL. Gunakan untuk pola kompleks yang tidak sesuai dengan format parameter standar.",
+    "message": "Objek aturan mentah kanonik menerapkan pola regex ke seluruh URL. Gunakan untuk pola kompleks yang tidak sesuai dengan format parameter standar.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Aturan Mentah:",
+    "message": "Objek aturan mentah:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Gunakan rawRules untuk fragmen, segmen jalur, atau pola parameter kompleks.",
+    "message": "Gunakan objek rules[] dengan kind: \"raw\" untuk fragmen, segmen jalur, atau pola parameter kompleks.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Apa perbedaan antara rules dan rawRules?",
+    "message": "Bentuk aturan apa yang dapat ditampung rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "Gagal memuat peta versi kebijakan privasi.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aturan Aktif (Bawaan/Jarak Jauh/Kustom)",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Paket Aktif/Aturan Jarak Jauh/Aturan Khusus",
+    "description": "Opsi sidebar untuk aturan yang dipaketkan, didukung jarak jauh, dan khusus yang saat ini aktif."
   },
   "providerImport_button": {
     "message": "Impor/Nonaktifkan Penyedia",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Apa itu rules, rawRules, dan referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Apa isi rules[]?",
+    "description": "Judul FAQ untuk aturan Linkumori-ClearURLs terpadu"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> adalah nama parameter atau nama fragmen yang harus dihapus dari URL.</p><p><span class=\"faq-code\">rawRules</span> adalah penggantian regex yang diterapkan langsung ke seluruh string URL sebelum pembersihan kueri.</p><p><span class=\"faq-code\">referralMarketing</span> diperlakukan seperti parameter yang dapat dihapus juga, tetapi apakah parameter tersebut benar-benar digunakan tergantung pada pengaturan pemasaran rujukan global.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> menerima string parameter sederhana, inline <span class=\"faq-code\">$removeparam</span> filter, dan objek kanonik.</p><p>Menggunakan <span class=\"faq-code\">kind: \"raw\"</span> untuk pembersihan regex keseluruhan-URL dan <span class=\"faq-code\">kind: \"redirection\"</span> untuk ekstraksi pengalihan.</p><p>Menggunakan <span class=\"faq-code\">referralMarketing: true</span> pada aturan lapangan ketika parameternya bergantung pada pengaturan pemasaran rujukan.</p>",
+    "description": "Isi FAQ untuk aturan Linkumori-ClearURLs terpadu"
   },
   "audit_faq_exceptions_title": {
     "message": "Apa itu exceptions dan domainExceptions?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> adalah pembuka bungkus berbasis regex. Mereka biasanya menangkap URL tujuan sebenarnya di grup 1, dan ClearURLs mengalihkan ke nilai yang ditangkap tersebut.</p><p><span class=\"faq-code\">domainRedirections</span> adalah aturan pengalihan gaya domain. Di basis kode ini, mereka diperiksa untuk entri berbentuk <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Jika pengalihan regex cocok terlebih dahulu, itu yang menang. Jika tidak, ClearURLs memeriksa pengalihan domain berikutnya.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> entri dengan <span class=\"faq-code\">kind: \"redirection\"</span> adalah pembuka bungkus berbasis regex. Mereka biasanya menangkap tujuan sebenarnya URL di grup 1, dan ClearURLs mengalihkan ke nilai yang ditangkap tersebut.</p><p><span class=\"faq-code\">domainRedirections</span> adalah aturan pengalihan gaya domain. Dalam basis kode ini mereka diperiksa untuk entri berbentuk seperti <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Jika pengalihan regex cocok terlebih dahulu, maka itu menang. Jika tidak, selanjutnya ClearURLs memeriksa domain redirections.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Jalur pembangunan penyedia di cabang ini membaca kunci-kunci ini: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, dan <span class=\"faq-code\">resourceTypes</span>.</p><p>Saat mengaudit perilaku, tempat terpenting untuk diperiksa adalah <span class=\"faq-code\">Aturan Akhir</span>, karena itu menunjukkan hasil gabungan setelah sumber bawaan, jarak jauh, dan khusus digabungkan.</p>",
+    "message": "<p>Jalur pembuatan penyedia di cabang ini membaca kunci penulisan berikut: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, Dan <span class=\"faq-code\">resourceTypes</span>.</p><p>Pembersihan mentah, pembersihan pemasaran rujukan, dan regex redirections dapat menggunakan bidang ClearURLs yang dipertahankan atau objek kanonik di dalamnya <span class=\"faq-code\">rules[]</span>.</p><p>Saat mengaudit perilaku, tempat paling penting untuk memeriksanya adalah <span class=\"faq-code\">Final Rules</span>, karena itu menunjukkan hasil penggabungan setelah sumber yang dibundel, jarak jauh, dan khusus digabungkan.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Sintaks aturan",
+    "message": "Tata letak aturan",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Array klasik",
+    "description": "Label mode sintaksis editor aturan khusus untuk aturan Linkumori-ClearURLs klasik"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Objek kanonik",
+    "description": "Label mode sintaksis editor aturan khusus untuk aturan Linkumori-ClearURLs kanonik"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs mempertahankan bidang ClearURLs lama dan menambahkan string sederhana, aturan $removeparam sebaris, dan objek aturan kanonik di rules[].",
+    "description": "Teks bantuan editor aturan khusus untuk tata letak aturan Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Aturan Canonical Linkumori-ClearURLs menggunakan kind + action di dalam rules[]. Bidang rawRules, referralMarketing, dan redirections lama masih berfungsi.",
+    "description": "Teks bantuan editor aturan khusus untuk aturan Linkumori-ClearURLs kanonik"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Gunakan dialek linkumori-clearurls untuk semua aturan penyedia.",
+    "description": "Editor aturan khusus Teks bantuan JSON untuk aturan Linkumori-ClearURLs terpadu"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Gunakan dialek Linkumori-ClearURLs untuk penyedia JSON. Penyelamatan baru termasuk syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs mempertahankan bidang ClearURLs lama dan menambahkan string rules[], filter $removeparam, dan objek kanonik dengan id, jenis, kecocokan, dan tindakan.",
+    "description": "Teks bantuan toolbar editor aturan khusus untuk aturan Linkumori-ClearURLs terpadu"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Tambahkan aturan bidang",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Bidang penyedia",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Label editor aturan khusus untuk bidang penyedia dalam mode Linkumori-ClearURLs terpadu"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Templat aturan",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Label editor aturan khusus untuk templat aturan dalam mode Linkumori-ClearURLs terpadu"
   },
   "popup_report_issue_button_title": {
     "message": "Laporkan masalah",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Kesalahan saat mengambil data konfigurasi:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Cacat",
+    "description": "Label tombol untuk menonaktifkan id aturan penyedia"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "ID aturan penyedia",
+    "description": "Judul bagian untuk ID aturan penyedia ClearURLs yang dinonaktifkan"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Kontrol ID aturan penyedia",
+    "description": "Judul bilah alat untuk kontrol penonaktifan id aturan di editor penyedia"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Nonaktifkan ID aturan penyedia kanonis tanpa menghapusnya. Id yang disimpan menggunakan identitas provider::rule.",
+    "description": "Teks bantuan untuk kontrol penonaktifan id aturan penyedia"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Aktivasi Aturan",
+    "description": "Judul bagian untuk aktivasi aturan penyedia aktif diaktifkan"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Belum ada ID aturan kanonik yang ditemukan di penyedia ini.",
+    "description": "Status kosong untuk kontrol id aturan penyedia"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Kontrol ID Aturan tersedia setelah penyedia JSON valid.",
+    "description": "Status JSON tidak valid untuk kontrol id aturan penyedia"
   }
 }
