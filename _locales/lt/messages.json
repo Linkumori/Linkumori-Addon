@@ -420,10 +420,10 @@
     "message": "Reikalingas teikėjo pavadinimas"
   },
   "customRulesEditor_rawRules": {
-    "message": "Neapdorotos taisyklės (regex modeliai)"
+    "message": "Neapdorotos taisyklės"
   },
   "customRulesEditor_redirections": {
-    "message": "Peradresavimai (peradresavimo šablonai)"
+    "message": "Peradresavimai"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Rekomendacijų rinkodara"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Tiesioginiai reguliarieji reiškiniai, taikomi visam URL. Naudokite sudėtingiems šablonams, kurie neatitinka standartinio parametrų formato.",
+    "message": "Kanoniniai neapdorotų taisyklių objektai taiko reguliariojo reiškinio šablonus visam URL. Naudokite sudėtingiems šablonams, kurie neatitinka standartinio parametrų formato.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Neapdorotos taisyklės:",
+    "message": "Neapdoroti taisyklių objektai:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Naudokite rawRules fragmentams, kelio segmentams arba sudėtingiems parametrų šablonams.",
+    "message": "Naudokite rules[] objektus su kind: \"raw\" fragmentams, kelio segmentams ar sudėtingiems parametrų šablonams.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Kuo taisyklės skiriasi nuo neapdorotų taisyklių?",
+    "message": "Kokios taisyklės formos gali būti rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "Nepavyko įkelti privatumo politikos versijos žemėlapio.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aktyvios sudėtinės / nuotolinės taisyklės / tinkintos taisyklės",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Active Bundled/Remote Rules/Custom Rules",
+    "description": "Šoninės juostos parinktis, skirta šiuo metu aktyvioms grupinėms, nuotoliniu būdu palaikomoms ir tinkintoms taisyklėms."
   },
   "providerImport_button": {
     "message": "Importuoti / išjungti teikėjus",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Kas yra taisyklės, rawRules ir referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Kas gali būti rules[]?",
+    "description": "DUK pavadinimas suvienodintoms Linkumori-ClearURLs taisyklėms"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\"> taisyklės</span> yra parametrų pavadinimai arba fragmentų pavadinimai, kuriuos reikia pašalinti iš URL.</p><p><span class=\"faq-code\">rawRules</span> yra reguliariųjų reiškinių pakaitalai, taikomi tiesiogiai prieš visą URL. išvalymas.</p><p><span class=\"faq-code\">referralMarketing</span> taip pat traktuojamas kaip nuimami parametrai, bet ar jie iš tikrųjų naudojami, priklauso nuo visuotinio persiuntimo rinkodaros nustatymo.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> priima paprastas parametrų eilutes, eilutę <span class=\"faq-code\">$removeparam</span> filtrai ir kanoniniai objektai.</p><p>Naudokite <span class=\"faq-code\">kind: \"raw\"</span> viso-URL reguliaraus reiškinio valymui ir <span class=\"faq-code\">kind: \"redirection\"</span> nukreipimo ištraukimui.</p><p>Naudokite <span class=\"faq-code\">referralMarketing: true</span> lauko taisyklėje, kai parametras priklauso nuo persiuntimo rinkodaros nustatymo.</p>",
+    "description": "Vieningų Linkumori-ClearURLs taisyklių DUK turinys"
   },
   "audit_faq_exceptions_title": {
     "message": "Kas yra išimtys ir domenasIšimtys?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">nukreipimai</span> yra reguliariuoju reiškiniu pagrįsti išvyniojimai. Paprastai jie užfiksuoja tikrąjį paskirties URL 1 grupėje, o ClearURL peradresuoja į tą užfiksuotą vertę.</p><p><span class=\"faq-code\">domainRedirections</span> yra domeno stiliaus peradresavimo taisyklės. Šioje kodų bazėje jie tikrinami, ar nėra įrašų, panašių į <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Jei reguliariojo reiškinio peradresavimas sutampa pirmiausia, tai laimi. Jei ne, ClearURLs tikrina domeno peradresavimus next.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> įrašai su <span class=\"faq-code\">kind: \"redirection\"</span> yra reguliariuoju reiškiniu pagrįsti išvyniojimai. Paprastai jie užfiksuoja tikrąjį paskirties vietą URL 1 grupėje, o ClearURLs peradresuoja į tą užfiksuotą vertę.</p><p><span class=\"faq-code\">domainRedirections</span> yra domeno stiliaus peradresavimo taisyklės. Šioje kodų bazėje jie tikrinami, ar nėra tokios formos įrašų <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Jei įprastas reiškinio peradresavimas atitinka pirmą kartą, tai laimi. Jei ne, ClearURLs toliau tikrina domeną redirections.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Teikėjo kūrimo kelias šioje šakoje nuskaito šiuos raktus: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPatternXXNTXXXX,6XX. <span class=\"faq-code\">domeno šablonai</span>, <span class=\"faq-code\">taisyklės</span>, <span class=\"faq-code\">neapdorotos taisyklės</span>, <span class=\"faq-code\"> persiuntimo rinkodaraXXNTXX,14 <span class=\"faq-code\">išimtys</span>, <span class=\"faq-code\">domeno išimtys</span>, <span class=\"faq-code\">nukreipimai</span>, <span class=\"faq-code\">domeno peradresavimaiXXNTXX,22 <span class=\"faq-code\">metodai</span> ir <span class=\"faq-code\">išteklių tipai</span>.</p><p>Audituojant elgseną svarbiausia patikrinti, nes XXTKNXXFinal3XX sujungtas rezultatas, kai buvo sujungti grupiniai, nuotoliniai ir pasirinktiniai šaltiniai.</p>",
+    "message": "<p>Teikėjo kūrimo kelias šioje šakoje nuskaito šiuos kūrimo raktus: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, ir <span class=\"faq-code\">resourceTypes</span>.</p><p>Neapdorotas išvalymas, persiuntimo rinkodaros išvalymas ir reguliarusis reiškinys redirections gali naudoti viduje išsaugotus ClearURLs laukus arba kanoninius objektus <span class=\"faq-code\">rules[]</span>.</p><p>Atliekant elgesio auditą, svarbiausia patikrinti <span class=\"faq-code\">Final Rules</span>, nes rodomas sujungtas rezultatas, kai buvo sujungti sugrupuoti, nuotoliniai ir pasirinktiniai šaltiniai.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Taisyklės sintaksė",
+    "message": "Taisyklių išdėstymas",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klasikiniai masyvai",
+    "description": "Pasirinktinių taisyklių rengyklės sintaksės režimo etiketė, skirta klasikinėms Linkumori-ClearURLs taisyklėms"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Kanoniniai objektai",
+    "description": "Pasirinktinių taisyklių rengyklės sintaksės režimo etiketė, skirta kanoninėms Linkumori-ClearURLs taisyklėms"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs išlaiko senus ClearURLs laukus ir prideda paprastas eilutes, eilutes $removeparam taisykles ir kanoninių taisyklių objektus į rules[].",
+    "description": "Pasirinktinių taisyklių rengyklės žinyno tekstas, skirtas Linkumori-ClearURLs taisyklių išdėstymui"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Kanoninėse Linkumori-ClearURLs taisyklėse rules[] viduje naudojamas tipas + veiksmas. Seni rawRules, referralMarketing ir redirections laukai vis dar veikia.",
+    "description": "Pasirinktinių taisyklių rengyklės žinyno tekstas, skirtas kanoninėms Linkumori-ClearURLs taisyklėms"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Visoms teikėjo taisyklėms naudokite linkumori-clearurls-dialect.",
+    "description": "Tinkintų taisyklių rengyklės JSON pagalbos tekstas, skirtas vieningoms Linkumori-ClearURLs taisyklėms"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Naudokite Linkumori-ClearURLs tarmę teikėjui JSON. Nauji įrašai apima syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs išsaugo senus ClearURLs laukus ir prideda rules[] eilutes, $removeparam filtrus ir kanoninius objektus su ID, rūšimi, atitikmenimis ir veiksmais.",
+    "description": "Pasirinktinių taisyklių rengyklės įrankių juostos pagalbos tekstas, skirtas suvienodintoms Linkumori-ClearURLs taisyklėms"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Pridėti lauko taisyklę",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Teikėjo laukai",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Pasirinktinių taisyklių rengyklės etiketė teikėjo laukams vieningame Linkumori-ClearURLs režime"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Taisyklių šablonai",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Tinkintų taisyklių rengyklės etiketė taisyklių šablonams vieningame Linkumori-ClearURLs režime"
   },
   "popup_report_issue_button_title": {
     "message": "Pranešti apie problemą",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Klaida nuskaitant konfigūracijos duomenis:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Išjungti",
+    "description": "Mygtuko etiketė, skirta išjungti teikėjo taisyklės ID"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Teikėjo taisyklių ID",
+    "description": "Išjungtų ClearURLs teikėjų taisyklių ID skyriaus pavadinimas"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Teikėjo taisyklės ID valdikliai",
+    "description": "Įrankių juostos pavadinimas, skirtas taisyklės ID išjungti valdiklius teikėjo rengyklėje"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Išjunkite kanoninius teikėjo taisyklių ID jų neištrindami. Saugomi ID naudoja provider::rule tapatybę.",
+    "description": "Teikėjo taisyklės ID išjungimo valdiklių pagalbos tekstas"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Taisyklės aktyvinimas",
+    "description": "Aktyvių teikėjų taisyklės aktyvinimo skilties pavadinimas perjungia"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Šiame teikėje dar nerasta jokių kanoninių taisyklių ID.",
+    "description": "Tuščia teikėjo taisyklės ID valdiklių būsena"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Taisyklės ID valdikliai pasiekiami, kai galioja teikėjas JSON.",
+    "description": "Netinkama teikėjo taisyklės ID valdiklių JSON būsena"
   }
 }

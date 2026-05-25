@@ -420,10 +420,10 @@
     "message": "প্রদানকারীর নাম আবশ্যক"
   },
   "customRulesEditor_rawRules": {
-    "message": "কাঁচা নিয়ম (রেজেক্স প্যাটার্ন)"
+    "message": "কাঁচা নিয়ম"
   },
   "customRulesEditor_redirections": {
-    "message": "রিডাইরেক্টেশন (রিডাইরেক্ট প্যাটার্ন)"
+    "message": "পুনঃনির্দেশ"
   },
   "customRulesEditor_referralMarketing": {
     "message": "রেফারেল মার্কেটিং"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "পুরো ইউআরএলে সরাসরি রেজেক্স প্যাটার্ন প্রয়োগ করা হয়েছে । জটিল নকশার জন্য ব্যবহার করুন যা স্ট্যান্ডার্ড প্যারামিটার বিন্যাসের সাথে মানানসই নয় ।",
+    "message": "ক্যানোনিকাল কাঁচা নিয়ম অবজেক্ট পুরো URL তে রেজেক্স প্যাটার্ন প্রয়োগ করে। জটিল প্যাটার্নের জন্য ব্যবহার করুন যা স্ট্যান্ডার্ড প্যারামিটার ফর্ম্যাটের সাথে খাপ খায় না।",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "RAW নিয়মাবলী:",
+    "message": "কাঁচা নিয়ম বস্তু:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "টুকরা, পাথ সেগমেন্ট বা জটিল প্যারামিটার প্যাটার্নের জন্য rawRules ব্যবহার করুন ।",
+    "message": "টুকরো, পাথ সেগমেন্ট বা জটিল প্যারামিটার প্যাটার্নের জন্য kind: \"raw\" সহ rules[] অবজেক্ট ব্যবহার করুন।",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "নিয়ম এবং rawRules এর মধ্যে পার্থক্য কী?",
+    "message": "কি নিয়ম আকার rules[] ধারণ করতে পারে?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "গোপনীয়তা নীতি সংস্করণ মানচিত্র লোড করতে ব্যর্থ হয়েছে ।",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "সক্রিয় বান্ডিল/রিমোট রুলস/কাস্টম রুলস",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "সক্রিয় Bundled/Remote Rules/Custom Rules",
+    "description": "বর্তমানে সক্রিয় বান্ডিল, রিমোট-ব্যাকড, এবং কাস্টম নিয়মগুলির জন্য সাইডবার বিকল্প।"
   },
   "providerImport_button": {
     "message": "সরবরাহকারী আমদানি/নিষ্ক্রিয় করুন",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "নিয়ম, rawRules এবং রেফারেল মার্কেটিং কি?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] কি ধারণ করতে পারে?",
+    "description": "ইউনিফাইড Linkumori-ClearURLs নিয়মের জন্য FAQ শিরোনাম"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> হল প্যারামিটারের নাম বা খণ্ডের নাম যা থেকে সরানো উচিত URL.</p><p><span class=\"faq-code\">rawRules</span> হল কোয়েরির আগে সম্পূর্ণ URL স্ট্রিংয়ে সরাসরি প্রয়োগ করা রেজেক্স প্রতিস্থাপন cleanup.</p><p><span class=\"faq-code\"> রেফারাল মার্কেটিং</span> কেও অপসারণযোগ্য প্যারামিটারের মতোই বিবেচনা করা হয়, কিন্তু সেগুলি আসলে ব্যবহার করা হবে কিনা তা নির্ভর করে বিশ্বব্যাপী রেফারেল-মার্কেটিং-এর উপর নির্ভর করে।",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> সহজ প্যারামিটার স্ট্রিং, ইনলাইন গ্রহণ করে <span class=\"faq-code\">$removeparam</span> ফিল্টার, এবং ক্যানোনিকাল বস্তু।</p><p>ব্যবহার করুন <span class=\"faq-code\">kind: \"raw\"</span> পুরো-URL regex ক্লিনআপের জন্য এবং <span class=\"faq-code\">kind: \"redirection\"</span> পুনঃনির্দেশ নিষ্কাশন জন্য.</p><p>ব্যবহার করুন <span class=\"faq-code\">referralMarketing: true</span> একটি ক্ষেত্রের নিয়মে যখন প্যারামিটার রেফারেল-মার্কেটিং সেটিং এর উপর নির্ভর করে।</p>",
+    "description": "ইউনিফাইড Linkumori-ClearURLs নিয়মের জন্য প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী"
   },
   "audit_faq_exceptions_title": {
     "message": "ব্যতিক্রম এবং ডোমেইন ব্যতিক্রম কি?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\"> পুনঃনির্দেশ </span> হল রেজেক্স-ভিত্তিক আনর্যাপার৷ তারা সাধারণত গ্রুপ 1-এ আসল গন্তব্য URL ক্যাপচার করে এবং ClearURLগুলি সেই ক্যাপচার করা মানটিতে পুনঃনির্দেশ করে। এই কোডবেসে তারা <span class=\"faq-code\">pattern $redirect= target</span>.</p><p> এর মতো আকৃতির এন্ট্রিগুলির জন্য চেক করা হয় যদি একটি রেজেক্স পুনঃনির্দেশ প্রথমে মেলে, তাহলে সেটি জেতে। যদি না হয়, ClearURLs পরবর্তী ডোমেন পুনঃনির্দেশ চেক করে।</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> সঙ্গে এন্ট্রি <span class=\"faq-code\">kind: \"redirection\"</span> regex-ভিত্তিক unwrappers. তারা সাধারণত গ্রুপ 1-এ আসল গন্তব্য URL ক্যাপচার করে এবং ClearURLs সেই ক্যাপচার করা মানটিতে পুনঃনির্দেশ করে।</p><p><span class=\"faq-code\">domainRedirections</span> ডোমেইন-স্টাইল পুনঃনির্দেশিত নিয়ম। এই কোডবেসে তারা মত আকৃতির এন্ট্রি জন্য চেক করা হয় <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>যদি একটি রেজেক্স পুনঃনির্দেশ প্রথমে মেলে, তাহলে সেটি জিতে যায়। যদি না হয়, ClearURLs পরবর্তী redirections ডোমেন পরীক্ষা করে।</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>এই শাখায় প্রদানকারী-বিল্ডিং পাথ এই কীগুলি পড়ে: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\"> জোর পুনঃনির্দেশ XXTKNXX4, XXX <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">রেফারাল মার্কেটিং</span>, <span class=\"faq-code\">TXXTX66XXTKNX</span>17XXTKNXXdomainExceptions</span>, <span class=\"faq-code\">রিডাইরেকশান </span>, XXTKNXX21XXTKNXডোমেন রিডাইরেকশান, <span class=\"faq-code\">23XXTKNXX পদ্ধতি </span>, এবং <span class=\"faq-code\"> রিসোর্স টাইপস</span>.</p>TKNXX, সবচেয়ে গুরুত্বপূর্ণ আচরণের স্থান চেক হল <span class=\"faq-code\"> চূড়ান্ত নিয়ম </span>, কারণ এটি বান্ডিল, দূরবর্তী, এবং কাস্টম উত্স একত্রিত হওয়ার পরে একত্রিত ফলাফল দেখায়৷</p>",
+    "message": "<p>এই শাখায় প্রদানকারী-বিল্ডিং পাথ এই অথরিং কীগুলি পড়ে: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, এবং <span class=\"faq-code\">resourceTypes</span>.</p><p>কাঁচা পরিষ্কার, রেফারেল-মার্কেটিং ক্লিনআপ, এবং regex redirections ভিতরে রাখা ClearURLs ক্ষেত্র বা ক্যানোনিকাল বস্তু ব্যবহার করতে পারে <span class=\"faq-code\">rules[]</span>.</p><p>আচরণ নিরীক্ষণ করার সময়, চেক করার সবচেয়ে গুরুত্বপূর্ণ জায়গা <span class=\"faq-code\">Final Rules</span>, কারণ এটি বান্ডিল, দূরবর্তী, এবং কাস্টম উত্সগুলি একত্রিত হওয়ার পরে একত্রিত ফলাফল দেখায়৷</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "নিয়ম সিনট্যাক্স",
+    "message": "নিয়ম বিন্যাস",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "ক্লাসিক অ্যারে",
+    "description": "ক্লাসিক Linkumori-ClearURLs নিয়মের জন্য কাস্টম নিয়ম সম্পাদক সিনট্যাক্স মোড লেবেল"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "ক্যানোনিকাল বস্তু",
+    "description": "ক্যানোনিকাল Linkumori-ClearURLs নিয়মের জন্য কাস্টম নিয়ম সম্পাদক সিনট্যাক্স মোড লেবেল"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs পুরানো ClearURLs ক্ষেত্রগুলি রাখে এবং rules[]-এ সাধারণ স্ট্রিং, ইনলাইন $removeparam নিয়ম এবং ক্যানোনিকাল নিয়ম অবজেক্ট যোগ করে।",
+    "description": "Linkumori-ClearURLs নিয়ম বিন্যাসের জন্য কাস্টম নিয়ম সম্পাদক সহায়তা পাঠ্য"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "ক্যানোনিকাল Linkumori-ClearURLs নিয়ম rules[]-এর ভিতরে ধরনের + অ্যাকশন ব্যবহার করে। পুরানো rawRules, referralMarketing, এবং redirections ক্ষেত্রগুলি এখনও কাজ করে৷",
+    "description": "ক্যানোনিকাল Linkumori-ClearURLs নিয়মের জন্য কাস্টম নিয়ম সম্পাদক সহায়তা পাঠ্য"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "সমস্ত প্রদানকারীর নিয়মের জন্য linkumori-clearurls-dialect ব্যবহার করুন।",
+    "description": "একীভূত Linkumori-ClearURLs নিয়মের জন্য কাস্টম নিয়ম সম্পাদক JSON সহায়তা পাঠ্য"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "JSON প্রদানকারীর জন্য Linkumori-ClearURLs উপভাষা ব্যবহার করুন। নতুন সঞ্চয় syntax: \"linkumori-clearurls-dialect\" অন্তর্ভুক্ত।",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs পুরানো ClearURLs ক্ষেত্রগুলি রাখে এবং rules[] স্ট্রিং, $removeparam ফিল্টার এবং আইডি, ধরনের, ম্যাচ এবং অ্যাকশন সহ ক্যানোনিকাল অবজেক্ট যোগ করে।",
+    "description": "ইউনিফাইড Linkumori-ClearURLs নিয়মের জন্য কাস্টম নিয়ম সম্পাদক টুলবার সাহায্য পাঠ্য"
   },
   "customRulesEditor_addFieldRule": {
     "message": "ক্ষেত্রের নিয়ম যোগ করুন",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "প্রদানকারী ক্ষেত্র",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "ইউনিফাইড Linkumori-ClearURLs মোডে প্রদানকারী ক্ষেত্রের জন্য কাস্টম নিয়ম সম্পাদক লেবেল"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "নিয়ম টেমপ্লেট",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "ইউনিফাইড Linkumori-ClearURLs মোডে নিয়ম টেমপ্লেটের জন্য কাস্টম নিয়ম সম্পাদক লেবেল"
   },
   "popup_report_issue_button_title": {
     "message": "একটি সমস্যা রিপোর্ট করুন",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "কনফিগারেশন ডেটা পুনরুদ্ধারে ত্রুটি:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "নিষ্ক্রিয় করুন",
+    "description": "একটি প্রদানকারী নিয়ম আইডি নিষ্ক্রিয় করার জন্য বোতাম লেবেল"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "প্রদানকারীর নিয়ম আইডি",
+    "description": "অক্ষম ClearURLs প্রদানকারীর নিয়ম আইডিগুলির জন্য বিভাগের শিরোনাম৷"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "প্রদানকারীর নিয়ম আইডি নিয়ন্ত্রণ",
+    "description": "নিয়ম-আইডির জন্য টুলবার শিরোনাম প্রদানকারী সম্পাদকে নিয়ন্ত্রণ নিষ্ক্রিয় করে"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "ক্যানোনিকাল প্রদানকারীর নিয়ম আইডিগুলি মুছে না দিয়ে অক্ষম করুন৷ সঞ্চিত আইডি provider::rule পরিচয় ব্যবহার করে।",
+    "description": "প্রদানকারীর নিয়ম-আইডি নিষ্ক্রিয় নিয়ন্ত্রণের জন্য সহায়তা পাঠ্য"
+  },
+  "providerImport_ruleActivation": {
+    "message": "নিয়ম সক্রিয়করণ",
+    "description": "সক্রিয় প্রদানকারীর নিয়ম সক্রিয়করণ টগলের জন্য বিভাগের শিরোনাম"
+  },
+  "providerImport_noRuleIds": {
+    "message": "এই প্রদানকারীর মধ্যে এখনও কোন আদর্শ নিয়ম আইডি পাওয়া যায়নি।",
+    "description": "প্রদানকারীর নিয়ম-আইডি নিয়ন্ত্রণের জন্য খালি অবস্থা"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "একবার প্রদানকারী JSON বৈধ হলে নিয়ম আইডি নিয়ন্ত্রণগুলি উপলব্ধ হয়৷",
+    "description": "প্রদানকারীর নিয়ম-আইডি নিয়ন্ত্রণের জন্য অবৈধ JSON অবস্থা"
   }
 }

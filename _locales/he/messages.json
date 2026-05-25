@@ -420,10 +420,10 @@
     "message": "שם הספק הוא שדה חובה"
   },
   "customRulesEditor_rawRules": {
-    "message": "כללים גולמיים (תבניות regex)"
+    "message": "כללים גולמיים"
   },
   "customRulesEditor_redirections": {
-    "message": "הפניות (תבניות הפניה)"
+    "message": "הפניות מחדש"
   },
   "customRulesEditor_referralMarketing": {
     "message": "שיווק מפנים"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "תבניות regex ישירות המופעלות על כתובת ה-URL המלאה. השתמש עבור תבניות מורכבות שאינן מתאימות לפורמט הפרמטרים הסטנדרטי.",
+    "message": "אובייקטים של כללים גולמיים קנוניים מיישמים דפוסי ביטוי רגולרי על כל ה-URL. השתמש עבור דפוסים מורכבים שאינם מתאימים לפורמט הפרמטר הסטנדרטי.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Raw Rules:",
+    "message": "אובייקטי כלל גולמיים:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "השתמש ב-rawRules עבור שברים, מקטעי נתיב או תבניות פרמטרים מורכבות.",
+    "message": "השתמש באובייקטי rules[] עם kind: \"raw\" עבור פרגמנטים, מקטעי נתיב או דפוסי פרמטרים מורכבים.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "מה ההבדל בין rules ל-rawRules?",
+    "message": "אילו צורות כללים יכולות להכיל rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "טעינת מפת גרסת מדיניות הפרטיות נכשלה.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "כללים מובנים/מרוחקים פעילים/מותאמים אישית",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "חבילה פעילה/Remote Rules/ כללים מותאמים אישית",
+    "description": "אפשרות סרגל צד עבור כללים חבולים פעילים, מגובים מרחוק ומותאמים אישית."
   },
   "providerImport_button": {
     "message": "ייבא/השבת ספקים",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "מה הם rules, rawRules ו-referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "מה יכול rules[] להכיל?",
+    "description": "כותרת שאלות נפוצות עבור כללי Linkumori-ClearURLs מאוחדים"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> הם שמות פרמטרים או שמות שברים שצריכים להיות מוסרים מה-URL.</p><p><span class=\"faq-code\">rawRules</span> הם החלפות regex המוחלות ישירות על מחרוזת ה-URL המלאה לפני ניקוי שאילתות.</p><p><span class=\"faq-code\">referralMarketing</span> מטופל גם כפרמטרים ניתנים להסרה, אך האם הם משמשים בפועל תלוי בהגדרה הגלובלית של שיווק מפנים.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> מקבל מחרוזות פרמטר פשוטות, מוטבעות <span class=\"faq-code\">$removeparam</span> מסננים ואובייקטים קנוניים.</p><p>לְהִשְׁתַמֵשׁ <span class=\"faq-code\">kind: \"raw\"</span> לניקוי ביטויים רגילים של URL ו <span class=\"faq-code\">kind: \"redirection\"</span> לחילוץ הפניה מחדש.</p><p>לְהִשְׁתַמֵשׁ <span class=\"faq-code\">referralMarketing: true</span> על כלל שדה כאשר הפרמטר תלוי בהגדרת הפניה-שיווק.</p>",
+    "description": "גוף שאלות נפוצות עבור כללי Linkumori-ClearURLs מאוחדים"
   },
   "audit_faq_exceptions_title": {
     "message": "מה הם exceptions ו-domainExceptions?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> הם פותחנים מבוססי regex. הם בדרך כלל לוכדים את כתובת ה-URL האמיתית של היעד בקבוצה 1, ו-ClearURLs מפנה לערך שנתפס.</p><p><span class=\"faq-code\">domainRedirections</span> הם כללי הפניה בסגנון דומיין. בקוד זה הם נבדקים עבור ערכים בצורה <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>אם הפניית regex תואמת תחילה, היא מנצחת. אם לא, ClearURLs בודק הפניות דומיין לאחר מכן.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> ערכים עם <span class=\"faq-code\">kind: \"redirection\"</span> הם unwrappers מבוססי regex. הם בדרך כלל לוכדים את היעד האמיתי URL בקבוצה 1, ו-ClearURLs מפנה מחדש לערך שנלכד הזה.</p><p><span class=\"faq-code\">domainRedirections</span> הם כללים להפניה מחדש בסגנון דומיין. בבסיס הקוד הזה הם נבדקים עבור ערכים בצורת <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>אם ניתוב מחדש של ביטוי רגולרי תואם ראשון, זה מנצח. אם לא, ClearURLs בודק את הדומיין redirections הבא.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>נתיב בניית הספק בענף זה קורא את המפתחות הבאים: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, ו-<span class=\"faq-code\">resourceTypes</span>.</p><p>בעת ביקורת התנהגות, המקום החשוב ביותר לבדוק הוא <span class=\"faq-code\">כללים סופיים</span>, מכיוון שזה מראה את התוצאה הממוזגת לאחר שמקורות מוכללים, מרוחקים ומותאמים אישית שולבו.</p>",
+    "message": "<p>נתיב בניית הספק בענף זה קורא את מפתחות הכתיבה הבאים: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, ו <span class=\"faq-code\">resourceTypes</span>.</p><p>ניקוי גולמי, ניקוי הפניות-שיווק ו- Regex redirections יכולים להשתמש בשדות ClearURLs שנשמרו או באובייקטים קנוניים שבתוכם <span class=\"faq-code\">rules[]</span>.</p><p>בעת ביקורת התנהגות, המקום החשוב ביותר לבדיקה הוא <span class=\"faq-code\">Final Rules</span>, כי זה מציג את התוצאה הממוזגת לאחר שילוב של מקורות מצורפים, מרוחקים ומותאמים אישית.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "תחביר כלל",
+    "message": "פריסת כללים",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "מערכים קלאסיים",
+    "description": "תווית מצב תחביר של עורך כללים מותאמים אישית עבור כללי Linkumori-ClearURLs קלאסיים"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "חפצים קנוניים",
+    "description": "תווית מצב תחביר של עורך כללים מותאמים אישית עבור כללי Linkumori-ClearURLs קנוניים"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs שומר על שדות ClearURLs ישנים ומוסיף מחרוזות פשוטות, חוקי $removeparam מוטבעים ואובייקטים של כללים קנוניים ב-rules[].",
+    "description": "טקסט עזרה של עורך כללים מותאמים אישית עבור פריסת כלל Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "חוקי Linkumori-ClearURLs קנוניים משתמשים בסוג + פעולה בתוך rules[]. שדות ישנים של rawRules, referralMarketing ו-redirections עדיין עובדים.",
+    "description": "טקסט עזרה של עורך כללים מותאמים אישית עבור כללי Linkumori-ClearURLs קנוניים"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "השתמש ב-linkumori-clearurls-dialect עבור כל חוקי הספק.",
+    "description": "עורך כללים מותאמים אישית JSON טקסט עזרה עבור כללי Linkumori-ClearURLs מאוחדים"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "השתמש בניב Linkumori-ClearURLs עבור הספק JSON. שמירות חדשות כוללות את syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs שומר על שדות ClearURLs ישנים ומוסיף מחרוזות rules[], מסנני $removeparam ואובייקטים קנוניים עם מזהה, סוג, התאמה ופעולה.",
+    "description": "טקסט עזרה של סרגל הכלים של עורך כללים מותאמים אישית עבור כללי Linkumori-ClearURLs מאוחדים"
   },
   "customRulesEditor_addFieldRule": {
     "message": "הוסף כלל שדה",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "שדות ספק",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "תווית עורך כללים מותאמים אישית עבור שדות ספק במצב Linkumori-ClearURLs מאוחד"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "תבניות כללים",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "תווית עורך כללים מותאמים אישית עבור תבניות כללים במצב Linkumori-ClearURLs מאוחד"
   },
   "popup_report_issue_button_title": {
     "message": "דווח על בעיה",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "שגיאה באחזור נתוני תצורה:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "השבת",
+    "description": "תווית לחצן להשבית מזהה כלל ספק"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "מזהי כללים של ספקים",
+    "description": "כותרת המדור עבור מזהי כללים של ספקי ClearURLs מושבתים"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "בקרות מזהה של כלל ספק",
+    "description": "כותרת סרגל הכלים עבור פקדי השבתת כלל-מזהה בעורך הספק"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "השבת מזהי כללים של ספקים קנוניים מבלי למחוק אותם. מזהים מאוחסנים משתמשים בזהות provider::rule.",
+    "description": "טקסט עזרה עבור פקדי השבתת כלל-מזהה של ספק"
+  },
+  "providerImport_ruleActivation": {
+    "message": "הפעלת כללים",
+    "description": "כותרת הסעיף להפעלת כללים פעילים של ספקים"
+  },
+  "providerImport_noRuleIds": {
+    "message": "עדיין לא נמצאו מזהי כלל קנוניים בספק זה.",
+    "description": "מצב ריק עבור בקרות של מזהה כללים"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "בקרות מזהה כללים זמינות ברגע שהספק JSON תקף.",
+    "description": "מצב JSON לא חוקי עבור בקרות מזהה כללים של ספק"
   }
 }

@@ -418,10 +418,10 @@
     "message": "Numele furnizorului este obligatoriu"
   },
   "customRulesEditor_rawRules": {
-    "message": "Reguli brute (modele regex)"
+    "message": "Reguli brute"
   },
   "customRulesEditor_redirections": {
-    "message": "Redirecționări (modele de redirecționare)"
+    "message": "Redirecționări"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Marketing de recomandare"
@@ -860,15 +860,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Șabloane regex directe aplicate întregii adrese URL. Utilizați pentru modele complexe care nu se potrivesc cu formatul standard al parametrului.",
+    "message": "Obiectele cu reguli brute canonice aplică modele regex întregului URL. Utilizați pentru modele complexe care nu se potrivesc cu formatul standard al parametrului.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Reguli brute:",
+    "message": "Obiecte reguli brute:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Utilizați rawRules pentru fragmente, segmente de cale sau modele de parametri complexe.",
+    "message": "Utilizați obiecte rules[] cu kind: \"raw\" pentru fragmente, segmente de cale sau modele de parametri complexe.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Care este diferența dintre reguli și rawRules?",
+    "message": "Ce forme de regulă poate conține rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "Harta versiunii politicii de confidențialitate a eșuat.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Pachete active/Reguli la distanță/Reguli personalizate",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Active Bundled/Reguli la distanță/Reguli personalizate",
+    "description": "Opțiune de bară laterală pentru regulile grupate, susținute de la distanță și personalizate active în prezent."
   },
   "providerImport_button": {
     "message": "Importați/Dezactivați furnizorii",
@@ -3713,12 +3713,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Ce sunt regulile, rawRules și referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Ce poate conține rules[]?",
+    "description": "Titlul întrebărilor frecvente pentru regulile Linkumori-ClearURLs unificate"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> sunt nume de parametri sau nume de fragmente care ar trebui eliminate din adresa URL.</p><p><span class=\"faq-code\">rawRulesXXTKNXX sunt aplicate direct la interogarea URL-ului de înlocuire regulă</span>. cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> este tratat ca niște parametri amovibili, dar dacă aceștia sunt utilizați efectiv depinde de setarea globală de marketing prin recomandare.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> acceptă șiruri de parametri simple, inline <span class=\"faq-code\">$removeparam</span> filtre și obiecte canonice.</p><p>Utilizare <span class=\"faq-code\">kind: \"raw\"</span> pentru curățarea regex-ului întreg-URL și <span class=\"faq-code\">kind: \"redirection\"</span> pentru extragerea redirecționării.</p><p>Utilizare <span class=\"faq-code\">referralMarketing: true</span> pe o regulă de câmp când parametrul depinde de setarea de recomandare-marketing.</p>",
+    "description": "Întrebări frecvente pentru regulile Linkumori-ClearURLs unificate"
   },
   "audit_faq_exceptions_title": {
     "message": "Ce sunt excepțiile și domainExceptions?",
@@ -3733,7 +3733,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirecționările</span> sunt programe de derulare bazate pe regex. De obicei, aceștia captează adresa URL de destinație reală în grupul 1, iar ClearURLs redirecționează către acea valoare capturată.</p><p><span class=\"faq-code\">domainRedirections</span> sunt reguli de redirecționare în stil domeniu. În această bază de cod, acestea sunt verificate pentru intrări în formă de <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>IDacă o redirecționare regex se potrivește prima, aceasta câștigă. Dacă nu, ClearURLs verifică apoi redirecționările domeniului.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> intrări cu <span class=\"faq-code\">kind: \"redirection\"</span> sunt unwrapper-uri bazate pe regex. De obicei, captează destinația reală URL în grupul 1, iar ClearURLs redirecționează către acea valoare capturată.</p><p><span class=\"faq-code\">domainRedirections</span> sunt reguli de redirecționare în stil domeniu. În această bază de cod, acestea sunt verificate pentru intrări în formă de <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Dacă o redirecționare regex se potrivește prima, aceasta câștigă. Dacă nu, ClearURLs verifică în continuare domeniul redirections.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Calea de creare a furnizorului din această ramură citește aceste chei: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">KNXX6XXTKNXXKNXX,XXTKNXXKNXX,XXTKNXXTKNXX <span class=\"faq-code\">Modele de domeniu</span>, <span class=\"faq-code\">reguli</span>, <span class=\"faq-code\">reguli brute</span>, <span class=\"faq-code\">13KNXX13KNXXTKNXXTreferire, <span class=\"faq-code\">reguli <span class=\"faq-code\">excepții</span>, <span class=\"faq-code\">domeniuExcepții</span>, <span class=\"faq-code\">redirecții</span>, <span class=\"faq-code\">doKNXXTKNXXdoKNXXTKNXX2,XTKNXX21XXTKNXX <span class=\"faq-code\">metode</span> și <span class=\"faq-code\">resourceTypes</span>.</p><p>La auditarea comportamentului, cel mai important loc de verificat este XXTKNXXKNXX2Final Reguli</span>, deoarece acesta arată rezultatul îmbinat după ce sursele grupate, la distanță și personalizate au fost combinate.</p>",
+    "message": "<p>Calea de creare a furnizorului din această ramură citește aceste chei de creație: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, și <span class=\"faq-code\">resourceTypes</span>.</p><p>Curățarea brută, curățarea de marketing prin recomandare și expresia regex redirections pot folosi câmpurile ClearURLs reținute sau obiectele canonice din interior <span class=\"faq-code\">rules[]</span>.</p><p>Când auditați comportamentul, cel mai important loc de verificat este <span class=\"faq-code\">Final Rules</span>, deoarece acesta arată rezultatul îmbinat după ce sursele grupate, la distanță și personalizate au fost combinate.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Sintaxa regulii",
+    "message": "Aspectul regulilor",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Matrice clasice",
+    "description": "Eticheta modului de sintaxă a editorului de reguli personalizate pentru regulile clasice Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Obiecte canonice",
+    "description": "Eticheta modului de sintaxă a editorului de reguli personalizate pentru regulile canonice Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs păstrează câmpurile vechi ClearURLs și adaugă șiruri simple, reguli $removeparam inline și obiecte reguli canonice în rules[].",
+    "description": "Textul de ajutor al editorului de reguli personalizate pentru aspectul regulilor Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Regulile canonice Linkumori-ClearURLs folosesc tip + acțiune în interiorul rules[]. Câmpurile vechi rawRules, referralMarketing și redirections încă funcționează.",
+    "description": "Text de ajutor al editorului de reguli personalizate pentru regulile canonice Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Utilizați linkumori-clearurls-dialect pentru toate regulile furnizorului.",
+    "description": "Editorul de reguli personalizate JSON text de ajutor pentru regulile Linkumori-ClearURLs unificate"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Utilizați dialectul Linkumori-ClearURLs pentru furnizorul JSON. Noile salvări includ syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs păstrează câmpurile vechi ClearURLs și adaugă șiruri rules[], filtre $removeparam și obiecte canonice cu id, tip, potrivire și acțiune.",
+    "description": "Text de ajutor din bara de instrumente a editorului de reguli personalizate pentru regulile Linkumori-ClearURLs unificate"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Adăugați o regulă de câmp",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Câmpurile furnizorului",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Etichetă de editor de reguli personalizate pentru câmpurile furnizorului în modul Linkumori-ClearURLs unificat"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Șabloane de reguli",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Etichetă de editor de reguli personalizată pentru șabloanele de reguli în modul Linkumori-ClearURLs unificat"
   },
   "popup_report_issue_button_title": {
     "message": "Raportați o problemă",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "Eroare la preluarea datelor de configurare:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Dezactivați",
+    "description": "Etichetă de buton pentru a dezactiva un ID de regulă de furnizor"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "ID-urile regulilor furnizorului",
+    "description": "Titlul secțiunii pentru ID-urile de reguli ale furnizorului ClearURLs dezactivate"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Controlul ID-ului regulii furnizorului",
+    "description": "Titlul barei de instrumente pentru controalele de dezactivare a codului de regulă în editorul furnizorului"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Dezactivați codurile de reguli canonice ale furnizorilor fără a le șterge. ID-urile stocate folosesc identitatea provider::rule.",
+    "description": "Text de ajutor pentru comenzile de dezactivare a codului regulii furnizorului"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Activarea regulilor",
+    "description": "Titlul secțiunii pentru activarea regulii furnizorului activ comută"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Nu s-au găsit încă ID-uri de reguli canonice la acest furnizor.",
+    "description": "Stare goală pentru controalele de cod de regulă ale furnizorului"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Controalele ID-ului regulilor sunt disponibile odată ce furnizorul JSON este valid.",
+    "description": "Stare JSON nevalidă pentru controalele pentru codul de reguli ale furnizorului"
   }
 }

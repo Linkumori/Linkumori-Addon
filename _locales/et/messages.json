@@ -420,10 +420,10 @@
     "message": "Pakkuja nimi on nõutav"
   },
   "customRulesEditor_rawRules": {
-    "message": "Toorreeglid (regulaarsed mustrid)"
+    "message": "Toores reeglid"
   },
   "customRulesEditor_redirections": {
-    "message": "Ümbersuunamised (ümbersuunamismustrid)"
+    "message": "Ümbersuunamised"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Soovitusturundus"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Otsesed regex-mustrid rakendatakse kogu URL-ile. Kasutage keerukate mustrite jaoks, mis ei sobi standardse parameetrivorminguga.",
+    "message": "Kanoonilised töötlemata reegliobjektid rakendavad regex-mustreid kogu URL-le. Kasutage keerukate mustrite jaoks, mis ei sobi standardse parameetrivorminguga.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Toores reeglid:",
+    "message": "Toores reegliobjektid:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Kasutage rawRules fragmentide, teesegmentide või keerukate parameetrimustrite jaoks.",
+    "message": "Kasutage rules[] objekte koos kind: \"raw\"-ga fragmentide, teelõikude või keerukate parameetrimustrite jaoks.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Mis vahe on reeglitel ja toorreeglitel?",
+    "message": "Milliseid reeglikujundeid võib rules[] sisaldada?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "Privaatsuspoliitika versioonikaardi laadimine ebaõnnestus.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aktiivsed komplekteeritud/kaugreeglid/kohandatud reeglid",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Aktiivsed komplekteeritud/Kaugjuhtimisreeglid/Kohandatud reeglid",
+    "description": "Külgriba valik praegu aktiivsete komplekteeritud, kaugtoega ja kohandatud reeglite jaoks."
   },
   "providerImport_button": {
     "message": "Pakkujate import/keelamine",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Mis on reeglid, rawRules ja referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Mida võib rules[] sisaldada?",
+    "description": "KKK pealkiri ühtsete Linkumori-ClearURLs reeglite jaoks"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">reeglid</span> on parameetrite või fragmentide nimed, mis tuleks URL-ist eemaldada.</p><p><span class=\"faq-code\">rawRules</span> on regexi asendused, mis rakendatakse vahetult enne tervet URL-i. puhastus.</p><p><span class=\"faq-code\">viiteturundust</span> käsitletakse samuti kui eemaldatavaid parameetreid, kuid see, kas neid ka tegelikult kasutatakse, sõltub üldisest viiteturunduse seadest.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> aktsepteerib lihtsaid parameetri stringe, sees <span class=\"faq-code\">$removeparam</span> filtrid ja kanoonilised objektid.</p><p>Kasutage <span class=\"faq-code\">kind: \"raw\"</span> terve-URL regex puhastamiseks ja <span class=\"faq-code\">kind: \"redirection\"</span> ümbersuunamise ekstraheerimiseks.</p><p>Kasutage <span class=\"faq-code\">referralMarketing: true</span> väljareeglil, kui parameeter sõltub viiteturunduse seadest.</p>",
+    "description": "KKK sisu ühtsete Linkumori-ClearURLs reeglite jaoks"
   },
   "audit_faq_exceptions_title": {
     "message": "Mis on erandid ja domeenErandid?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">ümbersuunamised</span> on regexil põhinevad lahtipakkimised. Tavaliselt hõivavad nad 1. rühma tegeliku sihtkoha URL-i ja ClearURL-id suunavad ümber sellele püütud väärtusele.</p><p><span class=\"faq-code\">domeeni ümbersuunamised</span> on domeenistiilis ümbersuunamisreeglid. Selles koodibaasis kontrollitakse neid kirjete suhtes, mille kuju on <span class=\"faq-code\">muster $ ümbersuunamine= target</span>.</p><p> Kui regexi ümbersuunamine kattub esimesena, võidab see. Kui ei, kontrollib ClearURLs järgmisena domeeni ümbersuunamisi.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> kanded koos <span class=\"faq-code\">kind: \"redirection\"</span> on regexil põhinevad lahtipakkimised. Tavaliselt jäädvustavad nad 1. rühma tegeliku sihtkoha URL ja ClearURLs suunab selle salvestatud väärtuse juurde.</p><p><span class=\"faq-code\">domainRedirections</span> on domeeni stiilis ümbersuunamisreeglid. Selles koodibaasis kontrollitakse neid sarnase kujuga kirjete suhtes <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Kui regexi ümbersuunamine kattub esimesena, võidab see. Kui ei, kontrollib ClearURLs järgmisena domeeni redirections.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Pakkuja loomise tee selles harus loeb järgmisi võtmeid: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPatternXXNTKNXX,6XXNTKNXX <span class=\"faq-code\"> domeenimustrid</span>, <span class=\"faq-code\"> reeglid</span>, <span class=\"faq-code\"> töötlemata reeglid</span>, <span class=\"faq-code\">viiteturundusXXTKNXX,14 <span class=\"faq-code\">erandid</span>, <span class=\"faq-code\">domeeni erandid</span>, <span class=\"faq-code\">ümbersuunamised</span>, <span class=\"faq-code\">domeeni ümbersuunamisedXXTKNXX <span class=\"faq-code\"> meetodid</span> ja <span class=\"faq-code\"> ressursitüübid</span>.</p><p> Käitumise auditeerimisel on kõige olulisem kontrollimise koht XXTKNXXFinal RuXX, sest XXTKNXXFinal3XX liidetud tulemus pärast komplekteeritud, kaug- ja kohandatud allikate ühendamist.</p>",
+    "message": "<p>Selle haru pakkuja loomise tee loeb järgmisi autorivõtmeid: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>ja <span class=\"faq-code\">resourceTypes</span>.</p><p>Toorpuhastus, viiteturunduse puhastamine ja regex redirections võivad kasutada säilinud ClearURLs välju või kanoonilisi objekte sees <span class=\"faq-code\">rules[]</span>.</p><p>Käitumise auditeerimisel on kõige olulisem kontrollimise koht <span class=\"faq-code\">Final Rules</span>, sest see näitab liidetud tulemust pärast komplekteeritud, kaug- ja kohandatud allikate ühendamist.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Reegli süntaks",
+    "message": "Reeglite paigutus",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klassikalised massiivid",
+    "description": "Kohandatud reeglite redaktori süntaksirežiimi silt klassikaliste Linkumori-ClearURLs reeglite jaoks"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Kanoonilised objektid",
+    "description": "Kohandatud reeglite redaktori süntaksirežiimi silt kanooniliste Linkumori-ClearURLs reeglite jaoks"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs säilitab vanad ClearURLs väljad ja lisab rules[]-sse lihtsad stringid, tekstisisesed $removeparam reeglid ja kanoonilised reegliobjektid.",
+    "description": "Kohandatud reeglite redaktori abitekst Linkumori-ClearURLs reegli paigutuse jaoks"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Kanoonilistes Linkumori-ClearURLs reeglites kasutatakse rules[] sees head + tegevust. Vanad väljad rawRules, referralMarketing ja redirections töötavad endiselt.",
+    "description": "Kohandatud reeglite redaktori abitekst kanooniliste Linkumori-ClearURLs reeglite jaoks"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Kasutage kõigi pakkujareeglite jaoks linkumori-clearurls-dialecti.",
+    "description": "Kohandatud reeglite redaktori JSON abitekst ühtsete Linkumori-ClearURLs reeglite jaoks"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Kasutage teenusepakkuja JSON jaoks Linkumori-ClearURLs murret. Uute salvestamiste hulgas on syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs säilitab vanad ClearURLs väljad ja lisab rules[] stringid, $removeparam filtrid ja kanoonilised objektid ID, liigi, vaste ja tegevusega.",
+    "description": "Kohandatud reeglite redaktori tööriistariba abitekst ühtsete Linkumori-ClearURLs reeglite jaoks"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Lisa välja reegel",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Pakkuja väljad",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Kohandatud reeglite redaktori silt pakkuja väljadele ühtses Linkumori-ClearURLs-režiimis"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Reeglite mallid",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Kohandatud reeglite redaktori silt reeglimallide jaoks ühtses režiimis Linkumori-ClearURLs"
   },
   "popup_report_issue_button_title": {
     "message": "Teatage probleemist",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Viga konfiguratsiooniandmete toomisel:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Keela",
+    "description": "Nupu silt pakkuja reegli ID keelamiseks"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Pakkuja reegli ID-d",
+    "description": "Keelatud ClearURLs pakkuja reegli ID-de jaotise pealkiri"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Pakkuja reegli ID juhtelemendid",
+    "description": "Tööriistariba pealkiri reegli ID keelamiseks pakkuja redaktoris"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Keelake kanoonilised pakkuja reegli ID-d neid kustutamata. Salvestatud ID-d kasutavad provider::rule identiteeti.",
+    "description": "Abitekst pakkuja reegli ID keelamise juhtelementide jaoks"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Reegli aktiveerimine",
+    "description": "Aktiivse pakkuja reegli aktiveerimise jaotise pealkiri lülitub"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Sellest pakkujast ei leitud veel kanoonilisi reegli ID-sid.",
+    "description": "Pakkuja reegli ID juhtelementide tühi olek"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Reegli ID juhtelemendid on saadaval, kui teenusepakkuja JSON on kehtiv.",
+    "description": "Vale JSON olek pakkuja reegli ID juhtelementide jaoks"
   }
 }

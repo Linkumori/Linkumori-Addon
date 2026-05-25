@@ -418,10 +418,10 @@
     "message": "Sağlayıcı adı gereklidir"
   },
   "customRulesEditor_rawRules": {
-    "message": "Ham Kurallar (regex kalıpları)"
+    "message": "Ham Kurallar"
   },
   "customRulesEditor_redirections": {
-    "message": "Yönlendirmeler (yönlendirme kalıpları)"
+    "message": "Yönlendirmeler"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Yönlendirme Pazarlaması"
@@ -860,15 +860,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Tam URL'ye uygulanan doğrudan regex kalıpları. Standart parametre biçimine uymayan karmaşık kalıplar için kullanın.",
+    "message": "Kanonik ham kural nesneleri, normal ifade kalıplarını URL'nin tamamına uygular. Standart parametre formatına uymayan karmaşık modeller için kullanın.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Ham Kurallar:",
+    "message": "Ham kural nesneleri:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Parçalar, yol bölümleri veya karmaşık parametre kalıpları için rawRules kullanın.",
+    "message": "Parçalar, yol bölümleri veya karmaşık parametre modelleri için kind: \"raw\" ile rules[] nesnelerini kullanın.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Kurallar ve rawRules arasındaki fark nedir?",
+    "message": "rules[] hangi kural şekillerini içerebilir?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "Gizlilik politikası sürüm haritası yüklenemedi.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aktif Paketlenmiş/Uzak/Özel Kurallar",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Aktif Paketlenmiş/Uzak Kurallar/Özel Kurallar",
+    "description": "Şu anda etkin olan paketli, uzaktan destekli ve özel kurallar için kenar çubuğu seçeneği."
   },
   "providerImport_button": {
     "message": "Sağlayıcıları İçe Aktar/Devre Dışı Bırak",
@@ -3713,12 +3713,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "rules, rawRules ve referralMarketing nedir?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] neler içerebilir?",
+    "description": "Birleştirilmiş Linkumori-ClearURLs kuralları için SSS başlığı"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span>, URL'den kaldırılması gereken parametre adları veya parça adlarıdır.</p><p><span class=\"faq-code\">rawRules</span>, sorgu temizliğinden önce doğrudan tüm URL dizesine uygulanan regex değiştirmeleridir.</p><p><span class=\"faq-code\">referralMarketing</span> de kaldırılabilir parametreler gibi ele alınır, ancak bunların gerçekten kullanılıp kullanılmayacağı genel yönlendirme pazarlaması ayarına bağlıdır.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> basit parametre dizelerini kabul eder, satır içi <span class=\"faq-code\">$removeparam</span> filtreler ve kanonik nesneler.</p><p>Kullanmak <span class=\"faq-code\">kind: \"raw\"</span> tam URL normal ifade temizliği için ve <span class=\"faq-code\">kind: \"redirection\"</span> yönlendirme çıkarma için.</p><p>Kullanmak <span class=\"faq-code\">referralMarketing: true</span> Parametre yönlendirme pazarlaması ayarına bağlı olduğunda alan kuralına göre.</p>",
+    "description": "Birleştirilmiş Linkumori-ClearURLs kuralları için SSS metni"
   },
   "audit_faq_exceptions_title": {
     "message": "exceptions ve domainExceptions nedir?",
@@ -3733,7 +3733,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span>, regex tabanlı açıcılardır. Genellikle gerçek hedef URL'yi grup 1'de yakalarlar ve ClearURLs bu yakalanan değere yönlendirir.</p><p><span class=\"faq-code\">domainRedirections</span>, alan adı tarzı yönlendirme kurallarıdır. Bu kod tabanında <span class=\"faq-code\">pattern $redirect= target</span> şeklindeki girişler için kontrol edilirler.</p><p>Önce bir regex yönlendirmesi eşleşirse, o kazanır. Değilse, ClearURLs daha sonra alan adı yönlendirmelerini kontrol eder.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> ile girişler <span class=\"faq-code\">kind: \"redirection\"</span> regex tabanlı paket açıcılardır. Genellikle grup 1'deki gerçek hedef URL'yi yakalarlar ve ClearURLs bu yakalanan değere yeniden yönlendirir.</p><p><span class=\"faq-code\">domainRedirections</span> etki alanı stili yönlendirme kurallarıdır. Bu kod tabanında şu şekildeki girişler kontrol edilir: <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Bir normal ifade yönlendirmesi önce eşleşirse kazanır. Değilse, ClearURLs daha sonra redirections etki alanını kontrol eder.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Bu daldaki sağlayıcı oluşturma yolu şu anahtarları okur: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span> ve <span class=\"faq-code\">resourceTypes</span>.</p><p>Davranışı denetlerken kontrol edilecek en önemli yer <span class=\"faq-code\">Nihai Kurallar</span>'dır, çünkü bu, paketlenmiş, uzak ve özel kaynaklar birleştirildikten sonraki birleştirilmiş sonucu gösterir.</p>",
+    "message": "<p>Bu daldaki sağlayıcı oluşturma yolu şu yazma anahtarlarını okur: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, Ve <span class=\"faq-code\">resourceTypes</span>.</p><p>Ham temizleme, yönlendirme pazarlaması temizleme ve normal ifade redirections, içindeki tutulan ClearURLs alanlarını veya kanonik nesneleri kullanabilir <span class=\"faq-code\">rules[]</span>.</p><p>Davranışı denetlerken kontrol edilecek en önemli yer <span class=\"faq-code\">Final Rules</span>, çünkü bu, paketlenmiş, uzak ve özel kaynaklar birleştirildikten sonra birleştirilmiş sonucu gösterir.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Kural sözdizimi",
+    "message": "Kural düzeni",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klasik diziler",
+    "description": "Klasik Linkumori-ClearURLs kuralları için özel kural düzenleyici sözdizimi modu etiketi"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Kanonik nesneler",
+    "description": "Kurallı Linkumori-ClearURLs kuralları için özel kural düzenleyici sözdizimi modu etiketi"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs, eski ClearURLs alanlarını korur ve rules[]'ye basit dizeler, satır içi $removeparam kuralları ve kanonik kural nesneleri ekler.",
+    "description": "Linkumori-ClearURLs kural düzeni için özel kural düzenleyici yardım metni"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Kanonik Linkumori-ClearURLs kuralları, rules[] içindeki tür + eylemi kullanır. Eski rawRules, referralMarketing ve redirections alanları hâlâ çalışıyor.",
+    "description": "Standart Linkumori-ClearURLs kuralları için özel kural düzenleyici yardım metni"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Tüm sağlayıcı kuralları için linkumori-clearurls-dialect'i kullanın.",
+    "description": "Birleştirilmiş Linkumori-ClearURLs kuralları için özel kural düzenleyici JSON yardım metni"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "JSON sağlayıcısı için Linkumori-ClearURLs lehçesini kullanın. Yeni kayıtlar syntax: \"linkumori-clearurls-dialect\"'yi içerir.",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs, eski ClearURLs alanlarını korur ve kimlik, tür, eşleşme ve eylem içeren rules[] dizeleri, $removeparam filtreleri ve kanonik nesneler ekler.",
+    "description": "Birleştirilmiş Linkumori-ClearURLs kuralları için özel kural düzenleyici araç çubuğu yardım metni"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Alan kuralı ekle",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Sağlayıcı alanları",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Birleşik Linkumori-ClearURLs modunda sağlayıcı alanları için özel kural düzenleyici etiketi"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Kural şablonları",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Birleşik Linkumori-ClearURLs modunda kural şablonları için özel kural düzenleyici etiketi"
   },
   "popup_report_issue_button_title": {
     "message": "Bir sorunu bildirin",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "Yapılandırma verileri alınırken hata oluştu:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Devre dışı bırakmak",
+    "description": "Sağlayıcı kuralı kimliğini devre dışı bırakmak için düğme etiketi"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Sağlayıcı kural kimlikleri",
+    "description": "Devre dışı bırakılan ClearURLs sağlayıcı kural kimlikleri için bölüm başlığı"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Sağlayıcı kural kimliği kontrolleri",
+    "description": "Sağlayıcı düzenleyicide kural kimliğini devre dışı bırakma denetimleri için araç çubuğu başlığı"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Kurallı sağlayıcı kural kimliklerini silmeden devre dışı bırakın. Saklanan kimlikler provider::rule kimliğini kullanır.",
+    "description": "Sağlayıcı kural kimliği devre dışı bırakma kontrolleri için yardım metni"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Kural Etkinleştirme",
+    "description": "Etkin sağlayıcı kuralı etkinleştirme geçişleri için bölüm başlığı"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Bu sağlayıcıda henüz standart kural kimliği bulunamadı.",
+    "description": "Sağlayıcı kural kimliği kontrolleri için boş durum"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Kural Kimliği kontrolleri JSON sağlayıcısı geçerli olduğunda kullanılabilir.",
+    "description": "Sağlayıcı kural kimliği kontrolleri için geçersiz JSON durumu"
   }
 }

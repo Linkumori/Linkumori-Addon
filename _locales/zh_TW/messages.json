@@ -418,10 +418,10 @@
     "message": "請填寫規則名稱。"
   },
   "customRulesEditor_rawRules": {
-    "message": "原始規則 (正則表達式模式)。"
+    "message": "原始規則"
   },
   "customRulesEditor_redirections": {
-    "message": "重定向 (重定向模式)。"
+    "message": "重定向"
   },
   "customRulesEditor_referralMarketing": {
     "message": "推薦行銷。"
@@ -860,15 +860,15 @@
     "description": "解釋提供者的常見問題解答。"
   },
   "faq_raw_rules_explanation": {
-    "message": "直接套用正規表達式模式到整個 URL。用於複雜的模式，這些模式不符合標準參數格式。",
+    "message": "規範原始規則物件將正規表示式模式套用至整個 URL。用於不符合標準參數格式的複雜模式。",
     "description": "關於 rawRules 的常見問題解答說明。"
   },
   "faq_raw_rules_title": {
-    "message": "原始規則：",
+    "message": "原始規則物件：",
     "description": "關於 rawRules 說明部分的標題。"
   },
   "faq_raw_rules_usage": {
-    "message": "對於片段、路徑區段或複雜的參數模式，請使用 rawRules。",
+    "message": "將 rules[] 物件與 kind: \"raw\" 結合使用用於片段、路徑段或複雜參數模式。",
     "description": "關於 rawRules 使用的指導。"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "關於規則說明部分的常見問題解答標題。"
   },
   "faq_rules_vs_raw": {
-    "message": "規則和 rawRules 之間的區別是什麼？",
+    "message": "rules[] 可以包含哪些規則形狀？",
     "description": "關於規則與 rawRules 的常見問題解答。"
   },
   "faq_section_advanced": {
@@ -1822,9 +1822,9 @@
     "message": "加載隱私權版本映射失敗。",
     "description": "當無法加載隱私權版本映射配置時顯示的通知。"
   },
-  "providerImport_bundledRules": {
-    "message": "啟用捆綁/遠程規則/自定義規則",
-    "description": "側邊欄選項，用於目前啟用的捆綁和遠程規則。"
+  "providerImport_activeProviderRules": {
+    "message": "活動捆綁/遠端規則/自訂規則",
+    "description": "目前活動的捆綁、遠端支援和自訂規則的側邊欄選項。"
   },
   "providerImport_button": {
     "message": "導入/禁用提供程序",
@@ -3748,12 +3748,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "What are rules, rawRules, and referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] 可以包含什麼？",
+    "description": "統一Linkumori-ClearURLs規則的常見問題標題"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> are parameter names or fragment names that should be removed from the URL.</p><p><span class=\"faq-code\">rawRules</span> are regex replacements applied directly to the whole URL string before query cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> is treated like removable parameters too, but whether they are actually used depends on the global referral-marketing setting.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> 接受簡單的參數字串，內聯 <span class=\"faq-code\">$removeparam</span> 過濾器和規範對象。</p><p>使用 <span class=\"faq-code\">kind: \"raw\"</span> 用於整個 URL 正規表示式清理和 <span class=\"faq-code\">kind: \"redirection\"</span> 用於重定向提取。</p><p>使用 <span class=\"faq-code\">referralMarketing: true</span> 當參數取決於推薦行銷設定時，基於字段規則。</p>",
+    "description": "統一Linkumori-ClearURLs規則的常見問題解答正文"
   },
   "audit_faq_exceptions_title": {
     "message": "What are exceptions and domainExceptions?",
@@ -3768,7 +3768,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> are regex-based unwrappers. They usually capture the real destination URL in group 1, and ClearURLs redirects to that captured value.</p><p><span class=\"faq-code\">domainRedirections</span> are domain-style redirect rules. In this codebase they are checked for entries shaped like <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>If a regex redirection matches first, that wins. If not, ClearURLs checks domain redirections next.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> 條目與 <span class=\"faq-code\">kind: \"redirection\"</span> 是基於正規表示式的解包器。它們通常會捕獲組 1 中的真實目標 URL，並且 ClearURLs 會重新導向到該捕獲的值。</p><p><span class=\"faq-code\">domainRedirections</span> 是域樣式的重新導向規則。在此程式碼庫中，檢查它們是否有類似形狀的條目 <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>如果正規表示式重定向首先匹配，則獲勝。如果不是，ClearURLs 接下來檢查域 redirections。</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3792,7 +3792,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>The provider-building path in this branch reads these keys: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, and <span class=\"faq-code\">resourceTypes</span>.</p><p>When auditing behavior, the most important place to check is <span class=\"faq-code\">Final Rules</span>, because that shows the merged result after bundled, remote, and custom sources have been combined.</p>",
+    "message": "<p>該分支中的提供者建構路徑讀取這些創作金鑰： <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>， 和 <span class=\"faq-code\">resourceTypes</span>.</p><p>原始清理、推薦行銷清理和正規表示式 redirections 可以使用內部保留的 ClearURLs 欄位或規範對象 <span class=\"faq-code\">rules[]</span>.</p><p>在審計行為時，最重要的檢查地點是 <span class=\"faq-code\">Final Rules</span>，因為這顯示了捆綁、遠端和自訂來源合併後的合併結果。</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4564,36 +4564,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "規則語法",
+    "message": "規則佈局",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "經典數組",
+    "description": "經典 Linkumori-ClearURLs 規則的自訂規則編輯器語法模式標籤"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "規範對象",
+    "description": "規範 Linkumori-ClearURLs 規則的自訂規則編輯器語法模式標籤"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs 保留舊的 ClearURLs 字段，並在 rules[] 中添加簡單字串、內聯 $removeparam 規則和規範規則物件。",
+    "description": "Linkumori-ClearURLs 規則版面的自訂規則編輯器說明文本"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "規範的 Linkumori-ClearURLs 規則在 rules[] 中使用種類 + 動作。舊的 rawRules、referralMarketing 和 redirections 欄位仍然有效。",
+    "description": "規範 Linkumori-ClearURLs 規則的自訂規則編輯器說明文本"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "對所有提供者規則使用 linkumori-clearurls-dialect。",
+    "description": "統一 Linkumori-ClearURLs 規則的自訂規則編輯器 JSON 說明文本"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "對提供者 JSON 使用 Linkumori-ClearURLs 方言。新存檔包括 syntax: \"linkumori-clearurls-dialect\"。",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs 保留舊的 ClearURLs 字段，並添加 rules[] 字串、$removeparam 過濾器以及具有 id、kind、match 和 action 的規範物件。",
+    "description": "統一 Linkumori-ClearURLs 規則的自訂規則編輯器工具列說明文本"
   },
   "customRulesEditor_addFieldRule": {
     "message": "新增字段規則",
@@ -4609,11 +4609,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "提供者字段",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "統一 Linkumori-ClearURLs 模式下提供者欄位的自訂規則編輯器標籤"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "規則模板",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "統一 Linkumori-ClearURLs 模式下規則範本的自訂規則編輯器標籤"
   },
   "popup_report_issue_button_title": {
     "message": "報告問題",
@@ -4813,5 +4813,33 @@
   "report_config_error": {
     "message": "檢索配置資料時發生錯誤：",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "停用",
+    "description": "用於停用提供者規則 ID 的按鈕標籤"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "提供者規則 ID",
+    "description": "禁用的 ClearURLs 提供者規則 ID 的部分標題"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "提供者規則 ID 控制",
+    "description": "提供程式編輯器中規則 ID 停用控制項的工具列標題"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "停用規範提供者規則 ID，而不刪除它們。儲存的 id 使用 provider::rule 身分。",
+    "description": "提供者規則 ID 停用控制項的說明文字"
+  },
+  "providerImport_ruleActivation": {
+    "message": "規則激活",
+    "description": "活動提供者規則啟動切換的部分標題"
+  },
+  "providerImport_noRuleIds": {
+    "message": "在此提供者中尚未找到規範規則 ID。",
+    "description": "提供者規則 ID 控制項的空狀態"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "一旦提供者 JSON 有效，規則 ID 控制就可用。",
+    "description": "提供程序規則 ID 控制項的 JSON 狀態無效"
   }
 }

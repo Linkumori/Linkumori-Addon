@@ -420,10 +420,10 @@
     "message": "પ્રદાતાનું નામ આવશ્યક છે"
   },
   "customRulesEditor_rawRules": {
-    "message": "કાચા નિયમો (રેજેક્સ પેટર્ન)"
+    "message": "કાચા નિયમો"
   },
   "customRulesEditor_redirections": {
-    "message": "રીડાયરેકશન (રીડાયરેક્ટ પેટર્ન)"
+    "message": "રીડાયરેક્શન"
   },
   "customRulesEditor_referralMarketing": {
     "message": "રેફરલ માર્કેટિંગ"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "સમગ્ર URL પર સીધી રેજેક્સ પેટર્ન લાગુ. જટિલ પેટર્ન માટે ઉપયોગ કરો કે જે પ્રમાણભૂત પેરામીટર ફોર્મેટમાં બંધબેસતા નથી.",
+    "message": "કેનોનિકલ કાચા નિયમ ઑબ્જેક્ટ સમગ્ર URL પર રેજેક્સ પેટર્ન લાગુ કરે છે. જટિલ પેટર્ન માટે ઉપયોગ કરો કે જે પ્રમાણભૂત પેરામીટર ફોર્મેટમાં બંધબેસતા નથી.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "કાચા નિયમો:",
+    "message": "કાચા નિયમ પદાર્થો:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "ટુકડાઓ, પાથ સેગમેન્ટ્સ અથવા જટિલ પેરામીટર પેટર્ન માટે rawRules નો ઉપયોગ કરો.",
+    "message": "ટુકડાઓ, પાથ સેગમેન્ટ્સ અથવા જટિલ પેરામીટર પેટર્ન માટે kind: \"raw\" સાથે rules[] ઑબ્જેક્ટ્સનો ઉપયોગ કરો.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "નિયમો અને rawRules વચ્ચે શું તફાવત છે?",
+    "message": "rules[] માં કયા નિયમ આકારો હોઈ શકે છે?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "ગોપનીયતા નીતિ સંસ્કરણ નકશો લોડ કરવામાં નિષ્ફળ.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "સક્રિય બંડલ/રિમોટ નિયમો/કસ્ટમ નિયમો",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "સક્રિય Bundled/Remote Rules/Custom Rules",
+    "description": "હાલમાં સક્રિય બંડલ, રિમોટ-બેક્ડ અને કસ્ટમ નિયમો માટે સાઇડબાર વિકલ્પ."
   },
   "providerImport_button": {
     "message": "પ્રદાતાઓને આયાત/અક્ષમ કરો",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "નિયમો, rawRules અને રેફરલ માર્કેટિંગ શું છે?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] શું સમાવી શકે છે?",
+    "description": "એકીકૃત Linkumori-ClearURLs નિયમો માટે FAQ શીર્ષક"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> એ પેરામીટર નામો અથવા ટુકડાના નામ છે જેમાંથી દૂર કરવા જોઈએ URL.</p><p><span class=\"faq-code\">rawRules</span> એ ક્વેરી પહેલાં સમગ્ર URL સ્ટ્રિંગ પર સીધા જ લાગુ કરાયેલ રેજેક્સ રિપ્લેસમેન્ટ છે cleanup.</p><p>TKNXX9XXTKNXXreferralMarketing</span> ને પણ દૂર કરી શકાય તેવા પરિમાણોની જેમ ગણવામાં આવે છે, પરંતુ તેનો વાસ્તવમાં ઉપયોગ થાય છે કે કેમ તે વૈશ્વિક રેફરલ-માર્કેટિંગ 1TNXXKTNXXK સેટિંગ પર આધાર રાખે છે.",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> સરળ પેરામીટર સ્ટ્રીંગ્સ, ઇનલાઇન સ્વીકારે છે <span class=\"faq-code\">$removeparam</span> ફિલ્ટર્સ અને પ્રમાણભૂત વસ્તુઓ.</p><p>ઉપયોગ કરો <span class=\"faq-code\">kind: \"raw\"</span> સંપૂર્ણ-URL રેજેક્સ ક્લિનઅપ માટે અને <span class=\"faq-code\">kind: \"redirection\"</span> રીડાયરેક્ટ નિષ્કર્ષણ માટે.</p><p>ઉપયોગ કરો <span class=\"faq-code\">referralMarketing: true</span> જ્યારે પરિમાણ રેફરલ-માર્કેટિંગ સેટિંગ પર આધારિત હોય ત્યારે ફીલ્ડ નિયમ પર.</p>",
+    "description": "એકીકૃત Linkumori-ClearURLs નિયમો માટે FAQ બોડી"
   },
   "audit_faq_exceptions_title": {
     "message": "અપવાદો અને ડોમેન અપવાદો શું છે?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> એ રેજેક્સ-આધારિત અનવ્રેપર્સ છે. તેઓ સામાન્ય રીતે જૂથ 1 માં વાસ્તવિક ગંતવ્ય URL કેપ્ચર કરે છે, અને ClearURLs તે કેપ્ચર કરેલ મૂલ્ય પર રીડાયરેક્ટ કરે છે. આ કોડબેઝમાં તેઓ <span class=\"faq-code\">pattern $redirect= target</span>.</p><p> જેવા આકારની એન્ટ્રીઓ માટે ચકાસવામાં આવે છે જો રેજેક્સ રીડાયરેક્શન પહેલા મેચ થાય છે, તો તે જીતે છે. જો નહીં, તો ClearURLs આગળ ડોમેન રીડાયરેક્શન તપાસે છે.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> સાથે એન્ટ્રીઓ <span class=\"faq-code\">kind: \"redirection\"</span> રેજેક્સ-આધારિત અનવ્રેપર્સ છે. તેઓ સામાન્ય રીતે જૂથ 1 માં વાસ્તવિક ગંતવ્ય URL કેપ્ચર કરે છે, અને ClearURLs કેપ્ચર કરેલ મૂલ્ય પર રીડાયરેક્ટ કરે છે.</p><p><span class=\"faq-code\">domainRedirections</span> ડોમેન-શૈલી રીડાયરેક્ટ નિયમો છે. આ કોડબેઝમાં તેઓ જેવા આકારની એન્ટ્રીઓ માટે તપાસવામાં આવે છે <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>જો રેગેક્સ રીડાયરેક્શન પહેલા મેળ ખાય છે, તો તે જીતે છે. જો નહીં, તો ClearURLs આગળ ડોમેન redirections તપાસે છે.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>આ શાખામાં પ્રદાતા-નિર્માણ પાથ આ કીઝ વાંચે છે: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">ફોર્સ રીડાયરેક્શનXXTKNXX4, XXTKNXX5XXTKNXurlPatternXXTKNX6XXTKNXX, XXTKNX7XXTKNXXdomainPatterns</span>, <span class=\"faq-code\">rulesXXTKNXX10, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">રેફરલ માર્કેટિંગ</span>, <span class=\"faq-code\">TX66, </span>17XXTKNXXdomainExceptions</span>, <span class=\"faq-code\">redirections</span>, XXTKNXX21XXTKNXdomainRedirections2XTKNXX, <span class=\"faq-code\">પદ્ધતિઓ</span>, અને <span class=\"faq-code\">સંસાધન પ્રકારો</span>.</p>27XXTKNXXTKNX, વર્તણૂકને સૌથી મહત્વપૂર્ણ સ્થાને છે. ચેક <span class=\"faq-code\">અંતિમ નિયમો</span> છે, કારણ કે તે બંડલ, રિમોટ અને કસ્ટમ સ્ત્રોતો ભેગા થયા પછી મર્જ કરેલ પરિણામ દર્શાવે છે.</p>",
+    "message": "<p>આ શાખામાં પ્રદાતા-નિર્માણ પાથ આ ઓથરીંગ કી વાંચે છે: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, અને <span class=\"faq-code\">resourceTypes</span>.</p><p>કાચો સફાઈ, રેફરલ-માર્કેટિંગ ક્લિનઅપ, અને regex redirections જાળવી રાખેલા ClearURLs ફીલ્ડ્સ અથવા કેનોનિકલ ઑબ્જેક્ટનો અંદર ઉપયોગ કરી શકે છે <span class=\"faq-code\">rules[]</span>.</p><p>વર્તનનું ઑડિટ કરતી વખતે, તપાસવાનું સૌથી મહત્વપૂર્ણ સ્થાન છે <span class=\"faq-code\">Final Rules</span>, કારણ કે તે બંડલ, રિમોટ અને કસ્ટમ સ્ત્રોતો ભેગા થયા પછી મર્જ કરેલ પરિણામ દર્શાવે છે.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "નિયમ વાક્યરચના",
+    "message": "નિયમ લેઆઉટ",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "ઉત્તમ નમૂનાના એરે",
+    "description": "ક્લાસિક Linkumori-ClearURLs નિયમો માટે કસ્ટમ નિયમો સંપાદક સિન્ટેક્સ મોડ લેબલ"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "પ્રમાણભૂત વસ્તુઓ",
+    "description": "કેનોનિકલ Linkumori-ClearURLs નિયમો માટે કસ્ટમ નિયમો સંપાદક સિન્ટેક્સ મોડ લેબલ"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs જૂના ClearURLs ફીલ્ડને રાખે છે અને rules[] માં સરળ સ્ટ્રિંગ્સ, ઇનલાઇન $removeparam નિયમો અને પ્રમાણભૂત નિયમ ઑબ્જેક્ટ ઉમેરે છે.",
+    "description": "Linkumori-ClearURLs નિયમ લેઆઉટ માટે કસ્ટમ નિયમો સંપાદક સહાય ટેક્સ્ટ"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "કેનોનિકલ Linkumori-ClearURLs નિયમો rules[] ની અંદર પ્રકારની + ક્રિયાનો ઉપયોગ કરે છે. જૂના rawRules, referralMarketing અને redirections ફીલ્ડ હજુ પણ કામ કરે છે.",
+    "description": "કેનોનિકલ Linkumori-ClearURLs નિયમો માટે કસ્ટમ નિયમો સંપાદક સહાય ટેક્સ્ટ"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "બધા પ્રદાતા નિયમો માટે linkumori-clearurls-dialect નો ઉપયોગ કરો.",
+    "description": "એકીકૃત Linkumori-ClearURLs નિયમો માટે કસ્ટમ નિયમો સંપાદક JSON સહાય ટેક્સ્ટ"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "પ્રદાતા JSON માટે Linkumori-ClearURLs બોલીનો ઉપયોગ કરો. નવી બચતમાં syntax: \"linkumori-clearurls-dialect\" નો સમાવેશ થાય છે.",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs જૂના ClearURLs ફીલ્ડને રાખે છે અને rules[] સ્ટ્રિંગ્સ, $removeparam ફિલ્ટર્સ અને id, પ્રકારની, મેચ અને ક્રિયા સાથે પ્રમાણભૂત વસ્તુઓ ઉમેરે છે.",
+    "description": "એકીકૃત Linkumori-ClearURLs નિયમો માટે કસ્ટમ નિયમો સંપાદક ટૂલબાર સહાય ટેક્સ્ટ"
   },
   "customRulesEditor_addFieldRule": {
     "message": "ક્ષેત્ર નિયમ ઉમેરો",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "પ્રદાતા ક્ષેત્રો",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "એકીકૃત Linkumori-ClearURLs મોડમાં પ્રદાતા ક્ષેત્રો માટે કસ્ટમ નિયમો સંપાદક લેબલ"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "નિયમ નમૂનાઓ",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "એકીકૃત Linkumori-ClearURLs મોડમાં નિયમ નમૂનાઓ માટે કસ્ટમ નિયમો સંપાદક લેબલ"
   },
   "popup_report_issue_button_title": {
     "message": "સમસ્યાની જાણ કરો",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "રૂપરેખાંકન ડેટા પુનઃપ્રાપ્ત કરવામાં ભૂલ:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "અક્ષમ કરો",
+    "description": "પ્રદાતા નિયમ ID ને અક્ષમ કરવા માટે બટન લેબલ"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "પ્રદાતા નિયમ IDs",
+    "description": "અક્ષમ કરેલ ClearURLs પ્રદાતા નિયમ ID માટે વિભાગનું શીર્ષક"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "પ્રદાતા નિયમ ID નિયંત્રણો",
+    "description": "પ્રદાતા સંપાદકમાં નિયમ-આઈડી અક્ષમ નિયંત્રણો માટે ટૂલબાર શીર્ષક"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "કેનોનિકલ પ્રદાતા નિયમ ID ને કાઢી નાખ્યા વિના અક્ષમ કરો. સંગ્રહિત આઈડી provider::rule ઓળખનો ઉપયોગ કરે છે.",
+    "description": "પ્રદાતા નિયમ-આઈડી અક્ષમ નિયંત્રણો માટે સહાય ટેક્સ્ટ"
+  },
+  "providerImport_ruleActivation": {
+    "message": "નિયમ સક્રિયકરણ",
+    "description": "સક્રિય પ્રદાતા નિયમ સક્રિયકરણ ટૉગલ માટે વિભાગનું શીર્ષક"
+  },
+  "providerImport_noRuleIds": {
+    "message": "હજુ સુધી આ પ્રદાતામાં કોઈ પ્રમાણભૂત નિયમ IDs મળ્યા નથી.",
+    "description": "પ્રદાતાના નિયમ-આઈડી નિયંત્રણો માટે ખાલી સ્થિતિ"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "એકવાર પ્રદાતા JSON માન્ય થઈ જાય પછી નિયમ ID નિયંત્રણો ઉપલબ્ધ થાય છે.",
+    "description": "પ્રદાતા નિયમ-આઈડી નિયંત્રણો માટે અમાન્ય JSON સ્થિતિ"
   }
 }

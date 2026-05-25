@@ -420,10 +420,10 @@
     "message": "Nepieciešams nodrošinātāja nosaukums"
   },
   "customRulesEditor_rawRules": {
-    "message": "Neapstrādāti noteikumi (regulārie modeļi)"
+    "message": "Neapstrādāti noteikumi"
   },
   "customRulesEditor_redirections": {
-    "message": "Novirzīšanas (novirzīšanas modeļi)"
+    "message": "Pārvirzīšana"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Ieteikumu mārketings"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Visam URL tiek lietoti tiešie regulārās izteiksmes modeļi. Izmantojiet sarežģītiem modeļiem, kas neatbilst standarta parametru formātam.",
+    "message": "Kanoniskie neapstrādāto kārtulu objekti piemēro regex modeļus visam URL. Izmantojiet sarežģītiem modeļiem, kas neatbilst standarta parametru formātam.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Neapstrādāti noteikumi:",
+    "message": "Neapstrādāti noteikumu objekti:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Izmantojiet rawRules fragmentiem, ceļa segmentiem vai sarežģītiem parametru modeļiem.",
+    "message": "Izmantojiet rules[] objektus ar kind: \"raw\" fragmentiem, ceļa segmentiem vai sarežģītiem parametru modeļiem.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Kāda ir atšķirība starp noteikumiem un rawRules?",
+    "message": "Kādas noteikumu formas var ietvert rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "Neizdevās ielādēt konfidencialitātes politikas versiju karti.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aktīvie komplektētie/attālinātie noteikumi/pielāgoti noteikumi",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Active Bundled/Remote Rules/Custom Rules",
+    "description": "Sānjoslas opcija pašlaik aktīvajām komplektētajām, attālinātajām un pielāgotajām kārtulām."
   },
   "providerImport_button": {
     "message": "Importēt/atspējot pakalpojumu sniedzējus",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Kas ir noteikumi, rawRules un referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Ko var saturēt rules[]?",
+    "description": "FAQ virsraksts vienotiem Linkumori-ClearURLs noteikumiem"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">noteikumi</span> ir parametru nosaukumi vai fragmentu nosaukumi, kas ir jānoņem no URL.</p><p><span class=\"faq-code\">rawRules</span> ir regex aizvietotāji, kas tiek lietoti tieši pirms visa URL. tīrīšana.</p><p><span class=\"faq-code\">referralMarketing</span> tiek uzskatīts arī par noņemamiem parametriem, taču tas, vai tie patiešām tiek izmantoti, ir atkarīgs no globālā novirzīšanas mārketinga iestatījuma.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> pieņem vienkāršas parametru virknes, iekļautas <span class=\"faq-code\">$removeparam</span> filtri un kanoniskie objekti.</p><p>Izmantot <span class=\"faq-code\">kind: \"raw\"</span> visa-URL regex tīrīšanai un <span class=\"faq-code\">kind: \"redirection\"</span> novirzīšanai ieguvei.</p><p>Izmantot <span class=\"faq-code\">referralMarketing: true</span> lauka kārtulā, ja parametrs ir atkarīgs no novirzīšanas mārketinga iestatījuma.</p>",
+    "description": "Bieži uzdotie jautājumi vienotiem Linkumori-ClearURLs noteikumiem"
   },
   "audit_faq_exceptions_title": {
     "message": "Kas ir izņēmumi un domēnsIzņēmumi?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">novirzīšanas</span> ir uz regulāru izteiksmi balstīti attinēji. Tie parasti tver reālo galamērķa URL 1. grupā, un ClearURL novirza uz šo tverto vērtību.</p><p><span class=\"faq-code\">domainRedirections</span> ir domēna stila novirzīšanas kārtulas. Šajā kodu bāzē tiek pārbaudīti ieraksti, kas veidoti kā <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Ja regex novirzīšana vispirms atbilst, tas uzvar. Ja nē, ClearURLs pārbauda domēna novirzīšanu next.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> ieraksti ar <span class=\"faq-code\">kind: \"redirection\"</span> ir uz regulāru izteiksmi balstīti atsaiņotāji. Parasti tie tver reālo galamērķi URL 1. grupā, un ClearURLs novirza uz šo uzņemto vērtību.</p><p><span class=\"faq-code\">domainRedirections</span> ir domēna stila novirzīšanas noteikumi. Šajā kodu bāzē tiek pārbaudīti ieraksti, kas veidoti līdzīgi <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Ja regex novirzīšana atbilst pirmā, tā uzvar. Ja nē, ClearURLs pēc tam pārbauda domēnu redirections.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Pakalpojumu sniedzēja veidošanas ceļš šajā filiālē nolasa šādas atslēgas: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPatternXXNTXXXX,6 <span class=\"faq-code\">domēna raksti</span>, <span class=\"faq-code\">noteikumi</span>, <span class=\"faq-code\">neapstrādāti noteikumi</span>, <span class=\"faq-code\">referralMarketingXXTKNXX,14 <span class=\"faq-code\">izņēmumi</span>, <span class=\"faq-code\">domēna izņēmumi</span>, <span class=\"faq-code\">novirzīšanas</span>, <span class=\"faq-code\">domēna pārvirzīšanaXXTKNXX <span class=\"faq-code\">metodes</span> un <span class=\"faq-code\">resursu veidi</span>.</p><p>Pārbaudot darbību, vissvarīgākā vieta, kas jāpārbauda, ir XXTKNXXFinal RuXX sapludināts rezultāts pēc komplektēto, attālo un pielāgoto avotu apvienošanas.</p>",
+    "message": "<p>Pakalpojumu sniedzēja veidošanas ceļš šajā filiālē nolasa šīs autorēšanas atslēgas: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, un <span class=\"faq-code\">resourceTypes</span>.</p><p>Neapstrādāta tīrīšana, novirzīšanas mārketinga tīrīšana un regulāra izteiksme redirections var izmantot saglabātos ClearURLs laukus vai kanoniskos objektus. <span class=\"faq-code\">rules[]</span>.</p><p>Pārbaudot uzvedību, vissvarīgākā ir pārbaude <span class=\"faq-code\">Final Rules</span>, jo tas parāda sapludināto rezultātu pēc grupēto, attālo un pielāgoto avotu apvienošanas.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Kārtulas sintakse",
+    "message": "Noteikumu izkārtojums",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klasiskie masīvi",
+    "description": "Pielāgotu kārtulu redaktora sintakses režīma iezīme klasiskajām Linkumori-ClearURLs kārtulām"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Kanoniskie objekti",
+    "description": "Pielāgoto kārtulu redaktora sintakses režīma iezīme kanoniskām Linkumori-ClearURLs kārtulām"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs saglabā vecos ClearURLs laukus un pievieno vienkāršas virknes, iekļautas $removeparam kārtulas un kanoniskos noteikumu objektus rules[].",
+    "description": "Pielāgotu kārtulu redaktora palīdzības teksts Linkumori-ClearURLs kārtulu izkārtojumam"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Kanoniskajos Linkumori-ClearURLs noteikumos rules[] iekšienē tiek izmantots veids + darbība. Vecie rawRules, referralMarketing un redirections lauki joprojām darbojas.",
+    "description": "Pielāgotu kārtulu redaktora palīdzības teksts kanoniskajām Linkumori-ClearURLs kārtulām"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Visiem pakalpojumu sniedzēja noteikumiem izmantojiet linkumori-clearurl-dialec.",
+    "description": "Pielāgotu kārtulu redaktora JSON palīdzības teksts vienotiem Linkumori-ClearURLs noteikumiem"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Izmantojiet Linkumori-ClearURLs dialektu pakalpojumu sniedzējam JSON. Jaunie saglabājumi ietver syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs saglabā vecos ClearURLs laukus un pievieno rules[] virknes, $removeparam filtrus un kanoniskus objektus ar ID, veidu, atbilstību un darbību.",
+    "description": "Pielāgotu noteikumu redaktora rīkjoslas palīdzības teksts vienotām Linkumori-ClearURLs kārtulām"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Pievienot lauka noteikumu",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Pakalpojumu sniedzēja lauki",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Pielāgotu kārtulu redaktora etiķete nodrošinātāja laukiem vienotajā Linkumori-ClearURLs režīmā"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Noteikumu veidnes",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Pielāgotu kārtulu redaktora etiķete kārtulu veidnēm vienotajā Linkumori-ClearURLs režīmā"
   },
   "popup_report_issue_button_title": {
     "message": "Ziņot par problēmu",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Kļūda, izgūstot konfigurācijas datus:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Atspējot",
+    "description": "Pogas etiķete, lai atspējotu nodrošinātāja kārtulas ID"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Pakalpojumu sniedzēja kārtulu ID",
+    "description": "Sadaļas nosaukums atspējotajiem ClearURLs nodrošinātāja kārtulu ID"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Pakalpojumu sniedzēja kārtulas ID vadīklas",
+    "description": "Rīkjoslas nosaukums kārtulas ID atspējošanas vadīklām pakalpojumu sniedzēja redaktorā"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Atspējojiet kanonisko pakalpojumu sniedzēja kārtulu ID, tos neizdzēšot. Saglabātie ID izmanto provider::rule identitāti.",
+    "description": "Palīdzības teksts nodrošinātāja kārtulas ID atspējošanas vadīklām"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Noteikumu aktivizēšana",
+    "description": "Sadaļas nosaukums aktīvajiem pakalpojumu sniedzēja kārtulas aktivizēšanas pārslēdzējiem"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Šajā pakalpojumu sniedzējā vēl nav atrasts neviens kanoniskais kārtulu ID.",
+    "description": "Tukšs statuss nodrošinātāja kārtulas ID vadīklām"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Kārtulas ID vadīklas ir pieejamas, tiklīdz pakalpojumu sniedzējs JSON ir derīgs.",
+    "description": "Nederīgs JSON statuss nodrošinātāja kārtulas ID vadīklām"
   }
 }

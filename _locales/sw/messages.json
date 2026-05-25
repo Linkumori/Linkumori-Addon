@@ -418,10 +418,10 @@
     "message": "Jina la mtoa huduma linahitajika"
   },
   "customRulesEditor_rawRules": {
-    "message": "Sheria Mbichi (miundo ya regex)"
+    "message": "Sheria Mbichi"
   },
   "customRulesEditor_redirections": {
-    "message": "Maelekezo mengine (miundo ya kuelekeza kwingine)"
+    "message": "Maelekezo mengine"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Uuzaji wa Rufaa"
@@ -860,15 +860,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Miundo ya regex ya moja kwa moja inatumika kwa URL nzima. Tumia kwa mifumo changamano ambayo haiendani na umbizo la kigezo cha kawaida.",
+    "message": "Vipengee vya kanuni mbichi vya kanuni hutumika mifumo ya regex kwa URL nzima. Tumia kwa mifumo changamano ambayo haiendani na umbizo la kigezo cha kawaida.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Sheria Mbichi:",
+    "message": "Vitu vya sheria mbichi:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Tumia RawRules kwa vipande, sehemu za njia, au ruwaza changamano za vigezo.",
+    "message": "Tumia vitu vya rules[] na kind: \"raw\" kwa vipande, sehemu za njia, au ruwaza changamano za vigezo.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Kuna tofauti gani kati ya sheria na kanuni ghafi?",
+    "message": "Je, rules[] inaweza kuwa na maumbo gani ya sheria?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "Imeshindwa kupakia ramani ya toleo la sera ya faragha.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Sheria Zinazotumika Zilizounganishwa/Zili za Mbali/Sheria Maalum",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Sheria Zinazotumika za Bundled/Remote/Custom Kanuni",
+    "description": "Chaguo la Upau wa kando kwa sheria zinazotumika sasa zilizounganishwa, zinazoungwa mkono kwa mbali na maalum."
   },
   "providerImport_button": {
     "message": "Ingiza/Zima Watoa Huduma",
@@ -3713,12 +3713,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Sheria, Kanuni ghafi, na Utangazaji wa rufaa ni nini?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] inaweza kuwa na nini?",
+    "description": "Kichwa cha Maswali Yanayoulizwa Mara kwa Mara kwa sheria zilizounganishwa za Linkumori-ClearURLs"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> are parameter names or fragment names that should be removed from the URL.</p><p><span class=\"faq-code\">rawRules</span> are regex replacements applied directly to the whole URL string before usafishaji wa hoja.</p><p><span class=\"faq-code\">referralMarketing</span> inachukuliwa kama vigezo vinavyoweza kutolewa pia, lakini iwapo vinatumika kweli inategemea mpangilio wa uuzaji wa uelekezaji wa kimataifa.XXTKNXX11XXTK",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> inakubali masharti rahisi ya parameta, inline <span class=\"faq-code\">$removeparam</span> vichungi, na vitu vya kisheria.</p><p>Tumia <span class=\"faq-code\">kind: \"raw\"</span> kwa ajili ya usafishaji wa regex nzima-URL na <span class=\"faq-code\">kind: \"redirection\"</span> kwa uchimbaji wa kuelekeza kwingine.</p><p>Tumia <span class=\"faq-code\">referralMarketing: true</span> kwenye sheria ya shamba wakati parameta inategemea mpangilio wa uuzaji wa rufaa.</p>",
+    "description": "Maswali Yanayoulizwa Mara kwa Mara kwa sheria zilizounganishwa za Linkumori-ClearURLs"
   },
   "audit_faq_exceptions_title": {
     "message": "Vighairi na Vighairi vya kikoa ni nini?",
@@ -3733,7 +3733,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\"> maelekezo mengine</span> ni unwrappers kulingana na regex. Kwa kawaida hunasa URL halisi ya lengwa katika kundi la 1, na ClearURLs huelekeza upya hadi thamani hiyo iliyonaswa.</p><p><span class=\"faq-code\">domainRedirections</span> ni sheria za mtindo wa kikoa za kuelekeza kwingine. Katika msingi huu wa msimbo hutaguliwa ili kubaini maingizo yenye umbo la <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Ikiwa uelekezaji upya wa regex unalingana kwanza, hiyo itashinda. Ikiwa sivyo, ClearURLs hukagua uelekezaji kwingine wa kikoa kinachofuata.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> maingizo na <span class=\"faq-code\">kind: \"redirection\"</span> ni unwrappers kulingana na regex. Kwa kawaida hunasa lengwa halisi la URL katika kundi la 1, na ClearURLs inaelekeza kwingine kwa thamani hiyo iliyonaswa.</p><p><span class=\"faq-code\">domainRedirections</span> ni sheria za uelekezaji upya kwa mtindo wa kikoa. Katika codebase hii huangaliwa kwa maingizo yenye umbo kama <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Ikiwa uelekezaji upya wa regex unalingana kwanza, hiyo itashinda. Ikiwa sivyo, ClearURLs huangalia kikoa redirections kinachofuata.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Njia ya kujenga mtoa huduma katika tawi hili inasoma funguo hizi: <span class=\"faq-code\">kamili Mtoa huduma</span>, <span class=\"faq-code\">forceUelekeo mwingine</span>, XXTKNXXTKXXTKXXTKXXTKXXTKXXTKNXX,XXTKNXXTKXXTKNXXRXXTKNXXRXXTKNXXRXXTKNXXTKNXX <span class=\"faq-code\">Miundo ya kikoa</span>, <span class=\"faq-code\"> kanuni</span>, <span class=\"faq-code\">rawKanuni</span>, XXTKNXXrex13XXTKNXXreXXTKNXX,<span class=\"faq-code\">rext <span class=\"faq-code\">isipokuwa</span>, <span class=\"faq-code\">domainVighairi</span>, <span class=\"faq-code\"> maelekezo mengine</span>, <span class=\"faq-code\">Maelekezo mengine ya kikoa</span>, <span class=\"faq-code\">mbinu</span>, na <span class=\"faq-code\">resourceTypes</span>Mbinu XTKNXX24XXTKNXX, na <span class=\"faq-code\">resourceTypes</span>2XTKNXX2KTKNXX2KXTKNXX2KX tabia ya ukaguzi, mahali muhimu zaidi pa kuangalia ni <span class=\"faq-code\"> Kanuni za Mwisho</span>, kwa sababu hiyo inaonyesha matokeo yaliyounganishwa baada ya kuunganishwa, vyanzo vya mbali na maalum kuunganishwa.</p>",
+    "message": "<p>Njia ya ujenzi wa mtoaji katika tawi hili inasoma funguo hizi za uandishi: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, na <span class=\"faq-code\">resourceTypes</span>.</p><p>Usafishaji mbichi, usafishaji wa uuzaji wa rufaa, na regex redirections inaweza kutumia sehemu za ClearURLs zilizobaki au vitu vya kisheria ndani. <span class=\"faq-code\">rules[]</span>.</p><p>Wakati wa ukaguzi wa tabia, mahali muhimu zaidi ya kuangalia ni <span class=\"faq-code\">Final Rules</span>, kwa sababu hiyo inaonyesha matokeo yaliyounganishwa baada ya kuunganishwa, vyanzo vya mbali na maalum kuunganishwa.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Rule syntax",
+    "message": "Mpangilio wa kanuni",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Safu za classic",
+    "description": "Lebo ya modi ya sintaksia ya kuhariri sheria maalum kwa sheria za kawaida za Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Vitu vya kisheria",
+    "description": "Lebo ya modi ya sintaksia ya kuhariri sheria maalum kwa sheria za kisheria za Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs huhifadhi sehemu za zamani za ClearURLs na kuongeza mifuatano rahisi, sheria za ndani za $removeparam, na vipengele vya kanuni za kisheria katika rules[].",
+    "description": "Maandishi ya usaidizi ya kihariri cha sheria maalum kwa mpangilio wa sheria wa Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Sheria za Canonical Linkumori-ClearURLs hutumia aina + kitendo ndani ya rules[]. Sehemu za zamani za rawRules, referralMarketing, na redirections bado zinafanya kazi.",
+    "description": "Maandishi ya usaidizi ya kihariri cha sheria maalum kwa sheria za kisheria za Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Tumia linkumori-clearurls-dialect kwa sheria zote za mtoaji.",
+    "description": "Maandishi ya usaidizi ya mhariri wa sheria maalum JSON kwa sheria zilizounganishwa za Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Tumia lahaja ya Linkumori-ClearURLs kwa mtoaji JSON. Hifadhi mpya ni pamoja na syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs huhifadhi sehemu za zamani za ClearURLs na huongeza mifuatano ya rules[], vichungi vya $removeparam, na vitu vya kisheria vyenye kitambulisho, aina, mechi na kitendo.",
+    "description": "Maandishi ya usaidizi ya upau wa vidhibiti wa kanuni maalum kwa sheria zilizounganishwa za Linkumori-ClearURLs"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Add field rule",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Mashamba ya watoa huduma",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Lebo maalum ya kuhariri sheria kwa sehemu za watoa huduma katika hali ya umoja ya Linkumori-ClearURLs"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Violezo vya kanuni",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Lebo ya kihariri cha sheria maalum kwa violezo vya sheria katika hali ya umoja ya Linkumori-ClearURLs"
   },
   "popup_report_issue_button_title": {
     "message": "Ripoti suala",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "Hitilafu katika kurejesha data ya usanidi:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Zima",
+    "description": "Kitufe lebo ili kuzima kitambulisho cha sheria ya mtoa huduma"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Vitambulisho vya sheria ya mtoa huduma",
+    "description": "Kichwa cha sehemu ya Vitambulisho vya sheria za mtoa huduma vya ClearURLs vilivyozimwa"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Vidhibiti vya vitambulisho vya sheria ya mtoaji",
+    "description": "Kichwa cha upau wa vidhibiti kwa kitambulisho cha sheria kuzima vidhibiti katika kihariri cha mtoa huduma"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Lemaza vitambulisho vya sheria za mtoa huduma bila kuvifuta. Vitambulisho vilivyohifadhiwa hutumia utambulisho wa provider::rule.",
+    "description": "Maandishi ya usaidizi ya vidhibiti vya kuzima kitambulisho cha mtoa huduma"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Uanzishaji wa Kanuni",
+    "description": "Kichwa cha sehemu cha vigeuzaji vinavyotumika vya kuwezesha sheria ya mtoa huduma"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Bado hakuna vitambulisho vya kanuni za kisheria vilivyopatikana katika mtoa huduma huyu.",
+    "description": "Hali tupu kwa udhibiti wa kitambulisho cha mtoa huduma"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Vidhibiti vya vitambulisho vya sheria vinapatikana mara tu mtoa huduma JSON anapokuwa halali.",
+    "description": "Hali batili ya JSON kwa vidhibiti vya kitambulisho cha mtoa huduma"
   }
 }

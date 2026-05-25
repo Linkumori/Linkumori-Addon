@@ -418,10 +418,10 @@
     "message": "Tên nhà cung cấp là bắt buộc"
   },
   "customRulesEditor_rawRules": {
-    "message": "Quy tắc thô (mẫu biểu thức chính quy)"
+    "message": "Quy tắc thô"
   },
   "customRulesEditor_redirections": {
-    "message": "Chuyển hướng (mẫu chuyển hướng)"
+    "message": "Chuyển hướng"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Tiếp thị giới thiệu"
@@ -860,15 +860,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Mẫu biểu thức chính quy trực tiếp được áp dụng cho toàn bộ URL. Sử dụng cho các mẫu phức tạp không phù hợp với định dạng tham số tiêu chuẩn.",
+    "message": "Các đối tượng quy tắc thô chuẩn mực áp dụng các mẫu biểu thức chính quy cho toàn bộ URL. Sử dụng cho các mẫu phức tạp không phù hợp với định dạng tham số tiêu chuẩn.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Quy tắc thô:",
+    "message": "Đối tượng quy tắc thô:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Sử dụng rawRules cho các đoạn, đoạn đường dẫn hoặc mẫu tham số phức tạp.",
+    "message": "Sử dụng các đối tượng rules[] với kind: \"raw\" cho các đoạn, đoạn đường dẫn hoặc các mẫu tham số phức tạp.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Sự khác biệt giữa quy tắc và rawRules là gì?",
+    "message": "rules[] có thể chứa những hình dạng quy tắc nào?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "Không tải được bản đồ phiên bản chính sách bảo mật.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
+  "providerImport_activeProviderRules": {
     "message": "Gói hoạt động/Quy tắc từ xa/Quy tắc tùy chỉnh",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+    "description": "Tùy chọn thanh bên cho các quy tắc tùy chỉnh, được hỗ trợ từ xa và được đóng gói hiện đang hoạt động."
   },
   "providerImport_button": {
     "message": "Nhập/Vô hiệu hóa nhà cung cấp",
@@ -3713,12 +3713,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Quy tắc, quy tắc thô và Tiếp thị giới thiệu là gì?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] có thể chứa những gì?",
+    "description": "Tiêu đề câu hỏi thường gặp về quy tắc Linkumori-ClearURLs hợp nhất"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> là tên tham số hoặc tên phân đoạn cần được xóa khỏi URL. </p><p><span class=\"faq-code\">rawRules</span> là các thay thế biểu thức chính quy được áp dụng trực tiếp cho toàn bộ chuỗi URL trước khi truy vấn cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> cũng được coi như các thông số có thể xóa được, nhưng liệu chúng có thực sự được sử dụng hay không còn tùy thuộc vào cài đặt tiếp thị giới thiệu toàn cầu.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> chấp nhận các chuỗi tham số đơn giản, nội tuyến <span class=\"faq-code\">$removeparam</span> bộ lọc và các đối tượng chuẩn.</p><p>Sử dụng <span class=\"faq-code\">kind: \"raw\"</span> để dọn dẹp toàn bộ biểu thức chính quy URL và <span class=\"faq-code\">kind: \"redirection\"</span> để trích xuất chuyển hướng.</p><p>Sử dụng <span class=\"faq-code\">referralMarketing: true</span> trên quy tắc trường khi thông số phụ thuộc vào cài đặt tiếp thị giới thiệu.</p>",
+    "description": "Nội dung câu hỏi thường gặp về các quy tắc Linkumori-ClearURLs thống nhất"
   },
   "audit_faq_exceptions_title": {
     "message": "Ngoại lệ và ngoại lệ miền là gì?",
@@ -3733,7 +3733,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> là các trình mở gói dựa trên biểu thức chính quy. Chúng thường ghi lại URL đích thực trong nhóm 1 và ClearURL chuyển hướng đến giá trị đã ghi đó. </p><p>XX<span class=\"faq-code\">domainRedirections</span> là các quy tắc chuyển hướng kiểu miền. Trong cơ sở mã này, chúng được kiểm tra các mục có hình dạng như <span class=\"faq-code\">pattern $redirect= target</span>.</p><p> Nếu chuyển hướng biểu thức chính quy khớp trước tiên thì chuyển hướng đó sẽ thắng. Nếu không, ClearURLs sẽ kiểm tra chuyển hướng tên miền tiếp theo.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> mục với <span class=\"faq-code\">kind: \"redirection\"</span> là các trình giải mã dựa trên biểu thức chính quy. Họ thường nắm bắt đích thực URL trong nhóm 1 và ClearURLs chuyển hướng đến giá trị đã bắt được đó.</p><p><span class=\"faq-code\">domainRedirections</span> là các quy tắc chuyển hướng kiểu miền. Trong cơ sở mã này, chúng được kiểm tra các mục có hình dạng như <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Nếu chuyển hướng biểu thức chính quy khớp đầu tiên thì chuyển hướng đó sẽ thắng. Nếu không, ClearURLs sẽ kiểm tra miền redirections tiếp theo.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Đường dẫn xây dựng nhà cung cấp trong nhánh này đọc các khóa sau: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">mẫu miền</span>, <span class=\"faq-code\">quy tắc</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">tiếp thị giới thiệu</span>, <span class=\"faq-code\">ngoại lệ</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">chuyển hướng</span>, <span class=\"faq-code\">domainRedirections</span>, Các phương thức <span class=\"faq-code\"></span> và <span class=\"faq-code\">resourceTypes</span>.</p><p>Khi kiểm tra hành vi, vị trí quan trọng nhất cần kiểm tra là <span class=\"faq-code\">Final Quy tắc</span>, vì điều đó hiển thị kết quả được hợp nhất sau khi các nguồn theo gói, từ xa và tùy chỉnh đã được kết hợp.</p>",
+    "message": "<p>Đường dẫn xây dựng nhà cung cấp trong nhánh này đọc các khóa soạn thảo sau: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, Và <span class=\"faq-code\">resourceTypes</span>.</p><p>Dọn dẹp thô, dọn dẹp tiếp thị giới thiệu và biểu thức chính quy redirections có thể sử dụng các trường ClearURLs được giữ lại hoặc các đối tượng chuẩn bên trong <span class=\"faq-code\">rules[]</span>.</p><p>Khi kiểm tra hành vi, nơi quan trọng nhất để kiểm tra là <span class=\"faq-code\">Final Rules</span>, vì điều đó hiển thị kết quả đã hợp nhất sau khi các nguồn được nhóm, từ xa và tùy chỉnh được kết hợp.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Cú pháp quy tắc",
+    "message": "Bố cục quy tắc",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Mảng cổ điển",
+    "description": "Nhãn chế độ cú pháp của trình soạn thảo quy tắc tùy chỉnh cho các quy tắc Linkumori-ClearURLs cổ điển"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Đối tượng chuẩn",
+    "description": "Nhãn chế độ cú pháp của trình soạn thảo quy tắc tùy chỉnh cho các quy tắc Linkumori-ClearURLs chuẩn"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs giữ lại các trường ClearURLs cũ và thêm các chuỗi đơn giản, quy tắc $removeparam nội tuyến và các đối tượng quy tắc chuẩn trong rules[].",
+    "description": "Văn bản trợ giúp trình chỉnh sửa quy tắc tùy chỉnh cho bố cục quy tắc Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Quy tắc Canonical Linkumori-ClearURLs sử dụng loại + hành động bên trong rules[]. Các trường rawRules, referralMarketing và redirections cũ vẫn hoạt động.",
+    "description": "Văn bản trợ giúp trình chỉnh sửa quy tắc tùy chỉnh cho các quy tắc Linkumori-ClearURLs chuẩn"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Sử dụng linkumori-clearurls-dialect cho tất cả các quy tắc của nhà cung cấp.",
+    "description": "Văn bản trợ giúp của trình chỉnh sửa quy tắc JSON tùy chỉnh cho các quy tắc Linkumori-ClearURLs thống nhất"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Sử dụng phương ngữ Linkumori-ClearURLs cho nhà cung cấp JSON. Các bản lưu mới bao gồm syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs giữ lại các trường ClearURLs cũ và thêm các chuỗi rules[], bộ lọc $removeparam và các đối tượng chuẩn với id, loại, khớp và hành động.",
+    "description": "Văn bản trợ giúp của thanh công cụ chỉnh sửa quy tắc tùy chỉnh cho các quy tắc Linkumori-ClearURLs thống nhất"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Thêm quy tắc trường",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Trường nhà cung cấp",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Nhãn trình chỉnh sửa quy tắc tùy chỉnh cho các trường nhà cung cấp ở chế độ Linkumori-ClearURLs hợp nhất"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Mẫu quy tắc",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Nhãn trình chỉnh sửa quy tắc tùy chỉnh cho các mẫu quy tắc ở chế độ Linkumori-ClearURLs hợp nhất"
   },
   "popup_report_issue_button_title": {
     "message": "Báo cáo sự cố",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "Lỗi truy xuất dữ liệu cấu hình:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Vô hiệu hóa",
+    "description": "Nhãn nút để tắt id quy tắc nhà cung cấp"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "ID quy tắc nhà cung cấp",
+    "description": "Tiêu đề phần dành cho ID quy tắc nhà cung cấp ClearURLs bị vô hiệu hóa"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Kiểm soát ID quy tắc nhà cung cấp",
+    "description": "Tiêu đề thanh công cụ cho các điều khiển vô hiệu hóa id quy tắc trong trình chỉnh sửa nhà cung cấp"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Tắt ID quy tắc nhà cung cấp chuẩn mà không xóa chúng. Id được lưu trữ sử dụng danh tính provider::rule.",
+    "description": "Văn bản trợ giúp dành cho các điều khiển vô hiệu hóa quy tắc-id của nhà cung cấp"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Kích hoạt quy tắc",
+    "description": "Tiêu đề phần dành cho các nút chuyển đổi kích hoạt quy tắc nhà cung cấp đang hoạt động"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Chưa tìm thấy ID quy tắc chuẩn nào trong nhà cung cấp này.",
+    "description": "Trạng thái trống đối với các điều khiển id quy tắc của nhà cung cấp"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Các điều khiển ID quy tắc sẽ khả dụng sau khi nhà cung cấp JSON hợp lệ.",
+    "description": "Trạng thái JSON không hợp lệ đối với các điều khiển id quy tắc của nhà cung cấp"
   }
 }

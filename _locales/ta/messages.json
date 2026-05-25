@@ -418,10 +418,10 @@
     "message": "வழங்குநரின் பெயர் தேவை"
   },
   "customRulesEditor_rawRules": {
-    "message": "மூல விதிகள் (regex வடிவங்கள்)"
+    "message": "மூல விதிகள்"
   },
   "customRulesEditor_redirections": {
-    "message": "திசைதிருப்பல்கள் (வழிமாற்று வடிவங்கள்)"
+    "message": "திசைதிருப்பல்கள்"
   },
   "customRulesEditor_referralMarketing": {
     "message": "பரிந்துரை சந்தைப்படுத்தல்"
@@ -860,15 +860,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "முழு URL க்கும் நேரடி ரீஜெக்ஸ் வடிவங்கள் பயன்படுத்தப்பட்டன. நிலையான அளவுரு வடிவமைப்பிற்குப் பொருந்தாத சிக்கலான வடிவங்களுக்குப் பயன்படுத்தவும்.",
+    "message": "கேனானிகல் மூல விதி பொருள்கள் முழு URL க்கும் ரீஜெக்ஸ் வடிவங்களைப் பயன்படுத்துகின்றன. நிலையான அளவுரு வடிவமைப்பிற்குப் பொருந்தாத சிக்கலான வடிவங்களுக்குப் பயன்படுத்தவும்.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "மூல விதிகள்:",
+    "message": "மூல விதி பொருள்கள்:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "துண்டுகள், பாதை பிரிவுகள் அல்லது சிக்கலான அளவுரு வடிவங்களுக்கு மூல விதிகளைப் பயன்படுத்தவும்.",
+    "message": "துண்டுகள், பாதை பிரிவுகள் அல்லது சிக்கலான அளவுரு வடிவங்களுக்கு kind: \"raw\" உடன் rules[] பொருட்களைப் பயன்படுத்தவும்.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "விதிகளுக்கும் மூல விதிகளுக்கும் என்ன வித்தியாசம்?",
+    "message": "rules[] என்ன விதி வடிவங்களைக் கொண்டிருக்கலாம்?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "தனியுரிமைக் கொள்கை பதிப்பு வரைபடத்தை ஏற்றுவதில் தோல்வி.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "செயலில் தொகுக்கப்பட்ட/ரிமோட் விதிகள்/தனிப்பயன் விதிகள்",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "செயலில் தொகுக்கப்பட்ட / தொலைநிலை விதிகள்/ தனிப்பயன் விதிகள்",
+    "description": "தற்போது செயலில் உள்ள தொகுக்கப்பட்ட, ரிமோட் ஆதரவு மற்றும் தனிப்பயன் விதிகளுக்கான பக்கப்பட்டி விருப்பம்."
   },
   "providerImport_button": {
     "message": "வழங்குநர்களை இறக்குமதி/முடக்கு",
@@ -3713,12 +3713,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "விதிகள், மூல விதிகள் மற்றும் பரிந்துரை சந்தைப்படுத்தல் என்றால் என்ன?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] எதைக் கொண்டிருக்கலாம்?",
+    "description": "ஒருங்கிணைந்த Linkumori-ClearURLs விதிகளுக்கான FAQ தலைப்பு"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\"> விதிகள்</span> அளவுரு பெயர்கள் அல்லது துண்டுப் பெயர்கள் URL.</p><p>TKNXX5XXTKNXXrawRules</span> என்பது வினவலுக்கு முன் முழு URL சரத்திற்கும் நேரடியாகப் பயன்படுத்தப்படும் regex மாற்றாகும். cleanup.</p><p>XTKNXX9XXTKNXXreferralMarketing</span> நீக்கக்கூடிய அளவுருக்களாகவும் கருதப்படுகிறது, ஆனால் அவை உண்மையில் பயன்படுத்தப்படுகின்றனவா என்பது உலகளாவிய பரிந்துரை-மார்க்கெட்டிங் XXXXXXX அமைப்பைப் பொறுத்தது.",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> எளிய அளவுரு சரங்களை ஏற்றுக்கொள்கிறது, இன்லைன் <span class=\"faq-code\">$removeparam</span> வடிப்பான்கள், மற்றும் நியமன பொருள்கள்.</p><p>பயன்படுத்தவும் <span class=\"faq-code\">kind: \"raw\"</span> முழு-URL regex சுத்தம் மற்றும் <span class=\"faq-code\">kind: \"redirection\"</span> வழிமாற்று பிரித்தெடுப்பதற்கு.</p><p>பயன்படுத்தவும் <span class=\"faq-code\">referralMarketing: true</span> அளவுரு பரிந்துரை-சந்தைப்படுத்தல் அமைப்பைச் சார்ந்திருக்கும் போது புல விதியில்.</p>",
+    "description": "ஒருங்கிணைந்த Linkumori-ClearURLs விதிகளுக்கான FAQ அமைப்பு"
   },
   "audit_faq_exceptions_title": {
     "message": "விதிவிலக்குகள் மற்றும் டொமைன் விதிவிலக்குகள் என்றால் என்ன?",
@@ -3733,7 +3733,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\"> திசைதிருப்பல்கள்</span> என்பது ரீஜெக்ஸ் அடிப்படையிலான அன்ராப்பர்கள். அவை வழக்கமாக குழு 1 இல் உள்ள உண்மையான இலக்கு URL ஐப் பிடிக்கும், மேலும் ClearURL கள் கைப்பற்றப்பட்ட மதிப்புக்கு திருப்பி விடப்படும். இந்தக் குறியீட்டுத் தளத்தில் அவை <span class=\"faq-code\"> வடிவ $redirect= target</span>.</p><p>ஐப் போன்ற வடிவிலான உள்ளீடுகளுக்குச் சரிபார்க்கப்படும். இல்லையெனில், ClearURLs அடுத்த டொமைன் திசைதிருப்பல்களைச் சரிபார்க்கும்.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> உடன் உள்ளீடுகள் <span class=\"faq-code\">kind: \"redirection\"</span> regex-அடிப்படையிலான unwrapperகள். அவர்கள் வழக்கமாக குழு 1 இல் உண்மையான இலக்கான URL ஐப் படம்பிடிப்பார்கள், மேலும் ClearURLs கைப்பற்றப்பட்ட மதிப்புக்கு திருப்பி விடுவார்கள்.</p><p><span class=\"faq-code\">domainRedirections</span> டொமைன் பாணி வழிமாற்று விதிகள். இந்தக் குறியீட்டுத் தளத்தில் அவை போன்ற வடிவிலான உள்ளீடுகளுக்காகச் சரிபார்க்கப்படுகின்றன <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>ரீஜெக்ஸ் திசைதிருப்பல் முதலில் பொருந்தினால், அது வெற்றி பெறும். இல்லையெனில், ClearURLs அடுத்து redirections டொமைனைச் சரிபார்க்கும்.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>இந்தக் கிளையில் உள்ள வழங்குநர்-கட்டுமான பாதை இந்த விசைகளைப் படிக்கிறது: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\"> விசை திசைதிருப்பல்XXXTKNX, XXTKNX5XXTKNXXurlPattern</span>, <span class=\"faq-code\"> டொமைன் வடிவங்கள்</span>, XXTKNX9XXTKNXX விதிகள்XXX0, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\"> பரிந்துரை சந்தைப்படுத்தல்</span>, <span class=\"faq-code\">,X6 <span class=\"faq-code\"> டொமைன் விதிவிலக்குகள்</span>, XXTKNX19XXTKNXX திசைதிருப்பல்கள்</span>, <span class=\"faq-code\">, XXTKNXX21XXTKNXTKNX2 டொமைன், <span class=\"faq-code\"> முறைகள்</span>, மற்றும் <span class=\"faq-code\"> வள வகைகள்</span>.</span> சரிபார்ப்பு என்பது <span class=\"faq-code\">இறுதி விதிகள்</span>, ஏனெனில் இது தொகுக்கப்பட்ட, தொலைநிலை மற்றும் தனிப்பயன் மூலங்கள் இணைந்த பிறகு இணைக்கப்பட்ட முடிவைக் காட்டுகிறது.</p>",
+    "message": "<p>இந்தக் கிளையில் உள்ள வழங்குநரைக் கட்டியெழுப்பும் பாதை இந்த எழுதும் விசைகளைப் படிக்கிறது: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, மற்றும் <span class=\"faq-code\">resourceTypes</span>.</p><p>மூல சுத்திகரிப்பு, பரிந்துரை-மார்க்கெட்டிங் சுத்தம் மற்றும் regex redirections ஆகியவை தக்கவைக்கப்பட்ட ClearURLs புலங்கள் அல்லது சட்டப் பொருட்களைப் பயன்படுத்தலாம் <span class=\"faq-code\">rules[]</span>.</p><p>நடத்தை தணிக்கை செய்யும் போது, ​​சரிபார்க்க வேண்டிய மிக முக்கியமான இடம் <span class=\"faq-code\">Final Rules</span>, ஏனெனில் இது தொகுக்கப்பட்ட, தொலைநிலை மற்றும் தனிப்பயன் மூலங்கள் இணைந்த பிறகு இணைக்கப்பட்ட முடிவைக் காட்டுகிறது.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Rule syntax",
+    "message": "விதி அமைப்பு",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "கிளாசிக் வரிசைகள்",
+    "description": "கிளாசிக் Linkumori-ClearURLs விதிகளுக்கான தனிப்பயன் விதிகள் எடிட்டர் தொடரியல் முறை லேபிள்"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "நியமன பொருள்கள்",
+    "description": "Linkumori-ClearURLs விதிகளுக்கான தனிப்பயன் விதிகள் எடிட்டர் தொடரியல் முறை லேபிள்"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs பழைய ClearURLs புலங்களை வைத்திருக்கிறது மற்றும் rules[] இல் எளிய சரங்கள், இன்லைன் $removeparam விதிகள் மற்றும் நியமன விதி பொருள்களைச் சேர்க்கிறது.",
+    "description": "Linkumori-ClearURLs விதி தளவமைப்புக்கான தனிப்பயன் விதிகள் எடிட்டர் உதவி உரை"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "நியமன Linkumori-ClearURLs விதிகள் rules[] க்குள் வகையான + செயலைப் பயன்படுத்துகின்றன. பழைய rawRules, referralMarketing மற்றும் redirections புலங்கள் இன்னும் வேலை செய்கின்றன.",
+    "description": "Linkumori-ClearURLs விதிகளுக்கான தனிப்பயன் விதிகள் எடிட்டர் உதவி உரை"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "அனைத்து வழங்குநர் விதிகளுக்கும் linkumori-clearurls-dialect ஐப் பயன்படுத்தவும்.",
+    "description": "ஒருங்கிணைக்கப்பட்ட Linkumori-ClearURLs விதிகளுக்கான தனிப்பயன் விதிகள் எடிட்டர் JSON உதவி உரை"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "வழங்குநர் JSONக்கு Linkumori-ClearURLs பேச்சுவழக்கைப் பயன்படுத்தவும். புதிய சேமிப்புகளில் syntax: \"linkumori-clearurls-dialect\" அடங்கும்.",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs பழைய ClearURLs புலங்களை வைத்து, rules[] சரங்கள், $removeparam வடிப்பான்கள் மற்றும் ஐடி, வகை, பொருத்தம் மற்றும் செயலுடன் கூடிய கேனானிகல் பொருட்களைச் சேர்க்கிறது.",
+    "description": "ஒருங்கிணைக்கப்பட்ட Linkumori-ClearURLs விதிகளுக்கான தனிப்பயன் விதிகள் எடிட்டர் கருவிப்பட்டி உதவி உரை"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Add field rule",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "வழங்குநர் புலங்கள்",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "ஒருங்கிணைந்த Linkumori-ClearURLs பயன்முறையில் வழங்குநர் புலங்களுக்கான தனிப்பயன் விதிகள் எடிட்டர் லேபிள்"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "விதி வார்ப்புருக்கள்",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "ஒருங்கிணைந்த Linkumori-ClearURLs பயன்முறையில் விதி வார்ப்புருக்களுக்கான தனிப்பயன் விதிகள் எடிட்டர் லேபிள்"
   },
   "popup_report_issue_button_title": {
     "message": "சிக்கலைப் புகாரளிக்கவும்",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "உள்ளமைவுத் தரவை மீட்டெடுப்பதில் பிழை:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "முடக்கு",
+    "description": "வழங்குநர் விதி ஐடியை முடக்க பட்டன் லேபிள்"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "வழங்குநர் விதி ஐடிகள்",
+    "description": "முடக்கப்பட்ட ClearURLs வழங்குநர் விதி ஐடிகளுக்கான பிரிவு தலைப்பு"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "வழங்குநர் விதி ஐடி கட்டுப்பாடுகள்",
+    "description": "விதி-ஐடிக்கான கருவிப்பட்டி தலைப்பு வழங்குநர் எடிட்டரில் கட்டுப்பாடுகளை முடக்குகிறது"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "நியமன வழங்குநர் விதி ஐடிகளை நீக்காமல் முடக்கவும். சேமிக்கப்பட்ட ஐடிகள் provider::rule அடையாளத்தைப் பயன்படுத்துகின்றன.",
+    "description": "வழங்குநர் விதி-ஐடிக்கான உதவி உரை கட்டுப்பாடுகளை முடக்கு"
+  },
+  "providerImport_ruleActivation": {
+    "message": "விதி செயல்படுத்தல்",
+    "description": "செயலில் உள்ள வழங்குநர் விதி செயல்படுத்தல் நிலைமாற்றங்களுக்கான பிரிவு தலைப்பு"
+  },
+  "providerImport_noRuleIds": {
+    "message": "இந்த வழங்குநரிடம் இதுவரை நியமன விதி ஐடிகள் எதுவும் கண்டறியப்படவில்லை.",
+    "description": "வழங்குநர் விதி-ஐடி கட்டுப்பாடுகளுக்கான வெற்று நிலை"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "வழங்குநர் JSON செல்லுபடியாகும் போது விதி ஐடி கட்டுப்பாடுகள் கிடைக்கும்.",
+    "description": "வழங்குநர் விதி-ஐடி கட்டுப்பாடுகளுக்கான தவறான JSON நிலை"
   }
 }

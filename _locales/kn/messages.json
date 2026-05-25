@@ -420,10 +420,10 @@
     "message": "ಒದಗಿಸುವವರ ಹೆಸರು ಅಗತ್ಯವಿದೆ"
   },
   "customRulesEditor_rawRules": {
-    "message": "ಕಚ್ಚಾ ನಿಯಮಗಳು (ರೆಜೆಕ್ಸ್ ಮಾದರಿಗಳು)"
+    "message": "ಕಚ್ಚಾ ನಿಯಮಗಳು"
   },
   "customRulesEditor_redirections": {
-    "message": "ಮರುನಿರ್ದೇಶನಗಳು (ಮರುನಿರ್ದೇಶನ ಮಾದರಿಗಳು)"
+    "message": "ಮರುನಿರ್ದೇಶನಗಳು"
   },
   "customRulesEditor_referralMarketing": {
     "message": "ರೆಫರಲ್ ಮಾರ್ಕೆಟಿಂಗ್"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "ಸಂಪೂರ್ಣ URL ಗೆ ನೇರ ರಿಜೆಕ್ಸ್ ಮಾದರಿಗಳನ್ನು ಅನ್ವಯಿಸಲಾಗಿದೆ. ಸ್ಟ್ಯಾಂಡರ್ಡ್ ಪ್ಯಾರಾಮೀಟರ್ ಫಾರ್ಮ್ಯಾಟ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗದ ಸಂಕೀರ್ಣ ಮಾದರಿಗಳಿಗಾಗಿ ಬಳಸಿ.",
+    "message": "ಅಂಗೀಕೃತ ಕಚ್ಚಾ ನಿಯಮದ ವಸ್ತುಗಳು ಸಂಪೂರ್ಣ URL ಗೆ ರೆಜೆಕ್ಸ್ ಮಾದರಿಗಳನ್ನು ಅನ್ವಯಿಸುತ್ತವೆ. ಸ್ಟ್ಯಾಂಡರ್ಡ್ ಪ್ಯಾರಾಮೀಟರ್ ಫಾರ್ಮ್ಯಾಟ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗದ ಸಂಕೀರ್ಣ ಮಾದರಿಗಳಿಗಾಗಿ ಬಳಸಿ.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "ಕಚ್ಚಾ ನಿಯಮಗಳು:",
+    "message": "ಕಚ್ಚಾ ನಿಯಮದ ವಸ್ತುಗಳು:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "ತುಣುಕುಗಳು, ಮಾರ್ಗ ವಿಭಾಗಗಳು ಅಥವಾ ಸಂಕೀರ್ಣ ಪ್ಯಾರಾಮೀಟರ್ ಮಾದರಿಗಳಿಗಾಗಿ ಕಚ್ಚಾ ನಿಯಮಗಳನ್ನು ಬಳಸಿ.",
+    "message": "ತುಣುಕುಗಳು, ಮಾರ್ಗ ವಿಭಾಗಗಳು ಅಥವಾ ಸಂಕೀರ್ಣ ಪ್ಯಾರಾಮೀಟರ್ ಮಾದರಿಗಳಿಗಾಗಿ kind: \"raw\" ನೊಂದಿಗೆ rules[] ವಸ್ತುಗಳನ್ನು ಬಳಸಿ.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "ನಿಯಮಗಳು ಮತ್ತು ಕಚ್ಚಾ ನಿಯಮಗಳ ನಡುವಿನ ವ್ಯತ್ಯಾಸವೇನು?",
+    "message": "rules[] ಯಾವ ನಿಯಮ ಆಕಾರಗಳನ್ನು ಒಳಗೊಂಡಿರಬಹುದು?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "ಗೌಪ್ಯತೆ ನೀತಿಯ ಆವೃತ್ತಿಯ ನಕ್ಷೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "ಸಕ್ರಿಯ ಬಂಡಲ್/ರಿಮೋಟ್ ನಿಯಮಗಳು/ಕಸ್ಟಮ್ ನಿಯಮಗಳು",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "ಸಕ್ರಿಯ Bundled/ರಿಮೋಟ್ ನಿಯಮಗಳು/ಕಸ್ಟಮ್ ನಿಯಮಗಳು",
+    "description": "ಪ್ರಸ್ತುತ ಸಕ್ರಿಯ ಬಂಡಲ್, ರಿಮೋಟ್-ಬೆಂಬಲಿತ ಮತ್ತು ಕಸ್ಟಮ್ ನಿಯಮಗಳಿಗೆ ಸೈಡ್‌ಬಾರ್ ಆಯ್ಕೆ."
   },
   "providerImport_button": {
     "message": "ಪೂರೈಕೆದಾರರನ್ನು ಆಮದು ಮಾಡಿ/ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "ನಿಯಮಗಳು, ಕಚ್ಚಾ ನಿಯಮಗಳು ಮತ್ತು ರೆಫರಲ್ ಮಾರ್ಕೆಟಿಂಗ್ ಎಂದರೇನು?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] ಏನನ್ನು ಒಳಗೊಂಡಿರಬಹುದು?",
+    "description": "ಏಕೀಕೃತ Linkumori-ClearURLs ನಿಯಮಗಳಿಗೆ FAQ ಶೀರ್ಷಿಕೆ"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\"> ನಿಯಮಗಳು</span> ಪ್ಯಾರಾಮೀಟರ್ ಹೆಸರುಗಳು ಅಥವಾ ತುಣುಕು ಹೆಸರುಗಳು ಅದನ್ನು ತೆಗೆದುಹಾಕಬೇಕು ಯುಆರ್‌ಎಲ್ ಶುದ್ಧೀಕರಣ",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> ಸರಳ ಪ್ಯಾರಾಮೀಟರ್ ಸ್ಟ್ರಿಂಗ್ಸ್, ಇನ್ಲೈನ್ ​​ಅನ್ನು ಸ್ವೀಕರಿಸುತ್ತದೆ <span class=\"faq-code\">$removeparam</span> ಶೋಧಕಗಳು ಮತ್ತು ಅಂಗೀಕೃತ ವಸ್ತುಗಳು.</p><p>ಬಳಸಿ <span class=\"faq-code\">kind: \"raw\"</span> ಸಂಪೂರ್ಣ-URL ರಿಜೆಕ್ಸ್ ಕ್ಲೀನಪ್ ಮತ್ತು <span class=\"faq-code\">kind: \"redirection\"</span> ಮರುನಿರ್ದೇಶನ ಹೊರತೆಗೆಯುವಿಕೆಗಾಗಿ.</p><p>ಬಳಸಿ <span class=\"faq-code\">referralMarketing: true</span> ನಿಯತಾಂಕವು ರೆಫರಲ್-ಮಾರ್ಕೆಟಿಂಗ್ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಅವಲಂಬಿಸಿದಾಗ ಕ್ಷೇತ್ರ ನಿಯಮದ ಮೇಲೆ.</p>",
+    "description": "ಏಕೀಕೃತ Linkumori-ClearURLs ನಿಯಮಗಳಿಗಾಗಿ FAQ ದೇಹ"
   },
   "audit_faq_exceptions_title": {
     "message": "ವಿನಾಯಿತಿಗಳು ಮತ್ತು ಡೊಮೇನ್ ವಿನಾಯಿತಿಗಳು ಯಾವುವು?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\"> ಮರುನಿರ್ದೇಶನಗಳು</span> ರಿಜೆಕ್ಸ್-ಆಧಾರಿತ ಅನ್‌ವ್ರ್ಯಾಪರ್‌ಗಳು. ಅವರು ಸಾಮಾನ್ಯವಾಗಿ ಗುಂಪು 1 ರಲ್ಲಿ ನೈಜ ಗಮ್ಯಸ್ಥಾನದ URL ಅನ್ನು ಸೆರೆಹಿಡಿಯುತ್ತಾರೆ ಮತ್ತು ClearURL ಗಳು ವಶಪಡಿಸಿಕೊಂಡ ಮೌಲ್ಯಕ್ಕೆ ಮರುನಿರ್ದೇಶಿಸುತ್ತದೆ. ಈ ಕೋಡ್‌ಬೇಸ್‌ನಲ್ಲಿ ಅವುಗಳನ್ನು <span class=\"faq-code\"> ನಮೂನೆಯ ಆಕಾರದ ನಮೂದುಗಳಿಗಾಗಿ ಪರಿಶೀಲಿಸಲಾಗುತ್ತದೆ $redirect= target</span>.</p><p> ಒಂದು ವೇಳೆ ರಿಜೆಕ್ಸ್ ಮರುನಿರ್ದೇಶನವು ಮೊದಲು ಹೊಂದಿಕೆಯಾಗುತ್ತದೆ. ಇಲ್ಲದಿದ್ದರೆ, ClearURL ಗಳು ಮುಂದಿನ ಡೊಮೇನ್ ಮರುನಿರ್ದೇಶನಗಳನ್ನು ಪರಿಶೀಲಿಸುತ್ತದೆ.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> ಜೊತೆ ನಮೂದುಗಳು <span class=\"faq-code\">kind: \"redirection\"</span> ರಿಜೆಕ್ಸ್-ಆಧಾರಿತ ಬಿಚ್ಚುವ ಸಾಧನಗಳಾಗಿವೆ. ಅವರು ಸಾಮಾನ್ಯವಾಗಿ ಗುಂಪು 1 ರಲ್ಲಿ ನೈಜ ಗಮ್ಯಸ್ಥಾನ URL ಅನ್ನು ಸೆರೆಹಿಡಿಯುತ್ತಾರೆ ಮತ್ತು ClearURLs ವಶಪಡಿಸಿಕೊಂಡ ಮೌಲ್ಯಕ್ಕೆ ಮರುನಿರ್ದೇಶಿಸುತ್ತದೆ.</p><p><span class=\"faq-code\">domainRedirections</span> ಡೊಮೇನ್ ಶೈಲಿಯ ಮರುನಿರ್ದೇಶನ ನಿಯಮಗಳಾಗಿವೆ. ಈ ಕೋಡ್‌ಬೇಸ್‌ನಲ್ಲಿ ಅವುಗಳನ್ನು ಆಕಾರದ ನಮೂದುಗಳಿಗಾಗಿ ಪರಿಶೀಲಿಸಲಾಗುತ್ತದೆ <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>ರಿಜೆಕ್ಸ್ ಮರುನಿರ್ದೇಶನವು ಮೊದಲು ಹೊಂದಾಣಿಕೆಯಾದರೆ, ಅದು ಗೆಲ್ಲುತ್ತದೆ. ಇಲ್ಲದಿದ್ದರೆ, ClearURLs ಮುಂದಿನ redirections ಡೊಮೇನ್ ಅನ್ನು ಪರಿಶೀಲಿಸುತ್ತದೆ.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>ಈ ಶಾಖೆಯಲ್ಲಿ ಒದಗಿಸುವವರ-ನಿರ್ಮಾಣ ಮಾರ್ಗವು ಈ ಕೀಗಳನ್ನು ಓದುತ್ತದೆ: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\"> ಬಲದ ಮರುನಿರ್ದೇಶನ4XXTKNX, XXTKNX5XXTKNXXurlPattern</span>, <span class=\"faq-code\"> ಡೊಮೇನ್ ನಮೂನೆಗಳು</span>, XXTKNX9XXTKNXX ನಿಯಮಗಳುXXX0, <span class=\"faq-code\"> ಕಚ್ಚಾ ನಿಯಮಗಳು</span>, <span class=\"faq-code\"> ರೆಫರಲ್ ಮಾರ್ಕೆಟಿಂಗ್</span>, <span class=\"faq-code\">,X6 <span class=\"faq-code\"> ಡೊಮೇನ್ ವಿನಾಯಿತಿಗಳು</span>, <span class=\"faq-code\"> ಮರುನಿರ್ದೇಶನಗಳು</span>, <span class=\"faq-code\">, <span class=\"faq-code\">2 ಡೊಮೇನ್, <span class=\"faq-code\">ವಿಧಾನಗಳು</span>, ಮತ್ತು <span class=\"faq-code\"> ಸಂಪನ್ಮೂಲ ಪ್ರಕಾರಗಳು</span>.</span> ಪರಿಶೀಲಿಸಿ <span class=\"faq-code\">ಅಂತಿಮ ನಿಯಮಗಳು</span>, ಏಕೆಂದರೆ ಇದು ಬಂಡಲ್, ರಿಮೋಟ್ ಮತ್ತು ಕಸ್ಟಮ್ ಮೂಲಗಳನ್ನು ಸಂಯೋಜಿಸಿದ ನಂತರ ವಿಲೀನಗೊಂಡ ಫಲಿತಾಂಶವನ್ನು ತೋರಿಸುತ್ತದೆ.</p>",
+    "message": "<p>ಈ ಶಾಖೆಯಲ್ಲಿ ಪೂರೈಕೆದಾರ-ನಿರ್ಮಾಣ ಮಾರ್ಗವು ಈ ಲೇಖಕರ ಕೀಗಳನ್ನು ಓದುತ್ತದೆ: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, ಮತ್ತು <span class=\"faq-code\">resourceTypes</span>.</p><p>ಕಚ್ಚಾ ಶುಚಿಗೊಳಿಸುವಿಕೆ, ಉಲ್ಲೇಖಿತ-ಮಾರ್ಕೆಟಿಂಗ್ ಕ್ಲೀನಪ್ ಮತ್ತು ರೆಜೆಕ್ಸ್ redirections ಉಳಿಸಿಕೊಂಡಿರುವ ClearURLs ಕ್ಷೇತ್ರಗಳನ್ನು ಅಥವಾ ಒಳಗೆ ಅಂಗೀಕೃತ ವಸ್ತುಗಳನ್ನು ಬಳಸಬಹುದು <span class=\"faq-code\">rules[]</span>.</p><p>ನಡವಳಿಕೆಯನ್ನು ಲೆಕ್ಕಪರಿಶೋಧಿಸುವಾಗ, ಪರಿಶೀಲಿಸಲು ಪ್ರಮುಖ ಸ್ಥಳವಾಗಿದೆ <span class=\"faq-code\">Final Rules</span>, ಏಕೆಂದರೆ ಅದು ಬಂಡಲ್, ರಿಮೋಟ್ ಮತ್ತು ಕಸ್ಟಮ್ ಮೂಲಗಳನ್ನು ಸಂಯೋಜಿಸಿದ ನಂತರ ವಿಲೀನಗೊಂಡ ಫಲಿತಾಂಶವನ್ನು ತೋರಿಸುತ್ತದೆ.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Rule syntax",
+    "message": "ನಿಯಮ ವಿನ್ಯಾಸ",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "ಕ್ಲಾಸಿಕ್ ಅರೇಗಳು",
+    "description": "ಕ್ಲಾಸಿಕ್ Linkumori-ClearURLs ನಿಯಮಗಳಿಗಾಗಿ ಕಸ್ಟಮ್ ನಿಯಮಗಳ ಸಂಪಾದಕ ಸಿಂಟ್ಯಾಕ್ಸ್ ಮೋಡ್ ಲೇಬಲ್"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "ಅಂಗೀಕೃತ ವಸ್ತುಗಳು",
+    "description": "ಅಂಗೀಕೃತ Linkumori-ClearURLs ನಿಯಮಗಳಿಗಾಗಿ ಕಸ್ಟಮ್ ನಿಯಮಗಳ ಸಂಪಾದಕ ಸಿಂಟ್ಯಾಕ್ಸ್ ಮೋಡ್ ಲೇಬಲ್"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs ಹಳೆಯ ClearURLs ಕ್ಷೇತ್ರಗಳನ್ನು ಇರಿಸುತ್ತದೆ ಮತ್ತು rules[] ನಲ್ಲಿ ಸರಳ ತಂತಿಗಳು, ಇನ್‌ಲೈನ್ $removeparam ನಿಯಮಗಳು ಮತ್ತು ಅಂಗೀಕೃತ ನಿಯಮದ ವಸ್ತುಗಳನ್ನು ಸೇರಿಸುತ್ತದೆ.",
+    "description": "Linkumori-ClearURLs ನಿಯಮ ವಿನ್ಯಾಸಕ್ಕಾಗಿ ಕಸ್ಟಮ್ ನಿಯಮಗಳ ಸಂಪಾದಕ ಸಹಾಯ ಪಠ್ಯ"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "ಅಂಗೀಕೃತ Linkumori-ClearURLs ನಿಯಮಗಳು rules[] ಒಳಗೆ ರೀತಿಯ + ಕ್ರಿಯೆಯನ್ನು ಬಳಸುತ್ತವೆ. ಹಳೆಯ rawRules, referralMarketing, ಮತ್ತು redirections ಕ್ಷೇತ್ರಗಳು ಇನ್ನೂ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತವೆ.",
+    "description": "ಅಂಗೀಕೃತ Linkumori-ClearURLs ನಿಯಮಗಳಿಗೆ ಕಸ್ಟಮ್ ನಿಯಮಗಳ ಸಂಪಾದಕ ಸಹಾಯ ಪಠ್ಯ"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "ಎಲ್ಲಾ ಪೂರೈಕೆದಾರರ ನಿಯಮಗಳಿಗೆ linkumori-clearurls-ಆಡುಭಾಷೆಯನ್ನು ಬಳಸಿ.",
+    "description": "ಏಕೀಕೃತ Linkumori-ClearURLs ನಿಯಮಗಳಿಗೆ ಕಸ್ಟಮ್ ನಿಯಮಗಳ ಸಂಪಾದಕ JSON ಸಹಾಯ ಪಠ್ಯ"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "ಒದಗಿಸುವವರು JSON ಗಾಗಿ Linkumori-ClearURLs ಉಪಭಾಷೆಯನ್ನು ಬಳಸಿ. ಹೊಸ ಉಳಿತಾಯಗಳು syntax: \"linkumori-clearurls-dialect\" ಅನ್ನು ಒಳಗೊಂಡಿವೆ.",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs ಹಳೆಯ ClearURLs ಕ್ಷೇತ್ರಗಳನ್ನು ಇರಿಸುತ್ತದೆ ಮತ್ತು rules[] ಸ್ಟ್ರಿಂಗ್‌ಗಳು, $removeparam ಫಿಲ್ಟರ್‌ಗಳು ಮತ್ತು ಐಡಿ, ರೀತಿಯ, ಹೊಂದಾಣಿಕೆ ಮತ್ತು ಕ್ರಿಯೆಯೊಂದಿಗೆ ಅಂಗೀಕೃತ ವಸ್ತುಗಳನ್ನು ಸೇರಿಸುತ್ತದೆ.",
+    "description": "ಏಕೀಕೃತ Linkumori-ClearURLs ನಿಯಮಗಳಿಗೆ ಕಸ್ಟಮ್ ನಿಯಮಗಳ ಸಂಪಾದಕ ಟೂಲ್‌ಬಾರ್ ಸಹಾಯ ಪಠ್ಯ"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Add field rule",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "ಒದಗಿಸುವವರ ಕ್ಷೇತ್ರಗಳು",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "ಏಕೀಕೃತ Linkumori-ClearURLs ಮೋಡ್‌ನಲ್ಲಿ ಒದಗಿಸುವವರ ಕ್ಷೇತ್ರಗಳಿಗಾಗಿ ಕಸ್ಟಮ್ ನಿಯಮಗಳ ಸಂಪಾದಕ ಲೇಬಲ್"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "ನಿಯಮ ಟೆಂಪ್ಲೇಟ್‌ಗಳು",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "ಏಕೀಕೃತ Linkumori-ClearURLs ಮೋಡ್‌ನಲ್ಲಿ ನಿಯಮ ಟೆಂಪ್ಲೇಟ್‌ಗಳಿಗಾಗಿ ಕಸ್ಟಮ್ ನಿಯಮಗಳ ಸಂಪಾದಕ ಲೇಬಲ್"
   },
   "popup_report_issue_button_title": {
     "message": "ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಿ",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "ಕಾನ್ಫಿಗರೇಶನ್ ಡೇಟಾವನ್ನು ಹಿಂಪಡೆಯುವಲ್ಲಿ ದೋಷ:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ",
+    "description": "ಒದಗಿಸುವವರ ನಿಯಮ ಐಡಿಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಬಟನ್ ಲೇಬಲ್"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "ಒದಗಿಸುವವರ ನಿಯಮ ID ಗಳು",
+    "description": "ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾದ ClearURLs ಪೂರೈಕೆದಾರರ ನಿಯಮ ಐಡಿಗಳಿಗಾಗಿ ವಿಭಾಗದ ಶೀರ್ಷಿಕೆ"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "ಪೂರೈಕೆದಾರರ ನಿಯಮ ID ನಿಯಂತ್ರಣಗಳು",
+    "description": "ರೂಲ್-ಐಡಿಗಾಗಿ ಟೂಲ್‌ಬಾರ್ ಶೀರ್ಷಿಕೆ ಒದಗಿಸುವವರ ಸಂಪಾದಕದಲ್ಲಿ ನಿಯಂತ್ರಣಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "ಅಂಗೀಕೃತ ಪೂರೈಕೆದಾರರ ನಿಯಮ ಐಡಿಗಳನ್ನು ಅಳಿಸದೆಯೇ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ. ಸಂಗ್ರಹಿಸಲಾದ ಐಡಿಗಳು provider::rule ಗುರುತನ್ನು ಬಳಸುತ್ತವೆ.",
+    "description": "ಪೂರೈಕೆದಾರರ ನಿಯಮ-ಐಡಿ ನಿಯಂತ್ರಣಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಸಹಾಯ ಪಠ್ಯ"
+  },
+  "providerImport_ruleActivation": {
+    "message": "ನಿಯಮ ಸಕ್ರಿಯಗೊಳಿಸುವಿಕೆ",
+    "description": "ಸಕ್ರಿಯ ಪೂರೈಕೆದಾರರ ನಿಯಮ ಸಕ್ರಿಯಗೊಳಿಸುವಿಕೆ ಟಾಗಲ್‌ಗಳಿಗಾಗಿ ವಿಭಾಗದ ಶೀರ್ಷಿಕೆ"
+  },
+  "providerImport_noRuleIds": {
+    "message": "ಈ ಪೂರೈಕೆದಾರರಲ್ಲಿ ಇನ್ನೂ ಯಾವುದೇ ಅಂಗೀಕೃತ ನಿಯಮ ID ಗಳು ಕಂಡುಬಂದಿಲ್ಲ.",
+    "description": "ಒದಗಿಸುವವರ ನಿಯಮ-ಐಡಿ ನಿಯಂತ್ರಣಗಳಿಗಾಗಿ ಖಾಲಿ ಸ್ಥಿತಿ"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "ಒದಗಿಸುವವರು JSON ಮಾನ್ಯವಾದ ನಂತರ ನಿಯಮ ID ನಿಯಂತ್ರಣಗಳು ಲಭ್ಯವಿರುತ್ತವೆ.",
+    "description": "ಒದಗಿಸುವವರ ನಿಯಮ-ಐಡಿ ನಿಯಂತ್ರಣಗಳಿಗಾಗಿ ಅಮಾನ್ಯವಾದ JSON ಸ್ಥಿತಿ"
   }
 }

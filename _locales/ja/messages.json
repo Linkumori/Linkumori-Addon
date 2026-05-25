@@ -420,10 +420,10 @@
     "message": "プロバイダー名は必須です"
   },
   "customRulesEditor_rawRules": {
-    "message": "生ルール（正規表現パターン）"
+    "message": "生のルール"
   },
   "customRulesEditor_redirections": {
-    "message": "リダイレクト（リダイレクトパターン）"
+    "message": "リダイレクト"
   },
   "customRulesEditor_referralMarketing": {
     "message": "紹介マーケティング"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "URL全体に適用される直接の正規表現パターン。標準のパラメータ形式に適合しない複雑なパターンに使用します。",
+    "message": "正規の生ルール オブジェクトは、正規表現パターンを URL 全体に適用します。標準パラメータ形式に適合しない複雑なパターンに使用します。",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "生ルール:",
+    "message": "生のルールオブジェクト:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "フラグメント、パスセグメント、または複雑なパラメータパターンにはrawRulesを使用します。",
+    "message": "フラグメント、パス セグメント、または複雑なパラメーター パターンには、rules[] オブジェクトを kind: \"raw\" とともに使用します。",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "ルールとrawRulesの違いは何ですか？",
+    "message": "rules[] にはどのようなルール形状を含めることができますか?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "プライバシーポリシーのバージョンマップの読み込みに失敗しました。",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "アクティブなバンドル/リモート/カスタムルール",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "アクティブなバンドル/リモート ルール/カスタム ルール",
+    "description": "現在アクティブなバンドル ルール、リモート バック ルール、およびカスタム ルールのサイドバー オプション。"
   },
   "providerImport_button": {
     "message": "プロバイダーをインポート/無効化",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "rules、rawRules、referralMarketingとは何ですか？",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[]には何が含まれますか?",
+    "description": "統一 Linkumori-ClearURLs ルールの FAQ タイトル"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span>は、URLから削除する必要があるパラメータ名またはフラグメント名です。</p><p><span class=\"faq-code\">rawRules</span>は、クエリのクリーンアップ前にURL文字列全体に直接適用される正規表現置換です。</p><p><span class=\"faq-code\">referralMarketing</span>も削除可能なパラメータのように扱われますが、実際に使用されるかどうかはグローバルな紹介マーケティング設定によって異なります。</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> 単純なパラメータ文字列をインラインで受け入れます <span class=\"faq-code\">$removeparam</span> フィルターと正規オブジェクト。</p><p>使用 <span class=\"faq-code\">kind: \"raw\"</span> URL 全体の正規表現のクリーンアップと <span class=\"faq-code\">kind: \"redirection\"</span> リダイレクト抽出用。</p><p>使用 <span class=\"faq-code\">referralMarketing: true</span> パラメータが紹介マーケティング設定に依存する場合のフィールド ルール。</p>",
+    "description": "統一 Linkumori-ClearURLs ルールの FAQ 本文"
   },
   "audit_faq_exceptions_title": {
     "message": "exceptionsとdomainExceptionsとは何ですか？",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span>は正規表現ベースのアンラッパーです。通常、実際の宛先URLをグループ1でキャプチャし、ClearURLsはそのキャプチャされた値にリダイレクトします。</p><p><span class=\"faq-code\">domainRedirections</span>はドメインスタイルのリダイレクトルールです。このコードベースでは、<span class=\"faq-code\">pattern $redirect= target</span>の形式のエントリがないかチェックされます。</p><p>最初に正規表現リダイレクトが一致した場合、それが優先されます。一致しない場合、ClearURLsは次にドメインリダイレクトをチェックします。</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> のエントリ <span class=\"faq-code\">kind: \"redirection\"</span> は正規表現ベースのアンラッパーです。通常、これらはグループ 1 の実際の宛先 URL をキャプチャし、ClearURLs はそのキャプチャされた値にリダイレクトします。</p><p><span class=\"faq-code\">domainRedirections</span> ドメイン スタイルのリダイレクト ルールです。このコードベースでは、次のような形状のエントリがないかチェックされます。 <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>正規表現リダイレクトが最初に一致した場合、それが優先されます。そうでない場合、ClearURLs は次にドメイン redirections をチェックします。</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>このブランチのプロバイダー構築パスは、次のキーを読み取ります: <span class=\"faq-code\">completeProvider</span>、<span class=\"faq-code\">forceRedirection</span>、<span class=\"faq-code\">urlPattern</span>、<span class=\"faq-code\">domainPatterns</span>、<span class=\"faq-code\">rules</span>、<span class=\"faq-code\">rawRules</span>、<span class=\"faq-code\">referralMarketing</span>、<span class=\"faq-code\">exceptions</span>、<span class=\"faq-code\">domainExceptions</span>、<span class=\"faq-code\">redirections</span>、<span class=\"faq-code\">domainRedirections</span>、<span class=\"faq-code\">methods</span>、<span class=\"faq-code\">resourceTypes</span>。</p><p>動作を監査する場合、最も重要なチェック箇所は<span class=\"faq-code\">最終ルール</span>です。これは、バンドル、リモート、カスタムソースが結合された後のマージ結果を示すためです。</p>",
+    "message": "<p>このブランチのプロバイダー構築パスは、次のオーサリング キーを読み取ります。 <span class=\"faq-code\">syntax</span>、 <span class=\"faq-code\">completeProvider</span>、 <span class=\"faq-code\">forceRedirection</span>、 <span class=\"faq-code\">urlPattern</span>、 <span class=\"faq-code\">indexPattern</span>、 <span class=\"faq-code\">domainPatterns</span>、 <span class=\"faq-code\">rules</span>、 <span class=\"faq-code\">rawRules</span>、 <span class=\"faq-code\">referralMarketing</span>、 <span class=\"faq-code\">exceptions</span>、 <span class=\"faq-code\">domainExceptions</span>、 <span class=\"faq-code\">redirections</span>、 <span class=\"faq-code\">domainRedirections</span>、 <span class=\"faq-code\">methods</span>、 そして <span class=\"faq-code\">resourceTypes</span>.</p><p>Raw クリーンアップ、紹介マーケティング クリーンアップ、および正規表現 redirections は、保持されている ClearURLs フィールドまたは内部の正規オブジェクトを使用できます。 <span class=\"faq-code\">rules[]</span>.</p><p>行動を監査する場合、最も重要なチェック箇所は次のとおりです。 <span class=\"faq-code\">Final Rules</span>これは、バンドルされたソース、リモート ソース、およびカスタム ソースが結合された後の結合結果を示しているためです。</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Rule syntax",
+    "message": "ルールのレイアウト",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "クラシック配列",
+    "description": "クラシック Linkumori-ClearURLs ルールのカスタム ルール エディター構文モード ラベル"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "正規オブジェクト",
+    "description": "正規の Linkumori-ClearURLs ルールのカスタム ルール エディター構文モード ラベル"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs は古い ClearURLs フィールドを保持し、単純な文字列、インライン $removeparam ルール、および正規ルール オブジェクトを rules[] に追加します。",
+    "description": "Linkumori-ClearURLs ルール レイアウトのカスタム ルール エディターのヘルプ テキスト"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "正規の Linkumori-ClearURLs ルールは、rules[] 内で種類 + アクションを使用します。古い rawRules、referralMarketing、および redirections フィールドは引き続き機能します。",
+    "description": "正規の Linkumori-ClearURLs ルールのカスタム ルール エディターのヘルプ テキスト"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "すべてのプロバイダー ルールに linkumori-clearurls-dialect を使用します。",
+    "description": "カスタム ルール エディターの統合 Linkumori-ClearURLs ルールの JSON ヘルプ テキスト"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "プロバイダー JSON には Linkumori-ClearURLs 方言を使用します。新しいセーブには syntax: \"linkumori-clearurls-dialect\" が含まれます。",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs は古い ClearURLs フィールドを保持し、rules[] 文字列、$removeparam フィルター、および ID、種類、一致、およびアクションを備えた正規オブジェクトを追加します。",
+    "description": "統合された Linkumori-ClearURLs ルールのカスタム ルール エディターのツールバーのヘルプ テキスト"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Add field rule",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "プロバイダーフィールド",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "統合 Linkumori-ClearURLs モードのプロバイダー フィールドのカスタム ルール エディターのラベル"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "ルールテンプレート",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "統合 Linkumori-ClearURLs モードのルール テンプレートのカスタム ルール エディターのラベル"
   },
   "popup_report_issue_button_title": {
     "message": "問題を報告する",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "構成データの取得中にエラーが発生しました:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "無効にする",
+    "description": "プロバイダー ルール ID を無効にするボタン ラベル"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "プロバイダー ルール ID",
+    "description": "無効化された ClearURLs プロバイダー ルール ID のセクション タイトル"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "プロバイダー ルール ID コントロール",
+    "description": "プロバイダー エディターのルール ID 無効化コントロールのツールバー タイトル"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "正規プロバイダーのルール ID を削除せずに無効にします。保存された ID は provider::rule ID を使用します。",
+    "description": "プロバイダーのルール ID 無効化コントロールのヘルプ テキスト"
+  },
+  "providerImport_ruleActivation": {
+    "message": "ルールのアクティブ化",
+    "description": "アクティブなプロバイダー ルールのアクティブ化切り替えのセクション タイトル"
+  },
+  "providerImport_noRuleIds": {
+    "message": "このプロバイダーにはまだ正規ルール ID が見つかりません。",
+    "description": "プロバイダーのルール ID コントロールの空の状態"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "プロバイダー JSON が有効になると、ルール ID コントロールが使用可能になります。",
+    "description": "プロバイダーのルール ID コントロールの JSON 状態が無効です"
   }
 }

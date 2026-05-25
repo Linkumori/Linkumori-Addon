@@ -420,10 +420,10 @@
     "message": "El nom del proveïdor és obligatori"
   },
   "customRulesEditor_rawRules": {
-    "message": "Regles brutes (patrons d'expressió regular)"
+    "message": "Regles brutes"
   },
   "customRulesEditor_redirections": {
-    "message": "Redireccions (patrons de redirecció)"
+    "message": "Redireccions"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Màrqueting de referència"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Patrons d'expressions regulars directes aplicats a tot l'URL. Utilitzeu-lo per a patrons complexos que no s'ajusten al format de paràmetre estàndard.",
+    "message": "Els objectes de regla en brut canònics apliquen patrons d'expressió regular a tot el URL. Utilitzeu-lo per a patrons complexos que no s'ajusten al format de paràmetre estàndard.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Regles brutes:",
+    "message": "Objectes de regla en brut:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Utilitzeu rawRules per a fragments, segments de camí o patrons de paràmetres complexos.",
+    "message": "Utilitzeu objectes rules[] amb kind: \"raw\" per a fragments, segments de camí o patrons de paràmetres complexos.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Quina diferència hi ha entre regles i rawRules?",
+    "message": "Quines formes de regla pot contenir rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "No s'ha pogut carregar el mapa de la versió de la política de privacitat",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Actiu agrupat/Regles remotes/Regles personalitzades",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Paquet actiu/Regles remotes/Regles personalitzades",
+    "description": "Opció de barra lateral per a regles agrupades, amb suport remot i personalitzades actives actualment."
   },
   "providerImport_button": {
     "message": "Importa/desactiva els proveïdors",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Què són les regles, les rawRules i el referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Què pot contenir rules[]?",
+    "description": "Títol de les preguntes freqüents per a les regles Linkumori-ClearURLs unificades"
   },
   "audit_faq_rules_body": {
-    "message": "<p>XX<span class=\"faq-code\">rules</span> són noms de paràmetres o noms de fragments que s'han d'eliminar de l'URL.</p><p>XX<span class=\"faq-code\">rawRules</span> són reemplaçaments regex aplicats directament a tota la cadena d'URL abans de la neteja de la consulta.</p>XXXX<span class=\"faq-code\">referralMarketing</span> també es tracten com a paràmetres extraïbles, però si s'utilitzen realment depèn de la configuració global de referència-marketing.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> accepta cadenes de paràmetres simples, en línia <span class=\"faq-code\">$removeparam</span> filtres i objectes canònics.</p><p>Ús <span class=\"faq-code\">kind: \"raw\"</span> per a la neteja d'exposicions regulars completes de URL i <span class=\"faq-code\">kind: \"redirection\"</span> per a l'extracció de redireccions.</p><p>Ús <span class=\"faq-code\">referralMarketing: true</span> en una regla de camp quan el paràmetre depèn de la configuració de màrqueting de referència.</p>",
+    "description": "Cos de preguntes freqüents per a les regles Linkumori-ClearURLs unificades"
   },
   "audit_faq_exceptions_title": {
     "message": "Què són les excepcions i les domainExceptions?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redireccions</span> són desempaquetadors basats en l'expressió regular. Normalment capturen l'URL de destinació real al grup 1, i ClearURL redirigeix a aquest valor capturat.</p><p><span class=\"faq-code\">domainRedirections</span> són regles de redirecció d'estil de domini. En aquesta base de codi es comproven les entrades en forma de <span class=\"faq-code\">pattern $redirect= target</span>.</p>XX<p>Si una redirecció regex coincideix primer, guanya. Si no és així, ClearURLs comprova les redireccions de domini següents.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> entrades amb <span class=\"faq-code\">kind: \"redirection\"</span> són unwrappers basats en regex. Normalment capturen la destinació real URL al grup 1 i ClearURLs redirigeix ​​a aquest valor capturat.</p><p><span class=\"faq-code\">domainRedirections</span> són regles de redirecció d'estil de domini. En aquesta base de codi, es comprova si hi ha entrades amb forma de <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Si una redirecció d'expressió regular coincideix primer, això guanya. Si no, ClearURLs comprova el domini redirections a continuació.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>La ruta de creació de proveïdors en aquesta branca llegeix aquestes claus: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">Excepcions de domini</span>, <span class=\"faq-code\">redireccions</span>, <span class=\"faq-code\">redireccions de domini</span>, <span class=\"faq-code\">mètodes</span> i <span class=\"faq-code\">Tipus de recurs</span>.</p><p>Quan s&#39;audita el comportament, el lloc més important per comprovar és <span class=\"faq-code\">Regles finals</span>, perquè això mostra el resultat fusionat després que s&#39;hagin combinat les fonts agrupades, remotes i personalitzades.</p>",
+    "message": "<p>La ruta de creació del proveïdor d'aquesta branca llegeix aquestes claus de creació personalitzada: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, i <span class=\"faq-code\">resourceTypes</span>.</p><p>La neteja en brut, la neteja de màrqueting de referència i l'expressió regular redirections poden utilitzar els camps ClearURLs conservats o els objectes canònics dins <span class=\"faq-code\">rules[]</span>.</p><p>Quan s'auditoria el comportament, el lloc més important per comprovar és <span class=\"faq-code\">Final Rules</span>, perquè mostra el resultat combinat després de combinar fonts agrupades, remotes i personalitzades.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Sintaxi de la regla",
+    "message": "Disseny de regles",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Arrays clàssics",
+    "description": "Etiqueta de mode de sintaxi de l'editor de regles personalitzades per a les regles Linkumori-ClearURLs clàssiques"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Objectes canònics",
+    "description": "Etiqueta de mode de sintaxi de l'editor de regles personalitzades per a regles canòniques Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs manté els camps ClearURLs antics i afegeix cadenes simples, regles $removeparam en línia i objectes de regles canòniques a rules[].",
+    "description": "Text d'ajuda de l'editor de regles personalitzades per al disseny de regles Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Les regles canòniques Linkumori-ClearURLs utilitzen tipus + acció dins de rules[]. Els camps antics rawRules, referralMarketing i redirections encara funcionen.",
+    "description": "Text d'ajuda de l'editor de regles personalitzades per a regles canòniques Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Utilitzeu linkumori-clearurls-dialect per a totes les regles del proveïdor.",
+    "description": "Text d'ajuda de l'editor de regles personalitzades JSON per a regles Linkumori-ClearURLs unificades"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Utilitzeu el dialecte Linkumori-ClearURLs per al proveïdor JSON. Els nous desats inclouen syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs manté els camps ClearURLs antics i afegeix cadenes rules[], filtres $removeparam i objectes canònics amb identificador, tipus, coincidència i acció.",
+    "description": "Text d'ajuda de la barra d'eines de l'editor de regles personalitzades per a regles Linkumori-ClearURLs unificades"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Afegeix una regla de camp",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Camps del proveïdor",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Etiqueta de l'editor de regles personalitzades per als camps del proveïdor en mode Linkumori-ClearURLs unificat"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Plantilles de regles",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Etiqueta d'editor de regles personalitzada per a plantilles de regles en mode Linkumori-ClearURLs unificat"
   },
   "popup_report_issue_button_title": {
     "message": "Informar d'un problema",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Error en recuperar les dades de configuració:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Desactivar",
+    "description": "Etiqueta de botó per desactivar un identificador de regla de proveïdor"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Identificadors de regla del proveïdor",
+    "description": "Títol de la secció per als identificadors de regles del proveïdor ClearURLs desactivats"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Controls d'identificació de la regla del proveïdor",
+    "description": "Títol de la barra d'eines per als controls de desactivació de l'identificador de regles a l'editor del proveïdor"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Desactiveu els identificadors de regles de proveïdors canònics sense suprimir-los. Els identificadors emmagatzemats utilitzen la identitat provider::rule.",
+    "description": "Text d'ajuda per als controls de desactivació de l'identificador de regles del proveïdor"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Activació de regles",
+    "description": "El títol de la secció per a l'activació de la regla del proveïdor actiu canvia"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Encara no s'ha trobat cap identificador de regla canònica en aquest proveïdor.",
+    "description": "Estat buit per als controls d'identificador de regles del proveïdor"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Els controls d'identificació de regles estan disponibles un cop el proveïdor JSON sigui vàlid.",
+    "description": "Estat JSON no vàlid per als controls d'identificador de regles del proveïdor"
   }
 }

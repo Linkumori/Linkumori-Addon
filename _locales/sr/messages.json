@@ -418,10 +418,10 @@
     "message": "Име провајдера је обавезно"
   },
   "customRulesEditor_rawRules": {
-    "message": "Необрађена правила (обрасци регуларног израза)"
+    "message": "Рав Рулес"
   },
   "customRulesEditor_redirections": {
-    "message": "Преусмеравања (обрасци преусмеравања)"
+    "message": "Преусмјеравања"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Реферални маркетинг"
@@ -860,15 +860,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Директни обрасци регуларног израза примењени на цео УРЛ. Користи се за сложене обрасце који се не уклапају у стандардни формат параметара.",
+    "message": "Канонски необрађени објекти правила примењују обрасце регуларних израза на цео ЗКС0КСЗ. Користи се за сложене обрасце који се не уклапају у стандардни формат параметара.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Необрађена правила:",
+    "message": "Необрађени објекти правила:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Користите равРулес за фрагменте, сегменте путање или сложене обрасце параметара.",
+    "message": "Користите ЗКС0КСЗ објекте са ЗКС1КСЗ за фрагменте, сегменте путање или сложене обрасце параметара.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Која је разлика између правила и равРулес?",
+    "message": "Које облике правила може да садржи ЗКС0КСЗ?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "Учитавање мапе верзије политике приватности није успело.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Ацтиве Бундле/Ремоте Рулес/Цустом Рулес",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Ацтиве БундлеЗКС0КСЗРемоте РулесЗКС1КСЗЦустом Рулес",
+    "description": "Опција бочне траке за тренутно активна скупна, даљински подржана и прилагођена правила."
   },
   "providerImport_button": {
     "message": "Увоз/онемогући добављаче",
@@ -3713,12 +3713,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Шта су правила, равРулес и рефералМаркетинг?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Шта ЗКС0КСЗ може да садржи?",
+    "description": "Наслов честих питања за обједињена ЗКС0КСЗ правила"
   },
   "audit_faq_rules_body": {
-    "message": "КСКСТКНКСКС0КСКСТКНКСКСКСКСТКНКСКС1КСКСТКНКСКСправилаКСКСТКНКСКС2КСКСТКНКСКС су имена параметара или имена фрагмената које треба уклонити из УРЛ-а.КСКСТКНКСКС3КСКСТКНКСКСКСКСТКНКСКС4КСКСТКНКСКСКСКСТКНКСКС5КСКСТКНКСКСравРулесТКНКСКС6КСКС се директно примењују УРЛ-ови пре него што се цео УРЛ директно примени на цео УРЛ. куери цлеануп.КСКСТКНКСКС7КСКСТКНКСКСКСКСТКНКСКС8КСКСТКНКСКСКСКСТКНКСКС9КСКСТКНКСКСреферралМаркетингКСКСТКНКСКС10КСКСТКНКСКС се такође третира као параметри који се могу уклонити, али да ли се они заиста користе зависи од глобалног подешавања маркетинга препоруке.КСКСТКНКСКС11КСКСТ",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> прихвата једноставне низове параметара, инлине <span class=\"faq-code\">$removeparam</span> филтери и канонски објекти.</p><p>Користите <span class=\"faq-code\">kind: \"raw\"</span> за чишћење целог ЗКС0КСЗ редовног израза и <span class=\"faq-code\">kind: \"redirection\"</span> за екстракцију преусмеравања.</p><p>Користите <span class=\"faq-code\">referralMarketing: true</span> на правило поља када параметар зависи од подешавања маркетинга препоруке.</p>",
+    "description": "Тело честих питања за обједињена ЗКС0КСЗ правила"
   },
   "audit_faq_exceptions_title": {
     "message": "Шта су изузеци и изузеци домена?",
@@ -3733,7 +3733,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "КСКСТКНКСКС0КСКСТКНКСКСКСКСТКНКСКС1КСКСТКНКСКСпреусмерењаКСКСТКНКСКС2КСКСТКНКСКС су алати за отмотавање засновани на регуларним изразима. Обично хватају стварну одредишну УРЛ адресу у групи 1, а ЦлеарУРЛс преусмерава на ту снимљену вредност. КСКСТКНКСКС3КСКСТКНКСКСКСКСТКНКСКС4КСКСТКНКСКСКСКСТКНКСКС5КСКСТКНКСКСдомаинРедирецтионсКСКСТКНКСКС6КСКСТКНКСКС су правила преусмеравања у стилу домена. У овој бази кода проверавају се да ли има уноса у облику КСКСТКНКСКС7КСКСТКНКСКСпаттерн $редирецт= таргетКСКСТКНКСКС8КСКСТКНКСКС.КСКСТКНКСКС9КСКСТКНКСКСКСКСТКНКСКС10КСКСТКНКСКСАко се преусмеравање редовног израза подудара прво, то побеђује. Ако није, ЦлеарУРЛс следеће проверава преусмеравања домена.КСКСТКНКСКС11КСКСТКНКСКС",
+    "message": "<p><span class=\"faq-code\">rules[]</span> уноси са <span class=\"faq-code\">kind: \"redirection\"</span> су размотачи засновани на регуларним изразима. Обично снимају стварно одредиште ЗКС1КСЗ у групи 1, а ЗКС0КСЗ преусмерава на ту снимљену вредност.</p><p><span class=\"faq-code\">domainRedirections</span> су правила преусмеравања у стилу домена. У овој бази кода проверавају се за уносе у облику <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Ако се преусмеравање регуларног израза прво подудара, то побеђује. Ако није, онда ЗКС0КСЗ проверава домен ЗКС1КСЗ.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "КСКСТКНКСКС0КСКСТКНКСКС Путања за изградњу провајдера у овој грани гласи ове кључеве: КСКСТКНКСКС1КСКСТКНКСКСцомплетеПровидерКСКСТКНКСКС2КСКСТКНКСКС, КСКСТКНКСКС3КСКСТКНКСКСфорцеРедирецтионКСКСТКНКСКС4КСКСТКНКСКС, КСКСТКНКСКС5КСКСЛКСКСТНКСКСНКСКС, КСКСТКНКСКСур5КСКСТНКСКСНКСКС, КСКСТКНКСКС7КСКСТКНКСКСдомаинПаттернсКСКСТКНКСКС8КСКСТКНКСКС, КСКСТКНКСКС9КСКСТКНКСКСрулесКСКСТКНКСКС10КСКСТКНКСКС, КСКСТКНКСКС11КСКСТКНКСКСравРулесКСКСТКНКСКС12КСКСТКНКСКС, КСКСТКНКСКС13КСКСТКНКСКСреферралМаркетингКСКСТКНКСКС14КСКСТКНКСКС, КСКСТКНКСКС15КСКСТКНКСКСекцептионсКСКСТКНКСКС16КСКСТКНКСКС, КСКСТКНКСКС17КСКСТКНКСКСдомаинЕкцептионсКСКСТКНКСКС18КСКСТКНКСКС, КСКСТКНКСКС19КСКСТКНКСКСредирецтионсКСКСТКНКСКС20КСКСТКНКСКС, КСКСТКНКСКС21КСКСТКНКСКСдомаинРедирецтионсКСКСТКНКСКС22КСКСТКНКСКС, КСКСТКНКСКС23КСКСТКНКСКСметходсКСКСТКНКСКС24КСКСТКНКСКС и КСКСТКНКСКС25КСКСТКНКСКСресоурцеТипесКСКСТКНКСКС26КСКСТКНКСКС.КСКСТКНКСКС27КСКСТКНКСКСКСКСТКНКСКС28КСКСТКНКСКС Када се врши ревизија понашања, најважније место за проверу је КСКСТКНКСКС29КСКСТКНКСКСФинал РулесКСКСТКНКСКСмер,лед тхе дистанце тхе ресулт анд тхе ремотед цустом,лед схов афтер тхе даљински резултат извори су комбиновани.КСКСТКНКСКС31КСКСТКНКСКС",
+    "message": "<p>Путања за изградњу добављача у овој грани чита ове ауторске кључеве: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, и <span class=\"faq-code\">resourceTypes</span>.</p><p>Необрађено чишћење, чишћење маркетинга препорука и регек ЗКС1КСЗ могу да користе задржана поља ЗКС0КСЗ или канонске објекте унутар <span class=\"faq-code\">rules[]</span>.</p><p>Приликом ревизије понашања, најважније место за проверу је <span class=\"faq-code\">Final Rules</span>, јер то показује спојени резултат након што су комбиновани, удаљени и прилагођени извори комбиновани.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Синтакса правила",
+    "message": "Распоред правила",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Класични низови",
+    "description": "Ознака режима синтаксе уређивача прилагођених правила за класична правила ЗКС0КСЗ"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Канонски објекти",
+    "description": "Ознака режима синтаксе уређивача прилагођених правила за канонска ЗКС0КСЗ правила"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "ЗКС0КСЗ чува стара ЗКС1КСЗ поља и додаје једноставне стрингове, инлине ЗКС2КСЗ правила и канонске објекте правила у ЗКС3КСЗ.",
+    "description": "Текст помоћи за уређивач прилагођених правила за изглед правила ЗКС0КСЗ"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Канонска правила ЗКС0КСЗ користе врсту + акцију унутар ЗКС1КСЗ. Стара поља ЗКС2КСЗ, ЗКС3КСЗ и ЗКС4КСЗ и даље раде.",
+    "description": "Текст помоћи за уређивач прилагођених правила за канонска правила ЗКС0КСЗ"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Користите линкумори-цлеарурлс-диалецт за сва правила добављача.",
+    "description": "Уређивач прилагођених правила ЗКС1КСЗ текст помоћи за обједињена ЗКС0КСЗ правила"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Користите дијалект ЗКС0КСЗ за провајдера ЗКС1КСЗ. Нова чувања укључују ЗКС2КСЗ.",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "ЗКС0КСЗ задржава стара поља ЗКС1КСЗ и додаје ЗКС3КСЗ низове, ЗКС2КСЗ филтере и канонске објекте са ид-ом, врстом, подударањем и радњом.",
+    "description": "Текст помоћи траке са алаткама за уређивач прилагођених правила за обједињена правила ЗКС0КСЗ"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Додај правило поља",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Поља добављача",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Ознака уређивача прилагођених правила за поља добављача у обједињеном ЗКС0КСЗ режиму"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Шаблони правила",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Ознака уређивача прилагођених правила за шаблоне правила у обједињеном режиму ЗКС0КСЗ"
   },
   "popup_report_issue_button_title": {
     "message": "Пријавите проблем",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "Грешка при преузимању података о конфигурацији:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Онемогући",
+    "description": "Ознака дугмета за онемогућавање ИД-а правила добављача"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "ИД-ови правила добављача",
+    "description": "Наслов одељка за онемогућене ИД-ове правила добављача ЗКС0КСЗ"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Контроле ИД-а правила добављача",
+    "description": "Наслов траке са алаткама за контроле за онемогућавање ид правила у уређивачу добављача"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Онемогућите канонске ИД-ове правила добављача без њиховог брисања. Сачувани ИД-ови користе ЗКС0КСЗ идентитет.",
+    "description": "Текст помоћи за контроле за онемогућавање правила ИД-а добављача"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Активација правила",
+    "description": "Наслов одељка за активно активирање правила провајдера се укључује"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Још увек нема канонских ИД-ова правила у овом добављачу.",
+    "description": "Празно стање за контроле ИД правила добављача"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Контроле ИД-а правила су доступне када провајдер ЗКС0КСЗ постане важећи.",
+    "description": "Неважеће стање ЗКС0КСЗ за контроле ИД-а правила добављача"
   }
 }

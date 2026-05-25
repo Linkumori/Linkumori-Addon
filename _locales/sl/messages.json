@@ -418,10 +418,10 @@
     "message": "Ime ponudnika je obvezno"
   },
   "customRulesEditor_rawRules": {
-    "message": "Surova pravila (regex vzorci)"
+    "message": "Surova pravila"
   },
   "customRulesEditor_redirections": {
-    "message": "Preusmeritve (vzorci za preusmeritve)"
+    "message": "Preusmeritve"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Napotitveno trženje"
@@ -860,15 +860,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Neposredni regex vzorci, uporabljeni na celotnem URL-ju. Uporabite za zapletene vzorce, ki ne ustrezajo standardni obliki parametrov.",
+    "message": "Kanonični neobdelani objekti pravil uporabljajo vzorce regularnih izrazov za celoten URL. Uporabite za zapletene vzorce, ki ne ustrezajo standardni obliki parametrov.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Surova pravila:",
+    "message": "Surovi objekti pravil:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Uporabite rawRules za fragmente, segmente poti ali zapletene vzorce parametrov.",
+    "message": "Uporabite objekte rules[] z kind: \"raw\" za fragmente, segmente poti ali kompleksne vzorce parametrov.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Kakšna je razlika med pravili in rawRules?",
+    "message": "Katere oblike pravil lahko vsebuje rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "Nalaganje zemljevida različic politike zasebnosti ni uspelo.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aktivna vgrajena/oddaljena pravila/pravila po meri",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Aktivni paket/Oddaljena pravila/Pravila po meri",
+    "description": "Možnost stranske vrstice za trenutno aktivna združena, daljinsko podprta pravila in pravila po meri."
   },
   "providerImport_button": {
     "message": "Uvozi/Onemogoči ponudnike",
@@ -3713,12 +3713,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Kaj so pravila, rawRules in referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Kaj lahko vsebuje rules[]?",
+    "description": "Naslov pogostih vprašanj za enotna pravila Linkumori-ClearURLs"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> so imena parametrov ali fragmentov, ki jih je treba odstraniti iz URL-ja.</p><p><span class=\"faq-code\">rawRules</span> so regex zamenjave, uporabljene neposredno na celotnem nizu URL-ja pred čiščenjem poizvedbe.</p><p><span class=\"faq-code\">referralMarketing</span> se obravnava kot odstranljivi parametri, vendar ali se dejansko uporabijo, je odvisno od globalne nastavitve napotitvenega trženja.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> sprejema preproste nize parametrov, v vrstici <span class=\"faq-code\">$removeparam</span> filtri in kanonični objekti.</p><p>Uporaba <span class=\"faq-code\">kind: \"raw\"</span> za čiščenje celega URL regularnega izraza in <span class=\"faq-code\">kind: \"redirection\"</span> za ekstrakcijo preusmeritve.</p><p>Uporaba <span class=\"faq-code\">referralMarketing: true</span> na pravilo polja, ko je parameter odvisen od nastavitve napotitvenega trženja.</p>",
+    "description": "Telo pogostih vprašanj za enotna pravila Linkumori-ClearURLs"
   },
   "audit_faq_exceptions_title": {
     "message": "Kaj so exceptions in domainExceptions?",
@@ -3733,7 +3733,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> so razvijalci na osnovi regexa. Običajno zajamejo pravi ciljni URL v skupini 1, ClearURLs pa preusmeri na to zajeto vrednost.</p><p><span class=\"faq-code\">domainRedirections</span> so pravila preusmeritev v slogu domene. V tej kodi se preverjajo za vnose, oblikovane kot <span class=\"faq-code\">vzorec $redirect= cilj</span>.</p><p>Če se regex preusmeritev ujame prva, ta zmaga. Če ne, ClearURLs nato preveri preusmeritve domen.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> vnosi z <span class=\"faq-code\">kind: \"redirection\"</span> so razvijalci, ki temeljijo na regularnih izrazih. Običajno zajamejo pravi cilj URL v skupini 1, ClearURLs pa preusmeri na to zajeto vrednost.</p><p><span class=\"faq-code\">domainRedirections</span> so pravila preusmeritve v slogu domene. V tej zbirki kod so preverjeni za vnose v obliki <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Če se preusmeritev regularnega izraza ujema prva, to zmaga. Če ne, ClearURLs nato preveri domeno redirections.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Pot gradnje ponudnikov v tej veji bere te ključe: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span> in <span class=\"faq-code\">resourceTypes</span>.</p><p>Pri reviziji obnašanja je najpomembnejše mesto za preverjanje <span class=\"faq-code\">Končna pravila</span>, saj prikazujejo združeni rezultat po združitvi vgrajenih, oddaljenih in lastnih virov.</p>",
+    "message": "<p>Pot gradnje ponudnika v tej veji bere te avtorske ključe: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, in <span class=\"faq-code\">resourceTypes</span>.</p><p>Neobdelano čiščenje, čiščenje napotitvenega trženja in regularni izraz redirections lahko uporabijo ohranjena polja ClearURLs ali kanonične predmete znotraj <span class=\"faq-code\">rules[]</span>.</p><p>Pri revidiranju vedenja je najpomembnejše mesto za preverjanje <span class=\"faq-code\">Final Rules</span>, ker prikazuje združeni rezultat po združitvi virov v svežnju, oddaljenih virov in virov po meri.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Sintaksa pravila",
+    "message": "Postavitev pravila",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klasični nizi",
+    "description": "Oznaka načina sintakse urejevalnika pravil po meri za klasična pravila Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Kanonični predmeti",
+    "description": "Oznaka načina sintakse urejevalnika pravil po meri za kanonična pravila Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs ohranja stara polja ClearURLs in dodaja preproste nize, pravila $removeparam v vrstici in objekte kanoničnih pravil v rules[].",
+    "description": "Besedilo pomoči za urejevalnik pravil po meri za postavitev pravil Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Kanonična pravila Linkumori-ClearURLs uporabljajo prijazno + dejanje znotraj rules[]. Stara polja rawRules, referralMarketing in redirections še vedno delujejo.",
+    "description": "Besedilo pomoči za urejevalnik pravil po meri za kanonična pravila Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Uporabite linkumori-clearurls-dialect za vsa pravila ponudnika.",
+    "description": "Urejevalnik pravil po meri JSON besedilo pomoči za enotna pravila Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Za ponudnika JSON uporabite narečje Linkumori-ClearURLs. Nova shranjevanja vključujejo syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs ohranja stara polja ClearURLs in dodaja nize rules[], filtre $removeparam in kanonične objekte z ID-jem, vrsto, ujemanjem in dejanjem.",
+    "description": "Besedilo pomoči za orodno vrstico urejevalnika pravil po meri za poenotena pravila Linkumori-ClearURLs"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Dodaj pravilo polja",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Polja ponudnika",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Oznaka urejevalnika pravil po meri za polja ponudnika v enotnem načinu Linkumori-ClearURLs"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Predloge pravil",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Oznaka urejevalnika pravil po meri za predloge pravil v poenotenem načinu Linkumori-ClearURLs"
   },
   "popup_report_issue_button_title": {
     "message": "Prijavite težavo",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "Napaka pri pridobivanju konfiguracijskih podatkov:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Onemogoči",
+    "description": "Oznaka gumba za onemogočanje ID-ja pravila ponudnika"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "ID-ji pravil ponudnika",
+    "description": "Naslov razdelka za onemogočene ID-je pravil ponudnika ClearURLs"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Kontrole ID-ja pravila ponudnika",
+    "description": "Naslov orodne vrstice za kontrolnike za onemogočanje ID-ja pravila v urejevalniku ponudnika"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Onemogočite ID-je pravil kanoničnega ponudnika, ne da bi jih izbrisali. Shranjeni ID-ji uporabljajo identiteto provider::rule.",
+    "description": "Besedilo pomoči za kontrolnike za onemogočanje ID-ja pravila ponudnika"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Aktivacija pravila",
+    "description": "Naslov razdelka za preklope aktiviranja pravila aktivnega ponudnika"
+  },
+  "providerImport_noRuleIds": {
+    "message": "V tem ponudniku še ni bilo mogoče najti ID-jev kanoničnih pravil.",
+    "description": "Prazno stanje za kontrolnike ID-jev pravil ponudnika"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Kontrolniki ID-ja pravila so na voljo, ko je ponudnik JSON veljaven.",
+    "description": "Neveljavno stanje JSON za kontrolnike ID-jev pravil ponudnika"
   }
 }

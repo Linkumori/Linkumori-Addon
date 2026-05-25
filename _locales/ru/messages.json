@@ -418,10 +418,10 @@
     "message": "Имя провайдера обязательно"
   },
   "customRulesEditor_rawRules": {
-    "message": "Сырые правила (regex-шаблоны)"
+    "message": "Необработанные правила"
   },
   "customRulesEditor_redirections": {
-    "message": "Перенаправления (шаблоны перенаправлений)"
+    "message": "Перенаправления"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Реферальный маркетинг"
@@ -860,15 +860,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Прямые regex-шаблоны, применяемые ко всему URL. Используйте для сложных шаблонов, которые не вписываются в стандартный формат параметров.",
+    "message": "Объекты канонических необработанных правил применяют шаблоны регулярных выражений ко всему URL. Используйте для сложных шаблонов, которые не соответствуют стандартному формату параметров.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Сырые правила:",
+    "message": "Необработанные объекты правил:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Используйте rawRules для фрагментов, сегментов пути или сложных шаблонов параметров.",
+    "message": "Используйте объекты rules[] с kind: \"raw\" для фрагментов, сегментов пути или шаблонов сложных параметров.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "В чем разница между rules и rawRules?",
+    "message": "Какие формы правил может содержать rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "Не удалось загрузить карту версий политики конфиденциальности.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Активные встроенные/удалённые/пользовательские правила",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Активный пакет/Удаленные правила/Пользовательские правила",
+    "description": "Опция боковой панели для активных в данный момент объединенных, удаленно поддерживаемых и настраиваемых правил."
   },
   "providerImport_button": {
     "message": "Импортировать/отключить провайдеров",
@@ -3713,12 +3713,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Что такое rules, rawRules и referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Что может содержать rules[]?",
+    "description": "Название FAQ для унифицированных правил Linkumori-ClearURLs"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> — это имена параметров или имена фрагментов, которые следует удалить из URL.</p><p><span class=\"faq-code\">rawRules</span> — это regex-замены, применяемые непосредственно ко всей строке URL перед очисткой запроса.</p><p><span class=\"faq-code\">referralMarketing</span> также обрабатывается как удаляемые параметры, но фактическое их использование зависит от глобальной настройки реферального маркетинга.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> принимает простые строки параметров, встроенные <span class=\"faq-code\">$removeparam</span> фильтры и канонические объекты.</p><p>Использовать <span class=\"faq-code\">kind: \"raw\"</span> для очистки регулярного выражения целиком URL и <span class=\"faq-code\">kind: \"redirection\"</span> для перенаправления извлечения.</p><p>Использовать <span class=\"faq-code\">referralMarketing: true</span> по правилу поля, если параметр зависит от настройки реферального маркетинга.</p>",
+    "description": "Основная часть часто задаваемых вопросов для унифицированных правил Linkumori-ClearURLs"
   },
   "audit_faq_exceptions_title": {
     "message": "Что такое exceptions и domainExceptions?",
@@ -3733,7 +3733,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> — это распаковщики на основе regex. Обычно они захватывают реальный целевой URL в группе 1, и ClearURLs перенаправляет на это захваченное значение.</p><p><span class=\"faq-code\">domainRedirections</span> — это правила перенаправления в стиле доменов. В этой кодовой базе они проверяются на наличие записей вида <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Если сначала совпадает regex-перенаправление, оно выигрывает. Если нет, ClearURLs затем проверяет перенаправления доменов.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> записи с <span class=\"faq-code\">kind: \"redirection\"</span> являются развертками на основе регулярных выражений. Обычно они фиксируют реальный пункт назначения URL в группе 1, а ClearURLs перенаправляет на это захваченное значение.</p><p><span class=\"faq-code\">domainRedirections</span> — это правила перенаправления в стиле домена. В этой кодовой базе они проверяются на наличие записей в форме <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Если перенаправление регулярного выражения соответствует первому, оно побеждает. Если нет, ClearURLs затем проверяет домен redirections.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Путь построения провайдера в этой ветке считывает следующие ключи: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span> и <span class=\"faq-code\">resourceTypes</span>.</p><p>При аудите поведения самое важное место для проверки — <span class=\"faq-code\">Итоговые правила</span>, потому что они показывают объединённый результат после объединения встроенных, удалённых и пользовательских источников.</p>",
+    "message": "<p>Путь создания поставщика в этой ветке считывает следующие авторские ключи: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, и <span class=\"faq-code\">resourceTypes</span>.</p><p>Необработанная очистка, очистка реферального маркетинга и регулярное выражение redirections могут использовать сохраненные поля ClearURLs или канонические объекты внутри <span class=\"faq-code\">rules[]</span>.</p><p>При аудите поведения наиболее важным местом для проверки является <span class=\"faq-code\">Final Rules</span>, потому что это показывает объединенный результат после объединения связанных, удаленных и пользовательских источников.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Синтаксис правила",
+    "message": "Расположение правил",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Классические массивы",
+    "description": "Метка режима синтаксиса редактора пользовательских правил для классических правил Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Канонические объекты",
+    "description": "Метка синтаксического режима редактора пользовательских правил для канонических правил Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs сохраняет старые поля ClearURLs и добавляет простые строки, встроенные правила $removeparam и объекты канонических правил в rules[].",
+    "description": "Текст справки редактора пользовательских правил для макета правил Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Канонические правила Linkumori-ClearURLs используют вид + действие внутри rules[]. Старые поля rawRules, referralMarketing и redirections все еще работают.",
+    "description": "Текст справки редактора пользовательских правил для канонических правил Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Используйте linkumori-clearurls-dialect для всех правил провайдера.",
+    "description": "Редактор пользовательских правил JSON. Текст справки для унифицированных правил Linkumori-ClearURLs."
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Используйте диалект Linkumori-ClearURLs для провайдера JSON. Новые сохранения включают syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs сохраняет старые поля ClearURLs и добавляет строки rules[], фильтры $removeparam и канонические объекты с идентификатором, видом, совпадением и действием.",
+    "description": "Текст справки на панели инструментов редактора пользовательских правил для унифицированных правил Linkumori-ClearURLs"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Добавить правило поля",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Поля поставщика",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Метка редактора пользовательских правил для полей поставщика в унифицированном режиме Linkumori-ClearURLs"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Шаблоны правил",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Ярлык редактора пользовательских правил для шаблонов правил в унифицированном режиме Linkumori-ClearURLs"
   },
   "popup_report_issue_button_title": {
     "message": "Сообщить о проблеме",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "Ошибка получения данных конфигурации:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Запрещать",
+    "description": "Ярлык кнопки для отключения идентификатора правила поставщика"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Идентификаторы правил поставщика",
+    "description": "Заголовок раздела для отключенных идентификаторов правил провайдера ClearURLs"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Элементы управления идентификатором правила поставщика",
+    "description": "Заголовок панели инструментов для элементов управления отключением идентификатора правила в редакторе поставщиков"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Отключите идентификаторы правил канонического поставщика, не удаляя их. Сохраненные идентификаторы используют идентификатор provider::rule.",
+    "description": "Текст справки для элементов управления отключением идентификатора правила поставщика"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Активация правила",
+    "description": "Заголовок раздела для переключателей активации правил активного провайдера"
+  },
+  "providerImport_noRuleIds": {
+    "message": "У этого поставщика пока не найдено идентификаторов канонических правил.",
+    "description": "Пустое состояние для элементов управления идентификатором правила поставщика"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Элементы управления идентификатором правила доступны, если поставщик JSON действителен.",
+    "description": "Недопустимое состояние JSON для элементов управления идентификатором правила поставщика."
   }
 }

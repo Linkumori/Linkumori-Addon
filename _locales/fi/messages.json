@@ -420,10 +420,10 @@
     "message": "Palveluntarjoajan nimi vaaditaan"
   },
   "customRulesEditor_rawRules": {
-    "message": "Raakasäännöt (säännölliset lausekkeet)"
+    "message": "Raakasäännöt"
   },
   "customRulesEditor_redirections": {
-    "message": "Uudelleenohjaukset (uudelleenohjausmallit)"
+    "message": "Uudelleenohjaukset"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Viittausmarkkinointi"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Suorat säännölliset lausekkeet, joita sovelletaan koko URL-osoitteeseen. Käytä monimutkaisille kuvioille, jotka eivät sovi vakioparametrimuotoon.",
+    "message": "Kanoniset raakasääntöobjektit käyttävät regex-kuvioita koko URL:hen. Käytä monimutkaisille kuvioille, jotka eivät sovi vakioparametrimuotoon.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Raakasäännöt:",
+    "message": "Raaka sääntöobjektit:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Käytä rawRules-sääntöjä fragmenteille, polkusegmenteille tai monimutkaisille parametrikavoille.",
+    "message": "Käytä rules[]-objekteja kind: \"raw\":n kanssa fragmenttien, polkusegmenttien tai monimutkaisten parametrikuvioiden luomiseen.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Mitä eroa on säännöillä ja raakasäännöillä?",
+    "message": "Mitä sääntömuotoja rules[] voi sisältää?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "Tietosuojakäytännön versiokartan lataaminen epäonnistui.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Aktiiviset niputetut/etäsäännöt/muokatut säännöt",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Active Bundled/Remote Rules/Custom Rules",
+    "description": "Sivupalkkivaihtoehto tällä hetkellä aktiivisille niputetuille, etätuetuille ja mukautetuille säännöille."
   },
   "providerImport_button": {
     "message": "Tuo/poista palveluntarjoajat",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Mitä ovat säännöt, rawRules ja referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Mitä rules[] voi sisältää?",
+    "description": "UKK otsikko yhtenäisille Linkumori-ClearURLs-säännöille"
   },
   "audit_faq_rules_body": {
-    "message": "xx cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> käsitellään myös irrotettavina parametreina, mutta se, käytetäänkö niitä todella, riippuu maailmanlaajuisesta viittausmarkkinointiasetuksesta.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> hyväksyy yksinkertaiset parametrijonot, inline <span class=\"faq-code\">$removeparam</span> suodattimia ja kanonisia objekteja.</p><p>Käyttää <span class=\"faq-code\">kind: \"raw\"</span> koko-URL regex-puhdistukseen ja <span class=\"faq-code\">kind: \"redirection\"</span> uudelleenohjausta varten.</p><p>Käyttää <span class=\"faq-code\">referralMarketing: true</span> kenttäsäännössä, kun parametri riippuu viittausmarkkinointiasetuksesta.</p>",
+    "description": "UKK-teksti yhtenäisistä Linkumori-ClearURLs-säännöistä"
   },
   "audit_faq_exceptions_title": {
     "message": "Mitä ovat poikkeukset ja domainExceptions?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">uudelleenohjaukset</span> ovat säännöllisiin lausekkeisiin perustuvia paketoinnin purkajia. Ne yleensä sieppaavat todellisen kohde-URL-osoitteen ryhmässä 1, ja ClearURL-uudelleenohjaukset kyseiseen siepattuun arvoon.</p><p><span class=\"faq-code\">domainRedirections</span> ovat verkkotunnustyylisiä uudelleenohjaussääntöjä. Tässä koodikannassa ne tarkistetaan seuraavan muotoisten merkintöjen varalta: <span class=\"faq-code\">pattern $uudelleenohjaus= target</span>.</p><p>Jos regex-uudelleenohjaus osuu ensin, se voittaa. Jos ei, ClearURLs tarkistaa verkkotunnuksen uudelleenohjaukset seuraavaksi.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> merkinnät kanssa <span class=\"faq-code\">kind: \"redirection\"</span> ovat säännöllisiin lausekkeisiin perustuvia pakkausten purkajia. Ne yleensä sieppaavat todellisen määränpään URL ryhmässä 1, ja ClearURLs uudelleenohjaa tähän siepattuun arvoon.</p><p><span class=\"faq-code\">domainRedirections</span> ovat verkkotunnuksen tyylisiä uudelleenohjaussääntöjä. Tässä koodikannassa ne tarkistetaan muotoiltujen merkintöjen varalta <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Jos säännöllisen lausekkeen uudelleenohjaus osuu ensin, se voittaa. Jos ei, ClearURLs tarkistaa verkkotunnuksen redirections seuraavaksi.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p> Tämän haaran tarjoajan rakentamispolku lukee nämä avaimet: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPatternXXTKNXX,6XXNT <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">säännöt</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">viittausmarkkinointiXXNTXX,14 <span class=\"faq-code\">poikkeukset</span>, <span class=\"faq-code\">verkkotunnuspoikkeukset</span>, <span class=\"faq-code\">uudelleenohjaukset</span>, <span class=\"faq-code\">domainRedirectionsXXTKNXX,2222TKNXX <span class=\"faq-code\">menetelmät</span> ja <span class=\"faq-code\">resurssityypit</span>.</p><p>Käyttäytymistä tarkasteltaessa tärkein paikka tarkistaa on XXTKNXXFinal30XXNT, koska XXTKNXXFinal30XXNT yhdistetty tulos, kun niputetut, etä- ja mukautetut lähteet on yhdistetty.</p>",
+    "message": "<p>Palveluntarjoajan rakennuspolku tässä haarassa lukee nämä luontiavaimet: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, ja <span class=\"faq-code\">resourceTypes</span>.</p><p>Raakapuhdistus, viittausmarkkinoinnin puhdistus ja säännöllinen lauseke redirections voivat käyttää sisällä säilytettyjä ClearURLs-kenttiä tai kanonisia objekteja <span class=\"faq-code\">rules[]</span>.</p><p>Käyttäytymisen auditoinnissa tärkein paikka tarkistaa on <span class=\"faq-code\">Final Rules</span>, koska se näyttää yhdistetyn tuloksen, kun niputetut, etä- ja mukautetut lähteet on yhdistetty.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Säännön syntaksi",
+    "message": "Sääntöjen asettelu",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Klassiset taulukot",
+    "description": "Mukautettujen sääntöjen editorin syntaksitilan tunniste klassisille Linkumori-ClearURLs-säännöille"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Kanoniset esineet",
+    "description": "Mukautettujen sääntöjen editorin syntaksitilan tunniste ensisijaiselle Linkumori-ClearURLs-säännölle"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs säilyttää vanhat ClearURLs-kentät ja lisää yksinkertaisia ​​merkkijonoja, upotettuja $removeparam-sääntöjä ja kanonisia sääntöobjekteja rules[]:hen.",
+    "description": "Mukautettujen sääntöjen editorin ohjeteksti Linkumori-ClearURLs-sääntöasettelulle"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Kanoniset Linkumori-ClearURLs-säännöt käyttävät kinda + toimintaa rules[]:n sisällä. Vanhat rawRules-, referralMarketing- ja redirections-kentät toimivat edelleen.",
+    "description": "Mukautettujen sääntöjen editorin ohjeteksti ensisijaiselle Linkumori-ClearURLs-säännölle"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Käytä linkumori-clearurls-dialektia kaikissa palveluntarjoajan säännöissä.",
+    "description": "Mukautettujen sääntöjen editori JSON ohjeteksti yhtenäisille Linkumori-ClearURLs-säännöille"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Käytä Linkumori-ClearURLs murretta tarjoajalle JSON. Uusia tallenteita ovat syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs säilyttää vanhat ClearURLs-kentät ja lisää rules[]-merkkijonoja, $removeparam-suodattimia ja kanonisia objekteja, joissa on tunnus, laji, vastaavuus ja toiminta.",
+    "description": "Mukautettujen sääntöjen muokkaustyökalupalkin ohjeteksti yhtenäisille Linkumori-ClearURLs-säännöille"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Lisää kenttäsääntö",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Palveluntarjoajan kentät",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Mukautettujen sääntöjen muokkaustunniste toimittajakentille yhdistetyssä Linkumori-ClearURLs-tilassa"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Sääntömallit",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Mukautettujen sääntöjen muokkaustunniste sääntömalleille yhdistetyssä Linkumori-ClearURLs-tilassa"
   },
   "popup_report_issue_button_title": {
     "message": "Ilmoita ongelmasta",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Virhe haettaessa määritystietoja:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Poista käytöstä",
+    "description": "Painikkeen otsikko palveluntarjoajan säännön tunnuksen poistamiseksi käytöstä"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Palveluntarjoajan sääntötunnukset",
+    "description": "Osion otsikko käytöstä poistetuille ClearURLs-palveluntarjoajan sääntötunnuksille"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Palveluntarjoajan sääntötunnuksen hallintalaitteet",
+    "description": "Työkalupalkin otsikko palveluntarjoajan muokkaustyökalun säännön tunnuksen käytöstä poistamiseen"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Poista ensisijaiset palveluntarjoajan sääntötunnukset käytöstä poistamatta niitä. Tallennetut tunnukset käyttävät provider::rule-identiteettiä.",
+    "description": "Ohjeteksti palveluntarjoajan sääntötunnuksen poistoohjaimille"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Säännön aktivointi",
+    "description": "Aktiivisen tarjoajan säännön aktivoinnin osion otsikko vaihtuu"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Tästä palveluntarjoajasta ei vielä löytynyt ensisijaisia ​​sääntötunnuksia.",
+    "description": "Tyhjä tila palveluntarjoajan sääntötunnuksen ohjauksille"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Sääntötunnus-ohjaimet ovat käytettävissä, kun toimittaja JSON on voimassa.",
+    "description": "Virheellinen JSON-tila tarjoajan sääntötunnuksen ohjauksille"
   }
 }

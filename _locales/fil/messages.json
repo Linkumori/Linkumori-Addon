@@ -420,10 +420,10 @@
     "message": "Kinakailangan ang pangalan ng provider"
   },
   "customRulesEditor_rawRules": {
-    "message": "Mga Panuntunan sa Raw (mga pattern ng regex)"
+    "message": "Raw Rules"
   },
   "customRulesEditor_redirections": {
-    "message": "Mga pag-redirect (mga pattern sa pag-redirect)"
+    "message": "Mga pag-redirect"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Email Address: *"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Inilapat ang mga direktang regex pattern sa buong URL. Gamitin para sa mga kumplikadong pattern na hindi akma sa karaniwang format ng parameter.",
+    "message": "Ang mga canonical raw rule object ay naglalapat ng mga regex pattern sa buong URL. Gamitin para sa mga kumplikadong pattern na hindi akma sa karaniwang format ng parameter.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Mga Raw na Panuntunan:",
+    "message": "Raw rule object:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Gumamit ng rawRules para sa mga fragment, mga segment ng path, o mga pattern ng kumplikadong parameter.",
+    "message": "Gumamit ng mga rules[] object na may kind: \"raw\" para sa mga fragment, path segment, o kumplikadong pattern ng parameter.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Ano ang pagkakaiba sa pagitan ng mga panuntunan at rawRules?",
+    "message": "Anong mga hugis ng panuntunan ang maaaring taglayin ng rules[]?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "Nabigong i-load ang mapa ng bersyon ng patakaran sa privacy.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Mga Aktibong Bundle/Remote na Panuntunan/Custom na Panuntunan",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Active Bundled/Remote Rules/Custom na Panuntunan",
+    "description": "Opsyon sa sidebar para sa kasalukuyang aktibong naka-bundle, remote-back, at custom na mga panuntunan."
   },
   "providerImport_button": {
     "message": "I-import/I-disable ang Mga Provider",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Ano ang mga panuntunan, rawRules, at referralMarketing?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Ano ang maaaring nilalaman ng rules[]?",
+    "description": "Pamagat ng FAQ para sa pinag-isang mga panuntunan ng Linkumori-ClearURLs"
   },
   "audit_faq_rules_body": {
-    "message": "Ang <p><span class=\"faq-code\">rules</span> ay mga pangalan ng parameter o pangalan ng fragment na dapat alisin sa URL.</p><p><span class=\"faq-code\">rawRules</span> ay mga regex na kapalit na direktang inilapat sa buong string ng URL bago ang query paglilinis.</p><p><span class=\"faq-code\">referralMarketing</span> ay itinuturing din na parang mga naaalis na parameter, ngunit kung talagang ginagamit ang mga ito ay depende sa pangkalahatang setting ng referral-marketing.</p>",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> tumatanggap ng mga simpleng string ng parameter, inline <span class=\"faq-code\">$removeparam</span> mga filter, at mga canonical na bagay.</p><p>Gamitin <span class=\"faq-code\">kind: \"raw\"</span> para sa buong-URL regex cleanup at <span class=\"faq-code\">kind: \"redirection\"</span> para sa redirect extraction.</p><p>Gamitin <span class=\"faq-code\">referralMarketing: true</span> sa isang panuntunan sa field kapag nakadepende ang parameter sa setting ng referral-marketing.</p>",
+    "description": "FAQ body para sa pinag-isang mga panuntunan ng Linkumori-ClearURLs"
   },
   "audit_faq_exceptions_title": {
     "message": "Ano ang mga exception at domainExceptions?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "Ang <p><span class=\"faq-code\">redirections</span> ay mga regex-based na unwrapper. Karaniwang kinukuha nila ang totoong destination URL sa pangkat 1, at nagre-redirect ang mga ClearURL sa nakuhang value na iyon.</p><p><span class=\"faq-code\">domainRedirections</span> ay mga panuntunan sa pag-redirect sa istilo ng domain. Sa codebase na ito, sinusuri ang mga ito para sa mga entry na hugis <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Kung ang isang regex redirection ay unang tumugma, mananalo iyon. Kung hindi, susuriin ng ClearURLs ang mga pag-redirect ng domain sa susunod.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> mga entry na may <span class=\"faq-code\">kind: \"redirection\"</span> ay mga unwrapper na nakabatay sa regex. Karaniwang kinukuha nila ang tunay na patutunguhan na URL sa pangkat 1, at nagre-redirect ang ClearURLs sa nakuhang halagang iyon.</p><p><span class=\"faq-code\">domainRedirections</span> ay mga panuntunan sa pag-redirect sa istilo ng domain. Sa codebase na ito sila ay sinusuri para sa mga entry na may hugis <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Kung unang tumugma ang isang pag-redirect ng regex, mananalo iyon. Kung hindi, susuriin ng ClearURLs ang domain na redirections sa susunod.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Ang path ng pagbuo ng provider sa branch na ito ay nagbabasa ng mga key na ito: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">paraan</span>, at <span class=\"faq-code\">resourceTypes</span>.</p><p>Kapag nag-audit ng gawi, ang pinakamahalagang lugar na susuriin ay <span class=\"faq-code\">Final Rules na nagpapakita ng KNXXTKNXX na resulta pagkatapos ng KNXXTKNXX, pinagsama-sama ang mga bundle, remote, at custom na source.</p>",
+    "message": "<p>Binabasa ng provider-building path sa branch na ito ang mga authoring key na ito: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, at <span class=\"faq-code\">resourceTypes</span>.</p><p>Maaaring gamitin ng Raw cleanup, referral-marketing cleanup, at regex redirections ang mga nananatiling ClearURLs na field o canonical na bagay sa loob <span class=\"faq-code\">rules[]</span>.</p><p>Kapag nag-audit ng pag-uugali, ang pinakamahalagang lugar upang suriin ay <span class=\"faq-code\">Final Rules</span>, dahil ipinapakita nito ang pinagsamang resulta pagkatapos pagsamahin ang mga bundle, remote, at custom na pinagmulan.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Syntax ng panuntunan",
+    "message": "Layout ng panuntunan",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Mga klasikong array",
+    "description": "Label ng syntax mode ng editor ng custom na panuntunan para sa mga klasikong panuntunan ng Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Mga bagay na kanonikal",
+    "description": "Label ng syntax mode ng editor ng custom na panuntunan para sa mga kanonikal na panuntunan ng Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Pinapanatili ng Linkumori-ClearURLs ang mga lumang field ng ClearURLs at nagdaragdag ng mga simpleng string, mga inline na panuntunan ng $removeparam, at mga canonical rule object sa rules[].",
+    "description": "Text ng tulong sa editor ng custom na panuntunan para sa layout ng panuntunan ng Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Gumagamit ang mga panuntunan ng Canonical Linkumori-ClearURLs ng uri + pagkilos sa loob ng rules[]. Gumagana pa rin ang mga lumang field ng rawRules, referralMarketing, at redirections.",
+    "description": "Text ng tulong sa editor ng custom na panuntunan para sa mga kanonikal na panuntunan ng Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Gumamit ng linkumori-clearurls-dialect para sa lahat ng panuntunan ng provider.",
+    "description": "Text ng tulong sa editor ng custom na panuntunan JSON para sa pinag-isang mga panuntunan ng Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Gamitin ang Linkumori-ClearURLs dialect para sa provider na JSON. Kasama sa mga bagong pag-save ang syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Pinapanatili ng Linkumori-ClearURLs ang mga lumang field ng ClearURLs at nagdaragdag ng mga string ng rules[], mga filter ng $removeparam, at mga canonical na bagay na may id, uri, tugma, at aksyon.",
+    "description": "Text ng tulong sa toolbar ng editor ng custom na panuntunan para sa pinag-isang mga panuntunan ng Linkumori-ClearURLs"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Magdagdag ng panuntunan sa field",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Mga field ng provider",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Label ng editor ng custom na panuntunan para sa mga field ng provider sa pinag-isang Linkumori-ClearURLs mode"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Mga template ng panuntunan",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Label ng editor ng custom na panuntunan para sa mga template ng panuntunan sa pinag-isang Linkumori-ClearURLs mode"
   },
   "popup_report_issue_button_title": {
     "message": "Mag-ulat ng isyu",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Error sa pagkuha ng data ng configuration:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Huwag paganahin",
+    "description": "Label ng button para i-disable ang isang id ng panuntunan ng provider"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Mga ID ng panuntunan ng provider",
+    "description": "Pamagat ng seksyon para sa mga naka-disable na ClearURLs provider rule ID"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Mga kontrol sa ID ng panuntunan ng provider",
+    "description": "Pamagat ng toolbar para sa mga kontrol sa pag-disable ng rule-id sa editor ng provider"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "I-disable ang mga canonical provider rule ID nang hindi tinatanggal ang mga ito. Gumagamit ng provider::rule identity ang mga stored id.",
+    "description": "Text ng tulong para sa mga kontrol sa pag-disable ng rule-id ng provider"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Pag-activate ng Panuntunan",
+    "description": "Pamagat ng seksyon para sa mga toggle sa pag-activate ng panuntunan sa aktibong provider"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Wala pang nakitang mga canonical rule ID sa provider na ito.",
+    "description": "Walang laman ang estado para sa mga kontrol ng rule-id ng provider"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Available ang mga kontrol sa Rule ID kapag valid na ang provider na JSON.",
+    "description": "Di-wastong estado ng JSON para sa mga kontrol ng rule-id ng provider"
   }
 }

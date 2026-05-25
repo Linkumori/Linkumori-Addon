@@ -420,10 +420,10 @@
     "message": "اسم المزود مطلوب"
   },
   "customRulesEditor_rawRules": {
-    "message": "قواعد أولية (أنماط regex)"
+    "message": "القواعد الخام"
   },
   "customRulesEditor_redirections": {
-    "message": "إعادة توجيه (أنماط إعادة التوجيه)"
+    "message": "عمليات إعادة التوجيه"
   },
   "customRulesEditor_referralMarketing": {
     "message": "تسويق الإحالة"
@@ -862,15 +862,15 @@
     "description": "إجابة في الأسئلة الشائعة تشرح المزودين"
   },
   "faq_raw_rules_explanation": {
-    "message": "أنماط regex مباشرة يتم تطبيقها على عنوان URL بالكامل. استخدم للأنماط المعقدة التي لا تتناسب مع تنسيق المعلمة القياسي.",
+    "message": "تطبق كائنات القاعدة الأساسية الأساسية أنماط التعبير العادي على URL بالكامل. يُستخدم للأنماط المعقدة التي لا تتناسب مع تنسيق المعلمة القياسي.",
     "description": "شرح في الأسئلة الشائعة لـ rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "القواعد الأولية (Raw Rules):",
+    "message": "كائنات القاعدة الأولية:",
     "description": "عنوان قسم في الأسئلة الشائعة لشرح rawRules"
   },
   "faq_raw_rules_usage": {
-    "message": "استخدم rawRules للأجزاء أو مقاطع المسار أو أنماط المعلمات المعقدة.",
+    "message": "استخدم كائنات rules[] مع kind: \"raw\" للأجزاء أو مقاطع المسار أو أنماط المعلمات المعقدة.",
     "description": "توجيه في الأسئلة الشائعة حول استخدام rawRules"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "عنوان قسم في الأسئلة الشائعة لشرح القواعد"
   },
   "faq_rules_vs_raw": {
-    "message": "ما الفرق بين rules و rawRules؟",
+    "message": "ما هي أشكال القواعد التي يمكن أن تحتويها rules[]؟",
     "description": "سؤال في الأسئلة الشائعة حول الفرق بين rules و rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "فشل تحميل خريطة إصدار سياسة الخصوصية.",
     "description": "إشعار يظهر عند عدم إمكانية تحميل تكوين تعيين إصدار سياسة الخصوصية"
   },
-  "providerImport_bundledRules": {
-    "message": "القواعد النشطة المدمجة/البعيدة/المخصصة",
-    "description": "خيار الشريط الجانبي للقواعد المدمجة النشطة والمدعومة عن بُعد."
+  "providerImport_activeProviderRules": {
+    "message": "القواعد النشطة المجمعة / عن بعد / القواعد المخصصة",
+    "description": "خيار الشريط الجانبي للقواعد المجمعة والمدعومة عن بعد والقواعد المخصصة النشطة حاليًا."
   },
   "providerImport_button": {
     "message": "استيراد/تعطيل المزودين",
@@ -3715,12 +3715,12 @@
     "description": "نص السؤال الشائع لـ domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "ما هي rules و rawRules و referralMarketing؟",
-    "description": "عنوان سؤال شائع لـ rules و rawRules و referralMarketing"
+    "message": "ما الذي يمكن أن يحتوي عليه rules[]؟",
+    "description": "عنوان الأسئلة الشائعة لقواعد Linkumori-ClearURLs الموحدة"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> هي أسماء معلمات أو أسماء أجزاء يجب إزالتها من عنوان URL.</p><p><span class=\"faq-code\">rawRules</span> هي استبدالات regex يتم تطبيقها مباشرة على سلسلة URL بالكامل قبل تنظيف الاستعلام.</p><p><span class=\"faq-code\">referralMarketing</span> يتم التعامل معه مثل المعلمات القابلة للإزالة أيضًا، ولكن ما إذا كانت تستخدم بالفعل يعتمد على إعداد تسويق الإحالة العام.</p>",
-    "description": "نص السؤال الشائع لـ rules و rawRules و referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> يقبل سلاسل معلمات بسيطة، مضمنة <span class=\"faq-code\">$removeparam</span> المرشحات والكائنات الأساسية.</p><p>يستخدم <span class=\"faq-code\">kind: \"raw\"</span> لتنظيف regex بالكامل URL و <span class=\"faq-code\">kind: \"redirection\"</span> لإعادة توجيه الاستخراج.</p><p>يستخدم <span class=\"faq-code\">referralMarketing: true</span> على قاعدة حقل عندما تعتمد المعلمة على إعداد تسويق الإحالة.</p>",
+    "description": "هيئة الأسئلة الشائعة لقواعد Linkumori-ClearURLs الموحدة"
   },
   "audit_faq_exceptions_title": {
     "message": "ما هي exceptions و domainExceptions؟",
@@ -3735,7 +3735,7 @@
     "description": "عنوان سؤال شائع لـ redirections و domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> هي أدوات فتح قائمة على regex. عادةً ما تلتقط عنوان URL الوجهة الحقيقي في المجموعة 1، ويقوم ClearURLs بإعادة التوجيه إلى تلك القيمة الملتقطة.</p><p><span class=\"faq-code\">domainRedirections</span> هي قواعد إعادة توجيه من نمط النطاق. في قاعدة التعليمات البرمجية هذه، يتم التحقق من الإدخالات بشكل <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>إذا تطابق إعادة توجيه regex أولاً، فهذا هو الفائز. إذا لم يكن كذلك، يتحقق ClearURLs من عمليات إعادة توجيه النطاق بعد ذلك.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> الإدخالات مع <span class=\"faq-code\">kind: \"redirection\"</span> هي أدوات إلغاء التغليف المستندة إلى regex. عادةً ما يلتقطون الوجهة الحقيقية URL في المجموعة 1، ويقوم ClearURLs بإعادة التوجيه إلى تلك القيمة الملتقطة.</p><p><span class=\"faq-code\">domainRedirections</span> هي قواعد إعادة التوجيه على نمط المجال. في قاعدة التعليمات البرمجية هذه، يتم فحصهم بحثًا عن الإدخالات ذات الشكل <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>إذا تطابقت إعادة توجيه regex أولاً، فهذا يفوز. إذا لم يكن الأمر كذلك، ClearURLs يتحقق redirections المجال المقبل.</p>",
     "description": "نص السؤال الشائع لـ redirections و domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "عنوان سؤال شائع لقائمة حقول المزود التي يستخدمها clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>يقرأ مسار بناء المزود في هذا الفرع هذه المفاتيح: <span class=\"faq-code\">completeProvider</span>، <span class=\"faq-code\">forceRedirection</span>، <span class=\"faq-code\">urlPattern</span>، <span class=\"faq-code\">domainPatterns</span>، <span class=\"faq-code\">rules</span>، <span class=\"faq-code\">rawRules</span>، <span class=\"faq-code\">referralMarketing</span>، <span class=\"faq-code\">exceptions</span>، <span class=\"faq-code\">domainExceptions</span>، <span class=\"faq-code\">redirections</span>، <span class=\"faq-code\">domainRedirections</span>، <span class=\"faq-code\">methods</span>، و <span class=\"faq-code\">resourceTypes</span>.</p><p>عند مراجعة السلوك، فإن أهم مكان للتحقق هو <span class=\"faq-code\">القواعد النهائية</span>، لأن ذلك يظهر النتيجة المدمجة بعد دمج المصادر المضمنة والبعيدة والمخصصة.</p>",
+    "message": "<p>يقرأ مسار بناء الموفر في هذا الفرع مفاتيح التأليف هذه: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>، و <span class=\"faq-code\">resourceTypes</span>.</p><p>يمكن للتنظيف الأولي وتنظيف تسويق الإحالة والتعبير العادي redirections استخدام حقول ClearURLs المحتجزة أو الكائنات الأساسية بالداخل <span class=\"faq-code\">rules[]</span>.</p><p>عند مراجعة السلوك، فإن المكان الأكثر أهمية للتحقق هو <span class=\"faq-code\">Final Rules</span>، لأن ذلك يعرض النتيجة المدمجة بعد دمج المصادر المجمعة والبعيدة والمخصصة.</p>",
     "description": "نص السؤال الشائع لقائمة حقول المزود التي يستخدمها clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "بناء جملة القاعدة",
+    "message": "تخطيط القاعدة",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "المصفوفات الكلاسيكية",
+    "description": "تسمية وضع بناء جملة محرر القواعد المخصصة لقواعد Linkumori-ClearURLs الكلاسيكية"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "الكائنات الكنسية",
+    "description": "تسمية وضع بناء جملة محرر القواعد المخصصة لقواعد Linkumori-ClearURLs الأساسية"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "يحتفظ Linkumori-ClearURLs بحقول ClearURLs القديمة ويضيف سلاسل بسيطة وقواعد $removeparam المضمنة وكائنات القاعدة الأساسية في rules[].",
+    "description": "نص تعليمات محرر القواعد المخصصة لتخطيط قاعدة Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "تستخدم قواعد Linkumori-ClearURLs الأساسية النوع + الإجراء داخل rules[]. لا تزال حقول rawRules وreferralMarketing وredirections القديمة تعمل.",
+    "description": "نص تعليمات محرر القواعد المخصصة لقواعد Linkumori-ClearURLs الأساسية"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "استخدم linkumori-clearurls-dialect لجميع قواعد الموفر.",
+    "description": "نص تعليمات محرر القواعد المخصصة JSON لقواعد Linkumori-ClearURLs الموحدة"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "استخدم لهجة Linkumori-ClearURLs للموفر JSON. تتضمن عمليات الحفظ الجديدة syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "يحتفظ Linkumori-ClearURLs بحقول ClearURLs القديمة ويضيف سلاسل rules[] ومرشحات $removeparam والكائنات الأساسية ذات المعرف والنوع والمطابقة والإجراء.",
+    "description": "نص تعليمات شريط أدوات محرر القواعد المخصصة لقواعد Linkumori-ClearURLs الموحدة"
   },
   "customRulesEditor_addFieldRule": {
     "message": "إضافة قاعدة حقل",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "حقول المزود",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "تسمية محرر القواعد المخصصة لحقول الموفر في وضع Linkumori-ClearURLs الموحد"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "قوالب القواعد",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "تسمية محرر القواعد المخصصة لقوالب القواعد في وضع Linkumori-ClearURLs الموحد"
   },
   "popup_report_issue_button_title": {
     "message": "الإبلاغ عن مشكلة",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "حدث خطأ أثناء استرداد بيانات التكوين:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "إبطال",
+    "description": "تسمية الزر لتعطيل معرف قاعدة الموفر"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "معرفات قاعدة الموفر",
+    "description": "عنوان القسم لمعرفات قاعدة موفر ClearURLs المعطلة"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "ضوابط معرف قاعدة الموفر",
+    "description": "عنوان شريط الأدوات لعناصر التحكم في تعطيل معرف القاعدة في محرر الموفر"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "قم بتعطيل معرفات قاعدة الموفر الأساسية دون حذفها. تستخدم المعرفات المخزنة هوية provider::rule.",
+    "description": "نص التعليمات الخاص بعناصر التحكم في تعطيل معرف قاعدة الموفر"
+  },
+  "providerImport_ruleActivation": {
+    "message": "تفعيل القاعدة",
+    "description": "عنوان القسم الخاص بتبديلات تنشيط قاعدة الموفر النشطة"
+  },
+  "providerImport_noRuleIds": {
+    "message": "لم يتم العثور على معرفات القواعد الأساسية في هذا الموفر حتى الآن.",
+    "description": "حالة فارغة لعناصر تحكم معرف قاعدة الموفر"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "تتوفر عناصر تحكم معرف القاعدة بمجرد أن يكون الموفر JSON صالحًا.",
+    "description": "حالة JSON غير صالحة لعناصر تحكم معرف قاعدة الموفر"
   }
 }

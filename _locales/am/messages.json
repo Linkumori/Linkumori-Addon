@@ -420,10 +420,10 @@
     "message": "የአቅራቢ ስም ያስፈልጋል"
   },
   "customRulesEditor_rawRules": {
-    "message": "ጥሬ ደንቦች (regex ቅጦች)"
+    "message": "ጥሬ ደንቦች"
   },
   "customRulesEditor_redirections": {
-    "message": "አቅጣጫ ማዞር (ቅጦች)"
+    "message": "አቅጣጫ መቀየር"
   },
   "customRulesEditor_referralMarketing": {
     "message": "ሪፈራል ግብይት"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "የቀጥታ regex ቅጦች በመላው ዩአርኤል ላይ ተተግብረዋል። መደበኛውን የመለኪያ ፎርማት ለማይመጥኑ ውስብስብ ቅጦች ተጠቀም።",
+    "message": "ቀኖናዊ ጥሬ ህግ ነገሮች ለጠቅላላው URL የ regex ንድፎችን ይተገብራሉ። መደበኛውን የመለኪያ ፎርማት ለማይመጥኑ ውስብስብ ቅጦች ተጠቀም።",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "ጥሬ ደንቦች፡-",
+    "message": "ጥሬ ህግ እቃዎች፡-",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "ጥሬ ደንቦቹን ለክፍሎች፣ የመንገድ ክፍሎች ወይም ውስብስብ የመለኪያ ቅጦችን ይጠቀሙ።",
+    "message": "የrules[] ቁሶችን ከkind: \"raw\" ጋር ለክፍሎች፣ የመንገድ ክፍሎች፣ ወይም ውስብስብ የመለኪያ ንድፎችን ይጠቀሙ።",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "በጥሬ ደንቦች እና ደንቦች መካከል ያለው ልዩነት ምንድን ነው?",
+    "message": "rules[] ምን ዓይነት ደንብ ቅርጾችን ሊይዝ ይችላል?",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "የግላዊነት መመሪያ ሥሪት ካርታ መጫን አልተሳካም።",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "ንቁ የታጠፈ/የርቀት ህጎች/ብጁ ህጎች",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "ንቁ Bundled/ የርቀት ሕጎች/ብጁ ህጎች",
+    "description": "በአሁኑ ጊዜ ንቁ ለታቀፉ፣ በርቀት ለሚደገፉ እና ብጁ ደንቦች የጎን አሞሌ አማራጭ።"
   },
   "providerImport_button": {
     "message": "አስመጣ/ያሰናክሉ አቅራቢዎች",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "ደንቦች፣ ጥሬ ደንቦች እና ሪፈራል ማርኬቲንግ ምንድን ናቸው?",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "rules[] ምን ሊይዝ ይችላል?",
+    "description": "ለተዋሃዱ Linkumori-ClearURLs ደንቦች የሚጠየቁ ጥያቄዎች ርዕስ"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">RUlesXXTKNX2XXTKNXX ከዩአርኤል መወገድ ያለባቸው የመለኪያ ስሞች ወይም ቁርጥራጭ ስሞች ናቸው። መላው የዩአርኤል ሕብረቁምፊ ከመጠይቁ በፊት ከማጽዳት በፊት።",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> ቀላል የመለኪያ ሕብረቁምፊዎችን፣ መስመር ውስጥ ይቀበላል <span class=\"faq-code\">$removeparam</span> ማጣሪያዎች, እና ቀኖናዊ ነገሮች.</p><p>ተጠቀም <span class=\"faq-code\">kind: \"raw\"</span> ለሙሉ-URL regex ጽዳት እና <span class=\"faq-code\">kind: \"redirection\"</span> ለማዘዋወር ማውጣት.</p><p>ተጠቀም <span class=\"faq-code\">referralMarketing: true</span> መለኪያው በሪፈራል-ግብይት መቼት ላይ ሲወሰን በመስክ ህግ ላይ።</p>",
+    "description": "ለተዋሃዱ Linkumori-ClearURLs ደንቦች የሚጠየቁ ጥያቄዎች አካል"
   },
   "audit_faq_exceptions_title": {
     "message": "የማይካተቱ እና domainExceptions ምንድን ናቸው?",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirectionsXXTKNX2XXTKNXX በ regex ላይ የተመሰረቱ ፈታዎች ናቸው። አብዛኛውን ጊዜ በቡድን 1 ውስጥ ትክክለኛውን የመድረሻ ዩአርኤል ይቀርፃሉ፣ እና ClearURLs ወደተያዘው እሴት ያዞራሉ። በዚህ ኮድ ቤዝ ውስጥ እንደ <span class=\"faq-code\">Xpattern $redirect= target</span>.</p><p>XXXXXX10XXTKNXXX<p>XXXXTKNXXX10XXTKNXXX ያሉ ምዝግቦች እንዲገኙ ይፈተሻሉ። ካልሆነ፣ ClearURLs የሚቀጥለውን የጎራ አቅጣጫ አቅጣጫ ይፈትሻል።</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> ጋር ግቤቶች <span class=\"faq-code\">kind: \"redirection\"</span> regex ላይ የተመሠረቱ unwrappers ናቸው. ብዙውን ጊዜ በቡድን 1 ውስጥ ትክክለኛውን መድረሻ URL ይይዛሉ እና ClearURLs ወደዚያ የተያዘ እሴት ያዞራል።</p><p><span class=\"faq-code\">domainRedirections</span> የጎራ-ቅጥ የማዞሪያ ሕጎች ናቸው። በዚህ የኮድ ቤዝ ውስጥ የሚመስሉ ምዝግቦች ካሉ ምልክት ይደረግባቸዋል <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>የሬጌክስ ማዘዋወር መጀመሪያ ከተዛመደ ያ ያሸንፋል። ካልሆነ፣ ClearURLs ጎራ redirections ቀጥሎ ይፈትሻል።</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p> በዚህ ቅርንጫፍ ውስጥ ያለው የአቅራቢ-ግንባታ መንገድ እነዚህን ቁልፎች ያነባል፡- <span class=\"faq-code\"> የተሟላ አቅራቢ <span class=\"faq-code\">XURlPattern</span>፣ <span class=\"faq-code\"> ዶሜይን ፓተርንስ</span>፣ <span class=\"faq-code\">RUles</span>፣ <span class=\"faq-code\">XrawRules</span>፣ <span class=\"faq-code\">ሪፈራራል ማርኬቲንግ <span class=\"faq-code\">ዶሜይን ልዩ ሁኔታዎች</span>፣ <span class=\"faq-code\">አቅጣጫዎች <span class=\"faq-code\">X ዘዴዎች</span> እና <span class=\"faq-code\">resourceTypesXXTKNX26XXTKNXX.XXTKNX27XXTKNXXXXXXTKNX27XXTKNXXXXXTKNX28XXTKNXXXXXTKNX27XXTKNXXXXXXTKNX28XXTKNXX.XXTKNX27XXTKNXXX<p>X. <span class=\"faq-code\">X የመጨረሻ ህጎች</span> ምክንያቱም ይህ የሚያሳየው ከጥቅል ፣ ከርቀት እና ብጁ ምንጮች ከተዋሃዱ በኋላ የተዋሃደውን ውጤት ያሳያል።</p>",
+    "message": "<p>በዚህ ቅርንጫፍ ውስጥ ያለው የአቅራቢ-ግንባታ መንገድ እነዚህን የአጻጻፍ ቁልፎች ያነባል፡- <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, እና <span class=\"faq-code\">resourceTypes</span>.</p><p>ጥሬ ማጽጃ፣ ሪፈራል-ገበያ ማጽጃ እና regex redirections የተያዙትን የClearURLs መስኮችን ወይም ቀኖናዊ ነገሮችን በውስጣቸው መጠቀም ይችላሉ። <span class=\"faq-code\">rules[]</span>.</p><p>ኦዲት በሚደረግበት ጊዜ, ለመፈተሽ በጣም አስፈላጊው ቦታ ነው <span class=\"faq-code\">Final Rules</span>ምክንያቱም ይህ ከጥቅል፣ ርቀት እና ብጁ ምንጮች ከተጣመሩ በኋላ የተዋሃደውን ውጤት ያሳያል።</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "ደንብ አገባብ",
+    "message": "ደንብ አቀማመጥ",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "ክላሲክ ድርድሮች",
+    "description": "ለተለመደው Linkumori-ClearURLs ደንቦች ብጁ ደንቦች አርታዒ የአገባብ ሁነታ መለያ"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "ቀኖናዊ እቃዎች",
+    "description": "ለ ቀኖናዊ Linkumori-ClearURLs ደንቦች ብጁ ደንቦች አርታዒ የአገባብ ሁነታ መለያ"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs ያረጁ የClearURLs መስኮችን ያቆያል እና ቀላል ገመዶችን፣ የመስመር ውስጥ $removeparam ደንቦችን እና ቀኖናዊ ህግ ነገሮችን በrules[] ውስጥ ይጨምራል።",
+    "description": "ለLinkumori-ClearURLs ደንብ አቀማመጥ ብጁ ደንቦች አርታዒ ጽሑፍ"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "ቀኖናዊ የLinkumori-ClearURLs ደንቦች በrules[] ውስጥ አይነት + ድርጊትን ይጠቀማሉ። የድሮ rawRules፣ referralMarketing እና redirections መስኮች አሁንም ይሰራሉ።",
+    "description": "ብጁ ደንቦች አርታዒ እገዛ ጽሑፍ ለ ቀኖናዊ Linkumori-ClearURLs ደንቦች"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "ለሁሉም የአቅራቢዎች ደንቦች linkumori-clearurls-dialect ይጠቀሙ።",
+    "description": "ለተዋሃዱ የLinkumori-ClearURLs ደንቦች ብጁ ደንቦች አርታዒ JSON እገዛ ጽሑፍ"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "ለአቅራቢ JSON Linkumori-ClearURLs ዘዬ ይጠቀሙ። አዲስ ቁጠባዎች syntax: \"linkumori-clearurls-dialect\" ያካትታሉ።",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs የቆዩ የClearURLs መስኮችን ያቆያል እና rules[] ሕብረቁምፊዎች፣ $removeparam ማጣሪያዎች እና ቀኖናዊ ቁሶችን በመታወቂያ፣ በዓይነት፣ ግጥሚያ እና ድርጊት ይጨምራል።",
+    "description": "ለተዋሃዱ የLinkumori-ClearURLs ደንቦች ብጁ ደንቦች አርታዒ የመሳሪያ አሞሌ እገዛ ጽሑፍ"
   },
   "customRulesEditor_addFieldRule": {
     "message": "የመስክ ህግ ጨምር",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "የአቅራቢዎች መስኮች",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "በተዋሃደ Linkumori-ClearURLs ሁነታ ለአቅራቢ መስኮች ብጁ ደንቦች አርታዒ መለያ"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "ደንብ አብነቶች",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "ለደንብ አብነቶች ብጁ ደንቦች አርታዒ መለያ በተዋሃደ Linkumori-ClearURLs ሁነታ"
   },
   "popup_report_issue_button_title": {
     "message": "ጉዳይ ሪፖርት አድርግ",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "የውቅር ውሂብን ሰርስሮ ማውጣት ላይ ስህተት፡-",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "አሰናክል",
+    "description": "የአቅራቢ ደንብ መታወቂያን ለማሰናከል የአዝራር መለያ"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "የአቅራቢ ደንብ መታወቂያዎች",
+    "description": "ለአካል ጉዳተኞች ClearURLs አቅራቢ ደንብ መታወቂያዎች ክፍል ርዕስ"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "የአቅራቢ ደንብ መታወቂያ መቆጣጠሪያዎች",
+    "description": "የመሳሪያ አሞሌ ርዕስ ለደንብ-መታወቂያ በአቅራቢ አርታኢ ውስጥ መቆጣጠሪያዎችን ያሰናክላል"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "የቀኖና አቅራቢ ደንብ መታወቂያዎችን ሳይሰርዙ ያሰናክሉ። የተከማቹ መታወቂያዎች provider::rule ማንነትን ይጠቀማሉ።",
+    "description": "የእገዛ ጽሑፍ ለአቅራቢ ደንብ-መታወቂያ መቆጣጠሪያዎችን ያሰናክላል"
+  },
+  "providerImport_ruleActivation": {
+    "message": "ደንብ ማግበር",
+    "description": "የንቁ አቅራቢ ደንብ ገቢር መቀያየርን ክፍል ርዕስ"
+  },
+  "providerImport_noRuleIds": {
+    "message": "በዚህ አቅራቢ ውስጥ እስካሁን ምንም የቀኖናዊ ደንብ መታወቂያዎች አልተገኙም።",
+    "description": "ለአገልግሎት ሰጪ ደንብ-መታወቂያ ቁጥጥሮች ባዶ ሁኔታ"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "የደንብ መታወቂያ መቆጣጠሪያዎች አቅራቢው JSON ልክ ከሆነ በኋላ ይገኛሉ።",
+    "description": "ልክ ያልሆነ JSON ሁኔታ ለአቅራቢ ደንብ-መታወቂያ ቁጥጥሮች"
   }
 }

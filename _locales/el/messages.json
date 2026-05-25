@@ -420,10 +420,10 @@
     "message": "Απαιτείται όνομα παρόχου"
   },
   "customRulesEditor_rawRules": {
-    "message": "Ακατέργαστοι κανόνες (μοτίβα regex)"
+    "message": "Ακατέργαστοι κανόνες"
   },
   "customRulesEditor_redirections": {
-    "message": "Ανακατευθύνσεις (μοτίβα ανακατεύθυνσης)"
+    "message": "Ανακατευθύνσεις"
   },
   "customRulesEditor_referralMarketing": {
     "message": "Marketing παραπομπής"
@@ -862,15 +862,15 @@
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
-    "message": "Τα μοτίβα απευθείας regex εφαρμόζονται σε ολόκληρη τη διεύθυνση URL. Χρησιμοποιείται για πολύπλοκα μοτίβα που δεν ταιριάζουν στην τυπική μορφή παραμέτρων.",
+    "message": "Τα κανονικά αντικείμενα ακατέργαστων κανόνων εφαρμόζουν μοτίβα regex σε ολόκληρο το URL. Χρησιμοποιείται για πολύπλοκα μοτίβα που δεν ταιριάζουν στην τυπική μορφή παραμέτρων.",
     "description": "FAQ explanation of rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "Ακατέργαστοι κανόνες:",
+    "message": "Ακατέργαστα αντικείμενα κανόνα:",
     "description": "FAQ section title for rawRules explanation"
   },
   "faq_raw_rules_usage": {
-    "message": "Χρησιμοποιήστε rawRules για τμήματα, τμήματα διαδρομής ή πολύπλοκα μοτίβα παραμέτρων.",
+    "message": "Χρησιμοποιήστε αντικείμενα rules[] με kind: \"raw\" για θραύσματα, τμήματα διαδρομής ή σύνθετα μοτίβα παραμέτρων.",
     "description": "FAQ guidance on rawRules usage"
   },
   "faq_redirections": {
@@ -990,7 +990,7 @@
     "description": "FAQ section title for rules explanation"
   },
   "faq_rules_vs_raw": {
-    "message": "Ποια είναι η διαφορά μεταξύ κανόνων και rawRules;",
+    "message": "Τι σχήματα κανόνων μπορεί να περιέχει το rules[];",
     "description": "FAQ question about rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1992,9 +1992,9 @@
     "message": "Η φόρτωση του χάρτη έκδοσης της πολιτικής απορρήτου απέτυχε.",
     "description": "Notification shown when privacy version mapping config cannot be loaded"
   },
-  "providerImport_bundledRules": {
-    "message": "Ενεργοί ομαδοποιημένοι/Απομακρυσμένοι κανόνες/Προσαρμοσμένοι κανόνες",
-    "description": "Sidebar option for currently active bundled and remote-backed rules."
+  "providerImport_activeProviderRules": {
+    "message": "Active Bundled/Remote Rules/Προσαρμοσμένοι κανόνες",
+    "description": "Επιλογή πλευρικής γραμμής για ενεργούς ομαδοποιημένους κανόνες, με απομακρυσμένη υποστήριξη και προσαρμοσμένους κανόνες."
   },
   "providerImport_button": {
     "message": "Εισαγωγή/Απενεργοποίηση παρόχων",
@@ -3715,12 +3715,12 @@
     "description": "FAQ body for domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "Τι είναι οι κανόνες, οι rawRules και το referralMarketing;",
-    "description": "FAQ title for rules, rawRules, and referralMarketing"
+    "message": "Τι μπορεί να περιέχει το rules[];",
+    "description": "Τίτλος συχνών ερωτήσεων για ενοποιημένους κανόνες Linkumori-ClearURLs"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">κανόνες</span> είναι ονόματα παραμέτρων ή ονόματα θραυσμάτων που πρέπει να αφαιρεθούν από το URL.</p><p><span class=\"faq-code\">rawRules</span> είναι αντικαταστάσεις regex που εφαρμόζονται απευθείας σε ολόκληρη τη συμβολοσειρά URL πριν από το ερώτημα cleanup.</p><p><span class=\"faq-code\">referralMarketing</span> αντιμετωπίζεται επίσης σαν αφαιρούμενες παράμετροι, αλλά το αν χρησιμοποιούνται πραγματικά εξαρτάται από τη ρύθμιση καθολικής παραπομπής-μάρκετινγκXXTXXXXXXXX1XXXXXXXXX.",
-    "description": "FAQ body for rules, rawRules, and referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> δέχεται απλές συμβολοσειρές παραμέτρων, ενσωματωμένες <span class=\"faq-code\">$removeparam</span> φίλτρα και κανονικά αντικείμενα.</p><p>Χρήση <span class=\"faq-code\">kind: \"raw\"</span> για πλήρη καθαρισμό regex URL και <span class=\"faq-code\">kind: \"redirection\"</span> για εξαγωγή ανακατεύθυνσης.</p><p>Χρήση <span class=\"faq-code\">referralMarketing: true</span> σε έναν κανόνα πεδίου όταν η παράμετρος εξαρτάται από τη ρύθμιση μάρκετινγκ παραπομπής.</p>",
+    "description": "Σώμα FAQ για ενοποιημένους κανόνες Linkumori-ClearURLs"
   },
   "audit_faq_exceptions_title": {
     "message": "Τι είναι οι εξαιρέσεις και οι Εξαιρέσεις τομέα;",
@@ -3735,7 +3735,7 @@
     "description": "FAQ title for redirections and domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "Οι ανακατευθύνσεις <p><span class=\"faq-code\"></span> είναι ξετυλίγματα που βασίζονται σε regex. Συνήθως συλλαμβάνουν την πραγματική διεύθυνση URL προορισμού στην ομάδα 1 και το ClearURLs ανακατευθύνει σε αυτήν την τιμή που έχει ληφθεί. Σε αυτήν τη βάση κωδικών ελέγχονται για καταχωρήσεις σε σχήμα <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Εάν μια ανακατεύθυνση regex ταιριάζει πρώτα, Εάν όχι, το ClearURLs ελέγχει τις ανακατευθύνσεις τομέα στη συνέχεια.</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> καταχωρήσεις με <span class=\"faq-code\">kind: \"redirection\"</span> είναι ξετυλίγματα που βασίζονται σε regex. Συνήθως καταγράφουν τον πραγματικό προορισμό URL στην ομάδα 1 και το ClearURLs ανακατευθύνει σε αυτήν την τιμή που έχει καταγράψει.</p><p><span class=\"faq-code\">domainRedirections</span> είναι κανόνες ανακατεύθυνσης τύπου τομέα. Σε αυτήν τη βάση κωδικών ελέγχονται για καταχωρήσεις που έχουν σχήμα <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>Εάν μια ανακατεύθυνση regex ταιριάζει πρώτα, αυτή κερδίζει. Εάν όχι, το ClearURLs ελέγχει τον τομέα redirections στη συνέχεια.</p>",
     "description": "FAQ body for redirections and domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3759,7 +3759,7 @@
     "description": "FAQ title for the list of provider fields used by clearurls.js"
   },
   "audit_faq_fields_body": {
-    "message": "<p>Η διαδρομή δημιουργίας παρόχου σε αυτόν τον κλάδο διαβάζει αυτά τα κλειδιά: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirectionXXTKNXXX, <span class=\"faq-code\">urlΜοτίβο</span>, <span class=\"faq-code\">Μοτίβα τομέα</span>, <span class=\"faq-code\">κανόνεςXXTKNXXXX <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">παραπομπή μάρκετινγκ</span>, <span class=\"faq-code\">XXXXXXXX <span class=\"faq-code\">Εξαιρέσεις τομέα</span>, <span class=\"faq-code\">ανακατευθύνσεις</span>, <span class=\"faq-code\">XXXTKNXXXXTKNXX <span class=\"faq-code\">μέθοδοι</span> και <span class=\"faq-code\">Τύποι πηγών</span>.</p>2 έλεγχος για τον πιο σημαντικό έλεγχο στη θέση είναι <span class=\"faq-code\">Τελικοί κανόνες</span>, επειδή δείχνει το συγχωνευμένο αποτέλεσμα μετά τον συνδυασμό ομαδοποιημένων, απομακρυσμένων και προσαρμοσμένων πηγών.</p>",
+    "message": "<p>Η διαδρομή δημιουργίας παρόχου σε αυτόν τον κλάδο διαβάζει αυτά τα κλειδιά συγγραφής: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, και <span class=\"faq-code\">resourceTypes</span>.</p><p>Ακατέργαστη εκκαθάριση, εκκαθάριση μάρκετινγκ παραπομπής και regex Το redirections μπορεί να χρησιμοποιήσει τα διατηρημένα πεδία ClearURLs ή τα κανονικά αντικείμενα μέσα <span class=\"faq-code\">rules[]</span>.</p><p>Κατά τον έλεγχο της συμπεριφοράς, το πιο σημαντικό μέρος για έλεγχο είναι <span class=\"faq-code\">Final Rules</span>, γιατί εμφανίζει το συγχωνευμένο αποτέλεσμα μετά τον συνδυασμό πηγών ομαδοποίησης, απομακρυσμένων και προσαρμοσμένων πηγών.</p>",
     "description": "FAQ body for the list of provider fields used by clearurls.js"
   },
   "popup_temporary_pause_title": {
@@ -4563,36 +4563,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "Σύνταξη κανόνα",
+    "message": "Διάταξη κανόνα",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "Κλασικοί πίνακες",
+    "description": "Ετικέτα λειτουργίας σύνταξης προγράμματος επεξεργασίας προσαρμοσμένων κανόνων για κλασικούς κανόνες Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "Κανονικά αντικείμενα",
+    "description": "Ετικέτα λειτουργίας σύνταξης προγράμματος επεξεργασίας προσαρμοσμένων κανόνων για κανονικούς κανόνες Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Το Linkumori-ClearURLs διατηρεί παλιά πεδία ClearURLs και προσθέτει απλές συμβολοσειρές, ενσωματωμένους κανόνες $removeparam και αντικείμενα κανονικών κανόνων στο rules[].",
+    "description": "Κείμενο βοήθειας προγράμματος επεξεργασίας προσαρμοσμένων κανόνων για διάταξη κανόνων Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "Οι κανονικοί κανόνες Linkumori-ClearURLs χρησιμοποιούν είδος + δράση μέσα στο rules[]. Τα παλιά πεδία rawRules, referralMarketing και redirections εξακολουθούν να λειτουργούν.",
+    "description": "Κείμενο βοήθειας προγράμματος επεξεργασίας προσαρμοσμένων κανόνων για κανονικούς κανόνες Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "Χρησιμοποιήστε linkumori-clearurls-dialect για όλους τους κανόνες παρόχου.",
+    "description": "Πρόγραμμα επεξεργασίας προσαρμοσμένων κανόνων Κείμενο βοήθειας JSON για ενοποιημένους κανόνες Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "Χρησιμοποιήστε τη διάλεκτο Linkumori-ClearURLs για τον πάροχο JSON. Οι νέες αποθηκεύσεις περιλαμβάνουν το syntax: \"linkumori-clearurls-dialect\".",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Το Linkumori-ClearURLs διατηρεί παλιά πεδία ClearURLs και προσθέτει συμβολοσειρές rules[], φίλτρα $removeparam και κανονικά αντικείμενα με αναγνωριστικό, είδος, αντιστοίχιση και δράση.",
+    "description": "Κείμενο βοήθειας γραμμής εργαλείων επεξεργασίας προσαρμοσμένων κανόνων για ενοποιημένους κανόνες Linkumori-ClearURLs"
   },
   "customRulesEditor_addFieldRule": {
     "message": "Προσθήκη κανόνα πεδίου",
@@ -4608,11 +4608,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "Πεδία παρόχου",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "Ετικέτα επεξεργασίας προσαρμοσμένων κανόνων για πεδία παρόχου σε ενοποιημένη λειτουργία Linkumori-ClearURLs"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Πρότυπα κανόνων",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "Ετικέτα επεξεργασίας προσαρμοσμένων κανόνων για πρότυπα κανόνων σε ενοποιημένη λειτουργία Linkumori-ClearURLs"
   },
   "popup_report_issue_button_title": {
     "message": "Αναφέρετε ένα πρόβλημα",
@@ -4812,5 +4812,33 @@
   "report_config_error": {
     "message": "Σφάλμα κατά την ανάκτηση δεδομένων διαμόρφωσης:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "Καθιστώ ανίκανο",
+    "description": "Κουμπί ετικέτας για να απενεργοποιήσετε ένα αναγνωριστικό κανόνα παρόχου"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "Αναγνωριστικά κανόνων παρόχου",
+    "description": "Τίτλος ενότητας για απενεργοποιημένα αναγνωριστικά κανόνων παρόχου ClearURLs"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "Στοιχεία ελέγχου αναγνωριστικού κανόνα παρόχου",
+    "description": "Τίτλος γραμμής εργαλείων για στοιχεία ελέγχου απενεργοποίησης αναγνωριστικού κανόνα στο πρόγραμμα επεξεργασίας παρόχου"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "Απενεργοποιήστε τα κανονικά αναγνωριστικά κανόνων παρόχου χωρίς να τα διαγράψετε. Τα αποθηκευμένα αναγνωριστικά χρησιμοποιούν ταυτότητα provider::rule.",
+    "description": "Κείμενο βοήθειας για στοιχεία ελέγχου απενεργοποίησης αναγνωριστικού κανόνα παρόχου"
+  },
+  "providerImport_ruleActivation": {
+    "message": "Ενεργοποίηση κανόνα",
+    "description": "Ο τίτλος ενότητας για την ενεργοποίηση κανόνων ενεργού παρόχου εναλλάσσεται"
+  },
+  "providerImport_noRuleIds": {
+    "message": "Δεν βρέθηκαν ακόμη κανονικά αναγνωριστικά κανόνων σε αυτόν τον πάροχο.",
+    "description": "Κενή κατάσταση για στοιχεία ελέγχου αναγνωριστικού κανόνα παρόχου"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "Τα στοιχεία ελέγχου αναγνωριστικού κανόνα είναι διαθέσιμα όταν ο πάροχος JSON είναι έγκυρος.",
+    "description": "Μη έγκυρη κατάσταση JSON για στοιχεία ελέγχου αναγνωριστικού κανόνα παρόχου"
   }
 }

@@ -418,10 +418,10 @@
     "message": "ต้องระบุชื่อผู้ให้บริการ"
   },
   "customRulesEditor_rawRules": {
-    "message": "กฎดิบ (รูปแบบ regex)"
+    "message": "กฎดิบ"
   },
   "customRulesEditor_redirections": {
-    "message": "การเปลี่ยนเส้นทาง (รูปแบบการเปลี่ยนเส้นทาง)"
+    "message": "การเปลี่ยนเส้นทาง"
   },
   "customRulesEditor_referralMarketing": {
     "message": "การตลาดแบบแนะนำ"
@@ -860,15 +860,15 @@
     "description": "คำตอบที่พบบ่อยอธิบายผู้ให้บริการ"
   },
   "faq_raw_rules_explanation": {
-    "message": "รูปแบบ regex โดยตรงที่ใช้กับ URL ทั้งหมด ใช้สำหรับรูปแบบที่ซับซ้อนซึ่งไม่เข้ากับรูปแบบพารามิเตอร์มาตรฐาน",
+    "message": "ออบเจ็กต์กฎดิบของ Canonical จะใช้รูปแบบ regex กับ URL ทั้งหมด ใช้สำหรับรูปแบบที่ซับซ้อนซึ่งไม่ตรงกับรูปแบบพารามิเตอร์มาตรฐาน",
     "description": "คำอธิบายที่พบบ่อยของ rawRules"
   },
   "faq_raw_rules_title": {
-    "message": "กฎดิบ:",
+    "message": "ออบเจ็กต์กฎดิบ:",
     "description": "หัวข้อส่วนคำถามที่พบบ่อยสำหรับคำอธิบาย rawRules"
   },
   "faq_raw_rules_usage": {
-    "message": "ใช้ rawRules สำหรับแฟรกเมนต์, ส่วนของพาธ, หรือรูปแบบพารามิเตอร์ที่ซับซ้อน",
+    "message": "ใช้วัตถุ rules[] กับ kind: \"raw\" สำหรับแฟรกเมนต์ ส่วนของเส้นทาง หรือรูปแบบพารามิเตอร์ที่ซับซ้อน",
     "description": "คำแนะนำที่พบบ่อยเกี่ยวกับการใช้ rawRules"
   },
   "faq_redirections": {
@@ -988,7 +988,7 @@
     "description": "หัวข้อส่วนคำถามที่พบบ่อยสำหรับคำอธิบายกฎ"
   },
   "faq_rules_vs_raw": {
-    "message": "ความแตกต่างระหว่าง rules และ rawRules คืออะไร?",
+    "message": "rules[] มีกฎรูปร่างใดบ้าง",
     "description": "คำถามที่พบบ่อยเกี่ยวกับ rules vs rawRules"
   },
   "faq_section_advanced": {
@@ -1990,9 +1990,9 @@
     "message": "ไม่สามารถโหลดแผนที่เวอร์ชันนโยบายความเป็นส่วนตัว",
     "description": "การแจ้งเตือนที่แสดงเมื่อไม่สามารถโหลดการกำหนดค่าแผนที่เวอร์ชันความเป็นส่วนตัว"
   },
-  "providerImport_bundledRules": {
-    "message": "กฎในตัว/ระยะไกล/กำหนดเองที่ใช้งานอยู่",
-    "description": "ตัวเลือกแถบด้านข้างสำหรับกฎในตัวและกฎระยะไกลที่ใช้งานอยู่ในปัจจุบัน"
+  "providerImport_activeProviderRules": {
+    "message": "ชุดรวมที่ใช้งานอยู่/กฎระยะไกล/กฎที่กำหนดเอง",
+    "description": "ตัวเลือกแถบด้านข้างสำหรับกฎแบบรวมกลุ่ม การสำรองข้อมูลระยะไกล และกฎที่กำหนดเองที่ใช้งานอยู่ในปัจจุบัน"
   },
   "providerImport_button": {
     "message": "นำเข้า/ปิดใช้งานผู้ให้บริการ",
@@ -3713,12 +3713,12 @@
     "description": "เนื้อหาคำถามที่พบบ่อยสำหรับ domainPatterns"
   },
   "audit_faq_rules_title": {
-    "message": "rules, rawRules และ referralMarketing คืออะไร?",
-    "description": "ชื่อคำถามที่พบบ่อยสำหรับ rules, rawRules และ referralMarketing"
+    "message": "rules[] สามารถบรรจุอะไรได้บ้าง?",
+    "description": "ชื่อคำถามที่พบบ่อยสำหรับกฎ Linkumori-ClearURLs แบบรวม"
   },
   "audit_faq_rules_body": {
-    "message": "<p><span class=\"faq-code\">rules</span> คือชื่อพารามิเตอร์หรือชื่อแฟรกเมนต์ที่ควรลบออกจาก URL</p><p><span class=\"faq-code\">rawRules</span> คือการแทนที่ regex ที่ใช้โดยตรงกับสตริง URL ทั้งหมดก่อนการทำความสะอาดคิวรี</p><p><span class=\"faq-code\">referralMarketing</span> ถือว่าเป็นพารามิเตอร์ที่ถูกลบได้เช่นกัน แต่จะใช้จริงหรือไม่ขึ้นอยู่กับการตั้งค่าการตลาดแบบแนะนำทั่วโลก</p>",
-    "description": "เนื้อหาคำถามที่พบบ่อยสำหรับ rules, rawRules และ referralMarketing"
+    "message": "<p><span class=\"faq-code\">rules[]</span> ยอมรับสตริงพารามิเตอร์แบบง่ายแบบอินไลน์ <span class=\"faq-code\">$removeparam</span> ตัวกรองและวัตถุตามรูปแบบบัญญัติ</p><p>ใช้ <span class=\"faq-code\">kind: \"raw\"</span> สำหรับการล้างข้อมูล regex ของ URL ทั้งหมดและ <span class=\"faq-code\">kind: \"redirection\"</span> สำหรับการดึงข้อมูลการเปลี่ยนเส้นทาง</p><p>ใช้ <span class=\"faq-code\">referralMarketing: true</span> ในกฎของฟิลด์เมื่อพารามิเตอร์ขึ้นอยู่กับการตั้งค่าการตลาดแบบอ้างอิง</p>",
+    "description": "เนื้อหาคำถามที่พบบ่อยสำหรับกฎ Linkumori-ClearURLs แบบรวม"
   },
   "audit_faq_exceptions_title": {
     "message": "exceptions และ domainExceptions คืออะไร?",
@@ -3733,7 +3733,7 @@
     "description": "ชื่อคำถามที่พบบ่อยสำหรับ redirections และ domainRedirections"
   },
   "audit_faq_redirections_body": {
-    "message": "<p><span class=\"faq-code\">redirections</span> คือตัวคลายตาม regex พวกมันมักจะจับ URL ปลายทางจริงในกลุ่มที่ 1 และ ClearURLs จะเปลี่ยนเส้นทางไปยังค่าที่จับได้นั้น</p><p><span class=\"faq-code\">domainRedirections</span> คือกฎการเปลี่ยนเส้นทางสไตล์โดเมน ในโค้ดเบสนี้ พวกมันจะถูกตรวจสอบสำหรับรายการในรูปแบบ <span class=\"faq-code\">pattern $redirect= target</span></p><p>หากการเปลี่ยนเส้นทาง regex ตรงกันก่อน รายการนั้นจะชนะ ถ้าไม่ ClearURLs จะตรวจสอบการเปลี่ยนเส้นทางโดเมนถัดไป</p>",
+    "message": "<p><span class=\"faq-code\">rules[]</span> รายการด้วย <span class=\"faq-code\">kind: \"redirection\"</span> เป็นตัวถอดรหัสที่ใช้ regex โดยปกติแล้วจะจับ URL ปลายทางที่แท้จริงในกลุ่ม 1 และ ClearURLs เปลี่ยนเส้นทางไปยังค่าที่บันทึกไว้</p><p><span class=\"faq-code\">domainRedirections</span> เป็นกฎการเปลี่ยนเส้นทางแบบโดเมน ในโค้ดเบสนี้ พวกเขาจะถูกตรวจสอบรายการที่มีรูปทรงเหมือน <span class=\"faq-code\">pattern $redirect= target</span>.</p><p>หากการเปลี่ยนเส้นทาง regex ตรงกันก่อน นั่นจะชนะ ถ้าไม่เช่นนั้น ClearURLs จะตรวจสอบโดเมน redirections ต่อไป</p>",
     "description": "เนื้อหาคำถามที่พบบ่อยสำหรับ redirections และ domainRedirections"
   },
   "audit_faq_methods_resources_title": {
@@ -3757,7 +3757,7 @@
     "description": "ชื่อคำถามที่พบบ่อยสำหรับรายการฟิลด์ผู้ให้บริการที่ clearurls.js ใช้"
   },
   "audit_faq_fields_body": {
-    "message": "<p>เส้นทางการสร้างผู้ให้บริการในสาขานี้อ่านคีย์เหล่านี้: <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, และ <span class=\"faq-code\">resourceTypes</span></p><p>เมื่อตรวจสอบพฤติกรรม จุดที่สำคัญที่สุดที่ควรตรวจสอบคือ <span class=\"faq-code\">กฎสุดท้าย</span> เพราะนั่นแสดงผลลัพธ์ที่รวมกันหลังจากรวมแหล่งในตัว, ระยะไกล, และที่กำหนดเองแล้ว</p>",
+    "message": "<p>เส้นทางการสร้างผู้ให้บริการในสาขานี้อ่านคีย์การเขียนเหล่านี้: <span class=\"faq-code\">syntax</span>, <span class=\"faq-code\">completeProvider</span>, <span class=\"faq-code\">forceRedirection</span>, <span class=\"faq-code\">urlPattern</span>, <span class=\"faq-code\">indexPattern</span>, <span class=\"faq-code\">domainPatterns</span>, <span class=\"faq-code\">rules</span>, <span class=\"faq-code\">rawRules</span>, <span class=\"faq-code\">referralMarketing</span>, <span class=\"faq-code\">exceptions</span>, <span class=\"faq-code\">domainExceptions</span>, <span class=\"faq-code\">redirections</span>, <span class=\"faq-code\">domainRedirections</span>, <span class=\"faq-code\">methods</span>, และ <span class=\"faq-code\">resourceTypes</span>.</p><p>การล้างข้อมูลดิบ การล้างข้อมูลการตลาดการอ้างอิง และ regex redirections สามารถใช้ช่อง ClearURLs ที่เก็บไว้หรืออ็อบเจ็กต์ Canonical ภายในได้ <span class=\"faq-code\">rules[]</span>.</p><p>ในการตรวจสอบพฤติกรรม จุดที่สำคัญที่สุดในการตรวจสอบคือ <span class=\"faq-code\">Final Rules</span>เนื่องจากนั่นจะแสดงผลลัพธ์ที่รวมเข้าด้วยกันหลังจากรวมแหล่งที่มาแบบบันเดิล ระยะไกล และแบบกำหนดเองเข้าด้วยกัน</p>",
     "description": "เนื้อหาคำถามที่พบบ่อยสำหรับรายการฟิลด์ผู้ให้บริการที่ clearurls.js ใช้"
   },
   "popup_temporary_pause_title": {
@@ -4561,36 +4561,36 @@
     "description": "Status prefix shown when the regression run fails."
   },
   "customRulesEditor_syntaxModeLabel": {
-    "message": "ไวยากรณ์ของกฎ",
+    "message": "เค้าโครงกฎ",
     "description": "Auto-added i18n key: customRulesEditor_syntaxModeLabel"
   },
   "customRulesEditor_syntaxLegacy": {
-    "message": "Linkumori-ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the Linkumori-ClearURLs dialect"
+    "message": "อาร์เรย์คลาสสิก",
+    "description": "ป้ายกำกับโหมดไวยากรณ์ตัวแก้ไขกฎที่กำหนดเองสำหรับกฎ Linkumori-ClearURLs แบบคลาสสิก"
   },
   "customRulesEditor_syntaxV3": {
-    "message": "ClearURLs dialect",
-    "description": "Custom rules editor syntax mode label for the ClearURLs dialect"
+    "message": "วัตถุที่เป็นที่ยอมรับ",
+    "description": "ป้ายกำกับโหมดไวยากรณ์ของตัวแก้ไขกฎที่กำหนดเองสำหรับกฎ Canonical Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxLegacyHelp": {
-    "message": "Linkumori-ClearURLs dialect keeps the classic ClearURLs-style section arrays such as rules, rawRules, referralMarketing, and redirections.",
-    "description": "Custom rules editor help text for the Linkumori-ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs เก็บฟิลด์ ClearURLs เก่าและเพิ่มสตริงแบบง่าย กฎ $removeparam แบบอินไลน์ และออบเจ็กต์กฎ Canonical ใน rules[]",
+    "description": "ข้อความช่วยเหลือตัวแก้ไขกฎที่กำหนดเองสำหรับเค้าโครงกฎ Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3Help": {
-    "message": "ClearURLs dialect stores canonical rules in rules[] with kind + action. Use indexPattern with urlPattern for fast lookup.",
-    "description": "Custom rules editor help text for the ClearURLs dialect syntax mode"
+    "message": "กฎ Canonical Linkumori-ClearURLs ใช้ kind + action ภายใน rules[] ช่อง rawRules, referralMarketing และ redirections แบบเก่ายังคงใช้งานได้",
+    "description": "ข้อความช่วยเหลือตัวแก้ไขกฎที่กำหนดเองสำหรับกฎ Canonical Linkumori-ClearURLs"
   },
   "customRulesEditor_syntaxV3EditorHelp": {
-    "message": "Use ClearURLs dialect for canonical object rules. Older dialect files still load and are saved with the new dialect name.",
-    "description": "Custom rules editor JSON help text for the ClearURLs dialect syntax mode"
+    "message": "ใช้ linkumori-clearurls-dialect สำหรับกฎของผู้ให้บริการทั้งหมด",
+    "description": "ข้อความช่วยเหลือ JSON ตัวแก้ไขกฎที่กำหนดเองสำหรับกฎ Linkumori-ClearURLs แบบรวม"
   },
   "customRulesEditor_syntaxLegacyEditorHelp": {
-    "message": "Use Linkumori-ClearURLs dialect for classic ClearURLs-style provider JSON. New saves include syntax: \"linkumori-clearurls-dialect\".",
+    "message": "ใช้ภาษา Linkumori-ClearURLs สำหรับผู้ให้บริการ JSON บันทึกใหม่รวมถึง syntax: \"linkumori-clearurls-dialect\"",
     "description": "Custom rules editor JSON help text for the Linkumori-ClearURLs dialect syntax mode"
   },
   "customRulesEditor_syntaxV3ToolbarHelp": {
-    "message": "ClearURLs dialect rules live in rules[] and use id, kind, match, and action.",
-    "description": "Custom rules editor toolbar help text for the ClearURLs dialect syntax mode"
+    "message": "Linkumori-ClearURLs เก็บฟิลด์ ClearURLs เก่าไว้และเพิ่มสตริง rules[], ตัวกรอง $removeparam และอ็อบเจ็กต์ Canonical พร้อมด้วยรหัส ประเภท การจับคู่ และการดำเนินการ",
+    "description": "ข้อความช่วยเหลือแถบเครื่องมือตัวแก้ไขกฎที่กำหนดเองสำหรับกฎ Linkumori-ClearURLs แบบรวม"
   },
   "customRulesEditor_addFieldRule": {
     "message": "เพิ่มกฎของฟิลด์",
@@ -4606,11 +4606,11 @@
   },
   "customRulesEditor_v3ProviderFields": {
     "message": "ฟิลด์ผู้ให้บริการ",
-    "description": "Custom rules editor label for provider fields in ClearURLs dialect mode"
+    "description": "ป้ายกำกับตัวแก้ไขกฎที่กำหนดเองสำหรับช่องผู้ให้บริการในโหมด Linkumori-ClearURLs แบบรวม"
   },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Rule templates",
-    "description": "Custom rules editor label for rule templates in ClearURLs dialect mode"
+    "description": "ป้ายกำกับตัวแก้ไขกฎที่กำหนดเองสำหรับเทมเพลตกฎในโหมด Linkumori-ClearURLs แบบรวม"
   },
   "popup_report_issue_button_title": {
     "message": "รายงานปัญหา",
@@ -4810,5 +4810,33 @@
   "report_config_error": {
     "message": "เกิดข้อผิดพลาดในการเรียกข้อมูลการกำหนดค่า:",
     "description": "Report page configuration retrieval error prefix"
+  },
+  "providerImport_disable": {
+    "message": "ปิดการใช้งาน",
+    "description": "ป้ายกำกับปุ่มเพื่อปิดใช้งานรหัสกฎของผู้ให้บริการ"
+  },
+  "providerImport_providerRuleIds": {
+    "message": "รหัสกฎของผู้ให้บริการ",
+    "description": "ชื่อส่วนสำหรับรหัสกฎผู้ให้บริการ ClearURLs ที่ปิดใช้งาน"
+  },
+  "providerImport_ruleIdControls": {
+    "message": "การควบคุมรหัสกฎของผู้ให้บริการ",
+    "description": "ชื่อแถบเครื่องมือสำหรับการควบคุมการปิดใช้รหัสกฎในตัวแก้ไขผู้ให้บริการ"
+  },
+  "providerImport_ruleIdControlsHelp": {
+    "message": "ปิดใช้รหัสกฎของผู้ให้บริการตามรูปแบบบัญญัติโดยไม่ต้องลบออก รหัสที่เก็บไว้ใช้ข้อมูลประจำตัว provider::rule",
+    "description": "ข้อความช่วยเหลือสำหรับการควบคุมการปิดใช้รหัสกฎของผู้ให้บริการ"
+  },
+  "providerImport_ruleActivation": {
+    "message": "การเปิดใช้งานกฎ",
+    "description": "ชื่อส่วนสำหรับการสลับการเปิดใช้งานกฎของผู้ให้บริการที่ใช้งานอยู่"
+  },
+  "providerImport_noRuleIds": {
+    "message": "ยังไม่พบรหัสกฎ Canonical ในผู้ให้บริการรายนี้",
+    "description": "สถานะว่างเปล่าสำหรับการควบคุมรหัสกฎของผู้ให้บริการ"
+  },
+  "providerImport_ruleIdsRequireValidJson": {
+    "message": "การควบคุมรหัสกฎจะพร้อมใช้งานเมื่อผู้ให้บริการ JSON ถูกต้อง",
+    "description": "สถานะ JSON ไม่ถูกต้องสำหรับการควบคุมรหัสกฎของผู้ให้บริการ"
   }
 }
