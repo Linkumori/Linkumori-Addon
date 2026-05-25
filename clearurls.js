@@ -155,36 +155,30 @@ function buildCoreRuntimeRuleId(providerName, ruleId) {
     return `${providerName}::${ruleId}`;
 }
 
-function normalizeCoreRuleOrigins(value) {
+function normalizeCoreRuleActivationIds(value) {
     if (!Array.isArray(value)) return [];
-    const origins = [];
+    const activationIds = [];
     const seen = new Set();
-    value.forEach(origin => {
-        if (!origin || typeof origin !== "object") return;
-        const runtimeRuleId = String(origin.runtimeRuleId || "").trim();
-        if (!runtimeRuleId || seen.has(runtimeRuleId)) return;
-        seen.add(runtimeRuleId);
-        origins.push({
-            sourceId: String(origin.sourceId || "").trim(),
-            providerId: String(origin.providerId || "").trim(),
-            ruleId: String(origin.ruleId || "").trim(),
-            runtimeRuleId
-        });
+    value.forEach(id => {
+        const activationId = String(id || "").trim();
+        if (!activationId || seen.has(activationId)) return;
+        seen.add(activationId);
+        activationIds.push(activationId);
     });
-    return origins;
+    return activationIds;
 }
 
 function attachCoreRuleIdentity(providerName, compiledRule, section) {
     const ruleId = compiledRule.id || createGeneratedCoreRuleId(section, compiledRule.matchPattern);
     const aliases = Array.isArray(compiledRule.aliases) ? compiledRule.aliases : [];
-    const origins = normalizeCoreRuleOrigins(compiledRule._linkumoriOrigins);
+    const activationIds = normalizeCoreRuleActivationIds(compiledRule._linkumoriActivationIds);
     compiledRule.id = ruleId;
     compiledRule.providerName = providerName;
     compiledRule.runtimeRuleId = buildCoreRuntimeRuleId(providerName, ruleId);
     compiledRule.aliasRuntimeIds = aliases.map(alias => buildCoreRuntimeRuleId(providerName, alias));
-    compiledRule.origins = origins.length > 0
-        ? origins
-        : [{ sourceId: "runtime", providerId: providerName, ruleId, runtimeRuleId: compiledRule.runtimeRuleId }];
+    compiledRule.activationIds = activationIds.length > 0
+        ? activationIds
+        : [compiledRule.runtimeRuleId];
     return compiledRule;
 }
 
@@ -201,27 +195,27 @@ function coreRuleDisableKeys(compiledRule) {
     return keys;
 }
 
-function filterCoreRuleOrigins(compiledRule, disabledRuleIds) {
+function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return false;
     if (coreRuleDisableKeys(compiledRule).some(key => disabledRuleIds.has(key))) {
-        compiledRule.disabledOrigins = (compiledRule.origins || []).slice();
-        compiledRule.origins = [];
+        compiledRule.disabledActivationIds = (compiledRule.activationIds || []).slice();
+        compiledRule.activationIds = [];
         return true;
     }
 
-    const origins = Array.isArray(compiledRule.origins) ? compiledRule.origins : [];
-    if (origins.length === 0) return false;
-    const activeOrigins = [];
-    const disabledOrigins = [];
-    origins.forEach(origin => {
-        const disabled = disabledRuleIds.has(origin.runtimeRuleId) ||
-            disabledRuleIds.has(origin.ruleId);
-        if (disabled) disabledOrigins.push(origin);
-        else activeOrigins.push(origin);
+    const activationIds = Array.isArray(compiledRule.activationIds) ? compiledRule.activationIds : [];
+    if (activationIds.length === 0) return false;
+    const activeActivationIds = [];
+    const disabledActivationIds = [];
+    activationIds.forEach(activationId => {
+        const localRuleId = String(activationId).split("::").pop();
+        const disabled = disabledRuleIds.has(activationId) || disabledRuleIds.has(localRuleId);
+        if (disabled) disabledActivationIds.push(activationId);
+        else activeActivationIds.push(activationId);
     });
-    compiledRule.disabledOrigins = disabledOrigins;
-    compiledRule.origins = activeOrigins;
-    return activeOrigins.length === 0;
+    compiledRule.disabledActivationIds = disabledActivationIds;
+    compiledRule.activationIds = activeActivationIds;
+    return activeActivationIds.length === 0;
 }
 
 function registerCoreRuleInSnapshot(compiledRule) {
@@ -234,7 +228,7 @@ function registerCoreRuleInSnapshot(compiledRule) {
             id: compiledRule.id,
             kind: compiledRule.kind,
             match: compiledRule.matchPattern,
-            origins: (compiledRule.origins || []).map(origin => ({ ...origin })),
+            activationIds: (compiledRule.activationIds || []).slice(),
             providerName: compiledRule.providerName,
             runtimeRuleId: compiledRule.runtimeRuleId,
             section: compiledRule.section
@@ -256,8 +250,8 @@ function registerDisabledCoreRuleInSnapshot(compiledRule) {
         id: compiledRule.id,
         kind: compiledRule.kind,
         match: compiledRule.matchPattern,
-        disabledOrigins: (compiledRule.disabledOrigins || []).map(origin => ({ ...origin })),
-        origins: (compiledRule.origins || []).map(origin => ({ ...origin })),
+        activationIds: (compiledRule.activationIds || []).slice(),
+        disabledActivationIds: (compiledRule.disabledActivationIds || []).slice(),
         providerName: compiledRule.providerName,
         runtimeRuleId: compiledRule.runtimeRuleId,
         section: compiledRule.section
@@ -1336,7 +1330,7 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         requestTypes,
         raw: resolvedRule,
         sourceType,
-        _linkumoriOrigins: normalizeCoreRuleOrigins(resolvedRule._linkumoriOrigins)
+        _linkumoriActivationIds: normalizeCoreRuleActivationIds(resolvedRule._linkumoriActivationIds)
     };
 }
 
@@ -2078,7 +2072,7 @@ function start() {
             if (!compiled) return null;
             compiled.section = section;
             attachCoreRuleIdentity(name, compiled, section);
-            if (filterCoreRuleOrigins(compiled, _disabledRuleIds)) {
+            if (filterCoreRuleActivationIds(compiled, _disabledRuleIds)) {
                 registerDisabledCoreRuleInSnapshot(compiled);
                 return null;
             }

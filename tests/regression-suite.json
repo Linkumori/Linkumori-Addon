@@ -20305,7 +20305,7 @@
       "expectedOutput": "https://example.com/rule-id-disabled/?token=abc",
       "activationState": {
         "disabledRuleIds": [
-          "disable-token"
+          "provider-rule-id-disabled::disable-token"
         ]
       },
       "providers": {
@@ -20336,7 +20336,7 @@
       "expectedOutput": "https://example.com/global-rule-id-disabled/?fbclid=abc&keep=1",
       "activationState": {
         "disabledRuleIds": [
-          "field-3f-fbclid"
+          "globalRules::field-3f-fbclid"
         ]
       },
       "providers": {
@@ -20353,31 +20353,26 @@
       }
     },
     {
-      "id": "provider origin runtime rule id disabled",
+      "id": "provider activation id disabled after merge",
       "dialect": "provider",
-      "input": "https://example.com/origin-rule-id-disabled/?origin_token=abc&keep=1",
-      "expectedOutput": "https://example.com/origin-rule-id-disabled/?origin_token=abc&keep=1",
+      "input": "https://example.com/activation-rule-id-disabled/?activation_token=abc&keep=1",
+      "expectedOutput": "https://example.com/activation-rule-id-disabled/?activation_token=abc&keep=1",
       "activationState": {
         "disabledRuleIds": [
-          "official::provider-origin-rule-id-disabled::remove-origin-token"
+          "provider-activation-rule-id-disabled::remove-activation-token"
         ]
       },
       "providers": {
-        "merged-origin-rule-id-disabled": {
+        "merged-activation-rule-id-disabled": {
           "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/origin-rule-id-disabled(?:[/?#]|$)",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/activation-rule-id-disabled(?:[/?#]|$)",
           "rules": [
             {
-              "id": "remove-origin-token",
+              "id": "remove-activation-token",
               "kind": "field",
-              "match": "origin_token",
-              "_linkumoriOrigins": [
-                {
-                  "sourceId": "official",
-                  "providerId": "provider-origin-rule-id-disabled",
-                  "ruleId": "remove-origin-token",
-                  "runtimeRuleId": "official::provider-origin-rule-id-disabled::remove-origin-token"
-                }
+              "match": "activation_token",
+              "_linkumoriActivationIds": [
+                "provider-activation-rule-id-disabled::remove-activation-token"
               ],
               "action": {
                 "type": "remove"

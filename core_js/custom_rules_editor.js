@@ -1111,10 +1111,9 @@ function collectProviderRuleIdEntries(providerName, provider) {
             const aliases = Array.isArray(rule.aliases)
                 ? rule.aliases.map(alias => String(alias || '').trim()).filter(Boolean)
                 : [];
-            const runtimeId = `custom::${providerName}::${rule.id}`;
+            const runtimeId = buildProviderRuntimeRuleId(providerName, rule.id);
             const disabledIds = new Set(clearURLsDisabledRuleIds);
             const disableKeys = getProviderRuleDisableKeys(providerName, rule.id, aliases);
-            disableKeys.unshift(runtimeId);
             const disabled = disableKeys.some(key => disabledIds.has(key));
 
             entries.push({
@@ -2565,29 +2564,38 @@ async function clearAllDisabledRules() {
     renderDisabledRulesPageContent();
 }
 
-function getSnapshotRuleOriginRows() {
+function parseActivationId(activationId, fallbackRuleId = '') {
+    const parts = String(activationId || '').split('::');
+    if (parts.length >= 2) {
+        return {
+            providerId: parts.slice(0, -1).join('::'),
+            ruleId: parts[parts.length - 1]
+        };
+    }
+    return {
+        providerId: '',
+        ruleId: fallbackRuleId || String(activationId || '')
+    };
+}
+
+function getSnapshotRuleActivationRows() {
     const ruleIds = clearURLsProviderSnapshot?.ruleIds || {};
     const disabled = new Set(clearURLsDisabledRuleIds);
     const rows = [];
     Object.values(ruleIds).forEach(rule => {
-        const origins = Array.isArray(rule?.origins) && rule.origins.length > 0
-            ? rule.origins
-            : [{
-                sourceId: 'runtime',
-                providerId: rule?.providerName || '',
-                ruleId: rule?.id || '',
-                runtimeRuleId: rule?.runtimeRuleId || ''
-            }];
-        origins.forEach(origin => {
-            const runtimeRuleId = String(origin.runtimeRuleId || '').trim();
+        const activationIds = Array.isArray(rule?.activationIds) && rule.activationIds.length > 0
+            ? rule.activationIds
+            : [rule?.runtimeRuleId || buildProviderRuntimeRuleId(rule?.providerName || '', rule?.id || '')];
+        activationIds.forEach(activationId => {
+            const runtimeRuleId = String(activationId || '').trim();
             if (!runtimeRuleId || disabled.has(runtimeRuleId)) {
                 return;
             }
+            const parsed = parseActivationId(runtimeRuleId, rule.id || '');
             rows.push({
                 runtimeRuleId,
-                sourceId: origin.sourceId || '',
-                providerId: origin.providerId || '',
-                ruleId: origin.ruleId || rule.id || '',
+                providerId: parsed.providerId,
+                ruleId: parsed.ruleId,
                 section: rule.section || '',
                 kind: rule.kind || '',
                 match: rule.match || ''
@@ -2599,7 +2607,7 @@ function getSnapshotRuleOriginRows() {
 }
 
 function renderRuleActivationSection() {
-    const rows = getSnapshotRuleOriginRows();
+    const rows = getSnapshotRuleActivationRows();
     if (rows.length === 0) {
         return '';
     }
@@ -2608,7 +2616,7 @@ function renderRuleActivationSection() {
             <span class="provider-disabled-signature" title="${escapeHtml(row.runtimeRuleId)}">
                 <strong>${escapeHtml(row.ruleId)}</strong>
                 <span class="provider-disabled-source">
-                    ${escapeHtml(row.sourceId)} · ${escapeHtml(row.providerId)} · ${escapeHtml(row.section)} · ${escapeHtml(row.kind)}
+                    ${escapeHtml(row.providerId)} · ${escapeHtml(row.section)} · ${escapeHtml(row.kind)}
                     ${row.match ? ` · ${escapeHtml(row.match)}` : ''}
                 </span>
             </span>
@@ -2859,6 +2867,18 @@ async function loadAvailableRuleSources() {
  */
 async function loadBundledRulesForImport() {
     try {
+        // The modal source represents the active provider set after bundled,
+        // remote, overload, custom, and disabled-provider processing.
+        const currentResponse = await browser.runtime.sendMessage({
+            function: "getData",
+            params: ['ClearURLsData']
+        });
+
+        if (currentResponse && currentResponse.response && currentResponse.response.providers) {
+            return currentResponse.response;
+        }
+
+        // Fallback for early startup or storage errors.
         const response = await browser.runtime.sendMessage({
             function: "getBundledRulesOnly"
         });
@@ -2866,18 +2886,7 @@ async function loadBundledRulesForImport() {
         if (response && response.response && response.response.providers) {
             return response.response;
         }
-        
-        // Fallback: try to get current rules and extract bundled ones
-        const currentResponse = await browser.runtime.sendMessage({
-            function: "getData",
-            params: ['ClearURLsData']
-        });
-        
-        if (currentResponse && currentResponse.response && currentResponse.response.providers) {
-            // This is a merged version, but it's better than nothing
-            return currentResponse.response;
-        }
-        
+
         throw new Error(i18n('providerImport_noBundledRules'));
     } catch (error) {
         throw new Error(i18n('providerImport_failedToLoadBundled', error.message));
@@ -2900,13 +2909,13 @@ async function loadExistingLinkumoriDataForImport() {
  * Update source counts in the sidebar
  */
 function updateSourceCounts() {
-    const bundledCount = document.getElementById('bundled-count');
+    const activeProviderCount = document.getElementById('active-provider-count');
     const linkumoriDataCount = document.getElementById('linkumori-data-count');
     
-    if (bundledCount && availableRuleSources.bundled) {
-        const bundledProviders = Object.values(availableRuleSources.bundled.providers || {});
-        const visibleCount = bundledProviders.filter(provider => !isProviderExcluded('bundled', provider)).length;
-        bundledCount.textContent = getLocalizedNumber(visibleCount);
+    if (activeProviderCount && availableRuleSources.bundled) {
+        const activeProviders = Object.values(availableRuleSources.bundled.providers || {});
+        const visibleCount = activeProviders.filter(provider => !isProviderExcluded('bundled', provider)).length;
+        activeProviderCount.textContent = getLocalizedNumber(visibleCount);
     }
     if (linkumoriDataCount && availableRuleSources['linkumori-data']) {
         const linkumoriRules = Array.isArray(availableRuleSources['linkumori-data'].rules)
@@ -4082,12 +4091,33 @@ async function updateRulesStatus() {
             loadClearURLsDisabledRuleIds()
         ]);
 
-        const response = await browser.runtime.sendMessage({
-            function: "getCustomRulesStats"
-        });
+        const [response, linkumoriDataResponse, linkumoriCustomResponse] = await Promise.all([
+            browser.runtime.sendMessage({
+                function: "getCustomRulesStats"
+            }),
+            browser.runtime.sendMessage({
+                function: "getData",
+                params: ['ClearURLsData']
+            }),
+            browser.runtime.sendMessage({
+                function: "getData",
+                params: ['linkumori_url_custom_rules']
+            })
+        ]);
+
+        const clearURLsRuntimeData = linkumoriDataResponse?.response || {};
+        const hasRuntimeProviders = clearURLsRuntimeData &&
+            typeof clearURLsRuntimeData.providers === 'object' &&
+            clearURLsRuntimeData.providers !== null;
         
         if (response && response.response) {
-            const stats = response.response;
+            const stats = { ...response.response };
+            if (hasRuntimeProviders) {
+                const runtimeProviderCount = Object.keys(clearURLsRuntimeData.providers || {}).length;
+                stats.totalProviders = runtimeProviderCount;
+                stats.customProviders = Math.min(Number(stats.customProviders || 0), runtimeProviderCount);
+                stats.builtInProviders = Math.max(0, runtimeProviderCount - stats.customProviders);
+            }
             
             // Use localized numbers for display
             const customCountElement = document.getElementById('custom-count');
@@ -4118,18 +4148,6 @@ async function updateRulesStatus() {
             }
         }
 
-        const [linkumoriDataResponse, linkumoriCustomResponse] = await Promise.all([
-            browser.runtime.sendMessage({
-                function: "getData",
-                params: ['ClearURLsData']
-            }),
-            browser.runtime.sendMessage({
-                function: "getData",
-                params: ['linkumori_url_custom_rules']
-            })
-        ]);
-
-        const clearURLsRuntimeData = linkumoriDataResponse?.response || {};
         const linkumoriMetadata = clearURLsRuntimeData.urlFilterMetadata || {};
         const linkumoriCustom = normalizeLinkumoriURLCustomRulesValue(linkumoriCustomResponse?.response);
         const linkumoriStatusElement = document.getElementById('linkumori-url-rule-status');
