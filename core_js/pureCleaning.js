@@ -297,7 +297,10 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
             "cancel": false
         };
 
-        if (requestMatches && providers[i].matchURL(cleanURL)) {
+        const providerMatchesUrl = requestMatches && (typeof providers[i].matchRequestURL === 'function'
+            ? providers[i].matchRequestURL(cleanURL, effectiveRequest)
+            : providers[i].matchURL(cleanURL));
+        if (requestMatches && providerMatchesUrl) {
             result = removeFieldsFormURL(providers[i], cleanURL, quiet, effectiveRequest, null, [], sessionRewrites);
             cleanURL = result.url;
         }

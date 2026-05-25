@@ -20568,6 +20568,142 @@
       }
     },
     {
+      "id": "canonical provider exception requestTypes filtered (clean fires)",
+      "dialect": "provider",
+      "input": "https://example.com/provider-exception-type/?token=abc",
+      "expectedOutput": "https://example.com/provider-exception-type/",
+      "providers": {
+        "provider-exception-type": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-exception-type(?:[/?#]|$)",
+          "exceptions": [
+            {
+              "id": "xhr-only-exception",
+              "match": "^https?:\\/\\/example\\.com\\/provider-exception-type",
+              "requestTypes": [
+                "xmlhttprequest"
+              ],
+              "action": {
+                "type": "remove"
+              }
+            }
+          ],
+          "rules": [
+            "token"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "main_frame"
+      }
+    },
+    {
+      "id": "canonical provider exception requestTypes matched (no clean)",
+      "dialect": "provider",
+      "input": "https://example.com/provider-exception-type/?token=abc",
+      "expectedOutput": "https://example.com/provider-exception-type/?token=abc",
+      "providers": {
+        "provider-exception-type": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-exception-type(?:[/?#]|$)",
+          "exceptions": [
+            {
+              "id": "xhr-only-exception",
+              "match": "^https?:\\/\\/example\\.com\\/provider-exception-type",
+              "requestTypes": [
+                "xmlhttprequest"
+              ],
+              "action": {
+                "type": "remove"
+              }
+            }
+          ],
+          "rules": [
+            "token"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "xmlhttprequest"
+      }
+    },
+    {
+      "id": "canonical redirection requestTypes filtered (no redirect)",
+      "dialect": "provider",
+      "input": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
+      "expectedOutput": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
+      "providers": {
+        "provider-redirect-type": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/redirect-type(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "extract-target",
+              "kind": "redirection",
+              "match": "^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)",
+              "requestTypes": [
+                "xmlhttprequest"
+              ],
+              "action": {
+                "type": "redirect",
+                "replacePattern": "§1§"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      },
+      "request": {
+        "type": "main_frame"
+      }
+    },
+    {
+      "id": "canonical redirection requestTypes matched (redirect)",
+      "dialect": "provider",
+      "input": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
+      "expectedOutput": "https://target.example/",
+      "providers": {
+        "provider-redirect-type": {
+          "syntax": "linkumori-clearurls-dialect",
+          "urlPattern": "^https?:\\/\\/example\\.com\\/redirect-type(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "extract-target",
+              "kind": "redirection",
+              "match": "^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)",
+              "requestTypes": [
+                "xmlhttprequest"
+              ],
+              "action": {
+                "type": "redirect",
+                "replacePattern": "§1§"
+              }
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      },
+      "request": {
+        "type": "xmlhttprequest"
+      }
+    },
+    {
       "id": "appliedFieldRewrites per-call isolation first",
       "dialect": "provider",
       "input": "https://example.com/rewrite-isolation/?token=abc&keep=1",
