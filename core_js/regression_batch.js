@@ -42,6 +42,7 @@
         const results = [];
         try {
             if (typeof startFn   === 'function') await startFn();
+            const webRequestFn = bgWin.traceClearURLWebRequestTest;
             if (typeof setDataFn === 'function') {
                 await setDataFn('builtInRulesEnabled', false);
                 await setDataFn('remoteRulesEnabled',  false);
@@ -79,9 +80,26 @@
                     }
                 }
 
+                const storageOverrides = testCase.storage && typeof testCase.storage === 'object' && !Array.isArray(testCase.storage)
+                    ? testCase.storage
+                    : {};
+                const restoreStorage = {};
                 try {
+                    if (typeof setDataFn === 'function' && typeof getDataFn === 'function') {
+                        for (const [key, value] of Object.entries(storageOverrides)) {
+                            restoreStorage[key] = await getDataFn(key);
+                            await setDataFn(key, value);
+                        }
+                    }
+
                     let raw = {};
-                    if (testCase.dialect === 'urlFilter' && typeof traceFn === 'function') {
+                    if (testCase.dialect === 'providerWebRequest' && typeof webRequestFn === 'function') {
+                        const r = webRequestFn({
+                            ...(testCase.request || {}),
+                            url: testCase.input
+                        });
+                        raw = (r instanceof Promise ? await r : r) || {};
+                    } else if (testCase.dialect === 'urlFilter' && typeof traceFn === 'function') {
                         const r = traceFn(testCase.input, testCase.request || {});
                         raw = (r instanceof Promise ? await r : r) || {};
                     } else if (typeof labFn === 'function') {
@@ -95,7 +113,17 @@
                         matchedProvider: raw.matchedProvider || null,
                         matchedRule: raw.matchedRule || null
                     });
+                    if (typeof setDataFn === 'function') {
+                        for (const [key, value] of Object.entries(restoreStorage)) {
+                            await setDataFn(key, value);
+                        }
+                    }
                 } catch (e) {
+                    if (typeof setDataFn === 'function') {
+                        for (const [key, value] of Object.entries(restoreStorage)) {
+                            await setDataFn(key, value);
+                        }
+                    }
                     results.push({ id: testCase.id, dialect: testCase.dialect,
                         actualOutput: testCase.input, error: e.message });
                 }

@@ -339,7 +339,7 @@ async function getConfigData() {
             'overloadModeEnabled',
             'hashStatus',
             'hashValidationStatus',
-            'whitelist',
+            'userWhitelist',
             'custom_rules',
             'linkumori_url_custom_rules',
             'disabledExceptionRules',
@@ -365,7 +365,7 @@ async function getConfigData() {
                 hashStatus: storage.hashStatus || 'unknown',
                 hashValidationStatus: storage.hashValidationStatus || 'unknown'
             },
-            whitelistedDomains: storage.whitelist || [],
+            whitelistedDomains: storage.userWhitelist || [],
             customRules: storage.custom_rules || {},
             linkumoriURLCustomRules: storage.linkumori_url_custom_rules || { rules: [] },
             disabledExceptionRules: storage.disabledExceptionRules || [],

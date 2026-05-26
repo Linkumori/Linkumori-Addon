@@ -1458,8 +1458,17 @@ function saveRemoteRulesCache(remoteRules, meta) {
         storage.remoteRulescache = {};
     }
 
+    const safeMeta = meta && typeof meta === 'object' && !Array.isArray(meta)
+        ? meta
+        : {};
+
     storage.remoteRulescache = {
         verified: true,
+        meta: safeMeta,
+        ruleURL: safeMeta.ruleURL || null,
+        hashURL: safeMeta.hashURL || null,
+        expectedHash: safeMeta.expectedHash || null,
+        sources: Array.isArray(safeMeta.sources) ? safeMeta.sources : [],
         data: remoteRules
     };
 
@@ -1469,7 +1478,43 @@ function saveRemoteRulesCache(remoteRules, meta) {
     }
 }
 
-function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used') {
+function remoteRuleSetCacheKey(source, includeExpectedHash = true) {
+    if (!source || typeof source !== 'object') return '';
+    const ruleURL = typeof source.ruleURL === 'string' ? source.ruleURL.trim() : '';
+    const hashURL = typeof source.hashURL === 'string' ? source.hashURL.trim() : '';
+    const expectedHash = typeof source.expectedHash === 'string' ? source.expectedHash.trim() : '';
+    return includeExpectedHash ? [ruleURL, hashURL, expectedHash].join('|||') : [ruleURL, hashURL].join('|||');
+}
+
+function remoteRulesCacheMatches(cache, expectedHash = null, expectedSources = null) {
+    const cleanExpectedHash = typeof expectedHash === 'string' ? expectedHash.trim() : '';
+    const cacheExpectedHash = typeof cache.expectedHash === 'string'
+        ? cache.expectedHash.trim()
+        : (typeof cache.meta?.expectedHash === 'string' ? cache.meta.expectedHash.trim() : '');
+
+    if (cleanExpectedHash && cacheExpectedHash && cleanExpectedHash !== cacheExpectedHash) {
+        return false;
+    }
+
+    if (Array.isArray(expectedSources) && expectedSources.length > 0) {
+        const cacheSources = Array.isArray(cache.sources)
+            ? cache.sources
+            : (Array.isArray(cache.meta?.sources) ? cache.meta.sources : []);
+        const expectedHasHashes = expectedSources.some(source => typeof source?.expectedHash === 'string' && source.expectedHash.trim());
+        const expectedKeys = new Set(expectedSources.map(source => remoteRuleSetCacheKey(source, expectedHasHashes)).filter(Boolean));
+        const cacheKeys = new Set(cacheSources.map(source => remoteRuleSetCacheKey(source, expectedHasHashes)).filter(Boolean));
+        if (expectedKeys.size === 0 || cacheKeys.size === 0 || expectedKeys.size !== cacheKeys.size) {
+            return false;
+        }
+        for (const key of expectedKeys) {
+            if (!cacheKeys.has(key)) return false;
+        }
+    }
+
+    return true;
+}
+
+function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used', expectedSources = null) {
     const cache = storage.remoteRulescache;
 
     if (!cache || typeof cache !== 'object' || Array.isArray(cache)) {
@@ -1477,6 +1522,10 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
     }
 
     if (cache.verified === false) {
+        return null;
+    }
+
+    if (!remoteRulesCacheMatches(cache, expectedHash, expectedSources)) {
         return null;
     }
 
@@ -1862,7 +1911,7 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
 
             saveRemoteRulesCache(remoteRules, {
                 ruleURL: url,
-                hashURL: storage.hashURL || '',
+                hashURL: hashUrlForHealth || '',
                 expectedHash: expectedHash,
                 computedHash: verification.computedHash,
                 timestamp: verification.timestamp
@@ -2069,12 +2118,13 @@ function loadBundledRules() {
 
     const fetchJobs = configuredRemoteSets.map(set => {
         return fetchRemoteHash(set.hashURL, set.ruleURL)
-            .then(remoteHash => fetchRemoteRules(set.ruleURL, remoteHash, set.hashURL))
-            .then(rules => ({
-                ruleURL: set.ruleURL,
-                hashURL: set.hashURL,
-                rules
-            }));
+            .then(remoteHash => fetchRemoteRules(set.ruleURL, remoteHash, set.hashURL)
+                .then(rules => ({
+                    ruleURL: set.ruleURL,
+                    hashURL: set.hashURL,
+                    expectedHash: remoteHash,
+                    rules
+                })));
     });
 
     return Promise.allSettled(fetchJobs)
@@ -2143,6 +2193,11 @@ function loadBundledRules() {
             tempVerificationCache.isCacheUsed = false;
 
             saveRemoteRulesCache(mergedRemoteRules, {
+                sources: successful.map(source => ({
+                    ruleURL: source.ruleURL,
+                    hashURL: source.hashURL,
+                    expectedHash: source.expectedHash || null
+                })),
                 sourceCount: successful.length,
                 failedSourceCount: failed.length,
                 timestamp: new Date().toISOString()
@@ -2157,7 +2212,7 @@ function loadBundledRules() {
             storage.hashFailureReason = failureMessage;
             recordRemoteFetchFailure(failureMessage, 'all_remote_failed');
             
-            const cacheRules = loadRemoteRulesFromCache(null, 'after_remote_failure');
+            const cacheRules = loadRemoteRulesFromCache(null, 'after_remote_failure', configuredRemoteSets);
             if (cacheRules) {
                 storage.hashValidationStatus = 'cache_used_after_remote_failure';
 
@@ -2226,7 +2281,7 @@ function loadBundledRulesInternal(isFallback = false) {
             return mergeCustomRules(bundledRules);
         })
         .catch(error => {
-            const cacheRules = loadRemoteRulesFromCache(null, 'after_bundled_failure');
+            const cacheRules = loadRemoteRulesFromCache(null, 'after_bundled_failure', getConfiguredRemoteRuleSets());
             if (cacheRules) {
                 storage.hashValidationStatus = 'cache_used_bundled_failed';
                 return mergeCustomRules(cacheRules);
@@ -3262,6 +3317,24 @@ function getRulesInfo() {
         actualProviderCount: providerCount,
         expectedProviderCount: metadata?.providerCount || 'Unknown',
         hashStatus: storage.hashStatus || 'Unknown'
+    };
+}
+
+function getRuleSourceInfo() {
+    return getRulesInfo();
+}
+
+function getMergeStatistics() {
+    const mergeStats = storage.mergeStats || {};
+    const providers = storage.ClearURLsData?.providers || {};
+
+    return {
+        ...mergeStats,
+        actualProviderCount: Object.keys(providers).length,
+        hashStatus: storage.hashStatus || 'unknown',
+        hasCustomRules: !!mergeStats.hasCustomRules,
+        hasOverrides: !!mergeStats.hasOverrides,
+        overriddenProviderNames: mergeStats.overriddenProviderNames || []
     };
 }
 

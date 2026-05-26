@@ -2766,4 +2766,21 @@ function start() {
 
         return {};
     }
+
+    globalThis.traceClearURLWebRequestTest = function (requestDetails) {
+        const request = {
+            method: 'GET',
+            type: 'main_frame',
+            tabId: -1,
+            ...requestDetails
+        };
+        const result = clearUrl(request) || {};
+        return {
+            input: request.url,
+            output: typeof result.redirectUrl === 'string' ? result.redirectUrl : request.url,
+            changed: typeof result.redirectUrl === 'string' && result.redirectUrl !== request.url,
+            blocked: result.cancel === true,
+            raw: result
+        };
+    };
 }
