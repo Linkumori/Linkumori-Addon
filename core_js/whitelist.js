@@ -216,6 +216,10 @@ function isWhitelisted(url, requestDetails = null) {
 
     if (isUrlWhitelistedByEither(url, tabId)) return true;
 
+    if (!requestDetails || requestDetails.type === 'main_frame') {
+        return false;
+    }
+
     const contextUrls = requestContextManager.collectContextURLs(requestDetails);
     return contextUrls.some((contextUrl) => isUrlWhitelistedByEither(contextUrl, tabId));
 }

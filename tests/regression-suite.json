@@ -20756,6 +20756,138 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "webrequest main_frame ignores context whitelist",
+      "dialect": "providerWebRequest",
+      "input": "https://target.example/path/?campaign=x&keep=1",
+      "expectedOutput": "https://target.example/path/?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://source.example/",
+        "referrer": "https://source.example/"
+      },
+      "storage": {
+        "userWhitelist": [
+          "source.example"
+        ]
+      },
+      "providers": {
+        "target-provider": {
+          "urlPattern": "^https?:\\/\\/target\\.example\\/path(?:[/?#]|$)",
+          "rules": [
+            "campaign"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest subrequest honors context whitelist",
+      "dialect": "providerWebRequest",
+      "input": "https://target.example/path/?campaign=x&keep=1",
+      "expectedOutput": "https://target.example/path/?campaign=x&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://source.example/"
+      },
+      "storage": {
+        "userWhitelist": [
+          "source.example"
+        ]
+      },
+      "providers": {
+        "target-provider": {
+          "urlPattern": "^https?:\\/\\/target\\.example\\/path(?:[/?#]|$)",
+          "rules": [
+            "campaign"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest context exception scoped to own target",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei",
+            "@@||gemini.google.com$removeparam=ei"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest context exception applies to matching context",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://gemini.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei",
+            "@@||gemini.google.com$removeparam=ei"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest context exception respects method include",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://gemini.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei",
+            "@@||gemini.google.com$removeparam=ei,method=POST"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }

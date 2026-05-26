@@ -398,6 +398,37 @@ function handleMergeCustomRules(request) {
  */
 function handleRegularFunction(request) {
     try {
+        const allowedFunctions = new Set([
+            'addToTemporaryTabWhitelist',
+            'addToWhitelist',
+            'changeIcon',
+            'getMergeStatistics',
+            'getRemoteRulesHealth',
+            'getRuleSourceInfo',
+            'getTemporaryPauseState',
+            'getTemporaryTabWhitelistForTab',
+            'initSettings',
+            'pureCleaning',
+            'refreshRemoteRulesNow',
+            'reload',
+            'reloadLinkumoriURLFilters',
+            'removeFromTemporaryTabWhitelist',
+            'removeFromWhitelist',
+            'resumeCleaningNow',
+            'runRuleTestLab',
+            'saveOnExit',
+            'setBadgedStatus',
+            'setPendingRegressionSuite',
+            'storageAsJSON'
+        ]);
+
+        if (!allowedFunctions.has(request.function)) {
+            return Promise.resolve({
+                response: false,
+                error: `Function '${request.function}' is not allowed`
+            });
+        }
+
         // Get the function from global scope
         let fn = window[request.function];
 

@@ -678,7 +678,7 @@ async function handleWhitelistChange(domain, shouldAdd) {
             }
             
             await browser.storage.local.set({
-                userWhitelist: JSON.stringify(updatedWhitelist)
+                userWhitelist: updatedWhitelist
             });
             
             return true;

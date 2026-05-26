@@ -28,7 +28,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *   node tests/ci-runner.js [--xpi path/to/extension.xpi] [--full-battery]
  *
  * Environment variables:
- *   FIREFOX_BINARY   Path to the Firefox binary (default: "firefox")
+ *   FIREFOX_BINARY   Path to the Firefox binary (default: auto-detect)
  *   EXTENSION_UUID   Fixed UUID to assign the extension (optional override)
  *   CI_TIMEOUT_MS    Max ms to wait for the suite to finish (default: 900000)
  */
@@ -63,8 +63,16 @@ function detectFirefox() {
             'C:\\Program Files\\Mozilla Firefox\\firefox.exe',
             'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'
           ]
-        : ['/usr/bin/firefox', '/usr/bin/firefox-esr', 'firefox'];
-    return candidates.find(p => existsSync(p)) || 'firefox';
+        : ['/usr/bin/firefox', '/usr/bin/firefox-esr'];
+
+    const installed = candidates.find(p => existsSync(p));
+    if (installed) return installed;
+
+    const lookup = spawnSync(process.platform === 'win32' ? 'where' : 'which', ['firefox'], {
+        encoding: 'utf8'
+    });
+    const pathMatch = lookup.status === 0 ? lookup.stdout.split(/\r?\n/).find(Boolean) : null;
+    return pathMatch || null;
 }
 const FIREFOX_BINARY = detectFirefox();
 const CI_TIMEOUT_MS = parseInt(process.env.CI_TIMEOUT_MS || '900000', 10);
@@ -109,7 +117,7 @@ function normalizeRegressionSuite(rawSuite, { fullBattery = false } = {}) {
         seen.add(id);
 
         const dialect = testCase.dialect || 'provider';
-        if (!['provider', 'urlFilter'].includes(dialect)) {
+        if (!['provider', 'providerWebRequest', 'urlFilter'].includes(dialect)) {
             errors.push(`${id || `case[${index}]`} has unsupported dialect: ${dialect}`);
         }
 
@@ -194,7 +202,6 @@ async function buildExtension() {
 
 async function launchDriver(xpiPath) {
     const options = new firefox.Options()
-        .setBinary(FIREFOX_BINARY)
         .addArguments('-headless')
         .setPreference('extensions.webextensions.uuids', JSON.stringify({ [EXTENSION_ID]: EXTENSION_UUID }))
         .setPreference('xpinstall.signatures.required', false)
@@ -202,6 +209,10 @@ async function launchDriver(xpiPath) {
         .setPreference('extensions.autoDisableScopes', 0)
         .setPreference('extensions.enabledScopes', 15)
         .setPreference('browser.tabs.remote.autostart', false);
+
+    if (FIREFOX_BINARY) {
+        options.setBinary(FIREFOX_BINARY);
+    }
 
     const driver = await new Builder()
         .forBrowser('firefox')
