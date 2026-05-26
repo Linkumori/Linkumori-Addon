@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.16.0] - 2026-05-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.15.0...linkumori-v100.16.0))
+### Changed
+- Release v100.16.0 (hash: `413b08c`).
+- Updated files:
+  - `COMMIT_HISTORY.md`
+
 ## [v100.15.0] - 2026-05-25 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.14.0...linkumori-v100.15.0))
 ### Changed
 - Update script (`2026-05-26`, hash: [`924cabd`](https://github.com/Linkumori/Linkumori-Addon/commit/924cabd))
