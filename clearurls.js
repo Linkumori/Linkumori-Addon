@@ -1230,8 +1230,27 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
     };
 }
 
-function linkumoriRemoveParamExceptionMatchesContext(linkumoriRule, contextUrls) {
+function linkumoriRemoveParamExceptionMatchesMethod(linkumoriRule, request = null) {
+    const requestMethod = (request && typeof request.method === 'string')
+        ? request.method.toUpperCase()
+        : '';
+
+    if (linkumoriRule.includeMethods.length > 0 && !linkumoriRule.includeMethods.includes(requestMethod)) {
+        return false;
+    }
+
+    if (linkumoriRule.excludeMethods.length > 0 && linkumoriRule.excludeMethods.includes(requestMethod)) {
+        return false;
+    }
+
+    return true;
+}
+
+function linkumoriRemoveParamExceptionMatchesContext(linkumoriRule, contextUrls, request = null) {
     if (!linkumoriRule || !linkumoriRule.isException || !Array.isArray(contextUrls)) {
+        return false;
+    }
+    if (!linkumoriRemoveParamExceptionMatchesMethod(linkumoriRule, request)) {
         return false;
     }
 
@@ -2673,7 +2692,7 @@ function start() {
                 });
                 if (matchesContext) {
                     const matchedExceptions = provider.getLinkumoriRemoveParamExceptions().filter((exceptionRule) => {
-                        return linkumoriRemoveParamExceptionMatchesContext(exceptionRule, contextUrls);
+                        return linkumoriRemoveParamExceptionMatchesContext(exceptionRule, contextUrls, request);
                     });
                     globalLinkumoriExceptions.push(...matchedExceptions);
                 }
