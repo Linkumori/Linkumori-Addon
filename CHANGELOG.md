@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.17.0] - 2026-05-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.16.0...linkumori-v100.17.0))
+### Changed
+- Audit webrequest regression coverage (`2026-05-26`, hash: [`662a121`](https://github.com/Linkumori/Linkumori-Addon/commit/662a121))
+- Honor method filters for context exceptions (`2026-05-26`, hash: [`be07bba`](https://github.com/Linkumori/Linkumori-Addon/commit/be07bba))
+
+### Fixed
+- Resolve scoped removeparam context exceptions (`2026-05-26`, hash: [`b827f5a`](https://github.com/Linkumori/Linkumori-Addon/commit/b827f5a))
+
 ## [v100.16.0] - 2026-05-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.15.0...linkumori-v100.16.0))
 ### Changed
 - Release v100.16.0 (hash: `413b08c`).
