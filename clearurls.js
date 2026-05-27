@@ -273,6 +273,31 @@ function normalizeAsciiHostname(value) {
     }
 }
 
+function getHostnameLookupTokens(hostnameInput) {
+    const normalized = normalizeAsciiHostname(hostnameInput);
+    const tokens = new Set();
+    if (!normalized) return [];
+
+    function addLabels(value) {
+        String(value || '')
+            .split('.')
+            .map(label => label.trim().toLowerCase())
+            .filter(label => /^[a-z0-9-]+$/i.test(label))
+            .filter(label => label !== '*')
+            .forEach(label => tokens.add(label));
+    }
+
+    addLabels(normalized);
+
+    const parsed = parseHostnameWithPsl(normalized);
+    if (parsed) {
+        addLabels(parsed.domain);
+        addLabels(parsed.subdomain);
+    }
+
+    return Array.from(tokens);
+}
+
 function initPslSupport() {
     if (pslSupport.status === 'loading' || pslSupport.status === 'ready') {
         return pslSupport.loadPromise;
@@ -1105,6 +1130,27 @@ function parseLinkumoriRemoveParamRule(ruleText) {
     return parsed;
 }
 
+function getLinkumoriRemoveParamRuleText(rule) {
+    if (typeof rule === 'string') {
+        return rule;
+    }
+
+    if (rule && typeof rule === 'object' && !Array.isArray(rule)) {
+        if (typeof rule.match === 'string') {
+            return rule.match;
+        }
+        if (typeof rule.matchPattern === 'string') {
+            return rule.matchPattern;
+        }
+    }
+
+    return '';
+}
+
+function parseLinkumoriRemoveParamRuleDefinition(rule) {
+    return parseLinkumoriRemoveParamRule(getLinkumoriRemoveParamRuleText(rule));
+}
+
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null) {
     if (!linkumoriRule || !fullUrl) return false;
 
@@ -1822,10 +1868,7 @@ function start() {
     requestContextManager.init();
 
     function getKeys(obj) {
-        prvKeys = [];
-        for (const key in obj) {
-            prvKeys.push(key);
-        }
+        prvKeys = Object.keys(obj || {});
     }
 
     function createProviders() {
@@ -1850,7 +1893,11 @@ function start() {
             let indexPattern = providerData.getOrDefault('indexPattern', []);
             let domainPatterns = providerData.getOrDefault('domainPatterns', []);
 
-            if (urlPattern) {
+            if (Array.isArray(domainPatterns) && domainPatterns.length > 0) {
+                provider.setURLDomainPattern(domainPatterns);
+            } else if (domainPatterns && typeof domainPatterns === 'string') {
+                provider.setURLDomainPattern(domainPatterns);
+            } else if (urlPattern) {
                 provider.setURLPattern(urlPattern);
                 const hasIndex = Array.isArray(indexPattern)
                     ? indexPattern.length > 0
@@ -1858,8 +1905,6 @@ function start() {
                 if (hasIndex) {
                     provider.setIndexPattern(indexPattern);
                 }
-            } else if (domainPatterns.length > 0) {
-                provider.setURLDomainPattern(domainPatterns);
             }
 
             const providerDefaults = data && data.defaults && typeof data.defaults === 'object' ? data.defaults : null;
@@ -2259,9 +2304,9 @@ function start() {
                 return labels.map(l => l.toLowerCase());
             }
 
-            // Combine domainPatterns and indexPatterns into one source list.
-            // Both use the same domainPattern syntax so the same pipeline handles them.
-            const sources = [...domainPatterns, ...indexPatterns];
+            // domainPatterns are both the matcher and index source. indexPattern is
+            // only a speed hint for legacy urlPattern providers.
+            const sources = domainPatterns.length > 0 ? domainPatterns : indexPatterns;
 
             for (const pattern of sources) {
                 const cleaned = cleanDomainPattern(pattern);
@@ -2369,14 +2414,6 @@ function start() {
         };
 
         this.getAppliedPatternForUrl = function (url) {
-            if (urlPattern && urlPattern.test(url)) {
-                return {
-                    providerName: name,
-                    patternType: 'urlPattern',
-                    patternValue: urlPatternSource || urlPattern.source || ''
-                };
-            }
-
             if (domainPatterns.length > 0) {
                 for (const pattern of domainPatterns) {
                     if (matchDomainPattern(url, [pattern])) {
@@ -2387,6 +2424,14 @@ function start() {
                         };
                     }
                 }
+            }
+
+            if (urlPattern && urlPattern.test(url)) {
+                return {
+                    providerName: name,
+                    patternType: 'urlPattern',
+                    patternValue: urlPatternSource || urlPattern.source || ''
+                };
             }
 
             return {
@@ -2401,28 +2446,33 @@ function start() {
         };
 
         this.matchURL = function (url) {
-            if (urlPattern) {
-                return urlPattern.test(url) && !(this.matchException(url));
-            } else if (domainPatterns.length > 0) {
+            if (domainPatterns.length > 0) {
                 return matchDomainPattern(url, domainPatterns) && !(this.matchException(url));
+            } else if (urlPattern) {
+                return urlPattern.test(url) && !(this.matchException(url));
             }
             return false;
         };
 
         this.matchRequestURL = function (url, request = null) {
-            if (urlPattern) {
+            if (domainPatterns.length > 0) {
+                return matchDomainPattern(url, domainPatterns) && !(this.matchException(url, request));
+            } else if (urlPattern) {
                 urlPattern.lastIndex = 0;
                 return urlPattern.test(url) && !(this.matchException(url, request));
-            } else if (domainPatterns.length > 0) {
-                return matchDomainPattern(url, domainPatterns) && !(this.matchException(url, request));
             }
             return false;
         };
 
         this.addRule = function (rule, isActive = true, defaults = null) {
-            const parsedLinkumoriRule = typeof rule === 'string' ? parseLinkumoriRemoveParamRule(rule) : null;
+            const parsedLinkumoriRule = parseLinkumoriRemoveParamRuleDefinition(rule);
             if (parsedLinkumoriRule) {
-                if (!isActive) return;
+                const normalizedRule = normalizeCoreRuleDefinition(rule, "i", defaults);
+                if (!isActive || (normalizedRule && normalizedRule.active === false)) return;
+                if (normalizedRule) {
+                    const activeRule = activateCompiledRule(normalizedRule, 'rules');
+                    if (!activeRule) return;
+                }
 
                 if (parsedLinkumoriRule.isException) {
                     linkumoriRemoveParamExceptions.push(parsedLinkumoriRule);
@@ -2671,7 +2721,7 @@ function start() {
             for (const ctxUrl of contextUrls) {
                 try {
                     const ctxHost = new URL(ctxUrl).hostname;
-                    const ctxTokens = ctxHost.split('.').map(t => t.toLowerCase());
+                    const ctxTokens = getHostnameLookupTokens(ctxHost);
                     const seenCtxTokens = new Set();
                     for (const token of ctxTokens) {
                         if (seenCtxTokens.has(token)) continue;
@@ -2703,7 +2753,7 @@ function start() {
             try {
                 requestHost = new URL(request.url).hostname;
             } catch (e) {}
-            const requestHostTokens = requestHost.split('.').map(t => t.toLowerCase());
+            const requestHostTokens = getHostnameLookupTokens(requestHost);
 
             let requestCandidateProviders = new Set(globalProviders);
             const seenRequestTokens = new Set();

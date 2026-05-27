@@ -52,22 +52,31 @@ If the source code you received already contains `COMMIT_HISTORY.md`, you do not
 
 # Build Instructions
 
-> **Reproducible Builds — Two Offline Prompts:**
-> During a build the CLI presents two separate online/offline choices. Select **offline**
-> for both if your goal is a binary-exact build from source. Recipients and end users
-> should choose **offline** for both prompts.
+> **Reproducible Builds — Rules Source and PSL Prompt:**
+> ClearURLs rules are built from the canonical source file
+> `data/linkumori-clearurls.json`. The CLI injects Linkumori metadata only into
+> the generated `data/linkumori-clearurls-min.json.lz4` payload. The rules build
+> no longer downloads or merges `downloaded-official-rules.json` and
+> `custom-rules.json`.
 >
-> 1. **Rules source** ("Choose a merge mode") — select **offline** to use the bundled
->    `downloaded-official-rules.json` shipped with this source package instead of
->    downloading ClearURLs rules from the URL configured in `data/url-config.json`.
+> 1. **Rules source** — edit `data/linkumori-clearurls.json`; the CLI normalizes this
+>    metadata-free source file, injects metadata in memory, and converts the
+>    generated payload to the bundled LZ4 ruleset.
+>    This source file carries forward the historical modification notices from
+>    `data/custom-rules.json`, `data/downloaded-official-rules.json`, and the
+>    earlier `data/linkumori-clearurls-min.json.lz4` bundle lineage.
+>    See `data/linkumori-clearurls.json.txt`,
+>    `data/linkumori-clearurls-min.json.lz4.txt`,
+>    `data/custom-rules.json.txt`, and
+>    `data/downloaded-official-rules.json.txt`.
 >
 > 2. **PSL source** ("Choose PSL mode") — select **offline** to use the bundled local
 >    Public Suffix List (PSL) file instead of fetching PSL data from the URL configured
 >    in `data/url-config.json`.
 >
-> Selecting **online** for either prompt fetches live data that may differ from what was
-> used in the official release, producing a build that is functionally equivalent but not
-> binary-identical.
+> Selecting **online** for the PSL prompt fetches live PSL data that may differ from
+> what was used in the official release, producing a build that is functionally
+> equivalent but not binary-identical.
 >
 > This applies to both the unsigned and signed build paths.
 
@@ -187,11 +196,8 @@ The CLI runs the following steps automatically:
 
 - **Step 1/6:** Generates copyright documentation.
 
-- **Step 2/6 — Rules prompt:** "Choose a merge mode"
-  - Select **`2) Offline`** to use the bundled `downloaded-official-rules.json` (binary-exact build).
-  - Select `1) Online` to download ClearURLs rules from the URL configured in `data/url-config.json` (not binary-exact).
-  - Before selecting online, review and make `data/url-config.json` your own configuration.
-  - *(Prompt only appears if a local rules file already exists. If none exists, online is used automatically.)*
+- **Step 2/6:** Builds `data/linkumori-clearurls-min.json.lz4` from the canonical
+  source file `data/linkumori-clearurls.json`.
 
 - **Step 3/6:** Builds the Old Country Nobility font (`Old-Country-Nobility.sfd` → `.ttf`) using FontForge.
   *(Requires FontForge — see Requirements. If not installed, this step is skipped and the build continues.)*

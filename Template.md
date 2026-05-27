@@ -32,7 +32,7 @@
 | **CSS** | `css/settings.css`<br>`css/siteBlockedAlert.css` |
 | **Icons (PNG)** | `img/icon16.png`<br>`img/icon19.png`<br>`img/icon20.png`<br>`img/icon24.png`<br>`img/icon30.png`<br>`img/icon32.png`<br>`img/icon38.png`<br>`img/icon48.png`<br>`img/icon64.png`<br>`img/icon96.png`<br>`img/icon128.png`<br>`img/icon128_gray.png` |
 | **Icons (SVG)** | `img/linkumori_icon_disabled.svg`<br>`img/linkumori_icons.svg`<br>`img/linkumori_icon_theme_dark.svg`<br>`img/linkumori_icon_theme_light.svg`<br>`img/linkumori_icon_theme_icecold.svg`<br>`img/linkumori_icon_theme_midnight.svg`<br>`img/linkumori_icon_theme_sunset.svg`<br>`img/linkumori_icon_theme_legacy.svg`<br>`img/linkumori_icon_theme_legacy_disabled.svg` |
-| **Data** | `data/custom-rules.json`<br>`data/privacy-policy-map.json`<br>`data/url-config.json`<br>`tests/regression-suite.json` |
+| **Data** | `<br>`data/privacy-policy-map.json`<br>`data/url-config.json`<br>`tests/regression-suite.json` |
 
 ### 1.2 Copyright & License
 
@@ -70,14 +70,26 @@
 
 ## 2. ClearURLs-Derived Components
 
-### 2.1 Unmodified ClearURLs Components
+### 2.1 ClearURLs-Derived Rule Data
 
 
 **Files:**
-- `data/downloaded-official-rules.json`
+- `data/linkumori-clearurls.json`
+- `data/linkumori-clearurls-min.json.lz4`
 
+**Historical Notice Files:**
+- `data/linkumori-clearurls.json.txt`
+- `data/linkumori-clearurls-min.json.lz4.txt`
+- `data/custom-rules.json.txt`
+- `data/downloaded-official-rules.json.txt`
 
 **Source:** https://github.com/ClearURLs/Rules
+
+**Copyright and Attribution:**
+- Linkumori modifications and curated additions: Copyright (c) 2025-2026 Subham Mahesh
+- ClearURLs Rules portions: copyright their respective ClearURLs authors and contributors, including Kevin Röbert where applicable
+
+**Provenance:** `data/linkumori-clearurls.json` is the canonical metadata-free source rules file. It carries forward the historical rule-source modifications from deprecated `data/custom-rules.json`, deprecated `data/downloaded-official-rules.json`, and the earlier `data/linkumori-clearurls-min.json.lz4` bundle lineage. Linkumori metadata is injected only into the generated LZ4 payload.
 
 **License:** GNU Lesser General Public License (LGPL) v3.0 or later
 
@@ -1746,22 +1758,22 @@ If the source code you received already contains `COMMIT_HISTORY.md`, you do not
 
 ## Build Instructions
 
-> **Reproducible Builds — Two Offline Prompts:**
-> During a build the CLI presents two separate online/offline choices. Select **offline**
-> for both if your goal is a binary-exact build from source. Recipients and end users
-> should choose **offline** for both prompts.
+> **Reproducible Builds — Rules Source and PSL Prompt:**
+> ClearURLs rules are built from the canonical source file
+> `data/linkumori-clearurls.json`, which is compressed into
+> `data/linkumori-clearurls-min.json.lz4`. The rules build no longer downloads or
+> merges `downloaded-official-rules.json` and `custom-rules.json`.
 >
-> 1. **Rules source** ("Choose a merge mode") — select **offline** to use the bundled
->    `downloaded-official-rules.json` shipped with this source package instead of
->    downloading ClearURLs rules from the URL configured in `data/url-config.json`.
+> 1. **Rules source** — edit `data/linkumori-clearurls.json`; the CLI normalizes this
+>    file and converts it directly to the bundled LZ4 ruleset.
 >
 > 2. **PSL source** ("Choose PSL mode") — select **offline** to use the bundled local
 >    Public Suffix List (PSL) file instead of fetching PSL data from the URL configured
 >    in `data/url-config.json`.
 >
-> Selecting **online** for either prompt fetches live data that may differ from what was
-> used in the official release, producing a build that is functionally equivalent but not
-> binary-identical.
+> Selecting **online** for the PSL prompt fetches live PSL data that may differ from
+> what was used in the official release, producing a build that is functionally
+> equivalent but not binary-identical.
 >
 > This applies to both the unsigned and signed build paths.
 
@@ -1881,11 +1893,8 @@ The CLI runs the following steps automatically:
 
 - **Step 1/6:** Generates copyright documentation.
 
-- **Step 2/6 — Rules prompt:** "Choose a merge mode"
-  - Select **`2) Offline`** to use the bundled `downloaded-official-rules.json` (binary-exact build).
-  - Select `1) Online` to download ClearURLs rules from the URL configured in `data/url-config.json` (not binary-exact).
-  - Before selecting online, review and make `data/url-config.json` your own configuration.
-  - *(Prompt only appears if a local rules file already exists. If none exists, online is used automatically.)*
+- **Step 2/6:** Builds `data/linkumori-clearurls-min.json.lz4` from the canonical
+  source file `data/linkumori-clearurls.json`.
 
 - **Step 3/6:** Builds the Old Country Nobility font (`Old-Country-Nobility.sfd` → `.ttf`) using FontForge.
   *(Requires FontForge — see Requirements. If not installed, this step is skipped and the build continues.)*

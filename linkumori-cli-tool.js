@@ -111,14 +111,10 @@ class LinkumoriCLI {
     
     // ClearURLs builder configuration
     this.clearurlsConfig = {
-      customRulesFile: 'data/custom-rules.json',
-      officialRulesSource: 'https', // 'https' or 'file'
-      officialRulesFile: 'data/official-rules.json',
+      sourceRulesFile: 'data/linkumori-clearurls.json',
       outputBaseName: 'linkumori',
-      downloadedOfficialFile: 'data/downloaded-official-rules.json',
-      officialRulesUrl: null,
-      officialHashUrl: null,
-      officialHashCacheFile: 'data/downloaded-official-rules.min.hash'
+      combinedRulesFile: 'data/linkumori-clearurls.json',
+      compressedRulesFile: 'data/linkumori-clearurls-min.json.lz4'
     };
 
     // PSL updater configuration
@@ -846,7 +842,25 @@ documentation when you run the build process.
         "project": "Linkumori",
         "originalProject": "ClearURLs",
         "first-modified-By": "Subham Mahesh in 2026 with significant enhancements and optimizations",
-        "Notice-Of-Modification":"It can be found in data/NOTICE.md file",
+        "copyright": "Copyright (c) 2025-2026 Subham Mahesh for Linkumori modifications and curated additions; ClearURLs Rules portions remain copyright their respective ClearURLs authors and contributors, including Kevin Röbert where applicable.",
+        "Notice-Of-Modification": "See data/NOTICE.md and sidecar notices for linkumori-clearurls.json, linkumori-clearurls-min.json.lz4, custom-rules.json, and downloaded-official-rules.json.",
+        "sourceLineage": {
+          "canonicalSource": "data/linkumori-clearurls.json",
+          "generatedBundle": "data/linkumori-clearurls-min.json.lz4",
+          "migratedFrom": [
+            "data/downloaded-official-rules.json",
+            "data/custom-rules.json",
+            "data/linkumori-clearurls-min.json.lz4"
+          ],
+          "carriesHistoricalModifications": true,
+          "noticeFiles": [
+            "data/NOTICE.md",
+            "data/linkumori-clearurls.json.txt",
+            "data/linkumori-clearurls-min.json.lz4.txt",
+            "data/custom-rules.json.txt",
+            "data/downloaded-official-rules.json.txt"
+          ]
+        },
         "urls": {
           "repository": "https://github.com/Linkumori/Linkumori-Addon",
           "homepage": "https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/",
@@ -857,89 +871,6 @@ documentation when you run the build process.
         }
       }
     };
-  }
-
-  // Fetch official rules from configured URL or local file
-  async fetchOfficialRules(useOffline = false) {
-    if (useOffline) {
-      // Use downloaded-official-rules.json
-      const offlineFile = this.clearurlsConfig.downloadedOfficialFile;
-      this.info(`📂 Loading official rules from local file: ${offlineFile}`);
-      
-      try {
-        fs.statSync(offlineFile);
-      } catch {
-        this.error(`❌ Downloaded rules file not found: ${offlineFile}`);
-        this.info('The file does not exist. Please run an online build first to download it.');
-        throw new Error(`Offline rules file not found: ${offlineFile}`);
-      }
-      
-      try {
-        const fileContent = fs.readFileSync(offlineFile, 'utf8');
-        const rules = JSON.parse(fileContent);
-        this.success(`✅ Loaded ${Object.keys(rules.providers).length} official providers from local file`);
-        return rules;
-      } catch (error) {
-        throw new Error(`Error reading offline rules file: ${error.message}`);
-      }
-    } else {
-      // Fetch from configured URL
-      const url = this.requireConfiguredUrl(
-        this.clearurlsConfig.officialRulesUrl,
-        'clearurls.officialRulesUrl'
-      );
-      this.info(`📥 Fetching latest official rules from: ${url}`);
-      
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.text();
-        
-        // Save downloaded data
-        try {
-          fs.mkdirSync('data', { recursive: true });
-        } catch {
-          // Directory already exists
-        }
-        fs.writeFileSync(this.clearurlsConfig.downloadedOfficialFile, data);
-        this.success(`✅ Official rules downloaded and saved as: ${this.clearurlsConfig.downloadedOfficialFile}`);
-        
-        const rules = JSON.parse(data);
-        this.success(`✅ Loaded ${Object.keys(rules.providers).length} official providers from configured URL`);
-        return rules;
-      } catch (error) {
-        throw new Error(`Error fetching official rules from configured URL: ${error.message}`);
-      }
-    }
-  }
-
-  // Fetch official rules hash from configured URL
-  async fetchOfficialRulesHash() {
-    const hashUrl = this.requireConfiguredUrl(
-      this.clearurlsConfig.officialHashUrl,
-      'clearurls.officialHashUrl'
-    );
-    this.info(`🔐 Fetching official rules hash from: ${hashUrl}`);
-
-    try {
-      const response = await fetch(hashUrl);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const hash = (await response.text()).trim();
-      if (!hash) {
-        throw new Error('Hash file is empty');
-      }
-
-      this.success(`✅ Fetched official hash: ${hash}`);
-      return hash;
-    } catch (error) {
-      throw new Error(`Error fetching official hash from configured URL: ${error.message}`);
-    }
   }
 
   countPslRules(listText) {
@@ -1059,38 +990,15 @@ documentation when you run the build process.
     return ok;
   }
 
-  // Read previously saved official rules hash from local cache
-  readSavedOfficialRulesHash() {
-    const hashFile = this.clearurlsConfig.officialHashCacheFile;
-    try {
-      const cachedHash = fs.readFileSync(hashFile, 'utf8').trim();
-      return cachedHash || null;
-    } catch {
-      return null;
-    }
-  }
-
-  // Persist latest official rules hash to local cache
-  saveOfficialRulesHash(hash) {
-    const hashFile = this.clearurlsConfig.officialHashCacheFile;
-    try {
-      fs.mkdirSync('data', { recursive: true });
-    } catch {
-      // Directory already exists
-    }
-    fs.writeFileSync(hashFile, `${hash}\n`);
-    this.success(`✅ Saved official hash cache: ${hashFile}`);
-  }
-
-  // Load custom rules
-  loadCustomRules(filePath) {
-    this.info(`📂 Loading custom rules from: ${filePath}`);
+  // Load the canonical ClearURLs source JSON.
+  loadClearURLsSourceRules(filePath) {
+    this.info(`📂 Loading ClearURLs source rules from: ${filePath}`);
     
     try {
       fs.statSync(filePath);
     } catch {
-      this.error(`❌ Custom rules file not found: ${filePath}`);
-      this.info('Create your custom rules JSON file first.');
+      this.error(`❌ ClearURLs source file not found: ${filePath}`);
+      this.info(`Create ${this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile} first.`);
       return null;
     }
     
@@ -1098,18 +1006,24 @@ documentation when you run the build process.
       const fileContent = fs.readFileSync(filePath, 'utf8');
       const parsed = JSON.parse(fileContent);
       if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-        throw new Error('Custom rules must be an object');
+        throw new Error('ClearURLs source must be an object');
       }
 
       const hasWrappedShape = Object.prototype.hasOwnProperty.call(parsed, 'providers')
         || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterRules')
+        || Object.prototype.hasOwnProperty.call(parsed, 'metadata')
         || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterMetadata');
       const providers = hasWrappedShape ? (parsed.providers || {}) : parsed;
 
       if (!providers || typeof providers !== 'object' || Array.isArray(providers)) {
-        throw new Error('Custom providers must be an object');
+        throw new Error('ClearURLs providers must be an object');
       }
 
+      const metadata = parsed.metadata
+        && typeof parsed.metadata === 'object'
+        && !Array.isArray(parsed.metadata)
+        ? parsed.metadata
+        : {};
       const urlFilterRules = Array.isArray(parsed.urlFilterRules)
         ? parsed.urlFilterRules
         : [];
@@ -1120,16 +1034,17 @@ documentation when you run the build process.
         : {};
 
       this.success(
-        `✅ Loaded ${Object.keys(providers).length} custom providers and ${urlFilterRules.length} URL filter rules`
+        `✅ Loaded ${Object.keys(providers).length} providers and ${urlFilterRules.length} URL filter rules`
       );
 
       return {
+        metadata,
         providers,
         urlFilterRules,
         urlFilterMetadata
       };
     } catch (error) {
-      this.error(`❌ Error loading custom rules: ${error.message}`);
+      this.error(`❌ Error loading ClearURLs source rules: ${error.message}`);
       return null;
     }
   }
@@ -1306,7 +1221,7 @@ documentation when you run the build process.
     }
 
     if (typeof merged.urlPattern !== 'string' || merged.urlPattern.length === 0) delete merged.urlPattern;
-    if (
+    if (merged.domainPatterns.length > 0 ||
       !merged.indexPattern ||
       (Array.isArray(merged.indexPattern) && merged.indexPattern.length === 0)
     ) delete merged.indexPattern;
@@ -1675,6 +1590,11 @@ documentation when you run the build process.
         return;
       }
 
+      if (Array.isArray(providerData.domainPatterns) && providerData.domainPatterns.length > 0) {
+        delete providerData.indexPattern;
+        return;
+      }
+
       if (this.hasUsableIndexPattern(providerData.indexPattern)) {
         preserved++;
         return;
@@ -1847,7 +1767,10 @@ documentation when you run the build process.
         self.urlPattern = data.providers[provider].urlPattern;
       }
 
-      if (this.hasUsableIndexPattern(data.providers[provider].indexPattern)) {
+      if (
+        this.hasUsableIndexPattern(data.providers[provider].indexPattern) &&
+        !(Array.isArray(data.providers[provider].domainPatterns) && data.providers[provider].domainPatterns.length > 0)
+      ) {
         self.indexPattern = data.providers[provider].indexPattern;
       }
 
@@ -1902,8 +1825,9 @@ documentation when you run the build process.
     return minifiedData;
   }
 
-  // Format minified JSON with readable metadata and one-line providers
-  formatMinifiedOutput(data) {
+  // Format rule JSON with readable top-level sections and one-line providers.
+  formatMinifiedOutput(data, options = {}) {
+    const includeMetadata = options.includeMetadata !== false;
     const metadata = data.metadata || {};
     const providers = data.providers || {};
     const urlFilterMetadata = data.urlFilterMetadata || {};
@@ -1921,7 +1845,11 @@ documentation when you run the build process.
 
     const providersBlock = providerLines ? `\n${providerLines}\n` : '\n';
 
-    return `{\n  "metadata": ${metadataInline},\n  "urlFilterMetadata": ${urlFilterMetadataJson},\n  "urlFilterRules": ${urlFilterRulesJson},\n  "providers": {${providersBlock}  }\n}\n`;
+    const metadataBlock = includeMetadata
+      ? `  "metadata": ${metadataInline},\n`
+      : '';
+
+    return `{\n${metadataBlock}  "urlFilterMetadata": ${urlFilterMetadataJson},\n  "urlFilterRules": ${urlFilterRulesJson},\n  "providers": {${providersBlock}  }\n}\n`;
   }
 
   loadLZ4Codec() {
@@ -1983,7 +1911,13 @@ documentation when you run the build process.
     if (preferredFile && fs.existsSync(preferredFile)) return preferredFile;
     if (preferredFile) return preferredFile;
 
-    return 'data/linkumori-clearurls-min.json.lz4';
+    const sourceFile = this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile;
+    if (sourceFile && fs.existsSync(sourceFile)) return sourceFile;
+    if (this.clearurlsConfig.compressedRulesFile && fs.existsSync(this.clearurlsConfig.compressedRulesFile)) {
+      return this.clearurlsConfig.compressedRulesFile;
+    }
+
+    return sourceFile || 'data/linkumori-clearurls.json';
   }
 
   // Unminify rules from compressed/minified rules file
@@ -1991,8 +1925,8 @@ documentation when you run the build process.
     this.section('📤 Unminifying ClearURLs Rules');
 
     const {
-      inputFile = `data/${this.clearurlsConfig.outputBaseName}-clearurls-min.json.lz4`,
-      outputFile = `data/${this.clearurlsConfig.outputBaseName}-clearurls.json`
+      inputFile = this.clearurlsConfig.compressedRulesFile,
+      outputFile = `data/${this.clearurlsConfig.outputBaseName}-clearurls-unminified.json`
     } = options;
 
     try {
@@ -2214,51 +2148,59 @@ ${commit.message}
     const linkumoriMetadata = this.createLinkumoriMetadata();
     const version = linkumoriMetadata.metadata.version;
     const buildTime = linkumoriMetadata.metadata.buildTimestamp;
+    const originalMetadata = originalData?.metadata
+      && typeof originalData.metadata === 'object'
+      && !Array.isArray(originalData.metadata)
+      ? originalData.metadata
+      : {};
     
     this.info(`  📅 Version: ${version}`);
     this.info(`  🕒 Build time: ${buildTime}`);
     
     return {
-      ...linkumoriMetadata,
-      ...originalData
+      ...originalData,
+      metadata: {
+        ...originalMetadata,
+        ...linkumoriMetadata.metadata
+      }
     };
   }
 
   // Lint a ClearURLs rules JSON file by replaying clearurls.js logic.
   // Accepts both formats:
-  //   • flat  { providerName: { urlPattern, rules, ... }, ... }  ← custom-rules.json
-  //   • wrapped { providers, urlFilterRules?, urlFilterMetadata? } ← linkumori-clearurls-min.json.lz4
+  //   • wrapped { metadata?, providers, urlFilterRules?, urlFilterMetadata? } ← linkumori-clearurls.json
+  //   • flat  { providerName: { urlPattern, rules, ... }, ... }  ← legacy imports
   async lintClearURLsRules(rulesFile = null) {
     this.section('🔍 ClearURLs Rules Linter');
 
     // ── 0. File selection prompt ──────────────────────────────────────────────
     if (rulesFile === null) {
-      const customFile  = 'data/custom-rules.json';
-      const builtFile   = this.resolveRulesFile();
-      const customExists = fs.existsSync(customFile);
-      const builtExists  = fs.existsSync(builtFile);
+      const sourceFile = this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile;
+      const bundledFile = this.clearurlsConfig.compressedRulesFile;
+      const sourceExists = fs.existsSync(sourceFile);
+      const bundledExists = fs.existsSync(bundledFile);
 
       if (this.isInteractive()) {
         this.log('');
         this.log('Which file do you want to lint?', 'cyan');
         this.log('');
-        this.log(`  1) 📝 Custom rules   — ${customFile}${customExists ? '' : '  (not found)'}`, 'white');
-        this.log(`  2) 📦 Built output   — ${builtFile}${builtExists ? '' : '  (not found)'}`, 'white');
+        this.log(`  1) 📝 Source rules   — ${sourceFile}${sourceExists ? '' : '  (not found)'}`, 'white');
+        this.log(`  2) 📦 Bundled LZ4    — ${bundledFile}${bundledExists ? '' : '  (not found)'}`, 'white');
         this.log('');
         process.stdout.write('Enter your choice (1 or 2, default=1): ');
         const choice = await this.getInput();
 
         if (choice === '2') {
-          rulesFile = builtFile;
-          this.info(`📦 Selected: ${builtFile}`);
+          rulesFile = bundledFile;
+          this.info(`📦 Selected: ${bundledFile}`);
         } else {
-          rulesFile = customFile;
-          this.info(`📝 Selected: ${customFile}`);
+          rulesFile = sourceFile;
+          this.info(`📝 Selected: ${sourceFile}`);
         }
         this.log('');
       } else {
-        // Non-interactive (piped / CI): default to custom-rules.json
-        rulesFile = customFile;
+        // Non-interactive (piped / CI): default to canonical source JSON.
+        rulesFile = sourceFile;
       }
     }
 
@@ -2267,8 +2209,8 @@ ${commit.message}
     // ── 1. File exists ────────────────────────────────────────────────────────
     if (!fs.existsSync(rulesFile)) {
       this.error(`❌ Rules file not found: ${rulesFile}`);
-      if (rulesFile.includes('custom-rules')) {
-        this.info('Edit data/custom-rules.json to add your custom rules.');
+      if (rulesFile === (this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile)) {
+        this.info('Edit data/linkumori-clearurls.json to add or update bundled rules.');
       } else {
         this.info('Run the "clearurls" command first to build the rules file.');
       }
@@ -2307,7 +2249,7 @@ ${commit.message}
         return false;
       }
       providersObj = data;
-      formatLabel  = 'flat (custom-rules style)';
+      formatLabel  = 'flat legacy provider map';
     }
 
     const providerEntries = Object.entries(providersObj);
@@ -2328,6 +2270,189 @@ ${commit.message}
         errors.push(`${label} → ${e.message}`);
         return false;
       }
+    };
+
+    const parseRegexLiteral = (value) => {
+      const text = String(value || '').trim();
+      if (!text.startsWith('/')) return null;
+      const closingSlash = text.lastIndexOf('/');
+      if (closingSlash <= 0) return null;
+      const body = text.slice(1, closingSlash);
+      const flags = text.slice(closingSlash + 1);
+      return { body, flags };
+    };
+
+    const getRulePattern = (rule) => {
+      if (typeof rule === 'string') return rule;
+      if (rule && typeof rule === 'object' && !Array.isArray(rule)) {
+        if (typeof rule.match === 'string') return rule.match;
+        if (typeof rule.matchPattern === 'string') return rule.matchPattern;
+      }
+      return '';
+    };
+
+    const getRuleLabel = (rule) => {
+      const pattern = getRulePattern(rule);
+      if (pattern) return pattern;
+      try {
+        return JSON.stringify(rule).slice(0, 80);
+      } catch {
+        return String(rule);
+      }
+    };
+
+    const isRemoveParamRule = (rule) => (
+      /\$(?:[^,\s]*,)*(?:removeparam|queryprune)(?:[=,\s]|$)/i.test(getRulePattern(rule))
+    );
+
+    const splitRemoveParamModifiers = (modifiersText) => {
+      const parts = [];
+      let current = '';
+      let inRegex = false;
+      let escaped = false;
+      const text = String(modifiersText || '');
+
+      for (let i = 0; i < text.length; i++) {
+        const ch = text.charAt(i);
+        const next = i + 1 < text.length ? text.charAt(i + 1) : '';
+
+        if (!inRegex) {
+          if (ch === ',') {
+            if (current.trim()) parts.push(current.trim());
+            current = '';
+            continue;
+          }
+
+          current += ch;
+          if (ch === '=' && next === '/') {
+            current += '/';
+            inRegex = true;
+            escaped = false;
+            i++;
+          }
+          continue;
+        }
+
+        current += ch;
+        if (escaped) {
+          escaped = false;
+          continue;
+        }
+        if (ch === '\\') {
+          escaped = true;
+          continue;
+        }
+        if (ch === '/') {
+          inRegex = false;
+        }
+      }
+
+      if (current.trim()) parts.push(current.trim());
+      return parts;
+    };
+
+    const getRemoveParamValue = (rule) => {
+      const rulePattern = getRulePattern(rule);
+      const modifierStart = rulePattern.indexOf('$');
+      if (modifierStart === -1) return null;
+      const modifiers = splitRemoveParamModifiers(rulePattern.slice(modifierStart + 1));
+      const token = modifiers.find(part => /^(?:removeparam|queryprune)(?:=|$)/i.test(part.trim()));
+      if (!token) return null;
+      const eqIndex = token.indexOf('=');
+      return eqIndex === -1 ? '' : token.slice(eqIndex + 1).trim();
+    };
+
+    const validateRemoveParamRule = (rule, label) => {
+      const value = getRemoveParamValue(rule);
+      if (value === null) {
+        errors.push(`${label} → missing removeparam/queryprune modifier`);
+        return;
+      }
+      if (value === '') return;
+      const normalizedValue = value.startsWith('~') ? value.slice(1).trim() : value;
+      const regexLiteral = parseRegexLiteral(normalizedValue);
+      if (regexLiteral) {
+        tryRegex(regexLiteral.body, regexLiteral.flags || 'i', label);
+      }
+    };
+
+    const removeParamRuleMatchesKey = (rule, key) => {
+      const value = getRemoveParamValue(rule);
+      if (value === null) return false;
+      if (value === '') return true;
+
+      let normalizedValue = value;
+      let negate = false;
+      if (normalizedValue.startsWith('~')) {
+        negate = true;
+        normalizedValue = normalizedValue.slice(1).trim();
+      }
+
+      let matched = false;
+      const regexLiteral = parseRegexLiteral(normalizedValue);
+      if (regexLiteral) {
+        try {
+          matched = new RegExp(regexLiteral.body, regexLiteral.flags || 'i').test(String(key || '').toLowerCase());
+        } catch {
+          matched = false;
+        }
+      } else {
+        matched = String(key || '').toLowerCase() === normalizedValue.toLowerCase();
+      }
+      return negate ? !matched : matched;
+    };
+
+    const domainPatternMatchesUrl = (pattern, inputUrl) => {
+      const rawPattern = String(pattern || '').trim();
+      if (!rawPattern) return false;
+      if (rawPattern === '*') return true;
+
+      const regexLiteral = parseRegexLiteral(rawPattern);
+      if (regexLiteral) {
+        try {
+          return new RegExp(regexLiteral.body, regexLiteral.flags).test(inputUrl);
+        } catch {
+          return false;
+        }
+      }
+
+      let urlObj;
+      try {
+        urlObj = new URL(inputUrl);
+      } catch {
+        return false;
+      }
+
+      if (rawPattern.startsWith('||')) {
+        const body = rawPattern.slice(2);
+        const boundaryIndex = body.search(/[\^/?#]/);
+        const hostPattern = (boundaryIndex === -1 ? body : body.slice(0, boundaryIndex)).replace(/^\*\./, '');
+        const tail = boundaryIndex === -1 ? '' : body.slice(boundaryIndex).replace(/^\^/, '');
+        const hostRegex = '^(.+\\.)?' + hostPattern
+          .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+          .replace(/\\\*/g, '[^.]+') + '$';
+        if (!new RegExp(hostRegex, 'i').test(urlObj.hostname)) return false;
+        if (!tail) return true;
+        return (urlObj.pathname + urlObj.search + urlObj.hash).toLowerCase().startsWith(tail.toLowerCase());
+      }
+
+      return inputUrl.toLowerCase().includes(rawPattern.toLowerCase());
+    };
+
+    const providerMatchesUrl = (provider, inputUrl) => {
+      if (typeof provider.urlPattern === 'string' && provider.urlPattern.trim()) {
+        try {
+          return new RegExp(provider.urlPattern, 'i').test(inputUrl);
+        } catch {
+          return false;
+        }
+      }
+
+      if (Array.isArray(provider.domainPatterns)) {
+        return provider.domainPatterns.some(pattern => domainPatternMatchesUrl(pattern, inputUrl));
+      }
+
+      return false;
     };
 
     // ── 4. Per-provider validation ────────────────────────────────────────────
@@ -2358,29 +2483,63 @@ ${commit.message}
 
       // rules
       for (const rule of (Array.isArray(provider.rules) ? provider.rules : [])) {
-        tryRegex(`^${rule}$`, 'gi', `${tag} rule "${rule}"`);
+        const rulePattern = getRulePattern(rule);
+        const ruleLabel = getRuleLabel(rule);
+        if (!rulePattern) {
+          errors.push(`${tag} rule "${ruleLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        if (isRemoveParamRule(rule)) {
+          validateRemoveParamRule(rule, `${tag} rule "${ruleLabel}"`);
+        } else {
+          tryRegex(`^${rulePattern}$`, 'gi', `${tag} rule "${ruleLabel}"`);
+        }
       }
 
       // rawRules
       for (const raw of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
-        tryRegex(raw, 'gi', `${tag} rawRule "${raw}"`);
+        const rawPattern = getRulePattern(raw);
+        const rawLabel = getRuleLabel(raw);
+        if (!rawPattern) {
+          errors.push(`${tag} rawRule "${rawLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        tryRegex(rawPattern, 'gi', `${tag} rawRule "${rawLabel}"`);
       }
 
       // referralMarketing
       for (const rm of (Array.isArray(provider.referralMarketing) ? provider.referralMarketing : [])) {
-        tryRegex(`^${rm}$`, 'gi', `${tag} referralMarketing "${rm}"`);
+        const rmPattern = getRulePattern(rm);
+        const rmLabel = getRuleLabel(rm);
+        if (!rmPattern) {
+          errors.push(`${tag} referralMarketing "${rmLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        tryRegex(`^${rmPattern}$`, 'gi', `${tag} referralMarketing "${rmLabel}"`);
       }
 
       // exceptions
       for (const ex of (Array.isArray(provider.exceptions) ? provider.exceptions : [])) {
-        tryRegex(ex, 'i', `${tag} exception "${ex.substring(0, 60)}..."`);
+        const exPattern = getRulePattern(ex);
+        const exLabel = getRuleLabel(ex);
+        if (!exPattern) {
+          errors.push(`${tag} exception "${exLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        tryRegex(exPattern, 'i', `${tag} exception "${exLabel.substring(0, 60)}..."`);
       }
 
       // redirections — must be a valid regex AND contain at least one capture group
       for (const rd of (Array.isArray(provider.redirections) ? provider.redirections : [])) {
-        const ok = tryRegex(rd, 'i', `${tag} redirection "${rd.substring(0, 60)}..."`);
-        if (ok && !rd.includes('(')) {
-          warnings.push(`${tag} Redirection has no capture group (destination will be undefined): "${rd.substring(0, 60)}..."`);
+        const rdPattern = getRulePattern(rd);
+        const rdLabel = getRuleLabel(rd);
+        if (!rdPattern) {
+          errors.push(`${tag} redirection "${rdLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        const ok = tryRegex(rdPattern, 'i', `${tag} redirection "${rdLabel.substring(0, 60)}..."`);
+        if (ok && !rdPattern.includes('(')) {
+          warnings.push(`${tag} Redirection has no capture group (destination will be undefined): "${rdLabel.substring(0, 60)}..."`);
         }
       }
 
@@ -2410,14 +2569,12 @@ ${commit.message}
     const applyAllMatchingProviders = (inputUrl) => {
       let urlStr = inputUrl;
       for (const [, provider] of providerEntries) {
-        if (typeof provider.urlPattern !== 'string') continue;
-        let re;
-        try { re = new RegExp(provider.urlPattern, 'i'); } catch { continue; }
-        if (!re.test(urlStr)) continue;
+        if (!providerMatchesUrl(provider, urlStr)) continue;
 
         // rawRules (full-string replace)
         for (const rawRule of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
-          try { urlStr = urlStr.replace(new RegExp(rawRule, 'gi'), ''); } catch { /* bad regex already reported */ }
+          const rawPattern = getRulePattern(rawRule);
+          try { if (rawPattern) urlStr = urlStr.replace(new RegExp(rawPattern, 'gi'), ''); } catch { /* bad regex already reported */ }
         }
 
         // rules + referralMarketing (query-param name matching)
@@ -2429,10 +2586,16 @@ ${commit.message}
           ...(Array.isArray(provider.referralMarketing) ? provider.referralMarketing : [])
         ];
         for (const rule of allRules) {
+          const rulePattern = getRulePattern(rule);
+          if (!rulePattern) continue;
           const toDelete = [];
           for (const key of params.keys()) {
             // Fresh RegExp each time — avoids stateful lastIndex with 'g' flag
-            if (new RegExp(`^${rule}$`, 'gi').test(key)) toDelete.push(key);
+            if (isRemoveParamRule(rule)) {
+              if (removeParamRuleMatchesKey(rule, key)) toDelete.push(key);
+            } else if (new RegExp(`^${rulePattern}$`, 'gi').test(key)) {
+              toDelete.push(key);
+            }
           }
           for (const key of toDelete) params.delete(key);
         }
@@ -2558,30 +2721,44 @@ ${commit.message}
   // NEW: Create or append to NOTICE.md file (from superior script)
   createNoticeFile(outputFiles, stats, version) {
     const noticeFile = config.noticeFile;
+    const sourceFile = stats.sourceFile || this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile;
+    const bundledFile = stats.outputFile || this.clearurlsConfig.compressedRulesFile;
+    const describeOutputFile = (file) => {
+      if (file === sourceFile || file.endsWith('.json')) {
+        return 'Canonical metadata-free ClearURLs source JSON';
+      }
+      if (file.endsWith('.lz4')) {
+        return `LZ4-compressed bundle generated from ${sourceFile} with Linkumori metadata v${version} injected`;
+      }
+      return `Generated ClearURLs artifact v${version}`;
+    };
+
     const currentBuildInfo = `
 ---
 
 ## Build Information - ${version}
 
-**Build Date**: ${new Date().toISOString()}  
-**Version**: ${version}  
-**Input File**: ${this.clearurlsConfig.customRulesFile}  
+**Build Date**: ${new Date().toISOString()}
+**Version**: ${version}
+**Source File**: ${sourceFile}
+**Bundled LZ4 Output**: ${bundledFile}
 
 ### Build Statistics
 
-- **Official providers**: ${stats.originalCount}
-- **Custom providers**: ${stats.customCount}  
-- **Total before merge**: ${stats.totalBeforeMerge}
-- **Final merged providers**: ${stats.finalCount}
-- **Providers optimized**: ${stats.optimizedCount} (${stats.efficiency}% efficiency gain)
+- **Source providers**: ${stats.sourceProviderCount}
+- **URL filter rules**: ${stats.sourceUrlFilterCount}
 
 ### Generated Files
 
-${outputFiles.map(file => `- \`${file}\` - Compressed merged rules with Linkumori metadata v${version}`).join('\n')}
+${outputFiles.map(file => `- \`${file}\` - ${describeOutputFile(file)}`).join('\n')}
 
 ### Build Summary
 
-This build merged ${stats.originalCount} official ClearURLs providers with ${stats.customCount} custom providers, resulting in ${stats.finalCount} total providers after optimization. The build process achieved a ${stats.efficiency}% efficiency gain by merging ${stats.optimizedCount} providers that shared the same URL patterns.
+This build used ${sourceFile} as the canonical metadata-free ClearURLs source JSON, injected Linkumori metadata only into the generated rules payload, and compressed that payload into ${bundledFile}.
+
+### Provenance Notice
+
+${sourceFile} carries forward the historical rule-source modifications from deprecated data/custom-rules.json, data/downloaded-official-rules.json, and the earlier data/linkumori-clearurls-min.json.lz4 bundle. Sidecar notices are preserved at data/linkumori-clearurls.json.txt, data/linkumori-clearurls-min.json.lz4.txt, data/custom-rules.json.txt, and data/downloaded-official-rules.json.txt.
 
 *Generated by  Linkumori CLI Tool  v${version}*
 `;
@@ -2605,24 +2782,20 @@ This build merged ${stats.originalCount} official ClearURLs providers with ${sta
       this.info(`📋 Creating new notice file: ${noticeFile}`);
       
       // Create complete notice file for first time
-      const completeNoticeContent = `# ClearURLs Custom Rules Builder - NOTICE
+      const completeNoticeContent = `# Linkumori ClearURLs Rules Builder - NOTICE
 
 ## About This Build
 
-This directory contains files generated by the ClearURLs Custom Rules Builder script with Linkumori enhancements.
+This directory contains the canonical metadata-free Linkumori ClearURLs source JSON and the compressed rules bundle generated from it.
 
 ### What This Script Does
 
-The ClearURLs Custom Rules Builder performs the following operations:
+The Linkumori ClearURLs Rules Builder performs the following operations:
 
-1. **Fetches Official Rules**: Downloads the latest official ClearURLs rules from the configured URL in data/url-config.json
-2. **Loads Custom Rules**: Reads your custom URL cleaning rules from a local JSON file
-3. **Merges Providers**: Intelligently combines providers that share the same URL pattern to optimize performance
-   - **Official Name Priority**: When merging, official provider names are preserved over custom ones
-4. **Adds Linkumori Metadata**: Includes project metadata, automatic versioning (${version}), and repository information
-5. **Generates Output**: Creates the compressed LZ4 bundled ruleset
-6. **Deduplication**: Removes duplicate rules within merged providers
-7. **Validation**: Ensures all custom rules have proper structure and required fields
+1. **Loads Source Rules**: Reads canonical URL cleaning rules from ${sourceFile}
+2. **Normalizes Source JSON**: Keeps the wrapped ClearURLsData shape with providers and URL filter data, without writing metadata to the source file
+3. **Generates Output**: Injects Linkumori metadata into the generated payload and compresses it into ${bundledFile}
+4. **Validation**: Ensures rules have proper structure and compile before bundling
 
 ### Versioning System
 
@@ -2640,16 +2813,21 @@ This enhanced version includes metadata for the Linkumori URL cleaning project:
 - **Homepage**: https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/
 - **Issues**: https://github.com/Linkumori/Linkumori-Addon/issues
 - **This script written by subham mahesh in 2026 some significated part taken from cleaurls Kevin Röbert which is licensed under LGPL 3.0**
-- **custom-rules.json** file initially created by Subham Mahesh on June 14, 2025, with additional custom rule creation/updates on July 20, 2025, July 21, 2025, July 22, 2025, July 23, 2025, July 24, 2025, July 25, 2025, July 26, 2025, July 27, 2025, July 28, 2025, July 29, 2025, July 30, 2025, and July 31, 2025; licensed under LGPL 3.0
-- **Final output generated by script**
+- **linkumori-clearurls.json** is the canonical metadata-free source rules file; it carries forward historical modifications and provenance from the deprecated data/custom-rules.json, data/downloaded-official-rules.json, and earlier data/linkumori-clearurls-min.json.lz4 bundle.
+- **Copyright**: Linkumori modifications and curated additions are Copyright (c) 2025-2026 Subham Mahesh. ClearURLs Rules portions remain copyright their respective ClearURLs authors and contributors, including Kevin Röbert where applicable.
+- **Sidecar notices**: data/linkumori-clearurls.json.txt, data/linkumori-clearurls-min.json.lz4.txt, data/custom-rules.json.txt, and data/downloaded-official-rules.json.txt.
+- **Final output generated by script**: ${bundledFile}
 
 ### License Information
 
 **All files in this directory are licensed under LGPL 3.0:**
 
-- **Input files** (official ClearURLs rules and custom-rules.json): Licensed under LGPL 3.0
-- **Output files** (generated merged rules with Linkumori metadata): Licensed under LGPL 3.0
+- **Source file** (${sourceFile}), **output file** (${bundledFile}), and historical source notices: Licensed under LGPL 3.0-or-later
 - **This script**: Licensed under LGPL 3.0
+
+### Historical Rule Source Notices
+
+The deprecated data/custom-rules.json, data/downloaded-official-rules.json, and prior generated LZ4 bundle have been consolidated into ${sourceFile}. Their modification notices are intentionally preserved as sidecar files so ${sourceFile} carries all old rule-source modification history forward.
 
 #### LGPL 3.0 License Summary
 
@@ -2680,19 +2858,14 @@ ${currentBuildInfo}`;
     this.success(`📋 NOTICE.md ${fs.existsSync(noticeFile) ? 'updated' : 'created'}`);
   }
 
-  // Build custom ClearURLs rules (ENHANCED VERSION)
+  // Build bundled ClearURLs rules from the canonical source JSON.
   async buildCustomClearURLs(options = {}) {
-    this.section('🧹 Building Custom ClearURLs Rules (Enhanced)');
+    this.section('🧹 Building ClearURLs LZ4 Bundle');
     
     const {
-      noOfficial = false,
-      noCustom = false,
-      customFile = this.clearurlsConfig.customRulesFile,
-      outputBase = this.clearurlsConfig.outputBaseName
+      sourceFile = this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile,
+      outputFile = this.clearurlsConfig.compressedRulesFile
     } = options;
-
-    const minifiedOutputFile = `data/${outputBase}-clearurls-min.json`;
-    const compressedOutputFile = `${minifiedOutputFile}.lz4`;
 
     try {
       // Ensure data directory exists
@@ -2701,234 +2874,62 @@ ${currentBuildInfo}`;
       } catch {
         // Directory already exists
       }
-      
-      // Load custom rules if not disabled
-      const customRules = noCustom
-        ? { providers: {}, urlFilterRules: [], urlFilterMetadata: {} }
-        : this.loadCustomRules(customFile);
-      if (customRules === null && !noCustom) {
+
+      const sourceRules = this.loadClearURLsSourceRules(sourceFile);
+      if (sourceRules === null) {
         return false;
       }
-      
-      // Fetch official rules if not disabled
-      let officialRules = { providers: {} };
-      if (!noOfficial) {
-        try {
-          // Always prompt for offline/online mode if offline file exists
-          let useOffline = false;
-          let remoteOfficialHash = null;
-          
-          // Check if offline file exists
-          const offlineFileExists = (() => {
-            try {
-              fs.statSync(this.clearurlsConfig.downloadedOfficialFile);
-              return true;
-            } catch {
-              return false;
-            }
-          })();
-          
-          if (offlineFileExists) {
-            const stats = fs.statSync(this.clearurlsConfig.downloadedOfficialFile);
-            const fileDate = new Date(stats.mtime);
-            const now = new Date();
-            const ageInDays = Math.floor((now - fileDate) / (1000 * 60 * 60 * 24));
-            
-            this.log(''); // blank line
-            this.info(`📁 Found offline rules file: ${this.clearurlsConfig.downloadedOfficialFile}`);
-            this.info(`   Last modified: ${fileDate.toLocaleString()}`);
-            this.info(`   Age: ${ageInDays} day(s) old`);
-            this.log('');
-            
-            if (this.isInteractive()) {
-              this.log('Choose a merge mode:', 'cyan');
-  this.log('');
 
-  
-
-
-  this.log(
-    `  1) 🌐 Online  – Download the latest rules from configured URL (recommended): ${this.clearurlsConfig.officialRulesUrl || 'not configured'}`,
-    'white'
-  );
-  this.log(
-    '  Please review the upstream host Privacy Policy and Terms of Service before continuing.\n' +
-    '  Default ClearURLs upstream policy documents:\n' +
-    '     https://docs.github.com/en/site-policy/privacy-policies\n' +
-    '     https://docs.github.com/en/site-policy/github-terms/github-terms-of-service',
-    'yellow'
-  );
-  
-
-  this.log(
-    '  2) 💾 Offline – Use the existing downloaded-official-rules.json file',
-    'white'
-  );
-
-  this.log('');
-              
-
-
-
-              process.stdout.write('Enter your choice (1 or 2, default=1): ');
-
-              const choice = await this.getInput();
-
-              if (choice === '2') {
-                useOffline = true;
-                this.info('💾 Selected: Offline mode - using local file');
-              } else {
-                this.info('🌐 Selected: Online mode - downloading latest from configured URL');
-              }
-            } else {
-              this.info('🌐 Non-interactive mode: auto-selecting online download');
-            }
-            this.log(''); // blank line
-          } else {
-            this.warning(`⚠️  No offline rules file found: ${this.clearurlsConfig.downloadedOfficialFile}`);
-this.info(
-  '🌐 Online mode will download official rules.\n' +
-  'Please review:\n' +
-  'Privacy Policy: https://docs.github.com/en/site-policy/privacy-policies\n' +
-  'Terms of Service: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service'
-);
-            this.log(''); // blank line
-          }
-
-          // Skip logic only applies when online mode is selected.
-          if (!useOffline) {
-            let canUseHashSkip = true;
-            try {
-              remoteOfficialHash = await this.fetchOfficialRulesHash();
-            } catch (hashError) {
-              this.warning(`⚠️  Could not fetch official hash: ${hashError.message}`);
-              this.warning('⚠️  Continuing without hash-based skip check.');
-              canUseHashSkip = false;
-            }
-
-            if (canUseHashSkip && remoteOfficialHash) {
-              const cachedOfficialHash = this.readSavedOfficialRulesHash();
-              let minifiedFileExists = false;
-              try {
-                fs.statSync(compressedOutputFile);
-                minifiedFileExists = true;
-              } catch {
-                minifiedFileExists = false;
-              }
-
-              if (cachedOfficialHash && cachedOfficialHash === remoteOfficialHash && minifiedFileExists) {
-                this.success('✅ Online mode selected and official hash unchanged.');
-                this.info(`⏭️  Skipping rebuild: ${compressedOutputFile}`);
-                return true;
-              }
-            }
-          }
-          
-          officialRules = await this.fetchOfficialRules(useOffline);
-          if (!useOffline && remoteOfficialHash) {
-            this.saveOfficialRulesHash(remoteOfficialHash);
-          }
-          this.success(`✅ Fetched ${Object.keys(officialRules.providers).length} official providers`);
-        } catch (error) {
-          this.error(`Failed to fetch official rules: ${error.message}`);
-          return false;
-        }
-      } else {
-        this.warning('⚠️  Skipping official rules');
-      }
-      
-      // Check if we have any rules at all
-      const customCount = Object.keys(customRules?.providers || {}).length;
-      const customUrlFilterCount = Array.isArray(customRules?.urlFilterRules)
-        ? customRules.urlFilterRules.length
-        : 0;
-      const officialCount = Object.keys(officialRules.providers).length;
-      const officialUrlFilterCount = Array.isArray(officialRules.urlFilterRules)
-        ? officialRules.urlFilterRules.length
+      const providerCount = Object.keys(sourceRules.providers || {}).length;
+      const urlFilterCount = Array.isArray(sourceRules.urlFilterRules)
+        ? sourceRules.urlFilterRules.length
         : 0;
       
-      if (
-        customCount === 0
-        && customUrlFilterCount === 0
-        && officialCount === 0
-        && officialUrlFilterCount === 0
-      ) {
-        this.error('No rules to process. Provide either custom rules or enable official rules.');
+      if (providerCount === 0 && urlFilterCount === 0) {
+        this.error(`No rules to process in ${sourceFile}.`);
         return false;
       }
-      
-      this.info('🔧 Combining rules...');
-      
-      if (customCount > 0) {
-        this.info(`📝 Adding ${customCount} custom providers from ${customFile}`);
+
+      this.info(`📊 Source providers: ${providerCount}`);
+      if (urlFilterCount > 0) {
+        this.info(`🧹 Source URL filter rules: ${urlFilterCount}`);
       }
-      if (customUrlFilterCount > 0) {
-        this.info(`🧹 Adding ${customUrlFilterCount} custom URL filter rules from ${customFile}`);
-      }
-      
-      const totalBeforeMerge = officialCount + customCount;
-      this.info(`📊 Total before merge: ${totalBeforeMerge} providers`);
-      
-      // Use bundled+remote style merge logic for official + custom sources
-      const mergedProviders = this.mergeOfficialWithCustomRules(officialRules, customRules);
-      this.addIndexPatternsForUrlProviders(mergedProviders);
-      
-      const mergedRules = {
-        ...officialRules,
-        providers: mergedProviders,
-        urlFilterRules: this.mergeUrlFilterRules(
-          officialRules.urlFilterRules,
-          customRules?.urlFilterRules
-        ),
-        urlFilterMetadata: this.mergeUrlFilterMetadata(
-          officialRules.urlFilterMetadata,
-          customRules?.urlFilterMetadata
-        )
-      };
-      
-      const finalCount = Object.keys(mergedProviders).length;
-      this.info(`🎯 Final result: ${finalCount} providers`);
-      
-      // Create and save minified version
-      const minifiedRules = this.minifyRules(mergedRules);
-      const linkumoriMinified = this.createLinkumoriJSON(minifiedRules);
-      const minifiedOutputContent = this.formatMinifiedOutput(linkumoriMinified);
-      const lz4Stats = this.writeLZ4CompressedContent(minifiedOutputContent, compressedOutputFile);
+
+      this.addIndexPatternsForUrlProviders(sourceRules.providers);
+
+      const minifiedRules = this.minifyRules(sourceRules);
+      delete minifiedRules.metadata;
+      const sourceOutputContent = this.formatMinifiedOutput(minifiedRules, { includeMetadata: false });
+      fs.writeFileSync(sourceFile, sourceOutputContent);
+      this.success(`📄 Metadata-free source rules normalized: ${sourceFile}`);
+
+      const linkumoriRules = this.createLinkumoriJSON(minifiedRules);
+      const lz4PayloadContent = this.formatMinifiedOutput(linkumoriRules, { includeMetadata: true });
+      const lz4Stats = this.writeLZ4CompressedContent(lz4PayloadContent, outputFile);
       this.success(`🗜️ LZ4 rules saved to: ${lz4Stats.outputFile}`);
-      
-      // Calculate statistics
-      const optimizedCount = totalBeforeMerge - finalCount;
-      const efficiency = totalBeforeMerge > 0
-        ? ((optimizedCount / totalBeforeMerge) * 100).toFixed(1)
-        : '0.0';
-      
+
       const stats = {
-        originalCount: officialCount,
-        customCount,
-        totalBeforeMerge,
-        finalCount,
-        optimizedCount,
-        efficiency
+        sourceProviderCount: Object.keys(linkumoriRules.providers || {}).length,
+        sourceUrlFilterCount: Array.isArray(linkumoriRules.urlFilterRules)
+          ? linkumoriRules.urlFilterRules.length
+          : 0,
+        sourceFile,
+        outputFile: lz4Stats.outputFile
       };
       
-      // Create/update NOTICE.md file
-      const outputFiles = [lz4Stats.outputFile];
-      const generatedVersion = linkumoriMinified.metadata.version;
+      const outputFiles = [sourceFile, lz4Stats.outputFile];
+      const generatedVersion = linkumoriRules.metadata.version;
       this.createNoticeFile(outputFiles, stats, generatedVersion);
 
-      // Calculate file sizes
-      const minifiedSize = new TextEncoder().encode(minifiedOutputContent).length;
+      const sourceStats = fs.statSync(sourceFile);
 
-      // Show build summary
       this.section('🎉 Build Summary');
       this.success(`📅 Version: ${generatedVersion}`);
-      this.info(`📂 Input file: ${customFile}`);
-      this.info(`📊 Official providers: ${officialCount}`);
-      this.info(`🆕 Custom providers: ${customCount}`);
-      this.info(`🔄 Final merged: ${finalCount}`);
-      this.info(`⚡ Optimization: ${optimizedCount} providers merged (${efficiency}% efficiency gain)`);
-      this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} added`);
-      this.info(`📁 JSON payload size: ${Math.round(minifiedSize / 1024)}KB (not written to disk)`);
+      this.info(`📂 Source file: ${sourceFile}`);
+      this.info(`📊 Providers: ${stats.sourceProviderCount}`);
+      this.info(`🧹 URL filter rules: ${stats.sourceUrlFilterCount}`);
+      this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} injected into LZ4 only`);
+      this.info(`📁 Source JSON: ${Math.round(sourceStats.size / 1024)}KB`);
       this.info(`🗜️ LZ4 file: ${Math.round(lz4Stats.outputSize / 1024)}KB (${((1 - lz4Stats.ratio) * 100).toFixed(1)}% smaller)`);
       this.info(`📋 Documentation: ${config.noticeFile}`);
       
@@ -3476,11 +3477,9 @@ docs/**
 svg/**
 Old-Country-Nobility/Old-Country-Nobility.sfd
 
-# Data Files (keep built files, exclude sources)
-data/downloaded-official-rules.json
-data/custom-rules.json
+# Data Files (keep bundled LZ4, exclude source/config)
+data/linkumori-clearurls.json
 data/url-config.json
-downloaded-official-rules.min.hash
 # Build Tools
 .build-ignore
 linkumori-cli-tool.js
@@ -3507,50 +3506,34 @@ coverage/**
     }
   }
 
-  // Create custom rules template
+  // Create canonical ClearURLs source template
   createCustomRulesTemplate() {
     const template = {
-      "example-provider": {
-        "completeProvider": false,
-        "forceRedirection": false,
-        "urlPattern": "^https?:\\\\/\\\\/(?:[a-z0-9-]+\\\\.)*?example\\\\.com",
-        "rules": [
-          "param1",
-          "tracking_param",
-          "utm_campaign"
-        ],
-        "rawRules": [],
-        "referralMarketing": [
-          "ref",
-          "affiliate_id"
-        ],
-        "exceptions": [],
-        "redirections": []
-      },
-      "another-provider": {
-        "completeProvider": false,
-        "forceRedirection": false,
-        "urlPattern": "^https?:\\\\/\\\\/(?:[a-z0-9-]+\\\\.)*?another\\\\.com",
-        "rules": [
-          "tracker",
-          "session_id"
-        ],
-        "rawRules": [],
-        "referralMarketing": [],
-        "exceptions": [
-          "keep_this_param"
-        ],
-        "redirections": []
+      "urlFilterMetadata": {},
+      "urlFilterRules": [],
+      "providers": {
+        "example": {
+          "rules": [
+            "$removeparam=tracking_param",
+            "$removeparam=/^utm_/i"
+          ],
+          "rawRules": [],
+          "referralMarketing": [],
+          "exceptions": [],
+          "redirections": [],
+          "domainPatterns": [
+            "||example.com^"
+          ]
+        }
       }
     };
   
     try {
       fs.mkdirSync('data', { recursive: true });
-      const templatePath = 'data/custom-rules.json';
-      fs.writeFileSync(templatePath, JSON.stringify(template, null, 2));
-      this.success(`Created custom rules template: ${templatePath}`);
-      this.info('Edit this template with your custom URL cleaning rules');
-      this.info('Then rename to custom-rules.json or use --custom-file option');
+      const templatePath = this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile;
+      fs.writeFileSync(templatePath, this.formatMinifiedOutput(template, { includeMetadata: false }));
+      this.success(`Created ClearURLs source template: ${templatePath}`);
+      this.info('Edit this source JSON with your bundled URL cleaning rules');
     } catch (error) {
       this.error(`Failed to create template: ${error.message}`);
     }
@@ -3681,16 +3664,9 @@ coverage/**
     try {
       const stat = fs.statSync('data/linkumori-clearurls.json');
       const sizeKB = Math.round(stat.size / 1024);
-      this.success(`Unminified rules available (${sizeKB}KB)`);
+      this.success(`Source rules available (${sizeKB}KB)`);
     } catch {
-      this.info('Unminified rules not found (run unminify command to create)');
-    }
-    
-    try {
-      fs.statSync('data/custom-rules.json');
-      this.success('Custom rules file found');
-    } catch {
-      this.warning('Custom rules file not found');
+      this.warning('Source rules not found: data/linkumori-clearurls.json');
     }
     
     // NOTICE.md status
@@ -3714,12 +3690,10 @@ coverage/**
       this.warning('No build artifacts to clean');
     }
     
-    // Clean clearurls files
+    // Clean generated ClearURLs files. Keep data/linkumori-clearurls.json; it is source.
     const clearurlsFiles = [
-      'data/downloaded-official-rules.json',
-      'data/downloaded-official-rules.min.hash',
       'data/linkumori-clearurls-min.json.lz4',
-      'data/linkumori-clearurls.json'
+      `data/${this.clearurlsConfig.outputBaseName}-clearurls-unminified.json`
     ];
     
     for (const file of clearurlsFiles) {
@@ -3850,7 +3824,7 @@ coverage/**
       { key: 'r', name: 'Lint  Rules ', action: () => this.lintClearURLsRules() },
       { key: '9', name: 'Generate Commit History', action: () => this.createCommitHistoryMarkdown() },
       { key: 'g', name: 'Generate Copyright Documentation Only', action: () => this.generateCopyrightDocumentation() },
-      { key: 't', name: 'Create Custom Rules Template', action: () => this.createCustomRulesTemplate() },
+      { key: 't', name: 'Create ClearURLs Source Template', action: () => this.createCustomRulesTemplate() },
       { key: 'p', name: 'Create Copyright Template', action: () => this.createCopyrightTemplate() },
       { key: 'l', name: 'Create Licenses Directory', action: () => this.createLicensesDirectory() },
       { key: 'v', name: 'Show Status', action: () => this.showStatus() },
@@ -3978,10 +3952,10 @@ coverage/**
       this.createBuildIgnore();
     }
     
-    // Create custom rules template
+    // Create canonical ClearURLs source template
     try {
-      fs.statSync('data/custom-rules.json');
-      this.info('Custom rules template already exists');
+      fs.statSync(this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile);
+      this.info('ClearURLs source rules already exist');
     } catch {
       this.createCustomRulesTemplate();
     }
@@ -4038,7 +4012,7 @@ coverage/**
     this.info('2. Edit .env with your Mozilla API credentials');
     this.info('3. Set your WEB_EXT_CHANNEL (listed or unlisted)');
     this.info('4. Edit Template.md with your copyright info');
-    this.info('5. Edit data/custom-rules.json and rename to custom-rules.json');
+    this.info('5. Edit data/linkumori-clearurls.json with bundled URL cleaning rules');
     this.info('6. Run option 1 to build your extension');
   }
 
@@ -4200,7 +4174,7 @@ coverage/**
     this.log('  compress-lz4          Create a Linkumori LZ4 copy of a JSON file', 'white');
     this.log('  unminify              Unminify ClearURLs rules to readable JSON', 'white');
     this.log('  commit-history        Create formatted markdown of git commit history', 'white');
-    this.log('  clearurls-template    Create custom rules template', 'white');
+    this.log('  clearurls-template    Create ClearURLs source template', 'white');
     this.log('  copyright, license    Generate copyright documentation only', 'white');
     this.log('  copyright-template    Create copyright template', 'white');
     this.log('  licenses              Create licenses directory with README', 'white');
@@ -4211,7 +4185,7 @@ coverage/**
     this.log('  deps                  Check and install dependencies', 'white');
     this.log('  sync-i18n-extra       Sync missing used keys from messages.extra.json', 'white');
     this.log('  sync-i18n-extra-check Check for missing used keys from messages.extra.json', 'white');
-    this.log('  (mode arg)            Optional for build/lint/release/build-and-sign: online|offline|auto', 'white');
+    this.log('  (mode arg)            Optional PSL mode for build/lint/release/build-and-sign: online|offline|auto', 'white');
     this.log('  psl [online|offline]  Update/load public_suffix_list.dat', 'white');
     this.log('  psl-online            Download latest public_suffix_list.dat', 'white');
     this.log('  psl-offline           Use existing local public_suffix_list.dat', 'white');
@@ -4237,10 +4211,8 @@ coverage/**
     
     this.log('\n🆕 Enhanced Features:', 'cyan');
     this.log('  - Local license file loading (no internet required)', 'white');
-    this.log('  - Offline/Online ClearURLs mode selection (interactive)', 'white');
-    this.log('  - Superior ClearURLs provider merging logic', 'white');
-    this.log('  - Official provider name prioritization', 'white');
-    this.log('  - LZ4-only ClearURLs output (JSON payload generated in memory)', 'white');
+    this.log('  - Canonical ClearURLs source JSON: data/linkumori-clearurls.json', 'white');
+    this.log('  - LZ4 bundle generation from the canonical source JSON', 'white');
     this.log('  - Git commit history markdown generator', 'white');
     this.log('  - Automatic NOTICE.md creation and updating', 'white');
     this.log('  - Detailed build statistics and reporting', 'white');
@@ -4251,7 +4223,7 @@ coverage/**
     this.log('\nBuild Process:', 'cyan');
     this.log('  The build command performs these steps in order:', 'white');
     this.log('  1. Generate copyright documentation with embedded licenses', 'dim');
-    this.log('  2. Build ClearURLs rules (enhanced merging + NOTICE.md)', 'dim');
+    this.log('  2. Build ClearURLs LZ4 bundle from data/linkumori-clearurls.json', 'dim');
     this.log('  3. Build Old Country Nobility Font (.sfd → .ttf)', 'dim');
     this.log('  4. Generate icon PNG files from linkumori_icons.svg and linkumori_icon_disabled.svg', 'dim');
     this.log('  5. Validate project structure', 'dim');
@@ -4287,26 +4259,12 @@ coverage/**
     this.log('  - {{CURRENT-TIME-WITH-DEVICE-TIME-ZONE}} - Current timestamp with timezone', 'dim');
     this.log('  Example: 2025-02-08 14:30:45 UTC+05:30 (Asia/Kolkata)', 'dim');
     
-    this.log('\nClearURLs Offline/Online Mode:', 'cyan');
-    this.log('  When building ClearURLs rules (anywhere in the pipeline):', 'white');
-    this.log('  - Prompt appears whenever offline file exists', 'dim');
-    this.log('  - Shows file age and last modified date', 'dim');
-    this.log('  - 🌐 Online Mode (default):', 'dim');
-    this.log(`    Downloads latest official rules from configured URL (${config.urlConfigFile})`, 'dim');
-    this.log('    Saves as data/downloaded-official-rules.json', 'dim');
-    this.log('    Merges with your custom-rules.json', 'dim');
-    this.log('  - 💾 Offline Mode:', 'dim');
-    this.log('    Uses existing data/downloaded-official-rules.json', 'dim');
-    this.log('    No internet connection required', 'dim');
-    this.log('    Faster builds for testing', 'dim');
-    this.log('  - Applies to: clearurls, build, release commands', 'dim');
-    
-    this.log('\nClearURLs Enhanced Merging:', 'cyan');
-    this.log('  The enhanced ClearURLs builder:', 'white');
-    this.log('  - Prioritizes official ClearURLs provider names', 'dim');
-    this.log('  - Merges providers with identical URL patterns', 'dim');
-    this.log('  - Deduplicates all rules within merged providers', 'dim');
-    this.log('  - Generates ONLY compressed LZ4 output for bundled rules', 'dim');
+    this.log('\nClearURLs Source Bundle:', 'cyan');
+    this.log('  The ClearURLs builder:', 'white');
+    this.log('  - Reads data/linkumori-clearurls.json as the source of truth', 'dim');
+    this.log('  - Normalizes the wrapped ClearURLsData JSON without writing metadata to source', 'dim');
+    this.log('  - Injects Linkumori metadata only into data/linkumori-clearurls-min.json.lz4', 'dim');
+    this.log('  - Does not download or merge downloaded-official-rules.json/custom-rules.json', 'dim');
     this.log('  - Generates detailed statistics and documentation', 'dim');
     this.log('  - Creates/updates NOTICE.md with build history', 'dim');
     this.log('  - Uses automatic version numbering (dd.mm.yyyy.HHMM)', 'dim');
@@ -4314,17 +4272,18 @@ coverage/**
     this.log('\nUnminify ClearURLs:', 'cyan');
     this.log('  The unminify command:', 'white');
     this.log('  - Reads linkumori-clearurls-min.json.lz4 by default', 'dim');
-    this.log('  - Creates linkumori-clearurls.json with pretty formatting', 'dim');
+    this.log('  - Creates linkumori-clearurls-unminified.json with pretty formatting', 'dim');
     this.log('  - Shows size comparison and expansion details', 'dim');
     this.log('  - Useful for debugging and manual rule inspection', 'dim');
 
     this.log('\nLint ClearURLs Rules (lint-rules / lint-clearurls):', 'cyan');
     this.log('  Validates a rules JSON file by replaying clearurls.js logic.', 'white');
-    this.log('  Default target: data/custom-rules.json', 'white');
+    this.log('  Default target: data/linkumori-clearurls.json', 'white');
     this.log('  Auto-detects both JSON formats:', 'dim');
-    this.log('    • Flat  { providerName: {...} }          ← custom-rules.json', 'dim');
-    this.log('    • Wrapped { providers, urlFilterRules?, urlFilterMetadata? }', 'dim');
-    this.log('      ← linkumori-clearurls-min.json.lz4', 'dim');
+    this.log('    • Wrapped { providers, urlFilterRules?, urlFilterMetadata? } source JSON', 'dim');
+    this.log('    • Wrapped { metadata, providers, urlFilterRules?, urlFilterMetadata? } LZ4 payload', 'dim');
+    this.log('      ← linkumori-clearurls.json / linkumori-clearurls-min.json.lz4', 'dim');
+    this.log('    • Flat  { providerName: {...} }          ← legacy imports', 'dim');
     this.log('  Checks per provider:', 'dim');
     this.log('    - urlPattern compiles as a valid JS regex', 'dim');
     this.log('    - rules / rawRules / referralMarketing / exceptions all compile', 'dim');
@@ -4335,7 +4294,7 @@ coverage/**
     this.log('    Google ved/ei/source, YouTube si/feature, Facebook hc_ref', 'dim');
     this.log('    Tests are skipped (not failed) when no provider in the file matches', 'dim');
     this.log('  Optional path argument:', 'dim');
-    this.log('    bun linkumori-cli-tool.js lint-rules data/custom-rules.json', 'dim');
+    this.log('    bun linkumori-cli-tool.js lint-rules data/linkumori-clearurls.json', 'dim');
 
     this.log('\nCommit History Generator:', 'cyan');
     this.log('  The commit-history command creates a formatted markdown file with:', 'white');

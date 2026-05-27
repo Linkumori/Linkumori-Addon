@@ -949,7 +949,7 @@ function mergeRemoteProviderGroup(providerGroup) {
     if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
     if (merged.completeProvider !== true) delete merged.completeProvider;
     if (merged.forceRedirection !== true) delete merged.forceRedirection;
-    if (merged.indexPattern.length === 0) {
+    if (merged.domainPatterns.length > 0 || merged.indexPattern.length === 0) {
         delete merged.indexPattern;
     } else if (merged.indexPattern.length === 1) {
         merged.indexPattern = merged.indexPattern[0];
@@ -1011,7 +1011,13 @@ function derivePathQualifiedName(providerGroup, baseName) {
 }
 
 function createMergedRemoteProviderName(providerGroup) {
-    // 1. Try urlPattern from any provider in the group
+    // 1. Keep the source provider name when a primary/bundled/custom provider
+    //    owns the group. Domain patterns are matcher syntax, not provider names.
+    const stripSuffix = name => String(name || '').replace(/_\d+$/, '');
+    const prioritized = providerGroup.filter(provider => provider.isPrimarySource);
+    if (prioritized.length > 0) return stripSuffix(prioritized[0].name);
+
+    // 2. Try urlPattern from any provider in the group
     for (const provider of providerGroup) {
         const up = provider.data?.urlPattern;
         if (typeof up === 'string' && up.trim()) {
@@ -1020,7 +1026,7 @@ function createMergedRemoteProviderName(providerGroup) {
         }
     }
 
-    // 2. Try domainPatterns field
+    // 3. Try domainPatterns field
     const allDomainPatterns = [];
     for (const provider of providerGroup) {
         const dp = provider.data?.domainPatterns;
@@ -1032,12 +1038,9 @@ function createMergedRemoteProviderName(providerGroup) {
         if (derived) return derived;
     }
 
-    // 3. Fallback: primary source name, or shortest existing name.
+    // 4. Fallback: shortest existing name.
     // Strip artificial _N suffixes added during key-dedup so e.g. "dell.com_1"
     // recovers its clean name "dell.com".
-    const stripSuffix = name => name.replace(/_\d+$/, '');
-    const prioritized = providerGroup.filter(provider => provider.isPrimarySource);
-    if (prioritized.length > 0) return stripSuffix(prioritized[0].name);
     const names = providerGroup.map(provider => provider.name);
     names.sort((a, b) => a.length - b.length);
     return stripSuffix(names[0]);
@@ -1275,7 +1278,11 @@ function minifyCustomRules(data) {
             hasContent = true;
         }
 
-        if (data.providers[provider].indexPattern && data.providers[provider].indexPattern !== "") {
+        if (
+            data.providers[provider].indexPattern &&
+            data.providers[provider].indexPattern !== "" &&
+            !(Array.isArray(data.providers[provider].domainPatterns) && data.providers[provider].domainPatterns.length > 0)
+        ) {
             self.indexPattern = data.providers[provider].indexPattern;
             hasContent = true;
         }

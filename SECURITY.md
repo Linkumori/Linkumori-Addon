@@ -47,7 +47,7 @@ Please provide as much of the following as possible:
 The following are considered in scope for security reports:
 
 - **URL processing logic** — incorrect cleaning, data leakage through URLs, or bypass of tracking parameter stripping
-- **Custom rules execution** — vulnerabilities introduced by maliciously crafted custom rules (`data/custom-rules.json`)
+- **Bundled rules execution** — vulnerabilities introduced by maliciously crafted bundled rules (`data/linkumori-clearurls.json`)
 - **Redirect unwrapping** — open redirect issues or navigation to unintended destinations
 - **Storage handling** — unauthorised access to or leakage of extension storage data
 - **Content Security Policy bypass** — any way to execute inline scripts or load external scripts despite the extension's CSP (`script-src 'self'`)
@@ -57,7 +57,7 @@ The following are considered in scope for security reports:
 
 The following are **out of scope**:
 
-- Vulnerabilities in upstream ClearURLs rules (`data/downloaded-official-rules.json`) — report those to the [ClearURLs project](https://github.com/ClearURLs/Addon)
+- Vulnerabilities in upstream ClearURLs rules before Linkumori modification — report those to the [ClearURLs project](https://github.com/ClearURLs/Addon)
 - Vulnerabilities in unmodified third-party libraries bundled in `external_js/` — report those to their respective upstream projects
 - Issues requiring physical access to the user's device
 - Social engineering attacks against users
