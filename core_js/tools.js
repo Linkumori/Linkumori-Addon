@@ -358,9 +358,14 @@ function isEncodedURI(uri) {
  * @param {string} key the key of the object
  * @param {object} defaultValue the default value
  */
-Object.prototype.getOrDefault = function (key, defaultValue) {
-    return this[key] === undefined ? defaultValue : this[key];
-};
+Object.defineProperty(Object.prototype, "getOrDefault", {
+    configurable: true,
+    enumerable: false,
+    writable: true,
+    value: function (key, defaultValue) {
+        return this[key] === undefined ? defaultValue : this[key];
+    }
+});
 
 function handleError(error) {
     console.error("[ClearURLs ERROR]:" + error);

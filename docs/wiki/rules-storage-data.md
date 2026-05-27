@@ -41,12 +41,8 @@ Important files under `data/`:
 
 - `linkumori-clearurls-min.json.lz4`
   - compressed bundled provider rules
-- `downloaded-official-rules.json`
-  - reference rule payload
-- `downloaded-official-rules.min.hash`
-  - integrity material
-- `custom-rules.json`
-  - editable custom provider/rule storage
+- `linkumori-clearurls.json`
+  - canonical ClearURLs source JSON used to produce the LZ4 bundle
 - `public_suffix_list.dat`
   - hostname/TLD correctness support
 - `privacy-policy-map.json`

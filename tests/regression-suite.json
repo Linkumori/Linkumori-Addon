@@ -500,6 +500,131 @@
       }
     },
     {
+      "id": "provider activation object field rule",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-field/?utm_source=x&keep=1",
+      "expectedOutput": "https://example.com/provider-activation-field/?keep=1",
+      "providers": {
+        "provider-activation-field": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-field(?:[/?#]|$)",
+          "rules": [
+            {
+              "matchPattern": "utm_source",
+              "_linkumoriActivationIds": [
+                "provider-activation-field::field-utm-source"
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider activation object raw rule",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/provider-activation-raw/?keep=1",
+      "providers": {
+        "provider-activation-raw": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-raw(?:[/?#]|$)",
+          "rawRules": [
+            {
+              "matchPattern": "[?&]raw=[^&#]*",
+              "_linkumoriActivationIds": [
+                "provider-activation-raw::raw-raw"
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider activation object referralMarketing",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-referral/?ref=x&keep=1",
+      "expectedOutput": "https://example.com/provider-activation-referral/?keep=1",
+      "providers": {
+        "provider-activation-referral": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-referral(?:[/?#]|$)",
+          "referralMarketing": [
+            {
+              "matchPattern": "ref",
+              "_linkumoriActivationIds": [
+                "provider-activation-referral::referral-ref"
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "referralMarketing": true
+      }
+    },
+    {
+      "id": "provider activation object exception",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-exception/keep/?utm_source=x",
+      "expectedOutput": "https://example.com/provider-activation-exception/keep/?utm_source=x",
+      "providers": {
+        "provider-activation-exception": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-exception(?:[/?#]|$)",
+          "rules": [
+            {
+              "matchPattern": "utm_source",
+              "_linkumoriActivationIds": [
+                "provider-activation-exception::field-utm-source"
+              ]
+            }
+          ],
+          "exceptions": [
+            {
+              "matchPattern": "^https?:\\/\\/example\\.com\\/provider-activation-exception/keep",
+              "_linkumoriActivationIds": [
+                "provider-activation-exception::exception-keep"
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider activation object redirection",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-activation-redirection": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-redirection(?:[/?#]|$)",
+          "redirections": [
+            {
+              "matchPattern": "^https?:\\/\\/example\\.com\\/provider-activation-redirection/redirect\\?url=(https%3A%2F%2Fwww\\.iana\\.org%2F)$",
+              "_linkumoriActivationIds": [
+                "provider-activation-redirection::redirect-target"
+              ]
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
       "id": "provider domainPatterns",
       "dialect": "provider",
       "input": "https://example.com/provider-domain/?utm_source=x",
@@ -20881,6 +21006,145 @@
           "rules": [
             "$removeparam=ei",
             "@@||gemini.google.com$removeparam=ei,method=POST"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest domainPatterns indexes without indexPattern",
+      "dialect": "providerWebRequest",
+      "input": "https://shop.example.co.uk/path/?tracking=x&keep=1",
+      "expectedOutput": "https://shop.example.co.uk/path/?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "noise-provider-one": {
+          "domainPatterns": [
+            "||noise-one.example^"
+          ],
+          "rules": [
+            "$removeparam=noise"
+          ]
+        },
+        "noise-provider-two": {
+          "domainPatterns": [
+            "||noise-two.example^"
+          ],
+          "rules": [
+            "$removeparam=noise"
+          ]
+        },
+        "target-provider": {
+          "domainPatterns": [
+            "||example.co.uk/path^"
+          ],
+          "rules": [
+            "$removeparam=tracking"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest domainPatterns wins over stale urlPattern",
+      "dialect": "providerWebRequest",
+      "input": "https://domain-wins.example/path/?tracking=x&keep=1",
+      "expectedOutput": "https://domain-wins.example/path/?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "target-provider": {
+          "urlPattern": "^https?:\\/\\/stale-url-pattern\\.example(?:[/?#]|$)",
+          "indexPattern": "||stale-url-pattern.example^",
+          "domainPatterns": [
+            "||domain-wins.example/path^"
+          ],
+          "rules": [
+            "$removeparam=tracking"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider google removeparam after global pattern-only provider",
+      "dialect": "provider",
+      "input": "https://www.google.com/search?q=holi%202026%20april&sca_esv=6b9ebf8ee3cf918e&sxsrf=ANbL-n4O28u-f00xmwZwzqTI-Yyi3DlJlQ%3A1779894186529&ei=qgcXasupHcuW4-EPjbXiwQE&biw=1226&bih=744&oq=holi%202026&gs_lp=abc&sclient=gws-wiz-serp",
+      "expectedOutput": "https://www.google.com/search?q=holi%202026%20april&sclient=gws-wiz-serp",
+      "providers": {
+        "*": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": []
+        },
+        "google": {
+          "domainPatterns": [
+            "||google.*^"
+          ],
+          "rules": [
+            {
+              "matchPattern": "$removeparam=/^bi[a-z]*$/i"
+            },
+            {
+              "matchPattern": "$removeparam=ei"
+            },
+            {
+              "matchPattern": "$removeparam=/^gs_[a-z]*$/i"
+            },
+            {
+              "matchPattern": "$removeparam=oq"
+            },
+            {
+              "matchPattern": "$removeparam=sxsrf"
+            },
+            {
+              "matchPattern": "$removeparam=/^sca_(?:esv|upv)$/i"
+            }
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider removeparam activation object disabled",
+      "dialect": "provider",
+      "input": "https://www.google.com/search?q=hi&sca_esv=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?q=hi&sca_esv=abc&keep=1",
+      "activationState": {
+        "disabledRuleIds": [
+          "google::field-removeparam-sca-esv"
+        ]
+      },
+      "providers": {
+        "google": {
+          "domainPatterns": [
+            "||google.*^"
+          ],
+          "rules": [
+            {
+              "matchPattern": "$removeparam=sca_esv",
+              "_linkumoriActivationIds": [
+                "google::field-removeparam-sca-esv"
+              ]
+            }
           ]
         }
       },

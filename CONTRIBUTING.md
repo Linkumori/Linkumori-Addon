@@ -120,8 +120,7 @@ Key files to be aware of:
 | `core_js/settings.js` | User settings management |
 | `core_js/storage.js` | Storage abstraction layer |
 | `core_js/tools.js` | Shared utility functions |
-| `data/custom-rules.json` | User-defined custom cleaning rules |
-| `data/downloaded-official-rules.json` | Official ClearURLs-sourced rules |
+| `data/linkumori-clearurls.json` | Canonical bundled ClearURLs source rules |
 | `_locales/en/messages.json` | English UI strings |
 
 ---
@@ -185,15 +184,13 @@ To view full modification history for third-party files, run the CLI tool and se
 
 ## 7. Adding or Updating URL Rules
 
-URL cleaning rules tell Linkumori which tracking parameters to strip, which domains to apply them to, and how to handle redirects. User-defined rules live in `data/custom-rules.json`.
-
-> **Do not edit `data/downloaded-official-rules.json`** — this file is maintained upstream by the ClearURLs project and is overwritten on updates.
+URL cleaning rules tell Linkumori which tracking parameters to strip, which domains to apply them to, and how to handle redirects. Bundled rules live in `data/linkumori-clearurls.json`.
 
 ---
 
 ### Rule File Structure
 
-`data/custom-rules.json` follows this top-level structure:
+`data/linkumori-clearurls.json` follows this top-level structure:
 
 ```json
 {
@@ -458,7 +455,6 @@ git checkout -b rules/new-provider-example-com
 - Do not add rules that would break legitimate website functionality
 - Do not set `completeProvider: true` without strong justification and discussion
 - Do not use overly broad `urlPattern` or `domainPatterns` that could match unintended sites
-- Do not modify `data/downloaded-official-rules.json` — it is maintained upstream and overwritten on updates
 
 ---
 

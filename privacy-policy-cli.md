@@ -1,6 +1,6 @@
 # Linkumori CLI — Privacy Policy
 
-**Last Updated:** May 9, 2026
+**Last Updated:** May 27, 2026
 
 Linkumori is a free, non-commercial, open-source tool.
 "CLI tool" in this document refers to `linkumori-cli-tool.js`.
@@ -11,7 +11,7 @@ Linkumori is a free, non-commercial, open-source tool.
 
 The CLI exists mainly to support open-source licence compliance. Linkumori bundles and modifies third-party code under LGPL-3.0, which requires that source code, modification history, and build instructions be made available. The CLI provides a reproducible build process to meet these requirements — generating copyright notices, commit history, and a verifiable build.
 
-It also handles practical tasks: merging URL-cleaning rule sets, managing the Public Suffix List, compiling font assets, packaging, and optionally signing the extension.
+It also handles practical tasks: compressing the canonical URL-cleaning rule source, managing the Public Suffix List, compiling font assets, packaging, and optionally signing the extension.
 
 > *This is informational only, not legal advice. Consult a legal professional for licence compliance questions.*
 
@@ -25,25 +25,25 @@ It also handles practical tasks: merging URL-cleaning rule sets, managing the Pu
 
 ## Build Modes
 
-When you run a build, the CLI asks two questions:
+When you run a build, the CLI uses the local ClearURLs source file and may ask one network-related question for the Public Suffix List:
 
-**1. Rules source** ("Choose a merge mode"):
-- **Offline** — uses the bundled `downloaded-official-rules.json` already in the package. *(Default. Recommended.)*
-- **Online** — downloads the latest ClearURLs rules from the URL in `data/url-config.json`.
+**1. Rules source**:
+- Uses `data/linkumori-clearurls.json` and converts it to `data/linkumori-clearurls-min.json.lz4`.
+- The rules build does not download or merge `downloaded-official-rules.json` and `custom-rules.json`.
 
 **2. Public Suffix List (PSL) source** ("Choose PSL mode"):
 - **Offline** — uses the bundled local PSL file already in the package. *(Default. Recommended.)*
 - **Online** — downloads the latest PSL from the URL in `data/url-config.json`.
 
-**Most users should choose Offline for both.** This keeps the CLI fully local with zero network activity.
+**Most users should choose Offline for PSL.** This keeps the CLI fully local with zero network activity.
 
-Online mode is intended only for developers who control or have independently verified the configured endpoints. If you choose **Online**, the build is functionally equivalent but not binary-identical to an offline build. That choice is your responsibility.
+Online mode is intended only for developers who control or have independently verified the configured PSL endpoint. If you choose **Online**, the build is functionally equivalent but not binary-identical to an offline build. That choice is your responsibility.
 
 ---
 
 ## URL Configuration (`data/url-config.json`)
 
-This file lists the network locations used by the CLI in online mode. It exists for transparency and configurability — so you can see and change the URLs before running online mode.
+This file lists the PSL network location used by the CLI in online mode. It exists for transparency and configurability — so you can see and change the URL before running online mode.
 
 Before using online mode, you must:
 1. Open `data/url-config.json`
@@ -65,8 +65,6 @@ The distributed `url-config.json` is a transparency record and a developer conve
 
 **Rules source (online mode only)**
 This endpoint is contacted when you select **Online** under the merge mode prompt. The default points to a GitHub-hosted ClearURLs rules source. If you modify `url-config.json`, the CLI contacts your configured URL instead.
-- [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service)
-- [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
 
 **Public Suffix List source (online mode only)**
 - [Public Suffix List](https://publicsuffix.org/)
