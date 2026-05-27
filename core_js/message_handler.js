@@ -401,6 +401,7 @@ function handleRegularFunction(request) {
         const allowedFunctions = new Set([
             'addToTemporaryTabWhitelist',
             'addToWhitelist',
+            'applyRegressionRuleData',
             'changeIcon',
             'getMergeStatistics',
             'getRemoteRulesHealth',
@@ -419,6 +420,9 @@ function handleRegularFunction(request) {
             'saveOnExit',
             'setBadgedStatus',
             'setPendingRegressionSuite',
+            'start',
+            'traceClearURLWebRequestTest',
+            'traceLinkumoriURLFilterRuleTest',
             'storageAsJSON'
         ]);
 

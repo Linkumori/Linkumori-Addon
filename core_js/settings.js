@@ -2407,7 +2407,11 @@ function isRegressionSuiteImport(value) {
         value.cases.every(testCase => (
             testCase &&
             typeof testCase.id === 'string' &&
-            (testCase.dialect === 'provider' || testCase.dialect === 'urlFilter') &&
+            (
+                testCase.dialect === 'provider' ||
+                testCase.dialect === 'providerWebRequest' ||
+                testCase.dialect === 'urlFilter'
+            ) &&
             typeof testCase.input === 'string' &&
             (
                 typeof testCase.expectedOutput === 'string' ||
