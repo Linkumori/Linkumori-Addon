@@ -404,6 +404,7 @@ function handleRegularFunction(request) {
             'applyRegressionRuleData',
             'changeIcon',
             'getMergeStatistics',
+            'getPendingRegressionSuite',
             'getRemoteRulesHealth',
             'getRuleSourceInfo',
             'getTemporaryPauseState',
