@@ -260,10 +260,15 @@
                 const skipNav = ciMode && testCase.expectedBlocked !== true;
                 const visitResult = skipNav ? { status: 'skipped', url: null } : await visit(testCase.input, testCase.expectedBlocked === true);
                 const loadStatus = visitResult.status;
-                const fn = testCase.dialect === 'urlFilter' ? 'traceLinkumoriURLFilterRuleTest' : 'runRuleTestLab';
-                const params = testCase.dialect === 'urlFilter'
-                    ? [testCase.input, testCase.request || {}]
-                    : [testCase.input, '', testCase.request || {}];
+                let fn = 'runRuleTestLab';
+                let params = [testCase.input, '', testCase.request || {}];
+                if (testCase.dialect === 'urlFilter') {
+                    fn = 'traceLinkumoriURLFilterRuleTest';
+                    params = [testCase.input, testCase.request || {}];
+                } else if (testCase.dialect === 'providerWebRequest') {
+                    fn = 'traceClearURLWebRequestTest';
+                    params = [{ ...(testCase.request || {}), url: testCase.input }];
+                }
                 const response = await call(fn, params);
                 const output = response.response || {};
                 const actualOutput = output.output || output.after || testCase.input;
