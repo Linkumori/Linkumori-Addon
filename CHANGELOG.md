@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.18.0] - 2026-05-28 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.17.1...linkumori-v100.18.0))
+### Changed
+- Adopted more syntax removeparam for clearurls.js (`2026-05-28`, hash: [`19278cc`](https://github.com/Linkumori/Linkumori-Addon/commit/19278cc))
+- Generated compressed URL cleaning rules bundle (`2026-05-28`, hash: [`d55c1cb`](https://github.com/Linkumori/Linkumori-Addon/commit/d55c1cb))
+- Use pattern-scoped rule disable IDs (`2026-05-28`, hash: [`2580ea8`](https://github.com/Linkumori/Linkumori-Addon/commit/2580ea8))
+
 ## [v100.17.1] - 2026-05-28 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.17.0...linkumori-v100.17.1))
 ### Changed
 - Allow regression page to read imported suite (`2026-05-27`, hash: [`71e4d1d`](https://github.com/Linkumori/Linkumori-Addon/commit/71e4d1d))
