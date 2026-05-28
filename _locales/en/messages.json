@@ -630,6 +630,30 @@
     "message": "Custom rules run together with built-in rules and can override imported bundled/remote provider entries by name.",
     "description": "Note about custom rules precedence"
   },
+  "faq_final_runtime_clearurls_title": {
+    "message": "Dedicated clearurls.js runtime syntax",
+    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
+  },
+  "faq_final_runtime_interoperability_title": {
+    "message": "Interoperability URL-filter runtime syntax",
+    "description": "FAQ label for the interoperability runtime syntax example"
+  },
+  "faq_final_runtime_syntax": {
+    "message": "What is the final runtime syntax?",
+    "description": "FAQ question for final supported runtime syntax formats"
+  },
+  "faq_final_runtime_syntax_answer": {
+    "message": "Linkumori supports two final runtime formats. Use the dedicated clearurls.js provider syntax first for native field, raw, redirection, rewrite, exception, and provider-scoped behavior. Use the interoperability format when importing URL-filter style $removeparam rules.",
+    "description": "FAQ answer explaining the two final runtime syntax formats"
+  },
+  "faq_final_runtime_syntax_note": {
+    "message": "Both formats can be loaded together, but the dedicated provider syntax is the primary native format. The interoperability format exists for filter-list compatibility.",
+    "description": "FAQ note for final runtime syntax formats"
+  },
+  "faq_final_runtime_open_page": {
+    "message": "Open runtime syntax reference",
+    "description": "FAQ link text that opens the dedicated runtime syntax page"
+  },
   "faq_default_note": {
     "message": "Default:",
     "description": "Label for default behavior notes in FAQ"
@@ -2305,6 +2329,26 @@
     "message": "Provider rule IDs",
     "description": "Section title for disabled ClearURLs provider rule IDs"
   },
+  "providerImport_allProviders": {
+    "message": "All providers",
+    "description": "Filter label for showing rule activations from every provider"
+  },
+  "providerImport_disableByPattern": {
+    "message": "By URL/domain pattern",
+    "description": "Tab label for disabling rules by urlPattern or domainPattern activation"
+  },
+  "providerImport_disableByProvider": {
+    "message": "By provider",
+    "description": "Tab label for disabling rules by legacy provider::rule identity"
+  },
+  "providerImport_providerRuleNav": {
+    "message": "Provider rule navigation",
+    "description": "Accessible label for provider filter navigation on the disabled rules page"
+  },
+  "providerImport_noProviderRuleActivations": {
+    "message": "No active rule activations for this provider.",
+    "description": "Empty state when a provider filter has no active rule toggles"
+  },
   "providerImport_ruleIdControls": {
     "message": "Provider rule ID controls",
     "description": "Toolbar title for rule-id disable controls in provider editor"
@@ -3098,6 +3142,54 @@
   "status_saved": {
     "message": "Saved!",
     "description": "Button text after settings are saved."
+  },
+  "runtimeSyntax_clearURLsDescription": {
+    "message": "This is the native runtime consumed by clearurls.js. It should be used first for custom providers because it supports canonical rule objects, field rules, raw URL rules, redirections, rewrites, exceptions, request types, aliases, and pattern-scoped disable identities.",
+    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
+  },
+  "runtimeSyntax_clearURLsTitle": {
+    "message": "Dedicated clearurls.js runtime",
+    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
+  },
+  "runtimeSyntax_disableDescription": {
+    "message": "Pattern-scoped identities are stable across provider-name changes. Provider-scoped identities remain available for broad legacy disable behavior.",
+    "description": "Runtime syntax page description for disable identity examples"
+  },
+  "runtimeSyntax_disableTitle": {
+    "message": "Disable identity formats",
+    "description": "Runtime syntax page section title for disable identity formats"
+  },
+  "runtimeSyntax_interoperabilityDescription": {
+    "message": "This runtime is for URL-filter interoperability. It keeps filter-list style $removeparam and @@ exception rules in a compact rules array for import and remote list compatibility.",
+    "description": "Runtime syntax page description for interoperability runtime syntax"
+  },
+  "runtimeSyntax_interoperabilityTitle": {
+    "message": "Interoperability rule runtime",
+    "description": "Runtime syntax page section title for interoperability runtime syntax"
+  },
+  "runtimeSyntax_intro": {
+    "message": "The native clearurls.js provider runtime is the first-class format. The interoperability runtime sits beside it for filter-list rules that need to keep their original $removeparam shape.",
+    "description": "Runtime syntax page intro text"
+  },
+  "runtimeSyntax_kicker": {
+    "message": "Runtime reference",
+    "description": "Runtime syntax page eyebrow text"
+  },
+  "runtimeSyntax_navClearURLs": {
+    "message": "Dedicated runtime",
+    "description": "Runtime syntax page navigation link for dedicated runtime section"
+  },
+  "runtimeSyntax_navDisableIds": {
+    "message": "Disable IDs",
+    "description": "Runtime syntax page navigation link for disable identity section"
+  },
+  "runtimeSyntax_navInteroperability": {
+    "message": "Interoperability runtime",
+    "description": "Runtime syntax page navigation link for interoperability section"
+  },
+  "runtimeSyntax_pageTitle": {
+    "message": "Final Runtime Syntax",
+    "description": "Runtime syntax page title"
   },
   "status_saving": {
     "message": "Saving...",

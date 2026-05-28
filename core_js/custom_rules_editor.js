@@ -147,6 +147,7 @@ let importExclusionsBySource = {};
 let linkumoriURLDisabledRules = [];
 let clearURLsDisabledRuleIds = [];
 let clearURLsProviderSnapshot = null;
+let disabledRulesActivationMode = 'pattern';
 let userWhitelist = [];
 let whitelistSearchTerm = '';
 let whitelistStatusTimer = null;
@@ -2640,10 +2641,11 @@ function getSnapshotRuleActivationRows() {
             : [rule?.runtimeRuleId || buildProviderRuntimeRuleId(rule?.providerName || '', rule?.id || '')];
         activationIds.forEach(activationId => {
             const runtimeRuleId = String(activationId || '').trim();
-            if (!runtimeRuleId || disabled.has(runtimeRuleId)) {
+            const parsed = parseActivationId(runtimeRuleId, rule.id || '');
+            const disableKeys = getProviderRuleDisableKeys(parsed.scopeId, parsed.ruleId, rule.aliases || [], rule.providerName || '');
+            if (!runtimeRuleId || disableKeys.some(key => disabled.has(key))) {
                 return;
             }
-            const parsed = parseActivationId(runtimeRuleId, rule.id || '');
             rows.push({
                 runtimeRuleId,
                 scopeId: parsed.scopeId,
@@ -2659,30 +2661,95 @@ function getSnapshotRuleActivationRows() {
     return rows;
 }
 
+function getSnapshotProviderRuleRows() {
+    const ruleIds = clearURLsProviderSnapshot?.ruleIds || {};
+    const disabled = new Set(clearURLsDisabledRuleIds);
+    const rows = [];
+    Object.values(ruleIds).forEach(rule => {
+        const providerName = rule?.providerName || '';
+        const ruleId = rule?.id || '';
+        const runtimeRuleId = rule?.runtimeRuleId || buildProviderRuntimeRuleId(providerName, ruleId);
+        const aliases = Array.isArray(rule?.aliases) ? rule.aliases : [];
+        const disableKeys = [
+            runtimeRuleId,
+            ruleId,
+            ...(Array.isArray(rule?.aliasRuntimeIds) ? rule.aliasRuntimeIds : []),
+            ...aliases
+        ].filter(Boolean);
+        if (!runtimeRuleId || disableKeys.some(key => disabled.has(key))) {
+            return;
+        }
+        rows.push({
+            runtimeRuleId,
+            providerName,
+            ruleId,
+            aliases,
+            section: rule.section || '',
+            kind: rule.kind || '',
+            match: rule.match || ''
+        });
+    });
+    rows.sort((a, b) => {
+        const providerCompare = (a.providerName || '').localeCompare(b.providerName || '');
+        return providerCompare || a.runtimeRuleId.localeCompare(b.runtimeRuleId);
+    });
+    return rows;
+}
+
 function renderRuleActivationSection() {
-    const rows = getSnapshotRuleActivationRows();
-    if (rows.length === 0) {
+    const patternRows = getSnapshotRuleActivationRows();
+    const providerRows = getSnapshotProviderRuleRows();
+    if (patternRows.length === 0 && providerRows.length === 0) {
         return '';
     }
+
+    const modes = [
+        {
+            mode: 'pattern',
+            label: i18n('providerImport_disableByPattern'),
+            count: patternRows.length
+        },
+        {
+            mode: 'provider',
+            label: i18n('providerImport_disableByProvider'),
+            count: providerRows.length
+        }
+    ].map(item => `
+        <button type="button"
+            class="provider-filter-nav-btn ${item.mode === disabledRulesActivationMode ? 'active' : ''}"
+            data-activation-mode="${escapeHtml(item.mode)}"
+            title="${escapeHtml(item.label)}">
+            <span>${escapeHtml(item.label)}</span>
+            <span class="provider-filter-count">${getLocalizedNumber(item.count)}</span>
+        </button>
+    `).join('');
+
+    const rows = disabledRulesActivationMode === 'provider' ? providerRows : patternRows;
     const items = rows.map(row => `
         <li class="provider-disabled-item rule-activation-item" data-runtime-id="${escapeHtml(row.runtimeRuleId)}">
             <span class="provider-disabled-signature" title="${escapeHtml(row.runtimeRuleId)}">
                 <strong>${escapeHtml(row.ruleId)}</strong>
                 <span class="provider-disabled-source">
-                    ${row.providerName ? `${escapeHtml(row.providerName)} · ` : ''}${escapeHtml(row.scopeId)} · ${escapeHtml(row.section)} · ${escapeHtml(row.kind)}
+                    ${row.providerName ? `${escapeHtml(row.providerName)} · ` : ''}${row.scopeId ? `${escapeHtml(row.scopeId)} · ` : ''}${escapeHtml(row.section)} · ${escapeHtml(row.kind)}
                     ${row.match ? ` · ${escapeHtml(row.match)}` : ''}
                 </span>
             </span>
             <button type="button" class="btn btn-sm btn-warning rule-activation-disable-btn">${i18n('providerImport_disable')}</button>
         </li>
     `).join('');
+
     return `
         <div class="provider-disabled-section">
             <div class="provider-disabled-title-row">
                 <h5 class="provider-disabled-title">${escapeHtml(i18n('providerImport_ruleActivation'))}</h5>
                 <span class="provider-disabled-count-badge">${getLocalizedNumber(rows.length)}</span>
             </div>
-            <ul class="provider-disabled-list rule-activation-list">${items}</ul>
+            <div class="provider-filter-nav" aria-label="${escapeHtml(i18n('providerImport_providerRuleNav'))}">
+                ${modes}
+            </div>
+            ${rows.length > 0
+                ? `<ul class="provider-disabled-list rule-activation-list">${items}</ul>`
+                : `<p class="provider-disabled-empty">${escapeHtml(i18n('providerImport_noProviderRuleActivations'))}</p>`}
         </div>
     `;
 }
@@ -2791,6 +2858,14 @@ function renderDisabledRulesPageContent() {
             ${activationSection}
         </div>
     `);
+
+    container.querySelectorAll('.provider-filter-nav-btn[data-activation-mode]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const mode = btn.dataset.activationMode || 'pattern';
+            disabledRulesActivationMode = mode === 'provider' ? 'provider' : 'pattern';
+            renderDisabledRulesPageContent();
+        });
+    });
 
     container.querySelectorAll('.rule-activation-disable-btn').forEach(btn => {
         btn.addEventListener('click', async (e) => {
