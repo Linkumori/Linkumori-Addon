@@ -1143,7 +1143,13 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         includeDomains: [],
         excludeDomains: [],
         includeMethods: [],
-        excludeMethods: []
+        excludeMethods: [],
+        id: null,
+        aliases: [],
+        activationIds: [],
+        requestTypes: [],
+        replacePattern: null,
+        preprocessors: []
     };
 
     const removeValue = removeParamToken.indexOf('=') === -1
@@ -1221,9 +1227,27 @@ function parseLinkumoriRemoveParamRuleDefinition(rule) {
     return parseLinkumoriRemoveParamRule(getLinkumoriRemoveParamRuleText(rule));
 }
 
+function getLinkumoriRemoveParamTraceName(linkumoriRule) {
+    if (!linkumoriRule) return '$removeparam';
+    if (typeof linkumoriRule.id === 'string' && linkumoriRule.id) return linkumoriRule.id;
+    if (typeof linkumoriRule.raw === 'string' && linkumoriRule.raw) return linkumoriRule.raw;
+    return '$removeparam';
+}
+
+function linkumoriRemoveParamMatchesRequestType(linkumoriRule, request = null) {
+    const requestTypes = Array.isArray(linkumoriRule?.requestTypes)
+        ? linkumoriRule.requestTypes
+        : [];
+    if (requestTypes.length === 0) return true;
+
+    const requestType = String(request && request.type || "").toLowerCase();
+    return !!requestType && requestTypes.indexOf(requestType) !== -1;
+}
+
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null) {
     if (!linkumoriRule || !fullUrl) return false;
     if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
+    if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) return false;
 
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
         if (!matchDomainPattern(fullUrl, [linkumoriRule.urlPattern])) {
@@ -1324,7 +1348,8 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
         return {
             handled: true,
             remove: false,
-            matchedRule: matchedException.raw || null
+            matchedRule: getLinkumoriRemoveParamTraceName(matchedException),
+            rule: matchedException
         };
     }
 
@@ -1335,14 +1360,19 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
     if (matchedRule) {
         return {
             handled: true,
-            remove: true,
-            matchedRule: matchedRule.raw || null
+            remove: matchedRule.replacePattern === null,
+            rewrite: matchedRule.replacePattern !== null,
+            replacePattern: matchedRule.replacePattern,
+            preprocessors: Array.isArray(matchedRule.preprocessors) ? matchedRule.preprocessors : [],
+            matchedRule: getLinkumoriRemoveParamTraceName(matchedRule),
+            rule: matchedRule
         };
     }
 
     return {
         handled: false,
         remove: false,
+        rewrite: false,
         matchedRule: null
     };
 }
@@ -1367,12 +1397,15 @@ function linkumoriRemoveParamExceptionMatchesContext(linkumoriRule, contextUrls,
     if (!linkumoriRule || !linkumoriRule.isException || !Array.isArray(contextUrls)) {
         return false;
     }
+    if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) {
+        return false;
+    }
     if (!linkumoriRemoveParamExceptionMatchesMethod(linkumoriRule, request)) {
         return false;
     }
 
     return contextUrls.some((contextUrl) => {
-        return contextUrl && matchLinkumoriRemoveParamTarget(linkumoriRule, contextUrl, null);
+        return contextUrl && matchLinkumoriRemoveParamTarget(linkumoriRule, contextUrl, request);
     });
 }
 
@@ -1786,10 +1819,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             const fieldsToDelete = [];
             for (const field of Array.from(fields.keys())) {
                 const decision = getLinkumoriDecision(field);
-                // Only skip when $removeparam is actively removing this field.
+                // Only skip when $removeparam is actively mutating this field.
                 // An exception (handled:true, remove:false) must not suppress
                 // independent regex rules — @@$removeparam only excepts that system.
-                if (decision.handled && decision.remove) continue;
+                if (decision.handled && (decision.remove || decision.rewrite)) continue;
 
                 activeRegex.lastIndex = 0;
                 if (activeRegex.test(field)) {
@@ -1814,7 +1847,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             const fragmentsToDelete = [];
             for (const fragment of Array.from(fragments.keys())) {
                 const decision = getLinkumoriDecision(fragment);
-                if (decision.handled && decision.remove) continue;
+                if (decision.handled && (decision.remove || decision.rewrite)) continue;
 
                 activeRegex.lastIndex = 0;
                 if (activeRegex.test(fragment)) {
@@ -1868,10 +1901,24 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             let matchedRuleForLog = null;
 
             const fieldsToDelete = [];
-            for (const field of fields.keys()) {
+            for (const field of Array.from(fields.keys())) {
                 const decision = getLinkumoriDecision(field);
                 if (decision.remove) {
                     fieldsToDelete.push(field);
+                    localChange = true;
+                    if (!matchedRuleForLog && decision.matchedRule) {
+                        matchedRuleForLog = decision.matchedRule;
+                    }
+                } else if (decision.rewrite) {
+                    const rewriteKey = provider.getName() + "::removeparam-search::" + field + "::" + (decision.matchedRule || '$removeparam');
+                    if (appliedFieldRewrites.has(rewriteKey)) continue;
+                    const currentValues = fields.getAll(field);
+                    fields.delete(field);
+                    currentValues.forEach((value) => {
+                        const values = applyCoreRulePreprocessors([value], decision.preprocessors);
+                        fields.append(field, applyCoreReplacePattern(decision.replacePattern, values));
+                    });
+                    appliedFieldRewrites.add(rewriteKey);
                     localChange = true;
                     if (!matchedRuleForLog && decision.matchedRule) {
                         matchedRuleForLog = decision.matchedRule;
@@ -1881,10 +1928,24 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             fieldsToDelete.forEach((field) => fields.delete(field));
 
             const fragmentsToDelete = [];
-            for (const fragment of fragments.keys()) {
+            for (const fragment of Array.from(fragments.keys())) {
                 const decision = getLinkumoriDecision(fragment);
                 if (decision.remove) {
                     fragmentsToDelete.push(fragment);
+                    localChange = true;
+                    if (!matchedRuleForLog && decision.matchedRule) {
+                        matchedRuleForLog = decision.matchedRule;
+                    }
+                } else if (decision.rewrite) {
+                    const rewriteKey = provider.getName() + "::removeparam-fragment::" + fragment + "::" + (decision.matchedRule || '$removeparam');
+                    if (appliedFieldRewrites.has(rewriteKey)) continue;
+                    const currentValues = fragments.getAll(fragment);
+                    fragments.delete(fragment);
+                    currentValues.forEach((value) => {
+                        const values = applyCoreRulePreprocessors([value], decision.preprocessors);
+                        fragments.append(fragment, applyCoreReplacePattern(decision.replacePattern, values));
+                    });
+                    appliedFieldRewrites.add(rewriteKey);
                     localChange = true;
                     if (!matchedRuleForLog && decision.matchedRule) {
                         matchedRuleForLog = decision.matchedRule;
@@ -2559,7 +2620,12 @@ function start() {
                 if (normalizedRule) {
                     const activeRule = activateCompiledRule(normalizedRule, 'rules');
                     if (!activeRule) return;
+                    parsedLinkumoriRule.id = activeRule.id;
+                    parsedLinkumoriRule.aliases = Array.isArray(activeRule.aliases) ? activeRule.aliases.slice() : [];
                     parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
+                    parsedLinkumoriRule.requestTypes = Array.isArray(activeRule.requestTypes) ? activeRule.requestTypes.slice() : [];
+                    parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
+                    parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
                 }
 
                 if (parsedLinkumoriRule.isException) {

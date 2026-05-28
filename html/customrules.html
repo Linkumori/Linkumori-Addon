@@ -2062,6 +2062,57 @@
             background: var(--bg-primary);
         }
 
+        #disabled-rules-view .provider-filter-nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0 0 10px 0;
+            padding: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-primary);
+        }
+
+        #disabled-rules-view .provider-filter-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            max-width: 220px;
+            min-height: 30px;
+            padding: 5px 8px;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            background: transparent;
+            color: var(--text-secondary);
+            font: inherit;
+            font-size: 11px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        #disabled-rules-view .provider-filter-nav-btn span:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #disabled-rules-view .provider-filter-nav-btn:hover,
+        #disabled-rules-view .provider-filter-nav-btn.active {
+            border-color: var(--button-primary);
+            background: var(--button-primary);
+            color: white;
+        }
+
+        #disabled-rules-view .provider-filter-count {
+            min-width: 20px;
+            padding: 2px 6px;
+            border-radius: 999px;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
         #disabled-rules-view .provider-disabled-item {
             display: grid;
             grid-template-columns: minmax(0, 1fr) auto auto;
@@ -2901,6 +2952,22 @@
 @@||example.com^$removeparam=utm_source</div>
                             <div class="faq-info">
                                 <strong data-i18n="faq_note"></strong> <span data-i18n="faq_linkumori_url_rules_note"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="final-runtime-syntax">
+                        <span data-i18n="faq_final_runtime_syntax"></span>
+                        <span class="faq-question-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p data-i18n="faq_final_runtime_syntax_answer"></p>
+                            <p><a class="btn btn-primary btn-sm" href="runtime-syntax.html" target="_blank" data-i18n="faq_final_runtime_open_page"></a></p>
+                            <div class="faq-info">
+                                <strong data-i18n="faq_note"></strong> <span data-i18n="faq_final_runtime_syntax_note"></span>
                             </div>
                         </div>
                     </div>
