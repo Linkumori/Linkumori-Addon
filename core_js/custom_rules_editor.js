@@ -969,8 +969,14 @@ function getSignatureLabel(signature) {
     if (signature.startsWith('url:')) {
         return signature.substring(4);
     }
+    if (signature.startsWith('urlPattern:')) {
+        return signature.substring(11);
+    }
     if (signature.startsWith('domain:')) {
         return signature.substring(7);
+    }
+    if (signature.startsWith('domainPattern:')) {
+        return signature.substring(14);
     }
     return signature;
 }
@@ -1082,12 +1088,51 @@ function buildProviderRuntimeRuleId(providerName, ruleId) {
     return `${providerName}::${ruleId}`;
 }
 
-function getProviderRuleDisableKeys(providerName, ruleId, aliases = []) {
+function buildProviderPatternRuntimeRuleId(scopeId, ruleId) {
+    return `${scopeId}::${ruleId}`;
+}
+
+function getProviderRuleScopeAliases(scopeId) {
+    const value = String(scopeId || '').trim();
+    if (!value) return [];
+    const aliases = [value];
+    if (value.startsWith('domainPattern:')) {
+        aliases.push(`domain:${value.substring(14)}`);
+    } else if (value.startsWith('urlPattern:')) {
+        aliases.push(`url:${value.substring(11)}`);
+    } else if (value.startsWith('domain:')) {
+        aliases.push(`domainPattern:${value.substring(7)}`);
+    } else if (value.startsWith('url:')) {
+        aliases.push(`urlPattern:${value.substring(4)}`);
+    }
+    return aliases;
+}
+
+function getProviderRuleActivationScopeIds(providerName, provider) {
+    const urlPattern = typeof provider?.urlPattern === 'string'
+        ? provider.urlPattern.trim()
+        : '';
+    if (urlPattern) {
+        return [`urlPattern:${urlPattern}`];
+    }
+
+    const domainPatterns = [...new Set(toDomainPatternArray(provider?.domainPatterns))];
+    if (domainPatterns.length > 0) {
+        return domainPatterns.map(pattern => `domainPattern:${pattern}`);
+    }
+
+    return [providerName];
+}
+
+function getProviderRuleDisableKeys(scopeId, ruleId, aliases = [], legacyProviderName = '') {
+    const scopeAliases = getProviderRuleScopeAliases(scopeId);
     return [
-        buildProviderRuntimeRuleId(providerName, ruleId),
+        ...scopeAliases.map(scope => buildProviderPatternRuntimeRuleId(scope, ruleId)),
         ruleId,
-        ...aliases.map(alias => buildProviderRuntimeRuleId(providerName, alias)),
-        ...aliases
+        ...aliases.flatMap(alias => scopeAliases.map(scope => buildProviderPatternRuntimeRuleId(scope, alias))),
+        ...aliases,
+        legacyProviderName ? buildProviderRuntimeRuleId(legacyProviderName, ruleId) : '',
+        ...aliases.map(alias => legacyProviderName ? buildProviderRuntimeRuleId(legacyProviderName, alias) : '')
     ].filter(Boolean);
 }
 
@@ -1097,6 +1142,7 @@ function collectProviderRuleIdEntries(providerName, provider) {
     }
 
     const entries = [];
+    const activationScopeIds = getProviderRuleActivationScopeIds(providerName, provider);
     const sections = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions'];
     sections.forEach(section => {
         const rules = provider[section];
@@ -1111,21 +1157,25 @@ function collectProviderRuleIdEntries(providerName, provider) {
             const aliases = Array.isArray(rule.aliases)
                 ? rule.aliases.map(alias => String(alias || '').trim()).filter(Boolean)
                 : [];
-            const runtimeId = buildProviderRuntimeRuleId(providerName, rule.id);
             const disabledIds = new Set(clearURLsDisabledRuleIds);
-            const disableKeys = getProviderRuleDisableKeys(providerName, rule.id, aliases);
-            const disabled = disableKeys.some(key => disabledIds.has(key));
+            activationScopeIds.forEach(scopeId => {
+                const runtimeId = buildProviderPatternRuntimeRuleId(scopeId, rule.id);
+                const disableKeys = getProviderRuleDisableKeys(scopeId, rule.id, aliases, providerName);
+                const disabled = disableKeys.some(key => disabledIds.has(key));
 
-            entries.push({
-                section,
-                index,
-                id: rule.id,
-                runtimeId,
-                aliases,
-                disableKeys,
-                kind: rule.kind || (section === 'rawRules' ? 'raw' : (section === 'redirections' ? 'redirection' : 'field')),
-                match: typeof rule.match === 'string' ? rule.match : '',
-                disabled
+                entries.push({
+                    section,
+                    index,
+                    id: rule.id,
+                    runtimeId,
+                    scopeId,
+                    providerName,
+                    aliases,
+                    disableKeys,
+                    kind: rule.kind || (section === 'rawRules' ? 'raw' : (section === 'redirections' ? 'redirection' : 'field')),
+                    match: typeof rule.match === 'string' ? rule.match : '',
+                    disabled
+                });
             });
         });
     });
@@ -1150,12 +1200,14 @@ function renderProviderRuleIdControls(providerName, provider) {
     const rows = entries.map(entry => {
         const aliasText = entry.aliases.length > 0 ? ` aliases: ${entry.aliases.join(', ')}` : '';
         const matchText = entry.match ? ` · ${entry.match}` : '';
+        const scopeText = entry.scopeId ? ` · ${entry.scopeId}` : '';
+        const providerText = entry.providerName ? `${entry.providerName} · ` : '';
         return `
             <li class="provider-disabled-item provider-rule-id-item" data-rule-id="${escapeHtml(entry.runtimeId)}" data-runtime-id="${escapeHtml(entry.runtimeId)}">
                 <input type="hidden" class="provider-rule-id-disable-keys" value="${escapeHtml(JSON.stringify(entry.disableKeys))}">
                 <span class="provider-disabled-signature" title="${escapeHtml(entry.runtimeId)}">
                     <strong>${escapeHtml(entry.id)}</strong>
-                    <span class="provider-disabled-source">${escapeHtml(entry.section)} · ${escapeHtml(entry.kind)}${escapeHtml(matchText)}${escapeHtml(aliasText)}</span>
+                    <span class="provider-disabled-source">${escapeHtml(providerText)}${escapeHtml(entry.section)} · ${escapeHtml(entry.kind)}${escapeHtml(scopeText)}${escapeHtml(matchText)}${escapeHtml(aliasText)}</span>
                 </span>
                 <button type="button" class="btn btn-sm ${entry.disabled ? 'btn-secondary provider-rule-id-restore-btn' : 'btn-warning provider-rule-id-disable-btn'}">
                     ${entry.disabled ? i18n('providerImport_disabledRestore') : i18n('providerImport_disable')}
@@ -2568,12 +2620,12 @@ function parseActivationId(activationId, fallbackRuleId = '') {
     const parts = String(activationId || '').split('::');
     if (parts.length >= 2) {
         return {
-            providerId: parts.slice(0, -1).join('::'),
+            scopeId: parts.slice(0, -1).join('::'),
             ruleId: parts[parts.length - 1]
         };
     }
     return {
-        providerId: '',
+        scopeId: '',
         ruleId: fallbackRuleId || String(activationId || '')
     };
 }
@@ -2594,7 +2646,8 @@ function getSnapshotRuleActivationRows() {
             const parsed = parseActivationId(runtimeRuleId, rule.id || '');
             rows.push({
                 runtimeRuleId,
-                providerId: parsed.providerId,
+                scopeId: parsed.scopeId,
+                providerName: rule.providerName || '',
                 ruleId: parsed.ruleId,
                 section: rule.section || '',
                 kind: rule.kind || '',
@@ -2616,7 +2669,7 @@ function renderRuleActivationSection() {
             <span class="provider-disabled-signature" title="${escapeHtml(row.runtimeRuleId)}">
                 <strong>${escapeHtml(row.ruleId)}</strong>
                 <span class="provider-disabled-source">
-                    ${escapeHtml(row.providerId)} · ${escapeHtml(row.section)} · ${escapeHtml(row.kind)}
+                    ${row.providerName ? `${escapeHtml(row.providerName)} · ` : ''}${escapeHtml(row.scopeId)} · ${escapeHtml(row.section)} · ${escapeHtml(row.kind)}
                     ${row.match ? ` · ${escapeHtml(row.match)}` : ''}
                 </span>
             </span>
@@ -2679,9 +2732,9 @@ function renderDisabledRulesPageContent() {
                 kind = 'linkumoriURL';
             } else if (source === 'clearurls-rule-ids') {
                 kind = 'clearURLsRuleId';
-            } else if (typeof signature === 'string' && signature.startsWith('url:')) {
+            } else if (typeof signature === 'string' && (signature.startsWith('url:') || signature.startsWith('urlPattern:'))) {
                 kind = 'urlPattern';
-            } else if (typeof signature === 'string' && signature.startsWith('domain:')) {
+            } else if (typeof signature === 'string' && (signature.startsWith('domain:') || signature.startsWith('domainPattern:'))) {
                 kind = 'domainPatterns';
             }
             entries.push({ source, signature, kind });

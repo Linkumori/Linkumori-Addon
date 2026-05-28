@@ -451,8 +451,35 @@ function createStorageGeneratedRuleId(section, matchPattern, occupiedIds = new S
     return uniqueId;
 }
 
-function buildProviderRuleActivationId(providerId, ruleId) {
-    return `${providerId}::${ruleId}`;
+function buildProviderRuleActivationId(scopeId, ruleId) {
+    return `${scopeId}::${ruleId}`;
+}
+
+function getProviderActivationScopeIds(providerName, providerData) {
+    const urlPattern = (typeof providerData?.urlPattern === 'string')
+        ? providerData.urlPattern.trim()
+        : '';
+    if (urlPattern) {
+        return [`urlPattern:${urlPattern}`];
+    }
+
+    const domainPatterns = [];
+    if (Array.isArray(providerData?.domainPatterns)) {
+        providerData.domainPatterns.forEach(pattern => {
+            if (typeof pattern === 'string' && pattern.trim()) {
+                domainPatterns.push(pattern.trim());
+            }
+        });
+    } else if (typeof providerData?.domainPatterns === 'string' && providerData.domainPatterns.trim()) {
+        domainPatterns.push(providerData.domainPatterns.trim());
+    }
+
+    const uniqueDomainPatterns = [...new Set(domainPatterns)];
+    if (uniqueDomainPatterns.length > 0) {
+        return uniqueDomainPatterns.map(pattern => `domainPattern:${pattern}`);
+    }
+
+    return [providerName];
 }
 
 function getRuleMatchForActivation(section, rule) {
@@ -471,7 +498,8 @@ function cloneRuleWithActivationIds(section, rule, activationId) {
     const activationIds = Array.isArray(rule && rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY])
         ? rule[LINKUMORI_RULE_ACTIVATION_IDS_KEY]
         : [];
-    const nextActivationIds = mergeRuleActivationIds(activationIds, [activationId]);
+    const newActivationIds = Array.isArray(activationId) ? activationId : [activationId];
+    const nextActivationIds = mergeRuleActivationIds(activationIds, newActivationIds);
 
     if (typeof rule === 'string') {
         return {
@@ -502,7 +530,7 @@ function mergeRuleActivationIds(left, right) {
     return result;
 }
 
-function attachRuleActivationIdsToArray(section, rules, providerName, occupiedIds) {
+function attachRuleActivationIdsToArray(section, rules, activationScopeIds, occupiedIds) {
     if (!Array.isArray(rules)) {
         return [];
     }
@@ -526,7 +554,11 @@ function attachRuleActivationIdsToArray(section, rules, providerName, occupiedId
                 });
             }
         }
-        return cloneRuleWithActivationIds(section, rule, buildProviderRuleActivationId(providerName, ruleId));
+        const activationIds = (Array.isArray(activationScopeIds) && activationScopeIds.length > 0
+            ? activationScopeIds
+            : [''])
+            .map(scopeId => buildProviderRuleActivationId(scopeId, ruleId));
+        return cloneRuleWithActivationIds(section, rule, activationIds);
     });
 }
 
@@ -535,9 +567,10 @@ function attachProviderActivationIds(providerName, providerData) {
         ? { ...providerData }
         : {};
     const occupiedIds = new Set();
+    const activationScopeIds = getProviderActivationScopeIds(providerName, data);
     ['exceptions', 'rules', 'referralMarketing', 'rawRules', 'redirections'].forEach(section => {
         if (Array.isArray(data[section])) {
-            data[section] = attachRuleActivationIdsToArray(section, data[section], providerName, occupiedIds);
+            data[section] = attachRuleActivationIdsToArray(section, data[section], activationScopeIds, occupiedIds);
         }
     });
     return data;

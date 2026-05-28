@@ -155,6 +155,10 @@ function buildCoreRuntimeRuleId(providerName, ruleId) {
     return `${providerName}::${ruleId}`;
 }
 
+function buildCorePatternRuleActivationId(scopeId, ruleId) {
+    return `${scopeId}::${ruleId}`;
+}
+
 function normalizeCoreRuleActivationIds(value) {
     if (!Array.isArray(value)) return [];
     const activationIds = [];
@@ -168,17 +172,21 @@ function normalizeCoreRuleActivationIds(value) {
     return activationIds;
 }
 
-function attachCoreRuleIdentity(providerName, compiledRule, section) {
+function attachCoreRuleIdentity(providerName, compiledRule, section, activationScopeIds = []) {
     const ruleId = compiledRule.id || createGeneratedCoreRuleId(section, compiledRule.matchPattern);
     const aliases = Array.isArray(compiledRule.aliases) ? compiledRule.aliases : [];
     const activationIds = normalizeCoreRuleActivationIds(compiledRule._linkumoriActivationIds);
+    const fallbackActivationIds = (Array.isArray(activationScopeIds) && activationScopeIds.length > 0
+        ? activationScopeIds
+        : [providerName])
+        .map(scopeId => buildCorePatternRuleActivationId(scopeId, ruleId));
     compiledRule.id = ruleId;
     compiledRule.providerName = providerName;
     compiledRule.runtimeRuleId = buildCoreRuntimeRuleId(providerName, ruleId);
     compiledRule.aliasRuntimeIds = aliases.map(alias => buildCoreRuntimeRuleId(providerName, alias));
     compiledRule.activationIds = activationIds.length > 0
         ? activationIds
-        : [compiledRule.runtimeRuleId];
+        : fallbackActivationIds;
     return compiledRule;
 }
 
@@ -209,13 +217,75 @@ function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     const disabledActivationIds = [];
     activationIds.forEach(activationId => {
         const localRuleId = String(activationId).split("::").pop();
-        const disabled = disabledRuleIds.has(activationId) || disabledRuleIds.has(localRuleId);
+        const disabled = getCoreActivationIdDisableAliases(activationId)
+            .some(alias => disabledRuleIds.has(alias)) || disabledRuleIds.has(localRuleId);
         if (disabled) disabledActivationIds.push(activationId);
         else activeActivationIds.push(activationId);
     });
     compiledRule.disabledActivationIds = disabledActivationIds;
     compiledRule.activationIds = activeActivationIds;
     return activeActivationIds.length === 0;
+}
+
+function getCoreActivationIdDisableAliases(activationId) {
+    const value = String(activationId || "").trim();
+    if (!value) return [];
+    const aliases = [value];
+    if (value.startsWith("domainPattern:")) {
+        aliases.push(`domain:${value.slice(14)}`);
+    } else if (value.startsWith("urlPattern:")) {
+        aliases.push(`url:${value.slice(11)}`);
+    } else if (value.startsWith("domain:")) {
+        aliases.push(`domainPattern:${value.slice(7)}`);
+    } else if (value.startsWith("url:")) {
+        aliases.push(`urlPattern:${value.slice(4)}`);
+    }
+    return aliases;
+}
+
+function parseCorePatternActivationScope(activationId) {
+    const value = String(activationId || "");
+    const separatorIndex = value.lastIndexOf("::");
+    if (separatorIndex === -1) return null;
+    const scope = value.slice(0, separatorIndex);
+    if (scope.startsWith("domainPattern:")) {
+        return { type: "domain", pattern: scope.slice(14) };
+    }
+    if (scope.startsWith("urlPattern:")) {
+        return { type: "url", pattern: scope.slice(11) };
+    }
+    if (scope.startsWith("domain:")) {
+        return { type: "domain", pattern: scope.slice(7) };
+    }
+    if (scope.startsWith("url:")) {
+        return { type: "url", pattern: scope.slice(4) };
+    }
+    return null;
+}
+
+function coreRuleHasActivePatternForUrl(compiledRule, url) {
+    const activationIds = Array.isArray(compiledRule?.activationIds) ? compiledRule.activationIds : [];
+    const patternScopes = activationIds
+        .map(parseCorePatternActivationScope)
+        .filter(scope => scope && scope.pattern);
+
+    if (patternScopes.length === 0) {
+        return true;
+    }
+
+    return patternScopes.some(scope => {
+        if (scope.type === "domain") {
+            return matchDomainPattern(url, [scope.pattern]);
+        }
+        if (scope.type === "url") {
+            try {
+                return new RegExp(scope.pattern, "i").test(url);
+            } catch (_) {
+                return false;
+            }
+        }
+        return false;
+    });
 }
 
 function registerCoreRuleInSnapshot(compiledRule) {
@@ -1153,6 +1223,7 @@ function parseLinkumoriRemoveParamRuleDefinition(rule) {
 
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null) {
     if (!linkumoriRule || !fullUrl) return false;
+    if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
 
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
         if (!matchDomainPattern(fullUrl, [linkumoriRule.urlPattern])) {
@@ -1468,6 +1539,7 @@ function coreRuleAppliesToRequest(compiledRule, url, request) {
     if (compiledRule instanceof RegExp) return true;
     if (!compiledRule) return false;
     if (compiledRule.active === false) return false;
+    if (!coreRuleHasActivePatternForUrl(compiledRule, url)) return false;
 
     if (compiledRule.requestTypes && compiledRule.requestTypes.length > 0) {
         const requestType = String(request && request.type || "").toLowerCase();
@@ -2142,10 +2214,25 @@ function start() {
             fieldRuleMap[".*"] = true;
         }
 
+        function getActivationScopeIds() {
+            if (domainPatterns.length > 0) {
+                return [...new Set(domainPatterns
+                    .map(pattern => String(pattern || '').trim())
+                    .filter(Boolean))]
+                    .map(pattern => `domainPattern:${pattern}`);
+            }
+
+            if (urlPatternSource) {
+                return [`urlPattern:${urlPatternSource}`];
+            }
+
+            return [name];
+        }
+
         function activateCompiledRule(compiled, section) {
             if (!compiled) return null;
             compiled.section = section;
-            attachCoreRuleIdentity(name, compiled, section);
+            attachCoreRuleIdentity(name, compiled, section, getActivationScopeIds());
             if (filterCoreRuleActivationIds(compiled, _disabledRuleIds)) {
                 registerDisabledCoreRuleInSnapshot(compiled);
                 return null;
@@ -2472,6 +2559,7 @@ function start() {
                 if (normalizedRule) {
                     const activeRule = activateCompiledRule(normalizedRule, 'rules');
                     if (!activeRule) return;
+                    parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
                 }
 
                 if (parsedLinkumoriRule.isException) {
