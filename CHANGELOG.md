@@ -16,6 +16,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.17.1] - 2026-05-28 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.17.0...linkumori-v100.17.1))
+### Changed
+- Allow regression page to read imported suite (`2026-05-27`, hash: [`71e4d1d`](https://github.com/Linkumori/Linkumori-Addon/commit/71e4d1d))
+- Downloaded latest public suffix list from upstream (`2026-05-28`, hash: [`c344b48`](https://github.com/Linkumori/Linkumori-Addon/commit/c344b48))
+- Generated compressed URL cleaning rules bundle (`2026-05-27`, hash: [`ed29c3b`](https://github.com/Linkumori/Linkumori-Addon/commit/ed29c3b))
+- Generated compressed URL cleaning rules bundle (`2026-05-28`, hash: [`c344b48`](https://github.com/Linkumori/Linkumori-Addon/commit/c344b48))
+- Migrate ClearURLs rules to canonical Linkumori source (`2026-05-27`, hash: [`ed29c3b`](https://github.com/Linkumori/Linkumori-Addon/commit/ed29c3b))
+- Updated canonical URL cleaning rules source (`2026-05-27`, hash: [`ed29c3b`](https://github.com/Linkumori/Linkumori-Addon/commit/ed29c3b))
+
+### Fixed
+- Resolve settings regression suite import (`2026-05-27`, hash: [`e65c12f`](https://github.com/Linkumori/Linkumori-Addon/commit/e65c12f))
+
 ## [v100.17.0] - 2026-05-26 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.16.0...linkumori-v100.17.0))
 ### Changed
 - Audit webrequest regression coverage (`2026-05-26`, hash: [`662a121`](https://github.com/Linkumori/Linkumori-Addon/commit/662a121))
