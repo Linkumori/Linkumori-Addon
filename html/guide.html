@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!--
  * ============================================================
  * Linkumori — regression page
@@ -55,12 +56,11 @@
  *   in all source files and any separate notice files (.md or .txt).
  * ============================================================
  -->
-<!DOCTYPE html>
 <html lang="en" data-theme="midnight">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Linkumori Extension — Rules Documentation</title>
+<title data-i18n="guide_0001"></title>
 <style>
 @font-face {
     font-family:'Old-Country-Nobility';
@@ -405,24 +405,15 @@ li { margin-bottom:.2em; }
 </head>
 <body>
 
-<div id="theme-bar"><span class="bar-label">Theme</span></div>
+<div id="theme-bar"><span class="bar-label" data-i18n-html="guide_0002"></span></div>
 
 <div class="header">
     <div class="header-content">
         <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
-            <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
-                fill="none"
-                stroke="var(--logo-accent)"
-                stroke-width="8"
-                stroke-linecap="round"/>
-            <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35"
-                fill="none"
-                stroke="var(--logo-accent)"
-                stroke-width="8"
-                stroke-linecap="round"/>
-            <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28"
-                   fill="var(--logo-accent)"/>
+            <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"></circle>
+            <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" fill="none" stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round"></path>
+            <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35" fill="none" stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round"></path>
+            <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" fill="var(--logo-accent)"></polygon>
         </svg>
         <div class="header-text">
             <h1 id="name"></h1>
@@ -435,91 +426,91 @@ li { margin-bottom:.2em; }
   <!-- Sidebar: two labelled TOC sections -->
   <nav class="sidebar">
     <div class="sidebar-section">
-      <p class="sidebar-section-label">Provider JSON Format</p>
+      <p class="sidebar-section-label" data-i18n-html="guide_0003"></p>
       <div class="toc"><div class="toc">
 <ul>
-<li><a href="#guide1-clearurls-json-writing-guide">Linkumori Provider JSON</a><ul>
-<li><a href="#guide1-chapter-1-basic-json-shape">Chapter 1: Basic JSON Shape</a></li>
-<li><a href="#guide1-chapter-2-what-is-a-provider">Chapter 2: What Is A Provider?</a></li>
-<li><a href="#guide1-chapter-3-provider-fields-you-can-use">Chapter 3: Provider Fields You Can Use</a></li>
-<li><a href="#guide1-chapter-4-matching-domains">Chapter 4: Matching Domains</a><ul>
-<li><a href="#guide1-match-one-domain-and-all-subdomains">Match One Domain And All Subdomains</a></li>
-<li><a href="#guide1-match-the-same-name-on-any-public-suffix">Match The Same Name On Any Public Suffix</a></li>
-<li><a href="#guide1-match-subdomains">Match Subdomains</a></li>
-<li><a href="#guide1-use-more-than-one-domain-pattern">Use More Than One Domain Pattern</a></li>
+<li><a href="#guide1-clearurls-json-writing-guide" data-i18n-html="guide_0004"></a><ul>
+<li><a href="#guide1-chapter-1-basic-json-shape" data-i18n-html="guide_0005"></a></li>
+<li><a href="#guide1-chapter-2-what-is-a-provider" data-i18n-html="guide_0006"></a></li>
+<li><a href="#guide1-chapter-3-provider-fields-you-can-use" data-i18n-html="guide_0007"></a></li>
+<li><a href="#guide1-chapter-4-matching-domains" data-i18n-html="guide_0008"></a><ul>
+<li><a href="#guide1-match-one-domain-and-all-subdomains" data-i18n-html="guide_0009"></a></li>
+<li><a href="#guide1-match-the-same-name-on-any-public-suffix" data-i18n-html="guide_0010"></a></li>
+<li><a href="#guide1-match-subdomains" data-i18n-html="guide_0011"></a></li>
+<li><a href="#guide1-use-more-than-one-domain-pattern" data-i18n-html="guide_0012"></a></li>
 </ul>
 </li>
-<li><a href="#guide1-chapter-5-domain-pattern-symbols">Chapter 5: Domain Pattern Symbols</a></li>
-<li><a href="#guide1-chapter-6-matching-urls-with-urlpattern">Chapter 6: Matching URLs With urlPattern</a></li>
-<li><a href="#guide1-chapter-7-remove-simple-query-parameters">Chapter 7: Remove Simple Query Parameters</a></li>
-<li><a href="#guide1-chapter-8-write-a-rule-object">Chapter 8: Write A Rule Object</a></li>
-<li><a href="#guide1-chapter-9-removeparam-rules">Chapter 9: $removeparam Rules</a><ul>
-<li><a href="#guide1-remove-one-parameter">Remove One Parameter</a></li>
-<li><a href="#guide1-remove-all-parameters">Remove All Parameters</a></li>
-<li><a href="#guide1-remove-parameters-by-regex">Remove Parameters By Regex</a></li>
-<li><a href="#guide1-remove-all-except-one-parameter">Remove All Except One Parameter</a></li>
-<li><a href="#guide1-apply-removeparam-only-to-one-domain">Apply $removeparam Only To One Domain</a></li>
-<li><a href="#guide1-add-domain-limits">Add Domain Limits</a></li>
-<li><a href="#guide1-add-method-limits">Add Method Limits</a></li>
+<li><a href="#guide1-chapter-5-domain-pattern-symbols" data-i18n-html="guide_0013"></a></li>
+<li><a href="#guide1-chapter-6-matching-urls-with-urlpattern" data-i18n-html="guide_0014"></a></li>
+<li><a href="#guide1-chapter-7-remove-simple-query-parameters" data-i18n-html="guide_0015"></a></li>
+<li><a href="#guide1-chapter-8-write-a-rule-object" data-i18n-html="guide_0016"></a></li>
+<li><a href="#guide1-chapter-9-removeparam-rules" data-i18n-html="guide_0017"></a><ul>
+<li><a href="#guide1-remove-one-parameter" data-i18n-html="guide_0018"></a></li>
+<li><a href="#guide1-remove-all-parameters" data-i18n-html="guide_0019"></a></li>
+<li><a href="#guide1-remove-parameters-by-regex" data-i18n-html="guide_0020"></a></li>
+<li><a href="#guide1-remove-all-except-one-parameter" data-i18n-html="guide_0021"></a></li>
+<li><a href="#guide1-apply-removeparam-only-to-one-domain" data-i18n-html="guide_0022"></a></li>
+<li><a href="#guide1-add-domain-limits" data-i18n-html="guide_0023"></a></li>
+<li><a href="#guide1-add-method-limits" data-i18n-html="guide_0024"></a></li>
 </ul>
 </li>
-<li><a href="#guide1-chapter-10-removeparam-exceptions">Chapter 10: $removeparam Exceptions</a></li>
-<li><a href="#guide1-chapter-11-rewrite-parameter-values">Chapter 11: Rewrite Parameter Values</a></li>
-<li><a href="#guide1-chapter-12-raw-rules">Chapter 12: Raw Rules</a></li>
-<li><a href="#guide1-chapter-13-redirect-rules">Chapter 13: Redirect Rules</a></li>
-<li><a href="#guide1-chapter-14-domain-redirect-rules">Chapter 14: Domain Redirect Rules</a></li>
-<li><a href="#guide1-chapter-15-exceptions">Chapter 15: Exceptions</a></li>
-<li><a href="#guide1-chapter-16-referral-marketing-rules">Chapter 16: Referral Marketing Rules</a></li>
-<li><a href="#guide1-chapter-17-http-methods">Chapter 17: HTTP Methods</a></li>
-<li><a href="#guide1-chapter-18-browser-resource-types">Chapter 18: Browser Resource Types</a></li>
-<li><a href="#guide1-chapter-19-preprocessors">Chapter 19: Preprocessors</a></li>
-<li><a href="#guide1-chapter-20-rule-ids-and-aliases">Chapter 20: Rule IDs And Aliases</a></li>
-<li><a href="#guide1-chapter-21-defaults">Chapter 21: Defaults</a></li>
-<li><a href="#guide1-chapter-22-allowed-json-combinations">Chapter 22: Allowed JSON Combinations</a><ul>
-<li><a href="#guide1-combination-1-many-providers-in-one-file">Combination 1: Many Providers In One File</a></li>
-<li><a href="#guide1-combination-2-global-defaults-plus-providers">Combination 2: Global Defaults Plus Providers</a></li>
-<li><a href="#guide1-combination-3-domainpatterns-provider">Combination 3: domainPatterns Provider</a></li>
-<li><a href="#guide1-combination-4-urlpattern-provider-with-indexpattern">Combination 4: urlPattern Provider With indexPattern</a></li>
-<li><a href="#guide1-combination-5-domainpatterns-and-urlpattern-together">Combination 5: domainPatterns And urlPattern Together</a></li>
-<li><a href="#guide1-combination-6-mixed-rules-entries">Combination 6: Mixed rules[] Entries</a></li>
-<li><a href="#guide1-combination-7-canonical-objects-inside-rules">Combination 7: Canonical Objects Inside rules[]</a></li>
-<li><a href="#guide1-combination-8-legacy-arrays-plus-canonical-rules">Combination 8: Legacy Arrays Plus Canonical rules[]</a></li>
-<li><a href="#guide1-combination-9-provider-wide-methods-and-resource-types">Combination 9: Provider-Wide Methods And Resource Types</a></li>
-<li><a href="#guide1-combination-10-rule-level-request-types">Combination 10: Rule-Level Request Types</a></li>
-<li><a href="#guide1-combination-11-exceptions-in-different-places">Combination 11: Exceptions In Different Places</a></li>
-<li><a href="#guide1-combination-12-blocking-provider-plus-rules">Combination 12: Blocking Provider Plus Rules</a></li>
-<li><a href="#guide1-combination-13-redirect-provider-plus-cleanup-rules">Combination 13: Redirect Provider Plus Cleanup Rules</a></li>
-<li><a href="#guide1-combination-14-domain-redirections-plus-regex-redirections">Combination 14: Domain Redirections Plus Regex Redirections</a></li>
-<li><a href="#guide1-combination-15-disabled-or-inactive-rules">Combination 15: Disabled Or Inactive Rules</a></li>
-<li><a href="#guide1-combination-16-full-mixed-provider-example">Combination 16: Full Mixed Provider Example</a></li>
+<li><a href="#guide1-chapter-10-removeparam-exceptions" data-i18n-html="guide_0025"></a></li>
+<li><a href="#guide1-chapter-11-rewrite-parameter-values" data-i18n-html="guide_0026"></a></li>
+<li><a href="#guide1-chapter-12-raw-rules" data-i18n-html="guide_0027"></a></li>
+<li><a href="#guide1-chapter-13-redirect-rules" data-i18n-html="guide_0028"></a></li>
+<li><a href="#guide1-chapter-14-domain-redirect-rules" data-i18n-html="guide_0029"></a></li>
+<li><a href="#guide1-chapter-15-exceptions" data-i18n-html="guide_0030"></a></li>
+<li><a href="#guide1-chapter-16-referral-marketing-rules" data-i18n-html="guide_0031"></a></li>
+<li><a href="#guide1-chapter-17-http-methods" data-i18n-html="guide_0032"></a></li>
+<li><a href="#guide1-chapter-18-browser-resource-types" data-i18n-html="guide_0033"></a></li>
+<li><a href="#guide1-chapter-19-preprocessors" data-i18n-html="guide_0034"></a></li>
+<li><a href="#guide1-chapter-20-rule-ids-and-aliases" data-i18n-html="guide_0035"></a></li>
+<li><a href="#guide1-chapter-21-defaults" data-i18n-html="guide_0036"></a></li>
+<li><a href="#guide1-chapter-22-allowed-json-combinations" data-i18n-html="guide_0037"></a><ul>
+<li><a href="#guide1-combination-1-many-providers-in-one-file" data-i18n-html="guide_0038"></a></li>
+<li><a href="#guide1-combination-2-global-defaults-plus-providers" data-i18n-html="guide_0039"></a></li>
+<li><a href="#guide1-combination-3-domainpatterns-provider" data-i18n-html="guide_0040"></a></li>
+<li><a href="#guide1-combination-4-urlpattern-provider-with-indexpattern" data-i18n-html="guide_0041"></a></li>
+<li><a href="#guide1-combination-5-domainpatterns-and-urlpattern-together" data-i18n-html="guide_0042"></a></li>
+<li><a href="#guide1-combination-6-mixed-rules-entries" data-i18n-html="guide_0043"></a></li>
+<li><a href="#guide1-combination-7-canonical-objects-inside-rules" data-i18n-html="guide_0044"></a></li>
+<li><a href="#guide1-combination-8-legacy-arrays-plus-canonical-rules" data-i18n-html="guide_0045"></a></li>
+<li><a href="#guide1-combination-9-provider-wide-methods-and-resource-types" data-i18n-html="guide_0046"></a></li>
+<li><a href="#guide1-combination-10-rule-level-request-types" data-i18n-html="guide_0047"></a></li>
+<li><a href="#guide1-combination-11-exceptions-in-different-places" data-i18n-html="guide_0048"></a></li>
+<li><a href="#guide1-combination-12-blocking-provider-plus-rules" data-i18n-html="guide_0049"></a></li>
+<li><a href="#guide1-combination-13-redirect-provider-plus-cleanup-rules" data-i18n-html="guide_0050"></a></li>
+<li><a href="#guide1-combination-14-domain-redirections-plus-regex-redirections" data-i18n-html="guide_0051"></a></li>
+<li><a href="#guide1-combination-15-disabled-or-inactive-rules" data-i18n-html="guide_0052"></a></li>
+<li><a href="#guide1-combination-16-full-mixed-provider-example" data-i18n-html="guide_0053"></a></li>
 </ul>
 </li>
-<li><a href="#guide1-chapter-23-legacy-canonical-and-mixed-form-matrix">Chapter 23: Legacy, Canonical, And Mixed Form Matrix</a><ul>
-<li><a href="#guide1-top-level-file-forms">Top-Level File Forms</a></li>
-<li><a href="#guide1-provider-matcher-forms">Provider Matcher Forms</a></li>
-<li><a href="#guide1-provider-state-forms">Provider State Forms</a></li>
-<li><a href="#guide1-rules-entry-forms">rules[] Entry Forms</a></li>
-<li><a href="#guide1-rawrules-entry-forms">rawRules[] Entry Forms</a></li>
-<li><a href="#guide1-referralmarketing-entry-forms">referralMarketing[] Entry Forms</a></li>
-<li><a href="#guide1-exceptions-entry-forms">exceptions[] Entry Forms</a></li>
-<li><a href="#guide1-domainexceptions-entry-forms">domainExceptions[] Entry Forms</a></li>
-<li><a href="#guide1-redirections-entry-forms">redirections[] Entry Forms</a></li>
-<li><a href="#guide1-domainredirections-entry-forms">domainRedirections[] Entry Forms</a></li>
-<li><a href="#guide1-rule-object-field-combinations">Rule Object Field Combinations</a></li>
-<li><a href="#guide1-one-provider-with-every-legacy-array">One Provider With Every Legacy Array</a></li>
-<li><a href="#guide1-one-provider-with-every-canonical-style">One Provider With Every Canonical Style</a></li>
-<li><a href="#guide1-maximum-mixed-compatibility-provider">Maximum Mixed Compatibility Provider</a></li>
+<li><a href="#guide1-chapter-23-legacy-canonical-and-mixed-form-matrix" data-i18n-html="guide_0054"></a><ul>
+<li><a href="#guide1-top-level-file-forms" data-i18n-html="guide_0055"></a></li>
+<li><a href="#guide1-provider-matcher-forms" data-i18n-html="guide_0056"></a></li>
+<li><a href="#guide1-provider-state-forms" data-i18n-html="guide_0057"></a></li>
+<li><a href="#guide1-rules-entry-forms" data-i18n-html="guide_0058"></a></li>
+<li><a href="#guide1-rawrules-entry-forms" data-i18n-html="guide_0059"></a></li>
+<li><a href="#guide1-referralmarketing-entry-forms" data-i18n-html="guide_0060"></a></li>
+<li><a href="#guide1-exceptions-entry-forms" data-i18n-html="guide_0061"></a></li>
+<li><a href="#guide1-domainexceptions-entry-forms" data-i18n-html="guide_0062"></a></li>
+<li><a href="#guide1-redirections-entry-forms" data-i18n-html="guide_0063"></a></li>
+<li><a href="#guide1-domainredirections-entry-forms" data-i18n-html="guide_0064"></a></li>
+<li><a href="#guide1-rule-object-field-combinations" data-i18n-html="guide_0065"></a></li>
+<li><a href="#guide1-one-provider-with-every-legacy-array" data-i18n-html="guide_0066"></a></li>
+<li><a href="#guide1-one-provider-with-every-canonical-style" data-i18n-html="guide_0067"></a></li>
+<li><a href="#guide1-maximum-mixed-compatibility-provider" data-i18n-html="guide_0068"></a></li>
 </ul>
 </li>
-<li><a href="#guide1-chapter-24-complete-examples">Chapter 24: Complete Examples</a><ul>
-<li><a href="#guide1-example-1-basic-tracker-cleaner">Example 1: Basic Tracker Cleaner</a></li>
-<li><a href="#guide1-example-2-remove-all-utm-parameters">Example 2: Remove All UTM Parameters</a></li>
-<li><a href="#guide1-example-3-keep-a-needed-parameter-on-login">Example 3: Keep A Needed Parameter On Login</a></li>
-<li><a href="#guide1-example-4-redirect-tracking-clicks">Example 4: Redirect Tracking Clicks</a></li>
-<li><a href="#guide1-example-5-clean-only-api-requests">Example 5: Clean Only API Requests</a></li>
+<li><a href="#guide1-chapter-24-complete-examples" data-i18n-html="guide_0069"></a><ul>
+<li><a href="#guide1-example-1-basic-tracker-cleaner" data-i18n-html="guide_0070"></a></li>
+<li><a href="#guide1-example-2-remove-all-utm-parameters" data-i18n-html="guide_0071"></a></li>
+<li><a href="#guide1-example-3-keep-a-needed-parameter-on-login" data-i18n-html="guide_0072"></a></li>
+<li><a href="#guide1-example-4-redirect-tracking-clicks" data-i18n-html="guide_0073"></a></li>
+<li><a href="#guide1-example-5-clean-only-api-requests" data-i18n-html="guide_0074"></a></li>
 </ul>
 </li>
-<li><a href="#guide1-chapter-25-quick-copy-templates">Chapter 25: Quick Copy Templates</a></li>
+<li><a href="#guide1-chapter-25-quick-copy-templates" data-i18n-html="guide_0075"></a></li>
 </ul>
 </li>
 </ul>
@@ -527,40 +518,40 @@ li { margin-bottom:.2em; }
 </div>
     </div>
     <div class="sidebar-section">
-      <p class="sidebar-section-label guide2-label">Interoperability Rules</p>
+      <p class="sidebar-section-label guide2-label" data-i18n-html="guide_0076"></p>
       <div class="toc"><div class="toc">
 <ul>
-<li><a href="#guide2-interoperability-rules-guide">Interoperability Rules Guide</a><ul>
-<li><a href="#guide2-chapter-1-what-interoperability-rules-are">Chapter 1: What Interoperability Rules Are</a></li>
-<li><a href="#guide2-chapter-2-what-is-supported">Chapter 2: What Is Supported</a></li>
-<li><a href="#guide2-chapter-3-basic-rule-format">Chapter 3: Basic Rule Format</a></li>
-<li><a href="#guide2-chapter-4-where-rules-are-stored">Chapter 4: Where Rules Are Stored</a></li>
-<li><a href="#guide2-chapter-5-comments-and-empty-lines">Chapter 5: Comments And Empty Lines</a></li>
-<li><a href="#guide2-chapter-6-remove-one-parameter">Chapter 6: Remove One Parameter</a></li>
-<li><a href="#guide2-chapter-7-remove-all-query-parameters">Chapter 7: Remove All Query Parameters</a></li>
-<li><a href="#guide2-chapter-8-remove-parameters-by-regex">Chapter 8: Remove Parameters By Regex</a></li>
-<li><a href="#guide2-chapter-9-remove-all-except-one-match">Chapter 9: Remove All Except One Match</a></li>
-<li><a href="#guide2-chapter-10-queryprune">Chapter 10: $queryprune</a></li>
-<li><a href="#guide2-chapter-11-url-pattern-examples">Chapter 11: URL Pattern Examples</a></li>
-<li><a href="#guide2-chapter-12-exceptions">Chapter 12: Exceptions</a></li>
-<li><a href="#guide2-chapter-13-important">Chapter 13: important</a></li>
-<li><a href="#guide2-chapter-14-badfilter">Chapter 14: badfilter</a></li>
-<li><a href="#guide2-chapter-15-domain-source-modifiers-domain-and-from">Chapter 15: Domain Source Modifiers: domain= And from=</a></li>
-<li><a href="#guide2-chapter-16-target-domain-modifier-to">Chapter 16: Target Domain Modifier: to=</a></li>
-<li><a href="#guide2-chapter-17-denyallow">Chapter 17: denyallow=</a></li>
-<li><a href="#guide2-chapter-18-http-method-modifier">Chapter 18: HTTP Method Modifier</a></li>
-<li><a href="#guide2-chapter-19-resource-type-modifiers">Chapter 19: Resource Type Modifiers</a></li>
-<li><a href="#guide2-chapter-20-first-party-and-third-party">Chapter 20: First-Party And Third-Party</a></li>
-<li><a href="#guide2-chapter-21-match-case">Chapter 21: match-case</a></li>
-<li><a href="#guide2-chapter-22-app">Chapter 22: app=</a></li>
-<li><a href="#guide2-chapter-23-no-op-modifiers">Chapter 23: No-Op Modifiers</a></li>
-<li><a href="#guide2-chapter-24-parameter-matching-details">Chapter 24: Parameter Matching Details</a></li>
-<li><a href="#guide2-chapter-25-query-only">Chapter 25: Query Only</a></li>
-<li><a href="#guide2-chapter-26-unsupported-rules-are-skipped">Chapter 26: Unsupported Rules Are Skipped</a></li>
-<li><a href="#guide2-chapter-27-duplicate-rules">Chapter 27: Duplicate Rules</a></li>
-<li><a href="#guide2-chapter-28-complete-filter-list-example">Chapter 28: Complete Filter List Example</a></li>
-<li><a href="#guide2-chapter-29-json-storage-example">Chapter 29: JSON Storage Example</a></li>
-<li><a href="#guide2-chapter-30-quick-copy-templates">Chapter 30: Quick Copy Templates</a></li>
+<li><a href="#guide2-interoperability-rules-guide" data-i18n-html="guide_0077"></a><ul>
+<li><a href="#guide2-chapter-1-what-interoperability-rules-are" data-i18n-html="guide_0078"></a></li>
+<li><a href="#guide2-chapter-2-what-is-supported" data-i18n-html="guide_0079"></a></li>
+<li><a href="#guide2-chapter-3-basic-rule-format" data-i18n-html="guide_0080"></a></li>
+<li><a href="#guide2-chapter-4-where-rules-are-stored" data-i18n-html="guide_0081"></a></li>
+<li><a href="#guide2-chapter-5-comments-and-empty-lines" data-i18n-html="guide_0082"></a></li>
+<li><a href="#guide2-chapter-6-remove-one-parameter" data-i18n-html="guide_0083"></a></li>
+<li><a href="#guide2-chapter-7-remove-all-query-parameters" data-i18n-html="guide_0084"></a></li>
+<li><a href="#guide2-chapter-8-remove-parameters-by-regex" data-i18n-html="guide_0085"></a></li>
+<li><a href="#guide2-chapter-9-remove-all-except-one-match" data-i18n-html="guide_0086"></a></li>
+<li><a href="#guide2-chapter-10-queryprune" data-i18n-html="guide_0087"></a></li>
+<li><a href="#guide2-chapter-11-url-pattern-examples" data-i18n-html="guide_0088"></a></li>
+<li><a href="#guide2-chapter-12-exceptions" data-i18n-html="guide_0089"></a></li>
+<li><a href="#guide2-chapter-13-important" data-i18n-html="guide_0090"></a></li>
+<li><a href="#guide2-chapter-14-badfilter" data-i18n-html="guide_0091"></a></li>
+<li><a href="#guide2-chapter-15-domain-source-modifiers-domain-and-from" data-i18n-html="guide_0092"></a></li>
+<li><a href="#guide2-chapter-16-target-domain-modifier-to" data-i18n-html="guide_0093"></a></li>
+<li><a href="#guide2-chapter-17-denyallow" data-i18n-html="guide_0094"></a></li>
+<li><a href="#guide2-chapter-18-http-method-modifier" data-i18n-html="guide_0095"></a></li>
+<li><a href="#guide2-chapter-19-resource-type-modifiers" data-i18n-html="guide_0096"></a></li>
+<li><a href="#guide2-chapter-20-first-party-and-third-party" data-i18n-html="guide_0097"></a></li>
+<li><a href="#guide2-chapter-21-match-case" data-i18n-html="guide_0098"></a></li>
+<li><a href="#guide2-chapter-22-app" data-i18n-html="guide_0099"></a></li>
+<li><a href="#guide2-chapter-23-no-op-modifiers" data-i18n-html="guide_0100"></a></li>
+<li><a href="#guide2-chapter-24-parameter-matching-details" data-i18n-html="guide_0101"></a></li>
+<li><a href="#guide2-chapter-25-query-only" data-i18n-html="guide_0102"></a></li>
+<li><a href="#guide2-chapter-26-unsupported-rules-are-skipped" data-i18n-html="guide_0103"></a></li>
+<li><a href="#guide2-chapter-27-duplicate-rules" data-i18n-html="guide_0104"></a></li>
+<li><a href="#guide2-chapter-28-complete-filter-list-example" data-i18n-html="guide_0105"></a></li>
+<li><a href="#guide2-chapter-29-json-storage-example" data-i18n-html="guide_0106"></a></li>
+<li><a href="#guide2-chapter-30-quick-copy-templates" data-i18n-html="guide_0107"></a></li>
 </ul>
 </li>
 </ul>
@@ -572,2816 +563,883 @@ li { margin-bottom:.2em; }
   <main class="content">
     <!-- Guide 1 -->
     <div class="guide1-section">
-<h1 id="guide1-clearurls-json-writing-guide">Linkumori Mixed Provider JSON Format Guide</h1>
-<p>This guide explains how to write provider JSON data that <code>Linkumori extension</code> can read.</p>
-<p>It covers the mixed Linkumori provider format: ClearURLs addon legacy fields, ClearURLs core v2 canonical rule objects, and Linkumori-only additions such as <code>domainPatterns</code>, <code>$removeparam</code> provider rules, domain exceptions, domain redirections, and resource-type scoping.</p>
-<p>It is not a guide to the JavaScript code. It focuses only on the JSON shapes, rule formats, and examples that rule authors need.</p>
-<h2 id="guide1-chapter-1-basic-json-shape">Chapter 1: Basic JSON Shape</h2>
-<p><code>Linkumori extension</code> expects provider data in this general shape:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example Provider&quot;: {
-      &quot;active&quot;: true,
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>The important part is <code>providers</code>. Each key inside <code>providers</code> is a provider name.</p>
-<p>Example:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Google&quot;: {},
-    &quot;Amazon&quot;: {},
-    &quot;Example Tracker&quot;: {}
-  }
-}
-</code></pre>
-<h2 id="guide1-chapter-2-what-is-a-provider">Chapter 2: What Is A Provider?</h2>
-<p>A provider is one group of rules for one website, company, tracker, or URL pattern.</p>
-<p>Minimal provider:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;active&quot;: true,
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;, &quot;utm_medium&quot;]
-    }
-  }
-}
-</code></pre>
-<p>What this does:</p>
-<pre><code class="language-txt">https://example.com/page?utm_source=x&amp;utm_medium=y&amp;id=10
--&gt; https://example.com/page?id=10
-</code></pre>
-<h2 id="guide1-chapter-3-provider-fields-you-can-use">Chapter 3: Provider Fields You Can Use</h2>
-<p>Full provider template:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Provider Name&quot;: {
-      &quot;active&quot;: true,
-      &quot;defaultActive&quot;: true,
-      &quot;completeProvider&quot;: false,
-      &quot;forceRedirection&quot;: false,
-
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/.*&quot;,
-      &quot;indexPattern&quot;: &quot;||example.com^&quot;,
-
-      &quot;rules&quot;: [],
-      &quot;rawRules&quot;: [],
-      &quot;referralMarketing&quot;: [],
-      &quot;exceptions&quot;: [],
-      &quot;domainExceptions&quot;: [],
-      &quot;redirections&quot;: [],
-      &quot;domainRedirections&quot;: [],
-
-      &quot;methods&quot;: [&quot;GET&quot;],
-      &quot;resourceTypes&quot;: [&quot;main_frame&quot;, &quot;xmlhttprequest&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Plain meaning:</p>
+<h1 id="guide1-clearurls-json-writing-guide" data-i18n-html="guide_0108"></h1>
+<p data-i18n-html="guide_0109"></p>
+<p data-i18n-html="guide_0110"></p>
+<p data-i18n-html="guide_0111"></p>
+<h2 id="guide1-chapter-1-basic-json-shape" data-i18n-html="guide_0112"></h2>
+<p data-i18n-html="guide_0113"></p>
+<pre><code class="language-json" data-i18n-text="guide_0624"></code></pre>
+<p data-i18n-html="guide_0114"></p>
+<p data-i18n-html="guide_0115"></p>
+<pre><code class="language-json" data-i18n-text="guide_0625"></code></pre>
+<h2 id="guide1-chapter-2-what-is-a-provider" data-i18n-html="guide_0116"></h2>
+<p data-i18n-html="guide_0117"></p>
+<p data-i18n-html="guide_0118"></p>
+<pre><code class="language-json" data-i18n-text="guide_0626"></code></pre>
+<p data-i18n-html="guide_0119"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0627"></code></pre>
+<h2 id="guide1-chapter-3-provider-fields-you-can-use" data-i18n-html="guide_0120"></h2>
+<p data-i18n-html="guide_0121"></p>
+<pre><code class="language-json" data-i18n-text="guide_0628"></code></pre>
+<p data-i18n-html="guide_0122"></p>
 <table>
 <thead>
 <tr>
-<th>JSON field</th>
-<th>Source</th>
-<th>What you write it for</th>
+<th data-i18n-html="guide_0123"></th>
+<th data-i18n-html="guide_0124"></th>
+<th data-i18n-html="guide_0125"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>active</code></td>
-<td>Linkumori addition</td>
-<td>Set <code>false</code> to disable this provider.</td>
+<td data-i18n-html="guide_0126"></td>
+<td data-i18n-html="guide_0127"></td>
+<td data-i18n-html="guide_0128"></td>
 </tr>
 <tr>
-<td><code>defaultActive</code></td>
-<td>Linkumori addition</td>
-<td>Default active state when <code>active</code> is missing.</td>
+<td data-i18n-html="guide_0129"></td>
+<td data-i18n-html="guide_0130"></td>
+<td data-i18n-html="guide_0131"></td>
 </tr>
 <tr>
-<td><code>completeProvider</code></td>
-<td>ClearURLs addon legacy and ClearURLs core v2 canonical</td>
-<td>Set <code>true</code> to block matching domains instead of only cleaning.</td>
+<td data-i18n-html="guide_0132"></td>
+<td data-i18n-html="guide_0133"></td>
+<td data-i18n-html="guide_0134"></td>
 </tr>
 <tr>
-<td><code>forceRedirection</code></td>
-<td>ClearURLs addon legacy and ClearURLs core v2 canonical</td>
-<td>Set <code>true</code> to force main-page redirects through the browser tab.</td>
+<td data-i18n-html="guide_0135"></td>
+<td data-i18n-html="guide_0136"></td>
+<td data-i18n-html="guide_0137"></td>
 </tr>
 <tr>
-<td><code>domainPatterns</code></td>
-<td>Linkumori addition</td>
-<td>Recommended way to say which domains this provider matches.</td>
+<td data-i18n-html="guide_0138"></td>
+<td data-i18n-html="guide_0139"></td>
+<td data-i18n-html="guide_0140"></td>
 </tr>
 <tr>
-<td><code>urlPattern</code></td>
-<td>ClearURLs addon legacy and ClearURLs core v2 canonical</td>
-<td>JavaScript regex string for URL matching.</td>
+<td data-i18n-html="guide_0141"></td>
+<td data-i18n-html="guide_0142"></td>
+<td data-i18n-html="guide_0143"></td>
 </tr>
 <tr>
-<td><code>indexPattern</code></td>
-<td>Linkumori addition</td>
-<td>Optional speed hint when using <code>urlPattern</code>.</td>
+<td data-i18n-html="guide_0144"></td>
+<td data-i18n-html="guide_0145"></td>
+<td data-i18n-html="guide_0146"></td>
 </tr>
 <tr>
-<td><code>rules</code></td>
-<td>ClearURLs addon legacy and ClearURLs core v2 canonical; <code>$removeparam</code> is Linkumori addition here</td>
-<td>Normal parameter-removal rules and provider-local <code>$removeparam</code> rules.</td>
+<td data-i18n-html="guide_0147"></td>
+<td data-i18n-html="guide_0148"></td>
+<td data-i18n-html="guide_0149"></td>
 </tr>
 <tr>
-<td><code>rawRules</code></td>
-<td>ClearURLs addon legacy; canonical-style objects here are Linkumori addition</td>
-<td>Rules that edit the whole URL text.</td>
+<td data-i18n-html="guide_0150"></td>
+<td data-i18n-html="guide_0151"></td>
+<td data-i18n-html="guide_0152"></td>
 </tr>
 <tr>
-<td><code>referralMarketing</code></td>
-<td>ClearURLs addon legacy; canonical-style objects here are Linkumori addition</td>
-<td>Optional referral/marketing parameter rules.</td>
+<td data-i18n-html="guide_0153"></td>
+<td data-i18n-html="guide_0154"></td>
+<td data-i18n-html="guide_0155"></td>
 </tr>
 <tr>
-<td><code>exceptions</code></td>
-<td>ClearURLs addon legacy and ClearURLs core v2 canonical; object forms here are Linkumori addition</td>
-<td>URL regex rules where this provider should not run.</td>
+<td data-i18n-html="guide_0156"></td>
+<td data-i18n-html="guide_0157"></td>
+<td data-i18n-html="guide_0158"></td>
 </tr>
 <tr>
-<td><code>domainExceptions</code></td>
-<td>Linkumori addition</td>
-<td>Domain-pattern rules where this provider should not run.</td>
+<td data-i18n-html="guide_0159"></td>
+<td data-i18n-html="guide_0160"></td>
+<td data-i18n-html="guide_0161"></td>
 </tr>
 <tr>
-<td><code>redirections</code></td>
-<td>ClearURLs addon legacy; canonical-style objects here are Linkumori addition</td>
-<td>Regex redirect rules.</td>
+<td data-i18n-html="guide_0162"></td>
+<td data-i18n-html="guide_0163"></td>
+<td data-i18n-html="guide_0164"></td>
 </tr>
 <tr>
-<td><code>domainRedirections</code></td>
-<td>Linkumori addition</td>
-<td>Domain-pattern redirect rules.</td>
+<td data-i18n-html="guide_0165"></td>
+<td data-i18n-html="guide_0166"></td>
+<td data-i18n-html="guide_0167"></td>
 </tr>
 <tr>
-<td><code>methods</code></td>
-<td>ClearURLs addon legacy and ClearURLs core v2 canonical</td>
-<td>Only run for these HTTP methods.</td>
+<td data-i18n-html="guide_0168"></td>
+<td data-i18n-html="guide_0169"></td>
+<td data-i18n-html="guide_0170"></td>
 </tr>
 <tr>
-<td><code>resourceTypes</code></td>
-<td>Linkumori addition</td>
-<td>Only run for these browser request types.</td>
+<td data-i18n-html="guide_0171"></td>
+<td data-i18n-html="guide_0172"></td>
+<td data-i18n-html="guide_0173"></td>
 </tr>
 </tbody>
 </table>
-<h2 id="guide1-chapter-4-matching-domains">Chapter 4: Matching Domains</h2>
-<p><code>domainPatterns</code> is a Linkumori addition. Use it for most Linkumori JSON providers because it is easier to write than a full <code>urlPattern</code> regex.</p>
-<h3 id="guide1-match-one-domain-and-all-subdomains">Match One Domain And All Subdomains</h3>
-<pre><code class="language-json">{
-  &quot;domainPatterns&quot;: [&quot;||example.com^&quot;]
-}
-</code></pre>
-<p>Matches:</p>
-<pre><code class="language-txt">https://example.com/
-https://www.example.com/
-https://shop.example.com/
-</code></pre>
-<p>Does not match:</p>
-<pre><code class="language-txt">https://badexample.com/
-https://example.com.evil.test/
-</code></pre>
-<h3 id="guide1-match-the-same-name-on-any-public-suffix">Match The Same Name On Any Public Suffix</h3>
-<pre><code class="language-json">{
-  &quot;domainPatterns&quot;: [&quot;||amazon.*^&quot;]
-}
-</code></pre>
-<p>Can match:</p>
-<pre><code class="language-txt">https://amazon.com/
-https://amazon.co.uk/
-https://amazon.in/
-</code></pre>
-<h3 id="guide1-match-subdomains">Match Subdomains</h3>
-<pre><code class="language-json">{
-  &quot;domainPatterns&quot;: [&quot;*.google.com&quot;]
-}
-</code></pre>
-<p>Can match:</p>
-<pre><code class="language-txt">https://mail.google.com/
-https://maps.google.com/
-</code></pre>
-<h3 id="guide1-use-more-than-one-domain-pattern">Use More Than One Domain Pattern</h3>
-<pre><code class="language-json">{
-  &quot;domainPatterns&quot;: [
-    &quot;||youtube.com^&quot;,
-    &quot;||youtu.be^&quot;
-  ]
-}
-</code></pre>
-<h2 id="guide1-chapter-5-domain-pattern-symbols">Chapter 5: Domain Pattern Symbols</h2>
-<p>These are the symbols you can use in <code>domainPatterns</code>.</p>
+<h2 id="guide1-chapter-4-matching-domains" data-i18n-html="guide_0174"></h2>
+<p data-i18n-html="guide_0175"></p>
+<h3 id="guide1-match-one-domain-and-all-subdomains" data-i18n-html="guide_0176"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0629"></code></pre>
+<p data-i18n-html="guide_0177"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0630"></code></pre>
+<p data-i18n-html="guide_0178"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0631"></code></pre>
+<h3 id="guide1-match-the-same-name-on-any-public-suffix" data-i18n-html="guide_0179"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0632"></code></pre>
+<p data-i18n-html="guide_0180"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0633"></code></pre>
+<h3 id="guide1-match-subdomains" data-i18n-html="guide_0181"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0634"></code></pre>
+<p data-i18n-html="guide_0182"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0635"></code></pre>
+<h3 id="guide1-use-more-than-one-domain-pattern" data-i18n-html="guide_0183"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0636"></code></pre>
+<h2 id="guide1-chapter-5-domain-pattern-symbols" data-i18n-html="guide_0184"></h2>
+<p data-i18n-html="guide_0185"></p>
 <table>
 <thead>
 <tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Example</th>
+<th data-i18n-html="guide_0186"></th>
+<th data-i18n-html="guide_0187"></th>
+<th data-i18n-html="guide_0188"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>||</code></td>
-<td>Match at a domain boundary.</td>
-<td><code>||example.com^</code></td>
+<td data-i18n-html="guide_0189"></td>
+<td data-i18n-html="guide_0190"></td>
+<td data-i18n-html="guide_0191"></td>
 </tr>
 <tr>
-<td><code>^</code></td>
-<td>Separator or end boundary.</td>
-<td><code>||example.com^</code></td>
+<td data-i18n-html="guide_0192"></td>
+<td data-i18n-html="guide_0193"></td>
+<td data-i18n-html="guide_0194"></td>
 </tr>
 <tr>
-<td><code>*</code></td>
-<td>Wildcard.</td>
-<td><code>||example.*^</code></td>
+<td data-i18n-html="guide_0195"></td>
+<td data-i18n-html="guide_0196"></td>
+<td data-i18n-html="guide_0197"></td>
 </tr>
 <tr>
-<td><code>|</code></td>
-<td>Start or end anchor.</td>
-<td><code>|https://example.com</code></td>
+<td data-i18n-html="guide_0198"></td>
+<td data-i18n-html="guide_0199"></td>
+<td data-i18n-html="guide_0200"></td>
 </tr>
 <tr>
-<td><code>/.../i</code></td>
-<td>JavaScript regex literal.</td>
-<td><code>/tracker/i</code></td>
+<td data-i18n-html="guide_0201"></td>
+<td data-i18n-html="guide_0202"></td>
+<td data-i18n-html="guide_0203"></td>
 </tr>
 </tbody>
 </table>
-<p>Most common pattern:</p>
-<pre><code class="language-txt">||example.com^
-</code></pre>
-<p>Use it when you want:</p>
-<pre><code class="language-txt">example.com + all subdomains
-</code></pre>
-<h2 id="guide1-chapter-6-matching-urls-with-urlpattern">Chapter 6: Matching URLs With <code>urlPattern</code></h2>
-<p>Use <code>urlPattern</code> only when domain matching is not enough.</p>
-<pre><code class="language-json">{
-  &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/tracking\\/.*&quot;
-}
-</code></pre>
-<p>This can match:</p>
-<pre><code class="language-txt">https://example.com/tracking/page
-https://sub.example.com/tracking/page
-</code></pre>
-<p><code>urlPattern</code> is ClearURLs addon legacy and ClearURLs core v2 canonical syntax. Linkumori adds <code>indexPattern</code> as an optional lookup hint so the engine can find regex providers faster.</p>
-<pre><code class="language-json">{
-  &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?youtube\\.com\\/watch.*&quot;,
-  &quot;indexPattern&quot;: [&quot;||youtube.com^&quot;, &quot;||youtu.be^&quot;]
-}
-</code></pre>
-<p>Important: Linkumori <code>indexPattern</code> is only a lookup hint. It does not decide whether the provider applies.</p>
-<h2 id="guide1-chapter-7-remove-simple-query-parameters">Chapter 7: Remove Simple Query Parameters</h2>
-<p>Put parameter names in <code>rules</code>.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?utm_source=x&amp;id=1
--&gt; https://example.com/?id=1
-</code></pre>
-<p>Remove many parameters:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    &quot;utm_source&quot;,
-    &quot;utm_medium&quot;,
-    &quot;utm_campaign&quot;,
-    &quot;fbclid&quot;,
-    &quot;gclid&quot;
-  ]
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?utm_source=x&amp;fbclid=y&amp;id=1
--&gt; https://example.com/?id=1
-</code></pre>
-<h2 id="guide1-chapter-8-write-a-rule-object">Chapter 8: Write A Rule Object</h2>
-<p>Instead of a plain string, a rule can be an object.</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;remove-utm-source&quot;,
-  &quot;kind&quot;: &quot;field&quot;,
-  &quot;match&quot;: &quot;utm_source&quot;,
-  &quot;active&quot;: true,
-  &quot;action&quot;: {
-    &quot;type&quot;: &quot;remove&quot;
-  },
-  &quot;flags&quot;: &quot;i&quot;
-}
-</code></pre>
-<p>Use this when you need:</p>
+<p data-i18n-html="guide_0204"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0637"></code></pre>
+<p data-i18n-html="guide_0205"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0638"></code></pre>
+<h2 id="guide1-chapter-6-matching-urls-with-urlpattern" data-i18n-html="guide_0206"></h2>
+<p data-i18n-html="guide_0207"></p>
+<pre><code class="language-json" data-i18n-text="guide_0639"></code></pre>
+<p data-i18n-html="guide_0208"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0640"></code></pre>
+<p data-i18n-html="guide_0209"></p>
+<pre><code class="language-json" data-i18n-text="guide_0641"></code></pre>
+<p data-i18n-html="guide_0210"></p>
+<h2 id="guide1-chapter-7-remove-simple-query-parameters" data-i18n-html="guide_0211"></h2>
+<p data-i18n-html="guide_0212"></p>
+<pre><code class="language-json" data-i18n-text="guide_0642"></code></pre>
+<p data-i18n-html="guide_0213"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0643"></code></pre>
+<p data-i18n-html="guide_0214"></p>
+<pre><code class="language-json" data-i18n-text="guide_0644"></code></pre>
+<p data-i18n-html="guide_0215"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0645"></code></pre>
+<h2 id="guide1-chapter-8-write-a-rule-object" data-i18n-html="guide_0216"></h2>
+<p data-i18n-html="guide_0217"></p>
+<pre><code class="language-json" data-i18n-text="guide_0646"></code></pre>
+<p data-i18n-html="guide_0218"></p>
 <ul>
-<li>A rule ID.</li>
-<li>Aliases.</li>
-<li>Exceptions.</li>
-<li>Request type limits.</li>
-<li>Rewrite behavior.</li>
+<li data-i18n-html="guide_0219"></li>
+<li data-i18n-html="guide_0220"></li>
+<li data-i18n-html="guide_0221"></li>
+<li data-i18n-html="guide_0222"></li>
+<li data-i18n-html="guide_0223"></li>
 </ul>
-<p>Example inside a provider:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        {
-          &quot;id&quot;: &quot;remove-utm-source&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;utm_source&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          },
-          &quot;flags&quot;: &quot;i&quot;
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?UTM_SOURCE=x&amp;id=1
--&gt; https://example.com/?id=1
-</code></pre>
-<p><code>flags</code> on provider rule objects is a Linkumori addition. <code>flags: "i"</code> makes the match case-insensitive.</p>
-<h2 id="guide1-chapter-9-removeparam-rules">Chapter 9: <code>$removeparam</code> Rules</h2>
-<p><code>$removeparam</code> strings inside provider <code>rules</code> are a Linkumori addition. They are separate from the second guide's <code>urlFilterRules</code> interoperability syntax.</p>
-<h3 id="guide1-remove-one-parameter">Remove One Parameter</h3>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=utm_source&quot;]
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?utm_source=x&amp;id=1
--&gt; https://example.com/?id=1
-</code></pre>
-<h3 id="guide1-remove-all-parameters">Remove All Parameters</h3>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam&quot;]
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?a=1&amp;b=2
--&gt; https://example.com/
-</code></pre>
-<h3 id="guide1-remove-parameters-by-regex">Remove Parameters By Regex</h3>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=/^utm_/&quot;]
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?utm_source=x&amp;utm_campaign=y&amp;id=1
--&gt; https://example.com/?id=1
-</code></pre>
-<h3 id="guide1-remove-all-except-one-parameter">Remove All Except One Parameter</h3>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=~id&quot;]
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?id=1&amp;utm_source=x&amp;fbclid=y
--&gt; https://example.com/?id=1
-</code></pre>
-<h3 id="guide1-apply-removeparam-only-to-one-domain">Apply <code>$removeparam</code> Only To One Domain</h3>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;||example.com^$removeparam=utm_source&quot;]
-}
-</code></pre>
-<p>Cleaned:</p>
-<pre><code class="language-txt">https://example.com/?utm_source=x&amp;id=1
--&gt; https://example.com/?id=1
-</code></pre>
-<p>Not cleaned:</p>
-<pre><code class="language-txt">https://other.test/?utm_source=x&amp;id=1
-</code></pre>
-<h3 id="guide1-add-domain-limits">Add Domain Limits</h3>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=utm_source,domain=example.com|shop.example.com&quot;]
-}
-</code></pre>
-<p>Exclude one domain:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=utm_source,domain=example.com|~safe.example.com&quot;]
-}
-</code></pre>
-<h3 id="guide1-add-method-limits">Add Method Limits</h3>
-<p>Only <code>GET</code>:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=utm_source,method=GET&quot;]
-}
-</code></pre>
-<p>Not <code>POST</code>:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=utm_source,method=~POST&quot;]
-}
-</code></pre>
-<h2 id="guide1-chapter-10-removeparam-exceptions">Chapter 10: <code>$removeparam</code> Exceptions</h2>
-<p>Start a <code>$removeparam</code> rule with <code>@@</code> to make an exception.</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    &quot;*$removeparam=utm_source&quot;,
-    &quot;@@||example.com^$removeparam=utm_source&quot;
-  ]
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://other.test/?utm_source=x&amp;id=1
--&gt; https://other.test/?id=1
-
-https://example.com/?utm_source=x&amp;id=1
--&gt; https://example.com/?utm_source=x&amp;id=1
-</code></pre>
-<p>Context exception example:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;@@||gemini.google.com^$removeparam=ei&quot;]
-}
-</code></pre>
-<p>This can protect <code>ei</code> on subrequests started by a <code>gemini.google.com</code> page.</p>
-<h2 id="guide1-chapter-11-rewrite-parameter-values">Chapter 11: Rewrite Parameter Values</h2>
-<p>Use <code>action.type: "rewrite"</code> to replace a matching parameter value.</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;normalize-tag&quot;,
-  &quot;kind&quot;: &quot;field&quot;,
-  &quot;match&quot;: &quot;tag&quot;,
-  &quot;action&quot;: {
-    &quot;type&quot;: &quot;rewrite&quot;,
-    &quot;replacePattern&quot;: &quot;clean&quot;
-  }
-}
-</code></pre>
-<p>Inside a provider:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        {
-          &quot;id&quot;: &quot;normalize-tag&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;tag&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;rewrite&quot;,
-            &quot;replacePattern&quot;: &quot;clean&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?tag=tracking&amp;id=1
--&gt; https://example.com/?id=1&amp;tag=clean
-</code></pre>
-<p>Use <code>§1§</code> when you want to reuse the current value:</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;keep-decoded-target&quot;,
-  &quot;kind&quot;: &quot;field&quot;,
-  &quot;match&quot;: &quot;target&quot;,
-  &quot;action&quot;: {
-    &quot;type&quot;: &quot;rewrite&quot;,
-    &quot;replacePattern&quot;: &quot;§1§&quot;
-  },
-  &quot;preprocessors&quot;: [
-    {
-      &quot;type&quot;: &quot;urlDecode&quot;,
-      &quot;inputs&quot;: [1]
-    }
-  ]
-}
-</code></pre>
-<h2 id="guide1-chapter-12-raw-rules">Chapter 12: Raw Rules</h2>
-<p>Use <code>rawRules</code> to edit the whole URL text.</p>
-<p>Simple raw rule:</p>
-<pre><code class="language-json">{
-  &quot;rawRules&quot;: [&quot;[?&amp;]utm_source=[^&amp;#]*&quot;]
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/page?id=1&amp;utm_source=x
--&gt; https://example.com/page?id=1
-</code></pre>
-<p>Object raw rule:</p>
-<pre><code class="language-json">{
-  &quot;rawRules&quot;: [
-    {
-      &quot;id&quot;: &quot;strip-utm-source-raw&quot;,
-      &quot;kind&quot;: &quot;raw&quot;,
-      &quot;match&quot;: &quot;[?&amp;]utm_source=[^&amp;#]*&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      },
-      &quot;flags&quot;: &quot;gi&quot;
-    }
-  ]
-}
-</code></pre>
-<p>Raw rewrite rule:</p>
-<pre><code class="language-json">{
-  &quot;rawRules&quot;: [
-    {
-      &quot;id&quot;: &quot;rewrite-tracker-target&quot;,
-      &quot;kind&quot;: &quot;raw&quot;,
-      &quot;match&quot;: &quot;https://tracker\\.example/redirect\\?url=([^&amp;#]+)&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;rewrite&quot;,
-        &quot;replacePattern&quot;: &quot;§1§&quot;
-      },
-      &quot;preprocessors&quot;: [
-        {
-          &quot;type&quot;: &quot;urlDecode&quot;,
-          &quot;inputs&quot;: [1]
-        }
-      ]
-    }
-  ]
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage
--&gt; https://real.example/page
-</code></pre>
-<h2 id="guide1-chapter-13-redirect-rules">Chapter 13: Redirect Rules</h2>
-<p>Use <code>redirections</code> to send the browser to a new URL.</p>
-<pre><code class="language-json">{
-  &quot;redirections&quot;: [
-    {
-      &quot;id&quot;: &quot;tracker-target&quot;,
-      &quot;kind&quot;: &quot;redirection&quot;,
-      &quot;match&quot;: &quot;https://tracker\\.example/click\\?target=([^&amp;#]+)&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;redirect&quot;,
-        &quot;replacePattern&quot;: &quot;§1§&quot;
-      },
-      &quot;preprocessors&quot;: [
-        {
-          &quot;type&quot;: &quot;urlDecode&quot;,
-          &quot;inputs&quot;: [1]
-        }
-      ]
-    }
-  ]
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory
--&gt; https://news.example/story
-</code></pre>
-<p>If <code>replacePattern</code> is missing, the first capture group is used.</p>
-<h2 id="guide1-chapter-14-domain-redirect-rules">Chapter 14: Domain Redirect Rules</h2>
-<p><code>domainRedirections</code> is a Linkumori addition for simple domain-pattern redirects.</p>
-<p>Linkumori addition — string form:</p>
-<pre><code class="language-json">{
-  &quot;domainRedirections&quot;: [
-    &quot;||tracker.example^$redirect=https://real.example/&quot;
-  ]
-}
-</code></pre>
-<p>Linkumori addition — object form:</p>
-<pre><code class="language-json">{
-  &quot;domainRedirections&quot;: [
-    {
-      &quot;match&quot;: &quot;||tracker.example^&quot;,
-      &quot;action&quot;: {
-        &quot;replacePattern&quot;: &quot;https://real.example/&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<h2 id="guide1-chapter-15-exceptions">Chapter 15: Exceptions</h2>
-<p><code>exceptions</code> is ClearURLs addon legacy and ClearURLs core v2 canonical syntax. Linkumori also accepts canonical-style objects in this legacy provider array.</p>
-<pre><code class="language-json">{
-  &quot;exceptions&quot;: [
-    {
-      &quot;id&quot;: &quot;keep-login&quot;,
-      &quot;match&quot;: &quot;example\\.com\\/login&quot;,
-      &quot;active&quot;: true
-    }
-  ]
-}
-</code></pre>
-<p>Example:</p>
-<pre><code class="language-txt">Provider cleans:
-https://example.com/page?utm_source=x
-
-Provider skips:
-https://example.com/login?utm_source=x
-</code></pre>
-<p><code>domainExceptions</code> is a Linkumori addition for domain-pattern exceptions.</p>
-<pre><code class="language-json">{
-  &quot;domainExceptions&quot;: [&quot;||safe.example.com^&quot;]
-}
-</code></pre>
-<p>Skipped:</p>
-<pre><code class="language-txt">https://safe.example.com/?utm_source=x
-</code></pre>
-<h2 id="guide1-chapter-16-referral-marketing-rules">Chapter 16: Referral Marketing Rules</h2>
-<p><code>referralMarketing</code> works like field rules, but it is controlled by the extension setting for referral marketing.</p>
-<pre><code class="language-json">{
-  &quot;referralMarketing&quot;: [
-    &quot;tag&quot;,
-    &quot;ascsubtag&quot;
-  ]
-}
-</code></pre>
-<p>Example:</p>
-<pre><code class="language-txt">https://example.com/product?tag=affiliate&amp;id=10
--&gt; https://example.com/product?id=10
-</code></pre>
-<h2 id="guide1-chapter-17-http-methods">Chapter 17: HTTP Methods</h2>
-<p>Use <code>methods</code> to run a provider only on specific HTTP methods.</p>
-<pre><code class="language-json">{
-  &quot;methods&quot;: [&quot;GET&quot;]
-}
-</code></pre>
-<p>This runs on:</p>
-<pre><code class="language-txt">GET
-</code></pre>
-<p>This does not run on:</p>
-<pre><code class="language-txt">POST
-PUT
-DELETE
-</code></pre>
-<h2 id="guide1-chapter-18-browser-resource-types">Chapter 18: Browser Resource Types</h2>
-<p><code>resourceTypes</code> is a Linkumori addition. Use it to run a provider only on specific browser request types.</p>
-<pre><code class="language-json">{
-  &quot;resourceTypes&quot;: [&quot;main_frame&quot;, &quot;xmlhttprequest&quot;]
-}
-</code></pre>
-<p>Common values:</p>
-<pre><code class="language-txt">main_frame
-sub_frame
-xmlhttprequest
-script
-image
-stylesheet
-ping
-</code></pre>
-<p>Example:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;API Cleaner&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||api.example.com^&quot;],
-      &quot;resourceTypes&quot;: [&quot;xmlhttprequest&quot;],
-      &quot;rules&quot;: [&quot;tracking_id&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Meaning:</p>
-<pre><code class="language-txt">Remove tracking_id from fetch/XHR requests to api.example.com.
-</code></pre>
-<h2 id="guide1-chapter-19-preprocessors">Chapter 19: Preprocessors</h2>
-<p>Preprocessors change captured values before using them in <code>replacePattern</code>.</p>
-<p>Example:</p>
-<pre><code class="language-json">{
-  &quot;preprocessors&quot;: [
-    {
-      &quot;type&quot;: &quot;urlDecode&quot;,
-      &quot;inputs&quot;: [1]
-    }
-  ]
-}
-</code></pre>
-<p>Supported types:</p>
-<pre><code class="language-txt">urlEncode
-urlDecode
-doubleUrlEncode
-urlEncodeRepeated
-doubleUrlDecode
-urlDecodeRepeated
-base64Encode
-base64Decode
-</code></pre>
-<p><code>inputs</code> can be:</p>
-<pre><code class="language-json">[1]
-</code></pre>
-<pre><code class="language-json">[1, 2]
-</code></pre>
-<pre><code class="language-json">&quot;all&quot;
-</code></pre>
-<h2 id="guide1-chapter-20-rule-ids-and-aliases">Chapter 20: Rule IDs And Aliases</h2>
-<p>Give important rules an <code>id</code>.</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;remove-utm-source&quot;,
-  &quot;kind&quot;: &quot;field&quot;,
-  &quot;match&quot;: &quot;utm_source&quot;,
-  &quot;action&quot;: {
-    &quot;type&quot;: &quot;remove&quot;
-  }
-}
-</code></pre>
-<p>Add aliases when an old ID should still work:</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;remove-utm-source&quot;,
-  &quot;aliases&quot;: [&quot;utm-source-old&quot;],
-  &quot;kind&quot;: &quot;field&quot;,
-  &quot;match&quot;: &quot;utm_source&quot;,
-  &quot;action&quot;: {
-    &quot;type&quot;: &quot;remove&quot;
-  }
-}
-</code></pre>
-<p>The engine can disable this rule by these names:</p>
-<pre><code class="language-txt">Provider Name::remove-utm-source
-remove-utm-source
-Provider Name::utm-source-old
-utm-source-old
-</code></pre>
-<h2 id="guide1-chapter-21-defaults">Chapter 21: Defaults</h2>
-<p>ClearURLs core v2 canonical requires top-level <code>defaults</code>. Linkumori also accepts <code>defaults</code> in mixed provider JSON without requiring <code>version: 2</code>.</p>
-<pre><code class="language-json">{
-  &quot;defaults&quot;: {
-    &quot;active&quot;: true,
-    &quot;description&quot;: &quot;Default rule&quot;,
-    &quot;requestTypes&quot;: &quot;all&quot;,
-    &quot;preprocessors&quot;: [],
-    &quot;exceptions&quot;: []
-  },
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Rules can inherit these default fields when they do not define their own values.</p>
-<h2 id="guide1-chapter-22-allowed-json-combinations">Chapter 22: Allowed JSON Combinations</h2>
-<p>This chapter shows Linkumori mixed-provider JSON: ClearURLs addon legacy arrays, ClearURLs core v2 canonical objects, and Linkumori additions can exist together in one rules file.</p>
-<h3 id="guide1-combination-1-many-providers-in-one-file">Combination 1: Many Providers In One File</h3>
-<p><code>providers</code> is ClearURLs addon legacy and ClearURLs core v2 canonical top-level syntax. Linkumori keeps that shape and allows many providers under it.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    },
-    &quot;Shop&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||shop.test^&quot;],
-      &quot;rules&quot;: [&quot;fbclid&quot;]
-    },
-    &quot;Tracker Redirect&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||tracker.test^&quot;],
-      &quot;redirections&quot;: [
-        {
-          &quot;kind&quot;: &quot;redirection&quot;,
-          &quot;match&quot;: &quot;https://tracker\\.test/click\\?url=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Each provider is loaded separately.</p>
-<h3 id="guide1-combination-2-global-defaults-plus-providers">Combination 2: Global Defaults Plus Providers</h3>
-<p><code>defaults</code> is ClearURLs core v2 canonical syntax. Linkumori accepts it beside legacy-style <code>providers</code>.</p>
-<pre><code class="language-json">{
-  &quot;defaults&quot;: {
-    &quot;active&quot;: true,
-    &quot;requestTypes&quot;: &quot;all&quot;,
-    &quot;preprocessors&quot;: []
-  },
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        {
-          &quot;id&quot;: &quot;remove-utm-source&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;utm_source&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Rules can inherit default values when those fields are missing on the rule.</p>
-<h3 id="guide1-combination-3-domainpatterns-provider">Combination 3: <code>domainPatterns</code> Provider</h3>
-<p>This is a Linkumori addition. Most Linkumori providers should use this form.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<h3 id="guide1-combination-4-urlpattern-provider-with-indexpattern">Combination 4: <code>urlPattern</code> Provider With <code>indexPattern</code></h3>
-<p><code>urlPattern</code> is upstream ClearURLs syntax. <code>indexPattern</code> is a Linkumori addition for faster lookup when you need regex URL matching.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example Tracking Path&quot;: {
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/tracking\\/.*&quot;,
-      &quot;indexPattern&quot;: &quot;||example.com^&quot;,
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p><code>indexPattern</code> is optional, but useful for speed.</p>
-<h3 id="guide1-combination-5-domainpatterns-and-urlpattern-together">Combination 5: <code>domainPatterns</code> And <code>urlPattern</code> Together</h3>
-<p>This Linkumori mixed matcher shape is valid JSON:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/example\\.com\\/special\\/.*&quot;,
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Important behavior:</p>
-<pre><code class="language-txt">If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.
-urlPattern is only used when domainPatterns is missing or empty.
-</code></pre>
-<p>So do not use both when you expect both to be required. If you need a path condition, use <code>urlPattern</code> with <code>indexPattern</code>, or put a scoped <code>$removeparam</code>/rule pattern inside <code>rules</code>.</p>
-<h3 id="guide1-combination-6-mixed-rules-entries">Combination 6: Mixed <code>rules[]</code> Entries</h3>
-<p>In Linkumori, <code>rules</code> can contain ClearURLs legacy strings, Linkumori <code>$removeparam</code> strings, Linkumori <code>matchPattern</code> objects, and ClearURLs core v2 canonical objects together.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Mixed Rules&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        &quot;utm_source&quot;,
-        &quot;*$removeparam=fbclid&quot;,
-        {
-          &quot;id&quot;: &quot;remove-gclid&quot;,
-          &quot;matchPattern&quot;: &quot;gclid&quot;,
-          &quot;active&quot;: true
-        },
-        {
-          &quot;id&quot;: &quot;remove-msclkid&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;msclkid&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>All four entries are accepted.</p>
-<h3 id="guide1-combination-7-canonical-objects-inside-rules">Combination 7: Canonical Objects Inside <code>rules[]</code></h3>
-<p>ClearURLs core v2 canonical objects can represent different kinds of rule. In this Linkumori example they are placed inside a provider that uses <code>domainPatterns</code>, which is Linkumori-only.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Canonical Mixed&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        {
-          &quot;id&quot;: &quot;field-rule&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;utm_source&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;raw-rule&quot;,
-          &quot;kind&quot;: &quot;raw&quot;,
-          &quot;match&quot;: &quot;[?&amp;]utm_medium=[^&amp;#]*&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          },
-          &quot;flags&quot;: &quot;gi&quot;
-        },
-        {
-          &quot;id&quot;: &quot;redirect-rule&quot;,
-          &quot;kind&quot;: &quot;redirection&quot;,
-          &quot;match&quot;: &quot;https://example\\.com/out\\?url=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;referral-rule&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;tag&quot;,
-          &quot;referralMarketing&quot;: true,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p><code>Linkumori extension</code> sorts these by meaning:</p>
-<pre><code class="language-txt">kind: &quot;raw&quot;          -&gt; raw rule behavior
-kind: &quot;redirection&quot;  -&gt; redirection behavior
-referralMarketing    -&gt; referral marketing behavior
-everything else      -&gt; field rule behavior
-</code></pre>
-<h3 id="guide1-combination-8-legacy-arrays-plus-canonical-rules">Combination 8: Legacy Arrays Plus Canonical <code>rules[]</code></h3>
-<p>ClearURLs addon legacy provider arrays still work. Linkumori lets those arrays sit beside ClearURLs core v2 canonical rule objects.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Legacy Plus Canonical&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        &quot;utm_source&quot;,
-        {
-          &quot;id&quot;: &quot;canonical-field&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;fbclid&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ],
-      &quot;rawRules&quot;: [
-        &quot;[?&amp;]legacy_raw=[^&amp;#]*&quot;
-      ],
-      &quot;referralMarketing&quot;: [
-        &quot;tag&quot;
-      ],
-      &quot;exceptions&quot;: [
-        &quot;example\\.com\\/keep&quot;
-      ],
-      &quot;redirections&quot;: [
-        {
-          &quot;id&quot;: &quot;legacy-redirection&quot;,
-          &quot;match&quot;: &quot;https://example\\.com/out\\?url=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>This is valid. The engine reads all these arrays for the same provider.</p>
-<h3 id="guide1-combination-9-provider-wide-methods-and-resource-types">Combination 9: Provider-Wide Methods And Resource Types</h3>
-<p><code>methods</code> is upstream ClearURLs syntax. <code>resourceTypes</code> is a Linkumori addition. Both apply to the whole provider.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;XHR GET Cleaner&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||api.example.com^&quot;],
-      &quot;methods&quot;: [&quot;GET&quot;],
-      &quot;resourceTypes&quot;: [&quot;xmlhttprequest&quot;],
-      &quot;rules&quot;: [&quot;tracking_id&quot;],
-      &quot;rawRules&quot;: [&quot;[?&amp;]debug_tracking=[^&amp;#]*&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Both <code>rules</code> and <code>rawRules</code> are limited by the provider method/type match.</p>
-<h3 id="guide1-combination-10-rule-level-request-types">Combination 10: Rule-Level Request Types</h3>
-<p>ClearURLs core v2 canonical rules can define rule-level <code>requestTypes</code>.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Mixed Request Types&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        {
-          &quot;id&quot;: &quot;main-frame-only&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;utm_source&quot;,
-          &quot;requestTypes&quot;: [&quot;main_frame&quot;],
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;xhr-only&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;tracking_id&quot;,
-          &quot;requestTypes&quot;: [&quot;xmlhttprequest&quot;],
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Provider-level <code>resourceTypes</code> narrows the provider first. Rule-level <code>requestTypes</code> narrows individual rules after that.</p>
-<h3 id="guide1-combination-11-exceptions-in-different-places">Combination 11: Exceptions In Different Places</h3>
-<p>Linkumori lets you combine ClearURLs provider exceptions, Linkumori domain exceptions, ClearURLs core v2 rule exceptions, and Linkumori provider-local <code>$removeparam</code> exceptions.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Exception Mix&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        &quot;utm_source&quot;,
-        &quot;*$removeparam=fbclid&quot;,
-        &quot;@@||example.com/login^$removeparam=fbclid&quot;,
-        {
-          &quot;id&quot;: &quot;rule-with-own-exception&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;gclid&quot;,
-          &quot;exceptions&quot;: [&quot;example\\.com\\/checkout&quot;],
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ],
-      &quot;exceptions&quot;: [
-        &quot;example\\.com\\/account&quot;
-      ],
-      &quot;domainExceptions&quot;: [
-        &quot;||safe.example.com^&quot;
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Plain meaning:</p>
-<pre><code class="language-txt">Provider exceptions skip the whole provider for matching URLs.
-Domain exceptions skip the whole provider for matching domains.
-Rule exceptions skip only that rule.
-@@ $removeparam exceptions skip matching $removeparam removal.
-</code></pre>
-<h3 id="guide1-combination-12-blocking-provider-plus-rules">Combination 12: Blocking Provider Plus Rules</h3>
-<p><code>completeProvider: true</code> marks a provider as canceling/blocking.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Blocked Tracker&quot;: {
-      &quot;completeProvider&quot;: true,
-      &quot;domainPatterns&quot;: [&quot;||badtracker.example^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>When domain blocking is enabled in settings, matching requests can be blocked. Rules may still exist, but blocking is the stronger behavior for that provider.</p>
-<h3 id="guide1-combination-13-redirect-provider-plus-cleanup-rules">Combination 13: Redirect Provider Plus Cleanup Rules</h3>
-<p>A provider can contain redirects and cleanup rules.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Redirect And Clean&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||tracker.example^&quot;],
-      &quot;redirections&quot;: [
-        {
-          &quot;id&quot;: &quot;unwrap-url&quot;,
-          &quot;kind&quot;: &quot;redirection&quot;,
-          &quot;match&quot;: &quot;https://tracker\\.example/click\\?url=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          },
-          &quot;preprocessors&quot;: [
-            {
-              &quot;type&quot;: &quot;urlDecode&quot;,
-              &quot;inputs&quot;: [1]
-            }
-          ]
-        }
-      ],
-      &quot;rules&quot;: [&quot;utm_source&quot;, &quot;fbclid&quot;]
-    }
-  }
-}
-</code></pre>
-<p>If a redirection matches, the redirect is returned first.</p>
-<h3 id="guide1-combination-14-domain-redirections-plus-regex-redirections">Combination 14: Domain Redirections Plus Regex Redirections</h3>
-<p>Both can exist in one provider.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Two Redirect Styles&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||tracker.example^&quot;],
-      &quot;redirections&quot;: [
-        {
-          &quot;id&quot;: &quot;regex-redirect&quot;,
-          &quot;kind&quot;: &quot;redirection&quot;,
-          &quot;match&quot;: &quot;https://tracker\\.example/out\\?to=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          }
-        }
-      ],
-      &quot;domainRedirections&quot;: [
-        &quot;||tracker.example^$redirect=https://example.com/&quot;
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Regex redirections are checked first. Domain redirections are checked if no regex redirection matched.</p>
-<h3 id="guide1-combination-15-disabled-or-inactive-rules">Combination 15: Disabled Or Inactive Rules</h3>
-<p>Providers can be inactive:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Disabled Provider&quot;: {
-      &quot;active&quot;: false,
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Rules can be inactive:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        {
-          &quot;id&quot;: &quot;inactive-rule&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;utm_source&quot;,
-          &quot;active&quot;: false,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Inactive providers and inactive rules are ignored.</p>
-<h3 id="guide1-combination-16-full-mixed-provider-example">Combination 16: Full Mixed Provider Example</h3>
-<p>This Linkumori example intentionally combines most supported provider features: ClearURLs addon legacy arrays, ClearURLs core v2 canonical rule objects, and Linkumori-only matcher and domain-pattern features.</p>
-<pre><code class="language-json">{
-  &quot;defaults&quot;: {
-    &quot;active&quot;: true,
-    &quot;requestTypes&quot;: &quot;all&quot;
-  },
-  &quot;providers&quot;: {
-    &quot;Full Mixed Example&quot;: {
-      &quot;active&quot;: true,
-      &quot;domainPatterns&quot;: [
-        &quot;||example.com^&quot;,
-        &quot;||example.org^&quot;
-      ],
-      &quot;methods&quot;: [&quot;GET&quot;, &quot;HEAD&quot;],
-      &quot;resourceTypes&quot;: [&quot;main_frame&quot;, &quot;xmlhttprequest&quot;],
-      &quot;rules&quot;: [
-        &quot;utm_source&quot;,
-        &quot;*$removeparam=fbclid&quot;,
-        &quot;@@||example.com/login^$removeparam=fbclid&quot;,
-        {
-          &quot;id&quot;: &quot;remove-gclid&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;gclid&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;canonical-raw-in-rules&quot;,
-          &quot;kind&quot;: &quot;raw&quot;,
-          &quot;match&quot;: &quot;[?&amp;]raw_tracking=[^&amp;#]*&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          },
-          &quot;flags&quot;: &quot;gi&quot;
-        }
-      ],
-      &quot;rawRules&quot;: [
-        &quot;[?&amp;]legacy_raw=[^&amp;#]*&quot;
-      ],
-      &quot;referralMarketing&quot;: [
-        &quot;tag&quot;
-      ],
-      &quot;exceptions&quot;: [
-        &quot;example\\.com\\/account&quot;
-      ],
-      &quot;domainExceptions&quot;: [
-        &quot;||safe.example.com^&quot;
-      ],
-      &quot;redirections&quot;: [
-        {
-          &quot;id&quot;: &quot;unwrap-outbound&quot;,
-          &quot;kind&quot;: &quot;redirection&quot;,
-          &quot;match&quot;: &quot;https://example\\.com/out\\?url=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          },
-          &quot;preprocessors&quot;: [
-            {
-              &quot;type&quot;: &quot;urlDecode&quot;,
-              &quot;inputs&quot;: [1]
-            }
-          ]
-        }
-      ],
-      &quot;domainRedirections&quot;: [
-        &quot;||old.example.com^$redirect=https://example.com/&quot;
-      ]
-    }
-  }
-}
-</code></pre>
-<p>This is valid Linkumori mixed provider JSON.</p>
-<h2 id="guide1-chapter-23-legacy-canonical-and-mixed-form-matrix">Chapter 23: Legacy, Canonical, And Mixed Form Matrix</h2>
-<p>This chapter is the full compatibility map for authoring JSON. Each form is labeled where it appears: <code>ClearURLs addon legacy</code> means it comes from upstream addon <code>clearurls.js</code>, <code>ClearURLs core v2 canonical</code> means it comes from the core <code>dev</code> schema, and <code>Linkumori addition</code> means Linkumori accepts it on top of those upstream forms.</p>
-<h3 id="guide1-top-level-file-forms">Top-Level File Forms</h3>
-<p>ClearURLs addon legacy — minimal provider file:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/.*&quot;,
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>ClearURLs core v2 canonical format:</p>
-<pre><code class="language-json">{
-  &quot;version&quot;: 2,
-  &quot;defaults&quot;: {
-    &quot;active&quot;: true,
-    &quot;requestTypes&quot;: &quot;all&quot;,
-    &quot;preprocessors&quot;: [],
-    &quot;exceptions&quot;: []
-  },
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/.*&quot;,
-      &quot;rules&quot;: [
-        {
-          &quot;id&quot;: &quot;remove-utm-source&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;utm_source&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Linkumori addition — extended source with defaults:</p>
-<pre><code class="language-json">{
-  &quot;defaults&quot;: {
-    &quot;active&quot;: true,
-    &quot;requestTypes&quot;: &quot;all&quot;
-  },
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Linkumori addition — unified source with provider JSON plus interoperability rules:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  },
-  &quot;urlFilterRules&quot;: [
-    &quot;*$removeparam=fbclid&quot;
-  ],
-  &quot;urlFilterMetadata&quot;: {
-    &quot;format&quot;: &quot;linkumori-url-filter-interoperability&quot;,
-    &quot;status&quot;: &quot;loaded&quot;
-  }
-}
-</code></pre>
-<p>Important:</p>
-<pre><code class="language-txt">providers are handled by Linkumori extension provider logic.
-urlFilterRules are handled by the interoperability runtime.
-They can exist in the same Linkumori extension data object, but they are different rule systems.
-</code></pre>
-<h3 id="guide1-provider-matcher-forms">Provider Matcher Forms</h3>
-<p>ClearURLs addon legacy and ClearURLs core v2 canonical — <code>urlPattern</code> only:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Legacy URL Regex Provider&quot;: {
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/.*&quot;,
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Linkumori addition — <code>urlPattern</code> with <code>indexPattern</code>:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Indexed URL Regex Provider&quot;: {
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/tracking\\/.*&quot;,
-      &quot;indexPattern&quot;: &quot;||example.com^&quot;,
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Linkumori addition — multiple <code>indexPattern</code> hints:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Multi Host URL Regex Provider&quot;: {
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/(www\\.)?(youtube\\.com|youtu\\.be)\\/.*&quot;,
-      &quot;indexPattern&quot;: [&quot;||youtube.com^&quot;, &quot;||youtu.be^&quot;],
-      &quot;rules&quot;: [&quot;feature&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Linkumori addition — <code>domainPatterns</code> only:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Domain Pattern Provider&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Linkumori addition — multiple <code>domainPatterns</code>:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Multi Domain Provider&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;, &quot;||example.org^&quot;, &quot;||example.net^&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Linkumori addition — regex inside <code>domainPatterns</code>:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Regex Domain Pattern Provider&quot;: {
-      &quot;domainPatterns&quot;: [&quot;/^https?:\\/\\/([^/]+\\.)?example\\.com\\/special/i&quot;],
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Linkumori addition — both <code>domainPatterns</code> and <code>urlPattern</code>:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Both Matcher Fields&quot;: {
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/example\\.com\\/special\\/.*&quot;,
-      &quot;rules&quot;: [&quot;utm_source&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Behavior:</p>
-<pre><code class="language-txt">domainPatterns wins for matching when it is present and non-empty.
-urlPattern is used only when domainPatterns is missing or empty.
-</code></pre>
-<h3 id="guide1-provider-state-forms">Provider State Forms</h3>
-<p>Linkumori addition — active provider:</p>
-<pre><code class="language-json">{
-  &quot;active&quot;: true,
-  &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-  &quot;rules&quot;: [&quot;utm_source&quot;]
-}
-</code></pre>
-<p>Linkumori addition — inactive provider:</p>
-<pre><code class="language-json">{
-  &quot;active&quot;: false,
-  &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-  &quot;rules&quot;: [&quot;utm_source&quot;]
-}
-</code></pre>
-<p>Linkumori addition — default-active provider:</p>
-<pre><code class="language-json">{
-  &quot;defaultActive&quot;: true,
-  &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-  &quot;rules&quot;: [&quot;utm_source&quot;]
-}
-</code></pre>
-<p>ClearURLs addon legacy and ClearURLs core v2 canonical — complete/blocking provider. The <code>domainPatterns</code> matcher shown here is a Linkumori addition:</p>
-<pre><code class="language-json">{
-  &quot;completeProvider&quot;: true,
-  &quot;domainPatterns&quot;: [&quot;||badtracker.example^&quot;]
-}
-</code></pre>
-<p>ClearURLs addon legacy and ClearURLs core v2 canonical — complete provider with cleanup rules. The <code>domainPatterns</code> matcher shown here is a Linkumori addition:</p>
-<pre><code class="language-json">{
-  &quot;completeProvider&quot;: true,
-  &quot;domainPatterns&quot;: [&quot;||badtracker.example^&quot;],
-  &quot;rules&quot;: [&quot;utm_source&quot;],
-  &quot;rawRules&quot;: [&quot;[?&amp;]bad=[^&amp;#]*&quot;]
-}
-</code></pre>
-<p>ClearURLs addon legacy and ClearURLs core v2 canonical — force-redirection provider. The <code>domainPatterns</code> matcher and canonical-style object inside <code>redirections[]</code> are Linkumori additions:</p>
-<pre><code class="language-json">{
-  &quot;forceRedirection&quot;: true,
-  &quot;domainPatterns&quot;: [&quot;||tracker.example^&quot;],
-  &quot;redirections&quot;: [
-    {
-      &quot;match&quot;: &quot;https://tracker\\.example/out\\?url=([^&amp;#]+)&quot;
-    }
-  ]
-}
-</code></pre>
-<h3 id="guide1-rules-entry-forms"><code>rules[]</code> Entry Forms</h3>
-<p>ClearURLs addon legacy and ClearURLs core v2 canonical — plain field string:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;utm_source&quot;]
-}
-</code></pre>
-<p>ClearURLs addon legacy and ClearURLs core v2 canonical — plain regex field string:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;^utm_&quot;]
-}
-</code></pre>
-<p>Linkumori addition — inline <code>$removeparam</code> rule inside provider <code>rules[]</code>:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=utm_source&quot;]
-}
-</code></pre>
-<p>Linkumori addition — inline <code>$removeparam</code> exception inside provider <code>rules[]</code>:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;@@||example.com^$removeparam=utm_source&quot;]
-}
-</code></pre>
-<p>Linkumori addition — object with <code>matchPattern</code>:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    {
-      &quot;id&quot;: &quot;legacy-object-rule&quot;,
-      &quot;matchPattern&quot;: &quot;utm_source&quot;,
-      &quot;active&quot;: true,
-      &quot;flags&quot;: &quot;i&quot;
-    }
-  ]
-}
-</code></pre>
-<p>ClearURLs core v2 canonical — field object:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    {
-      &quot;id&quot;: &quot;canonical-field-rule&quot;,
-      &quot;kind&quot;: &quot;field&quot;,
-      &quot;match&quot;: &quot;utm_source&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<p>ClearURLs core v2 canonical — field rewrite object:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    {
-      &quot;id&quot;: &quot;canonical-field-rewrite&quot;,
-      &quot;kind&quot;: &quot;field&quot;,
-      &quot;match&quot;: &quot;tag&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;rewrite&quot;,
-        &quot;replacePattern&quot;: &quot;clean&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<p>ClearURLs core v2 canonical object inside <code>rules[]</code>; <code>flags</code> here are a Linkumori addition:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    {
-      &quot;id&quot;: &quot;raw-inside-rules&quot;,
-      &quot;kind&quot;: &quot;raw&quot;,
-      &quot;match&quot;: &quot;[?&amp;]utm_source=[^&amp;#]*&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      },
-      &quot;flags&quot;: &quot;gi&quot;
-    }
-  ]
-}
-</code></pre>
-<p>ClearURLs core v2 canonical — redirection object inside <code>rules[]</code>:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    {
-      &quot;id&quot;: &quot;redirect-inside-rules&quot;,
-      &quot;kind&quot;: &quot;redirection&quot;,
-      &quot;match&quot;: &quot;https://tracker\\.example/click\\?url=([^&amp;#]+)&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;redirect&quot;,
-        &quot;replacePattern&quot;: &quot;§1§&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<p>ClearURLs core v2 canonical — referral-marketing object inside <code>rules[]</code>:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    {
-      &quot;id&quot;: &quot;referral-inside-rules&quot;,
-      &quot;kind&quot;: &quot;field&quot;,
-      &quot;match&quot;: &quot;tag&quot;,
-      &quot;referralMarketing&quot;: true,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<p>Linkumori addition — all <code>rules[]</code> forms mixed in one legacy provider array:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    &quot;utm_source&quot;,
-    &quot;^utm_&quot;,
-    &quot;*$removeparam=fbclid&quot;,
-    &quot;@@||example.com/login^$removeparam=fbclid&quot;,
-    {
-      &quot;id&quot;: &quot;legacy-object&quot;,
-      &quot;matchPattern&quot;: &quot;gclid&quot;
-    },
-    {
-      &quot;id&quot;: &quot;canonical-field&quot;,
-      &quot;kind&quot;: &quot;field&quot;,
-      &quot;match&quot;: &quot;msclkid&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      }
-    },
-    {
-      &quot;id&quot;: &quot;canonical-raw&quot;,
-      &quot;kind&quot;: &quot;raw&quot;,
-      &quot;match&quot;: &quot;[?&amp;]raw_id=[^&amp;#]*&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      }
-    },
-    {
-      &quot;id&quot;: &quot;canonical-redirection&quot;,
-      &quot;kind&quot;: &quot;redirection&quot;,
-      &quot;match&quot;: &quot;https://tracker\\.example/\\?url=([^&amp;#]+)&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;redirect&quot;,
-        &quot;replacePattern&quot;: &quot;§1§&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<h3 id="guide1-rawrules-entry-forms"><code>rawRules[]</code> Entry Forms</h3>
-<p>ClearURLs addon legacy — raw string:</p>
-<pre><code class="language-json">{
-  &quot;rawRules&quot;: [&quot;[?&amp;]utm_source=[^&amp;#]*&quot;]
-}
-</code></pre>
-<p>Linkumori addition — raw object with <code>matchPattern</code>:</p>
-<pre><code class="language-json">{
-  &quot;rawRules&quot;: [
-    {
-      &quot;id&quot;: &quot;legacy-raw-object&quot;,
-      &quot;matchPattern&quot;: &quot;[?&amp;]utm_source=[^&amp;#]*&quot;,
-      &quot;flags&quot;: &quot;gi&quot;
-    }
-  ]
-}
-</code></pre>
-<p>ClearURLs core v2 canonical raw object; <code>flags</code> here are a Linkumori addition:</p>
-<pre><code class="language-json">{
-  &quot;rawRules&quot;: [
-    {
-      &quot;id&quot;: &quot;canonical-raw-object&quot;,
-      &quot;kind&quot;: &quot;raw&quot;,
-      &quot;match&quot;: &quot;[?&amp;]utm_source=[^&amp;#]*&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      },
-      &quot;flags&quot;: &quot;gi&quot;
-    }
-  ]
-}
-</code></pre>
-<p>ClearURLs core v2 canonical — raw rewrite:</p>
-<pre><code class="language-json">{
-  &quot;rawRules&quot;: [
-    {
-      &quot;id&quot;: &quot;canonical-raw-rewrite&quot;,
-      &quot;kind&quot;: &quot;raw&quot;,
-      &quot;match&quot;: &quot;https://tracker\\.example/out\\?url=([^&amp;#]+)&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;rewrite&quot;,
-        &quot;replacePattern&quot;: &quot;§1§&quot;
-      },
-      &quot;preprocessors&quot;: [
-        {
-          &quot;type&quot;: &quot;urlDecode&quot;,
-          &quot;inputs&quot;: [1]
-        }
-      ]
-    }
-  ]
-}
-</code></pre>
-<p>Linkumori addition — mixed <code>rawRules[]</code>:</p>
-<pre><code class="language-json">{
-  &quot;rawRules&quot;: [
-    &quot;[?&amp;]utm_source=[^&amp;#]*&quot;,
-    {
-      &quot;id&quot;: &quot;raw-object&quot;,
-      &quot;matchPattern&quot;: &quot;[?&amp;]fbclid=[^&amp;#]*&quot;
-    },
-    {
-      &quot;id&quot;: &quot;canonical-raw&quot;,
-      &quot;kind&quot;: &quot;raw&quot;,
-      &quot;match&quot;: &quot;[?&amp;]gclid=[^&amp;#]*&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<h3 id="guide1-referralmarketing-entry-forms"><code>referralMarketing[]</code> Entry Forms</h3>
-<p>ClearURLs addon legacy — referral string:</p>
-<pre><code class="language-json">{
-  &quot;referralMarketing&quot;: [&quot;tag&quot;]
-}
-</code></pre>
-<p>Linkumori addition — referral object with <code>matchPattern</code>:</p>
-<pre><code class="language-json">{
-  &quot;referralMarketing&quot;: [
-    {
-      &quot;id&quot;: &quot;legacy-referral-object&quot;,
-      &quot;matchPattern&quot;: &quot;tag&quot;
-    }
-  ]
-}
-</code></pre>
-<p>Linkumori addition — canonical-style object inside legacy <code>referralMarketing[]</code>:</p>
-<pre><code class="language-json">{
-  &quot;referralMarketing&quot;: [
-    {
-      &quot;id&quot;: &quot;canonical-referral&quot;,
-      &quot;kind&quot;: &quot;field&quot;,
-      &quot;match&quot;: &quot;tag&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<p>Linkumori addition — mixed referral rules:</p>
-<pre><code class="language-json">{
-  &quot;referralMarketing&quot;: [
-    &quot;tag&quot;,
-    &quot;ascsubtag&quot;,
-    {
-      &quot;id&quot;: &quot;canonical-referral&quot;,
-      &quot;kind&quot;: &quot;field&quot;,
-      &quot;match&quot;: &quot;affid&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<h3 id="guide1-exceptions-entry-forms"><code>exceptions[]</code> Entry Forms</h3>
-<p>ClearURLs addon legacy and ClearURLs core v2 canonical — exception string:</p>
-<pre><code class="language-json">{
-  &quot;exceptions&quot;: [&quot;example\\.com\\/login&quot;]
-}
-</code></pre>
-<p>Linkumori addition — exception object with <code>matchPattern</code>:</p>
-<pre><code class="language-json">{
-  &quot;exceptions&quot;: [
-    {
-      &quot;id&quot;: &quot;legacy-exception-object&quot;,
-      &quot;matchPattern&quot;: &quot;example\\.com\\/login&quot;
-    }
-  ]
-}
-</code></pre>
-<p>Linkumori addition — canonical-style object inside provider <code>exceptions[]</code>:</p>
-<pre><code class="language-json">{
-  &quot;exceptions&quot;: [
-    {
-      &quot;id&quot;: &quot;canonical-exception&quot;,
-      &quot;kind&quot;: &quot;field&quot;,
-      &quot;match&quot;: &quot;example\\.com\\/login&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;remove&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<p>Linkumori addition — mixed exceptions:</p>
-<pre><code class="language-json">{
-  &quot;exceptions&quot;: [
-    &quot;example\\.com\\/login&quot;,
-    {
-      &quot;id&quot;: &quot;checkout-exception&quot;,
-      &quot;matchPattern&quot;: &quot;example\\.com\\/checkout&quot;
-    },
-    {
-      &quot;id&quot;: &quot;account-exception&quot;,
-      &quot;match&quot;: &quot;example\\.com\\/account&quot;
-    }
-  ]
-}
-</code></pre>
-<h3 id="guide1-domainexceptions-entry-forms"><code>domainExceptions[]</code> Entry Forms</h3>
-<p>Linkumori addition — domain exceptions are plain domain-pattern strings.</p>
-<pre><code class="language-json">{
-  &quot;domainExceptions&quot;: [
-    &quot;||safe.example.com^&quot;,
-    &quot;||accounts.example.com^&quot;
-  ]
-}
-</code></pre>
-<h3 id="guide1-redirections-entry-forms"><code>redirections[]</code> Entry Forms</h3>
-<p>ClearURLs addon legacy — redirection string:</p>
-<pre><code class="language-json">{
-  &quot;redirections&quot;: [
-    &quot;https://tracker\\.example/click\\?url=([^&amp;#]+)&quot;
-  ]
-}
-</code></pre>
-<p>With a ClearURLs addon legacy redirection string, the first capture group is used as the redirect target.</p>
-<p>Linkumori addition — redirection object with <code>matchPattern</code>:</p>
-<pre><code class="language-json">{
-  &quot;redirections&quot;: [
-    {
-      &quot;id&quot;: &quot;legacy-redirection-object&quot;,
-      &quot;matchPattern&quot;: &quot;https://tracker\\.example/click\\?url=([^&amp;#]+)&quot;,
-      &quot;replacePattern&quot;: &quot;§1§&quot;
-    }
-  ]
-}
-</code></pre>
-<p>ClearURLs core v2 canonical redirection object, accepted here by Linkumori inside legacy <code>redirections[]</code>:</p>
-<pre><code class="language-json">{
-  &quot;redirections&quot;: [
-    {
-      &quot;id&quot;: &quot;canonical-redirection&quot;,
-      &quot;kind&quot;: &quot;redirection&quot;,
-      &quot;match&quot;: &quot;https://tracker\\.example/click\\?url=([^&amp;#]+)&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;redirect&quot;,
-        &quot;replacePattern&quot;: &quot;§1§&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<p>Linkumori addition — mixed redirections:</p>
-<pre><code class="language-json">{
-  &quot;redirections&quot;: [
-    &quot;https://tracker\\.example/a\\?url=([^&amp;#]+)&quot;,
-    {
-      &quot;id&quot;: &quot;legacy-redirection-object&quot;,
-      &quot;matchPattern&quot;: &quot;https://tracker\\.example/b\\?url=([^&amp;#]+)&quot;,
-      &quot;replacePattern&quot;: &quot;§1§&quot;
-    },
-    {
-      &quot;id&quot;: &quot;canonical-redirection&quot;,
-      &quot;kind&quot;: &quot;redirection&quot;,
-      &quot;match&quot;: &quot;https://tracker\\.example/c\\?url=([^&amp;#]+)&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;redirect&quot;,
-        &quot;replacePattern&quot;: &quot;§1§&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<h3 id="guide1-domainredirections-entry-forms"><code>domainRedirections[]</code> Entry Forms</h3>
-<p>Linkumori addition — string form:</p>
-<pre><code class="language-json">{
-  &quot;domainRedirections&quot;: [
-    &quot;||tracker.example^$redirect=https://example.com/&quot;
-  ]
-}
-</code></pre>
-<p>Linkumori addition — object form:</p>
-<pre><code class="language-json">{
-  &quot;domainRedirections&quot;: [
-    {
-      &quot;match&quot;: &quot;||tracker.example^&quot;,
-      &quot;replacePattern&quot;: &quot;https://example.com/&quot;
-    }
-  ]
-}
-</code></pre>
-<p>Linkumori addition — object form with nested action:</p>
-<pre><code class="language-json">{
-  &quot;domainRedirections&quot;: [
-    {
-      &quot;match&quot;: &quot;||tracker.example^&quot;,
-      &quot;action&quot;: {
-        &quot;replacePattern&quot;: &quot;https://example.com/&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<p>Linkumori addition — mixed domain redirections:</p>
-<pre><code class="language-json">{
-  &quot;domainRedirections&quot;: [
-    &quot;||tracker-a.example^$redirect=https://example.com/a&quot;,
-    {
-      &quot;match&quot;: &quot;||tracker-b.example^&quot;,
-      &quot;replacePattern&quot;: &quot;https://example.com/b&quot;
-    },
-    {
-      &quot;match&quot;: &quot;||tracker-c.example^&quot;,
-      &quot;action&quot;: {
-        &quot;replacePattern&quot;: &quot;https://example.com/c&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-<h3 id="guide1-rule-object-field-combinations">Rule Object Field Combinations</h3>
-<p>Linkumori addition — legacy-compatible object fields:</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;legacy-object&quot;,
-  &quot;matchPattern&quot;: &quot;utm_source&quot;,
-  &quot;replacePattern&quot;: null,
-  &quot;flags&quot;: &quot;i&quot;,
-  &quot;active&quot;: true,
-  &quot;aliases&quot;: [&quot;old-id&quot;],
-  &quot;exceptions&quot;: [&quot;example\\.com\\/keep&quot;],
-  &quot;requestTypes&quot;: [&quot;main_frame&quot;],
-  &quot;preprocessors&quot;: []
-}
-</code></pre>
-<p>ClearURLs core v2 canonical object fields; <code>flags</code> here are a Linkumori addition:</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;canonical-object&quot;,
-  &quot;kind&quot;: &quot;field&quot;,
-  &quot;match&quot;: &quot;utm_source&quot;,
-  &quot;active&quot;: true,
-  &quot;aliases&quot;: [&quot;old-id&quot;],
-  &quot;description&quot;: &quot;Remove utm_source&quot;,
-  &quot;exceptions&quot;: [&quot;example\\.com\\/keep&quot;],
-  &quot;requestTypes&quot;: [&quot;main_frame&quot;],
-  &quot;flags&quot;: &quot;i&quot;,
-  &quot;preprocessors&quot;: [],
-  &quot;action&quot;: {
-    &quot;type&quot;: &quot;remove&quot;
-  }
-}
-</code></pre>
-<p>ClearURLs core v2 canonical — rewrite object:</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;rewrite-object&quot;,
-  &quot;kind&quot;: &quot;field&quot;,
-  &quot;match&quot;: &quot;tag&quot;,
-  &quot;action&quot;: {
-    &quot;type&quot;: &quot;rewrite&quot;,
-    &quot;replacePattern&quot;: &quot;clean&quot;
-  }
-}
-</code></pre>
-<p>ClearURLs core v2 canonical — redirect object:</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;redirect-object&quot;,
-  &quot;kind&quot;: &quot;redirection&quot;,
-  &quot;match&quot;: &quot;https://tracker\\.example/click\\?url=([^&amp;#]+)&quot;,
-  &quot;action&quot;: {
-    &quot;type&quot;: &quot;redirect&quot;,
-    &quot;replacePattern&quot;: &quot;§1§&quot;
-  },
-  &quot;preprocessors&quot;: [
-    {
-      &quot;type&quot;: &quot;urlDecode&quot;,
-      &quot;inputs&quot;: [1]
-    }
-  ]
-}
-</code></pre>
-<h3 id="guide1-one-provider-with-every-legacy-array">One Provider With Every Legacy Array</h3>
-<p>The array names in this example come from ClearURLs addon legacy JSON. The provider state, indexing, domain exception, domain redirection, and resource-type fields shown with them are Linkumori additions.</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Every Legacy Array&quot;: {
-      &quot;active&quot;: true,
-      &quot;completeProvider&quot;: false,
-      &quot;forceRedirection&quot;: false,
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/.*&quot;,
-      &quot;indexPattern&quot;: &quot;||example.com^&quot;,
-      &quot;rules&quot;: [&quot;utm_source&quot;],
-      &quot;rawRules&quot;: [&quot;[?&amp;]raw_id=[^&amp;#]*&quot;],
-      &quot;referralMarketing&quot;: [&quot;tag&quot;],
-      &quot;exceptions&quot;: [&quot;example\\.com\\/login&quot;],
-      &quot;domainExceptions&quot;: [&quot;||safe.example.com^&quot;],
-      &quot;redirections&quot;: [&quot;https://example\\.com/out\\?url=([^&amp;#]+)&quot;],
-      &quot;domainRedirections&quot;: [&quot;||old.example.com^$redirect=https://example.com/&quot;],
-      &quot;methods&quot;: [&quot;GET&quot;],
-      &quot;resourceTypes&quot;: [&quot;main_frame&quot;]
-    }
-  }
-}
-</code></pre>
-<h3 id="guide1-one-provider-with-every-canonical-style">One Provider With Every Canonical Style</h3>
-<p>This example is valid ClearURLs core v2 canonical shape. Linkumori can also read these canonical rule objects inside its mixed provider JSON.</p>
-<pre><code class="language-json">{
-  &quot;version&quot;: 2,
-  &quot;defaults&quot;: {
-    &quot;active&quot;: true,
-    &quot;requestTypes&quot;: &quot;all&quot;,
-    &quot;preprocessors&quot;: [],
-    &quot;exceptions&quot;: []
-  },
-  &quot;providers&quot;: {
-    &quot;Every Canonical Style&quot;: {
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/.*&quot;,
-      &quot;exceptions&quot;: [
-        &quot;example\\.com\\/login&quot;
-      ],
-      &quot;rules&quot;: [
-        {
-          &quot;id&quot;: &quot;field&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;utm_source&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;raw&quot;,
-          &quot;kind&quot;: &quot;raw&quot;,
-          &quot;match&quot;: &quot;[?&amp;]raw_id=[^&amp;#]*&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;redirection&quot;,
-          &quot;kind&quot;: &quot;redirection&quot;,
-          &quot;match&quot;: &quot;https://example\\.com/out\\?url=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;referral&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;tag&quot;,
-          &quot;referralMarketing&quot;: true,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<h3 id="guide1-maximum-mixed-compatibility-provider">Maximum Mixed Compatibility Provider</h3>
-<p>This is the Linkumori “everything can coexist” provider shape. It intentionally mixes ClearURLs addon legacy arrays, ClearURLs core v2 canonical rule objects, and Linkumori-only provider fields.</p>
-<pre><code class="language-json">{
-  &quot;defaults&quot;: {
-    &quot;active&quot;: true,
-    &quot;requestTypes&quot;: &quot;all&quot;
-  },
-  &quot;providers&quot;: {
-    &quot;Maximum Mixed Compatibility&quot;: {
-      &quot;active&quot;: true,
-      &quot;defaultActive&quot;: true,
-      &quot;completeProvider&quot;: false,
-      &quot;forceRedirection&quot;: false,
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;, &quot;||example.org^&quot;],
-      &quot;urlPattern&quot;: &quot;https?:\\/\\/([^/]+\\.)?example\\.com\\/.*&quot;,
-      &quot;indexPattern&quot;: [&quot;||example.com^&quot;, &quot;||example.org^&quot;],
-      &quot;methods&quot;: [&quot;GET&quot;, &quot;HEAD&quot;],
-      &quot;resourceTypes&quot;: [&quot;main_frame&quot;, &quot;xmlhttprequest&quot;],
-      &quot;rules&quot;: [
-        &quot;utm_source&quot;,
-        &quot;^utm_&quot;,
-        &quot;*$removeparam=fbclid&quot;,
-        &quot;@@||example.com/login^$removeparam=fbclid&quot;,
-        {
-          &quot;id&quot;: &quot;legacy-field-object&quot;,
-          &quot;matchPattern&quot;: &quot;gclid&quot;
-        },
-        {
-          &quot;id&quot;: &quot;canonical-field-object&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;msclkid&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;canonical-raw-in-rules&quot;,
-          &quot;kind&quot;: &quot;raw&quot;,
-          &quot;match&quot;: &quot;[?&amp;]rule_raw=[^&amp;#]*&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        },
-        {
-          &quot;id&quot;: &quot;canonical-redirect-in-rules&quot;,
-          &quot;kind&quot;: &quot;redirection&quot;,
-          &quot;match&quot;: &quot;https://example\\.com/r\\?url=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          }
-        }
-      ],
-      &quot;rawRules&quot;: [
-        &quot;[?&amp;]legacy_raw=[^&amp;#]*&quot;,
-        {
-          &quot;id&quot;: &quot;raw-object&quot;,
-          &quot;matchPattern&quot;: &quot;[?&amp;]raw_object=[^&amp;#]*&quot;
-        },
-        {
-          &quot;id&quot;: &quot;canonical-raw-object&quot;,
-          &quot;kind&quot;: &quot;raw&quot;,
-          &quot;match&quot;: &quot;[?&amp;]canonical_raw=[^&amp;#]*&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ],
-      &quot;referralMarketing&quot;: [
-        &quot;tag&quot;,
-        {
-          &quot;id&quot;: &quot;canonical-referral-object&quot;,
-          &quot;kind&quot;: &quot;field&quot;,
-          &quot;match&quot;: &quot;ascsubtag&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;remove&quot;
-          }
-        }
-      ],
-      &quot;exceptions&quot;: [
-        &quot;example\\.com\\/login&quot;,
-        {
-          &quot;id&quot;: &quot;exception-object&quot;,
-          &quot;matchPattern&quot;: &quot;example\\.com\\/checkout&quot;
-        },
-        {
-          &quot;id&quot;: &quot;canonical-exception-object&quot;,
-          &quot;match&quot;: &quot;example\\.com\\/account&quot;
-        }
-      ],
-      &quot;domainExceptions&quot;: [
-        &quot;||safe.example.com^&quot;
-      ],
-      &quot;redirections&quot;: [
-        &quot;https://example\\.com/out-a\\?url=([^&amp;#]+)&quot;,
-        {
-          &quot;id&quot;: &quot;legacy-redirection-object&quot;,
-          &quot;matchPattern&quot;: &quot;https://example\\.com/out-b\\?url=([^&amp;#]+)&quot;,
-          &quot;replacePattern&quot;: &quot;§1§&quot;
-        },
-        {
-          &quot;id&quot;: &quot;canonical-redirection-object&quot;,
-          &quot;kind&quot;: &quot;redirection&quot;,
-          &quot;match&quot;: &quot;https://example\\.com/out-c\\?url=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          }
-        }
-      ],
-      &quot;domainRedirections&quot;: [
-        &quot;||old-a.example.com^$redirect=https://example.com/a&quot;,
-        {
-          &quot;match&quot;: &quot;||old-b.example.com^&quot;,
-          &quot;replacePattern&quot;: &quot;https://example.com/b&quot;
-        },
-        {
-          &quot;match&quot;: &quot;||old-c.example.com^&quot;,
-          &quot;action&quot;: {
-            &quot;replacePattern&quot;: &quot;https://example.com/c&quot;
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Note:</p>
-<pre><code class="language-txt">This example is for compatibility documentation. In real rule files, keep providers simpler when possible.
-</code></pre>
-<h2 id="guide1-chapter-24-complete-examples">Chapter 24: Complete Examples</h2>
-<h3 id="guide1-example-1-basic-tracker-cleaner">Example 1: Basic Tracker Cleaner</h3>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example Cleaner&quot;: {
-      &quot;active&quot;: true,
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        &quot;utm_source&quot;,
-        &quot;utm_medium&quot;,
-        &quot;utm_campaign&quot;,
-        &quot;fbclid&quot;,
-        &quot;gclid&quot;
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/post?utm_source=x&amp;fbclid=y&amp;id=99
--&gt; https://example.com/post?id=99
-</code></pre>
-<h3 id="guide1-example-2-remove-all-utm-parameters">Example 2: Remove All UTM Parameters</h3>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;UTM Cleaner&quot;: {
-      &quot;active&quot;: true,
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        &quot;*$removeparam=/^utm_/&quot;
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?utm_source=x&amp;utm_id=y&amp;page=1
--&gt; https://example.com/?page=1
-</code></pre>
-<h3 id="guide1-example-3-keep-a-needed-parameter-on-login">Example 3: Keep A Needed Parameter On Login</h3>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Example Login Safe Cleaner&quot;: {
-      &quot;active&quot;: true,
-      &quot;domainPatterns&quot;: [&quot;||example.com^&quot;],
-      &quot;rules&quot;: [
-        &quot;*$removeparam=session_id&quot;,
-        &quot;@@||example.com/login^$removeparam=session_id&quot;
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/page?session_id=abc&amp;id=1
--&gt; https://example.com/page?id=1
-
-https://example.com/login?session_id=abc
--&gt; https://example.com/login?session_id=abc
-</code></pre>
-<h3 id="guide1-example-4-redirect-tracking-clicks">Example 4: Redirect Tracking Clicks</h3>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;Tracker Redirect&quot;: {
-      &quot;active&quot;: true,
-      &quot;domainPatterns&quot;: [&quot;||tracker.example^&quot;],
-      &quot;redirections&quot;: [
-        {
-          &quot;id&quot;: &quot;tracker-target&quot;,
-          &quot;kind&quot;: &quot;redirection&quot;,
-          &quot;match&quot;: &quot;https://tracker\\.example/click\\?target=([^&amp;#]+)&quot;,
-          &quot;action&quot;: {
-            &quot;type&quot;: &quot;redirect&quot;,
-            &quot;replacePattern&quot;: &quot;§1§&quot;
-          },
-          &quot;preprocessors&quot;: [
-            {
-              &quot;type&quot;: &quot;urlDecode&quot;,
-              &quot;inputs&quot;: [1]
-            }
-          ]
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory
--&gt; https://news.example/story
-</code></pre>
-<h3 id="guide1-example-5-clean-only-api-requests">Example 5: Clean Only API Requests</h3>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {
-    &quot;API Cleaner&quot;: {
-      &quot;active&quot;: true,
-      &quot;domainPatterns&quot;: [&quot;||api.example.com^&quot;],
-      &quot;resourceTypes&quot;: [&quot;xmlhttprequest&quot;],
-      &quot;methods&quot;: [&quot;GET&quot;],
-      &quot;rules&quot;: [&quot;tracking_id&quot;]
-    }
-  }
-}
-</code></pre>
-<p>Meaning:</p>
-<pre><code class="language-txt">Only remove tracking_id from GET XHR/fetch requests to api.example.com.
-</code></pre>
-<h2 id="guide1-chapter-25-quick-copy-templates">Chapter 25: Quick Copy Templates</h2>
-<p>Remove one parameter:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;utm_source&quot;]
-}
-</code></pre>
-<p>Remove many parameters:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;utm_source&quot;, &quot;utm_medium&quot;, &quot;fbclid&quot;]
-}
-</code></pre>
-<p>Use <code>$removeparam</code>:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=utm_source&quot;]
-}
-</code></pre>
-<p>Remove all <code>utm_</code> parameters:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [&quot;*$removeparam=/^utm_/&quot;]
-}
-</code></pre>
-<p>Add an exception:</p>
-<pre><code class="language-json">{
-  &quot;rules&quot;: [
-    &quot;*$removeparam=utm_source&quot;,
-    &quot;@@||example.com^$removeparam=utm_source&quot;
-  ]
-}
-</code></pre>
-<p>Match a domain:</p>
-<pre><code class="language-json">{
-  &quot;domainPatterns&quot;: [&quot;||example.com^&quot;]
-}
-</code></pre>
-<p>Redirect a tracker URL:</p>
-<pre><code class="language-json">{
-  &quot;redirections&quot;: [
-    {
-      &quot;kind&quot;: &quot;redirection&quot;,
-      &quot;match&quot;: &quot;https://tracker\\.example/\\?url=([^&amp;#]+)&quot;,
-      &quot;action&quot;: {
-        &quot;type&quot;: &quot;redirect&quot;,
-        &quot;replacePattern&quot;: &quot;§1§&quot;
-      },
-      &quot;preprocessors&quot;: [
-        {
-          &quot;type&quot;: &quot;urlDecode&quot;,
-          &quot;inputs&quot;: [1]
-        }
-      ]
-    }
-  ]
-}
-</code></pre>
+<p data-i18n-html="guide_0224"></p>
+<pre><code class="language-json" data-i18n-text="guide_0647"></code></pre>
+<p data-i18n-html="guide_0225"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0648"></code></pre>
+<p data-i18n-html="guide_0226"></p>
+<h2 id="guide1-chapter-9-removeparam-rules" data-i18n-html="guide_0227"></h2>
+<p data-i18n-html="guide_0228"></p>
+<h3 id="guide1-remove-one-parameter" data-i18n-html="guide_0229"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0649"></code></pre>
+<p data-i18n-html="guide_0230"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0650"></code></pre>
+<h3 id="guide1-remove-all-parameters" data-i18n-html="guide_0231"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0651"></code></pre>
+<p data-i18n-html="guide_0232"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0652"></code></pre>
+<h3 id="guide1-remove-parameters-by-regex" data-i18n-html="guide_0233"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0653"></code></pre>
+<p data-i18n-html="guide_0234"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0654"></code></pre>
+<h3 id="guide1-remove-all-except-one-parameter" data-i18n-html="guide_0235"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0655"></code></pre>
+<p data-i18n-html="guide_0236"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0656"></code></pre>
+<h3 id="guide1-apply-removeparam-only-to-one-domain" data-i18n-html="guide_0237"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0657"></code></pre>
+<p data-i18n-html="guide_0238"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0658"></code></pre>
+<p data-i18n-html="guide_0239"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0659"></code></pre>
+<h3 id="guide1-add-domain-limits" data-i18n-html="guide_0240"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0660"></code></pre>
+<p data-i18n-html="guide_0241"></p>
+<pre><code class="language-json" data-i18n-text="guide_0661"></code></pre>
+<h3 id="guide1-add-method-limits" data-i18n-html="guide_0242"></h3>
+<p data-i18n-html="guide_0243"></p>
+<pre><code class="language-json" data-i18n-text="guide_0662"></code></pre>
+<p data-i18n-html="guide_0244"></p>
+<pre><code class="language-json" data-i18n-text="guide_0663"></code></pre>
+<h2 id="guide1-chapter-10-removeparam-exceptions" data-i18n-html="guide_0245"></h2>
+<p data-i18n-html="guide_0246"></p>
+<pre><code class="language-json" data-i18n-text="guide_0664"></code></pre>
+<p data-i18n-html="guide_0247"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0665"></code></pre>
+<p data-i18n-html="guide_0248"></p>
+<pre><code class="language-json" data-i18n-text="guide_0666"></code></pre>
+<p data-i18n-html="guide_0249"></p>
+<h2 id="guide1-chapter-11-rewrite-parameter-values" data-i18n-html="guide_0250"></h2>
+<p data-i18n-html="guide_0251"></p>
+<pre><code class="language-json" data-i18n-text="guide_0667"></code></pre>
+<p data-i18n-html="guide_0252"></p>
+<pre><code class="language-json" data-i18n-text="guide_0668"></code></pre>
+<p data-i18n-html="guide_0253"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0669"></code></pre>
+<p data-i18n-html="guide_0254"></p>
+<pre><code class="language-json" data-i18n-text="guide_0670"></code></pre>
+<h2 id="guide1-chapter-12-raw-rules" data-i18n-html="guide_0255"></h2>
+<p data-i18n-html="guide_0256"></p>
+<p data-i18n-html="guide_0257"></p>
+<pre><code class="language-json" data-i18n-text="guide_0671"></code></pre>
+<p data-i18n-html="guide_0258"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0672"></code></pre>
+<p data-i18n-html="guide_0259"></p>
+<pre><code class="language-json" data-i18n-text="guide_0673"></code></pre>
+<p data-i18n-html="guide_0260"></p>
+<pre><code class="language-json" data-i18n-text="guide_0674"></code></pre>
+<p data-i18n-html="guide_0261"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0675"></code></pre>
+<h2 id="guide1-chapter-13-redirect-rules" data-i18n-html="guide_0262"></h2>
+<p data-i18n-html="guide_0263"></p>
+<pre><code class="language-json" data-i18n-text="guide_0676"></code></pre>
+<p data-i18n-html="guide_0264"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0677"></code></pre>
+<p data-i18n-html="guide_0265"></p>
+<h2 id="guide1-chapter-14-domain-redirect-rules" data-i18n-html="guide_0266"></h2>
+<p data-i18n-html="guide_0267"></p>
+<p data-i18n-html="guide_0268"></p>
+<pre><code class="language-json" data-i18n-text="guide_0678"></code></pre>
+<p data-i18n-html="guide_0269"></p>
+<pre><code class="language-json" data-i18n-text="guide_0679"></code></pre>
+<h2 id="guide1-chapter-15-exceptions" data-i18n-html="guide_0270"></h2>
+<p data-i18n-html="guide_0271"></p>
+<pre><code class="language-json" data-i18n-text="guide_0680"></code></pre>
+<p data-i18n-html="guide_0272"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0681"></code></pre>
+<p data-i18n-html="guide_0273"></p>
+<pre><code class="language-json" data-i18n-text="guide_0682"></code></pre>
+<p data-i18n-html="guide_0274"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0683"></code></pre>
+<h2 id="guide1-chapter-16-referral-marketing-rules" data-i18n-html="guide_0275"></h2>
+<p data-i18n-html="guide_0276"></p>
+<pre><code class="language-json" data-i18n-text="guide_0684"></code></pre>
+<p data-i18n-html="guide_0277"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0685"></code></pre>
+<h2 id="guide1-chapter-17-http-methods" data-i18n-html="guide_0278"></h2>
+<p data-i18n-html="guide_0279"></p>
+<pre><code class="language-json" data-i18n-text="guide_0686"></code></pre>
+<p data-i18n-html="guide_0280"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0687"></code></pre>
+<p data-i18n-html="guide_0281"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0688"></code></pre>
+<h2 id="guide1-chapter-18-browser-resource-types" data-i18n-html="guide_0282"></h2>
+<p data-i18n-html="guide_0283"></p>
+<pre><code class="language-json" data-i18n-text="guide_0689"></code></pre>
+<p data-i18n-html="guide_0284"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0690"></code></pre>
+<p data-i18n-html="guide_0285"></p>
+<pre><code class="language-json" data-i18n-text="guide_0691"></code></pre>
+<p data-i18n-html="guide_0286"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0692"></code></pre>
+<h2 id="guide1-chapter-19-preprocessors" data-i18n-html="guide_0287"></h2>
+<p data-i18n-html="guide_0288"></p>
+<p data-i18n-html="guide_0289"></p>
+<pre><code class="language-json" data-i18n-text="guide_0693"></code></pre>
+<p data-i18n-html="guide_0290"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0694"></code></pre>
+<p data-i18n-html="guide_0291"></p>
+<pre><code class="language-json" data-i18n-text="guide_0695"></code></pre>
+<pre><code class="language-json" data-i18n-text="guide_0696"></code></pre>
+<pre><code class="language-json" data-i18n-text="guide_0697"></code></pre>
+<h2 id="guide1-chapter-20-rule-ids-and-aliases" data-i18n-html="guide_0292"></h2>
+<p data-i18n-html="guide_0293"></p>
+<pre><code class="language-json" data-i18n-text="guide_0698"></code></pre>
+<p data-i18n-html="guide_0294"></p>
+<pre><code class="language-json" data-i18n-text="guide_0699"></code></pre>
+<p data-i18n-html="guide_0295"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0700"></code></pre>
+<h2 id="guide1-chapter-21-defaults" data-i18n-html="guide_0296"></h2>
+<p data-i18n-html="guide_0297"></p>
+<pre><code class="language-json" data-i18n-text="guide_0701"></code></pre>
+<p data-i18n-html="guide_0298"></p>
+<h2 id="guide1-chapter-22-allowed-json-combinations" data-i18n-html="guide_0299"></h2>
+<p data-i18n-html="guide_0300"></p>
+<h3 id="guide1-combination-1-many-providers-in-one-file" data-i18n-html="guide_0301"></h3>
+<p data-i18n-html="guide_0302"></p>
+<pre><code class="language-json" data-i18n-text="guide_0702"></code></pre>
+<p data-i18n-html="guide_0303"></p>
+<h3 id="guide1-combination-2-global-defaults-plus-providers" data-i18n-html="guide_0304"></h3>
+<p data-i18n-html="guide_0305"></p>
+<pre><code class="language-json" data-i18n-text="guide_0703"></code></pre>
+<p data-i18n-html="guide_0306"></p>
+<h3 id="guide1-combination-3-domainpatterns-provider" data-i18n-html="guide_0307"></h3>
+<p data-i18n-html="guide_0308"></p>
+<pre><code class="language-json" data-i18n-text="guide_0704"></code></pre>
+<h3 id="guide1-combination-4-urlpattern-provider-with-indexpattern" data-i18n-html="guide_0309"></h3>
+<p data-i18n-html="guide_0310"></p>
+<pre><code class="language-json" data-i18n-text="guide_0705"></code></pre>
+<p data-i18n-html="guide_0311"></p>
+<h3 id="guide1-combination-5-domainpatterns-and-urlpattern-together" data-i18n-html="guide_0312"></h3>
+<p data-i18n-html="guide_0313"></p>
+<pre><code class="language-json" data-i18n-text="guide_0706"></code></pre>
+<p data-i18n-html="guide_0314"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0707"></code></pre>
+<p data-i18n-html="guide_0315"></p>
+<h3 id="guide1-combination-6-mixed-rules-entries" data-i18n-html="guide_0316"></h3>
+<p data-i18n-html="guide_0317"></p>
+<pre><code class="language-json" data-i18n-text="guide_0708"></code></pre>
+<p data-i18n-html="guide_0318"></p>
+<h3 id="guide1-combination-7-canonical-objects-inside-rules" data-i18n-html="guide_0319"></h3>
+<p data-i18n-html="guide_0320"></p>
+<pre><code class="language-json" data-i18n-text="guide_0709"></code></pre>
+<p data-i18n-html="guide_0321"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0710"></code></pre>
+<h3 id="guide1-combination-8-legacy-arrays-plus-canonical-rules" data-i18n-html="guide_0322"></h3>
+<p data-i18n-html="guide_0323"></p>
+<pre><code class="language-json" data-i18n-text="guide_0711"></code></pre>
+<p data-i18n-html="guide_0324"></p>
+<h3 id="guide1-combination-9-provider-wide-methods-and-resource-types" data-i18n-html="guide_0325"></h3>
+<p data-i18n-html="guide_0326"></p>
+<pre><code class="language-json" data-i18n-text="guide_0712"></code></pre>
+<p data-i18n-html="guide_0327"></p>
+<h3 id="guide1-combination-10-rule-level-request-types" data-i18n-html="guide_0328"></h3>
+<p data-i18n-html="guide_0329"></p>
+<pre><code class="language-json" data-i18n-text="guide_0713"></code></pre>
+<p data-i18n-html="guide_0330"></p>
+<h3 id="guide1-combination-11-exceptions-in-different-places" data-i18n-html="guide_0331"></h3>
+<p data-i18n-html="guide_0332"></p>
+<pre><code class="language-json" data-i18n-text="guide_0714"></code></pre>
+<p data-i18n-html="guide_0333"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0715"></code></pre>
+<h3 id="guide1-combination-12-blocking-provider-plus-rules" data-i18n-html="guide_0334"></h3>
+<p data-i18n-html="guide_0335"></p>
+<pre><code class="language-json" data-i18n-text="guide_0716"></code></pre>
+<p data-i18n-html="guide_0336"></p>
+<h3 id="guide1-combination-13-redirect-provider-plus-cleanup-rules" data-i18n-html="guide_0337"></h3>
+<p data-i18n-html="guide_0338"></p>
+<pre><code class="language-json" data-i18n-text="guide_0717"></code></pre>
+<p data-i18n-html="guide_0339"></p>
+<h3 id="guide1-combination-14-domain-redirections-plus-regex-redirections" data-i18n-html="guide_0340"></h3>
+<p data-i18n-html="guide_0341"></p>
+<pre><code class="language-json" data-i18n-text="guide_0718"></code></pre>
+<p data-i18n-html="guide_0342"></p>
+<h3 id="guide1-combination-15-disabled-or-inactive-rules" data-i18n-html="guide_0343"></h3>
+<p data-i18n-html="guide_0344"></p>
+<pre><code class="language-json" data-i18n-text="guide_0719"></code></pre>
+<p data-i18n-html="guide_0345"></p>
+<pre><code class="language-json" data-i18n-text="guide_0720"></code></pre>
+<p data-i18n-html="guide_0346"></p>
+<h3 id="guide1-combination-16-full-mixed-provider-example" data-i18n-html="guide_0347"></h3>
+<p data-i18n-html="guide_0348"></p>
+<pre><code class="language-json" data-i18n-text="guide_0721"></code></pre>
+<p data-i18n-html="guide_0349"></p>
+<h2 id="guide1-chapter-23-legacy-canonical-and-mixed-form-matrix" data-i18n-html="guide_0350"></h2>
+<p data-i18n-html="guide_0351"></p>
+<h3 id="guide1-top-level-file-forms" data-i18n-html="guide_0352"></h3>
+<p data-i18n-html="guide_0353"></p>
+<pre><code class="language-json" data-i18n-text="guide_0722"></code></pre>
+<p data-i18n-html="guide_0354"></p>
+<pre><code class="language-json" data-i18n-text="guide_0723"></code></pre>
+<p data-i18n-html="guide_0355"></p>
+<pre><code class="language-json" data-i18n-text="guide_0724"></code></pre>
+<p data-i18n-html="guide_0356"></p>
+<pre><code class="language-json" data-i18n-text="guide_0725"></code></pre>
+<p data-i18n-html="guide_0357"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0726"></code></pre>
+<h3 id="guide1-provider-matcher-forms" data-i18n-html="guide_0358"></h3>
+<p data-i18n-html="guide_0359"></p>
+<pre><code class="language-json" data-i18n-text="guide_0727"></code></pre>
+<p data-i18n-html="guide_0360"></p>
+<pre><code class="language-json" data-i18n-text="guide_0728"></code></pre>
+<p data-i18n-html="guide_0361"></p>
+<pre><code class="language-json" data-i18n-text="guide_0729"></code></pre>
+<p data-i18n-html="guide_0362"></p>
+<pre><code class="language-json" data-i18n-text="guide_0730"></code></pre>
+<p data-i18n-html="guide_0363"></p>
+<pre><code class="language-json" data-i18n-text="guide_0731"></code></pre>
+<p data-i18n-html="guide_0364"></p>
+<pre><code class="language-json" data-i18n-text="guide_0732"></code></pre>
+<p data-i18n-html="guide_0365"></p>
+<pre><code class="language-json" data-i18n-text="guide_0733"></code></pre>
+<p data-i18n-html="guide_0366"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0734"></code></pre>
+<h3 id="guide1-provider-state-forms" data-i18n-html="guide_0367"></h3>
+<p data-i18n-html="guide_0368"></p>
+<pre><code class="language-json" data-i18n-text="guide_0735"></code></pre>
+<p data-i18n-html="guide_0369"></p>
+<pre><code class="language-json" data-i18n-text="guide_0736"></code></pre>
+<p data-i18n-html="guide_0370"></p>
+<pre><code class="language-json" data-i18n-text="guide_0737"></code></pre>
+<p data-i18n-html="guide_0371"></p>
+<pre><code class="language-json" data-i18n-text="guide_0738"></code></pre>
+<p data-i18n-html="guide_0372"></p>
+<pre><code class="language-json" data-i18n-text="guide_0739"></code></pre>
+<p data-i18n-html="guide_0373"></p>
+<pre><code class="language-json" data-i18n-text="guide_0740"></code></pre>
+<h3 id="guide1-rules-entry-forms" data-i18n-html="guide_0374"></h3>
+<p data-i18n-html="guide_0375"></p>
+<pre><code class="language-json" data-i18n-text="guide_0741"></code></pre>
+<p data-i18n-html="guide_0376"></p>
+<pre><code class="language-json" data-i18n-text="guide_0742"></code></pre>
+<p data-i18n-html="guide_0377"></p>
+<pre><code class="language-json" data-i18n-text="guide_0743"></code></pre>
+<p data-i18n-html="guide_0378"></p>
+<pre><code class="language-json" data-i18n-text="guide_0744"></code></pre>
+<p data-i18n-html="guide_0379"></p>
+<pre><code class="language-json" data-i18n-text="guide_0745"></code></pre>
+<p data-i18n-html="guide_0380"></p>
+<pre><code class="language-json" data-i18n-text="guide_0746"></code></pre>
+<p data-i18n-html="guide_0381"></p>
+<pre><code class="language-json" data-i18n-text="guide_0747"></code></pre>
+<p data-i18n-html="guide_0382"></p>
+<pre><code class="language-json" data-i18n-text="guide_0748"></code></pre>
+<p data-i18n-html="guide_0383"></p>
+<pre><code class="language-json" data-i18n-text="guide_0749"></code></pre>
+<p data-i18n-html="guide_0384"></p>
+<pre><code class="language-json" data-i18n-text="guide_0750"></code></pre>
+<p data-i18n-html="guide_0385"></p>
+<pre><code class="language-json" data-i18n-text="guide_0751"></code></pre>
+<h3 id="guide1-rawrules-entry-forms" data-i18n-html="guide_0386"></h3>
+<p data-i18n-html="guide_0387"></p>
+<pre><code class="language-json" data-i18n-text="guide_0752"></code></pre>
+<p data-i18n-html="guide_0388"></p>
+<pre><code class="language-json" data-i18n-text="guide_0753"></code></pre>
+<p data-i18n-html="guide_0389"></p>
+<pre><code class="language-json" data-i18n-text="guide_0754"></code></pre>
+<p data-i18n-html="guide_0390"></p>
+<pre><code class="language-json" data-i18n-text="guide_0755"></code></pre>
+<p data-i18n-html="guide_0391"></p>
+<pre><code class="language-json" data-i18n-text="guide_0756"></code></pre>
+<h3 id="guide1-referralmarketing-entry-forms" data-i18n-html="guide_0392"></h3>
+<p data-i18n-html="guide_0393"></p>
+<pre><code class="language-json" data-i18n-text="guide_0757"></code></pre>
+<p data-i18n-html="guide_0394"></p>
+<pre><code class="language-json" data-i18n-text="guide_0758"></code></pre>
+<p data-i18n-html="guide_0395"></p>
+<pre><code class="language-json" data-i18n-text="guide_0759"></code></pre>
+<p data-i18n-html="guide_0396"></p>
+<pre><code class="language-json" data-i18n-text="guide_0760"></code></pre>
+<h3 id="guide1-exceptions-entry-forms" data-i18n-html="guide_0397"></h3>
+<p data-i18n-html="guide_0398"></p>
+<pre><code class="language-json" data-i18n-text="guide_0761"></code></pre>
+<p data-i18n-html="guide_0399"></p>
+<pre><code class="language-json" data-i18n-text="guide_0762"></code></pre>
+<p data-i18n-html="guide_0400"></p>
+<pre><code class="language-json" data-i18n-text="guide_0763"></code></pre>
+<p data-i18n-html="guide_0401"></p>
+<pre><code class="language-json" data-i18n-text="guide_0764"></code></pre>
+<h3 id="guide1-domainexceptions-entry-forms" data-i18n-html="guide_0402"></h3>
+<p data-i18n-html="guide_0403"></p>
+<pre><code class="language-json" data-i18n-text="guide_0765"></code></pre>
+<h3 id="guide1-redirections-entry-forms" data-i18n-html="guide_0404"></h3>
+<p data-i18n-html="guide_0405"></p>
+<pre><code class="language-json" data-i18n-text="guide_0766"></code></pre>
+<p data-i18n-html="guide_0406"></p>
+<p data-i18n-html="guide_0407"></p>
+<pre><code class="language-json" data-i18n-text="guide_0767"></code></pre>
+<p data-i18n-html="guide_0408"></p>
+<pre><code class="language-json" data-i18n-text="guide_0768"></code></pre>
+<p data-i18n-html="guide_0409"></p>
+<pre><code class="language-json" data-i18n-text="guide_0769"></code></pre>
+<h3 id="guide1-domainredirections-entry-forms" data-i18n-html="guide_0410"></h3>
+<p data-i18n-html="guide_0411"></p>
+<pre><code class="language-json" data-i18n-text="guide_0770"></code></pre>
+<p data-i18n-html="guide_0412"></p>
+<pre><code class="language-json" data-i18n-text="guide_0771"></code></pre>
+<p data-i18n-html="guide_0413"></p>
+<pre><code class="language-json" data-i18n-text="guide_0772"></code></pre>
+<p data-i18n-html="guide_0414"></p>
+<pre><code class="language-json" data-i18n-text="guide_0773"></code></pre>
+<h3 id="guide1-rule-object-field-combinations" data-i18n-html="guide_0415"></h3>
+<p data-i18n-html="guide_0416"></p>
+<pre><code class="language-json" data-i18n-text="guide_0774"></code></pre>
+<p data-i18n-html="guide_0417"></p>
+<pre><code class="language-json" data-i18n-text="guide_0775"></code></pre>
+<p data-i18n-html="guide_0418"></p>
+<pre><code class="language-json" data-i18n-text="guide_0776"></code></pre>
+<p data-i18n-html="guide_0419"></p>
+<pre><code class="language-json" data-i18n-text="guide_0777"></code></pre>
+<h3 id="guide1-one-provider-with-every-legacy-array" data-i18n-html="guide_0420"></h3>
+<p data-i18n-html="guide_0421"></p>
+<pre><code class="language-json" data-i18n-text="guide_0778"></code></pre>
+<h3 id="guide1-one-provider-with-every-canonical-style" data-i18n-html="guide_0422"></h3>
+<p data-i18n-html="guide_0423"></p>
+<pre><code class="language-json" data-i18n-text="guide_0779"></code></pre>
+<h3 id="guide1-maximum-mixed-compatibility-provider" data-i18n-html="guide_0424"></h3>
+<p data-i18n-html="guide_0425"></p>
+<pre><code class="language-json" data-i18n-text="guide_0780"></code></pre>
+<p data-i18n-html="guide_0426"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0781"></code></pre>
+<h2 id="guide1-chapter-24-complete-examples" data-i18n-html="guide_0427"></h2>
+<h3 id="guide1-example-1-basic-tracker-cleaner" data-i18n-html="guide_0428"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0782"></code></pre>
+<p data-i18n-html="guide_0429"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0783"></code></pre>
+<h3 id="guide1-example-2-remove-all-utm-parameters" data-i18n-html="guide_0430"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0784"></code></pre>
+<p data-i18n-html="guide_0431"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0785"></code></pre>
+<h3 id="guide1-example-3-keep-a-needed-parameter-on-login" data-i18n-html="guide_0432"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0786"></code></pre>
+<p data-i18n-html="guide_0433"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0787"></code></pre>
+<h3 id="guide1-example-4-redirect-tracking-clicks" data-i18n-html="guide_0434"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0788"></code></pre>
+<p data-i18n-html="guide_0435"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0789"></code></pre>
+<h3 id="guide1-example-5-clean-only-api-requests" data-i18n-html="guide_0436"></h3>
+<pre><code class="language-json" data-i18n-text="guide_0790"></code></pre>
+<p data-i18n-html="guide_0437"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0791"></code></pre>
+<h2 id="guide1-chapter-25-quick-copy-templates" data-i18n-html="guide_0438"></h2>
+<p data-i18n-html="guide_0439"></p>
+<pre><code class="language-json" data-i18n-text="guide_0792"></code></pre>
+<p data-i18n-html="guide_0440"></p>
+<pre><code class="language-json" data-i18n-text="guide_0793"></code></pre>
+<p data-i18n-html="guide_0441"></p>
+<pre><code class="language-json" data-i18n-text="guide_0794"></code></pre>
+<p data-i18n-html="guide_0442"></p>
+<pre><code class="language-json" data-i18n-text="guide_0795"></code></pre>
+<p data-i18n-html="guide_0443"></p>
+<pre><code class="language-json" data-i18n-text="guide_0796"></code></pre>
+<p data-i18n-html="guide_0444"></p>
+<pre><code class="language-json" data-i18n-text="guide_0797"></code></pre>
+<p data-i18n-html="guide_0445"></p>
+<pre><code class="language-json" data-i18n-text="guide_0798"></code></pre>
     </div>
 
     <!-- Divider between guides -->
     <div class="guide-divider">
-      <span class="divider-icon">⇄</span>
+      <span class="divider-icon" data-i18n-html="guide_0799"></span>
       <div class="divider-text">
-        <strong>Interoperability Rules Guide</strong>
-        <span>Linkumori URL Filter — plain filter-list syntax for URL cleaning</span>
+        <strong data-i18n-html="guide_0446"></strong>
+        <span data-i18n-html="guide_0447"></span>
       </div>
     </div>
 
     <!-- Guide 2 -->
     <div class="guide2-section">
-<h1 id="guide2-interoperability-rules-guide">Interoperability Rules Guide</h1>
-<p>This guide explains Linkumori extension URL Filter Interoperability rules.</p>
-<p>These are not full ClearURLs JSON provider rules. They are plain filter-list lines, similar to rules used by popular content blockers. The Linkumori extension supports only the URL-cleaning part of that world.</p>
-<h2 id="guide2-chapter-1-what-interoperability-rules-are">Chapter 1: What Interoperability Rules Are</h2>
-<p>Interoperability rules are simple text lines stored in:</p>
-<pre><code class="language-json">{
-  &quot;urlFilterRules&quot;: [
-    &quot;||example.com^$removeparam=utm_source&quot;
-  ]
-}
-</code></pre>
-<p>They live inside <code>ClearURLsData.urlFilterRules</code>.</p>
-<p>They are separate from JSON providers:</p>
-<pre><code class="language-json">{
-  &quot;providers&quot;: {},
-  &quot;urlFilterRules&quot;: []
-}
-</code></pre>
-<p>Use interoperability rules when you want to paste URL-cleaning filter-list syntax directly, instead of writing a full provider object.</p>
-<h2 id="guide2-chapter-2-what-is-supported">Chapter 2: What Is Supported</h2>
-<p>Supported:</p>
-<pre><code class="language-txt">$removeparam
-$queryprune
-@@ exceptions
-badfilter
-important
-domain=
-from=
-to=
-denyallow=
-method=
-request type modifiers
-first-party / third-party
-strict-first-party / strict-third-party
-match-case
-app=
-</code></pre>
-<p>Not supported:</p>
-<pre><code class="language-txt">Network blocking rules without $removeparam or $queryprune
-Cosmetic filters
-Scriptlets
-HTML filtering
-Request blocking
-Full adblock engine behavior
-</code></pre>
-<p>Lines without <code>$removeparam</code> or <code>$queryprune</code> are ignored.</p>
-<h2 id="guide2-chapter-3-basic-rule-format">Chapter 3: Basic Rule Format</h2>
-<p>Basic shape:</p>
-<pre><code class="language-txt">URL_PATTERN$removeparam=PARAMETER
-</code></pre>
-<p>Example:</p>
-<pre><code class="language-txt">||example.com^$removeparam=utm_source
-</code></pre>
-<p>Meaning:</p>
-<pre><code class="language-txt">On example.com and its subdomains, remove the query parameter named utm_source.
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?utm_source=x&amp;id=1
--&gt; https://example.com/?id=1
-</code></pre>
-<h2 id="guide2-chapter-4-where-rules-are-stored">Chapter 4: Where Rules Are Stored</h2>
-<p>Runtime storage shape:</p>
-<pre><code class="language-json">{
-  &quot;ClearURLsData&quot;: {
-    &quot;providers&quot;: {},
-    &quot;urlFilterRules&quot;: [
-      &quot;||example.com^$removeparam=utm_source&quot;,
-      &quot;*$removeparam=/^utm_/&quot;
-    ],
-    &quot;urlFilterMetadata&quot;: {
-      &quot;format&quot;: &quot;linkumori-url-filter-interoperability&quot;
-    }
-  }
-}
-</code></pre>
-<p>The runtime reads these rules through the unified URL filter data path.</p>
-<h2 id="guide2-chapter-5-comments-and-empty-lines">Chapter 5: Comments And Empty Lines</h2>
-<p>Empty lines are ignored.</p>
-<p>Comment lines are ignored:</p>
-<pre><code class="language-txt">! This is a comment
-</code></pre>
-<p>Section headers are ignored:</p>
-<pre><code class="language-txt">[Tracking parameters]
-</code></pre>
-<h2 id="guide2-chapter-6-remove-one-parameter">Chapter 6: Remove One Parameter</h2>
-<p>Rule:</p>
-<pre><code class="language-txt">*$removeparam=utm_source
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://site.test/?utm_source=x&amp;id=1
--&gt; https://site.test/?id=1
-</code></pre>
-<p>The <code>*</code> means the URL pattern matches everything.</p>
-<h2 id="guide2-chapter-7-remove-all-query-parameters">Chapter 7: Remove All Query Parameters</h2>
-<p>Rule:</p>
-<pre><code class="language-txt">*$removeparam
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://site.test/?a=1&amp;b=2
--&gt; https://site.test/
-</code></pre>
-<p>This removes all query parameters from matching URLs.</p>
-<h2 id="guide2-chapter-8-remove-parameters-by-regex">Chapter 8: Remove Parameters By Regex</h2>
-<p>Rule:</p>
-<pre><code class="language-txt">*$removeparam=/^utm_/
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://site.test/?utm_source=x&amp;utm_campaign=y&amp;id=1
--&gt; https://site.test/?id=1
-</code></pre>
-<p>Regex flags:</p>
-<pre><code class="language-txt">*$removeparam=/^utm_/i
-</code></pre>
-<p>Only the <code>i</code> flag is kept by the parser for interoperability regexes.</p>
-<h2 id="guide2-chapter-9-remove-all-except-one-match">Chapter 9: Remove All Except One Match</h2>
-<p>Use <code>~</code> before the parameter pattern.</p>
-<pre><code class="language-txt">*$removeparam=~id
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://site.test/?id=1&amp;utm_source=x&amp;fbclid=y
--&gt; https://site.test/?id=1
-</code></pre>
-<p>Meaning:</p>
-<pre><code class="language-txt">Remove every parameter except id.
-</code></pre>
-<h2 id="guide2-chapter-10-queryprune">Chapter 10: <code>$queryprune</code></h2>
-<p><code>$queryprune</code> is accepted as a deprecated alias for <code>$removeparam</code>.</p>
-<p>These are equivalent:</p>
-<pre><code class="language-txt">*$removeparam=utm_source
-*$queryprune=utm_source
-</code></pre>
-<p>Prefer new rules with <code>$removeparam</code>.</p>
-<h2 id="guide2-chapter-11-url-pattern-examples">Chapter 11: URL Pattern Examples</h2>
-<p>Match all URLs:</p>
-<pre><code class="language-txt">*$removeparam=utm_source
-</code></pre>
-<p>Match a domain and subdomains:</p>
-<pre><code class="language-txt">||example.com^$removeparam=utm_source
-</code></pre>
-<p>Match a URL prefix:</p>
-<pre><code class="language-txt">|https://example.com/path$removeparam=utm_source
-</code></pre>
-<p>Match an exact ending with right anchor:</p>
-<pre><code class="language-txt">https://example.com/path|$removeparam=utm_source
-</code></pre>
-<p>Use a regex URL pattern:</p>
-<pre><code class="language-txt">/^https:\/\/([^/]+\.)?example\.com\/track/$removeparam=utm_source
-</code></pre>
-<h2 id="guide2-chapter-12-exceptions">Chapter 12: Exceptions</h2>
-<p>Start with <code>@@</code> to make an exception.</p>
-<pre><code class="language-txt">@@||example.com^$removeparam=utm_source
-</code></pre>
-<p>Example rule set:</p>
-<pre><code class="language-txt">*$removeparam=utm_source
-@@||example.com^$removeparam=utm_source
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://other.test/?utm_source=x&amp;id=1
--&gt; https://other.test/?id=1
-
-https://example.com/?utm_source=x&amp;id=1
--&gt; https://example.com/?utm_source=x&amp;id=1
-</code></pre>
-<h2 id="guide2-chapter-13-important">Chapter 13: <code>important</code></h2>
-<p><code>important</code> makes a removal rule win over normal exceptions.</p>
-<pre><code class="language-txt">*$removeparam=utm_source,important
-@@||example.com^$removeparam=utm_source
-</code></pre>
-<p>Result:</p>
-<pre><code class="language-txt">https://example.com/?utm_source=x&amp;id=1
--&gt; https://example.com/?id=1
-</code></pre>
-<p>Important notes:</p>
+<h1 id="guide2-interoperability-rules-guide" data-i18n-html="guide_0448"></h1>
+<p data-i18n-html="guide_0449"></p>
+<p data-i18n-html="guide_0450"></p>
+<h2 id="guide2-chapter-1-what-interoperability-rules-are" data-i18n-html="guide_0451"></h2>
+<p data-i18n-html="guide_0452"></p>
+<pre><code class="language-json" data-i18n-text="guide_0800"></code></pre>
+<p data-i18n-html="guide_0453"></p>
+<p data-i18n-html="guide_0454"></p>
+<pre><code class="language-json" data-i18n-text="guide_0801"></code></pre>
+<p data-i18n-html="guide_0455"></p>
+<h2 id="guide2-chapter-2-what-is-supported" data-i18n-html="guide_0456"></h2>
+<p data-i18n-html="guide_0457"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0802"></code></pre>
+<p data-i18n-html="guide_0458"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0803"></code></pre>
+<p data-i18n-html="guide_0459"></p>
+<h2 id="guide2-chapter-3-basic-rule-format" data-i18n-html="guide_0460"></h2>
+<p data-i18n-html="guide_0461"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0804"></code></pre>
+<p data-i18n-html="guide_0462"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0805"></code></pre>
+<p data-i18n-html="guide_0463"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0806"></code></pre>
+<p data-i18n-html="guide_0464"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0807"></code></pre>
+<h2 id="guide2-chapter-4-where-rules-are-stored" data-i18n-html="guide_0465"></h2>
+<p data-i18n-html="guide_0466"></p>
+<pre><code class="language-json" data-i18n-text="guide_0808"></code></pre>
+<p data-i18n-html="guide_0467"></p>
+<h2 id="guide2-chapter-5-comments-and-empty-lines" data-i18n-html="guide_0468"></h2>
+<p data-i18n-html="guide_0469"></p>
+<p data-i18n-html="guide_0470"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0809"></code></pre>
+<p data-i18n-html="guide_0471"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0810"></code></pre>
+<h2 id="guide2-chapter-6-remove-one-parameter" data-i18n-html="guide_0472"></h2>
+<p data-i18n-html="guide_0473"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0811"></code></pre>
+<p data-i18n-html="guide_0474"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0812"></code></pre>
+<p data-i18n-html="guide_0475"></p>
+<h2 id="guide2-chapter-7-remove-all-query-parameters" data-i18n-html="guide_0476"></h2>
+<p data-i18n-html="guide_0477"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0813"></code></pre>
+<p data-i18n-html="guide_0478"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0814"></code></pre>
+<p data-i18n-html="guide_0479"></p>
+<h2 id="guide2-chapter-8-remove-parameters-by-regex" data-i18n-html="guide_0480"></h2>
+<p data-i18n-html="guide_0481"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0815"></code></pre>
+<p data-i18n-html="guide_0482"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0816"></code></pre>
+<p data-i18n-html="guide_0483"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0817"></code></pre>
+<p data-i18n-html="guide_0484"></p>
+<h2 id="guide2-chapter-9-remove-all-except-one-match" data-i18n-html="guide_0485"></h2>
+<p data-i18n-html="guide_0486"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0818"></code></pre>
+<p data-i18n-html="guide_0487"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0819"></code></pre>
+<p data-i18n-html="guide_0488"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0820"></code></pre>
+<h2 id="guide2-chapter-10-queryprune" data-i18n-html="guide_0489"></h2>
+<p data-i18n-html="guide_0490"></p>
+<p data-i18n-html="guide_0491"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0821"></code></pre>
+<p data-i18n-html="guide_0492"></p>
+<h2 id="guide2-chapter-11-url-pattern-examples" data-i18n-html="guide_0493"></h2>
+<p data-i18n-html="guide_0494"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0822"></code></pre>
+<p data-i18n-html="guide_0495"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0823"></code></pre>
+<p data-i18n-html="guide_0496"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0824"></code></pre>
+<p data-i18n-html="guide_0497"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0825"></code></pre>
+<p data-i18n-html="guide_0498"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0826"></code></pre>
+<h2 id="guide2-chapter-12-exceptions" data-i18n-html="guide_0499"></h2>
+<p data-i18n-html="guide_0500"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0827"></code></pre>
+<p data-i18n-html="guide_0501"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0828"></code></pre>
+<p data-i18n-html="guide_0502"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0829"></code></pre>
+<h2 id="guide2-chapter-13-important" data-i18n-html="guide_0503"></h2>
+<p data-i18n-html="guide_0504"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0830"></code></pre>
+<p data-i18n-html="guide_0505"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0831"></code></pre>
+<p data-i18n-html="guide_0506"></p>
 <ul>
-<li><code>important</code> is allowed on removal rules.</li>
-<li><code>important</code> is not supported on exception rules in this parser.</li>
+<li data-i18n-html="guide_0507"></li>
+<li data-i18n-html="guide_0508"></li>
 </ul>
-<h2 id="guide2-chapter-14-badfilter">Chapter 14: <code>badfilter</code></h2>
-<p><code>badfilter</code> disables another matching rule.</p>
-<p>Original rule:</p>
-<pre><code class="language-txt">||example.com^$removeparam=utm_source
-</code></pre>
-<p>Badfilter rule:</p>
-<pre><code class="language-txt">||example.com^$removeparam=utm_source,badfilter
-</code></pre>
-<p>Meaning:</p>
-<pre><code class="language-txt">Cancel the original rule.
-</code></pre>
-<p>The parser canonicalizes the rule without <code>badfilter</code> and removes the target rule from runtime use.</p>
-<h2 id="guide2-chapter-15-domain-source-modifiers-domain-and-from">Chapter 15: Domain Source Modifiers: <code>domain=</code> And <code>from=</code></h2>
-<p><code>domain=</code> and <code>from=</code> limit rules by the page or source context.</p>
-<pre><code class="language-txt">*$removeparam=utm_source,domain=example.com
-</code></pre>
-<p>Same idea with <code>from=</code>:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,from=example.com
-</code></pre>
-<p>These check context hostnames such as:</p>
-<pre><code class="language-txt">documentUrl
-originUrl
-initiator
-</code></pre>
-<p>Include multiple domains:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,domain=example.com|shop.example.com
-</code></pre>
-<p>Exclude a domain:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,domain=example.com|~safe.example.com
-</code></pre>
-<p>Use a regex domain:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,domain=/\.example\.com$/i
-</code></pre>
-<h2 id="guide2-chapter-16-target-domain-modifier-to">Chapter 16: Target Domain Modifier: <code>to=</code></h2>
-<p><code>to=</code> limits rules by the destination URL host.</p>
-<pre><code class="language-txt">*$removeparam=utm_source,to=example.com
-</code></pre>
-<p>This checks the URL being cleaned.</p>
-<p>Example:</p>
-<pre><code class="language-txt">Cleaned:
-https://example.com/?utm_source=x&amp;id=1
-
-Not cleaned:
-https://other.test/?utm_source=x&amp;id=1
-</code></pre>
-<p>Exclude target domain:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,to=example.com|~safe.example.com
-</code></pre>
-<p>Regex target:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,to=/\.example\.com$/i
-</code></pre>
-<h2 id="guide2-chapter-17-denyallow">Chapter 17: <code>denyallow=</code></h2>
-<p><code>denyallow=</code> blocks the rule on listed destination domains.</p>
-<pre><code class="language-txt">*$removeparam=utm_source,denyallow=example.com
-</code></pre>
-<p>Meaning:</p>
-<pre><code class="language-txt">Remove utm_source generally, but do not apply this rule when the destination host matches example.com.
-</code></pre>
-<p>Supported <code>denyallow=</code> values are plain domain patterns.</p>
-<p>Unsupported in <code>denyallow=</code>:</p>
-<pre><code class="language-txt">~negation
-example.*
-/regex/
-</code></pre>
-<p>If unsupported values are used, the whole rule is skipped.</p>
-<h2 id="guide2-chapter-18-http-method-modifier">Chapter 18: HTTP Method Modifier</h2>
-<p>Limit by HTTP method:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,method=GET
-</code></pre>
-<p>Exclude a method:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,method=~POST
-</code></pre>
-<p>Multiple methods:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,method=GET|HEAD
-</code></pre>
-<p>Supported methods:</p>
-<pre><code class="language-txt">GET
-HEAD
-OPTIONS
-POST
-PUT
-PATCH
-DELETE
-CONNECT
-</code></pre>
-<p>Default behavior:</p>
-<pre><code class="language-txt">Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.
-Fast simple query cleanup also uses those simple methods.
-</code></pre>
-<h2 id="guide2-chapter-19-resource-type-modifiers">Chapter 19: Resource Type Modifiers</h2>
-<p>Supported resource type words:</p>
-<pre><code class="language-txt">document
-doc
-subdocument
-frame
-script
-stylesheet
-image
-media
-font
-object
-xmlhttprequest
-xhr
-websocket
-ping
-other
-</code></pre>
-<p>Examples:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,script
-*$removeparam=utm_source,image
-*$removeparam=utm_source,xmlhttprequest
-</code></pre>
-<p>Negated resource type:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,~image
-</code></pre>
-<p>Mapping:</p>
-<pre><code class="language-txt">document       -&gt; main_frame
-doc            -&gt; main_frame
-subdocument    -&gt; sub_frame
-frame          -&gt; sub_frame
-xhr            -&gt; xmlhttprequest
-</code></pre>
-<h2 id="guide2-chapter-20-first-party-and-third-party">Chapter 20: First-Party And Third-Party</h2>
-<p>First-party means the destination site and document site share the same registrable domain.</p>
-<p>Third-party means they do not.</p>
-<p>First-party only:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,first-party
-</code></pre>
-<p>Aliases:</p>
-<pre><code class="language-txt">1p
-~third-party
-~3p
-</code></pre>
-<p>Third-party only:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,third-party
-</code></pre>
-<p>Aliases:</p>
-<pre><code class="language-txt">3p
-~first-party
-~1p
-</code></pre>
-<p>Strict first-party checks exact same host:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,strict-first-party
-*$removeparam=utm_source,strict1p
-</code></pre>
-<p>Strict third-party checks not exact same host:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,strict-third-party
-*$removeparam=utm_source,strict3p
-</code></pre>
-<p>Invalid combinations are skipped, for example:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,first-party,third-party
-</code></pre>
-<h2 id="guide2-chapter-21-match-case">Chapter 21: <code>match-case</code></h2>
-<p>By default, literal parameter matching is case-insensitive.</p>
-<p>Rule:</p>
-<pre><code class="language-txt">*$removeparam=utm_source
-</code></pre>
-<p>Matches:</p>
-<pre><code class="language-txt">utm_source
-UTM_SOURCE
-Utm_Source
-</code></pre>
-<p>Use <code>match-case</code> for case-sensitive matching:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,match-case
-</code></pre>
-<p>Now it matches:</p>
-<pre><code class="language-txt">utm_source
-</code></pre>
-<p>But not:</p>
-<pre><code class="language-txt">UTM_SOURCE
-</code></pre>
-<h2 id="guide2-chapter-22-app">Chapter 22: <code>app=</code></h2>
-<p><code>app=</code> is parsed for compatibility with filter-list syntax.</p>
-<pre><code class="language-txt">*$removeparam=utm_source,app=com.example.browser
-</code></pre>
-<p>Browser requests usually do not have an app package context. If no app context is available, rules with positive <code>app=</code> includes do not match.</p>
-<p>Exclude app:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,app=~com.example.browser
-</code></pre>
-<p>Wildcard app pattern:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,app=com.example.*
-</code></pre>
-<p>Regex app pattern:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,app=/example/i
-</code></pre>
-<h2 id="guide2-chapter-23-no-op-modifiers">Chapter 23: No-Op Modifiers</h2>
-<p>These modifiers are accepted but ignored:</p>
-<pre><code class="language-txt">_
-noop
-stealth
-cookie
-</code></pre>
-<p>Example:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,noop
-</code></pre>
-<p>This behaves like:</p>
-<pre><code class="language-txt">*$removeparam=utm_source
-</code></pre>
-<h2 id="guide2-chapter-24-parameter-matching-details">Chapter 24: Parameter Matching Details</h2>
-<p>Literal parameter rule:</p>
-<pre><code class="language-txt">*$removeparam=utm_source
-</code></pre>
-<p>Checks the parameter name.</p>
-<p>Regex parameter rule:</p>
-<pre><code class="language-txt">*$removeparam=/^utm_/
-</code></pre>
-<p>Checks this text:</p>
-<pre><code class="language-txt">name=value
-</code></pre>
-<p>Example:</p>
-<pre><code class="language-txt">URL:
-https://example.com/?utm_source=news&amp;id=1
-
-Regex sees:
-utm_source=news
-id=1
-</code></pre>
-<p>Prefix form:</p>
-<pre><code class="language-txt">*$removeparam=|utm_
-</code></pre>
-<p>This becomes a regex for names starting with <code>utm_</code>.</p>
-<h2 id="guide2-chapter-25-query-only">Chapter 25: Query Only</h2>
-<p>Interoperability runtime cleans query parameters before <code>#</code>.</p>
-<p>Cleaned:</p>
-<pre><code class="language-txt">https://example.com/?utm_source=x&amp;id=1
--&gt; https://example.com/?id=1
-</code></pre>
-<p>Not cleaned by this runtime path:</p>
-<pre><code class="language-txt">https://example.com/#utm_source=x&amp;id=1
-</code></pre>
-<p>For hash parameter cleanup, use the Linkumori mixed provider JSON rules described in the JSON Format Guide.</p>
-<h2 id="guide2-chapter-26-unsupported-rules-are-skipped">Chapter 26: Unsupported Rules Are Skipped</h2>
-<p>A rule is skipped if:</p>
+<h2 id="guide2-chapter-14-badfilter" data-i18n-html="guide_0509"></h2>
+<p data-i18n-html="guide_0510"></p>
+<p data-i18n-html="guide_0511"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0832"></code></pre>
+<p data-i18n-html="guide_0512"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0833"></code></pre>
+<p data-i18n-html="guide_0513"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0834"></code></pre>
+<p data-i18n-html="guide_0514"></p>
+<h2 id="guide2-chapter-15-domain-source-modifiers-domain-and-from" data-i18n-html="guide_0515"></h2>
+<p data-i18n-html="guide_0516"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0835"></code></pre>
+<p data-i18n-html="guide_0517"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0836"></code></pre>
+<p data-i18n-html="guide_0518"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0837"></code></pre>
+<p data-i18n-html="guide_0519"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0838"></code></pre>
+<p data-i18n-html="guide_0520"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0839"></code></pre>
+<p data-i18n-html="guide_0521"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0840"></code></pre>
+<h2 id="guide2-chapter-16-target-domain-modifier-to" data-i18n-html="guide_0522"></h2>
+<p data-i18n-html="guide_0523"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0841"></code></pre>
+<p data-i18n-html="guide_0524"></p>
+<p data-i18n-html="guide_0525"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0842"></code></pre>
+<p data-i18n-html="guide_0526"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0843"></code></pre>
+<p data-i18n-html="guide_0527"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0844"></code></pre>
+<h2 id="guide2-chapter-17-denyallow" data-i18n-html="guide_0528"></h2>
+<p data-i18n-html="guide_0529"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0845"></code></pre>
+<p data-i18n-html="guide_0530"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0846"></code></pre>
+<p data-i18n-html="guide_0531"></p>
+<p data-i18n-html="guide_0532"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0847"></code></pre>
+<p data-i18n-html="guide_0533"></p>
+<h2 id="guide2-chapter-18-http-method-modifier" data-i18n-html="guide_0534"></h2>
+<p data-i18n-html="guide_0535"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0848"></code></pre>
+<p data-i18n-html="guide_0536"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0849"></code></pre>
+<p data-i18n-html="guide_0537"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0850"></code></pre>
+<p data-i18n-html="guide_0538"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0851"></code></pre>
+<p data-i18n-html="guide_0539"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0852"></code></pre>
+<h2 id="guide2-chapter-19-resource-type-modifiers" data-i18n-html="guide_0540"></h2>
+<p data-i18n-html="guide_0541"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0853"></code></pre>
+<p data-i18n-html="guide_0542"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0854"></code></pre>
+<p data-i18n-html="guide_0543"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0855"></code></pre>
+<p data-i18n-html="guide_0544"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0856"></code></pre>
+<h2 id="guide2-chapter-20-first-party-and-third-party" data-i18n-html="guide_0545"></h2>
+<p data-i18n-html="guide_0546"></p>
+<p data-i18n-html="guide_0547"></p>
+<p data-i18n-html="guide_0548"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0857"></code></pre>
+<p data-i18n-html="guide_0549"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0858"></code></pre>
+<p data-i18n-html="guide_0550"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0859"></code></pre>
+<p data-i18n-html="guide_0551"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0860"></code></pre>
+<p data-i18n-html="guide_0552"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0861"></code></pre>
+<p data-i18n-html="guide_0553"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0862"></code></pre>
+<p data-i18n-html="guide_0554"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0863"></code></pre>
+<h2 id="guide2-chapter-21-match-case" data-i18n-html="guide_0555"></h2>
+<p data-i18n-html="guide_0556"></p>
+<p data-i18n-html="guide_0557"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0864"></code></pre>
+<p data-i18n-html="guide_0558"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0865"></code></pre>
+<p data-i18n-html="guide_0559"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0866"></code></pre>
+<p data-i18n-html="guide_0560"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0867"></code></pre>
+<p data-i18n-html="guide_0561"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0868"></code></pre>
+<h2 id="guide2-chapter-22-app" data-i18n-html="guide_0562"></h2>
+<p data-i18n-html="guide_0563"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0869"></code></pre>
+<p data-i18n-html="guide_0564"></p>
+<p data-i18n-html="guide_0565"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0870"></code></pre>
+<p data-i18n-html="guide_0566"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0871"></code></pre>
+<p data-i18n-html="guide_0567"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0872"></code></pre>
+<h2 id="guide2-chapter-23-no-op-modifiers" data-i18n-html="guide_0568"></h2>
+<p data-i18n-html="guide_0569"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0873"></code></pre>
+<p data-i18n-html="guide_0570"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0874"></code></pre>
+<p data-i18n-html="guide_0571"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0875"></code></pre>
+<h2 id="guide2-chapter-24-parameter-matching-details" data-i18n-html="guide_0572"></h2>
+<p data-i18n-html="guide_0573"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0876"></code></pre>
+<p data-i18n-html="guide_0574"></p>
+<p data-i18n-html="guide_0575"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0877"></code></pre>
+<p data-i18n-html="guide_0576"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0878"></code></pre>
+<p data-i18n-html="guide_0577"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0879"></code></pre>
+<p data-i18n-html="guide_0578"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0880"></code></pre>
+<p data-i18n-html="guide_0579"></p>
+<h2 id="guide2-chapter-25-query-only" data-i18n-html="guide_0580"></h2>
+<p data-i18n-html="guide_0581"></p>
+<p data-i18n-html="guide_0582"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0881"></code></pre>
+<p data-i18n-html="guide_0583"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0882"></code></pre>
+<p data-i18n-html="guide_0584"></p>
+<h2 id="guide2-chapter-26-unsupported-rules-are-skipped" data-i18n-html="guide_0585"></h2>
+<p data-i18n-html="guide_0586"></p>
 <ul>
-<li>It has no <code>$removeparam</code> or <code>$queryprune</code>.</li>
-<li>It uses an unsupported modifier.</li>
-<li>Its regex is invalid.</li>
-<li>It has an invalid method.</li>
-<li>It has an invalid <code>denyallow=</code> value.</li>
-<li>It combines incompatible party modifiers.</li>
-<li>It is a comment, section header, or empty line.</li>
+<li data-i18n-html="guide_0587"></li>
+<li data-i18n-html="guide_0588"></li>
+<li data-i18n-html="guide_0589"></li>
+<li data-i18n-html="guide_0590"></li>
+<li data-i18n-html="guide_0591"></li>
+<li data-i18n-html="guide_0592"></li>
+<li data-i18n-html="guide_0593"></li>
 </ul>
-<p>Example skipped rule:</p>
-<pre><code class="language-txt">||example.com^$script
-</code></pre>
-<p>Reason:</p>
-<pre><code class="language-txt">No $removeparam or $queryprune.
-</code></pre>
-<p>Example skipped rule:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,unknownmodifier
-</code></pre>
-<p>Reason:</p>
-<pre><code class="language-txt">Unsupported modifier.
-</code></pre>
-<h2 id="guide2-chapter-27-duplicate-rules">Chapter 27: Duplicate Rules</h2>
-<p>Duplicate raw lines are skipped during filter-list parsing.</p>
-<p>Example:</p>
-<pre><code class="language-txt">*$removeparam=utm_source
-*$removeparam=utm_source
-</code></pre>
-<p>Only one is kept.</p>
-<p>At runtime, rules are also deduplicated by canonical form.</p>
-<h2 id="guide2-chapter-28-complete-filter-list-example">Chapter 28: Complete Filter List Example</h2>
-<pre><code class="language-txt">! Linkumori URL filter interoperability example
-
-*$removeparam=/^utm_/
-*$removeparam=fbclid
-*$removeparam=gclid
-
-||example.com^$removeparam=ref
-@@||example.com/login^$removeparam=ref
-
-*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET
-
-||tracker.example^$removeparam=target,third-party
-||tracker.example^$removeparam=target,badfilter
-</code></pre>
-<p>What this does:</p>
+<p data-i18n-html="guide_0594"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0883"></code></pre>
+<p data-i18n-html="guide_0595"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0884"></code></pre>
+<p data-i18n-html="guide_0596"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0885"></code></pre>
+<p data-i18n-html="guide_0597"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0886"></code></pre>
+<h2 id="guide2-chapter-27-duplicate-rules" data-i18n-html="guide_0598"></h2>
+<p data-i18n-html="guide_0599"></p>
+<p data-i18n-html="guide_0600"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0887"></code></pre>
+<p data-i18n-html="guide_0601"></p>
+<p data-i18n-html="guide_0602"></p>
+<h2 id="guide2-chapter-28-complete-filter-list-example" data-i18n-html="guide_0603"></h2>
+<pre><code class="language-txt" data-i18n-text="guide_0888"></code></pre>
+<p data-i18n-html="guide_0604"></p>
 <ul>
-<li>Removes all <code>utm_</code> parameters.</li>
-<li>Removes <code>fbclid</code>.</li>
-<li>Removes <code>gclid</code>.</li>
-<li>Removes <code>ref</code> on <code>example.com</code>, except on <code>/login</code>.</li>
-<li>Removes <code>tracking_id</code> only for <code>GET</code> XHR requests to <code>api.example.com</code>.</li>
-<li>Adds then cancels the <code>tracker.example</code> target rule with <code>badfilter</code>.</li>
+<li data-i18n-html="guide_0605"></li>
+<li data-i18n-html="guide_0606"></li>
+<li data-i18n-html="guide_0607"></li>
+<li data-i18n-html="guide_0608"></li>
+<li data-i18n-html="guide_0609"></li>
+<li data-i18n-html="guide_0610"></li>
 </ul>
-<h2 id="guide2-chapter-29-json-storage-example">Chapter 29: JSON Storage Example</h2>
-<pre><code class="language-json">{
-  &quot;ClearURLsData&quot;: {
-    &quot;providers&quot;: {},
-    &quot;urlFilterRules&quot;: [
-      &quot;*$removeparam=/^utm_/&quot;,
-      &quot;*$removeparam=fbclid&quot;,
-      &quot;||example.com^$removeparam=ref&quot;,
-      &quot;@@||example.com/login^$removeparam=ref&quot;
-    ],
-    &quot;urlFilterMetadata&quot;: {
-      &quot;name&quot;: &quot;Linkumori URL Filter Rules&quot;,
-      &quot;format&quot;: &quot;linkumori-url-filter-interoperability&quot;,
-      &quot;status&quot;: &quot;loaded&quot;,
-      &quot;ruleStatus&quot;: &quot;loaded&quot;,
-      &quot;hashStatus&quot;: &quot;not_required&quot;
-    }
-  }
-}
-</code></pre>
-<h2 id="guide2-chapter-30-quick-copy-templates">Chapter 30: Quick Copy Templates</h2>
-<p>Remove one parameter everywhere:</p>
-<pre><code class="language-txt">*$removeparam=utm_source
-</code></pre>
-<p>Remove all UTM parameters:</p>
-<pre><code class="language-txt">*$removeparam=/^utm_/
-</code></pre>
-<p>Remove all except <code>id</code>:</p>
-<pre><code class="language-txt">*$removeparam=~id
-</code></pre>
-<p>Run only on a domain:</p>
-<pre><code class="language-txt">||example.com^$removeparam=utm_source
-</code></pre>
-<p>Exception:</p>
-<pre><code class="language-txt">@@||example.com^$removeparam=utm_source
-</code></pre>
-<p>GET only:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,method=GET
-</code></pre>
-<p>XHR only:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,xmlhttprequest
-</code></pre>
-<p>Target domain only:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,to=example.com
-</code></pre>
-<p>Source page domain only:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,domain=example.com
-</code></pre>
-<p>Third-party only:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,third-party
-</code></pre>
-<p>Case-sensitive:</p>
-<pre><code class="language-txt">*$removeparam=utm_source,match-case
-</code></pre>
+<h2 id="guide2-chapter-29-json-storage-example" data-i18n-html="guide_0611"></h2>
+<pre><code class="language-json" data-i18n-text="guide_0889"></code></pre>
+<h2 id="guide2-chapter-30-quick-copy-templates" data-i18n-html="guide_0612"></h2>
+<p data-i18n-html="guide_0613"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0890"></code></pre>
+<p data-i18n-html="guide_0614"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0891"></code></pre>
+<p data-i18n-html="guide_0615"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0892"></code></pre>
+<p data-i18n-html="guide_0616"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0893"></code></pre>
+<p data-i18n-html="guide_0617"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0894"></code></pre>
+<p data-i18n-html="guide_0618"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0895"></code></pre>
+<p data-i18n-html="guide_0619"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0896"></code></pre>
+<p data-i18n-html="guide_0620"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0897"></code></pre>
+<p data-i18n-html="guide_0621"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0898"></code></pre>
+<p data-i18n-html="guide_0622"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0899"></code></pre>
+<p data-i18n-html="guide_0623"></p>
+<pre><code class="language-txt" data-i18n-text="guide_0900"></code></pre>
     </div>
 
   </main>
 </div>
 
 <script src="../core_js/write_version.js"></script>
+<script src="../external_js/linkumori-i18n.js"></script>
 <script src="guide.js"></script>
+
 </body>
 </html>
