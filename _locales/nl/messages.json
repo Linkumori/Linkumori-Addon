@@ -1512,7 +1512,7 @@
     "description": "This string is used as name for the badges switch button on the popup page."
   },
   "popup_html_configs_switch_filter": {
-    "message": "Filter",
+    "message": "Filteren",
     "description": "This string is used as name for the filter switch button on the popup page."
   },
   "popup_html_configs_switch_log": {
@@ -1571,7 +1571,7 @@
     "message": "Kies welke vertaling van het privacybeleid u wilt zien. Houd er rekening mee dat momenteel alleen de Engelse versie beschikbaar is; andere talen kunnen in de toekomst worden toegevoegd."
   },
   "privacyVersionEnGlobal": {
-    "message": "English"
+    "message": "Engels"
   },
   "privacyVersionLabel": {
     "message": "Privacybeleid "
@@ -3534,7 +3534,7 @@
     "message": "↕ Automatisch scrollen"
   },
   "logger_filter_label": {
-    "message": "Filter"
+    "message": "Filteren"
   },
   "logger_filter_placeholder": {
     "message": "Inzendingen filteren…"
@@ -3561,7 +3561,7 @@
     "message": "Patroon"
   },
   "logger_col_type": {
-    "message": "Type"
+    "message": "Typ"
   },
   "logger_col_method": {
     "message": "Methode"
@@ -3597,7 +3597,7 @@
     "message": "Patroon"
   },
   "logger_detail_type": {
-    "message": "Type"
+    "message": "Typ"
   },
   "logger_detail_method": {
     "message": "Methode"
@@ -3636,7 +3636,7 @@
     "message": "Een domeinpatroon dat wordt gebruikt om aan te geven op welk domein deze provider zich richt. Dit wordt gebruikt om zoekopdrachten van providers te optimaliseren. Formaat: ||voorbeeld.com^"
   },
   "customRulesEditor_indexPatternPlaceholder": {
-    "message": "||example.com^"
+    "message": "||voorbeeld.com^"
   },
   "faq_index_pattern": {
     "message": "Wat is indexPattern?",
@@ -3984,5 +3984,3717 @@
   "providerImport_ruleIdsRequireValidJson": {
     "message": "Regel-ID-controles zijn beschikbaar zodra de provider JSON geldig is.",
     "description": "Ongeldige JSON-status voor regel-ID-controles van de provider"
+  },
+  "guide_0001": {
+    "message": "Linkumori Uitbreiding — Regeldocumentatie",
+    "description": "Guide page text."
+  },
+  "guide_0002": {
+    "message": "Thema",
+    "description": "Guide page text."
+  },
+  "guide_0003": {
+    "message": "Provider JSON Formaat",
+    "description": "Guide page text."
+  },
+  "guide_0004": {
+    "message": "Linkumori Leverancier JSON",
+    "description": "Guide page text."
+  },
+  "guide_0005": {
+    "message": "Hoofdstuk 1: Basisvorm JSON",
+    "description": "Guide page text."
+  },
+  "guide_0006": {
+    "message": "Hoofdstuk 2: Wat is een aanbieder?",
+    "description": "Guide page text."
+  },
+  "guide_0007": {
+    "message": "Hoofdstuk 3: Providervelden die u kunt gebruiken",
+    "description": "Guide page text."
+  },
+  "guide_0008": {
+    "message": "Hoofdstuk 4: Domeinen matchen",
+    "description": "Guide page text."
+  },
+  "guide_0009": {
+    "message": "Match één domein en alle subdomeinen",
+    "description": "Guide page text."
+  },
+  "guide_0010": {
+    "message": "Zorg ervoor dat dezelfde naam overeenkomt met elk openbaar achtervoegsel",
+    "description": "Guide page text."
+  },
+  "guide_0011": {
+    "message": "Match subdomeinen",
+    "description": "Guide page text."
+  },
+  "guide_0012": {
+    "message": "Gebruik meer dan één domeinpatroon",
+    "description": "Guide page text."
+  },
+  "guide_0013": {
+    "message": "Hoofdstuk 5: Domeinpatroonsymbolen",
+    "description": "Guide page text."
+  },
+  "guide_0014": {
+    "message": "Hoofdstuk 6: URLs matchen met urlPattern",
+    "description": "Guide page text."
+  },
+  "guide_0015": {
+    "message": "Hoofdstuk 7: Eenvoudige queryparameters verwijderen",
+    "description": "Guide page text."
+  },
+  "guide_0016": {
+    "message": "Hoofdstuk 8: Schrijf een regelobject",
+    "description": "Guide page text."
+  },
+  "guide_0017": {
+    "message": "Hoofdstuk 9: $removeparam-regels",
+    "description": "Guide page text."
+  },
+  "guide_0018": {
+    "message": "Verwijder één parameter",
+    "description": "Guide page text."
+  },
+  "guide_0019": {
+    "message": "Verwijder alle parameters",
+    "description": "Guide page text."
+  },
+  "guide_0020": {
+    "message": "Verwijder parameters door Regex",
+    "description": "Guide page text."
+  },
+  "guide_0021": {
+    "message": "Verwijder alles behalve één parameter",
+    "description": "Guide page text."
+  },
+  "guide_0022": {
+    "message": "Pas $removeparam slechts op één domein toe",
+    "description": "Guide page text."
+  },
+  "guide_0023": {
+    "message": "Domeinlimieten toevoegen",
+    "description": "Guide page text."
+  },
+  "guide_0024": {
+    "message": "Methodelimieten toevoegen",
+    "description": "Guide page text."
+  },
+  "guide_0025": {
+    "message": "Hoofdstuk 10: $removeparam Uitzonderingen",
+    "description": "Guide page text."
+  },
+  "guide_0026": {
+    "message": "Hoofdstuk 11: Parameterwaarden herschrijven",
+    "description": "Guide page text."
+  },
+  "guide_0027": {
+    "message": "Hoofdstuk 12: Ruwe regels",
+    "description": "Guide page text."
+  },
+  "guide_0028": {
+    "message": "Hoofdstuk 13: Omleidingsregels",
+    "description": "Guide page text."
+  },
+  "guide_0029": {
+    "message": "Hoofdstuk 14: Regels voor domeinomleiding",
+    "description": "Guide page text."
+  },
+  "guide_0030": {
+    "message": "Hoofdstuk 15: Uitzonderingen",
+    "description": "Guide page text."
+  },
+  "guide_0031": {
+    "message": "Hoofdstuk 16: Regels voor verwijzingsmarketing",
+    "description": "Guide page text."
+  },
+  "guide_0032": {
+    "message": "Hoofdstuk 17: HTTP Methoden",
+    "description": "Guide page text."
+  },
+  "guide_0033": {
+    "message": "Hoofdstuk 18: Browserbrontypen",
+    "description": "Guide page text."
+  },
+  "guide_0034": {
+    "message": "Hoofdstuk 19: Preprocessors",
+    "description": "Guide page text."
+  },
+  "guide_0035": {
+    "message": "Hoofdstuk 20: Regel-ID's en aliassen",
+    "description": "Guide page text."
+  },
+  "guide_0036": {
+    "message": "Hoofdstuk 21: Standaardinstellingen",
+    "description": "Guide page text."
+  },
+  "guide_0037": {
+    "message": "Hoofdstuk 22: Toegestane JSON-combinaties",
+    "description": "Guide page text."
+  },
+  "guide_0038": {
+    "message": "Combinatie 1: Veel aanbieders in één bestand",
+    "description": "Guide page text."
+  },
+  "guide_0039": {
+    "message": "Combinatie 2: Global Defaults Plus Providers",
+    "description": "Guide page text."
+  },
+  "guide_0040": {
+    "message": "Combinatie 3: domainPatterns Provider",
+    "description": "Guide page text."
+  },
+  "guide_0041": {
+    "message": "Combinatie 4: urlPattern Provider Met indexPattern",
+    "description": "Guide page text."
+  },
+  "guide_0042": {
+    "message": "Combinatie 5: domeinpatronen en urlpatroon samen",
+    "description": "Guide page text."
+  },
+  "guide_0043": {
+    "message": "Combinatie 6: Gemengde regels[] Inzendingen",
+    "description": "Guide page text."
+  },
+  "guide_0044": {
+    "message": "Combinatie 7: Canonieke objecten Inside-regels[]",
+    "description": "Guide page text."
+  },
+  "guide_0045": {
+    "message": "Combinatie 8: Legacy Arrays Plus Canonieke regels[]",
+    "description": "Guide page text."
+  },
+  "guide_0046": {
+    "message": "Combinatie 9: Provider-brede methoden en resourcetypen",
+    "description": "Guide page text."
+  },
+  "guide_0047": {
+    "message": "Combinatie 10: Verzoektypen op regelniveau",
+    "description": "Guide page text."
+  },
+  "guide_0048": {
+    "message": "Combinatie 11: Uitzonderingen op verschillende plaatsen",
+    "description": "Guide page text."
+  },
+  "guide_0049": {
+    "message": "Combinatie 12: Provider Plus-regels blokkeren",
+    "description": "Guide page text."
+  },
+  "guide_0050": {
+    "message": "Combinatie 13: Redirect Provider Plus Opschoningsregels",
+    "description": "Guide page text."
+  },
+  "guide_0051": {
+    "message": "Combinatie 14: Domeinomleidingen plus Regex-omleidingen",
+    "description": "Guide page text."
+  },
+  "guide_0052": {
+    "message": "Combinatie 15: uitgeschakelde of inactieve regels",
+    "description": "Guide page text."
+  },
+  "guide_0053": {
+    "message": "Combinatie 16: Voorbeeld van een volledig gemengde aanbieder",
+    "description": "Guide page text."
+  },
+  "guide_0054": {
+    "message": "Hoofdstuk 23: Matrix voor oude, canonieke en gemengde vormen",
+    "description": "Guide page text."
+  },
+  "guide_0055": {
+    "message": "Bestandsformulieren op het hoogste niveau",
+    "description": "Guide page text."
+  },
+  "guide_0056": {
+    "message": "Matcher-formulieren voor aanbieders",
+    "description": "Guide page text."
+  },
+  "guide_0057": {
+    "message": "Staatsformulieren van aanbieders",
+    "description": "Guide page text."
+  },
+  "guide_0058": {
+    "message": "regels[] Deelnameformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0059": {
+    "message": "rawRules[] Invoerformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0060": {
+    "message": "verwijzingMarketing[] Inschrijfformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0061": {
+    "message": "uitzonderingen[] Inschrijfformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0062": {
+    "message": "domainExceptions[] Invoerformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0063": {
+    "message": "omleidingen[] Invoerformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0064": {
+    "message": "domeinOmleidingen[] Invoerformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0065": {
+    "message": "Regelobjectveldcombinaties",
+    "description": "Guide page text."
+  },
+  "guide_0066": {
+    "message": "Eén provider met elke Legacy-array",
+    "description": "Guide page text."
+  },
+  "guide_0067": {
+    "message": "Eén aanbieder met elke canonieke stijl",
+    "description": "Guide page text."
+  },
+  "guide_0068": {
+    "message": "Maximale gemengde compatibiliteitsprovider",
+    "description": "Guide page text."
+  },
+  "guide_0069": {
+    "message": "Hoofdstuk 24: Volledige voorbeelden",
+    "description": "Guide page text."
+  },
+  "guide_0070": {
+    "message": "Voorbeeld 1: Basis Tracker Cleaner",
+    "description": "Guide page text."
+  },
+  "guide_0071": {
+    "message": "Voorbeeld 2: verwijder alle UTM-parameters",
+    "description": "Guide page text."
+  },
+  "guide_0072": {
+    "message": "Voorbeeld 3: Behoud een benodigde parameter bij inloggen",
+    "description": "Guide page text."
+  },
+  "guide_0073": {
+    "message": "Voorbeeld 4: Trackingklikken omleiden",
+    "description": "Guide page text."
+  },
+  "guide_0074": {
+    "message": "Voorbeeld 5: Alleen API-verzoeken opschonen",
+    "description": "Guide page text."
+  },
+  "guide_0075": {
+    "message": "Hoofdstuk 25: Snelkopieersjablonen",
+    "description": "Guide page text."
+  },
+  "guide_0076": {
+    "message": "Interoperabiliteitsregels",
+    "description": "Guide page text."
+  },
+  "guide_0077": {
+    "message": "Gids voor interoperabiliteitsregels",
+    "description": "Guide page text."
+  },
+  "guide_0078": {
+    "message": "Hoofdstuk 1: Wat interoperabiliteitsregels zijn",
+    "description": "Guide page text."
+  },
+  "guide_0079": {
+    "message": "Hoofdstuk 2: Wat wordt ondersteund",
+    "description": "Guide page text."
+  },
+  "guide_0080": {
+    "message": "Hoofdstuk 3: Basisregelopmaak",
+    "description": "Guide page text."
+  },
+  "guide_0081": {
+    "message": "Hoofdstuk 4: Waar regels worden opgeslagen",
+    "description": "Guide page text."
+  },
+  "guide_0082": {
+    "message": "Hoofdstuk 5: Opmerkingen en lege regels",
+    "description": "Guide page text."
+  },
+  "guide_0083": {
+    "message": "Hoofdstuk 6: Eén parameter verwijderen",
+    "description": "Guide page text."
+  },
+  "guide_0084": {
+    "message": "Hoofdstuk 7: Alle queryparameters verwijderen",
+    "description": "Guide page text."
+  },
+  "guide_0085": {
+    "message": "Hoofdstuk 8: Parameters verwijderen met Regex",
+    "description": "Guide page text."
+  },
+  "guide_0086": {
+    "message": "Hoofdstuk 9: Alles verwijderen behalve één overeenkomst",
+    "description": "Guide page text."
+  },
+  "guide_0087": {
+    "message": "Hoofdstuk 10: $queryprune",
+    "description": "Guide page text."
+  },
+  "guide_0088": {
+    "message": "Hoofdstuk 11: URL Patroonvoorbeelden",
+    "description": "Guide page text."
+  },
+  "guide_0089": {
+    "message": "Hoofdstuk 12: Uitzonderingen",
+    "description": "Guide page text."
+  },
+  "guide_0090": {
+    "message": "Hoofdstuk 13: belangrijk",
+    "description": "Guide page text."
+  },
+  "guide_0091": {
+    "message": "Hoofdstuk 14: slechtfilter",
+    "description": "Guide page text."
+  },
+  "guide_0092": {
+    "message": "Hoofdstuk 15: Domeinbronmodificatoren: domein= En van=",
+    "description": "Guide page text."
+  },
+  "guide_0093": {
+    "message": "Hoofdstuk 16: Doeldomeinmodificator: to=",
+    "description": "Guide page text."
+  },
+  "guide_0094": {
+    "message": "Hoofdstuk 17: denyallow=",
+    "description": "Guide page text."
+  },
+  "guide_0095": {
+    "message": "Hoofdstuk 18: HTTP Methodemodificator",
+    "description": "Guide page text."
+  },
+  "guide_0096": {
+    "message": "Hoofdstuk 19: Modifiers voor resourcetypes",
+    "description": "Guide page text."
+  },
+  "guide_0097": {
+    "message": "Hoofdstuk 20: Eerste en derde partij",
+    "description": "Guide page text."
+  },
+  "guide_0098": {
+    "message": "Hoofdstuk 21: luciferdoosje",
+    "description": "Guide page text."
+  },
+  "guide_0099": {
+    "message": "Hoofdstuk 22: app=",
+    "description": "Guide page text."
+  },
+  "guide_0100": {
+    "message": "Hoofdstuk 23: No-Op-modificatoren",
+    "description": "Guide page text."
+  },
+  "guide_0101": {
+    "message": "Hoofdstuk 24: Details over parametermatching",
+    "description": "Guide page text."
+  },
+  "guide_0102": {
+    "message": "Hoofdstuk 25: Alleen query's",
+    "description": "Guide page text."
+  },
+  "guide_0103": {
+    "message": "Hoofdstuk 26: Niet-ondersteunde regels worden overgeslagen",
+    "description": "Guide page text."
+  },
+  "guide_0104": {
+    "message": "Hoofdstuk 27: Dubbele regels",
+    "description": "Guide page text."
+  },
+  "guide_0105": {
+    "message": "Hoofdstuk 28: Compleet voorbeeld van filterlijst",
+    "description": "Guide page text."
+  },
+  "guide_0106": {
+    "message": "Hoofdstuk 29: JSON Voorbeeld van opslag",
+    "description": "Guide page text."
+  },
+  "guide_0107": {
+    "message": "Hoofdstuk 30: Snelkopieersjablonen",
+    "description": "Guide page text."
+  },
+  "guide_0108": {
+    "message": "Linkumori Gemengde provider JSON Formaatgids",
+    "description": "Guide page text."
+  },
+  "guide_0109": {
+    "message": "In deze handleiding wordt uitgelegd hoe u gegevens van provider JSON schrijft die <code>Linkumori extension</code> kan lezen.",
+    "description": "Guide page text."
+  },
+  "guide_0110": {
+    "message": "Het omvat het gemengde Linkumori providerformaat: ClearURLs oude add-onvelden, ClearURLs core v2 canonieke regelobjecten en alleen Linkumori toevoegingen zoals <code>domainPatterns</code>, <code>$removeparam</code> providerregels, domeinuitzonderingen, domein omleidingen en scoping van het resourcetype.",
+    "description": "Guide page text."
+  },
+  "guide_0111": {
+    "message": "Het is geen handleiding voor de JavaScript-code. Het richt zich alleen op de vormen, regelformaten en voorbeelden die regelauteurs nodig hebben.",
+    "description": "Guide page text."
+  },
+  "guide_0112": {
+    "message": "Hoofdstuk 1: Basisvorm JSON",
+    "description": "Guide page text."
+  },
+  "guide_0113": {
+    "message": "<code>Linkumori extension</code> verwacht providergegevens in deze algemene vorm:",
+    "description": "Guide page text."
+  },
+  "guide_0114": {
+    "message": "Het belangrijkste onderdeel is <code>providers</code>. Elke sleutel binnen <code>providers</code> is een providernaam.",
+    "description": "Guide page text."
+  },
+  "guide_0115": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0116": {
+    "message": "Hoofdstuk 2: Wat is een aanbieder?",
+    "description": "Guide page text."
+  },
+  "guide_0117": {
+    "message": "Een provider is één groep regels voor één website, bedrijf, tracker of URL-patroon.",
+    "description": "Guide page text."
+  },
+  "guide_0118": {
+    "message": "Minimale aanbieder:",
+    "description": "Guide page text."
+  },
+  "guide_0119": {
+    "message": "Wat dit doet:",
+    "description": "Guide page text."
+  },
+  "guide_0120": {
+    "message": "Hoofdstuk 3: Providervelden die u kunt gebruiken",
+    "description": "Guide page text."
+  },
+  "guide_0121": {
+    "message": "Volledige providersjabloon:",
+    "description": "Guide page text."
+  },
+  "guide_0122": {
+    "message": "Duidelijke betekenis:",
+    "description": "Guide page text."
+  },
+  "guide_0123": {
+    "message": "JSON veld",
+    "description": "Guide page text."
+  },
+  "guide_0124": {
+    "message": "Bron",
+    "description": "Guide page text."
+  },
+  "guide_0125": {
+    "message": "Waar je het voor schrijft",
+    "description": "Guide page text."
+  },
+  "guide_0126": {
+    "message": "<code>active</code>",
+    "description": "Guide page text."
+  },
+  "guide_0127": {
+    "message": "Linkumori toevoeging",
+    "description": "Guide page text."
+  },
+  "guide_0128": {
+    "message": "Stel <code>false</code> in om deze provider uit te schakelen.",
+    "description": "Guide page text."
+  },
+  "guide_0129": {
+    "message": "<code>defaultActive</code>",
+    "description": "Guide page text."
+  },
+  "guide_0130": {
+    "message": "Linkumori toevoeging",
+    "description": "Guide page text."
+  },
+  "guide_0131": {
+    "message": "Standaard actieve status wanneer <code>active</code> ontbreekt.",
+    "description": "Guide page text."
+  },
+  "guide_0132": {
+    "message": "<code>completeProvider</code>",
+    "description": "Guide page text."
+  },
+  "guide_0133": {
+    "message": "ClearURLs add-on legacy en ClearURLs core v2 canoniek",
+    "description": "Guide page text."
+  },
+  "guide_0134": {
+    "message": "Stel <code>true</code> in om overeenkomende domeinen te blokkeren in plaats van alleen opschonen.",
+    "description": "Guide page text."
+  },
+  "guide_0135": {
+    "message": "<code>forceRedirection</code>",
+    "description": "Guide page text."
+  },
+  "guide_0136": {
+    "message": "ClearURLs add-on legacy en ClearURLs core v2 canoniek",
+    "description": "Guide page text."
+  },
+  "guide_0137": {
+    "message": "Stel <code>true</code> in om omleidingen naar de hoofdpagina via het browsertabblad te forceren.",
+    "description": "Guide page text."
+  },
+  "guide_0138": {
+    "message": "<code>domainPatterns</code>",
+    "description": "Guide page text."
+  },
+  "guide_0139": {
+    "message": "Linkumori toevoeging",
+    "description": "Guide page text."
+  },
+  "guide_0140": {
+    "message": "Aanbevolen manier om te zeggen met welke domeinen deze provider overeenkomt.",
+    "description": "Guide page text."
+  },
+  "guide_0141": {
+    "message": "<code>urlPattern</code>",
+    "description": "Guide page text."
+  },
+  "guide_0142": {
+    "message": "ClearURLs add-on legacy en ClearURLs core v2 canoniek",
+    "description": "Guide page text."
+  },
+  "guide_0143": {
+    "message": "Regex-tekenreeks JavaScript voor overeenkomende URL.",
+    "description": "Guide page text."
+  },
+  "guide_0144": {
+    "message": "<code>indexPattern</code>",
+    "description": "Guide page text."
+  },
+  "guide_0145": {
+    "message": "Linkumori toevoeging",
+    "description": "Guide page text."
+  },
+  "guide_0146": {
+    "message": "Optionele snelheidstip bij gebruik van <code>urlPattern</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0147": {
+    "message": "<code>rules</code>",
+    "description": "Guide page text."
+  },
+  "guide_0148": {
+    "message": "ClearURLs add-on legacy en ClearURLs core v2 canoniek; <code>$removeparam</code> is hier Linkumori aanvulling",
+    "description": "Guide page text."
+  },
+  "guide_0149": {
+    "message": "Normale regels voor het verwijderen van parameters en lokale <code>$removeparam</code>-regels voor de provider.",
+    "description": "Guide page text."
+  },
+  "guide_0150": {
+    "message": "<code>rawRules</code>",
+    "description": "Guide page text."
+  },
+  "guide_0151": {
+    "message": "ClearURLs add-on erfenis; Objecten in canonieke stijl zijn hier toegevoegd",
+    "description": "Guide page text."
+  },
+  "guide_0152": {
+    "message": "Regels die de gehele URL-tekst bewerken.",
+    "description": "Guide page text."
+  },
+  "guide_0153": {
+    "message": "<code>referralMarketing</code>",
+    "description": "Guide page text."
+  },
+  "guide_0154": {
+    "message": "ClearURLs add-on erfenis; Objecten in canonieke stijl zijn hier toegevoegd",
+    "description": "Guide page text."
+  },
+  "guide_0155": {
+    "message": "Optionele verwijzings-/marketingparameterregels.",
+    "description": "Guide page text."
+  },
+  "guide_0156": {
+    "message": "<code>exceptions</code>",
+    "description": "Guide page text."
+  },
+  "guide_0157": {
+    "message": "ClearURLs add-on legacy en ClearURLs core v2 canoniek; objectvormen hier zijn Linkumori toevoeging",
+    "description": "Guide page text."
+  },
+  "guide_0158": {
+    "message": "URL regex-regels waar deze provider niet mag worden uitgevoerd.",
+    "description": "Guide page text."
+  },
+  "guide_0159": {
+    "message": "<code>domainExceptions</code>",
+    "description": "Guide page text."
+  },
+  "guide_0160": {
+    "message": "Linkumori toevoeging",
+    "description": "Guide page text."
+  },
+  "guide_0161": {
+    "message": "Domeinpatroonregels waar deze provider niet mag draaien.",
+    "description": "Guide page text."
+  },
+  "guide_0162": {
+    "message": "<code>redirections</code>",
+    "description": "Guide page text."
+  },
+  "guide_0163": {
+    "message": "ClearURLs add-on erfenis; Objecten in canonieke stijl zijn hier toegevoegd",
+    "description": "Guide page text."
+  },
+  "guide_0164": {
+    "message": "Regex-omleidingsregels.",
+    "description": "Guide page text."
+  },
+  "guide_0165": {
+    "message": "<code>domainRedirections</code>",
+    "description": "Guide page text."
+  },
+  "guide_0166": {
+    "message": "Linkumori toevoeging",
+    "description": "Guide page text."
+  },
+  "guide_0167": {
+    "message": "Omleidingsregels voor domeinpatronen.",
+    "description": "Guide page text."
+  },
+  "guide_0168": {
+    "message": "<code>methods</code>",
+    "description": "Guide page text."
+  },
+  "guide_0169": {
+    "message": "ClearURLs add-on legacy en ClearURLs core v2 canoniek",
+    "description": "Guide page text."
+  },
+  "guide_0170": {
+    "message": "Alleen uitvoeren voor deze HTTP-methoden.",
+    "description": "Guide page text."
+  },
+  "guide_0171": {
+    "message": "<code>resourceTypes</code>",
+    "description": "Guide page text."
+  },
+  "guide_0172": {
+    "message": "Linkumori toevoeging",
+    "description": "Guide page text."
+  },
+  "guide_0173": {
+    "message": "Alleen uitvoeren voor deze browserverzoektypen.",
+    "description": "Guide page text."
+  },
+  "guide_0174": {
+    "message": "Hoofdstuk 4: Domeinen matchen",
+    "description": "Guide page text."
+  },
+  "guide_0175": {
+    "message": "<code>domainPatterns</code> is een toevoeging van Linkumori. Gebruik het voor de meeste Linkumori JSON providers omdat het gemakkelijker is om te schrijven dan een volledige <code>urlPattern</code> regex.",
+    "description": "Guide page text."
+  },
+  "guide_0176": {
+    "message": "Match één domein en alle subdomeinen",
+    "description": "Guide page text."
+  },
+  "guide_0177": {
+    "message": "Wedstrijden:",
+    "description": "Guide page text."
+  },
+  "guide_0178": {
+    "message": "Komt niet overeen:",
+    "description": "Guide page text."
+  },
+  "guide_0179": {
+    "message": "Zorg ervoor dat dezelfde naam overeenkomt met elk openbaar achtervoegsel",
+    "description": "Guide page text."
+  },
+  "guide_0180": {
+    "message": "Kan overeenkomen met:",
+    "description": "Guide page text."
+  },
+  "guide_0181": {
+    "message": "Match subdomeinen",
+    "description": "Guide page text."
+  },
+  "guide_0182": {
+    "message": "Kan overeenkomen met:",
+    "description": "Guide page text."
+  },
+  "guide_0183": {
+    "message": "Gebruik meer dan één domeinpatroon",
+    "description": "Guide page text."
+  },
+  "guide_0184": {
+    "message": "Hoofdstuk 5: Domeinpatroonsymbolen",
+    "description": "Guide page text."
+  },
+  "guide_0185": {
+    "message": "Dit zijn de symbolen die u kunt gebruiken in <code>domainPatterns</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0186": {
+    "message": "Symbool",
+    "description": "Guide page text."
+  },
+  "guide_0187": {
+    "message": "Betekenis",
+    "description": "Guide page text."
+  },
+  "guide_0188": {
+    "message": "Voorbeeld",
+    "description": "Guide page text."
+  },
+  "guide_0189": {
+    "message": "<code>||</code>",
+    "description": "Guide page text."
+  },
+  "guide_0190": {
+    "message": "Match op een domeingrens.",
+    "description": "Guide page text."
+  },
+  "guide_0191": {
+    "message": "<code>||example.com^</code>",
+    "description": "Guide page text."
+  },
+  "guide_0192": {
+    "message": "<code>^</code>",
+    "description": "Guide page text."
+  },
+  "guide_0193": {
+    "message": "Scheidingsteken of eindgrens.",
+    "description": "Guide page text."
+  },
+  "guide_0194": {
+    "message": "<code>||example.com^</code>",
+    "description": "Guide page text."
+  },
+  "guide_0195": {
+    "message": "<code>*</code>",
+    "description": "Guide page text."
+  },
+  "guide_0196": {
+    "message": "Wildcard.",
+    "description": "Guide page text."
+  },
+  "guide_0197": {
+    "message": "<code>||example.*^</code>",
+    "description": "Guide page text."
+  },
+  "guide_0198": {
+    "message": "<code>|</code>",
+    "description": "Guide page text."
+  },
+  "guide_0199": {
+    "message": "Begin- of eindanker.",
+    "description": "Guide page text."
+  },
+  "guide_0200": {
+    "message": "<code>|https://example.com</code>",
+    "description": "Guide page text."
+  },
+  "guide_0201": {
+    "message": "<code>/.../i</code>",
+    "description": "Guide page text."
+  },
+  "guide_0202": {
+    "message": "JavaScript regex letterlijk.",
+    "description": "Guide page text."
+  },
+  "guide_0203": {
+    "message": "<code>/tracker/i</code>",
+    "description": "Guide page text."
+  },
+  "guide_0204": {
+    "message": "Meest voorkomende patroon:",
+    "description": "Guide page text."
+  },
+  "guide_0205": {
+    "message": "Gebruik het wanneer je wilt:",
+    "description": "Guide page text."
+  },
+  "guide_0206": {
+    "message": "Hoofdstuk 6: URLs matchen met <code>urlPattern</code>",
+    "description": "Guide page text."
+  },
+  "guide_0207": {
+    "message": "Gebruik <code>urlPattern</code> alleen als domeinmatching niet voldoende is.",
+    "description": "Guide page text."
+  },
+  "guide_0208": {
+    "message": "Dit kan overeenkomen met:",
+    "description": "Guide page text."
+  },
+  "guide_0209": {
+    "message": "<code>urlPattern</code> is ClearURLs add-on legacy en ClearURLs core v2 canonieke syntaxis. Linkumori voegt <code>indexPattern</code> toe als een optionele opzoekhint, zodat de engine regex-providers sneller kan vinden.",
+    "description": "Guide page text."
+  },
+  "guide_0210": {
+    "message": "Belangrijk: Linkumori <code>indexPattern</code> is slechts een opzoekhint. Het beslist niet of de aanbieder zich aanmeldt.",
+    "description": "Guide page text."
+  },
+  "guide_0211": {
+    "message": "Hoofdstuk 7: Eenvoudige queryparameters verwijderen",
+    "description": "Guide page text."
+  },
+  "guide_0212": {
+    "message": "Voer parameternamen in <code>rules</code> in.",
+    "description": "Guide page text."
+  },
+  "guide_0213": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0214": {
+    "message": "Verwijder veel parameters:",
+    "description": "Guide page text."
+  },
+  "guide_0215": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0216": {
+    "message": "Hoofdstuk 8: Schrijf een regelobject",
+    "description": "Guide page text."
+  },
+  "guide_0217": {
+    "message": "In plaats van een gewone string kan een regel een object zijn.",
+    "description": "Guide page text."
+  },
+  "guide_0218": {
+    "message": "Gebruik dit wanneer u het volgende nodig heeft:",
+    "description": "Guide page text."
+  },
+  "guide_0219": {
+    "message": "Een regel-ID.",
+    "description": "Guide page text."
+  },
+  "guide_0220": {
+    "message": "Aliassen.",
+    "description": "Guide page text."
+  },
+  "guide_0221": {
+    "message": "Uitzonderingen.",
+    "description": "Guide page text."
+  },
+  "guide_0222": {
+    "message": "Typelimieten aanvragen.",
+    "description": "Guide page text."
+  },
+  "guide_0223": {
+    "message": "Gedrag herschrijven.",
+    "description": "Guide page text."
+  },
+  "guide_0224": {
+    "message": "Voorbeeld binnen een provider:",
+    "description": "Guide page text."
+  },
+  "guide_0225": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0226": {
+    "message": "<code>flags</code> voor providerregelobjecten is een toevoeging van Linkumori. <code>flags: \"i\"</code> maakt de overeenkomst hoofdletterongevoelig.",
+    "description": "Guide page text."
+  },
+  "guide_0227": {
+    "message": "Hoofdstuk 9: <code>$removeparam</code> Regels",
+    "description": "Guide page text."
+  },
+  "guide_0228": {
+    "message": "<code>$removeparam</code>-strings binnen provider <code>rules</code> zijn een toevoeging van Linkumori. Ze staan ​​los van de interoperabiliteitsyntaxis van de tweede handleiding.",
+    "description": "Guide page text."
+  },
+  "guide_0229": {
+    "message": "Verwijder één parameter",
+    "description": "Guide page text."
+  },
+  "guide_0230": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0231": {
+    "message": "Verwijder alle parameters",
+    "description": "Guide page text."
+  },
+  "guide_0232": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0233": {
+    "message": "Verwijder parameters door Regex",
+    "description": "Guide page text."
+  },
+  "guide_0234": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0235": {
+    "message": "Verwijder alles behalve één parameter",
+    "description": "Guide page text."
+  },
+  "guide_0236": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0237": {
+    "message": "Pas <code>$removeparam</code> slechts op één domein toe",
+    "description": "Guide page text."
+  },
+  "guide_0238": {
+    "message": "Schoongemaakt:",
+    "description": "Guide page text."
+  },
+  "guide_0239": {
+    "message": "Niet schoongemaakt:",
+    "description": "Guide page text."
+  },
+  "guide_0240": {
+    "message": "Domeinlimieten toevoegen",
+    "description": "Guide page text."
+  },
+  "guide_0241": {
+    "message": "Eén domein uitsluiten:",
+    "description": "Guide page text."
+  },
+  "guide_0242": {
+    "message": "Methodelimieten toevoegen",
+    "description": "Guide page text."
+  },
+  "guide_0243": {
+    "message": "Alleen <code>GET</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0244": {
+    "message": "Niet <code>POST</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0245": {
+    "message": "Hoofdstuk 10: <code>$removeparam</code> Uitzonderingen",
+    "description": "Guide page text."
+  },
+  "guide_0246": {
+    "message": "Start een <code>$removeparam</code>-regel met <code>@@</code> om een uitzondering te maken.",
+    "description": "Guide page text."
+  },
+  "guide_0247": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0248": {
+    "message": "Voorbeeld van contextuitzondering:",
+    "description": "Guide page text."
+  },
+  "guide_0249": {
+    "message": "Dit kan <code>ei</code> beschermen op subaanvragen die zijn gestart door een <code>gemini.google.com</code>-pagina.",
+    "description": "Guide page text."
+  },
+  "guide_0250": {
+    "message": "Hoofdstuk 11: Parameterwaarden herschrijven",
+    "description": "Guide page text."
+  },
+  "guide_0251": {
+    "message": "Gebruik <code>action.type: \"rewrite\"</code> om een overeenkomende parameterwaarde te vervangen.",
+    "description": "Guide page text."
+  },
+  "guide_0252": {
+    "message": "Binnen een aanbieder:",
+    "description": "Guide page text."
+  },
+  "guide_0253": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0254": {
+    "message": "Gebruik <code>§1§</code> als u de huidige waarde opnieuw wilt gebruiken:",
+    "description": "Guide page text."
+  },
+  "guide_0255": {
+    "message": "Hoofdstuk 12: Ruwe regels",
+    "description": "Guide page text."
+  },
+  "guide_0256": {
+    "message": "Gebruik <code>rawRules</code> om de gehele tekst URL te bewerken.",
+    "description": "Guide page text."
+  },
+  "guide_0257": {
+    "message": "Eenvoudige ruwe regel:",
+    "description": "Guide page text."
+  },
+  "guide_0258": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0259": {
+    "message": "Object onbewerkte regel:",
+    "description": "Guide page text."
+  },
+  "guide_0260": {
+    "message": "Ruwe herschrijfregel:",
+    "description": "Guide page text."
+  },
+  "guide_0261": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0262": {
+    "message": "Hoofdstuk 13: Omleidingsregels",
+    "description": "Guide page text."
+  },
+  "guide_0263": {
+    "message": "Gebruik <code>redirections</code> om de browser naar een nieuw URL te sturen.",
+    "description": "Guide page text."
+  },
+  "guide_0264": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0265": {
+    "message": "Als <code>replacePattern</code> ontbreekt, wordt de eerste opnamegroep gebruikt.",
+    "description": "Guide page text."
+  },
+  "guide_0266": {
+    "message": "Hoofdstuk 14: Regels voor domeinomleiding",
+    "description": "Guide page text."
+  },
+  "guide_0267": {
+    "message": "<code>domainRedirections</code> is een Linkumori-toevoeging voor eenvoudige domeinpatroonomleidingen.",
+    "description": "Guide page text."
+  },
+  "guide_0268": {
+    "message": "Linkumori toevoeging — tekenreeksvorm:",
+    "description": "Guide page text."
+  },
+  "guide_0269": {
+    "message": "Linkumori toevoeging — objectvorm:",
+    "description": "Guide page text."
+  },
+  "guide_0270": {
+    "message": "Hoofdstuk 15: Uitzonderingen",
+    "description": "Guide page text."
+  },
+  "guide_0271": {
+    "message": "<code>exceptions</code> is ClearURLs add-on legacy en ClearURLs core v2 canonieke syntaxis. Linkumori accepteert ook objecten in canonieke stijl in deze oudere providerarray.",
+    "description": "Guide page text."
+  },
+  "guide_0272": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0273": {
+    "message": "<code>domainExceptions</code> is een Linkumori-toevoeging voor domeinpatroonuitzonderingen.",
+    "description": "Guide page text."
+  },
+  "guide_0274": {
+    "message": "Overgeslagen:",
+    "description": "Guide page text."
+  },
+  "guide_0275": {
+    "message": "Hoofdstuk 16: Regels voor verwijzingsmarketing",
+    "description": "Guide page text."
+  },
+  "guide_0276": {
+    "message": "<code>referralMarketing</code> werkt als veldregels, maar wordt bepaald door de extensie-instelling voor verwijzingsmarketing.",
+    "description": "Guide page text."
+  },
+  "guide_0277": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0278": {
+    "message": "Hoofdstuk 17: HTTP Methoden",
+    "description": "Guide page text."
+  },
+  "guide_0279": {
+    "message": "Gebruik <code>methods</code> om een ​​provider alleen op specifieke HTTP-methoden uit te voeren.",
+    "description": "Guide page text."
+  },
+  "guide_0280": {
+    "message": "Deze draait op:",
+    "description": "Guide page text."
+  },
+  "guide_0281": {
+    "message": "Dit draait niet op:",
+    "description": "Guide page text."
+  },
+  "guide_0282": {
+    "message": "Hoofdstuk 18: Browserbrontypen",
+    "description": "Guide page text."
+  },
+  "guide_0283": {
+    "message": "<code>resourceTypes</code> is een toevoeging van Linkumori. Gebruik het om een ​​provider alleen op specifieke browserverzoektypen uit te voeren.",
+    "description": "Guide page text."
+  },
+  "guide_0284": {
+    "message": "Gemeenschappelijke waarden:",
+    "description": "Guide page text."
+  },
+  "guide_0285": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0286": {
+    "message": "Betekenis:",
+    "description": "Guide page text."
+  },
+  "guide_0287": {
+    "message": "Hoofdstuk 19: Preprocessors",
+    "description": "Guide page text."
+  },
+  "guide_0288": {
+    "message": "Preprocessors wijzigen vastgelegde waarden voordat ze in <code>replacePattern</code> worden gebruikt.",
+    "description": "Guide page text."
+  },
+  "guide_0289": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0290": {
+    "message": "Ondersteunde typen:",
+    "description": "Guide page text."
+  },
+  "guide_0291": {
+    "message": "<code>inputs</code> kan zijn:",
+    "description": "Guide page text."
+  },
+  "guide_0292": {
+    "message": "Hoofdstuk 20: Regel-ID's en aliassen",
+    "description": "Guide page text."
+  },
+  "guide_0293": {
+    "message": "Geef belangrijke regels een <code>id</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0294": {
+    "message": "Voeg aliassen toe als een oude ID nog zou moeten werken:",
+    "description": "Guide page text."
+  },
+  "guide_0295": {
+    "message": "De engine kan deze regel uitschakelen met deze namen:",
+    "description": "Guide page text."
+  },
+  "guide_0296": {
+    "message": "Hoofdstuk 21: Standaardinstellingen",
+    "description": "Guide page text."
+  },
+  "guide_0297": {
+    "message": "ClearURLs core v2 canonical vereist topniveau <code>defaults</code>. Linkumori accepteert ook <code>defaults</code> in gemengde provider JSON zonder dat <code>version: 2</code> vereist is.",
+    "description": "Guide page text."
+  },
+  "guide_0298": {
+    "message": "Regels kunnen deze standaardvelden overnemen als ze hun eigen waarden niet definiëren.",
+    "description": "Guide page text."
+  },
+  "guide_0299": {
+    "message": "Hoofdstuk 22: Toegestane JSON-combinaties",
+    "description": "Guide page text."
+  },
+  "guide_0300": {
+    "message": "Dit hoofdstuk toont Linkumori gemengde provider JSON: ClearURLs oude add-on-arrays, ClearURLs core v2 canonieke objecten en Linkumori toevoegingen kunnen samen in één regelbestand voorkomen.",
+    "description": "Guide page text."
+  },
+  "guide_0301": {
+    "message": "Combinatie 1: Veel aanbieders in één bestand",
+    "description": "Guide page text."
+  },
+  "guide_0302": {
+    "message": "<code>providers</code> is ClearURLs add-on legacy en ClearURLs core v2 canonieke syntaxis op het hoogste niveau. Linkumori behoudt die vorm en laat veel aanbieders eronder vallen.",
+    "description": "Guide page text."
+  },
+  "guide_0303": {
+    "message": "Elke provider wordt afzonderlijk geladen.",
+    "description": "Guide page text."
+  },
+  "guide_0304": {
+    "message": "Combinatie 2: Global Defaults Plus Providers",
+    "description": "Guide page text."
+  },
+  "guide_0305": {
+    "message": "<code>defaults</code> is ClearURLs core v2 canonieke syntaxis. Linkumori accepteert het naast <code>providers</code> in oudere stijl.",
+    "description": "Guide page text."
+  },
+  "guide_0306": {
+    "message": "Regels kunnen standaardwaarden overnemen als deze velden ontbreken in de regel.",
+    "description": "Guide page text."
+  },
+  "guide_0307": {
+    "message": "Combinatie 3: <code>domainPatterns</code> Aanbieder",
+    "description": "Guide page text."
+  },
+  "guide_0308": {
+    "message": "Dit is een toevoeging van Linkumori. De meeste Linkumori-providers moeten dit formulier gebruiken.",
+    "description": "Guide page text."
+  },
+  "guide_0309": {
+    "message": "Combinatie 4: <code>urlPattern</code> Aanbieder met <code>indexPattern</code>",
+    "description": "Guide page text."
+  },
+  "guide_0310": {
+    "message": "<code>urlPattern</code> is de upstream-syntaxis van ClearURLs. <code>indexPattern</code> is een Linkumori-toevoeging voor sneller zoeken wanneer u regex URL-matching nodig heeft.",
+    "description": "Guide page text."
+  },
+  "guide_0311": {
+    "message": "<code>indexPattern</code> is optioneel, maar handig voor snelheid.",
+    "description": "Guide page text."
+  },
+  "guide_0312": {
+    "message": "Combinatie 5: <code>domainPatterns</code> en <code>urlPattern</code> samen",
+    "description": "Guide page text."
+  },
+  "guide_0313": {
+    "message": "Deze Linkumori gemengde matchervorm is geldig JSON:",
+    "description": "Guide page text."
+  },
+  "guide_0314": {
+    "message": "Belangrijk gedrag:",
+    "description": "Guide page text."
+  },
+  "guide_0315": {
+    "message": "Gebruik dus niet beide als u verwacht dat beide nodig zijn. Als je een padvoorwaarde nodig hebt, gebruik dan <code>urlPattern</code> met <code>indexPattern</code>, of plaats een scoped <code>$removeparam</code>/regelpatroon in <code>rules</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0316": {
+    "message": "Combinatie 6: Gemengd <code>rules[]</code> Inzendingen",
+    "description": "Guide page text."
+  },
+  "guide_0317": {
+    "message": "In Linkumori kan <code>rules</code> ClearURLs oude tekenreeksen bevatten, Linkumori <code>$removeparam</code> tekenreeksen, Linkumori <code>matchPattern</code> objecten, en ClearURLs core v2 canonieke objecten samen.",
+    "description": "Guide page text."
+  },
+  "guide_0318": {
+    "message": "Alle vier de inzendingen worden geaccepteerd.",
+    "description": "Guide page text."
+  },
+  "guide_0319": {
+    "message": "Combinatie 7: Canonieke objecten binnen <code>rules[]</code>",
+    "description": "Guide page text."
+  },
+  "guide_0320": {
+    "message": "ClearURLs core v2 canonieke objecten kunnen verschillende soorten regels vertegenwoordigen. In dit Linkumori-voorbeeld worden ze in een provider geplaatst die <code>domainPatterns</code> gebruikt, wat alleen Linkumori is.",
+    "description": "Guide page text."
+  },
+  "guide_0321": {
+    "message": "<code>Linkumori extension</code> sorteert deze op de betekenis:",
+    "description": "Guide page text."
+  },
+  "guide_0322": {
+    "message": "Combinatie 8: Legacy Arrays Plus Canonical <code>rules[]</code>",
+    "description": "Guide page text."
+  },
+  "guide_0323": {
+    "message": "ClearURLs oude add-on-providerarrays werken nog steeds. Met Linkumori kunnen deze arrays naast ClearURLs core v2 canonieke regelobjecten worden geplaatst.",
+    "description": "Guide page text."
+  },
+  "guide_0324": {
+    "message": "Dit is geldig. De engine leest al deze arrays voor dezelfde provider.",
+    "description": "Guide page text."
+  },
+  "guide_0325": {
+    "message": "Combinatie 9: Provider-brede methoden en resourcetypen",
+    "description": "Guide page text."
+  },
+  "guide_0326": {
+    "message": "<code>methods</code> is de upstream-syntaxis van ClearURLs. <code>resourceTypes</code> is een toevoeging van Linkumori. Beide gelden voor de hele aanbieder.",
+    "description": "Guide page text."
+  },
+  "guide_0327": {
+    "message": "Zowel <code>rules</code> als <code>rawRules</code> worden beperkt door de overeenkomst tussen de providermethode en het type.",
+    "description": "Guide page text."
+  },
+  "guide_0328": {
+    "message": "Combinatie 10: Verzoektypen op regelniveau",
+    "description": "Guide page text."
+  },
+  "guide_0329": {
+    "message": "ClearURLs core v2 canonieke regels kunnen regelniveau <code>requestTypes</code> definiëren.",
+    "description": "Guide page text."
+  },
+  "guide_0330": {
+    "message": "Providerniveau <code>resourceTypes</code> beperkt eerst de provider. Regelniveau <code>requestTypes</code> beperkt daarna de individuele regels.",
+    "description": "Guide page text."
+  },
+  "guide_0331": {
+    "message": "Combinatie 11: Uitzonderingen op verschillende plaatsen",
+    "description": "Guide page text."
+  },
+  "guide_0332": {
+    "message": "Met Linkumori kunt u ClearURLs provideruitzonderingen, Linkumori domeinuitzonderingen, ClearURLs core v2-regeluitzonderingen en Linkumori provider-lokale <code>$removeparam</code> uitzonderingen combineren.",
+    "description": "Guide page text."
+  },
+  "guide_0333": {
+    "message": "Duidelijke betekenis:",
+    "description": "Guide page text."
+  },
+  "guide_0334": {
+    "message": "Combinatie 12: Provider Plus-regels blokkeren",
+    "description": "Guide page text."
+  },
+  "guide_0335": {
+    "message": "<code>completeProvider: true</code> markeert een provider als opzeggen/blokkeren.",
+    "description": "Guide page text."
+  },
+  "guide_0336": {
+    "message": "Wanneer domeinblokkering is ingeschakeld in de instellingen, kunnen overeenkomende verzoeken worden geblokkeerd. Er kunnen nog steeds regels bestaan, maar blokkeren is het sterkste gedrag van die aanbieder.",
+    "description": "Guide page text."
+  },
+  "guide_0337": {
+    "message": "Combinatie 13: Redirect Provider Plus Opschoningsregels",
+    "description": "Guide page text."
+  },
+  "guide_0338": {
+    "message": "Een provider kan omleidingen en opruimregels bevatten.",
+    "description": "Guide page text."
+  },
+  "guide_0339": {
+    "message": "Als een omleiding overeenkomt, wordt de omleiding als eerste geretourneerd.",
+    "description": "Guide page text."
+  },
+  "guide_0340": {
+    "message": "Combinatie 14: Domeinomleidingen plus Regex-omleidingen",
+    "description": "Guide page text."
+  },
+  "guide_0341": {
+    "message": "Beide kunnen in één provider voorkomen.",
+    "description": "Guide page text."
+  },
+  "guide_0342": {
+    "message": "Regex-omleidingen worden eerst gecontroleerd. Domeinomleidingen worden gecontroleerd als er geen sprake is van een overeenkomende regex-omleiding.",
+    "description": "Guide page text."
+  },
+  "guide_0343": {
+    "message": "Combinatie 15: uitgeschakelde of inactieve regels",
+    "description": "Guide page text."
+  },
+  "guide_0344": {
+    "message": "Aanbieders kunnen inactief zijn:",
+    "description": "Guide page text."
+  },
+  "guide_0345": {
+    "message": "Regels kunnen inactief zijn:",
+    "description": "Guide page text."
+  },
+  "guide_0346": {
+    "message": "Inactieve providers en inactieve regels worden genegeerd.",
+    "description": "Guide page text."
+  },
+  "guide_0347": {
+    "message": "Combinatie 16: Voorbeeld van een volledig gemengde aanbieder",
+    "description": "Guide page text."
+  },
+  "guide_0348": {
+    "message": "Dit Linkumori-voorbeeld combineert opzettelijk de meeste ondersteunde providerfuncties: ClearURLs add-on legacy-arrays, ClearURLs core v2 canonieke regelobjecten en Linkumori-only matcher- en domeinpatroonfuncties.",
+    "description": "Guide page text."
+  },
+  "guide_0349": {
+    "message": "Dit is geldig Linkumori gemengde provider JSON.",
+    "description": "Guide page text."
+  },
+  "guide_0350": {
+    "message": "Hoofdstuk 23: Matrix voor oude, canonieke en gemengde vormen",
+    "description": "Guide page text."
+  },
+  "guide_0351": {
+    "message": "Dit hoofdstuk is de volledige compatibiliteitskaart voor het schrijven van JSON. Elk formulier is gelabeld waar het verschijnt: <code>ClearURLs addon legacy</code> betekent dat het afkomstig is van upstream add-on <code>clearurls.js</code>, <code>ClearURLs core v2 canonical</code> betekent dat het afkomstig is van het kernschema <code>dev</code>, en <code>Linkumori addition</code> betekent Linkumori accepteert het bovenop de stroomopwaartse formulieren.",
+    "description": "Guide page text."
+  },
+  "guide_0352": {
+    "message": "Bestandsformulieren op het hoogste niveau",
+    "description": "Guide page text."
+  },
+  "guide_0353": {
+    "message": "ClearURLs add-on legacy - minimaal providerbestand:",
+    "description": "Guide page text."
+  },
+  "guide_0354": {
+    "message": "ClearURLs core v2 canonieke indeling:",
+    "description": "Guide page text."
+  },
+  "guide_0355": {
+    "message": "Linkumori toevoeging - uitgebreide bron met standaardwaarden:",
+    "description": "Guide page text."
+  },
+  "guide_0356": {
+    "message": "Linkumori aanvulling — uniforme bron met provider JSON plus interoperabiliteitsregels:",
+    "description": "Guide page text."
+  },
+  "guide_0357": {
+    "message": "Belangrijk:",
+    "description": "Guide page text."
+  },
+  "guide_0358": {
+    "message": "Matcher-formulieren voor aanbieders",
+    "description": "Guide page text."
+  },
+  "guide_0359": {
+    "message": "ClearURLs addon legacy en ClearURLs core v2 canonical — alleen <code>urlPattern</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0360": {
+    "message": "Linkumori aanvulling — <code>urlPattern</code> met <code>indexPattern</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0361": {
+    "message": "Linkumori aanvulling — meerdere <code>indexPattern</code> hints:",
+    "description": "Guide page text."
+  },
+  "guide_0362": {
+    "message": "Linkumori aanvulling — alleen <code>domainPatterns</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0363": {
+    "message": "Linkumori toevoeging — meervoudig <code>domainPatterns</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0364": {
+    "message": "Linkumori toevoeging - regex binnen <code>domainPatterns</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0365": {
+    "message": "Linkumori aanvulling — zowel <code>domainPatterns</code> als <code>urlPattern</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0366": {
+    "message": "Gedrag:",
+    "description": "Guide page text."
+  },
+  "guide_0367": {
+    "message": "Staatsformulieren van aanbieders",
+    "description": "Guide page text."
+  },
+  "guide_0368": {
+    "message": "Linkumori aanvulling — actieve aanbieder:",
+    "description": "Guide page text."
+  },
+  "guide_0369": {
+    "message": "Linkumori aanvulling — inactieve aanbieder:",
+    "description": "Guide page text."
+  },
+  "guide_0370": {
+    "message": "Linkumori aanvulling — standaard actieve provider:",
+    "description": "Guide page text."
+  },
+  "guide_0371": {
+    "message": "ClearURLs add-on legacy en ClearURLs core v2 canonieke — complete/blokkerende provider. De hier getoonde <code>domainPatterns</code>-matcher is een Linkumori-toevoeging:",
+    "description": "Guide page text."
+  },
+  "guide_0372": {
+    "message": "ClearURLs add-on legacy en ClearURLs core v2 canonical - complete provider met opruimregels. De hier getoonde <code>domainPatterns</code>-matcher is een Linkumori-toevoeging:",
+    "description": "Guide page text."
+  },
+  "guide_0373": {
+    "message": "ClearURLs oude add-on en ClearURLs core v2 canonieke - provider voor gedwongen omleiding. De <code>domainPatterns</code> matcher en het canonieke object in <code>redirections[]</code> zijn Linkumori toevoegingen:",
+    "description": "Guide page text."
+  },
+  "guide_0374": {
+    "message": "<code>rules[]</code> Inschrijfformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0375": {
+    "message": "ClearURLs addon legacy en ClearURLs core v2 canonical - gewone veldtekenreeks:",
+    "description": "Guide page text."
+  },
+  "guide_0376": {
+    "message": "ClearURLs addon legacy en ClearURLs core v2 canonical - gewone regex-veldreeks:",
+    "description": "Guide page text."
+  },
+  "guide_0377": {
+    "message": "Linkumori toevoeging — inline <code>$removeparam</code> regel binnen provider <code>rules[]</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0378": {
+    "message": "Linkumori toevoeging — inline <code>$removeparam</code> uitzondering binnen provider <code>rules[]</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0379": {
+    "message": "Linkumori toevoeging — object met <code>matchPattern</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0380": {
+    "message": "ClearURLs core v2 canoniek - veldobject:",
+    "description": "Guide page text."
+  },
+  "guide_0381": {
+    "message": "ClearURLs core v2 canoniek - veldherschrijfobject:",
+    "description": "Guide page text."
+  },
+  "guide_0382": {
+    "message": "ClearURLs core v2 canoniek object binnen <code>rules[]</code>; <code>flags</code> hier is een toevoeging van Linkumori:",
+    "description": "Guide page text."
+  },
+  "guide_0383": {
+    "message": "ClearURLs core v2 canoniek - omleidingsobject binnen <code>rules[]</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0384": {
+    "message": "ClearURLs core v2 canoniek - verwijzingsmarketingobject binnen <code>rules[]</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0385": {
+    "message": "Linkumori aanvulling — alle <code>rules[]</code>-formulieren gemengd in één oudere providerarray:",
+    "description": "Guide page text."
+  },
+  "guide_0386": {
+    "message": "<code>rawRules[]</code> Inschrijfformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0387": {
+    "message": "ClearURLs oude add-on — onbewerkte tekenreeks:",
+    "description": "Guide page text."
+  },
+  "guide_0388": {
+    "message": "Linkumori toevoeging - onbewerkt object met <code>matchPattern</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0389": {
+    "message": "ClearURLs core v2 canoniek onbewerkt object; <code>flags</code> hier is een toevoeging van Linkumori:",
+    "description": "Guide page text."
+  },
+  "guide_0390": {
+    "message": "ClearURLs core v2 canoniek - onbewerkt herschrijven:",
+    "description": "Guide page text."
+  },
+  "guide_0391": {
+    "message": "Linkumori toevoeging — gemengd <code>rawRules[]</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0392": {
+    "message": "<code>referralMarketing[]</code> Inschrijfformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0393": {
+    "message": "ClearURLs oude add-on - verwijzingsreeks:",
+    "description": "Guide page text."
+  },
+  "guide_0394": {
+    "message": "Linkumori aanvulling — verwijzingsobject met <code>matchPattern</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0395": {
+    "message": "Linkumori toevoeging — object in canonieke stijl in legacy <code>referralMarketing[]</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0396": {
+    "message": "Linkumori aanvulling — gemengde verwijzingsregels:",
+    "description": "Guide page text."
+  },
+  "guide_0397": {
+    "message": "<code>exceptions[]</code> Inschrijfformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0398": {
+    "message": "ClearURLs addon legacy en ClearURLs core v2 canonical - uitzonderingsreeks:",
+    "description": "Guide page text."
+  },
+  "guide_0399": {
+    "message": "Linkumori toevoeging - uitzonderingsobject met <code>matchPattern</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0400": {
+    "message": "Linkumori toevoeging - object in canonieke stijl binnen provider <code>exceptions[]</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0401": {
+    "message": "Linkumori toevoeging — gemengde uitzonderingen:",
+    "description": "Guide page text."
+  },
+  "guide_0402": {
+    "message": "<code>domainExceptions[]</code> Inschrijfformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0403": {
+    "message": "Linkumori toevoeging: domeinuitzonderingen zijn gewone domeinpatroonreeksen.",
+    "description": "Guide page text."
+  },
+  "guide_0404": {
+    "message": "<code>redirections[]</code> Inschrijfformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0405": {
+    "message": "ClearURLs oude add-on - omleidingsreeks:",
+    "description": "Guide page text."
+  },
+  "guide_0406": {
+    "message": "Met een oude add-on-omleidingsreeks ClearURLs wordt de eerste opnamegroep gebruikt als het omleidingsdoel.",
+    "description": "Guide page text."
+  },
+  "guide_0407": {
+    "message": "Linkumori toevoeging - omleidingsobject met <code>matchPattern</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0408": {
+    "message": "ClearURLs core v2 canoniek omleidingsobject, hier geaccepteerd door Linkumori in legacy <code>redirections[]</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0409": {
+    "message": "Linkumori toevoeging - gemengde omleidingen:",
+    "description": "Guide page text."
+  },
+  "guide_0410": {
+    "message": "<code>domainRedirections[]</code> Inschrijfformulieren",
+    "description": "Guide page text."
+  },
+  "guide_0411": {
+    "message": "Linkumori toevoeging — tekenreeksvorm:",
+    "description": "Guide page text."
+  },
+  "guide_0412": {
+    "message": "Linkumori toevoeging — objectvorm:",
+    "description": "Guide page text."
+  },
+  "guide_0413": {
+    "message": "Linkumori toevoeging — objectvorm met geneste actie:",
+    "description": "Guide page text."
+  },
+  "guide_0414": {
+    "message": "Linkumori toevoeging - gemengde domeinomleidingen:",
+    "description": "Guide page text."
+  },
+  "guide_0415": {
+    "message": "Regelobjectveldcombinaties",
+    "description": "Guide page text."
+  },
+  "guide_0416": {
+    "message": "Linkumori aanvulling — oudere compatibele objectvelden:",
+    "description": "Guide page text."
+  },
+  "guide_0417": {
+    "message": "ClearURLs core v2 canonieke objectvelden; <code>flags</code> hier is een toevoeging van Linkumori:",
+    "description": "Guide page text."
+  },
+  "guide_0418": {
+    "message": "ClearURLs core v2 canoniek - object herschrijven:",
+    "description": "Guide page text."
+  },
+  "guide_0419": {
+    "message": "ClearURLs core v2 canoniek - omleidingsobject:",
+    "description": "Guide page text."
+  },
+  "guide_0420": {
+    "message": "Eén provider met elke Legacy-array",
+    "description": "Guide page text."
+  },
+  "guide_0421": {
+    "message": "De arraynamen in dit voorbeeld zijn afkomstig van ClearURLs add-on legacy JSON. De velden van de providerstatus, indexering, domeinuitzondering, domeinomleiding en brontype die daarbij worden weergegeven, zijn toevoegingen van Linkumori.",
+    "description": "Guide page text."
+  },
+  "guide_0422": {
+    "message": "Eén aanbieder met elke canonieke stijl",
+    "description": "Guide page text."
+  },
+  "guide_0423": {
+    "message": "Dit voorbeeld heeft een geldige ClearURLs core v2 canonieke vorm. Linkumori kan deze canonieke regelobjecten ook lezen binnen de gemengde provider JSON.",
+    "description": "Guide page text."
+  },
+  "guide_0424": {
+    "message": "Maximale gemengde compatibiliteitsprovider",
+    "description": "Guide page text."
+  },
+  "guide_0425": {
+    "message": "Dit is de Linkumori-vorm van de aanbieder \"alles kan naast elkaar bestaan\". Het combineert opzettelijk ClearURLs oude add-on-arrays, ClearURLs core v2 canonieke regelobjecten en Linkumori-only providervelden.",
+    "description": "Guide page text."
+  },
+  "guide_0426": {
+    "message": "Opmerking:",
+    "description": "Guide page text."
+  },
+  "guide_0427": {
+    "message": "Hoofdstuk 24: Volledige voorbeelden",
+    "description": "Guide page text."
+  },
+  "guide_0428": {
+    "message": "Voorbeeld 1: Basis Tracker Cleaner",
+    "description": "Guide page text."
+  },
+  "guide_0429": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0430": {
+    "message": "Voorbeeld 2: verwijder alle UTM-parameters",
+    "description": "Guide page text."
+  },
+  "guide_0431": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0432": {
+    "message": "Voorbeeld 3: Behoud een benodigde parameter bij inloggen",
+    "description": "Guide page text."
+  },
+  "guide_0433": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0434": {
+    "message": "Voorbeeld 4: Trackingklikken omleiden",
+    "description": "Guide page text."
+  },
+  "guide_0435": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0436": {
+    "message": "Voorbeeld 5: Alleen API-verzoeken opschonen",
+    "description": "Guide page text."
+  },
+  "guide_0437": {
+    "message": "Betekenis:",
+    "description": "Guide page text."
+  },
+  "guide_0438": {
+    "message": "Hoofdstuk 25: Snelkopieersjablonen",
+    "description": "Guide page text."
+  },
+  "guide_0439": {
+    "message": "Eén parameter verwijderen:",
+    "description": "Guide page text."
+  },
+  "guide_0440": {
+    "message": "Verwijder veel parameters:",
+    "description": "Guide page text."
+  },
+  "guide_0441": {
+    "message": "Gebruik <code>$removeparam</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0442": {
+    "message": "Verwijder alle <code>utm_</code>-parameters:",
+    "description": "Guide page text."
+  },
+  "guide_0443": {
+    "message": "Een uitzondering toevoegen:",
+    "description": "Guide page text."
+  },
+  "guide_0444": {
+    "message": "Match een domein:",
+    "description": "Guide page text."
+  },
+  "guide_0445": {
+    "message": "Stuur een tracker door URL:",
+    "description": "Guide page text."
+  },
+  "guide_0446": {
+    "message": "Gids voor interoperabiliteitsregels",
+    "description": "Guide page text."
+  },
+  "guide_0447": {
+    "message": "Linkumori URL Filter — syntaxis van de gewone filterlijst voor het opschonen van URL",
+    "description": "Guide page text."
+  },
+  "guide_0448": {
+    "message": "Gids voor interoperabiliteitsregels",
+    "description": "Guide page text."
+  },
+  "guide_0449": {
+    "message": "In deze handleiding worden de regels voor filterinteroperabiliteit Linkumori, uitbreiding URL, uitgelegd.",
+    "description": "Guide page text."
+  },
+  "guide_0450": {
+    "message": "Dit zijn geen volledige providerregels. Het zijn eenvoudige filterlijstregels, vergelijkbaar met regels die worden gebruikt door populaire inhoudblokkers. De Linkumori-extensie ondersteunt alleen het URL-schoonmaakgedeelte van die wereld.",
+    "description": "Guide page text."
+  },
+  "guide_0451": {
+    "message": "Hoofdstuk 1: Wat interoperabiliteitsregels zijn",
+    "description": "Guide page text."
+  },
+  "guide_0452": {
+    "message": "Interoperabiliteitsregels zijn eenvoudige tekstregels die zijn opgeslagen in:",
+    "description": "Guide page text."
+  },
+  "guide_0453": {
+    "message": "Ze wonen in <code>ClearURLsData.urlFilterRules</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0454": {
+    "message": "Ze staan los van de JSON-providers:",
+    "description": "Guide page text."
+  },
+  "guide_0455": {
+    "message": "Gebruik interoperabiliteitsregels als u de syntaxis URL-cleaning filter-list rechtstreeks wilt plakken, in plaats van een volledig providerobject te schrijven.",
+    "description": "Guide page text."
+  },
+  "guide_0456": {
+    "message": "Hoofdstuk 2: Wat wordt ondersteund",
+    "description": "Guide page text."
+  },
+  "guide_0457": {
+    "message": "Ondersteund:",
+    "description": "Guide page text."
+  },
+  "guide_0458": {
+    "message": "Niet ondersteund:",
+    "description": "Guide page text."
+  },
+  "guide_0459": {
+    "message": "Regels zonder <code>$removeparam</code> of <code>$queryprune</code> worden genegeerd.",
+    "description": "Guide page text."
+  },
+  "guide_0460": {
+    "message": "Hoofdstuk 3: Basisregelopmaak",
+    "description": "Guide page text."
+  },
+  "guide_0461": {
+    "message": "Basisvorm:",
+    "description": "Guide page text."
+  },
+  "guide_0462": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0463": {
+    "message": "Betekenis:",
+    "description": "Guide page text."
+  },
+  "guide_0464": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0465": {
+    "message": "Hoofdstuk 4: Waar regels worden opgeslagen",
+    "description": "Guide page text."
+  },
+  "guide_0466": {
+    "message": "Vorm van runtime-opslag:",
+    "description": "Guide page text."
+  },
+  "guide_0467": {
+    "message": "De runtime leest deze regels via het uniforme filtergegevenspad URL.",
+    "description": "Guide page text."
+  },
+  "guide_0468": {
+    "message": "Hoofdstuk 5: Opmerkingen en lege regels",
+    "description": "Guide page text."
+  },
+  "guide_0469": {
+    "message": "Lege regels worden genegeerd.",
+    "description": "Guide page text."
+  },
+  "guide_0470": {
+    "message": "Commentaarregels worden genegeerd:",
+    "description": "Guide page text."
+  },
+  "guide_0471": {
+    "message": "Sectiekoppen worden genegeerd:",
+    "description": "Guide page text."
+  },
+  "guide_0472": {
+    "message": "Hoofdstuk 6: Eén parameter verwijderen",
+    "description": "Guide page text."
+  },
+  "guide_0473": {
+    "message": "Regel:",
+    "description": "Guide page text."
+  },
+  "guide_0474": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0475": {
+    "message": "Het patroon <code>*</code> betekent dat het patroon URL bij alles past.",
+    "description": "Guide page text."
+  },
+  "guide_0476": {
+    "message": "Hoofdstuk 7: Alle queryparameters verwijderen",
+    "description": "Guide page text."
+  },
+  "guide_0477": {
+    "message": "Regel:",
+    "description": "Guide page text."
+  },
+  "guide_0478": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0479": {
+    "message": "Hiermee worden alle queryparameters verwijderd die overeenkomen met URLs.",
+    "description": "Guide page text."
+  },
+  "guide_0480": {
+    "message": "Hoofdstuk 8: Parameters verwijderen met Regex",
+    "description": "Guide page text."
+  },
+  "guide_0481": {
+    "message": "Regel:",
+    "description": "Guide page text."
+  },
+  "guide_0482": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0483": {
+    "message": "Regex-vlaggen:",
+    "description": "Guide page text."
+  },
+  "guide_0484": {
+    "message": "Alleen de vlag <code>i</code> wordt door de parser bewaard voor interoperabiliteitsregexes.",
+    "description": "Guide page text."
+  },
+  "guide_0485": {
+    "message": "Hoofdstuk 9: Alles verwijderen behalve één overeenkomst",
+    "description": "Guide page text."
+  },
+  "guide_0486": {
+    "message": "Gebruik <code>~</code> vóór het parameterpatroon.",
+    "description": "Guide page text."
+  },
+  "guide_0487": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0488": {
+    "message": "Betekenis:",
+    "description": "Guide page text."
+  },
+  "guide_0489": {
+    "message": "Hoofdstuk 10: <code>$queryprune</code>",
+    "description": "Guide page text."
+  },
+  "guide_0490": {
+    "message": "<code>$queryprune</code> wordt geaccepteerd als verouderde alias voor <code>$removeparam</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0491": {
+    "message": "Deze zijn gelijkwaardig:",
+    "description": "Guide page text."
+  },
+  "guide_0492": {
+    "message": "Geef de voorkeur aan nieuwe regels met <code>$removeparam</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0493": {
+    "message": "Hoofdstuk 11: URL Patroonvoorbeelden",
+    "description": "Guide page text."
+  },
+  "guide_0494": {
+    "message": "Match alle URLs:",
+    "description": "Guide page text."
+  },
+  "guide_0495": {
+    "message": "Match een domein en subdomeinen:",
+    "description": "Guide page text."
+  },
+  "guide_0496": {
+    "message": "Match een voorvoegsel URL:",
+    "description": "Guide page text."
+  },
+  "guide_0497": {
+    "message": "Match een exact einde met het juiste anker:",
+    "description": "Guide page text."
+  },
+  "guide_0498": {
+    "message": "Gebruik een regex URL-patroon:",
+    "description": "Guide page text."
+  },
+  "guide_0499": {
+    "message": "Hoofdstuk 12: Uitzonderingen",
+    "description": "Guide page text."
+  },
+  "guide_0500": {
+    "message": "Begin met <code>@@</code> om een uitzondering te maken.",
+    "description": "Guide page text."
+  },
+  "guide_0501": {
+    "message": "Voorbeeld regelset:",
+    "description": "Guide page text."
+  },
+  "guide_0502": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0503": {
+    "message": "Hoofdstuk 13: <code>important</code>",
+    "description": "Guide page text."
+  },
+  "guide_0504": {
+    "message": "<code>important</code> zorgt ervoor dat een verwijderingsregel de normale uitzonderingen overwint.",
+    "description": "Guide page text."
+  },
+  "guide_0505": {
+    "message": "Resultaat:",
+    "description": "Guide page text."
+  },
+  "guide_0506": {
+    "message": "Belangrijke opmerkingen:",
+    "description": "Guide page text."
+  },
+  "guide_0507": {
+    "message": "<code>important</code> is toegestaan volgens de verwijderingsregels.",
+    "description": "Guide page text."
+  },
+  "guide_0508": {
+    "message": "<code>important</code> wordt niet ondersteund voor uitzonderingsregels in deze parser.",
+    "description": "Guide page text."
+  },
+  "guide_0509": {
+    "message": "Hoofdstuk 14: <code>badfilter</code>",
+    "description": "Guide page text."
+  },
+  "guide_0510": {
+    "message": "<code>badfilter</code> schakelt een andere overeenkomstregel uit.",
+    "description": "Guide page text."
+  },
+  "guide_0511": {
+    "message": "Oorspronkelijke regel:",
+    "description": "Guide page text."
+  },
+  "guide_0512": {
+    "message": "Badfilter-regel:",
+    "description": "Guide page text."
+  },
+  "guide_0513": {
+    "message": "Betekenis:",
+    "description": "Guide page text."
+  },
+  "guide_0514": {
+    "message": "De parser maakt de regel canoniek zonder <code>badfilter</code> en verwijdert de doelregel uit runtimegebruik.",
+    "description": "Guide page text."
+  },
+  "guide_0515": {
+    "message": "Hoofdstuk 15: Domeinbronmodificatoren: <code>domain=</code> en <code>from=</code>",
+    "description": "Guide page text."
+  },
+  "guide_0516": {
+    "message": "<code>domain=</code> en <code>from=</code> beperken regels op basis van de pagina- of broncontext.",
+    "description": "Guide page text."
+  },
+  "guide_0517": {
+    "message": "Hetzelfde idee met <code>from=</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0518": {
+    "message": "Deze controleren contexthostnamen zoals:",
+    "description": "Guide page text."
+  },
+  "guide_0519": {
+    "message": "Meerdere domeinen opnemen:",
+    "description": "Guide page text."
+  },
+  "guide_0520": {
+    "message": "Een domein uitsluiten:",
+    "description": "Guide page text."
+  },
+  "guide_0521": {
+    "message": "Gebruik een regex-domein:",
+    "description": "Guide page text."
+  },
+  "guide_0522": {
+    "message": "Hoofdstuk 16: Doeldomeinmodificator: <code>to=</code>",
+    "description": "Guide page text."
+  },
+  "guide_0523": {
+    "message": "<code>to=</code> beperkt de regels door de doelhost URL.",
+    "description": "Guide page text."
+  },
+  "guide_0524": {
+    "message": "Hiermee wordt gecontroleerd of de URL wordt gereinigd.",
+    "description": "Guide page text."
+  },
+  "guide_0525": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0526": {
+    "message": "Doeldomein uitsluiten:",
+    "description": "Guide page text."
+  },
+  "guide_0527": {
+    "message": "Regex-doel:",
+    "description": "Guide page text."
+  },
+  "guide_0528": {
+    "message": "Hoofdstuk 17: <code>denyallow=</code>",
+    "description": "Guide page text."
+  },
+  "guide_0529": {
+    "message": "<code>denyallow=</code> blokkeert de regel voor vermelde doeldomeinen.",
+    "description": "Guide page text."
+  },
+  "guide_0530": {
+    "message": "Betekenis:",
+    "description": "Guide page text."
+  },
+  "guide_0531": {
+    "message": "Ondersteunde <code>denyallow=</code>-waarden zijn gewone domeinpatronen.",
+    "description": "Guide page text."
+  },
+  "guide_0532": {
+    "message": "Niet ondersteund in <code>denyallow=</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0533": {
+    "message": "Als niet-ondersteunde waarden worden gebruikt, wordt de hele regel overgeslagen.",
+    "description": "Guide page text."
+  },
+  "guide_0534": {
+    "message": "Hoofdstuk 18: HTTP Methodemodificator",
+    "description": "Guide page text."
+  },
+  "guide_0535": {
+    "message": "Beperken volgens de HTTP-methode:",
+    "description": "Guide page text."
+  },
+  "guide_0536": {
+    "message": "Een methode uitsluiten:",
+    "description": "Guide page text."
+  },
+  "guide_0537": {
+    "message": "Meerdere methoden:",
+    "description": "Guide page text."
+  },
+  "guide_0538": {
+    "message": "Ondersteunde methoden:",
+    "description": "Guide page text."
+  },
+  "guide_0539": {
+    "message": "Standaardgedrag:",
+    "description": "Guide page text."
+  },
+  "guide_0540": {
+    "message": "Hoofdstuk 19: Modifiers voor resourcetypes",
+    "description": "Guide page text."
+  },
+  "guide_0541": {
+    "message": "Ondersteunde woorden van het brontype:",
+    "description": "Guide page text."
+  },
+  "guide_0542": {
+    "message": "Voorbeelden:",
+    "description": "Guide page text."
+  },
+  "guide_0543": {
+    "message": "Genegeerd resourcetype:",
+    "description": "Guide page text."
+  },
+  "guide_0544": {
+    "message": "In kaart brengen:",
+    "description": "Guide page text."
+  },
+  "guide_0545": {
+    "message": "Hoofdstuk 20: Eerste en derde partij",
+    "description": "Guide page text."
+  },
+  "guide_0546": {
+    "message": "First-party betekent dat de doelsite en de documentsite hetzelfde registreerbare domein delen.",
+    "description": "Guide page text."
+  },
+  "guide_0547": {
+    "message": "Derden betekent dat ze dat niet doen.",
+    "description": "Guide page text."
+  },
+  "guide_0548": {
+    "message": "Alleen first-party:",
+    "description": "Guide page text."
+  },
+  "guide_0549": {
+    "message": "aliassen:",
+    "description": "Guide page text."
+  },
+  "guide_0550": {
+    "message": "Alleen derden:",
+    "description": "Guide page text."
+  },
+  "guide_0551": {
+    "message": "aliassen:",
+    "description": "Guide page text."
+  },
+  "guide_0552": {
+    "message": "Strenge controles door eigen partijen exact dezelfde host:",
+    "description": "Guide page text."
+  },
+  "guide_0553": {
+    "message": "Strenge controles door derden zijn niet exact dezelfde host:",
+    "description": "Guide page text."
+  },
+  "guide_0554": {
+    "message": "Ongeldige combinaties worden overgeslagen, bijvoorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0555": {
+    "message": "Hoofdstuk 21: <code>match-case</code>",
+    "description": "Guide page text."
+  },
+  "guide_0556": {
+    "message": "Standaard is letterlijke parametermatching hoofdlettergevoelig.",
+    "description": "Guide page text."
+  },
+  "guide_0557": {
+    "message": "Regel:",
+    "description": "Guide page text."
+  },
+  "guide_0558": {
+    "message": "Wedstrijden:",
+    "description": "Guide page text."
+  },
+  "guide_0559": {
+    "message": "Gebruik <code>match-case</code> voor hoofdlettergevoelige overeenkomsten:",
+    "description": "Guide page text."
+  },
+  "guide_0560": {
+    "message": "Nu komt het overeen:",
+    "description": "Guide page text."
+  },
+  "guide_0561": {
+    "message": "Maar niet:",
+    "description": "Guide page text."
+  },
+  "guide_0562": {
+    "message": "Hoofdstuk 22: <code>app=</code>",
+    "description": "Guide page text."
+  },
+  "guide_0563": {
+    "message": "<code>app=</code> wordt geparseerd voor compatibiliteit met de syntaxis van de filterlijst.",
+    "description": "Guide page text."
+  },
+  "guide_0564": {
+    "message": "Browserverzoeken hebben doorgaans geen app-pakketcontext. Als er geen app-context beschikbaar is, komen regels met positieve <code>app=</code>-includes niet overeen.",
+    "description": "Guide page text."
+  },
+  "guide_0565": {
+    "message": "App uitsluiten:",
+    "description": "Guide page text."
+  },
+  "guide_0566": {
+    "message": "App-patroon met jokertekens:",
+    "description": "Guide page text."
+  },
+  "guide_0567": {
+    "message": "Regex-app-patroon:",
+    "description": "Guide page text."
+  },
+  "guide_0568": {
+    "message": "Hoofdstuk 23: No-Op-modificatoren",
+    "description": "Guide page text."
+  },
+  "guide_0569": {
+    "message": "Deze modifiers worden geaccepteerd maar genegeerd:",
+    "description": "Guide page text."
+  },
+  "guide_0570": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0571": {
+    "message": "Dit gedraagt zich als:",
+    "description": "Guide page text."
+  },
+  "guide_0572": {
+    "message": "Hoofdstuk 24: Details over parametermatching",
+    "description": "Guide page text."
+  },
+  "guide_0573": {
+    "message": "Letterlijke parameterregel:",
+    "description": "Guide page text."
+  },
+  "guide_0574": {
+    "message": "Controleert de parameternaam.",
+    "description": "Guide page text."
+  },
+  "guide_0575": {
+    "message": "Regex-parameterregel:",
+    "description": "Guide page text."
+  },
+  "guide_0576": {
+    "message": "Controleert deze tekst:",
+    "description": "Guide page text."
+  },
+  "guide_0577": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0578": {
+    "message": "Voorvoegselvorm:",
+    "description": "Guide page text."
+  },
+  "guide_0579": {
+    "message": "Dit wordt een regex voor namen die beginnen met <code>utm_</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0580": {
+    "message": "Hoofdstuk 25: Alleen query's",
+    "description": "Guide page text."
+  },
+  "guide_0581": {
+    "message": "Interoperabiliteitsruntime ruimt queryparameters op vóór <code>#</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0582": {
+    "message": "Schoongemaakt:",
+    "description": "Guide page text."
+  },
+  "guide_0583": {
+    "message": "Niet opgeschoond door dit runtimepad:",
+    "description": "Guide page text."
+  },
+  "guide_0584": {
+    "message": "Voor het opschonen van hashparameters gebruikt u de Linkumori gemengde provider JSON-regels die worden beschreven in de JSON Format Guide.",
+    "description": "Guide page text."
+  },
+  "guide_0585": {
+    "message": "Hoofdstuk 26: Niet-ondersteunde regels worden overgeslagen",
+    "description": "Guide page text."
+  },
+  "guide_0586": {
+    "message": "Een regel wordt overgeslagen als:",
+    "description": "Guide page text."
+  },
+  "guide_0587": {
+    "message": "Er is geen <code>$removeparam</code> of <code>$queryprune</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0588": {
+    "message": "Er wordt gebruik gemaakt van een niet-ondersteunde modifier.",
+    "description": "Guide page text."
+  },
+  "guide_0589": {
+    "message": "De regex is ongeldig.",
+    "description": "Guide page text."
+  },
+  "guide_0590": {
+    "message": "Er is een ongeldige methode.",
+    "description": "Guide page text."
+  },
+  "guide_0591": {
+    "message": "Het heeft een ongeldige waarde <code>denyallow=</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0592": {
+    "message": "Het combineert incompatibele partijmodifiers.",
+    "description": "Guide page text."
+  },
+  "guide_0593": {
+    "message": "Het is een opmerking, sectiekop of lege regel.",
+    "description": "Guide page text."
+  },
+  "guide_0594": {
+    "message": "Voorbeeld van een overgeslagen regel:",
+    "description": "Guide page text."
+  },
+  "guide_0595": {
+    "message": "Reden:",
+    "description": "Guide page text."
+  },
+  "guide_0596": {
+    "message": "Voorbeeld van een overgeslagen regel:",
+    "description": "Guide page text."
+  },
+  "guide_0597": {
+    "message": "Reden:",
+    "description": "Guide page text."
+  },
+  "guide_0598": {
+    "message": "Hoofdstuk 27: Dubbele regels",
+    "description": "Guide page text."
+  },
+  "guide_0599": {
+    "message": "Dubbele onbewerkte regels worden overgeslagen tijdens het parseren van de filterlijst.",
+    "description": "Guide page text."
+  },
+  "guide_0600": {
+    "message": "Voorbeeld:",
+    "description": "Guide page text."
+  },
+  "guide_0601": {
+    "message": "Er wordt er maar één bewaard.",
+    "description": "Guide page text."
+  },
+  "guide_0602": {
+    "message": "Tijdens runtime worden regels ook gededupliceerd in een canonieke vorm.",
+    "description": "Guide page text."
+  },
+  "guide_0603": {
+    "message": "Hoofdstuk 28: Compleet voorbeeld van filterlijst",
+    "description": "Guide page text."
+  },
+  "guide_0604": {
+    "message": "Wat dit doet:",
+    "description": "Guide page text."
+  },
+  "guide_0605": {
+    "message": "Verwijdert alle <code>utm_</code>-parameters.",
+    "description": "Guide page text."
+  },
+  "guide_0606": {
+    "message": "Verwijdert <code>fbclid</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0607": {
+    "message": "Verwijdert <code>gclid</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0608": {
+    "message": "Verwijdert <code>ref</code> op <code>example.com</code>, behalve op <code>/login</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0609": {
+    "message": "Verwijdert alleen <code>tracking_id</code> voor <code>GET</code> XHR-verzoeken aan <code>api.example.com</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0610": {
+    "message": "Toevoegen annuleert vervolgens de doelregel <code>tracker.example</code> met <code>badfilter</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0611": {
+    "message": "Hoofdstuk 29: JSON Voorbeeld van opslag",
+    "description": "Guide page text."
+  },
+  "guide_0612": {
+    "message": "Hoofdstuk 30: Snelkopieersjablonen",
+    "description": "Guide page text."
+  },
+  "guide_0613": {
+    "message": "Verwijder overal één parameter:",
+    "description": "Guide page text."
+  },
+  "guide_0614": {
+    "message": "Verwijder alle UTM-parameters:",
+    "description": "Guide page text."
+  },
+  "guide_0615": {
+    "message": "Alles verwijderen behalve <code>id</code>:",
+    "description": "Guide page text."
+  },
+  "guide_0616": {
+    "message": "Alleen uitvoeren op een domein:",
+    "description": "Guide page text."
+  },
+  "guide_0617": {
+    "message": "Uitzondering:",
+    "description": "Guide page text."
+  },
+  "guide_0618": {
+    "message": "Alleen GET:",
+    "description": "Guide page text."
+  },
+  "guide_0619": {
+    "message": "Alleen XHR:",
+    "description": "Guide page text."
+  },
+  "guide_0620": {
+    "message": "Alleen doeldomein:",
+    "description": "Guide page text."
+  },
+  "guide_0621": {
+    "message": "Alleen bronpaginadomein:",
+    "description": "Guide page text."
+  },
+  "guide_0622": {
+    "message": "Alleen derden:",
+    "description": "Guide page text."
+  },
+  "guide_0623": {
+    "message": "Hoofdlettergevoelig:",
+    "description": "Guide page text."
+  },
+  "guide_theme_midnight": {
+    "message": "Middernacht",
+    "description": "Guide theme selector option."
+  },
+  "guide_theme_light": {
+    "message": "Licht",
+    "description": "Guide theme selector option."
+  },
+  "guide_theme_icecold": {
+    "message": "IJskoud",
+    "description": "Guide theme selector option."
+  },
+  "guide_theme_zen_grey": {
+    "message": "Zen-grijs",
+    "description": "Guide theme selector option."
+  },
+  "guide_theme_sunset": {
+    "message": "Zonsondergang",
+    "description": "Guide theme selector option."
+  },
+  "guide_0624": {
+    "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0625": {
+    "message": "{\n  \"providers\": {\n    \"Google\": {},\n    \"Amazon\": {},\n    \"Example Tracker\": {}\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0626": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\", \"utm_medium\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0627": {
+    "message": "https://example.com/page?utm_source=x&utm_medium=y&id=10\n-> https://example.com/page?id=10\n",
+    "description": "Guide page text."
+  },
+  "guide_0628": {
+    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0629": {
+    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0630": {
+    "message": "https://example.com/\nhttps://www.example.com/\nhttps://shop.example.com/\n",
+    "description": "Guide page text."
+  },
+  "guide_0631": {
+    "message": "https://badexample.com/\nhttps://example.com.evil.test/\n",
+    "description": "Guide page text."
+  },
+  "guide_0632": {
+    "message": "{\n  \"domainPatterns\": [\"||amazon.*^\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0633": {
+    "message": "https://amazon.com/\nhttps://amazon.co.uk/\nhttps://amazon.in/\n",
+    "description": "Guide page text."
+  },
+  "guide_0634": {
+    "message": "{\n  \"domainPatterns\": [\"*.google.com\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0635": {
+    "message": "https://mail.google.com/\nhttps://maps.google.com/\n",
+    "description": "Guide page text."
+  },
+  "guide_0636": {
+    "message": "{\n  \"domainPatterns\": [\n    \"||youtube.com^\",\n    \"||youtu.be^\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0637": {
+    "message": "||example.com^\n",
+    "description": "Guide page text."
+  },
+  "guide_0638": {
+    "message": "example.com + all subdomains\n",
+    "description": "Guide page text."
+  },
+  "guide_0639": {
+    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\"\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0640": {
+    "message": "https://example.com/tracking/page\nhttps://sub.example.com/tracking/page\n",
+    "description": "Guide page text."
+  },
+  "guide_0641": {
+    "message": "{\n  \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?youtube\\\\.com\\\\/watch.*\",\n  \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0642": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0643": {
+    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0644": {
+    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"utm_medium\",\n    \"utm_campaign\",\n    \"fbclid\",\n    \"gclid\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0645": {
+    "message": "https://example.com/?utm_source=x&fbclid=y&id=1\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0646": {
+    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"action\": {\n    \"type\": \"remove\"\n  },\n  \"flags\": \"i\"\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0647": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"i\"\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0648": {
+    "message": "https://example.com/?UTM_SOURCE=x&id=1\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0649": {
+    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0650": {
+    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0651": {
+    "message": "{\n  \"rules\": [\"*$removeparam\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0652": {
+    "message": "https://example.com/?a=1&b=2\n-> https://example.com/\n",
+    "description": "Guide page text."
+  },
+  "guide_0653": {
+    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0654": {
+    "message": "https://example.com/?utm_source=x&utm_campaign=y&id=1\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0655": {
+    "message": "{\n  \"rules\": [\"*$removeparam=~id\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0656": {
+    "message": "https://example.com/?id=1&utm_source=x&fbclid=y\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0657": {
+    "message": "{\n  \"rules\": [\"||example.com^$removeparam=utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0658": {
+    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0659": {
+    "message": "https://other.test/?utm_source=x&id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0660": {
+    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|shop.example.com\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0661": {
+    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,domain=example.com|~safe.example.com\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0662": {
+    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=GET\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0663": {
+    "message": "{\n  \"rules\": [\"*$removeparam=utm_source,method=~POST\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0664": {
+    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0665": {
+    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0666": {
+    "message": "{\n  \"rules\": [\"@@||gemini.google.com^$removeparam=ei\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0667": {
+    "message": "{\n  \"id\": \"normalize-tag\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0668": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"normalize-tag\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"action\": {\n            \"type\": \"rewrite\",\n            \"replacePattern\": \"clean\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0669": {
+    "message": "https://example.com/?tag=tracking&id=1\n-> https://example.com/?id=1&tag=clean\n",
+    "description": "Guide page text."
+  },
+  "guide_0670": {
+    "message": "{\n  \"id\": \"keep-decoded-target\",\n  \"kind\": \"field\",\n  \"match\": \"target\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0671": {
+    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0672": {
+    "message": "https://example.com/page?id=1&utm_source=x\n-> https://example.com/page?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0673": {
+    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"strip-utm-source-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0674": {
+    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"rewrite-tracker-target\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/redirect\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0675": {
+    "message": "https://tracker.example/redirect?url=https%3A%2F%2Freal.example%2Fpage\n-> https://real.example/page\n",
+    "description": "Guide page text."
+  },
+  "guide_0676": {
+    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"tracker-target\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0677": {
+    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+    "description": "Guide page text."
+  },
+  "guide_0678": {
+    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://real.example/\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0679": {
+    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://real.example/\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0680": {
+    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"keep-login\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"active\": true\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0681": {
+    "message": "Provider cleans:\nhttps://example.com/page?utm_source=x\n\nProvider skips:\nhttps://example.com/login?utm_source=x\n",
+    "description": "Guide page text."
+  },
+  "guide_0682": {
+    "message": "{\n  \"domainExceptions\": [\"||safe.example.com^\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0683": {
+    "message": "https://safe.example.com/?utm_source=x\n",
+    "description": "Guide page text."
+  },
+  "guide_0684": {
+    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0685": {
+    "message": "https://example.com/product?tag=affiliate&id=10\n-> https://example.com/product?id=10\n",
+    "description": "Guide page text."
+  },
+  "guide_0686": {
+    "message": "{\n  \"methods\": [\"GET\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0687": {
+    "message": "GET\n",
+    "description": "Guide page text."
+  },
+  "guide_0688": {
+    "message": "POST\nPUT\nDELETE\n",
+    "description": "Guide page text."
+  },
+  "guide_0689": {
+    "message": "{\n  \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0690": {
+    "message": "main_frame\nsub_frame\nxmlhttprequest\nscript\nimage\nstylesheet\nping\n",
+    "description": "Guide page text."
+  },
+  "guide_0691": {
+    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0692": {
+    "message": "Remove tracking_id from fetch/XHR requests to api.example.com.\n",
+    "description": "Guide page text."
+  },
+  "guide_0693": {
+    "message": "{\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0694": {
+    "message": "urlEncode\nurlDecode\ndoubleUrlEncode\nurlEncodeRepeated\ndoubleUrlDecode\nurlDecodeRepeated\nbase64Encode\nbase64Decode\n",
+    "description": "Guide page text."
+  },
+  "guide_0695": {
+    "message": "[1]\n",
+    "description": "Guide page text."
+  },
+  "guide_0696": {
+    "message": "[1, 2]\n",
+    "description": "Guide page text."
+  },
+  "guide_0697": {
+    "message": "\"all\"\n",
+    "description": "Guide page text."
+  },
+  "guide_0698": {
+    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"action\": {\n    \"type\": \"remove\"\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0699": {
+    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"aliases\": [\"utm-source-old\"],\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"action\": {\n    \"type\": \"remove\"\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0700": {
+    "message": "Provider Name::remove-utm-source\nremove-utm-source\nProvider Name::utm-source-old\nutm-source-old\n",
+    "description": "Guide page text."
+  },
+  "guide_0701": {
+    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"description\": \"Default rule\",\n    \"requestTypes\": \"all\",\n    \"preprocessors\": [],\n    \"exceptions\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0702": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0703": {
+    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0704": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0705": {
+    "message": "{\n  \"providers\": {\n    \"Example Tracking Path\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0706": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0707": {
+    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "description": "Guide page text."
+  },
+  "guide_0708": {
+    "message": "{\n  \"providers\": {\n    \"Mixed Rules\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"matchPattern\": \"gclid\",\n          \"active\": true\n        },\n        {\n          \"id\": \"remove-msclkid\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0709": {
+    "message": "{\n  \"providers\": {\n    \"Canonical Mixed\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"field-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw-rule\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]utm_medium=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        },\n        {\n          \"id\": \"redirect-rule\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral-rule\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0710": {
+    "message": "kind: \"raw\"          -> raw rule behavior\nkind: \"redirection\"  -> redirection behavior\nreferralMarketing    -> referral marketing behavior\neverything else      -> field rule behavior\n",
+    "description": "Guide page text."
+  },
+  "guide_0711": {
+    "message": "{\n  \"providers\": {\n    \"Legacy Plus Canonical\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        {\n          \"id\": \"canonical-field\",\n          \"kind\": \"field\",\n          \"match\": \"fbclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/keep\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"legacy-redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0712": {
+    "message": "{\n  \"providers\": {\n    \"XHR GET Cleaner\": {\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"rules\": [\"tracking_id\"],\n      \"rawRules\": [\"[?&]debug_tracking=[^&#]*\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0713": {
+    "message": "{\n  \"providers\": {\n    \"Mixed Request Types\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"main-frame-only\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"requestTypes\": [\"main_frame\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"xhr-only\",\n          \"kind\": \"field\",\n          \"match\": \"tracking_id\",\n          \"requestTypes\": [\"xmlhttprequest\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0714": {
+    "message": "{\n  \"providers\": {\n    \"Exception Mix\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"rule-with-own-exception\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"exceptions\": [\"example\\\\.com\\\\/checkout\"],\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0715": {
+    "message": "Provider exceptions skip the whole provider for matching URLs.\nDomain exceptions skip the whole provider for matching domains.\nRule exceptions skip only that rule.\n@@ $removeparam exceptions skip matching $removeparam removal.\n",
+    "description": "Guide page text."
+  },
+  "guide_0716": {
+    "message": "{\n  \"providers\": {\n    \"Blocked Tracker\": {\n      \"completeProvider\": true,\n      \"domainPatterns\": [\"||badtracker.example^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0717": {
+    "message": "{\n  \"providers\": {\n    \"Redirect And Clean\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-url\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"rules\": [\"utm_source\", \"fbclid\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0718": {
+    "message": "{\n  \"providers\": {\n    \"Two Redirect Styles\": {\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"regex-redirect\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/out\\\\?to=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||tracker.example^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0719": {
+    "message": "{\n  \"providers\": {\n    \"Disabled Provider\": {\n      \"active\": false,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0720": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        {\n          \"id\": \"inactive-rule\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"active\": false,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0721": {
+    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0722": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0723": {
+    "message": "{\n  \"version\": 2,\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": [],\n    \"exceptions\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0724": {
+    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0725": {
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  },\n  \"urlFilterRules\": [\n    \"*$removeparam=fbclid\"\n  ],\n  \"urlFilterMetadata\": {\n    \"format\": \"linkumori-url-filter-interoperability\",\n    \"status\": \"loaded\"\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0726": {
+    "message": "providers are handled by Linkumori extension provider logic.\nurlFilterRules are handled by the interoperability runtime.\nThey can exist in the same Linkumori extension data object, but they are different rule systems.\n",
+    "description": "Guide page text."
+  },
+  "guide_0727": {
+    "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0728": {
+    "message": "{\n  \"providers\": {\n    \"Indexed URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0729": {
+    "message": "{\n  \"providers\": {\n    \"Multi Host URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/(www\\\\.)?(youtube\\\\.com|youtu\\\\.be)\\\\/.*\",\n      \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"],\n      \"rules\": [\"feature\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0730": {
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0731": {
+    "message": "{\n  \"providers\": {\n    \"Multi Domain Provider\": {\n      \"domainPatterns\": [\"||example.com^\", \"||example.org^\", \"||example.net^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0732": {
+    "message": "{\n  \"providers\": {\n    \"Regex Domain Pattern Provider\": {\n      \"domainPatterns\": [\"/^https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/special/i\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0733": {
+    "message": "{\n  \"providers\": {\n    \"Both Matcher Fields\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0734": {
+    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "description": "Guide page text."
+  },
+  "guide_0735": {
+    "message": "{\n  \"active\": true,\n  \"domainPatterns\": [\"||example.com^\"],\n  \"rules\": [\"utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0736": {
+    "message": "{\n  \"active\": false,\n  \"domainPatterns\": [\"||example.com^\"],\n  \"rules\": [\"utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0737": {
+    "message": "{\n  \"defaultActive\": true,\n  \"domainPatterns\": [\"||example.com^\"],\n  \"rules\": [\"utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0738": {
+    "message": "{\n  \"completeProvider\": true,\n  \"domainPatterns\": [\"||badtracker.example^\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0739": {
+    "message": "{\n  \"completeProvider\": true,\n  \"domainPatterns\": [\"||badtracker.example^\"],\n  \"rules\": [\"utm_source\"],\n  \"rawRules\": [\"[?&]bad=[^&#]*\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0740": {
+    "message": "{\n  \"forceRedirection\": true,\n  \"domainPatterns\": [\"||tracker.example^\"],\n  \"redirections\": [\n    {\n      \"match\": \"https://tracker\\\\.example/out\\\\?url=([^&#]+)\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0741": {
+    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0742": {
+    "message": "{\n  \"rules\": [\"^utm_\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0743": {
+    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0744": {
+    "message": "{\n  \"rules\": [\"@@||example.com^$removeparam=utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0745": {
+    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"legacy-object-rule\",\n      \"matchPattern\": \"utm_source\",\n      \"active\": true,\n      \"flags\": \"i\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0746": {
+    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"canonical-field-rule\",\n      \"kind\": \"field\",\n      \"match\": \"utm_source\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0747": {
+    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"canonical-field-rewrite\",\n      \"kind\": \"field\",\n      \"match\": \"tag\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"clean\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0748": {
+    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"raw-inside-rules\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0749": {
+    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"redirect-inside-rules\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0750": {
+    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"referral-inside-rules\",\n      \"kind\": \"field\",\n      \"match\": \"tag\",\n      \"referralMarketing\": true,\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0751": {
+    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"^utm_\",\n    \"*$removeparam=fbclid\",\n    \"@@||example.com/login^$removeparam=fbclid\",\n    {\n      \"id\": \"legacy-object\",\n      \"matchPattern\": \"gclid\"\n    },\n    {\n      \"id\": \"canonical-field\",\n      \"kind\": \"field\",\n      \"match\": \"msclkid\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    },\n    {\n      \"id\": \"canonical-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]raw_id=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    },\n    {\n      \"id\": \"canonical-redirection\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0752": {
+    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0753": {
+    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"legacy-raw-object\",\n      \"matchPattern\": \"[?&]utm_source=[^&#]*\",\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0754": {
+    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"canonical-raw-object\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0755": {
+    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"canonical-raw-rewrite\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/out\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0756": {
+    "message": "{\n  \"rawRules\": [\n    \"[?&]utm_source=[^&#]*\",\n    {\n      \"id\": \"raw-object\",\n      \"matchPattern\": \"[?&]fbclid=[^&#]*\"\n    },\n    {\n      \"id\": \"canonical-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]gclid=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0757": {
+    "message": "{\n  \"referralMarketing\": [\"tag\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0758": {
+    "message": "{\n  \"referralMarketing\": [\n    {\n      \"id\": \"legacy-referral-object\",\n      \"matchPattern\": \"tag\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0759": {
+    "message": "{\n  \"referralMarketing\": [\n    {\n      \"id\": \"canonical-referral\",\n      \"kind\": \"field\",\n      \"match\": \"tag\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0760": {
+    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\",\n    {\n      \"id\": \"canonical-referral\",\n      \"kind\": \"field\",\n      \"match\": \"affid\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0761": {
+    "message": "{\n  \"exceptions\": [\"example\\\\.com\\\\/login\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0762": {
+    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"legacy-exception-object\",\n      \"matchPattern\": \"example\\\\.com\\\\/login\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0763": {
+    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"canonical-exception\",\n      \"kind\": \"field\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0764": {
+    "message": "{\n  \"exceptions\": [\n    \"example\\\\.com\\\\/login\",\n    {\n      \"id\": \"checkout-exception\",\n      \"matchPattern\": \"example\\\\.com\\\\/checkout\"\n    },\n    {\n      \"id\": \"account-exception\",\n      \"match\": \"example\\\\.com\\\\/account\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0765": {
+    "message": "{\n  \"domainExceptions\": [\n    \"||safe.example.com^\",\n    \"||accounts.example.com^\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0766": {
+    "message": "{\n  \"redirections\": [\n    \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0767": {
+    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"legacy-redirection-object\",\n      \"matchPattern\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n      \"replacePattern\": \"§1§\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0768": {
+    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"canonical-redirection\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0769": {
+    "message": "{\n  \"redirections\": [\n    \"https://tracker\\\\.example/a\\\\?url=([^&#]+)\",\n    {\n      \"id\": \"legacy-redirection-object\",\n      \"matchPattern\": \"https://tracker\\\\.example/b\\\\?url=([^&#]+)\",\n      \"replacePattern\": \"§1§\"\n    },\n    {\n      \"id\": \"canonical-redirection\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/c\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0770": {
+    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://example.com/\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0771": {
+    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"replacePattern\": \"https://example.com/\"\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0772": {
+    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://example.com/\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0773": {
+    "message": "{\n  \"domainRedirections\": [\n    \"||tracker-a.example^$redirect=https://example.com/a\",\n    {\n      \"match\": \"||tracker-b.example^\",\n      \"replacePattern\": \"https://example.com/b\"\n    },\n    {\n      \"match\": \"||tracker-c.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://example.com/c\"\n      }\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0774": {
+    "message": "{\n  \"id\": \"legacy-object\",\n  \"matchPattern\": \"utm_source\",\n  \"replacePattern\": null,\n  \"flags\": \"i\",\n  \"active\": true,\n  \"aliases\": [\"old-id\"],\n  \"exceptions\": [\"example\\\\.com\\\\/keep\"],\n  \"requestTypes\": [\"main_frame\"],\n  \"preprocessors\": []\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0775": {
+    "message": "{\n  \"id\": \"canonical-object\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"aliases\": [\"old-id\"],\n  \"description\": \"Remove utm_source\",\n  \"exceptions\": [\"example\\\\.com\\\\/keep\"],\n  \"requestTypes\": [\"main_frame\"],\n  \"flags\": \"i\",\n  \"preprocessors\": [],\n  \"action\": {\n    \"type\": \"remove\"\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0776": {
+    "message": "{\n  \"id\": \"rewrite-object\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0777": {
+    "message": "{\n  \"id\": \"redirect-object\",\n  \"kind\": \"redirection\",\n  \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n  \"action\": {\n    \"type\": \"redirect\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0778": {
+    "message": "{\n  \"providers\": {\n    \"Every Legacy Array\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"],\n      \"rawRules\": [\"[?&]raw_id=[^&#]*\"],\n      \"referralMarketing\": [\"tag\"],\n      \"exceptions\": [\"example\\\\.com\\\\/login\"],\n      \"domainExceptions\": [\"||safe.example.com^\"],\n      \"redirections\": [\"https://example\\\\.com/out\\\\?url=([^&#]+)\"],\n      \"domainRedirections\": [\"||old.example.com^$redirect=https://example.com/\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0779": {
+    "message": "{\n  \"version\": 2,\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": [],\n    \"exceptions\": []\n  },\n  \"providers\": {\n    \"Every Canonical Style\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"exceptions\": [\n        \"example\\\\.com\\\\/login\"\n      ],\n      \"rules\": [\n        {\n          \"id\": \"field\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_id=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"redirection\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0780": {
+    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Maximum Mixed Compatibility\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\"||example.com^\", \"||example.org^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": [\"||example.com^\", \"||example.org^\"],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"^utm_\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"legacy-field-object\",\n          \"matchPattern\": \"gclid\"\n        },\n        {\n          \"id\": \"canonical-field-object\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]rule_raw=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-redirect-in-rules\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/r\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\",\n        {\n          \"id\": \"raw-object\",\n          \"matchPattern\": \"[?&]raw_object=[^&#]*\"\n        },\n        {\n          \"id\": \"canonical-raw-object\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]canonical_raw=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"referralMarketing\": [\n        \"tag\",\n        {\n          \"id\": \"canonical-referral-object\",\n          \"kind\": \"field\",\n          \"match\": \"ascsubtag\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/login\",\n        {\n          \"id\": \"exception-object\",\n          \"matchPattern\": \"example\\\\.com\\\\/checkout\"\n        },\n        {\n          \"id\": \"canonical-exception-object\",\n          \"match\": \"example\\\\.com\\\\/account\"\n        }\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        \"https://example\\\\.com/out-a\\\\?url=([^&#]+)\",\n        {\n          \"id\": \"legacy-redirection-object\",\n          \"matchPattern\": \"https://example\\\\.com/out-b\\\\?url=([^&#]+)\",\n          \"replacePattern\": \"§1§\"\n        },\n        {\n          \"id\": \"canonical-redirection-object\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out-c\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old-a.example.com^$redirect=https://example.com/a\",\n        {\n          \"match\": \"||old-b.example.com^\",\n          \"replacePattern\": \"https://example.com/b\"\n        },\n        {\n          \"match\": \"||old-c.example.com^\",\n          \"action\": {\n            \"replacePattern\": \"https://example.com/c\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0781": {
+    "message": "This example is for compatibility documentation. In real rule files, keep providers simpler when possible.\n",
+    "description": "Guide page text."
+  },
+  "guide_0782": {
+    "message": "{\n  \"providers\": {\n    \"Example Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"utm_medium\",\n        \"utm_campaign\",\n        \"fbclid\",\n        \"gclid\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0783": {
+    "message": "https://example.com/post?utm_source=x&fbclid=y&id=99\n-> https://example.com/post?id=99\n",
+    "description": "Guide page text."
+  },
+  "guide_0784": {
+    "message": "{\n  \"providers\": {\n    \"UTM Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=/^utm_/\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0785": {
+    "message": "https://example.com/?utm_source=x&utm_id=y&page=1\n-> https://example.com/?page=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0786": {
+    "message": "{\n  \"providers\": {\n    \"Example Login Safe Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"*$removeparam=session_id\",\n        \"@@||example.com/login^$removeparam=session_id\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0787": {
+    "message": "https://example.com/page?session_id=abc&id=1\n-> https://example.com/page?id=1\n\nhttps://example.com/login?session_id=abc\n-> https://example.com/login?session_id=abc\n",
+    "description": "Guide page text."
+  },
+  "guide_0788": {
+    "message": "{\n  \"providers\": {\n    \"Tracker Redirect\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||tracker.example^\"],\n      \"redirections\": [\n        {\n          \"id\": \"tracker-target\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.example/click\\\\?target=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0789": {
+    "message": "https://tracker.example/click?target=https%3A%2F%2Fnews.example%2Fstory\n-> https://news.example/story\n",
+    "description": "Guide page text."
+  },
+  "guide_0790": {
+    "message": "{\n  \"providers\": {\n    \"API Cleaner\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||api.example.com^\"],\n      \"resourceTypes\": [\"xmlhttprequest\"],\n      \"methods\": [\"GET\"],\n      \"rules\": [\"tracking_id\"]\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0791": {
+    "message": "Only remove tracking_id from GET XHR/fetch requests to api.example.com.\n",
+    "description": "Guide page text."
+  },
+  "guide_0792": {
+    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0793": {
+    "message": "{\n  \"rules\": [\"utm_source\", \"utm_medium\", \"fbclid\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0794": {
+    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0795": {
+    "message": "{\n  \"rules\": [\"*$removeparam=/^utm_/\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0796": {
+    "message": "{\n  \"rules\": [\n    \"*$removeparam=utm_source\",\n    \"@@||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0797": {
+    "message": "{\n  \"domainPatterns\": [\"||example.com^\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0798": {
+    "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0799": {
+    "message": "⇄",
+    "description": "Guide page text."
+  },
+  "guide_0800": {
+    "message": "{\n  \"urlFilterRules\": [\n    \"||example.com^$removeparam=utm_source\"\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0801": {
+    "message": "{\n  \"providers\": {},\n  \"urlFilterRules\": []\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0802": {
+    "message": "$removeparam\n$queryprune\n@@ exceptions\nbadfilter\nimportant\ndomain=\nfrom=\nto=\ndenyallow=\nmethod=\nrequest type modifiers\nfirst-party / third-party\nstrict-first-party / strict-third-party\nmatch-case\napp=\n",
+    "description": "Guide page text."
+  },
+  "guide_0803": {
+    "message": "Network blocking rules without $removeparam or $queryprune\nCosmetic filters\nScriptlets\nHTML filtering\nRequest blocking\nFull adblock engine behavior\n",
+    "description": "Guide page text."
+  },
+  "guide_0804": {
+    "message": "URL_PATTERN$removeparam=PARAMETER\n",
+    "description": "Guide page text."
+  },
+  "guide_0805": {
+    "message": "||example.com^$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0806": {
+    "message": "On example.com and its subdomains, remove the query parameter named utm_source.\n",
+    "description": "Guide page text."
+  },
+  "guide_0807": {
+    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0808": {
+    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"||example.com^$removeparam=utm_source\",\n      \"*$removeparam=/^utm_/\"\n    ],\n    \"urlFilterMetadata\": {\n      \"format\": \"linkumori-url-filter-interoperability\"\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0809": {
+    "message": "! This is a comment\n",
+    "description": "Guide page text."
+  },
+  "guide_0810": {
+    "message": "[Tracking parameters]\n",
+    "description": "Guide page text."
+  },
+  "guide_0811": {
+    "message": "*$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0812": {
+    "message": "https://site.test/?utm_source=x&id=1\n-> https://site.test/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0813": {
+    "message": "*$removeparam\n",
+    "description": "Guide page text."
+  },
+  "guide_0814": {
+    "message": "https://site.test/?a=1&b=2\n-> https://site.test/\n",
+    "description": "Guide page text."
+  },
+  "guide_0815": {
+    "message": "*$removeparam=/^utm_/\n",
+    "description": "Guide page text."
+  },
+  "guide_0816": {
+    "message": "https://site.test/?utm_source=x&utm_campaign=y&id=1\n-> https://site.test/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0817": {
+    "message": "*$removeparam=/^utm_/i\n",
+    "description": "Guide page text."
+  },
+  "guide_0818": {
+    "message": "*$removeparam=~id\n",
+    "description": "Guide page text."
+  },
+  "guide_0819": {
+    "message": "https://site.test/?id=1&utm_source=x&fbclid=y\n-> https://site.test/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0820": {
+    "message": "Remove every parameter except id.\n",
+    "description": "Guide page text."
+  },
+  "guide_0821": {
+    "message": "*$removeparam=utm_source\n*$queryprune=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0822": {
+    "message": "*$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0823": {
+    "message": "||example.com^$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0824": {
+    "message": "|https://example.com/path$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0825": {
+    "message": "https://example.com/path|$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0826": {
+    "message": "/^https:\\/\\/([^/]+\\.)?example\\.com\\/track/$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0827": {
+    "message": "@@||example.com^$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0828": {
+    "message": "*$removeparam=utm_source\n@@||example.com^$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0829": {
+    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0830": {
+    "message": "*$removeparam=utm_source,important\n@@||example.com^$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0831": {
+    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0832": {
+    "message": "||example.com^$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0833": {
+    "message": "||example.com^$removeparam=utm_source,badfilter\n",
+    "description": "Guide page text."
+  },
+  "guide_0834": {
+    "message": "Cancel the original rule.\n",
+    "description": "Guide page text."
+  },
+  "guide_0835": {
+    "message": "*$removeparam=utm_source,domain=example.com\n",
+    "description": "Guide page text."
+  },
+  "guide_0836": {
+    "message": "*$removeparam=utm_source,from=example.com\n",
+    "description": "Guide page text."
+  },
+  "guide_0837": {
+    "message": "documentUrl\noriginUrl\ninitiator\n",
+    "description": "Guide page text."
+  },
+  "guide_0838": {
+    "message": "*$removeparam=utm_source,domain=example.com|shop.example.com\n",
+    "description": "Guide page text."
+  },
+  "guide_0839": {
+    "message": "*$removeparam=utm_source,domain=example.com|~safe.example.com\n",
+    "description": "Guide page text."
+  },
+  "guide_0840": {
+    "message": "*$removeparam=utm_source,domain=/\\.example\\.com$/i\n",
+    "description": "Guide page text."
+  },
+  "guide_0841": {
+    "message": "*$removeparam=utm_source,to=example.com\n",
+    "description": "Guide page text."
+  },
+  "guide_0842": {
+    "message": "Cleaned:\nhttps://example.com/?utm_source=x&id=1\n\nNot cleaned:\nhttps://other.test/?utm_source=x&id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0843": {
+    "message": "*$removeparam=utm_source,to=example.com|~safe.example.com\n",
+    "description": "Guide page text."
+  },
+  "guide_0844": {
+    "message": "*$removeparam=utm_source,to=/\\.example\\.com$/i\n",
+    "description": "Guide page text."
+  },
+  "guide_0845": {
+    "message": "*$removeparam=utm_source,denyallow=example.com\n",
+    "description": "Guide page text."
+  },
+  "guide_0846": {
+    "message": "Remove utm_source generally, but do not apply this rule when the destination host matches example.com.\n",
+    "description": "Guide page text."
+  },
+  "guide_0847": {
+    "message": "~negation\nexample.*\n/regex/\n",
+    "description": "Guide page text."
+  },
+  "guide_0848": {
+    "message": "*$removeparam=utm_source,method=GET\n",
+    "description": "Guide page text."
+  },
+  "guide_0849": {
+    "message": "*$removeparam=utm_source,method=~POST\n",
+    "description": "Guide page text."
+  },
+  "guide_0850": {
+    "message": "*$removeparam=utm_source,method=GET|HEAD\n",
+    "description": "Guide page text."
+  },
+  "guide_0851": {
+    "message": "GET\nHEAD\nOPTIONS\nPOST\nPUT\nPATCH\nDELETE\nCONNECT\n",
+    "description": "Guide page text."
+  },
+  "guide_0852": {
+    "message": "Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.\nFast simple query cleanup also uses those simple methods.\n",
+    "description": "Guide page text."
+  },
+  "guide_0853": {
+    "message": "document\ndoc\nsubdocument\nframe\nscript\nstylesheet\nimage\nmedia\nfont\nobject\nxmlhttprequest\nxhr\nwebsocket\nping\nother\n",
+    "description": "Guide page text."
+  },
+  "guide_0854": {
+    "message": "*$removeparam=utm_source,script\n*$removeparam=utm_source,image\n*$removeparam=utm_source,xmlhttprequest\n",
+    "description": "Guide page text."
+  },
+  "guide_0855": {
+    "message": "*$removeparam=utm_source,~image\n",
+    "description": "Guide page text."
+  },
+  "guide_0856": {
+    "message": "document       -> main_frame\ndoc            -> main_frame\nsubdocument    -> sub_frame\nframe          -> sub_frame\nxhr            -> xmlhttprequest\n",
+    "description": "Guide page text."
+  },
+  "guide_0857": {
+    "message": "*$removeparam=utm_source,first-party\n",
+    "description": "Guide page text."
+  },
+  "guide_0858": {
+    "message": "1p\n~third-party\n~3p\n",
+    "description": "Guide page text."
+  },
+  "guide_0859": {
+    "message": "*$removeparam=utm_source,third-party\n",
+    "description": "Guide page text."
+  },
+  "guide_0860": {
+    "message": "3p\n~first-party\n~1p\n",
+    "description": "Guide page text."
+  },
+  "guide_0861": {
+    "message": "*$removeparam=utm_source,strict-first-party\n*$removeparam=utm_source,strict1p\n",
+    "description": "Guide page text."
+  },
+  "guide_0862": {
+    "message": "*$removeparam=utm_source,strict-third-party\n*$removeparam=utm_source,strict3p\n",
+    "description": "Guide page text."
+  },
+  "guide_0863": {
+    "message": "*$removeparam=utm_source,first-party,third-party\n",
+    "description": "Guide page text."
+  },
+  "guide_0864": {
+    "message": "*$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0865": {
+    "message": "utm_source\nUTM_SOURCE\nUtm_Source\n",
+    "description": "Guide page text."
+  },
+  "guide_0866": {
+    "message": "*$removeparam=utm_source,match-case\n",
+    "description": "Guide page text."
+  },
+  "guide_0867": {
+    "message": "utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0868": {
+    "message": "UTM_SOURCE\n",
+    "description": "Guide page text."
+  },
+  "guide_0869": {
+    "message": "*$removeparam=utm_source,app=com.example.browser\n",
+    "description": "Guide page text."
+  },
+  "guide_0870": {
+    "message": "*$removeparam=utm_source,app=~com.example.browser\n",
+    "description": "Guide page text."
+  },
+  "guide_0871": {
+    "message": "*$removeparam=utm_source,app=com.example.*\n",
+    "description": "Guide page text."
+  },
+  "guide_0872": {
+    "message": "*$removeparam=utm_source,app=/example/i\n",
+    "description": "Guide page text."
+  },
+  "guide_0873": {
+    "message": "_\nnoop\nstealth\ncookie\n",
+    "description": "Guide page text."
+  },
+  "guide_0874": {
+    "message": "*$removeparam=utm_source,noop\n",
+    "description": "Guide page text."
+  },
+  "guide_0875": {
+    "message": "*$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0876": {
+    "message": "*$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0877": {
+    "message": "*$removeparam=/^utm_/\n",
+    "description": "Guide page text."
+  },
+  "guide_0878": {
+    "message": "name=value\n",
+    "description": "Guide page text."
+  },
+  "guide_0879": {
+    "message": "URL:\nhttps://example.com/?utm_source=news&id=1\n\nRegex sees:\nutm_source=news\nid=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0880": {
+    "message": "*$removeparam=|utm_\n",
+    "description": "Guide page text."
+  },
+  "guide_0881": {
+    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0882": {
+    "message": "https://example.com/#utm_source=x&id=1\n",
+    "description": "Guide page text."
+  },
+  "guide_0883": {
+    "message": "||example.com^$script\n",
+    "description": "Guide page text."
+  },
+  "guide_0884": {
+    "message": "No $removeparam or $queryprune.\n",
+    "description": "Guide page text."
+  },
+  "guide_0885": {
+    "message": "*$removeparam=utm_source,unknownmodifier\n",
+    "description": "Guide page text."
+  },
+  "guide_0886": {
+    "message": "Unsupported modifier.\n",
+    "description": "Guide page text."
+  },
+  "guide_0887": {
+    "message": "*$removeparam=utm_source\n*$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0888": {
+    "message": "! Linkumori URL filter interoperability example\n\n*$removeparam=/^utm_/\n*$removeparam=fbclid\n*$removeparam=gclid\n\n||example.com^$removeparam=ref\n@@||example.com/login^$removeparam=ref\n\n*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET\n\n||tracker.example^$removeparam=target,third-party\n||tracker.example^$removeparam=target,badfilter\n",
+    "description": "Guide page text."
+  },
+  "guide_0889": {
+    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"*$removeparam=/^utm_/\",\n      \"*$removeparam=fbclid\",\n      \"||example.com^$removeparam=ref\",\n      \"@@||example.com/login^$removeparam=ref\"\n    ],\n    \"urlFilterMetadata\": {\n      \"name\": \"Linkumori URL Filter Rules\",\n      \"format\": \"linkumori-url-filter-interoperability\",\n      \"status\": \"loaded\",\n      \"ruleStatus\": \"loaded\",\n      \"hashStatus\": \"not_required\"\n    }\n  }\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0890": {
+    "message": "*$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0891": {
+    "message": "*$removeparam=/^utm_/\n",
+    "description": "Guide page text."
+  },
+  "guide_0892": {
+    "message": "*$removeparam=~id\n",
+    "description": "Guide page text."
+  },
+  "guide_0893": {
+    "message": "||example.com^$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0894": {
+    "message": "@@||example.com^$removeparam=utm_source\n",
+    "description": "Guide page text."
+  },
+  "guide_0895": {
+    "message": "*$removeparam=utm_source,method=GET\n",
+    "description": "Guide page text."
+  },
+  "guide_0896": {
+    "message": "*$removeparam=utm_source,xmlhttprequest\n",
+    "description": "Guide page text."
+  },
+  "guide_0897": {
+    "message": "*$removeparam=utm_source,to=example.com\n",
+    "description": "Guide page text."
+  },
+  "guide_0898": {
+    "message": "*$removeparam=utm_source,domain=example.com\n",
+    "description": "Guide page text."
+  },
+  "guide_0899": {
+    "message": "*$removeparam=utm_source,third-party\n",
+    "description": "Guide page text."
+  },
+  "guide_0900": {
+    "message": "*$removeparam=utm_source,match-case\n",
+    "description": "Guide page text."
+  },
+  "faq_final_runtime_clearurls_title": {
+    "message": "Toegewijde clearurls.js runtime-syntaxis",
+    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
+  },
+  "faq_final_runtime_interoperability_title": {
+    "message": "Interoperabiliteit URL-filter runtime-syntaxis",
+    "description": "FAQ label for the interoperability runtime syntax example"
+  },
+  "faq_final_runtime_open_page": {
+    "message": "Open runtime-syntaxisreferentie",
+    "description": "FAQ link text that opens the dedicated runtime syntax page"
+  },
+  "faq_final_runtime_syntax": {
+    "message": "Wat is de uiteindelijke runtime-syntaxis?",
+    "description": "FAQ question for final supported runtime syntax formats"
+  },
+  "faq_final_runtime_syntax_answer": {
+    "message": "Linkumori ondersteunt twee laatste runtime-formaten. Gebruik eerst de speciale providersyntaxis clearurls.js voor native veld-, raw-, omleidings-, herschrijf-, uitzonderings- en providergericht gedrag. Gebruik het interoperabiliteitsformaat bij het importeren van $removeparam-regels met URL-filterstijl.",
+    "description": "FAQ answer explaining the two final runtime syntax formats"
+  },
+  "faq_final_runtime_syntax_note": {
+    "message": "Beide formaten kunnen samen worden geladen, maar de speciale syntaxis van de provider is het primaire native formaat. Het interoperabiliteitsformaat bestaat voor compatibiliteit met filterlijsten.",
+    "description": "FAQ note for final runtime syntax formats"
+  },
+  "providerImport_allProviders": {
+    "message": "Alle aanbieders",
+    "description": "Filter label for showing rule activations from every provider"
+  },
+  "providerImport_disableByPattern": {
+    "message": "Volgens URL/domeinpatroon",
+    "description": "Tab label for disabling rules by urlPattern or domainPattern activation"
+  },
+  "providerImport_disableByProvider": {
+    "message": "Per aanbieder",
+    "description": "Tab label for disabling rules by legacy provider::rule identity"
+  },
+  "providerImport_noProviderRuleActivations": {
+    "message": "Geen actieve regelactivaties voor deze provider.",
+    "description": "Empty state when a provider filter has no active rule toggles"
+  },
+  "providerImport_providerRuleNav": {
+    "message": "Regelnavigatie van provider",
+    "description": "Accessible label for provider filter navigation on the disabled rules page"
+  },
+  "runtimeSyntax_clearURLsDescription": {
+    "message": "Dit is de native runtime die wordt verbruikt door clearurls.js. Deze moet eerst worden gebruikt voor aangepaste providers, omdat deze canonieke regelobjecten, veldregels, onbewerkte URL-regels, omleidingen, herschrijvingen, uitzonderingen, verzoektypen, aliassen en op patronen gebaseerde uitschakelidentiteiten ondersteunt.",
+    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
+  },
+  "runtimeSyntax_clearURLsTitle": {
+    "message": "Toegewijde runtime van clearurls.js",
+    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
+  },
+  "runtimeSyntax_disableDescription": {
+    "message": "Op patronen gerichte identiteiten zijn stabiel bij wijzigingen in de providernaam. Op de provider gerichte identiteiten blijven beschikbaar voor algemeen verouderd uitschakelgedrag.",
+    "description": "Runtime syntax page description for disable identity examples"
+  },
+  "runtimeSyntax_disableTitle": {
+    "message": "Schakel identiteitsformaten uit",
+    "description": "Runtime syntax page section title for disable identity formats"
+  },
+  "runtimeSyntax_interoperabilityDescription": {
+    "message": "Deze runtime is bedoeld voor interoperabiliteit van URL-filters. Het bewaart filterlijststijl $removeparam en @@ uitzonderingsregels in een compacte regelsarray voor compatibiliteit met import en externe lijsten.",
+    "description": "Runtime syntax page description for interoperability runtime syntax"
+  },
+  "runtimeSyntax_interoperabilityTitle": {
+    "message": "Runtime van de interoperabiliteitsregel",
+    "description": "Runtime syntax page section title for interoperability runtime syntax"
+  },
+  "runtimeSyntax_intro": {
+    "message": "De native clearurls.js-providerruntime is het eersteklas formaat. De interoperabiliteitsruntime zit ernaast voor filterlijstregels die hun oorspronkelijke $removeparam-vorm moeten behouden.",
+    "description": "Runtime syntax page intro text"
+  },
+  "runtimeSyntax_kicker": {
+    "message": "Runtime-referentie",
+    "description": "Runtime syntax page eyebrow text"
+  },
+  "runtimeSyntax_navClearURLs": {
+    "message": "Toegewijde looptijd",
+    "description": "Runtime syntax page navigation link for dedicated runtime section"
+  },
+  "runtimeSyntax_navDisableIds": {
+    "message": "Schakel ID's uit",
+    "description": "Runtime syntax page navigation link for disable identity section"
+  },
+  "runtimeSyntax_navInteroperability": {
+    "message": "Interoperabiliteit runtime",
+    "description": "Runtime syntax page navigation link for interoperability section"
+  },
+  "runtimeSyntax_pageTitle": {
+    "message": "Final Runtime-syntaxis",
+    "description": "Runtime syntax page title"
   }
 }
