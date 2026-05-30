@@ -304,25 +304,36 @@ function handleGetCustomRulesStats(request) {
 
         const totalProviderCountMerged = Object.keys(mergedRules.providers || {}).length;
 
-        // The sidebar shows the active merged provider view. Merge stats also
-        // keep source/pre-normalization counts, so overload + duplicate sources
-        // can make mergeStats.totalProviders larger than the active provider map.
+        // The sidebar shows the active provider composition: built-in providers
+        // that remain after overrides, plus custom providers.
         const mergeStats = (typeof window.getData === 'function')
             ? window.getData('mergeStats') || {}
             : {};
 
-        const hasMergeCustom = typeof mergeStats.customProviders === 'number';
-        const hasMergeDisabled = typeof mergeStats.disabledProviders === 'number';
+        const getNonNegativeNumber = (value, fallback = 0) => {
+            const numberValue = Number(value);
+            return Number.isFinite(numberValue) ? Math.max(0, numberValue) : fallback;
+        };
 
-        const totalProviderCount = Math.max(0, totalProviderCountMerged);
-        const customProviderCountRaw = hasMergeCustom
-            ? Math.max(0, mergeStats.customProviders)
-            : customProviderCountStored;
-        const customProviderCount = Math.min(customProviderCountRaw, totalProviderCount);
-        const builtInProviderCount = Math.max(0, totalProviderCount - customProviderCount);
+        const runtimeProviderCount = getNonNegativeNumber(totalProviderCountMerged);
+        const customProviderCount = Object.prototype.hasOwnProperty.call(mergeStats, 'customProviders')
+            ? getNonNegativeNumber(mergeStats.customProviders)
+            : getNonNegativeNumber(customProviderCountStored);
+        const builtInProviderCount = Object.prototype.hasOwnProperty.call(mergeStats, 'filteredBundledProviders')
+            ? getNonNegativeNumber(mergeStats.filteredBundledProviders)
+            : Object.prototype.hasOwnProperty.call(mergeStats, 'bundledProviders')
+                ? getNonNegativeNumber(mergeStats.bundledProviders)
+                : Math.max(0, runtimeProviderCount - customProviderCount);
+        const sourceBuiltInProviderCount = Object.prototype.hasOwnProperty.call(mergeStats, 'bundledProviders')
+            ? getNonNegativeNumber(mergeStats.bundledProviders)
+            : Math.max(0, runtimeProviderCount - customProviderCount);
+        const sourceTotalProviderCount = Object.prototype.hasOwnProperty.call(mergeStats, 'sourceTotalProviders')
+            ? getNonNegativeNumber(mergeStats.sourceTotalProviders)
+            : sourceBuiltInProviderCount + customProviderCount;
+        const activeCompositionProviderCount = builtInProviderCount + customProviderCount;
 
-        const disabledProviderCount = hasMergeDisabled
-            ? Math.max(0, mergeStats.disabledProviders)
+        const disabledProviderCount = Object.prototype.hasOwnProperty.call(mergeStats, 'disabledProviders')
+            ? getNonNegativeNumber(mergeStats.disabledProviders)
             : 0;
         
         // Get hash status
@@ -332,9 +343,13 @@ function handleGetCustomRulesStats(request) {
         
         const stats = {
             customProviders: customProviderCount,
-            totalProviders: totalProviderCount,
+            totalProviders: activeCompositionProviderCount,
             builtInProviders: builtInProviderCount,
+            sourceBuiltInProviders: sourceBuiltInProviderCount,
+            sourceTotalProviders: sourceTotalProviderCount,
             disabledProviders: disabledProviderCount,
+            runtimeProviders: runtimeProviderCount,
+            mergedProviders: runtimeProviderCount,
             hashStatus: hashStatus,
             timestamp: Date.now()
         };

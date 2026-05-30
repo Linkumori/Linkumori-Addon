@@ -4249,11 +4249,8 @@ async function updateRulesStatus() {
         
         if (response && response.response) {
             const stats = { ...response.response };
-            if (hasRuntimeProviders) {
-                const runtimeProviderCount = Object.keys(clearURLsRuntimeData.providers || {}).length;
-                stats.totalProviders = runtimeProviderCount;
-                stats.customProviders = Math.min(Number(stats.customProviders || 0), runtimeProviderCount);
-                stats.builtInProviders = Math.max(0, runtimeProviderCount - stats.customProviders);
+            if (hasRuntimeProviders && !Number.isFinite(Number(stats.runtimeProviders))) {
+                stats.runtimeProviders = Object.keys(clearURLsRuntimeData.providers || {}).length;
             }
             
             // Use localized numbers for display

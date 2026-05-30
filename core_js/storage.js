@@ -2453,10 +2453,14 @@ function loadCustomOnlyRules() {
                 customProviders: providerCount,
                 overriddenProviders: 0,
                 totalProviders: providerCount,
+                sourceTotalProviders: providerCount,
+                runtimeProviders: providerCount,
                 overriddenProviderNames: [],
                 filteredBundledProviders: 0,
                 newCustomProviders: providerCount,
-                disabledProviders: filteredCustom.removedCount
+                disabledProviders: filteredCustom.removedCount,
+                hasCustomRules: providerCount > 0,
+                hasOverrides: false
             };
 
             storage.hashStatus = providerCount > 0 ? 'custom_only_loaded' : 'custom_only_no_rules';
@@ -2479,10 +2483,14 @@ function loadCustomOnlyRules() {
                 customProviders: 0,
                 overriddenProviders: 0,
                 totalProviders: 0,
+                sourceTotalProviders: 0,
+                runtimeProviders: 0,
                 overriddenProviderNames: [],
                 filteredBundledProviders: 0,
                 newCustomProviders: 0,
                 disabledProviders: 0,
+                hasCustomRules: false,
+                hasOverrides: false,
                 error: error.message
             };
             storage.hashStatus = 'custom_only_no_rules';
@@ -2541,27 +2549,50 @@ function mergeCustomRules(bundledRules) {
                 providers: filteredBundled.providers
             };
 
+            const addProviderWithUniqueName = (target, usedNames, providerName, providerData) => {
+                const baseName = (typeof providerName === 'string' && providerName.trim())
+                    ? providerName.trim()
+                    : 'provider';
+                let finalName = baseName;
+                let counter = 1;
+                while (usedNames.has(finalName)) {
+                    finalName = `${baseName}_${counter++}`;
+                }
+                usedNames.add(finalName);
+                target[finalName] = attachProviderActivationIds(finalName, providerData || {});
+            };
+
             if (!customRules || activeCustomProviderCount === 0) {
-                const annotatedBundledProviders = mergeRemoteProvidersByUrlPattern(
-                    Object.entries(filteredBundled.providers || {}).map(([name, data]) => ({
-                        name,
-                        data,
-                        isPrimarySource: true
-                    }))
-                );
+                const annotatedBundledProviders = {};
+                const usedNames = new Set();
+                const bundledEntries = Object.entries(filteredBundled.providers || {}).filter(([name, data]) => {
+                    const key = getProviderGroupKey(data, name);
+                    return !(typeof key === 'string' && key.startsWith('no-pattern:'));
+                });
+                bundledEntries.forEach(([name, data]) => {
+                    addProviderWithUniqueName(annotatedBundledProviders, usedNames, name, data);
+                });
                 const annotatedBundledRules = {
                     ...filteredBundledRules,
                     providers: annotatedBundledProviders
                 };
                 storage.ClearURLsData = attachUnifiedURLFilterFields(annotatedBundledRules);
+                const bundledSourceProviderCount = bundledEntries.length;
+                const runtimeProviderCount = Object.keys(annotatedBundledProviders || {}).length;
                 storage.mergeStats = {
                     source: bundledRules?.metadata?.source || 'bundled',
-                    bundledProviders: Object.keys(filteredBundled.providers || {}).length,
+                    bundledProviders: bundledSourceProviderCount,
                     customProviders: 0,
                     overriddenProviders: 0,
-                    totalProviders: Object.keys(annotatedBundledProviders || {}).length,
+                    totalProviders: runtimeProviderCount,
+                    sourceTotalProviders: bundledSourceProviderCount,
+                    runtimeProviders: runtimeProviderCount,
                     overriddenProviderNames: [],
-                    disabledProviders: totalDisabledProviders
+                    filteredBundledProviders: bundledSourceProviderCount,
+                    newCustomProviders: 0,
+                    disabledProviders: totalDisabledProviders,
+                    hasCustomRules: false,
+                    hasOverrides: false
                 };
                 
                 const ruleString = JSON.stringify(annotatedBundledRules, Object.keys(annotatedBundledRules).sort());
@@ -2590,7 +2621,7 @@ function mergeCustomRules(bundledRules) {
                     storage.hashStatus = "bundled_rules_loaded";
                 }
             } else {
-                // Build match keys while preserving all providers (including duplicate keys).
+                // Build match keys for override detection while preserving provider entries.
                 const baseProviders = filteredBundled.providers || {};
                 const baseEntries = Object.entries(baseProviders).map(([name, data]) => ({
                     name,
@@ -2598,121 +2629,32 @@ function mergeCustomRules(bundledRules) {
                     key: getProviderGroupKey(data, name)
                 })).filter(entry => !entry.key.startsWith('no-pattern:') && !disabledSignatures.has(entry.key));
 
-                const baseGroupsByKey = new Map();
-                baseEntries.forEach(entry => {
-                    if (!baseGroupsByKey.has(entry.key)) {
-                        baseGroupsByKey.set(entry.key, []);
-                    }
-                    baseGroupsByKey.get(entry.key).push({
-                        name: entry.name,
-                        data: entry.data,
-                        isPrimarySource: true
-                    });
-                });
-                
                 const customProviders = filteredCustom.providers || {};
                 const customEntries = Object.entries(customProviders).map(([name, data]) => ({
                     name,
                     data,
                     key: getProviderGroupKey(data, name)
                 })).filter(entry => !entry.key.startsWith('no-pattern:') && !disabledSignatures.has(entry.key));
-
-                const customGroupsByKey = new Map();
-                customEntries.forEach(entry => {
-                    if (!customGroupsByKey.has(entry.key)) {
-                        customGroupsByKey.set(entry.key, []);
-                    }
-                    customGroupsByKey.get(entry.key).push({
-                        name: entry.name,
-                        data: entry.data,
-                        isPrimarySource: true
-                    });
-                });
                 
                 const customKeysSet = new Set(customEntries.map(entry => entry.key));
                 const baseKeysSet = new Set(baseEntries.map(entry => entry.key));
                 const overriddenBaseEntries = baseEntries.filter(entry => customKeysSet.has(entry.key));
-                const nonOverriddenBaseKeys = Array.from(baseGroupsByKey.keys()).filter(key => !customKeysSet.has(key));
                 const overridingCustomEntries = customEntries.filter(entry => baseKeysSet.has(entry.key));
                 const overriddenProviderNames = overriddenBaseEntries.map(entry => entry.name);
+                const activeBundledProviderCount = baseEntries.length - overriddenBaseEntries.length;
 
                 const finalProviders = {};
                 const usedNames = new Set();
 
-                // Add merged base providers by key that are NOT overridden
-                for (const key of nonOverriddenBaseKeys) {
-                    const baseGroup = baseGroupsByKey.get(key) || [];
-                    if (baseGroup.length === 0) {
-                        continue;
-                    }
-                    const mergedProvider = mergeRemoteProviderGroup(baseGroup);
-                    const mergedName = createMergedRemoteProviderName(baseGroup);
-                    let finalName = mergedName;
-                    if (usedNames.has(finalName)) {
-                        const pathName = derivePathQualifiedName(baseGroup, mergedName);
-                        if (pathName && !usedNames.has(pathName)) {
-                            finalName = pathName;
-                        } else {
-                            let counter = 1;
-                            do { finalName = `${mergedName}_${counter++}`; } while (usedNames.has(finalName));
-                        }
-                    }
-                    usedNames.add(finalName);
-                    finalProviders[finalName] = mergedProvider;
-                }
-
-                // Add merged custom providers by key (they replace any with same key)
-                for (const customGroup of customGroupsByKey.values()) {
-                    const mergedProvider = mergeRemoteProviderGroup(customGroup);
-                    const mergedName = createMergedRemoteProviderName(customGroup);
-                    let finalName = mergedName;
-                    if (usedNames.has(finalName)) {
-                        const pathName = derivePathQualifiedName(customGroup, mergedName);
-                        if (pathName && !usedNames.has(pathName)) {
-                            finalName = pathName;
-                        } else {
-                            let counter = 1;
-                            do { finalName = `${mergedName}_${counter++}`; } while (usedNames.has(finalName));
-                        }
-                    }
-                    usedNames.add(finalName);
-                    finalProviders[finalName] = mergedProvider;
-                }
-
-                // Remove duplicate domain patterns across providers while keeping providers separate.
-                const claimedDomainPatterns = new Set();
-                Object.keys(finalProviders).forEach(providerName => {
-                    const provider = finalProviders[providerName];
-                    if (!provider || typeof provider !== 'object') {
+                baseEntries.forEach(entry => {
+                    if (customKeysSet.has(entry.key)) {
                         return;
                     }
+                    addProviderWithUniqueName(finalProviders, usedNames, entry.name, entry.data);
+                });
 
-                    const hasUrlPattern = typeof provider.urlPattern === 'string' && provider.urlPattern.trim() !== '';
-                    const domainPatterns = Array.isArray(provider.domainPatterns)
-                        ? provider.domainPatterns.filter(pattern => typeof pattern === 'string' && pattern.trim() !== '')
-                        : [];
-
-                    if (domainPatterns.length > 0) {
-                        const uniqueForProvider = [];
-                        domainPatterns.forEach(pattern => {
-                            const normalized = pattern.trim();
-                            if (!claimedDomainPatterns.has(normalized)) {
-                                claimedDomainPatterns.add(normalized);
-                                uniqueForProvider.push(normalized);
-                            }
-                        });
-
-                        if (uniqueForProvider.length > 0) {
-                            provider.domainPatterns = uniqueForProvider;
-                        } else {
-                            delete provider.domainPatterns;
-                        }
-                    }
-
-                    const hasDomainPatterns = Array.isArray(provider.domainPatterns) && provider.domainPatterns.length > 0;
-                    if (!hasUrlPattern && !hasDomainPatterns) {
-                        delete finalProviders[providerName];
-                    }
+                customEntries.forEach(entry => {
+                    addProviderWithUniqueName(finalProviders, usedNames, entry.name, entry.data);
                 });
                 
                 const mergedRules = {
@@ -2726,17 +2668,23 @@ function mergeCustomRules(bundledRules) {
                 // Compute stats
                 const bundledProviderNames = baseEntries.map(entry => entry.name);
                 const customProviderNames = customEntries.map(entry => entry.name);
+                const runtimeProviderCount = Object.keys(finalProviders).length;
+                const sourceTotalProviderCount = bundledProviderNames.length + customProviderNames.length;
                 
                 storage.mergeStats = {
                     source: bundledRules?.metadata?.source || 'bundled',
                     bundledProviders: bundledProviderNames.length,
                     customProviders: customProviderNames.length,
                     overriddenProviders: overriddenBaseEntries.length,
-                    totalProviders: Object.keys(finalProviders).length,
+                    totalProviders: runtimeProviderCount,
+                    sourceTotalProviders: sourceTotalProviderCount,
+                    runtimeProviders: runtimeProviderCount,
                     overriddenProviderNames: overriddenProviderNames,
-                    filteredBundledProviders: nonOverriddenBaseKeys.length,
+                    filteredBundledProviders: activeBundledProviderCount,
                     newCustomProviders: customProviderNames.length - overridingCustomEntries.length,
-                    disabledProviders: totalDisabledProviders
+                    disabledProviders: totalDisabledProviders,
+                    hasCustomRules: customProviderNames.length > 0,
+                    hasOverrides: overriddenBaseEntries.length > 0
                 };
                 
                 storage.ClearURLsData = attachUnifiedURLFilterFields(mergedRules);
@@ -2772,8 +2720,12 @@ function mergeCustomRules(bundledRules) {
                 customProviders: 0,
                 overriddenProviders: 0,
                 totalProviders: Object.keys(bundledRules.providers || {}).length,
+                sourceTotalProviders: Object.keys(bundledRules.providers || {}).length,
+                runtimeProviders: Object.keys(bundledRules.providers || {}).length,
                 overriddenProviderNames: [],
                 disabledProviders: 0,
+                hasCustomRules: false,
+                hasOverrides: false,
                 error: error.message
             };
             
