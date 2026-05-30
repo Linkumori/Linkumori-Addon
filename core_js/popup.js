@@ -1929,6 +1929,13 @@ async function openLoggerWindow() {
                 browser.tabs.create({url: browser.runtime.getURL('./html/legal.html')});
             };
         }
+
+        const guideLink = document.getElementById('license_guide_link');
+        if (guideLink) {
+            guideLink.onclick = () => {
+                browser.tabs.create({url: browser.runtime.getURL('./html/guide.html')});
+            };
+        }
         
         
         // Hydrate stored state without blocking first render.
@@ -2078,6 +2085,13 @@ function setText() {
             }
         }
         injectText('legalLink', 'popup_consent_legal_button');
+        injectText('license_guide_link', 'popup_html_guide_link');
+        const guideLink = document.getElementById('license_guide_link');
+        if (guideLink) {
+            const guideTitle = getLocalizedText('popup_html_guide_link_title', 'Open Linkumori provider JSON and interoperability guide');
+            guideLink.setAttribute('title', guideTitle);
+            guideLink.setAttribute('aria-label', guideTitle);
+        }
         injectText('license_lgpl_link', 'popup_html_lgpl_link');
         injectText('license_source_repo_link', 'popup_html_source_code_repository');
         injectText('license_source_repo_link_direct', 'popup_html_source_code_releases');
@@ -2262,6 +2276,8 @@ function getFallbackText(attribute, id) {
         'popup_html_firefox_signature_unavailable': 'Unavailable since it is unsigned',
         'popup_html_gpl_link': 'GNU General Public License v3.0',
         'popup_html_lgpl_link': 'GNU General Lesser Public License v3.0',
+        'popup_html_guide_link': 'Provider JSON Guide',
+        'popup_html_guide_link_title': 'Open Linkumori provider JSON and interoperability guide',
         'popup_html_source_code_repository': 'Source Code Repository',
         'popup_html_source_code_releases': 'Source Code Releases',
         'popup_html_report_issues': 'Report Issues',
