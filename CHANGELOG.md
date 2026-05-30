@@ -16,6 +16,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.19.0] - 2026-05-30 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.18.0...linkumori-v100.19.0))
+### Added
+- Introduce proper syntax docs (`2026-05-29`, hash: [`e28fd72`](https://github.com/Linkumori/Linkumori-Addon/commit/e28fd72))
+
+### Changed
+- Add guide (`2026-05-29`, hash: [`d36c1a4`](https://github.com/Linkumori/Linkumori-Addon/commit/d36c1a4))
+- Add guidebook completly fully (`2026-05-30`, hash: [`303caa1`](https://github.com/Linkumori/Linkumori-Addon/commit/303caa1))
+- Downloaded latest public suffix list from upstream (`2026-05-30`, hash: [`14a8a64`](https://github.com/Linkumori/Linkumori-Addon/commit/14a8a64))
+- Generated compressed URL cleaning rules bundle (`2026-05-30`, hash: [`14a8a64`](https://github.com/Linkumori/Linkumori-Addon/commit/14a8a64))
+- Remove file we replaced with html (`2026-05-29`, hash: [`7ffd77f`](https://github.com/Linkumori/Linkumori-Addon/commit/7ffd77f))
+- Update translations and update guide.html and guide.js (`2026-05-30`, hash: [`4587cd7`](https://github.com/Linkumori/Linkumori-Addon/commit/4587cd7))
+
 ## [v100.18.0] - 2026-05-28 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.17.1...linkumori-v100.18.0))
 ### Changed
 - Adopted more syntax removeparam for clearurls.js (`2026-05-28`, hash: [`19278cc`](https://github.com/Linkumori/Linkumori-Addon/commit/19278cc))
