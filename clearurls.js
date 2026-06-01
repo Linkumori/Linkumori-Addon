@@ -1090,6 +1090,96 @@ function splitLinkumoriModifiers(modifiersText) {
     return parts;
 }
 
+function splitLinkumoriDelimitedValues(rawValue) {
+    return String(rawValue || '')
+        .split('|')
+        .map(value => value.trim())
+        .filter(Boolean);
+}
+
+function parseLinkumoriRegexLiteral(value, defaultFlags = 'i') {
+    const text = String(value || '').trim();
+    const match = text.match(/^\/(.+)\/([gimsuy]*)$/i);
+    if (!match) return null;
+
+    try {
+        return new RegExp(match[1], match[2] || defaultFlags);
+    } catch (e) {
+        return null;
+    }
+}
+
+const LINKUMORI_REMOVE_PARAM_CONTENT_TYPES = Object.freeze({
+    document: ["main_frame"],
+    doc: ["main_frame"],
+    subdocument: ["sub_frame"],
+    frame: ["sub_frame"],
+    iframe: ["sub_frame"],
+    script: ["script"],
+    stylesheet: ["stylesheet"],
+    image: ["image"],
+    imageset: ["imageset"],
+    media: ["media"],
+    object: ["object"],
+    other: ["other"],
+    ping: ["ping"],
+    websocket: ["websocket"],
+    xmlhttprequest: ["xmlhttprequest"],
+    xhr: ["xmlhttprequest"],
+    font: ["font"],
+    popup: ["main_frame"]
+});
+
+function addLinkumoriRemoveParamRequestTypes(token, parsed) {
+    const rawToken = String(token || '').trim();
+    if (!rawToken) return false;
+
+    const negated = rawToken.startsWith('~');
+    const normalized = (negated ? rawToken.slice(1) : rawToken).trim().toLowerCase();
+    const requestTypes = LINKUMORI_REMOVE_PARAM_CONTENT_TYPES[normalized];
+    if (!requestTypes) return false;
+
+    const target = negated ? parsed.excludeRequestTypes : parsed.requestTypes;
+    requestTypes.forEach((requestType) => {
+        if (!target.includes(requestType)) {
+            target.push(requestType);
+        }
+    });
+
+    return true;
+}
+
+function addLinkumoriHostnameValues(rawValue, includes, excludes, includeRegexes, excludeRegexes) {
+    splitLinkumoriDelimitedValues(rawValue).forEach((part) => {
+        const raw = String(part || '').trim();
+        if (!raw) return;
+
+        const negated = raw.startsWith('~');
+        const value = negated ? raw.slice(1).trim() : raw;
+        const regex = parseLinkumoriRegexLiteral(value);
+
+        if (regex) {
+            (negated ? excludeRegexes : includeRegexes).push(regex);
+            return;
+        }
+
+        (negated ? excludes : includes).push(value.toLowerCase());
+    });
+}
+
+function withoutLinkumoriBadfilterModifier(rawRule) {
+    const rule = String(rawRule || '').trim();
+    const candidate = rule.startsWith('@@') ? rule.slice(2) : rule;
+    const modifierStart = candidate.indexOf('$');
+    if (modifierStart === -1) return rule;
+
+    const rulePrefix = rule.slice(0, rule.length - candidate.length + modifierStart + 1);
+    const modifiers = splitLinkumoriModifiers(candidate.slice(modifierStart + 1))
+        .filter(token => String(token || '').trim().toLowerCase() !== 'badfilter');
+
+    return rulePrefix + modifiers.join(',');
+}
+
 function parseLinkumoriRemoveParamRule(ruleText) {
     const rawRule = String(ruleText || '').trim();
     if (!rawRule) return null;
@@ -1112,25 +1202,80 @@ function parseLinkumoriRemoveParamRule(ruleText) {
     const modifiers = splitLinkumoriModifiers(modifiersPart);
     let removeParamToken = null;
     let domainToken = null;
+    let targetToken = null;
+    let denyallowToken = null;
     let methodToken = null;
+    let appToken = null;
+    let unsupportedModifier = null;
+    const noopModifiers = new Set(['_', 'noop', 'stealth', 'cookie']);
 
     for (const token of modifiers) {
+        if (unsupportedModifier) break;
         const normalized = token.toLowerCase();
-        if (normalized === 'removeparam' || normalized.startsWith('removeparam=')) {
+        if (
+            normalized === 'removeparam' ||
+            normalized.startsWith('removeparam=') ||
+            normalized === 'queryprune' ||
+            normalized.startsWith('queryprune=')
+        ) {
             removeParamToken = token;
             continue;
         }
-        if (normalized.startsWith('domain=')) {
+        if (noopModifiers.has(normalized)) {
+            continue;
+        }
+        if (normalized === 'badfilter') continue;
+        if (normalized === 'important') {
+            if (isException) unsupportedModifier = token;
+            continue;
+        }
+        if (normalized === 'match-case') {
+            continue;
+        }
+        if (
+            normalized === 'first-party' ||
+            normalized === '1p' ||
+            normalized === '~third-party' ||
+            normalized === '~3p' ||
+            normalized === 'third-party' ||
+            normalized === '3p' ||
+            normalized === '~first-party' ||
+            normalized === '~1p' ||
+            normalized === 'strict-first-party' ||
+            normalized === 'strict1p' ||
+            normalized === 'strict-third-party' ||
+            normalized === 'strict3p'
+        ) {
+            continue;
+        }
+        if (normalized.startsWith('domain=') || normalized.startsWith('from=')) {
             domainToken = token.slice(token.indexOf('=') + 1);
+            continue;
+        }
+        if (normalized.startsWith('to=')) {
+            targetToken = token.slice(token.indexOf('=') + 1);
+            continue;
+        }
+        if (normalized.startsWith('denyallow=')) {
+            denyallowToken = token.slice(token.indexOf('=') + 1);
             continue;
         }
         if (normalized.startsWith('method=')) {
             methodToken = token.slice(token.indexOf('=') + 1);
             continue;
         }
+        if (normalized.startsWith('app=')) {
+            appToken = token.slice(token.indexOf('=') + 1);
+            continue;
+        }
+        if (addLinkumoriRemoveParamRequestTypes(token, { requestTypes: [], excludeRequestTypes: [] })) {
+            continue;
+        }
+        unsupportedModifier = token;
     }
 
     if (!removeParamToken) return null;
+    if (unsupportedModifier) return null;
 
     const parsed = {
         raw: rawRule,
@@ -1142,15 +1287,41 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         regexParam: null,
         includeDomains: [],
         excludeDomains: [],
+        includeDomainRegexes: [],
+        excludeDomainRegexes: [],
+        includeTargetDomains: [],
+        excludeTargetDomains: [],
+        includeTargetDomainRegexes: [],
+        excludeTargetDomainRegexes: [],
+        denyallowDomains: [],
+        denyallowDomainRegexes: [],
         includeMethods: [],
         excludeMethods: [],
+        includeApps: [],
+        excludeApps: [],
+        includeAppRegexes: [],
+        excludeAppRegexes: [],
+        firstPartyOnly: false,
+        thirdPartyOnly: false,
+        strictFirstPartyOnly: false,
+        strictThirdPartyOnly: false,
+        matchCase: modifiers.some(token => String(token || '').toLowerCase() === 'match-case'),
+        important: modifiers.some(token => String(token || '').toLowerCase() === 'important'),
+        isBadfilter: modifiers.some(token => String(token || '').toLowerCase() === 'badfilter'),
+        badfilterTarget: null,
         id: null,
         aliases: [],
         activationIds: [],
         requestTypes: [],
+        excludeRequestTypes: [],
         replacePattern: null,
         preprocessors: []
     };
+    parsed.badfilterTarget = parsed.isBadfilter ? withoutLinkumoriBadfilterModifier(rawRule) : null;
+
+    for (const token of modifiers) {
+        addLinkumoriRemoveParamRequestTypes(token, parsed);
+    }
 
     const removeValue = removeParamToken.indexOf('=') === -1
         ? ''
@@ -1165,33 +1336,46 @@ function parseLinkumoriRemoveParamRule(ruleText) {
             value = value.slice(1).trim();
         }
 
-        const regexMatch = value.match(/^\/(.+)\/([gimsuy]*)$/i);
-        if (regexMatch) {
-            try {
-                parsed.regexParam = new RegExp(regexMatch[1], regexMatch[2] || 'i');
-            } catch (e) {
-                parsed.regexParam = null;
-            }
+        const regex = parseLinkumoriRegexLiteral(value, parsed.matchCase ? '' : 'i');
+        if (regex) {
+            parsed.regexParam = regex;
         } else {
-            parsed.literalParam = value.toLowerCase();
+            parsed.literalParam = parsed.matchCase ? value : value.toLowerCase();
         }
     }
 
     if (domainToken) {
-        domainToken.split('|').forEach((part) => {
-            const value = String(part || '').trim();
-            if (!value) return;
+        addLinkumoriHostnameValues(
+            domainToken,
+            parsed.includeDomains,
+            parsed.excludeDomains,
+            parsed.includeDomainRegexes,
+            parsed.excludeDomainRegexes
+        );
+    }
 
-            if (value.startsWith('~')) {
-                parsed.excludeDomains.push(value.slice(1).trim().toLowerCase());
-            } else {
-                parsed.includeDomains.push(value.toLowerCase());
-            }
-        });
+    if (targetToken) {
+        addLinkumoriHostnameValues(
+            targetToken,
+            parsed.includeTargetDomains,
+            parsed.excludeTargetDomains,
+            parsed.includeTargetDomainRegexes,
+            parsed.excludeTargetDomainRegexes
+        );
+    }
+
+    if (denyallowToken) {
+        addLinkumoriHostnameValues(
+            denyallowToken,
+            parsed.denyallowDomains,
+            [],
+            parsed.denyallowDomainRegexes,
+            []
+        );
     }
 
     if (methodToken) {
-        methodToken.split('|').forEach((part) => {
+        splitLinkumoriDelimitedValues(methodToken).forEach((part) => {
             const value = String(part || '').trim().toUpperCase();
             if (!value) return;
 
@@ -1201,6 +1385,48 @@ function parseLinkumoriRemoveParamRule(ruleText) {
                 parsed.includeMethods.push(value);
             }
         });
+    }
+
+    if (appToken) {
+        addLinkumoriHostnameValues(
+            appToken,
+            parsed.includeApps,
+            parsed.excludeApps,
+            parsed.includeAppRegexes,
+            parsed.excludeAppRegexes
+        );
+    }
+
+    modifiers.forEach((token) => {
+        const normalized = String(token || '').toLowerCase();
+        if (
+            normalized === 'third-party' ||
+            normalized === '3p' ||
+            normalized === '~first-party' ||
+            normalized === '~1p'
+        ) {
+            parsed.thirdPartyOnly = true;
+        } else if (
+            normalized === 'first-party' ||
+            normalized === '1p' ||
+            normalized === '~third-party' ||
+            normalized === '~3p'
+        ) {
+            parsed.firstPartyOnly = true;
+        } else if (normalized === 'strict-third-party' || normalized === 'strict3p') {
+            parsed.strictThirdPartyOnly = true;
+        } else if (normalized === 'strict-first-party' || normalized === 'strict1p') {
+            parsed.strictFirstPartyOnly = true;
+        }
+    });
+
+    if (
+        (parsed.firstPartyOnly && parsed.thirdPartyOnly) ||
+        (parsed.strictFirstPartyOnly && parsed.strictThirdPartyOnly) ||
+        (parsed.strictFirstPartyOnly && parsed.thirdPartyOnly) ||
+        (parsed.strictThirdPartyOnly && parsed.firstPartyOnly)
+    ) {
+        return null;
     }
 
     return parsed;
@@ -1238,10 +1464,163 @@ function linkumoriRemoveParamMatchesRequestType(linkumoriRule, request = null) {
     const requestTypes = Array.isArray(linkumoriRule?.requestTypes)
         ? linkumoriRule.requestTypes
         : [];
-    if (requestTypes.length === 0) return true;
+    const excludeRequestTypes = Array.isArray(linkumoriRule?.excludeRequestTypes)
+        ? linkumoriRule.excludeRequestTypes
+        : [];
+    if (requestTypes.length === 0 && excludeRequestTypes.length === 0) return true;
 
     const requestType = String(request && request.type || "").toLowerCase();
-    return !!requestType && requestTypes.indexOf(requestType) !== -1;
+    if (!requestType) return false;
+    if (excludeRequestTypes.indexOf(requestType) !== -1) return false;
+
+    return requestTypes.length === 0 || requestTypes.indexOf(requestType) !== -1;
+}
+
+function getLinkumoriURLHostname(url) {
+    try {
+        return normalizeAsciiHostname(new URL(url).hostname) || '';
+    } catch (e) {
+        return '';
+    }
+}
+
+function linkumoriHostnameMatchesRegexes(hostname, regexes) {
+    if (!hostname || !Array.isArray(regexes) || regexes.length === 0) return false;
+    return regexes.some((regex) => {
+        try {
+            regex.lastIndex = 0;
+            return regex.test(hostname);
+        } catch (e) {
+            return false;
+        }
+    });
+}
+
+function getLinkumoriRequestContextHosts(request, fallbackHost = '') {
+    const contextHosts = request
+        ? requestContextManager.collectContextURLs(request).map(getLinkumoriURLHostname).filter(Boolean)
+        : [];
+    return contextHosts.length > 0 ? contextHosts : (fallbackHost ? [fallbackHost] : []);
+}
+
+function getLinkumoriDocumentHost(request) {
+    const contextHosts = getLinkumoriRequestContextHosts(request);
+    return contextHosts.length > 0 ? contextHosts[0] : '';
+}
+
+function getLinkumoriRegistrableDomain(hostname) {
+    const parsed = parseHostnameWithPsl(hostname);
+    return (parsed && parsed.domain) ? parsed.domain : hostname;
+}
+
+function linkumoriRemoveParamMatchesParty(linkumoriRule, targetHost, request = null) {
+    if (
+        !linkumoriRule.firstPartyOnly &&
+        !linkumoriRule.thirdPartyOnly &&
+        !linkumoriRule.strictFirstPartyOnly &&
+        !linkumoriRule.strictThirdPartyOnly
+    ) {
+        return true;
+    }
+
+    if (!targetHost) return false;
+
+    const documentHost = getLinkumoriDocumentHost(request);
+    if (!documentHost) {
+        return !linkumoriRule.thirdPartyOnly && !linkumoriRule.strictThirdPartyOnly;
+    }
+
+    const sameHost = documentHost === targetHost;
+    const sameSite = getLinkumoriRegistrableDomain(documentHost) === getLinkumoriRegistrableDomain(targetHost);
+
+    if (linkumoriRule.strictFirstPartyOnly && !sameHost) return false;
+    if (linkumoriRule.strictThirdPartyOnly && sameHost) return false;
+    if (linkumoriRule.firstPartyOnly && !sameSite) return false;
+    if (linkumoriRule.thirdPartyOnly && sameSite) return false;
+
+    return true;
+}
+
+function linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, targetHost) {
+    if (!targetHost) return false;
+
+    if (
+        Array.isArray(linkumoriRule.includeTargetDomains) &&
+        linkumoriRule.includeTargetDomains.length > 0 &&
+        !linkumoriRule.includeTargetDomains.some(pattern => matchWhitelistHostnamePattern(targetHost, pattern))
+    ) {
+        return false;
+    }
+
+    if (
+        Array.isArray(linkumoriRule.includeTargetDomainRegexes) &&
+        linkumoriRule.includeTargetDomainRegexes.length > 0 &&
+        !linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.includeTargetDomainRegexes)
+    ) {
+        return false;
+    }
+
+    if (
+        Array.isArray(linkumoriRule.excludeTargetDomains) &&
+        linkumoriRule.excludeTargetDomains.some(pattern => matchWhitelistHostnamePattern(targetHost, pattern))
+    ) {
+        return false;
+    }
+
+    if (linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.excludeTargetDomainRegexes)) {
+        return false;
+    }
+
+    if (
+        Array.isArray(linkumoriRule.denyallowDomains) &&
+        linkumoriRule.denyallowDomains.some(pattern => matchWhitelistHostnamePattern(targetHost, pattern))
+    ) {
+        return false;
+    }
+
+    if (linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.denyallowDomainRegexes)) {
+        return false;
+    }
+
+    return true;
+}
+
+function linkumoriRemoveParamMatchesApp(linkumoriRule, request = null) {
+    const appName = String(
+        (request && (request.appName || request.app)) ||
+        ''
+    ).toLowerCase();
+
+    if (!appName) {
+        return (
+            linkumoriRule.includeApps.length === 0 &&
+            linkumoriRule.includeAppRegexes.length === 0
+        );
+    }
+
+    if (
+        linkumoriRule.includeApps.length > 0 &&
+        !linkumoriRule.includeApps.some(pattern => matchWhitelistHostnamePattern(appName, pattern))
+    ) {
+        return false;
+    }
+
+    if (
+        linkumoriRule.includeAppRegexes.length > 0 &&
+        !linkumoriHostnameMatchesRegexes(appName, linkumoriRule.includeAppRegexes)
+    ) {
+        return false;
+    }
+
+    if (linkumoriRule.excludeApps.some(pattern => matchWhitelistHostnamePattern(appName, pattern))) {
+        return false;
+    }
+
+    if (linkumoriHostnameMatchesRegexes(appName, linkumoriRule.excludeAppRegexes)) {
+        return false;
+    }
+
+    return true;
 }
 
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null) {
@@ -1267,28 +1646,43 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null)
         }
     }
 
-    let urlHost = '';
-    try {
-        urlHost = normalizeAsciiHostname(new URL(fullUrl).hostname) || '';
-    } catch (e) {
+    let urlHost = getLinkumoriURLHostname(fullUrl);
+    if (!urlHost) {
         return false;
     }
+    const contextHosts = getLinkumoriRequestContextHosts(request, urlHost);
+
+    if (!linkumoriRemoveParamMatchesParty(linkumoriRule, urlHost, request)) return false;
+    if (!linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, urlHost)) return false;
+    if (!linkumoriRemoveParamMatchesApp(linkumoriRule, request)) return false;
 
     if (linkumoriRule.includeDomains.length > 0) {
         // For @@ exception rules, domain= matches the INITIATING PAGE, not the
         // request destination. @@$removeparam=ei,domain=gemini.google.com means
         // "when the page is gemini.google.com don't remove ei from any request".
-        const _dh = (linkumoriRule.isException && request)
-            ? (() => { const h = requestContextManager.collectContextURLs(request).map(u => { try { return normalizeAsciiHostname(new URL(u).hostname)||''; } catch(e){ return ''; } }).filter(Boolean); return h.length ? h : [urlHost]; })()
-            : [urlHost];
+        const _dh = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
         if (!linkumoriRule.includeDomains.some(p => _dh.some(h => matchWhitelistHostnamePattern(h, p)))) return false;
     }
 
+    if (
+        Array.isArray(linkumoriRule.includeDomainRegexes) &&
+        linkumoriRule.includeDomainRegexes.length > 0
+    ) {
+        const _dh = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
+        if (!_dh.some(h => linkumoriHostnameMatchesRegexes(h, linkumoriRule.includeDomainRegexes))) return false;
+    }
+
     if (linkumoriRule.excludeDomains.length > 0) {
-        const _dh2 = (linkumoriRule.isException && request)
-            ? (() => { const h = requestContextManager.collectContextURLs(request).map(u => { try { return normalizeAsciiHostname(new URL(u).hostname)||''; } catch(e){ return ''; } }).filter(Boolean); return h.length ? h : [urlHost]; })()
-            : [urlHost];
+        const _dh2 = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
         if (linkumoriRule.excludeDomains.some(p => _dh2.some(h => matchWhitelistHostnamePattern(h, p)))) return false;
+    }
+
+    if (
+        Array.isArray(linkumoriRule.excludeDomainRegexes) &&
+        linkumoriRule.excludeDomainRegexes.length > 0
+    ) {
+        const _dh2 = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
+        if (_dh2.some(h => linkumoriHostnameMatchesRegexes(h, linkumoriRule.excludeDomainRegexes))) return false;
     }
 
     if (linkumoriRule.includeMethods.length > 0) {
@@ -1312,7 +1706,9 @@ function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName) {
     if (!linkumoriRule || !fieldName) return false;
     if (linkumoriRule.removeAll) return true;
 
-    const paramName = String(fieldName).toLowerCase();
+    const paramName = linkumoriRule.matchCase
+        ? String(fieldName)
+        : String(fieldName).toLowerCase();
     let matched = false;
 
     if (linkumoriRule.regexParam) {
@@ -2615,6 +3011,20 @@ function start() {
         this.addRule = function (rule, isActive = true, defaults = null) {
             const parsedLinkumoriRule = parseLinkumoriRemoveParamRuleDefinition(rule);
             if (parsedLinkumoriRule) {
+                if (parsedLinkumoriRule.isBadfilter) {
+                    const target = parsedLinkumoriRule.badfilterTarget;
+                    for (let i = linkumoriRemoveParamRules.length - 1; i >= 0; i--) {
+                        if (linkumoriRemoveParamRules[i].raw === target) {
+                            linkumoriRemoveParamRules.splice(i, 1);
+                        }
+                    }
+                    for (let i = linkumoriRemoveParamExceptions.length - 1; i >= 0; i--) {
+                        if (linkumoriRemoveParamExceptions[i].raw === target) {
+                            linkumoriRemoveParamExceptions.splice(i, 1);
+                        }
+                    }
+                    return;
+                }
                 const normalizedRule = normalizeCoreRuleDefinition(rule, "i", defaults);
                 if (!isActive || (normalizedRule && normalizedRule.active === false)) return;
                 if (normalizedRule) {
@@ -2623,7 +3033,10 @@ function start() {
                     parsedLinkumoriRule.id = activeRule.id;
                     parsedLinkumoriRule.aliases = Array.isArray(activeRule.aliases) ? activeRule.aliases.slice() : [];
                     parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
-                    parsedLinkumoriRule.requestTypes = Array.isArray(activeRule.requestTypes) ? activeRule.requestTypes.slice() : [];
+                    if (Array.isArray(activeRule.requestTypes)) {
+                        parsedLinkumoriRule.requestTypes = activeRule.requestTypes.slice();
+                        parsedLinkumoriRule.excludeRequestTypes = [];
+                    }
                     parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
                     parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
                 }

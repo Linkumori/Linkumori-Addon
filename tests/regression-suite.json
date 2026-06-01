@@ -21015,6 +21015,250 @@
       }
     },
     {
+      "id": "webrequest removeparam exception respects xhr include",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei",
+            "@@||google.*^$removeparam=ei,xmlhttprequest"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam xhr exception ignored for main frame",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei",
+            "@@||google.*^$removeparam=ei,xmlhttprequest"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam match-case keeps case-sensitive miss",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?campaign=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?campaign=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=Campaign,match-case"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam badfilter disables matching rule",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei",
+            "$removeparam=ei,badfilter"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam to modifier filters target domain",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei,to=example.com"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam third-party modifier matches cross-site request",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://example.org/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei,third-party"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest queryprune alias removes parameter",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$queryprune=ei"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam denyallow blocks denied target",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei,denyallow=google.com"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam first-party modifier matches same-site request",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://mail.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei,first-party"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam app modifier waits for matching app",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/",
+        "appName": "chrome"
+      },
+      "providers": {
+        "google-provider": {
+          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
+          "indexPattern": "||google.com^",
+          "rules": [
+            "$removeparam=ei,app=firefox"
+          ]
+        }
+      },
+      "urlFilterRules": [],
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
       "id": "webrequest domainPatterns indexes without indexPattern",
       "dialect": "providerWebRequest",
       "input": "https://shop.example.co.uk/path/?tracking=x&keep=1",
