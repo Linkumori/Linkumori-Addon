@@ -1010,9 +1010,7 @@ documentation when you run the build process.
       }
 
       const hasWrappedShape = Object.prototype.hasOwnProperty.call(parsed, 'providers')
-        || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterRules')
-        || Object.prototype.hasOwnProperty.call(parsed, 'metadata')
-        || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterMetadata');
+        || Object.prototype.hasOwnProperty.call(parsed, 'metadata');
       const providers = hasWrappedShape ? (parsed.providers || {}) : parsed;
 
       if (!providers || typeof providers !== 'object' || Array.isArray(providers)) {
@@ -1024,24 +1022,11 @@ documentation when you run the build process.
         && !Array.isArray(parsed.metadata)
         ? parsed.metadata
         : {};
-      const urlFilterRules = Array.isArray(parsed.urlFilterRules)
-        ? parsed.urlFilterRules
-        : [];
-      const urlFilterMetadata = parsed.urlFilterMetadata
-        && typeof parsed.urlFilterMetadata === 'object'
-        && !Array.isArray(parsed.urlFilterMetadata)
-        ? parsed.urlFilterMetadata
-        : {};
-
-      this.success(
-        `✅ Loaded ${Object.keys(providers).length} providers and ${urlFilterRules.length} URL filter rules`
-      );
+      this.success(`✅ Loaded ${Object.keys(providers).length} providers`);
 
       return {
         metadata,
-        providers,
-        urlFilterRules,
-        urlFilterMetadata
+        providers
       };
     } catch (error) {
       this.error(`❌ Error loading ClearURLs source rules: ${error.message}`);
@@ -1700,54 +1685,12 @@ documentation when you run the build process.
     return this.mergeProvidersByUrlPattern(combinedProviders, primaryProviderNames);
   }
 
-  mergeUrlFilterRules(...ruleLists) {
-    const seen = new Set();
-    const merged = [];
-
-    ruleLists.forEach(ruleList => {
-      if (!Array.isArray(ruleList)) return;
-
-      ruleList.forEach(rule => {
-        if (typeof rule !== 'string') return;
-        const normalizedRule = rule.trim();
-        if (!normalizedRule || seen.has(normalizedRule)) return;
-        seen.add(normalizedRule);
-        merged.push(normalizedRule);
-      });
-    });
-
-    return merged;
-  }
-
-  mergeUrlFilterMetadata(...metadataSources) {
-    return metadataSources.reduce((merged, metadata) => {
-      if (!metadata || typeof metadata !== 'object' || Array.isArray(metadata)) {
-        return merged;
-      }
-
-      return {
-        ...merged,
-        ...metadata
-      };
-    }, {});
-  }
-
   // Minify rules data
   minifyRules(data) {
     this.info('🗜️  Creating minified version...');
 
     let minifiedData = { "providers": {} };
     let removedProviders = 0;
-
-    const urlFilterRules = this.mergeUrlFilterRules(data.urlFilterRules);
-    if (urlFilterRules.length > 0) {
-      minifiedData.urlFilterRules = urlFilterRules;
-    }
-
-    const urlFilterMetadata = this.mergeUrlFilterMetadata(data.urlFilterMetadata);
-    if (Object.keys(urlFilterMetadata).length > 0) {
-      minifiedData.urlFilterMetadata = urlFilterMetadata;
-    }
 
     for (let provider in data.providers) {
       minifiedData.providers[provider] = {};
@@ -1830,13 +1773,9 @@ documentation when you run the build process.
     const includeMetadata = options.includeMetadata !== false;
     const metadata = data.metadata || {};
     const providers = data.providers || {};
-    const urlFilterMetadata = data.urlFilterMetadata || {};
-    const urlFilterRules = Array.isArray(data.urlFilterRules) ? data.urlFilterRules : [];
 
     const metadataJson = JSON.stringify(metadata, null, 2);
     const metadataInline = metadataJson.replace(/\n/g, '\n  ');
-    const urlFilterMetadataJson = JSON.stringify(urlFilterMetadata, null, 2).replace(/\n/g, '\n  ');
-    const urlFilterRulesJson = JSON.stringify(urlFilterRules, null, 2).replace(/\n/g, '\n  ');
 
     const providerEntries = Object.entries(providers);
     const providerLines = providerEntries
@@ -1849,7 +1788,7 @@ documentation when you run the build process.
       ? `  "metadata": ${metadataInline},\n`
       : '';
 
-    return `{\n${metadataBlock}  "urlFilterMetadata": ${urlFilterMetadataJson},\n  "urlFilterRules": ${urlFilterRulesJson},\n  "providers": {${providersBlock}  }\n}\n`;
+    return `{\n${metadataBlock}  "providers": {${providersBlock}  }\n}\n`;
   }
 
   loadLZ4Codec() {
@@ -2168,7 +2107,7 @@ ${commit.message}
 
   // Lint a ClearURLs rules JSON file by replaying clearurls.js logic.
   // Accepts both formats:
-  //   • wrapped { metadata?, providers, urlFilterRules?, urlFilterMetadata? } ← linkumori-clearurls.json
+  //   • wrapped { metadata?, providers } ← linkumori-clearurls.json
   //   • flat  { providerName: { urlPattern, rules, ... }, ... }  ← legacy imports
   async lintClearURLsRules(rulesFile = null) {
     this.section('🔍 ClearURLs Rules Linter');
@@ -2236,7 +2175,7 @@ ${commit.message}
     let providersObj;
     let formatLabel;
     if (data.providers && typeof data.providers === 'object' && !Array.isArray(data.providers)) {
-      // Wrapped format: { metadata?, providers, urlFilterRules?, urlFilterMetadata? }
+      // Wrapped format: { metadata?, providers }
       providersObj = data.providers;
       formatLabel  = 'wrapped unified ClearURLsData';
     } else {
@@ -2746,7 +2685,6 @@ ${commit.message}
 ### Build Statistics
 
 - **Source providers**: ${stats.sourceProviderCount}
-- **URL filter rules**: ${stats.sourceUrlFilterCount}
 
 ### Generated Files
 
@@ -2793,7 +2731,7 @@ This directory contains the canonical metadata-free Linkumori ClearURLs source J
 The Linkumori ClearURLs Rules Builder performs the following operations:
 
 1. **Loads Source Rules**: Reads canonical URL cleaning rules from ${sourceFile}
-2. **Normalizes Source JSON**: Keeps the wrapped ClearURLsData shape with providers and URL filter data, without writing metadata to the source file
+2. **Normalizes Source JSON**: Keeps the wrapped ClearURLsData shape with providers, without writing metadata to the source file
 3. **Generates Output**: Injects Linkumori metadata into the generated payload and compresses it into ${bundledFile}
 4. **Validation**: Ensures rules have proper structure and compile before bundling
 
@@ -2881,19 +2819,12 @@ ${currentBuildInfo}`;
       }
 
       const providerCount = Object.keys(sourceRules.providers || {}).length;
-      const urlFilterCount = Array.isArray(sourceRules.urlFilterRules)
-        ? sourceRules.urlFilterRules.length
-        : 0;
-      
-      if (providerCount === 0 && urlFilterCount === 0) {
+      if (providerCount === 0) {
         this.error(`No rules to process in ${sourceFile}.`);
         return false;
       }
 
       this.info(`📊 Source providers: ${providerCount}`);
-      if (urlFilterCount > 0) {
-        this.info(`🧹 Source URL filter rules: ${urlFilterCount}`);
-      }
 
       this.addIndexPatternsForUrlProviders(sourceRules.providers);
 
@@ -2910,9 +2841,6 @@ ${currentBuildInfo}`;
 
       const stats = {
         sourceProviderCount: Object.keys(linkumoriRules.providers || {}).length,
-        sourceUrlFilterCount: Array.isArray(linkumoriRules.urlFilterRules)
-          ? linkumoriRules.urlFilterRules.length
-          : 0,
         sourceFile,
         outputFile: lz4Stats.outputFile
       };
@@ -2927,7 +2855,6 @@ ${currentBuildInfo}`;
       this.success(`📅 Version: ${generatedVersion}`);
       this.info(`📂 Source file: ${sourceFile}`);
       this.info(`📊 Providers: ${stats.sourceProviderCount}`);
-      this.info(`🧹 URL filter rules: ${stats.sourceUrlFilterCount}`);
       this.info(`🔖 Metadata: Linkumori metadata v${generatedVersion} injected into LZ4 only`);
       this.info(`📁 Source JSON: ${Math.round(sourceStats.size / 1024)}KB`);
       this.info(`🗜️ LZ4 file: ${Math.round(lz4Stats.outputSize / 1024)}KB (${((1 - lz4Stats.ratio) * 100).toFixed(1)}% smaller)`);
@@ -3509,8 +3436,6 @@ coverage/**
   // Create canonical ClearURLs source template
   createCustomRulesTemplate() {
     const template = {
-      "urlFilterMetadata": {},
-      "urlFilterRules": [],
       "providers": {
         "example": {
           "rules": [
@@ -4280,8 +4205,8 @@ coverage/**
     this.log('  Validates a rules JSON file by replaying clearurls.js logic.', 'white');
     this.log('  Default target: data/linkumori-clearurls.json', 'white');
     this.log('  Auto-detects both JSON formats:', 'dim');
-    this.log('    • Wrapped { providers, urlFilterRules?, urlFilterMetadata? } source JSON', 'dim');
-    this.log('    • Wrapped { metadata, providers, urlFilterRules?, urlFilterMetadata? } LZ4 payload', 'dim');
+    this.log('    • Wrapped { providers } source JSON', 'dim');
+    this.log('    • Wrapped { metadata, providers } LZ4 payload', 'dim');
     this.log('      ← linkumori-clearurls.json / linkumori-clearurls-min.json.lz4', 'dim');
     this.log('    • Flat  { providerName: {...} }          ← legacy imports', 'dim');
     this.log('  Checks per provider:', 'dim');

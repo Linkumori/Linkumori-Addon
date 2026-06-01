@@ -1061,11 +1061,21 @@ function splitLinkumoriModifiers(modifiersText) {
 
             current += ch;
 
-            if (ch === '=' && next === '/') {
-                current += '/';
+            if (
+                ch === '=' &&
+                (
+                    next === '/' ||
+                    (
+                        next === '~' &&
+                        i + 2 < text.length &&
+                        text.charAt(i + 2) === '/'
+                    )
+                )
+            ) {
+                current += next === '~' ? '~/' : '/';
                 inRegex = true;
                 escaped = false;
-                i++;
+                i += next === '~' ? 2 : 1;
             }
             continue;
         }
@@ -1090,23 +1100,132 @@ function splitLinkumoriModifiers(modifiersText) {
     return parts;
 }
 
-function splitLinkumoriDelimitedValues(rawValue) {
-    return String(rawValue || '')
-        .split('|')
-        .map(value => value.trim())
-        .filter(Boolean);
+function findLinkumoriModifierStart(ruleText) {
+    const text = String(ruleText || '');
+    if (!text) return -1;
+
+    if (text.startsWith('/^')) {
+        let escaped = false;
+        for (let i = 1; i < text.length; i++) {
+            const ch = text.charAt(i);
+            if (escaped) {
+                escaped = false;
+                continue;
+            }
+            if (ch === '\\') {
+                escaped = true;
+                continue;
+            }
+            if (ch === '/') {
+                return text.charAt(i + 1) === '$' ? i + 1 : text.indexOf('$', i + 1);
+            }
+        }
+    }
+
+    return text.indexOf('$');
 }
 
-function parseLinkumoriRegexLiteral(value, defaultFlags = 'i') {
+function splitLinkumoriDelimitedValues(rawValue) {
+    const values = [];
+    let current = '';
+    let inRegex = false;
+    let escaped = false;
+
+    String(rawValue || '').split('').forEach((ch) => {
+        if (!inRegex && ch === '|') {
+            if (current.trim()) values.push(current.trim());
+            current = '';
+            return;
+        }
+
+        current += ch;
+        if (escaped) {
+            escaped = false;
+            return;
+        }
+        if (ch === '\\') {
+            escaped = true;
+            return;
+        }
+        if (ch === '/') {
+            inRegex = !inRegex;
+        }
+    });
+
+    if (current.trim()) values.push(current.trim());
+    return values;
+}
+
+function escapeLinkumoriRegExp(value) {
+    return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function parseLinkumoriRegexLiteral(value, defaultFlags = '') {
     const text = String(value || '').trim();
-    const match = text.match(/^\/(.+)\/([gimsuy]*)$/i);
+    const match = text.match(/^\/((?:\\.|[^/])+)\/([a-z]*)$/i);
     if (!match) return null;
 
+    const flags = match[2] || defaultFlags;
     try {
-        return new RegExp(match[1], match[2] || defaultFlags);
+        return new RegExp(match[1], flags.includes('i') ? 'i' : '');
     } catch (e) {
         return null;
     }
+}
+
+function getLinkumoriNormalizedRegexSource(regex) {
+    if (!regex) return '';
+    return '/' + regex.source + '/' + (regex.ignoreCase ? 'i' : '');
+}
+
+function getLinkumoriSortedCopy(values) {
+    return (Array.isArray(values) ? values : []).slice().sort();
+}
+
+function getLinkumoriSortedRegexSources(regexes) {
+    return (Array.isArray(regexes) ? regexes : [])
+        .map(getLinkumoriNormalizedRegexSource)
+        .sort();
+}
+
+function canonicalizeLinkumoriRemoveParamRule(rule) {
+    const modifiers = [];
+    let removeValue = '';
+
+    if (rule.removeAll) {
+        removeValue = '';
+    } else if (rule.regexParam) {
+        removeValue = (rule.negate ? '~' : '') + getLinkumoriNormalizedRegexSource(rule.regexParam);
+    } else if (rule.literalParam !== null) {
+        removeValue = (rule.negate ? '~' : '') + String(rule.literalParam);
+    }
+
+    modifiers.push(removeValue ? 'removeparam=' + removeValue : 'removeparam');
+
+    [
+        ['domain', getLinkumoriSortedCopy(rule.includeDomains).concat(getLinkumoriSortedCopy(rule.excludeDomains).map(value => '~' + value)).concat(getLinkumoriSortedRegexSources(rule.includeDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeDomainRegexes).map(value => '~' + value))],
+        ['to', getLinkumoriSortedCopy(rule.includeTargetDomains).concat(getLinkumoriSortedCopy(rule.excludeTargetDomains).map(value => '~' + value)).concat(getLinkumoriSortedRegexSources(rule.includeTargetDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeTargetDomainRegexes).map(value => '~' + value))],
+        ['denyallow', getLinkumoriSortedCopy(rule.denyallowDomains).concat(getLinkumoriSortedRegexSources(rule.denyallowDomainRegexes))],
+        ['method', getLinkumoriSortedCopy(rule.includeMethods).concat(getLinkumoriSortedCopy(rule.excludeMethods).map(value => '~' + value))],
+        ['app', getLinkumoriSortedCopy(rule.includeApps).concat(getLinkumoriSortedCopy(rule.excludeApps).map(value => '~' + value)).concat(getLinkumoriSortedRegexSources(rule.includeAppRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeAppRegexes).map(value => '~' + value))]
+    ].forEach(([name, values]) => {
+        if (values.length > 0) modifiers.push(name + '=' + values.join('|'));
+    });
+
+    getLinkumoriSortedCopy(rule.requestTypes).forEach(value => modifiers.push(value));
+    getLinkumoriSortedCopy(rule.excludeRequestTypes).forEach(value => modifiers.push('~' + value));
+
+    if (rule.firstPartyOnly) modifiers.push('first-party');
+    if (rule.thirdPartyOnly) modifiers.push('third-party');
+    if (rule.strictFirstPartyOnly) modifiers.push('strict-first-party');
+    if (rule.strictThirdPartyOnly) modifiers.push('strict-third-party');
+    if (rule.matchCase) modifiers.push('match-case');
+    if (rule.important) modifiers.push('important');
+
+    return (rule.isException ? '@@' : '') +
+        (rule.urlPattern || '*') +
+        '$' +
+        modifiers.sort().join(',');
 }
 
 const LINKUMORI_REMOVE_PARAM_CONTENT_TYPES = Object.freeze({
@@ -1168,19 +1287,14 @@ function addLinkumoriHostnameValues(rawValue, includes, excludes, includeRegexes
 }
 
 function withoutLinkumoriBadfilterModifier(rawRule) {
-    const rule = String(rawRule || '').trim();
-    const candidate = rule.startsWith('@@') ? rule.slice(2) : rule;
-    const modifierStart = candidate.indexOf('$');
-    if (modifierStart === -1) return rule;
-
-    const rulePrefix = rule.slice(0, rule.length - candidate.length + modifierStart + 1);
-    const modifiers = splitLinkumoriModifiers(candidate.slice(modifierStart + 1))
-        .filter(token => String(token || '').trim().toLowerCase() !== 'badfilter');
-
-    return rulePrefix + modifiers.join(',');
+    const parsed = parseLinkumoriRemoveParamRule(rawRule, { ignoreBadfilter: true });
+    if (parsed && parsed.canonical) return parsed.canonical;
+    return String(rawRule || '').trim();
 }
 
-function parseLinkumoriRemoveParamRule(ruleText) {
+const LINKUMORI_SUPPORTED_METHODS = new Set(['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE', 'CONNECT']);
+
+function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     const rawRule = String(ruleText || '').trim();
     if (!rawRule) return null;
     if (rawRule.startsWith('!') || rawRule.startsWith('[')) return null;
@@ -1192,7 +1306,7 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         candidate = candidate.slice(2);
     }
 
-    const modifierStart = candidate.indexOf('$');
+    const modifierStart = findLinkumoriModifierStart(candidate);
     if (modifierStart === -1) return null;
 
     const patternPart = candidate.slice(0, modifierStart).trim();
@@ -1224,7 +1338,8 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         if (noopModifiers.has(normalized)) {
             continue;
         }
-        if (normalized === 'badfilter') continue;
+        if (normalized === 'badfilter' && !options.ignoreBadfilter) continue;
+        if (normalized === 'badfilter' && options.ignoreBadfilter) continue;
         if (normalized === 'important') {
             if (isException) unsupportedModifier = token;
             continue;
@@ -1307,7 +1422,7 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         strictThirdPartyOnly: false,
         matchCase: modifiers.some(token => String(token || '').toLowerCase() === 'match-case'),
         important: modifiers.some(token => String(token || '').toLowerCase() === 'important'),
-        isBadfilter: modifiers.some(token => String(token || '').toLowerCase() === 'badfilter'),
+        isBadfilter: !options.ignoreBadfilter && modifiers.some(token => String(token || '').toLowerCase() === 'badfilter'),
         badfilterTarget: null,
         id: null,
         aliases: [],
@@ -1315,7 +1430,8 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         requestTypes: [],
         excludeRequestTypes: [],
         replacePattern: null,
-        preprocessors: []
+        preprocessors: [],
+        canonical: null
     };
     parsed.badfilterTarget = parsed.isBadfilter ? withoutLinkumoriBadfilterModifier(rawRule) : null;
 
@@ -1336,15 +1452,22 @@ function parseLinkumoriRemoveParamRule(ruleText) {
             value = value.slice(1).trim();
         }
 
-        const regex = parseLinkumoriRegexLiteral(value, parsed.matchCase ? '' : 'i');
+        const regex = parseLinkumoriRegexLiteral(value);
         if (regex) {
             parsed.regexParam = regex;
+        } else if (value.startsWith('|')) {
+            try {
+                parsed.regexParam = new RegExp('^' + escapeLinkumoriRegExp(value.slice(1)), 'i');
+            } catch (e) {
+                return null;
+            }
         } else {
             parsed.literalParam = parsed.matchCase ? value : value.toLowerCase();
         }
     }
 
     if (domainToken) {
+        if (splitLinkumoriDelimitedValues(domainToken).length === 0) return null;
         addLinkumoriHostnameValues(
             domainToken,
             parsed.includeDomains,
@@ -1355,6 +1478,7 @@ function parseLinkumoriRemoveParamRule(ruleText) {
     }
 
     if (targetToken) {
+        if (splitLinkumoriDelimitedValues(targetToken).length === 0) return null;
         addLinkumoriHostnameValues(
             targetToken,
             parsed.includeTargetDomains,
@@ -1365,6 +1489,16 @@ function parseLinkumoriRemoveParamRule(ruleText) {
     }
 
     if (denyallowToken) {
+        const denyallowParts = splitLinkumoriDelimitedValues(denyallowToken);
+        if (
+            denyallowParts.length === 0 ||
+            denyallowParts.some((value) => {
+                const trimmed = String(value || '').trim();
+                return trimmed.startsWith('~') || trimmed.endsWith('.*') || parseLinkumoriRegexLiteral(trimmed) !== null;
+            })
+        ) {
+            return null;
+        }
         addLinkumoriHostnameValues(
             denyallowToken,
             parsed.denyallowDomains,
@@ -1375,7 +1509,14 @@ function parseLinkumoriRemoveParamRule(ruleText) {
     }
 
     if (methodToken) {
-        splitLinkumoriDelimitedValues(methodToken).forEach((part) => {
+        const methodTokens = splitLinkumoriDelimitedValues(methodToken);
+        if (
+            methodTokens.length === 0 ||
+            methodTokens.some(value => !LINKUMORI_SUPPORTED_METHODS.has(String(value || '').replace(/^~/, '').toUpperCase()))
+        ) {
+            return null;
+        }
+        methodTokens.forEach((part) => {
             const value = String(part || '').trim().toUpperCase();
             if (!value) return;
 
@@ -1388,6 +1529,7 @@ function parseLinkumoriRemoveParamRule(ruleText) {
     }
 
     if (appToken) {
+        if (splitLinkumoriDelimitedValues(appToken).length === 0) return null;
         addLinkumoriHostnameValues(
             appToken,
             parsed.includeApps,
@@ -1429,6 +1571,7 @@ function parseLinkumoriRemoveParamRule(ruleText) {
         return null;
     }
 
+    parsed.canonical = canonicalizeLinkumoriRemoveParamRule(parsed);
     return parsed;
 }
 
@@ -1458,6 +1601,14 @@ function getLinkumoriRemoveParamTraceName(linkumoriRule) {
     if (typeof linkumoriRule.id === 'string' && linkumoriRule.id) return linkumoriRule.id;
     if (typeof linkumoriRule.raw === 'string' && linkumoriRule.raw) return linkumoriRule.raw;
     return '$removeparam';
+}
+
+function safeDecodeLinkumoriParam(value) {
+    try {
+        return decodeURIComponent(String(value || ''));
+    } catch (e) {
+        return String(value || '');
+    }
 }
 
 function linkumoriRemoveParamMatchesRequestType(linkumoriRule, request = null) {
@@ -1600,7 +1751,7 @@ function linkumoriRemoveParamMatchesApp(linkumoriRule, request = null) {
 
     if (
         linkumoriRule.includeApps.length > 0 &&
-        !linkumoriRule.includeApps.some(pattern => matchWhitelistHostnamePattern(appName, pattern))
+        !linkumoriRule.includeApps.some(pattern => linkumoriAppPatternMatches(appName, pattern))
     ) {
         return false;
     }
@@ -1612,7 +1763,7 @@ function linkumoriRemoveParamMatchesApp(linkumoriRule, request = null) {
         return false;
     }
 
-    if (linkumoriRule.excludeApps.some(pattern => matchWhitelistHostnamePattern(appName, pattern))) {
+    if (linkumoriRule.excludeApps.some(pattern => linkumoriAppPatternMatches(appName, pattern))) {
         return false;
     }
 
@@ -1621,6 +1772,16 @@ function linkumoriRemoveParamMatchesApp(linkumoriRule, request = null) {
     }
 
     return true;
+}
+
+function linkumoriAppPatternMatches(appName, pattern) {
+    const normalizedPattern = String(pattern || '').toLowerCase().trim();
+    if (!normalizedPattern) return false;
+    if (normalizedPattern.includes('*')) {
+        const regex = new RegExp('^' + escapeLinkumoriRegExp(normalizedPattern).replace(/\\\*/g, '.*') + '$');
+        return regex.test(appName);
+    }
+    return appName === normalizedPattern;
 }
 
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null) {
@@ -1702,17 +1863,24 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null)
     return true;
 }
 
-function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName) {
+function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = []) {
     if (!linkumoriRule || !fieldName) return false;
     if (linkumoriRule.removeAll) return true;
 
+    const rawParamName = String(fieldName);
     const paramName = linkumoriRule.matchCase
-        ? String(fieldName)
-        : String(fieldName).toLowerCase();
+        ? rawParamName
+        : rawParamName.toLowerCase();
     let matched = false;
 
     if (linkumoriRule.regexParam) {
-        matched = linkumoriRule.regexParam.test(paramName);
+        const paramValues = Array.isArray(values) && values.length > 0 ? values : [''];
+        linkumoriRule.regexParam.lastIndex = 0;
+        matched = linkumoriRule.regexParam.test(rawParamName) || paramValues.some((value) => {
+            const pair = rawParamName + '=' + safeDecodeLinkumoriParam(value);
+            linkumoriRule.regexParam.lastIndex = 0;
+            return linkumoriRule.regexParam.test(pair);
+        });
     } else if (linkumoriRule.literalParam !== null) {
         matched = paramName === linkumoriRule.literalParam;
     }
@@ -1726,9 +1894,9 @@ function evaluateLinkumoriRemoveParamRules(fullUrl, rules, request = null) {
     });
 }
 
-function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions) {
-    const normalizedFieldName = String(fieldName || '').toLowerCase();
-    if (!normalizedFieldName) {
+function resolveLinkumoriParamDecision(fieldName, values, activeRules, activeExceptions) {
+    const rawFieldName = String(fieldName || '');
+    if (!rawFieldName) {
         return {
             handled: false,
             remove: false,
@@ -1737,7 +1905,7 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
     }
 
     const matchedException = (activeExceptions || []).find((linkumoriRule) => {
-        return linkumoriRemoveParamMatchesName(linkumoriRule, normalizedFieldName);
+        return linkumoriRemoveParamMatchesName(linkumoriRule, rawFieldName, values);
     });
 
     if (matchedException) {
@@ -1750,7 +1918,7 @@ function resolveLinkumoriParamDecision(fieldName, activeRules, activeExceptions)
     }
 
     const matchedRule = (activeRules || []).find((linkumoriRule) => {
-        return linkumoriRemoveParamMatchesName(linkumoriRule, normalizedFieldName);
+        return linkumoriRemoveParamMatchesName(linkumoriRule, rawFieldName, values);
     });
 
     if (matchedRule) {
@@ -2186,14 +2354,16 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             ...(extraExceptions || [])
         ];
         const linkumoriDecisionCache = new Map();
-        const getLinkumoriDecision = (paramName) => {
-            const cacheKey = String(paramName || '').toLowerCase();
+        const getLinkumoriDecision = (paramName, paramValues = []) => {
+            const values = Array.isArray(paramValues) ? paramValues : [];
+            const cacheKey = String(paramName || '') + "\u0000" + values.join("\u0001");
             if (linkumoriDecisionCache.has(cacheKey)) {
                 return linkumoriDecisionCache.get(cacheKey);
             }
 
             const decision = resolveLinkumoriParamDecision(
-                cacheKey,
+                paramName,
+                values,
                 activeLinkumoriRules,
                 activeLinkumoriExceptions
             );
@@ -2214,7 +2384,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
             const fieldsToDelete = [];
             for (const field of Array.from(fields.keys())) {
-                const decision = getLinkumoriDecision(field);
+                const decision = getLinkumoriDecision(field, fields.getAll(field));
                 // Only skip when $removeparam is actively mutating this field.
                 // An exception (handled:true, remove:false) must not suppress
                 // independent regex rules — @@$removeparam only excepts that system.
@@ -2242,7 +2412,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
             const fragmentsToDelete = [];
             for (const fragment of Array.from(fragments.keys())) {
-                const decision = getLinkumoriDecision(fragment);
+                const decision = getLinkumoriDecision(fragment, fragments.getAll(fragment));
                 if (decision.handled && (decision.remove || decision.rewrite)) continue;
 
                 activeRegex.lastIndex = 0;
@@ -2298,7 +2468,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
             const fieldsToDelete = [];
             for (const field of Array.from(fields.keys())) {
-                const decision = getLinkumoriDecision(field);
+                const decision = getLinkumoriDecision(field, fields.getAll(field));
                 if (decision.remove) {
                     fieldsToDelete.push(field);
                     localChange = true;
@@ -2325,7 +2495,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
             const fragmentsToDelete = [];
             for (const fragment of Array.from(fragments.keys())) {
-                const decision = getLinkumoriDecision(fragment);
+                const decision = getLinkumoriDecision(fragment, fragments.getAll(fragment));
                 if (decision.remove) {
                     fragmentsToDelete.push(fragment);
                     localChange = true;
@@ -3014,12 +3184,12 @@ function start() {
                 if (parsedLinkumoriRule.isBadfilter) {
                     const target = parsedLinkumoriRule.badfilterTarget;
                     for (let i = linkumoriRemoveParamRules.length - 1; i >= 0; i--) {
-                        if (linkumoriRemoveParamRules[i].raw === target) {
+                        if (linkumoriRemoveParamRules[i].raw === target || linkumoriRemoveParamRules[i].canonical === target) {
                             linkumoriRemoveParamRules.splice(i, 1);
                         }
                     }
                     for (let i = linkumoriRemoveParamExceptions.length - 1; i >= 0; i--) {
-                        if (linkumoriRemoveParamExceptions[i].raw === target) {
+                        if (linkumoriRemoveParamExceptions[i].raw === target || linkumoriRemoveParamExceptions[i].canonical === target) {
                             linkumoriRemoveParamExceptions.splice(i, 1);
                         }
                     }
@@ -3376,9 +3546,6 @@ function start() {
                 }
             }
 
-            if (typeof globalThis.handleLinkumoriURLFilterRequest === 'function') {
-                return globalThis.handleLinkumoriURLFilterRequest(request);
-            }
         }
 
         return {};

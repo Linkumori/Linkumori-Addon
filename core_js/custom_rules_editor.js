@@ -144,7 +144,6 @@ const {
     normalizeTheme
 } = globalThis.LinkumoriTheme;
 let importExclusionsBySource = {};
-let linkumoriURLDisabledRules = [];
 let clearURLsDisabledRuleIds = [];
 let clearURLsProviderSnapshot = null;
 let disabledRulesActivationMode = 'pattern';
@@ -160,10 +159,6 @@ let providerImportModal, providerImportBtn;
 let disabledRulesView, disabledRulesBtn;
 let providerListView, providerListBtn; // Provider list page view elements
 let ruleTestModal = null;
-let linkumoriURLRulesModal = null;
-let linkumoriURLRulesTextarea = null;
-let linkumoriURLRulesStatus = null;
-let linkumoriURLRulesPreview = null;
 let applyCustomRulesView = null;
 
 // ============================================================================
@@ -849,34 +844,6 @@ function getHashStatusText(hashStatus) {
     return statusText;
 }
 
-function getLinkumoriURLStatusText(status) {
-    switch (status) {
-        case 'loaded':
-            return i18n('linkumori_url_status_loaded');
-        case 'partially_loaded':
-            return i18n('linkumori_url_status_partially_loaded');
-        case 'all_sources_failed':
-            return i18n('linkumori_url_status_all_sources_failed');
-        case 'no_hashless_sources':
-            return i18n('linkumori_url_status_no_sources');
-        case 'remote_disabled':
-            return i18n('linkumori_url_status_remote_disabled');
-        case 'empty':
-            return i18n('linkumori_url_status_empty');
-        case 'not_loaded':
-            return i18n('linkumori_url_status_not_loaded');
-        default:
-            return status || i18n('status_unknown');
-    }
-}
-
-function getLinkumoriURLHashStatusText(status) {
-    if (status === 'not_required') {
-        return i18n('linkumori_url_hash_not_required');
-    }
-    return status || i18n('status_unknown');
-}
-
 function setHTMLContent(element, html) {
     if (!element) return;
     const parser = new DOMParser();
@@ -986,9 +953,6 @@ function getRuleSourceLabel(source) {
     if (source === 'bundled') {
         return i18n('providerImport_activeProviderRules');
     }
-    if (source === 'linkumori-data') {
-        return i18n('providerImport_linkumoriData');
-    }
     if (source === 'clearurls-rule-ids') {
         return i18n('providerImport_providerRuleIds');
     }
@@ -997,25 +961,6 @@ function getRuleSourceLabel(source) {
 
 function getRuleSourceType(source) {
     return availableRuleSources[source]?.type || 'providers';
-}
-
-function getLinkumoriURLRuleKey(rule) {
-    return String(rule || '').trim();
-}
-
-function normalizeLinkumoriURLDisabledRulesValue(value) {
-    if (!value) return [];
-    if (typeof value === 'string') {
-        try {
-            return normalizeLinkumoriURLDisabledRulesValue(JSON.parse(value));
-        } catch (_) {
-            return value.split(/\r?\n/).map(rule => rule.trim()).filter(Boolean);
-        }
-    }
-    if (Array.isArray(value)) {
-        return [...new Set(value.map(rule => String(rule || '').trim()).filter(Boolean))];
-    }
-    return [];
 }
 
 function normalizeClearURLsDisabledRuleIdsValue(value) {
@@ -1031,18 +976,6 @@ function normalizeClearURLsDisabledRuleIdsValue(value) {
         return [...new Set(value.map(ruleId => String(ruleId || '').trim()).filter(Boolean))];
     }
     return [];
-}
-
-async function loadLinkumoriURLDisabledRules() {
-    try {
-        const response = await browser.runtime.sendMessage({
-            function: 'getData',
-            params: ['linkumori_url_disabled_rules']
-        });
-        linkumoriURLDisabledRules = normalizeLinkumoriURLDisabledRulesValue(response?.response);
-    } catch (_) {
-        linkumoriURLDisabledRules = [];
-    }
 }
 
 async function loadClearURLsDisabledRuleIds() {
@@ -1069,13 +1002,6 @@ async function loadClearURLsProviderSnapshot() {
     } catch (_) {
         clearURLsProviderSnapshot = null;
     }
-}
-
-async function saveLinkumoriURLDisabledRules() {
-    await browser.runtime.sendMessage({
-        function: 'setData',
-        params: ['linkumori_url_disabled_rules', JSON.stringify(linkumoriURLDisabledRules)]
-    });
 }
 
 async function saveClearURLsDisabledRuleIds() {
@@ -1302,10 +1228,7 @@ function renderImportDisabledList() {
         return;
     }
 
-    const isLinkumoriURLSource = getRuleSourceType(currentRuleSource) === 'linkumori-url-rules';
-    const signatures = isLinkumoriURLSource
-        ? linkumoriURLDisabledRules.slice()
-        : Array.from(getExcludedSignaturesForSource(currentRuleSource));
+    const signatures = Array.from(getExcludedSignaturesForSource(currentRuleSource));
     const hasItems = signatures.length > 0;
     listEl.replaceChildren();
     emptyEl.style.display = hasItems ? 'none' : '';
@@ -1324,14 +1247,8 @@ function renderImportDisabledList() {
         const restoreBtn = li.querySelector('.provider-disabled-restore-btn');
         if (restoreBtn) {
             restoreBtn.addEventListener('click', async () => {
-                if (isLinkumoriURLSource) {
-                    linkumoriURLDisabledRules = linkumoriURLDisabledRules.filter(rule => rule !== signature);
-                    await saveLinkumoriURLDisabledRules();
-                    await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
-                } else {
-                    await removeExcludedSignature(currentRuleSource, signature);
-                    await reloadRulesAfterExclusionChange();
-                }
+                await removeExcludedSignature(currentRuleSource, signature);
+                await reloadRulesAfterExclusionChange();
                 renderImportDisabledList();
                 loadProvidersForSource(currentRuleSource);
                 updateSourceCounts();
@@ -1444,30 +1361,6 @@ async function disableSelectedProviders() {
     const countText = getLocalizedNumber(selectedNames.length);
     const confirmed = await modalConfirm(i18n('providerImport_disableSelectedConfirm', countText));
     if (!confirmed) {
-        return;
-    }
-
-    if (getRuleSourceType(currentRuleSource) === 'linkumori-url-rules') {
-        const disabledSet = new Set(linkumoriURLDisabledRules);
-        let disabledCount = 0;
-        selectedNames.forEach(rule => {
-            const normalizedRule = getLinkumoriURLRuleKey(rule);
-            if (normalizedRule && !disabledSet.has(normalizedRule)) {
-                disabledSet.add(normalizedRule);
-                disabledCount++;
-            }
-        });
-
-        linkumoriURLDisabledRules = Array.from(disabledSet);
-        selectedProviders.clear();
-        await saveLinkumoriURLDisabledRules();
-        await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
-        updateSelectionCount();
-        renderImportDisabledList();
-        loadProvidersForSource(currentRuleSource);
-        updateSourceCounts();
-        await updateRulesStatus();
-        await modalAlert(i18n('providerImport_disableSelectedResult', getLocalizedNumber(disabledCount), getLocalizedNumber(0)));
         return;
     }
 
@@ -2086,7 +1979,6 @@ function initializeApp() {
     setupDisabledRulesPage();
     setupProviderImport();
     setupProviderListModal(); // NEW: Setup provider list modal
-    setupLinkumoriURLRulesModal();
     setupEventListeners();
     setupWhitelistUI();
     loadWhitelist();
@@ -2125,10 +2017,6 @@ function initializeEditor() {
     providerListView = document.getElementById('provider-list-view');
     providerListBtn = document.getElementById('provider-list-btn');
     ruleTestModal = document.getElementById('rule-test-modal');
-    linkumoriURLRulesModal = document.getElementById('linkumori-url-rules-modal');
-    linkumoriURLRulesTextarea = document.getElementById('linkumori-url-rules-textarea');
-    linkumoriURLRulesStatus = document.getElementById('linkumori-url-rules-status-message');
-    linkumoriURLRulesPreview = document.getElementById('linkumori-url-rules-preview');
 }
 
 // ============================================================================
@@ -2491,14 +2379,8 @@ function setupProviderImport() {
             if (!confirmed) {
                 return;
             }
-            if (getRuleSourceType(currentRuleSource) === 'linkumori-url-rules') {
-                linkumoriURLDisabledRules = [];
-                await saveLinkumoriURLDisabledRules();
-                await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
-            } else {
-                await clearExcludedSignatures(currentRuleSource);
-                await reloadRulesAfterExclusionChange();
-            }
+            await clearExcludedSignatures(currentRuleSource);
+            await reloadRulesAfterExclusionChange();
             renderImportDisabledList();
             loadProvidersForSource(currentRuleSource);
             updateSourceCounts();
@@ -2579,7 +2461,6 @@ function setupDisabledRulesViewEvents() {
 async function showDisabledRulesPage() {
     if (!disabledRulesView) return;
     await loadImportExclusions();
-    await loadLinkumoriURLDisabledRules();
     await loadClearURLsDisabledRuleIds();
     await loadClearURLsProviderSnapshot();
     renderDisabledRulesPageContent();
@@ -2596,21 +2477,17 @@ function hideDisabledRulesPage() {
 
 async function clearAllDisabledRules() {
     const sources = Object.keys(importExclusionsBySource);
-    const hasLinkumoriURLDisabledRules = linkumoriURLDisabledRules.length > 0;
     const hasClearURLsDisabledRuleIds = clearURLsDisabledRuleIds.length > 0;
-    if (sources.length === 0 && !hasLinkumoriURLDisabledRules && !hasClearURLsDisabledRuleIds) return;
+    if (sources.length === 0 && !hasClearURLsDisabledRuleIds) return;
     const confirmed = await modalConfirm(i18n('providerImport_disabledClearAllConfirm'));
     if (!confirmed) {
         return;
     }
 
     importExclusionsBySource = {};
-    linkumoriURLDisabledRules = [];
     clearURLsDisabledRuleIds = [];
     await saveImportExclusions();
-    await saveLinkumoriURLDisabledRules();
     await saveClearURLsDisabledRuleIds();
-    await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
     await reloadRulesAfterExclusionChange();
     updateSourceCounts();
     renderProviderRuleIdControlsFromEditor();
@@ -2759,9 +2636,6 @@ function renderDisabledRulesPageContent() {
     if (!container) return;
 
     const sources = Object.keys(importExclusionsBySource).sort((a, b) => a.localeCompare(b));
-    if (linkumoriURLDisabledRules.length > 0 && !sources.includes('linkumori-data')) {
-        sources.push('linkumori-data');
-    }
     if (clearURLsDisabledRuleIds.length > 0 && !sources.includes('clearurls-rule-ids')) {
         sources.push('clearurls-rule-ids');
     }
@@ -2776,9 +2650,6 @@ function renderDisabledRulesPageContent() {
     }
 
     const totalDisabled = sources.reduce((sum, source) => {
-        if (source === 'linkumori-data') {
-            return sum + linkumoriURLDisabledRules.length;
-        }
         if (source === 'clearurls-rule-ids') {
             return sum + clearURLsDisabledRuleIds.length;
         }
@@ -2788,16 +2659,12 @@ function renderDisabledRulesPageContent() {
 
     const entries = [];
     sources.forEach(source => {
-        const signatures = (source === 'linkumori-data'
-            ? linkumoriURLDisabledRules
-            : source === 'clearurls-rule-ids'
+        const signatures = (source === 'clearurls-rule-ids'
                 ? clearURLsDisabledRuleIds
             : (importExclusionsBySource[source] || [])).slice().sort((a, b) => a.localeCompare(b));
         signatures.forEach(signature => {
             let kind = 'other';
-            if (source === 'linkumori-data') {
-                kind = 'linkumoriURL';
-            } else if (source === 'clearurls-rule-ids') {
+            if (source === 'clearurls-rule-ids') {
                 kind = 'clearURLsRuleId';
             } else if (typeof signature === 'string' && (signature.startsWith('url:') || signature.startsWith('urlPattern:'))) {
                 kind = 'urlPattern';
@@ -2811,16 +2678,14 @@ function renderDisabledRulesPageContent() {
     const grouped = {
         urlPattern: entries.filter(item => item.kind === 'urlPattern'),
         domainPatterns: entries.filter(item => item.kind === 'domainPatterns'),
-        linkumoriURL: entries.filter(item => item.kind === 'linkumoriURL'),
         clearURLsRuleId: entries.filter(item => item.kind === 'clearURLsRuleId'),
         other: entries.filter(item => item.kind === 'other')
     };
 
-    const sectionOrder = ['urlPattern', 'domainPatterns', 'linkumoriURL', 'clearURLsRuleId', 'other'];
+    const sectionOrder = ['urlPattern', 'domainPatterns', 'clearURLsRuleId', 'other'];
     const sectionTitle = (key) => {
         if (key === 'urlPattern') return i18n('customRulesEditor_urlPattern');
         if (key === 'domainPatterns') return i18n('customRulesEditor_domainPatterns');
-        if (key === 'linkumoriURL') return i18n('providerImport_linkumoriData');
         if (key === 'clearURLsRuleId') return i18n('providerImport_providerRuleIds');
         return i18n('customRulesEditor_rules');
     };
@@ -2886,11 +2751,7 @@ function renderDisabledRulesPageContent() {
             const signature = item.dataset.signature;
             if (!source || !signature) return;
 
-            if (source === 'linkumori-data') {
-                linkumoriURLDisabledRules = linkumoriURLDisabledRules.filter(rule => rule !== signature);
-                await saveLinkumoriURLDisabledRules();
-                await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
-            } else if (source === 'clearurls-rule-ids') {
+            if (source === 'clearurls-rule-ids') {
                 clearURLsDisabledRuleIds = clearURLsDisabledRuleIds.filter(ruleId => ruleId !== signature);
                 await saveClearURLsDisabledRuleIds();
                 await reloadRulesAfterExclusionChange();
@@ -2964,23 +2825,14 @@ function hideProviderImportModal() {
  */
 async function loadAvailableRuleSources() {
     try {
-        const [bundledResult, linkumoriDataResult, activeProviderResult] = await Promise.allSettled([
+        const [bundledResult, activeProviderResult] = await Promise.allSettled([
             loadBundledRulesForImport(),
-            loadExistingLinkumoriDataForImport(),
             loadActiveProviderRulesForImport()
         ]);
 
         availableRuleSources.bundled = bundledResult.status === 'fulfilled'
             ? bundledResult.value
             : { metadata: { name: 'Bundled Rules', source: 'bundled' }, providers: {} };
-        availableRuleSources['linkumori-data'] = linkumoriDataResult.status === 'fulfilled'
-            ? linkumoriDataResult.value
-            : {
-                metadata: { name: 'Linkumori Data', source: 'linkumori_urls_data' },
-                format: 'linkumori-url-filter-interoperability',
-                type: 'linkumori-url-rules',
-                rules: []
-            };
         availableRuleSources.activeProviders = activeProviderResult.status === 'fulfilled'
             ? activeProviderResult.value
             : null;
@@ -3026,38 +2878,17 @@ async function loadActiveProviderRulesForImport() {
     throw new Error(i18n('providerImport_noBundledRules'));
 }
 
-async function loadExistingLinkumoriDataForImport() {
-    const response = await browser.runtime.sendMessage({
-        function: "getExistingLinkumoriDataForImport"
-    });
-
-    if (response && response.success !== false && response.response && Array.isArray(response.response.rules)) {
-        return response.response;
-    }
-
-    throw new Error(response?.error || i18n('providerImport_failedToLoadSources', 'Linkumori URL filter data unavailable'));
-}
-
 /**
  * Update source counts in the sidebar
  */
 function updateSourceCounts() {
     const activeProviderCount = document.getElementById('active-provider-count');
-    const linkumoriDataCount = document.getElementById('linkumori-data-count');
     
     if (activeProviderCount && availableRuleSources.bundled) {
         const activeProviderSource = availableRuleSources.activeProviders || availableRuleSources.bundled;
         const activeProviders = Object.values(activeProviderSource.providers || {});
         const visibleCount = activeProviders.filter(provider => !isProviderExcluded('bundled', provider)).length;
         activeProviderCount.textContent = getLocalizedNumber(visibleCount);
-    }
-    if (linkumoriDataCount && availableRuleSources['linkumori-data']) {
-        const linkumoriRules = Array.isArray(availableRuleSources['linkumori-data'].rules)
-            ? availableRuleSources['linkumori-data'].rules
-            : [];
-        const disabled = new Set(linkumoriURLDisabledRules);
-        const visibleCount = linkumoriRules.filter(rule => !disabled.has(getLinkumoriURLRuleKey(rule))).length;
-        linkumoriDataCount.textContent = getLocalizedNumber(visibleCount);
     }
 }
 
@@ -3094,11 +2925,6 @@ function loadProvidersForSource(source) {
     if (!providerGrid) return;
     
     const rules = availableRuleSources[source];
-    if (getRuleSourceType(source) === 'linkumori-url-rules') {
-        loadLinkumoriURLRulesForSource(source, providerGrid);
-        return;
-    }
-
     if (!rules || !rules.providers) {
         showProviderImportError(i18n('providerImport_noProvidersAvailable', getRuleSourceLabel(source)));
         return;
@@ -3150,69 +2976,6 @@ function loadProvidersForSource(source) {
         }
 
     });
-}
-
-function loadLinkumoriURLRulesForSource(source, providerGrid) {
-    const sourceData = availableRuleSources[source];
-    const disabled = new Set(linkumoriURLDisabledRules);
-    const rules = Array.isArray(sourceData?.rules)
-        ? sourceData.rules.map(rule => String(rule || '').trim()).filter(Boolean)
-        : [];
-    const visibleRules = rules.filter(rule => !disabled.has(rule));
-
-    if (visibleRules.length === 0) {
-        setHTMLContent(providerGrid, `
-            <div class="provider-loading">
-                <span>${i18n('providerImport_noProvidersFound', getRuleSourceLabel(source))}</span>
-            </div>
-        `);
-        return;
-    }
-
-    const cards = visibleRules.map(rule => createLinkumoriURLRuleCard(rule, source)).join('');
-    setHTMLContent(providerGrid, cards);
-
-    providerGrid.querySelectorAll('.provider-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            if (e.target.type === 'checkbox') return;
-            toggleProviderSelection(this.dataset.provider);
-        });
-
-        const checkbox = card.querySelector('.provider-card-checkbox');
-        if (checkbox) {
-            checkbox.addEventListener('change', function(e) {
-                e.stopPropagation();
-                if (this.checked) {
-                    addProviderToSelection(card.dataset.provider);
-                } else {
-                    removeProviderFromSelection(card.dataset.provider);
-                }
-            });
-        }
-    });
-}
-
-function createLinkumoriURLRuleCard(rule, source) {
-    const safeRule = getLinkumoriURLRuleKey(rule);
-    let modifierText = '';
-    const dollarIndex = safeRule.indexOf('$');
-    if (dollarIndex !== -1) {
-        modifierText = safeRule.slice(dollarIndex + 1);
-    }
-
-    return `
-        <div class="provider-card" data-provider="${escapeHtml(safeRule)}" data-source="${escapeHtml(source)}">
-            <div class="provider-card-header">
-                <h4 class="provider-card-name" title="${escapeHtml(safeRule)}">${escapeHtml(i18n('linkumori_url_filter_single_name'))}</h4>
-                <input type="checkbox" class="provider-card-checkbox">
-            </div>
-            <div class="provider-card-url" title="${escapeHtml(safeRule)}">${escapeHtml(safeRule)}</div>
-            <div class="provider-card-stats">
-                <span class="provider-card-stat">${escapeHtml(i18n('linkumoriUrlRules_statusLabel'))}</span>
-                ${modifierText ? `<span class="provider-card-stat" title="${escapeHtml(modifierText)}">${escapeHtml(modifierText.split(',')[0])}</span>` : ''}
-            </div>
-        </div>
-    `;
 }
 
 /**
@@ -3387,11 +3150,6 @@ async function confirmProviderImport() {
     
     try {
         const rules = availableRuleSources[currentRuleSource];
-        if (getRuleSourceType(currentRuleSource) === 'linkumori-url-rules') {
-            await confirmLinkumoriURLRuleImport(importConfirmBtn);
-            return;
-        }
-
         if (!rules || !rules.providers) {
             throw new Error(i18n('providerImport_noRulesAvailable'));
         }
@@ -3457,55 +3215,6 @@ async function confirmProviderImport() {
             importConfirmBtn.disabled = false;
             importConfirmBtn.textContent = i18n('providerImport_import');
         }
-    }
-}
-
-async function confirmLinkumoriURLRuleImport(importConfirmBtn) {
-    const selectedRules = Array.from(selectedProviders)
-        .map(rule => getLinkumoriURLRuleKey(rule))
-        .filter(Boolean);
-    if (selectedRules.length === 0) {
-        return;
-    }
-
-    const response = await browser.runtime.sendMessage({
-        function: 'getData',
-        params: ['linkumori_url_custom_rules']
-    });
-    const customData = normalizeLinkumoriURLCustomRulesValue(response?.response);
-    const existing = new Set(customData.rules);
-    let importedCount = 0;
-    let skippedCount = 0;
-
-    selectedRules.forEach(rule => {
-        if (existing.has(rule)) {
-            skippedCount++;
-            return;
-        }
-        existing.add(rule);
-        importedCount++;
-    });
-
-    await browser.runtime.sendMessage({
-        function: 'setData',
-        params: ['linkumori_url_custom_rules', JSON.stringify({ rules: Array.from(existing) })]
-    });
-    await browser.runtime.sendMessage({ function: 'reloadLinkumoriURLFilters' });
-    await updateRulesStatus();
-    hideProviderImportModal();
-
-    const messageLines = [
-        i18n('providerImport_completed'),
-        i18n('providerImport_importedRulesCount', getLocalizedNumber(importedCount))
-    ];
-    if (skippedCount > 0) {
-        messageLines.push(i18n('providerImport_skippedRulesCount', getLocalizedNumber(skippedCount)));
-    }
-    await modalAlert(messageLines.join('\n'));
-
-    if (importConfirmBtn) {
-        importConfirmBtn.disabled = false;
-        importConfirmBtn.textContent = i18n('providerImport_import');
     }
 }
 
@@ -3631,196 +3340,6 @@ function hideFAQModal() {
     // Return focus to FAQ button
     if (faqBtn) {
         faqBtn.focus();
-    }
-}
-
-function normalizeLinkumoriURLCustomRulesValue(value) {
-    if (!value) {
-        return { rules: [] };
-    }
-    if (typeof value === 'string') {
-        try {
-            return normalizeLinkumoriURLCustomRulesValue(JSON.parse(value));
-        } catch (_) {
-            return { rules: value.split(/\r?\n/).map(line => line.trim()).filter(Boolean) };
-        }
-    }
-    if (Array.isArray(value)) {
-        return { rules: value.map(line => String(line || '').trim()).filter(Boolean) };
-    }
-    if (Array.isArray(value.rules)) {
-        return { rules: value.rules.map(line => String(line || '').trim()).filter(Boolean) };
-    }
-    return { rules: [] };
-}
-
-function getLinkumoriURLRulesText() {
-    return (linkumoriURLRulesTextarea?.value || '')
-        .split(/\r?\n/)
-        .map(line => line.trim())
-        .filter(Boolean)
-        .join('\n');
-}
-
-function parseLinkumoriURLRulesText(text) {
-    if (!text.trim()) {
-        return {
-            metadata: {
-                supportedRuleCount: 0,
-                skippedUnsupportedRuleCount: 0,
-                skippedDuplicateRuleCount: 0
-            },
-            rules: []
-        };
-    }
-
-    if (!globalThis.LinkumoriURLFilterInteroperability ||
-        typeof globalThis.LinkumoriURLFilterInteroperability.parseFilterList !== 'function') {
-        throw new Error(i18n('linkumoriUrlRules_parserUnavailable'));
-    }
-
-    return globalThis.LinkumoriURLFilterInteroperability.parseFilterList(text, 'customrules-editor');
-}
-
-function renderLinkumoriURLRulesValidation(result, error = null) {
-    if (!linkumoriURLRulesStatus || !linkumoriURLRulesPreview) {
-        return;
-    }
-
-    if (error) {
-        linkumoriURLRulesStatus.textContent = `${i18n('linkumoriUrlRules_validationFailed')}: ${error.message || error}`;
-        linkumoriURLRulesPreview.textContent = '';
-        return;
-    }
-
-    const metadata = result?.metadata || {};
-    const supported = Number(metadata.supportedRuleCount || result?.rules?.length || 0);
-    const unsupported = Number(metadata.skippedUnsupportedRuleCount || 0);
-    const duplicate = Number(metadata.skippedDuplicateRuleCount || 0);
-    linkumoriURLRulesStatus.textContent = supported > 0
-        ? i18n('linkumoriUrlRules_validationSuccess', getLocalizedNumber(supported), getLocalizedNumber(unsupported), getLocalizedNumber(duplicate))
-        : i18n('linkumoriUrlRules_validationEmpty');
-
-    const previewRules = Array.isArray(result?.rules) ? result.rules.slice(0, 25) : [];
-    linkumoriURLRulesPreview.textContent = previewRules.length > 0
-        ? previewRules.join('\n')
-        : i18n('linkumoriUrlRules_previewEmpty');
-}
-
-function validateLinkumoriURLRulesFromUI() {
-    try {
-        const result = parseLinkumoriURLRulesText(getLinkumoriURLRulesText());
-        renderLinkumoriURLRulesValidation(result);
-        return result;
-    } catch (error) {
-        renderLinkumoriURLRulesValidation(null, error);
-        return null;
-    }
-}
-
-async function showLinkumoriURLRulesModal() {
-    if (!linkumoriURLRulesModal) {
-        return;
-    }
-
-    try {
-        const response = await browser.runtime.sendMessage({
-            function: 'getData',
-            params: ['linkumori_url_custom_rules']
-        });
-        const customData = normalizeLinkumoriURLCustomRulesValue(response?.response);
-        if (linkumoriURLRulesTextarea) {
-            linkumoriURLRulesTextarea.value = customData.rules.join('\n');
-        }
-    } catch (_) {
-        if (linkumoriURLRulesTextarea) {
-            linkumoriURLRulesTextarea.value = '';
-        }
-    }
-
-    validateLinkumoriURLRulesFromUI();
-    linkumoriURLRulesModal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => linkumoriURLRulesTextarea?.focus(), 0);
-}
-
-function hideLinkumoriURLRulesModal() {
-    if (!linkumoriURLRulesModal) {
-        return;
-    }
-    linkumoriURLRulesModal.classList.remove('show');
-    document.body.style.overflow = '';
-}
-
-async function saveLinkumoriURLRulesFromUI() {
-    const result = validateLinkumoriURLRulesFromUI();
-    if (!result) {
-        return;
-    }
-
-    const rules = getLinkumoriURLRulesText()
-        .split(/\r?\n/)
-        .map(line => line.trim())
-        .filter(Boolean);
-
-    try {
-        await browser.runtime.sendMessage({
-            function: 'setData',
-            params: ['linkumori_url_custom_rules', JSON.stringify({ rules })]
-        });
-        const reloadResponse = await browser.runtime.sendMessage({
-            function: 'reloadLinkumoriURLFilters'
-        });
-        if (reloadResponse?.error) {
-            throw new Error(reloadResponse.error);
-        }
-        if (linkumoriURLRulesStatus) {
-            linkumoriURLRulesStatus.textContent = i18n('linkumoriUrlRules_saveSuccess');
-        }
-        await updateRulesStatus();
-    } catch (error) {
-        if (linkumoriURLRulesStatus) {
-            linkumoriURLRulesStatus.textContent = `${i18n('linkumoriUrlRules_saveFailed')}: ${error.message || error}`;
-        }
-    }
-}
-
-function setupLinkumoriURLRulesModal() {
-    const openBtn = document.getElementById('linkumori-url-rules-btn');
-    const closeBtn = document.getElementById('linkumori-url-rules-modal-close');
-    const dismissBtn = document.getElementById('linkumori-url-rules-modal-dismiss');
-    const validateBtn = document.getElementById('linkumori-url-rules-validate-btn');
-    const saveBtn = document.getElementById('linkumori-url-rules-save-btn');
-
-    if (openBtn) {
-        openBtn.addEventListener('click', showLinkumoriURLRulesModal);
-    }
-    if (closeBtn) {
-        closeBtn.addEventListener('click', hideLinkumoriURLRulesModal);
-    }
-    if (dismissBtn) {
-        dismissBtn.addEventListener('click', hideLinkumoriURLRulesModal);
-    }
-    if (validateBtn) {
-        validateBtn.addEventListener('click', validateLinkumoriURLRulesFromUI);
-    }
-    if (saveBtn) {
-        saveBtn.addEventListener('click', saveLinkumoriURLRulesFromUI);
-    }
-    if (linkumoriURLRulesTextarea) {
-        linkumoriURLRulesTextarea.addEventListener('input', validateLinkumoriURLRulesFromUI);
-    }
-    if (linkumoriURLRulesModal) {
-        linkumoriURLRulesModal.addEventListener('click', function(e) {
-            if (e.target === linkumoriURLRulesModal) {
-                hideLinkumoriURLRulesModal();
-            }
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && linkumoriURLRulesModal.classList.contains('show')) {
-                hideLinkumoriURLRulesModal();
-            }
-        });
     }
 }
 
@@ -4017,15 +3536,6 @@ function renderRuleTestResult(result) {
         `${i18n('customRulesEditor_ruleTestLab_field_matchedReferralMarketing')}: ${result.matchedReferralMarketing || noValue}`,
         `${i18n('customRulesEditor_ruleTestLab_field_matchedRemoveParamRule')}: ${result.matchedRemoveParamRule || noValue}`,
         `${i18n('customRulesEditor_ruleTestLab_field_matchedRemoveParamException')}: ${result.matchedRemoveParamException || noValue}`,
-        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLChanged')}: ${
-            result.linkumoriURLChanged
-                ? i18n('customRulesEditor_ruleTestLab_value_true')
-                : i18n('customRulesEditor_ruleTestLab_value_false')
-        }`,
-        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLOutput')}: ${result.linkumoriURLOutput || noValue}`,
-        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule')}: ${result.linkumoriURLMatchedRule || noValue}`,
-        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLPatternType')}: ${result.linkumoriURLPatternType || noValue}`,
-        `${i18n('customRulesEditor_ruleTestLab_field_linkumoriURLAction')}: ${result.linkumoriURLAction || noValue}`,
         `${i18n('customRulesEditor_ruleTestLab_field_completeProvider')}: ${
             typeof result.completeProvider === 'boolean'
                 ? (result.completeProvider
@@ -4221,27 +3731,21 @@ function updateUI() {
 async function updateRulesStatus() {
     try {
         await Promise.allSettled([
-            loadLinkumoriURLDisabledRules(),
             loadClearURLsDisabledRuleIds()
         ]);
 
-        const [responseResult, linkumoriDataResult, linkumoriCustomResult] = await Promise.allSettled([
+        const [responseResult, linkumoriDataResult] = await Promise.allSettled([
             browser.runtime.sendMessage({
                 function: "getCustomRulesStats"
             }),
             browser.runtime.sendMessage({
                 function: "getData",
                 params: ['ClearURLsData']
-            }),
-            browser.runtime.sendMessage({
-                function: "getData",
-                params: ['linkumori_url_custom_rules']
             })
         ]);
 
         const response = responseResult.status === 'fulfilled' ? responseResult.value : null;
         const linkumoriDataResponse = linkumoriDataResult.status === 'fulfilled' ? linkumoriDataResult.value : null;
-        const linkumoriCustomResponse = linkumoriCustomResult.status === 'fulfilled' ? linkumoriCustomResult.value : null;
         const clearURLsRuntimeData = linkumoriDataResponse?.response || {};
         const hasRuntimeProviders = clearURLsRuntimeData &&
             typeof clearURLsRuntimeData.providers === 'object' &&
@@ -4270,7 +3774,6 @@ async function updateRulesStatus() {
             }
             if (disabledCountElement) {
                 const disabledTotal = Number(stats.disabledProviders || 0) +
-                    linkumoriURLDisabledRules.length +
                     clearURLsDisabledRuleIds.length;
                 disabledCountElement.textContent = getLocalizedNumber(disabledTotal);
             }
@@ -4282,38 +3785,6 @@ async function updateRulesStatus() {
             }
         }
 
-        const linkumoriMetadata = clearURLsRuntimeData.urlFilterMetadata || {};
-        const linkumoriCustom = normalizeLinkumoriURLCustomRulesValue(linkumoriCustomResponse?.response);
-        const linkumoriStatusElement = document.getElementById('linkumori-url-rule-status');
-        const linkumoriRuntimeCountElement = document.getElementById('linkumori-url-runtime-count');
-        const linkumoriCustomCountElement = document.getElementById('linkumori-url-custom-count');
-        const linkumoriHashElement = document.getElementById('linkumori-url-hash-status');
-        const runtimeCount = Number(linkumoriMetadata.supportedRuleCount || (Array.isArray(clearURLsRuntimeData.urlFilterRules) ? clearURLsRuntimeData.urlFilterRules.length : 0));
-
-        // Parse custom rules to get the actual supported rule count (not raw stored line count,
-        // which includes comment lines and filter-list headers that the parser silently ignores).
-        let customRuleCount = 0;
-        if (linkumoriCustom.rules.length > 0) {
-            try {
-                const parsedCustom = parseLinkumoriURLRulesText(linkumoriCustom.rules.join('\n'));
-                customRuleCount = Number(parsedCustom?.metadata?.supportedRuleCount ?? parsedCustom?.rules?.length ?? 0);
-            } catch (_) {
-                customRuleCount = linkumoriCustom.rules.length;
-            }
-        }
-
-        if (linkumoriStatusElement) {
-            linkumoriStatusElement.textContent = getLinkumoriURLStatusText(linkumoriMetadata.ruleStatus || linkumoriMetadata.status);
-        }
-        if (linkumoriRuntimeCountElement) {
-            linkumoriRuntimeCountElement.textContent = getLocalizedNumber(runtimeCount);
-        }
-        if (linkumoriCustomCountElement) {
-            linkumoriCustomCountElement.textContent = getLocalizedNumber(customRuleCount);
-        }
-        if (linkumoriHashElement) {
-            linkumoriHashElement.textContent = getLinkumoriURLHashStatusText(linkumoriMetadata.hashStatus);
-        }
     } catch (error) {
         // Set fallback values with localized question marks
         const customCountElement = document.getElementById('custom-count');
@@ -5481,24 +4952,13 @@ function duplicateProvider(providerName) {
  */
 async function exportCustomRules() {
     try {
-        let linkumoriURLCustomRules = { rules: [] };
-        try {
-            const response = await browser.runtime.sendMessage({
-                function: 'getData',
-                params: ['linkumori_url_custom_rules']
-            });
-            linkumoriURLCustomRules = normalizeLinkumoriURLCustomRulesValue(response?.response);
-        } catch (_) {
-        }
-
         const exportData = {
             format: 'linkumori-custom-rules-export',
             version: 1,
             exportedAt: new Date().toISOString(),
             clearurlsCustomRules: {
                 providers: customRules.providers || {}
-            },
-            linkumoriURLCustomRules
+            }
         };
 
         const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
@@ -5556,10 +5016,8 @@ function getProvidersFromImportedCustomRules(imported) {
         'version',
         'exportedAt',
         'clearurlsCustomRules',
-        'linkumoriURLCustomRules',
         'custom_rules',
-        'customRules',
-        'linkumori_url_custom_rules'
+        'customRules'
     ]);
     const keys = Object.keys(imported).filter(key => !reservedKeys.has(key));
     if (keys.length > 0 && keys.every(key => typeof imported[key] === 'object' && imported[key] !== null && !Array.isArray(imported[key]))) {
@@ -5665,27 +5123,6 @@ function applyImportedV2Defaults(providers, defaults) {
     return result;
 }
 
-function getLinkumoriURLRulesFromImportedCustomRules(imported) {
-    if (!imported || typeof imported !== 'object') {
-        return null;
-    }
-
-    const candidates = [
-        imported.linkumoriURLCustomRules,
-        imported.linkumori_url_custom_rules,
-        imported.LinkumoriURLCustomRules
-    ];
-
-    for (const candidate of candidates) {
-        if (candidate === undefined || candidate === null) {
-            continue;
-        }
-        return normalizeLinkumoriURLCustomRulesValue(candidate).rules;
-    }
-
-    return null;
-}
-
 function validateImportedProviders(providersData) {
     if (!providersData || Object.keys(providersData).length === 0) {
         throw new Error(i18n('customRulesEditor_noProvidersInFile'));
@@ -5757,12 +5194,9 @@ async function handleFileImport(e) {
             }
 
             const providersData = getProvidersFromImportedCustomRules(imported);
-            const linkumoriURLRules = getLinkumoriURLRulesFromImportedCustomRules(imported);
-
             const hasProviderRules = providersData && Object.keys(providersData).length > 0;
-            const hasLinkumoriURLRules = linkumoriURLRules !== null;
 
-            if (!hasProviderRules && !hasLinkumoriURLRules) {
+            if (!hasProviderRules) {
                 throw new Error(i18n('customRulesEditor_invalidFileStructure'));
             }
 
@@ -5770,25 +5204,11 @@ async function handleFileImport(e) {
                 validateImportedProviders(providersData);
             }
 
-            if (linkumoriURLRules !== null && linkumoriURLRules.length > 0) {
-                parseLinkumoriURLRulesText(linkumoriURLRules.join('\n'));
-            }
-            
             const confirmed = await modalConfirm(i18n('customRulesEditor_importConfirm'));
             if (confirmed) {
                 if (hasProviderRules) {
                     customRules = { providers: providersData };
                     await saveCustomRules();
-                }
-
-                if (linkumoriURLRules !== null) {
-                    await browser.runtime.sendMessage({
-                        function: 'setData',
-                        params: ['linkumori_url_custom_rules', JSON.stringify({ rules: linkumoriURLRules })]
-                    });
-                    await browser.runtime.sendMessage({
-                        function: 'reloadLinkumoriURLFilters'
-                    });
                 }
 
                 await updateRulesStatus();
