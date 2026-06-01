@@ -88,8 +88,7 @@
         const ruleData = {
             activationState: testCase.activationState || suite.activationState || undefined,
             defaults: testCase.defaults || suite.defaults || undefined,
-            providers: testCase.providers || suite.providers || {},
-            urlFilterRules: testCase.urlFilterRules || suite.urlFilterRules || []
+            providers: testCase.providers || suite.providers || {}
         };
         const key = JSON.stringify(ruleData);
         if (key === _lastRulesKey) return;
@@ -262,10 +261,7 @@
                 const loadStatus = visitResult.status;
                 let fn = 'runRuleTestLab';
                 let params = [testCase.input, '', testCase.request || {}];
-                if (testCase.dialect === 'urlFilter') {
-                    fn = 'traceLinkumoriURLFilterRuleTest';
-                    params = [testCase.input, testCase.request || {}];
-                } else if (testCase.dialect === 'providerWebRequest') {
+                if (testCase.dialect === 'providerWebRequest') {
                     fn = 'traceClearURLWebRequestTest';
                     params = [{ ...(testCase.request || {}), url: testCase.input }];
                 }

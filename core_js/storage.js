@@ -104,7 +104,6 @@ var tempVerificationCache = {
 };
 let temporaryPauseUntilBrowserRestart = false;
 const IMPORT_EXCLUSIONS_KEY = 'customrules_import_exclusions';
-const LINKUMORI_URL_DISABLED_RULES_KEY = 'linkumori_url_disabled_rules';
 const LINKUMORI_RULE_ACTIVATION_IDS_KEY = '_linkumoriActivationIds';
 
 function linkumoriStorageI18n(key, substitutions = []) {
@@ -191,11 +190,6 @@ function recordHashVerification(verification, ruleURL = null, hashURL = null) {
 function getRemoteRulesHealth() {
     ensureRemoteRulesHealthShape();
     const pauseState = getTemporaryPauseState();
-    const linkumoriURLsData = getUnifiedURLFilterData();
-    const linkumoriURLsMetadata = linkumoriURLsData.metadata || {};
-    const linkumoriRuleCount = Array.isArray(linkumoriURLsData.rules) ? linkumoriURLsData.rules.length : 0;
-    const linkumoriRuleStatus = linkumoriURLsMetadata.ruleStatus ||
-        (linkumoriRuleCount > 0 ? 'loaded' : (linkumoriURLsMetadata.status || 'not_loaded'));
     return {
         ...storage.remoteRulesHealth,
         hashStatus: storage.hashStatus || 'unknown',
@@ -204,32 +198,7 @@ function getRemoteRulesHealth() {
         isCacheUsed: !!tempVerificationCache.isCacheUsed,
         lastVerification: tempVerificationCache.lastVerification || null,
         remoteRulesEnabled: !!storage.remoteRulesEnabled,
-        linkumoriURLsStatus: linkumoriURLsMetadata.status || linkumoriURLsMetadata.source || 'not_loaded',
-        linkumoriURLsRuleStatus: linkumoriRuleStatus,
-        linkumoriURLsHashStatus: linkumoriURLsMetadata.hashStatus || 'not_required',
-        linkumoriURLsRuleCount: linkumoriRuleCount,
-        linkumoriURLsSourceCount: Number(linkumoriURLsMetadata.sourceCount || 0),
-        linkumoriURLsFailedSourceCount: Number(linkumoriURLsMetadata.failedSourceCount || 0),
-        linkumoriURLsUnsupportedRuleCount: Number(linkumoriURLsMetadata.skippedUnsupportedRuleCount || 0),
-        linkumoriURLsDuplicateRuleCount: Number(linkumoriURLsMetadata.skippedDuplicateRuleCount || 0),
-        linkumoriURLsLastFetchAttemptAt: linkumoriURLsMetadata.lastFetchAttemptAt || null,
-        linkumoriURLsLastFetchSuccessAt: linkumoriURLsMetadata.lastFetchSuccessAt || null,
-        linkumoriURLsFailureReason: linkumoriURLsMetadata.lastFailureReason || null,
         temporaryPause: pauseState
-    };
-}
-
-function createDefaultURLFilterMetadata(status = 'not_loaded') {
-    return {
-        name: linkumoriStorageI18n('linkumori_url_filter_name'),
-        source: status === 'not_loaded' ? 'linkumori_urls_empty' : 'clearurls_url_filter_rules',
-        status,
-        ruleStatus: status,
-        hashStatus: 'not_required',
-        sourceCount: 0,
-        supportedRuleCount: 0,
-        skippedUnsupportedRuleCount: 0,
-        skippedDuplicateRuleCount: 0
     };
 }
 
@@ -240,67 +209,25 @@ function ensureUnifiedClearURLsDataShape() {
     if (!storage.ClearURLsData.providers || typeof storage.ClearURLsData.providers !== 'object' || Array.isArray(storage.ClearURLsData.providers)) {
         storage.ClearURLsData.providers = {};
     }
-    if (!Array.isArray(storage.ClearURLsData.urlFilterRules)) {
-        storage.ClearURLsData.urlFilterRules = [];
-    }
-    if (!storage.ClearURLsData.urlFilterMetadata || typeof storage.ClearURLsData.urlFilterMetadata !== 'object' || Array.isArray(storage.ClearURLsData.urlFilterMetadata)) {
-        storage.ClearURLsData.urlFilterMetadata = createDefaultURLFilterMetadata(
-            storage.ClearURLsData.urlFilterRules.length > 0 ? 'loaded' : 'not_loaded'
-        );
-    }
     return storage.ClearURLsData;
 }
 
-function getUnifiedURLFilterData() {
-    const clearURLsData = ensureUnifiedClearURLsDataShape();
-    return {
-        metadata: clearURLsData.urlFilterMetadata || createDefaultURLFilterMetadata(
-            clearURLsData.urlFilterRules.length > 0 ? 'loaded' : 'not_loaded'
-        ),
-        format: 'linkumori-url-filter-interoperability',
-        type: 'linkumori-url-rules',
-        rules: Array.isArray(clearURLsData.urlFilterRules) ? clearURLsData.urlFilterRules : [],
-        runtimeTrieSnapshots: clearURLsData.urlFilterRuntimeTrieSnapshots || null
-    };
-}
-
-function setUnifiedURLFilterData(data) {
-    const clearURLsData = ensureUnifiedClearURLsDataShape();
-    const source = data && typeof data === 'object' ? data : {};
-    clearURLsData.urlFilterRules = Array.isArray(source.rules) ? source.rules.slice() : [];
-    clearURLsData.urlFilterMetadata = {
-        ...(source.metadata && typeof source.metadata === 'object'
-            ? source.metadata
-            : createDefaultURLFilterMetadata(clearURLsData.urlFilterRules.length > 0 ? 'loaded' : 'not_loaded'))
-    };
-    if (source.runtimeTrieSnapshots && typeof source.runtimeTrieSnapshots === 'object') {
-        clearURLsData.urlFilterRuntimeTrieSnapshots = source.runtimeTrieSnapshots;
-    } else if (source.runtimeTrieSnapshots === null) {
-        delete clearURLsData.urlFilterRuntimeTrieSnapshots;
-    }
-    return getUnifiedURLFilterData();
-}
-
-function attachUnifiedURLFilterFields(clearURLsData) {
-    const existing = getUnifiedURLFilterData();
+function normalizeClearURLsDataFields(clearURLsData) {
     const next = clearURLsData && typeof clearURLsData === 'object' && !Array.isArray(clearURLsData)
         ? clearURLsData
         : {};
-    return {
+    const normalized = {
         ...next,
         providers: next.providers
             && typeof next.providers === 'object'
             && !Array.isArray(next.providers)
             ? next.providers
-            : {},
-        urlFilterRules: Array.isArray(next.urlFilterRules) ? next.urlFilterRules : existing.rules.slice(),
-        urlFilterMetadata: next.urlFilterMetadata && typeof next.urlFilterMetadata === 'object'
-            ? next.urlFilterMetadata
-            : { ...(existing.metadata || createDefaultURLFilterMetadata(existing.rules.length > 0 ? 'loaded' : 'not_loaded')) },
-        ...(next.urlFilterRuntimeTrieSnapshots
-            ? { urlFilterRuntimeTrieSnapshots: next.urlFilterRuntimeTrieSnapshots }
-            : (existing.runtimeTrieSnapshots ? { urlFilterRuntimeTrieSnapshots: existing.runtimeTrieSnapshots } : {}))
+            : {}
     };
+    delete normalized.urlFilterRules;
+    delete normalized.urlFilterMetadata;
+    delete normalized.urlFilterRuntimeTrieSnapshots;
+    return normalized;
 }
 
 function clearExpiredTemporaryPause() {
@@ -853,38 +780,6 @@ function getConfiguredRemoteRuleSets() {
     return remoteRuleSets;
 }
 
-function getConfiguredLinkumoriURLFilterURLs() {
-    if (!storage.remoteRulesEnabled) {
-        return [];
-    }
-
-    const urls = [];
-    const dedupe = new Set();
-    const addURL = (ruleURL, hashURL = '') => {
-        const cleanRuleURL = typeof ruleURL === 'string' ? ruleURL.trim() : '';
-        const cleanHashURL = typeof hashURL === 'string' ? hashURL.trim() : '';
-        if (!isValidRuleURL(cleanRuleURL) || cleanHashURL) {
-            return;
-        }
-        if (dedupe.has(cleanRuleURL)) {
-            return;
-        }
-        dedupe.add(cleanRuleURL);
-        urls.push(cleanRuleURL);
-    };
-
-    addURL(storage.ruleURL, storage.hashURL);
-
-    if (Array.isArray(storage.remoteRuleSets)) {
-        storage.remoteRuleSets.forEach(entry => {
-            if (!entry || typeof entry !== 'object') return;
-            addURL(entry.ruleURL, entry.hashURL);
-        });
-    }
-
-    return urls;
-}
-
 function mergeRemoteProviderGroup(providerGroup) {
     const merged = {
         urlPattern: providerGroup[0].data?.urlPattern,
@@ -1391,9 +1286,7 @@ function storageDataAsString(key) {
                 return JSON.stringify(storage.ClearURLsData);
             } catch (e) {
                 return JSON.stringify({
-                    providers: {},
-                    urlFilterRules: [],
-                    urlFilterMetadata: createDefaultURLFilterMetadata('not_loaded')
+                    providers: {}
                 });
             }
         case "log":
@@ -1412,12 +1305,6 @@ function storageDataAsString(key) {
                 return JSON.stringify({ providers: {} });
             }
             return JSON.stringify(minifiedRules);
-        case "linkumori_url_custom_rules":
-            try {
-                return JSON.stringify(value && typeof value === 'object' ? value : { rules: [] });
-            } catch (e) {
-                return JSON.stringify({ rules: [] });
-            }
         case "remoteRulescache":
             try { return JSON.stringify(value); } catch (e) { return JSON.stringify(null); }
         case "types":
@@ -1591,269 +1478,6 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
     }, true);
 
     return cachedData;
-}
-
-function saveEmptyURLFilterRulesData(status = 'empty') {
-    const data = {
-        metadata: {
-            name: linkumoriStorageI18n('linkumori_url_filter_name'),
-            source: 'linkumori_urls_empty',
-            status,
-            ruleStatus: status,
-            hashStatus: 'not_required',
-            sourceCount: 0,
-            supportedRuleCount: 0,
-            skippedUnsupportedRuleCount: 0,
-            skippedDuplicateRuleCount: 0
-        },
-        format: 'linkumori-url-filter-interoperability',
-        rules: []
-    };
-    const unified = setUnifiedURLFilterData(data);
-    saveOnDisk(['ClearURLsData']);
-    return unified;
-}
-
-function parseLinkumoriURLCustomRulesData() {
-    const customData = storage.linkumori_url_custom_rules || { rules: [] };
-    const rawRules = Array.isArray(customData.rules)
-        ? customData.rules
-        : (typeof customData === 'string' ? customData.split(/\r?\n/) : []);
-    const text = rawRules
-        .map(rule => typeof rule === 'string' ? rule.trim() : '')
-        .filter(Boolean)
-        .join('\n');
-
-    if (!text) {
-        return null;
-    }
-
-    if (!globalThis.LinkumoriURLFilterInteroperability ||
-        typeof globalThis.LinkumoriURLFilterInteroperability.parseFilterList !== 'function') {
-        throw new Error(linkumoriStorageI18n('linkumori_url_filter_parser_unavailable'));
-    }
-
-    const parsed = globalThis.LinkumoriURLFilterInteroperability.parseFilterList(text, 'linkumori_url_custom_rules');
-    parsed.metadata = {
-        ...(parsed.metadata || {}),
-        name: linkumoriStorageI18n('linkumori_url_filter_custom_name'),
-        source: 'linkumori_urls_custom',
-        sourceURL: 'linkumori_url_custom_rules',
-        status: 'loaded',
-        ruleStatus: 'loaded',
-        hashStatus: 'not_required',
-        lastFetchAttemptAt: null,
-        lastFetchSuccessAt: null
-    };
-    return parsed;
-}
-
-function getLinkumoriURLCustomSource() {
-    try {
-        const parsed = parseLinkumoriURLCustomRulesData();
-        if (!parsed) {
-            return null;
-        }
-        return {
-            url: 'linkumori_url_custom_rules',
-            data: parsed
-        };
-    } catch (error) {
-        return {
-            url: 'linkumori_url_custom_rules',
-            error: error?.message || linkumoriStorageI18n('linkumori_url_filter_custom_failed')
-        };
-    }
-}
-
-function mergeLinkumoriURLFilterSources(successfulSources, failedSources = []) {
-    const rules = [];
-    const seen = new Set();
-    const disabledRules = new Set(Array.isArray(storage[LINKUMORI_URL_DISABLED_RULES_KEY])
-        ? storage[LINKUMORI_URL_DISABLED_RULES_KEY].map(rule => String(rule || '').trim()).filter(Boolean)
-        : []);
-    let skippedUnsupportedRuleCount = 0;
-    let skippedDuplicateRuleCount = 0;
-    let disabledRuleCount = 0;
-    let lastFetchAttemptAt = null;
-    let lastFetchSuccessAt = null;
-
-    successfulSources.forEach(source => {
-        const sourceRules = Array.isArray(source.data?.rules) ? source.data.rules : [];
-        skippedUnsupportedRuleCount += Number(source.data?.metadata?.skippedUnsupportedRuleCount || 0);
-        skippedDuplicateRuleCount += Number(source.data?.metadata?.skippedDuplicateRuleCount || 0);
-        lastFetchAttemptAt = source.data?.metadata?.lastFetchAttemptAt || lastFetchAttemptAt;
-        lastFetchSuccessAt = source.data?.metadata?.lastFetchSuccessAt || lastFetchSuccessAt;
-
-        sourceRules.forEach(rule => {
-            if (disabledRules.has(rule)) {
-                disabledRuleCount++;
-                return;
-            }
-            if (seen.has(rule)) {
-                skippedDuplicateRuleCount++;
-                return;
-            }
-            seen.add(rule);
-            rules.push(rule);
-        });
-    });
-
-    return {
-        metadata: {
-            name: successfulSources.length > 1
-                ? linkumoriStorageI18n('linkumori_url_filter_merged_name')
-                : (successfulSources[0]?.data?.metadata?.name || linkumoriStorageI18n('linkumori_url_filter_single_name')),
-            source: successfulSources.length > 1 ? 'linkumori_urls_merged' : (successfulSources[0]?.data?.metadata?.source || 'linkumori_urls_remote'),
-            status: failedSources.length > 0 ? 'partially_loaded' : 'loaded',
-            ruleStatus: failedSources.length > 0 ? 'partially_loaded' : 'loaded',
-            hashStatus: 'not_required',
-            sourceURL: successfulSources.length > 1 ? 'multiple' : successfulSources[0]?.url || null,
-            sourceCount: successfulSources.length,
-            failedSourceCount: failedSources.length,
-            supportedRuleCount: rules.length,
-            disabledRuleCount,
-            skippedUnsupportedRuleCount,
-            skippedDuplicateRuleCount,
-            lastFetchAttemptAt,
-            lastFetchSuccessAt,
-            lastFailureReason: failedSources.length > 0
-                ? linkumoriStorageI18n('linkumori_url_filter_sources_failed_count', [String(failedSources.length)])
-                : null,
-            remoteSources: successfulSources.map(source => ({
-                ruleURL: source.url,
-                supportedRuleCount: Array.isArray(source.data?.rules) ? source.data.rules.length : 0
-            })),
-            failedSources
-        },
-        format: 'linkumori-url-filter-interoperability',
-        rules
-    };
-}
-
-async function fetchLinkumoriURLFilter(url) {
-    const fetchedAt = new Date().toISOString();
-    recordRemoteFetchAttempt(url, null);
-    try {
-        const response = await fetch(url, {
-            method: 'GET',
-            cache: 'no-store'
-        });
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
-
-        const text = await response.text();
-        if (!text || text.trim().length === 0) {
-            throw new Error(linkumoriStorageI18n('linkumori_url_filter_remote_empty'));
-        }
-        if (!globalThis.LinkumoriURLFilterInteroperability ||
-            typeof globalThis.LinkumoriURLFilterInteroperability.parseFilterList !== 'function') {
-            throw new Error(linkumoriStorageI18n('linkumori_url_filter_parser_unavailable'));
-        }
-
-        const parsed = globalThis.LinkumoriURLFilterInteroperability.parseFilterList(text, url);
-        recordRemoteFetchSuccess(url, null);
-        parsed.metadata = {
-            ...(parsed.metadata || {}),
-            status: 'loaded',
-            ruleStatus: 'loaded',
-            hashStatus: 'not_required',
-            lastFetchAttemptAt: fetchedAt,
-            lastFetchSuccessAt: new Date().toISOString()
-        };
-        return parsed;
-    } catch (error) {
-        recordRemoteFetchFailure(error?.message || linkumoriStorageI18n('linkumori_url_filter_fetch_failed'), 'linkumori_url_filter_fetch', url, null);
-        throw error;
-    }
-}
-
-async function loadLinkumoriURLFilters() {
-    const customSource = getLinkumoriURLCustomSource();
-    const successful = [];
-    const failed = [];
-
-    if (customSource) {
-        if (customSource.data) {
-            successful.push(customSource);
-        } else {
-            failed.push({
-                ruleURL: customSource.url,
-                error: customSource.error || linkumoriStorageI18n('linkumori_url_filter_custom_failed')
-            });
-        }
-    }
-
-    const urls = getConfiguredLinkumoriURLFilterURLs();
-    if (!storage.remoteRulesEnabled || urls.length === 0) {
-        if (successful.length > 0) {
-            const merged = mergeLinkumoriURLFilterSources(successful, failed);
-            setUnifiedURLFilterData(merged);
-            if (!storage.remoteRulesEnabled) {
-                storage.ClearURLsData.urlFilterMetadata.remoteStatus = 'remote_disabled';
-            } else {
-                storage.ClearURLsData.urlFilterMetadata.remoteStatus = 'no_hashless_sources';
-            }
-            saveOnDisk(['ClearURLsData']);
-            return getUnifiedURLFilterData();
-        }
-
-        const emptyStatus = !storage.remoteRulesEnabled ? 'remote_disabled' : 'no_hashless_sources';
-        const empty = saveEmptyURLFilterRulesData(emptyStatus);
-        if (failed.length > 0) {
-            empty.metadata.failedSources = failed;
-            empty.metadata.failedSourceCount = failed.length;
-            empty.metadata.lastFailureReason = failed[0]?.error || linkumoriStorageI18n('linkumori_url_filter_custom_failed');
-            setUnifiedURLFilterData(empty);
-            saveOnDisk(['ClearURLsData']);
-        }
-        return empty;
-    }
-
-    const results = await Promise.allSettled(urls.map(async url => ({
-        url,
-        data: await fetchLinkumoriURLFilter(url)
-    })));
-
-    results.forEach((result, index) => {
-        const url = urls[index];
-        if (result.status === 'fulfilled') {
-            successful.push(result.value);
-        } else {
-            failed.push({
-                ruleURL: url,
-                error: result.reason?.message || linkumoriStorageI18n('linkumori_url_filter_unknown_error')
-            });
-        }
-    });
-
-    if (successful.length === 0) {
-        const empty = saveEmptyURLFilterRulesData('all_sources_failed');
-        empty.metadata.failedSources = failed;
-        empty.metadata.failedSourceCount = failed.length;
-        empty.metadata.lastFailureReason = failed[0]?.error || linkumoriStorageI18n('linkumori_url_filter_all_sources_failed');
-        setUnifiedURLFilterData(empty);
-        saveOnDisk(['ClearURLsData']);
-        return empty;
-    }
-
-    setUnifiedURLFilterData(mergeLinkumoriURLFilterSources(successful, failed));
-    saveOnDisk(['ClearURLsData']);
-    return getUnifiedURLFilterData();
-}
-
-function reloadLinkumoriURLFilters() {
-    return loadLinkumoriURLFilters().then((data) => {
-        let appliedLive = false;
-        if (typeof globalThis.updateLinkumoriURLFilterRuntimeData === 'function') {
-            appliedLive = !!globalThis.updateLinkumoriURLFilterRuntimeData();
-        }
-        return {
-            data,
-            appliedLive
-        };
-    });
 }
 
 function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
@@ -2095,20 +1719,6 @@ async function getBundledRulesOnly() {
     return normalizeRulesForProviderImport(bundledRules, 'Bundled Rules', 'bundled');
 }
 
-function getExistingLinkumoriDataForImport() {
-    const data = getUnifiedURLFilterData();
-    return {
-        metadata: {
-            ...(data.metadata || {}),
-            name: data.metadata?.name || 'Linkumori URL Filters',
-            source: data.metadata?.source || 'linkumori_urls_data'
-        },
-        format: 'linkumori-url-filter-interoperability',
-        type: 'linkumori-url-rules',
-        rules: Array.isArray(data.rules) ? data.rules : []
-    };
-}
-
 function loadBundledRules() {
     if (storage.builtInRulesEnabled === false && !storage.remoteRulesEnabled) {
         storage.hashStatus = "custom_only_loaded";
@@ -2119,18 +1729,10 @@ function loadBundledRules() {
     }
 
     if (!areValidRemoteURLsPresent()) {
-        const hasLinkumoriURLFilters = getConfiguredLinkumoriURLFilterURLs().length > 0;
         storage.hashStatus = "no_remote_urls";
         storage.hashValidationStatus = 'not_applicable';
         tempVerificationCache.isRemoteVerified = false;
-        if (hasLinkumoriURLFilters) {
-            updateRemoteRulesHealth({
-                lastFailureReason: null,
-                lastFailureStage: null
-            }, true);
-        } else {
-            recordRemoteFetchFailure('No valid remote rule/hash URL pairs configured', 'invalid_remote_urls');
-        }
+        recordRemoteFetchFailure('No valid remote rule/hash URL pairs configured', 'invalid_remote_urls');
 
         if (storage.builtInRulesEnabled === false) {
             storage.hashStatus = "custom_only_loaded";
@@ -2443,7 +2045,7 @@ function loadCustomOnlyRules() {
                 providerCount
             };
 
-            storage.ClearURLsData = attachUnifiedURLFilterFields({
+            storage.ClearURLsData = normalizeClearURLsDataFields({
                 metadata: storage.rulesMetadata,
                 providers: filteredCustom.providers
             });
@@ -2474,7 +2076,7 @@ function loadCustomOnlyRules() {
                 source: 'custom_only',
                 providerCount: 0
             };
-            storage.ClearURLsData = attachUnifiedURLFilterFields({
+            storage.ClearURLsData = normalizeClearURLsDataFields({
                 metadata: storage.rulesMetadata,
                 providers: {}
             });
@@ -2576,7 +2178,7 @@ function mergeCustomRules(bundledRules) {
                     ...filteredBundledRules,
                     providers: annotatedBundledProviders
                 };
-                storage.ClearURLsData = attachUnifiedURLFilterFields(annotatedBundledRules);
+                storage.ClearURLsData = normalizeClearURLsDataFields(annotatedBundledRules);
                 const bundledSourceProviderCount = bundledEntries.length;
                 const runtimeProviderCount = Object.keys(annotatedBundledProviders || {}).length;
                 storage.mergeStats = {
@@ -2687,7 +2289,7 @@ function mergeCustomRules(bundledRules) {
                     hasOverrides: overriddenBaseEntries.length > 0
                 };
                 
-                storage.ClearURLsData = attachUnifiedURLFilterFields(mergedRules);
+                storage.ClearURLsData = normalizeClearURLsDataFields(mergedRules);
                 const ruleStringmerge = JSON.stringify(mergedRules, Object.keys(mergedRules).sort());
                 const hashmerge = await sha256(ruleStringmerge);
                 storage.dataHash = hashmerge;
@@ -2711,7 +2313,7 @@ function mergeCustomRules(bundledRules) {
             resolve(storage.ClearURLsData);
             
         } catch (error) {
-            storage.ClearURLsData = attachUnifiedURLFilterFields(bundledRules);
+            storage.ClearURLsData = normalizeClearURLsDataFields(bundledRules);
             storage.dataHash = "bundled-fallback-" + Date.now();
             storage.hashStatus = "custom_rules_failed";
             storage.mergeStats = {
@@ -2752,7 +2354,7 @@ globalThis.getPendingRegressionSuite = getPendingRegressionSuite;
 function applyRegressionRuleData(data) {
     const safeData = data && typeof data === 'object' && !Array.isArray(data)
         ? data
-        : { providers: {}, urlFilterRules: [] };
+        : { providers: {} };
     const cloneValue = value => {
         if (typeof structuredClone === 'function') {
             return structuredClone(value);
@@ -2765,8 +2367,7 @@ function applyRegressionRuleData(data) {
             : {}),
         providers: safeData.providers && typeof safeData.providers === 'object' && !Array.isArray(safeData.providers)
             ? cloneValue(safeData.providers)
-            : {},
-        urlFilterRules: Array.isArray(safeData.urlFilterRules) ? cloneValue(safeData.urlFilterRules) : []
+            : {}
     };
     if (safeData.activationState && typeof safeData.activationState === 'object' && !Array.isArray(safeData.activationState)) {
         const disabledRuleIds = safeData.activationState.disabledRuleIds || safeData.activationState.disabledRules;
@@ -2782,22 +2383,16 @@ function applyRegressionRuleData(data) {
     if (typeof globalThis.updateProviderData === 'function') {
         appliedLive = !!globalThis.updateProviderData();
     }
-    if (typeof globalThis.updateLinkumoriURLFilterRuntimeData === 'function') {
-        globalThis.updateLinkumoriURLFilterRuntimeData();
-    }
     return { appliedLive };
 }
 
 globalThis.applyRegressionRuleData = applyRegressionRuleData;
 
 function reloadCustomRules() {
-    return loadBundledRules().then(() => loadLinkumoriURLFilters()).then(() => {
+    return loadBundledRules().then(() => {
         let appliedLive = false;
         if (typeof globalThis.updateProviderData === 'function') {
             appliedLive = !!globalThis.updateProviderData();
-        }
-        if (typeof globalThis.updateLinkumoriURLFilterRuntimeData === 'function') {
-            globalThis.updateLinkumoriURLFilterRuntimeData();
         }
         
         return {
@@ -2987,20 +2582,14 @@ function genesis() {
         initStorage(items);
         consumePostReloadOpenUrl();
 
-        initLinkumoriPublicSuffixList().then(() => loadBundledRules()).then(() => loadLinkumoriURLFilters()).then(() => {
+        initLinkumoriPublicSuffixList().then(() => loadBundledRules()).then(() => {
             startClearurlsIfConsentGranted();
-            if (hasPopupConsentForStartup() && typeof globalThis.startLinkumoriURLFilterRuntime === 'function') {
-                globalThis.startLinkumoriURLFilterRuntime();
-            }
             changeIcon();
             contextMenuStart();
             historyListenerStart();
             
         }).catch(error => {
             startClearurlsIfConsentGranted();
-            if (hasPopupConsentForStartup() && typeof globalThis.startLinkumoriURLFilterRuntime === 'function') {
-                globalThis.startLinkumoriURLFilterRuntime();
-            }
             changeIcon();
             contextMenuStart();
             historyListenerStart();
@@ -3024,13 +2613,13 @@ function setData(key, value) {
         case "ClearURLsData":
             if (typeof value === 'string') {
                 try {
-                    storage[key] = attachUnifiedURLFilterFields(JSON.parse(value));
+                    storage[key] = normalizeClearURLsDataFields(JSON.parse(value));
                 } catch (error) {
                     console.warn('Invalid ClearURLsData JSON, restoring defaults:', error);
-                    storage[key] = attachUnifiedURLFilterFields({});
+                    storage[key] = normalizeClearURLsDataFields({});
                 }
             } else {
-                storage[key] = attachUnifiedURLFilterFields(value);
+                storage[key] = normalizeClearURLsDataFields(value);
             }
             break;
         case "log":
@@ -3041,14 +2630,12 @@ function setData(key, value) {
             }
             break;
         case "custom_rules":
-        case "linkumori_url_custom_rules":
             if (typeof value === 'string') {
                 storage[key] = JSON.parse(value);
             } else {
                 storage[key] = value;
             }
             break;
-        case "linkumori_url_disabled_rules":
         case "clearurls_disabled_rule_ids":
             if (typeof value === 'string') {
                 try {
@@ -3212,9 +2799,7 @@ function initStorage(items) {
 
 function initSettings() {
     storage.ClearURLsData = {
-        providers: {},
-        urlFilterRules: [],
-        urlFilterMetadata: createDefaultURLFilterMetadata('not_loaded')
+        providers: {}
     };
     storage.dataHash = "";
     storage.builtInRulesEnabled = true;
@@ -3268,8 +2853,6 @@ function initSettings() {
     storage.watchDogErrorCount = 0;
     storage.userWhitelist = [];
     storage.custom_rules = { providers: {} };
-    storage.linkumori_url_custom_rules = { rules: [] };
-    storage.linkumori_url_disabled_rules = [];
     storage.clearurls_disabled_rule_ids = [];
     storage.popupConsentAccepted = false;
     storage.popupConsentPolicyVersionAccepted = 0;
@@ -3562,9 +3145,6 @@ browser.storage.onChanged.addListener((changes, areaName) => {
 
     if (hasPopupConsentForStartup()) {
         startClearurlsIfConsentGranted();
-        if (typeof globalThis.startLinkumoriURLFilterRuntime === 'function') {
-            globalThis.startLinkumoriURLFilterRuntime();
-        }
     }
 });
 

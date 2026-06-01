@@ -117,7 +117,7 @@ function normalizeRegressionSuite(rawSuite, { fullBattery = false } = {}) {
         seen.add(id);
 
         const dialect = testCase.dialect || 'provider';
-        if (!['provider', 'providerWebRequest', 'urlFilter'].includes(dialect)) {
+        if (!['provider', 'providerWebRequest'].includes(dialect)) {
             errors.push(`${id || `case[${index}]`} has unsupported dialect: ${dialect}`);
         }
 
@@ -134,7 +134,6 @@ function normalizeRegressionSuite(rawSuite, { fullBattery = false } = {}) {
 
         normalizedCases.push({
             providers: suite.providers || {},
-            urlFilterRules: suite.urlFilterRules || [],
             preferences: suite.preferences || {},
             ...testCase,
             id,

@@ -16,7 +16,6 @@
             return { error: 'No pending regression suite' };
         }
 
-        const traceFn         = bgWin.traceLinkumoriURLFilterRuleTest;
         const labFn           = bgWin.runRuleTestLab;
         const applyFn         = bgWin.applyRegressionRuleData;
         const getDataFn       = bgWin.getData;
@@ -70,8 +69,7 @@
                     const ruleData = {
                         activationState: testCase.activationState ?? suite.activationState ?? undefined,
                         defaults: testCase.defaults || suite.defaults || undefined,
-                        providers: testCase.providers || suite.providers || {},
-                        urlFilterRules: testCase.urlFilterRules || suite.urlFilterRules || []
+                        providers: testCase.providers || suite.providers || {}
                     };
                     const key = JSON.stringify(ruleData);
                     if (key !== lastKey) {
@@ -98,9 +96,6 @@
                             ...(testCase.request || {}),
                             url: testCase.input
                         });
-                        raw = (r instanceof Promise ? await r : r) || {};
-                    } else if (testCase.dialect === 'urlFilter' && typeof traceFn === 'function') {
-                        const r = traceFn(testCase.input, testCase.request || {});
                         raw = (r instanceof Promise ? await r : r) || {};
                     } else if (typeof labFn === 'function') {
                         const r = labFn(testCase.input, '', testCase.request || {});
@@ -135,7 +130,7 @@
                 if ('referralMarketing'   in snapshot) await setDataFn('referralMarketing',   snapshot.referralMarketing);
             }
             if ('clearURLsData' in snapshot && typeof applyFn === 'function') {
-                applyFn(snapshot.clearURLsData || { providers: {}, urlFilterRules: [] });
+                applyFn(snapshot.clearURLsData || { providers: {} });
             }
         }
 

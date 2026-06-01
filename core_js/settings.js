@@ -2409,8 +2409,7 @@ function isRegressionSuiteImport(value) {
             typeof testCase.id === 'string' &&
             (
                 testCase.dialect === 'provider' ||
-                testCase.dialect === 'providerWebRequest' ||
-                testCase.dialect === 'urlFilter'
+                testCase.dialect === 'providerWebRequest'
             ) &&
             typeof testCase.input === 'string' &&
             (
@@ -2604,16 +2603,12 @@ async function importSettings(evt) {
             }
             case 'ClearURLsData': {
                 const clearURLsData = parseJSONObject(value, {
-                    providers: {},
-                    urlFilterRules: [],
-                    urlFilterMetadata: {}
+                    providers: {}
                 });
                 return clearURLsData && typeof clearURLsData === 'object' && !Array.isArray(clearURLsData)
                     ? clearURLsData
                     : {
-                        providers: {},
-                        urlFilterRules: [],
-                        urlFilterMetadata: {}
+                        providers: {}
                     };
             }
             case 'pingRequestTypes': {
@@ -2661,8 +2656,6 @@ async function importSettings(evt) {
     const hasExternalClearURLsPayload = isExternalClearURLsImport && (
         Object.prototype.hasOwnProperty.call(parsed, 'ClearURLsData')
         || Object.prototype.hasOwnProperty.call(parsed, 'providers')
-        || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterRules')
-        || Object.prototype.hasOwnProperty.call(parsed, 'urlFilterMetadata')
     );
     const externalClearURLsData = hasExternalClearURLsPayload
         ? normalizeImportValue(
@@ -2670,9 +2663,7 @@ async function importSettings(evt) {
             Object.prototype.hasOwnProperty.call(parsed, 'ClearURLsData')
                 ? parsed.ClearURLsData
                 : {
-                    providers: parsed.providers,
-                    urlFilterRules: parsed.urlFilterRules,
-                    urlFilterMetadata: parsed.urlFilterMetadata
+                    providers: parsed.providers
                 }
         )
         : null;
@@ -3105,40 +3096,14 @@ function getLocalizedHashStatus(status) {
     return statusText;
 }
 
-function getLocalizedLinkumoriURLRuleStatus(status) {
-    if (!status || typeof status !== 'string') {
-        return translate('settings_remote_health_unknown');
-    }
-
-    switch (status) {
-        case 'loaded':
-            return translate('linkumori_url_status_loaded');
-        case 'partially_loaded':
-            return translate('linkumori_url_status_partially_loaded');
-        case 'all_sources_failed':
-            return translate('linkumori_url_status_all_sources_failed');
-        case 'no_hashless_sources':
-            return translate('linkumori_url_status_no_sources');
-        case 'remote_disabled':
-            return translate('linkumori_url_status_remote_disabled');
-        case 'not_loaded':
-            return translate('linkumori_url_status_not_loaded');
-        case 'empty':
-            return translate('linkumori_url_status_empty');
-        default:
-            return status;
-    }
-}
-
 function renderRemoteRulesHealth(health) {
     const fetchAttemptEl = document.getElementById('remoteHealthFetchAttempt');
     const fetchSuccessEl = document.getElementById('remoteHealthFetchSuccess');
     const hashVerificationEl = document.getElementById('remoteHealthHashVerification');
     const failureReasonEl = document.getElementById('remoteHealthFailureReason');
     const hashStatusEl = document.getElementById('remoteHealthHashStatus');
-    const linkumoriURLStatusEl = document.getElementById('remoteHealthLinkumoriURLStatus');
 
-    if (!fetchAttemptEl || !fetchSuccessEl || !hashVerificationEl || !failureReasonEl || !hashStatusEl || !linkumoriURLStatusEl) {
+    if (!fetchAttemptEl || !fetchSuccessEl || !hashVerificationEl || !failureReasonEl || !hashStatusEl) {
         return;
     }
 
@@ -3146,11 +3111,6 @@ function renderRemoteRulesHealth(health) {
     fetchAttemptEl.textContent = formatHealthTimestamp(payload.lastFetchAttemptAt);
     fetchSuccessEl.textContent = formatHealthTimestamp(payload.lastFetchSuccessAt);
     hashVerificationEl.textContent = formatHealthTimestamp(payload.lastHashVerificationAt);
-    const linkumoriRuleCount = Number(payload.linkumoriURLsRuleCount || 0);
-    const linkumoriSourceCount = Number(payload.linkumoriURLsSourceCount || 0);
-    const linkumoriFailedCount = Number(payload.linkumoriURLsFailedSourceCount || 0);
-    const linkumoriUnsupportedCount = Number(payload.linkumoriURLsUnsupportedRuleCount || 0);
-    const linkumoriDuplicateCount = Number(payload.linkumoriURLsDuplicateRuleCount || 0);
 
     failureReasonEl.textContent = payload.lastFailureReason || translate('settings_remote_health_none');
 
@@ -3158,24 +3118,6 @@ function renderRemoteRulesHealth(health) {
         payload.hashStatus || translate('settings_remote_health_unknown')
     );
     hashStatusEl.textContent = hashStatusText;
-
-    let linkumoriStatusText = getLocalizedLinkumoriURLRuleStatus(
-        payload.linkumoriURLsRuleStatus || payload.linkumoriURLsStatus || 'not_loaded'
-    );
-    if (linkumoriRuleCount > 0) {
-        linkumoriStatusText += `: ${getLocalizedNumber(linkumoriRuleCount)} rules from ${getLocalizedNumber(linkumoriSourceCount)} source(s)`;
-        if (linkumoriFailedCount > 0) {
-            linkumoriStatusText += `, ${getLocalizedNumber(linkumoriFailedCount)} source(s) failed`;
-        }
-        if (linkumoriUnsupportedCount > 0) {
-            linkumoriStatusText += `, ${getLocalizedNumber(linkumoriUnsupportedCount)} unsupported rule(s) skipped`;
-        }
-        if (linkumoriDuplicateCount > 0) {
-            linkumoriStatusText += `, ${getLocalizedNumber(linkumoriDuplicateCount)} duplicate rule(s) skipped`;
-        }
-        linkumoriStatusText += `, hash ${payload.linkumoriURLsHashStatus === 'not_required' ? translate('linkumori_url_hash_not_required') : payload.linkumoriURLsHashStatus}`;
-    }
-    linkumoriURLStatusEl.textContent = linkumoriStatusText;
 }
 
 async function loadRemoteRulesHealth() {
@@ -3419,9 +3361,6 @@ function displayBundledRulesInfo() {
         const providerSnapshot = providerSnapshotResponse && providerSnapshotResponse.response
             ? providerSnapshotResponse.response
             : null;
-        const clearURLsRuntimeData = rulesData && typeof rulesData === 'object' ? rulesData : {};
-        const urlFilterMetadata = clearURLsRuntimeData.urlFilterMetadata || {};
-        const urlFilterRuleCount = Array.isArray(clearURLsRuntimeData.urlFilterRules) ? clearURLsRuntimeData.urlFilterRules.length : 0;
         const statusElement = document.getElementById('bundled_rules_status');
         
         const statusLabel = translate('rules_status_label');
@@ -3511,39 +3450,6 @@ function displayBundledRulesInfo() {
                     }
                 }
 
-                if (urlFilterRuleCount > 0 || urlFilterMetadata.status || urlFilterMetadata.ruleStatus) {
-                    const sectionLabel = translate('linkumori_url_rules_section');
-                    const countLabel = translate('linkumori_url_rules_count_label');
-                    const sourceCountLabel = translate('linkumori_url_sources_count_label');
-                    const statusLabelText = translate('linkumori_url_rule_status_label');
-                    const hashLabel = translate('linkumori_url_hash_status_label');
-                    const sourceCount = Number(urlFilterMetadata.sourceCount || 0);
-                    const failedSourceCount = Number(urlFilterMetadata.failedSourceCount || 0);
-                    const unsupportedCount = Number(urlFilterMetadata.skippedUnsupportedRuleCount || 0);
-                    const duplicateCount = Number(urlFilterMetadata.skippedDuplicateRuleCount || 0);
-                    const ruleStatus = getLocalizedLinkumoriURLRuleStatus(
-                        urlFilterMetadata.ruleStatus || urlFilterMetadata.status || 'not_loaded'
-                    );
-                    const hashStatus = urlFilterMetadata.hashStatus === 'not_required'
-                        ? translate('linkumori_url_hash_not_required')
-                        : (urlFilterMetadata.hashStatus || translate('settings_remote_health_unknown'));
-
-                    html += `<br><br><strong>${sectionLabel}</strong><br>`;
-                    html += `<strong>${statusLabelText}</strong> ${ruleStatus}<br>`;
-                    html += `<strong>${countLabel}</strong> ${getLocalizedNumber(urlFilterRuleCount)}<br>`;
-                    html += `<strong>${sourceCountLabel}</strong> ${getLocalizedNumber(sourceCount)}`;
-                    if (failedSourceCount > 0) {
-                        html += `, ${getLocalizedNumber(failedSourceCount)} source(s) failed`;
-                    }
-                    if (unsupportedCount > 0) {
-                        html += `<br>${getLocalizedNumber(unsupportedCount)} unsupported rule(s) skipped`;
-                    }
-                    if (duplicateCount > 0) {
-                        html += `<br>${getLocalizedNumber(duplicateCount)} duplicate rule(s) skipped`;
-                    }
-                    html += `<br><strong>${hashLabel}</strong> ${hashStatus}`;
-                }
-                
                 // ENHANCED: Add provider composition breakdown with localized numbers (only when there are custom rules)
                 if (mergeStats && mergeStats.hasCustomRules) {
                     const compositionLabel = translate('rules_composition_label');
@@ -4047,7 +3953,6 @@ setElementText('remote_rules_enabled_description', 'remote_rules_enabled_descrip
     setElementText('remoteHealthHashVerificationLabel', 'settings_remote_health_hash_verification_label');
     setElementText('remoteHealthFailureReasonLabel', 'settings_remote_health_failure_reason_label');
     setElementText('remoteHealthHashStatusLabel', 'settings_remote_health_hash_status_label');
-    setElementText('remoteHealthLinkumoriURLStatusLabel', 'settings_remote_health_linkumori_url_status_label');
     
     // Set appropriate placeholders - always locked initially (never persisted)
     const ruleURLInput = document.getElementById('ruleURL');

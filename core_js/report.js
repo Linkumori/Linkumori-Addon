@@ -419,7 +419,6 @@ async function getConfigDataSections() {
             'hashValidationStatus',
             'userWhitelist',
             'custom_rules',
-            'linkumori_url_custom_rules',
             'disabledExceptionRules',
             'disabledRules',
             'disabledProviders'
@@ -450,8 +449,7 @@ async function getConfigDataSections() {
                 whitelistedDomains: storage.userWhitelist || []
             },
             customRules: {
-                customRules: storage.custom_rules || {},
-                linkumoriURLCustomRules: storage.linkumori_url_custom_rules || { rules: [] }
+                customRules: storage.custom_rules || {}
             },
             disabledRules: {
                 disabledExceptionRules: storage.disabledExceptionRules || [],
