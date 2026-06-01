@@ -4697,7 +4697,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "\"GitHub'da Rapor Et\" seçeneğini tıklamanın, girdiğim bilgileri ve aşağıda gösterilen yapılandırma verilerini içeren bir GitHub URL'si oluşturacağını ve ardından beni bu URL'ye yönlendireceğini anlıyorum. Bu uzantı tarafından doğrudan hiçbir veri aktarılmaz. Uzantı, açmadan önce bana URL'nin tamamını gösterecek ve ben de tam olarak hangi bilgilerin ekleneceğini inceleyebileceğim. GitHub'a yönlendirildikten sonra önceden doldurulmuş sorun formunu gönderme veya hiçbir şey göndermeden iptal etme konusunda tam kontrole sahip olacağım. GitHub'a erişmenin beni $privacy_link$'ye tabi kıldığını anlıyorum. Sorun oluşturmak bir GitHub hesabı gerektirir ve devam etmeyi seçip GitHub'a yönlendirildiğinizde etkinliğiniz $privacy_statement$ ve $terms_service$ tarafından yönetilir. Önceden doldurulmuş bilgilerle yeniden yönlendirildikten sonra, tam kontrol sizde kalır ve $repo_link$ adresindeki depomuzda sorun oluşturma işlemini göndermeyi veya iptal etmeyi seçebilirsiniz. Sorun oluşturmayı iptal etseniz bile GitHub, platformlarıyla etkileşiminiz nedeniyle gizlilik politikalarına göre veri toplamaya devam edebilir. Sorunu göndermeye devam ederseniz ek yorumlar da dahil olmak üzere gönderdiğiniz bilgiler herkesin erişimine açık hale gelecektir. Bunun nedeni, havuzun herkese açık olması ve bildirilen sorunların GitHub'u veya ilgili hizmetleri kullanan herkes tarafından görülebilmesidir.",
+    "message": "\"GitHub'da Rapor Et\" seçeneğini tıklamanın, girdiğim bilgileri ve aşağıda seçtiğim yapılandırma bölümlerini içeren bir GitHub URL'si oluşturacağını ve ardından beni bu URL'ye yönlendireceğini anlıyorum. Bu uzantı tarafından doğrudan hiçbir veri aktarılmaz. Uzantı, açmadan önce bana URL'nin tamamını gösterecek ve ben de tam olarak hangi bilgilerin ekleneceğini inceleyebileceğim. GitHub'a yönlendirildikten sonra önceden doldurulmuş sorun formunu gönderme veya hiçbir şey göndermeden iptal etme konusunda tam kontrole sahip olacağım. GitHub'a erişmenin beni $privacy_link$'a tabi kıldığını anlıyorum. Sorun oluşturmak bir GitHub hesabı gerektirir ve devam etmeyi seçip GitHub'a yönlendirildiğinizde etkinliğiniz $privacy_statement$ ve $terms_service$ tarafından yönetilir. Önceden doldurulmuş bilgilerle yönlendirildikten sonra, tam kontrol sizde kalır ve $repo_link$ adresindeki depomuzda sorun oluşturma işlemini göndermeyi veya iptal etmeyi seçebilirsiniz. Sorun oluşturmayı iptal etseniz bile GitHub, platformlarıyla etkileşiminiz nedeniyle gizlilik politikalarına göre veri toplamaya devam edebilir. Sorunu göndermeye devam ederseniz ek yorumlar da dahil olmak üzere gönderdiğiniz bilgiler herkesin erişimine açık hale gelecektir. Bunun nedeni, havuzun herkese açık olması ve bildirilen sorunların GitHub'u veya ilgili hizmetleri kullanan herkes tarafından görülebilmesidir.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4721,6 +4721,30 @@
   "configInformation": {
     "message": "Yapılandırma Bilgileri",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Uzantı ve tarayıcı ayrıntıları",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Koruma ayarları",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Beyaz listeye eklenen alanlar",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Özel kurallar",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Devre dışı bırakılan kurallar ve sağlayıcılar",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Hiçbir yapılandırma bilgisi seçilmedi.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "\"Mevcut Sorunları Bul\" seçeneğini tıklamanın, girdiğim alan adını ve sorun ayrıntılarını kullanarak bir GitHub arama URL'si oluşturacağını ve ardından beni bu URL'ye yönlendireceğini anlıyorum. Bu uzantı tarafından doğrudan hiçbir veri aktarılmaz. Uzantı, açmadan önce bana arama URL'sinin tamamını gösterecek, böylece hangi arama terimlerinin kullanılacağını inceleyebilirim. GitHub'a yönlendirildikten sonra $link$ ve $terms_service$'ye tabi olacağım.",

@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Jeg forstår, at et klik på \"Rapporter på GitHub\" vil konstruere en GitHub-URL indeholdende de oplysninger, jeg har indtastet, og konfigurationsdataene vist nedenfor, og derefter omdirigere mig til den URL. Ingen data overføres direkte af denne udvidelse. Udvidelsen viser mig den komplette URL, før jeg åbner den, og jeg kan gennemgå præcis, hvilke oplysninger der vil blive inkluderet. Når jeg er omdirigeret til GitHub, har jeg fuld kontrol over enten at indsende den forududfyldte problemformular eller annullere uden at indsende noget. Jeg forstår, at adgang til GitHub udsætter mig for $privacy_link$. Oprettelse af et problem kræver en GitHub-konto, og når du vælger at fortsætte og bliver omdirigeret til GitHub, er din aktivitet styret af $privacy_statement$ og $terms_service$. Efter at være blevet omdirigeret med forududfyldte oplysninger, bevarer du fuld kontrol og kan vælge, om du vil indsende eller annullere oprettelsen af ​​problemet på vores lager på $repo_link$. Selvom du annullerer problemoprettelsen, kan GitHub stadig indsamle data i henhold til deres privatlivspolitik på grund af din interaktion med deres platform. Hvis du fortsætter med at indsende problemet, vil de oplysninger, du indsender, inklusive eventuelle yderligere kommentarer, blive offentligt tilgængelige. Dette skyldes, at lageret er offentligt, og ethvert rapporteret problem vil være synligt for alle, der bruger GitHub eller relaterede tjenester.",
+    "message": "Jeg forstår, at et klik på \"Rapporter på GitHub\" vil konstruere en GitHub-URL indeholdende de oplysninger, jeg har indtastet, og de konfigurationssektioner, jeg valgte nedenfor, og derefter omdirigere mig til den URL. Ingen data overføres direkte af denne udvidelse. Udvidelsen viser mig den komplette URL, før jeg åbner den, og jeg kan gennemgå præcis, hvilke oplysninger der vil blive inkluderet. Når jeg er omdirigeret til GitHub, har jeg fuld kontrol over enten at indsende den forududfyldte problemformular eller annullere uden at indsende noget. Jeg forstår, at adgang til GitHub udsætter mig for $privacy_link$. Oprettelse af et problem kræver en GitHub-konto, og når du vælger at fortsætte og bliver omdirigeret til GitHub, er din aktivitet styret af $privacy_statement$ og $terms_service$. Efter at være blevet omdirigeret med forududfyldte oplysninger, bevarer du fuld kontrol og kan vælge, om du vil indsende eller annullere oprettelsen af ​​problemet på vores lager på $repo_link$. Selvom du annullerer problemoprettelsen, kan GitHub stadig indsamle data i henhold til deres privatlivspolitik på grund af din interaktion med deres platform. Hvis du fortsætter med at indsende problemet, vil de oplysninger, du indsender, inklusive eventuelle yderligere kommentarer, blive offentligt tilgængelige. Dette skyldes, at lageret er offentligt, og ethvert rapporteret problem vil være synligt for alle, der bruger GitHub eller relaterede tjenester.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Konfigurationsoplysninger",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Udvidelse og browserdetaljer",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Beskyttelsesindstillinger",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Hvidlistede domæner",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Brugerdefinerede regler",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Deaktiverede regler og udbydere",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Ingen konfigurationsinformation valgt.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Jeg forstår, at et klik på \"Find eksisterende problemer\" vil konstruere en GitHub-søge-URL ved hjælp af det domænenavn og problemoplysninger, jeg har indtastet, og derefter omdirigere mig til denne URL. Ingen data overføres direkte af denne udvidelse. Udvidelsen viser mig den komplette søge-URL, før jeg åbner den, så jeg kan gennemgå, hvilke søgeord der vil blive brugt. Når jeg er omdirigeret til GitHub, vil jeg være underlagt $link$ og $terms_service$.",

@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Tudomásul veszem, hogy a „Jelentés a GitHubon” gombra kattintva létrehoz egy GitHub URL-t, amely tartalmazza az általam megadott információkat és az alább látható konfigurációs adatokat, majd átirányít erre az URL-re. Ez a bővítmény nem továbbít közvetlenül adatokat. A bővítmény megnyitása előtt megmutatja a teljes URL-t, és pontosan át tudom tekinteni, hogy milyen információkat fog tartalmazni. Miután átirányítottam a GitHubra, teljes ellenőrzés alatt tartom az előre kitöltött kibocsátási űrlap elküldését, vagy a lemondást anélkül, hogy bármit is benyújtanék. Tudomásul veszem, hogy a GitHub elérése a $privacy_link$ feltétel alá tartozik. A probléma létrehozásához GitHub-fiókra van szükség, és ha a folytatást választja, és átirányítják a GitHubra, tevékenységét a $privacy_statement$ és a $terms_service$ szabályozza. Az előre kitöltött információkkal való átirányítást követően Ön megtartja a teljes ellenőrzést, és eldöntheti, hogy elküldi-e vagy megszakítja a probléma létrehozását a $repo_link$ címen található adattárunkban. Még akkor is, ha megszakítja a probléma létrehozását, a GitHub továbbra is gyűjthet adatokat az adatvédelmi szabályzatának megfelelően a platformjukkal való interakció miatt. Ha folytatja a probléma benyújtását, az Ön által benyújtott információk, beleértve az esetleges további megjegyzéseket is, nyilvánosan elérhetővé válnak. Ennek az az oka, hogy az adattár nyilvános, és minden bejelentett probléma látható lesz a GitHubot vagy a kapcsolódó szolgáltatásokat használó bárki számára.",
+    "message": "Tudomásul veszem, hogy a „Jelentés a GitHubon” gombra kattintva létrehoz egy GitHub URL-t, amely tartalmazza az általam megadott információkat és az alább kiválasztott konfigurációs szakaszokat, majd átirányít erre az URL-re. Ez a bővítmény nem továbbít közvetlenül adatokat. A bővítmény megnyitása előtt megmutatja a teljes URL-t, és pontosan át tudom tekinteni, hogy milyen információkat fog tartalmazni. Miután átirányítottam a GitHubra, teljes ellenőrzés alatt tartom az előre kitöltött kibocsátási űrlap elküldését, vagy a lemondást anélkül, hogy bármit is benyújtanék. Tudomásul veszem, hogy a GitHub elérése a $privacy_link$-nak vonatkozik. A probléma létrehozásához GitHub-fiókra van szükség, és ha a folytatást választja, és átirányítják a GitHubra, tevékenységét a $privacy_statement$ és a $terms_service$ szabályozza. Az előre kitöltött információkkal való átirányítást követően Ön megtartja a teljes ellenőrzést, és eldöntheti, hogy elküldi-e vagy megszakítja a probléma létrehozását a $repo_link$ címen található adattárunkban. Még akkor is, ha megszakítja a probléma létrehozását, a GitHub továbbra is gyűjthet adatokat az adatvédelmi szabályzatának megfelelően a platformjukkal való interakció miatt. Ha folytatja a probléma benyújtását, az Ön által benyújtott információk, beleértve az esetleges további megjegyzéseket is, nyilvánosan elérhetővé válnak. Ennek az az oka, hogy az adattár nyilvános, és minden bejelentett probléma látható lesz a GitHubot vagy a kapcsolódó szolgáltatásokat használó bárki számára.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Konfigurációs információk",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "A bővítmény és a böngésző részletei",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Védelmi beállítások",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Engedélyezett domainek",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Egyéni szabályok",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Letiltott szabályok és szolgáltatók",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Nincs kiválasztva konfigurációs információ.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Tudomásul veszem, hogy a \"Meglévő problémák keresése\" gombra kattintva létrehoz egy GitHub keresési URL-t az általam megadott domain név és probléma részletei alapján, majd átirányít erre az URL-re. Ez a bővítmény nem továbbít közvetlenül adatokat. A bővítmény megnyitása előtt megmutatja a teljes keresési URL-t, így áttekinthetem, mely keresési kifejezéseket használja majd. Miután átirányítottam a GitHubra, a $link$ és a $terms_service$ vonatkozik rám.",

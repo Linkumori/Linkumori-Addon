@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Suprantu, kad spustelėjus „Pranešti apie GitHub“, bus sukurtas „GitHub“ URL, kuriame yra mano įvesta informacija ir toliau rodomi konfigūracijos duomenys, tada nukreipiamas į tą URL. Šis plėtinys tiesiogiai neperduoda jokių duomenų. Prieš atidarant plėtinį bus rodomas visas URL ir galiu tiksliai peržiūrėti, kokia informacija bus įtraukta. Kai būsiu peradresuotas į „GitHub“, turėsiu visišką valdymą pateikti iš anksto užpildytą problemos formą arba atšaukti nieko nepateikęs. Suprantu, kad norint pasiekti „GitHub“, man taikoma $privacy_link$. Norint sukurti problemą, reikia turėti „GitHub“ paskyrą, o kai pasirinksite tęsti ir būsite nukreipti į „GitHub“, jūsų veiklą reglamentuoja $privacy_statement$ ir $terms_service$. Kai būsite nukreipti su iš anksto užpildyta informacija, jūs išlaikote visišką kontrolę ir galite pasirinkti, ar pateikti, ar atšaukti problemos kūrimą mūsų saugykloje adresu $repo_link$. Net jei atšauksite problemos kūrimą, „GitHub“ vis tiek gali rinkti duomenis pagal savo privatumo politiką dėl jūsų sąveikos su jų platforma. Jei tęsite problemos pateikimą, jūsų pateikta informacija, įskaitant visus papildomus komentarus, taps viešai prieinama. Taip yra todėl, kad saugykla yra vieša ir bet kokia problema, apie kurią pranešta, bus matoma visiems, naudojantiems „GitHub“ ar susijusias paslaugas.",
+    "message": "Suprantu, kad spustelėjus „Pranešti apie GitHub“, bus sukurtas „GitHub“ URL, kuriame yra mano įvesta informacija ir toliau pasirinktos konfigūracijos skiltys, tada nukreipiamas į tą URL. Šis plėtinys tiesiogiai neperduoda jokių duomenų. Prieš atidarant plėtinį bus rodomas visas URL ir galiu tiksliai peržiūrėti, kokia informacija bus įtraukta. Kai būsiu peradresuotas į „GitHub“, turėsiu visišką valdymą pateikti iš anksto užpildytą problemos formą arba atšaukti nieko nepateikęs. Suprantu, kad norint pasiekti „GitHub“, man taikoma $privacy_link$. Norint sukurti problemą, reikia turėti „GitHub“ paskyrą, o kai pasirinksite tęsti ir būsite nukreipti į „GitHub“, jūsų veiklą reglamentuoja $privacy_statement$ ir $terms_service$. Kai būsite nukreipti su iš anksto užpildyta informacija, jūs išlaikote visišką kontrolę ir galite pasirinkti, ar pateikti, ar atšaukti problemos kūrimą mūsų saugykloje adresu $repo_link$. Net jei atšauksite problemos kūrimą, „GitHub“ vis tiek gali rinkti duomenis pagal savo privatumo politiką dėl jūsų sąveikos su jų platforma. Jei tęsite problemos pateikimą, jūsų pateikta informacija, įskaitant visus papildomus komentarus, taps viešai prieinama. Taip yra todėl, kad saugykla yra vieša ir bet kokia problema, apie kurią pranešta, bus matoma visiems, naudojantiems „GitHub“ ar susijusias paslaugas.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Konfigūracijos informacija",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Išsami plėtinio ir naršyklės informacija",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Apsaugos nustatymai",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Į baltąjį sąrašą įtraukti domenai",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Individualios taisyklės",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Išjungtos taisyklės ir teikėjai",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Konfigūracijos informacija nepasirinkta.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Suprantu, kad spustelėjus „Rasti esamas problemas“, bus sukurtas „GitHub“ paieškos URL naudojant mano įvestą domeno pavadinimą ir išsamią problemos informaciją, o tada nukreipiamas į tą URL. Šis plėtinys tiesiogiai neperduoda jokių duomenų. Prieš atidarant plėtinį bus rodomas visas paieškos URL, kad galėčiau peržiūrėti, kurie paieškos terminai bus naudojami. Peradresavus į „GitHub“, man bus taikomi $link$ ir $terms_service$.",

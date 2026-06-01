@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "من متوجه هستم که با کلیک بر روی \"گزارش در GitHub\" یک URL GitHub حاوی اطلاعاتی که من وارد کرده‌ام و داده‌های پیکربندی نشان داده شده در زیر می‌سازد، سپس من را به آن URL هدایت کنید. هیچ داده ای مستقیماً توسط این افزونه منتقل نمی شود. برنامه افزودنی قبل از باز کردن URL کامل آن را به من نشان می دهد و من می توانم دقیقاً چه اطلاعاتی را شامل می شود بررسی کنم. پس از هدایت به GitHub، کنترل کاملی برای ارسال فرم مشکل از پیش پر شده یا لغو بدون ارسال چیزی دارم. من می دانم که دسترسی به GitHub من را در معرض $privacy_link$ قرار می دهد. ایجاد یک مشکل به یک حساب GitHub نیاز دارد، و هنگامی که انتخاب کردید ادامه دهید و به GitHub هدایت شوید، فعالیت شما توسط $privacy_statement$ و $terms_service$ کنترل می شود. پس از هدایت مجدد با اطلاعات از پیش پر شده، شما کنترل کامل را حفظ می کنید و می توانید انتخاب کنید که ایجاد مشکل را در مخزن ما در $repo_link$ ارسال کنید یا لغو کنید. حتی اگر ایجاد مشکل را لغو کنید، GitHub همچنان ممکن است به دلیل تعامل شما با پلتفرم خود، داده ها را مطابق خط مشی رازداری خود جمع آوری کند. اگر به ارسال موضوع ادامه دهید، اطلاعاتی که ارسال می‌کنید، از جمله نظرات اضافی، برای عموم قابل دسترسی خواهند بود. این به این دلیل است که مخزن عمومی است و هر مشکل گزارش شده برای هر کسی که از GitHub یا خدمات مرتبط استفاده می کند قابل مشاهده است.",
+    "message": "می‌دانم که با کلیک کردن روی «گزارش در GitHub» یک URL GitHub حاوی اطلاعاتی که من وارد کرده‌ام و بخش‌های پیکربندی که در زیر انتخاب کرده‌ام ایجاد می‌کند، سپس من را به آن URL هدایت می‌کنید. هیچ داده ای مستقیماً توسط این افزونه منتقل نمی شود. برنامه افزودنی قبل از باز کردن URL کامل آن را به من نشان می دهد و من می توانم دقیقاً چه اطلاعاتی را شامل می شود بررسی کنم. پس از هدایت به GitHub، کنترل کاملی برای ارسال فرم مشکل از پیش پر شده یا لغو بدون ارسال چیزی دارم. من می دانم که دسترسی به GitHub من را در معرض $privacy_link$ قرار می دهد. ایجاد یک مشکل به یک حساب GitHub نیاز دارد، و هنگامی که انتخاب کردید ادامه دهید و به GitHub هدایت شوید، فعالیت شما توسط $privacy_statement$ و $terms_service$ کنترل می شود. پس از هدایت مجدد با اطلاعات از پیش پر شده، شما کنترل کامل را حفظ می کنید و می توانید انتخاب کنید که ایجاد مشکل را در مخزن ما در $repo_link$ ارسال کنید یا لغو کنید. حتی اگر ایجاد مشکل را لغو کنید، GitHub همچنان ممکن است به دلیل تعامل شما با پلتفرم خود، داده ها را مطابق خط مشی رازداری خود جمع آوری کند. اگر به ارسال موضوع ادامه دهید، اطلاعاتی که ارسال می‌کنید، از جمله نظرات اضافی، برای عموم قابل دسترسی خواهند بود. این به این دلیل است که مخزن عمومی است و هر مشکل گزارش شده برای هر کسی که از GitHub یا خدمات مرتبط استفاده می کند قابل مشاهده است.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "اطلاعات پیکربندی",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "جزئیات برنامه افزودنی و مرورگر",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "تنظیمات حفاظت",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "دامنه های در لیست سفید",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "قوانین سفارشی",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "قوانین و ارائه دهندگان غیرفعال",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "هیچ اطلاعات پیکربندی انتخاب نشده است.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "می‌دانم که با کلیک کردن روی \"یافتن مشکلات موجود\" یک URL جستجوی GitHub با استفاده از نام دامنه و جزئیات موضوعی که وارد کرده‌ام ایجاد می‌کند و سپس من را به آن URL هدایت می‌کنید. هیچ داده ای مستقیماً توسط این افزونه منتقل نمی شود. برنامه افزودنی قبل از باز کردن URL جستجوی کامل، آن را به من نشان می دهد، بنابراین می توانم بررسی کنم که از کدام عبارت جستجو استفاده می شود. پس از هدایت به GitHub، مشمول $link$ و $terms_service$ خواهم شد.",

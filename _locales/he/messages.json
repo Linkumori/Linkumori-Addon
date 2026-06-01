@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "אני מבין שלחיצה על \"דווח על GitHub\" תבנה כתובת URL של GitHub המכילה את המידע שהזנתי ואת נתוני התצורה המוצגים למטה, ולאחר מכן תפנה אותי לכתובת האתר הזו. שום נתונים לא מועברים ישירות על ידי שלוחה זו. התוסף יראה לי את כתובת האתר המלאה לפני פתיחתו, ואני יכול לבדוק בדיוק איזה מידע ייכלל. לאחר הפנייה מחדש אל GitHub, תהיה לי שליטה מלאה על הגשת טופס הבעיה המולא מראש או לבטל מבלי לשלוח דבר. אני מבין שהגישה ל-GitHub מכניסה אותי ל-$privacy_link$. יצירת בעיה דורשת חשבון GitHub, וברגע שתבחר להמשיך ולהפנות ל-GitHub, הפעילות שלך נשלטת על ידי $privacy_statement$ ו-$terms_service$. לאחר הפנייה מחדש עם מידע שמלא מראש, אתה שומר על שליטה מלאה ויכול לבחור אם לשלוח או לבטל את יצירת הבעיה במאגר שלנו בכתובת $repo_link$. גם אם תבטל את יצירת הבעיה, GitHub עדיין עשוי לאסוף נתונים בהתאם למדיניות הפרטיות שלהם עקב האינטראקציה שלך עם הפלטפורמה שלהם. אם תמשיך בהגשת הנושא, המידע שתשלח, כולל הערות נוספות, יהפוך לנגיש לציבור. הסיבה לכך היא שהמאגר הוא ציבורי, וכל בעיה שדווחה תהיה גלויה לכל מי שמשתמש ב-GitHub או בשירותים קשורים.",
+    "message": "אני מבין שלחיצה על \"דווח על GitHub\" תבנה כתובת URL של GitHub המכילה את המידע שהזנתי ואת קטעי התצורה שבחרתי למטה, ואז תפנה אותי לכתובת האתר הזו. שום נתונים לא מועברים ישירות על ידי שלוחה זו. התוסף יראה לי את כתובת האתר המלאה לפני פתיחתו, ואני יכול לבדוק בדיוק איזה מידע ייכלל. לאחר הפנייה מחדש אל GitHub, תהיה לי שליטה מלאה על הגשת טופס הבעיה המולא מראש או לבטל מבלי לשלוח דבר. אני מבין שהגישה ל-GitHub מכניסה אותי ל-$privacy_link$. יצירת בעיה דורשת חשבון GitHub, וברגע שתבחר להמשיך ולהפנות ל-GitHub, הפעילות שלך נשלטת על ידי $privacy_statement$ ו-$terms_service$. לאחר הפניה מחדש עם מידע שמולא מראש, אתה שומר על שליטה מלאה ויכול לבחור אם לשלוח או לבטל את יצירת הבעיה במאגר שלנו בכתובת $repo_link$. גם אם תבטל את יצירת הבעיה, GitHub עדיין עשוי לאסוף נתונים בהתאם למדיניות הפרטיות שלהם עקב האינטראקציה שלך עם הפלטפורמה שלהם. אם תמשיך בהגשת הנושא, המידע שתשלח, כולל הערות נוספות, יהפוך לנגיש לציבור. הסיבה לכך היא שהמאגר הוא ציבורי, וכל בעיה שדווחה תהיה גלויה לכל מי שמשתמש ב-GitHub או בשירותים קשורים.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "מידע תצורה",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "פרטי הרחבה ודפדפן",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "הגדרות הגנה",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "דומיינים ברשימת ההיתרים",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "כללים מותאמים אישית",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "כללים וספקים מושבתים",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "לא נבחר מידע תצורה.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "אני מבין שלחיצה על \"מצא בעיות קיימות\" תבנה כתובת URL לחיפוש GitHub באמצעות שם הדומיין ופרטי הבעיה שהזנתי, ולאחר מכן תפנה אותי לכתובת האתר הזו. שום נתונים לא מועברים ישירות על ידי שלוחה זו. התוסף יראה לי את כתובת האתר המלאה של החיפוש לפני פתיחתו, כדי שאוכל לבדוק באילו מונחי חיפוש ייעשה שימוש. לאחר הפנייה מחדש אל GitHub, אהיה כפוף ל-$link$ ו-$terms_service$.",

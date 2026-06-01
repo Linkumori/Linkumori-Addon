@@ -4697,7 +4697,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Razumem, da bo klik »Poročilo na GitHub« ustvaril URL GitHub, ki bo vseboval informacije, ki sem jih vnesel, in konfiguracijske podatke, prikazane spodaj, nato pa me bo preusmeril na ta URL. Ta razširitev ne prenaša nobenih podatkov neposredno. Razširitev mi bo pokazala celoten URL, preden jo odprem, in lahko natančno pregledam, katere informacije bodo vključene. Ko bom preusmerjen na GitHub, bom imel popoln nadzor nad oddajo vnaprej izpolnjenega obrazca za izdajo ali preklicem, ne da bi kar koli poslal. Razumem, da me dostop do GitHuba podvrže $privacy_link$. Ustvarjanje težave zahteva račun GitHub in ko se odločite za nadaljevanje in ste preusmerjeni na GitHub, vašo dejavnost urejata $privacy_statement$ in $terms_service$. Ko ste preusmerjeni z vnaprej izpolnjenimi informacijami, ohranite popoln nadzor in lahko izberete, ali želite predložiti ali preklicati ustvarjanje težave v našem skladišču na naslovu $repo_link$. Tudi če prekličete ustvarjanje težave, lahko GitHub še vedno zbira podatke v skladu z njihovim pravilnikom o zasebnosti zaradi vaše interakcije z njihovo platformo. Če nadaljujete s predložitvijo težave, bodo informacije, ki jih pošljete, vključno z morebitnimi dodatnimi komentarji, postale javno dostopne. To je zato, ker je repozitorij javen in bo vsaka prijavljena težava vidna vsem, ki uporabljajo GitHub ali povezane storitve.",
+    "message": "Razumem, da bo klik »Poročilo na GitHub« ustvaril URL GitHub, ki bo vseboval informacije, ki sem jih vnesel, in konfiguracijske razdelke, ki sem jih izbral spodaj, nato pa me bo preusmeril na ta URL. Ta razširitev ne prenaša nobenih podatkov neposredno. Razširitev mi bo pokazala celoten URL, preden jo odprem, in lahko natančno pregledam, katere informacije bodo vključene. Ko bom preusmerjen na GitHub, bom imel popoln nadzor nad oddajo vnaprej izpolnjenega obrazca za izdajo ali preklicem, ne da bi kar koli poslal. Razumem, da me dostop do GitHuba podvrže $privacy_link$. Ustvarjanje težave zahteva račun GitHub in ko se odločite za nadaljevanje in ste preusmerjeni na GitHub, vašo dejavnost urejata $privacy_statement$ in $terms_service$. Ko ste preusmerjeni z vnaprej izpolnjenimi informacijami, ohranite popoln nadzor in lahko izberete, ali želite predložiti ali preklicati ustvarjanje težave v našem skladišču na $repo_link$. Tudi če prekličete ustvarjanje težave, lahko GitHub še vedno zbira podatke v skladu z njihovim pravilnikom o zasebnosti zaradi vaše interakcije z njihovo platformo. Če nadaljujete s predložitvijo težave, bodo informacije, ki jih pošljete, vključno z morebitnimi dodatnimi komentarji, postale javno dostopne. To je zato, ker je repozitorij javen in bo vsaka prijavljena težava vidna vsem, ki uporabljajo GitHub ali povezane storitve.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4721,6 +4721,30 @@
   "configInformation": {
     "message": "Informacije o konfiguraciji",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Podrobnosti o razširitvi in brskalniku",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Nastavitve zaščite",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domene na beli listi",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Pravila po meri",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Onemogočena pravila in ponudniki",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Ni izbranih informacij o konfiguraciji.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Razumem, da bo klik »Poišči obstoječe težave« ustvaril iskalni URL GitHub z uporabo imena domene in podrobnosti o težavi, ki sem jih vnesel, ter me nato preusmeril na ta URL. Ta razširitev ne prenaša nobenih podatkov neposredno. Razširitev mi bo pokazala celoten URL iskanja, preden jo odprem, tako da lahko pregledam, kateri iskalni izrazi bodo uporabljeni. Ko bom preusmerjen na GitHub, bom podvržen $link$ in $terms_service$.",

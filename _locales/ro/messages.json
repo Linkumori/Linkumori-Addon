@@ -4697,7 +4697,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Înțeleg că făcând clic pe „Raportați pe GitHub” va crea o adresă URL GitHub care conține informațiile pe care le-am introdus și datele de configurare afișate mai jos, apoi mă va redirecționa către acea adresă URL. Nicio dată nu este transmisă direct de această extensie. Extensia îmi va arăta adresa URL completă înainte de a o deschide și pot examina exact ce informații vor fi incluse. Odată redirecționat către GitHub, voi avea control deplin fie să trimit formularul de problemă precompletat, fie să anulez fără a trimite nimic. Înțeleg că accesarea GitHub mă supune la $privacy_link$. Crearea unei probleme necesită un cont GitHub și, odată ce alegeți să continuați și sunteți redirecționat către GitHub, activitatea dvs. este guvernată de $privacy_statement$ și $terms_service$. După ce ați fost redirecționat cu informații precompletate, păstrați controlul deplin și puteți alege dacă trimiteți sau anulați crearea problemei în depozitul nostru la $repo_link$. Chiar dacă anulați crearea problemei, GitHub poate colecta în continuare date conform politicii de confidențialitate din cauza interacțiunii dvs. cu platforma sa. Dacă continuați cu trimiterea problemei, informațiile pe care le trimiteți, inclusiv orice comentarii suplimentare, vor deveni accesibile publicului. Acest lucru se datorează faptului că depozitul este public și orice problemă raportată va fi vizibilă pentru oricine folosește GitHub sau servicii conexe.",
+    "message": "Înțeleg că făcând clic pe „Raportați pe GitHub” se va construi o adresă URL GitHub care conține informațiile pe care le-am introdus și secțiunile de configurare pe care le-am selectat mai jos, apoi mă va redirecționa către acea adresă URL. Nicio dată nu este transmisă direct de această extensie. Extensia îmi va arăta adresa URL completă înainte de a o deschide și pot examina exact ce informații vor fi incluse. Odată redirecționat către GitHub, voi avea control deplin fie să trimit formularul de problemă precompletat, fie să anulez fără a trimite nimic. Înțeleg că accesarea GitHub mă supune la $privacy_link$. Crearea unei probleme necesită un cont GitHub și, odată ce alegeți să continuați și sunteți redirecționat către GitHub, activitatea dvs. este guvernată de $privacy_statement$ și $terms_service$. După ce ați fost redirecționat cu informații precompletate, vă păstrați controlul deplin și puteți alege dacă trimiteți sau anulați crearea problemei în depozitul nostru la $repo_link$. Chiar dacă anulați crearea problemei, GitHub poate colecta în continuare date conform politicii de confidențialitate din cauza interacțiunii dvs. cu platforma sa. Dacă continuați cu trimiterea problemei, informațiile pe care le trimiteți, inclusiv orice comentarii suplimentare, vor deveni accesibile publicului. Acest lucru se datorează faptului că depozitul este public și orice problemă raportată va fi vizibilă pentru oricine folosește GitHub sau servicii conexe.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4721,6 +4721,30 @@
   "configInformation": {
     "message": "Informații de configurare",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Extensie și detalii despre browser",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Setări de protecție",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domenii incluse în lista albă",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Reguli personalizate",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Reguli și furnizori dezactivați",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Nu au fost selectate informații de configurare.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Înțeleg că făcând clic pe „Găsiți probleme existente” va crea o adresă URL de căutare GitHub folosind numele de domeniu și detaliile problemei pe care le-am introdus, apoi mă va redirecționa către acea adresă URL. Nicio dată nu este transmisă direct de această extensie. Extensia îmi va afișa adresa URL completă de căutare înainte de a o deschide, astfel încât să pot examina ce termeni de căutare vor fi utilizați. Odată redirecționat către GitHub, voi fi supus $link$ și $terms_service$.",

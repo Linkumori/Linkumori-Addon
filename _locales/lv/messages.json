@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Es saprotu, ka, noklikšķinot uz “Ziņot par GitHub”, tiks izveidots GitHub URL, kurā būs ietverta manis ievadītā informācija un tālāk redzamie konfigurācijas dati, un pēc tam mani novirzīs uz šo URL. Šis paplašinājums tieši nepārsūta datus. Pirms paplašinājuma atvēršanas man tiks parādīts pilns URL, un es varu precīzi pārskatīt, kāda informācija tiks iekļauta. Tiklīdz tiks novirzīts uz GitHub, man būs pilnīga kontrole vai nu iesniegt iepriekš aizpildītu problēmas veidlapu, vai atcelt, neko neiesniedzot. Es saprotu, ka, piekļūstot GitHub, esmu pakļauts $privacy_link$. Lai radītu problēmu, ir nepieciešams GitHub konts, un, tiklīdz izvēlaties turpināt un tiekat novirzīts uz GitHub, jūsu darbību regulē $privacy_statement$ un $terms_service$. Pēc pāradresācijas ar iepriekš aizpildītu informāciju jūs saglabājat pilnu kontroli un varat izvēlēties, vai iesniegt vai atcelt problēmas izveidi mūsu repozitorijā $repo_link$. Pat ja atceļat problēmas izveidi, GitHub joprojām var vākt datus saskaņā ar savu konfidencialitātes politiku, jo mijiedarbojaties ar viņu platformu. Ja turpināsit iesniegt problēmu, jūsu iesniegtā informācija, tostarp visi papildu komentāri, kļūs publiski pieejama. Tas ir tāpēc, ka repozitorijs ir publisks, un visas ziņotās problēmas būs redzamas ikvienam, kas izmanto GitHub vai saistītos pakalpojumus.",
+    "message": "Es saprotu, ka, noklikšķinot uz “Ziņot par GitHub”, tiks izveidots GitHub URL, kurā būs ietverta manis ievadītā informācija un tālāk atlasītās konfigurācijas sadaļas, un pēc tam mani novirzīs uz šo URL. Šis paplašinājums tieši nepārsūta datus. Pirms paplašinājuma atvēršanas man tiks parādīts pilns URL, un es varu precīzi pārskatīt, kāda informācija tiks iekļauta. Tiklīdz tiks novirzīts uz GitHub, man būs pilnīga kontrole vai nu iesniegt iepriekš aizpildītu problēmas veidlapu, vai atcelt, neko neiesniedzot. Es saprotu, ka, piekļūstot GitHub, uz mani attiecas $privacy_link$. Lai radītu problēmu, ir nepieciešams GitHub konts, un, tiklīdz esat izvēlējies turpināt un tiekat novirzīts uz GitHub, jūsu darbību regulē $privacy_statement$ un $terms_service$. Pēc pāradresācijas ar iepriekš aizpildītu informāciju jūs saglabājat pilnu kontroli un varat izvēlēties, vai iesniegt vai atcelt problēmas izveidi mūsu repozitorijā vietnē $repo_link$. Pat ja atceļat problēmas izveidi, GitHub joprojām var vākt datus saskaņā ar savu konfidencialitātes politiku, jo mijiedarbojaties ar viņu platformu. Ja turpināsit iesniegt problēmu, jūsu iesniegtā informācija, tostarp visi papildu komentāri, kļūs publiski pieejama. Tas ir tāpēc, ka repozitorijs ir publisks, un visas ziņotās problēmas būs redzamas ikvienam, kas izmanto GitHub vai saistītos pakalpojumus.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Konfigurācijas informācija",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Informācija par paplašinājumu un pārlūkprogrammu",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Aizsardzības iestatījumi",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Baltajā sarakstā iekļautie domēni",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Pielāgoti noteikumi",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Atspējoti noteikumi un pakalpojumu sniedzēji",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Nav atlasīta konfigurācijas informācija.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Es saprotu, ka, noklikšķinot uz “Atrast esošās problēmas”, tiks izveidots GitHub meklēšanas URL, izmantojot manis ievadīto domēna nosaukumu un informāciju par problēmu, un pēc tam mani novirzīs uz šo URL. Šis paplašinājums tieši nepārsūta datus. Pirms paplašinājuma atvēršanas man tiks parādīts pilns meklēšanas URL, lai es varētu pārskatīt, kuri meklēšanas vienumi tiks izmantoti. Kad tiks novirzīts uz GitHub, uz mani attieksies $link$ un $terms_service$.",

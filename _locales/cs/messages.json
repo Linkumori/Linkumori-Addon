@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Chápu, že kliknutím na „Nahlásit na GitHubu“ vytvoříte adresu URL GitHubu obsahující informace, které jsem zadal, a konfigurační data uvedená níže, a poté mě přesměruje na tuto adresu URL. Toto rozšíření přímo nepřenáší žádná data. Rozšíření mi před otevřením zobrazí úplnou adresu URL a mohu přesně zkontrolovat, jaké informace budou zahrnuty. Jakmile budu přesměrován na GitHub, budu mít plnou kontrolu nad odesláním předvyplněného formuláře problému nebo zrušením bez odeslání čehokoli. Chápu, že přístup na GitHub mě vystavuje $privacy_link$. Vytvoření problému vyžaduje účet GitHub, a jakmile se rozhodnete pokračovat a budete přesměrováni na GitHub, vaše aktivita se bude řídit $privacy_statement$ a $terms_service$. Po přesměrování s předvyplněnými informacemi si ponecháte plnou kontrolu a můžete si vybrat, zda chcete odeslat nebo zrušit vytvoření problému v našem úložišti na adrese $repo_link$. I když zrušíte vytváření problému, GitHub může stále shromažďovat data v souladu se svými zásadami ochrany osobních údajů kvůli vaší interakci s jejich platformou. Pokud budete pokračovat v odesílání problému, informace, které odešlete, včetně případných dalších komentářů, se stanou veřejně přístupnými. Důvodem je to, že úložiště je veřejné a každý nahlášený problém bude viditelný každému, kdo používá GitHub nebo související služby.",
+    "message": "Chápu, že kliknutím na „Nahlásit na GitHubu“ vytvoříte adresu URL GitHubu obsahující informace, které jsem zadal, a sekce konfigurace, které jsem vybral níže, a poté mě přesměruje na tuto adresu URL. Toto rozšíření přímo nepřenáší žádná data. Rozšíření mi před otevřením zobrazí úplnou adresu URL a mohu přesně zkontrolovat, jaké informace budou zahrnuty. Jakmile budu přesměrován na GitHub, budu mít plnou kontrolu nad odesláním předvyplněného formuláře problému nebo zrušením bez odeslání čehokoli. Chápu, že přístup na GitHub mě podřizuje $privacy_link$. Vytvoření problému vyžaduje účet GitHub, a jakmile se rozhodnete pokračovat a budete přesměrováni na GitHub, vaše aktivita se bude řídit $privacy_statement$ a $terms_service$. Po přesměrování s předvyplněnými informacemi si ponecháte plnou kontrolu a můžete si vybrat, zda chcete odeslat nebo zrušit vytvoření problému v našem úložišti na $repo_link$. I když zrušíte vytváření problému, GitHub může stále shromažďovat data v souladu se svými zásadami ochrany osobních údajů kvůli vaší interakci s jejich platformou. Pokud budete pokračovat v odesílání problému, informace, které odešlete, včetně případných dalších komentářů, se stanou veřejně přístupnými. Důvodem je to, že úložiště je veřejné a každý nahlášený problém bude viditelný každému, kdo používá GitHub nebo související služby.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Informace o konfiguraci",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Podrobnosti o rozšíření a prohlížeči",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Nastavení ochrany",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domény na seznamu povolených",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Vlastní pravidla",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Zakázaná pravidla a poskytovatelé",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Nejsou vybrány žádné informace o konfiguraci.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Chápu, že kliknutím na „Najít existující problémy“ vytvoříte vyhledávací adresu GitHub pomocí názvu domény a podrobností o problému, které jsem zadal, a poté mě přesměruje na tuto adresu URL. Toto rozšíření přímo nepřenáší žádná data. Rozšíření mi před otevřením zobrazí úplnou adresu URL pro vyhledávání, abych si mohl zkontrolovat, které hledané výrazy budou použity. Po přesměrování na GitHub budu podléhat $link$ a $terms_service$.",

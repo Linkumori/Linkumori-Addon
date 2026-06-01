@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Ymmärrän, että \"Report on GitHub\" napsauttaminen luo GitHub-URL-osoitteen, joka sisältää antamani tiedot ja alla näkyvät määritystiedot, ja ohjaa minut sitten kyseiseen URL-osoitteeseen. Tämä laajennus ei välitä tietoja suoraan. Laajennus näyttää minulle täydellisen URL-osoitteen ennen sen avaamista, ja voin tarkistaa, mitä tietoja sisällytetään. Kun minut on ohjattu GitHubiin, minulla on täysi valta joko lähettää esitäytetty ongelmalomake tai peruuttaa lähettämättä mitään. Ymmärrän, että GitHubin käyttäminen edellyttää $privacy_link$. Ongelman luominen vaatii GitHub-tilin, ja kun päätät jatkaa ja sinut ohjataan uudelleen GitHubiin, toimintaasi säätelevät $privacy_statement$ ja $terms_service$. Kun sinut on ohjattu uudelleen esitäytetyillä tiedoilla, säilytät täyden hallinnan ja voit valita, lähetätkö vai peruutatko ongelman luomisen arkistossamme osoitteessa $repo_link$. Vaikka peruuttaisit ongelman luomisen, GitHub voi silti kerätä tietoja tietosuojakäytäntönsä mukaisesti, koska olet vuorovaikutuksessa heidän alustansa kanssa. Jos jatkat ongelman lähettämistä, lähettämäsi tiedot, mukaan lukien mahdolliset lisäkommentit, tulevat julkisesti saataville. Tämä johtuu siitä, että arkisto on julkinen ja kaikki raportoidut ongelmat näkyvät kaikille GitHubin tai siihen liittyvien palveluiden käyttäjille.",
+    "message": "Ymmärrän, että \"Report on GitHub\" -painikkeen napsauttaminen luo GitHub-URL-osoitteen, joka sisältää antamani tiedot ja alla valitsemani määritysosat, ja ohjaa minut sitten kyseiseen URL-osoitteeseen. Tämä laajennus ei välitä tietoja suoraan. Laajennus näyttää minulle täydellisen URL-osoitteen ennen sen avaamista, ja voin tarkistaa, mitä tietoja sisällytetään. Kun minut on ohjattu GitHubiin, minulla on täysi valta joko lähettää esitäytetty ongelmalomake tai peruuttaa lähettämättä mitään. Ymmärrän, että GitHubin käyttäminen edellyttää $privacy_link$:ta. Ongelman luominen vaatii GitHub-tilin, ja kun päätät jatkaa ja sinut ohjataan GitHubiin, toimintaasi säätelevät $privacy_statement$ ja $terms_service$. Kun sinut on ohjattu uudelleen esitäytetyillä tiedoilla, säilytät täyden hallinnan ja voit valita, lähetätkö vai peruutatko ongelman luomisen arkistoon $repo_link$. Vaikka peruuttaisit ongelman luomisen, GitHub voi silti kerätä tietoja tietosuojakäytäntönsä mukaisesti, koska olet vuorovaikutuksessa heidän alustansa kanssa. Jos jatkat ongelman lähettämistä, lähettämäsi tiedot, mukaan lukien mahdolliset lisäkommentit, tulevat julkisesti saataville. Tämä johtuu siitä, että arkisto on julkinen ja kaikki raportoidut ongelmat näkyvät kaikille GitHubin tai siihen liittyvien palveluiden käyttäjille.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Asetustiedot",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Laajennuksen ja selaimen tiedot",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Suojausasetukset",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Sallittujen luetteloon lisätyt verkkotunnukset",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Mukautetut säännöt",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Poistetut säännöt ja palveluntarjoajat",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Määritystietoja ei ole valittu.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Ymmärrän, että \"Etsi olemassa olevia ongelmia\" napsauttaminen luo GitHub-haun URL-osoitteen antamani verkkotunnuksen ja ongelman tietojen perusteella ja ohjaa minut sitten kyseiseen URL-osoitteeseen. Tämä laajennus ei välitä tietoja suoraan. Laajennus näyttää minulle täydellisen haun URL-osoitteen ennen sen avaamista, jotta voin tarkistaa, mitä hakutermejä käytetään. Kun uudelleenohjataan GitHubiin, minua koskevat $link$ ja $terms_service$.",

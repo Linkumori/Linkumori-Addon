@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Ich verstehe, dass durch Klicken auf „Auf GitHub melden“ eine GitHub-URL erstellt wird, die die von mir eingegebenen Informationen und die unten angezeigten Konfigurationsdaten enthält, und mich dann zu dieser URL weiterleitet. Durch diese Erweiterung werden keine Daten direkt übermittelt. Die Erweiterung zeigt mir vor dem Öffnen die vollständige URL an und ich kann genau überprüfen, welche Informationen enthalten sein werden. Sobald ich zu GitHub weitergeleitet werde, habe ich die volle Kontrolle, entweder das vorausgefüllte Problemformular einzusenden oder zu stornieren, ohne etwas einzusenden. Ich verstehe, dass ich beim Zugriff auf GitHub $privacy_link$ ausgesetzt bin. Zum Erstellen eines Problems ist ein GitHub-Konto erforderlich. Sobald Sie fortfahren und zu GitHub weitergeleitet werden, unterliegt Ihre Aktivität den Richtlinien $privacy_statement$ und $terms_service$. Nachdem Sie mit vorab ausgefüllten Informationen weitergeleitet wurden, behalten Sie die volle Kontrolle und können wählen, ob Sie die Problemerstellung in unserem Repository unter $repo_link$ einreichen oder abbrechen möchten. Selbst wenn Sie die Problemerstellung abbrechen, kann GitHub aufgrund Ihrer Interaktion mit seiner Plattform weiterhin Daten gemäß seiner Datenschutzrichtlinie sammeln. Wenn Sie mit der Übermittlung des Problems fortfahren, werden die von Ihnen übermittelten Informationen, einschließlich etwaiger zusätzlicher Kommentare, öffentlich zugänglich. Dies liegt daran, dass das Repository öffentlich ist und jedes gemeldete Problem für jeden sichtbar ist, der GitHub oder verwandte Dienste nutzt.",
+    "message": "Ich verstehe, dass durch Klicken auf „Auf GitHub melden“ eine GitHub-URL erstellt wird, die die von mir eingegebenen Informationen und die unten ausgewählten Konfigurationsabschnitte enthält, und mich dann zu dieser URL weiterleitet. Durch diese Erweiterung werden keine Daten direkt übermittelt. Die Erweiterung zeigt mir vor dem Öffnen die vollständige URL an und ich kann genau überprüfen, welche Informationen enthalten sein werden. Sobald ich zu GitHub weitergeleitet werde, habe ich die volle Kontrolle, entweder das vorausgefüllte Problemformular einzusenden oder zu stornieren, ohne etwas einzusenden. Ich verstehe, dass ich durch den Zugriff auf GitHub $privacy_link$ unterworfen bin. Zum Erstellen eines Problems ist ein GitHub-Konto erforderlich. Sobald Sie fortfahren und zu GitHub weitergeleitet werden, unterliegt Ihre Aktivität den Bestimmungen von $privacy_statement$ und $terms_service$. Nachdem Sie mit vorab ausgefüllten Informationen weitergeleitet wurden, behalten Sie die volle Kontrolle und können wählen, ob Sie die Problemerstellung in unserem Repository unter $repo_link$ einreichen oder abbrechen möchten. Selbst wenn Sie die Problemerstellung abbrechen, kann GitHub aufgrund Ihrer Interaktion mit seiner Plattform weiterhin Daten gemäß seiner Datenschutzrichtlinie sammeln. Wenn Sie mit der Übermittlung des Problems fortfahren, werden die von Ihnen übermittelten Informationen, einschließlich etwaiger zusätzlicher Kommentare, öffentlich zugänglich. Dies liegt daran, dass das Repository öffentlich ist und jedes gemeldete Problem für jeden sichtbar ist, der GitHub oder verwandte Dienste nutzt.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Konfigurationsinformationen",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Erweiterungs- und Browserdetails",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Schutzeinstellungen",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domains auf der Whitelist",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Benutzerdefinierte Regeln",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Deaktivierte Regeln und Anbieter",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Keine Konfigurationsinformationen ausgewählt.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Ich verstehe, dass durch Klicken auf „Vorhandene Probleme suchen“ eine GitHub-Such-URL anhand des von mir eingegebenen Domänennamens und der Problemdetails erstellt wird und ich dann zu dieser URL weitergeleitet werde. Durch diese Erweiterung werden keine Daten direkt übermittelt. Die Erweiterung zeigt mir vor dem Öffnen die vollständige Such-URL an, sodass ich überprüfen kann, welche Suchbegriffe verwendet werden. Sobald ich zu GitHub weitergeleitet werde, werde ich $link$ und $terms_service$ unterworfen.",

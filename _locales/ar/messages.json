@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "أدرك أن النقر على \"الإبلاغ عن GitHub\" سيؤدي إلى إنشاء عنوان URL لـ GitHub يحتوي على المعلومات التي أدخلتها وبيانات التكوين الموضحة أدناه، ثم يعيد توجيهي إلى عنوان URL هذا. لا يتم نقل أي بيانات مباشرة عن طريق هذا الامتداد. سيُظهر لي الملحق عنوان URL الكامل قبل فتحه، ويمكنني مراجعة المعلومات التي سيتم تضمينها بالضبط. بمجرد إعادة التوجيه إلى GitHub، سيكون لدي السيطرة الكاملة إما على إرسال نموذج المشكلة المملوء مسبقًا أو الإلغاء دون إرسال أي شيء. أدرك أن الوصول إلى GitHub يُخضعني لـ $privacy_link$. يتطلب إنشاء مشكلة حساب GitHub، وبمجرد اختيار المتابعة وإعادة توجيهك إلى GitHub، يخضع نشاطك لـ $privacy_statement$ و$terms_service$. بعد إعادة توجيهك بالمعلومات المملوءة مسبقًا، ستحتفظ بالتحكم الكامل ويمكنك اختيار ما إذا كنت تريد إرسال أو إلغاء إنشاء الإصدار في مستودعنا على $repo_link$. حتى إذا قمت بإلغاء إنشاء المشكلة، فقد يستمر GitHub في جمع البيانات وفقًا لسياسة الخصوصية الخاصة به بسبب تفاعلك مع نظامه الأساسي. إذا تابعت إرسال المشكلة، فإن المعلومات التي ترسلها، بما في ذلك أي تعليقات إضافية، ستصبح متاحة للجمهور. وذلك لأن المستودع عام، وأي مشكلة تم الإبلاغ عنها ستكون مرئية لأي شخص يستخدم GitHub أو الخدمات ذات الصلة.",
+    "message": "أدرك أن النقر على \"تقرير على GitHub\" سيؤدي إلى إنشاء عنوان URL لـ GitHub يحتوي على المعلومات التي أدخلتها وأقسام التكوين التي حددتها أدناه، ثم يعيد توجيهي إلى عنوان URL هذا. لا يتم نقل أي بيانات مباشرة عن طريق هذا الامتداد. سيُظهر لي الملحق عنوان URL الكامل قبل فتحه، ويمكنني مراجعة المعلومات التي سيتم تضمينها بالضبط. بمجرد إعادة التوجيه إلى GitHub، سيكون لدي السيطرة الكاملة إما على إرسال نموذج المشكلة المملوء مسبقًا أو الإلغاء دون إرسال أي شيء. أدرك أن الوصول إلى GitHub يُخضعني لـ $privacy_link$. يتطلب إنشاء مشكلة حساب GitHub، وبمجرد اختيار المتابعة وإعادة توجيهك إلى GitHub، يخضع نشاطك لـ $privacy_statement$ و$terms_service$. بعد إعادة توجيهك بالمعلومات المملوءة مسبقًا، ستحتفظ بالتحكم الكامل ويمكنك اختيار إرسال أو إلغاء إنشاء الإصدار في مستودعنا على $repo_link$. حتى إذا قمت بإلغاء إنشاء المشكلة، فقد يستمر GitHub في جمع البيانات وفقًا لسياسة الخصوصية الخاصة به بسبب تفاعلك مع نظامه الأساسي. إذا تابعت إرسال المشكلة، فإن المعلومات التي ترسلها، بما في ذلك أي تعليقات إضافية، ستصبح متاحة للجمهور. وذلك لأن المستودع عام، وأي مشكلة تم الإبلاغ عنها ستكون مرئية لأي شخص يستخدم GitHub أو الخدمات ذات الصلة.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "معلومات التكوين",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "تفاصيل الامتداد والمتصفح",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "إعدادات الحماية",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "النطاقات المدرجة في القائمة البيضاء",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "القواعد المخصصة",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "القواعد والمقدمون المعطلون",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "لم يتم تحديد معلومات التكوين.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "أدرك أن النقر على \"البحث عن المشكلات الموجودة\" سيؤدي إلى إنشاء عنوان URL لبحث GitHub باستخدام اسم المجال وتفاصيل المشكلة التي أدخلتها، ثم يعيد توجيهي إلى عنوان URL هذا. لا يتم نقل أي بيانات مباشرة عن طريق هذا الامتداد. سيُظهر لي الملحق عنوان URL الكامل للبحث قبل فتحه، حتى أتمكن من مراجعة مصطلحات البحث التي سيتم استخدامها. بمجرد إعادة توجيهي إلى GitHub، سأخضع إلى $link$ و$terms_service$.",
