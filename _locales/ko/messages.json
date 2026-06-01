@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "\"GitHub에 보고\"를 클릭하면 내가 입력한 정보와 아래에 표시된 구성 데이터가 포함된 GitHub URL이 생성되고 해당 URL로 리디렉션된다는 점을 이해합니다. 이 확장 프로그램에서는 데이터가 직접 전송되지 않습니다. 확장 프로그램을 열기 전에 전체 URL이 표시되며, 어떤 정보가 포함될지 정확히 검토할 수 있습니다. GitHub로 리디렉션되면 미리 채워진 문제 양식을 제출하거나 아무것도 제출하지 않고 취소할 수 있는 모든 권한을 갖게 됩니다. GitHub에 액세스하면 $privacy_link$가 발생한다는 것을 이해합니다. 문제를 생성하려면 GitHub 계정이 필요하며, 계속하기로 선택하고 GitHub로 리디렉션되면 활동은 $privacy_statement$ 및 $terms_service$에 의해 관리됩니다. 미리 채워진 정보로 리디렉션된 후에도 귀하는 모든 권한을 보유하며 $repo_link$의 저장소에 이슈 생성을 제출하거나 취소할지 여부를 선택할 수 있습니다. 이슈 생성을 취소하더라도 GitHub는 플랫폼과의 상호 작용으로 인해 개인 정보 보호 정책에 따라 데이터를 계속 수집할 수 있습니다. 문제 제출을 진행하면 추가 의견을 포함하여 제출한 정보가 공개적으로 접근 가능해집니다. 이는 저장소가 공개되어 있고 보고된 문제가 GitHub 또는 관련 서비스를 사용하는 모든 사람에게 표시되기 때문입니다.",
+    "message": "\"GitHub에 보고\"를 클릭하면 내가 입력한 정보와 아래에서 선택한 구성 섹션이 포함된 GitHub URL이 생성되고 해당 URL로 리디렉션된다는 점을 이해합니다. 이 확장 프로그램에서는 데이터가 직접 전송되지 않습니다. 확장 프로그램을 열기 전에 전체 URL이 표시되며, 어떤 정보가 포함될지 정확히 검토할 수 있습니다. GitHub로 리디렉션되면 미리 채워진 문제 양식을 제출하거나 아무것도 제출하지 않고 취소할 수 있는 모든 권한을 갖게 됩니다. 나는 GitHub에 액세스하면 $privacy_link$에 연결된다는 것을 이해합니다. 문제를 생성하려면 GitHub 계정이 필요하며, 계속하기로 선택하고 GitHub로 리디렉션되면 귀하의 활동은 $privacy_statement$ 및 $terms_service$에 의해 관리됩니다. 미리 채워진 정보로 리디렉션된 후에도 귀하는 모든 권한을 보유하며 $repo_link$의 저장소에 이슈 생성을 제출하거나 취소할지 여부를 선택할 수 있습니다. 이슈 생성을 취소하더라도 GitHub는 플랫폼과의 상호 작용으로 인해 개인 정보 보호 정책에 따라 데이터를 계속 수집할 수 있습니다. 문제 제출을 진행하면 추가 의견을 포함하여 제출한 정보가 공개적으로 접근 가능해집니다. 이는 저장소가 공개되어 있고 보고된 문제가 GitHub 또는 관련 서비스를 사용하는 모든 사람에게 표시되기 때문입니다.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "구성 정보",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "확장 프로그램 및 브라우저 세부정보",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "보호 설정",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "허용된 도메인",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "사용자 정의 규칙",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "비활성화된 규칙 및 공급자",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "구성 정보가 선택되지 않았습니다.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "\"기존 문제 찾기\"를 클릭하면 내가 입력한 도메인 이름과 문제 세부 정보를 사용하여 GitHub 검색 URL이 생성되고 해당 URL로 리디렉션된다는 점을 이해합니다. 이 확장 프로그램에서는 데이터가 직접 전송되지 않습니다. 확장 프로그램을 열기 전에 전체 검색 URL이 표시되므로 어떤 검색어가 사용될지 검토할 수 있습니다. GitHub로 리디렉션되면 $link$ 및 $terms_service$의 적용을 받게 됩니다.",

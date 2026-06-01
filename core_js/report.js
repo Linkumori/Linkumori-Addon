@@ -135,6 +135,80 @@ function createElement(tag, attributes = {}, textContent = '') {
 
 /******************************************************************************/
 
+const CONFIG_SECTION_DEFINITIONS = [
+    {
+        id: 'extension',
+        labelKey: 'report_share_extension_info'
+    },
+    {
+        id: 'settings',
+        labelKey: 'report_share_settings_info'
+    },
+    {
+        id: 'whitelist',
+        labelKey: 'report_share_whitelist_info'
+    },
+    {
+        id: 'customRules',
+        labelKey: 'report_share_custom_rules_info'
+    },
+    {
+        id: 'disabledRules',
+        labelKey: 'report_share_disabled_rules_info'
+    }
+];
+
+const DEFAULT_CONFIG_SECTION_SELECTION = CONFIG_SECTION_DEFINITIONS.reduce((selection, section) => {
+    selection[section.id] = true;
+    return selection;
+}, {});
+
+let reportConfigSections = null;
+
+function getConfigSectionLabel(sectionId) {
+    const definition = CONFIG_SECTION_DEFINITIONS.find(section => section.id === sectionId);
+    return definition ? t(definition.labelKey) : sectionId;
+}
+
+function getConfigShareSelection() {
+    return CONFIG_SECTION_DEFINITIONS.reduce((selection, section) => {
+        const input = document.querySelector(`[data-config-section="${section.id}"]`);
+        selection[section.id] = input ? input.checked : DEFAULT_CONFIG_SECTION_SELECTION[section.id];
+        return selection;
+    }, {});
+}
+
+function filterConfigSections(configSections, selection = DEFAULT_CONFIG_SECTION_SELECTION) {
+    return Object.entries(configSections).reduce((selected, [sectionId, value]) => {
+        if (selection[sectionId]) {
+            selected[getConfigSectionLabel(sectionId)] = value;
+        }
+
+        return selected;
+    }, {});
+}
+
+function renderConfigData(configSections, selection = DEFAULT_CONFIG_SECTION_SELECTION) {
+    const selectedConfig = filterConfigSections(configSections, selection);
+
+    if (Object.keys(selectedConfig).length === 0) {
+        return t('report_no_config_shared');
+    }
+
+    return renderData(selectedConfig);
+}
+
+function updateConfigPreview() {
+    if (!reportConfigSections) {
+        return;
+    }
+
+    const configData = $('#configData');
+    if (configData) {
+        configData.textContent = renderConfigData(reportConfigSections, getConfigShareSelection());
+    }
+}
+
 // Enhanced reportedPage function to handle dropdown options
 const reportedPage = (function() {
     const url = new URL(window.location.href);
@@ -316,11 +390,15 @@ function renderData(data, depth = 0) {
 
 /******************************************************************************/
 
-// Get configuration data to include in the report
-async function getConfigData() {
+// Get configuration data sections to include in the report
+async function getConfigDataSections() {
     try {
         if (typeof browser === 'undefined' || !browser.runtime) {
-            return t('report_browser_api_unavailable', undefined, 'browser API not available. This page must be loaded as a browser extension.');
+            return {
+                extension: {
+                    error: t('report_browser_api_unavailable')
+                }
+            };
         }
         
         const manifest = browser.runtime.getManifest();
@@ -347,9 +425,12 @@ async function getConfigData() {
             'disabledProviders'
         ]);
 
-        const config = {
-            name: manifest.name,
-            version: manifest.version,
+        return {
+            extension: {
+                name: manifest.name,
+                version: manifest.version,
+                browser: getBrowserInfo()
+            },
             settings: {
                 enabled: storage.globalStatus !== false,
                 loggingStatus: storage.loggingStatus === true,
@@ -365,20 +446,32 @@ async function getConfigData() {
                 hashStatus: storage.hashStatus || 'unknown',
                 hashValidationStatus: storage.hashValidationStatus || 'unknown'
             },
-            whitelistedDomains: storage.userWhitelist || [],
-            customRules: storage.custom_rules || {},
-            linkumoriURLCustomRules: storage.linkumori_url_custom_rules || { rules: [] },
-            disabledExceptionRules: storage.disabledExceptionRules || [],
-            disabledRules: storage.disabledRules || {},
-            disabledProviders: storage.disabledProviders || {},
-            browser: getBrowserInfo()
+            whitelist: {
+                whitelistedDomains: storage.userWhitelist || []
+            },
+            customRules: {
+                customRules: storage.custom_rules || {},
+                linkumoriURLCustomRules: storage.linkumori_url_custom_rules || { rules: [] }
+            },
+            disabledRules: {
+                disabledExceptionRules: storage.disabledExceptionRules || [],
+                disabledRules: storage.disabledRules || {},
+                disabledProviders: storage.disabledProviders || {}
+            }
         };
-        
-        return renderData(config);
     } catch (error) {
         console.error('Error getting configuration data:', error);
-        return t('report_config_error', undefined, 'Error retrieving configuration data: ') + error.message;
+        return {
+            extension: {
+                error: t('report_config_error') + error.message
+            }
+        };
     }
+}
+
+// Get configuration data to include in the report
+async function getConfigData(selection = DEFAULT_CONFIG_SECTION_SELECTION) {
+    return renderConfigData(await getConfigDataSections(), selection);
 }
 
 /******************************************************************************/
@@ -879,9 +972,11 @@ async function reportIssue() {
         // Get additional comments and format description for the issue template
         const additionalInfo = $('#additionalInfo').value.trim();
         
-        // Prepare information about extension, browser, and settings
-        const browserInfo = getBrowserInfo();
-        const configData = await getConfigData();
+        // Prepare the configuration information the user selected to share.
+        if (!reportConfigSections) {
+            reportConfigSections = await getConfigDataSections();
+        }
+        const configData = renderConfigData(reportConfigSections, getConfigShareSelection());
         
         // Create a proper title for the issue
         let title;
@@ -976,7 +1071,7 @@ async function reportIssue() {
             descriptionText += `\nAdditional Comments:\n${additionalInfo}\n`;
         }
         
-        descriptionText += `\nCurrent Settings:\n${configData}`;
+        descriptionText += `\nShared Configuration:\n${configData}`;
         
         // Set the description parameter for the template
         githubURL.searchParams.set('description', descriptionText);
@@ -1105,8 +1200,15 @@ function validateUrl(url) {
 async function initReportPage() {
     try {
         // Get configuration data
-        const config = await getConfigData();
-        $('#configData').textContent = config;
+        reportConfigSections = await getConfigDataSections();
+        updateConfigPreview();
+
+        CONFIG_SECTION_DEFINITIONS.forEach(section => {
+            const input = document.querySelector(`[data-config-section="${section.id}"]`);
+            if (input) {
+                input.addEventListener('change', updateConfigPreview);
+            }
+        });
         
         // Populate the URL dropdown with actual URLs
         populateUrlDropdown();

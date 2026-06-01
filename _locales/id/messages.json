@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Saya memahami bahwa mengeklik \"Laporkan di GitHub\" akan membuat URL GitHub berisi informasi yang saya masukkan dan data konfigurasi yang ditampilkan di bawah, lalu mengarahkan saya ke URL tersebut. Tidak ada data yang dikirimkan secara langsung oleh ekstensi ini. Ekstensi tersebut akan menunjukkan kepada saya URL lengkap sebelum membukanya, dan saya dapat meninjau dengan tepat informasi apa yang akan disertakan. Setelah dialihkan ke GitHub, saya akan memiliki kendali penuh untuk mengirimkan formulir masalah yang sudah diisi sebelumnya atau membatalkan tanpa mengirimkan apa pun. Saya memahami bahwa mengakses GitHub membuat saya terkena $privacy_link$. Pembuatan masalah memerlukan akun GitHub, dan setelah Anda memilih untuk melanjutkan dan dialihkan ke GitHub, aktivitas Anda diatur oleh $privacy_statement$ dan $terms_service$. Setelah dialihkan dengan informasi yang telah diisi sebelumnya, Anda memegang kendali penuh dan dapat memilih apakah akan mengirimkan atau membatalkan pembuatan masalah pada repositori kami di $repo_link$. Meskipun Anda membatalkan pembuatan masalah, GitHub mungkin masih mengumpulkan data sesuai dengan kebijakan privasinya karena interaksi Anda dengan platform mereka. Jika Anda melanjutkan pengiriman masalah, informasi yang Anda kirimkan, termasuk komentar tambahan, akan dapat diakses publik. Hal ini karena repositori bersifat publik, dan setiap masalah yang dilaporkan akan terlihat oleh siapa saja yang menggunakan GitHub atau layanan terkait.",
+    "message": "Saya memahami bahwa mengklik \"Laporkan di GitHub\" akan membuat URL GitHub yang berisi informasi yang saya masukkan dan bagian konfigurasi yang saya pilih di bawah, lalu mengarahkan saya ke URL tersebut. Tidak ada data yang dikirimkan secara langsung oleh ekstensi ini. Ekstensi tersebut akan menunjukkan kepada saya URL lengkap sebelum membukanya, dan saya dapat meninjau dengan tepat informasi apa yang akan disertakan. Setelah dialihkan ke GitHub, saya akan memiliki kendali penuh untuk mengirimkan formulir masalah yang sudah diisi sebelumnya atau membatalkan tanpa mengirimkan apa pun. Saya memahami bahwa mengakses GitHub membuat saya terkena $privacy_link$. Pembuatan masalah memerlukan akun GitHub, dan setelah Anda memilih untuk melanjutkan dan dialihkan ke GitHub, aktivitas Anda diatur oleh $privacy_statement$ dan $terms_service$. Setelah dialihkan dengan informasi yang telah diisi sebelumnya, Anda memegang kendali penuh dan dapat memilih apakah akan mengirimkan atau membatalkan pembuatan masalah pada repositori kami di $repo_link$. Meskipun Anda membatalkan pembuatan masalah, GitHub mungkin masih mengumpulkan data sesuai dengan kebijakan privasinya karena interaksi Anda dengan platform mereka. Jika Anda melanjutkan pengiriman masalah, informasi yang Anda kirimkan, termasuk komentar tambahan, akan dapat diakses publik. Hal ini karena repositori bersifat publik, dan setiap masalah yang dilaporkan akan terlihat oleh siapa saja yang menggunakan GitHub atau layanan terkait.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Informasi Konfigurasi",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Detail ekstensi dan browser",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Pengaturan perlindungan",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domain yang masuk daftar putih",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Aturan adat",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Aturan dan penyedia dinonaktifkan",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Tidak ada informasi konfigurasi yang dipilih.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Saya memahami bahwa mengklik \"Temukan Masalah yang Ada\" akan membuat URL pencarian GitHub menggunakan nama domain dan detail masalah yang telah saya masukkan, lalu mengarahkan saya ke URL tersebut. Tidak ada data yang dikirimkan secara langsung oleh ekstensi ini. Ekstensi tersebut akan menunjukkan kepada saya URL pencarian lengkap sebelum membukanya, sehingga saya dapat meninjau istilah pencarian mana yang akan digunakan. Setelah dialihkan ke GitHub, saya akan dikenakan $link$ dan $terms_service$.",

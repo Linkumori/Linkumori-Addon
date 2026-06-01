@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Entenc que fer clic a \"Informar a GitHub\" crearà un URL de GitHub que contindrà la informació que he introduït i les dades de configuració que es mostren a continuació, i després em redirigirà a aquest URL. Aquesta extensió no transmet cap dada directament. L'extensió em mostrarà l'URL complet abans d'obrir-lo i puc revisar exactament quina informació s'inclourà. Un cop redirigit a GitHub, tindré el control total per enviar el formulari d'incidència emplenat prèviament o cancel·lar-lo sense enviar res. Entenc que accedir a GitHub em sotmet a $privacy_link$. La creació d'un problema requereix un compte de GitHub i, un cop decidiu continuar i se us redirigirà a GitHub, la vostra activitat es regirà per $privacy_statement$ i $terms_service$. Després de ser redirigit amb informació emplenada prèviament, conserveu el control total i podeu triar si voleu enviar o cancel·lar la creació del problema al nostre repositori a $repo_link$. Fins i tot si cancel·leu la creació del problema, GitHub pot continuar recopilant dades d'acord amb la seva política de privadesa a causa de la vostra interacció amb la seva plataforma. Si continueu enviant el problema, la informació que envieu, inclosos els comentaris addicionals, es farà accessible públicament. Això es deu al fet que el repositori és públic i qualsevol problema notificat serà visible per a qualsevol que faci servir GitHub o serveis relacionats.",
+    "message": "Entenc que fer clic a \"Informar a GitHub\" crearà un URL de GitHub que contindrà la informació que he introduït i les seccions de configuració que he seleccionat a continuació, i després em redirigirà a aquest URL. Aquesta extensió no transmet cap dada directament. L'extensió em mostrarà l'URL complet abans d'obrir-lo i puc revisar exactament quina informació s'inclourà. Un cop redirigit a GitHub, tindré el control total per enviar el formulari d'incidència emplenat prèviament o cancel·lar-lo sense enviar res. Entenc que accedir a GitHub em sotmet a $privacy_link$. La creació d'un problema requereix un compte de GitHub i, un cop decidiu continuar i se us redirigeix ​​a GitHub, la vostra activitat es regeix per $privacy_statement$ i $terms_service$. Després de ser redirigit amb informació emplenada prèviament, conserveu el control total i podeu triar si voleu enviar o cancel·lar la creació del problema al nostre repositori a $repo_link$. Fins i tot si cancel·leu la creació del problema, GitHub pot continuar recopilant dades d'acord amb la seva política de privadesa a causa de la vostra interacció amb la seva plataforma. Si continueu enviant el problema, la informació que envieu, inclosos els comentaris addicionals, es farà accessible públicament. Això es deu al fet que el repositori és públic i qualsevol problema notificat serà visible per a qualsevol que faci servir GitHub o serveis relacionats.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Informació de configuració",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Detalls de l'extensió i del navegador",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Configuració de protecció",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Dominis a la llista blanca",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Regles personalitzades",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Regles i proveïdors desactivats",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "No s'ha seleccionat cap informació de configuració.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Entenc que fer clic a \"Troba problemes existents\" crearà un URL de cerca de GitHub amb el nom de domini i els detalls del problema que he introduït, i després em redirigirà a aquest URL. Aquesta extensió no transmet cap dada directament. L'extensió em mostrarà l'URL de cerca complet abans d'obrir-lo, de manera que puc revisar quins termes de cerca s'utilitzaran. Un cop redirigit a GitHub, estaré subjecte a $link$ i $terms_service$.",

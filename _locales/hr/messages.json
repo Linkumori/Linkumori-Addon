@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Razumijem da će klik na \"Izvješće na GitHubu\" konstruirati GitHub URL koji sadrži informacije koje sam unio i konfiguracijske podatke prikazane u nastavku, a zatim me preusmjeriti na taj URL. Ovo proširenje ne prenosi podatke izravno. Proširenje će mi pokazati cijeli URL prije nego što ga otvorim, a ja mogu vidjeti koje će točno informacije biti uključene. Nakon preusmjeravanja na GitHub, imat ću potpunu kontrolu nad slanjem unaprijed ispunjenog obrasca za problem ili otkazivanjem bez slanja bilo čega. Razumijem da me pristup GitHubu podvrgava $privacy_link$. Stvaranje problema zahtijeva GitHub račun, a kada odlučite nastaviti i budete preusmjereni na GitHub, vašom aktivnošću upravljaju $privacy_statement$ i $terms_service$. Nakon preusmjeravanja s unaprijed ispunjenim informacijama, zadržavate potpunu kontrolu i možete odabrati hoćete li podnijeti ili otkazati stvaranje problema u našem repozitoriju na $repo_link$. Čak i ako otkažete stvaranje problema, GitHub može i dalje prikupljati podatke u skladu s njihovim pravilima o privatnosti zbog vaše interakcije s njihovom platformom. Ako nastavite s podnošenjem problema, informacije koje pošaljete, uključujući sve dodatne komentare, postat će javno dostupne. To je zato što je spremište javno, a svaki prijavljeni problem bit će vidljiv svima koji koriste GitHub ili povezane usluge.",
+    "message": "Razumijem da će klik na \"Izvješće na GitHubu\" konstruirati GitHub URL koji sadrži podatke koje sam unio i konfiguracijske odjeljke koje sam odabrao u nastavku, a zatim me preusmjeriti na taj URL. Ovo proširenje ne prenosi podatke izravno. Proširenje će mi pokazati cijeli URL prije nego što ga otvorim, a ja mogu vidjeti koje će točno informacije biti uključene. Nakon preusmjeravanja na GitHub, imat ću potpunu kontrolu nad slanjem unaprijed ispunjenog obrasca za problem ili otkazivanjem bez slanja bilo čega. Razumijem da me pristup GitHubu podvrgava $privacy_link$. Stvaranje problema zahtijeva GitHub račun, a nakon što odlučite nastaviti i budete preusmjereni na GitHub, vašom aktivnošću upravljaju $privacy_statement$ i $terms_service$. Nakon preusmjeravanja s unaprijed ispunjenim informacijama, zadržavate potpunu kontrolu i možete odabrati hoćete li podnijeti ili otkazati stvaranje problema u našem repozitoriju na $repo_link$. Čak i ako otkažete stvaranje problema, GitHub može i dalje prikupljati podatke u skladu s njihovim pravilima o privatnosti zbog vaše interakcije s njihovom platformom. Ako nastavite s podnošenjem problema, informacije koje pošaljete, uključujući sve dodatne komentare, postat će javno dostupne. To je zato što je spremište javno, a svaki prijavljeni problem bit će vidljiv svima koji koriste GitHub ili povezane usluge.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Informacije o konfiguraciji",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Pojedinosti o proširenju i pregledniku",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Postavke zaštite",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domene s popisa dopuštenih",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Prilagođena pravila",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Onemogućena pravila i pružatelji usluga",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Nisu odabrane informacije o konfiguraciji.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Razumijem da će klik na \"Pronađi postojeće probleme\" konstruirati URL pretraživanja GitHuba pomoću naziva domene i pojedinosti o problemu koje sam unio, a zatim me preusmjeriti na taj URL. Ovo proširenje ne prenosi podatke izravno. Proširenje će mi pokazati cijeli URL pretraživanja prije nego što ga otvorim, tako da mogu pregledati koji će se pojmovi za pretraživanje koristiti. Nakon preusmjeravanja na GitHub, podlijegat ću $link$ i $terms_service$.",

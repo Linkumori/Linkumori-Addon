@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "\"በ GitHub ላይ ሪፖርት አድርግ\" የሚለውን ጠቅ ማድረግ የገባሁትን መረጃ እና ከታች የሚታየውን የውቅር ውሂብ የያዘ የ GitHub URL እንደሚገነባ ተረድቻለሁ፣ ከዚያም ወደዚያ ዩአርኤል ይመራኛል። ምንም ውሂብ በቀጥታ በዚህ ቅጥያ አይተላለፍም። ቅጥያው ከመክፈቱ በፊት ሙሉውን ዩአርኤል ያሳየኛል፣ እና ምን አይነት መረጃ እንደሚካተት በትክክል መገምገም እችላለሁ። አንዴ ወደ GitHub ከተዘዋወረ፣ ምንም ሳላስገባ ቀድሞ የተሞላውን እትም ቅጽ ለማስገባት ወይም ለመሰረዝ ሙሉ ቁጥጥር ይኖረኛል። GitHubን ማግኘት $privacy_link$ እንደሚያስገድደኝ ተረድቻለሁ። ችግር መፍጠር የ GitHub መለያ ያስፈልገዋል፣ እና አንዴ ለመቀጠል ከመረጡ እና ወደ GitHub ከተመሩ፣ የእርስዎ እንቅስቃሴ በ$privacy_statement$ እና $terms_service$ ነው የሚተዳደረው። ቀድሞ በተሞላ መረጃ ከተዘዋወረ በኋላ፣ ሙሉ ቁጥጥርዎን ያቆያሉ እና በ$repo_link$ ማከማቻችን ላይ ያለውን ችግር ለመፍጠር ወይም ለመሰረዝ መምረጥ ይችላሉ። ችግሩን መፍጠሩን ቢሰርዙትም እንኳ፣ GitHub ከመድረክ ጋር ባለዎት ግንኙነት በግላዊነት መመሪያቸው መሰረት ውሂብ ሊሰበስብ ይችላል። ችግሩን በማስረከብ ከቀጠሉ፣ የሚያስገቡት መረጃ፣ ተጨማሪ አስተያየቶችን ጨምሮ፣ ለሕዝብ ተደራሽ ይሆናል። ይህ የሆነበት ምክንያት ማከማቻው ይፋዊ ስለሆነ ማንኛውም ሪፖርት የተደረገ ችግር GitHub ወይም ተዛማጅ አገልግሎቶችን ለሚጠቀም ለማንኛውም ሰው የሚታይ ይሆናል።",
+    "message": "\"በ GitHub ላይ ሪፖርት አድርግ\" የሚለውን ጠቅ ማድረግ የገባሁትን መረጃ እና የመረጥኳቸውን የውቅረት ክፍሎችን የያዘ የ GitHub URL እንደሚገነባ ተረድቻለሁ ከዚያም ወደዚያ URL ይወስደኛል። ምንም ውሂብ በቀጥታ በዚህ ቅጥያ አይተላለፍም። ቅጥያው ከመክፈቱ በፊት ሙሉውን ዩአርኤል ያሳየኛል፣ እና ምን አይነት መረጃ እንደሚካተት በትክክል መገምገም እችላለሁ። አንዴ ወደ GitHub ከተዘዋወረ፣ ምንም ሳላስገባ ቀድሞ የተሞላውን እትም ቅጽ ለማስገባት ወይም ለመሰረዝ ሙሉ ቁጥጥር ይኖረኛል። GitHubን ማግኘት ለ$privacy_link$ እንደሚያስገዛኝ ይገባኛል። ችግር መፍጠር የGitHub መለያ ያስፈልገዋል፣ እና አንዴ ለመቀጠል ከመረጡ እና ወደ GitHub ከተዘዋወሩ፣ እንቅስቃሴዎ በ$privacy_statement$ እና $terms_service$ ነው የሚተዳደረው። ቀድሞ በተሞላ መረጃ ከተዘዋወረ በኋላ፣ ሙሉ ቁጥጥርዎን ያቆያሉ እና በ$repo_link$ ላይ በእኛ ማከማቻ ላይ ያለውን ችግር መፍጠር ወይም መሰረዝ መምረጥ ይችላሉ። ችግሩን መፍጠሩን ቢሰርዙትም እንኳ፣ GitHub ከመድረክ ጋር ባለዎት ግንኙነት በግላዊነት መመሪያቸው መሰረት ውሂብ ሊሰበስብ ይችላል። ችግሩን በማስረከብ ከቀጠሉ፣ የሚያስገቡት መረጃ፣ ተጨማሪ አስተያየቶችን ጨምሮ፣ ለሕዝብ ተደራሽ ይሆናል። ይህ የሆነበት ምክንያት ማከማቻው ይፋዊ ስለሆነ ማንኛውም ሪፖርት የተደረገ ችግር GitHub ወይም ተዛማጅ አገልግሎቶችን ለሚጠቀም ለማንኛውም ሰው የሚታይ ይሆናል።",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "የማዋቀር መረጃ",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "የቅጥያ እና የአሳሽ ዝርዝሮች",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "የጥበቃ ቅንብሮች",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "የተፈቀዱ ጎራዎች",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "ብጁ ህጎች",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "የተሰናከሉ ደንቦች እና አቅራቢዎች",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "ምንም የውቅረት መረጃ አልተመረጠም።",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "\"ነባር ጉዳዮችን ፈልግ\" የሚለውን ጠቅ ማድረግ የገባሁትን የጎራ ስም እና የጉዳይ ዝርዝሮችን በመጠቀም የ GitHub ፍለጋ ዩአርኤል እንደሚገነባ እና ከዚያም ወደዚያ ዩአርኤል እንደሚያዞረኝ ተረድቻለሁ። ምንም ውሂብ በቀጥታ በዚህ ቅጥያ አይተላለፍም። ቅጥያው ከመክፈቱ በፊት ሙሉውን የፍለጋ ዩአርኤል ያሳየኛል፣ ስለዚህ የትኞቹ የፍለጋ ቃላት ጥቅም ላይ እንደሚውሉ መገምገም እችላለሁ። አንዴ ወደ GitHub ከተዘዋወረ፣ ለ$link$ እና $terms_service$ ተገዢ እሆናለሁ።",

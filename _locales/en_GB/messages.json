@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "I understand that clicking \"Report on GitHub\" will construct a GitHub URL containing the information I've entered and the configuration data shown below, then redirect me to that URL. No data is transmitted directly by this extension. The extension will show me the complete URL before opening it, and I can review exactly what information will be included. Once redirected to GitHub, I will have full control to either submit the pre-filled issue form or cancel without submitting anything. I understand that accessing GitHub subjects me to $privacy_link$. Creating an issue requires a GitHub account, and once you choose to proceed and are redirected to GitHub, your activity is governed by $privacy_statement$ and $terms_service$. After being redirected with pre-filled information, you retain full control and can choose whether to submit or cancel the issue creation on our repository at $repo_link$. Even if you cancel the issue creation, GitHub may still collect data according to their privacy policy due to your interaction with their platform. If you proceed with submitting the issue, the information you submit, including any additional comments, will become publicly accessible. This is because the repository is public, and any reported issue will be visible to anyone using GitHub or related services.",
+    "message": "I understand that clicking \"Report on GitHub\" will construct a GitHub URL containing the information I've entered and the configuration sections I selected below, then redirect me to that URL. No data is transmitted directly by this extension. The extension will show me the complete URL before opening it, and I can review exactly what information will be included. Once redirected to GitHub, I will have full control to either submit the pre-filled issue form or cancel without submitting anything. I understand that accessing GitHub subjects me to $privacy_link$. Creating an issue requires a GitHub account, and once you choose to proceed and are redirected to GitHub, your activity is governed by $privacy_statement$ and $terms_service$. After being redirected with pre-filled information, you retain full control and can choose whether to submit or cancel the issue creation on our repository at $repo_link$. Even if you cancel the issue creation, GitHub may still collect data according to their privacy policy due to your interaction with their platform. If you proceed with submitting the issue, the information you submit, including any additional comments, will become publicly accessible. This is because the repository is public, and any reported issue will be visible to anyone using GitHub or related services.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Configuration Information",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Extension and browser details",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Protection settings",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Whitelisted domains",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Custom rules",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Disabled rules and providers",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "No configuration information selected.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "I understand that clicking \"Find Existing Issues\" will construct a GitHub search URL using the domain name and issue details I have entered, and then redirect me to that URL. No data is transmitted directly by this extension. The extension will show me the complete search URL before opening it, so I can review which search terms will be used. Once redirected to GitHub, I will be subject to $link$ and $terms_service$.",

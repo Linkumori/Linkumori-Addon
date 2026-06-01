@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "「GitHub でレポート」をクリックすると、入力した情報と以下に示す構成データを含む GitHub URL が構築され、その URL にリダイレクトされることを理解しています。この拡張機能によってデータが直接送信されることはありません。拡張機能を開く前に完全な URL が表示されるので、どのような情報が含まれるかを正確に確認できます。 GitHub にリダイレクトされると、事前に入力された問題フォームを送信するか、何も送信せずにキャンセルするかを完全に制御できるようになります。 GitHub にアクセスすると、$privacy_link$ の対象となることを理解しています。問題の作成には GitHub アカウントが必要です。続行を選択して GitHub にリダイレクトされると、アクティビティは $privacy_statement$ および $terms_service$ によって管理されます。事前に入力された情報でリダイレクトされた後は、完全な制御を保持し、リポジトリ ($repo_link$) で問題の作成を送信するかキャンセルするかを選択できます。問題の作成をキャンセルした場合でも、GitHub はプラットフォームとのやり取りにより、プライバシー ポリシーに従ってデータを収集する場合があります。問題の送信を続行すると、追加のコメントを含め、送信した情報に一般にアクセスできるようになります。これは、リポジトリが公開されており、報告された問題は GitHub または関連サービスを使用しているすべてのユーザーに表示されるためです。",
+    "message": "[GitHub でレポート] をクリックすると、入力した情報と以下で選択した構成セクションを含む GitHub URL が構築され、その URL にリダイレクトされることを理解しています。この拡張機能によってデータが直接送信されることはありません。拡張機能を開く前に完全な URL が表示されるので、どのような情報が含まれるかを正確に確認できます。 GitHub にリダイレクトされると、事前に入力された問題フォームを送信するか、何も送信せずにキャンセルするかを完全に制御できるようになります。 GitHub にアクセスすると、$privacy_link$ が適用されることを理解しています。問題を作成するには GitHub アカウントが必要です。続行を選択して GitHub にリダイレクトされると、アクティビティは $privacy_statement$ と $terms_service$ によって管理されます。事前に入力された情報でリダイレクトされた後は、完全な制御を保持し、$repo_link$ のリポジトリで問題の作成を送信するかキャンセルするかを選択できます。問題の作成をキャンセルした場合でも、GitHub はプラットフォームとのやり取りにより、プライバシー ポリシーに従ってデータを収集する場合があります。問題の送信を続行すると、追加のコメントを含め、送信した情報に一般にアクセスできるようになります。これは、リポジトリが公開されており、報告された問題は GitHub または関連サービスを使用しているすべてのユーザーに表示されるためです。",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "構成情報",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "拡張機能とブラウザの詳細",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "保護設定",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "ホワイトリストに登録されたドメイン",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "カスタム ルール",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "無効化されたルールとプロバイダー",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "構成情報が選択されていません。",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "「既存の問題を検索」をクリックすると、入力したドメイン名と問題の詳細を使用して GitHub 検索 URL が構築され、その URL にリダイレクトされることを理解しています。この拡張機能によってデータが直接送信されることはありません。 The extension will show me the complete search URL before opening it, so I can review which search terms will be used. GitHub にリダイレクトされると、$link$ および $terms_service$ の対象になります。",

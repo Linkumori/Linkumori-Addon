@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Saya faham bahawa mengklik \"Laporkan pada GitHub\" akan membina URL GitHub yang mengandungi maklumat yang saya masukkan dan data konfigurasi yang ditunjukkan di bawah, kemudian mengubah hala saya ke URL tersebut. Tiada data dihantar terus oleh sambungan ini. Sambungan itu akan menunjukkan kepada saya URL lengkap sebelum membukanya dan saya boleh menyemak dengan tepat maklumat yang akan disertakan. Setelah diubah hala ke GitHub, saya akan mempunyai kawalan penuh untuk sama ada menyerahkan borang terbitan yang telah diisi sebelumnya atau membatalkan tanpa menyerahkan apa-apa. Saya faham bahawa mengakses GitHub menjadikan saya $privacy_link$. Mencipta isu memerlukan akaun GitHub dan setelah anda memilih untuk meneruskan dan diubah hala ke GitHub, aktiviti anda dikawal oleh $privacy_statement$ dan $terms_service$. Selepas diubah hala dengan maklumat yang telah diisi, anda mengekalkan kawalan penuh dan boleh memilih sama ada untuk menyerahkan atau membatalkan penciptaan isu pada repositori kami di $repo_link$. Walaupun anda membatalkan penciptaan isu, GitHub mungkin masih mengumpul data mengikut dasar privasi mereka kerana interaksi anda dengan platform mereka. Jika anda meneruskan dengan menyerahkan isu tersebut, maklumat yang anda serahkan, termasuk sebarang ulasan tambahan, akan boleh diakses secara umum. Ini kerana repositori adalah awam dan sebarang isu yang dilaporkan akan dapat dilihat oleh sesiapa sahaja yang menggunakan GitHub atau perkhidmatan berkaitan.",
+    "message": "Saya faham bahawa mengklik \"Laporkan pada GitHub\" akan membina URL GitHub yang mengandungi maklumat yang saya masukkan dan bahagian konfigurasi yang saya pilih di bawah, kemudian mengubah hala saya ke URL tersebut. Tiada data dihantar terus oleh sambungan ini. Sambungan itu akan menunjukkan kepada saya URL lengkap sebelum membukanya dan saya boleh menyemak dengan tepat maklumat yang akan disertakan. Setelah diubah hala ke GitHub, saya akan mempunyai kawalan penuh untuk sama ada menyerahkan borang terbitan yang telah diisi sebelumnya atau membatalkan tanpa menyerahkan apa-apa. Saya faham bahawa mengakses GitHub menjadikan saya $privacy_link$. Mencipta isu memerlukan akaun GitHub dan sebaik sahaja anda memilih untuk meneruskan dan diubah hala ke GitHub, aktiviti anda dikawal oleh $privacy_statement$ dan $terms_service$. Selepas diubah hala dengan maklumat yang telah diisi, anda mengekalkan kawalan penuh dan boleh memilih sama ada untuk menyerahkan atau membatalkan penciptaan isu pada repositori kami di $repo_link$. Walaupun anda membatalkan penciptaan isu, GitHub mungkin masih mengumpul data mengikut dasar privasi mereka kerana interaksi anda dengan platform mereka. Jika anda meneruskan dengan menyerahkan isu tersebut, maklumat yang anda serahkan, termasuk sebarang ulasan tambahan, akan boleh diakses secara umum. Ini kerana repositori adalah awam dan sebarang isu yang dilaporkan akan dapat dilihat oleh sesiapa sahaja yang menggunakan GitHub atau perkhidmatan berkaitan.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Maklumat Konfigurasi",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Butiran sambungan dan penyemak imbas",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Tetapan perlindungan",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domain disenarai putih",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Peraturan tersuai",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Peraturan dan pembekal yang dilumpuhkan",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Tiada maklumat konfigurasi dipilih.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Saya faham bahawa mengklik \"Cari Isu Sedia Ada\" akan membina URL carian GitHub menggunakan nama domain dan butiran isu yang telah saya masukkan, dan kemudian mengubah hala saya ke URL tersebut. Tiada data dihantar terus oleh sambungan ini. Sambungan akan menunjukkan kepada saya URL carian lengkap sebelum membukanya, jadi saya boleh menyemak istilah carian yang akan digunakan. Setelah diubah hala ke GitHub, saya akan tertakluk kepada $link$ dan $terms_service$.",

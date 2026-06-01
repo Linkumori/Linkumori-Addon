@@ -4697,7 +4697,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Entendo que clicar em \"Relatório no GitHub\" criará um URL do GitHub contendo as informações que inseri e os dados de configuração mostrados abaixo e, em seguida, me redirecionará para esse URL. Nenhum dado é transmitido diretamente por esta extensão. A extensão me mostrará o URL completo antes de abri-la e posso revisar exatamente quais informações serão incluídas. Depois de redirecionado para o GitHub, terei controle total para enviar o formulário de problema pré-preenchido ou cancelar sem enviar nada. Entendo que acessar o GitHub me sujeita a $privacy_link$. A criação de um problema requer uma conta GitHub e, assim que você decidir prosseguir e for redirecionado para o GitHub, sua atividade será regida por $privacy_statement$ e $terms_service$. Após ser redirecionado com informações pré-preenchidas, você mantém controle total e pode escolher se deseja enviar ou cancelar a criação do problema em nosso repositório em $repo_link$. Mesmo se você cancelar a criação do problema, o GitHub ainda poderá coletar dados de acordo com sua política de privacidade devido à sua interação com a plataforma deles. Se você prosseguir com o envio do problema, as informações enviadas, incluindo quaisquer comentários adicionais, se tornarão acessíveis ao público. Isso ocorre porque o repositório é público e qualquer problema relatado ficará visível para qualquer pessoa que use o GitHub ou serviços relacionados.",
+    "message": "Entendo que clicar em \"Relatório no GitHub\" criará um URL do GitHub contendo as informações que inseri e as seções de configuração que selecionei abaixo e, em seguida, me redirecionará para esse URL. Nenhum dado é transmitido diretamente por esta extensão. A extensão me mostrará o URL completo antes de abri-la e posso revisar exatamente quais informações serão incluídas. Depois de redirecionado para o GitHub, terei controle total para enviar o formulário de problema pré-preenchido ou cancelar sem enviar nada. Entendo que acessar o GitHub me sujeita a $privacy_link$. A criação de um problema requer uma conta GitHub e, quando você decidir prosseguir e for redirecionado para o GitHub, sua atividade será regida por $privacy_statement$ e $terms_service$. Após ser redirecionado com informações pré-preenchidas, você mantém controle total e pode escolher se deseja enviar ou cancelar a criação do problema em nosso repositório em $repo_link$. Mesmo se você cancelar a criação do problema, o GitHub ainda poderá coletar dados de acordo com sua política de privacidade devido à sua interação com a plataforma deles. Se você prosseguir com o envio do problema, as informações enviadas, incluindo quaisquer comentários adicionais, se tornarão acessíveis ao público. Isso ocorre porque o repositório é público e qualquer problema relatado ficará visível para qualquer pessoa que use o GitHub ou serviços relacionados.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4721,6 +4721,30 @@
   "configInformation": {
     "message": "Informações de configuração",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Detalhes da extensão e do navegador",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Configurações de proteção",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domínios permitidos",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Regras personalizadas",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Regras e provedores desativados",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Nenhuma informação de configuração selecionada.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Entendo que clicar em \"Encontrar problemas existentes\" criará um URL de pesquisa do GitHub usando o nome de domínio e os detalhes do problema que inseri e, em seguida, me redirecionará para esse URL. Nenhum dado é transmitido diretamente por esta extensão. A extensão me mostrará o URL de pesquisa completo antes de abri-la, para que eu possa revisar quais termos de pesquisa serão usados. Uma vez redirecionado para o GitHub, estarei sujeito a $link$ e $terms_service$.",

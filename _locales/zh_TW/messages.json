@@ -4700,7 +4700,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "據我了解，單擊「在 GitHub 上報告」將建立一個 GitHub URL，其中包含我輸入的資訊和如下所示的配置數據，然後將我重定向到該 URL。此擴充功能不直接傳輸任何資料。該擴充功能會在打開之前向我顯示完整的 URL，我可以準確地查看將包含哪些資訊。一旦重定向到 GitHub，我將完全控制提交預先填寫的問題表單或取消而不提交任何內容。我了解造訪 GitHub 會讓我受到 $privacy_link$ 的影響。建立問題需要 GitHub 帳戶，一旦您選擇繼續並重新導向至 GitHub，您的活動將受到 $privacy_statement$ 和 $terms_service$ 的管轄。使用預先填寫的資訊進行重定向後，您保留完全控制權，並可以選擇是否在我們的儲存庫（$repo_link$）上提交或取消問題建立。即使您取消問題創建，由於您與其平台的交互，GitHub 仍可能根據其隱私權政策收集資料。如果您繼續提交問題，您提交的資訊（包括任何其他評論）將可供公開存取。這是因為儲存庫是公共的，使用 GitHub 或相關服務的任何人都可以看到任何報告的問題。",
+    "message": "我了解，单击“在 GitHub 上报告”将构建一个 GitHub URL，其中包含我输入的信息和我在下面选择的配置部分，然后将我重定向到该 URL。此扩展不直接传输任何数据。该扩展程序会在打开之前向我显示完整的 URL，我可以准确查看将包含哪些信息。一旦重定向到 GitHub，我将完全控制提交预先填写的问题表单或取消而不提交任何内容。我了解访问 GitHub 会使我受到 $privacy_link$ 的约束。创建问题需要 GitHub 帐户，一旦您选择继续并重定向到 GitHub，您的活动将受到 $privacy_statement$ 和 $terms_service$ 的约束。使用预先填写的信息重定向后，您保留完全控制权，并可以选择是否在我们的存储库 $repo_link$ 上提交或取消问题创建。即使您取消问题创建，由于您与其平台的交互，GitHub 仍可能根据其隐私政策收集数据。如果您继续提交问题，您提交的信息（包括任何其他评论）将可供公开访问。这是因为存储库是公共的，使用 GitHub 或相关服务的任何人都可以看到任何报告的问题。",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4724,6 +4724,30 @@
   "configInformation": {
     "message": "配置資訊",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "扩展程序和浏览器详细信息",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "保护设置",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "白名单域",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "自定义规则",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "禁用的规则和提供程序",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "未选择配置信息。",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "據我了解，點擊「尋找現有問題」將使用我輸入的網域和問題詳細資訊建立 GitHub 搜尋 URL，然後將我重定向到該 URL。此擴充功能不直接傳輸任何資料。該擴充功能將在打開之前向我顯示完整的搜尋 URL，以便我可以查看將使用哪些搜尋字詞。一旦重定向到 GitHub，我將受到 $link$ 和 $terms_service$ 的限制。",

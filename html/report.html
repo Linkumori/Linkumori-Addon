@@ -563,6 +563,23 @@
             font-weight: 500;
         }
 
+        .config-share-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 8px 12px;
+            margin: 10px 0 12px;
+        }
+
+        .config-share-options .checkbox-wrapper {
+            margin-bottom: 0;
+        }
+
+        .config-share-options label {
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
         details pre {
             background: var(--bg-primary);
             padding: 12px;
@@ -848,8 +865,45 @@
         </div>
         
         <div class="supportEntry" style="font-size: smaller;">
-            <details>
+            <details open>
                 <summary data-i18n="configInformation"></summary>
+                <div class="config-share-options" id="configShareOptions">
+                    <label class="checkbox-wrapper">
+                        <span class="input checkbox">
+                            <input type="checkbox" data-config-section="extension" checked>
+                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                        </span>
+                        <span data-i18n="report_share_extension_info"></span>
+                    </label>
+                    <label class="checkbox-wrapper">
+                        <span class="input checkbox">
+                            <input type="checkbox" data-config-section="settings" checked>
+                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                        </span>
+                        <span data-i18n="report_share_settings_info"></span>
+                    </label>
+                    <label class="checkbox-wrapper">
+                        <span class="input checkbox">
+                            <input type="checkbox" data-config-section="whitelist" checked>
+                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                        </span>
+                        <span data-i18n="report_share_whitelist_info"></span>
+                    </label>
+                    <label class="checkbox-wrapper">
+                        <span class="input checkbox">
+                            <input type="checkbox" data-config-section="customRules" checked>
+                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                        </span>
+                        <span data-i18n="report_share_custom_rules_info"></span>
+                    </label>
+                    <label class="checkbox-wrapper">
+                        <span class="input checkbox">
+                            <input type="checkbox" data-config-section="disabledRules" checked>
+                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                        </span>
+                        <span data-i18n="report_share_disabled_rules_info"></span>
+                    </label>
+                </div>
                 <pre id="configData" style="user-select: all;"></pre>
             </details>
         </div>

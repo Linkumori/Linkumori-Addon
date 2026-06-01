@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Naiintindihan ko na ang pag-click sa \"Mag-ulat sa GitHub\" ay bubuo ng isang URL ng GitHub na naglalaman ng impormasyong inilagay ko at ang data ng configuration na ipinapakita sa ibaba, pagkatapos ay ire-redirect ako sa URL na iyon. Walang data na direktang ipinadala ng extension na ito. Ipapakita sa akin ng extension ang kumpletong URL bago ito buksan, at masusuri ko nang eksakto kung anong impormasyon ang isasama. Kapag na-redirect sa GitHub, magkakaroon ako ng ganap na kontrol na isumite ang paunang napunan na form ng isyu o kanselahin nang hindi nagsusumite ng anuman. Naiintindihan ko na ang pag-access sa GitHub ay sumasailalim sa akin sa $privacy_link$. Ang paggawa ng isyu ay nangangailangan ng isang GitHub account, at kapag pinili mong magpatuloy at na-redirect sa GitHub, ang iyong aktibidad ay pinamamahalaan ng $privacy_statement$ at $terms_service$. Pagkatapos ma-redirect gamit ang paunang napunan na impormasyon, mananatili kang ganap na kontrol at mapipili kung isusumite o kanselahin ang paggawa ng isyu sa aming repository sa $repo_link$. Kahit na kanselahin mo ang paggawa ng isyu, maaaring mangolekta pa rin ng data ang GitHub ayon sa kanilang patakaran sa privacy dahil sa iyong pakikipag-ugnayan sa kanilang platform. Kung magpapatuloy ka sa pagsusumite ng isyu, ang impormasyong isusumite mo, kasama ang anumang karagdagang komento, ay magiging maa-access ng publiko. Ito ay dahil ang repositoryo ay pampubliko, at anumang naiulat na isyu ay makikita ng sinumang gumagamit ng GitHub o mga kaugnay na serbisyo.",
+    "message": "Nauunawaan ko na ang pag-click sa \"Mag-ulat sa GitHub\" ay bubuo ng URL ng GitHub na naglalaman ng impormasyong inilagay ko at mga seksyon ng configuration na pinili ko sa ibaba, pagkatapos ay ire-redirect ako sa URL na iyon. Walang data na direktang ipinadala ng extension na ito. Ipapakita sa akin ng extension ang kumpletong URL bago ito buksan, at masusuri ko nang eksakto kung anong impormasyon ang isasama. Kapag na-redirect sa GitHub, magkakaroon ako ng ganap na kontrol na isumite ang paunang napunan na form ng isyu o kanselahin nang hindi nagsusumite ng anuman. Naiintindihan ko na ang pag-access sa GitHub ay sumasailalim sa akin sa $privacy_link$. Ang paggawa ng isyu ay nangangailangan ng isang GitHub account, at kapag pinili mong magpatuloy at na-redirect sa GitHub, ang iyong aktibidad ay pinamamahalaan ng $privacy_statement$ at $terms_service$. Pagkatapos ma-redirect gamit ang paunang napunan na impormasyon, mananatili kang ganap na kontrol at mapipili kung isusumite o kanselahin ang paggawa ng isyu sa aming repository sa $repo_link$. Kahit na kanselahin mo ang paggawa ng isyu, maaaring mangolekta pa rin ng data ang GitHub ayon sa kanilang patakaran sa privacy dahil sa iyong pakikipag-ugnayan sa kanilang platform. Kung magpapatuloy ka sa pagsusumite ng isyu, ang impormasyong isusumite mo, kasama ang anumang karagdagang komento, ay magiging maa-access ng publiko. Ito ay dahil ang repositoryo ay pampubliko, at anumang naiulat na isyu ay makikita ng sinumang gumagamit ng GitHub o mga kaugnay na serbisyo.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Impormasyon ng Configuration",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Mga detalye ng extension at browser",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Mga setting ng proteksyon",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Mga naka-whitelist na domain",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Mga custom na panuntunan",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Mga naka-disable na panuntunan at provider",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Walang napiling impormasyon sa pagsasaayos.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Naiintindihan ko na ang pag-click sa \"Hanapin ang Mga Umiiral na Isyu\" ay bubuo ng URL sa paghahanap sa GitHub gamit ang domain name at mga detalye ng isyu na inilagay ko, at pagkatapos ay ire-redirect ako sa URL na iyon. Walang data na direktang ipinadala ng extension na ito. Ipapakita sa akin ng extension ang kumpletong URL sa paghahanap bago ito buksan, para masuri ko kung aling mga termino para sa paghahanap ang gagamitin. Kapag na-redirect sa GitHub, sasailalim ako sa $link$ at $terms_service$.",

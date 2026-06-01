@@ -4699,7 +4699,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Mõistan, et kui klõpsate nupul „Teavita GitHubis”, luuakse GitHubi URL, mis sisaldab minu sisestatud teavet ja allpool näidatud konfiguratsiooniandmeid, ning seejärel suunatakse mind sellele URL-ile. See laiendus ei edasta andmeid otse. Laiendus näitab mulle enne selle avamist täielikku URL-i ja ma saan täpselt üle vaadata, millist teavet see kaasatakse. Kui olen GitHubisse ümber suunanud, on mul täielik kontroll eeltäidetud väljastamise vormi esitamiseks või tühistamiseks midagi esitamata. Saan aru, et GitHubile juurdepääsemisel tuleb järgida $privacy_link$. Probleemi loomiseks on vaja GitHubi kontot ja kui otsustate jätkata ja teid suunatakse GitHubisse, juhivad teie tegevust $privacy_statement$ ja $terms_service$. Pärast eeltäidetud teabega ümbersuunamist säilitate täieliku kontrolli ja saate valida, kas esitada või tühistada probleemi loomine meie hoidlas aadressil $repo_link$. Isegi kui tühistate probleemi loomise, võib GitHub siiski koguda andmeid vastavalt oma privaatsuseeskirjadele, kuna suhtlete nende platvormiga. Kui jätkate probleemi esitamist, muutub teie esitatud teave, sealhulgas kõik lisakommentaarid, avalikult kättesaadavaks. Selle põhjuseks on asjaolu, et hoidla on avalik ja kõik teatatud probleemid on nähtavad kõigile, kes kasutavad GitHubi või sellega seotud teenuseid.",
+    "message": "Saan aru, et kui klõpsate nupul „Teata GitHubis”, luuakse GitHubi URL, mis sisaldab minu sisestatud teavet ja allpool valitud konfiguratsioonijaotisi, ning seejärel suunatakse mind sellele URL-ile. See laiendus ei edasta andmeid otse. Laiendus näitab mulle enne selle avamist täielikku URL-i ja ma saan täpselt üle vaadata, millist teavet see kaasatakse. Kui olen GitHubisse ümber suunanud, on mul täielik kontroll eeltäidetud väljastamise vormi esitamiseks või tühistamiseks midagi esitamata. Saan aru, et GitHubile juurdepääsemisel kehtib mulle $privacy_link$. Probleemi loomiseks on vaja GitHubi kontot ja kui otsustate jätkata ja teid suunatakse GitHubisse, juhivad teie tegevust $privacy_statement$ ja $terms_service$. Pärast eeltäidetud teabega ümbersuunamist säilitate täieliku kontrolli ja saate valida, kas esitada või tühistada probleemi loomine meie hoidlas aadressil $repo_link$. Isegi kui tühistate probleemi loomise, võib GitHub siiski koguda andmeid vastavalt oma privaatsuseeskirjadele, kuna suhtlete nende platvormiga. Kui jätkate probleemi esitamist, muutub teie esitatud teave, sealhulgas kõik lisakommentaarid, avalikult kättesaadavaks. Selle põhjuseks on asjaolu, et hoidla on avalik ja kõik teatatud probleemid on nähtavad kõigile, kes kasutavad GitHubi või sellega seotud teenuseid.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -4723,6 +4723,30 @@
   "configInformation": {
     "message": "Konfiguratsiooniteave",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Laienduse ja brauseri üksikasjad",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Kaitseseaded",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Lubatud domeenid",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Kohandatud reeglid",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Keelatud reeglid ja pakkujad",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Konfiguratsiooniteavet pole valitud.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Mõistan, et nupul „Otsi olemasolevaid probleeme” klõpsamine loob GitHubi otsingu URL-i, kasutades minu sisestatud domeeninime ja probleemi üksikasju, ning suunab mind seejärel sellele URL-ile. See laiendus ei edasta andmeid otse. Laiend näitab mulle enne selle avamist täielikku otsingu URL-i, et saaksin vaadata, milliseid otsingutermineid kasutatakse. Pärast GitHubi ümbersuunamist kehtivad mulle $link$ ja $terms_service$.",

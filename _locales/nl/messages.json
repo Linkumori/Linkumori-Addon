@@ -3843,7 +3843,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Ik begrijp dat als ik op 'Rapporteer op GitHub' klik, er een GitHub-URL wordt aangemaakt met de informatie die ik heb ingevoerd en de hieronder weergegeven configuratiegegevens, en dat ik vervolgens naar die URL wordt doorgestuurd. Er worden door deze extensie geen gegevens rechtstreeks verzonden. De extensie toont mij de volledige URL voordat deze wordt geopend, en ik kan precies bekijken welke informatie wordt opgenomen. Eenmaal doorgestuurd naar GitHub, heb ik de volledige controle om het vooraf ingevulde probleemformulier in te dienen of te annuleren zonder iets in te dienen. Ik begrijp dat toegang tot GitHub mij onderwerpt aan $privacy_link$. Voor het maken van een probleem is een GitHub-account vereist, en zodra u ervoor kiest om door te gaan en wordt doorgestuurd naar GitHub, wordt uw activiteit bepaald door $privacy_statement$ en $terms_service$. Nadat u bent doorgestuurd met vooraf ingevulde informatie, behoudt u de volledige controle en kunt u kiezen of u het aanmaken van het probleem in onze repository op $repo_link$ wilt indienen of annuleren. Zelfs als je het aanmaken van een probleem annuleert, kan GitHub nog steeds gegevens verzamelen volgens hun privacybeleid vanwege jouw interactie met hun platform. Als u doorgaat met het indienen van de kwestie, wordt de informatie die u indient, inclusief eventuele aanvullende opmerkingen, openbaar toegankelijk. Dit komt omdat de repository openbaar is en elk gerapporteerd probleem zichtbaar zal zijn voor iedereen die GitHub of gerelateerde services gebruikt.",
+    "message": "Ik begrijp dat als ik op \"Rapporteer op GitHub\" klik, er een GitHub-URL wordt aangemaakt met de informatie die ik heb ingevoerd en de configuratiesecties die ik hieronder heb geselecteerd, en dat ik vervolgens naar die URL wordt doorgestuurd. Er worden door deze extensie geen gegevens rechtstreeks verzonden. De extensie toont mij de volledige URL voordat deze wordt geopend, en ik kan precies bekijken welke informatie wordt opgenomen. Eenmaal doorgestuurd naar GitHub, heb ik de volledige controle om het vooraf ingevulde probleemformulier in te dienen of te annuleren zonder iets in te dienen. Ik begrijp dat toegang tot GitHub mij onderwerpt aan $privacy_link$. Voor het maken van een probleem is een GitHub-account vereist. Zodra u ervoor kiest om door te gaan en wordt doorgestuurd naar GitHub, vallen uw activiteiten onder $privacy_statement$ en $terms_service$. Nadat u bent doorgestuurd met vooraf ingevulde informatie, behoudt u de volledige controle en kunt u kiezen of u het aanmaken van het probleem in onze repository op $repo_link$ wilt indienen of annuleren. Zelfs als je het aanmaken van een probleem annuleert, kan GitHub nog steeds gegevens verzamelen volgens hun privacybeleid vanwege jouw interactie met hun platform. Als u doorgaat met het indienen van de kwestie, wordt de informatie die u indient, inclusief eventuele aanvullende opmerkingen, openbaar toegankelijk. Dit komt omdat de repository openbaar is en elk gerapporteerd probleem zichtbaar zal zijn voor iedereen die GitHub of gerelateerde services gebruikt.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -3867,6 +3867,30 @@
   "configInformation": {
     "message": "Configuratie-informatie",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Extensie- en browserdetails",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Beveiligingsinstellingen",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domeinen op de witte lijst",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Aangepaste regels",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Regels en providers voor gehandicapten",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Geen configuratie-informatie geselecteerd.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Ik begrijp dat als ik op 'Bestaande problemen zoeken' klik, er een GitHub-zoek-URL wordt samengesteld met behulp van de domeinnaam en probleemgegevens die ik heb ingevoerd, en dat ik vervolgens naar die URL wordt doorgestuurd. Er worden door deze extensie geen gegevens rechtstreeks verzonden. De extensie toont mij de volledige zoek-URL voordat deze wordt geopend, zodat ik kan bekijken welke zoektermen worden gebruikt. Eenmaal doorgestuurd naar GitHub, zal ik onderworpen zijn aan $link$ en $terms_service$.",

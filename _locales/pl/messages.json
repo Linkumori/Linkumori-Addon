@@ -3825,7 +3825,7 @@
     "description": "Placeholder for report additional information textarea"
   },
   "consentMessage": {
-    "message": "Rozumiem, że kliknięcie „Zgłoś w GitHub” spowoduje utworzenie adresu URL GitHub zawierającego wprowadzone przeze mnie informacje i dane konfiguracyjne pokazane poniżej, a następnie przekierowanie mnie do tego adresu URL. Żadne dane nie są przesyłane bezpośrednio przez to rozszerzenie. Rozszerzenie wyświetli pełny adres URL przed jego otwarciem, dzięki czemu będę mógł dokładnie sprawdzić, jakie informacje zostaną zawarte. Po przekierowaniu do GitHub będę miał pełną kontrolę nad przesłaniem wstępnie wypełnionego formularza zgłoszenia lub anulowaniem bez przesyłania czegokolwiek. Rozumiem, że dostęp do GitHuba naraża mnie na $privacy_link$. Utworzenie problemu wymaga konta GitHub, a gdy zdecydujesz się kontynuować i zostaniesz przekierowany do GitHub, Twoja działalność podlega przepisom $privacy_statement$ i $terms_service$. Po przekierowaniu ze wstępnie wypełnionymi informacjami zachowujesz pełną kontrolę i możesz zdecydować, czy przesłać, czy anulować utworzenie problemu w naszym repozytorium pod adresem $repo_link$. Nawet jeśli anulujesz utworzenie problemu, GitHub może nadal gromadzić dane zgodnie ze swoją polityką prywatności w związku z Twoją interakcją z ich platformą. Jeśli będziesz kontynuować zgłaszanie problemu, przesłane informacje, w tym wszelkie dodatkowe komentarze, staną się publicznie dostępne. Dzieje się tak, ponieważ repozytorium jest publiczne i każdy zgłoszony problem będzie widoczny dla każdego, kto korzysta z GitHuba lub powiązanych usług.",
+    "message": "Rozumiem, że kliknięcie „Raport w GitHub” spowoduje utworzenie adresu URL GitHub zawierającego wprowadzone przeze mnie informacje i sekcje konfiguracji wybrane poniżej, a następnie przekierowanie mnie do tego adresu URL. Żadne dane nie są przesyłane bezpośrednio przez to rozszerzenie. Rozszerzenie wyświetli pełny adres URL przed jego otwarciem, dzięki czemu będę mógł dokładnie sprawdzić, jakie informacje zostaną zawarte. Po przekierowaniu do GitHub będę miał pełną kontrolę nad przesłaniem wstępnie wypełnionego formularza zgłoszenia lub anulowaniem bez przesyłania czegokolwiek. Rozumiem, że dostęp do GitHuba podlega $privacy_link$. Utworzenie problemu wymaga konta GitHub, a gdy zdecydujesz się kontynuować i zostaniesz przekierowany do GitHub, Twoja działalność podlega $privacy_statement$ i $terms_service$. Po przekierowaniu ze wstępnie wypełnionymi informacjami zachowujesz pełną kontrolę i możesz zdecydować, czy przesłać, czy anulować utworzenie problemu w naszym repozytorium pod adresem $repo_link$. Nawet jeśli anulujesz utworzenie problemu, GitHub może nadal gromadzić dane zgodnie ze swoją polityką prywatności w związku z Twoją interakcją z ich platformą. Jeśli będziesz kontynuować zgłaszanie problemu, przesłane informacje, w tym wszelkie dodatkowe komentarze, staną się publicznie dostępne. Dzieje się tak, ponieważ repozytorium jest publiczne i każdy zgłoszony problem będzie widoczny dla każdego, kto korzysta z GitHuba lub powiązanych usług.",
     "description": "Consent text shown before opening GitHub issue creation",
     "placeholders": {
       "privacy_link": {
@@ -3849,6 +3849,30 @@
   "configInformation": {
     "message": "Informacje o konfiguracji",
     "description": "Summary label for report configuration details"
+  },
+  "report_share_extension_info": {
+    "message": "Szczegóły rozszerzenia i przeglądarki",
+    "description": "Checkbox label for sharing extension and browser details in a report"
+  },
+  "report_share_settings_info": {
+    "message": "Ustawienia ochrony",
+    "description": "Checkbox label for sharing protection settings in a report"
+  },
+  "report_share_whitelist_info": {
+    "message": "Domeny umieszczone na białej liście",
+    "description": "Checkbox label for sharing whitelisted domains in a report"
+  },
+  "report_share_custom_rules_info": {
+    "message": "Reguły niestandardowe",
+    "description": "Checkbox label for sharing custom rules in a report"
+  },
+  "report_share_disabled_rules_info": {
+    "message": "Wyłączone reguły i dostawcy",
+    "description": "Checkbox label for sharing disabled rules and providers in a report"
+  },
+  "report_no_config_shared": {
+    "message": "Nie wybrano informacji konfiguracyjnych.",
+    "description": "Report configuration preview text when no configuration sections are selected"
   },
   "findExistingConsentMessage": {
     "message": "Rozumiem, że kliknięcie „Znajdź istniejące problemy” spowoduje utworzenie adresu URL wyszukiwania w serwisie GitHub przy użyciu wprowadzonej nazwy domeny i szczegółów problemu, a następnie przekierowanie mnie do tego adresu URL. Żadne dane nie są przesyłane bezpośrednio przez to rozszerzenie. Rozszerzenie wyświetli pełny adres URL wyszukiwania przed jego otwarciem, dzięki czemu będę mógł sprawdzić, które wyszukiwane hasła zostaną użyte. Po przekierowaniu do GitHub będę podlegał $link$ i $terms_service$.",
