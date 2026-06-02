@@ -2363,7 +2363,6 @@ function setupToggleSwitches() {
         { id: 'remoteRulesEnabled', storageKey: 'remoteRulesEnabled' },
         { id: 'disableGatekeeper', storageKey: 'disableGatekeeper' },
         { id: 'builtInRulesEnabled', storageKey: 'builtInRulesEnabled' },
-        { id: 'linkumoriInteroperabilityMode', storageKey: 'linkumoriInteroperabilityMode' },
         { id: 'linkumoriCNAMEUncloakEnabled', storageKey: 'linkumoriCNAMEUncloakEnabled' },
         { id: 'cnameIgnoreRootDocument', storageKey: 'cnameIgnoreRootDocument' },
         { id: 'cnameReplayFullURL', storageKey: 'cnameReplayFullURL' },
@@ -2825,7 +2824,6 @@ function save() {
         { id: 'remoteRulesEnabled', key: 'remoteRulesEnabled' },
         { id: 'disableGatekeeper', key: 'disableGatekeeper' },
         { id: 'builtInRulesEnabled', key: 'builtInRulesEnabled' },
-        { id: 'linkumoriInteroperabilityMode', key: 'linkumoriInteroperabilityMode' },
         { id: 'linkumoriCNAMEUncloakEnabled', key: 'linkumoriCNAMEUncloakEnabled' },
         { id: 'cnameIgnoreRootDocument', key: 'cnameIgnoreRootDocument' },
         { id: 'cnameReplayFullURL', key: 'cnameReplayFullURL' },
@@ -3289,7 +3287,6 @@ async function getData() {
             loadData("redirectionEnabled"),
             loadData("eTagFiltering"),
             loadData("builtInRulesEnabled"),
-            loadData("linkumoriInteroperabilityMode"),
             loadData("linkumoriCNAMEUncloakEnabled"),
             loadData("cnameIgnoreRootDocument"),
             loadData("cnameReplayFullURL")
@@ -4067,8 +4064,6 @@ setElementText('language_selector_description', 'language_selector_description')
     setElementText('eTag_filtering_enabled_description', 'eTag_filtering_enabled_description');
     setElementText('built_in_rules_enabled', 'built_in_rules_enabled');
     setElementText('built_in_rules_enabled_description', 'built_in_rules_enabled_description');
-    setElementText('linkumori_interoperability_mode_enabled', 'linkumori_interoperability_mode_enabled');
-    setElementText('linkumori_interoperability_mode_enabled_description', 'linkumori_interoperability_mode_enabled_description');
     setElementText('linkumori_cname_uncloak_enabled', 'linkumori_cname_uncloak_enabled');
     setElementText('linkumori_cname_uncloak_enabled_description', 'linkumori_cname_uncloak_enabled_description');
     setElementText('cname_ignore_root_document_enabled', 'cname_ignore_root_document_enabled');

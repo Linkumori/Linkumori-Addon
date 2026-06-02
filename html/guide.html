@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
  * ============================================================
- * Linkumori — regression page
+ * Linkumori — rules guide page
  * ============================================================
  * Copyright (c) 2026 Subham Mahesh
  *
@@ -21,7 +21,7 @@
  *
  * DESCRIPTION
  * -----------
- * Added regression page.
+ * Added rules guide page.
  *
  * ============================================================
  * MODIFICATION HISTORY
@@ -83,7 +83,6 @@
     --table-head-bg:#1e3a5f; --table-stripe:rgba(255,255,255,0.03);
     --switcher-bg:#0f172a; --switcher-border:rgba(255,255,255,0.12);
     --divider-bg:#1e293b; --divider-text:#94a3b8; --divider-line:rgba(255,255,255,0.12);
-    --guide2-h1:#38bdf8;
     --logo-bg:#ffffff; --logo-accent:#1e293b;
 }
 :root[data-theme="light"] {
@@ -95,7 +94,6 @@
     --table-head-bg:#dbeafe; --table-stripe:rgba(0,0,0,0.025);
     --switcher-bg:#ffffff; --switcher-border:rgba(0,0,0,0.1);
     --divider-bg:#f1f5f9; --divider-text:#64748b; --divider-line:rgba(0,0,0,0.12);
-    --guide2-h1:#0369a1;
     --logo-bg:#2563eb; --logo-accent:#f1f5f9;
 }
 :root[data-theme="icecold"] {
@@ -107,7 +105,6 @@
     --table-head-bg:#cde5f5; --table-stripe:rgba(160,210,235,0.12);
     --switcher-bg:#f3f7fd; --switcher-border:rgba(148,163,184,0.35);
     --divider-bg:#d7e8f6; --divider-text:#64748b; --divider-line:rgba(148,163,184,0.4);
-    --guide2-h1:#0e7490;
     --logo-bg:#ffffff; --logo-accent:#8458b3;
 }
 :root[data-theme="dark"] {
@@ -119,7 +116,6 @@
     --table-head-bg:#1e2535; --table-stripe:rgba(255,255,255,0.025);
     --switcher-bg:#0f111a; --switcher-border:rgba(255,255,255,0.12);
     --divider-bg:#161a24; --divider-text:#94a3b8; --divider-line:rgba(255,255,255,0.12);
-    --guide2-h1:#7dd3fc;
     --logo-bg:#ffffff; --logo-accent:#2f3648;
 }
 :root[data-theme="sunset"] {
@@ -131,7 +127,6 @@
     --table-head-bg:#ffe8e2; --table-stripe:rgba(247,111,83,0.04);
     --switcher-bg:#fffdfb; --switcher-border:rgba(0,0,0,0.08);
     --divider-bg:#fff6f2; --divider-text:#6b6b6b; --divider-line:rgba(247,111,83,0.3);
-    --guide2-h1:#c2410c;
     --logo-bg:#ffffff; --logo-accent:#f76f53;
 }
 
@@ -212,7 +207,6 @@ body {
     border-bottom:2px solid var(--section-border);
     transition:border-color .25s;
 }
-.guide2-label { border-bottom-color:var(--guide2-h1) !important; }
 .sidebar .toc ul { list-style:none; padding-left:0; }
 .sidebar .toc ul ul {
     padding-left:.85em; border-left:1px solid var(--border-color); margin-left:.1em;
@@ -296,34 +290,6 @@ body {
     overflow-wrap:anywhere;
 }
 
-/* ── Guide divider ── */
-.guide-divider {
-    display:flex; align-items:center; gap:1rem;
-    margin:3.5rem 0 2.5rem 0;
-    padding:1.2rem 1.5rem;
-    background:var(--divider-bg);
-    border:1px solid var(--divider-line);
-    border-radius:4px;
-    border-left:4px solid var(--guide2-h1);
-    transition:background .25s, border-color .25s;
-}
-.guide-divider .divider-icon {
-    font-size:1.5rem; flex-shrink:0;
-}
-.guide-divider .divider-text { flex:1; }
-.guide-divider .divider-text strong {
-    display:block;
-    font-family:'Old-Country-Nobility',serif;
-    font-size:11pt;
-    color:var(--guide2-h1);
-    margin-bottom:.15rem;
-    transition:color .25s;
-}
-.guide-divider .divider-text span {
-    font-size:9.5pt;
-    color:var(--text-muted);
-}
-
 /* ── Typography ── */
 h1,h2,h3 {
     scroll-margin-top:calc(var(--theme-bar-height) + var(--app-header-height) + 1rem);
@@ -333,10 +299,6 @@ h1 {
     color:var(--text-primary); border-bottom:2px solid var(--accent);
     padding-bottom:.3em; margin-bottom:.6em;
     transition:color .25s, border-color .25s;
-}
-.guide2-section h1 {
-    border-bottom-color:var(--guide2-h1);
-    color:var(--guide2-h1);
 }
 h2 {
     font-family:'Old-Country-Nobility',serif; font-size:14.5pt; font-weight:bold;
@@ -350,7 +312,6 @@ h3 {
     padding-left:.6em; border-left:3px solid var(--section-border);
     transition:color .25s, border-color .25s;
 }
-.guide2-section h3 { border-left-color:var(--guide2-h1); }
 p { color:var(--text-secondary); margin-bottom:.85em; text-align:justify; }
 
 code {
@@ -367,7 +328,6 @@ pre {
     border-radius:0 3px 3px 0;
     transition:background .25s, border-color .25s;
 }
-.guide2-section pre { border-left-color:var(--guide2-h1); }
 pre code { background:none; border:none; padding:0; color:var(--text-secondary); font-size:inherit; }
 table { width:100%; border-collapse:collapse; margin:1em 0 1.5em 0; font-size:10pt; }
 thead { background:var(--table-head-bg); }
@@ -423,7 +383,7 @@ li { margin-bottom:.2em; }
 </div>
 
 <div class="wrapper">
-  <!-- Sidebar: two labelled TOC sections -->
+  <!-- Sidebar: guide TOC -->
   <nav class="sidebar">
     <div class="sidebar-section">
       <p class="sidebar-section-label" data-i18n-html="guide_0003"></p>
@@ -511,47 +471,6 @@ li { margin-bottom:.2em; }
 </ul>
 </li>
 <li><a href="#guide1-chapter-25-quick-copy-templates" data-i18n-html="guide_0075"></a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-    </div>
-    <div class="sidebar-section">
-      <p class="sidebar-section-label guide2-label" data-i18n-html="guide_0076"></p>
-      <div class="toc"><div class="toc">
-<ul>
-<li><a href="#guide2-interoperability-rules-guide" data-i18n-html="guide_0077"></a><ul>
-<li><a href="#guide2-chapter-1-what-interoperability-rules-are" data-i18n-html="guide_0078"></a></li>
-<li><a href="#guide2-chapter-2-what-is-supported" data-i18n-html="guide_0079"></a></li>
-<li><a href="#guide2-chapter-3-basic-rule-format" data-i18n-html="guide_0080"></a></li>
-<li><a href="#guide2-chapter-4-where-rules-are-stored" data-i18n-html="guide_0081"></a></li>
-<li><a href="#guide2-chapter-5-comments-and-empty-lines" data-i18n-html="guide_0082"></a></li>
-<li><a href="#guide2-chapter-6-remove-one-parameter" data-i18n-html="guide_0083"></a></li>
-<li><a href="#guide2-chapter-7-remove-all-query-parameters" data-i18n-html="guide_0084"></a></li>
-<li><a href="#guide2-chapter-8-remove-parameters-by-regex" data-i18n-html="guide_0085"></a></li>
-<li><a href="#guide2-chapter-9-remove-all-except-one-match" data-i18n-html="guide_0086"></a></li>
-<li><a href="#guide2-chapter-10-queryprune" data-i18n-html="guide_0087"></a></li>
-<li><a href="#guide2-chapter-11-url-pattern-examples" data-i18n-html="guide_0088"></a></li>
-<li><a href="#guide2-chapter-12-exceptions" data-i18n-html="guide_0089"></a></li>
-<li><a href="#guide2-chapter-13-important" data-i18n-html="guide_0090"></a></li>
-<li><a href="#guide2-chapter-14-badfilter" data-i18n-html="guide_0091"></a></li>
-<li><a href="#guide2-chapter-15-domain-source-modifiers-domain-and-from" data-i18n-html="guide_0092"></a></li>
-<li><a href="#guide2-chapter-16-target-domain-modifier-to" data-i18n-html="guide_0093"></a></li>
-<li><a href="#guide2-chapter-17-denyallow" data-i18n-html="guide_0094"></a></li>
-<li><a href="#guide2-chapter-18-http-method-modifier" data-i18n-html="guide_0095"></a></li>
-<li><a href="#guide2-chapter-19-resource-type-modifiers" data-i18n-html="guide_0096"></a></li>
-<li><a href="#guide2-chapter-20-first-party-and-third-party" data-i18n-html="guide_0097"></a></li>
-<li><a href="#guide2-chapter-21-match-case" data-i18n-html="guide_0098"></a></li>
-<li><a href="#guide2-chapter-22-app" data-i18n-html="guide_0099"></a></li>
-<li><a href="#guide2-chapter-23-no-op-modifiers" data-i18n-html="guide_0100"></a></li>
-<li><a href="#guide2-chapter-24-parameter-matching-details" data-i18n-html="guide_0101"></a></li>
-<li><a href="#guide2-chapter-25-query-only" data-i18n-html="guide_0102"></a></li>
-<li><a href="#guide2-chapter-26-unsupported-rules-are-skipped" data-i18n-html="guide_0103"></a></li>
-<li><a href="#guide2-chapter-27-duplicate-rules" data-i18n-html="guide_0104"></a></li>
-<li><a href="#guide2-chapter-28-complete-filter-list-example" data-i18n-html="guide_0105"></a></li>
-<li><a href="#guide2-chapter-29-json-storage-example" data-i18n-html="guide_0106"></a></li>
-<li><a href="#guide2-chapter-30-quick-copy-templates" data-i18n-html="guide_0107"></a></li>
 </ul>
 </li>
 </ul>
@@ -1138,301 +1057,7 @@ li { margin-bottom:.2em; }
 <pre><code class="language-json" data-i18n-text="guide_0798"></code></pre>
     </div>
 
-    <!-- Divider between guides -->
-    <div class="guide-divider">
-      <span class="divider-icon" data-i18n-html="guide_0799"></span>
-      <div class="divider-text">
-        <strong data-i18n-html="guide_0446"></strong>
-        <span data-i18n-html="guide_0447"></span>
-      </div>
-    </div>
 
-    <!-- Guide 2 -->
-    <div class="guide2-section">
-<h1 id="guide2-interoperability-rules-guide" data-i18n-html="guide_0448"></h1>
-<p data-i18n-html="guide_0449"></p>
-<p data-i18n-html="guide_0450"></p>
-<h2 id="guide2-chapter-1-what-interoperability-rules-are" data-i18n-html="guide_0451"></h2>
-<p data-i18n-html="guide_0452"></p>
-<pre><code class="language-json" data-i18n-text="guide_0800"></code></pre>
-<p data-i18n-html="guide_0453"></p>
-<p data-i18n-html="guide_0454"></p>
-<pre><code class="language-json" data-i18n-text="guide_0801"></code></pre>
-<p data-i18n-html="guide_0455"></p>
-<h2 id="guide2-chapter-2-what-is-supported" data-i18n-html="guide_0456"></h2>
-<p data-i18n-html="guide_0457"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0802"></code></pre>
-<p data-i18n-html="guide_0458"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0803"></code></pre>
-<p data-i18n-html="guide_0459"></p>
-<h2 id="guide2-chapter-3-basic-rule-format" data-i18n-html="guide_0460"></h2>
-<p data-i18n-html="guide_0461"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0804"></code></pre>
-<p data-i18n-html="guide_0462"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0805"></code></pre>
-<p data-i18n-html="guide_0463"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0806"></code></pre>
-<p data-i18n-html="guide_0464"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0807"></code></pre>
-<h2 id="guide2-chapter-4-where-rules-are-stored" data-i18n-html="guide_0465"></h2>
-<p data-i18n-html="guide_0466"></p>
-<pre><code class="language-json" data-i18n-text="guide_0808"></code></pre>
-<p data-i18n-html="guide_0467"></p>
-<h2 id="guide2-chapter-5-comments-and-empty-lines" data-i18n-html="guide_0468"></h2>
-<p data-i18n-html="guide_0469"></p>
-<p data-i18n-html="guide_0470"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0809"></code></pre>
-<p data-i18n-html="guide_0471"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0810"></code></pre>
-<h2 id="guide2-chapter-6-remove-one-parameter" data-i18n-html="guide_0472"></h2>
-<p data-i18n-html="guide_0473"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0811"></code></pre>
-<p data-i18n-html="guide_0474"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0812"></code></pre>
-<p data-i18n-html="guide_0475"></p>
-<h2 id="guide2-chapter-7-remove-all-query-parameters" data-i18n-html="guide_0476"></h2>
-<p data-i18n-html="guide_0477"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0813"></code></pre>
-<p data-i18n-html="guide_0478"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0814"></code></pre>
-<p data-i18n-html="guide_0479"></p>
-<h2 id="guide2-chapter-8-remove-parameters-by-regex" data-i18n-html="guide_0480"></h2>
-<p data-i18n-html="guide_0481"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0815"></code></pre>
-<p data-i18n-html="guide_0482"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0816"></code></pre>
-<p data-i18n-html="guide_0483"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0817"></code></pre>
-<p data-i18n-html="guide_0484"></p>
-<h2 id="guide2-chapter-9-remove-all-except-one-match" data-i18n-html="guide_0485"></h2>
-<p data-i18n-html="guide_0486"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0818"></code></pre>
-<p data-i18n-html="guide_0487"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0819"></code></pre>
-<p data-i18n-html="guide_0488"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0820"></code></pre>
-<h2 id="guide2-chapter-10-queryprune" data-i18n-html="guide_0489"></h2>
-<p data-i18n-html="guide_0490"></p>
-<p data-i18n-html="guide_0491"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0821"></code></pre>
-<p data-i18n-html="guide_0492"></p>
-<h2 id="guide2-chapter-11-url-pattern-examples" data-i18n-html="guide_0493"></h2>
-<p data-i18n-html="guide_0494"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0822"></code></pre>
-<p data-i18n-html="guide_0495"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0823"></code></pre>
-<p data-i18n-html="guide_0496"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0824"></code></pre>
-<p data-i18n-html="guide_0497"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0825"></code></pre>
-<p data-i18n-html="guide_0498"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0826"></code></pre>
-<h2 id="guide2-chapter-12-exceptions" data-i18n-html="guide_0499"></h2>
-<p data-i18n-html="guide_0500"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0827"></code></pre>
-<p data-i18n-html="guide_0501"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0828"></code></pre>
-<p data-i18n-html="guide_0502"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0829"></code></pre>
-<h2 id="guide2-chapter-13-important" data-i18n-html="guide_0503"></h2>
-<p data-i18n-html="guide_0504"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0830"></code></pre>
-<p data-i18n-html="guide_0505"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0831"></code></pre>
-<p data-i18n-html="guide_0506"></p>
-<ul>
-<li data-i18n-html="guide_0507"></li>
-<li data-i18n-html="guide_0508"></li>
-</ul>
-<h2 id="guide2-chapter-14-badfilter" data-i18n-html="guide_0509"></h2>
-<p data-i18n-html="guide_0510"></p>
-<p data-i18n-html="guide_0511"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0832"></code></pre>
-<p data-i18n-html="guide_0512"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0833"></code></pre>
-<p data-i18n-html="guide_0513"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0834"></code></pre>
-<p data-i18n-html="guide_0514"></p>
-<h2 id="guide2-chapter-15-domain-source-modifiers-domain-and-from" data-i18n-html="guide_0515"></h2>
-<p data-i18n-html="guide_0516"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0835"></code></pre>
-<p data-i18n-html="guide_0517"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0836"></code></pre>
-<p data-i18n-html="guide_0518"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0837"></code></pre>
-<p data-i18n-html="guide_0519"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0838"></code></pre>
-<p data-i18n-html="guide_0520"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0839"></code></pre>
-<p data-i18n-html="guide_0521"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0840"></code></pre>
-<h2 id="guide2-chapter-16-target-domain-modifier-to" data-i18n-html="guide_0522"></h2>
-<p data-i18n-html="guide_0523"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0841"></code></pre>
-<p data-i18n-html="guide_0524"></p>
-<p data-i18n-html="guide_0525"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0842"></code></pre>
-<p data-i18n-html="guide_0526"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0843"></code></pre>
-<p data-i18n-html="guide_0527"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0844"></code></pre>
-<h2 id="guide2-chapter-17-denyallow" data-i18n-html="guide_0528"></h2>
-<p data-i18n-html="guide_0529"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0845"></code></pre>
-<p data-i18n-html="guide_0530"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0846"></code></pre>
-<p data-i18n-html="guide_0531"></p>
-<p data-i18n-html="guide_0532"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0847"></code></pre>
-<p data-i18n-html="guide_0533"></p>
-<h2 id="guide2-chapter-18-http-method-modifier" data-i18n-html="guide_0534"></h2>
-<p data-i18n-html="guide_0535"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0848"></code></pre>
-<p data-i18n-html="guide_0536"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0849"></code></pre>
-<p data-i18n-html="guide_0537"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0850"></code></pre>
-<p data-i18n-html="guide_0538"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0851"></code></pre>
-<p data-i18n-html="guide_0539"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0852"></code></pre>
-<h2 id="guide2-chapter-19-resource-type-modifiers" data-i18n-html="guide_0540"></h2>
-<p data-i18n-html="guide_0541"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0853"></code></pre>
-<p data-i18n-html="guide_0542"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0854"></code></pre>
-<p data-i18n-html="guide_0543"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0855"></code></pre>
-<p data-i18n-html="guide_0544"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0856"></code></pre>
-<h2 id="guide2-chapter-20-first-party-and-third-party" data-i18n-html="guide_0545"></h2>
-<p data-i18n-html="guide_0546"></p>
-<p data-i18n-html="guide_0547"></p>
-<p data-i18n-html="guide_0548"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0857"></code></pre>
-<p data-i18n-html="guide_0549"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0858"></code></pre>
-<p data-i18n-html="guide_0550"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0859"></code></pre>
-<p data-i18n-html="guide_0551"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0860"></code></pre>
-<p data-i18n-html="guide_0552"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0861"></code></pre>
-<p data-i18n-html="guide_0553"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0862"></code></pre>
-<p data-i18n-html="guide_0554"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0863"></code></pre>
-<h2 id="guide2-chapter-21-match-case" data-i18n-html="guide_0555"></h2>
-<p data-i18n-html="guide_0556"></p>
-<p data-i18n-html="guide_0557"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0864"></code></pre>
-<p data-i18n-html="guide_0558"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0865"></code></pre>
-<p data-i18n-html="guide_0559"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0866"></code></pre>
-<p data-i18n-html="guide_0560"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0867"></code></pre>
-<p data-i18n-html="guide_0561"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0868"></code></pre>
-<h2 id="guide2-chapter-22-app" data-i18n-html="guide_0562"></h2>
-<p data-i18n-html="guide_0563"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0869"></code></pre>
-<p data-i18n-html="guide_0564"></p>
-<p data-i18n-html="guide_0565"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0870"></code></pre>
-<p data-i18n-html="guide_0566"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0871"></code></pre>
-<p data-i18n-html="guide_0567"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0872"></code></pre>
-<h2 id="guide2-chapter-23-no-op-modifiers" data-i18n-html="guide_0568"></h2>
-<p data-i18n-html="guide_0569"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0873"></code></pre>
-<p data-i18n-html="guide_0570"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0874"></code></pre>
-<p data-i18n-html="guide_0571"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0875"></code></pre>
-<h2 id="guide2-chapter-24-parameter-matching-details" data-i18n-html="guide_0572"></h2>
-<p data-i18n-html="guide_0573"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0876"></code></pre>
-<p data-i18n-html="guide_0574"></p>
-<p data-i18n-html="guide_0575"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0877"></code></pre>
-<p data-i18n-html="guide_0576"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0878"></code></pre>
-<p data-i18n-html="guide_0577"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0879"></code></pre>
-<p data-i18n-html="guide_0578"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0880"></code></pre>
-<p data-i18n-html="guide_0579"></p>
-<h2 id="guide2-chapter-25-query-only" data-i18n-html="guide_0580"></h2>
-<p data-i18n-html="guide_0581"></p>
-<p data-i18n-html="guide_0582"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0881"></code></pre>
-<p data-i18n-html="guide_0583"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0882"></code></pre>
-<p data-i18n-html="guide_0584"></p>
-<h2 id="guide2-chapter-26-unsupported-rules-are-skipped" data-i18n-html="guide_0585"></h2>
-<p data-i18n-html="guide_0586"></p>
-<ul>
-<li data-i18n-html="guide_0587"></li>
-<li data-i18n-html="guide_0588"></li>
-<li data-i18n-html="guide_0589"></li>
-<li data-i18n-html="guide_0590"></li>
-<li data-i18n-html="guide_0591"></li>
-<li data-i18n-html="guide_0592"></li>
-<li data-i18n-html="guide_0593"></li>
-</ul>
-<p data-i18n-html="guide_0594"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0883"></code></pre>
-<p data-i18n-html="guide_0595"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0884"></code></pre>
-<p data-i18n-html="guide_0596"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0885"></code></pre>
-<p data-i18n-html="guide_0597"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0886"></code></pre>
-<h2 id="guide2-chapter-27-duplicate-rules" data-i18n-html="guide_0598"></h2>
-<p data-i18n-html="guide_0599"></p>
-<p data-i18n-html="guide_0600"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0887"></code></pre>
-<p data-i18n-html="guide_0601"></p>
-<p data-i18n-html="guide_0602"></p>
-<h2 id="guide2-chapter-28-complete-filter-list-example" data-i18n-html="guide_0603"></h2>
-<pre><code class="language-txt" data-i18n-text="guide_0888"></code></pre>
-<p data-i18n-html="guide_0604"></p>
-<ul>
-<li data-i18n-html="guide_0605"></li>
-<li data-i18n-html="guide_0606"></li>
-<li data-i18n-html="guide_0607"></li>
-<li data-i18n-html="guide_0608"></li>
-<li data-i18n-html="guide_0609"></li>
-<li data-i18n-html="guide_0610"></li>
-</ul>
-<h2 id="guide2-chapter-29-json-storage-example" data-i18n-html="guide_0611"></h2>
-<pre><code class="language-json" data-i18n-text="guide_0889"></code></pre>
-<h2 id="guide2-chapter-30-quick-copy-templates" data-i18n-html="guide_0612"></h2>
-<p data-i18n-html="guide_0613"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0890"></code></pre>
-<p data-i18n-html="guide_0614"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0891"></code></pre>
-<p data-i18n-html="guide_0615"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0892"></code></pre>
-<p data-i18n-html="guide_0616"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0893"></code></pre>
-<p data-i18n-html="guide_0617"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0894"></code></pre>
-<p data-i18n-html="guide_0618"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0895"></code></pre>
-<p data-i18n-html="guide_0619"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0896"></code></pre>
-<p data-i18n-html="guide_0620"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0897"></code></pre>
-<p data-i18n-html="guide_0621"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0898"></code></pre>
-<p data-i18n-html="guide_0622"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0899"></code></pre>
-<p data-i18n-html="guide_0623"></p>
-<pre><code class="language-txt" data-i18n-text="guide_0900"></code></pre>
-    </div>
 
   </main>
 </div>

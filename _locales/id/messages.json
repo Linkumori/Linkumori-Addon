@@ -55,17 +55,9 @@
     "message": "Gunakan aturan bawaan Linkumori/ClearURLs. Nonaktifkan ini untuk menjalankan hanya dengan aturan jarak jauh dan/atau aturan khusus.",
     "description": "Description for the toggle that controls bundled built-in rules"
   },
-  "linkumori_interoperability_mode_enabled": {
-    "message": "Mode Interoperabilitas Linkumori",
-    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
-  },
-  "linkumori_interoperability_mode_enabled_description": {
-    "message": "Terapkan aturan interoperabilitas Linkumori URL Filter, termasuk daftar $removeparam yang kompatibel, bersama aturan JSON native Linkumori/ClearURLs.",
-    "description": "Description for the Linkumori interoperability mode toggle"
-  },
   "bundled_rules_description": {
-    "message": "Linkumori menggunakan dua kategori aturan: Linkumori (ClearURLs 2.0) JSON aturan untuk penyedia asli, dan Linkumori URL Filter aturan interoperabilitas untuk ekstensi populer $removeparam daftar. Setiap kategori dihitung secara terpisah.",
-    "description": "Description for the bundled rules section."
+    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs.",
+    "description": "Description text for the built-in bundled rules setting."
   },
   "bundled_rules_section_title": {
     "message": "Informasi Aturan",
@@ -2107,16 +2099,8 @@
   "providerImport_importedCount": {
     "message": "Diimpor: $1 penyedia"
   },
-  "providerImport_importedRulesCount": {
-    "message": "Diimpor: $1 aturan",
-    "description": "Import result count for Linkumori URL interoperability rules."
-  },
   "providerImport_importing": {
     "message": "Mengimpor..."
-  },
-  "providerImport_linkumoriData": {
-    "message": "Aturan Interoperabilitas Linkumori yang Ada",
-    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Memuat penyedia...",
@@ -2179,10 +2163,6 @@
   },
   "providerImport_skippedCount": {
     "message": "Dilewati: $1 penyedia"
-  },
-  "providerImport_skippedRulesCount": {
-    "message": "Dilewati: $1 aturan",
-    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Sumber Aturan",
@@ -2533,16 +2513,16 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "Anda harus mempertimbangkan kembali penggunaan aturan jarak jauh jika Anda tidak sepenuhnya memahami apakah sumber Anda adalah kumpulan aturan Linkumori (ClearURLs 2.0) JSON atau daftar interoperabilitas filter Linkumori URL.",
-    "description": "Final warning message in security modal"
+    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source.",
+    "description": "Final warning shown in the remote rules security modal."
   },
   "security_modal_main_warning": {
-    "message": "Fitur aturan jarak jauh ini dirancang untuk pengguna tingkat lanjut yang memahami format sumber yang mereka muat. Linkumori (ClearURLs 2.0) JSON aturan jarak jauh memerlukan hash yang cocok URL untuk verifikasi. Linkumori URL Daftar interoperabilitas filter dapat dimuat tanpa hash URL dan disimpan secara terpisah.",
-    "description": "Main warning text explaining the purpose and risks"
+    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification.",
+    "description": "Main warning text for the remote rules security modal."
   },
   "security_modal_privacy_text": {
-    "message": "Jika Anda menambahkan aturan jarak jauh URL, ekstensi akan terhubung ke server yang Anda tunjuk untuk mengambil kumpulan aturan Linkumori (ClearURLs 2.0) JSON, file hashnya saat dikonfigurasi, atau Linkumori URL Daftar interoperabilitas filter. Setiap pengambilan dapat memaparkan alamat IP Anda dan informasi umum seperti versi ekstensi, browser, dan versi browser ke server hosting. Data ini tunduk pada kebijakan privasi situs web atau server web tersebut.",
-    "description": "Privacy notice explaining data collection policy"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the remote rules security modal."
   },
   "security_modal_privacy_link_text": {
     "message": "Baca %PRIVACY_POLICY_LINK% lagi sebelum melanjutkan jika perlu.",
@@ -2553,8 +2533,8 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Gunakan aturan bawaan kecuali Anda memercayai dan mengontrol sumber jarak jauh. Untuk aturan Linkumori (ClearURLs 2.0) JSON, berikan hash yang cocok URL. Untuk daftar filter interoperabilitas, biarkan hash URL kosong.",
-    "description": "Recommendation to use built-in rules instead"
+    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules.",
+    "description": "Recommendation text shown in the remote rules security modal."
   },
   "security_modal_risk_1": {
     "message": "Alamat IP dan informasi browser Anda akan terekspos ke server yang dikonfigurasi",
@@ -2569,8 +2549,8 @@
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Daftar filter interoperabilitas tidak menggunakan verifikasi hash, jadi kepercayaan pada sumber URL sangatlah penting.",
-    "description": "Fourth security risk point"
+    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL.",
+    "description": "Risk list item for remote rules without successful hash verification."
   },
   "security_modal_risks_title": {
     "message": "Risiko Keamanan:",
@@ -3279,24 +3259,24 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Anda menonaktifkan perlindungan Gatekeeper untuk pengeditan aturan jarak jauh URL. Fitur ini dapat memuat Linkumori (ClearURLs 2.0) JSON aturan dengan verifikasi hash, atau Linkumori URL Memfilter daftar interoperabilitas tanpa verifikasi hash. Lanjutkan hanya jika Anda memahami format mana yang Anda konfigurasi.",
-    "description": "Main warning text in disable gatekeeper modal"
+    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring.",
+    "description": "Main warning text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper adalah alur keamanan bawaan yang memblokir pengeditan URL jarak jauh langsung hingga Anda mengakui peringatan keamanan dan menyelesaikan konfirmasi ketik.",
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Tetap aktifkan Gatekeeper kecuali Anda memercayai dan mengontrol sumber jarak jauh. Aturan JSON harus menyertakan hash yang cocok URL; daftar interoperabilitas sengaja membiarkan hash URL kosong.",
-    "description": "Recommendation text in disable gatekeeper modal"
+    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL.",
+    "description": "Recommendation text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "pemberitahuan privasi:",
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Jika Anda menambahkan aturan jarak jauh URL, ekstensi akan terhubung ke server yang Anda tunjuk untuk mengambil kumpulan aturan Linkumori (ClearURLs 2.0) JSON, file hashnya saat dikonfigurasi, atau Linkumori URL Daftar interoperabilitas filter. Setiap pengambilan dapat memaparkan alamat IP Anda dan informasi umum seperti versi ekstensi, browser, dan versi browser ke server hosting. Data ini tunduk pada kebijakan privasi situs web atau server web tersebut.",
-    "description": "Privacy section body in disable gatekeeper modal"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Baca %PRIVACY_POLICY_LINK% lagi sebelum melanjutkan jika perlu.",
@@ -3315,8 +3295,8 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Server yang menghosting file filter jarak jauh JSON, hash, atau interoperabilitas akan menerima alamat IP Anda.",
-    "description": "Risk bullet 2 in disable gatekeeper modal"
+    "message": "The server hosting remote JSON or hash files will receive your IP address.",
+    "description": "Risk list item for remote file hosts receiving the user IP address."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Server juga dapat menerima versi ekstensi, browser, dan versi browser Anda.",
@@ -3327,8 +3307,8 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Dengan menonaktifkan Gatekeeper, Anda meningkatkan risiko dari sumber aturan jarak jauh yang tidak aman atau disusupi. Verifikasi hash hanya melindungi Linkumori (ClearURLs 2.0) JSON unduhan aturan. Ini tidak berlaku untuk daftar interoperabilitas.",
-    "description": "Final warning banner text in disable gatekeeper modal"
+    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured.",
+    "description": "Final warning shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Batal",
@@ -3407,8 +3387,8 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Tindakan ini mengurangi perlindungan terhadap peraturan jarak jauh. Lanjutkan hanya jika Anda memercayai JSON dan sumber filter interoperabilitas Anda.",
-    "description": "Final warning text for gatekeeper-specific confirmation modal"
+    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source.",
+    "description": "Final confirmation text for disabling Gatekeeper."
   },
   "remote_urls_template_note_1": {
     "message": "Ganti nilai placeholder dengan URL HTTPS asli Anda, lalu impor file ini.",
@@ -4130,10 +4110,6 @@
     "message": "Tidak ada aktivitas",
     "description": "Fallback row label when no daily stats data is available."
   },
-  "linkumori_url_rules_section": {
-    "description": "Section header for popular extension URL filter rules in settings",
-    "message": "Linkumori URL Filter (Interoperabilitas):"
-  },
   "clearurls_json_rules_section": {
     "description": "Section header for native ClearURLs JSON rule statistics in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON Aturan:"
@@ -4194,66 +4170,6 @@
     "description": "Hash status for popular extension URL filter lists",
     "message": "tidak diperlukan"
   },
-  "linkumori_url_filter_name": {
-    "description": "Display name for Linkumori URL filter interoperability rules.",
-    "message": "Linkumori URL Filter"
-  },
-  "linkumori_url_filter_single_name": {
-    "description": "Display name for a single Linkumori URL filter source.",
-    "message": "Linkumori URL Penyaring"
-  },
-  "linkumori_url_filter_merged_name": {
-    "description": "Display name when multiple Linkumori URL filter sources are merged.",
-    "message": "Digabung Linkumori URL Filter"
-  },
-  "linkumori_url_filter_custom_name": {
-    "description": "Display name for custom Linkumori URL filter rules.",
-    "message": "Aturan Kustom Linkumori URL"
-  },
-  "linkumori_url_filter_parser_unavailable": {
-    "description": "Error when the Linkumori URL filter parser is unavailable.",
-    "message": "Linkumori URL pengurai filter tidak tersedia"
-  },
-  "linkumori_url_filter_custom_failed": {
-    "description": "Error when custom Linkumori URL rules cannot be parsed.",
-    "message": "Aturan khusus Linkumori URL gagal"
-  },
-  "linkumori_url_filter_sources_failed_count": {
-    "description": "Summary of failed Linkumori URL filter sources.",
-    "message": "$1 URL sumber filter gagal"
-  },
-  "linkumori_url_filter_remote_empty": {
-    "description": "Error when a remote Linkumori URL filter file is empty.",
-    "message": "File filter jarak jauh URL kosong"
-  },
-  "linkumori_url_filter_fetch_failed": {
-    "description": "Error when fetching Linkumori URL filters fails.",
-    "message": "Linkumori URL pengambilan filter gagal"
-  },
-  "linkumori_url_filter_unknown_error": {
-    "description": "Fallback error for Linkumori URL filters.",
-    "message": "Kesalahan filter URL tidak diketahui"
-  },
-  "linkumori_url_filter_all_sources_failed": {
-    "description": "Error when all Linkumori URL filter sources fail.",
-    "message": "Semua sumber filter Linkumori URL gagal"
-  },
-  "linkumori_url_filter_log_pattern_value": {
-    "description": "Log pattern value for Linkumori URL filter interoperability.",
-    "message": "ekstensi populer filter pelacakan URL"
-  },
-  "linkumori_url_filter_no_supported_rules": {
-    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
-    "message": "Tidak ditemukan aturan Linkumori interoperabilitas $removeparam yang didukung"
-  },
-  "linkumori_url_filter_interoperability_name": {
-    "description": "Parser metadata name for Linkumori URL filter interoperability.",
-    "message": "Linkumori URL Interoperabilitas Filter"
-  },
-  "linkumori_url_filter_interoperability_author": {
-    "description": "Parser metadata author for Linkumori URL filter interoperability.",
-    "message": "Linkumori sumber filter interoperabilitas"
-  },
   "linkumoriUrlRules_button": {
     "description": "Button that opens the custom Linkumori URL filter modal.",
     "message": "Linkumori URL Aturan"
@@ -4306,17 +4222,9 @@
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
   },
-  "linkumoriUrlFiltersStatusGroup": {
-    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
-    "message": "Linkumori URL Filter (Interoperabilitas)"
-  },
   "linkumoriUrlRules_statusLabel": {
     "description": "Status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Status"
-  },
-  "linkumoriUrlRules_runtimeRulesLabel": {
-    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
-    "message": "Aturan Waktu Proses"
   },
   "linkumoriUrlRules_customRulesLabel": {
     "description": "Label for custom Linkumori URL rules in the custom rules editor.",
@@ -4325,10 +4233,6 @@
   "linkumoriUrlRules_hashStatusLabel": {
     "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Hash"
-  },
-  "linkumoriUrlRules_statusSummary": {
-    "description": "Rules status summary for Linkumori URL rules.",
-    "message": "$1\n$2 aturan waktu proses\n$3 aturan khusus"
   },
   "linkumoriUrlRules_close_aria": {
     "description": "Accessible label for closing the Linkumori URL rules modal.",
@@ -4345,26 +4249,6 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Filter ekstensi populer jarak jauh URL dan aturan khusus ini tidak memerlukan verifikasi hash. Mereka disimpan di LinkumoriURLsData setelah penguraian, terpisah dari ClearURLsData."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
-    "message": "Interoperabilitas Berubah",
-    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
-    "message": "URL Keluaran Interoperabilitas",
-    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
-    "message": "Aturan Interoperabilitas yang Cocok",
-    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
-    "message": "Jenis Pola Interoperabilitas",
-    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
-    "message": "Tindakan Interoperabilitas",
-    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   },
   "popup_whitelist_state_permanent": {
     "message": "Masuk daftar putih: $1 — klik lagi untuk hanya tab",
@@ -5165,134 +5049,6 @@
     "message": "Bab 25: Templat Salinan Cepat",
     "description": "Guide page text."
   },
-  "guide_0076": {
-    "message": "Aturan Interoperabilitas",
-    "description": "Guide page text."
-  },
-  "guide_0077": {
-    "message": "Panduan Aturan Interoperabilitas",
-    "description": "Guide page text."
-  },
-  "guide_0078": {
-    "message": "Bab 1: Apa Itu Aturan Interoperabilitas",
-    "description": "Guide page text."
-  },
-  "guide_0079": {
-    "message": "Bab 2: Apa yang Didukung",
-    "description": "Guide page text."
-  },
-  "guide_0080": {
-    "message": "Bab 3: Format Aturan Dasar",
-    "description": "Guide page text."
-  },
-  "guide_0081": {
-    "message": "Bab 4: Dimana Aturan Disimpan",
-    "description": "Guide page text."
-  },
-  "guide_0082": {
-    "message": "Bab 5: Komentar Dan Baris Kosong",
-    "description": "Guide page text."
-  },
-  "guide_0083": {
-    "message": "Bab 6: Hapus Satu Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0084": {
-    "message": "Bab 7: Hapus Semua Parameter Kueri",
-    "description": "Guide page text."
-  },
-  "guide_0085": {
-    "message": "Bab 8: Hapus Parameter Berdasarkan Regex",
-    "description": "Guide page text."
-  },
-  "guide_0086": {
-    "message": "Bab 9: Hapus Semua Kecuali Satu Kecocokan",
-    "description": "Guide page text."
-  },
-  "guide_0087": {
-    "message": "Bab 10: $queryprune",
-    "description": "Guide page text."
-  },
-  "guide_0088": {
-    "message": "Bab 11: URL Contoh Pola",
-    "description": "Guide page text."
-  },
-  "guide_0089": {
-    "message": "Bab 12: Pengecualian",
-    "description": "Guide page text."
-  },
-  "guide_0090": {
-    "message": "Bab 13: penting",
-    "description": "Guide page text."
-  },
-  "guide_0091": {
-    "message": "Bab 14: filter buruk",
-    "description": "Guide page text."
-  },
-  "guide_0092": {
-    "message": "Bab 15: Pengubah Sumber Domain: domain= Dan dari=",
-    "description": "Guide page text."
-  },
-  "guide_0093": {
-    "message": "Bab 16: Pengubah Domain Target: to=",
-    "description": "Guide page text."
-  },
-  "guide_0094": {
-    "message": "Bab 17: tolak izin=",
-    "description": "Guide page text."
-  },
-  "guide_0095": {
-    "message": "Bab 18: HTTP Pengubah Metode",
-    "description": "Guide page text."
-  },
-  "guide_0096": {
-    "message": "Bab 19: Pengubah Tipe Sumber Daya",
-    "description": "Guide page text."
-  },
-  "guide_0097": {
-    "message": "Bab 20: Pihak Pertama dan Pihak Ketiga",
-    "description": "Guide page text."
-  },
-  "guide_0098": {
-    "message": "Bab 21: kasus pertandingan",
-    "description": "Guide page text."
-  },
-  "guide_0099": {
-    "message": "Bab 22: aplikasi=",
-    "description": "Guide page text."
-  },
-  "guide_0100": {
-    "message": "Bab 23: Pengubah Tanpa Operasi",
-    "description": "Guide page text."
-  },
-  "guide_0101": {
-    "message": "Bab 24: Detail Pencocokan Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0102": {
-    "message": "Bab 25: Hanya Kueri",
-    "description": "Guide page text."
-  },
-  "guide_0103": {
-    "message": "Bab 26: Aturan yang Tidak Didukung Dilewati",
-    "description": "Guide page text."
-  },
-  "guide_0104": {
-    "message": "Bab 27: Aturan Duplikat",
-    "description": "Guide page text."
-  },
-  "guide_0105": {
-    "message": "Bab 28: Contoh Daftar Filter Lengkap",
-    "description": "Guide page text."
-  },
-  "guide_0106": {
-    "message": "Bab 29: JSON Contoh Penyimpanan",
-    "description": "Guide page text."
-  },
-  "guide_0107": {
-    "message": "Bab 30: Templat Salinan Cepat",
-    "description": "Guide page text."
-  },
   "guide_0108": {
     "message": "Linkumori Penyedia Campuran JSON Panduan Format",
     "description": "Guide page text."
@@ -5302,8 +5058,8 @@
     "description": "Guide page text."
   },
   "guide_0110": {
-    "message": "Ini mencakup format penyedia campuran Linkumori: ClearURLs bidang warisan addon, ClearURLs objek aturan kanonik inti v2, dan Linkumori tambahan saja seperti <code>domainPatterns</code>, <code>$removeparam</code> aturan penyedia, pengecualian domain, domain pengalihan, dan pelingkupan jenis sumber daya.",
-    "description": "Guide page text."
+    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
+    "description": "Introductory paragraph for the provider JSON guide."
   },
   "guide_0111": {
     "message": "Ini bukan panduan untuk kode JavaScript. Ini hanya berfokus pada bentuk JSON, format aturan, dan contoh yang dibutuhkan penulis aturan.",
@@ -5774,8 +5530,8 @@
     "description": "Guide page text."
   },
   "guide_0228": {
-    "message": "<code>$removeparam</code> string di dalam penyedia <code>rules</code> adalah tambahan Linkumori. Mereka terpisah dari sintaks interoperabilitas <code>urlFilterRules</code> panduan kedua.",
-    "description": "Guide page text."
+    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
+    "description": "Introductory paragraph for provider-local $removeparam rules."
   },
   "guide_0229": {
     "message": "Hapus Satu Parameter",
@@ -6286,8 +6042,8 @@
     "description": "Guide page text."
   },
   "guide_0356": {
-    "message": "Linkumori tambahan — sumber terpadu dengan penyedia JSON ditambah aturan interoperabilitas:",
-    "description": "Guide page text."
+    "message": "Linkumori addition - provider JSON with inline filter-list rules:",
+    "description": "Guide label for provider JSON with inline $removeparam rules."
   },
   "guide_0357": {
     "message": "Penting:",
@@ -6644,738 +6400,6 @@
   "guide_0445": {
     "message": "Alihkan pelacak URL:",
     "description": "Guide page text."
-  },
-  "guide_0446": {
-    "message": "Panduan Aturan Interoperabilitas",
-    "description": "Guide page text."
-  },
-  "guide_0447": {
-    "message": "Linkumori URL Filter — sintaksis daftar filter biasa untuk pembersihan URL",
-    "description": "Guide page text."
-  },
-  "guide_0448": {
-    "message": "Panduan Aturan Interoperabilitas",
-    "description": "Guide page text."
-  },
-  "guide_0449": {
-    "message": "Panduan ini menjelaskan ekstensi Linkumori aturan Interoperabilitas Filter URL.",
-    "description": "Guide page text."
-  },
-  "guide_0450": {
-    "message": "Ini bukan aturan penyedia ClearURLs JSON yang lengkap. Itu adalah baris daftar filter biasa, mirip dengan aturan yang digunakan oleh pemblokir konten populer. Ekstensi Linkumori hanya mendukung bagian pembersihan URL di dunia tersebut.",
-    "description": "Guide page text."
-  },
-  "guide_0451": {
-    "message": "Bab 1: Apa Itu Aturan Interoperabilitas",
-    "description": "Guide page text."
-  },
-  "guide_0452": {
-    "message": "Aturan interoperabilitas adalah baris teks sederhana yang disimpan di:",
-    "description": "Guide page text."
-  },
-  "guide_0453": {
-    "message": "Mereka tinggal di dalam <code>ClearURLsData.urlFilterRules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0454": {
-    "message": "Mereka terpisah dari JSON penyedia:",
-    "description": "Guide page text."
-  },
-  "guide_0455": {
-    "message": "Gunakan aturan interoperabilitas ketika Anda ingin menempelkan sintaks daftar filter URL-pembersihan secara langsung, alih-alih menulis objek penyedia lengkap.",
-    "description": "Guide page text."
-  },
-  "guide_0456": {
-    "message": "Bab 2: Apa yang Didukung",
-    "description": "Guide page text."
-  },
-  "guide_0457": {
-    "message": "Didukung:",
-    "description": "Guide page text."
-  },
-  "guide_0458": {
-    "message": "Tidak didukung:",
-    "description": "Guide page text."
-  },
-  "guide_0459": {
-    "message": "Baris tanpa <code>$removeparam</code> atau <code>$queryprune</code> diabaikan.",
-    "description": "Guide page text."
-  },
-  "guide_0460": {
-    "message": "Bab 3: Format Aturan Dasar",
-    "description": "Guide page text."
-  },
-  "guide_0461": {
-    "message": "Bentuk dasar:",
-    "description": "Guide page text."
-  },
-  "guide_0462": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0463": {
-    "message": "Artinya:",
-    "description": "Guide page text."
-  },
-  "guide_0464": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0465": {
-    "message": "Bab 4: Dimana Aturan Disimpan",
-    "description": "Guide page text."
-  },
-  "guide_0466": {
-    "message": "Bentuk penyimpanan runtime:",
-    "description": "Guide page text."
-  },
-  "guide_0467": {
-    "message": "Runtime membaca aturan ini melalui jalur data filter terpadu URL.",
-    "description": "Guide page text."
-  },
-  "guide_0468": {
-    "message": "Bab 5: Komentar Dan Baris Kosong",
-    "description": "Guide page text."
-  },
-  "guide_0469": {
-    "message": "Garis kosong diabaikan.",
-    "description": "Guide page text."
-  },
-  "guide_0470": {
-    "message": "Baris komentar diabaikan:",
-    "description": "Guide page text."
-  },
-  "guide_0471": {
-    "message": "Header bagian diabaikan:",
-    "description": "Guide page text."
-  },
-  "guide_0472": {
-    "message": "Bab 6: Hapus Satu Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0473": {
-    "message": "Aturan:",
-    "description": "Guide page text."
-  },
-  "guide_0474": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0475": {
-    "message": "<code>*</code> berarti pola URL cocok dengan semuanya.",
-    "description": "Guide page text."
-  },
-  "guide_0476": {
-    "message": "Bab 7: Hapus Semua Parameter Kueri",
-    "description": "Guide page text."
-  },
-  "guide_0477": {
-    "message": "Aturan:",
-    "description": "Guide page text."
-  },
-  "guide_0478": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0479": {
-    "message": "Ini menghapus semua parameter kueri dari pencocokan URLs.",
-    "description": "Guide page text."
-  },
-  "guide_0480": {
-    "message": "Bab 8: Hapus Parameter Berdasarkan Regex",
-    "description": "Guide page text."
-  },
-  "guide_0481": {
-    "message": "Aturan:",
-    "description": "Guide page text."
-  },
-  "guide_0482": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0483": {
-    "message": "Bendera regex:",
-    "description": "Guide page text."
-  },
-  "guide_0484": {
-    "message": "Hanya tanda <code>i</code> yang disimpan oleh parser untuk ekspresi interoperabilitas.",
-    "description": "Guide page text."
-  },
-  "guide_0485": {
-    "message": "Bab 9: Hapus Semua Kecuali Satu Kecocokan",
-    "description": "Guide page text."
-  },
-  "guide_0486": {
-    "message": "Gunakan <code>~</code> sebelum pola parameter.",
-    "description": "Guide page text."
-  },
-  "guide_0487": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0488": {
-    "message": "Artinya:",
-    "description": "Guide page text."
-  },
-  "guide_0489": {
-    "message": "Bab 10: <code>$queryprune</code>",
-    "description": "Guide page text."
-  },
-  "guide_0490": {
-    "message": "<code>$queryprune</code> diterima sebagai alias yang tidak digunakan lagi untuk <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0491": {
-    "message": "Ini setara:",
-    "description": "Guide page text."
-  },
-  "guide_0492": {
-    "message": "Lebih suka aturan baru dengan <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0493": {
-    "message": "Bab 11: URL Contoh Pola",
-    "description": "Guide page text."
-  },
-  "guide_0494": {
-    "message": "Cocokkan semua URLs:",
-    "description": "Guide page text."
-  },
-  "guide_0495": {
-    "message": "Cocokkan domain dan subdomain:",
-    "description": "Guide page text."
-  },
-  "guide_0496": {
-    "message": "Cocok dengan awalan URL:",
-    "description": "Guide page text."
-  },
-  "guide_0497": {
-    "message": "Cocokkan akhiran yang tepat dengan jangkar kanan:",
-    "description": "Guide page text."
-  },
-  "guide_0498": {
-    "message": "Gunakan pola regex URL:",
-    "description": "Guide page text."
-  },
-  "guide_0499": {
-    "message": "Bab 12: Pengecualian",
-    "description": "Guide page text."
-  },
-  "guide_0500": {
-    "message": "Mulailah dengan <code>@@</code> untuk membuat pengecualian.",
-    "description": "Guide page text."
-  },
-  "guide_0501": {
-    "message": "Contoh kumpulan aturan:",
-    "description": "Guide page text."
-  },
-  "guide_0502": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0503": {
-    "message": "Bab 13: <code>important</code>",
-    "description": "Guide page text."
-  },
-  "guide_0504": {
-    "message": "<code>important</code> membuat aturan penghapusan menang atas pengecualian normal.",
-    "description": "Guide page text."
-  },
-  "guide_0505": {
-    "message": "Hasil:",
-    "description": "Guide page text."
-  },
-  "guide_0506": {
-    "message": "Catatan penting:",
-    "description": "Guide page text."
-  },
-  "guide_0507": {
-    "message": "<code>important</code> diperbolehkan berdasarkan aturan penghapusan.",
-    "description": "Guide page text."
-  },
-  "guide_0508": {
-    "message": "<code>important</code> tidak didukung pada aturan pengecualian di parser ini.",
-    "description": "Guide page text."
-  },
-  "guide_0509": {
-    "message": "Bab 14: <code>badfilter</code>",
-    "description": "Guide page text."
-  },
-  "guide_0510": {
-    "message": "<code>badfilter</code> menonaktifkan aturan pencocokan lainnya.",
-    "description": "Guide page text."
-  },
-  "guide_0511": {
-    "message": "Aturan asli:",
-    "description": "Guide page text."
-  },
-  "guide_0512": {
-    "message": "Aturan filter buruk:",
-    "description": "Guide page text."
-  },
-  "guide_0513": {
-    "message": "Artinya:",
-    "description": "Guide page text."
-  },
-  "guide_0514": {
-    "message": "Parser mengkanonikalisasi aturan tanpa <code>badfilter</code> dan menghapus aturan target dari penggunaan waktu proses.",
-    "description": "Guide page text."
-  },
-  "guide_0515": {
-    "message": "Bab 15: Pengubah Sumber Domain: <code>domain=</code> Dan <code>from=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0516": {
-    "message": "<code>domain=</code> dan <code>from=</code> membatasi aturan berdasarkan konteks halaman atau sumber.",
-    "description": "Guide page text."
-  },
-  "guide_0517": {
-    "message": "Ide yang sama dengan <code>from=</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0518": {
-    "message": "Ini memeriksa nama host konteks seperti:",
-    "description": "Guide page text."
-  },
-  "guide_0519": {
-    "message": "Sertakan beberapa domain:",
-    "description": "Guide page text."
-  },
-  "guide_0520": {
-    "message": "Kecualikan domain:",
-    "description": "Guide page text."
-  },
-  "guide_0521": {
-    "message": "Gunakan domain regex:",
-    "description": "Guide page text."
-  },
-  "guide_0522": {
-    "message": "Bab 16: Pengubah Domain Target: <code>to=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0523": {
-    "message": "<code>to=</code> membatasi aturan berdasarkan host tujuan URL.",
-    "description": "Guide page text."
-  },
-  "guide_0524": {
-    "message": "Ini memeriksa URL sedang dibersihkan.",
-    "description": "Guide page text."
-  },
-  "guide_0525": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0526": {
-    "message": "Kecualikan domain target:",
-    "description": "Guide page text."
-  },
-  "guide_0527": {
-    "message": "Target ekspresi reguler:",
-    "description": "Guide page text."
-  },
-  "guide_0528": {
-    "message": "Bab 17: <code>denyallow=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0529": {
-    "message": "<code>denyallow=</code> memblokir aturan pada domain tujuan yang terdaftar.",
-    "description": "Guide page text."
-  },
-  "guide_0530": {
-    "message": "Artinya:",
-    "description": "Guide page text."
-  },
-  "guide_0531": {
-    "message": "Nilai <code>denyallow=</code> yang didukung adalah pola domain biasa.",
-    "description": "Guide page text."
-  },
-  "guide_0532": {
-    "message": "Tidak didukung di <code>denyallow=</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0533": {
-    "message": "Jika nilai yang tidak didukung digunakan, seluruh aturan akan dilewati.",
-    "description": "Guide page text."
-  },
-  "guide_0534": {
-    "message": "Bab 18: HTTP Pengubah Metode",
-    "description": "Guide page text."
-  },
-  "guide_0535": {
-    "message": "Batasi dengan metode HTTP:",
-    "description": "Guide page text."
-  },
-  "guide_0536": {
-    "message": "Kecualikan metode:",
-    "description": "Guide page text."
-  },
-  "guide_0537": {
-    "message": "Berbagai metode:",
-    "description": "Guide page text."
-  },
-  "guide_0538": {
-    "message": "Metode yang didukung:",
-    "description": "Guide page text."
-  },
-  "guide_0539": {
-    "message": "Perilaku bawaan:",
-    "description": "Guide page text."
-  },
-  "guide_0540": {
-    "message": "Bab 19: Pengubah Tipe Sumber Daya",
-    "description": "Guide page text."
-  },
-  "guide_0541": {
-    "message": "Kata-kata jenis sumber daya yang didukung:",
-    "description": "Guide page text."
-  },
-  "guide_0542": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0543": {
-    "message": "Jenis sumber daya yang dinegasikan:",
-    "description": "Guide page text."
-  },
-  "guide_0544": {
-    "message": "Pemetaan:",
-    "description": "Guide page text."
-  },
-  "guide_0545": {
-    "message": "Bab 20: Pihak Pertama dan Pihak Ketiga",
-    "description": "Guide page text."
-  },
-  "guide_0546": {
-    "message": "Pihak pertama berarti situs tujuan dan situs dokumen berbagi domain yang dapat didaftarkan.",
-    "description": "Guide page text."
-  },
-  "guide_0547": {
-    "message": "Pihak ketiga berarti mereka tidak melakukannya.",
-    "description": "Guide page text."
-  },
-  "guide_0548": {
-    "message": "Khusus pihak pertama:",
-    "description": "Guide page text."
-  },
-  "guide_0549": {
-    "message": "Alias:",
-    "description": "Guide page text."
-  },
-  "guide_0550": {
-    "message": "Khusus pihak ketiga:",
-    "description": "Guide page text."
-  },
-  "guide_0551": {
-    "message": "Alias:",
-    "description": "Guide page text."
-  },
-  "guide_0552": {
-    "message": "Pihak pertama yang ketat memeriksa host yang sama persis:",
-    "description": "Guide page text."
-  },
-  "guide_0553": {
-    "message": "Pemeriksaan pihak ketiga yang ketat bukan host yang sama persis:",
-    "description": "Guide page text."
-  },
-  "guide_0554": {
-    "message": "Kombinasi yang tidak valid dilewati, misalnya:",
-    "description": "Guide page text."
-  },
-  "guide_0555": {
-    "message": "Bab 21: <code>match-case</code>",
-    "description": "Guide page text."
-  },
-  "guide_0556": {
-    "message": "Secara default, pencocokan parameter literal tidak membedakan huruf besar-kecil.",
-    "description": "Guide page text."
-  },
-  "guide_0557": {
-    "message": "Aturan:",
-    "description": "Guide page text."
-  },
-  "guide_0558": {
-    "message": "Cocok:",
-    "description": "Guide page text."
-  },
-  "guide_0559": {
-    "message": "Gunakan <code>match-case</code> untuk pencocokan peka huruf besar/kecil:",
-    "description": "Guide page text."
-  },
-  "guide_0560": {
-    "message": "Sekarang cocok:",
-    "description": "Guide page text."
-  },
-  "guide_0561": {
-    "message": "Tapi tidak:",
-    "description": "Guide page text."
-  },
-  "guide_0562": {
-    "message": "Bab 22: <code>app=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0563": {
-    "message": "<code>app=</code> diurai untuk kompatibilitas dengan sintaksis daftar filter.",
-    "description": "Guide page text."
-  },
-  "guide_0564": {
-    "message": "Permintaan browser biasanya tidak memiliki konteks paket aplikasi. Jika tidak ada konteks aplikasi yang tersedia, aturan dengan penyertaan positif <code>app=</code> tidak cocok.",
-    "description": "Guide page text."
-  },
-  "guide_0565": {
-    "message": "Kecualikan aplikasi:",
-    "description": "Guide page text."
-  },
-  "guide_0566": {
-    "message": "Pola aplikasi karakter pengganti:",
-    "description": "Guide page text."
-  },
-  "guide_0567": {
-    "message": "Pola aplikasi regex:",
-    "description": "Guide page text."
-  },
-  "guide_0568": {
-    "message": "Bab 23: Pengubah Tanpa Operasi",
-    "description": "Guide page text."
-  },
-  "guide_0569": {
-    "message": "Pengubah berikut diterima tetapi diabaikan:",
-    "description": "Guide page text."
-  },
-  "guide_0570": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0571": {
-    "message": "Ini berperilaku seperti:",
-    "description": "Guide page text."
-  },
-  "guide_0572": {
-    "message": "Bab 24: Detail Pencocokan Parameter",
-    "description": "Guide page text."
-  },
-  "guide_0573": {
-    "message": "Aturan parameter literal:",
-    "description": "Guide page text."
-  },
-  "guide_0574": {
-    "message": "Memeriksa nama parameter.",
-    "description": "Guide page text."
-  },
-  "guide_0575": {
-    "message": "Aturan parameter regex:",
-    "description": "Guide page text."
-  },
-  "guide_0576": {
-    "message": "Periksa teks ini:",
-    "description": "Guide page text."
-  },
-  "guide_0577": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0578": {
-    "message": "Bentuk awalan:",
-    "description": "Guide page text."
-  },
-  "guide_0579": {
-    "message": "Ini menjadi regex untuk nama yang dimulai dengan <code>utm_</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0580": {
-    "message": "Bab 25: Hanya Kueri",
-    "description": "Guide page text."
-  },
-  "guide_0581": {
-    "message": "Waktu proses interoperabilitas membersihkan parameter kueri sebelum <code>#</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0582": {
-    "message": "Dibersihkan:",
-    "description": "Guide page text."
-  },
-  "guide_0583": {
-    "message": "Tidak dibersihkan oleh jalur runtime ini:",
-    "description": "Guide page text."
-  },
-  "guide_0584": {
-    "message": "Untuk pembersihan parameter hash, gunakan aturan JSON penyedia campuran JSON yang dijelaskan dalam Panduan Format JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0585": {
-    "message": "Bab 26: Aturan yang Tidak Didukung Dilewati",
-    "description": "Guide page text."
-  },
-  "guide_0586": {
-    "message": "Sebuah aturan dilewati jika:",
-    "description": "Guide page text."
-  },
-  "guide_0587": {
-    "message": "Tidak ada <code>$removeparam</code> atau <code>$queryprune</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0588": {
-    "message": "Ini menggunakan pengubah yang tidak didukung.",
-    "description": "Guide page text."
-  },
-  "guide_0589": {
-    "message": "Regexnya tidak valid.",
-    "description": "Guide page text."
-  },
-  "guide_0590": {
-    "message": "Ini memiliki metode yang tidak valid.",
-    "description": "Guide page text."
-  },
-  "guide_0591": {
-    "message": "Ini memiliki nilai <code>denyallow=</code> yang tidak valid.",
-    "description": "Guide page text."
-  },
-  "guide_0592": {
-    "message": "Ini menggabungkan pengubah partai yang tidak kompatibel.",
-    "description": "Guide page text."
-  },
-  "guide_0593": {
-    "message": "Ini adalah komentar, header bagian, atau baris kosong.",
-    "description": "Guide page text."
-  },
-  "guide_0594": {
-    "message": "Contoh aturan yang dilewati:",
-    "description": "Guide page text."
-  },
-  "guide_0595": {
-    "message": "Alasan:",
-    "description": "Guide page text."
-  },
-  "guide_0596": {
-    "message": "Contoh aturan yang dilewati:",
-    "description": "Guide page text."
-  },
-  "guide_0597": {
-    "message": "Alasan:",
-    "description": "Guide page text."
-  },
-  "guide_0598": {
-    "message": "Bab 27: Aturan Duplikat",
-    "description": "Guide page text."
-  },
-  "guide_0599": {
-    "message": "Baris mentah duplikat dilewati selama penguraian daftar filter.",
-    "description": "Guide page text."
-  },
-  "guide_0600": {
-    "message": "Contoh:",
-    "description": "Guide page text."
-  },
-  "guide_0601": {
-    "message": "Hanya satu yang disimpan.",
-    "description": "Guide page text."
-  },
-  "guide_0602": {
-    "message": "Saat runtime, aturan juga dihapus duplikatnya dengan bentuk kanonik.",
-    "description": "Guide page text."
-  },
-  "guide_0603": {
-    "message": "Bab 28: Contoh Daftar Filter Lengkap",
-    "description": "Guide page text."
-  },
-  "guide_0604": {
-    "message": "Apa fungsinya:",
-    "description": "Guide page text."
-  },
-  "guide_0605": {
-    "message": "Menghapus semua <code>utm_</code> parameter.",
-    "description": "Guide page text."
-  },
-  "guide_0606": {
-    "message": "Menghapus <code>fbclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0607": {
-    "message": "Menghapus <code>gclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0608": {
-    "message": "Menghapus <code>ref</code> pada <code>example.com</code>, kecuali pada <code>/login</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0609": {
-    "message": "Menghapus <code>tracking_id</code> hanya untuk permintaan <code>GET</code> XHR ke <code>api.example.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0610": {
-    "message": "Menambahkan lalu membatalkan aturan target <code>tracker.example</code> dengan <code>badfilter</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0611": {
-    "message": "Bab 29: JSON Contoh Penyimpanan",
-    "description": "Guide page text."
-  },
-  "guide_0612": {
-    "message": "Bab 30: Templat Salinan Cepat",
-    "description": "Guide page text."
-  },
-  "guide_0613": {
-    "message": "Hapus satu parameter di mana pun:",
-    "description": "Guide page text."
-  },
-  "guide_0614": {
-    "message": "Hapus semua parameter UTM:",
-    "description": "Guide page text."
-  },
-  "guide_0615": {
-    "message": "Hapus semua kecuali <code>id</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0616": {
-    "message": "Jalankan hanya di domain:",
-    "description": "Guide page text."
-  },
-  "guide_0617": {
-    "message": "Pengecualian:",
-    "description": "Guide page text."
-  },
-  "guide_0618": {
-    "message": "GET saja:",
-    "description": "Guide page text."
-  },
-  "guide_0619": {
-    "message": "XHR saja:",
-    "description": "Guide page text."
-  },
-  "guide_0620": {
-    "message": "Hanya domain target:",
-    "description": "Guide page text."
-  },
-  "guide_0621": {
-    "message": "Hanya domain halaman sumber:",
-    "description": "Guide page text."
-  },
-  "guide_0622": {
-    "message": "Khusus pihak ketiga:",
-    "description": "Guide page text."
-  },
-  "guide_0623": {
-    "message": "Peka huruf besar/kecil:",
-    "description": "Guide page text."
-  },
-  "guide_theme_midnight": {
-    "message": "Tengah malam",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_light": {
-    "message": "Ringan",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_icecold": {
-    "message": "Sedingin Es",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_zen_grey": {
-    "message": "Zen Abu-abu",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_sunset": {
-    "message": "Matahari terbenam",
-    "description": "Guide theme selector option."
   },
   "guide_0624": {
     "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -7782,12 +6806,12 @@
     "description": "Guide page text."
   },
   "guide_0725": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  },\n  \"urlFilterRules\": [\n    \"*$removeparam=fbclid\"\n  ],\n  \"urlFilterMetadata\": {\n    \"format\": \"linkumori-url-filter-interoperability\",\n    \"status\": \"loaded\"\n  }\n}\n",
-    "description": "Guide page text."
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide code example for provider JSON with inline $removeparam rules."
   },
   "guide_0726": {
-    "message": "providers are handled by Linkumori extension provider logic.\nurlFilterRules are handled by the interoperability runtime.\nThey can exist in the same Linkumori extension data object, but they are different rule systems.\n",
-    "description": "Guide page text."
+    "message": "Provider-local <code>rules[]</code> entries are compiled into the same provider set before <code>clearurls.js</code> runs. Keep filter-list style <code>$removeparam</code> lines inside provider <code>rules[]</code> when authoring Linkumori JSON.\n",
+    "description": "Guide note explaining provider-local filter-list rules."
   },
   "guide_0727": {
     "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -8077,438 +7101,6 @@
     "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
     "description": "Guide page text."
   },
-  "guide_0799": {
-    "message": "⇄",
-    "description": "Guide page text."
-  },
-  "guide_0800": {
-    "message": "{\n  \"urlFilterRules\": [\n    \"||example.com^$removeparam=utm_source\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0801": {
-    "message": "{\n  \"providers\": {},\n  \"urlFilterRules\": []\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0802": {
-    "message": "$removeparam\n$queryprune\n@@ exceptions\nbadfilter\nimportant\ndomain=\nfrom=\nto=\ndenyallow=\nmethod=\nrequest type modifiers\nfirst-party / third-party\nstrict-first-party / strict-third-party\nmatch-case\napp=\n",
-    "description": "Guide page text."
-  },
-  "guide_0803": {
-    "message": "Network blocking rules without $removeparam or $queryprune\nCosmetic filters\nScriptlets\nHTML filtering\nRequest blocking\nFull adblock engine behavior\n",
-    "description": "Guide page text."
-  },
-  "guide_0804": {
-    "message": "URL_PATTERN$removeparam=PARAMETER\n",
-    "description": "Guide page text."
-  },
-  "guide_0805": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0806": {
-    "message": "On example.com and its subdomains, remove the query parameter named utm_source.\n",
-    "description": "Guide page text."
-  },
-  "guide_0807": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0808": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"||example.com^$removeparam=utm_source\",\n      \"*$removeparam=/^utm_/\"\n    ],\n    \"urlFilterMetadata\": {\n      \"format\": \"linkumori-url-filter-interoperability\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0809": {
-    "message": "! This is a comment\n",
-    "description": "Guide page text."
-  },
-  "guide_0810": {
-    "message": "[Tracking parameters]\n",
-    "description": "Guide page text."
-  },
-  "guide_0811": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0812": {
-    "message": "https://site.test/?utm_source=x&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0813": {
-    "message": "*$removeparam\n",
-    "description": "Guide page text."
-  },
-  "guide_0814": {
-    "message": "https://site.test/?a=1&b=2\n-> https://site.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0815": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0816": {
-    "message": "https://site.test/?utm_source=x&utm_campaign=y&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0817": {
-    "message": "*$removeparam=/^utm_/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0818": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0819": {
-    "message": "https://site.test/?id=1&utm_source=x&fbclid=y\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0820": {
-    "message": "Remove every parameter except id.\n",
-    "description": "Guide page text."
-  },
-  "guide_0821": {
-    "message": "*$removeparam=utm_source\n*$queryprune=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0822": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0823": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0824": {
-    "message": "|https://example.com/path$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0825": {
-    "message": "https://example.com/path|$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0826": {
-    "message": "/^https:\\/\\/([^/]+\\.)?example\\.com\\/track/$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0827": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0828": {
-    "message": "*$removeparam=utm_source\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0829": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0830": {
-    "message": "*$removeparam=utm_source,important\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0831": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0832": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0833": {
-    "message": "||example.com^$removeparam=utm_source,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0834": {
-    "message": "Cancel the original rule.\n",
-    "description": "Guide page text."
-  },
-  "guide_0835": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0836": {
-    "message": "*$removeparam=utm_source,from=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0837": {
-    "message": "documentUrl\noriginUrl\ninitiator\n",
-    "description": "Guide page text."
-  },
-  "guide_0838": {
-    "message": "*$removeparam=utm_source,domain=example.com|shop.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0839": {
-    "message": "*$removeparam=utm_source,domain=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0840": {
-    "message": "*$removeparam=utm_source,domain=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0841": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0842": {
-    "message": "Cleaned:\nhttps://example.com/?utm_source=x&id=1\n\nNot cleaned:\nhttps://other.test/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0843": {
-    "message": "*$removeparam=utm_source,to=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0844": {
-    "message": "*$removeparam=utm_source,to=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0845": {
-    "message": "*$removeparam=utm_source,denyallow=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0846": {
-    "message": "Remove utm_source generally, but do not apply this rule when the destination host matches example.com.\n",
-    "description": "Guide page text."
-  },
-  "guide_0847": {
-    "message": "~negation\nexample.*\n/regex/\n",
-    "description": "Guide page text."
-  },
-  "guide_0848": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0849": {
-    "message": "*$removeparam=utm_source,method=~POST\n",
-    "description": "Guide page text."
-  },
-  "guide_0850": {
-    "message": "*$removeparam=utm_source,method=GET|HEAD\n",
-    "description": "Guide page text."
-  },
-  "guide_0851": {
-    "message": "GET\nHEAD\nOPTIONS\nPOST\nPUT\nPATCH\nDELETE\nCONNECT\n",
-    "description": "Guide page text."
-  },
-  "guide_0852": {
-    "message": "Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.\nFast simple query cleanup also uses those simple methods.\n",
-    "description": "Guide page text."
-  },
-  "guide_0853": {
-    "message": "document\ndoc\nsubdocument\nframe\nscript\nstylesheet\nimage\nmedia\nfont\nobject\nxmlhttprequest\nxhr\nwebsocket\nping\nother\n",
-    "description": "Guide page text."
-  },
-  "guide_0854": {
-    "message": "*$removeparam=utm_source,script\n*$removeparam=utm_source,image\n*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0855": {
-    "message": "*$removeparam=utm_source,~image\n",
-    "description": "Guide page text."
-  },
-  "guide_0856": {
-    "message": "document       -> main_frame\ndoc            -> main_frame\nsubdocument    -> sub_frame\nframe          -> sub_frame\nxhr            -> xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0857": {
-    "message": "*$removeparam=utm_source,first-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0858": {
-    "message": "1p\n~third-party\n~3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0859": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0860": {
-    "message": "3p\n~first-party\n~1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0861": {
-    "message": "*$removeparam=utm_source,strict-first-party\n*$removeparam=utm_source,strict1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0862": {
-    "message": "*$removeparam=utm_source,strict-third-party\n*$removeparam=utm_source,strict3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0863": {
-    "message": "*$removeparam=utm_source,first-party,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0864": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0865": {
-    "message": "utm_source\nUTM_SOURCE\nUtm_Source\n",
-    "description": "Guide page text."
-  },
-  "guide_0866": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "guide_0867": {
-    "message": "utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0868": {
-    "message": "UTM_SOURCE\n",
-    "description": "Guide page text."
-  },
-  "guide_0869": {
-    "message": "*$removeparam=utm_source,app=com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0870": {
-    "message": "*$removeparam=utm_source,app=~com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0871": {
-    "message": "*$removeparam=utm_source,app=com.example.*\n",
-    "description": "Guide page text."
-  },
-  "guide_0872": {
-    "message": "*$removeparam=utm_source,app=/example/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0873": {
-    "message": "_\nnoop\nstealth\ncookie\n",
-    "description": "Guide page text."
-  },
-  "guide_0874": {
-    "message": "*$removeparam=utm_source,noop\n",
-    "description": "Guide page text."
-  },
-  "guide_0875": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0876": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0877": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0878": {
-    "message": "name=value\n",
-    "description": "Guide page text."
-  },
-  "guide_0879": {
-    "message": "URL:\nhttps://example.com/?utm_source=news&id=1\n\nRegex sees:\nutm_source=news\nid=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0880": {
-    "message": "*$removeparam=|utm_\n",
-    "description": "Guide page text."
-  },
-  "guide_0881": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0882": {
-    "message": "https://example.com/#utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0883": {
-    "message": "||example.com^$script\n",
-    "description": "Guide page text."
-  },
-  "guide_0884": {
-    "message": "No $removeparam or $queryprune.\n",
-    "description": "Guide page text."
-  },
-  "guide_0885": {
-    "message": "*$removeparam=utm_source,unknownmodifier\n",
-    "description": "Guide page text."
-  },
-  "guide_0886": {
-    "message": "Unsupported modifier.\n",
-    "description": "Guide page text."
-  },
-  "guide_0887": {
-    "message": "*$removeparam=utm_source\n*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0888": {
-    "message": "! Linkumori URL filter interoperability example\n\n*$removeparam=/^utm_/\n*$removeparam=fbclid\n*$removeparam=gclid\n\n||example.com^$removeparam=ref\n@@||example.com/login^$removeparam=ref\n\n*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET\n\n||tracker.example^$removeparam=target,third-party\n||tracker.example^$removeparam=target,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0889": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"*$removeparam=/^utm_/\",\n      \"*$removeparam=fbclid\",\n      \"||example.com^$removeparam=ref\",\n      \"@@||example.com/login^$removeparam=ref\"\n    ],\n    \"urlFilterMetadata\": {\n      \"name\": \"Linkumori URL Filter Rules\",\n      \"format\": \"linkumori-url-filter-interoperability\",\n      \"status\": \"loaded\",\n      \"ruleStatus\": \"loaded\",\n      \"hashStatus\": \"not_required\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0890": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0891": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0892": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0893": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0894": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0895": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0896": {
-    "message": "*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0897": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0898": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0899": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0900": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "faq_final_runtime_clearurls_title": {
-    "message": "Sintaks runtime clearurls.js khusus",
-    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
-  },
-  "faq_final_runtime_interoperability_title": {
-    "message": "Interoperabilitas sintaks runtime URL-filter",
-    "description": "FAQ label for the interoperability runtime syntax example"
-  },
-  "faq_final_runtime_open_page": {
-    "message": "Buka referensi sintaks runtime",
-    "description": "FAQ link text that opens the dedicated runtime syntax page"
-  },
-  "faq_final_runtime_syntax": {
-    "message": "Apa sintaks runtime terakhir?",
-    "description": "FAQ question for final supported runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_answer": {
-    "message": "Linkumori mendukung dua format runtime final. Gunakan sintaks penyedia clearurls.js khusus terlebih dahulu untuk bidang asli, mentah, pengalihan, penulisan ulang, pengecualian, dan perilaku cakupan penyedia. Gunakan format interoperabilitas saat mengimpor aturan $removeparam gaya filter URL.",
-    "description": "FAQ answer explaining the two final runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_note": {
-    "message": "Kedua format dapat dimuat bersama-sama, namun sintaksis penyedia khusus adalah format asli utama. Format interoperabilitas ada untuk kompatibilitas daftar filter.",
-    "description": "FAQ note for final runtime syntax formats"
-  },
   "providerImport_allProviders": {
     "message": "Semua penyedia",
     "description": "Filter label for showing rule activations from every provider"
@@ -8529,60 +7121,52 @@
     "message": "Navigasi aturan penyedia",
     "description": "Accessible label for provider filter navigation on the disabled rules page"
   },
-  "runtimeSyntax_clearURLsDescription": {
-    "message": "Ini adalah waktu proses asli yang digunakan oleh clearurls.js. Ini harus digunakan terlebih dahulu untuk penyedia kustom karena mendukung objek aturan kanonik, aturan bidang, aturan URL mentah, pengalihan, penulisan ulang, pengecualian, jenis permintaan, alias, dan identitas penonaktifan cakupan pola.",
-    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_clearURLsTitle": {
-    "message": "Waktu proses clearurls.js khusus",
-    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_disableDescription": {
-    "message": "Identitas dengan cakupan pola stabil di seluruh perubahan nama penyedia. Identitas cakupan penyedia tetap tersedia untuk perilaku penonaktifan lama yang luas.",
-    "description": "Runtime syntax page description for disable identity examples"
-  },
-  "runtimeSyntax_disableTitle": {
-    "message": "Nonaktifkan format identitas",
-    "description": "Runtime syntax page section title for disable identity formats"
-  },
-  "runtimeSyntax_interoperabilityDescription": {
-    "message": "Runtime ini untuk interoperabilitas URL filter. Itu mempertahankan gaya daftar filter $removeparam dan aturan pengecualian @@ dalam susunan aturan yang ringkas untuk impor dan kompatibilitas daftar jarak jauh.",
-    "description": "Runtime syntax page description for interoperability runtime syntax"
-  },
-  "runtimeSyntax_interoperabilityTitle": {
-    "message": "Waktu proses aturan interoperabilitas",
-    "description": "Runtime syntax page section title for interoperability runtime syntax"
-  },
-  "runtimeSyntax_intro": {
-    "message": "Runtime penyedia asli clearurls.js adalah format kelas satu. Runtime interoperabilitas berada di sampingnya untuk aturan daftar filter yang harus mempertahankan bentuk $removeparam aslinya.",
-    "description": "Runtime syntax page intro text"
-  },
-  "runtimeSyntax_kicker": {
-    "message": "Referensi waktu proses",
-    "description": "Runtime syntax page eyebrow text"
-  },
-  "runtimeSyntax_navClearURLs": {
-    "message": "Waktu proses khusus",
-    "description": "Runtime syntax page navigation link for dedicated runtime section"
-  },
-  "runtimeSyntax_navDisableIds": {
-    "message": "Nonaktifkan ID",
-    "description": "Runtime syntax page navigation link for disable identity section"
-  },
-  "runtimeSyntax_navInteroperability": {
-    "message": "Waktu proses interoperabilitas",
-    "description": "Runtime syntax page navigation link for interoperability section"
-  },
-  "runtimeSyntax_pageTitle": {
-    "message": "Sintaks Waktu Proses Terakhir",
-    "description": "Runtime syntax page title"
-  },
   "popup_html_guide_link": {
     "message": "Penyedia JSON Panduan",
     "description": "Popup license link label for the Linkumori provider JSON guide page"
   },
   "popup_html_guide_link_title": {
-    "message": "Buka Linkumori penyedia JSON dan panduan interoperabilitas",
-    "description": "Tooltip and aria label for the popup guide link in the license section"
+    "message": "Open Linkumori rules guide",
+    "description": "Tooltip and aria label for the popup guide link in the license section."
+  },
+  "faq_rules_guide_syntax": {
+    "message": "Which rule syntax should I use?",
+    "description": "FAQ question for the unified Linkumori rule syntax guide."
+  },
+  "faq_rules_guide_syntax_answer": {
+    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
+    "description": "FAQ answer explaining the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_syntax_note": {
+    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
+    "description": "FAQ note for the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_open_page": {
+    "message": "Open rules guide",
+    "description": "FAQ link text that opens the unified rules guide."
+  },
+  "providerImport_failedToLoadSources": {
+    "message": "Failed to load provider sources: $1",
+    "description": "Error shown when provider import sources fail to load."
+  },
+  "providerImport_noBundledRules": {
+    "message": "Bundled rules are not available.",
+    "description": "Error shown when bundled rules are unavailable for provider import."
+  },
+  "providerImport_failedToLoadBundled": {
+    "message": "Failed to load bundled rules: $1",
+    "description": "Error shown when bundled rules fail to load for provider import."
+  },
+  "status_language_change_failed": {
+    "message": "Could not switch language to $1.",
+    "description": "Status text shown when changing the UI language fails."
+  },
+  "theme_light": {
+    "message": "Light theme",
+    "description": "Accessible label for switching to the light theme."
+  },
+  "theme_dark": {
+    "message": "Dark theme",
+    "description": "Accessible label for switching to the dark theme."
   }
 }

@@ -55,17 +55,9 @@
     "message": "বান্ডিল করা Linkumori/ClearURLs নিয়মগুলি ব্যবহার করুন । শুধুমাত্র দূরবর্তী নিয়ম এবং/অথবা কাস্টম নিয়মের সাথে এটি চালানোর জন্য এটি অক্ষম করুন ।",
     "description": "Description for the toggle that controls bundled built-in rules"
   },
-  "linkumori_interoperability_mode_enabled": {
-    "message": "Linkumori আন্তঃকার্যক্ষমতা মোড",
-    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
-  },
-  "linkumori_interoperability_mode_enabled_description": {
-    "message": "নেটিভ Linkumori/ClearURLs JSON নিয়মের পাশাপাশি সামঞ্জস্যপূর্ণ $removeparam তালিকাসহ Linkumori URL Filter আন্তঃকার্যক্ষমতা নিয়ম প্রয়োগ করুন।",
-    "description": "Description for the Linkumori interoperability mode toggle"
-  },
   "bundled_rules_description": {
-    "message": "Linkumori দুটি নিয়ম বিভাগ ব্যবহার করে: Linkumori (ClearURLs 2.0) ClearURLs JSON নেটিভ প্রোভাইডারদের জন্য নিয়ম এবং Linkumori 98765000356789 Linkumori Linkumori $removeparam তালিকা। প্রতিটি বিভাগ পৃথকভাবে গণনা করা হয়।",
-    "description": "Description for the bundled rules section."
+    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs.",
+    "description": "Description text for the built-in bundled rules setting."
   },
   "bundled_rules_section_title": {
     "message": "নিয়মের তথ্য",
@@ -2107,16 +2099,8 @@
   "providerImport_importedCount": {
     "message": "আমদানিকৃত: $1 প্রদানকারী"
   },
-  "providerImport_importedRulesCount": {
-    "message": "আমদানি হয়েছে: $1 নিয়ম",
-    "description": "Import result count for Linkumori URL interoperability rules."
-  },
   "providerImport_importing": {
     "message": "ইম্পোর্ট করা হচ্ছে..."
-  },
-  "providerImport_linkumoriData": {
-    "message": "বিদ্যমান Linkumori আন্তঃকার্যকারিতা নিয়ম",
-    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "সরবরাহকারী লোড করা হচ্ছে...",
@@ -2179,10 +2163,6 @@
   },
   "providerImport_skippedCount": {
     "message": "এড়িয়ে গেছেন: $1 প্রদানকারী"
-  },
-  "providerImport_skippedRulesCount": {
-    "message": "এড়িয়ে গেছে: $1 নিয়ম",
-    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "নিয়মের উৎস",
@@ -2533,16 +2513,16 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "আপনার উত্স একটি Linkumori (ClearURLs 2.0) JSON রুলসেট বা একটি Linkumori Linkumori 98765000256789 Linkumori Linkumori রুলসেট কিনা তা পুরোপুরি বুঝতে না পারলে আপনার দূরবর্তী নিয়মগুলি ব্যবহার করে পুনর্বিবেচনা করা উচিত৷",
-    "description": "Final warning message in security modal"
+    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source.",
+    "description": "Final warning shown in the remote rules security modal."
   },
   "security_modal_main_warning": {
-    "message": "এই দূরবর্তী নিয়ম বৈশিষ্ট্যটি উন্নত ব্যবহারকারীদের জন্য ডিজাইন করা হয়েছে যারা তারা লোড করা উৎস বিন্যাস বোঝেন। Linkumori (ClearURLs 2.0) JSON দূরবর্তী নিয়ম যাচাইয়ের জন্য একটি ম্যাচিং হ্যাশ URL প্রয়োজন৷ Linkumori URL ফিল্টার ইন্টারঅপারেবিলিটি তালিকা URL হ্যাশ ছাড়া লোড করা যেতে পারে এবং আলাদাভাবে সংরক্ষণ করা হয়।",
-    "description": "Main warning text explaining the purpose and risks"
+    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification.",
+    "description": "Main warning text for the remote rules security modal."
   },
   "security_modal_privacy_text": {
-    "message": "আপনি যদি একটি দূরবর্তী নিয়ম URL যোগ করেন, এক্সটেনশনটি আপনার মনোনীত সার্ভারের সাথে সংযুক্ত হবে একটি Linkumori (ClearURLs 2.0) JSON রুলসেট, এর হ্যাশ ফাইল, যখন a Linkumori আনতে URL ফিল্টার ইন্টারঅপারেবিলিটি তালিকা। প্রতিটি ফেচ হোস্টিং সার্ভারে আপনার IP ঠিকানা এবং এক্সটেনশন সংস্করণ, ব্রাউজার এবং ব্রাউজার সংস্করণের মতো সাধারণ তথ্য প্রকাশ করতে পারে। এই ডেটা সেই ওয়েবসাইট বা ওয়েব সার্ভারের গোপনীয়তা নীতির সাপেক্ষে।",
-    "description": "Privacy notice explaining data collection policy"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the remote rules security modal."
   },
   "security_modal_privacy_link_text": {
     "message": "প্রয়োজন হলে চালিয়ে যাওয়ার আগে আবার %PRIVACY_POLICY_LINK% পড়ুন ।",
@@ -2553,8 +2533,8 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "বিল্ট-ইন নিয়মগুলি ব্যবহার করুন যদি না আপনি দূরবর্তী উত্সকে বিশ্বাস করেন এবং নিয়ন্ত্রণ করেন। Linkumori (ClearURLs 2.0) JSON নিয়মের জন্য, একটি ম্যাচিং হ্যাশ URL প্রদান করুন। ইন্টারঅপারেবিলিটি ফিল্টার তালিকার জন্য, হ্যাশ ত্যাগ করুন 98765004587।",
-    "description": "Recommendation to use built-in rules instead"
+    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules.",
+    "description": "Recommendation text shown in the remote rules security modal."
   },
   "security_modal_risk_1": {
     "message": "আপনার আইপি ঠিকানা এবং ব্রাউজারের তথ্য কনফিগার করা সার্ভারের কাছে উন্মুক্ত করা হবে",
@@ -2569,8 +2549,8 @@
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "ইন্টারঅপারেবিলিটি ফিল্টার তালিকা হ্যাশ যাচাইকরণ ব্যবহার করে না, তাই উৎস URL-এ বিশ্বাস করা বিশেষভাবে গুরুত্বপূর্ণ।",
-    "description": "Fourth security risk point"
+    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL.",
+    "description": "Risk list item for remote rules without successful hash verification."
   },
   "security_modal_risks_title": {
     "message": "নিরাপত্তার ঝুঁকি",
@@ -3279,24 +3259,24 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "আপনি দূরবর্তী নিয়ম URL সম্পাদনার জন্য Gatekeeper সুরক্ষা অক্ষম করছেন৷ এই বৈশিষ্ট্যটি Linkumori (ClearURLs 2.0) JSON হ্যাশ যাচাইকরণের সাথে JSON নিয়ম লোড করতে পারে বা Linkumori URL ফিল্টারের আন্তঃ-যাচাইকরণ তালিকা ছাড়াই রয়েছে৷ আপনি কোন ফর্ম্যাটটি কনফিগার করছেন তা বুঝতে পারলেই এগিয়ে যান।",
-    "description": "Main warning text in disable gatekeeper modal"
+    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring.",
+    "description": "Main warning text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "গেটকিপার হ 'ল অন্তর্নির্মিত সুরক্ষা প্রবাহ যা আপনি সুরক্ষা সতর্কতা স্বীকার না করা এবং টাইপ করা নিশ্চিতকরণ সম্পূর্ণ না করা পর্যন্ত সরাসরি দূরবর্তী ইউআরএল সম্পাদনাগুলিকে অবরুদ্ধ করে ।",
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Gatekeeper সক্রিয় রাখুন যদি না আপনি আপনার দূরবর্তী উত্সগুলিকে বিশ্বাস করেন এবং নিয়ন্ত্রণ করেন৷ JSON নিয়মে একটি ম্যাচিং হ্যাশ URL অন্তর্ভুক্ত করা উচিত; ইন্টারঅপারেবিলিটি তালিকা ইচ্ছাকৃতভাবে হ্যাশ URL খালি ছেড়ে দেয়।",
-    "description": "Recommendation text in disable gatekeeper modal"
+    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL.",
+    "description": "Recommendation text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "সতর্কতা বিজ্ঞপ্তি:",
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "আপনি যদি একটি দূরবর্তী নিয়ম URL যোগ করেন, এক্সটেনশনটি আপনার মনোনীত সার্ভারের সাথে সংযুক্ত হবে একটি Linkumori (ClearURLs 2.0) JSON রুলসেট, এর হ্যাশ ফাইল, যখন a Linkumori আনতে URL ফিল্টার ইন্টারঅপারেবিলিটি তালিকা। প্রতিটি ফেচ হোস্টিং সার্ভারে আপনার IP ঠিকানা এবং এক্সটেনশন সংস্করণ, ব্রাউজার এবং ব্রাউজার সংস্করণের মতো সাধারণ তথ্য প্রকাশ করতে পারে। এই ডেটা সেই ওয়েবসাইট বা ওয়েব সার্ভারের গোপনীয়তা নীতির সাপেক্ষে।",
-    "description": "Privacy section body in disable gatekeeper modal"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "প্রয়োজন হলে চালিয়ে যাওয়ার আগে আবার %PRIVACY_POLICY_LINK% পড়ুন ।",
@@ -3315,8 +3295,8 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "সার্ভার হোস্টিং রিমোট JSON, হ্যাশ, বা ইন্টারঅপারেবিলিটি ফিল্টার ফাইলগুলি আপনার IP ঠিকানা পাবে৷",
-    "description": "Risk bullet 2 in disable gatekeeper modal"
+    "message": "The server hosting remote JSON or hash files will receive your IP address.",
+    "description": "Risk list item for remote file hosts receiving the user IP address."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "সার্ভারটি আপনার এক্সটেনশন সংস্করণ, ব্রাউজার এবং ব্রাউজারের সংস্করণও পেতে পারে ।",
@@ -3327,8 +3307,8 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Gatekeeper অক্ষম করে, আপনি অনিরাপদ বা আপস করা দূরবর্তী নিয়ম উত্স থেকে ঝুঁকি বাড়ান। হ্যাশ যাচাইকরণ শুধুমাত্র Linkumori (ClearURLs 2.0) JSON নিয়ম ডাউনলোডগুলিকে রক্ষা করে৷ এটি আন্তঃক্রিয়াশীলতা তালিকার ক্ষেত্রে প্রযোজ্য নয়।",
-    "description": "Final warning banner text in disable gatekeeper modal"
+    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured.",
+    "description": "Final warning shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "বাতিল করুন",
@@ -3407,8 +3387,8 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "এই ক্রিয়াটি দূরবর্তী নিয়মগুলির জন্য সুরক্ষা হ্রাস করে৷ আপনি যদি আপনার JSON এবং ইন্টারঅপারেবিলিটি ফিল্টার উত্সগুলিতে বিশ্বাস করেন তবেই এগিয়ে যান৷",
-    "description": "Final warning text for gatekeeper-specific confirmation modal"
+    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source.",
+    "description": "Final confirmation text for disabling Gatekeeper."
   },
   "remote_urls_template_note_1": {
     "message": "আপনার আসল HTTPS URL এর সাথে স্থানধারক মান প্রতিস্থাপন করুন, তারপর এই ফাইলটি আমদানি করুন।",
@@ -4130,10 +4110,6 @@
     "message": "কোনো কার্যকলাপ নেই",
     "description": "Fallback row label when no daily stats data is available."
   },
-  "linkumori_url_rules_section": {
-    "description": "Section header for popular extension URL filter rules in settings",
-    "message": "Linkumori URL ফিল্টার (ইন্টারঅপারেবিলিটি):"
-  },
   "clearurls_json_rules_section": {
     "description": "Section header for native ClearURLs JSON rule statistics in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON নিয়ম:"
@@ -4194,66 +4170,6 @@
     "description": "Hash status for popular extension URL filter lists",
     "message": "প্রয়োজন নেই"
   },
-  "linkumori_url_filter_name": {
-    "description": "Display name for Linkumori URL filter interoperability rules.",
-    "message": "Linkumori URL ফিল্টার"
-  },
-  "linkumori_url_filter_single_name": {
-    "description": "Display name for a single Linkumori URL filter source.",
-    "message": "Linkumori URL ফিল্টার"
-  },
-  "linkumori_url_filter_merged_name": {
-    "description": "Display name when multiple Linkumori URL filter sources are merged.",
-    "message": "মার্জ করা হয়েছে Linkumori URL ফিল্টার"
-  },
-  "linkumori_url_filter_custom_name": {
-    "description": "Display name for custom Linkumori URL filter rules.",
-    "message": "কাস্টম Linkumori URL নিয়ম"
-  },
-  "linkumori_url_filter_parser_unavailable": {
-    "description": "Error when the Linkumori URL filter parser is unavailable.",
-    "message": "Linkumori URL ফিল্টার পার্সার অনুপলব্ধ"
-  },
-  "linkumori_url_filter_custom_failed": {
-    "description": "Error when custom Linkumori URL rules cannot be parsed.",
-    "message": "কাস্টম Linkumori URL নিয়ম ব্যর্থ হয়েছে"
-  },
-  "linkumori_url_filter_sources_failed_count": {
-    "description": "Summary of failed Linkumori URL filter sources.",
-    "message": "$1 URL ফিল্টার উৎস(গুলি) ব্যর্থ হয়েছে"
-  },
-  "linkumori_url_filter_remote_empty": {
-    "description": "Error when a remote Linkumori URL filter file is empty.",
-    "message": "রিমোট URL ফিল্টার ফাইল খালি"
-  },
-  "linkumori_url_filter_fetch_failed": {
-    "description": "Error when fetching Linkumori URL filters fails.",
-    "message": "Linkumori URL ফিল্টার আনা ব্যর্থ হয়েছে"
-  },
-  "linkumori_url_filter_unknown_error": {
-    "description": "Fallback error for Linkumori URL filters.",
-    "message": "অজানা URL ফিল্টার ত্রুটি৷"
-  },
-  "linkumori_url_filter_all_sources_failed": {
-    "description": "Error when all Linkumori URL filter sources fail.",
-    "message": "সমস্ত Linkumori URL ফিল্টার উত্স ব্যর্থ হয়েছে"
-  },
-  "linkumori_url_filter_log_pattern_value": {
-    "description": "Log pattern value for Linkumori URL filter interoperability.",
-    "message": "জনপ্রিয় এক্সটেনশন URL ট্র্যাকিং ফিল্টার"
-  },
-  "linkumori_url_filter_no_supported_rules": {
-    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
-    "message": "কোন সমর্থিত নয় Linkumori আন্তঃক্রিয়াশীলতা $removeparam নিয়ম পাওয়া গেছে"
-  },
-  "linkumori_url_filter_interoperability_name": {
-    "description": "Parser metadata name for Linkumori URL filter interoperability.",
-    "message": "Linkumori URL ফিল্টার ইন্টারঅপারেবিলিটি"
-  },
-  "linkumori_url_filter_interoperability_author": {
-    "description": "Parser metadata author for Linkumori URL filter interoperability.",
-    "message": "Linkumori ইন্টারঅপারেবিলিটি ফিল্টার সোর্স"
-  },
   "linkumoriUrlRules_button": {
     "description": "Button that opens the custom Linkumori URL filter modal.",
     "message": "Linkumori URL নিয়ম"
@@ -4306,17 +4222,9 @@
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
   },
-  "linkumoriUrlFiltersStatusGroup": {
-    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
-    "message": "Linkumori URL ফিল্টার (ইন্টারঅপারেবিলিটি)"
-  },
   "linkumoriUrlRules_statusLabel": {
     "description": "Status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL স্ট্যাটাস"
-  },
-  "linkumoriUrlRules_runtimeRulesLabel": {
-    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
-    "message": "রানটাইম নিয়ম"
   },
   "linkumoriUrlRules_customRulesLabel": {
     "description": "Label for custom Linkumori URL rules in the custom rules editor.",
@@ -4325,10 +4233,6 @@
   "linkumoriUrlRules_hashStatusLabel": {
     "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL হ্যাশ"
-  },
-  "linkumoriUrlRules_statusSummary": {
-    "description": "Rules status summary for Linkumori URL rules.",
-    "message": "$1\n$2 রানটাইম নিয়ম(গুলি)\n$3 কাস্টম নিয়ম(গুলি)"
   },
   "linkumoriUrlRules_close_aria": {
     "description": "Accessible label for closing the Linkumori URL rules modal.",
@@ -4345,26 +4249,6 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "দূরবর্তী জনপ্রিয় এক্সটেনশন URL ফিল্টার এবং এই কাস্টম নিয়মগুলির হ্যাশ যাচাইকরণের প্রয়োজন নেই। ClearURLsData থেকে আলাদা করে পার্স করার পর এগুলি LinkumoriURLsData এ সংরক্ষণ করা হয়।"
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
-    "message": "আন্তঃকার্যকারিতা পরিবর্তিত হয়েছে",
-    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
-    "message": "আন্তঃকার্যকারিতা আউটপুট URL",
-    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
-    "message": "মিলেছে এমন আন্তঃকার্যকারিতা নিয়ম",
-    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
-    "message": "আন্তঃকার্যকারিতা প্যাটার্নের ধরন",
-    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
-    "message": "আন্তঃকার্যকারিতা ক্রিয়া",
-    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   },
   "popup_whitelist_state_permanent": {
     "message": "সাদা তালিকাভুক্ত: $1 — শুধুমাত্র ট্যাবের জন্য আবার ক্লিক করুন",
@@ -5165,134 +5049,6 @@
     "message": "অধ্যায় 25: দ্রুত কপি টেমপ্লেট",
     "description": "Guide page text."
   },
-  "guide_0076": {
-    "message": "ইন্টারঅপারেবিলিটি নিয়ম",
-    "description": "Guide page text."
-  },
-  "guide_0077": {
-    "message": "ইন্টারঅপারেবিলিটি নিয়ম নির্দেশিকা",
-    "description": "Guide page text."
-  },
-  "guide_0078": {
-    "message": "অধ্যায় 1: ইন্টারঅপারেবিলিটি নিয়ম কি",
-    "description": "Guide page text."
-  },
-  "guide_0079": {
-    "message": "অধ্যায় 2: কি সমর্থিত",
-    "description": "Guide page text."
-  },
-  "guide_0080": {
-    "message": "অধ্যায় 3: মৌলিক নিয়ম বিন্যাস",
-    "description": "Guide page text."
-  },
-  "guide_0081": {
-    "message": "অধ্যায় 4: যেখানে নিয়ম সংরক্ষণ করা হয়",
-    "description": "Guide page text."
-  },
-  "guide_0082": {
-    "message": "অধ্যায় 5: মন্তব্য এবং খালি লাইন",
-    "description": "Guide page text."
-  },
-  "guide_0083": {
-    "message": "অধ্যায় 6: একটি প্যারামিটার সরান",
-    "description": "Guide page text."
-  },
-  "guide_0084": {
-    "message": "অধ্যায় 7: সমস্ত ক্যোয়ারী প্যারামিটার সরান",
-    "description": "Guide page text."
-  },
-  "guide_0085": {
-    "message": "অধ্যায় 8: Regex দ্বারা পরামিতি সরান",
-    "description": "Guide page text."
-  },
-  "guide_0086": {
-    "message": "অধ্যায় 9: একটি ম্যাচ বাদে সব সরান",
-    "description": "Guide page text."
-  },
-  "guide_0087": {
-    "message": "অধ্যায় 10: $queryprune",
-    "description": "Guide page text."
-  },
-  "guide_0088": {
-    "message": "অধ্যায় 11: URL প্যাটার্ন উদাহরণ",
-    "description": "Guide page text."
-  },
-  "guide_0089": {
-    "message": "অধ্যায় 12: ব্যতিক্রম",
-    "description": "Guide page text."
-  },
-  "guide_0090": {
-    "message": "অধ্যায় 13: গুরুত্বপূর্ণ",
-    "description": "Guide page text."
-  },
-  "guide_0091": {
-    "message": "অধ্যায় 14: ব্যাডফিল্টার",
-    "description": "Guide page text."
-  },
-  "guide_0092": {
-    "message": "অধ্যায় 15: ডোমেন সোর্স মডিফায়ার: ডোমেইন= এবং থেকে=",
-    "description": "Guide page text."
-  },
-  "guide_0093": {
-    "message": "অধ্যায় 16: টার্গেট ডোমেন মডিফায়ার: to=",
-    "description": "Guide page text."
-  },
-  "guide_0094": {
-    "message": "অধ্যায় 17: denyallow=",
-    "description": "Guide page text."
-  },
-  "guide_0095": {
-    "message": "অধ্যায় 18: HTTP পদ্ধতি পরিবর্তনকারী",
-    "description": "Guide page text."
-  },
-  "guide_0096": {
-    "message": "অধ্যায় 19: রিসোর্স টাইপ মডিফায়ার",
-    "description": "Guide page text."
-  },
-  "guide_0097": {
-    "message": "অধ্যায় 20: প্রথম পক্ষ এবং তৃতীয় পক্ষ",
-    "description": "Guide page text."
-  },
-  "guide_0098": {
-    "message": "অধ্যায় 21: ম্যাচ-কেস",
-    "description": "Guide page text."
-  },
-  "guide_0099": {
-    "message": "অধ্যায় 22: app=",
-    "description": "Guide page text."
-  },
-  "guide_0100": {
-    "message": "অধ্যায় 23: নো-অপ মডিফায়ার",
-    "description": "Guide page text."
-  },
-  "guide_0101": {
-    "message": "অধ্যায় 24: প্যারামিটার ম্যাচিং বিশদ",
-    "description": "Guide page text."
-  },
-  "guide_0102": {
-    "message": "অধ্যায় 25: শুধুমাত্র প্রশ্ন",
-    "description": "Guide page text."
-  },
-  "guide_0103": {
-    "message": "অধ্যায় 26: অসমর্থিত নিয়মগুলি বাদ দেওয়া হয়েছে৷",
-    "description": "Guide page text."
-  },
-  "guide_0104": {
-    "message": "অধ্যায় 27: ডুপ্লিকেট নিয়ম",
-    "description": "Guide page text."
-  },
-  "guide_0105": {
-    "message": "অধ্যায় 28: সম্পূর্ণ ফিল্টার তালিকা উদাহরণ",
-    "description": "Guide page text."
-  },
-  "guide_0106": {
-    "message": "অধ্যায় 29: JSON স্টোরেজ উদাহরণ",
-    "description": "Guide page text."
-  },
-  "guide_0107": {
-    "message": "অধ্যায় 30: দ্রুত কপি টেমপ্লেট",
-    "description": "Guide page text."
-  },
   "guide_0108": {
     "message": "Linkumori মিক্সড প্রোভাইডার JSON ফরম্যাট গাইড",
     "description": "Guide page text."
@@ -5302,8 +5058,8 @@
     "description": "Guide page text."
   },
   "guide_0110": {
-    "message": "এটি মিশ্রিত Linkumori প্রদানকারী বিন্যাস কভার করে: ClearURLs অ্যাডন লিগ্যাসি ক্ষেত্র, ClearURLs কোর v2 ক্যানোনিকাল রুল অবজেক্ট এবং Linkumori-শুধুমাত্র সংযোজন যেমন Linkumori, <code>$removeparam</code> প্রদানকারীর নিয়ম, ডোমেন ব্যতিক্রম, ডোমেন পুনঃনির্দেশ, এবং রিসোর্স-টাইপ স্কোপিং।",
-    "description": "Guide page text."
+    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
+    "description": "Introductory paragraph for the provider JSON guide."
   },
   "guide_0111": {
     "message": "এটি JavaScript কোডের নির্দেশিকা নয়। এটি শুধুমাত্র JSON আকার, নিয়ম বিন্যাস এবং নিয়ম লেখকদের প্রয়োজন এমন উদাহরণগুলিতে ফোকাস করে।",
@@ -5774,8 +5530,8 @@
     "description": "Guide page text."
   },
   "guide_0228": {
-    "message": "প্রদানকারীর ভিতরে <code>$removeparam</code> স্ট্রিংগুলি <code>rules</code> হল একটি Linkumori সংযোজন৷ এগুলি দ্বিতীয় গাইডের <code>urlFilterRules</code> ইন্টারঅপারেবিলিটি সিনট্যাক্স থেকে আলাদা৷",
-    "description": "Guide page text."
+    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
+    "description": "Introductory paragraph for provider-local $removeparam rules."
   },
   "guide_0229": {
     "message": "একটি প্যারামিটার সরান",
@@ -6286,8 +6042,8 @@
     "description": "Guide page text."
   },
   "guide_0356": {
-    "message": "Linkumori সংযোজন — প্রোভাইডার JSON প্লাস ইন্টারঅপারেবিলিটি নিয়মের সাথে ইউনিফাইড সোর্স:",
-    "description": "Guide page text."
+    "message": "Linkumori addition - provider JSON with inline filter-list rules:",
+    "description": "Guide label for provider JSON with inline $removeparam rules."
   },
   "guide_0357": {
     "message": "গুরুত্বপূর্ণ:",
@@ -6644,738 +6400,6 @@
   "guide_0445": {
     "message": "একটি ট্র্যাকার পুনর্নির্দেশ করুন URL:",
     "description": "Guide page text."
-  },
-  "guide_0446": {
-    "message": "ইন্টারঅপারেবিলিটি নিয়ম নির্দেশিকা",
-    "description": "Guide page text."
-  },
-  "guide_0447": {
-    "message": "Linkumori URL ফিল্টার — URL পরিষ্কারের জন্য প্লেইন ফিল্টার-তালিকা সিনট্যাক্স",
-    "description": "Guide page text."
-  },
-  "guide_0448": {
-    "message": "ইন্টারঅপারেবিলিটি নিয়ম নির্দেশিকা",
-    "description": "Guide page text."
-  },
-  "guide_0449": {
-    "message": "এই নির্দেশিকাটি ব্যাখ্যা করে Linkumori এক্সটেনশন URL ফিল্টার ইন্টারঅপারেবিলিটি নিয়ম।",
-    "description": "Guide page text."
-  },
-  "guide_0450": {
-    "message": "এগুলো পূর্ণ নয় ClearURLs JSON প্রদানকারীর নিয়ম। এগুলি হল সরল ফিল্টার-তালিকা লাইন, জনপ্রিয় বিষয়বস্তু ব্লকারদের দ্বারা ব্যবহৃত নিয়মের অনুরূপ। Linkumori এক্সটেনশন শুধুমাত্র সেই বিশ্বের URL-পরিচ্ছন্ন অংশকে সমর্থন করে।",
-    "description": "Guide page text."
-  },
-  "guide_0451": {
-    "message": "অধ্যায় 1: ইন্টারঅপারেবিলিটি নিয়ম কি",
-    "description": "Guide page text."
-  },
-  "guide_0452": {
-    "message": "আন্তঃঅপারেবিলিটি নিয়মগুলি হল সহজ পাঠ্য লাইন এতে সংরক্ষিত:",
-    "description": "Guide page text."
-  },
-  "guide_0453": {
-    "message": "তারা <code>ClearURLsData.urlFilterRules</code> এর ভিতরে থাকে।",
-    "description": "Guide page text."
-  },
-  "guide_0454": {
-    "message": "তারা JSON প্রদানকারীদের থেকে আলাদা:",
-    "description": "Guide page text."
-  },
-  "guide_0455": {
-    "message": "যখন আপনি URL-ক্লিনিং ফিল্টার-তালিকা সিনট্যাক্স সরাসরি পেস্ট করতে চান, তখন একটি সম্পূর্ণ প্রদানকারী অবজেক্ট লেখার পরিবর্তে আন্তঃঅপারেবিলিটি নিয়ম ব্যবহার করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0456": {
-    "message": "অধ্যায় 2: কি সমর্থিত",
-    "description": "Guide page text."
-  },
-  "guide_0457": {
-    "message": "সমর্থিত:",
-    "description": "Guide page text."
-  },
-  "guide_0458": {
-    "message": "সমর্থিত নয়:",
-    "description": "Guide page text."
-  },
-  "guide_0459": {
-    "message": "<code>$removeparam</code> বা <code>$queryprune</code> ছাড়া লাইনগুলি উপেক্ষা করা হয়৷",
-    "description": "Guide page text."
-  },
-  "guide_0460": {
-    "message": "অধ্যায় 3: মৌলিক নিয়ম বিন্যাস",
-    "description": "Guide page text."
-  },
-  "guide_0461": {
-    "message": "মৌলিক আকৃতি:",
-    "description": "Guide page text."
-  },
-  "guide_0462": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0463": {
-    "message": "অর্থ:",
-    "description": "Guide page text."
-  },
-  "guide_0464": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0465": {
-    "message": "অধ্যায় 4: যেখানে নিয়ম সংরক্ষণ করা হয়",
-    "description": "Guide page text."
-  },
-  "guide_0466": {
-    "message": "রানটাইম স্টোরেজ আকৃতি:",
-    "description": "Guide page text."
-  },
-  "guide_0467": {
-    "message": "রানটাইম ইউনিফাইড URL ফিল্টার ডেটা পাথের মাধ্যমে এই নিয়মগুলি পড়ে।",
-    "description": "Guide page text."
-  },
-  "guide_0468": {
-    "message": "অধ্যায় 5: মন্তব্য এবং খালি লাইন",
-    "description": "Guide page text."
-  },
-  "guide_0469": {
-    "message": "খালি লাইন উপেক্ষা করা হয়.",
-    "description": "Guide page text."
-  },
-  "guide_0470": {
-    "message": "মন্তব্য লাইন উপেক্ষা করা হয়:",
-    "description": "Guide page text."
-  },
-  "guide_0471": {
-    "message": "বিভাগ শিরোনাম উপেক্ষা করা হয়:",
-    "description": "Guide page text."
-  },
-  "guide_0472": {
-    "message": "অধ্যায় 6: একটি প্যারামিটার সরান",
-    "description": "Guide page text."
-  },
-  "guide_0473": {
-    "message": "নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0474": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0475": {
-    "message": "<code>*</code> মানে URL প্যাটার্ন সবকিছু মিলে।",
-    "description": "Guide page text."
-  },
-  "guide_0476": {
-    "message": "অধ্যায় 7: সমস্ত ক্যোয়ারী প্যারামিটার সরান",
-    "description": "Guide page text."
-  },
-  "guide_0477": {
-    "message": "নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0478": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0479": {
-    "message": "এটি URLs এর সাথে মিলে যাওয়া সমস্ত ক্যোয়ারী প্যারামিটার সরিয়ে দেয়।",
-    "description": "Guide page text."
-  },
-  "guide_0480": {
-    "message": "অধ্যায় 8: Regex দ্বারা পরামিতি সরান",
-    "description": "Guide page text."
-  },
-  "guide_0481": {
-    "message": "নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0482": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0483": {
-    "message": "Regex পতাকা:",
-    "description": "Guide page text."
-  },
-  "guide_0484": {
-    "message": "শুধুমাত্র <code>i</code> পতাকাটি আন্তঃঅপারেবিলিটি রেজেক্সের জন্য পার্সার দ্বারা রাখা হয়।",
-    "description": "Guide page text."
-  },
-  "guide_0485": {
-    "message": "অধ্যায় 9: একটি ম্যাচ বাদে সব সরান",
-    "description": "Guide page text."
-  },
-  "guide_0486": {
-    "message": "প্যারামিটার প্যাটার্নের আগে <code>~</code> ব্যবহার করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0487": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0488": {
-    "message": "অর্থ:",
-    "description": "Guide page text."
-  },
-  "guide_0489": {
-    "message": "অধ্যায় 10: <code>$queryprune</code>",
-    "description": "Guide page text."
-  },
-  "guide_0490": {
-    "message": "<code>$queryprune</code> <code>$removeparam</code>-এর জন্য একটি অবনমিত উপনাম হিসাবে গ্রহণ করা হয়েছে।",
-    "description": "Guide page text."
-  },
-  "guide_0491": {
-    "message": "এগুলি সমতুল্য:",
-    "description": "Guide page text."
-  },
-  "guide_0492": {
-    "message": "<code>$removeparam</code> দিয়ে নতুন নিয়ম পছন্দ করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0493": {
-    "message": "অধ্যায় 11: URL প্যাটার্ন উদাহরণ",
-    "description": "Guide page text."
-  },
-  "guide_0494": {
-    "message": "সব মিলিয়ে URLs:",
-    "description": "Guide page text."
-  },
-  "guide_0495": {
-    "message": "একটি ডোমেন এবং সাবডোমেন মেলে:",
-    "description": "Guide page text."
-  },
-  "guide_0496": {
-    "message": "একটি URL উপসর্গ মেলে:",
-    "description": "Guide page text."
-  },
-  "guide_0497": {
-    "message": "ডান অ্যাঙ্করের সাথে একটি সঠিক সমাপ্তি মেলে:",
-    "description": "Guide page text."
-  },
-  "guide_0498": {
-    "message": "একটি regex URL প্যাটার্ন ব্যবহার করুন:",
-    "description": "Guide page text."
-  },
-  "guide_0499": {
-    "message": "অধ্যায় 12: ব্যতিক্রম",
-    "description": "Guide page text."
-  },
-  "guide_0500": {
-    "message": "একটি ব্যতিক্রম করতে <code>@@</code> দিয়ে শুরু করুন।",
-    "description": "Guide page text."
-  },
-  "guide_0501": {
-    "message": "উদাহরণ নিয়ম সেট:",
-    "description": "Guide page text."
-  },
-  "guide_0502": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0503": {
-    "message": "অধ্যায় 13: <code>important</code>",
-    "description": "Guide page text."
-  },
-  "guide_0504": {
-    "message": "<code>important</code> একটি অপসারণের নিয়মকে স্বাভাবিক ব্যতিক্রমের উপর জয়ী করে তোলে।",
-    "description": "Guide page text."
-  },
-  "guide_0505": {
-    "message": "ফলাফল:",
-    "description": "Guide page text."
-  },
-  "guide_0506": {
-    "message": "গুরুত্বপূর্ণ নোট:",
-    "description": "Guide page text."
-  },
-  "guide_0507": {
-    "message": "<code>important</code> অপসারণের নিয়মে অনুমোদিত।",
-    "description": "Guide page text."
-  },
-  "guide_0508": {
-    "message": "<code>important</code> এই পার্সারে ব্যতিক্রম নিয়মে সমর্থিত নয়।",
-    "description": "Guide page text."
-  },
-  "guide_0509": {
-    "message": "অধ্যায় 14: <code>badfilter</code>",
-    "description": "Guide page text."
-  },
-  "guide_0510": {
-    "message": "<code>badfilter</code> আরেকটি মিলিত নিয়ম অক্ষম করে।",
-    "description": "Guide page text."
-  },
-  "guide_0511": {
-    "message": "মূল নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0512": {
-    "message": "ব্যাডফিল্টার নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0513": {
-    "message": "অর্থ:",
-    "description": "Guide page text."
-  },
-  "guide_0514": {
-    "message": "পার্সার <code>badfilter</code> ছাড়া নিয়মটিকে ক্যানোনিকালাইজ করে এবং রানটাইম ব্যবহার থেকে টার্গেট নিয়মটি সরিয়ে দেয়।",
-    "description": "Guide page text."
-  },
-  "guide_0515": {
-    "message": "অধ্যায় 15: ডোমেন সোর্স মডিফায়ার: <code>domain=</code> এবং <code>from=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0516": {
-    "message": "পৃষ্ঠা বা উত্স প্রসঙ্গে <code>domain=</code> এবং <code>from=</code> সীমাবদ্ধতার নিয়ম।",
-    "description": "Guide page text."
-  },
-  "guide_0517": {
-    "message": "<code>from=</code> এর সাথে একই ধারণা:",
-    "description": "Guide page text."
-  },
-  "guide_0518": {
-    "message": "এই চেক প্রসঙ্গ হোস্টনাম যেমন:",
-    "description": "Guide page text."
-  },
-  "guide_0519": {
-    "message": "একাধিক ডোমেন অন্তর্ভুক্ত করুন:",
-    "description": "Guide page text."
-  },
-  "guide_0520": {
-    "message": "একটি ডোমেন বাদ দিন:",
-    "description": "Guide page text."
-  },
-  "guide_0521": {
-    "message": "একটি regex ডোমেন ব্যবহার করুন:",
-    "description": "Guide page text."
-  },
-  "guide_0522": {
-    "message": "অধ্যায় 16: টার্গেট ডোমেন মডিফায়ার: <code>to=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0523": {
-    "message": "গন্তব্য URL হোস্ট দ্বারা <code>to=</code> নিয়ম সীমাবদ্ধ করে।",
-    "description": "Guide page text."
-  },
-  "guide_0524": {
-    "message": "এটি পরিষ্কার করা হচ্ছে URL চেক করে।",
-    "description": "Guide page text."
-  },
-  "guide_0525": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0526": {
-    "message": "লক্ষ্য ডোমেন বাদ দিন:",
-    "description": "Guide page text."
-  },
-  "guide_0527": {
-    "message": "Regex লক্ষ্য:",
-    "description": "Guide page text."
-  },
-  "guide_0528": {
-    "message": "অধ্যায় 17: <code>denyallow=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0529": {
-    "message": "<code>denyallow=</code> তালিকাভুক্ত গন্তব্য ডোমেনে নিয়মটি ব্লক করে।",
-    "description": "Guide page text."
-  },
-  "guide_0530": {
-    "message": "অর্থ:",
-    "description": "Guide page text."
-  },
-  "guide_0531": {
-    "message": "সমর্থিত <code>denyallow=</code> মান হল প্লেইন ডোমেন প্যাটার্ন।",
-    "description": "Guide page text."
-  },
-  "guide_0532": {
-    "message": "<code>denyallow=</code> এ অসমর্থিত:",
-    "description": "Guide page text."
-  },
-  "guide_0533": {
-    "message": "অসমর্থিত মান ব্যবহার করা হলে, পুরো নিয়মটি বাদ দেওয়া হয়।",
-    "description": "Guide page text."
-  },
-  "guide_0534": {
-    "message": "অধ্যায় 18: HTTP পদ্ধতি পরিবর্তনকারী",
-    "description": "Guide page text."
-  },
-  "guide_0535": {
-    "message": "HTTP পদ্ধতি দ্বারা সীমাবদ্ধ করুন:",
-    "description": "Guide page text."
-  },
-  "guide_0536": {
-    "message": "একটি পদ্ধতি বাদ দিন:",
-    "description": "Guide page text."
-  },
-  "guide_0537": {
-    "message": "একাধিক পদ্ধতি:",
-    "description": "Guide page text."
-  },
-  "guide_0538": {
-    "message": "সমর্থিত পদ্ধতি:",
-    "description": "Guide page text."
-  },
-  "guide_0539": {
-    "message": "ডিফল্ট আচরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0540": {
-    "message": "অধ্যায় 19: রিসোর্স টাইপ মডিফায়ার",
-    "description": "Guide page text."
-  },
-  "guide_0541": {
-    "message": "সমর্থিত সম্পদ প্রকার শব্দ:",
-    "description": "Guide page text."
-  },
-  "guide_0542": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0543": {
-    "message": "নেগেটিভ রিসোর্স টাইপ:",
-    "description": "Guide page text."
-  },
-  "guide_0544": {
-    "message": "ম্যাপিং:",
-    "description": "Guide page text."
-  },
-  "guide_0545": {
-    "message": "অধ্যায় 20: প্রথম পক্ষ এবং তৃতীয় পক্ষ",
-    "description": "Guide page text."
-  },
-  "guide_0546": {
-    "message": "ফার্স্ট-পার্টি মানে গন্তব্য সাইট এবং ডকুমেন্ট সাইট একই রেজিস্ট্রেবল ডোমেন শেয়ার করে।",
-    "description": "Guide page text."
-  },
-  "guide_0547": {
-    "message": "তৃতীয় পক্ষ মানে তারা না।",
-    "description": "Guide page text."
-  },
-  "guide_0548": {
-    "message": "শুধুমাত্র প্রথম পক্ষ:",
-    "description": "Guide page text."
-  },
-  "guide_0549": {
-    "message": "উপনাম:",
-    "description": "Guide page text."
-  },
-  "guide_0550": {
-    "message": "শুধুমাত্র তৃতীয় পক্ষ:",
-    "description": "Guide page text."
-  },
-  "guide_0551": {
-    "message": "উপনাম:",
-    "description": "Guide page text."
-  },
-  "guide_0552": {
-    "message": "কঠোর প্রথম-পক্ষ ঠিক একই হোস্ট চেক করে:",
-    "description": "Guide page text."
-  },
-  "guide_0553": {
-    "message": "কঠোর তৃতীয় পক্ষের চেক ঠিক একই হোস্ট নয়:",
-    "description": "Guide page text."
-  },
-  "guide_0554": {
-    "message": "অবৈধ সংমিশ্রণগুলি বাদ দেওয়া হয়েছে, উদাহরণস্বরূপ:",
-    "description": "Guide page text."
-  },
-  "guide_0555": {
-    "message": "অধ্যায় 21: <code>match-case</code>",
-    "description": "Guide page text."
-  },
-  "guide_0556": {
-    "message": "ডিফল্টরূপে, আক্ষরিক পরামিতি ম্যাচিং কেস-সংবেদনশীল।",
-    "description": "Guide page text."
-  },
-  "guide_0557": {
-    "message": "নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0558": {
-    "message": "মিল:",
-    "description": "Guide page text."
-  },
-  "guide_0559": {
-    "message": "কেস-সংবেদনশীল মিলের জন্য <code>match-case</code> ব্যবহার করুন:",
-    "description": "Guide page text."
-  },
-  "guide_0560": {
-    "message": "এখন এটি মেলে:",
-    "description": "Guide page text."
-  },
-  "guide_0561": {
-    "message": "কিন্তু না:",
-    "description": "Guide page text."
-  },
-  "guide_0562": {
-    "message": "অধ্যায় 22: <code>app=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0563": {
-    "message": "ফিল্টার-তালিকা সিনট্যাক্সের সাথে সামঞ্জস্যের জন্য <code>app=</code> পার্স করা হয়েছে।",
-    "description": "Guide page text."
-  },
-  "guide_0564": {
-    "message": "ব্রাউজার অনুরোধে সাধারণত অ্যাপ প্যাকেজ প্রসঙ্গ থাকে না। যদি কোনও অ্যাপের প্রসঙ্গ উপলব্ধ না হয়, তাহলে পজিটিভ <code>app=</code> সহ নিয়মগুলি মেলে না।",
-    "description": "Guide page text."
-  },
-  "guide_0565": {
-    "message": "অ্যাপ বাদ দিন:",
-    "description": "Guide page text."
-  },
-  "guide_0566": {
-    "message": "ওয়াইল্ডকার্ড অ্যাপ প্যাটার্ন:",
-    "description": "Guide page text."
-  },
-  "guide_0567": {
-    "message": "Regex অ্যাপ প্যাটার্ন:",
-    "description": "Guide page text."
-  },
-  "guide_0568": {
-    "message": "অধ্যায় 23: নো-অপ মডিফায়ার",
-    "description": "Guide page text."
-  },
-  "guide_0569": {
-    "message": "এই সংশোধকগুলি গ্রহণ করা হয় কিন্তু উপেক্ষা করা হয়:",
-    "description": "Guide page text."
-  },
-  "guide_0570": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0571": {
-    "message": "এই মত আচরণ করে:",
-    "description": "Guide page text."
-  },
-  "guide_0572": {
-    "message": "অধ্যায় 24: প্যারামিটার ম্যাচিং বিশদ",
-    "description": "Guide page text."
-  },
-  "guide_0573": {
-    "message": "আক্ষরিক পরামিতি নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0574": {
-    "message": "পরামিতি নাম পরীক্ষা করে।",
-    "description": "Guide page text."
-  },
-  "guide_0575": {
-    "message": "Regex পরামিতি নিয়ম:",
-    "description": "Guide page text."
-  },
-  "guide_0576": {
-    "message": "এই পাঠ্যটি পরীক্ষা করে:",
-    "description": "Guide page text."
-  },
-  "guide_0577": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0578": {
-    "message": "উপসর্গ ফর্ম:",
-    "description": "Guide page text."
-  },
-  "guide_0579": {
-    "message": "এটি <code>utm_</code> দিয়ে শুরু হওয়া নামের জন্য একটি রেজেক্স হয়ে যায়।",
-    "description": "Guide page text."
-  },
-  "guide_0580": {
-    "message": "অধ্যায় 25: শুধুমাত্র প্রশ্ন",
-    "description": "Guide page text."
-  },
-  "guide_0581": {
-    "message": "ইন্টারঅপারেবিলিটি রানটাইম <code>#</code> এর আগে ক্যোয়ারী প্যারামিটার পরিষ্কার করে।",
-    "description": "Guide page text."
-  },
-  "guide_0582": {
-    "message": "পরিষ্কার করা হয়েছে:",
-    "description": "Guide page text."
-  },
-  "guide_0583": {
-    "message": "এই রানটাইম পাথ দ্বারা পরিষ্কার করা হয়নি:",
-    "description": "Guide page text."
-  },
-  "guide_0584": {
-    "message": "হ্যাশ প্যারামিটার ক্লিনআপের জন্য, JSON ফর্ম্যাট গাইডে বর্ণিত Linkumori মিশ্র প্রদানকারী JSON নিয়মগুলি ব্যবহার করুন৷",
-    "description": "Guide page text."
-  },
-  "guide_0585": {
-    "message": "অধ্যায় 26: অসমর্থিত নিয়মগুলি বাদ দেওয়া হয়েছে৷",
-    "description": "Guide page text."
-  },
-  "guide_0586": {
-    "message": "একটি নিয়ম বাদ দেওয়া হয় যদি:",
-    "description": "Guide page text."
-  },
-  "guide_0587": {
-    "message": "এর কোন <code>$removeparam</code> বা <code>$queryprune</code> নেই।",
-    "description": "Guide page text."
-  },
-  "guide_0588": {
-    "message": "এটি একটি অসমর্থিত পরিবর্তনকারী ব্যবহার করে।",
-    "description": "Guide page text."
-  },
-  "guide_0589": {
-    "message": "এর রেজেক্স অবৈধ।",
-    "description": "Guide page text."
-  },
-  "guide_0590": {
-    "message": "এটি একটি অবৈধ পদ্ধতি আছে.",
-    "description": "Guide page text."
-  },
-  "guide_0591": {
-    "message": "এটির একটি অবৈধ <code>denyallow=</code> মান রয়েছে৷",
-    "description": "Guide page text."
-  },
-  "guide_0592": {
-    "message": "এটি বেমানান পার্টি মডিফায়ারকে একত্রিত করে।",
-    "description": "Guide page text."
-  },
-  "guide_0593": {
-    "message": "এটি একটি মন্তব্য, বিভাগ শিরোনাম, বা খালি লাইন।",
-    "description": "Guide page text."
-  },
-  "guide_0594": {
-    "message": "এড়িয়ে যাওয়া নিয়মের উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0595": {
-    "message": "কারণ:",
-    "description": "Guide page text."
-  },
-  "guide_0596": {
-    "message": "এড়িয়ে যাওয়া নিয়মের উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0597": {
-    "message": "কারণ:",
-    "description": "Guide page text."
-  },
-  "guide_0598": {
-    "message": "অধ্যায় 27: ডুপ্লিকেট নিয়ম",
-    "description": "Guide page text."
-  },
-  "guide_0599": {
-    "message": "ফিল্টার-তালিকা পার্সিংয়ের সময় ডুপ্লিকেট কাঁচা লাইন বাদ দেওয়া হয়।",
-    "description": "Guide page text."
-  },
-  "guide_0600": {
-    "message": "উদাহরণ:",
-    "description": "Guide page text."
-  },
-  "guide_0601": {
-    "message": "শুধু একটি রাখা হয়েছে।",
-    "description": "Guide page text."
-  },
-  "guide_0602": {
-    "message": "রানটাইমে, নিয়মগুলিও ক্যানোনিকাল ফর্ম দ্বারা অনুলিপি করা হয়।",
-    "description": "Guide page text."
-  },
-  "guide_0603": {
-    "message": "অধ্যায় 28: সম্পূর্ণ ফিল্টার তালিকা উদাহরণ",
-    "description": "Guide page text."
-  },
-  "guide_0604": {
-    "message": "এটি কি করে:",
-    "description": "Guide page text."
-  },
-  "guide_0605": {
-    "message": "সমস্ত <code>utm_</code> প্যারামিটার সরিয়ে দেয়।",
-    "description": "Guide page text."
-  },
-  "guide_0606": {
-    "message": "<code>fbclid</code> সরিয়ে দেয়।",
-    "description": "Guide page text."
-  },
-  "guide_0607": {
-    "message": "<code>gclid</code> সরিয়ে দেয়।",
-    "description": "Guide page text."
-  },
-  "guide_0608": {
-    "message": "<code>/login</code> ব্যতীত <code>example.com</code> এ <code>ref</code> সরিয়ে দেয়।",
-    "description": "Guide page text."
-  },
-  "guide_0609": {
-    "message": "<code>tracking_id</code> শুধুমাত্র <code>GET</code> XHR অনুরোধের জন্য <code>api.example.com</code> এ রিমুভ করে।",
-    "description": "Guide page text."
-  },
-  "guide_0610": {
-    "message": "যোগ করে তারপর <code>badfilter</code> এর সাথে <code>tracker.example</code> টার্গেট রুল বাতিল করে।",
-    "description": "Guide page text."
-  },
-  "guide_0611": {
-    "message": "অধ্যায় 29: JSON স্টোরেজ উদাহরণ",
-    "description": "Guide page text."
-  },
-  "guide_0612": {
-    "message": "অধ্যায় 30: দ্রুত কপি টেমপ্লেট",
-    "description": "Guide page text."
-  },
-  "guide_0613": {
-    "message": "সর্বত্র একটি প্যারামিটার সরান:",
-    "description": "Guide page text."
-  },
-  "guide_0614": {
-    "message": "সমস্ত UTM পরামিতি সরান:",
-    "description": "Guide page text."
-  },
-  "guide_0615": {
-    "message": "<code>id</code> ছাড়া বাকি সব সরান:",
-    "description": "Guide page text."
-  },
-  "guide_0616": {
-    "message": "শুধুমাত্র একটি ডোমেনে চালান:",
-    "description": "Guide page text."
-  },
-  "guide_0617": {
-    "message": "ব্যতিক্রম:",
-    "description": "Guide page text."
-  },
-  "guide_0618": {
-    "message": "GET শুধুমাত্র:",
-    "description": "Guide page text."
-  },
-  "guide_0619": {
-    "message": "XHR শুধুমাত্র:",
-    "description": "Guide page text."
-  },
-  "guide_0620": {
-    "message": "শুধুমাত্র টার্গেট ডোমেন:",
-    "description": "Guide page text."
-  },
-  "guide_0621": {
-    "message": "শুধুমাত্র উৎস পৃষ্ঠা ডোমেন:",
-    "description": "Guide page text."
-  },
-  "guide_0622": {
-    "message": "শুধুমাত্র তৃতীয় পক্ষ:",
-    "description": "Guide page text."
-  },
-  "guide_0623": {
-    "message": "কেস-সংবেদনশীল:",
-    "description": "Guide page text."
-  },
-  "guide_theme_midnight": {
-    "message": "মধ্যরাত",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_light": {
-    "message": "আলো",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_icecold": {
-    "message": "বরফ ঠান্ডা",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_zen_grey": {
-    "message": "জেন গ্রে",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_sunset": {
-    "message": "সূর্যাস্ত",
-    "description": "Guide theme selector option."
   },
   "guide_0624": {
     "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -7782,12 +6806,12 @@
     "description": "Guide page text."
   },
   "guide_0725": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  },\n  \"urlFilterRules\": [\n    \"*$removeparam=fbclid\"\n  ],\n  \"urlFilterMetadata\": {\n    \"format\": \"linkumori-url-filter-interoperability\",\n    \"status\": \"loaded\"\n  }\n}\n",
-    "description": "Guide page text."
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide code example for provider JSON with inline $removeparam rules."
   },
   "guide_0726": {
-    "message": "providers are handled by Linkumori extension provider logic.\nurlFilterRules are handled by the interoperability runtime.\nThey can exist in the same Linkumori extension data object, but they are different rule systems.\n",
-    "description": "Guide page text."
+    "message": "Provider-local <code>rules[]</code> entries are compiled into the same provider set before <code>clearurls.js</code> runs. Keep filter-list style <code>$removeparam</code> lines inside provider <code>rules[]</code> when authoring Linkumori JSON.\n",
+    "description": "Guide note explaining provider-local filter-list rules."
   },
   "guide_0727": {
     "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -8077,438 +7101,6 @@
     "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
     "description": "Guide page text."
   },
-  "guide_0799": {
-    "message": "⇄",
-    "description": "Guide page text."
-  },
-  "guide_0800": {
-    "message": "{\n  \"urlFilterRules\": [\n    \"||example.com^$removeparam=utm_source\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0801": {
-    "message": "{\n  \"providers\": {},\n  \"urlFilterRules\": []\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0802": {
-    "message": "$removeparam\n$queryprune\n@@ exceptions\nbadfilter\nimportant\ndomain=\nfrom=\nto=\ndenyallow=\nmethod=\nrequest type modifiers\nfirst-party / third-party\nstrict-first-party / strict-third-party\nmatch-case\napp=\n",
-    "description": "Guide page text."
-  },
-  "guide_0803": {
-    "message": "Network blocking rules without $removeparam or $queryprune\nCosmetic filters\nScriptlets\nHTML filtering\nRequest blocking\nFull adblock engine behavior\n",
-    "description": "Guide page text."
-  },
-  "guide_0804": {
-    "message": "URL_PATTERN$removeparam=PARAMETER\n",
-    "description": "Guide page text."
-  },
-  "guide_0805": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0806": {
-    "message": "On example.com and its subdomains, remove the query parameter named utm_source.\n",
-    "description": "Guide page text."
-  },
-  "guide_0807": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0808": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"||example.com^$removeparam=utm_source\",\n      \"*$removeparam=/^utm_/\"\n    ],\n    \"urlFilterMetadata\": {\n      \"format\": \"linkumori-url-filter-interoperability\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0809": {
-    "message": "! This is a comment\n",
-    "description": "Guide page text."
-  },
-  "guide_0810": {
-    "message": "[Tracking parameters]\n",
-    "description": "Guide page text."
-  },
-  "guide_0811": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0812": {
-    "message": "https://site.test/?utm_source=x&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0813": {
-    "message": "*$removeparam\n",
-    "description": "Guide page text."
-  },
-  "guide_0814": {
-    "message": "https://site.test/?a=1&b=2\n-> https://site.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0815": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0816": {
-    "message": "https://site.test/?utm_source=x&utm_campaign=y&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0817": {
-    "message": "*$removeparam=/^utm_/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0818": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0819": {
-    "message": "https://site.test/?id=1&utm_source=x&fbclid=y\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0820": {
-    "message": "Remove every parameter except id.\n",
-    "description": "Guide page text."
-  },
-  "guide_0821": {
-    "message": "*$removeparam=utm_source\n*$queryprune=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0822": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0823": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0824": {
-    "message": "|https://example.com/path$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0825": {
-    "message": "https://example.com/path|$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0826": {
-    "message": "/^https:\\/\\/([^/]+\\.)?example\\.com\\/track/$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0827": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0828": {
-    "message": "*$removeparam=utm_source\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0829": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0830": {
-    "message": "*$removeparam=utm_source,important\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0831": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0832": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0833": {
-    "message": "||example.com^$removeparam=utm_source,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0834": {
-    "message": "Cancel the original rule.\n",
-    "description": "Guide page text."
-  },
-  "guide_0835": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0836": {
-    "message": "*$removeparam=utm_source,from=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0837": {
-    "message": "documentUrl\noriginUrl\ninitiator\n",
-    "description": "Guide page text."
-  },
-  "guide_0838": {
-    "message": "*$removeparam=utm_source,domain=example.com|shop.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0839": {
-    "message": "*$removeparam=utm_source,domain=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0840": {
-    "message": "*$removeparam=utm_source,domain=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0841": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0842": {
-    "message": "Cleaned:\nhttps://example.com/?utm_source=x&id=1\n\nNot cleaned:\nhttps://other.test/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0843": {
-    "message": "*$removeparam=utm_source,to=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0844": {
-    "message": "*$removeparam=utm_source,to=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0845": {
-    "message": "*$removeparam=utm_source,denyallow=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0846": {
-    "message": "Remove utm_source generally, but do not apply this rule when the destination host matches example.com.\n",
-    "description": "Guide page text."
-  },
-  "guide_0847": {
-    "message": "~negation\nexample.*\n/regex/\n",
-    "description": "Guide page text."
-  },
-  "guide_0848": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0849": {
-    "message": "*$removeparam=utm_source,method=~POST\n",
-    "description": "Guide page text."
-  },
-  "guide_0850": {
-    "message": "*$removeparam=utm_source,method=GET|HEAD\n",
-    "description": "Guide page text."
-  },
-  "guide_0851": {
-    "message": "GET\nHEAD\nOPTIONS\nPOST\nPUT\nPATCH\nDELETE\nCONNECT\n",
-    "description": "Guide page text."
-  },
-  "guide_0852": {
-    "message": "Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.\nFast simple query cleanup also uses those simple methods.\n",
-    "description": "Guide page text."
-  },
-  "guide_0853": {
-    "message": "document\ndoc\nsubdocument\nframe\nscript\nstylesheet\nimage\nmedia\nfont\nobject\nxmlhttprequest\nxhr\nwebsocket\nping\nother\n",
-    "description": "Guide page text."
-  },
-  "guide_0854": {
-    "message": "*$removeparam=utm_source,script\n*$removeparam=utm_source,image\n*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0855": {
-    "message": "*$removeparam=utm_source,~image\n",
-    "description": "Guide page text."
-  },
-  "guide_0856": {
-    "message": "document       -> main_frame\ndoc            -> main_frame\nsubdocument    -> sub_frame\nframe          -> sub_frame\nxhr            -> xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0857": {
-    "message": "*$removeparam=utm_source,first-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0858": {
-    "message": "1p\n~third-party\n~3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0859": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0860": {
-    "message": "3p\n~first-party\n~1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0861": {
-    "message": "*$removeparam=utm_source,strict-first-party\n*$removeparam=utm_source,strict1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0862": {
-    "message": "*$removeparam=utm_source,strict-third-party\n*$removeparam=utm_source,strict3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0863": {
-    "message": "*$removeparam=utm_source,first-party,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0864": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0865": {
-    "message": "utm_source\nUTM_SOURCE\nUtm_Source\n",
-    "description": "Guide page text."
-  },
-  "guide_0866": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "guide_0867": {
-    "message": "utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0868": {
-    "message": "UTM_SOURCE\n",
-    "description": "Guide page text."
-  },
-  "guide_0869": {
-    "message": "*$removeparam=utm_source,app=com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0870": {
-    "message": "*$removeparam=utm_source,app=~com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0871": {
-    "message": "*$removeparam=utm_source,app=com.example.*\n",
-    "description": "Guide page text."
-  },
-  "guide_0872": {
-    "message": "*$removeparam=utm_source,app=/example/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0873": {
-    "message": "_\nnoop\nstealth\ncookie\n",
-    "description": "Guide page text."
-  },
-  "guide_0874": {
-    "message": "*$removeparam=utm_source,noop\n",
-    "description": "Guide page text."
-  },
-  "guide_0875": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0876": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0877": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0878": {
-    "message": "name=value\n",
-    "description": "Guide page text."
-  },
-  "guide_0879": {
-    "message": "URL:\nhttps://example.com/?utm_source=news&id=1\n\nRegex sees:\nutm_source=news\nid=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0880": {
-    "message": "*$removeparam=|utm_\n",
-    "description": "Guide page text."
-  },
-  "guide_0881": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0882": {
-    "message": "https://example.com/#utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0883": {
-    "message": "||example.com^$script\n",
-    "description": "Guide page text."
-  },
-  "guide_0884": {
-    "message": "No $removeparam or $queryprune.\n",
-    "description": "Guide page text."
-  },
-  "guide_0885": {
-    "message": "*$removeparam=utm_source,unknownmodifier\n",
-    "description": "Guide page text."
-  },
-  "guide_0886": {
-    "message": "Unsupported modifier.\n",
-    "description": "Guide page text."
-  },
-  "guide_0887": {
-    "message": "*$removeparam=utm_source\n*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0888": {
-    "message": "! Linkumori URL filter interoperability example\n\n*$removeparam=/^utm_/\n*$removeparam=fbclid\n*$removeparam=gclid\n\n||example.com^$removeparam=ref\n@@||example.com/login^$removeparam=ref\n\n*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET\n\n||tracker.example^$removeparam=target,third-party\n||tracker.example^$removeparam=target,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0889": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"*$removeparam=/^utm_/\",\n      \"*$removeparam=fbclid\",\n      \"||example.com^$removeparam=ref\",\n      \"@@||example.com/login^$removeparam=ref\"\n    ],\n    \"urlFilterMetadata\": {\n      \"name\": \"Linkumori URL Filter Rules\",\n      \"format\": \"linkumori-url-filter-interoperability\",\n      \"status\": \"loaded\",\n      \"ruleStatus\": \"loaded\",\n      \"hashStatus\": \"not_required\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0890": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0891": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0892": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0893": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0894": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0895": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0896": {
-    "message": "*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0897": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0898": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0899": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0900": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "faq_final_runtime_clearurls_title": {
-    "message": "ডেডিকেটেড clearurls.js রানটাইম সিনট্যাক্স",
-    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
-  },
-  "faq_final_runtime_interoperability_title": {
-    "message": "ইন্টারঅপারেবিলিটি URL-ফিল্টার রানটাইম সিনট্যাক্স",
-    "description": "FAQ label for the interoperability runtime syntax example"
-  },
-  "faq_final_runtime_open_page": {
-    "message": "রানটাইম সিনট্যাক্স রেফারেন্স খুলুন",
-    "description": "FAQ link text that opens the dedicated runtime syntax page"
-  },
-  "faq_final_runtime_syntax": {
-    "message": "চূড়ান্ত রানটাইম সিনট্যাক্স কি?",
-    "description": "FAQ question for final supported runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_answer": {
-    "message": "Linkumori দুটি চূড়ান্ত রানটাইম ফর্ম্যাট সমর্থন করে। নেটিভ ফিল্ড, কাঁচা, পুনঃনির্দেশ, পুনর্লিখন, ব্যতিক্রম, এবং প্রদানকারী-স্কোপড আচরণের জন্য প্রথমে ডেডিকেটেড clearurls.js প্রদানকারী সিনট্যাক্স ব্যবহার করুন। URL-ফিল্টার শৈলী $removeparam নিয়মগুলি আমদানি করার সময় আন্তঃঅপারেবিলিটি বিন্যাস ব্যবহার করুন।",
-    "description": "FAQ answer explaining the two final runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_note": {
-    "message": "উভয় ফরম্যাট একসাথে লোড করা যেতে পারে, কিন্তু ডেডিকেটেড প্রদানকারী সিনট্যাক্স হল প্রাথমিক নেটিভ ফরম্যাট। ফিল্টার-তালিকা সামঞ্জস্যের জন্য আন্তঃঅপারেবিলিটি বিন্যাস বিদ্যমান।",
-    "description": "FAQ note for final runtime syntax formats"
-  },
   "providerImport_allProviders": {
     "message": "সমস্ত প্রদানকারী",
     "description": "Filter label for showing rule activations from every provider"
@@ -8529,60 +7121,52 @@
     "message": "প্রদানকারী নিয়ম নেভিগেশন",
     "description": "Accessible label for provider filter navigation on the disabled rules page"
   },
-  "runtimeSyntax_clearURLsDescription": {
-    "message": "এটি clearurls.js দ্বারা ব্যবহৃত নেটিভ রানটাইম। এটি প্রথমে কাস্টম প্রদানকারীদের জন্য ব্যবহার করা উচিত কারণ এটি ক্যানোনিকাল নিয়ম অবজেক্ট, ক্ষেত্র নিয়ম, কাঁচা URL নিয়ম, পুনর্নির্দেশ, পুনর্লিখন, ব্যতিক্রম, অনুরোধের ধরন, উপনাম এবং প্যাটার্ন-স্কোপড অক্ষম পরিচয় সমর্থন করে।",
-    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_clearURLsTitle": {
-    "message": "ডেডিকেটেড clearurls.js রানটাইম",
-    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_disableDescription": {
-    "message": "প্যাটার্ন-স্কোপড পরিচয়গুলি প্রদানকারী-নাম পরিবর্তন জুড়ে স্থিতিশীল। বিস্তৃত উত্তরাধিকার নিষ্ক্রিয় আচরণের জন্য প্রদানকারী-স্কোপযুক্ত পরিচয়গুলি উপলব্ধ থাকে।",
-    "description": "Runtime syntax page description for disable identity examples"
-  },
-  "runtimeSyntax_disableTitle": {
-    "message": "পরিচয় বিন্যাস অক্ষম করুন",
-    "description": "Runtime syntax page section title for disable identity formats"
-  },
-  "runtimeSyntax_interoperabilityDescription": {
-    "message": "এই রানটাইম URL-ফিল্টার ইন্টারঅপারেবিলিটির জন্য। এটি আমদানি এবং দূরবর্তী তালিকা সামঞ্জস্যের জন্য একটি কমপ্যাক্ট নিয়ম অ্যারেতে ফিল্টার-তালিকা শৈলী $removeparam এবং @@ ব্যতিক্রম নিয়মগুলি রাখে।",
-    "description": "Runtime syntax page description for interoperability runtime syntax"
-  },
-  "runtimeSyntax_interoperabilityTitle": {
-    "message": "ইন্টারঅপারেবিলিটি নিয়ম রানটাইম",
-    "description": "Runtime syntax page section title for interoperability runtime syntax"
-  },
-  "runtimeSyntax_intro": {
-    "message": "নেটিভ clearurls.js প্রদানকারী রানটাইম হল প্রথম-শ্রেণীর বিন্যাস। ইন্টারঅপারেবিলিটি রানটাইম ফিল্টার-লিস্টের নিয়মগুলির জন্য এটির পাশে বসে আছে যেগুলিকে তাদের আসল $removeparam আকৃতি রাখতে হবে।",
-    "description": "Runtime syntax page intro text"
-  },
-  "runtimeSyntax_kicker": {
-    "message": "রানটাইম রেফারেন্স",
-    "description": "Runtime syntax page eyebrow text"
-  },
-  "runtimeSyntax_navClearURLs": {
-    "message": "ডেডিকেটেড রানটাইম",
-    "description": "Runtime syntax page navigation link for dedicated runtime section"
-  },
-  "runtimeSyntax_navDisableIds": {
-    "message": "আইডি নিষ্ক্রিয় করুন",
-    "description": "Runtime syntax page navigation link for disable identity section"
-  },
-  "runtimeSyntax_navInteroperability": {
-    "message": "ইন্টারঅপারেবিলিটি রানটাইম",
-    "description": "Runtime syntax page navigation link for interoperability section"
-  },
-  "runtimeSyntax_pageTitle": {
-    "message": "চূড়ান্ত রানটাইম সিনট্যাক্স",
-    "description": "Runtime syntax page title"
-  },
   "popup_html_guide_link": {
     "message": "প্রদানকারী JSON গাইড",
     "description": "Popup license link label for the Linkumori provider JSON guide page"
   },
   "popup_html_guide_link_title": {
-    "message": "Linkumori প্রদানকারী JSON এবং ইন্টারঅপারেবিলিটি গাইড খুলুন",
-    "description": "Tooltip and aria label for the popup guide link in the license section"
+    "message": "Open Linkumori rules guide",
+    "description": "Tooltip and aria label for the popup guide link in the license section."
+  },
+  "faq_rules_guide_syntax": {
+    "message": "Which rule syntax should I use?",
+    "description": "FAQ question for the unified Linkumori rule syntax guide."
+  },
+  "faq_rules_guide_syntax_answer": {
+    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
+    "description": "FAQ answer explaining the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_syntax_note": {
+    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
+    "description": "FAQ note for the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_open_page": {
+    "message": "Open rules guide",
+    "description": "FAQ link text that opens the unified rules guide."
+  },
+  "providerImport_failedToLoadSources": {
+    "message": "Failed to load provider sources: $1",
+    "description": "Error shown when provider import sources fail to load."
+  },
+  "providerImport_noBundledRules": {
+    "message": "Bundled rules are not available.",
+    "description": "Error shown when bundled rules are unavailable for provider import."
+  },
+  "providerImport_failedToLoadBundled": {
+    "message": "Failed to load bundled rules: $1",
+    "description": "Error shown when bundled rules fail to load for provider import."
+  },
+  "status_language_change_failed": {
+    "message": "Could not switch language to $1.",
+    "description": "Status text shown when changing the UI language fails."
+  },
+  "theme_light": {
+    "message": "Light theme",
+    "description": "Accessible label for switching to the light theme."
+  },
+  "theme_dark": {
+    "message": "Dark theme",
+    "description": "Accessible label for switching to the dark theme."
   }
 }

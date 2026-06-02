@@ -55,17 +55,9 @@
     "message": "Izmantojiet komplektā iekļautos Linkumori/ClearURLs noteikumus. Atspējojiet šo opciju, lai darbotos tikai ar attāliem noteikumiem un/vai pielāgotiem noteikumiem.",
     "description": "Description for the toggle that controls bundled built-in rules"
   },
-  "linkumori_interoperability_mode_enabled": {
-    "message": "Linkumori sadarbspējas režīms",
-    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
-  },
-  "linkumori_interoperability_mode_enabled_description": {
-    "message": "Lieto Linkumori URL Filter sadarbspējas noteikumus, tostarp saderīgus $removeparam sarakstus, kopā ar vietējiem Linkumori/ClearURLs JSON noteikumiem.",
-    "description": "Description for the Linkumori interoperability mode toggle"
-  },
   "bundled_rules_description": {
-    "message": "Linkumori izmanto divas kārtulu kategorijas: Linkumori (ClearURLs 2.0) JSON kārtulas vietējiem pakalpojumu sniedzējiem un Linkumori 987658 populāro filtrēšanas savstarpējās izmantojamības7009 kārtulas. $removeparam saraksti. Katra kategorija tiek uzskaitīta atsevišķi.",
-    "description": "Description for the bundled rules section."
+    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs.",
+    "description": "Description text for the built-in bundled rules setting."
   },
   "bundled_rules_section_title": {
     "message": "Informācija par noteikumiem",
@@ -2107,16 +2099,8 @@
   "providerImport_importedCount": {
     "message": "Importētie: $1 nodrošinātāji"
   },
-  "providerImport_importedRulesCount": {
-    "message": "Importētas: $1 kārtulas",
-    "description": "Import result count for Linkumori URL interoperability rules."
-  },
   "providerImport_importing": {
     "message": "Notiek importēšana..."
-  },
-  "providerImport_linkumoriData": {
-    "message": "Esošās Linkumori sadarbspējas kārtulas",
-    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Notiek pakalpojumu sniedzēju ielāde...",
@@ -2179,10 +2163,6 @@
   },
   "providerImport_skippedCount": {
     "message": "Izlaists: $1 nodrošinātāji"
-  },
-  "providerImport_skippedRulesCount": {
-    "message": "Izlaistas: $1 kārtulas",
-    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Noteikumu avots",
@@ -2533,16 +2513,16 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "Ja pilnībā nesaprotat, vai jūsu avots ir Linkumori (ClearURLs 2.0) JSON kārtulu kopa vai Linkumori URL 987650045678 filtru saraksts.",
-    "description": "Final warning message in security modal"
+    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source.",
+    "description": "Final warning shown in the remote rules security modal."
   },
   "security_modal_main_warning": {
-    "message": "Šī attālo noteikumu funkcija ir paredzēta pieredzējušiem lietotājiem, kuri saprot ielādējamo avota formātu. Linkumori (ClearURLs 2.0) JSON attālo kārtulu verifikācijai ir nepieciešams atbilstošs hash URL. Linkumori URL Filtru savietojamības sarakstus var ielādēt bez jaucējkoda URL un tiek glabāti atsevišķi.",
-    "description": "Main warning text explaining the purpose and risks"
+    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification.",
+    "description": "Main warning text for the remote rules security modal."
   },
   "security_modal_privacy_text": {
-    "message": "Ja pievienosit attālo kārtulu URL, paplašinājums izveidos savienojumu ar jūsu norādīto serveri, lai iegūtu Linkumori (ClearURLs 2.0) JSON kārtulu, tās jaucējfailu, kad tas ir konfigurēts, vai 65909287. URL Filtru savietojamības saraksts. Katrs ienesums var parādīt jūsu IP adresi un vispārīgu informāciju, piemēram, paplašinājuma versiju, pārlūkprogrammu un pārlūkprogrammas versiju mitināšanas serverim. Uz šiem datiem attiecas šīs vietnes vai tīmekļa servera privātuma politika.",
-    "description": "Privacy notice explaining data collection policy"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the remote rules security modal."
   },
   "security_modal_privacy_link_text": {
     "message": "Ja nepieciešams, vēlreiz izlasiet %PRIVACY_POLICY_LINK%, pirms turpināt.",
@@ -2553,8 +2533,8 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Izmantojiet iebūvētos noteikumus, ja vien neuzticaties un nekontrolējat attālo avotu. Linkumori (ClearURLs 2.0) JSON kārtulām norādiet atbilstošu jaucējkodu URL. Sadarbspējas filtru sarakstiem atstājiet jaucējkodu URL tukšu.",
-    "description": "Recommendation to use built-in rules instead"
+    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules.",
+    "description": "Recommendation text shown in the remote rules security modal."
   },
   "security_modal_risk_1": {
     "message": "Jūsu IP adrese un pārlūkprogrammas informācija tiks atklāta konfigurētajiem serveriem",
@@ -2569,8 +2549,8 @@
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Sadarbspējas filtru sarakstos netiek izmantota jaukšanas pārbaude, tāpēc uzticēšanās avotam URL ir īpaši svarīga.",
-    "description": "Fourth security risk point"
+    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL.",
+    "description": "Risk list item for remote rules without successful hash verification."
   },
   "security_modal_risks_title": {
     "message": "Drošības riski:",
@@ -3279,24 +3259,24 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Jūs atspējojat Gatekeeper aizsardzību attālās kārtulas URL rediģēšanai. Šī funkcija var ielādēt Linkumori (ClearURLs 2.0) JSON kārtulas ar jaukšanas verifikāciju vai Linkumori URL Filtru sadarbspējas verifikācijas sarakstus bez hash. Turpiniet tikai tad, ja saprotat, kuru formātu konfigurējat.",
-    "description": "Main warning text in disable gatekeeper modal"
+    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring.",
+    "description": "Main warning text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper ir iebūvēta drošības plūsma, kas bloķē tiešu attālo URL rediģēšanu, līdz jūs apstiprināt drošības brīdinājumu un pabeidzat drukāto apstiprinājumu.",
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Saglabājiet Gatekeeper iespējotu, ja vien neuzticaties un nekontrolējat attālos avotus. JSON noteikumos jāiekļauj atbilstošs jaucējvārds URL; sadarbspējas saraksti ar nolūku atstāj jaucējkodu URL tukšu.",
-    "description": "Recommendation text in disable gatekeeper modal"
+    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL.",
+    "description": "Recommendation text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "brīdinājuma paziņojums:",
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Ja pievienosit attālo kārtulu URL, paplašinājums izveidos savienojumu ar jūsu norādīto serveri, lai iegūtu Linkumori (ClearURLs 2.0) JSON kārtulu, tās jaucējfailu, kad tas ir konfigurēts, vai 65909287. URL Filtru savietojamības saraksts. Katrs ienesums var parādīt jūsu IP adresi un vispārīgu informāciju, piemēram, paplašinājuma versiju, pārlūkprogrammu un pārlūkprogrammas versiju mitināšanas serverim. Uz šiem datiem attiecas šīs vietnes vai tīmekļa servera privātuma politika.",
-    "description": "Privacy section body in disable gatekeeper modal"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Ja nepieciešams, vēlreiz izlasiet %PRIVACY_POLICY_LINK%, pirms turpināt.",
@@ -3315,8 +3295,8 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Serveris, kurā tiek mitināti attālie JSON, jaukšanas vai sadarbspējas filtra faili, saņems jūsu IP adresi.",
-    "description": "Risk bullet 2 in disable gatekeeper modal"
+    "message": "The server hosting remote JSON or hash files will receive your IP address.",
+    "description": "Risk list item for remote file hosts receiving the user IP address."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Serveris var arī saņemt jūsu paplašinājuma versiju, pārlūkprogrammu un pārlūkprogrammas versiju.",
@@ -3327,8 +3307,8 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Atspējojot numuru Gatekeeper, jūs palielinat risku, ko rada nedroši vai apdraudēti attālo noteikumu avoti. Jaukšanas verifikācija aizsargā tikai Linkumori (ClearURLs 2.0) JSON kārtulu lejupielādes. Tas neattiecas uz sadarbspējas sarakstiem.",
-    "description": "Final warning banner text in disable gatekeeper modal"
+    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured.",
+    "description": "Final warning shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Atcelt",
@@ -3407,8 +3387,8 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Šī darbība samazina attālo noteikumu aizsardzības pasākumus. Turpiniet tikai tad, ja uzticaties JSON un savietojamības filtru avotiem.",
-    "description": "Final warning text for gatekeeper-specific confirmation modal"
+    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source.",
+    "description": "Final confirmation text for disabling Gatekeeper."
   },
   "remote_urls_template_note_1": {
     "message": "Aizstājiet vietturu vērtības ar reālajiem HTTPS URL, pēc tam importējiet šo failu.",
@@ -4130,10 +4110,6 @@
     "message": "Nav aktivitātes",
     "description": "Fallback row label when no daily stats data is available."
   },
-  "linkumori_url_rules_section": {
-    "description": "Section header for popular extension URL filter rules in settings",
-    "message": "Linkumori URL Filtri (savstarpēja izmantojamība):"
-  },
   "clearurls_json_rules_section": {
     "description": "Section header for native ClearURLs JSON rule statistics in settings",
     "message": "Linkumori (ClearURLs 2,0) JSON Noteikumi:"
@@ -4194,66 +4170,6 @@
     "description": "Hash status for popular extension URL filter lists",
     "message": "nav nepieciešams"
   },
-  "linkumori_url_filter_name": {
-    "description": "Display name for Linkumori URL filter interoperability rules.",
-    "message": "Linkumori URL Filtri"
-  },
-  "linkumori_url_filter_single_name": {
-    "description": "Display name for a single Linkumori URL filter source.",
-    "message": "Linkumori URL Filtrs"
-  },
-  "linkumori_url_filter_merged_name": {
-    "description": "Display name when multiple Linkumori URL filter sources are merged.",
-    "message": "Apvienotie Linkumori URL filtri"
-  },
-  "linkumori_url_filter_custom_name": {
-    "description": "Display name for custom Linkumori URL filter rules.",
-    "message": "Custom Linkumori URL Noteikumi"
-  },
-  "linkumori_url_filter_parser_unavailable": {
-    "description": "Error when the Linkumori URL filter parser is unavailable.",
-    "message": "Linkumori URL filtra parsētājs nav pieejams"
-  },
-  "linkumori_url_filter_custom_failed": {
-    "description": "Error when custom Linkumori URL rules cannot be parsed.",
-    "message": "Pielāgotas Linkumori URL kārtulas neizdevās"
-  },
-  "linkumori_url_filter_sources_failed_count": {
-    "description": "Summary of failed Linkumori URL filter sources.",
-    "message": "$1 URL filtra avots(-i) neizdevās"
-  },
-  "linkumori_url_filter_remote_empty": {
-    "description": "Error when a remote Linkumori URL filter file is empty.",
-    "message": "Attālā URL filtra fails ir tukšs"
-  },
-  "linkumori_url_filter_fetch_failed": {
-    "description": "Error when fetching Linkumori URL filters fails.",
-    "message": "Linkumori URL filtra ielāde neizdevās"
-  },
-  "linkumori_url_filter_unknown_error": {
-    "description": "Fallback error for Linkumori URL filters.",
-    "message": "Nezināma URL filtra kļūda"
-  },
-  "linkumori_url_filter_all_sources_failed": {
-    "description": "Error when all Linkumori URL filter sources fail.",
-    "message": "Visi Linkumori URL filtru avoti neizdevās"
-  },
-  "linkumori_url_filter_log_pattern_value": {
-    "description": "Log pattern value for Linkumori URL filter interoperability.",
-    "message": "populārā paplašinājuma URL izsekošanas filtrs"
-  },
-  "linkumori_url_filter_no_supported_rules": {
-    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
-    "message": "Nav atbalstīts Linkumori savietojamība $removeparam noteikumi atrasti"
-  },
-  "linkumori_url_filter_interoperability_name": {
-    "description": "Parser metadata name for Linkumori URL filter interoperability.",
-    "message": "Linkumori URL Filtru savietojamība"
-  },
-  "linkumori_url_filter_interoperability_author": {
-    "description": "Parser metadata author for Linkumori URL filter interoperability.",
-    "message": "Linkumori sadarbspējas filtra avots"
-  },
   "linkumoriUrlRules_button": {
     "description": "Button that opens the custom Linkumori URL filter modal.",
     "message": "Linkumori URL Noteikumi"
@@ -4306,17 +4222,9 @@
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2,0)"
   },
-  "linkumoriUrlFiltersStatusGroup": {
-    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
-    "message": "Linkumori URL Filtri (savstarpēja izmantojamība)"
-  },
   "linkumoriUrlRules_statusLabel": {
     "description": "Status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Statuss"
-  },
-  "linkumoriUrlRules_runtimeRulesLabel": {
-    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
-    "message": "Izpildes laika noteikumi"
   },
   "linkumoriUrlRules_customRulesLabel": {
     "description": "Label for custom Linkumori URL rules in the custom rules editor.",
@@ -4325,10 +4233,6 @@
   "linkumoriUrlRules_hashStatusLabel": {
     "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Hash"
-  },
-  "linkumoriUrlRules_statusSummary": {
-    "description": "Rules status summary for Linkumori URL rules.",
-    "message": "$1\n$2 izpildlaika kārtula(s)\n$3 pielāgota(-as) kārtula(-as)"
   },
   "linkumoriUrlRules_close_aria": {
     "description": "Accessible label for closing the Linkumori URL rules modal.",
@@ -4345,26 +4249,6 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Attālinātajiem populārajiem paplašinājuma URL filtriem un šiem pielāgotajiem noteikumiem nav nepieciešama jaukšanas pārbaude. Pēc parsēšanas tie tiek glabāti mapē LinkumoriURLsData, atsevišķi no ClearURLsData."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
-    "message": "Sadarbspēja mainīta",
-    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
-    "message": "Sadarbspējas izvades URL",
-    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
-    "message": "Atbilstošā sadarbspējas kārtula",
-    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
-    "message": "Sadarbspējas modeļa tips",
-    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
-    "message": "Sadarbspējas darbība",
-    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   },
   "popup_whitelist_state_permanent": {
     "message": "Baltajā sarakstā: $1 — noklikšķiniet vēlreiz, lai rādītu tikai cilnes",
@@ -5165,134 +5049,6 @@
     "message": "25. nodaļa: Ātrās kopēšanas veidnes",
     "description": "Guide page text."
   },
-  "guide_0076": {
-    "message": "Sadarbspējas noteikumi",
-    "description": "Guide page text."
-  },
-  "guide_0077": {
-    "message": "Sadarbspējas noteikumu rokasgrāmata",
-    "description": "Guide page text."
-  },
-  "guide_0078": {
-    "message": "1. nodaļa. Kas ir sadarbspējas noteikumi",
-    "description": "Guide page text."
-  },
-  "guide_0079": {
-    "message": "2. nodaļa: Kas tiek atbalstīts",
-    "description": "Guide page text."
-  },
-  "guide_0080": {
-    "message": "3. nodaļa: Pamatnoteikumu formāts",
-    "description": "Guide page text."
-  },
-  "guide_0081": {
-    "message": "4. nodaļa: Kur tiek glabāti noteikumi",
-    "description": "Guide page text."
-  },
-  "guide_0082": {
-    "message": "5. nodaļa: Komentāri un tukšas rindas",
-    "description": "Guide page text."
-  },
-  "guide_0083": {
-    "message": "6. nodaļa: Noņemiet vienu parametru",
-    "description": "Guide page text."
-  },
-  "guide_0084": {
-    "message": "7. nodaļa: Noņemiet visus vaicājuma parametrus",
-    "description": "Guide page text."
-  },
-  "guide_0085": {
-    "message": "8. nodaļa: Parametru noņemšana, izmantojot Regex",
-    "description": "Guide page text."
-  },
-  "guide_0086": {
-    "message": "9. nodaļa: Noņemiet visus, izņemot vienu spēli",
-    "description": "Guide page text."
-  },
-  "guide_0087": {
-    "message": "10. nodaļa: $queryprune",
-    "description": "Guide page text."
-  },
-  "guide_0088": {
-    "message": "11. nodaļa: URL Rakstu piemēri",
-    "description": "Guide page text."
-  },
-  "guide_0089": {
-    "message": "12. nodaļa: Izņēmumi",
-    "description": "Guide page text."
-  },
-  "guide_0090": {
-    "message": "13. nodaļa: svarīgi",
-    "description": "Guide page text."
-  },
-  "guide_0091": {
-    "message": "14. nodaļa: sliktais filtrs",
-    "description": "Guide page text."
-  },
-  "guide_0092": {
-    "message": "15. nodaļa: Domēna avota modifikatori: domēns= un no=",
-    "description": "Guide page text."
-  },
-  "guide_0093": {
-    "message": "16. nodaļa: Mērķa domēna pārveidotājs: līdz=",
-    "description": "Guide page text."
-  },
-  "guide_0094": {
-    "message": "17. nodaļa: denyallow=",
-    "description": "Guide page text."
-  },
-  "guide_0095": {
-    "message": "18. nodaļa: HTTP Metodes pārveidotājs",
-    "description": "Guide page text."
-  },
-  "guide_0096": {
-    "message": "19. nodaļa: Resursu tipa modifikatori",
-    "description": "Guide page text."
-  },
-  "guide_0097": {
-    "message": "20. nodaļa: Pirmā puse un trešā puse",
-    "description": "Guide page text."
-  },
-  "guide_0098": {
-    "message": "21. nodaļa: sērkociņu lieta",
-    "description": "Guide page text."
-  },
-  "guide_0099": {
-    "message": "22. nodaļa: app=",
-    "description": "Guide page text."
-  },
-  "guide_0100": {
-    "message": "23. nodaļa: Modifikatori bez darbības",
-    "description": "Guide page text."
-  },
-  "guide_0101": {
-    "message": "24. nodaļa: Parametru atbilstības informācija",
-    "description": "Guide page text."
-  },
-  "guide_0102": {
-    "message": "25. nodaļa: Tikai vaicājums",
-    "description": "Guide page text."
-  },
-  "guide_0103": {
-    "message": "26. nodaļa: Neatbalstītie noteikumi tiek izlaisti",
-    "description": "Guide page text."
-  },
-  "guide_0104": {
-    "message": "27. nodaļa: Noteikumu dublikāti",
-    "description": "Guide page text."
-  },
-  "guide_0105": {
-    "message": "28. nodaļa: Pilnīga filtru saraksta piemērs",
-    "description": "Guide page text."
-  },
-  "guide_0106": {
-    "message": "29. nodaļa: JSON Uzglabāšanas piemērs",
-    "description": "Guide page text."
-  },
-  "guide_0107": {
-    "message": "30. nodaļa: Ātrās kopēšanas veidnes",
-    "description": "Guide page text."
-  },
   "guide_0108": {
     "message": "Linkumori Jaukts pakalpojumu sniedzējs JSON Formātu rokasgrāmata",
     "description": "Guide page text."
@@ -5302,8 +5058,8 @@
     "description": "Guide page text."
   },
   "guide_0110": {
-    "message": "Tas aptver jaukto Linkumori nodrošinātāja formātu: ClearURLs papildinājumu mantotie lauki, ClearURLs pamata v2 kanonisko noteikumu objekti un Linkumori papildinājumi, piemēram, Linkumori papildinājumi, piemēram, 928374652, 9283074652. domēna izņēmumi, domēna novirzīšana un resursa tipa tvērums.",
-    "description": "Guide page text."
+    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
+    "description": "Introductory paragraph for the provider JSON guide."
   },
   "guide_0111": {
     "message": "Tas nav JavaScript koda ceļvedis. Tas koncentrējas tikai uz JSON formām, kārtulu formātiem un piemēriem, kas nepieciešami kārtulu autoriem.",
@@ -5774,8 +5530,8 @@
     "description": "Guide page text."
   },
   "guide_0228": {
-    "message": "<code>$removeparam</code> virknes pakalpojumu sniedzēja <code>rules</code> iekšpusē ir Linkumori papildinājums. Tie ir atsevišķi no otrās rokasgrāmatas <code>urlFilterRules</code> sadarbspējas sintakses.",
-    "description": "Guide page text."
+    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
+    "description": "Introductory paragraph for provider-local $removeparam rules."
   },
   "guide_0229": {
     "message": "Noņemiet vienu parametru",
@@ -6286,8 +6042,8 @@
     "description": "Guide page text."
   },
   "guide_0356": {
-    "message": "Linkumori papildinājums — vienots avots ar pakalpojumu sniedzēju JSON plus sadarbspējas noteikumi:",
-    "description": "Guide page text."
+    "message": "Linkumori addition - provider JSON with inline filter-list rules:",
+    "description": "Guide label for provider JSON with inline $removeparam rules."
   },
   "guide_0357": {
     "message": "Svarīgi:",
@@ -6644,738 +6400,6 @@
   "guide_0445": {
     "message": "Novirzīt izsekotāju URL:",
     "description": "Guide page text."
-  },
-  "guide_0446": {
-    "message": "Sadarbspējas noteikumu rokasgrāmata",
-    "description": "Guide page text."
-  },
-  "guide_0447": {
-    "message": "Linkumori URL Filtrs — vienkārša filtru saraksta sintakse URL tīrīšanai",
-    "description": "Guide page text."
-  },
-  "guide_0448": {
-    "message": "Sadarbspējas noteikumu rokasgrāmata",
-    "description": "Guide page text."
-  },
-  "guide_0449": {
-    "message": "Šajā rokasgrāmatā ir izskaidroti Linkumori paplašinājuma URL filtra sadarbspējas noteikumi.",
-    "description": "Guide page text."
-  },
-  "guide_0450": {
-    "message": "Tie nav pilni ClearURLs JSON nodrošinātāja noteikumi. Tās ir vienkāršas filtru saraksta rindas, kas ir līdzīgas noteikumiem, ko izmanto populāri satura bloķētāji. Paplašinājums Linkumori atbalsta tikai šīs pasaules URL tīrīšanas daļu.",
-    "description": "Guide page text."
-  },
-  "guide_0451": {
-    "message": "1. nodaļa. Kas ir sadarbspējas noteikumi",
-    "description": "Guide page text."
-  },
-  "guide_0452": {
-    "message": "Sadarbspējas noteikumi ir vienkāršas teksta rindiņas, kas tiek glabātas:",
-    "description": "Guide page text."
-  },
-  "guide_0453": {
-    "message": "Viņi dzīvo iekšā <code>ClearURLsData.urlFilterRules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0454": {
-    "message": "Tie ir atsevišķi no JSON pakalpojumu sniedzējiem:",
-    "description": "Guide page text."
-  },
-  "guide_0455": {
-    "message": "Izmantojiet sadarbspējas noteikumus, ja vēlaties tieši ielīmēt URL tīrīšanas filtru saraksta sintaksi, nevis rakstīt pilnu nodrošinātāja objektu.",
-    "description": "Guide page text."
-  },
-  "guide_0456": {
-    "message": "2. nodaļa: Kas tiek atbalstīts",
-    "description": "Guide page text."
-  },
-  "guide_0457": {
-    "message": "Atbalstīts:",
-    "description": "Guide page text."
-  },
-  "guide_0458": {
-    "message": "Nav atbalstīts:",
-    "description": "Guide page text."
-  },
-  "guide_0459": {
-    "message": "Rindas bez numura <code>$removeparam</code> vai <code>$queryprune</code> tiek ignorētas.",
-    "description": "Guide page text."
-  },
-  "guide_0460": {
-    "message": "3. nodaļa: Pamatnoteikumu formāts",
-    "description": "Guide page text."
-  },
-  "guide_0461": {
-    "message": "Pamata forma:",
-    "description": "Guide page text."
-  },
-  "guide_0462": {
-    "message": "Piemērs:",
-    "description": "Guide page text."
-  },
-  "guide_0463": {
-    "message": "Nozīme:",
-    "description": "Guide page text."
-  },
-  "guide_0464": {
-    "message": "Rezultāts:",
-    "description": "Guide page text."
-  },
-  "guide_0465": {
-    "message": "4. nodaļa: Kur tiek glabāti noteikumi",
-    "description": "Guide page text."
-  },
-  "guide_0466": {
-    "message": "Izpildlaika krātuves forma:",
-    "description": "Guide page text."
-  },
-  "guide_0467": {
-    "message": "Izpildlaiks nolasa šos noteikumus, izmantojot vienoto URL filtra datu ceļu.",
-    "description": "Guide page text."
-  },
-  "guide_0468": {
-    "message": "5. nodaļa: Komentāri un tukšas rindas",
-    "description": "Guide page text."
-  },
-  "guide_0469": {
-    "message": "Tukšās rindas tiek ignorētas.",
-    "description": "Guide page text."
-  },
-  "guide_0470": {
-    "message": "Komentāru rindas tiek ignorētas:",
-    "description": "Guide page text."
-  },
-  "guide_0471": {
-    "message": "Sadaļu galvenes tiek ignorētas:",
-    "description": "Guide page text."
-  },
-  "guide_0472": {
-    "message": "6. nodaļa: Noņemiet vienu parametru",
-    "description": "Guide page text."
-  },
-  "guide_0473": {
-    "message": "Noteikums:",
-    "description": "Guide page text."
-  },
-  "guide_0474": {
-    "message": "Rezultāts:",
-    "description": "Guide page text."
-  },
-  "guide_0475": {
-    "message": "<code>*</code> nozīmē, ka URL modelis atbilst visam.",
-    "description": "Guide page text."
-  },
-  "guide_0476": {
-    "message": "7. nodaļa: Noņemiet visus vaicājuma parametrus",
-    "description": "Guide page text."
-  },
-  "guide_0477": {
-    "message": "Noteikums:",
-    "description": "Guide page text."
-  },
-  "guide_0478": {
-    "message": "Rezultāts:",
-    "description": "Guide page text."
-  },
-  "guide_0479": {
-    "message": "Tādējādi tiek noņemti visi vaicājuma parametri, kas atbilst URLs.",
-    "description": "Guide page text."
-  },
-  "guide_0480": {
-    "message": "8. nodaļa: Parametru noņemšana, izmantojot Regex",
-    "description": "Guide page text."
-  },
-  "guide_0481": {
-    "message": "Noteikums:",
-    "description": "Guide page text."
-  },
-  "guide_0482": {
-    "message": "Rezultāts:",
-    "description": "Guide page text."
-  },
-  "guide_0483": {
-    "message": "Regex karogi:",
-    "description": "Guide page text."
-  },
-  "guide_0484": {
-    "message": "Sadarbspējas regexes parsētājs patur tikai karogu <code>i</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0485": {
-    "message": "9. nodaļa: Noņemiet visus, izņemot vienu spēli",
-    "description": "Guide page text."
-  },
-  "guide_0486": {
-    "message": "Pirms parametru shēmas izmantojiet <code>~</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0487": {
-    "message": "Rezultāts:",
-    "description": "Guide page text."
-  },
-  "guide_0488": {
-    "message": "Nozīme:",
-    "description": "Guide page text."
-  },
-  "guide_0489": {
-    "message": "10. nodaļa: <code>$queryprune</code>",
-    "description": "Guide page text."
-  },
-  "guide_0490": {
-    "message": "<code>$queryprune</code> tiek pieņemts kā novecojis aizstājvārds <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0491": {
-    "message": "Tie ir līdzvērtīgi:",
-    "description": "Guide page text."
-  },
-  "guide_0492": {
-    "message": "Dodiet priekšroku jauniem noteikumiem ar <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0493": {
-    "message": "11. nodaļa: URL Rakstu piemēri",
-    "description": "Guide page text."
-  },
-  "guide_0494": {
-    "message": "Atbilst visiem URLs:",
-    "description": "Guide page text."
-  },
-  "guide_0495": {
-    "message": "Saskaņojiet domēnu un apakšdomēnus:",
-    "description": "Guide page text."
-  },
-  "guide_0496": {
-    "message": "Atbilst prefiksam URL:",
-    "description": "Guide page text."
-  },
-  "guide_0497": {
-    "message": "Saskaņojiet precīzu galotni ar labo enkuru:",
-    "description": "Guide page text."
-  },
-  "guide_0498": {
-    "message": "Izmantojiet parasto URL modeli:",
-    "description": "Guide page text."
-  },
-  "guide_0499": {
-    "message": "12. nodaļa: Izņēmumi",
-    "description": "Guide page text."
-  },
-  "guide_0500": {
-    "message": "Sāciet ar <code>@@</code>, lai izdarītu izņēmumu.",
-    "description": "Guide page text."
-  },
-  "guide_0501": {
-    "message": "Noteikumu kopas piemērs:",
-    "description": "Guide page text."
-  },
-  "guide_0502": {
-    "message": "Rezultāts:",
-    "description": "Guide page text."
-  },
-  "guide_0503": {
-    "message": "13. nodaļa: <code>important</code>",
-    "description": "Guide page text."
-  },
-  "guide_0504": {
-    "message": "<code>important</code> izņemšanas kārtulai pārspēj parastos izņēmumus.",
-    "description": "Guide page text."
-  },
-  "guide_0505": {
-    "message": "Rezultāts:",
-    "description": "Guide page text."
-  },
-  "guide_0506": {
-    "message": "Svarīgas piezīmes:",
-    "description": "Guide page text."
-  },
-  "guide_0507": {
-    "message": "<code>important</code> ir atļauts saskaņā ar noņemšanas noteikumiem.",
-    "description": "Guide page text."
-  },
-  "guide_0508": {
-    "message": "<code>important</code> netiek atbalstīts saskaņā ar izņēmuma noteikumiem šajā parsētājā.",
-    "description": "Guide page text."
-  },
-  "guide_0509": {
-    "message": "14. nodaļa: <code>badfilter</code>",
-    "description": "Guide page text."
-  },
-  "guide_0510": {
-    "message": "<code>badfilter</code> atspējo citu atbilstības kārtulu.",
-    "description": "Guide page text."
-  },
-  "guide_0511": {
-    "message": "Sākotnējais noteikums:",
-    "description": "Guide page text."
-  },
-  "guide_0512": {
-    "message": "Sliktā filtra noteikums:",
-    "description": "Guide page text."
-  },
-  "guide_0513": {
-    "message": "Nozīme:",
-    "description": "Guide page text."
-  },
-  "guide_0514": {
-    "message": "Parsētājs kanonizē kārtulu bez <code>badfilter</code> un noņem mērķa kārtulu no izpildlaika lietošanas.",
-    "description": "Guide page text."
-  },
-  "guide_0515": {
-    "message": "15. nodaļa. Domēna avota pārveidotāji: <code>domain=</code> un <code>from=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0516": {
-    "message": "<code>domain=</code> un <code>from=</code> ierobežojuma kārtulas pēc lapas vai avota konteksta.",
-    "description": "Guide page text."
-  },
-  "guide_0517": {
-    "message": "Tāda pati ideja ar <code>from=</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0518": {
-    "message": "Šie pārbauda konteksta saimniekdatoru nosaukumus, piemēram:",
-    "description": "Guide page text."
-  },
-  "guide_0519": {
-    "message": "Iekļaut vairākus domēnus:",
-    "description": "Guide page text."
-  },
-  "guide_0520": {
-    "message": "Izslēgt domēnu:",
-    "description": "Guide page text."
-  },
-  "guide_0521": {
-    "message": "Izmantojiet regex domēnu:",
-    "description": "Guide page text."
-  },
-  "guide_0522": {
-    "message": "16. nodaļa. Mērķa domēna pārveidotājs: <code>to=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0523": {
-    "message": "<code>to=</code> ierobežo noteikumus pēc galamērķa URL saimniekdatora.",
-    "description": "Guide page text."
-  },
-  "guide_0524": {
-    "message": "Tas pārbauda URL, kas tiek tīrīts.",
-    "description": "Guide page text."
-  },
-  "guide_0525": {
-    "message": "Piemērs:",
-    "description": "Guide page text."
-  },
-  "guide_0526": {
-    "message": "Izslēgt mērķa domēnu:",
-    "description": "Guide page text."
-  },
-  "guide_0527": {
-    "message": "Regulārās izteiksmes mērķis:",
-    "description": "Guide page text."
-  },
-  "guide_0528": {
-    "message": "17. nodaļa: <code>denyallow=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0529": {
-    "message": "<code>denyallow=</code> bloķē kārtulu uzskaitītajos mērķa domēnos.",
-    "description": "Guide page text."
-  },
-  "guide_0530": {
-    "message": "Nozīme:",
-    "description": "Guide page text."
-  },
-  "guide_0531": {
-    "message": "Atbalstītās <code>denyallow=</code> vērtības ir vienkārši domēna modeļi.",
-    "description": "Guide page text."
-  },
-  "guide_0532": {
-    "message": "Neatbalstīts <code>denyallow=</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0533": {
-    "message": "Ja tiek izmantotas neatbalstītas vērtības, visa kārtula tiek izlaista.",
-    "description": "Guide page text."
-  },
-  "guide_0534": {
-    "message": "18. nodaļa: HTTP Metodes pārveidotājs",
-    "description": "Guide page text."
-  },
-  "guide_0535": {
-    "message": "Ierobežot ar HTTP metodi:",
-    "description": "Guide page text."
-  },
-  "guide_0536": {
-    "message": "Izslēdziet metodi:",
-    "description": "Guide page text."
-  },
-  "guide_0537": {
-    "message": "Vairākas metodes:",
-    "description": "Guide page text."
-  },
-  "guide_0538": {
-    "message": "Atbalstītās metodes:",
-    "description": "Guide page text."
-  },
-  "guide_0539": {
-    "message": "Noklusējuma darbība:",
-    "description": "Guide page text."
-  },
-  "guide_0540": {
-    "message": "19. nodaļa: Resursu tipa modifikatori",
-    "description": "Guide page text."
-  },
-  "guide_0541": {
-    "message": "Atbalstītie resursa tipa vārdi:",
-    "description": "Guide page text."
-  },
-  "guide_0542": {
-    "message": "Piemēri:",
-    "description": "Guide page text."
-  },
-  "guide_0543": {
-    "message": "Ierobežotā resursa veids:",
-    "description": "Guide page text."
-  },
-  "guide_0544": {
-    "message": "Kartēšana:",
-    "description": "Guide page text."
-  },
-  "guide_0545": {
-    "message": "20. nodaļa: Pirmā puse un trešā puse",
-    "description": "Guide page text."
-  },
-  "guide_0546": {
-    "message": "Pirmā puse nozīmē, ka galamērķa vietnei un dokumenta vietnei ir viens un tas pats reģistrētais domēns.",
-    "description": "Guide page text."
-  },
-  "guide_0547": {
-    "message": "Trešā puse nozīmē, ka viņi to nedara.",
-    "description": "Guide page text."
-  },
-  "guide_0548": {
-    "message": "Tikai pirmās puses:",
-    "description": "Guide page text."
-  },
-  "guide_0549": {
-    "message": "Pseidonīmi:",
-    "description": "Guide page text."
-  },
-  "guide_0550": {
-    "message": "Tikai trešās puses:",
-    "description": "Guide page text."
-  },
-  "guide_0551": {
-    "message": "Pseidonīmi:",
-    "description": "Guide page text."
-  },
-  "guide_0552": {
-    "message": "Stingras pirmās puses pārbaudes tieši tas pats saimniekdators:",
-    "description": "Guide page text."
-  },
-  "guide_0553": {
-    "message": "Stingras trešās puses pārbaudes, kas nav tieši tas pats saimniekdators:",
-    "description": "Guide page text."
-  },
-  "guide_0554": {
-    "message": "Nederīgas kombinācijas tiek izlaistas, piemēram:",
-    "description": "Guide page text."
-  },
-  "guide_0555": {
-    "message": "21. nodaļa: <code>match-case</code>",
-    "description": "Guide page text."
-  },
-  "guide_0556": {
-    "message": "Pēc noklusējuma burtiskā parametru atbilstība nav reģistrjutīga.",
-    "description": "Guide page text."
-  },
-  "guide_0557": {
-    "message": "Noteikums:",
-    "description": "Guide page text."
-  },
-  "guide_0558": {
-    "message": "Atbilstības:",
-    "description": "Guide page text."
-  },
-  "guide_0559": {
-    "message": "Izmantojiet <code>match-case</code> reģistrjutīgai atbilstības noteikšanai:",
-    "description": "Guide page text."
-  },
-  "guide_0560": {
-    "message": "Tagad tas atbilst:",
-    "description": "Guide page text."
-  },
-  "guide_0561": {
-    "message": "Bet ne:",
-    "description": "Guide page text."
-  },
-  "guide_0562": {
-    "message": "22. nodaļa: <code>app=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0563": {
-    "message": "<code>app=</code> ir parsēts, lai nodrošinātu saderību ar filtru saraksta sintaksi.",
-    "description": "Guide page text."
-  },
-  "guide_0564": {
-    "message": "Pārlūka pieprasījumiem parasti nav lietotņu pakotnes konteksta. Ja lietotnes konteksts nav pieejams, kārtulas ar pozitīvu <code>app=</code> ietver neatbilstību.",
-    "description": "Guide page text."
-  },
-  "guide_0565": {
-    "message": "Izslēgt lietotni:",
-    "description": "Guide page text."
-  },
-  "guide_0566": {
-    "message": "Aizstājējzīmju lietotnes modelis:",
-    "description": "Guide page text."
-  },
-  "guide_0567": {
-    "message": "Regex lietotņu modelis:",
-    "description": "Guide page text."
-  },
-  "guide_0568": {
-    "message": "23. nodaļa: Modifikatori bez darbības",
-    "description": "Guide page text."
-  },
-  "guide_0569": {
-    "message": "Šie modifikatori ir pieņemti, bet tiek ignorēti:",
-    "description": "Guide page text."
-  },
-  "guide_0570": {
-    "message": "Piemērs:",
-    "description": "Guide page text."
-  },
-  "guide_0571": {
-    "message": "Tas uzvedas šādi:",
-    "description": "Guide page text."
-  },
-  "guide_0572": {
-    "message": "24. nodaļa: Parametru atbilstības informācija",
-    "description": "Guide page text."
-  },
-  "guide_0573": {
-    "message": "Burtiskā parametra noteikums:",
-    "description": "Guide page text."
-  },
-  "guide_0574": {
-    "message": "Pārbauda parametra nosaukumu.",
-    "description": "Guide page text."
-  },
-  "guide_0575": {
-    "message": "Regex parametra noteikums:",
-    "description": "Guide page text."
-  },
-  "guide_0576": {
-    "message": "Pārbauda šo tekstu:",
-    "description": "Guide page text."
-  },
-  "guide_0577": {
-    "message": "Piemērs:",
-    "description": "Guide page text."
-  },
-  "guide_0578": {
-    "message": "Prefiksa forma:",
-    "description": "Guide page text."
-  },
-  "guide_0579": {
-    "message": "Tas kļūst par regulāru izteiksmi vārdiem, kas sākas ar <code>utm_</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0580": {
-    "message": "25. nodaļa: Tikai vaicājums",
-    "description": "Guide page text."
-  },
-  "guide_0581": {
-    "message": "Sadarbspējas izpildlaiks notīra vaicājuma parametrus pirms <code>#</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0582": {
-    "message": "Iztīrīts:",
-    "description": "Guide page text."
-  },
-  "guide_0583": {
-    "message": "Šis izpildlaika ceļš nav notīrīts:",
-    "description": "Guide page text."
-  },
-  "guide_0584": {
-    "message": "Jaukšanas parametru tīrīšanai izmantojiet Linkumori jauktā pakalpojumu sniedzēja JSON noteikumus, kas aprakstīti JSON formāta rokasgrāmatā.",
-    "description": "Guide page text."
-  },
-  "guide_0585": {
-    "message": "26. nodaļa: Neatbalstītie noteikumi tiek izlaisti",
-    "description": "Guide page text."
-  },
-  "guide_0586": {
-    "message": "Noteikums tiek izlaists, ja:",
-    "description": "Guide page text."
-  },
-  "guide_0587": {
-    "message": "Tam nav <code>$removeparam</code> vai <code>$queryprune</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0588": {
-    "message": "Tas izmanto neatbalstītu modifikatoru.",
-    "description": "Guide page text."
-  },
-  "guide_0589": {
-    "message": "Tās regex nav derīgs.",
-    "description": "Guide page text."
-  },
-  "guide_0590": {
-    "message": "Tam ir nederīga metode.",
-    "description": "Guide page text."
-  },
-  "guide_0591": {
-    "message": "Tam ir nederīga vērtība <code>denyallow=</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0592": {
-    "message": "Tas apvieno nesaderīgus partiju modifikatorus.",
-    "description": "Guide page text."
-  },
-  "guide_0593": {
-    "message": "Tas ir komentārs, sadaļas galvene vai tukša rinda.",
-    "description": "Guide page text."
-  },
-  "guide_0594": {
-    "message": "Izlaistās kārtulas piemērs:",
-    "description": "Guide page text."
-  },
-  "guide_0595": {
-    "message": "Iemesls:",
-    "description": "Guide page text."
-  },
-  "guide_0596": {
-    "message": "Izlaistās kārtulas piemērs:",
-    "description": "Guide page text."
-  },
-  "guide_0597": {
-    "message": "Iemesls:",
-    "description": "Guide page text."
-  },
-  "guide_0598": {
-    "message": "27. nodaļa: Noteikumu dublikāti",
-    "description": "Guide page text."
-  },
-  "guide_0599": {
-    "message": "Dublētas neapstrādātas rindas tiek izlaistas filtru saraksta parsēšanas laikā.",
-    "description": "Guide page text."
-  },
-  "guide_0600": {
-    "message": "Piemērs:",
-    "description": "Guide page text."
-  },
-  "guide_0601": {
-    "message": "Tiek paturēts tikai viens.",
-    "description": "Guide page text."
-  },
-  "guide_0602": {
-    "message": "Izpildlaikā kārtulu dublikāti tiek atcelti arī kanoniskajā formā.",
-    "description": "Guide page text."
-  },
-  "guide_0603": {
-    "message": "28. nodaļa: Pilnīga filtru saraksta piemērs",
-    "description": "Guide page text."
-  },
-  "guide_0604": {
-    "message": "Ko tas dara:",
-    "description": "Guide page text."
-  },
-  "guide_0605": {
-    "message": "Noņem visus <code>utm_</code> parametrus.",
-    "description": "Guide page text."
-  },
-  "guide_0606": {
-    "message": "Noņem <code>fbclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0607": {
-    "message": "Noņem <code>gclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0608": {
-    "message": "Noņem <code>ref</code> uz <code>example.com</code>, izņemot uz <code>/login</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0609": {
-    "message": "Noņem <code>tracking_id</code> tikai <code>GET</code> XHR pieprasījumiem uz <code>api.example.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0610": {
-    "message": "Pievieno un pēc tam atceļ mērķa kārtulu <code>tracker.example</code> ar <code>badfilter</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0611": {
-    "message": "29. nodaļa: JSON Uzglabāšanas piemērs",
-    "description": "Guide page text."
-  },
-  "guide_0612": {
-    "message": "30. nodaļa: Ātrās kopēšanas veidnes",
-    "description": "Guide page text."
-  },
-  "guide_0613": {
-    "message": "Noņemiet vienu parametru visur:",
-    "description": "Guide page text."
-  },
-  "guide_0614": {
-    "message": "Noņemiet visus UTM parametrus:",
-    "description": "Guide page text."
-  },
-  "guide_0615": {
-    "message": "Noņemt visus, izņemot <code>id</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0616": {
-    "message": "Palaist tikai domēnā:",
-    "description": "Guide page text."
-  },
-  "guide_0617": {
-    "message": "Izņēmums:",
-    "description": "Guide page text."
-  },
-  "guide_0618": {
-    "message": "Tikai GET:",
-    "description": "Guide page text."
-  },
-  "guide_0619": {
-    "message": "Tikai XHR:",
-    "description": "Guide page text."
-  },
-  "guide_0620": {
-    "message": "Tikai mērķa domēns:",
-    "description": "Guide page text."
-  },
-  "guide_0621": {
-    "message": "Tikai avota lapas domēns:",
-    "description": "Guide page text."
-  },
-  "guide_0622": {
-    "message": "Tikai trešās puses:",
-    "description": "Guide page text."
-  },
-  "guide_0623": {
-    "message": "Reģistrjutīgs:",
-    "description": "Guide page text."
-  },
-  "guide_theme_midnight": {
-    "message": "Pusnakts",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_light": {
-    "message": "Gaisma",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_icecold": {
-    "message": "Ledus Auksts",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_zen_grey": {
-    "message": "Zen Grejs",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_sunset": {
-    "message": "Saulriets",
-    "description": "Guide theme selector option."
   },
   "guide_0624": {
     "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -7782,12 +6806,12 @@
     "description": "Guide page text."
   },
   "guide_0725": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  },\n  \"urlFilterRules\": [\n    \"*$removeparam=fbclid\"\n  ],\n  \"urlFilterMetadata\": {\n    \"format\": \"linkumori-url-filter-interoperability\",\n    \"status\": \"loaded\"\n  }\n}\n",
-    "description": "Guide page text."
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide code example for provider JSON with inline $removeparam rules."
   },
   "guide_0726": {
-    "message": "providers are handled by Linkumori extension provider logic.\nurlFilterRules are handled by the interoperability runtime.\nThey can exist in the same Linkumori extension data object, but they are different rule systems.\n",
-    "description": "Guide page text."
+    "message": "Provider-local <code>rules[]</code> entries are compiled into the same provider set before <code>clearurls.js</code> runs. Keep filter-list style <code>$removeparam</code> lines inside provider <code>rules[]</code> when authoring Linkumori JSON.\n",
+    "description": "Guide note explaining provider-local filter-list rules."
   },
   "guide_0727": {
     "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -8077,438 +7101,6 @@
     "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
     "description": "Guide page text."
   },
-  "guide_0799": {
-    "message": "⇄",
-    "description": "Guide page text."
-  },
-  "guide_0800": {
-    "message": "{\n  \"urlFilterRules\": [\n    \"||example.com^$removeparam=utm_source\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0801": {
-    "message": "{\n  \"providers\": {},\n  \"urlFilterRules\": []\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0802": {
-    "message": "$removeparam\n$queryprune\n@@ exceptions\nbadfilter\nimportant\ndomain=\nfrom=\nto=\ndenyallow=\nmethod=\nrequest type modifiers\nfirst-party / third-party\nstrict-first-party / strict-third-party\nmatch-case\napp=\n",
-    "description": "Guide page text."
-  },
-  "guide_0803": {
-    "message": "Network blocking rules without $removeparam or $queryprune\nCosmetic filters\nScriptlets\nHTML filtering\nRequest blocking\nFull adblock engine behavior\n",
-    "description": "Guide page text."
-  },
-  "guide_0804": {
-    "message": "URL_PATTERN$removeparam=PARAMETER\n",
-    "description": "Guide page text."
-  },
-  "guide_0805": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0806": {
-    "message": "On example.com and its subdomains, remove the query parameter named utm_source.\n",
-    "description": "Guide page text."
-  },
-  "guide_0807": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0808": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"||example.com^$removeparam=utm_source\",\n      \"*$removeparam=/^utm_/\"\n    ],\n    \"urlFilterMetadata\": {\n      \"format\": \"linkumori-url-filter-interoperability\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0809": {
-    "message": "! This is a comment\n",
-    "description": "Guide page text."
-  },
-  "guide_0810": {
-    "message": "[Tracking parameters]\n",
-    "description": "Guide page text."
-  },
-  "guide_0811": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0812": {
-    "message": "https://site.test/?utm_source=x&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0813": {
-    "message": "*$removeparam\n",
-    "description": "Guide page text."
-  },
-  "guide_0814": {
-    "message": "https://site.test/?a=1&b=2\n-> https://site.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0815": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0816": {
-    "message": "https://site.test/?utm_source=x&utm_campaign=y&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0817": {
-    "message": "*$removeparam=/^utm_/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0818": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0819": {
-    "message": "https://site.test/?id=1&utm_source=x&fbclid=y\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0820": {
-    "message": "Remove every parameter except id.\n",
-    "description": "Guide page text."
-  },
-  "guide_0821": {
-    "message": "*$removeparam=utm_source\n*$queryprune=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0822": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0823": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0824": {
-    "message": "|https://example.com/path$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0825": {
-    "message": "https://example.com/path|$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0826": {
-    "message": "/^https:\\/\\/([^/]+\\.)?example\\.com\\/track/$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0827": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0828": {
-    "message": "*$removeparam=utm_source\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0829": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0830": {
-    "message": "*$removeparam=utm_source,important\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0831": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0832": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0833": {
-    "message": "||example.com^$removeparam=utm_source,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0834": {
-    "message": "Cancel the original rule.\n",
-    "description": "Guide page text."
-  },
-  "guide_0835": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0836": {
-    "message": "*$removeparam=utm_source,from=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0837": {
-    "message": "documentUrl\noriginUrl\ninitiator\n",
-    "description": "Guide page text."
-  },
-  "guide_0838": {
-    "message": "*$removeparam=utm_source,domain=example.com|shop.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0839": {
-    "message": "*$removeparam=utm_source,domain=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0840": {
-    "message": "*$removeparam=utm_source,domain=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0841": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0842": {
-    "message": "Cleaned:\nhttps://example.com/?utm_source=x&id=1\n\nNot cleaned:\nhttps://other.test/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0843": {
-    "message": "*$removeparam=utm_source,to=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0844": {
-    "message": "*$removeparam=utm_source,to=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0845": {
-    "message": "*$removeparam=utm_source,denyallow=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0846": {
-    "message": "Remove utm_source generally, but do not apply this rule when the destination host matches example.com.\n",
-    "description": "Guide page text."
-  },
-  "guide_0847": {
-    "message": "~negation\nexample.*\n/regex/\n",
-    "description": "Guide page text."
-  },
-  "guide_0848": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0849": {
-    "message": "*$removeparam=utm_source,method=~POST\n",
-    "description": "Guide page text."
-  },
-  "guide_0850": {
-    "message": "*$removeparam=utm_source,method=GET|HEAD\n",
-    "description": "Guide page text."
-  },
-  "guide_0851": {
-    "message": "GET\nHEAD\nOPTIONS\nPOST\nPUT\nPATCH\nDELETE\nCONNECT\n",
-    "description": "Guide page text."
-  },
-  "guide_0852": {
-    "message": "Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.\nFast simple query cleanup also uses those simple methods.\n",
-    "description": "Guide page text."
-  },
-  "guide_0853": {
-    "message": "document\ndoc\nsubdocument\nframe\nscript\nstylesheet\nimage\nmedia\nfont\nobject\nxmlhttprequest\nxhr\nwebsocket\nping\nother\n",
-    "description": "Guide page text."
-  },
-  "guide_0854": {
-    "message": "*$removeparam=utm_source,script\n*$removeparam=utm_source,image\n*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0855": {
-    "message": "*$removeparam=utm_source,~image\n",
-    "description": "Guide page text."
-  },
-  "guide_0856": {
-    "message": "document       -> main_frame\ndoc            -> main_frame\nsubdocument    -> sub_frame\nframe          -> sub_frame\nxhr            -> xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0857": {
-    "message": "*$removeparam=utm_source,first-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0858": {
-    "message": "1p\n~third-party\n~3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0859": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0860": {
-    "message": "3p\n~first-party\n~1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0861": {
-    "message": "*$removeparam=utm_source,strict-first-party\n*$removeparam=utm_source,strict1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0862": {
-    "message": "*$removeparam=utm_source,strict-third-party\n*$removeparam=utm_source,strict3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0863": {
-    "message": "*$removeparam=utm_source,first-party,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0864": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0865": {
-    "message": "utm_source\nUTM_SOURCE\nUtm_Source\n",
-    "description": "Guide page text."
-  },
-  "guide_0866": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "guide_0867": {
-    "message": "utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0868": {
-    "message": "UTM_SOURCE\n",
-    "description": "Guide page text."
-  },
-  "guide_0869": {
-    "message": "*$removeparam=utm_source,app=com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0870": {
-    "message": "*$removeparam=utm_source,app=~com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0871": {
-    "message": "*$removeparam=utm_source,app=com.example.*\n",
-    "description": "Guide page text."
-  },
-  "guide_0872": {
-    "message": "*$removeparam=utm_source,app=/example/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0873": {
-    "message": "_\nnoop\nstealth\ncookie\n",
-    "description": "Guide page text."
-  },
-  "guide_0874": {
-    "message": "*$removeparam=utm_source,noop\n",
-    "description": "Guide page text."
-  },
-  "guide_0875": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0876": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0877": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0878": {
-    "message": "name=value\n",
-    "description": "Guide page text."
-  },
-  "guide_0879": {
-    "message": "URL:\nhttps://example.com/?utm_source=news&id=1\n\nRegex sees:\nutm_source=news\nid=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0880": {
-    "message": "*$removeparam=|utm_\n",
-    "description": "Guide page text."
-  },
-  "guide_0881": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0882": {
-    "message": "https://example.com/#utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0883": {
-    "message": "||example.com^$script\n",
-    "description": "Guide page text."
-  },
-  "guide_0884": {
-    "message": "No $removeparam or $queryprune.\n",
-    "description": "Guide page text."
-  },
-  "guide_0885": {
-    "message": "*$removeparam=utm_source,unknownmodifier\n",
-    "description": "Guide page text."
-  },
-  "guide_0886": {
-    "message": "Unsupported modifier.\n",
-    "description": "Guide page text."
-  },
-  "guide_0887": {
-    "message": "*$removeparam=utm_source\n*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0888": {
-    "message": "! Linkumori URL filter interoperability example\n\n*$removeparam=/^utm_/\n*$removeparam=fbclid\n*$removeparam=gclid\n\n||example.com^$removeparam=ref\n@@||example.com/login^$removeparam=ref\n\n*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET\n\n||tracker.example^$removeparam=target,third-party\n||tracker.example^$removeparam=target,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0889": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"*$removeparam=/^utm_/\",\n      \"*$removeparam=fbclid\",\n      \"||example.com^$removeparam=ref\",\n      \"@@||example.com/login^$removeparam=ref\"\n    ],\n    \"urlFilterMetadata\": {\n      \"name\": \"Linkumori URL Filter Rules\",\n      \"format\": \"linkumori-url-filter-interoperability\",\n      \"status\": \"loaded\",\n      \"ruleStatus\": \"loaded\",\n      \"hashStatus\": \"not_required\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0890": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0891": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0892": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0893": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0894": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0895": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0896": {
-    "message": "*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0897": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0898": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0899": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0900": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "faq_final_runtime_clearurls_title": {
-    "message": "Īpaša clearurls.js izpildlaika sintakse",
-    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
-  },
-  "faq_final_runtime_interoperability_title": {
-    "message": "Sadarbspēja URL-filtra izpildlaika sintakse",
-    "description": "FAQ label for the interoperability runtime syntax example"
-  },
-  "faq_final_runtime_open_page": {
-    "message": "Atvērt izpildlaika sintakses atsauci",
-    "description": "FAQ link text that opens the dedicated runtime syntax page"
-  },
-  "faq_final_runtime_syntax": {
-    "message": "Kāda ir galīgā izpildlaika sintakse?",
-    "description": "FAQ question for final supported runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_answer": {
-    "message": "Linkumori atbalsta divus galīgos izpildlaika formātus. Vispirms izmantojiet speciālo nodrošinātāja sintaksi clearurls.js vietējam laukam, neapstrādātam, novirzīšanai, pārrakstīšanai, izņēmumam un pakalpojumu sniedzēja darbības jomai. Izmantojiet sadarbspējas formātu, importējot URL filtra stila $removeparam noteikumus.",
-    "description": "FAQ answer explaining the two final runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_note": {
-    "message": "Abus formātus var ielādēt kopā, taču speciālā nodrošinātāja sintakse ir primārais vietējais formāts. Sadarbspējas formāts pastāv filtru sarakstu saderībai.",
-    "description": "FAQ note for final runtime syntax formats"
-  },
   "providerImport_allProviders": {
     "message": "Visi pakalpojumu sniedzēji",
     "description": "Filter label for showing rule activations from every provider"
@@ -8529,60 +7121,52 @@
     "message": "Pakalpojumu sniedzēja noteikumu navigācija",
     "description": "Accessible label for provider filter navigation on the disabled rules page"
   },
-  "runtimeSyntax_clearURLsDescription": {
-    "message": "Šis ir vietējais izpildlaiks, ko patērē clearurls.js. Tas vispirms ir jāizmanto pielāgotiem nodrošinātājiem, jo tas atbalsta kanoniskos kārtulu objektus, lauka kārtulas, neapstrādātas URL kārtulas, novirzīšanu, pārrakstīšanu, izņēmumus, pieprasījumu veidus, aizstājvārdus un atspējošanas identitātes ar modeli.",
-    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_clearURLsTitle": {
-    "message": "Īpašs clearurls.js izpildlaiks",
-    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_disableDescription": {
-    "message": "Modeļa tvēruma identitātes ir stabilas, mainot pakalpojumu sniedzēja nosaukumu. Pakalpojumu sniedzēja darbības jomas identitātes joprojām ir pieejamas plašai mantotajai atspējošanas darbībai.",
-    "description": "Runtime syntax page description for disable identity examples"
-  },
-  "runtimeSyntax_disableTitle": {
-    "message": "Atspējot identitātes formātus",
-    "description": "Runtime syntax page section title for disable identity formats"
-  },
-  "runtimeSyntax_interoperabilityDescription": {
-    "message": "Šis izpildlaiks ir paredzēts URL filtru savietojamībai. Tas saglabā filtru saraksta stilu $removeparam un @@ izņēmuma noteikumus kompaktā noteikumu masīvā importēšanas un attālā saraksta saderībai.",
-    "description": "Runtime syntax page description for interoperability runtime syntax"
-  },
-  "runtimeSyntax_interoperabilityTitle": {
-    "message": "Sadarbspējas kārtulas izpildlaiks",
-    "description": "Runtime syntax page section title for interoperability runtime syntax"
-  },
-  "runtimeSyntax_intro": {
-    "message": "Vietējais nodrošinātāja izpildlaiks clearurls.js ir pirmās klases formāts. Sadarbspējas izpildlaiks atrodas blakus filtru saraksta kārtulām, kurām jāsaglabā sākotnējā $removeparam forma.",
-    "description": "Runtime syntax page intro text"
-  },
-  "runtimeSyntax_kicker": {
-    "message": "Izpildlaika atsauce",
-    "description": "Runtime syntax page eyebrow text"
-  },
-  "runtimeSyntax_navClearURLs": {
-    "message": "Īpašs izpildlaiks",
-    "description": "Runtime syntax page navigation link for dedicated runtime section"
-  },
-  "runtimeSyntax_navDisableIds": {
-    "message": "Atspējot ID",
-    "description": "Runtime syntax page navigation link for disable identity section"
-  },
-  "runtimeSyntax_navInteroperability": {
-    "message": "Sadarbspējas izpildlaiks",
-    "description": "Runtime syntax page navigation link for interoperability section"
-  },
-  "runtimeSyntax_pageTitle": {
-    "message": "Galīgā izpildlaika sintakse",
-    "description": "Runtime syntax page title"
-  },
   "popup_html_guide_link": {
     "message": "Pakalpojumu sniedzēja JSON ceļvedis",
     "description": "Popup license link label for the Linkumori provider JSON guide page"
   },
   "popup_html_guide_link_title": {
-    "message": "Atveriet Linkumori nodrošinātāju JSON un sadarbspējas rokasgrāmatu",
-    "description": "Tooltip and aria label for the popup guide link in the license section"
+    "message": "Open Linkumori rules guide",
+    "description": "Tooltip and aria label for the popup guide link in the license section."
+  },
+  "faq_rules_guide_syntax": {
+    "message": "Which rule syntax should I use?",
+    "description": "FAQ question for the unified Linkumori rule syntax guide."
+  },
+  "faq_rules_guide_syntax_answer": {
+    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
+    "description": "FAQ answer explaining the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_syntax_note": {
+    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
+    "description": "FAQ note for the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_open_page": {
+    "message": "Open rules guide",
+    "description": "FAQ link text that opens the unified rules guide."
+  },
+  "providerImport_failedToLoadSources": {
+    "message": "Failed to load provider sources: $1",
+    "description": "Error shown when provider import sources fail to load."
+  },
+  "providerImport_noBundledRules": {
+    "message": "Bundled rules are not available.",
+    "description": "Error shown when bundled rules are unavailable for provider import."
+  },
+  "providerImport_failedToLoadBundled": {
+    "message": "Failed to load bundled rules: $1",
+    "description": "Error shown when bundled rules fail to load for provider import."
+  },
+  "status_language_change_failed": {
+    "message": "Could not switch language to $1.",
+    "description": "Status text shown when changing the UI language fails."
+  },
+  "theme_light": {
+    "message": "Light theme",
+    "description": "Accessible label for switching to the light theme."
+  },
+  "theme_dark": {
+    "message": "Dark theme",
+    "description": "Accessible label for switching to the dark theme."
   }
 }

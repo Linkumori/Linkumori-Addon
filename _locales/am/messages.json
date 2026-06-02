@@ -55,17 +55,9 @@
     "message": "የታሸጉ Linkumori/ClearURLs ደንቦችን ይጠቀሙ ። ይህንን ከርቀት ህጎች እና/ወይም ብጁ ህጎች ጋር ብቻ ለማሄድ ያሰናክሉ ።",
     "description": "Description for the toggle that controls bundled built-in rules"
   },
-  "linkumori_interoperability_mode_enabled": {
-    "message": "የLinkumori ተኳኋኝነት ሁነታ",
-    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
-  },
-  "linkumori_interoperability_mode_enabled_description": {
-    "message": "ከLinkumori/ClearURLs JSON ደንቦች ጋር ተኳኋኝ የ$removeparam ዝርዝሮችን ጨምሮ የLinkumori URL Filter ተኳኋኝነት ደንቦችን ይተግብሩ።",
-    "description": "Description for the Linkumori interoperability mode toggle"
-  },
   "bundled_rules_description": {
-    "message": "Linkumori ሁለት የደንቦች ምድቦችን ይጠቀማል Linkumori (ClearURLs 2.0) JSON ደንቦች ለአገር አቅራቢዎች እና Linkumori 987650055 ታዋቂ ለሆኑ አቅራቢዎች $removeparam ዝርዝሮች. እያንዳንዱ ምድብ በተናጠል ይቆጠራል.",
-    "description": "Description for the bundled rules section."
+    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs.",
+    "description": "Description text for the built-in bundled rules setting."
   },
   "bundled_rules_section_title": {
     "message": "ደንቦች መረጃ",
@@ -2107,16 +2099,8 @@
   "providerImport_importedCount": {
     "message": "መጥቷል፡ $1 አቅራቢዎች"
   },
-  "providerImport_importedRulesCount": {
-    "message": "ገብቷል፦ $1 ሕጎች",
-    "description": "Import result count for Linkumori URL interoperability rules."
-  },
   "providerImport_importing": {
     "message": "በማስመጣት ላይ..."
-  },
-  "providerImport_linkumoriData": {
-    "message": "ነባር የLinkumori ተግባቦት ሕጎች",
-    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "አቅራቢዎችን በመጫን ላይ...",
@@ -2179,10 +2163,6 @@
   },
   "providerImport_skippedCount": {
     "message": "ተዘሏል፡ $1 አቅራቢዎች"
-  },
-  "providerImport_skippedRulesCount": {
-    "message": "ተዘሏል፦ $1 ሕጎች",
-    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "ደንብ ምንጭ",
@@ -2533,16 +2513,16 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "ምንጭዎ Linkumori (ClearURLs 2.0) JSON ደንቡሴት ወይም Linkumori 9876500945678መተላለፊያ ዝርዝር መሆኑን ሙሉ በሙሉ ካልተረዱ የርቀት ህጎችን በመጠቀም እንደገና ያስቡበት።",
-    "description": "Final warning message in security modal"
+    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source.",
+    "description": "Final warning shown in the remote rules security modal."
   },
   "security_modal_main_warning": {
-    "message": "ይህ የርቀት ህጎች ባህሪ የተነደፈው የሚጫኑትን የምንጭ ቅርጸት ለሚረዱ ለላቁ ተጠቃሚዎች ነው። Linkumori (ClearURLs 2.0) JSON የርቀት ደንቦች ለማረጋገጫ ተዛማጅ ሃሽ URL ያስፈልጋቸዋል። Linkumori URL የማጣሪያ መስተጋብር ዝርዝሮች ያለ ሃሽ URL ሊጫኑ እና ተለይተው ይቀመጣሉ።",
-    "description": "Main warning text explaining the purpose and risks"
+    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification.",
+    "description": "Main warning text for the remote rules security modal."
   },
   "security_modal_privacy_text": {
-    "message": "የርቀት ደንብ URL ካከሉ፣ ቅጥያው Linkumori (ClearURLs 2.0) JSON ሲዋቀር ወይም 90876 90876 ሀሽ ፋይል ለማምጣት ከተሰየመው አገልጋይ ጋር ይገናኛል። URL የአጣር መስተጋብር ዝርዝር። እያንዳንዱ ማምጣት የIP አድራሻዎን እና አጠቃላይ መረጃን እንደ የኤክስቴንሽን ሥሪት፣ አሳሽ እና የአሳሽ ሥሪት ለአስተናጋጅ አገልጋይ ሊያጋልጥ ይችላል። ይህ ውሂብ ለዚያ ድር ጣቢያ ወይም የድር አገልጋይ የግላዊነት ፖሊሲ ተገዢ ነው።",
-    "description": "Privacy notice explaining data collection policy"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the remote rules security modal."
   },
   "security_modal_privacy_link_text": {
     "message": "ካስፈለገ ከመቀጠልዎ በፊት %PRIVACY_POLICY_LINK% እንደገና ያንብቡ።",
@@ -2553,8 +2533,8 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "የርቀት ምንጩን ካላመኑ እና ካልተቆጣጠሩ በስተቀር አብሮ የተሰሩ ደንቦችን ይጠቀሙ። ለ Linkumori (ClearURLs 2.0) JSON ሕጎች፣ ተዛማጅ ሃሽ ያቅርቡ URL። ለተግባቦት ማጣሪያ ዝርዝሮች፣ ሃሽ URL ባዶ ይተዉት።",
-    "description": "Recommendation to use built-in rules instead"
+    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules.",
+    "description": "Recommendation text shown in the remote rules security modal."
   },
   "security_modal_risk_1": {
     "message": "የእርስዎ የአይፒ አድራሻ እና የአሳሽ መረጃ ለተዋቀሩ አገልጋዮች ይጋለጣሉ",
@@ -2569,8 +2549,8 @@
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "የተግባቦት ማጣሪያ ዝርዝሮች ሃሽ ማረጋገጫን አይጠቀሙም፣ ስለዚህ በምንጩ URL ማመን በተለይ አስፈላጊ ነው።",
-    "description": "Fourth security risk point"
+    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL.",
+    "description": "Risk list item for remote rules without successful hash verification."
   },
   "security_modal_risks_title": {
     "message": "የደህንነት ስጋቶች፡-",
@@ -3279,24 +3259,24 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Gatekeeper ጥበቃዎችን ለርቀት ደንብ URL ማረም እያሰናከሉ ነው። ይህ ባህሪ Linkumori (ClearURLs 2.0) JSON ደንቦችን ከሃሽ ማረጋገጫ ጋር ወይም Linkumori URL ያለ ሃሽ ማጣራት የሚግባባ ዝርዝሮችን መጫን ይችላል። የትኛውን ቅርጸት እያዋቀሩ እንደሆነ ከተረዱ ብቻ ይቀጥሉ።",
-    "description": "Main warning text in disable gatekeeper modal"
+    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring.",
+    "description": "Main warning text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "በረኛ ለደህንነት ማስጠንቀቂያው እውቅና እስኪሰጡ ድረስ እና የተተየበው ማረጋገጫ እስኪያጠናቅቁ ድረስ የርቀት ዩአርኤል አርትዖቶችን የሚያግድ አብሮ የተሰራ የደህንነት ፍሰት ነው።",
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "የርቀት ምንጮችዎን ካላመኑ እና ካልተቆጣጠሩ በስተቀር Gatekeeper እንደነቃ ያቆዩት። JSON ደንቦች ተዛማጅ ሃሽ URL ማካተት አለባቸው; እርስበርስ የመተግበር ዝርዝሮች ሆን ብለው ሃሽ URL ባዶ ይተዉት።",
-    "description": "Recommendation text in disable gatekeeper modal"
+    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL.",
+    "description": "Recommendation text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "የማስጠንቀቂያ ማስታወቂያ፡-",
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "የርቀት ደንብ URL ካከሉ፣ ቅጥያው Linkumori (ClearURLs 2.0) JSON ሲዋቀር ወይም 90876 90876 ሀሽ ፋይል ለማምጣት ከተሰየመው አገልጋይ ጋር ይገናኛል። URL የአጣር መስተጋብር ዝርዝር። እያንዳንዱ ማምጣት የIP አድራሻዎን እና አጠቃላይ መረጃን እንደ የኤክስቴንሽን ሥሪት፣ አሳሽ እና የአሳሽ ሥሪት ለአስተናጋጅ አገልጋይ ሊያጋልጥ ይችላል። ይህ ውሂብ ለዚያ ድር ጣቢያ ወይም የድር አገልጋይ የግላዊነት ፖሊሲ ተገዢ ነው።",
-    "description": "Privacy section body in disable gatekeeper modal"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "ካስፈለገ ከመቀጠልዎ በፊት %PRIVACY_POLICY_LINK% እንደገና ያንብቡ።",
@@ -3315,8 +3295,8 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "የርቀት JSON፣ hash ወይም interoperability ማጣሪያ ፋይሎችን የሚያስተናግደው አገልጋይ IP አድራሻዎን ይደርሰዋል።",
-    "description": "Risk bullet 2 in disable gatekeeper modal"
+    "message": "The server hosting remote JSON or hash files will receive your IP address.",
+    "description": "Risk list item for remote file hosts receiving the user IP address."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "አገልጋዩ የእርስዎን የኤክስቴንሽን ስሪት፣ አሳሽ እና የአሳሽ ስሪት ሊቀበል ይችላል።",
@@ -3327,8 +3307,8 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Gatekeeper በማሰናከል፣ደህንነታቸው ያልተጠበቀ ወይም የተጠለፉ የርቀት ደንብ ምንጮች አደጋን ይጨምራሉ። የሃሽ ማረጋገጫ Linkumori (ClearURLs 2.0) JSON ማውረዶችን ብቻ ይከላከላል። በተግባራዊነት ዝርዝሮች ላይ አይተገበርም.",
-    "description": "Final warning banner text in disable gatekeeper modal"
+    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured.",
+    "description": "Final warning shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "ሰርዝ",
@@ -3407,8 +3387,8 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "ይህ እርምጃ ለርቀት ደንቦች መከላከያዎችን ይቀንሳል. የእርስዎን JSON እና የተጠላለፉ የማጣሪያ ምንጮችን ካመኑ ብቻ ይቀጥሉ።",
-    "description": "Final warning text for gatekeeper-specific confirmation modal"
+    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source.",
+    "description": "Final confirmation text for disabling Gatekeeper."
   },
   "remote_urls_template_note_1": {
     "message": "የቦታ ያዥ እሴቶችን በእውነተኛ HTTPS ዩአርኤሎች ይተኩ፣ ከዚያ ይህን ፋይል ያስመጡ።",
@@ -4130,10 +4110,6 @@
     "message": "ምንም እንቅስቃሴ የለም።",
     "description": "Fallback row label when no daily stats data is available."
   },
-  "linkumori_url_rules_section": {
-    "description": "Section header for popular extension URL filter rules in settings",
-    "message": "Linkumori URL ማጣሪያዎች (መጠላለፍ):"
-  },
   "clearurls_json_rules_section": {
     "description": "Section header for native ClearURLs JSON rule statistics in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON ደንቦች፡"
@@ -4194,66 +4170,6 @@
     "description": "Hash status for popular extension URL filter lists",
     "message": "አያስፈልግም"
   },
-  "linkumori_url_filter_name": {
-    "description": "Display name for Linkumori URL filter interoperability rules.",
-    "message": "Linkumori URL ማጣሪያዎች"
-  },
-  "linkumori_url_filter_single_name": {
-    "description": "Display name for a single Linkumori URL filter source.",
-    "message": "Linkumori URL ማጣሪያ"
-  },
-  "linkumori_url_filter_merged_name": {
-    "description": "Display name when multiple Linkumori URL filter sources are merged.",
-    "message": "Linkumori URL ማጣሪያዎች ተዋህደዋል"
-  },
-  "linkumori_url_filter_custom_name": {
-    "description": "Display name for custom Linkumori URL filter rules.",
-    "message": "ብጁ Linkumori URL ደንቦች"
-  },
-  "linkumori_url_filter_parser_unavailable": {
-    "description": "Error when the Linkumori URL filter parser is unavailable.",
-    "message": "Linkumori URL ማጣሪያ የለም"
-  },
-  "linkumori_url_filter_custom_failed": {
-    "description": "Error when custom Linkumori URL rules cannot be parsed.",
-    "message": "ብጁ Linkumori URL ደንቦች አልተሳኩም"
-  },
-  "linkumori_url_filter_sources_failed_count": {
-    "description": "Summary of failed Linkumori URL filter sources.",
-    "message": "$1 URL የማጣሪያ ምንጭ(ዎች) አልተሳካም"
-  },
-  "linkumori_url_filter_remote_empty": {
-    "description": "Error when a remote Linkumori URL filter file is empty.",
-    "message": "የርቀት URL የማጣሪያ ፋይል ባዶ ነው።"
-  },
-  "linkumori_url_filter_fetch_failed": {
-    "description": "Error when fetching Linkumori URL filters fails.",
-    "message": "Linkumori URL ማጣሪያ ማምጣት አልተሳካም"
-  },
-  "linkumori_url_filter_unknown_error": {
-    "description": "Fallback error for Linkumori URL filters.",
-    "message": "ያልታወቀ URL የማጣሪያ ስህተት"
-  },
-  "linkumori_url_filter_all_sources_failed": {
-    "description": "Error when all Linkumori URL filter sources fail.",
-    "message": "ሁሉም Linkumori URL የማጣሪያ ምንጮች አልተሳኩም"
-  },
-  "linkumori_url_filter_log_pattern_value": {
-    "description": "Log pattern value for Linkumori URL filter interoperability.",
-    "message": "ታዋቂ ቅጥያ URL የመከታተያ ማጣሪያ"
-  },
-  "linkumori_url_filter_no_supported_rules": {
-    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
-    "message": "ምንም የሚደገፍ Linkumori መስተጋብር $removeparam ሕጎች አልተገኙም"
-  },
-  "linkumori_url_filter_interoperability_name": {
-    "description": "Parser metadata name for Linkumori URL filter interoperability.",
-    "message": "Linkumori URL የማጣሪያ መስተጋብር"
-  },
-  "linkumori_url_filter_interoperability_author": {
-    "description": "Parser metadata author for Linkumori URL filter interoperability.",
-    "message": "Linkumori የተጠላለፈ የማጣሪያ ምንጭ"
-  },
   "linkumoriUrlRules_button": {
     "description": "Button that opens the custom Linkumori URL filter modal.",
     "message": "Linkumori URL ደንቦች"
@@ -4306,17 +4222,9 @@
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
   },
-  "linkumoriUrlFiltersStatusGroup": {
-    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
-    "message": "Linkumori URL ማጣሪያዎች (ተግባቦት)"
-  },
   "linkumoriUrlRules_statusLabel": {
     "description": "Status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL ሁኔታ"
-  },
-  "linkumoriUrlRules_runtimeRulesLabel": {
-    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
-    "message": "የአሂድ ጊዜ ህጎች"
   },
   "linkumoriUrlRules_customRulesLabel": {
     "description": "Label for custom Linkumori URL rules in the custom rules editor.",
@@ -4325,10 +4233,6 @@
   "linkumoriUrlRules_hashStatusLabel": {
     "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL ሃሽ"
-  },
-  "linkumoriUrlRules_statusSummary": {
-    "description": "Rules status summary for Linkumori URL rules.",
-    "message": "$1\n$2 የአሂድ ጊዜ ደንብ(ዎች)\n$3 ብጁ ህግ(ዎች)"
   },
   "linkumoriUrlRules_close_aria": {
     "description": "Accessible label for closing the Linkumori URL rules modal.",
@@ -4345,26 +4249,6 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "የርቀት ታዋቂ ቅጥያ URL ማጣሪያዎች እና እነዚህ ብጁ ደንቦች ሃሽ ማረጋገጥ አያስፈልጋቸውም። ከተተነተነ በኋላ በLinkumoriURLsData ከClearURLsData ተለይተዋል።"
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
-    "message": "ተግባቦት ተቀይሯል",
-    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
-    "message": "የተግባቦት ውጤት URL",
-    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
-    "message": "የተዛመደ የተግባቦት ሕግ",
-    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
-    "message": "የተግባቦት ንድፍ ዓይነት",
-    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
-    "message": "የተግባቦት እርምጃ",
-    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   },
   "popup_whitelist_state_permanent": {
     "message": "የተፈቀደላቸው፡ $1 — ለትር-ብቻ እንደገና ጠቅ ያድርጉ",
@@ -5165,134 +5049,6 @@
     "message": "ምዕራፍ 25፡ ፈጣን የቅጂ አብነቶች",
     "description": "Guide page text."
   },
-  "guide_0076": {
-    "message": "የመተባበር ህጎች",
-    "description": "Guide page text."
-  },
-  "guide_0077": {
-    "message": "የተግባቦት ደንቦች መመሪያ",
-    "description": "Guide page text."
-  },
-  "guide_0078": {
-    "message": "ምእራፍ 1፡ የተግባቦት ህጎች ምንድናቸው",
-    "description": "Guide page text."
-  },
-  "guide_0079": {
-    "message": "ምዕራፍ 2፡ የሚደገፈው",
-    "description": "Guide page text."
-  },
-  "guide_0080": {
-    "message": "ምዕራፍ 3፡ መሰረታዊ ደንብ ፎርማት",
-    "description": "Guide page text."
-  },
-  "guide_0081": {
-    "message": "ምዕራፍ 4፡ ደንቦች የሚቀመጡበት",
-    "description": "Guide page text."
-  },
-  "guide_0082": {
-    "message": "ምዕራፍ 5፡ አስተያየቶች እና ባዶ መስመሮች",
-    "description": "Guide page text."
-  },
-  "guide_0083": {
-    "message": "ምዕራፍ 6፡ አንድ መለኪያ አስወግድ",
-    "description": "Guide page text."
-  },
-  "guide_0084": {
-    "message": "ምዕራፍ 7፡ ሁሉንም የጥያቄ መለኪያዎች አስወግድ",
-    "description": "Guide page text."
-  },
-  "guide_0085": {
-    "message": "ምዕራፍ 8፡ መለኪያዎችን በ Regex አስወግድ",
-    "description": "Guide page text."
-  },
-  "guide_0086": {
-    "message": "ምዕራፍ 9፡ ከአንድ ግጥሚያ በስተቀር ሁሉንም አስወግድ",
-    "description": "Guide page text."
-  },
-  "guide_0087": {
-    "message": "ምዕራፍ 10: $ queryprune",
-    "description": "Guide page text."
-  },
-  "guide_0088": {
-    "message": "ምዕራፍ 11፡ URL የአብነት ምሳሌዎች",
-    "description": "Guide page text."
-  },
-  "guide_0089": {
-    "message": "ምዕራፍ 12፡ ልዩነቱ",
-    "description": "Guide page text."
-  },
-  "guide_0090": {
-    "message": "ምዕራፍ 13: አስፈላጊ",
-    "description": "Guide page text."
-  },
-  "guide_0091": {
-    "message": "ምዕራፍ 14: badfilter",
-    "description": "Guide page text."
-  },
-  "guide_0092": {
-    "message": "ምዕራፍ 15፡ የጎራ ምንጭ ማሻሻያዎች፡ domain= And from=",
-    "description": "Guide page text."
-  },
-  "guide_0093": {
-    "message": "ምዕራፍ 16፡ ዒላማ ጎራ አሻሽል፡ ወደ=",
-    "description": "Guide page text."
-  },
-  "guide_0094": {
-    "message": "ምዕራፍ 17፡ denyallow=",
-    "description": "Guide page text."
-  },
-  "guide_0095": {
-    "message": "ምዕራፍ 18: HTTP ዘዴ መቀየሪያ",
-    "description": "Guide page text."
-  },
-  "guide_0096": {
-    "message": "ምዕራፍ 19፡ የሀብት አይነት መቀየሪያዎች",
-    "description": "Guide page text."
-  },
-  "guide_0097": {
-    "message": "ምዕራፍ 20፡ አንደኛ-ፓርቲ እና ሶስተኛ ወገን",
-    "description": "Guide page text."
-  },
-  "guide_0098": {
-    "message": "ምዕራፍ 21፡ ተዛማጅ መያዣ",
-    "description": "Guide page text."
-  },
-  "guide_0099": {
-    "message": "ምዕራፍ 22፡ app=",
-    "description": "Guide page text."
-  },
-  "guide_0100": {
-    "message": "ምእራፍ 23፡- ምንም-ኦፕ መቀየሪያዎች",
-    "description": "Guide page text."
-  },
-  "guide_0101": {
-    "message": "ምዕራፍ 24፡ የመለኪያ ማዛመጃ ዝርዝሮች",
-    "description": "Guide page text."
-  },
-  "guide_0102": {
-    "message": "ምዕራፍ 25፡ መጠይቅ ብቻ",
-    "description": "Guide page text."
-  },
-  "guide_0103": {
-    "message": "ምዕራፍ 26፡ የማይደገፉ ሕጎች ተዘለዋል።",
-    "description": "Guide page text."
-  },
-  "guide_0104": {
-    "message": "ምዕራፍ 27፡ የተባዙ ሕጎች",
-    "description": "Guide page text."
-  },
-  "guide_0105": {
-    "message": "ምዕራፍ 28፡ የተሟላ የማጣሪያ ዝርዝር ምሳሌ",
-    "description": "Guide page text."
-  },
-  "guide_0106": {
-    "message": "ምዕራፍ 29: JSON የማከማቻ ምሳሌ",
-    "description": "Guide page text."
-  },
-  "guide_0107": {
-    "message": "ምዕራፍ 30፡ ፈጣን የቅጂ አብነቶች",
-    "description": "Guide page text."
-  },
   "guide_0108": {
     "message": "Linkumori ቅይጥ አቅራቢ JSON የቅርጸት መመሪያ",
     "description": "Guide page text."
@@ -5302,8 +5058,8 @@
     "description": "Guide page text."
   },
   "guide_0110": {
-    "message": "የተደባለቀውን Linkumori የአቅራቢ ቅርፀትን ይሸፍናል፡ ClearURLs የአዶን ሌጋሲ መስኮች፣ ClearURLs ኮር v2 ቀኖናዊ ደንብ ነገሮች እና Linkumori-ብቻ ጭማሪዎች እንደ 92837466500 አቅራቢዎች 8 የጎራ ልዩ ሁኔታዎች፣ የጎራ ማዞሪያዎች እና የመርጃ-አይነት ወሰን።",
-    "description": "Guide page text."
+    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
+    "description": "Introductory paragraph for the provider JSON guide."
   },
   "guide_0111": {
     "message": "ለJavaScript ኮድ መመሪያ አይደለም። እሱ የሚያተኩረው በJSON ቅርጾች፣የደንብ ቅርጸቶች እና ገዥ ደራሲዎች በሚያስፈልጋቸው ምሳሌዎች ላይ ብቻ ነው።",
@@ -5774,8 +5530,8 @@
     "description": "Guide page text."
   },
   "guide_0228": {
-    "message": "በአቅራቢው ውስጥ <code>$removeparam</code> ገመዶች <code>rules</code> የLinkumori መደመር ናቸው። እነሱ ከሁለተኛው መመሪያ <code>urlFilterRules</code> የተግባቦት አገባብ የተለዩ ናቸው።",
-    "description": "Guide page text."
+    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
+    "description": "Introductory paragraph for provider-local $removeparam rules."
   },
   "guide_0229": {
     "message": "አንድ መለኪያ አስወግድ",
@@ -6286,8 +6042,8 @@
     "description": "Guide page text."
   },
   "guide_0356": {
-    "message": "Linkumori መደመር — ከአቅራቢው ጋር የተዋሃደ ምንጭ JSON እና የተግባቦት ህጎች፡-",
-    "description": "Guide page text."
+    "message": "Linkumori addition - provider JSON with inline filter-list rules:",
+    "description": "Guide label for provider JSON with inline $removeparam rules."
   },
   "guide_0357": {
     "message": "ጠቃሚ፡-",
@@ -6644,738 +6400,6 @@
   "guide_0445": {
     "message": "መከታተያ አዙር URL፡",
     "description": "Guide page text."
-  },
-  "guide_0446": {
-    "message": "የተግባቦት ደንቦች መመሪያ",
-    "description": "Guide page text."
-  },
-  "guide_0447": {
-    "message": "Linkumori URL ማጣሪያ — ግልጽ የማጣሪያ ዝርዝር አገባብ ለ URL ጽዳት",
-    "description": "Guide page text."
-  },
-  "guide_0448": {
-    "message": "የተግባቦት ደንቦች መመሪያ",
-    "description": "Guide page text."
-  },
-  "guide_0449": {
-    "message": "ይህ መመሪያ Linkumori ማራዘሚያ URL የማጣሪያ መስተጋብር ደንቦችን ያብራራል።",
-    "description": "Guide page text."
-  },
-  "guide_0450": {
-    "message": "እነዚህ ሙሉ ClearURLs JSON የአቅራቢ ደንቦች አይደሉም። በታዋቂ የይዘት ማገጃዎች ከሚጠቀሙት ደንቦች ጋር ተመሳሳይ የሆኑ ግልጽ ማጣሪያ-ዝርዝር መስመሮች ናቸው። የLinkumori ቅጥያ የሚደግፈው የዚያን ዓለም URL የጽዳት ክፍል ብቻ ነው።",
-    "description": "Guide page text."
-  },
-  "guide_0451": {
-    "message": "ምእራፍ 1፡ የተግባቦት ህጎች ምንድናቸው",
-    "description": "Guide page text."
-  },
-  "guide_0452": {
-    "message": "የተግባቦት ህጎች በሚከተሉት ውስጥ የተከማቹ ቀላል የጽሑፍ መስመሮች ናቸው፡",
-    "description": "Guide page text."
-  },
-  "guide_0453": {
-    "message": "በ<code>ClearURLsData.urlFilterRules</code> ውስጥ ይኖራሉ።",
-    "description": "Guide page text."
-  },
-  "guide_0454": {
-    "message": "ከJSON አቅራቢዎች የተለዩ ናቸው፡-",
-    "description": "Guide page text."
-  },
-  "guide_0455": {
-    "message": "ሙሉ አገልግሎት ሰጪ ነገር ከመጻፍ ይልቅ URL-cleaning filter-list syntax በቀጥታ ለመለጠፍ ሲፈልጉ የተግባቦት ደንቦችን ይጠቀሙ።",
-    "description": "Guide page text."
-  },
-  "guide_0456": {
-    "message": "ምዕራፍ 2፡ የሚደገፈው",
-    "description": "Guide page text."
-  },
-  "guide_0457": {
-    "message": "የሚደገፍ፡",
-    "description": "Guide page text."
-  },
-  "guide_0458": {
-    "message": "የማይደገፍ፡",
-    "description": "Guide page text."
-  },
-  "guide_0459": {
-    "message": "ያለ <code>$removeparam</code> ወይም <code>$queryprune</code> መስመሮች ችላ ተብለዋል።",
-    "description": "Guide page text."
-  },
-  "guide_0460": {
-    "message": "ምዕራፍ 3፡ መሰረታዊ ደንብ ፎርማት",
-    "description": "Guide page text."
-  },
-  "guide_0461": {
-    "message": "መሰረታዊ ቅርጽ:",
-    "description": "Guide page text."
-  },
-  "guide_0462": {
-    "message": "ምሳሌ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0463": {
-    "message": "ትርጉም፡-",
-    "description": "Guide page text."
-  },
-  "guide_0464": {
-    "message": "ውጤት፡",
-    "description": "Guide page text."
-  },
-  "guide_0465": {
-    "message": "ምዕራፍ 4፡ ደንቦች የሚቀመጡበት",
-    "description": "Guide page text."
-  },
-  "guide_0466": {
-    "message": "የአሂድ ማከማቻ ቅርፅ",
-    "description": "Guide page text."
-  },
-  "guide_0467": {
-    "message": "የሩጫ ጊዜው እነዚህን ደንቦች በተዋሃደው URL የማጣሪያ ውሂብ መንገድ ያነባል።",
-    "description": "Guide page text."
-  },
-  "guide_0468": {
-    "message": "ምዕራፍ 5፡ አስተያየቶች እና ባዶ መስመሮች",
-    "description": "Guide page text."
-  },
-  "guide_0469": {
-    "message": "ባዶ መስመሮች ችላ ተብለዋል.",
-    "description": "Guide page text."
-  },
-  "guide_0470": {
-    "message": "የአስተያየት መስመሮች ችላ ተብለዋል፡-",
-    "description": "Guide page text."
-  },
-  "guide_0471": {
-    "message": "የክፍል ራስጌዎች ችላ ተብለዋል፡-",
-    "description": "Guide page text."
-  },
-  "guide_0472": {
-    "message": "ምዕራፍ 6፡ አንድ መለኪያ አስወግድ",
-    "description": "Guide page text."
-  },
-  "guide_0473": {
-    "message": "ደንብ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0474": {
-    "message": "ውጤት፡",
-    "description": "Guide page text."
-  },
-  "guide_0475": {
-    "message": "<code>*</code> ማለት የURL ጥለት ሁሉንም ነገር ይዛመዳል ማለት ነው።",
-    "description": "Guide page text."
-  },
-  "guide_0476": {
-    "message": "ምዕራፍ 7፡ ሁሉንም የጥያቄ መለኪያዎች አስወግድ",
-    "description": "Guide page text."
-  },
-  "guide_0477": {
-    "message": "ደንብ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0478": {
-    "message": "ውጤት፡",
-    "description": "Guide page text."
-  },
-  "guide_0479": {
-    "message": "ይህ ሁሉንም የጥያቄ መለኪያዎችን URLs እንዳይዛመድ ያስወግዳል።",
-    "description": "Guide page text."
-  },
-  "guide_0480": {
-    "message": "ምዕራፍ 8፡ መለኪያዎችን በ Regex አስወግድ",
-    "description": "Guide page text."
-  },
-  "guide_0481": {
-    "message": "ደንብ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0482": {
-    "message": "ውጤት፡",
-    "description": "Guide page text."
-  },
-  "guide_0483": {
-    "message": "Regex ባንዲራዎች፡-",
-    "description": "Guide page text."
-  },
-  "guide_0484": {
-    "message": "ለተግባራዊነት ድግግሞሾች የ<code>i</code> ባንዲራ ብቻ በተንታኙ ይጠበቃል።",
-    "description": "Guide page text."
-  },
-  "guide_0485": {
-    "message": "ምዕራፍ 9፡ ከአንድ ግጥሚያ በስተቀር ሁሉንም አስወግድ",
-    "description": "Guide page text."
-  },
-  "guide_0486": {
-    "message": "ከመለኪያ ጥለት በፊት <code>~</code> ይጠቀሙ።",
-    "description": "Guide page text."
-  },
-  "guide_0487": {
-    "message": "ውጤት፡",
-    "description": "Guide page text."
-  },
-  "guide_0488": {
-    "message": "ትርጉም፡-",
-    "description": "Guide page text."
-  },
-  "guide_0489": {
-    "message": "ምዕራፍ 10፡ <code>$queryprune</code>",
-    "description": "Guide page text."
-  },
-  "guide_0490": {
-    "message": "<code>$queryprune</code> ለ <code>$removeparam</code> እንደ ተወገደ ተለዋጭ ስም ይቀበላል።",
-    "description": "Guide page text."
-  },
-  "guide_0491": {
-    "message": "እነዚህ እኩል ናቸው፡-",
-    "description": "Guide page text."
-  },
-  "guide_0492": {
-    "message": "በ <code>$removeparam</code> አዲስ ህጎችን ይምረጡ።",
-    "description": "Guide page text."
-  },
-  "guide_0493": {
-    "message": "ምዕራፍ 11፡ URL የአብነት ምሳሌዎች",
-    "description": "Guide page text."
-  },
-  "guide_0494": {
-    "message": "ሁሉንም አዛምድ URLs፡",
-    "description": "Guide page text."
-  },
-  "guide_0495": {
-    "message": "ጎራ እና ንዑስ ጎራዎችን አዛምድ፡",
-    "description": "Guide page text."
-  },
-  "guide_0496": {
-    "message": "ከURL ቅድመ ቅጥያ ጋር አዛምድ፡",
-    "description": "Guide page text."
-  },
-  "guide_0497": {
-    "message": "ትክክለኛውን መጨረሻ ከቀኝ መልህቅ ጋር አዛምድ፡",
-    "description": "Guide page text."
-  },
-  "guide_0498": {
-    "message": "regex URL ጥለት ተጠቀም፡-",
-    "description": "Guide page text."
-  },
-  "guide_0499": {
-    "message": "ምዕራፍ 12፡ ልዩነቱ",
-    "description": "Guide page text."
-  },
-  "guide_0500": {
-    "message": "ለየት ያለ ለማድረግ በ <code>@@</code> ይጀምሩ።",
-    "description": "Guide page text."
-  },
-  "guide_0501": {
-    "message": "የምሳሌ ደንብ ስብስብ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0502": {
-    "message": "ውጤት፡",
-    "description": "Guide page text."
-  },
-  "guide_0503": {
-    "message": "ምዕራፍ 13፡ <code>important</code>",
-    "description": "Guide page text."
-  },
-  "guide_0504": {
-    "message": "<code>important</code> የማስወገጃ ደንብ በመደበኛ ልዩ ሁኔታዎች ላይ እንዲያሸንፍ ያደርገዋል።",
-    "description": "Guide page text."
-  },
-  "guide_0505": {
-    "message": "ውጤት፡",
-    "description": "Guide page text."
-  },
-  "guide_0506": {
-    "message": "ጠቃሚ ማስታወሻዎች፡-",
-    "description": "Guide page text."
-  },
-  "guide_0507": {
-    "message": "<code>important</code> በማስወገድ ደንቦች ላይ ተፈቅዷል።",
-    "description": "Guide page text."
-  },
-  "guide_0508": {
-    "message": "<code>important</code> በዚህ ተንታኝ ውስጥ በልዩ ደንቦች ላይ አይደገፍም።",
-    "description": "Guide page text."
-  },
-  "guide_0509": {
-    "message": "ምዕራፍ 14፡ <code>badfilter</code>",
-    "description": "Guide page text."
-  },
-  "guide_0510": {
-    "message": "<code>badfilter</code> ሌላ ተዛማጅ ህግን ያሰናክላል።",
-    "description": "Guide page text."
-  },
-  "guide_0511": {
-    "message": "ኦሪጅናል ህግ፡",
-    "description": "Guide page text."
-  },
-  "guide_0512": {
-    "message": "መጥፎ ማጣሪያ ደንብ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0513": {
-    "message": "ትርጉም፡-",
-    "description": "Guide page text."
-  },
-  "guide_0514": {
-    "message": "ተንታኙ ያለ <code>badfilter</code> ደንቡን ቀኖናዊ ያደርገዋል እና የታለመውን ደንብ ከአሂድ ጊዜ አጠቃቀም ያስወግዳል።",
-    "description": "Guide page text."
-  },
-  "guide_0515": {
-    "message": "ምዕራፍ 15፡ የጎራ ምንጭ ማስተካከያዎች፡ <code>domain=</code> እና <code>from=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0516": {
-    "message": "<code>domain=</code> እና <code>from=</code> ደንቦችን በገጹ ወይም በምንጭ አውድ ይገድባሉ።",
-    "description": "Guide page text."
-  },
-  "guide_0517": {
-    "message": "ከ<code>from=</code> ጋር ተመሳሳይ ሀሳብ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0518": {
-    "message": "እነዚህ እንደሚከተሉት ያሉ የአውድ አስተናጋጅ ስሞችን ይፈትሹ፦",
-    "description": "Guide page text."
-  },
-  "guide_0519": {
-    "message": "ብዙ ጎራዎችን ያካትቱ፡",
-    "description": "Guide page text."
-  },
-  "guide_0520": {
-    "message": "ጎራ አግልል፡",
-    "description": "Guide page text."
-  },
-  "guide_0521": {
-    "message": "regex ጎራ ተጠቀም፡-",
-    "description": "Guide page text."
-  },
-  "guide_0522": {
-    "message": "ምዕራፍ 16፡ የዒላማው ጎራ አሻሽል፡ <code>to=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0523": {
-    "message": "<code>to=</code> በመድረሻ URL አስተናጋጅ ደንቦቹን ይገድባል።",
-    "description": "Guide page text."
-  },
-  "guide_0524": {
-    "message": "ይህ URL እየጸዳ ያለውን ያረጋግጣል።",
-    "description": "Guide page text."
-  },
-  "guide_0525": {
-    "message": "ምሳሌ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0526": {
-    "message": "የዒላማ ጎራ አግልል፡",
-    "description": "Guide page text."
-  },
-  "guide_0527": {
-    "message": "Regex ኢላማ፡",
-    "description": "Guide page text."
-  },
-  "guide_0528": {
-    "message": "ምዕራፍ 17፡ <code>denyallow=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0529": {
-    "message": "<code>denyallow=</code> በተዘረዘሩት የመድረሻ ጎራዎች ላይ ያለውን ህግ ያግዳል።",
-    "description": "Guide page text."
-  },
-  "guide_0530": {
-    "message": "ትርጉም፡-",
-    "description": "Guide page text."
-  },
-  "guide_0531": {
-    "message": "የሚደገፉ <code>denyallow=</code> እሴቶች ግልጽ የጎራ ቅጦች ናቸው።",
-    "description": "Guide page text."
-  },
-  "guide_0532": {
-    "message": "በ<code>denyallow=</code> የማይደገፍ፡",
-    "description": "Guide page text."
-  },
-  "guide_0533": {
-    "message": "የማይደገፉ እሴቶች ጥቅም ላይ ከዋሉ፣ ደንቡ በሙሉ ተዘሏል።",
-    "description": "Guide page text."
-  },
-  "guide_0534": {
-    "message": "ምዕራፍ 18: HTTP ዘዴ መቀየሪያ",
-    "description": "Guide page text."
-  },
-  "guide_0535": {
-    "message": "በHTTP ዘዴ ይገድቡ፡",
-    "description": "Guide page text."
-  },
-  "guide_0536": {
-    "message": "ዘዴን አታካትት፡-",
-    "description": "Guide page text."
-  },
-  "guide_0537": {
-    "message": "በርካታ ዘዴዎች:",
-    "description": "Guide page text."
-  },
-  "guide_0538": {
-    "message": "የሚደገፉ ዘዴዎች፡-",
-    "description": "Guide page text."
-  },
-  "guide_0539": {
-    "message": "ነባሪ ባህሪ፡",
-    "description": "Guide page text."
-  },
-  "guide_0540": {
-    "message": "ምዕራፍ 19፡ የሀብት አይነት መቀየሪያዎች",
-    "description": "Guide page text."
-  },
-  "guide_0541": {
-    "message": "የሚደገፉ የሀብት አይነት ቃላት፡-",
-    "description": "Guide page text."
-  },
-  "guide_0542": {
-    "message": "ምሳሌዎች፡-",
-    "description": "Guide page text."
-  },
-  "guide_0543": {
-    "message": "አሉታዊ የንብረት አይነት፡-",
-    "description": "Guide page text."
-  },
-  "guide_0544": {
-    "message": "ካርታ ስራ፡",
-    "description": "Guide page text."
-  },
-  "guide_0545": {
-    "message": "ምዕራፍ 20፡ አንደኛ-ፓርቲ እና ሶስተኛ ወገን",
-    "description": "Guide page text."
-  },
-  "guide_0546": {
-    "message": "አንደኛ ወገን ማለት የመድረሻ ቦታው እና የሰነድ ጣቢያው አንድ አይነት ተመዝጋቢ ጎራ ይጋራሉ።",
-    "description": "Guide page text."
-  },
-  "guide_0547": {
-    "message": "ሶስተኛ ወገን አያደርጉትም ማለት ነው።",
-    "description": "Guide page text."
-  },
-  "guide_0548": {
-    "message": "አንደኛ ወገን ብቻ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0549": {
-    "message": "ተለዋጭ ስሞች",
-    "description": "Guide page text."
-  },
-  "guide_0550": {
-    "message": "የሶስተኛ ወገን ብቻ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0551": {
-    "message": "ተለዋጭ ስሞች",
-    "description": "Guide page text."
-  },
-  "guide_0552": {
-    "message": "ጥብቅ አንደኛ ወገን ትክክለኛውን አስተናጋጅ ያረጋግጣል፡-",
-    "description": "Guide page text."
-  },
-  "guide_0553": {
-    "message": "ጥብቅ የሶስተኛ ወገን ፍተሻዎች አንድ አይነት አስተናጋጅ አይደሉም፡",
-    "description": "Guide page text."
-  },
-  "guide_0554": {
-    "message": "ልክ ያልሆኑ ጥምሮች ተዘለዋል፣ ለምሳሌ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0555": {
-    "message": "ምዕራፍ 21፡ <code>match-case</code>",
-    "description": "Guide page text."
-  },
-  "guide_0556": {
-    "message": "በነባሪ፣ የቃል ልኬት ማዛመድ ለጉዳይ የማይሰማ ነው።",
-    "description": "Guide page text."
-  },
-  "guide_0557": {
-    "message": "ደንብ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0558": {
-    "message": "ግጥሚያዎች፡",
-    "description": "Guide page text."
-  },
-  "guide_0559": {
-    "message": "ለጉዳይ ሚስጥራዊነት ማዛመድ <code>match-case</code> ይጠቀሙ፡",
-    "description": "Guide page text."
-  },
-  "guide_0560": {
-    "message": "አሁን ይዛመዳል፡-",
-    "description": "Guide page text."
-  },
-  "guide_0561": {
-    "message": "ግን አይደለም፡-",
-    "description": "Guide page text."
-  },
-  "guide_0562": {
-    "message": "ምዕራፍ 22፡ <code>app=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0563": {
-    "message": "<code>app=</code> ከማጣሪያ-ዝርዝር አገባብ ጋር ለተኳሃኝነት ተተነተነ።",
-    "description": "Guide page text."
-  },
-  "guide_0564": {
-    "message": "የአሳሽ ጥያቄዎች አብዛኛውን ጊዜ የመተግበሪያ ጥቅል አውድ የላቸውም። ምንም የመተግበሪያ አውድ ከሌለ፣ አወንታዊ <code>app=</code> ያላቸው ደንቦች አይዛመዱም።",
-    "description": "Guide page text."
-  },
-  "guide_0565": {
-    "message": "መተግበሪያን አግልል፡",
-    "description": "Guide page text."
-  },
-  "guide_0566": {
-    "message": "Wildcard መተግበሪያ ስርዓተ ጥለት፡",
-    "description": "Guide page text."
-  },
-  "guide_0567": {
-    "message": "Regex መተግበሪያ ስርዓተ ጥለት፡",
-    "description": "Guide page text."
-  },
-  "guide_0568": {
-    "message": "ምእራፍ 23፡- ምንም-ኦፕ መቀየሪያዎች",
-    "description": "Guide page text."
-  },
-  "guide_0569": {
-    "message": "እነዚህ ማስተካከያዎች ተቀባይነት አላቸው ነገር ግን ችላ ተብለዋል፡",
-    "description": "Guide page text."
-  },
-  "guide_0570": {
-    "message": "ምሳሌ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0571": {
-    "message": "ይህ እንደ:",
-    "description": "Guide page text."
-  },
-  "guide_0572": {
-    "message": "ምዕራፍ 24፡ የመለኪያ ማዛመጃ ዝርዝሮች",
-    "description": "Guide page text."
-  },
-  "guide_0573": {
-    "message": "የቃል ልኬት ደንብ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0574": {
-    "message": "የመለኪያውን ስም ይፈትሻል።",
-    "description": "Guide page text."
-  },
-  "guide_0575": {
-    "message": "Regex መለኪያ ደንብ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0576": {
-    "message": "ይህን ጽሑፍ ይፈትሹ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0577": {
-    "message": "ምሳሌ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0578": {
-    "message": "ቅድመ ቅጥያ ቅጽ፡",
-    "description": "Guide page text."
-  },
-  "guide_0579": {
-    "message": "ይህ ከ <code>utm_</code> ለሚጀምሩ ስሞች ሬጌክስ ይሆናል።",
-    "description": "Guide page text."
-  },
-  "guide_0580": {
-    "message": "ምዕራፍ 25፡ መጠይቅ ብቻ",
-    "description": "Guide page text."
-  },
-  "guide_0581": {
-    "message": "የተግባቦት አሂድ ጊዜ ከ<code>#</code> በፊት የጥያቄ መለኪያዎችን ያጸዳል።",
-    "description": "Guide page text."
-  },
-  "guide_0582": {
-    "message": "ጸድቷል፡",
-    "description": "Guide page text."
-  },
-  "guide_0583": {
-    "message": "በዚህ የሩጫ መንገድ አልጸዳም፡-",
-    "description": "Guide page text."
-  },
-  "guide_0584": {
-    "message": "ለሃሽ ፓራሜትር ማጽዳት በLinkumori ቅይጥ አቅራቢ JSON ደንቦችን በJSON የቅርጸት መመሪያ ተጠቀም።",
-    "description": "Guide page text."
-  },
-  "guide_0585": {
-    "message": "ምዕራፍ 26፡ የማይደገፉ ሕጎች ተዘለዋል።",
-    "description": "Guide page text."
-  },
-  "guide_0586": {
-    "message": "አንድ ደንብ ከተዘለለ:",
-    "description": "Guide page text."
-  },
-  "guide_0587": {
-    "message": "<code>$removeparam</code> ወይም <code>$queryprune</code> የለውም።",
-    "description": "Guide page text."
-  },
-  "guide_0588": {
-    "message": "የማይደገፍ መቀየሪያ ይጠቀማል።",
-    "description": "Guide page text."
-  },
-  "guide_0589": {
-    "message": "የእሱ regex ልክ ያልሆነ ነው።",
-    "description": "Guide page text."
-  },
-  "guide_0590": {
-    "message": "ልክ ያልሆነ ዘዴ አለው።",
-    "description": "Guide page text."
-  },
-  "guide_0591": {
-    "message": "ልክ ያልሆነ <code>denyallow=</code> ዋጋ አለው።",
-    "description": "Guide page text."
-  },
-  "guide_0592": {
-    "message": "ተኳኋኝ ያልሆኑ የፓርቲ ማሻሻያዎችን ያጣምራል።",
-    "description": "Guide page text."
-  },
-  "guide_0593": {
-    "message": "እሱ አስተያየት፣ ክፍል ራስጌ ወይም ባዶ መስመር ነው።",
-    "description": "Guide page text."
-  },
-  "guide_0594": {
-    "message": "ምሳሌ የተዘለለ ህግ፡",
-    "description": "Guide page text."
-  },
-  "guide_0595": {
-    "message": "ምክንያት፡-",
-    "description": "Guide page text."
-  },
-  "guide_0596": {
-    "message": "ምሳሌ የተዘለለ ህግ፡",
-    "description": "Guide page text."
-  },
-  "guide_0597": {
-    "message": "ምክንያት፡-",
-    "description": "Guide page text."
-  },
-  "guide_0598": {
-    "message": "ምዕራፍ 27፡ የተባዙ ሕጎች",
-    "description": "Guide page text."
-  },
-  "guide_0599": {
-    "message": "በማጣሪያ ዝርዝር ትንተና ወቅት የተባዙ ጥሬ መስመሮች ተዘልለዋል።",
-    "description": "Guide page text."
-  },
-  "guide_0600": {
-    "message": "ምሳሌ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0601": {
-    "message": "አንድ ብቻ ነው የተቀመጠው.",
-    "description": "Guide page text."
-  },
-  "guide_0602": {
-    "message": "በሂደት ጊዜ፣ ደንቦች እንዲሁ በቀኖናዊ ቅፅ ይባዛሉ።",
-    "description": "Guide page text."
-  },
-  "guide_0603": {
-    "message": "ምዕራፍ 28፡ የተሟላ የማጣሪያ ዝርዝር ምሳሌ",
-    "description": "Guide page text."
-  },
-  "guide_0604": {
-    "message": "ይህ ምን ያደርጋል:",
-    "description": "Guide page text."
-  },
-  "guide_0605": {
-    "message": "ሁሉንም <code>utm_</code> መለኪያዎች ያስወግዳል።",
-    "description": "Guide page text."
-  },
-  "guide_0606": {
-    "message": "<code>fbclid</code>ን ያስወግዳል።",
-    "description": "Guide page text."
-  },
-  "guide_0607": {
-    "message": "<code>gclid</code>ን ያስወግዳል።",
-    "description": "Guide page text."
-  },
-  "guide_0608": {
-    "message": "ከ<code>/login</code> በስተቀር <code>ref</code>ን በ<code>example.com</code> ያስወግዳል።",
-    "description": "Guide page text."
-  },
-  "guide_0609": {
-    "message": "ለ<code>GET</code> XHR ጥያቄዎችን ለ<code>api.example.com</code> ብቻ <code>tracking_id</code> ያስወግዳል።",
-    "description": "Guide page text."
-  },
-  "guide_0610": {
-    "message": "አክለው በመቀጠል የ<code>tracker.example</code> ኢላማ ህግን በ<code>badfilter</code> ይሰርዛል።",
-    "description": "Guide page text."
-  },
-  "guide_0611": {
-    "message": "ምዕራፍ 29: JSON የማከማቻ ምሳሌ",
-    "description": "Guide page text."
-  },
-  "guide_0612": {
-    "message": "ምዕራፍ 30፡ ፈጣን የቅጂ አብነቶች",
-    "description": "Guide page text."
-  },
-  "guide_0613": {
-    "message": "አንድ መለኪያ በየቦታው ያስወግዱ፡",
-    "description": "Guide page text."
-  },
-  "guide_0614": {
-    "message": "ሁሉንም የUTM መለኪያዎች አስወግድ፡",
-    "description": "Guide page text."
-  },
-  "guide_0615": {
-    "message": "ከ<code>id</code> በስተቀር ሁሉንም አስወግድ፡",
-    "description": "Guide page text."
-  },
-  "guide_0616": {
-    "message": "በጎራ ላይ ብቻ አሂድ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0617": {
-    "message": "በስተቀር፡",
-    "description": "Guide page text."
-  },
-  "guide_0618": {
-    "message": "GET ብቻ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0619": {
-    "message": "XHR ብቻ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0620": {
-    "message": "የዒላማ ጎራ ብቻ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0621": {
-    "message": "የምንጭ ገፅ ጎራ ብቻ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0622": {
-    "message": "የሶስተኛ ወገን ብቻ፡-",
-    "description": "Guide page text."
-  },
-  "guide_0623": {
-    "message": "ለጉዳይ ስሜታዊ",
-    "description": "Guide page text."
-  },
-  "guide_theme_midnight": {
-    "message": "እኩለ ሌሊት",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_light": {
-    "message": "ብርሃን",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_icecold": {
-    "message": "የበረዶ ቅዝቃዜ",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_zen_grey": {
-    "message": "ዜን ግራጫ",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_sunset": {
-    "message": "ጀንበር ስትጠልቅ",
-    "description": "Guide theme selector option."
   },
   "guide_0624": {
     "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -7782,12 +6806,12 @@
     "description": "Guide page text."
   },
   "guide_0725": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  },\n  \"urlFilterRules\": [\n    \"*$removeparam=fbclid\"\n  ],\n  \"urlFilterMetadata\": {\n    \"format\": \"linkumori-url-filter-interoperability\",\n    \"status\": \"loaded\"\n  }\n}\n",
-    "description": "Guide page text."
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide code example for provider JSON with inline $removeparam rules."
   },
   "guide_0726": {
-    "message": "providers are handled by Linkumori extension provider logic.\nurlFilterRules are handled by the interoperability runtime.\nThey can exist in the same Linkumori extension data object, but they are different rule systems.\n",
-    "description": "Guide page text."
+    "message": "Provider-local <code>rules[]</code> entries are compiled into the same provider set before <code>clearurls.js</code> runs. Keep filter-list style <code>$removeparam</code> lines inside provider <code>rules[]</code> when authoring Linkumori JSON.\n",
+    "description": "Guide note explaining provider-local filter-list rules."
   },
   "guide_0727": {
     "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -8077,438 +7101,6 @@
     "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
     "description": "Guide page text."
   },
-  "guide_0799": {
-    "message": "⇄",
-    "description": "Guide page text."
-  },
-  "guide_0800": {
-    "message": "{\n  \"urlFilterRules\": [\n    \"||example.com^$removeparam=utm_source\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0801": {
-    "message": "{\n  \"providers\": {},\n  \"urlFilterRules\": []\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0802": {
-    "message": "$removeparam\n$queryprune\n@@ exceptions\nbadfilter\nimportant\ndomain=\nfrom=\nto=\ndenyallow=\nmethod=\nrequest type modifiers\nfirst-party / third-party\nstrict-first-party / strict-third-party\nmatch-case\napp=\n",
-    "description": "Guide page text."
-  },
-  "guide_0803": {
-    "message": "Network blocking rules without $removeparam or $queryprune\nCosmetic filters\nScriptlets\nHTML filtering\nRequest blocking\nFull adblock engine behavior\n",
-    "description": "Guide page text."
-  },
-  "guide_0804": {
-    "message": "URL_PATTERN$removeparam=PARAMETER\n",
-    "description": "Guide page text."
-  },
-  "guide_0805": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0806": {
-    "message": "On example.com and its subdomains, remove the query parameter named utm_source.\n",
-    "description": "Guide page text."
-  },
-  "guide_0807": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0808": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"||example.com^$removeparam=utm_source\",\n      \"*$removeparam=/^utm_/\"\n    ],\n    \"urlFilterMetadata\": {\n      \"format\": \"linkumori-url-filter-interoperability\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0809": {
-    "message": "! This is a comment\n",
-    "description": "Guide page text."
-  },
-  "guide_0810": {
-    "message": "[Tracking parameters]\n",
-    "description": "Guide page text."
-  },
-  "guide_0811": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0812": {
-    "message": "https://site.test/?utm_source=x&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0813": {
-    "message": "*$removeparam\n",
-    "description": "Guide page text."
-  },
-  "guide_0814": {
-    "message": "https://site.test/?a=1&b=2\n-> https://site.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0815": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0816": {
-    "message": "https://site.test/?utm_source=x&utm_campaign=y&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0817": {
-    "message": "*$removeparam=/^utm_/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0818": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0819": {
-    "message": "https://site.test/?id=1&utm_source=x&fbclid=y\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0820": {
-    "message": "Remove every parameter except id.\n",
-    "description": "Guide page text."
-  },
-  "guide_0821": {
-    "message": "*$removeparam=utm_source\n*$queryprune=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0822": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0823": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0824": {
-    "message": "|https://example.com/path$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0825": {
-    "message": "https://example.com/path|$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0826": {
-    "message": "/^https:\\/\\/([^/]+\\.)?example\\.com\\/track/$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0827": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0828": {
-    "message": "*$removeparam=utm_source\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0829": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0830": {
-    "message": "*$removeparam=utm_source,important\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0831": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0832": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0833": {
-    "message": "||example.com^$removeparam=utm_source,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0834": {
-    "message": "Cancel the original rule.\n",
-    "description": "Guide page text."
-  },
-  "guide_0835": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0836": {
-    "message": "*$removeparam=utm_source,from=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0837": {
-    "message": "documentUrl\noriginUrl\ninitiator\n",
-    "description": "Guide page text."
-  },
-  "guide_0838": {
-    "message": "*$removeparam=utm_source,domain=example.com|shop.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0839": {
-    "message": "*$removeparam=utm_source,domain=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0840": {
-    "message": "*$removeparam=utm_source,domain=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0841": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0842": {
-    "message": "Cleaned:\nhttps://example.com/?utm_source=x&id=1\n\nNot cleaned:\nhttps://other.test/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0843": {
-    "message": "*$removeparam=utm_source,to=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0844": {
-    "message": "*$removeparam=utm_source,to=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0845": {
-    "message": "*$removeparam=utm_source,denyallow=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0846": {
-    "message": "Remove utm_source generally, but do not apply this rule when the destination host matches example.com.\n",
-    "description": "Guide page text."
-  },
-  "guide_0847": {
-    "message": "~negation\nexample.*\n/regex/\n",
-    "description": "Guide page text."
-  },
-  "guide_0848": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0849": {
-    "message": "*$removeparam=utm_source,method=~POST\n",
-    "description": "Guide page text."
-  },
-  "guide_0850": {
-    "message": "*$removeparam=utm_source,method=GET|HEAD\n",
-    "description": "Guide page text."
-  },
-  "guide_0851": {
-    "message": "GET\nHEAD\nOPTIONS\nPOST\nPUT\nPATCH\nDELETE\nCONNECT\n",
-    "description": "Guide page text."
-  },
-  "guide_0852": {
-    "message": "Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.\nFast simple query cleanup also uses those simple methods.\n",
-    "description": "Guide page text."
-  },
-  "guide_0853": {
-    "message": "document\ndoc\nsubdocument\nframe\nscript\nstylesheet\nimage\nmedia\nfont\nobject\nxmlhttprequest\nxhr\nwebsocket\nping\nother\n",
-    "description": "Guide page text."
-  },
-  "guide_0854": {
-    "message": "*$removeparam=utm_source,script\n*$removeparam=utm_source,image\n*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0855": {
-    "message": "*$removeparam=utm_source,~image\n",
-    "description": "Guide page text."
-  },
-  "guide_0856": {
-    "message": "document       -> main_frame\ndoc            -> main_frame\nsubdocument    -> sub_frame\nframe          -> sub_frame\nxhr            -> xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0857": {
-    "message": "*$removeparam=utm_source,first-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0858": {
-    "message": "1p\n~third-party\n~3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0859": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0860": {
-    "message": "3p\n~first-party\n~1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0861": {
-    "message": "*$removeparam=utm_source,strict-first-party\n*$removeparam=utm_source,strict1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0862": {
-    "message": "*$removeparam=utm_source,strict-third-party\n*$removeparam=utm_source,strict3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0863": {
-    "message": "*$removeparam=utm_source,first-party,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0864": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0865": {
-    "message": "utm_source\nUTM_SOURCE\nUtm_Source\n",
-    "description": "Guide page text."
-  },
-  "guide_0866": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "guide_0867": {
-    "message": "utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0868": {
-    "message": "UTM_SOURCE\n",
-    "description": "Guide page text."
-  },
-  "guide_0869": {
-    "message": "*$removeparam=utm_source,app=com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0870": {
-    "message": "*$removeparam=utm_source,app=~com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0871": {
-    "message": "*$removeparam=utm_source,app=com.example.*\n",
-    "description": "Guide page text."
-  },
-  "guide_0872": {
-    "message": "*$removeparam=utm_source,app=/example/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0873": {
-    "message": "_\nnoop\nstealth\ncookie\n",
-    "description": "Guide page text."
-  },
-  "guide_0874": {
-    "message": "*$removeparam=utm_source,noop\n",
-    "description": "Guide page text."
-  },
-  "guide_0875": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0876": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0877": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0878": {
-    "message": "name=value\n",
-    "description": "Guide page text."
-  },
-  "guide_0879": {
-    "message": "URL:\nhttps://example.com/?utm_source=news&id=1\n\nRegex sees:\nutm_source=news\nid=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0880": {
-    "message": "*$removeparam=|utm_\n",
-    "description": "Guide page text."
-  },
-  "guide_0881": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0882": {
-    "message": "https://example.com/#utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0883": {
-    "message": "||example.com^$script\n",
-    "description": "Guide page text."
-  },
-  "guide_0884": {
-    "message": "No $removeparam or $queryprune.\n",
-    "description": "Guide page text."
-  },
-  "guide_0885": {
-    "message": "*$removeparam=utm_source,unknownmodifier\n",
-    "description": "Guide page text."
-  },
-  "guide_0886": {
-    "message": "Unsupported modifier.\n",
-    "description": "Guide page text."
-  },
-  "guide_0887": {
-    "message": "*$removeparam=utm_source\n*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0888": {
-    "message": "! Linkumori URL filter interoperability example\n\n*$removeparam=/^utm_/\n*$removeparam=fbclid\n*$removeparam=gclid\n\n||example.com^$removeparam=ref\n@@||example.com/login^$removeparam=ref\n\n*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET\n\n||tracker.example^$removeparam=target,third-party\n||tracker.example^$removeparam=target,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0889": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"*$removeparam=/^utm_/\",\n      \"*$removeparam=fbclid\",\n      \"||example.com^$removeparam=ref\",\n      \"@@||example.com/login^$removeparam=ref\"\n    ],\n    \"urlFilterMetadata\": {\n      \"name\": \"Linkumori URL Filter Rules\",\n      \"format\": \"linkumori-url-filter-interoperability\",\n      \"status\": \"loaded\",\n      \"ruleStatus\": \"loaded\",\n      \"hashStatus\": \"not_required\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0890": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0891": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0892": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0893": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0894": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0895": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0896": {
-    "message": "*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0897": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0898": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0899": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0900": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "faq_final_runtime_clearurls_title": {
-    "message": "የተሰጠ clearurls.js የአሂድ ጊዜ አገባብ",
-    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
-  },
-  "faq_final_runtime_interoperability_title": {
-    "message": "መስተጋብር URL-የአሂድ ጊዜ አገባብ አጣራ",
-    "description": "FAQ label for the interoperability runtime syntax example"
-  },
-  "faq_final_runtime_open_page": {
-    "message": "የአሂድ ጊዜ አገባብ ማጣቀሻን ክፈት",
-    "description": "FAQ link text that opens the dedicated runtime syntax page"
-  },
-  "faq_final_runtime_syntax": {
-    "message": "የመጨረሻው የሩጫ ጊዜ አገባብ ምንድን ነው?",
-    "description": "FAQ question for final supported runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_answer": {
-    "message": "Linkumori ሁለት የመጨረሻ የአሂድ ጊዜ ቅርጸቶችን ይደግፋል። ለአገሬው መስክ፣ ጥሬ፣ አቅጣጫ ለመቀየር፣ እንደገና ለመፃፍ፣ ለየት ያለ እና አቅራቢ-ወሰን ባህሪን በመጀመሪያ የclearurls.js አቅራቢ አገባብ ይጠቀሙ። URL-filter style $removeparam ደንቦችን ሲያስገቡ የተግባቦትን ቅርጸት ይጠቀሙ።",
-    "description": "FAQ answer explaining the two final runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_note": {
-    "message": "ሁለቱም ቅርጸቶች አንድ ላይ ሊጫኑ ይችላሉ፣ ነገር ግን የተወሰነው የአቅራቢ አገባብ ዋናው ቤተኛ ቅርጸት ነው። ለማጣሪያ-ዝርዝር ተኳኋኝነት የተግባቦት ቅርጸት አለ።",
-    "description": "FAQ note for final runtime syntax formats"
-  },
   "providerImport_allProviders": {
     "message": "ሁሉም አቅራቢዎች",
     "description": "Filter label for showing rule activations from every provider"
@@ -8529,60 +7121,52 @@
     "message": "የአቅራቢ ደንብ አሰሳ",
     "description": "Accessible label for provider filter navigation on the disabled rules page"
   },
-  "runtimeSyntax_clearURLsDescription": {
-    "message": "ይህ በclearurls.js የሚበላው ቤተኛ ሩጫ ጊዜ ነው። በመጀመሪያ ለግል አቅራቢዎች ጥቅም ላይ መዋል አለበት ምክንያቱም ቀኖናዊ ደንቦችን ፣ የመስክ ህጎችን ፣ ጥሬ URL ህጎችን ፣ ማዛወር ፣ እንደገና መፃፍ ፣ ልዩ ሁኔታዎች ፣ የጥያቄ ዓይነቶች ፣ ተለዋጭ ስሞች እና በስርዓተ-ጥለት ስፋት ያላቸው ማንነቶችን ይደግፋል።",
-    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_clearURLsTitle": {
-    "message": "የተሰጠ clearurls.js የአሂድ ጊዜ",
-    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_disableDescription": {
-    "message": "በስርዓተ-ጥለት የተቀመጡ ማንነቶች በአቅራቢ-ስም ለውጦች ላይ የተረጋጋ ናቸው። ለሰፋፊ ውርስ ለማሰናከል ባህሪ በአቅራቢዎች የተቀመጡ ማንነቶች ይገኛሉ።",
-    "description": "Runtime syntax page description for disable identity examples"
-  },
-  "runtimeSyntax_disableTitle": {
-    "message": "የማንነት ቅርጸቶችን አሰናክል",
-    "description": "Runtime syntax page section title for disable identity formats"
-  },
-  "runtimeSyntax_interoperabilityDescription": {
-    "message": "ይህ የማስኬጃ ጊዜ ለURL የማጣሪያ መስተጋብር ነው። የማጣሪያ-ዝርዝር ዘይቤ $removeparam እና @@ ልዩ ደንቦችን ለማስመጣት እና ለርቀት ዝርዝር ተኳሃኝነት በተመጣጣኝ ደንቦች ውስጥ ያስቀምጣል።",
-    "description": "Runtime syntax page description for interoperability runtime syntax"
-  },
-  "runtimeSyntax_interoperabilityTitle": {
-    "message": "የተግባቦት ደንብ የአሂድ ጊዜ",
-    "description": "Runtime syntax page section title for interoperability runtime syntax"
-  },
-  "runtimeSyntax_intro": {
-    "message": "የቤተኛ clearurls.js አቅራቢ አሂድ ጊዜ አንደኛ ደረጃ ቅርጸት ነው። የተግባቦት አሂድ ጊዜ የመጀመሪያውን $removeparam ቅርጻቸውን ለማቆየት ለሚፈልጉ የማጣሪያ ዝርዝር ህጎች ከጎኑ ተቀምጧል።",
-    "description": "Runtime syntax page intro text"
-  },
-  "runtimeSyntax_kicker": {
-    "message": "የአሂድ ጊዜ ማጣቀሻ",
-    "description": "Runtime syntax page eyebrow text"
-  },
-  "runtimeSyntax_navClearURLs": {
-    "message": "የወሰን ማስኬጃ ጊዜ",
-    "description": "Runtime syntax page navigation link for dedicated runtime section"
-  },
-  "runtimeSyntax_navDisableIds": {
-    "message": "መታወቂያዎችን አሰናክል",
-    "description": "Runtime syntax page navigation link for disable identity section"
-  },
-  "runtimeSyntax_navInteroperability": {
-    "message": "መስተጋብር የሚሠራበት ጊዜ",
-    "description": "Runtime syntax page navigation link for interoperability section"
-  },
-  "runtimeSyntax_pageTitle": {
-    "message": "የመጨረሻ የሩጫ ጊዜ አገባብ",
-    "description": "Runtime syntax page title"
-  },
   "popup_html_guide_link": {
     "message": "አቅራቢ JSON መመሪያ",
     "description": "Popup license link label for the Linkumori provider JSON guide page"
   },
   "popup_html_guide_link_title": {
-    "message": "ክፍት Linkumori አቅራቢ JSON እና የተግባቦት መመሪያ",
-    "description": "Tooltip and aria label for the popup guide link in the license section"
+    "message": "Open Linkumori rules guide",
+    "description": "Tooltip and aria label for the popup guide link in the license section."
+  },
+  "faq_rules_guide_syntax": {
+    "message": "Which rule syntax should I use?",
+    "description": "FAQ question for the unified Linkumori rule syntax guide."
+  },
+  "faq_rules_guide_syntax_answer": {
+    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
+    "description": "FAQ answer explaining the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_syntax_note": {
+    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
+    "description": "FAQ note for the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_open_page": {
+    "message": "Open rules guide",
+    "description": "FAQ link text that opens the unified rules guide."
+  },
+  "providerImport_failedToLoadSources": {
+    "message": "Failed to load provider sources: $1",
+    "description": "Error shown when provider import sources fail to load."
+  },
+  "providerImport_noBundledRules": {
+    "message": "Bundled rules are not available.",
+    "description": "Error shown when bundled rules are unavailable for provider import."
+  },
+  "providerImport_failedToLoadBundled": {
+    "message": "Failed to load bundled rules: $1",
+    "description": "Error shown when bundled rules fail to load for provider import."
+  },
+  "status_language_change_failed": {
+    "message": "Could not switch language to $1.",
+    "description": "Status text shown when changing the UI language fails."
+  },
+  "theme_light": {
+    "message": "Light theme",
+    "description": "Accessible label for switching to the light theme."
+  },
+  "theme_dark": {
+    "message": "Dark theme",
+    "description": "Accessible label for switching to the dark theme."
   }
 }

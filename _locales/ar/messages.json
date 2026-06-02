@@ -55,17 +55,9 @@
     "message": "استخدم قواعد Linkumori/ClearURLs المضمنة. قم بتعطيل هذا للتشغيل باستخدام القواعد البعيدة و/أو القواعد المخصصة فقط.",
     "description": "وصف لمفتاح التبديل الذي يتحكم في القواعد المضمنة"
   },
-  "linkumori_interoperability_mode_enabled": {
-    "message": "وضع توافق Linkumori",
-    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
-  },
-  "linkumori_interoperability_mode_enabled_description": {
-    "message": "طبّق قواعد توافق Linkumori URL Filter، بما في ذلك قوائم $removeparam المتوافقة، إلى جانب قواعد Linkumori/ClearURLs JSON الأصلية.",
-    "description": "Description for the Linkumori interoperability mode toggle"
-  },
   "bundled_rules_description": {
-    "message": "Linkumori يستخدم فئتين من القواعد: Linkumori (ClearURLs 2.0) JSON قواعد للموفرين الأصليين، وLinkumori URL تصفية قواعد قابلية التشغيل التفاعلي للامتداد الشائع $removeparam قوائم. يتم احتساب كل فئة على حدة.",
-    "description": "Description for the bundled rules section."
+    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs.",
+    "description": "Description text for the built-in bundled rules setting."
   },
   "bundled_rules_section_title": {
     "message": "معلومات القواعد",
@@ -2107,16 +2099,8 @@
   "providerImport_importedCount": {
     "message": "تم الاستيراد: $1 مزودًا"
   },
-  "providerImport_importedRulesCount": {
-    "message": "تم الاستيراد: $1 قاعدة",
-    "description": "Import result count for Linkumori URL interoperability rules."
-  },
   "providerImport_importing": {
     "message": "جاري الاستيراد..."
-  },
-  "providerImport_linkumoriData": {
-    "message": "قواعد توافق Linkumori الحالية",
-    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "جاري تحميل المزودين...",
@@ -2179,10 +2163,6 @@
   },
   "providerImport_skippedCount": {
     "message": "تم التخطي: $1 مزودًا"
-  },
-  "providerImport_skippedRulesCount": {
-    "message": "تم التخطي: $1 قاعدة",
-    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "مصدر القاعدة",
@@ -2533,16 +2513,16 @@
     "description": "نص زر المتابعة في النافذة الأمنية"
   },
   "security_modal_final_warning": {
-    "message": "يجب عليك إعادة النظر في استخدام القواعد البعيدة إذا لم تكن تفهم بشكل كامل ما إذا كان المصدر هو Linkumori (ClearURLs 2.0) JSON مجموعة قواعد أو Linkumori URL قائمة قابلية التشغيل التفاعلي للمرشح.",
-    "description": "Final warning message in security modal"
+    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source.",
+    "description": "Final warning shown in the remote rules security modal."
   },
   "security_modal_main_warning": {
-    "message": "تم تصميم ميزة القواعد عن بعد هذه للمستخدمين المتقدمين الذين يفهمون تنسيق المصدر الذي يقومون بتحميله. Linkumori (ClearURLs 2.0) JSON تتطلب القواعد البعيدة تجزئة مطابقة URL للتحقق. Linkumori URL يمكن تحميل قوائم قابلية التشغيل التفاعلي للمرشح بدون تجزئة URL ويتم تخزينها بشكل منفصل.",
-    "description": "Main warning text explaining the purpose and risks"
+    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification.",
+    "description": "Main warning text for the remote rules security modal."
   },
   "security_modal_privacy_text": {
-    "message": "إذا قمت بإضافة قاعدة بعيدة URL، فسوف يتصل الامتداد بالخادم المعين لديك لجلب مجموعة قواعد Linkumori (ClearURLs 2.0) JSON أو ملف التجزئة الخاص به عند تكوينه، أو Linkumori URL قائمة قابلية التشغيل التفاعلي للتصفية. قد تؤدي كل عملية جلب إلى كشف عنوان IP الخاص بك والمعلومات العامة مثل إصدار الامتداد والمتصفح وإصدار المتصفح لخادم الاستضافة. تخضع هذه البيانات لسياسة الخصوصية الخاصة بهذا الموقع أو خادم الويب.",
-    "description": "Privacy notice explaining data collection policy"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the remote rules security modal."
   },
   "security_modal_privacy_link_text": {
     "message": "اقرأ %PRIVACY_POLICY_LINK% مرة أخرى قبل المتابعة إذا لزم الأمر.",
@@ -2553,8 +2533,8 @@
     "description": "عنوان قسم إشعار الخصوصية"
   },
   "security_modal_recommendation": {
-    "message": "استخدم القواعد المضمنة إلا إذا كنت تثق في المصدر البعيد وتتحكم فيه. بالنسبة لقواعد Linkumori (ClearURLs 2.0) JSON، قم بتوفير تجزئة مطابقة URL. بالنسبة لقوائم عوامل تصفية التشغيل التفاعلي، اترك التجزئة URL فارغة.",
-    "description": "Recommendation to use built-in rules instead"
+    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules.",
+    "description": "Recommendation text shown in the remote rules security modal."
   },
   "security_modal_risk_1": {
     "message": "سيتعرض عنوان IP الخاص بك ومعلومات المتصفح للخوادم التي تم تكوينها",
@@ -2569,8 +2549,8 @@
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "لا تستخدم قوائم عوامل تصفية التشغيل التفاعلي التحقق من التجزئة، لذا فإن الثقة في المصدر URL مهمة بشكل خاص.",
-    "description": "Fourth security risk point"
+    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL.",
+    "description": "Risk list item for remote rules without successful hash verification."
   },
   "security_modal_risks_title": {
     "message": "المخاطر الأمنية:",
@@ -3279,24 +3259,24 @@
     "description": "نص لافتة التحذير العلوية في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "أنت تقوم بتعطيل حماية Gatekeeper لتحرير القاعدة عن بعد URL. يمكن لهذه الميزة تحميل قواعد Linkumori (ClearURLs 2.0) JSON مع التحقق من التجزئة، أو Linkumori URL تصفية قوائم التشغيل التفاعلي دون التحقق من التجزئة. تابع فقط إذا فهمت التنسيق الذي تقوم بتكوينه.",
-    "description": "Main warning text in disable gatekeeper modal"
+    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring.",
+    "description": "Main warning text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper هو تدفق الأمان المدمج الذي يمنع تحريرات URL البعيدة المباشرة حتى تقر بإشعار الأمان وتكمل التأكيد المكتوب.",
     "description": "يشرح ما يعنيه Gatekeeper في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "احتفظ بتمكين Gatekeeper إلا إذا كنت تثق في مصادرك البعيدة وتتحكم فيها. يجب أن تتضمن قواعد JSON تجزئة مطابقة URL؛ قوائم التشغيل البيني تترك التجزئة URL فارغة عن عمد.",
-    "description": "Recommendation text in disable gatekeeper modal"
+    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL.",
+    "description": "Recommendation text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "إشعار تحذيري:",
     "description": "عنوان قسم الخصوصية في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "إذا قمت بإضافة قاعدة بعيدة URL، فسوف يتصل الامتداد بالخادم المعين لديك لجلب مجموعة قواعد Linkumori (ClearURLs 2.0) JSON أو ملف التجزئة الخاص به عند تكوينه، أو Linkumori URL قائمة قابلية التشغيل التفاعلي للتصفية. قد تؤدي كل عملية جلب إلى كشف عنوان IP الخاص بك والمعلومات العامة مثل إصدار الامتداد والمتصفح وإصدار المتصفح لخادم الاستضافة. تخضع هذه البيانات لسياسة الخصوصية الخاصة بهذا الموقع أو خادم الويب.",
-    "description": "Privacy section body in disable gatekeeper modal"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "اقرأ %PRIVACY_POLICY_LINK% مرة أخرى قبل المتابعة إذا لزم الأمر.",
@@ -3315,8 +3295,8 @@
     "description": "النقطة الأولى للمخاطر في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "سيتلقى الخادم الذي يستضيف ملفات JSON أو التجزئة أو مرشح قابلية التشغيل التفاعلي عنوانك IP.",
-    "description": "Risk bullet 2 in disable gatekeeper modal"
+    "message": "The server hosting remote JSON or hash files will receive your IP address.",
+    "description": "Risk list item for remote file hosts receiving the user IP address."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "قد يتلقى الخادم أيضًا إصدار الامتداد والمتصفح وإصدار المتصفح.",
@@ -3327,8 +3307,8 @@
     "description": "النقطة الرابعة للمخاطر في نافذة تعطيل Gatekeeper"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "من خلال تعطيل Gatekeeper، فإنك تزيد من المخاطر الناجمة عن مصادر القواعد البعيدة غير الآمنة أو المعرضة للخطر. التحقق من التجزئة يحمي فقط Linkumori (ClearURLs 2.0) JSON تنزيلات القاعدة. ولا ينطبق على قوائم التشغيل التفاعلي.",
-    "description": "Final warning banner text in disable gatekeeper modal"
+    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured.",
+    "description": "Final warning shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "إلغاء",
@@ -3407,8 +3387,8 @@
     "description": "تسمية الإدخال لنافذة التأكيد الخاصة بـ Gatekeeper"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "يقلل هذا الإجراء من ضمانات القواعد البعيدة. تابع فقط إذا كنت تثق في JSON ومصادر تصفية التشغيل التفاعلي.",
-    "description": "Final warning text for gatekeeper-specific confirmation modal"
+    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source.",
+    "description": "Final confirmation text for disabling Gatekeeper."
   },
   "remote_urls_template_note_1": {
     "message": "استبدل قيم العناصر النائبة بعناوين URL HTTPS الحقيقية الخاصة بك، ثم قم باستيراد هذا الملف.",
@@ -4130,10 +4110,6 @@
     "message": "لا يوجد نشاط",
     "description": "تسمية صف احتياطي عندما لا تتوفر بيانات إحصائيات يومية."
   },
-  "linkumori_url_rules_section": {
-    "description": "Section header for popular extension URL filter rules in settings",
-    "message": "Linkumori URL المرشحات (قابلية التشغيل البيني):"
-  },
   "clearurls_json_rules_section": {
     "description": "Section header for native ClearURLs JSON rule statistics in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON القواعد:"
@@ -4194,66 +4170,6 @@
     "description": "Hash status for popular extension URL filter lists",
     "message": "غير مطلوب"
   },
-  "linkumori_url_filter_name": {
-    "description": "Display name for Linkumori URL filter interoperability rules.",
-    "message": "Linkumori URL مرشحات"
-  },
-  "linkumori_url_filter_single_name": {
-    "description": "Display name for a single Linkumori URL filter source.",
-    "message": "Linkumori URL مرشح"
-  },
-  "linkumori_url_filter_merged_name": {
-    "description": "Display name when multiple Linkumori URL filter sources are merged.",
-    "message": "مرشحات مدمجة Linkumori URL"
-  },
-  "linkumori_url_filter_custom_name": {
-    "description": "Display name for custom Linkumori URL filter rules.",
-    "message": "قواعد مخصصة Linkumori URL"
-  },
-  "linkumori_url_filter_parser_unavailable": {
-    "description": "Error when the Linkumori URL filter parser is unavailable.",
-    "message": "Linkumori URL محلل التصفية غير متوفر"
-  },
-  "linkumori_url_filter_custom_failed": {
-    "description": "Error when custom Linkumori URL rules cannot be parsed.",
-    "message": "فشلت القواعد المخصصة Linkumori URL"
-  },
-  "linkumori_url_filter_sources_failed_count": {
-    "description": "Summary of failed Linkumori URL filter sources.",
-    "message": "$1 URL فشل مصدر (مصادر) التصفية"
-  },
-  "linkumori_url_filter_remote_empty": {
-    "description": "Error when a remote Linkumori URL filter file is empty.",
-    "message": "ملف التصفية البعيد URL فارغ"
-  },
-  "linkumori_url_filter_fetch_failed": {
-    "description": "Error when fetching Linkumori URL filters fails.",
-    "message": "Linkumori URL فشل جلب عامل التصفية"
-  },
-  "linkumori_url_filter_unknown_error": {
-    "description": "Fallback error for Linkumori URL filters.",
-    "message": "خطأ في التصفية URL غير معروف"
-  },
-  "linkumori_url_filter_all_sources_failed": {
-    "description": "Error when all Linkumori URL filter sources fail.",
-    "message": "فشلت جميع مصادر التصفية Linkumori URL"
-  },
-  "linkumori_url_filter_log_pattern_value": {
-    "description": "Log pattern value for Linkumori URL filter interoperability.",
-    "message": "الامتداد الشائع URL مرشح التتبع"
-  },
-  "linkumori_url_filter_no_supported_rules": {
-    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
-    "message": "لم يتم العثور على قواعد Linkumori لقابلية التشغيل التفاعلي $removeparam المدعومة"
-  },
-  "linkumori_url_filter_interoperability_name": {
-    "description": "Parser metadata name for Linkumori URL filter interoperability.",
-    "message": "Linkumori URL قابلية التشغيل البيني للتصفية"
-  },
-  "linkumori_url_filter_interoperability_author": {
-    "description": "Parser metadata author for Linkumori URL filter interoperability.",
-    "message": "Linkumori مصدر عامل تصفية التشغيل البيني"
-  },
   "linkumoriUrlRules_button": {
     "description": "Button that opens the custom Linkumori URL filter modal.",
     "message": "Linkumori URL القواعد"
@@ -4306,17 +4222,9 @@
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
   },
-  "linkumoriUrlFiltersStatusGroup": {
-    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
-    "message": "Linkumori URL المرشحات (قابلية التشغيل البيني)"
-  },
   "linkumoriUrlRules_statusLabel": {
     "description": "Status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL الحالة"
-  },
-  "linkumoriUrlRules_runtimeRulesLabel": {
-    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
-    "message": "قواعد وقت التشغيل"
   },
   "linkumoriUrlRules_customRulesLabel": {
     "description": "Label for custom Linkumori URL rules in the custom rules editor.",
@@ -4325,10 +4233,6 @@
   "linkumoriUrlRules_hashStatusLabel": {
     "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL التجزئة"
-  },
-  "linkumoriUrlRules_statusSummary": {
-    "description": "Rules status summary for Linkumori URL rules.",
-    "message": "$1\n$2 قاعدة (قواعد) وقت التشغيل\n$3 القواعد المخصصة"
   },
   "linkumoriUrlRules_close_aria": {
     "description": "Accessible label for closing the Linkumori URL rules modal.",
@@ -4345,26 +4249,6 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "لا تحتاج مرشحات الامتداد الشائع عن بعد URL وهذه القواعد المخصصة إلى التحقق من التجزئة. يتم تخزينها في LinkumoriURLsData بعد التحليل، منفصلة عن ClearURLsData."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
-    "message": "تغيّر التوافق",
-    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
-    "message": "عنوان URL الناتج من التوافق",
-    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
-    "message": "قاعدة التوافق المطابقة",
-    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
-    "message": "نوع نمط التوافق",
-    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
-    "message": "إجراء التوافق",
-    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   },
   "popup_whitelist_state_permanent": {
     "message": "القائمة البيضاء: $1 — انقر مرة أخرى لعلامة التبويب فقط",
@@ -5165,134 +5049,6 @@
     "message": "الفصل 25: قوالب النسخ السريع",
     "description": "Guide page text."
   },
-  "guide_0076": {
-    "message": "قواعد التشغيل البيني",
-    "description": "Guide page text."
-  },
-  "guide_0077": {
-    "message": "دليل قواعد التشغيل البيني",
-    "description": "Guide page text."
-  },
-  "guide_0078": {
-    "message": "الفصل 1: ما هي قواعد التشغيل البيني",
-    "description": "Guide page text."
-  },
-  "guide_0079": {
-    "message": "الفصل الثاني: ما هو مدعوم",
-    "description": "Guide page text."
-  },
-  "guide_0080": {
-    "message": "الفصل 3: تنسيق القاعدة الأساسية",
-    "description": "Guide page text."
-  },
-  "guide_0081": {
-    "message": "الفصل الرابع: مكان تخزين القواعد",
-    "description": "Guide page text."
-  },
-  "guide_0082": {
-    "message": "الفصل الخامس: التعليقات والسطور الفارغة",
-    "description": "Guide page text."
-  },
-  "guide_0083": {
-    "message": "الفصل 6: إزالة معلمة واحدة",
-    "description": "Guide page text."
-  },
-  "guide_0084": {
-    "message": "الفصل 7: إزالة كافة معلمات الاستعلام",
-    "description": "Guide page text."
-  },
-  "guide_0085": {
-    "message": "الفصل 8: إزالة المعلمات بواسطة Regex",
-    "description": "Guide page text."
-  },
-  "guide_0086": {
-    "message": "الفصل التاسع: إزالة الكل باستثناء مباراة واحدة",
-    "description": "Guide page text."
-  },
-  "guide_0087": {
-    "message": "الفصل 10: $queryprune",
-    "description": "Guide page text."
-  },
-  "guide_0088": {
-    "message": "الفصل 11: URL أمثلة على الأنماط",
-    "description": "Guide page text."
-  },
-  "guide_0089": {
-    "message": "الفصل 12: الاستثناءات",
-    "description": "Guide page text."
-  },
-  "guide_0090": {
-    "message": "الفصل 13: مهم",
-    "description": "Guide page text."
-  },
-  "guide_0091": {
-    "message": "الفصل 14: مرشح سيء",
-    "description": "Guide page text."
-  },
-  "guide_0092": {
-    "message": "الفصل 15: معدّلات مصدر المجال: المجال= ومن=",
-    "description": "Guide page text."
-  },
-  "guide_0093": {
-    "message": "الفصل 16: معدّل المجال الهدف: إلى=",
-    "description": "Guide page text."
-  },
-  "guide_0094": {
-    "message": "الفصل 17: الرفض=",
-    "description": "Guide page text."
-  },
-  "guide_0095": {
-    "message": "الفصل 18: HTTP طريقة التعديل",
-    "description": "Guide page text."
-  },
-  "guide_0096": {
-    "message": "الفصل التاسع عشر: معدّلات نوع المصدر",
-    "description": "Guide page text."
-  },
-  "guide_0097": {
-    "message": "الفصل العشرون: الطرف الأول والطرف الثالث",
-    "description": "Guide page text."
-  },
-  "guide_0098": {
-    "message": "الفصل 21: حالة المباراة",
-    "description": "Guide page text."
-  },
-  "guide_0099": {
-    "message": "الفصل 22: التطبيق=",
-    "description": "Guide page text."
-  },
-  "guide_0100": {
-    "message": "الفصل 23: معدّلات عدم التشغيل",
-    "description": "Guide page text."
-  },
-  "guide_0101": {
-    "message": "الفصل 24: تفاصيل مطابقة المعلمات",
-    "description": "Guide page text."
-  },
-  "guide_0102": {
-    "message": "الفصل 25: الاستعلام فقط",
-    "description": "Guide page text."
-  },
-  "guide_0103": {
-    "message": "الفصل 26: يتم تخطي القواعد غير المدعومة",
-    "description": "Guide page text."
-  },
-  "guide_0104": {
-    "message": "الفصل 27: القواعد المكررة",
-    "description": "Guide page text."
-  },
-  "guide_0105": {
-    "message": "الفصل 28: مثال على قائمة التصفية الكاملة",
-    "description": "Guide page text."
-  },
-  "guide_0106": {
-    "message": "الفصل 29: JSON مثال للتخزين",
-    "description": "Guide page text."
-  },
-  "guide_0107": {
-    "message": "الفصل 30: قوالب النسخ السريع",
-    "description": "Guide page text."
-  },
   "guide_0108": {
     "message": "Linkumori دليل التنسيق JSON موفر مختلط",
     "description": "Guide page text."
@@ -5302,8 +5058,8 @@
     "description": "Guide page text."
   },
   "guide_0110": {
-    "message": "ويغطي تنسيق الموفر Linkumori المختلط: ClearURLs الحقول القديمة الإضافية، ClearURLs كائنات القاعدة الأساسية v2 الأساسية، والإضافات Linkumori فقط مثل <code>domainPatterns</code>، <code>$removeparam</code> قواعد الموفر، استثناءات المجال، المجال عمليات إعادة التوجيه وتحديد نطاق نوع المورد.",
-    "description": "Guide page text."
+    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
+    "description": "Introductory paragraph for the provider JSON guide."
   },
   "guide_0111": {
     "message": "إنه ليس دليلاً لرمز JavaScript. فهو يركز فقط على أشكال JSON وتنسيقات القواعد والأمثلة التي يحتاجها مؤلفو القواعد.",
@@ -5774,8 +5530,8 @@
     "description": "Guide page text."
   },
   "guide_0228": {
-    "message": "<code>$removeparam</code> سلاسل داخل الموفر <code>rules</code> هي إضافة Linkumori. وهي منفصلة عن صيغة التشغيل التفاعلي <code>urlFilterRules</code> للدليل الثاني.",
-    "description": "Guide page text."
+    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
+    "description": "Introductory paragraph for provider-local $removeparam rules."
   },
   "guide_0229": {
     "message": "إزالة معلمة واحدة",
@@ -6286,8 +6042,8 @@
     "description": "Guide page text."
   },
   "guide_0356": {
-    "message": "إضافة Linkumori - مصدر موحد مع الموفر JSON بالإضافة إلى قواعد التشغيل التفاعلي:",
-    "description": "Guide page text."
+    "message": "Linkumori addition - provider JSON with inline filter-list rules:",
+    "description": "Guide label for provider JSON with inline $removeparam rules."
   },
   "guide_0357": {
     "message": "هام:",
@@ -6644,738 +6400,6 @@
   "guide_0445": {
     "message": "إعادة توجيه متعقب URL:",
     "description": "Guide page text."
-  },
-  "guide_0446": {
-    "message": "دليل قواعد التشغيل البيني",
-    "description": "Guide page text."
-  },
-  "guide_0447": {
-    "message": "Linkumori URL مرشح - بناء جملة قائمة مرشح عادي لتنظيف URL",
-    "description": "Guide page text."
-  },
-  "guide_0448": {
-    "message": "دليل قواعد التشغيل البيني",
-    "description": "Guide page text."
-  },
-  "guide_0449": {
-    "message": "يشرح هذا الدليل Linkumori ملحق URL قواعد قابلية التشغيل البيني للتصفية.",
-    "description": "Guide page text."
-  },
-  "guide_0450": {
-    "message": "هذه ليست قواعد موفر ClearURLs JSON كاملة. وهي عبارة عن خطوط قائمة تصفية عادية، تشبه القواعد التي تستخدمها أدوات حظر المحتوى الشائعة. يدعم الامتداد Linkumori فقط جزء التنظيف URL من هذا العالم.",
-    "description": "Guide page text."
-  },
-  "guide_0451": {
-    "message": "الفصل 1: ما هي قواعد التشغيل البيني",
-    "description": "Guide page text."
-  },
-  "guide_0452": {
-    "message": "قواعد التشغيل البيني هي سطور نصية بسيطة مخزنة في:",
-    "description": "Guide page text."
-  },
-  "guide_0453": {
-    "message": "إنهم يعيشون داخل <code>ClearURLsData.urlFilterRules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0454": {
-    "message": "إنهم منفصلون عن مقدمي JSON:",
-    "description": "Guide page text."
-  },
-  "guide_0455": {
-    "message": "استخدم قواعد التشغيل التفاعلي عندما تريد لصق بناء جملة قائمة عوامل التصفية URL-cleaning مباشرةً، بدلاً من كتابة كائن موفر كامل.",
-    "description": "Guide page text."
-  },
-  "guide_0456": {
-    "message": "الفصل الثاني: ما هو مدعوم",
-    "description": "Guide page text."
-  },
-  "guide_0457": {
-    "message": "المدعومة:",
-    "description": "Guide page text."
-  },
-  "guide_0458": {
-    "message": "غير معتمد:",
-    "description": "Guide page text."
-  },
-  "guide_0459": {
-    "message": "يتم تجاهل الأسطر التي لا تحتوي على <code>$removeparam</code> أو <code>$queryprune</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0460": {
-    "message": "الفصل 3: تنسيق القاعدة الأساسية",
-    "description": "Guide page text."
-  },
-  "guide_0461": {
-    "message": "الشكل الأساسي:",
-    "description": "Guide page text."
-  },
-  "guide_0462": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0463": {
-    "message": "المعنى:",
-    "description": "Guide page text."
-  },
-  "guide_0464": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0465": {
-    "message": "الفصل الرابع: مكان تخزين القواعد",
-    "description": "Guide page text."
-  },
-  "guide_0466": {
-    "message": "شكل تخزين وقت التشغيل:",
-    "description": "Guide page text."
-  },
-  "guide_0467": {
-    "message": "يقرأ وقت التشغيل هذه القواعد من خلال مسار بيانات عامل التصفية الموحد URL.",
-    "description": "Guide page text."
-  },
-  "guide_0468": {
-    "message": "الفصل الخامس: التعليقات والسطور الفارغة",
-    "description": "Guide page text."
-  },
-  "guide_0469": {
-    "message": "يتم تجاهل الأسطر الفارغة.",
-    "description": "Guide page text."
-  },
-  "guide_0470": {
-    "message": "يتم تجاهل أسطر التعليق:",
-    "description": "Guide page text."
-  },
-  "guide_0471": {
-    "message": "يتم تجاهل رؤوس الأقسام:",
-    "description": "Guide page text."
-  },
-  "guide_0472": {
-    "message": "الفصل 6: إزالة معلمة واحدة",
-    "description": "Guide page text."
-  },
-  "guide_0473": {
-    "message": "القاعدة:",
-    "description": "Guide page text."
-  },
-  "guide_0474": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0475": {
-    "message": "<code>*</code> يعني أن النمط URL يطابق كل شيء.",
-    "description": "Guide page text."
-  },
-  "guide_0476": {
-    "message": "الفصل 7: إزالة كافة معلمات الاستعلام",
-    "description": "Guide page text."
-  },
-  "guide_0477": {
-    "message": "القاعدة:",
-    "description": "Guide page text."
-  },
-  "guide_0478": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0479": {
-    "message": "يؤدي هذا إلى إزالة جميع معلمات الاستعلام من مطابقة URLs.",
-    "description": "Guide page text."
-  },
-  "guide_0480": {
-    "message": "الفصل 8: إزالة المعلمات بواسطة Regex",
-    "description": "Guide page text."
-  },
-  "guide_0481": {
-    "message": "القاعدة:",
-    "description": "Guide page text."
-  },
-  "guide_0482": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0483": {
-    "message": "أعلام Regex:",
-    "description": "Guide page text."
-  },
-  "guide_0484": {
-    "message": "يتم الاحتفاظ بعلامة <code>i</code> فقط بواسطة المحلل اللغوي من أجل التعابير المنطقية لقابلية التشغيل البيني.",
-    "description": "Guide page text."
-  },
-  "guide_0485": {
-    "message": "الفصل التاسع: إزالة الكل باستثناء مباراة واحدة",
-    "description": "Guide page text."
-  },
-  "guide_0486": {
-    "message": "استخدم <code>~</code> قبل نمط المعلمة.",
-    "description": "Guide page text."
-  },
-  "guide_0487": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0488": {
-    "message": "المعنى:",
-    "description": "Guide page text."
-  },
-  "guide_0489": {
-    "message": "الفصل 10: <code>$queryprune</code>",
-    "description": "Guide page text."
-  },
-  "guide_0490": {
-    "message": "تم قبول <code>$queryprune</code> كاسم مستعار مهمل لـ <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0491": {
-    "message": "هذه متكافئة:",
-    "description": "Guide page text."
-  },
-  "guide_0492": {
-    "message": "تفضل القواعد الجديدة مع <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0493": {
-    "message": "الفصل 11: URL أمثلة على الأنماط",
-    "description": "Guide page text."
-  },
-  "guide_0494": {
-    "message": "تطابق كل URLs:",
-    "description": "Guide page text."
-  },
-  "guide_0495": {
-    "message": "مطابقة المجال والمجالات الفرعية:",
-    "description": "Guide page text."
-  },
-  "guide_0496": {
-    "message": "مطابقة البادئة URL:",
-    "description": "Guide page text."
-  },
-  "guide_0497": {
-    "message": "قم بمطابقة النهاية الدقيقة مع المرساة الصحيحة:",
-    "description": "Guide page text."
-  },
-  "guide_0498": {
-    "message": "استخدم نمط regex URL:",
-    "description": "Guide page text."
-  },
-  "guide_0499": {
-    "message": "الفصل 12: الاستثناءات",
-    "description": "Guide page text."
-  },
-  "guide_0500": {
-    "message": "ابدأ بـ <code>@@</code> لإجراء استثناء.",
-    "description": "Guide page text."
-  },
-  "guide_0501": {
-    "message": "مجموعة قواعد المثال:",
-    "description": "Guide page text."
-  },
-  "guide_0502": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0503": {
-    "message": "الفصل 13: <code>important</code>",
-    "description": "Guide page text."
-  },
-  "guide_0504": {
-    "message": "<code>important</code> يجعل قاعدة الإزالة تتفوق على الاستثناءات العادية.",
-    "description": "Guide page text."
-  },
-  "guide_0505": {
-    "message": "النتيجة:",
-    "description": "Guide page text."
-  },
-  "guide_0506": {
-    "message": "ملاحظات هامة:",
-    "description": "Guide page text."
-  },
-  "guide_0507": {
-    "message": "<code>important</code> مسموح به في قواعد الإزالة.",
-    "description": "Guide page text."
-  },
-  "guide_0508": {
-    "message": "<code>important</code> غير مدعوم في قواعد الاستثناء في هذا المحلل اللغوي.",
-    "description": "Guide page text."
-  },
-  "guide_0509": {
-    "message": "الفصل 14: <code>badfilter</code>",
-    "description": "Guide page text."
-  },
-  "guide_0510": {
-    "message": "<code>badfilter</code> يقوم بتعطيل قاعدة مطابقة أخرى.",
-    "description": "Guide page text."
-  },
-  "guide_0511": {
-    "message": "القاعدة الأصلية:",
-    "description": "Guide page text."
-  },
-  "guide_0512": {
-    "message": "قاعدة التصفية السيئة:",
-    "description": "Guide page text."
-  },
-  "guide_0513": {
-    "message": "المعنى:",
-    "description": "Guide page text."
-  },
-  "guide_0514": {
-    "message": "يقوم المحلل اللغوي بتعريف القاعدة بدون <code>badfilter</code> ويزيل القاعدة المستهدفة من الاستخدام في وقت التشغيل.",
-    "description": "Guide page text."
-  },
-  "guide_0515": {
-    "message": "الفصل 15: معدّلات مصدر المجال: <code>domain=</code> و<code>from=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0516": {
-    "message": "<code>domain=</code> و<code>from=</code> يحدان القواعد حسب الصفحة أو سياق المصدر.",
-    "description": "Guide page text."
-  },
-  "guide_0517": {
-    "message": "نفس الفكرة مع <code>from=</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0518": {
-    "message": "يقوم هؤلاء بالتحقق من أسماء مضيفي السياق مثل:",
-    "description": "Guide page text."
-  },
-  "guide_0519": {
-    "message": "تضمين مجالات متعددة:",
-    "description": "Guide page text."
-  },
-  "guide_0520": {
-    "message": "استبعاد نطاق:",
-    "description": "Guide page text."
-  },
-  "guide_0521": {
-    "message": "استخدم مجال regex:",
-    "description": "Guide page text."
-  },
-  "guide_0522": {
-    "message": "الفصل 16: معدّل المجال المستهدف: <code>to=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0523": {
-    "message": "<code>to=</code> يحد القواعد حسب الوجهة URL المضيف.",
-    "description": "Guide page text."
-  },
-  "guide_0524": {
-    "message": "هذا يتحقق من تنظيف URL.",
-    "description": "Guide page text."
-  },
-  "guide_0525": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0526": {
-    "message": "استبعاد المجال المستهدف:",
-    "description": "Guide page text."
-  },
-  "guide_0527": {
-    "message": "هدف التعبير العادي:",
-    "description": "Guide page text."
-  },
-  "guide_0528": {
-    "message": "الفصل 17: <code>denyallow=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0529": {
-    "message": "<code>denyallow=</code> يمنع القاعدة في نطاقات الوجهة المدرجة.",
-    "description": "Guide page text."
-  },
-  "guide_0530": {
-    "message": "المعنى:",
-    "description": "Guide page text."
-  },
-  "guide_0531": {
-    "message": "القيم <code>denyallow=</code> المدعومة هي أنماط مجال عادية.",
-    "description": "Guide page text."
-  },
-  "guide_0532": {
-    "message": "غير مدعوم في <code>denyallow=</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0533": {
-    "message": "إذا تم استخدام قيم غير مدعومة، فسيتم تخطي القاعدة بأكملها.",
-    "description": "Guide page text."
-  },
-  "guide_0534": {
-    "message": "الفصل 18: HTTP طريقة التعديل",
-    "description": "Guide page text."
-  },
-  "guide_0535": {
-    "message": "الحد بواسطة طريقة HTTP:",
-    "description": "Guide page text."
-  },
-  "guide_0536": {
-    "message": "استبعاد طريقة:",
-    "description": "Guide page text."
-  },
-  "guide_0537": {
-    "message": "طرق متعددة:",
-    "description": "Guide page text."
-  },
-  "guide_0538": {
-    "message": "الطرق المدعومة:",
-    "description": "Guide page text."
-  },
-  "guide_0539": {
-    "message": "السلوك الافتراضي:",
-    "description": "Guide page text."
-  },
-  "guide_0540": {
-    "message": "الفصل التاسع عشر: معدّلات نوع المصدر",
-    "description": "Guide page text."
-  },
-  "guide_0541": {
-    "message": "كلمات نوع المورد المدعومة:",
-    "description": "Guide page text."
-  },
-  "guide_0542": {
-    "message": "أمثلة:",
-    "description": "Guide page text."
-  },
-  "guide_0543": {
-    "message": "نوع المورد السلبي:",
-    "description": "Guide page text."
-  },
-  "guide_0544": {
-    "message": "رسم الخرائط:",
-    "description": "Guide page text."
-  },
-  "guide_0545": {
-    "message": "الفصل العشرون: الطرف الأول والطرف الثالث",
-    "description": "Guide page text."
-  },
-  "guide_0546": {
-    "message": "الطرف الأول يعني أن الموقع الوجهة وموقع المستند يشتركان في نفس المجال القابل للتسجيل.",
-    "description": "Guide page text."
-  },
-  "guide_0547": {
-    "message": "الطرف الثالث يعني أنهم لا يفعلون ذلك.",
-    "description": "Guide page text."
-  },
-  "guide_0548": {
-    "message": "الطرف الأول فقط:",
-    "description": "Guide page text."
-  },
-  "guide_0549": {
-    "message": "الأسماء المستعارة:",
-    "description": "Guide page text."
-  },
-  "guide_0550": {
-    "message": "الطرف الثالث فقط:",
-    "description": "Guide page text."
-  },
-  "guide_0551": {
-    "message": "الأسماء المستعارة:",
-    "description": "Guide page text."
-  },
-  "guide_0552": {
-    "message": "يتحقق الطرف الأول بشكل صارم من نفس المضيف تمامًا:",
-    "description": "Guide page text."
-  },
-  "guide_0553": {
-    "message": "عمليات التحقق الصارمة من طرف ثالث ليست نفس المضيف تمامًا:",
-    "description": "Guide page text."
-  },
-  "guide_0554": {
-    "message": "يتم تخطي المجموعات غير الصالحة، على سبيل المثال:",
-    "description": "Guide page text."
-  },
-  "guide_0555": {
-    "message": "الفصل 21: <code>match-case</code>",
-    "description": "Guide page text."
-  },
-  "guide_0556": {
-    "message": "افتراضيًا، تكون مطابقة المعلمات الحرفية غير حساسة لحالة الأحرف.",
-    "description": "Guide page text."
-  },
-  "guide_0557": {
-    "message": "القاعدة:",
-    "description": "Guide page text."
-  },
-  "guide_0558": {
-    "message": "المباريات:",
-    "description": "Guide page text."
-  },
-  "guide_0559": {
-    "message": "استخدم <code>match-case</code> للمطابقة الحساسة لحالة الأحرف:",
-    "description": "Guide page text."
-  },
-  "guide_0560": {
-    "message": "الآن يطابق:",
-    "description": "Guide page text."
-  },
-  "guide_0561": {
-    "message": "لكن ليس:",
-    "description": "Guide page text."
-  },
-  "guide_0562": {
-    "message": "الفصل 22: <code>app=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0563": {
-    "message": "تم تحليل <code>app=</code> من أجل التوافق مع بناء جملة قائمة التصفية.",
-    "description": "Guide page text."
-  },
-  "guide_0564": {
-    "message": "عادةً لا تحتوي طلبات المتصفح على سياق حزمة التطبيق. إذا لم يتوفر سياق التطبيق، فإن القواعد التي تحتوي على <code>app=</code> موجبة لن تتطابق.",
-    "description": "Guide page text."
-  },
-  "guide_0565": {
-    "message": "استبعاد التطبيق:",
-    "description": "Guide page text."
-  },
-  "guide_0566": {
-    "message": "نمط تطبيق Wildcard:",
-    "description": "Guide page text."
-  },
-  "guide_0567": {
-    "message": "نمط تطبيق Regex:",
-    "description": "Guide page text."
-  },
-  "guide_0568": {
-    "message": "الفصل 23: معدّلات عدم التشغيل",
-    "description": "Guide page text."
-  },
-  "guide_0569": {
-    "message": "يتم قبول هذه المعدلات ولكن يتم تجاهلها:",
-    "description": "Guide page text."
-  },
-  "guide_0570": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0571": {
-    "message": "هذا يتصرف مثل:",
-    "description": "Guide page text."
-  },
-  "guide_0572": {
-    "message": "الفصل 24: تفاصيل مطابقة المعلمات",
-    "description": "Guide page text."
-  },
-  "guide_0573": {
-    "message": "قاعدة المعلمة الحرفية:",
-    "description": "Guide page text."
-  },
-  "guide_0574": {
-    "message": "التحقق من اسم المعلمة.",
-    "description": "Guide page text."
-  },
-  "guide_0575": {
-    "message": "قاعدة معلمة Regex:",
-    "description": "Guide page text."
-  },
-  "guide_0576": {
-    "message": "التحقق من هذا النص:",
-    "description": "Guide page text."
-  },
-  "guide_0577": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0578": {
-    "message": "نموذج البادئة:",
-    "description": "Guide page text."
-  },
-  "guide_0579": {
-    "message": "يصبح هذا تعبيرًا عاديًا للأسماء التي تبدأ بـ <code>utm_</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0580": {
-    "message": "الفصل 25: الاستعلام فقط",
-    "description": "Guide page text."
-  },
-  "guide_0581": {
-    "message": "يقوم وقت التشغيل التفاعلي بتنظيف معلمات الاستعلام قبل <code>#</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0582": {
-    "message": "تنظيفها:",
-    "description": "Guide page text."
-  },
-  "guide_0583": {
-    "message": "لم يتم تنظيفه بواسطة مسار وقت التشغيل هذا:",
-    "description": "Guide page text."
-  },
-  "guide_0584": {
-    "message": "لتنظيف معلمة التجزئة، استخدم قواعد الموفر المختلط JSON JSON الموضحة في دليل التنسيق JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0585": {
-    "message": "الفصل 26: يتم تخطي القواعد غير المدعومة",
-    "description": "Guide page text."
-  },
-  "guide_0586": {
-    "message": "يتم تخطي القاعدة إذا:",
-    "description": "Guide page text."
-  },
-  "guide_0587": {
-    "message": "ليس لديها <code>$removeparam</code> أو <code>$queryprune</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0588": {
-    "message": "ويستخدم معدل غير معتمد.",
-    "description": "Guide page text."
-  },
-  "guide_0589": {
-    "message": "التعبير العادي الخاص به غير صالح.",
-    "description": "Guide page text."
-  },
-  "guide_0590": {
-    "message": "لديه طريقة غير صالحة.",
-    "description": "Guide page text."
-  },
-  "guide_0591": {
-    "message": "تحتوي على قيمة <code>denyallow=</code> غير صالحة.",
-    "description": "Guide page text."
-  },
-  "guide_0592": {
-    "message": "فهو يجمع بين معدّلات الحفلات غير المتوافقة.",
-    "description": "Guide page text."
-  },
-  "guide_0593": {
-    "message": "إنه تعليق أو رأس قسم أو سطر فارغ.",
-    "description": "Guide page text."
-  },
-  "guide_0594": {
-    "message": "مثال على القاعدة التي تم تخطيها:",
-    "description": "Guide page text."
-  },
-  "guide_0595": {
-    "message": "السبب:",
-    "description": "Guide page text."
-  },
-  "guide_0596": {
-    "message": "مثال على القاعدة التي تم تخطيها:",
-    "description": "Guide page text."
-  },
-  "guide_0597": {
-    "message": "السبب:",
-    "description": "Guide page text."
-  },
-  "guide_0598": {
-    "message": "الفصل 27: القواعد المكررة",
-    "description": "Guide page text."
-  },
-  "guide_0599": {
-    "message": "يتم تخطي الأسطر الأولية المكررة أثناء تحليل قائمة التصفية.",
-    "description": "Guide page text."
-  },
-  "guide_0600": {
-    "message": "مثال:",
-    "description": "Guide page text."
-  },
-  "guide_0601": {
-    "message": "يتم الاحتفاظ بواحدة فقط.",
-    "description": "Guide page text."
-  },
-  "guide_0602": {
-    "message": "في وقت التشغيل، يتم أيضًا إلغاء تكرار القواعد من خلال النموذج الأساسي.",
-    "description": "Guide page text."
-  },
-  "guide_0603": {
-    "message": "الفصل 28: مثال على قائمة التصفية الكاملة",
-    "description": "Guide page text."
-  },
-  "guide_0604": {
-    "message": "ماذا يفعل هذا:",
-    "description": "Guide page text."
-  },
-  "guide_0605": {
-    "message": "يزيل كافة المعلمات <code>utm_</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0606": {
-    "message": "يزيل <code>fbclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0607": {
-    "message": "يزيل <code>gclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0608": {
-    "message": "تتم إزالة <code>ref</code> على <code>example.com</code>، باستثناء <code>/login</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0609": {
-    "message": "يزيل <code>tracking_id</code> فقط للطلبات <code>GET</code> XHR إلى <code>api.example.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0610": {
-    "message": "يضيف ثم يلغي قاعدة الهدف <code>tracker.example</code> بـ <code>badfilter</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0611": {
-    "message": "الفصل 29: JSON مثال للتخزين",
-    "description": "Guide page text."
-  },
-  "guide_0612": {
-    "message": "الفصل 30: قوالب النسخ السريع",
-    "description": "Guide page text."
-  },
-  "guide_0613": {
-    "message": "قم بإزالة معلمة واحدة في كل مكان:",
-    "description": "Guide page text."
-  },
-  "guide_0614": {
-    "message": "إزالة جميع معلمات UTM:",
-    "description": "Guide page text."
-  },
-  "guide_0615": {
-    "message": "إزالة الكل باستثناء <code>id</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0616": {
-    "message": "تشغيل فقط على المجال:",
-    "description": "Guide page text."
-  },
-  "guide_0617": {
-    "message": "استثناء:",
-    "description": "Guide page text."
-  },
-  "guide_0618": {
-    "message": "GET فقط:",
-    "description": "Guide page text."
-  },
-  "guide_0619": {
-    "message": "XHR فقط:",
-    "description": "Guide page text."
-  },
-  "guide_0620": {
-    "message": "النطاق المستهدف فقط:",
-    "description": "Guide page text."
-  },
-  "guide_0621": {
-    "message": "نطاق الصفحة المصدر فقط:",
-    "description": "Guide page text."
-  },
-  "guide_0622": {
-    "message": "الطرف الثالث فقط:",
-    "description": "Guide page text."
-  },
-  "guide_0623": {
-    "message": "حساسة لحالة الأحرف:",
-    "description": "Guide page text."
-  },
-  "guide_theme_midnight": {
-    "message": "منتصف الليل",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_light": {
-    "message": "ضوء",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_icecold": {
-    "message": "الجليد البارد",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_zen_grey": {
-    "message": "زين جراي",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_sunset": {
-    "message": "غروب الشمس",
-    "description": "Guide theme selector option."
   },
   "guide_0624": {
     "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -7782,12 +6806,12 @@
     "description": "Guide page text."
   },
   "guide_0725": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  },\n  \"urlFilterRules\": [\n    \"*$removeparam=fbclid\"\n  ],\n  \"urlFilterMetadata\": {\n    \"format\": \"linkumori-url-filter-interoperability\",\n    \"status\": \"loaded\"\n  }\n}\n",
-    "description": "Guide page text."
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide code example for provider JSON with inline $removeparam rules."
   },
   "guide_0726": {
-    "message": "providers are handled by Linkumori extension provider logic.\nurlFilterRules are handled by the interoperability runtime.\nThey can exist in the same Linkumori extension data object, but they are different rule systems.\n",
-    "description": "Guide page text."
+    "message": "Provider-local <code>rules[]</code> entries are compiled into the same provider set before <code>clearurls.js</code> runs. Keep filter-list style <code>$removeparam</code> lines inside provider <code>rules[]</code> when authoring Linkumori JSON.\n",
+    "description": "Guide note explaining provider-local filter-list rules."
   },
   "guide_0727": {
     "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -8077,438 +7101,6 @@
     "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
     "description": "Guide page text."
   },
-  "guide_0799": {
-    "message": "⇄",
-    "description": "Guide page text."
-  },
-  "guide_0800": {
-    "message": "{\n  \"urlFilterRules\": [\n    \"||example.com^$removeparam=utm_source\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0801": {
-    "message": "{\n  \"providers\": {},\n  \"urlFilterRules\": []\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0802": {
-    "message": "$removeparam\n$queryprune\n@@ exceptions\nbadfilter\nimportant\ndomain=\nfrom=\nto=\ndenyallow=\nmethod=\nrequest type modifiers\nfirst-party / third-party\nstrict-first-party / strict-third-party\nmatch-case\napp=\n",
-    "description": "Guide page text."
-  },
-  "guide_0803": {
-    "message": "Network blocking rules without $removeparam or $queryprune\nCosmetic filters\nScriptlets\nHTML filtering\nRequest blocking\nFull adblock engine behavior\n",
-    "description": "Guide page text."
-  },
-  "guide_0804": {
-    "message": "URL_PATTERN$removeparam=PARAMETER\n",
-    "description": "Guide page text."
-  },
-  "guide_0805": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0806": {
-    "message": "On example.com and its subdomains, remove the query parameter named utm_source.\n",
-    "description": "Guide page text."
-  },
-  "guide_0807": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0808": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"||example.com^$removeparam=utm_source\",\n      \"*$removeparam=/^utm_/\"\n    ],\n    \"urlFilterMetadata\": {\n      \"format\": \"linkumori-url-filter-interoperability\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0809": {
-    "message": "! This is a comment\n",
-    "description": "Guide page text."
-  },
-  "guide_0810": {
-    "message": "[Tracking parameters]\n",
-    "description": "Guide page text."
-  },
-  "guide_0811": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0812": {
-    "message": "https://site.test/?utm_source=x&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0813": {
-    "message": "*$removeparam\n",
-    "description": "Guide page text."
-  },
-  "guide_0814": {
-    "message": "https://site.test/?a=1&b=2\n-> https://site.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0815": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0816": {
-    "message": "https://site.test/?utm_source=x&utm_campaign=y&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0817": {
-    "message": "*$removeparam=/^utm_/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0818": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0819": {
-    "message": "https://site.test/?id=1&utm_source=x&fbclid=y\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0820": {
-    "message": "Remove every parameter except id.\n",
-    "description": "Guide page text."
-  },
-  "guide_0821": {
-    "message": "*$removeparam=utm_source\n*$queryprune=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0822": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0823": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0824": {
-    "message": "|https://example.com/path$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0825": {
-    "message": "https://example.com/path|$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0826": {
-    "message": "/^https:\\/\\/([^/]+\\.)?example\\.com\\/track/$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0827": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0828": {
-    "message": "*$removeparam=utm_source\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0829": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0830": {
-    "message": "*$removeparam=utm_source,important\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0831": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0832": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0833": {
-    "message": "||example.com^$removeparam=utm_source,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0834": {
-    "message": "Cancel the original rule.\n",
-    "description": "Guide page text."
-  },
-  "guide_0835": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0836": {
-    "message": "*$removeparam=utm_source,from=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0837": {
-    "message": "documentUrl\noriginUrl\ninitiator\n",
-    "description": "Guide page text."
-  },
-  "guide_0838": {
-    "message": "*$removeparam=utm_source,domain=example.com|shop.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0839": {
-    "message": "*$removeparam=utm_source,domain=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0840": {
-    "message": "*$removeparam=utm_source,domain=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0841": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0842": {
-    "message": "Cleaned:\nhttps://example.com/?utm_source=x&id=1\n\nNot cleaned:\nhttps://other.test/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0843": {
-    "message": "*$removeparam=utm_source,to=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0844": {
-    "message": "*$removeparam=utm_source,to=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0845": {
-    "message": "*$removeparam=utm_source,denyallow=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0846": {
-    "message": "Remove utm_source generally, but do not apply this rule when the destination host matches example.com.\n",
-    "description": "Guide page text."
-  },
-  "guide_0847": {
-    "message": "~negation\nexample.*\n/regex/\n",
-    "description": "Guide page text."
-  },
-  "guide_0848": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0849": {
-    "message": "*$removeparam=utm_source,method=~POST\n",
-    "description": "Guide page text."
-  },
-  "guide_0850": {
-    "message": "*$removeparam=utm_source,method=GET|HEAD\n",
-    "description": "Guide page text."
-  },
-  "guide_0851": {
-    "message": "GET\nHEAD\nOPTIONS\nPOST\nPUT\nPATCH\nDELETE\nCONNECT\n",
-    "description": "Guide page text."
-  },
-  "guide_0852": {
-    "message": "Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.\nFast simple query cleanup also uses those simple methods.\n",
-    "description": "Guide page text."
-  },
-  "guide_0853": {
-    "message": "document\ndoc\nsubdocument\nframe\nscript\nstylesheet\nimage\nmedia\nfont\nobject\nxmlhttprequest\nxhr\nwebsocket\nping\nother\n",
-    "description": "Guide page text."
-  },
-  "guide_0854": {
-    "message": "*$removeparam=utm_source,script\n*$removeparam=utm_source,image\n*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0855": {
-    "message": "*$removeparam=utm_source,~image\n",
-    "description": "Guide page text."
-  },
-  "guide_0856": {
-    "message": "document       -> main_frame\ndoc            -> main_frame\nsubdocument    -> sub_frame\nframe          -> sub_frame\nxhr            -> xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0857": {
-    "message": "*$removeparam=utm_source,first-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0858": {
-    "message": "1p\n~third-party\n~3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0859": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0860": {
-    "message": "3p\n~first-party\n~1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0861": {
-    "message": "*$removeparam=utm_source,strict-first-party\n*$removeparam=utm_source,strict1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0862": {
-    "message": "*$removeparam=utm_source,strict-third-party\n*$removeparam=utm_source,strict3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0863": {
-    "message": "*$removeparam=utm_source,first-party,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0864": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0865": {
-    "message": "utm_source\nUTM_SOURCE\nUtm_Source\n",
-    "description": "Guide page text."
-  },
-  "guide_0866": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "guide_0867": {
-    "message": "utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0868": {
-    "message": "UTM_SOURCE\n",
-    "description": "Guide page text."
-  },
-  "guide_0869": {
-    "message": "*$removeparam=utm_source,app=com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0870": {
-    "message": "*$removeparam=utm_source,app=~com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0871": {
-    "message": "*$removeparam=utm_source,app=com.example.*\n",
-    "description": "Guide page text."
-  },
-  "guide_0872": {
-    "message": "*$removeparam=utm_source,app=/example/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0873": {
-    "message": "_\nnoop\nstealth\ncookie\n",
-    "description": "Guide page text."
-  },
-  "guide_0874": {
-    "message": "*$removeparam=utm_source,noop\n",
-    "description": "Guide page text."
-  },
-  "guide_0875": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0876": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0877": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0878": {
-    "message": "name=value\n",
-    "description": "Guide page text."
-  },
-  "guide_0879": {
-    "message": "URL:\nhttps://example.com/?utm_source=news&id=1\n\nRegex sees:\nutm_source=news\nid=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0880": {
-    "message": "*$removeparam=|utm_\n",
-    "description": "Guide page text."
-  },
-  "guide_0881": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0882": {
-    "message": "https://example.com/#utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0883": {
-    "message": "||example.com^$script\n",
-    "description": "Guide page text."
-  },
-  "guide_0884": {
-    "message": "No $removeparam or $queryprune.\n",
-    "description": "Guide page text."
-  },
-  "guide_0885": {
-    "message": "*$removeparam=utm_source,unknownmodifier\n",
-    "description": "Guide page text."
-  },
-  "guide_0886": {
-    "message": "Unsupported modifier.\n",
-    "description": "Guide page text."
-  },
-  "guide_0887": {
-    "message": "*$removeparam=utm_source\n*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0888": {
-    "message": "! Linkumori URL filter interoperability example\n\n*$removeparam=/^utm_/\n*$removeparam=fbclid\n*$removeparam=gclid\n\n||example.com^$removeparam=ref\n@@||example.com/login^$removeparam=ref\n\n*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET\n\n||tracker.example^$removeparam=target,third-party\n||tracker.example^$removeparam=target,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0889": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"*$removeparam=/^utm_/\",\n      \"*$removeparam=fbclid\",\n      \"||example.com^$removeparam=ref\",\n      \"@@||example.com/login^$removeparam=ref\"\n    ],\n    \"urlFilterMetadata\": {\n      \"name\": \"Linkumori URL Filter Rules\",\n      \"format\": \"linkumori-url-filter-interoperability\",\n      \"status\": \"loaded\",\n      \"ruleStatus\": \"loaded\",\n      \"hashStatus\": \"not_required\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0890": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0891": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0892": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0893": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0894": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0895": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0896": {
-    "message": "*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0897": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0898": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0899": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0900": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "faq_final_runtime_clearurls_title": {
-    "message": "مخصص clearurls.js بناء جملة وقت التشغيل",
-    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
-  },
-  "faq_final_runtime_interoperability_title": {
-    "message": "إمكانية التشغيل المتداخل URL - بناء جملة وقت التشغيل",
-    "description": "FAQ label for the interoperability runtime syntax example"
-  },
-  "faq_final_runtime_open_page": {
-    "message": "فتح مرجع بناء الجملة في وقت التشغيل",
-    "description": "FAQ link text that opens the dedicated runtime syntax page"
-  },
-  "faq_final_runtime_syntax": {
-    "message": "ما هو بناء جملة وقت التشغيل النهائي؟",
-    "description": "FAQ question for final supported runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_answer": {
-    "message": "Linkumori يدعم تنسيقين نهائيين لوقت التشغيل. استخدم بناء جملة الموفر clearurls.js المخصص أولاً للحقل الأصلي، والأول، وإعادة التوجيه، وإعادة الكتابة، والاستثناء، والسلوك على نطاق الموفر. استخدم تنسيق قابلية التشغيل البيني عند استيراد قواعد URL-filter $removeparam.",
-    "description": "FAQ answer explaining the two final runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_note": {
-    "message": "يمكن تحميل كلا التنسيقين معًا، لكن بناء جملة الموفر المخصص هو التنسيق الأصلي الأساسي. يوجد تنسيق التشغيل التفاعلي للتوافق مع قائمة عوامل التصفية.",
-    "description": "FAQ note for final runtime syntax formats"
-  },
   "providerImport_allProviders": {
     "message": "جميع مقدمي الخدمة",
     "description": "Filter label for showing rule activations from every provider"
@@ -8529,60 +7121,52 @@
     "message": "التنقل في قاعدة الموفر",
     "description": "Accessible label for provider filter navigation on the disabled rules page"
   },
-  "runtimeSyntax_clearURLsDescription": {
-    "message": "هذا هو وقت التشغيل الأصلي الذي يستهلكه clearurls.js. ويجب استخدامه أولاً للموفرين المخصصين لأنه يدعم كائنات القاعدة الأساسية وقواعد الحقل وقواعد URL الأولية وعمليات إعادة التوجيه وإعادة الكتابة والاستثناءات وأنواع الطلبات والأسماء المستعارة وهويات التعطيل على نطاق النمط.",
-    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_clearURLsTitle": {
-    "message": "مخصص clearurls.js وقت التشغيل",
-    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_disableDescription": {
-    "message": "تكون الهويات ذات النطاق النمطي مستقرة عبر تغييرات اسم الموفر. تظل الهويات على نطاق الموفر متاحة لسلوك التعطيل القديم الواسع النطاق.",
-    "description": "Runtime syntax page description for disable identity examples"
-  },
-  "runtimeSyntax_disableTitle": {
-    "message": "تعطيل تنسيقات الهوية",
-    "description": "Runtime syntax page section title for disable identity formats"
-  },
-  "runtimeSyntax_interoperabilityDescription": {
-    "message": "وقت التشغيل هذا مخصص لقابلية التشغيل التفاعلي لمرشح URL. إنه يحتفظ بقواعد نمط قائمة التصفية $removeparam و@@ في مصفوفة قواعد مدمجة لتوافق الاستيراد والقائمة البعيدة.",
-    "description": "Runtime syntax page description for interoperability runtime syntax"
-  },
-  "runtimeSyntax_interoperabilityTitle": {
-    "message": "وقت التشغيل لقاعدة التشغيل البيني",
-    "description": "Runtime syntax page section title for interoperability runtime syntax"
-  },
-  "runtimeSyntax_intro": {
-    "message": "وقت تشغيل الموفر الأصلي clearurls.js هو تنسيق من الدرجة الأولى. يوجد وقت تشغيل قابلية التشغيل البيني بجانبه لقواعد قائمة التصفية التي تحتاج إلى الحفاظ على شكلها الأصلي $removeparam.",
-    "description": "Runtime syntax page intro text"
-  },
-  "runtimeSyntax_kicker": {
-    "message": "مرجع وقت التشغيل",
-    "description": "Runtime syntax page eyebrow text"
-  },
-  "runtimeSyntax_navClearURLs": {
-    "message": "وقت تشغيل مخصص",
-    "description": "Runtime syntax page navigation link for dedicated runtime section"
-  },
-  "runtimeSyntax_navDisableIds": {
-    "message": "تعطيل المعرفات",
-    "description": "Runtime syntax page navigation link for disable identity section"
-  },
-  "runtimeSyntax_navInteroperability": {
-    "message": "وقت التشغيل التفاعلي",
-    "description": "Runtime syntax page navigation link for interoperability section"
-  },
-  "runtimeSyntax_pageTitle": {
-    "message": "بناء جملة وقت التشغيل النهائي",
-    "description": "Runtime syntax page title"
-  },
   "popup_html_guide_link": {
     "message": "مزود JSON دليل",
     "description": "Popup license link label for the Linkumori provider JSON guide page"
   },
   "popup_html_guide_link_title": {
-    "message": "افتح Linkumori المزود JSON ودليل التشغيل البيني",
-    "description": "Tooltip and aria label for the popup guide link in the license section"
+    "message": "Open Linkumori rules guide",
+    "description": "Tooltip and aria label for the popup guide link in the license section."
+  },
+  "faq_rules_guide_syntax": {
+    "message": "Which rule syntax should I use?",
+    "description": "FAQ question for the unified Linkumori rule syntax guide."
+  },
+  "faq_rules_guide_syntax_answer": {
+    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
+    "description": "FAQ answer explaining the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_syntax_note": {
+    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
+    "description": "FAQ note for the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_open_page": {
+    "message": "Open rules guide",
+    "description": "FAQ link text that opens the unified rules guide."
+  },
+  "providerImport_failedToLoadSources": {
+    "message": "Failed to load provider sources: $1",
+    "description": "Error shown when provider import sources fail to load."
+  },
+  "providerImport_noBundledRules": {
+    "message": "Bundled rules are not available.",
+    "description": "Error shown when bundled rules are unavailable for provider import."
+  },
+  "providerImport_failedToLoadBundled": {
+    "message": "Failed to load bundled rules: $1",
+    "description": "Error shown when bundled rules fail to load for provider import."
+  },
+  "status_language_change_failed": {
+    "message": "Could not switch language to $1.",
+    "description": "Status text shown when changing the UI language fails."
+  },
+  "theme_light": {
+    "message": "Light theme",
+    "description": "Accessible label for switching to the light theme."
+  },
+  "theme_dark": {
+    "message": "Dark theme",
+    "description": "Accessible label for switching to the dark theme."
   }
 }
