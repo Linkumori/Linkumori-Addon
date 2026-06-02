@@ -55,17 +55,9 @@
     "message": "A csomagolt Linkumori/ClearURLs szabályok használata. Kapcsold ki ezt, ha csak távoli és/vagy egyéni szabályokkal szeretnéd futtatni.",
     "description": "Description for the toggle that controls bundled built-in rules"
   },
-  "linkumori_interoperability_mode_enabled": {
-    "message": "Linkumori interoperabilitási mód",
-    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
-  },
-  "linkumori_interoperability_mode_enabled_description": {
-    "message": "Alkalmazza a Linkumori URL Filter interoperabilitási szabályait, beleértve a kompatibilis $removeparam listákat is, a natív Linkumori/ClearURLs JSON szabályok mellett.",
-    "description": "Description for the Linkumori interoperability mode toggle"
-  },
   "bundled_rules_description": {
-    "message": "A Linkumori két szabálykategóriát használ: Linkumori (ClearURLs 2.0) JSON szabályokat a natív szolgáltatók számára, és Linkumori 9876509 szűrési interoperabilitási szabályokat $removeparam listák. Minden kategória külön számít.",
-    "description": "Description for the bundled rules section."
+    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs.",
+    "description": "Description text for the built-in bundled rules setting."
   },
   "bundled_rules_section_title": {
     "message": "Szabályok információi",
@@ -2107,16 +2099,8 @@
   "providerImport_importedCount": {
     "message": "Importált: $1 szolgáltató"
   },
-  "providerImport_importedRulesCount": {
-    "message": "Importálva: $1 szabály",
-    "description": "Import result count for Linkumori URL interoperability rules."
-  },
   "providerImport_importing": {
     "message": "Importálás..."
-  },
-  "providerImport_linkumoriData": {
-    "message": "Meglévő Linkumori interoperabilitási szabályok",
-    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Szolgáltatók betöltése...",
@@ -2179,10 +2163,6 @@
   },
   "providerImport_skippedCount": {
     "message": "Kihagyott: $1 szolgáltató"
-  },
-  "providerImport_skippedRulesCount": {
-    "message": "Kihagyva: $1 szabály",
-    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Szabályforrás",
@@ -2533,16 +2513,16 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "Fontolja meg újra a távoli szabályok használatát, ha nem tudja teljesen, hogy a forrás egy Linkumori (ClearURLs 2.0) JSON szabálykészlet vagy egy Linkumori URL87650045678987650045678JSON szabálykészlet.",
-    "description": "Final warning message in security modal"
+    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source.",
+    "description": "Final warning shown in the remote rules security modal."
   },
   "security_modal_main_warning": {
-    "message": "Ez a távoli szabályok funkció olyan haladó felhasználók számára készült, akik ismerik a betöltendő forrásformátumot. Linkumori (ClearURLs 2.0) JSON A távoli szabályokhoz egy megfelelő URL hash szükséges az ellenőrzéshez. Linkumori URL A szűrők interoperabilitási listái URL hash nélkül tölthetők be, és külön tárolhatók.",
-    "description": "Main warning text explaining the purpose and risks"
+    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification.",
+    "description": "Main warning text for the remote rules security modal."
   },
   "security_modal_privacy_text": {
-    "message": "Ha hozzáad egy URL számú távoli szabályt, a kiterjesztés csatlakozik a kijelölt kiszolgálóhoz, hogy lekérjen egy Linkumori (ClearURLs 2.0) JSON szabálykészletet, a hash fájlt, ha be van állítva, vagy egy 658909287. URL Szűrő interoperabilitási lista. Minden lekérés felfedheti a IP-es címet és az általános információkat, például a bővítmény verzióját, a böngészőt és a böngésző verzióját a tárhelykiszolgáló számára. Ezekre az adatokra az adott webhely vagy webszerver adatvédelmi szabályzata vonatkozik.",
-    "description": "Privacy notice explaining data collection policy"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the remote rules security modal."
   },
   "security_modal_privacy_link_text": {
     "message": "Olvasd el újra a %PRIVACY_POLICY_LINK% -t, ha szükséges, mielőtt folytatod.",
@@ -2553,8 +2533,8 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Használjon beépített szabályokat, hacsak nem bízik a távoli forrásban, és nem irányítja azt. A Linkumori (ClearURLs 2.0) JSON szabályokhoz adjon meg egy megfelelő URL hash-t. Együttműködési szűrőlisták esetén hagyja üresen a URL hash-t.",
-    "description": "Recommendation to use built-in rules instead"
+    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules.",
+    "description": "Recommendation text shown in the remote rules security modal."
   },
   "security_modal_risk_1": {
     "message": "Az IP-címed és böngésző információid láthatóvá válnak a konfigurált szerverek számára",
@@ -2569,8 +2549,8 @@
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Az együttműködési szűrőlisták nem használnak hash-ellenőrzést, ezért különösen fontos a URL-es forrásba vetett bizalom.",
-    "description": "Fourth security risk point"
+    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL.",
+    "description": "Risk list item for remote rules without successful hash verification."
   },
   "security_modal_risks_title": {
     "message": "Biztonsági kockázatok:",
@@ -3279,24 +3259,24 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Ön letiltja a Gatekeeper számú védelmet a URL távoli szabály szerkesztéséhez. Ez a funkció betöltheti a Linkumori (ClearURLs 2.0) JSON szabályokat hash-ellenőrzéssel, vagy a Linkumori URL Szűrő-ellenőrzési listákat hash nélkül. Csak akkor folytassa, ha megérti, melyik formátumot állítja be.",
-    "description": "Main warning text in disable gatekeeper modal"
+    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring.",
+    "description": "Main warning text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "A Gatekeeper a beépített biztonsági folyamat, amely blokkolja a közvetlen távoli URL szerkesztéseket, amíg el nem ismered a biztonsági figyelmeztetést és be nem fejezed a gépelt megerősítést.",
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Tartsa engedélyezve a Gatekeeper számot, hacsak nem bízik távoli forrásaiban, és nem irányítja őket. JSON szabályoknak tartalmazniuk kell egy megfelelő hash-t: URL; az interoperabilitási listák szándékosan üresen hagyják a URL hash-t.",
-    "description": "Recommendation text in disable gatekeeper modal"
+    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL.",
+    "description": "Recommendation text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "adatvédelmi figyelmeztetés:",
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Ha hozzáad egy URL számú távoli szabályt, a kiterjesztés csatlakozik a kijelölt kiszolgálóhoz, hogy lekérjen egy Linkumori (ClearURLs 2.0) JSON szabálykészletet, a hash fájlt, ha be van állítva, vagy egy 658909287. URL Szűrő interoperabilitási lista. Minden lekérés felfedheti a IP-es címet és az általános információkat, például a bővítmény verzióját, a böngészőt és a böngésző verzióját a tárhelykiszolgáló számára. Ezekre az adatokra az adott webhely vagy webszerver adatvédelmi szabályzata vonatkozik.",
-    "description": "Privacy section body in disable gatekeeper modal"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Olvasd el újra a %PRIVACY_POLICY_LINK% -t, ha szükséges, mielőtt folytatod.",
@@ -3315,8 +3295,8 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "A távoli JSON-es, hash- vagy együttműködési szűrőfájlokat tároló szerver megkapja a IP-es címét.",
-    "description": "Risk bullet 2 in disable gatekeeper modal"
+    "message": "The server hosting remote JSON or hash files will receive your IP address.",
+    "description": "Risk list item for remote file hosts receiving the user IP address."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "A szerver megkaphatja a bővítmény verzióját, a böngészőt és a böngésző verzióját is.",
@@ -3327,8 +3307,8 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "A Gatekeeper letiltásával növeli a nem biztonságos vagy feltört távoli szabályforrások kockázatát. A hash-ellenőrzés csak a Linkumori (ClearURLs 2.0) JSON szabályletöltést védi. Nem vonatkozik az interoperabilitási listákra.",
-    "description": "Final warning banner text in disable gatekeeper modal"
+    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured.",
+    "description": "Final warning shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Mégse",
@@ -3407,8 +3387,8 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Ez a művelet csökkenti a távoli szabályok védelmét. Csak akkor folytassa, ha megbízik a JSON és az együttműködési szűrőforrásokban.",
-    "description": "Final warning text for gatekeeper-specific confirmation modal"
+    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source.",
+    "description": "Final confirmation text for disabling Gatekeeper."
   },
   "remote_urls_template_note_1": {
     "message": "Cseréld ki a helyőrző értékeket a valós HTTPS URL-jeidre, majd importáld ezt a fájlt.",
@@ -4130,10 +4110,6 @@
     "message": "Nincs aktivitás",
     "description": "Fallback row label when no daily stats data is available."
   },
-  "linkumori_url_rules_section": {
-    "description": "Section header for popular extension URL filter rules in settings",
-    "message": "Linkumori URL Szűrők (interoperabilitás):"
-  },
   "clearurls_json_rules_section": {
     "description": "Section header for native ClearURLs JSON rule statistics in settings",
     "message": "Linkumori (ClearURLs 2,0) JSON Szabályok:"
@@ -4194,66 +4170,6 @@
     "description": "Hash status for popular extension URL filter lists",
     "message": "nem kötelező"
   },
-  "linkumori_url_filter_name": {
-    "description": "Display name for Linkumori URL filter interoperability rules.",
-    "message": "Linkumori URL Szűrők"
-  },
-  "linkumori_url_filter_single_name": {
-    "description": "Display name for a single Linkumori URL filter source.",
-    "message": "Linkumori URL Szűrő"
-  },
-  "linkumori_url_filter_merged_name": {
-    "description": "Display name when multiple Linkumori URL filter sources are merged.",
-    "message": "Egyesített Linkumori URL Szűrők"
-  },
-  "linkumori_url_filter_custom_name": {
-    "description": "Display name for custom Linkumori URL filter rules.",
-    "message": "Egyedi Linkumori URL szabályok"
-  },
-  "linkumori_url_filter_parser_unavailable": {
-    "description": "Error when the Linkumori URL filter parser is unavailable.",
-    "message": "Linkumori URL szűrőelemző nem érhető el"
-  },
-  "linkumori_url_filter_custom_failed": {
-    "description": "Error when custom Linkumori URL rules cannot be parsed.",
-    "message": "Egyéni Linkumori URL szabályok sikertelenek"
-  },
-  "linkumori_url_filter_sources_failed_count": {
-    "description": "Summary of failed Linkumori URL filter sources.",
-    "message": "$1 URL szűrőforrás(ok) sikertelen"
-  },
-  "linkumori_url_filter_remote_empty": {
-    "description": "Error when a remote Linkumori URL filter file is empty.",
-    "message": "A távoli URL számú szűrőfájl üres"
-  },
-  "linkumori_url_filter_fetch_failed": {
-    "description": "Error when fetching Linkumori URL filters fails.",
-    "message": "Linkumori URL A szűrő lekérése nem sikerült"
-  },
-  "linkumori_url_filter_unknown_error": {
-    "description": "Fallback error for Linkumori URL filters.",
-    "message": "Ismeretlen URL szűrőhiba"
-  },
-  "linkumori_url_filter_all_sources_failed": {
-    "description": "Error when all Linkumori URL filter sources fail.",
-    "message": "Az összes Linkumori URL szűrőforrás sikertelen"
-  },
-  "linkumori_url_filter_log_pattern_value": {
-    "description": "Log pattern value for Linkumori URL filter interoperability.",
-    "message": "népszerű kiterjesztésű URL nyomkövető szűrő"
-  },
-  "linkumori_url_filter_no_supported_rules": {
-    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
-    "message": "Nem támogatott Linkumori interoperabilitás $removeparam szabály található"
-  },
-  "linkumori_url_filter_interoperability_name": {
-    "description": "Parser metadata name for Linkumori URL filter interoperability.",
-    "message": "Linkumori URL Szűrők átjárhatósága"
-  },
-  "linkumori_url_filter_interoperability_author": {
-    "description": "Parser metadata author for Linkumori URL filter interoperability.",
-    "message": "Linkumori együttműködési szűrőforrás"
-  },
   "linkumoriUrlRules_button": {
     "description": "Button that opens the custom Linkumori URL filter modal.",
     "message": "Linkumori URL Szabályok"
@@ -4306,17 +4222,9 @@
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2,0)"
   },
-  "linkumoriUrlFiltersStatusGroup": {
-    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
-    "message": "Linkumori URL Szűrők (interoperabilitás)"
-  },
   "linkumoriUrlRules_statusLabel": {
     "description": "Status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Állapot"
-  },
-  "linkumoriUrlRules_runtimeRulesLabel": {
-    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
-    "message": "Futási szabályok"
   },
   "linkumoriUrlRules_customRulesLabel": {
     "description": "Label for custom Linkumori URL rules in the custom rules editor.",
@@ -4325,10 +4233,6 @@
   "linkumoriUrlRules_hashStatusLabel": {
     "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Hash"
-  },
-  "linkumoriUrlRules_statusSummary": {
-    "description": "Rules status summary for Linkumori URL rules.",
-    "message": "$1\n$2 futásidejű szabály(ok)\n$3 egyéni szabály(ok)"
   },
   "linkumoriUrlRules_close_aria": {
     "description": "Accessible label for closing the Linkumori URL rules modal.",
@@ -4345,26 +4249,6 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "A távoli népszerű URL-es kiterjesztésű szűrők és ezek az egyéni szabályok nem igényelnek hash-ellenőrzést. Az elemzést követően a LinkumoriURLsData-ben tárolódnak, külön a ClearURLsData-től."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
-    "message": "Interoperabilitás módosítva",
-    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
-    "message": "Interoperabilitási kimeneti URL",
-    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
-    "message": "Egyező interoperabilitási szabály",
-    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
-    "message": "Interoperabilitási mintatípus",
-    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
-    "message": "Interoperabilitási művelet",
-    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   },
   "popup_whitelist_state_permanent": {
     "message": "Engedélyezett listán: $1 – kattintson újra, ha csak a lapokat szeretné megjeleníteni",
@@ -5165,134 +5049,6 @@
     "message": "25. fejezet: Gyorsmásolási sablonok",
     "description": "Guide page text."
   },
-  "guide_0076": {
-    "message": "Interoperabilitási szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0077": {
-    "message": "Interoperabilitási szabályok útmutatója",
-    "description": "Guide page text."
-  },
-  "guide_0078": {
-    "message": "1. fejezet: Mik az interoperabilitási szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0079": {
-    "message": "2. fejezet: Mi a támogatott",
-    "description": "Guide page text."
-  },
-  "guide_0080": {
-    "message": "3. fejezet: Alapvető szabályformátum",
-    "description": "Guide page text."
-  },
-  "guide_0081": {
-    "message": "4. fejezet: A szabályok tárolási helye",
-    "description": "Guide page text."
-  },
-  "guide_0082": {
-    "message": "5. fejezet: Megjegyzések és üres sorok",
-    "description": "Guide page text."
-  },
-  "guide_0083": {
-    "message": "6. fejezet: Egy paraméter eltávolítása",
-    "description": "Guide page text."
-  },
-  "guide_0084": {
-    "message": "7. fejezet: Távolítsa el az összes lekérdezési paramétert",
-    "description": "Guide page text."
-  },
-  "guide_0085": {
-    "message": "8. fejezet: Paraméterek eltávolítása Regex segítségével",
-    "description": "Guide page text."
-  },
-  "guide_0086": {
-    "message": "9. fejezet: Egy egyezés kivételével az összes eltávolítása",
-    "description": "Guide page text."
-  },
-  "guide_0087": {
-    "message": "10. fejezet: $queryprune",
-    "description": "Guide page text."
-  },
-  "guide_0088": {
-    "message": "11. fejezet: URL Mintapéldák",
-    "description": "Guide page text."
-  },
-  "guide_0089": {
-    "message": "12. fejezet: Kivételek",
-    "description": "Guide page text."
-  },
-  "guide_0090": {
-    "message": "13. fejezet: fontos",
-    "description": "Guide page text."
-  },
-  "guide_0091": {
-    "message": "14. fejezet: rossz szűrő",
-    "description": "Guide page text."
-  },
-  "guide_0092": {
-    "message": "15. fejezet: Tartományforrás-módosítók: domain= And from=",
-    "description": "Guide page text."
-  },
-  "guide_0093": {
-    "message": "16. fejezet: Céltartomány módosító: to=",
-    "description": "Guide page text."
-  },
-  "guide_0094": {
-    "message": "17. fejezet: denyallow=",
-    "description": "Guide page text."
-  },
-  "guide_0095": {
-    "message": "18. fejezet: HTTP Módszermódosító",
-    "description": "Guide page text."
-  },
-  "guide_0096": {
-    "message": "19. fejezet: Erőforrástípus-módosítók",
-    "description": "Guide page text."
-  },
-  "guide_0097": {
-    "message": "20. fejezet: Első fél és harmadik fél",
-    "description": "Guide page text."
-  },
-  "guide_0098": {
-    "message": "21. fejezet: match-case",
-    "description": "Guide page text."
-  },
-  "guide_0099": {
-    "message": "22. fejezet: app=",
-    "description": "Guide page text."
-  },
-  "guide_0100": {
-    "message": "23. fejezet: No-Op módosítók",
-    "description": "Guide page text."
-  },
-  "guide_0101": {
-    "message": "24. fejezet: Paraméterillesztési részletek",
-    "description": "Guide page text."
-  },
-  "guide_0102": {
-    "message": "25. fejezet: Csak lekérdezés",
-    "description": "Guide page text."
-  },
-  "guide_0103": {
-    "message": "26. fejezet: A nem támogatott szabályok kimaradnak",
-    "description": "Guide page text."
-  },
-  "guide_0104": {
-    "message": "27. fejezet: Duplikált szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0105": {
-    "message": "28. fejezet: Teljes szűrőlista példa",
-    "description": "Guide page text."
-  },
-  "guide_0106": {
-    "message": "29. fejezet: JSON Tárolási példa",
-    "description": "Guide page text."
-  },
-  "guide_0107": {
-    "message": "30. fejezet: Gyorsmásolási sablonok",
-    "description": "Guide page text."
-  },
   "guide_0108": {
     "message": "Linkumori Vegyes szolgáltató JSON Formátum útmutató",
     "description": "Guide page text."
@@ -5302,8 +5058,8 @@
     "description": "Guide page text."
   },
   "guide_0110": {
-    "message": "Lefedi a vegyes Linkumori-es szolgáltatói formátumot: ClearURLs addon örökölt mezők, ClearURLs core v2 kanonikus szabályobjektumok és Linkumori szolgáltatói kiegészítések, például Linkumori szolgáltatói kiegészítések, például 92837464520308074652. tartománykivételek, tartomány-átirányítások és erőforrás-típusú hatókör.",
-    "description": "Guide page text."
+    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
+    "description": "Introductory paragraph for the provider JSON guide."
   },
   "guide_0111": {
     "message": "Ez nem útmutató a JavaScript kódhoz. Csak azokra a JSON alakzatokra, szabályformátumokra és példákra összpontosít, amelyekre a szabályok szerzőinek szüksége van.",
@@ -5774,8 +5530,8 @@
     "description": "Guide page text."
   },
   "guide_0228": {
-    "message": "A <code>rules</code> szolgáltatón belüli <code>$removeparam</code> karakterlánc egy Linkumori kiegészítés. Különállóak a második útmutató <code>urlFilterRules</code> interoperabilitási szintaxisától.",
-    "description": "Guide page text."
+    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
+    "description": "Introductory paragraph for provider-local $removeparam rules."
   },
   "guide_0229": {
     "message": "Egy paraméter eltávolítása",
@@ -6286,8 +6042,8 @@
     "description": "Guide page text."
   },
   "guide_0356": {
-    "message": "Linkumori kiegészítés – egységes forrás a JSON szolgáltatóval, valamint az interoperabilitási szabályok:",
-    "description": "Guide page text."
+    "message": "Linkumori addition - provider JSON with inline filter-list rules:",
+    "description": "Guide label for provider JSON with inline $removeparam rules."
   },
   "guide_0357": {
     "message": "Fontos:",
@@ -6644,738 +6400,6 @@
   "guide_0445": {
     "message": "Követő átirányítása URL:",
     "description": "Guide page text."
-  },
-  "guide_0446": {
-    "message": "Interoperabilitási szabályok útmutatója",
-    "description": "Guide page text."
-  },
-  "guide_0447": {
-    "message": "Linkumori URL Szűrő – egyszerű szűrőlista szintaxis a URL tisztításhoz",
-    "description": "Guide page text."
-  },
-  "guide_0448": {
-    "message": "Interoperabilitási szabályok útmutatója",
-    "description": "Guide page text."
-  },
-  "guide_0449": {
-    "message": "Ez az útmutató a Linkumori kiterjesztésű URL szűrési együttműködési szabályokat ismerteti.",
-    "description": "Guide page text."
-  },
-  "guide_0450": {
-    "message": "Ezek nem teljes ClearURLs JSON szolgáltatói szabályok. Egyszerű szűrőlistasorok, hasonlóak a népszerű tartalomblokkolók által használt szabályokhoz. A Linkumori-es kiterjesztés csak a URL-as takarítási részét támogatja a világnak.",
-    "description": "Guide page text."
-  },
-  "guide_0451": {
-    "message": "1. fejezet: Mik az interoperabilitási szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0452": {
-    "message": "Az interoperabilitási szabályok egyszerű szövegsorok, amelyeket a következő helyen tárolnak:",
-    "description": "Guide page text."
-  },
-  "guide_0453": {
-    "message": "A <code>ClearURLsData.urlFilterRules</code> számon laknak.",
-    "description": "Guide page text."
-  },
-  "guide_0454": {
-    "message": "Elkülönülnek a JSON szolgáltatótól:",
-    "description": "Guide page text."
-  },
-  "guide_0455": {
-    "message": "Használjon együttműködési szabályokat, ha a URL-cleaning filter-list szintaxist közvetlenül szeretné beilleszteni, ahelyett, hogy teljes szolgáltatói objektumot írna.",
-    "description": "Guide page text."
-  },
-  "guide_0456": {
-    "message": "2. fejezet: Mi a támogatott",
-    "description": "Guide page text."
-  },
-  "guide_0457": {
-    "message": "Támogatott:",
-    "description": "Guide page text."
-  },
-  "guide_0458": {
-    "message": "Nem támogatott:",
-    "description": "Guide page text."
-  },
-  "guide_0459": {
-    "message": "A <code>$removeparam</code> vagy <code>$queryprune</code> nélküli sorokat figyelmen kívül hagyja.",
-    "description": "Guide page text."
-  },
-  "guide_0460": {
-    "message": "3. fejezet: Alapvető szabályformátum",
-    "description": "Guide page text."
-  },
-  "guide_0461": {
-    "message": "Alapforma:",
-    "description": "Guide page text."
-  },
-  "guide_0462": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0463": {
-    "message": "Jelentése:",
-    "description": "Guide page text."
-  },
-  "guide_0464": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0465": {
-    "message": "4. fejezet: A szabályok tárolási helye",
-    "description": "Guide page text."
-  },
-  "guide_0466": {
-    "message": "Futásidejű tárhely alakja:",
-    "description": "Guide page text."
-  },
-  "guide_0467": {
-    "message": "A futási környezet ezeket a szabályokat az egyesített URL számú szűrőadat-útvonalon keresztül olvassa be.",
-    "description": "Guide page text."
-  },
-  "guide_0468": {
-    "message": "5. fejezet: Megjegyzések és üres sorok",
-    "description": "Guide page text."
-  },
-  "guide_0469": {
-    "message": "Az üres sorokat figyelmen kívül hagyja.",
-    "description": "Guide page text."
-  },
-  "guide_0470": {
-    "message": "A megjegyzéssorokat figyelmen kívül hagyja:",
-    "description": "Guide page text."
-  },
-  "guide_0471": {
-    "message": "A szakaszfejléceket figyelmen kívül hagyja:",
-    "description": "Guide page text."
-  },
-  "guide_0472": {
-    "message": "6. fejezet: Egy paraméter eltávolítása",
-    "description": "Guide page text."
-  },
-  "guide_0473": {
-    "message": "Szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0474": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0475": {
-    "message": "A <code>*</code> azt jelenti, hogy a URL minta mindenhez passzol.",
-    "description": "Guide page text."
-  },
-  "guide_0476": {
-    "message": "7. fejezet: Távolítsa el az összes lekérdezési paramétert",
-    "description": "Guide page text."
-  },
-  "guide_0477": {
-    "message": "Szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0478": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0479": {
-    "message": "Ezzel eltávolítja az összes lekérdezési paramétert az egyező URLs-ból.",
-    "description": "Guide page text."
-  },
-  "guide_0480": {
-    "message": "8. fejezet: Paraméterek eltávolítása Regex segítségével",
-    "description": "Guide page text."
-  },
-  "guide_0481": {
-    "message": "Szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0482": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0483": {
-    "message": "Regex zászlók:",
-    "description": "Guide page text."
-  },
-  "guide_0484": {
-    "message": "Csak a <code>i</code> jelzőt tartja meg az értelmező az interoperabilitási regexekhez.",
-    "description": "Guide page text."
-  },
-  "guide_0485": {
-    "message": "9. fejezet: Egy egyezés kivételével az összes eltávolítása",
-    "description": "Guide page text."
-  },
-  "guide_0486": {
-    "message": "Használja a <code>~</code> számot a paraméterminta előtt.",
-    "description": "Guide page text."
-  },
-  "guide_0487": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0488": {
-    "message": "Jelentése:",
-    "description": "Guide page text."
-  },
-  "guide_0489": {
-    "message": "10. fejezet: <code>$queryprune</code>",
-    "description": "Guide page text."
-  },
-  "guide_0490": {
-    "message": "A <code>$queryprune</code> a <code>$removeparam</code> elavult álneveként elfogadott.",
-    "description": "Guide page text."
-  },
-  "guide_0491": {
-    "message": "Ezek egyenértékűek:",
-    "description": "Guide page text."
-  },
-  "guide_0492": {
-    "message": "Az új szabályok előnyben részesítése a <code>$removeparam</code> számmal.",
-    "description": "Guide page text."
-  },
-  "guide_0493": {
-    "message": "11. fejezet: URL Mintapéldák",
-    "description": "Guide page text."
-  },
-  "guide_0494": {
-    "message": "Egyezik minden URLs:",
-    "description": "Guide page text."
-  },
-  "guide_0495": {
-    "message": "Domain és aldomain párosítása:",
-    "description": "Guide page text."
-  },
-  "guide_0496": {
-    "message": "Illessze a URL előtagot:",
-    "description": "Guide page text."
-  },
-  "guide_0497": {
-    "message": "Párosítson egy pontos befejezést a jobb horgonyhoz:",
-    "description": "Guide page text."
-  },
-  "guide_0498": {
-    "message": "Használjon regex URL mintát:",
-    "description": "Guide page text."
-  },
-  "guide_0499": {
-    "message": "12. fejezet: Kivételek",
-    "description": "Guide page text."
-  },
-  "guide_0500": {
-    "message": "Kezdje a <code>@@</code> számmal, hogy kivételt tegyen.",
-    "description": "Guide page text."
-  },
-  "guide_0501": {
-    "message": "Példa szabálykészletre:",
-    "description": "Guide page text."
-  },
-  "guide_0502": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0503": {
-    "message": "13. fejezet: <code>important</code>",
-    "description": "Guide page text."
-  },
-  "guide_0504": {
-    "message": "A <code>important</code> egy eltávolítási szabályt nyer a normál kivételekkel szemben.",
-    "description": "Guide page text."
-  },
-  "guide_0505": {
-    "message": "Eredmény:",
-    "description": "Guide page text."
-  },
-  "guide_0506": {
-    "message": "Fontos megjegyzések:",
-    "description": "Guide page text."
-  },
-  "guide_0507": {
-    "message": "<code>important</code> engedélyezett az eltávolítási szabályok szerint.",
-    "description": "Guide page text."
-  },
-  "guide_0508": {
-    "message": "A <code>important</code> kivételi szabályok nem támogatottak ebben az értelmezőben.",
-    "description": "Guide page text."
-  },
-  "guide_0509": {
-    "message": "14. fejezet: <code>badfilter</code>",
-    "description": "Guide page text."
-  },
-  "guide_0510": {
-    "message": "<code>badfilter</code> letilt egy másik egyezési szabályt.",
-    "description": "Guide page text."
-  },
-  "guide_0511": {
-    "message": "Eredeti szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0512": {
-    "message": "Rossz szűrő szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0513": {
-    "message": "Jelentése:",
-    "description": "Guide page text."
-  },
-  "guide_0514": {
-    "message": "Az elemző kanonizálja a szabályt <code>badfilter</code> nélkül, és eltávolítja a célszabályt a futásidejű használatból.",
-    "description": "Guide page text."
-  },
-  "guide_0515": {
-    "message": "15. fejezet: Domainforrás-módosítók: <code>domain=</code> és <code>from=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0516": {
-    "message": "<code>domain=</code> és <code>from=</code> korlátozási szabályok az oldal vagy a forrás kontextusa szerint.",
-    "description": "Guide page text."
-  },
-  "guide_0517": {
-    "message": "Ugyanez az ötlet a <code>from=</code> számmal:",
-    "description": "Guide page text."
-  },
-  "guide_0518": {
-    "message": "Ezek ellenőrzik a kontextus gazdagépneveit, például:",
-    "description": "Guide page text."
-  },
-  "guide_0519": {
-    "message": "Több domain felvétele:",
-    "description": "Guide page text."
-  },
-  "guide_0520": {
-    "message": "Domain kizárása:",
-    "description": "Guide page text."
-  },
-  "guide_0521": {
-    "message": "Regex domain használata:",
-    "description": "Guide page text."
-  },
-  "guide_0522": {
-    "message": "16. fejezet: Céltartomány-módosító: <code>to=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0523": {
-    "message": "A <code>to=</code> korlátozza a szabályokat a URL célállomás által.",
-    "description": "Guide page text."
-  },
-  "guide_0524": {
-    "message": "Ez ellenőrzi a URL tisztítás alatt álló számot.",
-    "description": "Guide page text."
-  },
-  "guide_0525": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0526": {
-    "message": "Céldomain kizárása:",
-    "description": "Guide page text."
-  },
-  "guide_0527": {
-    "message": "Regex cél:",
-    "description": "Guide page text."
-  },
-  "guide_0528": {
-    "message": "17. fejezet: <code>denyallow=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0529": {
-    "message": "A <code>denyallow=</code> blokkolja a szabályt a felsorolt céltartományokon.",
-    "description": "Guide page text."
-  },
-  "guide_0530": {
-    "message": "Jelentése:",
-    "description": "Guide page text."
-  },
-  "guide_0531": {
-    "message": "A támogatott <code>denyallow=</code> értékek egyszerű tartományminták.",
-    "description": "Guide page text."
-  },
-  "guide_0532": {
-    "message": "Nem támogatott a <code>denyallow=</code>-ban:",
-    "description": "Guide page text."
-  },
-  "guide_0533": {
-    "message": "Ha nem támogatott értékeket használ, a rendszer kihagyja az egész szabályt.",
-    "description": "Guide page text."
-  },
-  "guide_0534": {
-    "message": "18. fejezet: HTTP Módszermódosító",
-    "description": "Guide page text."
-  },
-  "guide_0535": {
-    "message": "Korlátozás HTTP módszerrel:",
-    "description": "Guide page text."
-  },
-  "guide_0536": {
-    "message": "Módszer kizárása:",
-    "description": "Guide page text."
-  },
-  "guide_0537": {
-    "message": "Többféle módszer:",
-    "description": "Guide page text."
-  },
-  "guide_0538": {
-    "message": "Támogatott módszerek:",
-    "description": "Guide page text."
-  },
-  "guide_0539": {
-    "message": "Alapértelmezett viselkedés:",
-    "description": "Guide page text."
-  },
-  "guide_0540": {
-    "message": "19. fejezet: Erőforrástípus-módosítók",
-    "description": "Guide page text."
-  },
-  "guide_0541": {
-    "message": "Támogatott erőforrás típusú szavak:",
-    "description": "Guide page text."
-  },
-  "guide_0542": {
-    "message": "Példák:",
-    "description": "Guide page text."
-  },
-  "guide_0543": {
-    "message": "Negált erőforrás típusa:",
-    "description": "Guide page text."
-  },
-  "guide_0544": {
-    "message": "Térképezés:",
-    "description": "Guide page text."
-  },
-  "guide_0545": {
-    "message": "20. fejezet: Első fél és harmadik fél",
-    "description": "Guide page text."
-  },
-  "guide_0546": {
-    "message": "Az első fél azt jelenti, hogy a célhely és a dokumentum webhely ugyanazon a regisztrálható domainen osztozik.",
-    "description": "Guide page text."
-  },
-  "guide_0547": {
-    "message": "A harmadik fél azt jelenti, hogy nem.",
-    "description": "Guide page text."
-  },
-  "guide_0548": {
-    "message": "Csak első fél:",
-    "description": "Guide page text."
-  },
-  "guide_0549": {
-    "message": "Álnevek:",
-    "description": "Guide page text."
-  },
-  "guide_0550": {
-    "message": "Csak harmadik fél:",
-    "description": "Guide page text."
-  },
-  "guide_0551": {
-    "message": "Álnevek:",
-    "description": "Guide page text."
-  },
-  "guide_0552": {
-    "message": "Szigorú belső ellenőrzések pontosan ugyanazt a gazdagépet:",
-    "description": "Guide page text."
-  },
-  "guide_0553": {
-    "message": "Szigorú, harmadik fél általi ellenőrzések nem pontosan ugyanaz a gazdagép:",
-    "description": "Guide page text."
-  },
-  "guide_0554": {
-    "message": "Az érvénytelen kombinációk kimaradnak, például:",
-    "description": "Guide page text."
-  },
-  "guide_0555": {
-    "message": "21. fejezet: <code>match-case</code>",
-    "description": "Guide page text."
-  },
-  "guide_0556": {
-    "message": "Alapértelmezés szerint a literális paraméterillesztés nem tesz különbséget a kis- és nagybetűk között.",
-    "description": "Guide page text."
-  },
-  "guide_0557": {
-    "message": "Szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0558": {
-    "message": "Mérkőzések:",
-    "description": "Guide page text."
-  },
-  "guide_0559": {
-    "message": "Használja a <code>match-case</code> számot a kis- és nagybetűk közötti egyeztetéshez:",
-    "description": "Guide page text."
-  },
-  "guide_0560": {
-    "message": "Most egyezik:",
-    "description": "Guide page text."
-  },
-  "guide_0561": {
-    "message": "De nem:",
-    "description": "Guide page text."
-  },
-  "guide_0562": {
-    "message": "22. fejezet: <code>app=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0563": {
-    "message": "A <code>app=</code> elemet a szűrőlista szintaxisával való kompatibilitás érdekében elemezte.",
-    "description": "Guide page text."
-  },
-  "guide_0564": {
-    "message": "A böngészőkérések általában nem rendelkeznek alkalmazáscsomag-kontextussal. Ha nem áll rendelkezésre alkalmazáskontextus, a <code>app=</code> pozitív besorolású szabályok nem egyeznek.",
-    "description": "Guide page text."
-  },
-  "guide_0565": {
-    "message": "Alkalmazás kizárása:",
-    "description": "Guide page text."
-  },
-  "guide_0566": {
-    "message": "Helyettesítő karakteres alkalmazásminta:",
-    "description": "Guide page text."
-  },
-  "guide_0567": {
-    "message": "Regex alkalmazásminta:",
-    "description": "Guide page text."
-  },
-  "guide_0568": {
-    "message": "23. fejezet: No-Op módosítók",
-    "description": "Guide page text."
-  },
-  "guide_0569": {
-    "message": "Ezeket a módosítókat elfogadjuk, de figyelmen kívül hagyjuk:",
-    "description": "Guide page text."
-  },
-  "guide_0570": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0571": {
-    "message": "Ez így viselkedik:",
-    "description": "Guide page text."
-  },
-  "guide_0572": {
-    "message": "24. fejezet: Paraméterillesztési részletek",
-    "description": "Guide page text."
-  },
-  "guide_0573": {
-    "message": "Szó szerinti paraméter szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0574": {
-    "message": "Ellenőrzi a paraméter nevét.",
-    "description": "Guide page text."
-  },
-  "guide_0575": {
-    "message": "Regex paraméter szabály:",
-    "description": "Guide page text."
-  },
-  "guide_0576": {
-    "message": "Ellenőrzi ezt a szöveget:",
-    "description": "Guide page text."
-  },
-  "guide_0577": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0578": {
-    "message": "Előtag forma:",
-    "description": "Guide page text."
-  },
-  "guide_0579": {
-    "message": "Ez a <code>utm_</code>-nel kezdődő nevek reguláris kifejezésévé válik.",
-    "description": "Guide page text."
-  },
-  "guide_0580": {
-    "message": "25. fejezet: Csak lekérdezés",
-    "description": "Guide page text."
-  },
-  "guide_0581": {
-    "message": "Az interoperabilitás futtatókörnyezete megtisztítja a <code>#</code> előtti lekérdezési paramétereket.",
-    "description": "Guide page text."
-  },
-  "guide_0582": {
-    "message": "Tisztítva:",
-    "description": "Guide page text."
-  },
-  "guide_0583": {
-    "message": "Nem tisztítja meg ez a futási útvonal:",
-    "description": "Guide page text."
-  },
-  "guide_0584": {
-    "message": "A hash paraméterek törléséhez használja a JSON formátumú útmutatóban leírt Linkumori vegyes szolgáltató JSON szabályokat.",
-    "description": "Guide page text."
-  },
-  "guide_0585": {
-    "message": "26. fejezet: A nem támogatott szabályok kimaradnak",
-    "description": "Guide page text."
-  },
-  "guide_0586": {
-    "message": "Egy szabály kimarad, ha:",
-    "description": "Guide page text."
-  },
-  "guide_0587": {
-    "message": "Nincs rajta <code>$removeparam</code> vagy <code>$queryprune</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0588": {
-    "message": "Nem támogatott módosítót használ.",
-    "description": "Guide page text."
-  },
-  "guide_0589": {
-    "message": "A reguláris kifejezése érvénytelen.",
-    "description": "Guide page text."
-  },
-  "guide_0590": {
-    "message": "Érvénytelen metódusa van.",
-    "description": "Guide page text."
-  },
-  "guide_0591": {
-    "message": "Érvénytelen <code>denyallow=</code> érték.",
-    "description": "Guide page text."
-  },
-  "guide_0592": {
-    "message": "Nem kompatibilis pártmódosítókat kombinál.",
-    "description": "Guide page text."
-  },
-  "guide_0593": {
-    "message": "Ez egy megjegyzés, szakaszfejléc vagy üres sor.",
-    "description": "Guide page text."
-  },
-  "guide_0594": {
-    "message": "Példa kihagyott szabályra:",
-    "description": "Guide page text."
-  },
-  "guide_0595": {
-    "message": "Ok:",
-    "description": "Guide page text."
-  },
-  "guide_0596": {
-    "message": "Példa kihagyott szabályra:",
-    "description": "Guide page text."
-  },
-  "guide_0597": {
-    "message": "Ok:",
-    "description": "Guide page text."
-  },
-  "guide_0598": {
-    "message": "27. fejezet: Duplikált szabályok",
-    "description": "Guide page text."
-  },
-  "guide_0599": {
-    "message": "A szűrőlista elemzése során a duplikált nyers sorok kimaradnak.",
-    "description": "Guide page text."
-  },
-  "guide_0600": {
-    "message": "Példa:",
-    "description": "Guide page text."
-  },
-  "guide_0601": {
-    "message": "Csak egy van megtartva.",
-    "description": "Guide page text."
-  },
-  "guide_0602": {
-    "message": "Futás közben a szabályokat a kanonikus forma is deduplikálja.",
-    "description": "Guide page text."
-  },
-  "guide_0603": {
-    "message": "28. fejezet: Teljes szűrőlista példa",
-    "description": "Guide page text."
-  },
-  "guide_0604": {
-    "message": "Mit csinál ez:",
-    "description": "Guide page text."
-  },
-  "guide_0605": {
-    "message": "Eltávolítja az összes <code>utm_</code> paramétert.",
-    "description": "Guide page text."
-  },
-  "guide_0606": {
-    "message": "Eltávolítja a <code>fbclid</code> számot.",
-    "description": "Guide page text."
-  },
-  "guide_0607": {
-    "message": "Eltávolítja a <code>gclid</code> számot.",
-    "description": "Guide page text."
-  },
-  "guide_0608": {
-    "message": "Eltávolítja a <code>ref</code> számot a <code>example.com</code>-es számról, kivéve a <code>/login</code> számon.",
-    "description": "Guide page text."
-  },
-  "guide_0609": {
-    "message": "Csak a <code>GET</code> XHR kérések esetén távolítja el a <code>tracking_id</code> számot.",
-    "description": "Guide page text."
-  },
-  "guide_0610": {
-    "message": "A Hozzáadás, majd törli a <code>badfilter</code> célszabályt a <code>badfilter</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0611": {
-    "message": "29. fejezet: JSON Tárolási példa",
-    "description": "Guide page text."
-  },
-  "guide_0612": {
-    "message": "30. fejezet: Gyorsmásolási sablonok",
-    "description": "Guide page text."
-  },
-  "guide_0613": {
-    "message": "Távolítson el egy paramétert mindenhol:",
-    "description": "Guide page text."
-  },
-  "guide_0614": {
-    "message": "Távolítsa el az összes UTM-paramétert:",
-    "description": "Guide page text."
-  },
-  "guide_0615": {
-    "message": "Az összes eltávolítása a <code>id</code> kivételével:",
-    "description": "Guide page text."
-  },
-  "guide_0616": {
-    "message": "Csak egy domainen fut:",
-    "description": "Guide page text."
-  },
-  "guide_0617": {
-    "message": "Kivétel:",
-    "description": "Guide page text."
-  },
-  "guide_0618": {
-    "message": "Csak GET:",
-    "description": "Guide page text."
-  },
-  "guide_0619": {
-    "message": "Csak XHR:",
-    "description": "Guide page text."
-  },
-  "guide_0620": {
-    "message": "Csak céldomain:",
-    "description": "Guide page text."
-  },
-  "guide_0621": {
-    "message": "Csak a forrásoldal domainje:",
-    "description": "Guide page text."
-  },
-  "guide_0622": {
-    "message": "Csak harmadik fél:",
-    "description": "Guide page text."
-  },
-  "guide_0623": {
-    "message": "A kis- és nagybetűk megkülönböztetése:",
-    "description": "Guide page text."
-  },
-  "guide_theme_midnight": {
-    "message": "Éjfél",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_light": {
-    "message": "Fény",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_icecold": {
-    "message": "Jéghideg",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_zen_grey": {
-    "message": "Zen Grey",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_sunset": {
-    "message": "Naplemente",
-    "description": "Guide theme selector option."
   },
   "guide_0624": {
     "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -7782,12 +6806,12 @@
     "description": "Guide page text."
   },
   "guide_0725": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  },\n  \"urlFilterRules\": [\n    \"*$removeparam=fbclid\"\n  ],\n  \"urlFilterMetadata\": {\n    \"format\": \"linkumori-url-filter-interoperability\",\n    \"status\": \"loaded\"\n  }\n}\n",
-    "description": "Guide page text."
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide code example for provider JSON with inline $removeparam rules."
   },
   "guide_0726": {
-    "message": "providers are handled by Linkumori extension provider logic.\nurlFilterRules are handled by the interoperability runtime.\nThey can exist in the same Linkumori extension data object, but they are different rule systems.\n",
-    "description": "Guide page text."
+    "message": "Provider-local <code>rules[]</code> entries are compiled into the same provider set before <code>clearurls.js</code> runs. Keep filter-list style <code>$removeparam</code> lines inside provider <code>rules[]</code> when authoring Linkumori JSON.\n",
+    "description": "Guide note explaining provider-local filter-list rules."
   },
   "guide_0727": {
     "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -8077,438 +7101,6 @@
     "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
     "description": "Guide page text."
   },
-  "guide_0799": {
-    "message": "⇄",
-    "description": "Guide page text."
-  },
-  "guide_0800": {
-    "message": "{\n  \"urlFilterRules\": [\n    \"||example.com^$removeparam=utm_source\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0801": {
-    "message": "{\n  \"providers\": {},\n  \"urlFilterRules\": []\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0802": {
-    "message": "$removeparam\n$queryprune\n@@ exceptions\nbadfilter\nimportant\ndomain=\nfrom=\nto=\ndenyallow=\nmethod=\nrequest type modifiers\nfirst-party / third-party\nstrict-first-party / strict-third-party\nmatch-case\napp=\n",
-    "description": "Guide page text."
-  },
-  "guide_0803": {
-    "message": "Network blocking rules without $removeparam or $queryprune\nCosmetic filters\nScriptlets\nHTML filtering\nRequest blocking\nFull adblock engine behavior\n",
-    "description": "Guide page text."
-  },
-  "guide_0804": {
-    "message": "URL_PATTERN$removeparam=PARAMETER\n",
-    "description": "Guide page text."
-  },
-  "guide_0805": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0806": {
-    "message": "On example.com and its subdomains, remove the query parameter named utm_source.\n",
-    "description": "Guide page text."
-  },
-  "guide_0807": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0808": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"||example.com^$removeparam=utm_source\",\n      \"*$removeparam=/^utm_/\"\n    ],\n    \"urlFilterMetadata\": {\n      \"format\": \"linkumori-url-filter-interoperability\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0809": {
-    "message": "! This is a comment\n",
-    "description": "Guide page text."
-  },
-  "guide_0810": {
-    "message": "[Tracking parameters]\n",
-    "description": "Guide page text."
-  },
-  "guide_0811": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0812": {
-    "message": "https://site.test/?utm_source=x&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0813": {
-    "message": "*$removeparam\n",
-    "description": "Guide page text."
-  },
-  "guide_0814": {
-    "message": "https://site.test/?a=1&b=2\n-> https://site.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0815": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0816": {
-    "message": "https://site.test/?utm_source=x&utm_campaign=y&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0817": {
-    "message": "*$removeparam=/^utm_/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0818": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0819": {
-    "message": "https://site.test/?id=1&utm_source=x&fbclid=y\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0820": {
-    "message": "Remove every parameter except id.\n",
-    "description": "Guide page text."
-  },
-  "guide_0821": {
-    "message": "*$removeparam=utm_source\n*$queryprune=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0822": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0823": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0824": {
-    "message": "|https://example.com/path$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0825": {
-    "message": "https://example.com/path|$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0826": {
-    "message": "/^https:\\/\\/([^/]+\\.)?example\\.com\\/track/$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0827": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0828": {
-    "message": "*$removeparam=utm_source\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0829": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0830": {
-    "message": "*$removeparam=utm_source,important\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0831": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0832": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0833": {
-    "message": "||example.com^$removeparam=utm_source,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0834": {
-    "message": "Cancel the original rule.\n",
-    "description": "Guide page text."
-  },
-  "guide_0835": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0836": {
-    "message": "*$removeparam=utm_source,from=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0837": {
-    "message": "documentUrl\noriginUrl\ninitiator\n",
-    "description": "Guide page text."
-  },
-  "guide_0838": {
-    "message": "*$removeparam=utm_source,domain=example.com|shop.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0839": {
-    "message": "*$removeparam=utm_source,domain=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0840": {
-    "message": "*$removeparam=utm_source,domain=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0841": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0842": {
-    "message": "Cleaned:\nhttps://example.com/?utm_source=x&id=1\n\nNot cleaned:\nhttps://other.test/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0843": {
-    "message": "*$removeparam=utm_source,to=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0844": {
-    "message": "*$removeparam=utm_source,to=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0845": {
-    "message": "*$removeparam=utm_source,denyallow=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0846": {
-    "message": "Remove utm_source generally, but do not apply this rule when the destination host matches example.com.\n",
-    "description": "Guide page text."
-  },
-  "guide_0847": {
-    "message": "~negation\nexample.*\n/regex/\n",
-    "description": "Guide page text."
-  },
-  "guide_0848": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0849": {
-    "message": "*$removeparam=utm_source,method=~POST\n",
-    "description": "Guide page text."
-  },
-  "guide_0850": {
-    "message": "*$removeparam=utm_source,method=GET|HEAD\n",
-    "description": "Guide page text."
-  },
-  "guide_0851": {
-    "message": "GET\nHEAD\nOPTIONS\nPOST\nPUT\nPATCH\nDELETE\nCONNECT\n",
-    "description": "Guide page text."
-  },
-  "guide_0852": {
-    "message": "Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.\nFast simple query cleanup also uses those simple methods.\n",
-    "description": "Guide page text."
-  },
-  "guide_0853": {
-    "message": "document\ndoc\nsubdocument\nframe\nscript\nstylesheet\nimage\nmedia\nfont\nobject\nxmlhttprequest\nxhr\nwebsocket\nping\nother\n",
-    "description": "Guide page text."
-  },
-  "guide_0854": {
-    "message": "*$removeparam=utm_source,script\n*$removeparam=utm_source,image\n*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0855": {
-    "message": "*$removeparam=utm_source,~image\n",
-    "description": "Guide page text."
-  },
-  "guide_0856": {
-    "message": "document       -> main_frame\ndoc            -> main_frame\nsubdocument    -> sub_frame\nframe          -> sub_frame\nxhr            -> xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0857": {
-    "message": "*$removeparam=utm_source,first-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0858": {
-    "message": "1p\n~third-party\n~3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0859": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0860": {
-    "message": "3p\n~first-party\n~1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0861": {
-    "message": "*$removeparam=utm_source,strict-first-party\n*$removeparam=utm_source,strict1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0862": {
-    "message": "*$removeparam=utm_source,strict-third-party\n*$removeparam=utm_source,strict3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0863": {
-    "message": "*$removeparam=utm_source,first-party,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0864": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0865": {
-    "message": "utm_source\nUTM_SOURCE\nUtm_Source\n",
-    "description": "Guide page text."
-  },
-  "guide_0866": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "guide_0867": {
-    "message": "utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0868": {
-    "message": "UTM_SOURCE\n",
-    "description": "Guide page text."
-  },
-  "guide_0869": {
-    "message": "*$removeparam=utm_source,app=com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0870": {
-    "message": "*$removeparam=utm_source,app=~com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0871": {
-    "message": "*$removeparam=utm_source,app=com.example.*\n",
-    "description": "Guide page text."
-  },
-  "guide_0872": {
-    "message": "*$removeparam=utm_source,app=/example/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0873": {
-    "message": "_\nnoop\nstealth\ncookie\n",
-    "description": "Guide page text."
-  },
-  "guide_0874": {
-    "message": "*$removeparam=utm_source,noop\n",
-    "description": "Guide page text."
-  },
-  "guide_0875": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0876": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0877": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0878": {
-    "message": "name=value\n",
-    "description": "Guide page text."
-  },
-  "guide_0879": {
-    "message": "URL:\nhttps://example.com/?utm_source=news&id=1\n\nRegex sees:\nutm_source=news\nid=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0880": {
-    "message": "*$removeparam=|utm_\n",
-    "description": "Guide page text."
-  },
-  "guide_0881": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0882": {
-    "message": "https://example.com/#utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0883": {
-    "message": "||example.com^$script\n",
-    "description": "Guide page text."
-  },
-  "guide_0884": {
-    "message": "No $removeparam or $queryprune.\n",
-    "description": "Guide page text."
-  },
-  "guide_0885": {
-    "message": "*$removeparam=utm_source,unknownmodifier\n",
-    "description": "Guide page text."
-  },
-  "guide_0886": {
-    "message": "Unsupported modifier.\n",
-    "description": "Guide page text."
-  },
-  "guide_0887": {
-    "message": "*$removeparam=utm_source\n*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0888": {
-    "message": "! Linkumori URL filter interoperability example\n\n*$removeparam=/^utm_/\n*$removeparam=fbclid\n*$removeparam=gclid\n\n||example.com^$removeparam=ref\n@@||example.com/login^$removeparam=ref\n\n*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET\n\n||tracker.example^$removeparam=target,third-party\n||tracker.example^$removeparam=target,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0889": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"*$removeparam=/^utm_/\",\n      \"*$removeparam=fbclid\",\n      \"||example.com^$removeparam=ref\",\n      \"@@||example.com/login^$removeparam=ref\"\n    ],\n    \"urlFilterMetadata\": {\n      \"name\": \"Linkumori URL Filter Rules\",\n      \"format\": \"linkumori-url-filter-interoperability\",\n      \"status\": \"loaded\",\n      \"ruleStatus\": \"loaded\",\n      \"hashStatus\": \"not_required\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0890": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0891": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0892": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0893": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0894": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0895": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0896": {
-    "message": "*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0897": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0898": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0899": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0900": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "faq_final_runtime_clearurls_title": {
-    "message": "Dedikált clearurls.js futásidejű szintaxis",
-    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
-  },
-  "faq_final_runtime_interoperability_title": {
-    "message": "Együttműködési képesség URL-szűrő futásidejű szintaxis",
-    "description": "FAQ label for the interoperability runtime syntax example"
-  },
-  "faq_final_runtime_open_page": {
-    "message": "Futásidejű szintaktikai hivatkozás megnyitása",
-    "description": "FAQ link text that opens the dedicated runtime syntax page"
-  },
-  "faq_final_runtime_syntax": {
-    "message": "Mi a végső futásidejű szintaxis?",
-    "description": "FAQ question for final supported runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_answer": {
-    "message": "A Linkumori két végső futásidejű formátumot támogat. Először használja a dedikált clearurls.js szolgáltatói szintaxist a natív mező, a nyers, az átirányítás, az átírás, a kivétel és a szolgáltatói hatókörű viselkedéshez. Használja az együttműködési formátumot a URL-szűrőstílus $removeparam szabályok importálásakor.",
-    "description": "FAQ answer explaining the two final runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_note": {
-    "message": "Mindkét formátum együtt is betölthető, de a dedikált szolgáltató szintaxisa az elsődleges natív formátum. Az együttműködési formátum létezik a szűrőlista-kompatibilitás érdekében.",
-    "description": "FAQ note for final runtime syntax formats"
-  },
   "providerImport_allProviders": {
     "message": "Minden szolgáltató",
     "description": "Filter label for showing rule activations from every provider"
@@ -8529,60 +7121,52 @@
     "message": "Szolgáltatói szabály navigáció",
     "description": "Accessible label for provider filter navigation on the disabled rules page"
   },
-  "runtimeSyntax_clearURLsDescription": {
-    "message": "Ez a clearurls.js által felhasznált natív futási idő. Először egyéni szolgáltatóknál kell használni, mert támogatja a kanonikus szabályobjektumokat, a mezőszabályokat, a nyers URL szabályokat, az átirányításokat, az átírásokat, a kivételeket, a kéréstípusokat, az álneveket és a minta-hatókörű letiltási identitásokat.",
-    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_clearURLsTitle": {
-    "message": "Dedikált clearurls.js futásidő",
-    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_disableDescription": {
-    "message": "A minta-hatókörű identitások stabilak a szolgáltatónév-módosítások során. A szolgáltatói hatókörű identitások továbbra is rendelkezésre állnak a széles körű örökölt letiltási viselkedéshez.",
-    "description": "Runtime syntax page description for disable identity examples"
-  },
-  "runtimeSyntax_disableTitle": {
-    "message": "Az identitásformátumok letiltása",
-    "description": "Runtime syntax page section title for disable identity formats"
-  },
-  "runtimeSyntax_interoperabilityDescription": {
-    "message": "Ez a futási idő a URL szűrős interoperabilitást szolgálja. A szűrőlista stílusú $removeparam és @@ kivételszabályokat egy kompakt szabálytömbben tartja az importálás és a távoli lista kompatibilitása érdekében.",
-    "description": "Runtime syntax page description for interoperability runtime syntax"
-  },
-  "runtimeSyntax_interoperabilityTitle": {
-    "message": "Együttműködési szabály futási ideje",
-    "description": "Runtime syntax page section title for interoperability runtime syntax"
-  },
-  "runtimeSyntax_intro": {
-    "message": "A natív clearurls.js szolgáltatói futtatókörnyezet az első osztályú formátum. Az együttműködési futási környezet mellette található a szűrőlista-szabályokhoz, amelyeknek meg kell őrizniük eredeti $removeparam alakjukat.",
-    "description": "Runtime syntax page intro text"
-  },
-  "runtimeSyntax_kicker": {
-    "message": "Futásidejű referencia",
-    "description": "Runtime syntax page eyebrow text"
-  },
-  "runtimeSyntax_navClearURLs": {
-    "message": "Dedikált futási idő",
-    "description": "Runtime syntax page navigation link for dedicated runtime section"
-  },
-  "runtimeSyntax_navDisableIds": {
-    "message": "Az azonosítók letiltása",
-    "description": "Runtime syntax page navigation link for disable identity section"
-  },
-  "runtimeSyntax_navInteroperability": {
-    "message": "Együttműködési futásidő",
-    "description": "Runtime syntax page navigation link for interoperability section"
-  },
-  "runtimeSyntax_pageTitle": {
-    "message": "Végső futásidejű szintaxis",
-    "description": "Runtime syntax page title"
-  },
   "popup_html_guide_link": {
     "message": "Szolgáltató JSON Útmutató",
     "description": "Popup license link label for the Linkumori provider JSON guide page"
   },
   "popup_html_guide_link_title": {
-    "message": "Nyissa meg a Linkumori szolgáltató JSON oldalát és az együttműködési útmutatót",
-    "description": "Tooltip and aria label for the popup guide link in the license section"
+    "message": "Open Linkumori rules guide",
+    "description": "Tooltip and aria label for the popup guide link in the license section."
+  },
+  "faq_rules_guide_syntax": {
+    "message": "Which rule syntax should I use?",
+    "description": "FAQ question for the unified Linkumori rule syntax guide."
+  },
+  "faq_rules_guide_syntax_answer": {
+    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
+    "description": "FAQ answer explaining the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_syntax_note": {
+    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
+    "description": "FAQ note for the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_open_page": {
+    "message": "Open rules guide",
+    "description": "FAQ link text that opens the unified rules guide."
+  },
+  "providerImport_failedToLoadSources": {
+    "message": "Failed to load provider sources: $1",
+    "description": "Error shown when provider import sources fail to load."
+  },
+  "providerImport_noBundledRules": {
+    "message": "Bundled rules are not available.",
+    "description": "Error shown when bundled rules are unavailable for provider import."
+  },
+  "providerImport_failedToLoadBundled": {
+    "message": "Failed to load bundled rules: $1",
+    "description": "Error shown when bundled rules fail to load for provider import."
+  },
+  "status_language_change_failed": {
+    "message": "Could not switch language to $1.",
+    "description": "Status text shown when changing the UI language fails."
+  },
+  "theme_light": {
+    "message": "Light theme",
+    "description": "Accessible label for switching to the light theme."
+  },
+  "theme_dark": {
+    "message": "Dark theme",
+    "description": "Accessible label for switching to the dark theme."
   }
 }

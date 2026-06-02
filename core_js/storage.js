@@ -96,6 +96,9 @@ const POPUP_CONSENT_STORAGE_KEY = 'popupConsentAccepted';
 const POPUP_CONSENT_VERSION_STORAGE_KEY = 'popupConsentPolicyVersionAccepted';
 const POST_RELOAD_OPEN_URL_STORAGE_KEY = 'postReloadOpenUrl';
 var clearurlsStarted = false;
+const OBSOLETE_STORAGE_KEYS = new Set([
+    'linkumoriInteroperabilityMode'
+]);
 
 var tempVerificationCache = {
     lastVerification: null,
@@ -2609,6 +2612,12 @@ function getEntireData() {
 }
 
 function setData(key, value) {
+    if (OBSOLETE_STORAGE_KEYS.has(key)) {
+        delete storage[key];
+        deleteFromDisk(key);
+        return;
+    }
+
     switch (key) {
         case "ClearURLsData":
             if (typeof value === 'string') {
@@ -2723,7 +2732,6 @@ function setData(key, value) {
         case "remoteRulesEnabled":
         case "overloadModeEnabled":
         case "builtInRulesEnabled":
-        case "linkumoriInteroperabilityMode":
         case "linkumoriCNAMEUncloakEnabled":
         case "cnameIgnoreRootDocument":
         case "cnameReplayFullURL":
@@ -2803,7 +2811,6 @@ function initSettings() {
     };
     storage.dataHash = "";
     storage.builtInRulesEnabled = true;
-    storage.linkumoriInteroperabilityMode = true;
     storage.linkumoriCNAMEUncloakEnabled = true;
     storage.cnameIgnoreRootDocument = true;
     storage.cnameReplayFullURL = false;

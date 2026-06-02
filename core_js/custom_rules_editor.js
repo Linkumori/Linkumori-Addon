@@ -3793,7 +3793,6 @@ async function updateRulesStatus() {
         const disabledCountElement = document.getElementById('disabled-count');
         const mergeStatusElement = document.getElementById('merge-status');
         const linkumoriStatusElement = document.getElementById('linkumori-url-rule-status');
-        const linkumoriRuntimeCountElement = document.getElementById('linkumori-url-runtime-count');
         const linkumoriCustomCountElement = document.getElementById('linkumori-url-custom-count');
         const linkumoriHashElement = document.getElementById('linkumori-url-hash-status');
         
@@ -3803,7 +3802,6 @@ async function updateRulesStatus() {
         if (disabledCountElement) disabledCountElement.textContent = '?';
         if (mergeStatusElement) mergeStatusElement.textContent = i18n('status_unavailable');
         if (linkumoriStatusElement) linkumoriStatusElement.textContent = i18n('status_unavailable');
-        if (linkumoriRuntimeCountElement) linkumoriRuntimeCountElement.textContent = '?';
         if (linkumoriCustomCountElement) linkumoriCustomCountElement.textContent = '?';
         if (linkumoriHashElement) linkumoriHashElement.textContent = i18n('status_unavailable');
     }
@@ -4023,7 +4021,7 @@ function createProviderEditorHTML(provider) {
                         <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="raw">+ ${i18n('customRulesEditor_addRawRule')}</button>
                         <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="redirection">+ ${i18n('customRulesEditor_addRedirectRule')}</button>
                     </div>
-                    <div class="json-key-toolbar-help">Linkumori-ClearURLs keeps old ClearURLs fields and adds rules[] strings, $removeparam filters, and canonical objects with id, kind, match, and action.</div>
+                    <div class="json-key-toolbar-help">Linkumori-ClearURLs supports provider fields, rules[] strings, $removeparam filters, and canonical objects with id, kind, match, and action.</div>
                 </div>
                 <div class="json-key-toolbar">
                     <div class="json-key-toolbar-title">${i18n('providerImport_ruleIdControls')}</div>

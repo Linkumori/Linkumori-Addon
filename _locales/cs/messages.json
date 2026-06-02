@@ -55,17 +55,9 @@
     "message": "Použijte přibalená pravidla Linkumori/ClearURLs. Tuto možnost zakažte, chcete-li spouštět pouze vzdálená pravidla a/nebo vlastní pravidla.",
     "description": "Description for the toggle that controls bundled built-in rules"
   },
-  "linkumori_interoperability_mode_enabled": {
-    "message": "Režim interoperability Linkumori",
-    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
-  },
-  "linkumori_interoperability_mode_enabled_description": {
-    "message": "Použije pravidla interoperability Linkumori URL Filter, včetně kompatibilních seznamů $removeparam, spolu s nativními pravidly Linkumori/ClearURLs JSON.",
-    "description": "Description for the Linkumori interoperability mode toggle"
-  },
   "bundled_rules_description": {
-    "message": "Linkumori používá dvě kategorie pravidel: Linkumori (ClearURLs 2.0) JSON pravidla pro nativní poskytovatele a Linkumori pravidla interoperability pro oblíbené rozšíření 987659055 $removeparam seznamů. Každá kategorie se počítá samostatně.",
-    "description": "Description for the bundled rules section."
+    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs.",
+    "description": "Description text for the built-in bundled rules setting."
   },
   "bundled_rules_section_title": {
     "message": "Informace o pravidlech",
@@ -2107,16 +2099,8 @@
   "providerImport_importedCount": {
     "message": "Importováno: poskytovatelé $1"
   },
-  "providerImport_importedRulesCount": {
-    "message": "Importováno: $1 pravidel",
-    "description": "Import result count for Linkumori URL interoperability rules."
-  },
   "providerImport_importing": {
     "message": "Import..."
-  },
-  "providerImport_linkumoriData": {
-    "message": "Stávající pravidla interoperability Linkumori",
-    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Načítání poskytovatelů...",
@@ -2179,10 +2163,6 @@
   },
   "providerImport_skippedCount": {
     "message": "Vynecháno: poskytovatelé $1"
-  },
-  "providerImport_skippedRulesCount": {
-    "message": "Přeskočeno: $1 pravidel",
-    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Zdroj pravidla",
@@ -2533,16 +2513,16 @@
     "description": "Continue button text in security modal"
   },
   "security_modal_final_warning": {
-    "message": "Měli byste znovu zvážit použití vzdálených pravidel, pokud plně nerozumíte tomu, zda váš zdroj je Linkumori (ClearURLs 2.0) JSON nebo Linkumori 987659004567.",
-    "description": "Final warning message in security modal"
+    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source.",
+    "description": "Final warning shown in the remote rules security modal."
   },
   "security_modal_main_warning": {
-    "message": "Tato funkce vzdálených pravidel je navržena pro pokročilé uživatele, kteří rozumí zdrojovému formátu, který načítají. Linkumori (ClearURLs 2.0) JSON vzdálená pravidla vyžadují pro ověření odpovídající hash URL. Linkumori URL Seznamy interoperability filtrů lze načíst bez hash URL a jsou uloženy samostatně.",
-    "description": "Main warning text explaining the purpose and risks"
+    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification.",
+    "description": "Main warning text for the remote rules security modal."
   },
   "security_modal_privacy_text": {
-    "message": "Pokud přidáte vzdálené pravidlo URL, rozšíření se připojí k určenému serveru a načte buď sadu pravidel Linkumori (ClearURLs 2.0), JSON, její hash soubor, když je nakonfigurován, nebo 96509 URL Seznam interoperability filtrů. Každé načtení může hostitelskému serveru odhalit vaši adresu IP a obecné informace, jako je verze rozšíření, prohlížeč a verze prohlížeče. Tato data podléhají zásadám ochrany osobních údajů dané webové stránky nebo webového serveru.",
-    "description": "Privacy notice explaining data collection policy"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the remote rules security modal."
   },
   "security_modal_privacy_link_text": {
     "message": "Než budete v případě potřeby pokračovat, přečtěte si znovu %PRIVACY_POLICY_LINK%.",
@@ -2553,8 +2533,8 @@
     "description": "Header for privacy notice section"
   },
   "security_modal_recommendation": {
-    "message": "Pokud nedůvěřujete vzdálenému zdroji a neovládáte jej, používejte vestavěná pravidla. Pro pravidla Linkumori (ClearURLs 2.0) JSON zadejte odpovídající hash URL. Pro seznamy filtrů interoperability ponechte hash URL prázdný.",
-    "description": "Recommendation to use built-in rules instead"
+    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules.",
+    "description": "Recommendation text shown in the remote rules security modal."
   },
   "security_modal_risk_1": {
     "message": "Vaše IP adresa a informace o prohlížeči budou vystaveny nakonfigurovaným serverům",
@@ -2569,8 +2549,8 @@
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Seznamy filtrů interoperability nepoužívají ověřování hash, takže důvěra ve zdroj URL je obzvláště důležitá.",
-    "description": "Fourth security risk point"
+    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL.",
+    "description": "Risk list item for remote rules without successful hash verification."
   },
   "security_modal_risks_title": {
     "message": "Bezpečnostní rizika:",
@@ -3279,24 +3259,24 @@
     "description": "Top warning banner text in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Vypínáte ochranu Gatekeeper pro vzdálenou úpravu pravidla URL. Tato funkce může načíst Linkumori (ClearURLs 2.0) JSON pravidla s ověřením hash nebo Linkumori URL seznamy interoperability filtrů bez ověření hash. Pokračujte pouze v případě, že rozumíte formátu, který konfigurujete.",
-    "description": "Main warning text in disable gatekeeper modal"
+    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring.",
+    "description": "Main warning text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper je vestavěný bezpečnostní tok, který blokuje přímé vzdálené úpravy URL, dokud nepotvrdíte bezpečnostní varování a nedokončíte zadané potvrzení.",
     "description": "Explains what gatekeeper means in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Nechte Gatekeeper povolenou, pokud nedůvěřujete svým vzdáleným zdrojům a neřídíte je. Pravidla JSON by měla obsahovat odpovídající hash URL; seznamy interoperability záměrně ponechávají hash URL prázdný.",
-    "description": "Recommendation text in disable gatekeeper modal"
+    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL.",
+    "description": "Recommendation text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "upozornění:",
     "description": "Privacy section title in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Pokud přidáte vzdálené pravidlo URL, rozšíření se připojí k určenému serveru a načte buď sadu pravidel Linkumori (ClearURLs 2.0), JSON, její hash soubor, když je nakonfigurován, nebo 96509 URL Seznam interoperability filtrů. Každé načtení může hostitelskému serveru odhalit vaši adresu IP a obecné informace, jako je verze rozšíření, prohlížeč a verze prohlížeče. Tato data podléhají zásadám ochrany osobních údajů dané webové stránky nebo webového serveru.",
-    "description": "Privacy section body in disable gatekeeper modal"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Než budete v případě potřeby pokračovat, přečtěte si znovu %PRIVACY_POLICY_LINK%.",
@@ -3315,8 +3295,8 @@
     "description": "Risk bullet 1 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Server hostující vzdálené JSON, hash nebo soubory filtru interoperability obdrží vaši adresu IP.",
-    "description": "Risk bullet 2 in disable gatekeeper modal"
+    "message": "The server hosting remote JSON or hash files will receive your IP address.",
+    "description": "Risk list item for remote file hosts receiving the user IP address."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Server může také obdržet vaši verzi rozšíření, prohlížeč a verzi prohlížeče.",
@@ -3327,8 +3307,8 @@
     "description": "Risk bullet 4 in disable gatekeeper modal"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "Zakázáním Gatekeeper zvýšíte riziko z nebezpečných nebo ohrožených vzdálených zdrojů pravidel. Ověření hash chrání pouze Linkumori (ClearURLs 2.0) JSON stahování pravidel. Nevztahuje se na seznamy interoperability.",
-    "description": "Final warning banner text in disable gatekeeper modal"
+    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured.",
+    "description": "Final warning shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Zrušit",
@@ -3407,8 +3387,8 @@
     "description": "Input label for gatekeeper-specific confirmation modal"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Tato akce snižuje zabezpečení pro vzdálená pravidla. Pokračujte pouze v případě, že důvěřujete svým JSON a zdrojům filtrů interoperability.",
-    "description": "Final warning text for gatekeeper-specific confirmation modal"
+    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source.",
+    "description": "Final confirmation text for disabling Gatekeeper."
   },
   "remote_urls_template_note_1": {
     "message": "Nahraďte zástupné hodnoty svými skutečnými adresami URL HTTPS a poté tento soubor importujte.",
@@ -4130,10 +4110,6 @@
     "message": "Žádná aktivita",
     "description": "Fallback row label when no daily stats data is available."
   },
-  "linkumori_url_rules_section": {
-    "description": "Section header for popular extension URL filter rules in settings",
-    "message": "Linkumori URL Filtry (interoperabilita):"
-  },
   "clearurls_json_rules_section": {
     "description": "Section header for native ClearURLs JSON rule statistics in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON Pravidla:"
@@ -4194,66 +4170,6 @@
     "description": "Hash status for popular extension URL filter lists",
     "message": "není vyžadováno"
   },
-  "linkumori_url_filter_name": {
-    "description": "Display name for Linkumori URL filter interoperability rules.",
-    "message": "Linkumori URL Filtry"
-  },
-  "linkumori_url_filter_single_name": {
-    "description": "Display name for a single Linkumori URL filter source.",
-    "message": "Linkumori URL Filtr"
-  },
-  "linkumori_url_filter_merged_name": {
-    "description": "Display name when multiple Linkumori URL filter sources are merged.",
-    "message": "Sloučené Linkumori URL Filtry"
-  },
-  "linkumori_url_filter_custom_name": {
-    "description": "Display name for custom Linkumori URL filter rules.",
-    "message": "Vlastní Linkumori URL Pravidla"
-  },
-  "linkumori_url_filter_parser_unavailable": {
-    "description": "Error when the Linkumori URL filter parser is unavailable.",
-    "message": "Linkumori URL analyzátor filtrů není k dispozici"
-  },
-  "linkumori_url_filter_custom_failed": {
-    "description": "Error when custom Linkumori URL rules cannot be parsed.",
-    "message": "Vlastní pravidla Linkumori URL selhala"
-  },
-  "linkumori_url_filter_sources_failed_count": {
-    "description": "Summary of failed Linkumori URL filter sources.",
-    "message": "$1 URL zdroje filtru selhaly"
-  },
-  "linkumori_url_filter_remote_empty": {
-    "description": "Error when a remote Linkumori URL filter file is empty.",
-    "message": "Vzdálený soubor filtru URL je prázdný"
-  },
-  "linkumori_url_filter_fetch_failed": {
-    "description": "Error when fetching Linkumori URL filters fails.",
-    "message": "Linkumori URL načtení filtru se nezdařilo"
-  },
-  "linkumori_url_filter_unknown_error": {
-    "description": "Fallback error for Linkumori URL filters.",
-    "message": "Neznámá chyba filtru URL"
-  },
-  "linkumori_url_filter_all_sources_failed": {
-    "description": "Error when all Linkumori URL filter sources fail.",
-    "message": "Všechny zdroje filtru Linkumori URL selhaly"
-  },
-  "linkumori_url_filter_log_pattern_value": {
-    "description": "Log pattern value for Linkumori URL filter interoperability.",
-    "message": "oblíbené rozšíření URL sledovací filtr"
-  },
-  "linkumori_url_filter_no_supported_rules": {
-    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
-    "message": "Nebyla nalezena žádná podporovaná Linkumori interoperabilita $removeparam pravidla"
-  },
-  "linkumori_url_filter_interoperability_name": {
-    "description": "Parser metadata name for Linkumori URL filter interoperability.",
-    "message": "Linkumori URL Interoperabilita filtrů"
-  },
-  "linkumori_url_filter_interoperability_author": {
-    "description": "Parser metadata author for Linkumori URL filter interoperability.",
-    "message": "Linkumori zdroj filtru interoperability"
-  },
   "linkumoriUrlRules_button": {
     "description": "Button that opens the custom Linkumori URL filter modal.",
     "message": "Linkumori URL Pravidla"
@@ -4306,17 +4222,9 @@
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
   },
-  "linkumoriUrlFiltersStatusGroup": {
-    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
-    "message": "Linkumori URL Filtry (interoperabilita)"
-  },
   "linkumoriUrlRules_statusLabel": {
     "description": "Status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Stav"
-  },
-  "linkumoriUrlRules_runtimeRulesLabel": {
-    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
-    "message": "Pravidla běhu"
   },
   "linkumoriUrlRules_customRulesLabel": {
     "description": "Label for custom Linkumori URL rules in the custom rules editor.",
@@ -4325,10 +4233,6 @@
   "linkumoriUrlRules_hashStatusLabel": {
     "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Hash"
-  },
-  "linkumoriUrlRules_statusSummary": {
-    "description": "Rules status summary for Linkumori URL rules.",
-    "message": "$1\n$2 runtime pravidla\n$3 vlastní pravidla"
   },
   "linkumoriUrlRules_close_aria": {
     "description": "Accessible label for closing the Linkumori URL rules modal.",
@@ -4345,26 +4249,6 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Vzdálené oblíbené rozšíření URL filtruje a tato vlastní pravidla nevyžadují ověření hash. Po analýze jsou uloženy v LinkumoriURLsData, odděleně od ClearURLsData."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
-    "message": "Interoperabilita změněna",
-    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
-    "message": "Výstupní URL interoperability",
-    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
-    "message": "Odpovídající pravidlo interoperability",
-    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
-    "message": "Typ vzoru interoperability",
-    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
-    "message": "Akce interoperability",
-    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   },
   "popup_whitelist_state_permanent": {
     "message": "Na seznamu povolených: $1 – dalším kliknutím zobrazíte pouze kartu",
@@ -5165,134 +5049,6 @@
     "message": "Kapitola 25: Šablony rychlého kopírování",
     "description": "Guide page text."
   },
-  "guide_0076": {
-    "message": "Pravidla interoperability",
-    "description": "Guide page text."
-  },
-  "guide_0077": {
-    "message": "Průvodce pravidly interoperability",
-    "description": "Guide page text."
-  },
-  "guide_0078": {
-    "message": "Kapitola 1: Jaká jsou pravidla interoperability",
-    "description": "Guide page text."
-  },
-  "guide_0079": {
-    "message": "Kapitola 2: Co je podporováno",
-    "description": "Guide page text."
-  },
-  "guide_0080": {
-    "message": "Kapitola 3: Formát základního pravidla",
-    "description": "Guide page text."
-  },
-  "guide_0081": {
-    "message": "Kapitola 4: Kde jsou pravidla uložena",
-    "description": "Guide page text."
-  },
-  "guide_0082": {
-    "message": "Kapitola 5: Komentáře a prázdné řádky",
-    "description": "Guide page text."
-  },
-  "guide_0083": {
-    "message": "Kapitola 6: Odebrání jednoho parametru",
-    "description": "Guide page text."
-  },
-  "guide_0084": {
-    "message": "Kapitola 7: Odeberte všechny parametry dotazu",
-    "description": "Guide page text."
-  },
-  "guide_0085": {
-    "message": "Kapitola 8: Odebrání parametrů podle Regex",
-    "description": "Guide page text."
-  },
-  "guide_0086": {
-    "message": "Kapitola 9: Odstraňte vše kromě jedné shody",
-    "description": "Guide page text."
-  },
-  "guide_0087": {
-    "message": "Kapitola 10: $queryprune",
-    "description": "Guide page text."
-  },
-  "guide_0088": {
-    "message": "Kapitola 11: URL Příklady vzorů",
-    "description": "Guide page text."
-  },
-  "guide_0089": {
-    "message": "Kapitola 12: Výjimky",
-    "description": "Guide page text."
-  },
-  "guide_0090": {
-    "message": "Kapitola 13: důležité",
-    "description": "Guide page text."
-  },
-  "guide_0091": {
-    "message": "Kapitola 14: Badfilter",
-    "description": "Guide page text."
-  },
-  "guide_0092": {
-    "message": "Kapitola 15: Modifikátory zdroje domény: domain= And from=",
-    "description": "Guide page text."
-  },
-  "guide_0093": {
-    "message": "Kapitola 16: Modifikátor cílové domény: to=",
-    "description": "Guide page text."
-  },
-  "guide_0094": {
-    "message": "Kapitola 17: denyallow=",
-    "description": "Guide page text."
-  },
-  "guide_0095": {
-    "message": "Kapitola 18: Modifikátor metody HTTP",
-    "description": "Guide page text."
-  },
-  "guide_0096": {
-    "message": "Kapitola 19: Modifikátory typu prostředku",
-    "description": "Guide page text."
-  },
-  "guide_0097": {
-    "message": "Kapitola 20: První a třetí strana",
-    "description": "Guide page text."
-  },
-  "guide_0098": {
-    "message": "Kapitola 21: případ zápalek",
-    "description": "Guide page text."
-  },
-  "guide_0099": {
-    "message": "Kapitola 22: app=",
-    "description": "Guide page text."
-  },
-  "guide_0100": {
-    "message": "Kapitola 23: No-Op modifikátory",
-    "description": "Guide page text."
-  },
-  "guide_0101": {
-    "message": "Kapitola 24: Podrobnosti o párování parametrů",
-    "description": "Guide page text."
-  },
-  "guide_0102": {
-    "message": "Kapitola 25: Pouze dotaz",
-    "description": "Guide page text."
-  },
-  "guide_0103": {
-    "message": "Kapitola 26: Nepodporovaná pravidla jsou přeskočena",
-    "description": "Guide page text."
-  },
-  "guide_0104": {
-    "message": "Kapitola 27: Duplicitní pravidla",
-    "description": "Guide page text."
-  },
-  "guide_0105": {
-    "message": "Kapitola 28: Příklad kompletního seznamu filtrů",
-    "description": "Guide page text."
-  },
-  "guide_0106": {
-    "message": "Kapitola 29: JSON Příklad úložiště",
-    "description": "Guide page text."
-  },
-  "guide_0107": {
-    "message": "Kapitola 30: Šablony rychlého kopírování",
-    "description": "Guide page text."
-  },
   "guide_0108": {
     "message": "Linkumori Smíšený poskytovatel JSON Průvodce formáty",
     "description": "Guide page text."
@@ -5302,8 +5058,8 @@
     "description": "Guide page text."
   },
   "guide_0110": {
-    "message": "Zahrnuje smíšený formát poskytovatele Linkumori: ClearURLs starší pole addonu, objekty kanonických pravidel ClearURLs core v2 a Linkumori-pouze dodatky, jako jsou 9283746528005 doména, výjimka domény 406, 5001 doména poskytovatele, 406. přesměrování a rozsah podle typu zdroje.",
-    "description": "Guide page text."
+    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
+    "description": "Introductory paragraph for the provider JSON guide."
   },
   "guide_0111": {
     "message": "Není to návod na kód JavaScript. Zaměřuje se pouze na JSON tvary, formáty pravidel a příklady, které autoři pravidel potřebují.",
@@ -5774,8 +5530,8 @@
     "description": "Guide page text."
   },
   "guide_0228": {
-    "message": "<code>$removeparam</code> řetězců uvnitř poskytovatele <code>rules</code> je doplňkem Linkumori. Jsou oddělené od syntaxe interoperability <code>urlFilterRules</code> druhého průvodce.",
-    "description": "Guide page text."
+    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
+    "description": "Introductory paragraph for provider-local $removeparam rules."
   },
   "guide_0229": {
     "message": "Odebrat jeden parametr",
@@ -6286,8 +6042,8 @@
     "description": "Guide page text."
   },
   "guide_0356": {
-    "message": "Přidání Linkumori — jednotný zdroj s poskytovatelem JSON plus pravidla interoperability:",
-    "description": "Guide page text."
+    "message": "Linkumori addition - provider JSON with inline filter-list rules:",
+    "description": "Guide label for provider JSON with inline $removeparam rules."
   },
   "guide_0357": {
     "message": "Důležité:",
@@ -6644,738 +6400,6 @@
   "guide_0445": {
     "message": "Přesměrujte sledovač URL:",
     "description": "Guide page text."
-  },
-  "guide_0446": {
-    "message": "Průvodce pravidly interoperability",
-    "description": "Guide page text."
-  },
-  "guide_0447": {
-    "message": "Linkumori URL Filtr – jednoduchá syntaxe seznamu filtrů pro čištění URL",
-    "description": "Guide page text."
-  },
-  "guide_0448": {
-    "message": "Průvodce pravidly interoperability",
-    "description": "Guide page text."
-  },
-  "guide_0449": {
-    "message": "Tato příručka vysvětluje pravidla interoperability filtrů Linkumori rozšíření URL.",
-    "description": "Guide page text."
-  },
-  "guide_0450": {
-    "message": "Toto nejsou úplná pravidla poskytovatele ClearURLs JSON. Jsou to jednoduché řádky seznamu filtrů, podobné pravidlům používaným oblíbenými blokátory obsahu. Rozšíření Linkumori podporuje pouze čisticí část URL tohoto světa.",
-    "description": "Guide page text."
-  },
-  "guide_0451": {
-    "message": "Kapitola 1: Jaká jsou pravidla interoperability",
-    "description": "Guide page text."
-  },
-  "guide_0452": {
-    "message": "Pravidla interoperability jsou jednoduché textové řádky uložené v:",
-    "description": "Guide page text."
-  },
-  "guide_0453": {
-    "message": "Žijí uvnitř <code>ClearURLsData.urlFilterRules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0454": {
-    "message": "Jsou odděleni od JSON poskytovatelů:",
-    "description": "Guide page text."
-  },
-  "guide_0455": {
-    "message": "Pravidla interoperability použijte, když chcete vložit syntaxi seznamu filtrů pro čištění URL přímo, namísto psaní úplného objektu poskytovatele.",
-    "description": "Guide page text."
-  },
-  "guide_0456": {
-    "message": "Kapitola 2: Co je podporováno",
-    "description": "Guide page text."
-  },
-  "guide_0457": {
-    "message": "Podporováno:",
-    "description": "Guide page text."
-  },
-  "guide_0458": {
-    "message": "Nepodporováno:",
-    "description": "Guide page text."
-  },
-  "guide_0459": {
-    "message": "Řádky bez <code>$removeparam</code> nebo <code>$queryprune</code> jsou ignorovány.",
-    "description": "Guide page text."
-  },
-  "guide_0460": {
-    "message": "Kapitola 3: Formát základního pravidla",
-    "description": "Guide page text."
-  },
-  "guide_0461": {
-    "message": "Základní tvar:",
-    "description": "Guide page text."
-  },
-  "guide_0462": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0463": {
-    "message": "Význam:",
-    "description": "Guide page text."
-  },
-  "guide_0464": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0465": {
-    "message": "Kapitola 4: Kde jsou pravidla uložena",
-    "description": "Guide page text."
-  },
-  "guide_0466": {
-    "message": "Tvar úložiště za běhu:",
-    "description": "Guide page text."
-  },
-  "guide_0467": {
-    "message": "Runtime čte tato pravidla prostřednictvím jednotné datové cesty filtru URL.",
-    "description": "Guide page text."
-  },
-  "guide_0468": {
-    "message": "Kapitola 5: Komentáře a prázdné řádky",
-    "description": "Guide page text."
-  },
-  "guide_0469": {
-    "message": "Prázdné řádky jsou ignorovány.",
-    "description": "Guide page text."
-  },
-  "guide_0470": {
-    "message": "Řádky komentářů jsou ignorovány:",
-    "description": "Guide page text."
-  },
-  "guide_0471": {
-    "message": "Záhlaví sekcí jsou ignorována:",
-    "description": "Guide page text."
-  },
-  "guide_0472": {
-    "message": "Kapitola 6: Odebrání jednoho parametru",
-    "description": "Guide page text."
-  },
-  "guide_0473": {
-    "message": "pravidlo:",
-    "description": "Guide page text."
-  },
-  "guide_0474": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0475": {
-    "message": "<code>*</code> znamená, že vzor URL odpovídá všemu.",
-    "description": "Guide page text."
-  },
-  "guide_0476": {
-    "message": "Kapitola 7: Odeberte všechny parametry dotazu",
-    "description": "Guide page text."
-  },
-  "guide_0477": {
-    "message": "pravidlo:",
-    "description": "Guide page text."
-  },
-  "guide_0478": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0479": {
-    "message": "Tím se odstraní všechny parametry dotazu z odpovídajících URLs.",
-    "description": "Guide page text."
-  },
-  "guide_0480": {
-    "message": "Kapitola 8: Odebrání parametrů podle Regex",
-    "description": "Guide page text."
-  },
-  "guide_0481": {
-    "message": "pravidlo:",
-    "description": "Guide page text."
-  },
-  "guide_0482": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0483": {
-    "message": "Regex příznaky:",
-    "description": "Guide page text."
-  },
-  "guide_0484": {
-    "message": "Analyzátor uchovává pouze příznak <code>i</code> pro regulární výrazy interoperability.",
-    "description": "Guide page text."
-  },
-  "guide_0485": {
-    "message": "Kapitola 9: Odstraňte vše kromě jedné shody",
-    "description": "Guide page text."
-  },
-  "guide_0486": {
-    "message": "Před vzorem parametrů použijte <code>~</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0487": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0488": {
-    "message": "Význam:",
-    "description": "Guide page text."
-  },
-  "guide_0489": {
-    "message": "Kapitola 10: <code>$queryprune</code>",
-    "description": "Guide page text."
-  },
-  "guide_0490": {
-    "message": "<code>$queryprune</code> je přijat jako zastaralý alias pro <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0491": {
-    "message": "Tyto jsou ekvivalentní:",
-    "description": "Guide page text."
-  },
-  "guide_0492": {
-    "message": "Preferujte nová pravidla s <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0493": {
-    "message": "Kapitola 11: URL Příklady vzorů",
-    "description": "Guide page text."
-  },
-  "guide_0494": {
-    "message": "Přiřadit vše URLs:",
-    "description": "Guide page text."
-  },
-  "guide_0495": {
-    "message": "Spojte doménu a subdomény:",
-    "description": "Guide page text."
-  },
-  "guide_0496": {
-    "message": "Shodujte se s prefixem URL:",
-    "description": "Guide page text."
-  },
-  "guide_0497": {
-    "message": "Spojte přesnou koncovku s pravou kotvou:",
-    "description": "Guide page text."
-  },
-  "guide_0498": {
-    "message": "Použijte vzor regulárního výrazu URL:",
-    "description": "Guide page text."
-  },
-  "guide_0499": {
-    "message": "Kapitola 12: Výjimky",
-    "description": "Guide page text."
-  },
-  "guide_0500": {
-    "message": "Chcete-li udělat výjimku, začněte s <code>@@</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0501": {
-    "message": "Příklad sady pravidel:",
-    "description": "Guide page text."
-  },
-  "guide_0502": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0503": {
-    "message": "Kapitola 13: <code>important</code>",
-    "description": "Guide page text."
-  },
-  "guide_0504": {
-    "message": "<code>important</code> vyhraje pravidlo odebrání nad normálními výjimkami.",
-    "description": "Guide page text."
-  },
-  "guide_0505": {
-    "message": "výsledek:",
-    "description": "Guide page text."
-  },
-  "guide_0506": {
-    "message": "Důležité poznámky:",
-    "description": "Guide page text."
-  },
-  "guide_0507": {
-    "message": "V pravidlech odebrání je povoleno číslo <code>important</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0508": {
-    "message": "<code>important</code> není podporováno v pravidlech výjimek v tomto analyzátoru.",
-    "description": "Guide page text."
-  },
-  "guide_0509": {
-    "message": "Kapitola 14: <code>badfilter</code>",
-    "description": "Guide page text."
-  },
-  "guide_0510": {
-    "message": "<code>badfilter</code> zakáže další pravidlo shody.",
-    "description": "Guide page text."
-  },
-  "guide_0511": {
-    "message": "Původní pravidlo:",
-    "description": "Guide page text."
-  },
-  "guide_0512": {
-    "message": "Pravidlo špatného filtru:",
-    "description": "Guide page text."
-  },
-  "guide_0513": {
-    "message": "Význam:",
-    "description": "Guide page text."
-  },
-  "guide_0514": {
-    "message": "Analyzátor kanonizuje pravidlo bez <code>badfilter</code> a odebere cílové pravidlo z použití za běhu.",
-    "description": "Guide page text."
-  },
-  "guide_0515": {
-    "message": "Kapitola 15: Modifikátory zdroje domény: <code>domain=</code> a <code>from=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0516": {
-    "message": "<code>domain=</code> a <code>from=</code> omezují pravidla podle kontextu stránky nebo zdroje.",
-    "description": "Guide page text."
-  },
-  "guide_0517": {
-    "message": "Stejný nápad s <code>from=</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0518": {
-    "message": "Tyto kontrolují kontextové názvy hostitelů, jako například:",
-    "description": "Guide page text."
-  },
-  "guide_0519": {
-    "message": "Zahrnout více domén:",
-    "description": "Guide page text."
-  },
-  "guide_0520": {
-    "message": "Vyloučit doménu:",
-    "description": "Guide page text."
-  },
-  "guide_0521": {
-    "message": "Použijte doménu regulárního výrazu:",
-    "description": "Guide page text."
-  },
-  "guide_0522": {
-    "message": "Kapitola 16: Modifikátor cílové domény: <code>to=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0523": {
-    "message": "<code>to=</code> omezuje pravidla podle cílového hostitele URL.",
-    "description": "Guide page text."
-  },
-  "guide_0524": {
-    "message": "Tím se zkontroluje čištěné číslo URL.",
-    "description": "Guide page text."
-  },
-  "guide_0525": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0526": {
-    "message": "Vyloučit cílovou doménu:",
-    "description": "Guide page text."
-  },
-  "guide_0527": {
-    "message": "Cíl regulárního výrazu:",
-    "description": "Guide page text."
-  },
-  "guide_0528": {
-    "message": "Kapitola 17: <code>denyallow=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0529": {
-    "message": "<code>denyallow=</code> blokuje pravidlo pro uvedené cílové domény.",
-    "description": "Guide page text."
-  },
-  "guide_0530": {
-    "message": "Význam:",
-    "description": "Guide page text."
-  },
-  "guide_0531": {
-    "message": "Podporované hodnoty <code>denyallow=</code> jsou vzory prosté domény.",
-    "description": "Guide page text."
-  },
-  "guide_0532": {
-    "message": "Nepodporováno v <code>denyallow=</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0533": {
-    "message": "Pokud jsou použity nepodporované hodnoty, celé pravidlo je přeskočeno.",
-    "description": "Guide page text."
-  },
-  "guide_0534": {
-    "message": "Kapitola 18: Modifikátor metody HTTP",
-    "description": "Guide page text."
-  },
-  "guide_0535": {
-    "message": "Omezit metodou HTTP:",
-    "description": "Guide page text."
-  },
-  "guide_0536": {
-    "message": "Vyloučit metodu:",
-    "description": "Guide page text."
-  },
-  "guide_0537": {
-    "message": "Více metod:",
-    "description": "Guide page text."
-  },
-  "guide_0538": {
-    "message": "Podporované metody:",
-    "description": "Guide page text."
-  },
-  "guide_0539": {
-    "message": "Výchozí chování:",
-    "description": "Guide page text."
-  },
-  "guide_0540": {
-    "message": "Kapitola 19: Modifikátory typu prostředku",
-    "description": "Guide page text."
-  },
-  "guide_0541": {
-    "message": "Slova podporovaného typu zdroje:",
-    "description": "Guide page text."
-  },
-  "guide_0542": {
-    "message": "Příklady:",
-    "description": "Guide page text."
-  },
-  "guide_0543": {
-    "message": "Negovaný typ zdroje:",
-    "description": "Guide page text."
-  },
-  "guide_0544": {
-    "message": "mapování:",
-    "description": "Guide page text."
-  },
-  "guide_0545": {
-    "message": "Kapitola 20: První a třetí strana",
-    "description": "Guide page text."
-  },
-  "guide_0546": {
-    "message": "První strana znamená, že cílový web a web dokumentu sdílejí stejnou registrovatelnou doménu.",
-    "description": "Guide page text."
-  },
-  "guide_0547": {
-    "message": "Třetí strana znamená, že ne.",
-    "description": "Guide page text."
-  },
-  "guide_0548": {
-    "message": "Pouze první strana:",
-    "description": "Guide page text."
-  },
-  "guide_0549": {
-    "message": "Přezdívky:",
-    "description": "Guide page text."
-  },
-  "guide_0550": {
-    "message": "Pouze třetí strana:",
-    "description": "Guide page text."
-  },
-  "guide_0551": {
-    "message": "Přezdívky:",
-    "description": "Guide page text."
-  },
-  "guide_0552": {
-    "message": "Přísné kontroly první strany přesně stejného hostitele:",
-    "description": "Guide page text."
-  },
-  "guide_0553": {
-    "message": "Přísné kontroly třetích stran, které nejsou přesně stejným hostitelem:",
-    "description": "Guide page text."
-  },
-  "guide_0554": {
-    "message": "Neplatné kombinace jsou přeskočeny, například:",
-    "description": "Guide page text."
-  },
-  "guide_0555": {
-    "message": "Kapitola 21: <code>match-case</code>",
-    "description": "Guide page text."
-  },
-  "guide_0556": {
-    "message": "Ve výchozím nastavení se při doslovném porovnávání parametrů nerozlišuje velká a malá písmena.",
-    "description": "Guide page text."
-  },
-  "guide_0557": {
-    "message": "pravidlo:",
-    "description": "Guide page text."
-  },
-  "guide_0558": {
-    "message": "Zápasy:",
-    "description": "Guide page text."
-  },
-  "guide_0559": {
-    "message": "Použijte <code>match-case</code> pro rozpoznávání velkých a malých písmen:",
-    "description": "Guide page text."
-  },
-  "guide_0560": {
-    "message": "Nyní to odpovídá:",
-    "description": "Guide page text."
-  },
-  "guide_0561": {
-    "message": "Ale ne:",
-    "description": "Guide page text."
-  },
-  "guide_0562": {
-    "message": "Kapitola 22: <code>app=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0563": {
-    "message": "<code>app=</code> je analyzován kvůli kompatibilitě se syntaxí seznamu filtrů.",
-    "description": "Guide page text."
-  },
-  "guide_0564": {
-    "message": "Požadavky prohlížeče obvykle nemají kontext balíčku aplikace. Pokud není k dispozici žádný kontext aplikace, pravidla s kladným zahrnutím <code>app=</code> se neshodují.",
-    "description": "Guide page text."
-  },
-  "guide_0565": {
-    "message": "Vyloučit aplikaci:",
-    "description": "Guide page text."
-  },
-  "guide_0566": {
-    "message": "Vzor aplikace se zástupným znakem:",
-    "description": "Guide page text."
-  },
-  "guide_0567": {
-    "message": "Vzor aplikace Regex:",
-    "description": "Guide page text."
-  },
-  "guide_0568": {
-    "message": "Kapitola 23: No-Op modifikátory",
-    "description": "Guide page text."
-  },
-  "guide_0569": {
-    "message": "Tyto modifikátory jsou přijímány, ale ignorovány:",
-    "description": "Guide page text."
-  },
-  "guide_0570": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0571": {
-    "message": "Tohle se chová takto:",
-    "description": "Guide page text."
-  },
-  "guide_0572": {
-    "message": "Kapitola 24: Podrobnosti o párování parametrů",
-    "description": "Guide page text."
-  },
-  "guide_0573": {
-    "message": "Doslovné pravidlo parametru:",
-    "description": "Guide page text."
-  },
-  "guide_0574": {
-    "message": "Zkontroluje název parametru.",
-    "description": "Guide page text."
-  },
-  "guide_0575": {
-    "message": "Pravidlo parametru regulárního výrazu:",
-    "description": "Guide page text."
-  },
-  "guide_0576": {
-    "message": "Kontroluje tento text:",
-    "description": "Guide page text."
-  },
-  "guide_0577": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0578": {
-    "message": "Formulář předpony:",
-    "description": "Guide page text."
-  },
-  "guide_0579": {
-    "message": "Toto se stane regulárním výrazem pro jména začínající <code>utm_</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0580": {
-    "message": "Kapitola 25: Pouze dotaz",
-    "description": "Guide page text."
-  },
-  "guide_0581": {
-    "message": "Runtime interoperability vyčistí parametry dotazu před <code>#</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0582": {
-    "message": "Vyčištěno:",
-    "description": "Guide page text."
-  },
-  "guide_0583": {
-    "message": "Není vyčištěno touto cestou běhu:",
-    "description": "Guide page text."
-  },
-  "guide_0584": {
-    "message": "Pro vyčištění parametrů hash použijte pravidla smíšeného poskytovatele JSON Linkumori popsaná v průvodci formátem JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0585": {
-    "message": "Kapitola 26: Nepodporovaná pravidla jsou přeskočena",
-    "description": "Guide page text."
-  },
-  "guide_0586": {
-    "message": "Pravidlo je přeskočeno, pokud:",
-    "description": "Guide page text."
-  },
-  "guide_0587": {
-    "message": "Nemá žádné <code>$removeparam</code> nebo <code>$queryprune</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0588": {
-    "message": "Používá nepodporovaný modifikátor.",
-    "description": "Guide page text."
-  },
-  "guide_0589": {
-    "message": "Jeho regulární výraz je neplatný.",
-    "description": "Guide page text."
-  },
-  "guide_0590": {
-    "message": "Má neplatnou metodu.",
-    "description": "Guide page text."
-  },
-  "guide_0591": {
-    "message": "Má neplatnou hodnotu <code>denyallow=</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0592": {
-    "message": "Kombinuje nekompatibilní modifikátory strany.",
-    "description": "Guide page text."
-  },
-  "guide_0593": {
-    "message": "Je to komentář, záhlaví sekce nebo prázdný řádek.",
-    "description": "Guide page text."
-  },
-  "guide_0594": {
-    "message": "Příklad přeskočeného pravidla:",
-    "description": "Guide page text."
-  },
-  "guide_0595": {
-    "message": "důvod:",
-    "description": "Guide page text."
-  },
-  "guide_0596": {
-    "message": "Příklad přeskočeného pravidla:",
-    "description": "Guide page text."
-  },
-  "guide_0597": {
-    "message": "důvod:",
-    "description": "Guide page text."
-  },
-  "guide_0598": {
-    "message": "Kapitola 27: Duplicitní pravidla",
-    "description": "Guide page text."
-  },
-  "guide_0599": {
-    "message": "Duplicitní nezpracované řádky jsou během analýzy seznamu filtrů přeskočeny.",
-    "description": "Guide page text."
-  },
-  "guide_0600": {
-    "message": "Příklad:",
-    "description": "Guide page text."
-  },
-  "guide_0601": {
-    "message": "Je zachován pouze jeden.",
-    "description": "Guide page text."
-  },
-  "guide_0602": {
-    "message": "Za běhu jsou pravidla také deduplikována kanonickou formou.",
-    "description": "Guide page text."
-  },
-  "guide_0603": {
-    "message": "Kapitola 28: Příklad kompletního seznamu filtrů",
-    "description": "Guide page text."
-  },
-  "guide_0604": {
-    "message": "Co dělá toto:",
-    "description": "Guide page text."
-  },
-  "guide_0605": {
-    "message": "Odebere všechny parametry <code>utm_</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0606": {
-    "message": "Odstraňuje <code>fbclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0607": {
-    "message": "Odstraňuje <code>gclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0608": {
-    "message": "Odebere <code>ref</code> na <code>example.com</code>, kromě <code>/login</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0609": {
-    "message": "Odebere <code>tracking_id</code> pouze pro <code>GET</code> XHR požadavky na <code>api.example.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0610": {
-    "message": "Adds pak zruší cílové pravidlo <code>tracker.example</code> s <code>badfilter</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0611": {
-    "message": "Kapitola 29: JSON Příklad úložiště",
-    "description": "Guide page text."
-  },
-  "guide_0612": {
-    "message": "Kapitola 30: Šablony rychlého kopírování",
-    "description": "Guide page text."
-  },
-  "guide_0613": {
-    "message": "Všude odstraňte jeden parametr:",
-    "description": "Guide page text."
-  },
-  "guide_0614": {
-    "message": "Odebrat všechny parametry UTM:",
-    "description": "Guide page text."
-  },
-  "guide_0615": {
-    "message": "Odebrat vše kromě <code>id</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0616": {
-    "message": "Spustit pouze na doméně:",
-    "description": "Guide page text."
-  },
-  "guide_0617": {
-    "message": "Výjimka:",
-    "description": "Guide page text."
-  },
-  "guide_0618": {
-    "message": "Pouze GET:",
-    "description": "Guide page text."
-  },
-  "guide_0619": {
-    "message": "Pouze XHR:",
-    "description": "Guide page text."
-  },
-  "guide_0620": {
-    "message": "Pouze cílová doména:",
-    "description": "Guide page text."
-  },
-  "guide_0621": {
-    "message": "Pouze doména zdrojové stránky:",
-    "description": "Guide page text."
-  },
-  "guide_0622": {
-    "message": "Pouze třetí strana:",
-    "description": "Guide page text."
-  },
-  "guide_0623": {
-    "message": "Rozlišovat malá a velká písmena:",
-    "description": "Guide page text."
-  },
-  "guide_theme_midnight": {
-    "message": "Půlnoc",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_light": {
-    "message": "Světlo",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_icecold": {
-    "message": "Ledová zima",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_zen_grey": {
-    "message": "Zen Grey",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_sunset": {
-    "message": "Západ slunce",
-    "description": "Guide theme selector option."
   },
   "guide_0624": {
     "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -7782,12 +6806,12 @@
     "description": "Guide page text."
   },
   "guide_0725": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  },\n  \"urlFilterRules\": [\n    \"*$removeparam=fbclid\"\n  ],\n  \"urlFilterMetadata\": {\n    \"format\": \"linkumori-url-filter-interoperability\",\n    \"status\": \"loaded\"\n  }\n}\n",
-    "description": "Guide page text."
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide code example for provider JSON with inline $removeparam rules."
   },
   "guide_0726": {
-    "message": "providers are handled by Linkumori extension provider logic.\nurlFilterRules are handled by the interoperability runtime.\nThey can exist in the same Linkumori extension data object, but they are different rule systems.\n",
-    "description": "Guide page text."
+    "message": "Provider-local <code>rules[]</code> entries are compiled into the same provider set before <code>clearurls.js</code> runs. Keep filter-list style <code>$removeparam</code> lines inside provider <code>rules[]</code> when authoring Linkumori JSON.\n",
+    "description": "Guide note explaining provider-local filter-list rules."
   },
   "guide_0727": {
     "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -8077,438 +7101,6 @@
     "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
     "description": "Guide page text."
   },
-  "guide_0799": {
-    "message": "⇄",
-    "description": "Guide page text."
-  },
-  "guide_0800": {
-    "message": "{\n  \"urlFilterRules\": [\n    \"||example.com^$removeparam=utm_source\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0801": {
-    "message": "{\n  \"providers\": {},\n  \"urlFilterRules\": []\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0802": {
-    "message": "$removeparam\n$queryprune\n@@ exceptions\nbadfilter\nimportant\ndomain=\nfrom=\nto=\ndenyallow=\nmethod=\nrequest type modifiers\nfirst-party / third-party\nstrict-first-party / strict-third-party\nmatch-case\napp=\n",
-    "description": "Guide page text."
-  },
-  "guide_0803": {
-    "message": "Network blocking rules without $removeparam or $queryprune\nCosmetic filters\nScriptlets\nHTML filtering\nRequest blocking\nFull adblock engine behavior\n",
-    "description": "Guide page text."
-  },
-  "guide_0804": {
-    "message": "URL_PATTERN$removeparam=PARAMETER\n",
-    "description": "Guide page text."
-  },
-  "guide_0805": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0806": {
-    "message": "On example.com and its subdomains, remove the query parameter named utm_source.\n",
-    "description": "Guide page text."
-  },
-  "guide_0807": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0808": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"||example.com^$removeparam=utm_source\",\n      \"*$removeparam=/^utm_/\"\n    ],\n    \"urlFilterMetadata\": {\n      \"format\": \"linkumori-url-filter-interoperability\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0809": {
-    "message": "! This is a comment\n",
-    "description": "Guide page text."
-  },
-  "guide_0810": {
-    "message": "[Tracking parameters]\n",
-    "description": "Guide page text."
-  },
-  "guide_0811": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0812": {
-    "message": "https://site.test/?utm_source=x&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0813": {
-    "message": "*$removeparam\n",
-    "description": "Guide page text."
-  },
-  "guide_0814": {
-    "message": "https://site.test/?a=1&b=2\n-> https://site.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0815": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0816": {
-    "message": "https://site.test/?utm_source=x&utm_campaign=y&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0817": {
-    "message": "*$removeparam=/^utm_/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0818": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0819": {
-    "message": "https://site.test/?id=1&utm_source=x&fbclid=y\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0820": {
-    "message": "Remove every parameter except id.\n",
-    "description": "Guide page text."
-  },
-  "guide_0821": {
-    "message": "*$removeparam=utm_source\n*$queryprune=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0822": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0823": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0824": {
-    "message": "|https://example.com/path$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0825": {
-    "message": "https://example.com/path|$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0826": {
-    "message": "/^https:\\/\\/([^/]+\\.)?example\\.com\\/track/$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0827": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0828": {
-    "message": "*$removeparam=utm_source\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0829": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0830": {
-    "message": "*$removeparam=utm_source,important\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0831": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0832": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0833": {
-    "message": "||example.com^$removeparam=utm_source,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0834": {
-    "message": "Cancel the original rule.\n",
-    "description": "Guide page text."
-  },
-  "guide_0835": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0836": {
-    "message": "*$removeparam=utm_source,from=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0837": {
-    "message": "documentUrl\noriginUrl\ninitiator\n",
-    "description": "Guide page text."
-  },
-  "guide_0838": {
-    "message": "*$removeparam=utm_source,domain=example.com|shop.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0839": {
-    "message": "*$removeparam=utm_source,domain=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0840": {
-    "message": "*$removeparam=utm_source,domain=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0841": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0842": {
-    "message": "Cleaned:\nhttps://example.com/?utm_source=x&id=1\n\nNot cleaned:\nhttps://other.test/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0843": {
-    "message": "*$removeparam=utm_source,to=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0844": {
-    "message": "*$removeparam=utm_source,to=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0845": {
-    "message": "*$removeparam=utm_source,denyallow=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0846": {
-    "message": "Remove utm_source generally, but do not apply this rule when the destination host matches example.com.\n",
-    "description": "Guide page text."
-  },
-  "guide_0847": {
-    "message": "~negation\nexample.*\n/regex/\n",
-    "description": "Guide page text."
-  },
-  "guide_0848": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0849": {
-    "message": "*$removeparam=utm_source,method=~POST\n",
-    "description": "Guide page text."
-  },
-  "guide_0850": {
-    "message": "*$removeparam=utm_source,method=GET|HEAD\n",
-    "description": "Guide page text."
-  },
-  "guide_0851": {
-    "message": "GET\nHEAD\nOPTIONS\nPOST\nPUT\nPATCH\nDELETE\nCONNECT\n",
-    "description": "Guide page text."
-  },
-  "guide_0852": {
-    "message": "Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.\nFast simple query cleanup also uses those simple methods.\n",
-    "description": "Guide page text."
-  },
-  "guide_0853": {
-    "message": "document\ndoc\nsubdocument\nframe\nscript\nstylesheet\nimage\nmedia\nfont\nobject\nxmlhttprequest\nxhr\nwebsocket\nping\nother\n",
-    "description": "Guide page text."
-  },
-  "guide_0854": {
-    "message": "*$removeparam=utm_source,script\n*$removeparam=utm_source,image\n*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0855": {
-    "message": "*$removeparam=utm_source,~image\n",
-    "description": "Guide page text."
-  },
-  "guide_0856": {
-    "message": "document       -> main_frame\ndoc            -> main_frame\nsubdocument    -> sub_frame\nframe          -> sub_frame\nxhr            -> xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0857": {
-    "message": "*$removeparam=utm_source,first-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0858": {
-    "message": "1p\n~third-party\n~3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0859": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0860": {
-    "message": "3p\n~first-party\n~1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0861": {
-    "message": "*$removeparam=utm_source,strict-first-party\n*$removeparam=utm_source,strict1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0862": {
-    "message": "*$removeparam=utm_source,strict-third-party\n*$removeparam=utm_source,strict3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0863": {
-    "message": "*$removeparam=utm_source,first-party,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0864": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0865": {
-    "message": "utm_source\nUTM_SOURCE\nUtm_Source\n",
-    "description": "Guide page text."
-  },
-  "guide_0866": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "guide_0867": {
-    "message": "utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0868": {
-    "message": "UTM_SOURCE\n",
-    "description": "Guide page text."
-  },
-  "guide_0869": {
-    "message": "*$removeparam=utm_source,app=com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0870": {
-    "message": "*$removeparam=utm_source,app=~com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0871": {
-    "message": "*$removeparam=utm_source,app=com.example.*\n",
-    "description": "Guide page text."
-  },
-  "guide_0872": {
-    "message": "*$removeparam=utm_source,app=/example/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0873": {
-    "message": "_\nnoop\nstealth\ncookie\n",
-    "description": "Guide page text."
-  },
-  "guide_0874": {
-    "message": "*$removeparam=utm_source,noop\n",
-    "description": "Guide page text."
-  },
-  "guide_0875": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0876": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0877": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0878": {
-    "message": "name=value\n",
-    "description": "Guide page text."
-  },
-  "guide_0879": {
-    "message": "URL:\nhttps://example.com/?utm_source=news&id=1\n\nRegex sees:\nutm_source=news\nid=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0880": {
-    "message": "*$removeparam=|utm_\n",
-    "description": "Guide page text."
-  },
-  "guide_0881": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0882": {
-    "message": "https://example.com/#utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0883": {
-    "message": "||example.com^$script\n",
-    "description": "Guide page text."
-  },
-  "guide_0884": {
-    "message": "No $removeparam or $queryprune.\n",
-    "description": "Guide page text."
-  },
-  "guide_0885": {
-    "message": "*$removeparam=utm_source,unknownmodifier\n",
-    "description": "Guide page text."
-  },
-  "guide_0886": {
-    "message": "Unsupported modifier.\n",
-    "description": "Guide page text."
-  },
-  "guide_0887": {
-    "message": "*$removeparam=utm_source\n*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0888": {
-    "message": "! Linkumori URL filter interoperability example\n\n*$removeparam=/^utm_/\n*$removeparam=fbclid\n*$removeparam=gclid\n\n||example.com^$removeparam=ref\n@@||example.com/login^$removeparam=ref\n\n*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET\n\n||tracker.example^$removeparam=target,third-party\n||tracker.example^$removeparam=target,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0889": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"*$removeparam=/^utm_/\",\n      \"*$removeparam=fbclid\",\n      \"||example.com^$removeparam=ref\",\n      \"@@||example.com/login^$removeparam=ref\"\n    ],\n    \"urlFilterMetadata\": {\n      \"name\": \"Linkumori URL Filter Rules\",\n      \"format\": \"linkumori-url-filter-interoperability\",\n      \"status\": \"loaded\",\n      \"ruleStatus\": \"loaded\",\n      \"hashStatus\": \"not_required\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0890": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0891": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0892": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0893": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0894": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0895": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0896": {
-    "message": "*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0897": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0898": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0899": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0900": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "faq_final_runtime_clearurls_title": {
-    "message": "Vyhrazená syntaxe běhového prostředí clearurls.js",
-    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
-  },
-  "faq_final_runtime_interoperability_title": {
-    "message": "Interoperabilita URL-filtr syntaxe runtime",
-    "description": "FAQ label for the interoperability runtime syntax example"
-  },
-  "faq_final_runtime_open_page": {
-    "message": "Otevřít odkaz na syntaxi runtime",
-    "description": "FAQ link text that opens the dedicated runtime syntax page"
-  },
-  "faq_final_runtime_syntax": {
-    "message": "Jaká je konečná syntaxe běhového prostředí?",
-    "description": "FAQ question for final supported runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_answer": {
-    "message": "Linkumori podporuje dva finální runtime formáty. Nejprve použijte vyhrazenou syntaxi poskytovatele clearurls.js pro nativní pole, raw, přesměrování, přepis, výjimku a chování v rozsahu poskytovatele. Při importu pravidel $removeparam ve stylu filtru URL použijte formát interoperability.",
-    "description": "FAQ answer explaining the two final runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_note": {
-    "message": "Oba formáty lze načíst společně, ale primárním nativním formátem je vyhrazená syntaxe poskytovatele. Pro kompatibilitu seznamu filtrů existuje formát interoperability.",
-    "description": "FAQ note for final runtime syntax formats"
-  },
   "providerImport_allProviders": {
     "message": "Všichni poskytovatelé",
     "description": "Filter label for showing rule activations from every provider"
@@ -8529,60 +7121,52 @@
     "message": "Navigace podle pravidel poskytovatele",
     "description": "Accessible label for provider filter navigation on the disabled rules page"
   },
-  "runtimeSyntax_clearURLsDescription": {
-    "message": "Toto je nativní běhové prostředí spotřebované clearurls.js. Mělo by být použito jako první pro vlastní poskytovatele, protože podporuje kanonické objekty pravidel, pravidla polí, nezpracovaná pravidla URL, přesměrování, přepisy, výjimky, typy požadavků, aliasy a identity pro zakázání v rozsahu vzorů.",
-    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_clearURLsTitle": {
-    "message": "Vyhrazený běhový čas clearurls.js",
-    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_disableDescription": {
-    "message": "Identity s rozsahem vzoru jsou stabilní při změnách názvu poskytovatele. Identity v rozsahu poskytovatele zůstávají k dispozici pro chování širokého staršího zákazu.",
-    "description": "Runtime syntax page description for disable identity examples"
-  },
-  "runtimeSyntax_disableTitle": {
-    "message": "Zakázat formáty identity",
-    "description": "Runtime syntax page section title for disable identity formats"
-  },
-  "runtimeSyntax_interoperabilityDescription": {
-    "message": "Tento runtime je určen pro interoperabilitu URL filtrů. Udržuje pravidla filtrového seznamu $removeparam a pravidla výjimek @@ v kompaktním poli pravidel pro kompatibilitu importu a vzdáleného seznamu.",
-    "description": "Runtime syntax page description for interoperability runtime syntax"
-  },
-  "runtimeSyntax_interoperabilityTitle": {
-    "message": "Runtime pravidla interoperability",
-    "description": "Runtime syntax page section title for interoperability runtime syntax"
-  },
-  "runtimeSyntax_intro": {
-    "message": "Nativní runtime poskytovatele clearurls.js je prvotřídní formát. Vedle něj sedí runtime interoperability pro pravidla seznamu filtrů, která si potřebují zachovat svůj původní tvar $removeparam.",
-    "description": "Runtime syntax page intro text"
-  },
-  "runtimeSyntax_kicker": {
-    "message": "Runtime reference",
-    "description": "Runtime syntax page eyebrow text"
-  },
-  "runtimeSyntax_navClearURLs": {
-    "message": "Vyhrazená doba běhu",
-    "description": "Runtime syntax page navigation link for dedicated runtime section"
-  },
-  "runtimeSyntax_navDisableIds": {
-    "message": "Zakázat ID",
-    "description": "Runtime syntax page navigation link for disable identity section"
-  },
-  "runtimeSyntax_navInteroperability": {
-    "message": "Interoperabilita runtime",
-    "description": "Runtime syntax page navigation link for interoperability section"
-  },
-  "runtimeSyntax_pageTitle": {
-    "message": "Finální syntaxe běhového prostředí",
-    "description": "Runtime syntax page title"
-  },
   "popup_html_guide_link": {
     "message": "Průvodce poskytovatele JSON",
     "description": "Popup license link label for the Linkumori provider JSON guide page"
   },
   "popup_html_guide_link_title": {
-    "message": "Otevřete Linkumori poskytovatele JSON a průvodce interoperabilitou",
-    "description": "Tooltip and aria label for the popup guide link in the license section"
+    "message": "Open Linkumori rules guide",
+    "description": "Tooltip and aria label for the popup guide link in the license section."
+  },
+  "faq_rules_guide_syntax": {
+    "message": "Which rule syntax should I use?",
+    "description": "FAQ question for the unified Linkumori rule syntax guide."
+  },
+  "faq_rules_guide_syntax_answer": {
+    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
+    "description": "FAQ answer explaining the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_syntax_note": {
+    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
+    "description": "FAQ note for the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_open_page": {
+    "message": "Open rules guide",
+    "description": "FAQ link text that opens the unified rules guide."
+  },
+  "providerImport_failedToLoadSources": {
+    "message": "Failed to load provider sources: $1",
+    "description": "Error shown when provider import sources fail to load."
+  },
+  "providerImport_noBundledRules": {
+    "message": "Bundled rules are not available.",
+    "description": "Error shown when bundled rules are unavailable for provider import."
+  },
+  "providerImport_failedToLoadBundled": {
+    "message": "Failed to load bundled rules: $1",
+    "description": "Error shown when bundled rules fail to load for provider import."
+  },
+  "status_language_change_failed": {
+    "message": "Could not switch language to $1.",
+    "description": "Status text shown when changing the UI language fails."
+  },
+  "theme_light": {
+    "message": "Light theme",
+    "description": "Accessible label for switching to the light theme."
+  },
+  "theme_dark": {
+    "message": "Dark theme",
+    "description": "Accessible label for switching to the dark theme."
   }
 }

@@ -55,17 +55,9 @@
     "message": "Utiliser les règles intégrées de Linkumori/ClearURLs. Désactivez pour n'utiliser que les règles distantes et/ou personnalisées.",
     "description": "Description pour l'interrupteur qui contrôle les règles intégrées"
   },
-  "linkumori_interoperability_mode_enabled": {
-    "message": "Mode d'interopérabilité Linkumori",
-    "description": "Label for the toggle that enables or disables Linkumori URL Filter interoperability rules"
-  },
-  "linkumori_interoperability_mode_enabled_description": {
-    "message": "Applique les règles d'interopérabilité Linkumori URL Filter, y compris les listes $removeparam compatibles, avec les règles JSON natives Linkumori/ClearURLs.",
-    "description": "Description for the Linkumori interoperability mode toggle"
-  },
   "bundled_rules_description": {
-    "message": "Linkumori utilise deux catégories de règles: Linkumori (ClearURLs 2.0) JSON pour les fournisseurs natifs et Linkumori URL Filtrer les règles d'interopérabilité pour les extensions populaires. $removeparam listes. Chaque catégorie est comptée séparément.",
-    "description": "Description for the bundled rules section."
+    "message": "Linkumori uses one unified ClearURLsData provider ruleset. Native provider JSON, canonical rule objects, and provider-local $removeparam filters are merged before clearurls.js runs.",
+    "description": "Description text for the built-in bundled rules setting."
   },
   "bundled_rules_section_title": {
     "message": "Informations sur les règles",
@@ -2107,16 +2099,8 @@
   "providerImport_importedCount": {
     "message": "Importés : $1 fournisseurs"
   },
-  "providerImport_importedRulesCount": {
-    "message": "Importées : $1 règles",
-    "description": "Import result count for Linkumori URL interoperability rules."
-  },
   "providerImport_importing": {
     "message": "Importation en cours..."
-  },
-  "providerImport_linkumoriData": {
-    "message": "Règles d’interopérabilité Linkumori existantes",
-    "description": "Sidebar option for rules currently stored in LinkumoriURLsData."
   },
   "providerImport_loading": {
     "message": "Chargement des fournisseurs...",
@@ -2179,10 +2163,6 @@
   },
   "providerImport_skippedCount": {
     "message": "Ignorés : $1 fournisseurs"
-  },
-  "providerImport_skippedRulesCount": {
-    "message": "Ignorées : $1 règles",
-    "description": "Skipped result count for Linkumori URL interoperability rules."
   },
   "providerImport_sources": {
     "message": "Source des règles",
@@ -2533,16 +2513,16 @@
     "description": "Texte du bouton Continuer dans la fenêtre modale de sécurité"
   },
   "security_modal_final_warning": {
-    "message": "Vous devez reconsidérer l’utilisation de règles distantes si vous ne comprenez pas parfaitement si votre source est un ensemble de règles Linkumori (ClearURLs 2.0) JSON ou une liste d’interopérabilité de filtre Linkumori URL.",
-    "description": "Final warning message in security modal"
+    "message": "You should reconsider using remote rules if you do not fully understand or trust the Linkumori ruleset source.",
+    "description": "Final warning shown in the remote rules security modal."
   },
   "security_modal_main_warning": {
-    "message": "Cette fonctionnalité de règles à distance est conçue pour les utilisateurs avancés qui comprennent le format source qu'ils chargent. Linkumori (ClearURLs 2.0) JSON Les règles distantes nécessitent un hachage correspondant URL pour la vérification. Linkumori URL Les listes d'interopérabilité des filtres peuvent être chargées sans hachage URL et sont stockées séparément.",
-    "description": "Main warning text explaining the purpose and risks"
+    "message": "This remote rules feature is designed for advanced users who understand the Linkumori JSON they are loading. Remote rules should include a matching hash URL for verification.",
+    "description": "Main warning text for the remote rules security modal."
   },
   "security_modal_privacy_text": {
-    "message": "Si vous ajoutez une règle distante URL, l'extension se connectera à votre serveur désigné pour récupérer soit un ensemble de règles Linkumori (ClearURLs 2.0) JSON, son fichier de hachage une fois configuré, soit un Linkumori. URL Liste d'interopérabilité des filtres. Chaque récupération peut exposer votre adresse IP et des informations générales telles que la version de l'extension, le navigateur et la version du navigateur au serveur d'hébergement. Ces données sont soumises à la politique de confidentialité de ce site Web ou de ce serveur Web.",
-    "description": "Privacy notice explaining data collection policy"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the remote rules security modal."
   },
   "security_modal_privacy_link_text": {
     "message": "Relisez le %PRIVACY_POLICY_LINK% avant de continuer si nécessaire.",
@@ -2553,8 +2533,8 @@
     "description": "En-tête pour la section d'avis de confidentialité"
   },
   "security_modal_recommendation": {
-    "message": "Utilisez des règles intégrées, sauf si vous faites confiance et contrôlez la source distante. Pour les règles Linkumori (ClearURLs 2.0) JSON, fournissez un hachage correspondant URL. Pour les listes de filtres d’interopérabilité, laissez le hachage URL vide.",
-    "description": "Recommendation to use built-in rules instead"
+    "message": "Use built-in rules unless you trust and control the remote source. Provide a matching hash URL for remote Linkumori JSON rules.",
+    "description": "Recommendation text shown in the remote rules security modal."
   },
   "security_modal_risk_1": {
     "message": "Votre adresse IP et les informations de votre navigateur seront exposées aux serveurs configurés",
@@ -2569,8 +2549,8 @@
     "description": "Third security risk point"
   },
   "security_modal_risk_4": {
-    "message": "Les listes de filtres d'interopérabilité n'utilisent pas la vérification du hachage, la confiance dans la source URL est donc particulièrement importante.",
-    "description": "Fourth security risk point"
+    "message": "Remote rules without successful hash verification rely entirely on trust in the source URL.",
+    "description": "Risk list item for remote rules without successful hash verification."
   },
   "security_modal_risks_title": {
     "message": "Risques de sécurité :",
@@ -3279,24 +3259,24 @@
     "description": "Texte de bannière d'avertissement supérieur dans la fenêtre modale de désactivation de Gatekeeper"
   },
   "disable_gatekeeper_modal_main_warning": {
-    "message": "Vous désactivez les protections Gatekeeper pour la modification de la règle distante URL. Cette fonctionnalité peut charger des règles Linkumori (ClearURLs 2.0) JSON avec vérification de hachage, ou des listes d'interopérabilité de filtre Linkumori URL sans vérification de hachage. Continuez uniquement si vous comprenez le format que vous configurez.",
-    "description": "Main warning text in disable gatekeeper modal"
+    "message": "You are disabling Gatekeeper protections for remote rule URL editing. This feature can load remote Linkumori JSON rules into the unified provider ruleset. Proceed only if you understand and trust the source you are configuring.",
+    "description": "Main warning text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_gatekeeper_explanation": {
     "message": "Gatekeeper est le flux de sécurité intégré qui bloque les modifications directes d'URL distantes jusqu'à ce que vous reconnaissiez l'avertissement de sécurité et complétiez la confirmation tapée.",
     "description": "Explique ce que signifie Gatekeeper dans la fenêtre modale de désactivation de Gatekeeper"
   },
   "disable_gatekeeper_modal_recommendation": {
-    "message": "Gardez Gatekeeper activé, sauf si vous faites confiance et contrôlez vos sources distantes. Les règles JSON doivent inclure un hachage correspondant URL ; les listes d'interopérabilité laissent intentionnellement le hachage URL vide.",
-    "description": "Recommendation text in disable gatekeeper modal"
+    "message": "Keep Gatekeeper enabled unless you trust and control your remote sources. Remote JSON rules should include a matching hash URL.",
+    "description": "Recommendation text for the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_title": {
     "message": "avis d'avertissement :",
     "description": "Titre de section de confidentialité dans la fenêtre modale de désactivation de Gatekeeper"
   },
   "disable_gatekeeper_modal_privacy_text": {
-    "message": "Si vous ajoutez une règle distante URL, l'extension se connectera à votre serveur désigné pour récupérer soit un ensemble de règles Linkumori (ClearURLs 2.0) JSON, son fichier de hachage une fois configuré, soit un Linkumori. URL Liste d'interopérabilité des filtres. Chaque récupération peut exposer votre adresse IP et des informations générales telles que la version de l'extension, le navigateur et la version du navigateur au serveur d'hébergement. Ces données sont soumises à la politique de confidentialité de ce site Web ou de ce serveur Web.",
-    "description": "Privacy section body in disable gatekeeper modal"
+    "message": "If you add a remote rule URL, the extension will connect to your designated server to fetch the Linkumori ruleset and its hash file when configured. Each fetch may expose your IP address and general information such as extension version, browser, and browser version to the hosting server. This data is subject to the privacy policy of that website or web server.",
+    "description": "Privacy text shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_privacy_link_text": {
     "message": "Relisez le %PRIVACY_POLICY_LINK% avant de continuer si nécessaire.",
@@ -3315,8 +3295,8 @@
     "description": "Puce de risque 1 dans la fenêtre modale de désactivation de Gatekeeper"
   },
   "disable_gatekeeper_modal_risk_2": {
-    "message": "Le serveur hébergeant les fichiers distants JSON, de hachage ou de filtre d'interopérabilité recevra votre adresse IP.",
-    "description": "Risk bullet 2 in disable gatekeeper modal"
+    "message": "The server hosting remote JSON or hash files will receive your IP address.",
+    "description": "Risk list item for remote file hosts receiving the user IP address."
   },
   "disable_gatekeeper_modal_risk_3": {
     "message": "Le serveur peut également recevoir votre version d'extension, votre navigateur et la version du navigateur.",
@@ -3327,8 +3307,8 @@
     "description": "Puce de risque 4 dans la fenêtre modale de désactivation de Gatekeeper"
   },
   "disable_gatekeeper_modal_final_warning": {
-    "message": "En désactivant Gatekeeper, vous augmentez le risque lié à des sources de règles distantes dangereuses ou compromises. La vérification du hachage protège uniquement les téléchargements de règles Linkumori (ClearURLs 2.0) JSON. Elle ne s'applique pas aux listes d'interopérabilité.",
-    "description": "Final warning banner text in disable gatekeeper modal"
+    "message": "By disabling Gatekeeper, you increase risk from unsafe or compromised remote rule sources. Hash verification protects remote Linkumori JSON downloads only when a matching hash URL is configured.",
+    "description": "Final warning shown in the disable Gatekeeper modal."
   },
   "disable_gatekeeper_modal_cancel": {
     "message": "Annuler",
@@ -3407,8 +3387,8 @@
     "description": "Libellé de saisie pour la fenêtre modale de confirmation spécifique à Gatekeeper"
   },
   "disable_gatekeeper_confirmation_final_text": {
-    "message": "Cette action réduit les garanties des règles distantes. Ne procédez que si vous faites confiance à vos sources de filtres JSON et d'interopérabilité.",
-    "description": "Final warning text for gatekeeper-specific confirmation modal"
+    "message": "This action reduces safeguards for remote rules. Proceed only if you trust your remote JSON source.",
+    "description": "Final confirmation text for disabling Gatekeeper."
   },
   "remote_urls_template_note_1": {
     "message": "Remplacez les valeurs d'espace réservé par vos URL HTTPS réelles, puis importez ce fichier.",
@@ -4130,10 +4110,6 @@
     "message": "Aucune activité",
     "description": "Libellé de ligne de repli lorsqu'aucune donnée de statistiques quotidiennes n'est disponible."
   },
-  "linkumori_url_rules_section": {
-    "description": "Section header for popular extension URL filter rules in settings",
-    "message": "Filtres Linkumori URL (interopérabilité):"
-  },
   "clearurls_json_rules_section": {
     "description": "Section header for native ClearURLs JSON rule statistics in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON Règles:"
@@ -4194,66 +4170,6 @@
     "description": "Hash status for popular extension URL filter lists",
     "message": "pas obligatoire"
   },
-  "linkumori_url_filter_name": {
-    "description": "Display name for Linkumori URL filter interoperability rules.",
-    "message": "Linkumori URL Filtres"
-  },
-  "linkumori_url_filter_single_name": {
-    "description": "Display name for a single Linkumori URL filter source.",
-    "message": "Linkumori URL Filtre"
-  },
-  "linkumori_url_filter_merged_name": {
-    "description": "Display name when multiple Linkumori URL filter sources are merged.",
-    "message": "Filtres fusionnés Linkumori URL"
-  },
-  "linkumori_url_filter_custom_name": {
-    "description": "Display name for custom Linkumori URL filter rules.",
-    "message": "Règles personnalisées Linkumori URL"
-  },
-  "linkumori_url_filter_parser_unavailable": {
-    "description": "Error when the Linkumori URL filter parser is unavailable.",
-    "message": "L'analyseur de filtre Linkumori URL n'est pas disponible"
-  },
-  "linkumori_url_filter_custom_failed": {
-    "description": "Error when custom Linkumori URL rules cannot be parsed.",
-    "message": "Échec des règles personnalisées Linkumori URL"
-  },
-  "linkumori_url_filter_sources_failed_count": {
-    "description": "Summary of failed Linkumori URL filter sources.",
-    "message": "$1 URL source(s) de filtre défaillante"
-  },
-  "linkumori_url_filter_remote_empty": {
-    "description": "Error when a remote Linkumori URL filter file is empty.",
-    "message": "Le fichier de filtre distant URL est vide"
-  },
-  "linkumori_url_filter_fetch_failed": {
-    "description": "Error when fetching Linkumori URL filters fails.",
-    "message": "Linkumori URL échec de la récupération du filtre"
-  },
-  "linkumori_url_filter_unknown_error": {
-    "description": "Fallback error for Linkumori URL filters.",
-    "message": "Erreur de filtre inconnue URL"
-  },
-  "linkumori_url_filter_all_sources_failed": {
-    "description": "Error when all Linkumori URL filter sources fail.",
-    "message": "Toutes les sources de filtre Linkumori URL ont échoué"
-  },
-  "linkumori_url_filter_log_pattern_value": {
-    "description": "Log pattern value for Linkumori URL filter interoperability.",
-    "message": "extension populaire URL filtre de suivi"
-  },
-  "linkumori_url_filter_no_supported_rules": {
-    "description": "Error when a filter list has no supported Linkumori URL filter rules.",
-    "message": "Aucune règle d'interopérabilité Linkumori $removeparam prise en charge trouvée"
-  },
-  "linkumori_url_filter_interoperability_name": {
-    "description": "Parser metadata name for Linkumori URL filter interoperability.",
-    "message": "Linkumori URL Interopérabilité des filtres"
-  },
-  "linkumori_url_filter_interoperability_author": {
-    "description": "Parser metadata author for Linkumori URL filter interoperability.",
-    "message": "Linkumori source de filtre d'interopérabilité"
-  },
   "linkumoriUrlRules_button": {
     "description": "Button that opens the custom Linkumori URL filter modal.",
     "message": "Linkumori URL Règles"
@@ -4306,17 +4222,9 @@
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
   },
-  "linkumoriUrlFiltersStatusGroup": {
-    "description": "Group heading for Linkumori URL filter interoperability status in the custom rules editor.",
-    "message": "Linkumori URL Filtres (interopérabilité)"
-  },
   "linkumoriUrlRules_statusLabel": {
     "description": "Status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Statut"
-  },
-  "linkumoriUrlRules_runtimeRulesLabel": {
-    "description": "Label for active Linkumori URL runtime rules in the custom rules editor.",
-    "message": "Règles d'exécution"
   },
   "linkumoriUrlRules_customRulesLabel": {
     "description": "Label for custom Linkumori URL rules in the custom rules editor.",
@@ -4325,10 +4233,6 @@
   "linkumoriUrlRules_hashStatusLabel": {
     "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
     "message": "Linkumori URL Hachage"
-  },
-  "linkumoriUrlRules_statusSummary": {
-    "description": "Rules status summary for Linkumori URL rules.",
-    "message": "$1\n$2 règle(s) d'exécution\n$3 règle(s) personnalisée(s)"
   },
   "linkumoriUrlRules_close_aria": {
     "description": "Accessible label for closing the Linkumori URL rules modal.",
@@ -4345,26 +4249,6 @@
   "faq_linkumori_url_rules_note": {
     "description": "FAQ note for Linkumori URL custom rules.",
     "message": "Les filtres de l'extension populaire à distance URL et ces règles personnalisées ne nécessitent pas de vérification de hachage. Ils sont stockés dans LinkumoriURLsData après analyse, distincts de ClearURLsData."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLChanged": {
-    "message": "Interopérabilité modifiée",
-    "description": "Label indicating whether Linkumori URL interoperability rules changed the URL in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLOutput": {
-    "message": "URL de sortie d’interopérabilité",
-    "description": "Label for Linkumori URL interoperability output in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLMatchedRule": {
-    "message": "Règle d’interopérabilité correspondante",
-    "description": "Label for matched Linkumori URL interoperability rule in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLPatternType": {
-    "message": "Type de modèle d’interopérabilité",
-    "description": "Label for Linkumori URL interoperability pattern type in Rule Test Lab output."
-  },
-  "customRulesEditor_ruleTestLab_field_linkumoriURLAction": {
-    "message": "Action d’interopérabilité",
-    "description": "Label for Linkumori URL interoperability action in Rule Test Lab output."
   },
   "popup_whitelist_state_permanent": {
     "message": "Liste blanche : « 1 » — cliquez à nouveau pour l'onglet uniquement",
@@ -5165,134 +5049,6 @@
     "message": "Chapitre 25 : Modèles de copie rapide",
     "description": "Guide page text."
   },
-  "guide_0076": {
-    "message": "Règles d'interopérabilité",
-    "description": "Guide page text."
-  },
-  "guide_0077": {
-    "message": "Guide des règles d'interopérabilité",
-    "description": "Guide page text."
-  },
-  "guide_0078": {
-    "message": "Chapitre 1 : Quelles sont les règles d'interopérabilité",
-    "description": "Guide page text."
-  },
-  "guide_0079": {
-    "message": "Chapitre 2 : Ce qui est pris en charge",
-    "description": "Guide page text."
-  },
-  "guide_0080": {
-    "message": "Chapitre 3 : Format des règles de base",
-    "description": "Guide page text."
-  },
-  "guide_0081": {
-    "message": "Chapitre 4 : Où les règles sont stockées",
-    "description": "Guide page text."
-  },
-  "guide_0082": {
-    "message": "Chapitre 5 : Commentaires et lignes vides",
-    "description": "Guide page text."
-  },
-  "guide_0083": {
-    "message": "Chapitre 6 : Supprimer un paramètre",
-    "description": "Guide page text."
-  },
-  "guide_0084": {
-    "message": "Chapitre 7 : Supprimer tous les paramètres de requête",
-    "description": "Guide page text."
-  },
-  "guide_0085": {
-    "message": "Chapitre 8 : Supprimer les paramètres par Regex",
-    "description": "Guide page text."
-  },
-  "guide_0086": {
-    "message": "Chapitre 9 : Supprimer toutes les correspondances sauf une",
-    "description": "Guide page text."
-  },
-  "guide_0087": {
-    "message": "Chapitre 10 : $queryprune",
-    "description": "Guide page text."
-  },
-  "guide_0088": {
-    "message": "Chapitre 11 : Exemples de modèles URL",
-    "description": "Guide page text."
-  },
-  "guide_0089": {
-    "message": "Chapitre 12 : Exceptions",
-    "description": "Guide page text."
-  },
-  "guide_0090": {
-    "message": "Chapitre 13 : important",
-    "description": "Guide page text."
-  },
-  "guide_0091": {
-    "message": "Chapitre 14 : mauvais filtre",
-    "description": "Guide page text."
-  },
-  "guide_0092": {
-    "message": "Chapitre 15 : Modificateurs de source de domaine : domain= Et from=",
-    "description": "Guide page text."
-  },
-  "guide_0093": {
-    "message": "Chapitre 16 : Modificateur de domaine cible : to=",
-    "description": "Guide page text."
-  },
-  "guide_0094": {
-    "message": "Chapitre 17 : refuser=",
-    "description": "Guide page text."
-  },
-  "guide_0095": {
-    "message": "Chapitre 18 : Modificateur de méthode HTTP",
-    "description": "Guide page text."
-  },
-  "guide_0096": {
-    "message": "Chapitre 19 : Modificateurs de type de ressource",
-    "description": "Guide page text."
-  },
-  "guide_0097": {
-    "message": "Chapitre 20 : Propriétaire et tiers",
-    "description": "Guide page text."
-  },
-  "guide_0098": {
-    "message": "Chapitre 21 : affaire d'allumettes",
-    "description": "Guide page text."
-  },
-  "guide_0099": {
-    "message": "Chapitre 22 : application =",
-    "description": "Guide page text."
-  },
-  "guide_0100": {
-    "message": "Chapitre 23 : Modificateurs sans opération",
-    "description": "Guide page text."
-  },
-  "guide_0101": {
-    "message": "Chapitre 24 : Détails de la correspondance des paramètres",
-    "description": "Guide page text."
-  },
-  "guide_0102": {
-    "message": "Chapitre 25 : Requête uniquement",
-    "description": "Guide page text."
-  },
-  "guide_0103": {
-    "message": "Chapitre 26 : Les règles non prises en charge sont ignorées",
-    "description": "Guide page text."
-  },
-  "guide_0104": {
-    "message": "Chapitre 27 : Règles en double",
-    "description": "Guide page text."
-  },
-  "guide_0105": {
-    "message": "Chapitre 28 : Exemple de liste de filtres complète",
-    "description": "Guide page text."
-  },
-  "guide_0106": {
-    "message": "Chapitre 29 : JSON Exemple de stockage",
-    "description": "Guide page text."
-  },
-  "guide_0107": {
-    "message": "Chapitre 30 : Modèles de copie rapide",
-    "description": "Guide page text."
-  },
   "guide_0108": {
     "message": "Linkumori Fournisseur mixte JSON Guide de format",
     "description": "Guide page text."
@@ -5302,8 +5058,8 @@
     "description": "Guide page text."
   },
   "guide_0110": {
-    "message": "Il couvre le format de fournisseur mixte Linkumori : ClearURLs champs hérités du module complémentaire, ClearURLs objets de règle canonique de base v2 et Linkumori uniquement, tels que <code>domainPatterns</code>, <code>$removeparam</code> règles de fournisseur, exceptions de domaine, redirections de domaine et cadrage du type de ressource.",
-    "description": "Guide page text."
+    "message": "It covers the Linkumori provider format: provider fields, canonical rule objects, <code>domainPatterns</code>, provider-local <code>$removeparam</code> rules, domain exceptions, domain redirections, and resource-type scoping.",
+    "description": "Introductory paragraph for the provider JSON guide."
   },
   "guide_0111": {
     "message": "Il ne s'agit pas d'un guide du code JavaScript. Il se concentre uniquement sur les formes JSON, les formats de règles et les exemples dont les auteurs de règles ont besoin.",
@@ -5774,8 +5530,8 @@
     "description": "Guide page text."
   },
   "guide_0228": {
-    "message": "Les chaînes <code>$removeparam</code> à l'intérieur du fournisseur <code>rules</code> sont un ajout Linkumori. Ils sont distincts de la syntaxe d'interopérabilité <code>urlFilterRules</code> du deuxième guide.",
-    "description": "Guide page text."
+    "message": "<code>$removeparam</code> strings inside provider <code>rules</code> are first-class Linkumori provider rules. They use filter-list syntax, but compile into the same provider path as field rules.",
+    "description": "Introductory paragraph for provider-local $removeparam rules."
   },
   "guide_0229": {
     "message": "Supprimer un paramètre",
@@ -6286,8 +6042,8 @@
     "description": "Guide page text."
   },
   "guide_0356": {
-    "message": "Ajout Linkumori — source unifiée avec le fournisseur JSON plus règles d'interopérabilité :",
-    "description": "Guide page text."
+    "message": "Linkumori addition - provider JSON with inline filter-list rules:",
+    "description": "Guide label for provider JSON with inline $removeparam rules."
   },
   "guide_0357": {
     "message": "Important :",
@@ -6644,738 +6400,6 @@
   "guide_0445": {
     "message": "Rediriger un tracker URL :",
     "description": "Guide page text."
-  },
-  "guide_0446": {
-    "message": "Guide des règles d'interopérabilité",
-    "description": "Guide page text."
-  },
-  "guide_0447": {
-    "message": "Linkumori URL Filtre — syntaxe simple de liste de filtres pour le nettoyage URL",
-    "description": "Guide page text."
-  },
-  "guide_0448": {
-    "message": "Guide des règles d'interopérabilité",
-    "description": "Guide page text."
-  },
-  "guide_0449": {
-    "message": "Ce guide explique les règles d'interopérabilité des filtres de l'extension Linkumori URL.",
-    "description": "Guide page text."
-  },
-  "guide_0450": {
-    "message": "Ce ne sont pas des règles complètes du fournisseur ClearURLs JSON. Il s’agit de simples lignes de liste de filtres, similaires aux règles utilisées par les bloqueurs de contenu populaires. L'extension Linkumori prend en charge uniquement la partie de nettoyage URL de ce monde.",
-    "description": "Guide page text."
-  },
-  "guide_0451": {
-    "message": "Chapitre 1 : Quelles sont les règles d'interopérabilité",
-    "description": "Guide page text."
-  },
-  "guide_0452": {
-    "message": "Les règles d'interopérabilité sont de simples lignes de texte stockées dans :",
-    "description": "Guide page text."
-  },
-  "guide_0453": {
-    "message": "Ils vivent au <code>ClearURLsData.urlFilterRules</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0454": {
-    "message": "Ils sont distincts des fournisseurs JSON :",
-    "description": "Guide page text."
-  },
-  "guide_0455": {
-    "message": "Utilisez des règles d'interopérabilité lorsque vous souhaitez coller directement la syntaxe de la liste de filtres de nettoyage URL, au lieu d'écrire un objet fournisseur complet.",
-    "description": "Guide page text."
-  },
-  "guide_0456": {
-    "message": "Chapitre 2 : Ce qui est pris en charge",
-    "description": "Guide page text."
-  },
-  "guide_0457": {
-    "message": "Pris en charge :",
-    "description": "Guide page text."
-  },
-  "guide_0458": {
-    "message": "Non pris en charge :",
-    "description": "Guide page text."
-  },
-  "guide_0459": {
-    "message": "Les lignes sans <code>$removeparam</code> ou <code>$queryprune</code> sont ignorées.",
-    "description": "Guide page text."
-  },
-  "guide_0460": {
-    "message": "Chapitre 3 : Format des règles de base",
-    "description": "Guide page text."
-  },
-  "guide_0461": {
-    "message": "Forme de base :",
-    "description": "Guide page text."
-  },
-  "guide_0462": {
-    "message": "Exemple :",
-    "description": "Guide page text."
-  },
-  "guide_0463": {
-    "message": "Signification :",
-    "description": "Guide page text."
-  },
-  "guide_0464": {
-    "message": "Résultat :",
-    "description": "Guide page text."
-  },
-  "guide_0465": {
-    "message": "Chapitre 4 : Où les règles sont stockées",
-    "description": "Guide page text."
-  },
-  "guide_0466": {
-    "message": "Forme de stockage d'exécution :",
-    "description": "Guide page text."
-  },
-  "guide_0467": {
-    "message": "Le runtime lit ces règles via le chemin de données du filtre unifié URL.",
-    "description": "Guide page text."
-  },
-  "guide_0468": {
-    "message": "Chapitre 5 : Commentaires et lignes vides",
-    "description": "Guide page text."
-  },
-  "guide_0469": {
-    "message": "Les lignes vides sont ignorées.",
-    "description": "Guide page text."
-  },
-  "guide_0470": {
-    "message": "Les lignes de commentaires sont ignorées :",
-    "description": "Guide page text."
-  },
-  "guide_0471": {
-    "message": "Les en-têtes de section sont ignorés :",
-    "description": "Guide page text."
-  },
-  "guide_0472": {
-    "message": "Chapitre 6 : Supprimer un paramètre",
-    "description": "Guide page text."
-  },
-  "guide_0473": {
-    "message": "Règle :",
-    "description": "Guide page text."
-  },
-  "guide_0474": {
-    "message": "Résultat :",
-    "description": "Guide page text."
-  },
-  "guide_0475": {
-    "message": "Le <code>*</code> signifie que le modèle URL correspond à tout.",
-    "description": "Guide page text."
-  },
-  "guide_0476": {
-    "message": "Chapitre 7 : Supprimer tous les paramètres de requête",
-    "description": "Guide page text."
-  },
-  "guide_0477": {
-    "message": "Règle :",
-    "description": "Guide page text."
-  },
-  "guide_0478": {
-    "message": "Résultat :",
-    "description": "Guide page text."
-  },
-  "guide_0479": {
-    "message": "Cela supprime tous les paramètres de requête correspondant à URLs.",
-    "description": "Guide page text."
-  },
-  "guide_0480": {
-    "message": "Chapitre 8 : Supprimer les paramètres par Regex",
-    "description": "Guide page text."
-  },
-  "guide_0481": {
-    "message": "Règle :",
-    "description": "Guide page text."
-  },
-  "guide_0482": {
-    "message": "Résultat :",
-    "description": "Guide page text."
-  },
-  "guide_0483": {
-    "message": "Indicateurs d'expression régulière :",
-    "description": "Guide page text."
-  },
-  "guide_0484": {
-    "message": "Seul l'indicateur <code>i</code> est conservé par l'analyseur pour les expressions régulières d'interopérabilité.",
-    "description": "Guide page text."
-  },
-  "guide_0485": {
-    "message": "Chapitre 9 : Supprimer toutes les correspondances sauf une",
-    "description": "Guide page text."
-  },
-  "guide_0486": {
-    "message": "Utilisez <code>~</code> avant le modèle de paramètre.",
-    "description": "Guide page text."
-  },
-  "guide_0487": {
-    "message": "Résultat :",
-    "description": "Guide page text."
-  },
-  "guide_0488": {
-    "message": "Signification :",
-    "description": "Guide page text."
-  },
-  "guide_0489": {
-    "message": "Chapitre 10 : <code>$queryprune</code>",
-    "description": "Guide page text."
-  },
-  "guide_0490": {
-    "message": "<code>$queryprune</code> est accepté comme alias obsolète pour <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0491": {
-    "message": "Ceux-ci sont équivalents :",
-    "description": "Guide page text."
-  },
-  "guide_0492": {
-    "message": "Préférez les nouvelles règles avec le <code>$removeparam</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0493": {
-    "message": "Chapitre 11 : Exemples de modèles URL",
-    "description": "Guide page text."
-  },
-  "guide_0494": {
-    "message": "Correspond à tous les URLs :",
-    "description": "Guide page text."
-  },
-  "guide_0495": {
-    "message": "Faites correspondre un domaine et des sous-domaines :",
-    "description": "Guide page text."
-  },
-  "guide_0496": {
-    "message": "Faites correspondre un préfixe URL :",
-    "description": "Guide page text."
-  },
-  "guide_0497": {
-    "message": "Faites correspondre une fin exacte avec l'ancre droite :",
-    "description": "Guide page text."
-  },
-  "guide_0498": {
-    "message": "Utilisez un modèle regex URL :",
-    "description": "Guide page text."
-  },
-  "guide_0499": {
-    "message": "Chapitre 12 : Exceptions",
-    "description": "Guide page text."
-  },
-  "guide_0500": {
-    "message": "Commencez par <code>@@</code> pour faire une exception.",
-    "description": "Guide page text."
-  },
-  "guide_0501": {
-    "message": "Exemple d'ensemble de règles :",
-    "description": "Guide page text."
-  },
-  "guide_0502": {
-    "message": "Résultat :",
-    "description": "Guide page text."
-  },
-  "guide_0503": {
-    "message": "Chapitre 13 : <code>important</code>",
-    "description": "Guide page text."
-  },
-  "guide_0504": {
-    "message": "<code>important</code> permet à une règle de suppression de l'emporter sur les exceptions normales.",
-    "description": "Guide page text."
-  },
-  "guide_0505": {
-    "message": "Résultat :",
-    "description": "Guide page text."
-  },
-  "guide_0506": {
-    "message": "Remarques importantes :",
-    "description": "Guide page text."
-  },
-  "guide_0507": {
-    "message": "<code>important</code> est autorisé dans les règles de suppression.",
-    "description": "Guide page text."
-  },
-  "guide_0508": {
-    "message": "<code>important</code> n'est pas pris en charge sur les règles d'exception dans cet analyseur.",
-    "description": "Guide page text."
-  },
-  "guide_0509": {
-    "message": "Chapitre 14 : <code>badfilter</code>",
-    "description": "Guide page text."
-  },
-  "guide_0510": {
-    "message": "<code>badfilter</code> désactive une autre règle de correspondance.",
-    "description": "Guide page text."
-  },
-  "guide_0511": {
-    "message": "Règle originale :",
-    "description": "Guide page text."
-  },
-  "guide_0512": {
-    "message": "Règle de mauvais filtre :",
-    "description": "Guide page text."
-  },
-  "guide_0513": {
-    "message": "Signification :",
-    "description": "Guide page text."
-  },
-  "guide_0514": {
-    "message": "L'analyseur canonise la règle sans <code>badfilter</code> et supprime la règle cible de l'utilisation au moment de l'exécution.",
-    "description": "Guide page text."
-  },
-  "guide_0515": {
-    "message": "Chapitre 15 : Modificateurs de source de domaine : <code>domain=</code> et <code>from=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0516": {
-    "message": "<code>domain=</code> et <code>from=</code> limitent les règles en fonction du contexte de page ou de source.",
-    "description": "Guide page text."
-  },
-  "guide_0517": {
-    "message": "Même idée avec <code>from=</code> :",
-    "description": "Guide page text."
-  },
-  "guide_0518": {
-    "message": "Ceux-ci vérifient les noms d'hôtes contextuels tels que :",
-    "description": "Guide page text."
-  },
-  "guide_0519": {
-    "message": "Incluez plusieurs domaines :",
-    "description": "Guide page text."
-  },
-  "guide_0520": {
-    "message": "Exclure un domaine :",
-    "description": "Guide page text."
-  },
-  "guide_0521": {
-    "message": "Utilisez un domaine regex :",
-    "description": "Guide page text."
-  },
-  "guide_0522": {
-    "message": "Chapitre 16 : Modificateur de domaine cible : <code>to=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0523": {
-    "message": "<code>to=</code> limite les règles par l'hôte de destination URL.",
-    "description": "Guide page text."
-  },
-  "guide_0524": {
-    "message": "Cela vérifie le URL en cours de nettoyage.",
-    "description": "Guide page text."
-  },
-  "guide_0525": {
-    "message": "Exemple :",
-    "description": "Guide page text."
-  },
-  "guide_0526": {
-    "message": "Exclure le domaine cible :",
-    "description": "Guide page text."
-  },
-  "guide_0527": {
-    "message": "Cible d'expression régulière :",
-    "description": "Guide page text."
-  },
-  "guide_0528": {
-    "message": "Chapitre 17 : <code>denyallow=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0529": {
-    "message": "<code>denyallow=</code> bloque la règle sur les domaines de destination répertoriés.",
-    "description": "Guide page text."
-  },
-  "guide_0530": {
-    "message": "Signification :",
-    "description": "Guide page text."
-  },
-  "guide_0531": {
-    "message": "Les valeurs <code>denyallow=</code> prises en charge sont des modèles de domaine simples.",
-    "description": "Guide page text."
-  },
-  "guide_0532": {
-    "message": "Non pris en charge dans <code>denyallow=</code> :",
-    "description": "Guide page text."
-  },
-  "guide_0533": {
-    "message": "Si des valeurs non prises en charge sont utilisées, la règle entière est ignorée.",
-    "description": "Guide page text."
-  },
-  "guide_0534": {
-    "message": "Chapitre 18 : Modificateur de méthode HTTP",
-    "description": "Guide page text."
-  },
-  "guide_0535": {
-    "message": "Limite par la méthode HTTP :",
-    "description": "Guide page text."
-  },
-  "guide_0536": {
-    "message": "Exclure une méthode :",
-    "description": "Guide page text."
-  },
-  "guide_0537": {
-    "message": "Plusieurs méthodes :",
-    "description": "Guide page text."
-  },
-  "guide_0538": {
-    "message": "Méthodes prises en charge :",
-    "description": "Guide page text."
-  },
-  "guide_0539": {
-    "message": "Comportement par défaut :",
-    "description": "Guide page text."
-  },
-  "guide_0540": {
-    "message": "Chapitre 19 : Modificateurs de type de ressource",
-    "description": "Guide page text."
-  },
-  "guide_0541": {
-    "message": "Mots de type de ressource pris en charge :",
-    "description": "Guide page text."
-  },
-  "guide_0542": {
-    "message": "Exemples :",
-    "description": "Guide page text."
-  },
-  "guide_0543": {
-    "message": "Type de ressource annulé :",
-    "description": "Guide page text."
-  },
-  "guide_0544": {
-    "message": "Cartographie :",
-    "description": "Guide page text."
-  },
-  "guide_0545": {
-    "message": "Chapitre 20 : Propriétaire et tiers",
-    "description": "Guide page text."
-  },
-  "guide_0546": {
-    "message": "First-party signifie que le site de destination et le site de documents partagent le même domaine enregistrable.",
-    "description": "Guide page text."
-  },
-  "guide_0547": {
-    "message": "Tiers signifie qu'ils ne le font pas.",
-    "description": "Guide page text."
-  },
-  "guide_0548": {
-    "message": "Première partie uniquement :",
-    "description": "Guide page text."
-  },
-  "guide_0549": {
-    "message": "Alias :",
-    "description": "Guide page text."
-  },
-  "guide_0550": {
-    "message": "Tiers uniquement :",
-    "description": "Guide page text."
-  },
-  "guide_0551": {
-    "message": "Alias :",
-    "description": "Guide page text."
-  },
-  "guide_0552": {
-    "message": "Vérifications strictes de première partie exactement sur le même hôte :",
-    "description": "Guide page text."
-  },
-  "guide_0553": {
-    "message": "Des contrôles tiers stricts ne correspondent pas exactement au même hôte :",
-    "description": "Guide page text."
-  },
-  "guide_0554": {
-    "message": "Les combinaisons non valides sont ignorées, par exemple :",
-    "description": "Guide page text."
-  },
-  "guide_0555": {
-    "message": "Chapitre 21 : <code>match-case</code>",
-    "description": "Guide page text."
-  },
-  "guide_0556": {
-    "message": "Par défaut, la correspondance des paramètres littéraux ne respecte pas la casse.",
-    "description": "Guide page text."
-  },
-  "guide_0557": {
-    "message": "Règle :",
-    "description": "Guide page text."
-  },
-  "guide_0558": {
-    "message": "Correspondances :",
-    "description": "Guide page text."
-  },
-  "guide_0559": {
-    "message": "Utilisez <code>match-case</code> pour la correspondance sensible à la casse :",
-    "description": "Guide page text."
-  },
-  "guide_0560": {
-    "message": "Maintenant, cela correspond :",
-    "description": "Guide page text."
-  },
-  "guide_0561": {
-    "message": "Mais non :",
-    "description": "Guide page text."
-  },
-  "guide_0562": {
-    "message": "Chapitre 22 : <code>app=</code>",
-    "description": "Guide page text."
-  },
-  "guide_0563": {
-    "message": "<code>app=</code> est analysé pour vérifier sa compatibilité avec la syntaxe de liste de filtres.",
-    "description": "Guide page text."
-  },
-  "guide_0564": {
-    "message": "Les requêtes du navigateur n’ont généralement pas de contexte de package d’application. Si aucun contexte d’application n’est disponible, les règles avec des inclusions positives de <code>app=</code> ne correspondent pas.",
-    "description": "Guide page text."
-  },
-  "guide_0565": {
-    "message": "Exclure l'application :",
-    "description": "Guide page text."
-  },
-  "guide_0566": {
-    "message": "Modèle d'application générique :",
-    "description": "Guide page text."
-  },
-  "guide_0567": {
-    "message": "Modèle d'application Regex :",
-    "description": "Guide page text."
-  },
-  "guide_0568": {
-    "message": "Chapitre 23 : Modificateurs sans opération",
-    "description": "Guide page text."
-  },
-  "guide_0569": {
-    "message": "Ces modificateurs sont acceptés mais ignorés :",
-    "description": "Guide page text."
-  },
-  "guide_0570": {
-    "message": "Exemple :",
-    "description": "Guide page text."
-  },
-  "guide_0571": {
-    "message": "Cela se comporte comme :",
-    "description": "Guide page text."
-  },
-  "guide_0572": {
-    "message": "Chapitre 24 : Détails de la correspondance des paramètres",
-    "description": "Guide page text."
-  },
-  "guide_0573": {
-    "message": "Règle de paramètre littéral :",
-    "description": "Guide page text."
-  },
-  "guide_0574": {
-    "message": "Vérifie le nom du paramètre.",
-    "description": "Guide page text."
-  },
-  "guide_0575": {
-    "message": "Règle de paramètre Regex :",
-    "description": "Guide page text."
-  },
-  "guide_0576": {
-    "message": "Vérifie ce texte :",
-    "description": "Guide page text."
-  },
-  "guide_0577": {
-    "message": "Exemple :",
-    "description": "Guide page text."
-  },
-  "guide_0578": {
-    "message": "Forme de préfixe :",
-    "description": "Guide page text."
-  },
-  "guide_0579": {
-    "message": "Cela devient une expression régulière pour les noms commençant par <code>utm_</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0580": {
-    "message": "Chapitre 25 : Requête uniquement",
-    "description": "Guide page text."
-  },
-  "guide_0581": {
-    "message": "Le runtime d’interopérabilité nettoie les paramètres de requête avant <code>#</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0582": {
-    "message": "Nettoyé :",
-    "description": "Guide page text."
-  },
-  "guide_0583": {
-    "message": "Non nettoyé par ce chemin d'exécution :",
-    "description": "Guide page text."
-  },
-  "guide_0584": {
-    "message": "Pour le nettoyage des paramètres de hachage, utilisez les règles du fournisseur mixte Linkumori JSON décrites dans le Guide de format JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0585": {
-    "message": "Chapitre 26 : Les règles non prises en charge sont ignorées",
-    "description": "Guide page text."
-  },
-  "guide_0586": {
-    "message": "Une règle est ignorée si :",
-    "description": "Guide page text."
-  },
-  "guide_0587": {
-    "message": "Il n’a pas de <code>$removeparam</code> ou <code>$queryprune</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0588": {
-    "message": "Il utilise un modificateur non pris en charge.",
-    "description": "Guide page text."
-  },
-  "guide_0589": {
-    "message": "Sa regex n'est pas valide.",
-    "description": "Guide page text."
-  },
-  "guide_0590": {
-    "message": "Sa méthode n'est pas valide.",
-    "description": "Guide page text."
-  },
-  "guide_0591": {
-    "message": "Sa valeur <code>denyallow=</code> n'est pas valide.",
-    "description": "Guide page text."
-  },
-  "guide_0592": {
-    "message": "Il combine des modificateurs de groupe incompatibles.",
-    "description": "Guide page text."
-  },
-  "guide_0593": {
-    "message": "Il s'agit d'un commentaire, d'un en-tête de section ou d'une ligne vide.",
-    "description": "Guide page text."
-  },
-  "guide_0594": {
-    "message": "Exemple de règle ignorée :",
-    "description": "Guide page text."
-  },
-  "guide_0595": {
-    "message": "Raison :",
-    "description": "Guide page text."
-  },
-  "guide_0596": {
-    "message": "Exemple de règle ignorée :",
-    "description": "Guide page text."
-  },
-  "guide_0597": {
-    "message": "Raison :",
-    "description": "Guide page text."
-  },
-  "guide_0598": {
-    "message": "Chapitre 27 : Règles en double",
-    "description": "Guide page text."
-  },
-  "guide_0599": {
-    "message": "Les lignes brutes en double sont ignorées lors de l'analyse de la liste de filtres.",
-    "description": "Guide page text."
-  },
-  "guide_0600": {
-    "message": "Exemple :",
-    "description": "Guide page text."
-  },
-  "guide_0601": {
-    "message": "Un seul est conservé.",
-    "description": "Guide page text."
-  },
-  "guide_0602": {
-    "message": "Au moment de l'exécution, les règles sont également dédupliquées sous forme canonique.",
-    "description": "Guide page text."
-  },
-  "guide_0603": {
-    "message": "Chapitre 28 : Exemple de liste de filtres complète",
-    "description": "Guide page text."
-  },
-  "guide_0604": {
-    "message": "Ce que cela fait :",
-    "description": "Guide page text."
-  },
-  "guide_0605": {
-    "message": "Supprime tous les paramètres <code>utm_</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0606": {
-    "message": "Supprime <code>fbclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0607": {
-    "message": "Supprime <code>gclid</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0608": {
-    "message": "Supprime <code>ref</code> sur <code>example.com</code>, sauf sur <code>/login</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0609": {
-    "message": "Supprime <code>tracking_id</code> uniquement pour les requêtes <code>GET</code> XHR adressées à <code>api.example.com</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0610": {
-    "message": "Ajoute puis annule la règle cible <code>tracker.example</code> avec <code>badfilter</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0611": {
-    "message": "Chapitre 29 : JSON Exemple de stockage",
-    "description": "Guide page text."
-  },
-  "guide_0612": {
-    "message": "Chapitre 30 : Modèles de copie rapide",
-    "description": "Guide page text."
-  },
-  "guide_0613": {
-    "message": "Supprimez un paramètre partout :",
-    "description": "Guide page text."
-  },
-  "guide_0614": {
-    "message": "Supprimez tous les paramètres UTM :",
-    "description": "Guide page text."
-  },
-  "guide_0615": {
-    "message": "Supprimez tout sauf <code>id</code> :",
-    "description": "Guide page text."
-  },
-  "guide_0616": {
-    "message": "Exécuter uniquement sur un domaine :",
-    "description": "Guide page text."
-  },
-  "guide_0617": {
-    "message": "Exception :",
-    "description": "Guide page text."
-  },
-  "guide_0618": {
-    "message": "GET uniquement :",
-    "description": "Guide page text."
-  },
-  "guide_0619": {
-    "message": "XHR uniquement :",
-    "description": "Guide page text."
-  },
-  "guide_0620": {
-    "message": "Domaine cible uniquement :",
-    "description": "Guide page text."
-  },
-  "guide_0621": {
-    "message": "Domaine de la page source uniquement :",
-    "description": "Guide page text."
-  },
-  "guide_0622": {
-    "message": "Tiers uniquement :",
-    "description": "Guide page text."
-  },
-  "guide_0623": {
-    "message": "Sensible à la casse :",
-    "description": "Guide page text."
-  },
-  "guide_theme_midnight": {
-    "message": "Minuit",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_light": {
-    "message": "Lumière",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_icecold": {
-    "message": "Glacé",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_zen_grey": {
-    "message": "Gris Zen",
-    "description": "Guide theme selector option."
-  },
-  "guide_theme_sunset": {
-    "message": "Coucher de soleil",
-    "description": "Guide theme selector option."
   },
   "guide_0624": {
     "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -7782,12 +6806,12 @@
     "description": "Guide page text."
   },
   "guide_0725": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  },\n  \"urlFilterRules\": [\n    \"*$removeparam=fbclid\"\n  ],\n  \"urlFilterMetadata\": {\n    \"format\": \"linkumori-url-filter-interoperability\",\n    \"status\": \"loaded\"\n  }\n}\n",
-    "description": "Guide page text."
+    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\"\n      ]\n    }\n  }\n}\n",
+    "description": "Guide code example for provider JSON with inline $removeparam rules."
   },
   "guide_0726": {
-    "message": "providers are handled by Linkumori extension provider logic.\nurlFilterRules are handled by the interoperability runtime.\nThey can exist in the same Linkumori extension data object, but they are different rule systems.\n",
-    "description": "Guide page text."
+    "message": "Provider-local <code>rules[]</code> entries are compiled into the same provider set before <code>clearurls.js</code> runs. Keep filter-list style <code>$removeparam</code> lines inside provider <code>rules[]</code> when authoring Linkumori JSON.\n",
+    "description": "Guide note explaining provider-local filter-list rules."
   },
   "guide_0727": {
     "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
@@ -8077,438 +7101,6 @@
     "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
     "description": "Guide page text."
   },
-  "guide_0799": {
-    "message": "⇄",
-    "description": "Guide page text."
-  },
-  "guide_0800": {
-    "message": "{\n  \"urlFilterRules\": [\n    \"||example.com^$removeparam=utm_source\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0801": {
-    "message": "{\n  \"providers\": {},\n  \"urlFilterRules\": []\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0802": {
-    "message": "$removeparam\n$queryprune\n@@ exceptions\nbadfilter\nimportant\ndomain=\nfrom=\nto=\ndenyallow=\nmethod=\nrequest type modifiers\nfirst-party / third-party\nstrict-first-party / strict-third-party\nmatch-case\napp=\n",
-    "description": "Guide page text."
-  },
-  "guide_0803": {
-    "message": "Network blocking rules without $removeparam or $queryprune\nCosmetic filters\nScriptlets\nHTML filtering\nRequest blocking\nFull adblock engine behavior\n",
-    "description": "Guide page text."
-  },
-  "guide_0804": {
-    "message": "URL_PATTERN$removeparam=PARAMETER\n",
-    "description": "Guide page text."
-  },
-  "guide_0805": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0806": {
-    "message": "On example.com and its subdomains, remove the query parameter named utm_source.\n",
-    "description": "Guide page text."
-  },
-  "guide_0807": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0808": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"||example.com^$removeparam=utm_source\",\n      \"*$removeparam=/^utm_/\"\n    ],\n    \"urlFilterMetadata\": {\n      \"format\": \"linkumori-url-filter-interoperability\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0809": {
-    "message": "! This is a comment\n",
-    "description": "Guide page text."
-  },
-  "guide_0810": {
-    "message": "[Tracking parameters]\n",
-    "description": "Guide page text."
-  },
-  "guide_0811": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0812": {
-    "message": "https://site.test/?utm_source=x&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0813": {
-    "message": "*$removeparam\n",
-    "description": "Guide page text."
-  },
-  "guide_0814": {
-    "message": "https://site.test/?a=1&b=2\n-> https://site.test/\n",
-    "description": "Guide page text."
-  },
-  "guide_0815": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0816": {
-    "message": "https://site.test/?utm_source=x&utm_campaign=y&id=1\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0817": {
-    "message": "*$removeparam=/^utm_/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0818": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0819": {
-    "message": "https://site.test/?id=1&utm_source=x&fbclid=y\n-> https://site.test/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0820": {
-    "message": "Remove every parameter except id.\n",
-    "description": "Guide page text."
-  },
-  "guide_0821": {
-    "message": "*$removeparam=utm_source\n*$queryprune=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0822": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0823": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0824": {
-    "message": "|https://example.com/path$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0825": {
-    "message": "https://example.com/path|$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0826": {
-    "message": "/^https:\\/\\/([^/]+\\.)?example\\.com\\/track/$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0827": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0828": {
-    "message": "*$removeparam=utm_source\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0829": {
-    "message": "https://other.test/?utm_source=x&id=1\n-> https://other.test/?id=1\n\nhttps://example.com/?utm_source=x&id=1\n-> https://example.com/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0830": {
-    "message": "*$removeparam=utm_source,important\n@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0831": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0832": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0833": {
-    "message": "||example.com^$removeparam=utm_source,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0834": {
-    "message": "Cancel the original rule.\n",
-    "description": "Guide page text."
-  },
-  "guide_0835": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0836": {
-    "message": "*$removeparam=utm_source,from=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0837": {
-    "message": "documentUrl\noriginUrl\ninitiator\n",
-    "description": "Guide page text."
-  },
-  "guide_0838": {
-    "message": "*$removeparam=utm_source,domain=example.com|shop.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0839": {
-    "message": "*$removeparam=utm_source,domain=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0840": {
-    "message": "*$removeparam=utm_source,domain=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0841": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0842": {
-    "message": "Cleaned:\nhttps://example.com/?utm_source=x&id=1\n\nNot cleaned:\nhttps://other.test/?utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0843": {
-    "message": "*$removeparam=utm_source,to=example.com|~safe.example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0844": {
-    "message": "*$removeparam=utm_source,to=/\\.example\\.com$/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0845": {
-    "message": "*$removeparam=utm_source,denyallow=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0846": {
-    "message": "Remove utm_source generally, but do not apply this rule when the destination host matches example.com.\n",
-    "description": "Guide page text."
-  },
-  "guide_0847": {
-    "message": "~negation\nexample.*\n/regex/\n",
-    "description": "Guide page text."
-  },
-  "guide_0848": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0849": {
-    "message": "*$removeparam=utm_source,method=~POST\n",
-    "description": "Guide page text."
-  },
-  "guide_0850": {
-    "message": "*$removeparam=utm_source,method=GET|HEAD\n",
-    "description": "Guide page text."
-  },
-  "guide_0851": {
-    "message": "GET\nHEAD\nOPTIONS\nPOST\nPUT\nPATCH\nDELETE\nCONNECT\n",
-    "description": "Guide page text."
-  },
-  "guide_0852": {
-    "message": "Rules without method= apply only to GET, HEAD, and OPTIONS for the full matcher path.\nFast simple query cleanup also uses those simple methods.\n",
-    "description": "Guide page text."
-  },
-  "guide_0853": {
-    "message": "document\ndoc\nsubdocument\nframe\nscript\nstylesheet\nimage\nmedia\nfont\nobject\nxmlhttprequest\nxhr\nwebsocket\nping\nother\n",
-    "description": "Guide page text."
-  },
-  "guide_0854": {
-    "message": "*$removeparam=utm_source,script\n*$removeparam=utm_source,image\n*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0855": {
-    "message": "*$removeparam=utm_source,~image\n",
-    "description": "Guide page text."
-  },
-  "guide_0856": {
-    "message": "document       -> main_frame\ndoc            -> main_frame\nsubdocument    -> sub_frame\nframe          -> sub_frame\nxhr            -> xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0857": {
-    "message": "*$removeparam=utm_source,first-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0858": {
-    "message": "1p\n~third-party\n~3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0859": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0860": {
-    "message": "3p\n~first-party\n~1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0861": {
-    "message": "*$removeparam=utm_source,strict-first-party\n*$removeparam=utm_source,strict1p\n",
-    "description": "Guide page text."
-  },
-  "guide_0862": {
-    "message": "*$removeparam=utm_source,strict-third-party\n*$removeparam=utm_source,strict3p\n",
-    "description": "Guide page text."
-  },
-  "guide_0863": {
-    "message": "*$removeparam=utm_source,first-party,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0864": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0865": {
-    "message": "utm_source\nUTM_SOURCE\nUtm_Source\n",
-    "description": "Guide page text."
-  },
-  "guide_0866": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "guide_0867": {
-    "message": "utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0868": {
-    "message": "UTM_SOURCE\n",
-    "description": "Guide page text."
-  },
-  "guide_0869": {
-    "message": "*$removeparam=utm_source,app=com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0870": {
-    "message": "*$removeparam=utm_source,app=~com.example.browser\n",
-    "description": "Guide page text."
-  },
-  "guide_0871": {
-    "message": "*$removeparam=utm_source,app=com.example.*\n",
-    "description": "Guide page text."
-  },
-  "guide_0872": {
-    "message": "*$removeparam=utm_source,app=/example/i\n",
-    "description": "Guide page text."
-  },
-  "guide_0873": {
-    "message": "_\nnoop\nstealth\ncookie\n",
-    "description": "Guide page text."
-  },
-  "guide_0874": {
-    "message": "*$removeparam=utm_source,noop\n",
-    "description": "Guide page text."
-  },
-  "guide_0875": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0876": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0877": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0878": {
-    "message": "name=value\n",
-    "description": "Guide page text."
-  },
-  "guide_0879": {
-    "message": "URL:\nhttps://example.com/?utm_source=news&id=1\n\nRegex sees:\nutm_source=news\nid=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0880": {
-    "message": "*$removeparam=|utm_\n",
-    "description": "Guide page text."
-  },
-  "guide_0881": {
-    "message": "https://example.com/?utm_source=x&id=1\n-> https://example.com/?id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0882": {
-    "message": "https://example.com/#utm_source=x&id=1\n",
-    "description": "Guide page text."
-  },
-  "guide_0883": {
-    "message": "||example.com^$script\n",
-    "description": "Guide page text."
-  },
-  "guide_0884": {
-    "message": "No $removeparam or $queryprune.\n",
-    "description": "Guide page text."
-  },
-  "guide_0885": {
-    "message": "*$removeparam=utm_source,unknownmodifier\n",
-    "description": "Guide page text."
-  },
-  "guide_0886": {
-    "message": "Unsupported modifier.\n",
-    "description": "Guide page text."
-  },
-  "guide_0887": {
-    "message": "*$removeparam=utm_source\n*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0888": {
-    "message": "! Linkumori URL filter interoperability example\n\n*$removeparam=/^utm_/\n*$removeparam=fbclid\n*$removeparam=gclid\n\n||example.com^$removeparam=ref\n@@||example.com/login^$removeparam=ref\n\n*$removeparam=tracking_id,to=api.example.com,xmlhttprequest,method=GET\n\n||tracker.example^$removeparam=target,third-party\n||tracker.example^$removeparam=target,badfilter\n",
-    "description": "Guide page text."
-  },
-  "guide_0889": {
-    "message": "{\n  \"ClearURLsData\": {\n    \"providers\": {},\n    \"urlFilterRules\": [\n      \"*$removeparam=/^utm_/\",\n      \"*$removeparam=fbclid\",\n      \"||example.com^$removeparam=ref\",\n      \"@@||example.com/login^$removeparam=ref\"\n    ],\n    \"urlFilterMetadata\": {\n      \"name\": \"Linkumori URL Filter Rules\",\n      \"format\": \"linkumori-url-filter-interoperability\",\n      \"status\": \"loaded\",\n      \"ruleStatus\": \"loaded\",\n      \"hashStatus\": \"not_required\"\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0890": {
-    "message": "*$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0891": {
-    "message": "*$removeparam=/^utm_/\n",
-    "description": "Guide page text."
-  },
-  "guide_0892": {
-    "message": "*$removeparam=~id\n",
-    "description": "Guide page text."
-  },
-  "guide_0893": {
-    "message": "||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0894": {
-    "message": "@@||example.com^$removeparam=utm_source\n",
-    "description": "Guide page text."
-  },
-  "guide_0895": {
-    "message": "*$removeparam=utm_source,method=GET\n",
-    "description": "Guide page text."
-  },
-  "guide_0896": {
-    "message": "*$removeparam=utm_source,xmlhttprequest\n",
-    "description": "Guide page text."
-  },
-  "guide_0897": {
-    "message": "*$removeparam=utm_source,to=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0898": {
-    "message": "*$removeparam=utm_source,domain=example.com\n",
-    "description": "Guide page text."
-  },
-  "guide_0899": {
-    "message": "*$removeparam=utm_source,third-party\n",
-    "description": "Guide page text."
-  },
-  "guide_0900": {
-    "message": "*$removeparam=utm_source,match-case\n",
-    "description": "Guide page text."
-  },
-  "faq_final_runtime_clearurls_title": {
-    "message": "Syntaxe d'exécution clearurls.js dédiée",
-    "description": "FAQ label for the dedicated ClearURLs provider runtime syntax example"
-  },
-  "faq_final_runtime_interoperability_title": {
-    "message": "Interopérabilité Syntaxe d'exécution du filtre URL",
-    "description": "FAQ label for the interoperability runtime syntax example"
-  },
-  "faq_final_runtime_open_page": {
-    "message": "Référence de la syntaxe d'exécution ouverte",
-    "description": "FAQ link text that opens the dedicated runtime syntax page"
-  },
-  "faq_final_runtime_syntax": {
-    "message": "Quelle est la syntaxe d'exécution finale ?",
-    "description": "FAQ question for final supported runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_answer": {
-    "message": "Linkumori prend en charge deux formats d'exécution finaux. Utilisez d’abord la syntaxe du fournisseur clearurls.js dédiée pour le comportement des champs natifs, bruts, de redirection, de réécriture, d’exception et à l’échelle du fournisseur. Utilisez le format d'interopérabilité lors de l'importation de règles $removeparam de style filtre URL.",
-    "description": "FAQ answer explaining the two final runtime syntax formats"
-  },
-  "faq_final_runtime_syntax_note": {
-    "message": "Les deux formats peuvent être chargés ensemble, mais la syntaxe du fournisseur dédié est le format natif principal. Le format d'interopérabilité existe pour la compatibilité des listes de filtres.",
-    "description": "FAQ note for final runtime syntax formats"
-  },
   "providerImport_allProviders": {
     "message": "Tous les fournisseurs",
     "description": "Filter label for showing rule activations from every provider"
@@ -8529,60 +7121,52 @@
     "message": "Navigation dans les règles du fournisseur",
     "description": "Accessible label for provider filter navigation on the disabled rules page"
   },
-  "runtimeSyntax_clearURLsDescription": {
-    "message": "Il s'agit du runtime natif consommé par clearurls.js. Il doit être utilisé en premier pour les fournisseurs personnalisés, car il prend en charge les objets de règles canoniques, les règles de champ, les règles brutes URL, les redirections, les réécritures, les exceptions, les types de requêtes, les alias et les identités de désactivation à l'échelle du modèle.",
-    "description": "Runtime syntax page description for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_clearURLsTitle": {
-    "message": "Exécution clearurls.js dédiée",
-    "description": "Runtime syntax page section title for dedicated ClearURLs runtime syntax"
-  },
-  "runtimeSyntax_disableDescription": {
-    "message": "Les identités de portée de modèle sont stables malgré les changements de nom de fournisseur. Les identités au niveau du fournisseur restent disponibles pour un comportement de désactivation généralisé.",
-    "description": "Runtime syntax page description for disable identity examples"
-  },
-  "runtimeSyntax_disableTitle": {
-    "message": "Désactiver les formats d'identité",
-    "description": "Runtime syntax page section title for disable identity formats"
-  },
-  "runtimeSyntax_interoperabilityDescription": {
-    "message": "Ce runtime est destiné à l’interopérabilité des filtres URL. Il conserve les règles d'exception $removeparam et @@ de style liste de filtres dans un tableau de règles compact pour la compatibilité de l'importation et des listes distantes.",
-    "description": "Runtime syntax page description for interoperability runtime syntax"
-  },
-  "runtimeSyntax_interoperabilityTitle": {
-    "message": "Exécution des règles d'interopérabilité",
-    "description": "Runtime syntax page section title for interoperability runtime syntax"
-  },
-  "runtimeSyntax_intro": {
-    "message": "Le runtime natif du fournisseur clearurls.js est le format de première classe. Le runtime d'interopérabilité se trouve à côté pour les règles de liste de filtres qui doivent conserver leur forme $removeparam d'origine.",
-    "description": "Runtime syntax page intro text"
-  },
-  "runtimeSyntax_kicker": {
-    "message": "Référence d'exécution",
-    "description": "Runtime syntax page eyebrow text"
-  },
-  "runtimeSyntax_navClearURLs": {
-    "message": "Exécution dédiée",
-    "description": "Runtime syntax page navigation link for dedicated runtime section"
-  },
-  "runtimeSyntax_navDisableIds": {
-    "message": "Désactiver les identifiants",
-    "description": "Runtime syntax page navigation link for disable identity section"
-  },
-  "runtimeSyntax_navInteroperability": {
-    "message": "Runtime d'interopérabilité",
-    "description": "Runtime syntax page navigation link for interoperability section"
-  },
-  "runtimeSyntax_pageTitle": {
-    "message": "Syntaxe d'exécution finale",
-    "description": "Runtime syntax page title"
-  },
   "popup_html_guide_link": {
     "message": "Fournisseur JSON Guide",
     "description": "Popup license link label for the Linkumori provider JSON guide page"
   },
   "popup_html_guide_link_title": {
-    "message": "Fournisseur ouvert Linkumori JSON et guide d'interopérabilité",
-    "description": "Tooltip and aria label for the popup guide link in the license section"
+    "message": "Open Linkumori rules guide",
+    "description": "Tooltip and aria label for the popup guide link in the license section."
+  },
+  "faq_rules_guide_syntax": {
+    "message": "Which rule syntax should I use?",
+    "description": "FAQ question for the unified Linkumori rule syntax guide."
+  },
+  "faq_rules_guide_syntax_answer": {
+    "message": "Use the unified Linkumori provider JSON guide. clearurls.js consumes provider rules, canonical rule objects, and provider-local $removeparam filters through the same rule path.",
+    "description": "FAQ answer explaining the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_syntax_note": {
+    "message": "$removeparam filter-list lines belong inside provider rules[] or imported provider data. They are handled by the unified clearurls.js provider path.",
+    "description": "FAQ note for the unified Linkumori rule syntax."
+  },
+  "faq_rules_guide_open_page": {
+    "message": "Open rules guide",
+    "description": "FAQ link text that opens the unified rules guide."
+  },
+  "providerImport_failedToLoadSources": {
+    "message": "Failed to load provider sources: $1",
+    "description": "Error shown when provider import sources fail to load."
+  },
+  "providerImport_noBundledRules": {
+    "message": "Bundled rules are not available.",
+    "description": "Error shown when bundled rules are unavailable for provider import."
+  },
+  "providerImport_failedToLoadBundled": {
+    "message": "Failed to load bundled rules: $1",
+    "description": "Error shown when bundled rules fail to load for provider import."
+  },
+  "status_language_change_failed": {
+    "message": "Could not switch language to $1.",
+    "description": "Status text shown when changing the UI language fails."
+  },
+  "theme_light": {
+    "message": "Light theme",
+    "description": "Accessible label for switching to the light theme."
+  },
+  "theme_dark": {
+    "message": "Dark theme",
+    "description": "Accessible label for switching to the dark theme."
   }
 }

@@ -1,7 +1,7 @@
 
 /*
  * ============================================================
- * Linkumori — regression page
+ * Linkumori — rules guide page
  * ============================================================
  * Copyright (c) 2026 Subham Mahesh
  *
@@ -21,7 +21,7 @@
  *
  * DESCRIPTION
  * -----------
- * Added regression page.
+ * Added rules guide page.
  *
  * ============================================================
  * MODIFICATION HISTORY
