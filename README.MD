@@ -108,7 +108,7 @@ For the syntax Linkumori currently implements, see the [Current Rule Syntax guid
 - **Linkumori-ClearURLs dialect**: classic ClearURLs-style provider arrays saved as `syntax: "linkumori-clearurls-dialect"`
 - **ClearURLs dialect**: canonical object rules saved as `syntax: "clearurls-dialect"`
 - inline provider `$removeparam` rules
-- consolidated `ClearURLsData.urlFilterRules`
+- provider-local cleanup rules compiled into the unified ClearURLs runtime
 
 ---
 

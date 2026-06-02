@@ -1137,10 +1137,6 @@
     "message": "Välimuistissa oleva kaukosäädin + mukautetut säännöt (kaukosäädin epäonnistui)",
     "description": "Status when using cached remote rules with custom rules after remote failure"
   },
-  "hashStatus_cache_remote_custom_rules_no_hashurl": {
-    "message": "Välimuistissa oleva etä + mukautetut säännöt (ei hajautus-URL-osoitetta)",
-    "description": "Status when using cached remote rules with custom rules, hash URL missing"
-  },
   "hashStatus_cache_remote_rules_after_bundled_failure": {
     "message": "Välimuistissa olevat etäsäännöt (paketti epäonnistui)",
     "description": "Status when using cached remote rules after bundled rules failed"
@@ -1148,10 +1144,6 @@
   "hashStatus_cache_remote_rules_after_remote_failure": {
     "message": "Välimuistissa olevat etäsäännöt (etäkäyttö epäonnistui)",
     "description": "Status when using cached remote rules after current remote fetch failed"
-  },
-  "hashStatus_cache_remote_rules_no_hashurl": {
-    "message": "Välimuistissa olevat etäsäännöt (ei hash-URL-osoitetta)",
-    "description": "Status when using cached remote rules because hash URL is missing"
   },
   "hashStatus_cache_remote_built_in_merged": {
     "message": "Välimuistissa oleva kaukosäädin + sisäänrakennetut säännöt yhdistetty",
@@ -2465,8 +2457,8 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Ensisijainen hash URL vaaditaan vain, kun ensisijainen sääntö URL osoittaa Linkumori (ClearURLs 2.0) JSON sääntöihin.",
-    "description": "Validation message when only one of primary rule/hash URL is set."
+    "message": "Primary rule URL and primary hash URL must be configured together.",
+    "description": "Error shown when the primary remote rule/hash URL pair is incomplete."
   },
   "save_primary_rule_https_required": {
     "message": "Ensisijaisen säännön URL-osoitteen on käytettävä HTTPS:ää",
@@ -2569,8 +2561,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Vaaditaan ClearURLs JSON etäsäännöille. Jätä tyhjäksi suosituille laajennuksen URL seurantasuodatinluetteloille.",
-    "description": "Description for hash URL field explaining when it is required"
+    "message": "Required for remote Linkumori JSON rule verification.",
+    "description": "Description for hash URL field explaining that remote rules require a hash URL."
   },
   "setting_html_export_button": {
     "message": "Viedä",
@@ -2619,7 +2611,7 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Muut etälähteet yhdistettiin. Käytä numeroa <code>ruleURL | hashURL</code> numeroon ClearURLs JSON tai vain numeroa <code>ruleURL</code> suosittujen laajennusten URL seurantalistoihin.",
+    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>.",
     "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
@@ -2631,16 +2623,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Mukautettu kaukosäädin URL ClearURLs JSON säännöille tai suosittu laajennus URL seurantasuodattimet",
-    "description": "Description for the custom rule URL input field"
+    "message": "Custom remote URL for Linkumori JSON rules",
+    "description": "Description for the custom rule URL input field."
   },
   "setting_rule_url_label": {
-    "message": "Data.json-tiedoston URL-osoite (säännöt) tai .txt (suosittuille)",
-    "description": "This string is used as name for the rule url label."
+    "message": "The URL to the remote rules JSON file",
+    "description": "Label for the remote rule URL input field."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Huomautus: Hash URL on pakollinen vain ClearURLs JSON etäsäännöille. Suositun laajennuksen URL seurantaluettelot tallennetaan erikseen Linkumori URL -suodattimina.",
-    "description": "Note about when hash URL is mandatory"
+    "message": "Hash URL is required for every remote ruleset.",
+    "description": "Note explaining that every remote ruleset requires a hash URL."
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Pyyntötyypit</a> (asiantuntijataso)",
@@ -4118,137 +4110,9 @@
     "description": "Section header for native ClearURLs JSON rule metadata in settings",
     "message": "Linkumori (ClearURLs 2,0) JSON Sääntötiedot:"
   },
-  "linkumori_url_rules_count_label": {
-    "description": "Label for the number of Linkumori URL filter rules",
-    "message": "URL suodatussäännöt:"
-  },
-  "linkumori_url_sources_count_label": {
-    "description": "Label for the number of Linkumori URL filter sources",
-    "message": "URL suodatinlähteet:"
-  },
-  "linkumori_url_rule_status_label": {
-    "description": "Label for Linkumori URL filter load status",
-    "message": "Säännön tila:"
-  },
-  "linkumori_url_hash_status_label": {
-    "description": "Label for Linkumori URL filter hash status",
-    "message": "Hash-tila:"
-  },
-  "settings_remote_health_linkumori_url_status_label": {
-    "description": "Status label for hashless popular extension Linkumori URL filters",
-    "message": "Linkumori URL suodattimen tila:"
-  },
-  "linkumori_url_status_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Ladattu"
-  },
-  "linkumori_url_status_partially_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Osittain ladattu"
-  },
-  "linkumori_url_status_all_sources_failed": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Kaikki lähteet epäonnistuivat"
-  },
-  "linkumori_url_status_no_sources": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Hajattomia URL-suodatinlähteitä ei ole määritetty"
-  },
-  "linkumori_url_status_remote_disabled": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Etäsäännöt pois käytöstä"
-  },
-  "linkumori_url_status_not_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Ei ladattu"
-  },
-  "linkumori_url_status_empty": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Tyhjä"
-  },
-  "linkumori_url_hash_not_required": {
-    "description": "Hash status for popular extension URL filter lists",
-    "message": "ei vaadita"
-  },
-  "linkumoriUrlRules_button": {
-    "description": "Button that opens the custom Linkumori URL filter modal.",
-    "message": "Linkumori URL Säännöt"
-  },
-  "linkumoriUrlRules_modalTitle": {
-    "description": "Title for the custom Linkumori URL rules modal.",
-    "message": "Linkumori Mukautetut URL säännöt"
-  },
-  "linkumoriUrlRules_modalDescription": {
-    "description": "Description for the custom Linkumori URL rules modal.",
-    "message": "Lisää suosittu laajennus $removeparam tai $queryprune säännöt tähän. Nämä säännöt tallennetaan erillään ClearURLs mukautetuista palveluntarjoajista ja yhdistetään Linkumori URL -suodattimiin."
-  },
-  "linkumoriUrlRules_textareaPlaceholder": {
-    "description": "Placeholder for custom Linkumori URL filter rules.",
-    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
-  },
-  "linkumoriUrlRules_validate": {
-    "description": "Button label for validating custom Linkumori URL rules.",
-    "message": "Vahvista"
-  },
-  "linkumoriUrlRules_validationEmpty": {
-    "description": "Validation message for an empty Linkumori URL rules editor.",
-    "message": "Mukautettuja Linkumori URL -sääntöjä ei ole määritetty."
-  },
-  "linkumoriUrlRules_validationSuccess": {
-    "description": "Validation success summary for Linkumori URL rules.",
-    "message": "$1 tuetut sääntö(t), $2 ei-tuettu ohitettu, $3 kaksoiskappale ohitettu."
-  },
-  "linkumoriUrlRules_validationFailed": {
-    "description": "Validation failure prefix for Linkumori URL rules.",
-    "message": "Vahvistus epäonnistui"
-  },
-  "linkumoriUrlRules_saveSuccess": {
-    "description": "Success message after saving Linkumori URL custom rules.",
-    "message": "Tallennetut ja ladatut Linkumori URL säännöt."
-  },
-  "linkumoriUrlRules_saveFailed": {
-    "description": "Failure message after saving Linkumori URL custom rules.",
-    "message": "Tallennus epäonnistui"
-  },
-  "linkumoriUrlRules_previewEmpty": {
-    "description": "Empty preview message for Linkumori URL custom rules.",
-    "message": "Tuetut säännöt näkyvät täällä vahvistuksen jälkeen."
-  },
-  "linkumoriUrlRules_parserUnavailable": {
-    "description": "Error shown when the popular extension URL filter parser script is missing.",
-    "message": "Linkumori URL suodattimen jäsentin ei ole saatavilla."
-  },
   "linkumoriClearUrlsStatusGroup": {
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2,0)"
-  },
-  "linkumoriUrlRules_statusLabel": {
-    "description": "Status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Tila"
-  },
-  "linkumoriUrlRules_customRulesLabel": {
-    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
-    "message": "Mukautetut säännöt"
-  },
-  "linkumoriUrlRules_hashStatusLabel": {
-    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Hash"
-  },
-  "linkumoriUrlRules_close_aria": {
-    "description": "Accessible label for closing the Linkumori URL rules modal.",
-    "message": "Sulje Linkumori mukautetut URL säännöt"
-  },
-  "faq_linkumori_url_rules": {
-    "description": "FAQ question for Linkumori URL custom rules.",
-    "message": "Mitkä ovat numeron Linkumori URL säännöt?"
-  },
-  "faq_linkumori_url_rules_answer": {
-    "description": "FAQ answer explaining Linkumori URL custom rules.",
-    "message": "Linkumori URL säännöt ovat suosittuja laajennusseuranta URL suodatinrivit keskittyvät $removeparam. Ne ovat hyödyllisiä, kun haluat liittää suodatinluettelon syntaksin suoraan sen sijaan, että luot 98767500 palveluntarjoajan. JSON."
-  },
-  "faq_linkumori_url_rules_note": {
-    "description": "FAQ note for Linkumori URL custom rules.",
-    "message": "Etä suosittu laajennus URL suodattimet ja nämä mukautetut säännöt eivät tarvitse hajautusvarmennusta. Ne tallennetaan jäsennyksen jälkeen kansioon LinkumoriURLsData, erillään numerosta ClearURLsData."
   },
   "popup_whitelist_state_permanent": {
     "message": "Sallittujen luetteloon: $1 — napsauta uudelleen, jos haluat vain välilehden",

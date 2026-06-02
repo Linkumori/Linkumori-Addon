@@ -1137,10 +1137,6 @@
     "message": "Talpykloje išsaugotas nuotolinio valdymo pultas + tinkintos taisyklės (nuotolinio valdymo pultas nepavyko)",
     "description": "Status when using cached remote rules with custom rules after remote failure"
   },
-  "hashStatus_cache_remote_custom_rules_no_hashurl": {
-    "message": "Talpykloje saugomas nuotolinis + tinkintos taisyklės (be maišos URL)",
-    "description": "Status when using cached remote rules with custom rules, hash URL missing"
-  },
   "hashStatus_cache_remote_rules_after_bundled_failure": {
     "message": "Talpykloje saugomos nuotolinės taisyklės (sujungti nepavyko)",
     "description": "Status when using cached remote rules after bundled rules failed"
@@ -1148,10 +1144,6 @@
   "hashStatus_cache_remote_rules_after_remote_failure": {
     "message": "Talpykloje saugomos nuotolinės taisyklės (nuotolinis nepavyko)",
     "description": "Status when using cached remote rules after current remote fetch failed"
-  },
-  "hashStatus_cache_remote_rules_no_hashurl": {
-    "message": "Talpykloje saugomos nuotolinės taisyklės (be maišos URL)",
-    "description": "Status when using cached remote rules because hash URL is missing"
   },
   "hashStatus_cache_remote_built_in_merged": {
     "message": "Talpyklos nuotolinio valdymo pultas + integruotos taisyklės sujungtos",
@@ -2465,8 +2457,8 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Pirminė maiša URL reikalinga tik tada, kai pagrindinė taisyklė URL nurodo Linkumori (ClearURLs 2.0) JSON taisykles.",
-    "description": "Validation message when only one of primary rule/hash URL is set."
+    "message": "Primary rule URL and primary hash URL must be configured together.",
+    "description": "Error shown when the primary remote rule/hash URL pair is incomplete."
   },
   "save_primary_rule_https_required": {
     "message": "Pirminės taisyklės URL turi naudoti HTTPS",
@@ -2569,8 +2561,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Reikalingas ClearURLs JSON nuotolinėms taisyklėms. Populiaraus plėtinio URL stebėjimo filtrų sąrašams palikite tuščią.",
-    "description": "Description for hash URL field explaining when it is required"
+    "message": "Required for remote Linkumori JSON rule verification.",
+    "description": "Description for hash URL field explaining that remote rules require a hash URL."
   },
   "setting_html_export_button": {
     "message": "Eksportuoti",
@@ -2619,7 +2611,7 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Papildomi nuotoliniai šaltiniai sujungti. Naudokite <code>ruleURL | hashURL</code> ClearURLs JSON arba tik <code>ruleURL</code> populiarių plėtinių URL stebėjimo sąrašams.",
+    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>.",
     "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
@@ -2631,16 +2623,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Pasirinktinis nuotolinio valdymo pultas URL, skirtas ClearURLs JSON taisyklėms arba populiariam plėtiniui URL stebėjimo filtrai",
-    "description": "Description for the custom rule URL input field"
+    "message": "Custom remote URL for Linkumori JSON rules",
+    "description": "Description for the custom rule URL input field."
   },
   "setting_rule_url_label": {
-    "message": "Data.json failo URL (taisyklės) arba .txt (populiariems)",
-    "description": "This string is used as name for the rule url label."
+    "message": "The URL to the remote rules JSON file",
+    "description": "Label for the remote rule URL input field."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Pastaba: maišos kodas URL yra privalomas tik nuotolinėms taisyklėms ClearURLs JSON. Populiaraus plėtinio URL stebėjimo sąrašai saugomi atskirai kaip Linkumori URL filtrai.",
-    "description": "Note about when hash URL is mandatory"
+    "message": "Hash URL is required for every remote ruleset.",
+    "description": "Note explaining that every remote ruleset requires a hash URL."
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Užklausų tipai</a> (eksperto lygis)",
@@ -4118,137 +4110,9 @@
     "description": "Section header for native ClearURLs JSON rule metadata in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON Informacija apie taisykles:"
   },
-  "linkumori_url_rules_count_label": {
-    "description": "Label for the number of Linkumori URL filter rules",
-    "message": "URL filtro taisyklės:"
-  },
-  "linkumori_url_sources_count_label": {
-    "description": "Label for the number of Linkumori URL filter sources",
-    "message": "URL filtrų šaltiniai:"
-  },
-  "linkumori_url_rule_status_label": {
-    "description": "Label for Linkumori URL filter load status",
-    "message": "Taisyklės būsena:"
-  },
-  "linkumori_url_hash_status_label": {
-    "description": "Label for Linkumori URL filter hash status",
-    "message": "Maišos būsena:"
-  },
-  "settings_remote_health_linkumori_url_status_label": {
-    "description": "Status label for hashless popular extension Linkumori URL filters",
-    "message": "Linkumori URL filtro būsena:"
-  },
-  "linkumori_url_status_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Pakrauta"
-  },
-  "linkumori_url_status_partially_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Dalinai pakrautas"
-  },
-  "linkumori_url_status_all_sources_failed": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Visi šaltiniai nepavyko"
-  },
-  "linkumori_url_status_no_sources": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Nesukonfigūruota jokių maišos URL filtrų šaltinių"
-  },
-  "linkumori_url_status_remote_disabled": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Nuotolinės taisyklės išjungtos"
-  },
-  "linkumori_url_status_not_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Neįkeltas"
-  },
-  "linkumori_url_status_empty": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Tuščias"
-  },
-  "linkumori_url_hash_not_required": {
-    "description": "Hash status for popular extension URL filter lists",
-    "message": "neprivaloma"
-  },
-  "linkumoriUrlRules_button": {
-    "description": "Button that opens the custom Linkumori URL filter modal.",
-    "message": "Linkumori URL Taisyklės"
-  },
-  "linkumoriUrlRules_modalTitle": {
-    "description": "Title for the custom Linkumori URL rules modal.",
-    "message": "Linkumori Custom URL taisyklės"
-  },
-  "linkumoriUrlRules_modalDescription": {
-    "description": "Description for the custom Linkumori URL rules modal.",
-    "message": "Čia pridėkite populiarių plėtinių $removeparam arba $queryprune taisykles. Šios taisyklės saugomos atskirai nuo ClearURLs tinkintų paslaugų teikėjų ir sujungiamos į Linkumori URL filtrus."
-  },
-  "linkumoriUrlRules_textareaPlaceholder": {
-    "description": "Placeholder for custom Linkumori URL filter rules.",
-    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
-  },
-  "linkumoriUrlRules_validate": {
-    "description": "Button label for validating custom Linkumori URL rules.",
-    "message": "Patvirtinti"
-  },
-  "linkumoriUrlRules_validationEmpty": {
-    "description": "Validation message for an empty Linkumori URL rules editor.",
-    "message": "Nekonfigūruota jokių tinkintų Linkumori URL taisyklių."
-  },
-  "linkumoriUrlRules_validationSuccess": {
-    "description": "Validation success summary for Linkumori URL rules.",
-    "message": "$1 palaikoma (-os) taisyklė (-ės), $2 nepalaikoma praleista, $3 dublikatas praleistas."
-  },
-  "linkumoriUrlRules_validationFailed": {
-    "description": "Validation failure prefix for Linkumori URL rules.",
-    "message": "Patvirtinti nepavyko"
-  },
-  "linkumoriUrlRules_saveSuccess": {
-    "description": "Success message after saving Linkumori URL custom rules.",
-    "message": "Išsaugotas ir perkrautas Linkumori URL taisyklės."
-  },
-  "linkumoriUrlRules_saveFailed": {
-    "description": "Failure message after saving Linkumori URL custom rules.",
-    "message": "Išsaugoti nepavyko"
-  },
-  "linkumoriUrlRules_previewEmpty": {
-    "description": "Empty preview message for Linkumori URL custom rules.",
-    "message": "Po patvirtinimo čia bus rodomos palaikomos taisyklės."
-  },
-  "linkumoriUrlRules_parserUnavailable": {
-    "description": "Error shown when the popular extension URL filter parser script is missing.",
-    "message": "Linkumori URL filtro analizatorius nepasiekiamas."
-  },
   "linkumoriClearUrlsStatusGroup": {
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2,0)"
-  },
-  "linkumoriUrlRules_statusLabel": {
-    "description": "Status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Būsena"
-  },
-  "linkumoriUrlRules_customRulesLabel": {
-    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
-    "message": "Individualizuotos taisyklės"
-  },
-  "linkumoriUrlRules_hashStatusLabel": {
-    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Maiša"
-  },
-  "linkumoriUrlRules_close_aria": {
-    "description": "Accessible label for closing the Linkumori URL rules modal.",
-    "message": "Uždaryti Linkumori tinkintas URL taisykles"
-  },
-  "faq_linkumori_url_rules": {
-    "description": "FAQ question for Linkumori URL custom rules.",
-    "message": "Kokios yra Linkumori URL taisyklės?"
-  },
-  "faq_linkumori_url_rules_answer": {
-    "description": "FAQ answer explaining Linkumori URL custom rules.",
-    "message": "Linkumori URL taisyklės yra populiarios plėtinio stebėjimo URL filtro eilutės, orientuotos į $removeparam. Jos naudingos, kai norite tiesiogiai įklijuoti filtrų sąrašo sintaksę, o ne sukurti 98765009 teikėją JSON."
-  },
-  "faq_linkumori_url_rules_note": {
-    "description": "FAQ note for Linkumori URL custom rules.",
-    "message": "Nuotolinis populiarus plėtinys URL filtrai ir šios tinkintos taisyklės nereikia tikrinti maišos. Išnagrinėjus jie saugomi LinkumoriURLsData, atskirai nuo ClearURLsData."
   },
   "popup_whitelist_state_permanent": {
     "message": "Į baltąjį sąrašą: $1 – spustelėkite dar kartą, kad būtų rodomas tik skirtukas",

@@ -1137,10 +1137,6 @@
     "message": "Αποθηκευμένο απομακρυσμένο + προσαρμοσμένοι κανόνες (το απομακρυσμένο απέτυχε)",
     "description": "Status when using cached remote rules with custom rules after remote failure"
   },
-  "hashStatus_cache_remote_custom_rules_no_hashurl": {
-    "message": "Αποθηκευμένο στην κρυφή μνήμη + προσαρμοσμένοι κανόνες (χωρίς κατακερματισμένη διεύθυνση URL)",
-    "description": "Status when using cached remote rules with custom rules, hash URL missing"
-  },
   "hashStatus_cache_remote_rules_after_bundled_failure": {
     "message": "Αποθηκευμένοι απομακρυσμένοι κανόνες στην κρυφή μνήμη (η δέσμη απέτυχε)",
     "description": "Status when using cached remote rules after bundled rules failed"
@@ -1148,10 +1144,6 @@
   "hashStatus_cache_remote_rules_after_remote_failure": {
     "message": "Αποθηκευμένοι απομακρυσμένοι κανόνες (το απομακρυσμένο απέτυχε)",
     "description": "Status when using cached remote rules after current remote fetch failed"
-  },
-  "hashStatus_cache_remote_rules_no_hashurl": {
-    "message": "Αποθηκευμένοι απομακρυσμένοι κανόνες (χωρίς hash URL)",
-    "description": "Status when using cached remote rules because hash URL is missing"
   },
   "hashStatus_cache_remote_built_in_merged": {
     "message": "Το απομακρυσμένο αποθηκευμένο στην κρυφή μνήμη + οι ενσωματωμένοι κανόνες συγχωνεύτηκαν",
@@ -2465,8 +2457,8 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "Ο κύριος κατακερματισμός URL απαιτείται μόνο όταν ο πρωτεύων κανόνας URL δείχνει τον κανόνα Linkumori (ClearURLs 2.0) JSON.",
-    "description": "Validation message when only one of primary rule/hash URL is set."
+    "message": "Primary rule URL and primary hash URL must be configured together.",
+    "description": "Error shown when the primary remote rule/hash URL pair is incomplete."
   },
   "save_primary_rule_https_required": {
     "message": "Η διεύθυνση URL του κύριου κανόνα πρέπει να χρησιμοποιεί HTTPS",
@@ -2569,8 +2561,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "Απαιτείται για ClearURLs JSON απομακρυσμένους κανόνες. Αφήστε κενό για τις δημοφιλείς λίστες φίλτρων παρακολούθησης της επέκτασης URL.",
-    "description": "Description for hash URL field explaining when it is required"
+    "message": "Required for remote Linkumori JSON rule verification.",
+    "description": "Description for hash URL field explaining that remote rules require a hash URL."
   },
   "setting_html_export_button": {
     "message": "Εξαγωγή",
@@ -2619,7 +2611,7 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "Πρόσθετες απομακρυσμένες πηγές συγχωνεύτηκαν μαζί. Χρησιμοποιήστε <code>ruleURL | hashURL</code> για ClearURLs JSON ή μόνο <code>ruleURL</code> για δημοφιλείς λίστες παρακολούθησης επέκτασης URL.",
+    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>.",
     "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
@@ -2631,16 +2623,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Προσαρμοσμένο τηλεχειριστήριο URL για κανόνες ClearURLs JSON ή δημοφιλή φίλτρα παρακολούθησης επέκτασης URL",
-    "description": "Description for the custom rule URL input field"
+    "message": "Custom remote URL for Linkumori JSON rules",
+    "description": "Description for the custom rule URL input field."
   },
   "setting_rule_url_label": {
-    "message": "Το url στο αρχείο data.json (κανόνες) ή .txt (για δημοφιλή)",
-    "description": "This string is used as name for the rule url label."
+    "message": "The URL to the remote rules JSON file",
+    "description": "Label for the remote rule URL input field."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Σημείωση: Το Hash URL είναι υποχρεωτικό μόνο για ClearURLs JSON απομακρυσμένους κανόνες. Οι δημοφιλείς λίστες παρακολούθησης επέκτασης URL αποθηκεύονται ξεχωριστά ως φίλτρα Linkumori URL.",
-    "description": "Note about when hash URL is mandatory"
+    "message": "Hash URL is required for every remote ruleset.",
+    "description": "Note explaining that every remote ruleset requires a hash URL."
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Τύποι αιτημάτων</a> (επίπεδο ειδικού)",
@@ -4118,137 +4110,9 @@
     "description": "Section header for native ClearURLs JSON rule metadata in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON Πληροφορίες κανόνων:"
   },
-  "linkumori_url_rules_count_label": {
-    "description": "Label for the number of Linkumori URL filter rules",
-    "message": "Κανόνες φίλτρου URL:"
-  },
-  "linkumori_url_sources_count_label": {
-    "description": "Label for the number of Linkumori URL filter sources",
-    "message": "URL πηγές φιλτραρίσματος:"
-  },
-  "linkumori_url_rule_status_label": {
-    "description": "Label for Linkumori URL filter load status",
-    "message": "Κατάσταση κανόνα:"
-  },
-  "linkumori_url_hash_status_label": {
-    "description": "Label for Linkumori URL filter hash status",
-    "message": "Κατάσταση κατακερματισμού:"
-  },
-  "settings_remote_health_linkumori_url_status_label": {
-    "description": "Status label for hashless popular extension Linkumori URL filters",
-    "message": "Linkumori URL κατάσταση φίλτρου:"
-  },
-  "linkumori_url_status_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Φορτωμένος"
-  },
-  "linkumori_url_status_partially_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Μερικώς φορτωμένο"
-  },
-  "linkumori_url_status_all_sources_failed": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Όλες οι πηγές απέτυχαν"
-  },
-  "linkumori_url_status_no_sources": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Δεν έχουν διαμορφωθεί πηγές φίλτρου χωρίς κατακερματισμό URL"
-  },
-  "linkumori_url_status_remote_disabled": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Οι απομακρυσμένοι κανόνες είναι απενεργοποιημένοι"
-  },
-  "linkumori_url_status_not_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Δεν έχει φορτωθεί"
-  },
-  "linkumori_url_status_empty": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Αδειάζω"
-  },
-  "linkumori_url_hash_not_required": {
-    "description": "Hash status for popular extension URL filter lists",
-    "message": "δεν απαιτείται"
-  },
-  "linkumoriUrlRules_button": {
-    "description": "Button that opens the custom Linkumori URL filter modal.",
-    "message": "Linkumori URL Κανόνες"
-  },
-  "linkumoriUrlRules_modalTitle": {
-    "description": "Title for the custom Linkumori URL rules modal.",
-    "message": "Linkumori Προσαρμοσμένοι URL Κανόνες"
-  },
-  "linkumoriUrlRules_modalDescription": {
-    "description": "Description for the custom Linkumori URL rules modal.",
-    "message": "Προσθέστε τους δημοφιλείς κανόνες επέκτασης $removeparam ή $queryprune εδώ. Αυτοί οι κανόνες αποθηκεύονται χωριστά από ClearURLs προσαρμοσμένους παρόχους και συγχωνεύονται σε φίλτρα Linkumori URL."
-  },
-  "linkumoriUrlRules_textareaPlaceholder": {
-    "description": "Placeholder for custom Linkumori URL filter rules.",
-    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
-  },
-  "linkumoriUrlRules_validate": {
-    "description": "Button label for validating custom Linkumori URL rules.",
-    "message": "Επικυρώνω"
-  },
-  "linkumoriUrlRules_validationEmpty": {
-    "description": "Validation message for an empty Linkumori URL rules editor.",
-    "message": "Δεν έχουν διαμορφωθεί προσαρμοσμένοι κανόνες Linkumori URL."
-  },
-  "linkumoriUrlRules_validationSuccess": {
-    "description": "Validation success summary for Linkumori URL rules.",
-    "message": "$1 υποστηριζόμενοι κανόνες, $2 μη υποστηριζόμενοι παράβλεψη, $3 παράβλεψη διπλότυπου."
-  },
-  "linkumoriUrlRules_validationFailed": {
-    "description": "Validation failure prefix for Linkumori URL rules.",
-    "message": "Η επικύρωση απέτυχε"
-  },
-  "linkumoriUrlRules_saveSuccess": {
-    "description": "Success message after saving Linkumori URL custom rules.",
-    "message": "Αποθηκεύτηκαν και φορτώθηκαν ξανά Linkumori URL κανόνες."
-  },
-  "linkumoriUrlRules_saveFailed": {
-    "description": "Failure message after saving Linkumori URL custom rules.",
-    "message": "Η αποθήκευση απέτυχε"
-  },
-  "linkumoriUrlRules_previewEmpty": {
-    "description": "Empty preview message for Linkumori URL custom rules.",
-    "message": "Οι υποστηριζόμενοι κανόνες θα εμφανιστούν εδώ μετά την επικύρωση."
-  },
-  "linkumoriUrlRules_parserUnavailable": {
-    "description": "Error shown when the popular extension URL filter parser script is missing.",
-    "message": "Ο αναλυτής φίλτρου Linkumori URL δεν είναι διαθέσιμος."
-  },
   "linkumoriClearUrlsStatusGroup": {
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
-  },
-  "linkumoriUrlRules_statusLabel": {
-    "description": "Status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Κατάσταση"
-  },
-  "linkumoriUrlRules_customRulesLabel": {
-    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
-    "message": "Προσαρμοσμένοι Κανόνες"
-  },
-  "linkumoriUrlRules_hashStatusLabel": {
-    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Κατακερματισμός"
-  },
-  "linkumoriUrlRules_close_aria": {
-    "description": "Accessible label for closing the Linkumori URL rules modal.",
-    "message": "Κλείσιμο Linkumori προσαρμοσμένοι κανόνες URL"
-  },
-  "faq_linkumori_url_rules": {
-    "description": "FAQ question for Linkumori URL custom rules.",
-    "message": "Ποιοι είναι οι κανόνες Linkumori URL;"
-  },
-  "faq_linkumori_url_rules_answer": {
-    "description": "FAQ answer explaining Linkumori URL custom rules.",
-    "message": "Linkumori URL οι κανόνες είναι δημοφιλείς επεκτάσεις παρακολούθησης URL γραμμές φίλτρου εστιασμένες σε $removeparam. Είναι χρήσιμοι όταν θέλετε να επικολλήσετε απευθείας σύνταξη λίστας φίλτρων αντί να δημιουργήσετε 987678500 JSON."
-  },
-  "faq_linkumori_url_rules_note": {
-    "description": "FAQ note for Linkumori URL custom rules.",
-    "message": "Η απομακρυσμένη δημοφιλής επέκταση URL φίλτρα και αυτοί οι προσαρμοσμένοι κανόνες δεν χρειάζονται επαλήθευση κατακερματισμού. Αποθηκεύονται στο LinkumoriURLsData μετά την ανάλυση, ξεχωριστά από το ClearURLsData."
   },
   "popup_whitelist_state_permanent": {
     "message": "Στη λίστα επιτρεπόμενων: ​​$1 — κάντε ξανά κλικ για μόνο καρτέλες",

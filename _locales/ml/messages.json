@@ -1137,10 +1137,6 @@
     "message": "കാഷെ ചെയ്‌ത റിമോട്ട് + ഇഷ്‌ടാനുസൃത നിയമങ്ങൾ (റിമോട്ട് പരാജയപ്പെട്ടു)",
     "description": "Status when using cached remote rules with custom rules after remote failure"
   },
-  "hashStatus_cache_remote_custom_rules_no_hashurl": {
-    "message": "കാഷെ ചെയ്‌ത റിമോട്ട് + ഇഷ്‌ടാനുസൃത നിയമങ്ങൾ (ഹാഷ് URL ഇല്ല)",
-    "description": "Status when using cached remote rules with custom rules, hash URL missing"
-  },
   "hashStatus_cache_remote_rules_after_bundled_failure": {
     "message": "കാഷെ ചെയ്‌ത വിദൂര നിയമങ്ങൾ (ബണ്ടിൽ ചെയ്‌തത് പരാജയപ്പെട്ടു)",
     "description": "Status when using cached remote rules after bundled rules failed"
@@ -1148,10 +1144,6 @@
   "hashStatus_cache_remote_rules_after_remote_failure": {
     "message": "കാഷെ ചെയ്‌ത വിദൂര നിയമങ്ങൾ (റിമോട്ട് പരാജയപ്പെട്ടു)",
     "description": "Status when using cached remote rules after current remote fetch failed"
-  },
-  "hashStatus_cache_remote_rules_no_hashurl": {
-    "message": "കാഷെ ചെയ്‌ത വിദൂര നിയമങ്ങൾ (ഹാഷ് URL ഇല്ല)",
-    "description": "Status when using cached remote rules because hash URL is missing"
   },
   "hashStatus_cache_remote_built_in_merged": {
     "message": "കാഷെ ചെയ്‌ത റിമോട്ട് + ബിൽറ്റ്-ഇൻ നിയമങ്ങൾ ലയിപ്പിച്ചു",
@@ -2465,8 +2457,8 @@
     "description": "Validation message when primary hash URL is not HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "URL എന്ന പ്രാഥമിക നിയമം Linkumori (ClearURLs 2.0) JSON എന്ന നമ്പരിലേക്ക് പോകുമ്പോൾ മാത്രം പ്രൈമറി ഹാഷ് URL ആവശ്യമാണ്.",
-    "description": "Validation message when only one of primary rule/hash URL is set."
+    "message": "Primary rule URL and primary hash URL must be configured together.",
+    "description": "Error shown when the primary remote rule/hash URL pair is incomplete."
   },
   "save_primary_rule_https_required": {
     "message": "പ്രാഥമിക നിയമ URL നിർബന്ധമായും HTTPS ഉപയോഗിക്കണം",
@@ -2569,8 +2561,8 @@
     "description": "This string is used as name for the rule.hash url label."
   },
   "setting_hash_url_mandatory": {
-    "message": "ClearURLs JSON വിദൂര നിയമങ്ങൾക്ക് ആവശ്യമാണ്. ജനപ്രിയ വിപുലീകരണ URL ട്രാക്കിംഗ് ഫിൽട്ടർ ലിസ്റ്റുകൾക്കായി ശൂന്യമായി വിടുക.",
-    "description": "Description for hash URL field explaining when it is required"
+    "message": "Required for remote Linkumori JSON rule verification.",
+    "description": "Description for hash URL field explaining that remote rules require a hash URL."
   },
   "setting_html_export_button": {
     "message": "കയറ്റുമതി",
@@ -2619,7 +2611,7 @@
     "description": "Label for the log limit input field."
   },
   "setting_remote_rule_sets_description": {
-    "message": "അധിക വിദൂര ഉറവിടങ്ങൾ ഒരുമിച്ച് ലയിപ്പിച്ചു. 98765000256789 JSON എന്നതിനായി <code>ruleURL | hashURL</code> ഉപയോഗിക്കുക, അല്ലെങ്കിൽ ജനപ്രിയ വിപുലീകരണ URL ട്രാക്കിംഗ് ലിസ്റ്റുകൾക്ക് <code>ruleURL</code> ഉപയോഗിക്കുക.",
+    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>.",
     "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
@@ -2631,16 +2623,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "ഇഷ്‌ടാനുസൃത റിമോട്ട് 98765000256789 ClearURLs JSON നിയമങ്ങൾ അല്ലെങ്കിൽ ജനപ്രിയ വിപുലീകരണം URL ട്രാക്കിംഗ് ഫിൽട്ടറുകൾ",
-    "description": "Description for the custom rule URL input field"
+    "message": "Custom remote URL for Linkumori JSON rules",
+    "description": "Description for the custom rule URL input field."
   },
   "setting_rule_url_label": {
-    "message": "data.json ഫയലിലേക്കുള്ള url (നിയമങ്ങൾ) അല്ലെങ്കിൽ .txt (ജനപ്രിയത്തിന്)",
-    "description": "This string is used as name for the rule url label."
+    "message": "The URL to the remote rules JSON file",
+    "description": "Label for the remote rule URL input field."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "ശ്രദ്ധിക്കുക: ClearURLs JSON വിദൂര നിയമങ്ങൾക്ക് മാത്രം ഹാഷ് URL നിർബന്ധമാണ്. ജനപ്രിയ വിപുലീകരണ URL ട്രാക്കിംഗ് ലിസ്റ്റുകൾ Linkumori URL ഫിൽട്ടറുകളായി പ്രത്യേകം സംഭരിച്ചിരിക്കുന്നു.",
-    "description": "Note about when hash URL is mandatory"
+    "message": "Hash URL is required for every remote ruleset.",
+    "description": "Note explaining that every remote ruleset requires a hash URL."
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>അഭ്യർത്ഥന തരങ്ങൾ</a> (വിദഗ്ധ തലം)",
@@ -4118,137 +4110,9 @@
     "description": "Section header for native ClearURLs JSON rule metadata in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON നിയമങ്ങളുടെ വിവരങ്ങൾ:"
   },
-  "linkumori_url_rules_count_label": {
-    "description": "Label for the number of Linkumori URL filter rules",
-    "message": "URL ഫിൽട്ടർ നിയമങ്ങൾ:"
-  },
-  "linkumori_url_sources_count_label": {
-    "description": "Label for the number of Linkumori URL filter sources",
-    "message": "URL ഫിൽട്ടർ ഉറവിടങ്ങൾ:"
-  },
-  "linkumori_url_rule_status_label": {
-    "description": "Label for Linkumori URL filter load status",
-    "message": "നിയമ നില:"
-  },
-  "linkumori_url_hash_status_label": {
-    "description": "Label for Linkumori URL filter hash status",
-    "message": "ഹാഷ് നില:"
-  },
-  "settings_remote_health_linkumori_url_status_label": {
-    "description": "Status label for hashless popular extension Linkumori URL filters",
-    "message": "Linkumori URL ഫിൽട്ടർ നില:"
-  },
-  "linkumori_url_status_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "ലോഡ് ചെയ്തു"
-  },
-  "linkumori_url_status_partially_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "ഭാഗികമായി ലോഡ് ചെയ്തു"
-  },
-  "linkumori_url_status_all_sources_failed": {
-    "description": "Linkumori URL filter rule status",
-    "message": "എല്ലാ ഉറവിടങ്ങളും പരാജയപ്പെട്ടു"
-  },
-  "linkumori_url_status_no_sources": {
-    "description": "Linkumori URL filter rule status",
-    "message": "ഹാഷ്‌ലെസ്സ് URL ഫിൽട്ടർ ഉറവിടങ്ങൾ ക്രമീകരിച്ചിട്ടില്ല"
-  },
-  "linkumori_url_status_remote_disabled": {
-    "description": "Linkumori URL filter rule status",
-    "message": "വിദൂര നിയമങ്ങൾ പ്രവർത്തനരഹിതമാക്കി"
-  },
-  "linkumori_url_status_not_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "ലോഡ് ചെയ്തിട്ടില്ല"
-  },
-  "linkumori_url_status_empty": {
-    "description": "Linkumori URL filter rule status",
-    "message": "ശൂന്യം"
-  },
-  "linkumori_url_hash_not_required": {
-    "description": "Hash status for popular extension URL filter lists",
-    "message": "ആവശ്യമില്ല"
-  },
-  "linkumoriUrlRules_button": {
-    "description": "Button that opens the custom Linkumori URL filter modal.",
-    "message": "Linkumori URL നിയമങ്ങൾ"
-  },
-  "linkumoriUrlRules_modalTitle": {
-    "description": "Title for the custom Linkumori URL rules modal.",
-    "message": "Linkumori കസ്റ്റം URL നിയമങ്ങൾ"
-  },
-  "linkumoriUrlRules_modalDescription": {
-    "description": "Description for the custom Linkumori URL rules modal.",
-    "message": "ജനപ്രിയ വിപുലീകരണം $removeparam അല്ലെങ്കിൽ $queryprune നിയമങ്ങൾ ഇവിടെ ചേർക്കുക. ഈ നിയമങ്ങൾ ClearURLs ഇഷ്‌ടാനുസൃത ദാതാക്കളിൽ നിന്ന് പ്രത്യേകം സംഭരിക്കുകയും Linkumori URL ഫിൽട്ടറുകളിലേക്ക് ലയിപ്പിക്കുകയും ചെയ്യുന്നു."
-  },
-  "linkumoriUrlRules_textareaPlaceholder": {
-    "description": "Placeholder for custom Linkumori URL filter rules.",
-    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
-  },
-  "linkumoriUrlRules_validate": {
-    "description": "Button label for validating custom Linkumori URL rules.",
-    "message": "സാധൂകരിക്കുക"
-  },
-  "linkumoriUrlRules_validationEmpty": {
-    "description": "Validation message for an empty Linkumori URL rules editor.",
-    "message": "കസ്റ്റം Linkumori URL നിയമങ്ങൾ ക്രമീകരിച്ചിട്ടില്ല."
-  },
-  "linkumoriUrlRules_validationSuccess": {
-    "description": "Validation success summary for Linkumori URL rules.",
-    "message": "$1 പിന്തുണയ്‌ക്കുന്ന നിയമം(കൾ), $2 പിന്തുണയ്‌ക്കാത്തത് ഒഴിവാക്കി, $3 ഡ്യൂപ്ലിക്കേറ്റ് ഒഴിവാക്കി."
-  },
-  "linkumoriUrlRules_validationFailed": {
-    "description": "Validation failure prefix for Linkumori URL rules.",
-    "message": "മൂല്യനിർണ്ണയം പരാജയപ്പെട്ടു"
-  },
-  "linkumoriUrlRules_saveSuccess": {
-    "description": "Success message after saving Linkumori URL custom rules.",
-    "message": "Linkumori URL നിയമങ്ങൾ സംരക്ഷിച്ച് വീണ്ടും ലോഡുചെയ്‌തു."
-  },
-  "linkumoriUrlRules_saveFailed": {
-    "description": "Failure message after saving Linkumori URL custom rules.",
-    "message": "സംരക്ഷിക്കൽ പരാജയപ്പെട്ടു"
-  },
-  "linkumoriUrlRules_previewEmpty": {
-    "description": "Empty preview message for Linkumori URL custom rules.",
-    "message": "മൂല്യനിർണ്ണയത്തിന് ശേഷം പിന്തുണയ്ക്കുന്ന നിയമങ്ങൾ ഇവിടെ ദൃശ്യമാകും."
-  },
-  "linkumoriUrlRules_parserUnavailable": {
-    "description": "Error shown when the popular extension URL filter parser script is missing.",
-    "message": "Linkumori URL ഫിൽട്ടർ പാഴ്സർ ലഭ്യമല്ല."
-  },
   "linkumoriClearUrlsStatusGroup": {
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
-  },
-  "linkumoriUrlRules_statusLabel": {
-    "description": "Status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL നില"
-  },
-  "linkumoriUrlRules_customRulesLabel": {
-    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
-    "message": "കസ്റ്റം നിയമങ്ങൾ"
-  },
-  "linkumoriUrlRules_hashStatusLabel": {
-    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL ഹാഷ്"
-  },
-  "linkumoriUrlRules_close_aria": {
-    "description": "Accessible label for closing the Linkumori URL rules modal.",
-    "message": "Linkumori കസ്റ്റം URL നിയമങ്ങൾ അടയ്ക്കുക"
-  },
-  "faq_linkumori_url_rules": {
-    "description": "FAQ question for Linkumori URL custom rules.",
-    "message": "Linkumori URL നിയമങ്ങൾ എന്തൊക്കെയാണ്?"
-  },
-  "faq_linkumori_url_rules_answer": {
-    "description": "FAQ answer explaining Linkumori URL custom rules.",
-    "message": "Linkumori URL നിയമങ്ങൾ ജനപ്രിയമായ എക്സ്റ്റൻഷൻ ട്രാക്കിംഗ് ആണ് URL ഫിൽട്ടർ ലൈനുകൾ ഫോക്കസ് ചെയ്‌തിരിക്കുന്നു JSON."
-  },
-  "faq_linkumori_url_rules_note": {
-    "description": "FAQ note for Linkumori URL custom rules.",
-    "message": "വിദൂര ജനപ്രിയ വിപുലീകരണം URL ഫിൽട്ടറുകൾക്കും ഈ ഇഷ്‌ടാനുസൃത നിയമങ്ങൾക്കും ഹാഷ് പരിശോധന ആവശ്യമില്ല. അവ LinkumoriURLsData എന്ന നമ്പറിൽ ClearURLsData എന്നതിൽ നിന്ന് വേർതിരിച്ച് പാഴ്‌സ് ചെയ്‌ത ശേഷം സംഭരിക്കുന്നു."
   },
   "popup_whitelist_state_permanent": {
     "message": "വൈറ്റ്‌ലിസ്റ്റ് ചെയ്‌തു: $1 — ടാബിന് മാത്രമായി വീണ്ടും ക്ലിക്ക് ചെയ്യുക",
