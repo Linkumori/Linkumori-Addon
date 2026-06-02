@@ -1219,7 +1219,6 @@ function canonicalizeLinkumoriRemoveParamRule(rule) {
     if (rule.strictFirstPartyOnly) modifiers.push('strict-first-party');
     if (rule.strictThirdPartyOnly) modifiers.push('strict-third-party');
     if (rule.matchCase) modifiers.push('match-case');
-    if (rule.important) modifiers.push('important');
 
     return (rule.isException ? '@@' : '') +
         (rule.urlPattern || '*') +
@@ -1319,7 +1318,6 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     let denyallowToken = null;
     let methodToken = null;
     let unsupportedModifier = null;
-    const noopModifiers = new Set(['_', 'noop', 'stealth', 'cookie']);
 
     for (const token of modifiers) {
         if (unsupportedModifier) break;
@@ -1333,15 +1331,8 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
             removeParamToken = token;
             continue;
         }
-        if (noopModifiers.has(normalized)) {
-            continue;
-        }
         if (normalized === 'badfilter' && !options.ignoreBadfilter) continue;
         if (normalized === 'badfilter' && options.ignoreBadfilter) continue;
-        if (normalized === 'important') {
-            if (isException) unsupportedModifier = token;
-            continue;
-        }
         if (normalized === 'match-case') {
             continue;
         }
@@ -1411,7 +1402,6 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
         strictFirstPartyOnly: false,
         strictThirdPartyOnly: false,
         matchCase: modifiers.some(token => String(token || '').toLowerCase() === 'match-case'),
-        important: modifiers.some(token => String(token || '').toLowerCase() === 'important'),
         isBadfilter: !options.ignoreBadfilter && modifiers.some(token => String(token || '').toLowerCase() === 'badfilter'),
         badfilterTarget: null,
         id: null,
