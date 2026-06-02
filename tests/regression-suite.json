@@ -2092,30 +2092,6 @@
       }
     },
     {
-      "id": "webrequest removeparam app modifier waits for matching app",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/",
-        "appName": "chrome"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei,app=firefox"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
       "id": "webrequest removeparam regex url pattern may contain dollar",
       "dialect": "providerWebRequest",
       "input": "https://www.google.com/price$path?ei=abc&keep=1",

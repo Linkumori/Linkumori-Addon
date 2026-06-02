@@ -1206,8 +1206,7 @@ function canonicalizeLinkumoriRemoveParamRule(rule) {
         ['domain', getLinkumoriSortedCopy(rule.includeDomains).concat(getLinkumoriSortedCopy(rule.excludeDomains).map(value => '~' + value)).concat(getLinkumoriSortedRegexSources(rule.includeDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeDomainRegexes).map(value => '~' + value))],
         ['to', getLinkumoriSortedCopy(rule.includeTargetDomains).concat(getLinkumoriSortedCopy(rule.excludeTargetDomains).map(value => '~' + value)).concat(getLinkumoriSortedRegexSources(rule.includeTargetDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeTargetDomainRegexes).map(value => '~' + value))],
         ['denyallow', getLinkumoriSortedCopy(rule.denyallowDomains).concat(getLinkumoriSortedRegexSources(rule.denyallowDomainRegexes))],
-        ['method', getLinkumoriSortedCopy(rule.includeMethods).concat(getLinkumoriSortedCopy(rule.excludeMethods).map(value => '~' + value))],
-        ['app', getLinkumoriSortedCopy(rule.includeApps).concat(getLinkumoriSortedCopy(rule.excludeApps).map(value => '~' + value)).concat(getLinkumoriSortedRegexSources(rule.includeAppRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeAppRegexes).map(value => '~' + value))]
+        ['method', getLinkumoriSortedCopy(rule.includeMethods).concat(getLinkumoriSortedCopy(rule.excludeMethods).map(value => '~' + value))]
     ].forEach(([name, values]) => {
         if (values.length > 0) modifiers.push(name + '=' + values.join('|'));
     });
@@ -1319,7 +1318,6 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     let targetToken = null;
     let denyallowToken = null;
     let methodToken = null;
-    let appToken = null;
     let unsupportedModifier = null;
     const noopModifiers = new Set(['_', 'noop', 'stealth', 'cookie']);
 
@@ -1379,10 +1377,6 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
             methodToken = token.slice(token.indexOf('=') + 1);
             continue;
         }
-        if (normalized.startsWith('app=')) {
-            appToken = token.slice(token.indexOf('=') + 1);
-            continue;
-        }
         if (addLinkumoriRemoveParamRequestTypes(token, { requestTypes: [], excludeRequestTypes: [] })) {
             continue;
         }
@@ -1412,10 +1406,6 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
         denyallowDomainRegexes: [],
         includeMethods: [],
         excludeMethods: [],
-        includeApps: [],
-        excludeApps: [],
-        includeAppRegexes: [],
-        excludeAppRegexes: [],
         firstPartyOnly: false,
         thirdPartyOnly: false,
         strictFirstPartyOnly: false,
@@ -1526,17 +1516,6 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
                 parsed.includeMethods.push(value);
             }
         });
-    }
-
-    if (appToken) {
-        if (splitLinkumoriDelimitedValues(appToken).length === 0) return null;
-        addLinkumoriHostnameValues(
-            appToken,
-            parsed.includeApps,
-            parsed.excludeApps,
-            parsed.includeAppRegexes,
-            parsed.excludeAppRegexes
-        );
     }
 
     modifiers.forEach((token) => {
@@ -1736,54 +1715,6 @@ function linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, targetHost) {
     return true;
 }
 
-function linkumoriRemoveParamMatchesApp(linkumoriRule, request = null) {
-    const appName = String(
-        (request && (request.appName || request.app)) ||
-        ''
-    ).toLowerCase();
-
-    if (!appName) {
-        return (
-            linkumoriRule.includeApps.length === 0 &&
-            linkumoriRule.includeAppRegexes.length === 0
-        );
-    }
-
-    if (
-        linkumoriRule.includeApps.length > 0 &&
-        !linkumoriRule.includeApps.some(pattern => linkumoriAppPatternMatches(appName, pattern))
-    ) {
-        return false;
-    }
-
-    if (
-        linkumoriRule.includeAppRegexes.length > 0 &&
-        !linkumoriHostnameMatchesRegexes(appName, linkumoriRule.includeAppRegexes)
-    ) {
-        return false;
-    }
-
-    if (linkumoriRule.excludeApps.some(pattern => linkumoriAppPatternMatches(appName, pattern))) {
-        return false;
-    }
-
-    if (linkumoriHostnameMatchesRegexes(appName, linkumoriRule.excludeAppRegexes)) {
-        return false;
-    }
-
-    return true;
-}
-
-function linkumoriAppPatternMatches(appName, pattern) {
-    const normalizedPattern = String(pattern || '').toLowerCase().trim();
-    if (!normalizedPattern) return false;
-    if (normalizedPattern.includes('*')) {
-        const regex = new RegExp('^' + escapeLinkumoriRegExp(normalizedPattern).replace(/\\\*/g, '.*') + '$');
-        return regex.test(appName);
-    }
-    return appName === normalizedPattern;
-}
-
 function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null) {
     if (!linkumoriRule || !fullUrl) return false;
     if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
@@ -1815,7 +1746,6 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null)
 
     if (!linkumoriRemoveParamMatchesParty(linkumoriRule, urlHost, request)) return false;
     if (!linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, urlHost)) return false;
-    if (!linkumoriRemoveParamMatchesApp(linkumoriRule, request)) return false;
 
     if (linkumoriRule.includeDomains.length > 0) {
         // For @@ exception rules, domain= matches the INITIATING PAGE, not the
