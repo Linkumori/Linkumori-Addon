@@ -1958,13 +1958,19 @@ function parseRemoteRuleSetsFromText(textValue) {
         const ruleURL = separator === -1 ? line.trim() : line.slice(0, separator).trim();
         const hashURL = separator === -1 ? '' : line.slice(separator + 1).trim();
 
+        if (separator === -1 || !hashURL) {
+            const template = translate('remote_rule_sets_error_expected_pair');
+            errors.push(template.replace('$LINE$', getLocalizedNumber(index + 1)));
+            return;
+        }
+
         if (!isValidURL(ruleURL) || !ruleURL.startsWith('https://')) {
             const template = translate('remote_rule_sets_error_invalid_rule_url');
             errors.push(template.replace('$LINE$', getLocalizedNumber(index + 1)));
             return;
         }
 
-        if (hashURL && (!isValidURL(hashURL) || !hashURL.startsWith('https://'))) {
+        if (!isValidURL(hashURL) || !hashURL.startsWith('https://')) {
             const template = translate('remote_rule_sets_error_invalid_hash_url');
             errors.push(template.replace('$LINE$', getLocalizedNumber(index + 1)));
             return;
@@ -2042,7 +2048,10 @@ function getRemoteUrlConfigurationFromInputs() {
         if (!isValidURL(primaryRuleURL) || !primaryRuleURL.startsWith('https://')) {
             return { error: translate('save_primary_rule_https_required') };
         }
-        if (primaryHashURL && (!isValidURL(primaryHashURL) || !primaryHashURL.startsWith('https://'))) {
+        if (!primaryHashURL) {
+            return { error: translate('save_primary_remote_pair_required') };
+        }
+        if (!isValidURL(primaryHashURL) || !primaryHashURL.startsWith('https://')) {
             return { error: translate('save_primary_hash_https_required') };
         }
     }
@@ -2075,10 +2084,7 @@ function normalizeRemoteRulePair(entry) {
     if (typeof entry === 'string') {
         const separator = entry.indexOf('|');
         if (separator === -1) {
-            entry = {
-                ruleURL: entry.trim(),
-                hashURL: ''
-            };
+            return null;
         } else {
             entry = {
                 ruleURL: entry.slice(0, separator).trim(),
@@ -2102,7 +2108,10 @@ function normalizeRemoteRulePair(entry) {
     if (!isValidURL(ruleURL) || !ruleURL.startsWith('https://')) {
         return null;
     }
-    if (hashURL && (!isValidURL(hashURL) || !hashURL.startsWith('https://'))) {
+    if (!hashURL) {
+        return null;
+    }
+    if (!isValidURL(hashURL) || !hashURL.startsWith('https://')) {
         return null;
     }
 
@@ -2853,6 +2862,11 @@ function save() {
         urlValidationPassed = false;
     }
 
+    if (ruleURLValue && !hashURLValue) {
+        showStatus(translate('save_primary_remote_pair_required'), 'error');
+        urlValidationPassed = false;
+    }
+
     if (ruleURLValue && !ruleURLValue.startsWith('https://')) {
         showStatus(translate('save_primary_rule_https_required'), 'error');
         urlValidationPassed = false;
@@ -3056,9 +3070,6 @@ function getLocalizedHashStatus(status) {
         case 'cached_rules_used':
             statusText = translate('status_usingCached');
             break;
-        case 'cache_remote_rules_no_hashurl':
-            statusText = translate('hashStatus_cache_remote_rules_no_hashurl');
-            break;
         case 'cache_remote_rules_after_remote_failure':
             statusText = translate('hashStatus_cache_remote_rules_after_remote_failure');
             break;
@@ -3067,9 +3078,6 @@ function getLocalizedHashStatus(status) {
             break;
         case 'cache_remote_built_in_merged':
             statusText = translate('hashStatus_cache_remote_built_in_merged');
-            break;
-        case 'cache_remote_custom_rules_no_hashurl':
-            statusText = translate('hashStatus_cache_remote_custom_rules_no_hashurl');
             break;
         case 'cache_remote_custom_rules_after_remote_failure':
             statusText = translate('hashStatus_cache_remote_custom_rules_after_remote_failure');
@@ -3170,6 +3178,10 @@ async function refreshRemoteRulesNowFromSettings() {
             return;
         }
         if (!ruleURLValue && hashURLValue) {
+            showStatus(translate('save_primary_remote_pair_required'), 'error');
+            return;
+        }
+        if (ruleURLValue && !hashURLValue) {
             showStatus(translate('save_primary_remote_pair_required'), 'error');
             return;
         }

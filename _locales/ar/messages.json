@@ -1137,10 +1137,6 @@
     "message": "قواعد بعيدة مخبأة + قواعد مخصصة (فشلت البعيدة)",
     "description": "الحالة عند استخدام القواعد البعيدة المخبأة مع القواعد المخصصة بعد فشل القواعد البعيدة"
   },
-  "hashStatus_cache_remote_custom_rules_no_hashurl": {
-    "message": "قواعد بعيدة مخبأة + قواعد مخصصة (بدون رابط تجزئة)",
-    "description": "الحالة عند استخدام القواعد البعيدة المخبأة مع القواعد المخصصة، رابط التجزئة مفقود"
-  },
   "hashStatus_cache_remote_rules_after_bundled_failure": {
     "message": "قواعد بعيدة مخبأة (فشلت المضمنة)",
     "description": "الحالة عند استخدام القواعد البعيدة المخبأة بعد فشل القواعد المضمنة"
@@ -1148,10 +1144,6 @@
   "hashStatus_cache_remote_rules_after_remote_failure": {
     "message": "قواعد بعيدة مخبأة (فشلت البعيدة)",
     "description": "الحالة عند استخدام القواعد البعيدة المخبأة بعد فشل جلب القواعد البعيدة الحالي"
-  },
-  "hashStatus_cache_remote_rules_no_hashurl": {
-    "message": "قواعد بعيدة مخبأة (بدون رابط تجزئة)",
-    "description": "الحالة عند استخدام القواعد البعيدة المخبأة لأن رابط التجزئة مفقود"
   },
   "hashStatus_cache_remote_built_in_merged": {
     "message": "تم دمج القواعد البعيدة المخبأة + القواعد المضمنة",
@@ -2465,8 +2457,8 @@
     "description": "رسالة التحقق عندما لا يكون رابط التجزئة الأساسي HTTPS."
   },
   "save_primary_remote_pair_required": {
-    "message": "التجزئة الأساسية URL مطلوبة فقط عندما تشير القاعدة الأساسية URL إلى Linkumori (ClearURLs 2.0) JSON القواعد.",
-    "description": "Validation message when only one of primary rule/hash URL is set."
+    "message": "Primary rule URL and primary hash URL must be configured together.",
+    "description": "Error shown when the primary remote rule/hash URL pair is incomplete."
   },
   "save_primary_rule_https_required": {
     "message": "يجب أن يستخدم رابط القاعدة الأساسي HTTPS",
@@ -2569,8 +2561,8 @@
     "description": "يُستخدم هذا النص كاسم لتسمية رابط rule.hash."
   },
   "setting_hash_url_mandatory": {
-    "message": "مطلوب لقواعد ClearURLs JSON عن بعد. اتركه فارغًا لقوائم تصفية التتبع ذات الامتداد الشائع URL.",
-    "description": "Description for hash URL field explaining when it is required"
+    "message": "Required for remote Linkumori JSON rule verification.",
+    "description": "Description for hash URL field explaining that remote rules require a hash URL."
   },
   "setting_html_export_button": {
     "message": "تصدير",
@@ -2619,7 +2611,7 @@
     "description": "تسمية لحقل إدخال حد السجل."
   },
   "setting_remote_rule_sets_description": {
-    "message": "تم دمج المصادر البعيدة الإضافية معًا. استخدم <code>ruleURL | hashURL</code> لـ ClearURLs JSON، أو <code>ruleURL</code> فقط لقوائم التتبع ذات الامتداد الشائع URL.",
+    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>.",
     "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
@@ -2631,16 +2623,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "جهاز التحكم عن بعد المخصص URL لقواعد ClearURLs JSON أو الامتداد الشائع URL مرشحات التتبع",
-    "description": "Description for the custom rule URL input field"
+    "message": "Custom remote URL for Linkumori JSON rules",
+    "description": "Description for the custom rule URL input field."
   },
   "setting_rule_url_label": {
-    "message": "الرابط إلى ملف data.json (القواعد) أو .txt (للشعبية)",
-    "description": "يُستخدم هذا النص كاسم لتسمية رابط القاعدة."
+    "message": "The URL to the remote rules JSON file",
+    "description": "Label for the remote rule URL input field."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "ملحوظة: التجزئة URL إلزامية فقط للقواعد البعيدة ClearURLs JSON. يتم تخزين قوائم التتبع ذات الامتداد الشائع URL بشكل منفصل كمرشحات Linkumori URL.",
-    "description": "Note about when hash URL is mandatory"
+    "message": "Hash URL is required for every remote ruleset.",
+    "description": "Note explaining that every remote ruleset requires a hash URL."
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>أنواع الطلبات</a> (مستوى خبير)",
@@ -4118,137 +4110,9 @@
     "description": "Section header for native ClearURLs JSON rule metadata in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON معلومات القواعد:"
   },
-  "linkumori_url_rules_count_label": {
-    "description": "Label for the number of Linkumori URL filter rules",
-    "message": "URL قواعد التصفية:"
-  },
-  "linkumori_url_sources_count_label": {
-    "description": "Label for the number of Linkumori URL filter sources",
-    "message": "URL مصادر التصفية:"
-  },
-  "linkumori_url_rule_status_label": {
-    "description": "Label for Linkumori URL filter load status",
-    "message": "حالة القاعدة:"
-  },
-  "linkumori_url_hash_status_label": {
-    "description": "Label for Linkumori URL filter hash status",
-    "message": "حالة التجزئة:"
-  },
-  "settings_remote_health_linkumori_url_status_label": {
-    "description": "Status label for hashless popular extension Linkumori URL filters",
-    "message": "Linkumori URL حالة التصفية:"
-  },
-  "linkumori_url_status_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "محملة"
-  },
-  "linkumori_url_status_partially_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "محملة جزئيا"
-  },
-  "linkumori_url_status_all_sources_failed": {
-    "description": "Linkumori URL filter rule status",
-    "message": "جميع المصادر فاشلة"
-  },
-  "linkumori_url_status_no_sources": {
-    "description": "Linkumori URL filter rule status",
-    "message": "لم يتم تكوين مصادر تصفية URL بدون تجزئة"
-  },
-  "linkumori_url_status_remote_disabled": {
-    "description": "Linkumori URL filter rule status",
-    "message": "تم تعطيل القواعد عن بعد"
-  },
-  "linkumori_url_status_not_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "لم يتم تحميلها"
-  },
-  "linkumori_url_status_empty": {
-    "description": "Linkumori URL filter rule status",
-    "message": "فارغ"
-  },
-  "linkumori_url_hash_not_required": {
-    "description": "Hash status for popular extension URL filter lists",
-    "message": "غير مطلوب"
-  },
-  "linkumoriUrlRules_button": {
-    "description": "Button that opens the custom Linkumori URL filter modal.",
-    "message": "Linkumori URL القواعد"
-  },
-  "linkumoriUrlRules_modalTitle": {
-    "description": "Title for the custom Linkumori URL rules modal.",
-    "message": "Linkumori قواعد مخصصة URL"
-  },
-  "linkumoriUrlRules_modalDescription": {
-    "description": "Description for the custom Linkumori URL rules modal.",
-    "message": "أضف القواعد الشائعة $removeparam أو $queryprune هنا. يتم تخزين هذه القواعد بشكل منفصل عن موفري الخدمة المخصصين ClearURLs ويتم دمجها في عوامل التصفية Linkumori URL."
-  },
-  "linkumoriUrlRules_textareaPlaceholder": {
-    "description": "Placeholder for custom Linkumori URL filter rules.",
-    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
-  },
-  "linkumoriUrlRules_validate": {
-    "description": "Button label for validating custom Linkumori URL rules.",
-    "message": "التحقق من صحة"
-  },
-  "linkumoriUrlRules_validationEmpty": {
-    "description": "Validation message for an empty Linkumori URL rules editor.",
-    "message": "لم يتم تكوين قواعد Linkumori URL المخصصة."
-  },
-  "linkumoriUrlRules_validationSuccess": {
-    "description": "Validation success summary for Linkumori URL rules.",
-    "message": "$1 القاعدة (القواعد) المدعومة، $2 تم تخطيها غير المدعومة، $3 تم تخطي التكرارات."
-  },
-  "linkumoriUrlRules_validationFailed": {
-    "description": "Validation failure prefix for Linkumori URL rules.",
-    "message": "فشل التحقق من الصحة"
-  },
-  "linkumoriUrlRules_saveSuccess": {
-    "description": "Success message after saving Linkumori URL custom rules.",
-    "message": "تم الحفظ وإعادة التحميل Linkumori URL القواعد."
-  },
-  "linkumoriUrlRules_saveFailed": {
-    "description": "Failure message after saving Linkumori URL custom rules.",
-    "message": "فشل الحفظ"
-  },
-  "linkumoriUrlRules_previewEmpty": {
-    "description": "Empty preview message for Linkumori URL custom rules.",
-    "message": "ستظهر القواعد المدعومة هنا بعد التحقق من الصحة."
-  },
-  "linkumoriUrlRules_parserUnavailable": {
-    "description": "Error shown when the popular extension URL filter parser script is missing.",
-    "message": "Linkumori URL محلل التصفية غير متوفر."
-  },
   "linkumoriClearUrlsStatusGroup": {
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
-  },
-  "linkumoriUrlRules_statusLabel": {
-    "description": "Status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL الحالة"
-  },
-  "linkumoriUrlRules_customRulesLabel": {
-    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
-    "message": "القواعد المخصصة"
-  },
-  "linkumoriUrlRules_hashStatusLabel": {
-    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL التجزئة"
-  },
-  "linkumoriUrlRules_close_aria": {
-    "description": "Accessible label for closing the Linkumori URL rules modal.",
-    "message": "إغلاق Linkumori قواعد URL المخصصة"
-  },
-  "faq_linkumori_url_rules": {
-    "description": "FAQ question for Linkumori URL custom rules.",
-    "message": "ما هي قواعد Linkumori URL؟"
-  },
-  "faq_linkumori_url_rules_answer": {
-    "description": "FAQ answer explaining Linkumori URL custom rules.",
-    "message": "قواعد Linkumori URL هي خطوط تتبع امتدادات شائعة URL تركز على $removeparam. وهي مفيدة عندما تريد لصق بناء جملة قائمة عوامل التصفية مباشرة بدلاً من إنشاء موفر ClearURLs JSON."
-  },
-  "faq_linkumori_url_rules_note": {
-    "description": "FAQ note for Linkumori URL custom rules.",
-    "message": "لا تحتاج مرشحات الامتداد الشائع عن بعد URL وهذه القواعد المخصصة إلى التحقق من التجزئة. يتم تخزينها في LinkumoriURLsData بعد التحليل، منفصلة عن ClearURLsData."
   },
   "popup_whitelist_state_permanent": {
     "message": "القائمة البيضاء: $1 — انقر مرة أخرى لعلامة التبويب فقط",

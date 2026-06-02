@@ -926,17 +926,11 @@
   "hashStatus_cache_remote_custom_rules_after_remote_failure": {
     "message": "Gecachte externe + aangepaste regels (externe fout)"
   },
-  "hashStatus_cache_remote_custom_rules_no_hashurl": {
-    "message": "Gecachte externe + aangepaste regels (geen hash-URL)"
-  },
   "hashStatus_cache_remote_rules_after_bundled_failure": {
     "message": "Gecachte externe regels (ingebouwde fout)"
   },
   "hashStatus_cache_remote_rules_after_remote_failure": {
     "message": "Gecachte externe regels (externe fout)"
-  },
-  "hashStatus_cache_remote_rules_no_hashurl": {
-    "message": "Gecachte externe regels (geen hash-URL)"
   },
   "hashStatus_cache_remote_built_in_merged": {
     "message": "Gecachte externe + ingebouwde regels samengevoegd"
@@ -1958,8 +1952,8 @@
     "message": "Primaire hash-URL moet HTTPS gebruiken"
   },
   "save_primary_remote_pair_required": {
-    "message": "Primaire hash URL is alleen vereist als de primaire regel URL verwijst naar de regels Linkumori (ClearURLs 2.0) JSON.",
-    "description": "Validation message when only one of primary rule/hash URL is set."
+    "message": "Primary rule URL and primary hash URL must be configured together.",
+    "description": "Error shown when the primary remote rule/hash URL pair is incomplete."
   },
   "save_primary_rule_https_required": {
     "message": "Primaire regel-URL moet HTTPS gebruiken"
@@ -2043,8 +2037,8 @@
     "message": "De URL van het rules.hash-bestand (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Vereist voor ClearURLs JSON externe regels. Laat leeg voor populaire extensie URL trackingfilterlijsten.",
-    "description": "Description for hash URL field explaining when it is required"
+    "message": "Required for remote Linkumori JSON rule verification.",
+    "description": "Description for hash URL field explaining that remote rules require a hash URL."
   },
   "setting_html_export_button": {
     "message": "Exporteren"
@@ -2084,7 +2078,7 @@
     "message": "Logboeklimiet (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Extra externe bronnen samengevoegd. Gebruik <code>ruleURL | hashURL</code> voor ClearURLs JSON, of alleen <code>ruleURL</code> voor populaire extensie URL trackinglijsten.",
+    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>.",
     "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
@@ -2095,15 +2089,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Aangepaste afstandsbediening URL voor ClearURLs JSON regels of populaire extensie URL trackingfilters",
-    "description": "Description for the custom rule URL input field"
+    "message": "Custom remote URL for Linkumori JSON rules",
+    "description": "Description for the custom rule URL input field."
   },
   "setting_rule_url_label": {
-    "message": "De URL van het data.json-bestand (regels) of .txt (voor populair)"
+    "message": "The URL to the remote rules JSON file",
+    "description": "Label for the remote rule URL input field."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Opmerking: Hash URL is alleen verplicht voor externe regels ClearURLs JSON. Populaire extensie URL trackinglijsten worden afzonderlijk opgeslagen als Linkumori URL filters.",
-    "description": "Note about when hash URL is mandatory"
+    "message": "Hash URL is required for every remote ruleset.",
+    "description": "Note explaining that every remote ruleset requires a hash URL."
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/nl/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Verzoektypen</a> (expertniveau)"
@@ -3264,137 +3259,9 @@
     "description": "Section header for native ClearURLs JSON rule metadata in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON Regelinformatie:"
   },
-  "linkumori_url_rules_count_label": {
-    "description": "Label for the number of Linkumori URL filter rules",
-    "message": "URL filterregels:"
-  },
-  "linkumori_url_sources_count_label": {
-    "description": "Label for the number of Linkumori URL filter sources",
-    "message": "URL filterbronnen:"
-  },
-  "linkumori_url_rule_status_label": {
-    "description": "Label for Linkumori URL filter load status",
-    "message": "Regelstatus:"
-  },
-  "linkumori_url_hash_status_label": {
-    "description": "Label for Linkumori URL filter hash status",
-    "message": "Hash-status:"
-  },
-  "settings_remote_health_linkumori_url_status_label": {
-    "description": "Status label for hashless popular extension Linkumori URL filters",
-    "message": "Linkumori URL filterstatus:"
-  },
-  "linkumori_url_status_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Geladen"
-  },
-  "linkumori_url_status_partially_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Gedeeltelijk geladen"
-  },
-  "linkumori_url_status_all_sources_failed": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Alle bronnen faalden"
-  },
-  "linkumori_url_status_no_sources": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Geen hashless URL filterbronnen geconfigureerd"
-  },
-  "linkumori_url_status_remote_disabled": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Regels op afstand uitgeschakeld"
-  },
-  "linkumori_url_status_not_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Niet geladen"
-  },
-  "linkumori_url_status_empty": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Leeg"
-  },
-  "linkumori_url_hash_not_required": {
-    "description": "Hash status for popular extension URL filter lists",
-    "message": "niet vereist"
-  },
-  "linkumoriUrlRules_button": {
-    "description": "Button that opens the custom Linkumori URL filter modal.",
-    "message": "Linkumori URL Regels"
-  },
-  "linkumoriUrlRules_modalTitle": {
-    "description": "Title for the custom Linkumori URL rules modal.",
-    "message": "Linkumori Aangepaste URL Regels"
-  },
-  "linkumoriUrlRules_modalDescription": {
-    "description": "Description for the custom Linkumori URL rules modal.",
-    "message": "Voeg hier de populaire extensie $removeparam of $queryprune regels toe. Deze regels worden afzonderlijk van de ClearURLs aangepaste providers opgeslagen en samengevoegd in Linkumori URL filters."
-  },
-  "linkumoriUrlRules_textareaPlaceholder": {
-    "description": "Placeholder for custom Linkumori URL filter rules.",
-    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
-  },
-  "linkumoriUrlRules_validate": {
-    "description": "Button label for validating custom Linkumori URL rules.",
-    "message": "Valideer"
-  },
-  "linkumoriUrlRules_validationEmpty": {
-    "description": "Validation message for an empty Linkumori URL rules editor.",
-    "message": "Geen aangepaste Linkumori URL-regels geconfigureerd."
-  },
-  "linkumoriUrlRules_validationSuccess": {
-    "description": "Validation success summary for Linkumori URL rules.",
-    "message": "$1 ondersteunde regel(s), $2 niet-ondersteund overgeslagen, $3 duplicaat overgeslagen."
-  },
-  "linkumoriUrlRules_validationFailed": {
-    "description": "Validation failure prefix for Linkumori URL rules.",
-    "message": "Validatie mislukt"
-  },
-  "linkumoriUrlRules_saveSuccess": {
-    "description": "Success message after saving Linkumori URL custom rules.",
-    "message": "Linkumori URL regels opgeslagen en opnieuw geladen."
-  },
-  "linkumoriUrlRules_saveFailed": {
-    "description": "Failure message after saving Linkumori URL custom rules.",
-    "message": "Opslaan mislukt"
-  },
-  "linkumoriUrlRules_previewEmpty": {
-    "description": "Empty preview message for Linkumori URL custom rules.",
-    "message": "Ondersteunde regels verschijnen hier na validatie."
-  },
-  "linkumoriUrlRules_parserUnavailable": {
-    "description": "Error shown when the popular extension URL filter parser script is missing.",
-    "message": "Linkumori URL filterparser is niet beschikbaar."
-  },
   "linkumoriClearUrlsStatusGroup": {
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2,0)"
-  },
-  "linkumoriUrlRules_statusLabel": {
-    "description": "Status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Status"
-  },
-  "linkumoriUrlRules_customRulesLabel": {
-    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
-    "message": "Aangepaste regels"
-  },
-  "linkumoriUrlRules_hashStatusLabel": {
-    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Hasj"
-  },
-  "linkumoriUrlRules_close_aria": {
-    "description": "Accessible label for closing the Linkumori URL rules modal.",
-    "message": "Sluit Linkumori aangepaste URL regels"
-  },
-  "faq_linkumori_url_rules": {
-    "description": "FAQ question for Linkumori URL custom rules.",
-    "message": "Wat zijn Linkumori URL regels?"
-  },
-  "faq_linkumori_url_rules_answer": {
-    "description": "FAQ answer explaining Linkumori URL custom rules.",
-    "message": "Linkumori URL regels zijn populaire extensietracking URL filterregels gericht op $removeparam. Ze zijn handig als u de syntaxis van de filterlijst rechtstreeks wilt plakken in plaats van ClearURLs provider JSON te maken."
-  },
-  "faq_linkumori_url_rules_note": {
-    "description": "FAQ note for Linkumori URL custom rules.",
-    "message": "Externe populaire extensie URL-filters en deze aangepaste regels hebben geen hash-verificatie nodig. Ze worden na parsering opgeslagen in LinkumoriURLsData, gescheiden van ClearURLsData."
   },
   "popup_whitelist_state_permanent": {
     "message": "Op de witte lijst gezet: $1 — klik opnieuw voor alleen tabbladen",

@@ -807,9 +807,6 @@ function getHashStatusText(hashStatus) {
             statusText = i18n('status_usingCached');
             break;
 
-        case 'cache_remote_rules_no_hashurl':
-            statusText = i18n('hashStatus_cache_remote_rules_no_hashurl');
-            break;
         case 'cache_remote_rules_after_remote_failure':
             statusText = i18n('hashStatus_cache_remote_rules_after_remote_failure');
             break;
@@ -820,9 +817,6 @@ function getHashStatusText(hashStatus) {
             statusText = i18n('hashStatus_cache_remote_built_in_merged');
             break;
 
-        case 'cache_remote_custom_rules_no_hashurl':
-            statusText = i18n('hashStatus_cache_remote_custom_rules_no_hashurl');
-            break;
         case 'cache_remote_custom_rules_after_remote_failure':
             statusText = i18n('hashStatus_cache_remote_custom_rules_after_remote_failure');
             break;
@@ -3792,18 +3786,12 @@ async function updateRulesStatus() {
         const totalCountElement = document.getElementById('total-count');
         const disabledCountElement = document.getElementById('disabled-count');
         const mergeStatusElement = document.getElementById('merge-status');
-        const linkumoriStatusElement = document.getElementById('linkumori-url-rule-status');
-        const linkumoriCustomCountElement = document.getElementById('linkumori-url-custom-count');
-        const linkumoriHashElement = document.getElementById('linkumori-url-hash-status');
         
         if (customCountElement) customCountElement.textContent = '?';
         if (builtinCountElement) builtinCountElement.textContent = '?';
         if (totalCountElement) totalCountElement.textContent = '?';
         if (disabledCountElement) disabledCountElement.textContent = '?';
         if (mergeStatusElement) mergeStatusElement.textContent = i18n('status_unavailable');
-        if (linkumoriStatusElement) linkumoriStatusElement.textContent = i18n('status_unavailable');
-        if (linkumoriCustomCountElement) linkumoriCustomCountElement.textContent = '?';
-        if (linkumoriHashElement) linkumoriHashElement.textContent = i18n('status_unavailable');
     }
 }
 

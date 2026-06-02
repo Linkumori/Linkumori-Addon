@@ -22,9 +22,9 @@
  * -----------
  * Linkumori token trie
  *
- * A small JavaScript trie for URL-filter tokens. This is intentionally much
+ * A small JavaScript trie for provider rule tokens. This is intentionally much
  * narrower than uBO's BidiTrieContainer: Linkumori only needs fast lookup of
- * parameter/filter tokens for popular extension URL tracking rules.
+ * parameter names and provider-local cleanup rule tokens.
  *
  * ============================================================
  * MODIFICATION HISTORY

@@ -216,20 +216,19 @@ function ensureUnifiedClearURLsDataShape() {
 }
 
 function normalizeClearURLsDataFields(clearURLsData) {
-    const next = clearURLsData && typeof clearURLsData === 'object' && !Array.isArray(clearURLsData)
+    const source = clearURLsData && typeof clearURLsData === 'object' && !Array.isArray(clearURLsData)
         ? clearURLsData
         : {};
     const normalized = {
-        ...next,
-        providers: next.providers
-            && typeof next.providers === 'object'
-            && !Array.isArray(next.providers)
-            ? next.providers
+        providers: source.providers
+            && typeof source.providers === 'object'
+            && !Array.isArray(source.providers)
+            ? source.providers
             : {}
     };
-    delete normalized.urlFilterRules;
-    delete normalized.urlFilterMetadata;
-    delete normalized.urlFilterRuntimeTrieSnapshots;
+    if (source.metadata && typeof source.metadata === 'object' && !Array.isArray(source.metadata)) {
+        normalized.metadata = source.metadata;
+    }
     return normalized;
 }
 

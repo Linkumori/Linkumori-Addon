@@ -925,17 +925,11 @@
   "hashStatus_cache_remote_custom_rules_after_remote_failure": {
     "message": "Regras remotas em cache + personalizadas (falha nas remotas)"
   },
-  "hashStatus_cache_remote_custom_rules_no_hashurl": {
-    "message": "Regras remotas em cache + personalizadas (sem URL de hash)"
-  },
   "hashStatus_cache_remote_rules_after_bundled_failure": {
     "message": "Regras remotas em cache (falha nas internas)"
   },
   "hashStatus_cache_remote_rules_after_remote_failure": {
     "message": "Regras remotas em cache (falha nas remotas)"
-  },
-  "hashStatus_cache_remote_rules_no_hashurl": {
-    "message": "Regras remotas em cache (sem URL de hash)"
   },
   "hashStatus_cache_remote_built_in_merged": {
     "message": "Regras remotas em cache + internas mescladas"
@@ -1953,8 +1947,8 @@
     "message": "O URL de hash primário deve usar HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "O hash primário URL é necessário somente quando a regra primária URL aponta para as regras Linkumori (ClearURLs 2.0) JSON.",
-    "description": "Validation message when only one of primary rule/hash URL is set."
+    "message": "Primary rule URL and primary hash URL must be configured together.",
+    "description": "Error shown when the primary remote rule/hash URL pair is incomplete."
   },
   "save_primary_rule_https_required": {
     "message": "O URL de regra primário deve usar HTTPS"
@@ -2038,8 +2032,8 @@
     "message": "O URL do arquivo rules.hash (hash)"
   },
   "setting_hash_url_mandatory": {
-    "message": "Obrigatório para regras remotas ClearURLs JSON. Deixe em branco para listas de filtros de rastreamento de extensão popular URL.",
-    "description": "Description for hash URL field explaining when it is required"
+    "message": "Required for remote Linkumori JSON rule verification.",
+    "description": "Description for hash URL field explaining that remote rules require a hash URL."
   },
   "setting_html_export_button": {
     "message": "Exportar"
@@ -2078,7 +2072,7 @@
     "message": "Limite de log (0-5000)"
   },
   "setting_remote_rule_sets_description": {
-    "message": "Fontes remotas adicionais fundidas. Use <code>ruleURL | hashURL</code> para ClearURLs JSON ou apenas <code>ruleURL</code> para listas de rastreamento de extensão popular URL.",
+    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>.",
     "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
@@ -2089,15 +2083,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "Controle remoto personalizado URL para ClearURLs JSON regras ou extensão popular URL filtros de rastreamento",
-    "description": "Description for the custom rule URL input field"
+    "message": "Custom remote URL for Linkumori JSON rules",
+    "description": "Description for the custom rule URL input field."
   },
   "setting_rule_url_label": {
-    "message": "O URL do arquivo data.json (regras) ou .txt (para popular)"
+    "message": "The URL to the remote rules JSON file",
+    "description": "Label for the remote rule URL input field."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "Observação: o hash URL é obrigatório apenas para regras remotas ClearURLs JSON. As listas de rastreamento da extensão popular URL são armazenadas separadamente como filtros Linkumori URL.",
-    "description": "Note about when hash URL is mandatory"
+    "message": "Hash URL is required for every remote ruleset.",
+    "description": "Note explaining that every remote ruleset requires a hash URL."
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/pt-BR/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Tipos de requisição</a> (nível especialista)"
@@ -3253,137 +3248,9 @@
     "description": "Section header for native ClearURLs JSON rule metadata in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON Informações sobre regras:"
   },
-  "linkumori_url_rules_count_label": {
-    "description": "Label for the number of Linkumori URL filter rules",
-    "message": "URL regras de filtro:"
-  },
-  "linkumori_url_sources_count_label": {
-    "description": "Label for the number of Linkumori URL filter sources",
-    "message": "URL fontes de filtro:"
-  },
-  "linkumori_url_rule_status_label": {
-    "description": "Label for Linkumori URL filter load status",
-    "message": "Status da regra:"
-  },
-  "linkumori_url_hash_status_label": {
-    "description": "Label for Linkumori URL filter hash status",
-    "message": "Status de hash:"
-  },
-  "settings_remote_health_linkumori_url_status_label": {
-    "description": "Status label for hashless popular extension Linkumori URL filters",
-    "message": "Linkumori URL status do filtro:"
-  },
-  "linkumori_url_status_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Carregado"
-  },
-  "linkumori_url_status_partially_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Parcialmente carregado"
-  },
-  "linkumori_url_status_all_sources_failed": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Todas as fontes falharam"
-  },
-  "linkumori_url_status_no_sources": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Nenhuma fonte de filtro URL sem hash configurada"
-  },
-  "linkumori_url_status_remote_disabled": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Regras remotas desativadas"
-  },
-  "linkumori_url_status_not_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Não carregado"
-  },
-  "linkumori_url_status_empty": {
-    "description": "Linkumori URL filter rule status",
-    "message": "Vazio"
-  },
-  "linkumori_url_hash_not_required": {
-    "description": "Hash status for popular extension URL filter lists",
-    "message": "não é obrigatório"
-  },
-  "linkumoriUrlRules_button": {
-    "description": "Button that opens the custom Linkumori URL filter modal.",
-    "message": "Linkumori URL Regras"
-  },
-  "linkumoriUrlRules_modalTitle": {
-    "description": "Title for the custom Linkumori URL rules modal.",
-    "message": "Linkumori Regras personalizadas URL"
-  },
-  "linkumoriUrlRules_modalDescription": {
-    "description": "Description for the custom Linkumori URL rules modal.",
-    "message": "Adicione as regras populares de extensão $removeparam ou $queryprune aqui. Essas regras são armazenadas separadamente dos provedores personalizados ClearURLs e mescladas nos filtros Linkumori URL."
-  },
-  "linkumoriUrlRules_textareaPlaceholder": {
-    "description": "Placeholder for custom Linkumori URL filter rules.",
-    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
-  },
-  "linkumoriUrlRules_validate": {
-    "description": "Button label for validating custom Linkumori URL rules.",
-    "message": "Validar"
-  },
-  "linkumoriUrlRules_validationEmpty": {
-    "description": "Validation message for an empty Linkumori URL rules editor.",
-    "message": "Nenhuma regra personalizada Linkumori URL configurada."
-  },
-  "linkumoriUrlRules_validationSuccess": {
-    "description": "Validation success summary for Linkumori URL rules.",
-    "message": "$1 regras suportadas, $2 ignoradas não suportadas, $3 duplicadas ignoradas."
-  },
-  "linkumoriUrlRules_validationFailed": {
-    "description": "Validation failure prefix for Linkumori URL rules.",
-    "message": "Falha na validação"
-  },
-  "linkumoriUrlRules_saveSuccess": {
-    "description": "Success message after saving Linkumori URL custom rules.",
-    "message": "Salvos e recarregados Linkumori URL regras."
-  },
-  "linkumoriUrlRules_saveFailed": {
-    "description": "Failure message after saving Linkumori URL custom rules.",
-    "message": "Falha ao salvar"
-  },
-  "linkumoriUrlRules_previewEmpty": {
-    "description": "Empty preview message for Linkumori URL custom rules.",
-    "message": "As regras suportadas aparecerão aqui após a validação."
-  },
-  "linkumoriUrlRules_parserUnavailable": {
-    "description": "Error shown when the popular extension URL filter parser script is missing.",
-    "message": "Linkumori URL o analisador de filtro não está disponível."
-  },
   "linkumoriClearUrlsStatusGroup": {
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
-  },
-  "linkumoriUrlRules_statusLabel": {
-    "description": "Status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Estado"
-  },
-  "linkumoriUrlRules_customRulesLabel": {
-    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
-    "message": "Regras personalizadas"
-  },
-  "linkumoriUrlRules_hashStatusLabel": {
-    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL Hash"
-  },
-  "linkumoriUrlRules_close_aria": {
-    "description": "Accessible label for closing the Linkumori URL rules modal.",
-    "message": "Fechar Linkumori regras personalizadas URL"
-  },
-  "faq_linkumori_url_rules": {
-    "description": "FAQ question for Linkumori URL custom rules.",
-    "message": "Quais são as regras Linkumori URL?"
-  },
-  "faq_linkumori_url_rules_answer": {
-    "description": "FAQ answer explaining Linkumori URL custom rules.",
-    "message": "As regras Linkumori URL são linhas de filtro de rastreamento de extensão populares URL focadas em $removeparam. Elas são úteis quando você deseja colar a sintaxe da lista de filtros diretamente em vez de criar o provedor ClearURLs JSON."
-  },
-  "faq_linkumori_url_rules_note": {
-    "description": "FAQ note for Linkumori URL custom rules.",
-    "message": "Os filtros de extensão remota popular URL e essas regras personalizadas não precisam de verificação de hash. Eles são armazenados em LinkumoriURLsData após a análise, separados de ClearURLsData."
   },
   "popup_whitelist_state_permanent": {
     "message": "Na lista de permissões: $1 — clique novamente para apenas guia",

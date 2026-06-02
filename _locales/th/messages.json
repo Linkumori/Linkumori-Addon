@@ -1137,10 +1137,6 @@
     "message": "กฎระยะไกลในแคช + กฎที่กำหนดเอง (ระยะไกลล้มเหลว)",
     "description": "สถานะเมื่อใช้กฎระยะไกลในแคชกับกฎที่กำหนดเองหลังจากระยะไกลล้มเหลว"
   },
-  "hashStatus_cache_remote_custom_rules_no_hashurl": {
-    "message": "กฎระยะไกลในแคช + กฎที่กำหนดเอง (ไม่มี URL แฮช)",
-    "description": "สถานะเมื่อใช้กฎระยะไกลในแคชกับกฎที่กำหนดเอง ขาด URL แฮช"
-  },
   "hashStatus_cache_remote_rules_after_bundled_failure": {
     "message": "กฎระยะไกลในแคช (กฎในตัวล้มเหลว)",
     "description": "สถานะเมื่อใช้กฎระยะไกลในแคชหลังจากกฎในตัวล้มเหลว"
@@ -1148,10 +1144,6 @@
   "hashStatus_cache_remote_rules_after_remote_failure": {
     "message": "กฎระยะไกลในแคช (ระยะไกลล้มเหลว)",
     "description": "สถานะเมื่อใช้กฎระยะไกลในแคชหลังจากดึงข้อมูลระยะไกลปัจจุบันล้มเหลว"
-  },
-  "hashStatus_cache_remote_rules_no_hashurl": {
-    "message": "กฎระยะไกลในแคช (ไม่มี URL แฮช)",
-    "description": "สถานะเมื่อใช้กฎระยะไกลในแคชเนื่องจากไม่มี URL แฮช"
   },
   "hashStatus_cache_remote_built_in_merged": {
     "message": "กฎระยะไกลในแคช + กฎในตัวรวมกัน",
@@ -2465,8 +2457,8 @@
     "description": "ข้อความตรวจสอบความถูกต้องเมื่อ URL แฮชหลักไม่ใช่ HTTPS"
   },
   "save_primary_remote_pair_required": {
-    "message": "ต้องใช้แฮชหลัก URL เฉพาะเมื่อกฎหลัก URL ชี้ไปที่กฎ Linkumori (ClearURLs 2.0) JSON",
-    "description": "Validation message when only one of primary rule/hash URL is set."
+    "message": "Primary rule URL and primary hash URL must be configured together.",
+    "description": "Error shown when the primary remote rule/hash URL pair is incomplete."
   },
   "save_primary_rule_https_required": {
     "message": "URL กฎหลักต้องใช้ HTTPS",
@@ -2569,8 +2561,8 @@
     "description": "สตริงนี้ใช้เป็นชื่อสำหรับป้ายกำกับ URL rule.hash"
   },
   "setting_hash_url_mandatory": {
-    "message": "จำเป็นสำหรับกฎระยะไกล ClearURLs JSON เว้นว่างไว้สำหรับรายการตัวกรองการติดตามส่วนขยายยอดนิยม URL",
-    "description": "Description for hash URL field explaining when it is required"
+    "message": "Required for remote Linkumori JSON rule verification.",
+    "description": "Description for hash URL field explaining that remote rules require a hash URL."
   },
   "setting_html_export_button": {
     "message": "ส่งออก",
@@ -2619,7 +2611,7 @@
     "description": "ป้ายกำกับสำหรับฟิลด์ป้อนข้อมูลขีดจำกัดบันทึก"
   },
   "setting_remote_rule_sets_description": {
-    "message": "รวมแหล่งข้อมูลระยะไกลเพิ่มเติมเข้าด้วยกัน ใช้ <code>ruleURL | hashURL</code> สำหรับ ClearURLs JSON หรือเพียง <code>ruleURL</code> สำหรับส่วนขยายยอดนิยม URL รายการติดตาม",
+    "message": "Additional remote Linkumori JSON sources merged together. Enter one pair per line as <code>ruleURL | hashURL</code>.",
     "description": "Description for additional remote rule sources."
   },
   "setting_remote_rule_sets_label": {
@@ -2631,16 +2623,16 @@
     "description": "Placeholder for additional remote rule set entries."
   },
   "setting_rule_url_description": {
-    "message": "รีโมทแบบกำหนดเอง URL สำหรับ ClearURLs JSON กฎหรือส่วนขยายยอดนิยม URL ตัวกรองการติดตาม",
-    "description": "Description for the custom rule URL input field"
+    "message": "Custom remote URL for Linkumori JSON rules",
+    "description": "Description for the custom rule URL input field."
   },
   "setting_rule_url_label": {
-    "message": "URL ของไฟล์ data.json (กฎ) หรือ .txt (สำหรับความนิยม)",
-    "description": "สตริงนี้ใช้เป็นชื่อสำหรับป้ายกำกับ URL กฎ"
+    "message": "The URL to the remote rules JSON file",
+    "description": "Label for the remote rule URL input field."
   },
   "setting_rule_url_mandatory_hash": {
-    "message": "หมายเหตุ: จำเป็นต้องมีแฮช URL สำหรับกฎระยะไกล ClearURLs JSON เท่านั้น รายการติดตามส่วนขยายยอดนิยม URL จะถูกจัดเก็บแยกต่างหากเป็นตัวกรอง Linkumori URL",
-    "description": "Note about when hash URL is mandatory"
+    "message": "Hash URL is required for every remote ruleset.",
+    "description": "Note explaining that every remote ruleset requires a hash URL."
   },
   "setting_types_label": {
     "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>ประเภทคำขอ</a> (ระดับผู้เชี่ยวชาญ)",
@@ -4118,137 +4110,9 @@
     "description": "Section header for native ClearURLs JSON rule metadata in settings",
     "message": "Linkumori (ClearURLs 2.0) JSON ข้อมูลกฎ:"
   },
-  "linkumori_url_rules_count_label": {
-    "description": "Label for the number of Linkumori URL filter rules",
-    "message": "กฎตัวกรอง URL:"
-  },
-  "linkumori_url_sources_count_label": {
-    "description": "Label for the number of Linkumori URL filter sources",
-    "message": "URL แหล่งที่มาของตัวกรอง:"
-  },
-  "linkumori_url_rule_status_label": {
-    "description": "Label for Linkumori URL filter load status",
-    "message": "สถานะกฎ:"
-  },
-  "linkumori_url_hash_status_label": {
-    "description": "Label for Linkumori URL filter hash status",
-    "message": "สถานะแฮช:"
-  },
-  "settings_remote_health_linkumori_url_status_label": {
-    "description": "Status label for hashless popular extension Linkumori URL filters",
-    "message": "Linkumori URL สถานะตัวกรอง:"
-  },
-  "linkumori_url_status_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "โหลดแล้ว"
-  },
-  "linkumori_url_status_partially_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "โหลดแล้วบางส่วน"
-  },
-  "linkumori_url_status_all_sources_failed": {
-    "description": "Linkumori URL filter rule status",
-    "message": "แหล่งที่มาทั้งหมดล้มเหลว"
-  },
-  "linkumori_url_status_no_sources": {
-    "description": "Linkumori URL filter rule status",
-    "message": "ไม่มีการกำหนดค่าแหล่งตัวกรอง URL แบบไม่แฮช"
-  },
-  "linkumori_url_status_remote_disabled": {
-    "description": "Linkumori URL filter rule status",
-    "message": "ปิดใช้งานกฎระยะไกลแล้ว"
-  },
-  "linkumori_url_status_not_loaded": {
-    "description": "Linkumori URL filter rule status",
-    "message": "ไม่โหลด"
-  },
-  "linkumori_url_status_empty": {
-    "description": "Linkumori URL filter rule status",
-    "message": "ว่างเปล่า"
-  },
-  "linkumori_url_hash_not_required": {
-    "description": "Hash status for popular extension URL filter lists",
-    "message": "ไม่จำเป็น"
-  },
-  "linkumoriUrlRules_button": {
-    "description": "Button that opens the custom Linkumori URL filter modal.",
-    "message": "Linkumori URL กฎ"
-  },
-  "linkumoriUrlRules_modalTitle": {
-    "description": "Title for the custom Linkumori URL rules modal.",
-    "message": "Linkumori กฎ URL แบบกำหนดเอง"
-  },
-  "linkumoriUrlRules_modalDescription": {
-    "description": "Description for the custom Linkumori URL rules modal.",
-    "message": "เพิ่มกฎส่วนขยายยอดนิยม $removeparam หรือ $queryprune ที่นี่ กฎเหล่านี้จะถูกจัดเก็บแยกต่างหากจากผู้ให้บริการแบบกำหนดเอง ClearURLs และรวมเข้ากับตัวกรอง Linkumori URL"
-  },
-  "linkumoriUrlRules_textareaPlaceholder": {
-    "description": "Placeholder for custom Linkumori URL filter rules.",
-    "message": "||example.com^$removeparam=utm_source\n*$removeparam=/^utm_/\n@@||example.com^$removeparam=utm_source"
-  },
-  "linkumoriUrlRules_validate": {
-    "description": "Button label for validating custom Linkumori URL rules.",
-    "message": "ตรวจสอบความถูกต้อง"
-  },
-  "linkumoriUrlRules_validationEmpty": {
-    "description": "Validation message for an empty Linkumori URL rules editor.",
-    "message": "ไม่มีการกำหนดค่ากฎ Linkumori URL แบบกำหนดเอง"
-  },
-  "linkumoriUrlRules_validationSuccess": {
-    "description": "Validation success summary for Linkumori URL rules.",
-    "message": "กฎที่รองรับ $1, $2 ไม่รองรับการข้าม, $3 ซ้ำกันถูกข้าม"
-  },
-  "linkumoriUrlRules_validationFailed": {
-    "description": "Validation failure prefix for Linkumori URL rules.",
-    "message": "การตรวจสอบความถูกต้องล้มเหลว"
-  },
-  "linkumoriUrlRules_saveSuccess": {
-    "description": "Success message after saving Linkumori URL custom rules.",
-    "message": "บันทึกและโหลดกฎ Linkumori URL ใหม่แล้ว"
-  },
-  "linkumoriUrlRules_saveFailed": {
-    "description": "Failure message after saving Linkumori URL custom rules.",
-    "message": "บันทึกล้มเหลว"
-  },
-  "linkumoriUrlRules_previewEmpty": {
-    "description": "Empty preview message for Linkumori URL custom rules.",
-    "message": "กฎที่รองรับจะปรากฏที่นี่หลังจากการตรวจสอบความถูกต้อง"
-  },
-  "linkumoriUrlRules_parserUnavailable": {
-    "description": "Error shown when the popular extension URL filter parser script is missing.",
-    "message": "Linkumori URL ตัวแยกวิเคราะห์ตัวกรองไม่พร้อมใช้งาน"
-  },
   "linkumoriClearUrlsStatusGroup": {
     "description": "Group heading for native Linkumori ClearURLs 2.0 rule status in the custom rules editor.",
     "message": "Linkumori (ClearURLs 2.0)"
-  },
-  "linkumoriUrlRules_statusLabel": {
-    "description": "Status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL สถานะ"
-  },
-  "linkumoriUrlRules_customRulesLabel": {
-    "description": "Label for custom Linkumori URL rules in the custom rules editor.",
-    "message": "กฎที่กำหนดเอง"
-  },
-  "linkumoriUrlRules_hashStatusLabel": {
-    "description": "Hash status label for Linkumori URL rules in the custom rules editor.",
-    "message": "Linkumori URL แฮช"
-  },
-  "linkumoriUrlRules_close_aria": {
-    "description": "Accessible label for closing the Linkumori URL rules modal.",
-    "message": "ปิดกฎ URL แบบกำหนดเอง Linkumori"
-  },
-  "faq_linkumori_url_rules": {
-    "description": "FAQ question for Linkumori URL custom rules.",
-    "message": "กฎ Linkumori URL คืออะไร"
-  },
-  "faq_linkumori_url_rules_answer": {
-    "description": "FAQ answer explaining Linkumori URL custom rules.",
-    "message": "กฎ Linkumori URL เป็นส่วนขยายยอดนิยมที่ติดตามบรรทัดตัวกรอง URL ที่เน้นไปที่ $removeparam ซึ่งมีประโยชน์เมื่อคุณต้องการวางไวยากรณ์รายการตัวกรองโดยตรงแทนที่จะสร้างผู้ให้บริการ ClearURLs JSON"
-  },
-  "faq_linkumori_url_rules_note": {
-    "description": "FAQ note for Linkumori URL custom rules.",
-    "message": "ตัวกรองส่วนขยายยอดนิยมระยะไกล URL และกฎที่กำหนดเองเหล่านี้ไม่จำเป็นต้องมีการตรวจสอบแฮช พวกเขาจะถูกเก็บไว้ใน LinkumoriURLsData หลังจากแยกวิเคราะห์ แยกจาก ClearURLsData"
   },
   "popup_whitelist_state_permanent": {
     "message": "รายการที่อนุญาต: $1 — คลิกอีกครั้งสำหรับแท็บเท่านั้น",
