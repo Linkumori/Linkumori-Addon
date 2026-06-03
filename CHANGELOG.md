@@ -16,6 +16,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.20.2] - 2026-06-03 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.20.1...linkumori-v100.20.2))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-06-02`, hash: [`37a5554`](https://github.com/Linkumori/Linkumori-Addon/commit/37a5554))
+- Generated compressed URL cleaning rules bundle (`2026-06-03`, hash: [`d7eae6c`](https://github.com/Linkumori/Linkumori-Addon/commit/d7eae6c))
+- Retire url filter runtime (`2026-06-02`, hash: [`ab8e1a2`](https://github.com/Linkumori/Linkumori-Addon/commit/ab8e1a2))
+- Update template (`2026-06-03`, hash: [`d86c688`](https://github.com/Linkumori/Linkumori-Addon/commit/d86c688))
+- Updated canonical URL cleaning rules source (`2026-06-02`, hash: [`37a5554`](https://github.com/Linkumori/Linkumori-Addon/commit/37a5554))
+- Updated canonical URL cleaning rules source (`2026-06-02`, hash: [`ab8e1a2`](https://github.com/Linkumori/Linkumori-Addon/commit/ab8e1a2))
+
+### Fixed
+- Resolve ClearURLs removeparam modifiers (`2026-06-02`, hash: [`37a5554`](https://github.com/Linkumori/Linkumori-Addon/commit/37a5554))
+
+### Removed
+- Remove legacy interoperability runtime docs (`2026-06-02`, hash: [`a832a06`](https://github.com/Linkumori/Linkumori-Addon/commit/a832a06))
+- Remove legacy interoperability runtime traces (`2026-06-02`, hash: [`479fc06`](https://github.com/Linkumori/Linkumori-Addon/commit/479fc06))
+- Remove removeparam app modifier (`2026-06-02`, hash: [`f1b725f`](https://github.com/Linkumori/Linkumori-Addon/commit/f1b725f))
+- Remove unsupported removeparam modifiers (`2026-06-02`, hash: [`c1114da`](https://github.com/Linkumori/Linkumori-Addon/commit/c1114da))
+- Remove unused filtering context runtime (`2026-06-02`, hash: [`3f54f5b`](https://github.com/Linkumori/Linkumori-Addon/commit/3f54f5b))
+
 ## [v100.20.1] - 2026-06-01 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.20.0...linkumori-v100.20.1))
 ### Added
 - Introduce configurable report sharing (`2026-06-01`, hash: [`75eeebe`](https://github.com/Linkumori/Linkumori-Addon/commit/75eeebe))
