@@ -1,10 +1,14 @@
 # Linkumori Privacy Policy
 
-**Last Updated:** 21 May, 2026
+**Last Updated:** 9 June, 2026
 
 Linkumori is a free, non-commercial, open-source tool.
 
 **Definition.** "Add-on" means a software component or module that extends the functionality of the Firefox web browser and related applications.
+
+**Definition.** "Personal data" means any data about an individual who is identifiable by or in relation to such data. This may include information that directly identifies you, as well as information that can reasonably be linked to you when combined with other data.
+
+**Definition.** "Data Fiduciary or data controller" means a person or organization that, alone or together with others, determines the purpose and means of processing personal data. In other jurisdictions, a similar role may be called a data controller.
 
 ---
 
@@ -63,14 +67,17 @@ The issue reporting feature is an optional, user-initiated tool accessible via t
 
 ### How It Works
 
-When you click the report button, a dedicated report page opens in a new browser tab. You may fill in:
+When you click the report button, a dedicated report page opens in a new browser tab. Depending on the issue type you select, you may fill in or select:
 
 - An issue type (e.g., tracking parameter not removed, broken URL, false positive)
-- A URL where the issue occurs (pre-filled from your active tab, or entered manually)
-- Whether the page contains adult content (NSFW) — selecting this suppresses the URL from the constructed report
+- A URL where the issue occurs, chosen from the full pre-filled URL, the domain-only URL, or a manually entered custom URL
+- Whether the page contains adult content (NSFW)
 - Optional additional information describing the issue
+- Optional configuration sections selected from the report page
 
-The Add-on then constructs a GitHub issue URL or GitHub search URL entirely within your browser. **The Add-on does not transmit any data and does not contact any server.** The constructed URL is only a string; no network request is made until you explicitly choose to proceed, at which point your browser opens the URL as a normal tab navigation — not a connection initiated by the extension.
+For URL-related issue types, the Add-on validates the selected URL locally before building the report URL. For non-URL issue types, the URL and NSFW controls are hidden and no issue URL is included.
+
+The Add-on then constructs a GitHub issue URL or GitHub search URL entirely within your browser. **The Add-on does not transmit any data and does not contact any server while constructing this URL.** The constructed URL is only a string; no network request is made until you explicitly choose to proceed, at which point your browser opens the URL as a normal tab navigation.
 
 ### Consent and URL Preview
 
@@ -81,6 +88,24 @@ Before any redirect takes place, the Add-on:
 3. Gives you the option to copy the URL, cancel entirely, or proceed.
 
 No redirect occurs unless you explicitly click **"Open GitHub"**. You retain full control at every step.
+
+### GitHub Issue Creation
+
+If you choose **"Report on GitHub"**, the report page constructs a GitHub issue creation URL for the public Linkumori repository. The URL may include:
+
+- The issue title, based on the issue type and, for URL-related issues, the hostname
+- Labels and issue type metadata based on the selected issue type
+- The selected issue URL, if the issue type is URL-related
+- The cleaned URL, if a cleaned URL was supplied to the report page
+- A content warning if the NSFW checkbox is selected
+- Any additional comments you enter
+- The configuration sections you selected to share
+
+The report page requires your consent before creating this GitHub URL, and you may cancel after reviewing the complete preview.
+
+### Existing Issue Search
+
+If you choose **"Find Existing Issues"**, the report page constructs a GitHub issue search URL. This search URL may include the selected hostname, the main domain derived from that hostname, the selected issue type, and the term `nsfw` if the NSFW checkbox is selected. The full search URL is shown in the same preview dialog before GitHub is opened.
 
 ### What Happens After You Proceed
 
@@ -93,11 +118,23 @@ Once your browser loads the GitHub page:
 - As with any website you visit, GitHub receives a standard browser request and may log data such as your IP address, browser type, and the URL parameters, in accordance with their own privacy policy — regardless of whether you ultimately submit the issue.
 - If you submit the issue, the information you provide — including any additional comments — will be publicly visible on the repository, as it is a public GitHub repository.
 
+To the extent GitHub collects, stores, uses, or otherwise processes personal data when you visit GitHub, search GitHub issues, or create a GitHub issue, GitHub or its operator acts as an independent Data Fiduciary or data controller for that processing. GitHub does not process that data on behalf of Linkumori, and Linkumori does not determine GitHub's purposes or means of processing.
+
 Linkumori has no access to, and bears no responsibility for, any data processed by GitHub once your browser navigates to their site.
 
 ### Configuration Data
 
-The report page may optionally collect and include a snapshot of your Add-on configuration (such as enabled features and active rule sets) in the pre-filled report body. This information is assembled locally in your browser and displayed to you in the URL preview before any redirect. You can review, modify, or cancel before proceeding.
+The report page can include a locally assembled snapshot of selected Add-on configuration sections in the pre-filled report body. These sections are selected by default on the report page, and you may uncheck any or all of them before creating the GitHub URL.
+
+The available sections are:
+
+- Extension and browser details: Add-on name, Add-on version, and browser information derived locally from your browser user agent
+- Protection settings: enabled status for local protection features, logging, badge behavior, statistics, history API protection, hyperlink auditing protection, search rewrite protection, remote rules, built-in rules, overload mode, and hash validation status
+- Whitelisted domains: domains you have placed on the local whitelist
+- Custom rules: custom URL-cleaning rules you have saved locally
+- Disabled rules and providers: locally disabled exception rules, rules, and providers
+
+This information is read from local extension storage and rendered locally in your browser. If no configuration sections are selected, the report body states that no configuration information was selected. The full GitHub URL is displayed to you before any redirect, and you can copy it, cancel entirely, or proceed.
 
 ### No Account Required to Cancel
 
