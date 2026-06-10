@@ -1745,31 +1745,25 @@ function getGlobalVariable(varName) {
 }
 
 /**
- * Open the logger as a singleton popup window.
- * If a logger window is already open, bring it to focus instead of opening another.
+ * Open the logger as a singleton tab.
+ * If the logger is already open, bring it to focus instead of opening another.
  */
 async function openLoggerWindow() {
     const loggerUrl = browser.runtime.getURL('./html/log.html');
     try {
-        const allWindows = await browser.windows.getAll({ populate: true });
-        for (const win of allWindows) {
-            if (win.type === 'popup' && Array.isArray(win.tabs)) {
-                for (const tab of win.tabs) {
-                    if (tab.url === loggerUrl) {
-                        await browser.windows.update(win.id, { focused: true });
-                        return;
-                    }
+        const tabs = await browser.tabs.query({});
+        for (const tab of tabs) {
+            if (tab.url === loggerUrl) {
+                await browser.tabs.update(tab.id, { active: true });
+                if (typeof tab.windowId === 'number') {
+                    await browser.windows.update(tab.windowId, { focused: true });
                 }
+                return;
             }
         }
     } catch (_) {}
 
-    browser.windows.create({
-        url: loggerUrl,
-        type: 'popup',
-        width: 900,
-        height: 600
-    });
+    browser.tabs.create({ url: loggerUrl });
 }
 
 /**

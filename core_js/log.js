@@ -3,7 +3,7 @@
  * ClearURLs
  * ============================================================
  * Copyright (c) 2017–2020 Kevin Röbert
- * Modified by Subham Mahesh (c) 2025 (modified parts only)
+ * Modified by Subham Mahesh (c) 2025-2026 (modified parts only)
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -34,6 +34,26 @@
  * - Promise-based LinkumoriI18n.ready() implementation
  * - Improved timestamp handling for localized dates
  * - Full number localization for all pagination elements
+ * - Replaced live logger emoji button glyphs with inline SVG icons
+ *
+ * ============================================================
+ * SVG ICON ATTRIBUTIONS
+ * ============================================================
+ *
+ * EMBEDDED ICONS — Google Material Icons (Modified)
+ * --------------------------------------------------
+ * License:   Apache License 2.0
+ * Source:    https://fonts.google.com/icons
+ * Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+ *
+ * Modifications by Subham Mahesh, 2026-06-10:
+ * SVG paths are embedded as runtime HTML strings, sized by CSS,
+ * use fill=currentColor, and include accessibility attributes.
+ *
+ * - Pause Icon      — derivative of pause.svg
+ *                     Used in: Live Logger pause button runtime state
+ * - Play Arrow Icon — derivative of play_arrow.svg
+ *                     Used in: Live Logger resume button runtime state
  *
  * ============================================================
  * MODIFICATION HISTORY
@@ -41,6 +61,7 @@
  * 2025-06-14   Subham Mahesh   First modification
  * 2025-08-21   Subham Mahesh   Second modification
  * 2025-09-05   Subham Mahesh   Third modification
+ * 2026-06-10   Subham Mahesh   Replaced logger emoji glyphs with inline SVG icons
  *
  * Note: Due to inline constraints, subsequent modifications may
  * not appear here. To view the full history, run:
@@ -109,6 +130,46 @@ function t(key, fallback) {
         return msg || fallback || key;
     } catch (_) {
         return fallback || key;
+    }
+}
+
+const LOGGER_BUTTON_ICONS = Object.freeze({
+    pause: '<svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"></path></svg>',
+    play: '<svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7L8 5z"></path></svg>'
+});
+
+function stripLeadingButtonSymbol(value, fallback = '') {
+    const text = String(value || fallback || '').trim();
+    const firstSpace = text.indexOf(' ');
+    if (firstSpace > 0) {
+        const firstToken = text.slice(0, firstSpace);
+        if (!/[A-Za-z0-9]/.test(firstToken)) {
+            return text.slice(firstSpace + 1).trim();
+        }
+    }
+    return text;
+}
+
+function setLoggerButtonLabel(buttonOrId, key, fallback) {
+    const button = typeof buttonOrId === 'string'
+        ? document.getElementById(buttonOrId)
+        : buttonOrId;
+    if (!button) return;
+
+    const label = button.querySelector('.btn-label');
+    const text = stripLeadingButtonSymbol(t(key, fallback), fallback);
+    if (label) label.textContent = text;
+    else button.textContent = text;
+    button.setAttribute('aria-label', text);
+}
+
+function setLoggerButtonIcon(buttonOrId, iconName) {
+    const button = typeof buttonOrId === 'string'
+        ? document.getElementById(buttonOrId)
+        : buttonOrId;
+    const icon = button ? button.querySelector('.btn-icon') : null;
+    if (icon && LOGGER_BUTTON_ICONS[iconName]) {
+        icon.innerHTML = LOGGER_BUTTON_ICONS[iconName];
     }
 }
 
@@ -258,9 +319,9 @@ function setI18nText() {
     };
 
     setI18n('logger_nav_label');
-    setI18n('logger_btn_pause');
-    setI18n('logger_btn_clear');
-    setI18n('logger_btn_autoscroll');
+    setLoggerButtonLabel('btn-pause', 'logger_btn_pause', 'Pause');
+    setLoggerButtonLabel('btn-clear', 'logger_btn_clear', 'Clear');
+    setLoggerButtonLabel('btn-scroll', 'logger_btn_autoscroll', 'Auto-scroll');
     setI18n('logger_filter_label');
     setI18nPlaceholder('logger_filter_placeholder');
     setI18n('logger_tab_filter_label');
@@ -1670,11 +1731,13 @@ function updateLiveDot() {
 
 function updateBtnPause() {
     if (paused) {
-        btnPause.textContent = t('logger_btn_resume', '▶ Resume');
+        setLoggerButtonIcon(btnPause, 'play');
+        setLoggerButtonLabel(btnPause, 'logger_btn_resume', 'Resume');
         btnPause.classList.remove('btn-primary');
         btnPause.classList.add('btn-secondary', 'active');
     } else {
-        btnPause.textContent = t('logger_btn_pause', '⏸ Pause');
+        setLoggerButtonIcon(btnPause, 'pause');
+        setLoggerButtonLabel(btnPause, 'logger_btn_pause', 'Pause');
         btnPause.classList.remove('btn-secondary', 'active');
         btnPause.classList.add('btn-primary');
     }
