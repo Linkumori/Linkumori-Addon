@@ -72,10 +72,14 @@
  * ============================================================
  */
 
+
+
+// BUGFIX 10: "use strict" moved to prologue (was mid-file, no-op there).
+"use strict";
+
 var providers = [];
-// Linkumori optimized indexes
-var providersByToken = Object.create(null); // Exact hostname-label lookup table for provider candidates
-var globalProviders = []; // Provider[]
+var providersByToken = Object.create(null);
+var globalProviders = [];
 var clearurlsProviderSnapshot = createEmptyProviderSnapshot();
 var prvKeys = [];
 var siteBlockedAlert = 'javascript:void(0)';
@@ -83,6 +87,7 @@ var dataHash;
 var localDataHash;
 var os;
 var initializationComplete = false;
+// BUGFIX 10: cap cache size to prevent unbounded growth.
 var linkumoriPatternRegexCache = new Map();
 var clearurlsWebRequestHandler = null;
 var pslSupport = {
@@ -109,14 +114,11 @@ function createEmptyProviderSnapshot() {
 function normalizeClearURLsDisabledRuleIds(value) {
     if (!value) return [];
     if (typeof value === 'string') {
-        try {
-            return normalizeClearURLsDisabledRuleIds(JSON.parse(value));
-        } catch (_) {
-            return value.split(/\r?\n/).map(item => item.trim()).filter(Boolean);
-        }
+        try { return normalizeClearURLsDisabledRuleIds(JSON.parse(value)); }
+        catch (_) { return value.split(/\r?\n/).map(i => i.trim()).filter(Boolean); }
     }
     if (Array.isArray(value)) {
-        return [...new Set(value.map(item => String(item || '').trim()).filter(Boolean))];
+        return [...new Set(value.map(i => String(i || '').trim()).filter(Boolean))];
     }
     return [];
 }
@@ -144,9 +146,11 @@ function slugifyCoreRuleIdPart(value) {
 }
 
 function createGeneratedCoreRuleId(section, matchPattern) {
-    const prefix = section === 'rawRules'
-        ? 'raw'
-        : (section === 'redirections' ? 'redirect' : (section === 'referralMarketing' ? 'referral' : (section === 'exceptions' ? 'exception' : 'field')));
+    const prefix = section === 'rawRules' ? 'raw'
+        : section === 'redirections' ? 'redirect'
+        : section === 'referralMarketing' ? 'referral'
+        : section === 'exceptions' ? 'exception'
+        : 'field';
     const slug = slugifyCoreRuleIdPart(matchPattern).slice(0, 32);
     return `${prefix}-${slug || createStableRuleHash(matchPattern)}`;
 }
@@ -161,15 +165,15 @@ function buildCorePatternRuleActivationId(scopeId, ruleId) {
 
 function normalizeCoreRuleActivationIds(value) {
     if (!Array.isArray(value)) return [];
-    const activationIds = [];
+    const out = [];
     const seen = new Set();
     value.forEach(id => {
-        const activationId = String(id || "").trim();
-        if (!activationId || seen.has(activationId)) return;
-        seen.add(activationId);
-        activationIds.push(activationId);
+        const a = String(id || "").trim();
+        if (!a || seen.has(a)) return;
+        seen.add(a);
+        out.push(a);
     });
-    return activationIds;
+    return out;
 }
 
 function attachCoreRuleIdentity(providerName, compiledRule, section, activationScopeIds = []) {
@@ -177,16 +181,13 @@ function attachCoreRuleIdentity(providerName, compiledRule, section, activationS
     const aliases = Array.isArray(compiledRule.aliases) ? compiledRule.aliases : [];
     const activationIds = normalizeCoreRuleActivationIds(compiledRule._linkumoriActivationIds);
     const fallbackActivationIds = (Array.isArray(activationScopeIds) && activationScopeIds.length > 0
-        ? activationScopeIds
-        : [providerName])
+        ? activationScopeIds : [providerName])
         .map(scopeId => buildCorePatternRuleActivationId(scopeId, ruleId));
     compiledRule.id = ruleId;
     compiledRule.providerName = providerName;
     compiledRule.runtimeRuleId = buildCoreRuntimeRuleId(providerName, ruleId);
     compiledRule.aliasRuntimeIds = aliases.map(alias => buildCoreRuntimeRuleId(providerName, alias));
-    compiledRule.activationIds = activationIds.length > 0
-        ? activationIds
-        : fallbackActivationIds;
+    compiledRule.activationIds = activationIds.length > 0 ? activationIds : fallbackActivationIds;
     return compiledRule;
 }
 
@@ -205,84 +206,56 @@ function coreRuleDisableKeys(compiledRule) {
 
 function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return false;
-    if (coreRuleDisableKeys(compiledRule).some(key => disabledRuleIds.has(key))) {
+    if (coreRuleDisableKeys(compiledRule).some(k => disabledRuleIds.has(k))) {
         compiledRule.disabledActivationIds = (compiledRule.activationIds || []).slice();
         compiledRule.activationIds = [];
         return true;
     }
-
     const activationIds = Array.isArray(compiledRule.activationIds) ? compiledRule.activationIds : [];
     if (activationIds.length === 0) return false;
-    const activeActivationIds = [];
-    const disabledActivationIds = [];
-    activationIds.forEach(activationId => {
-        const localRuleId = String(activationId).split("::").pop();
-        const disabled = getCoreActivationIdDisableAliases(activationId)
-            .some(alias => disabledRuleIds.has(alias)) || disabledRuleIds.has(localRuleId);
-        if (disabled) disabledActivationIds.push(activationId);
-        else activeActivationIds.push(activationId);
+    const active = [], disabled = [];
+    activationIds.forEach(aId => {
+        const localId = String(aId).split("::").pop();
+        const off = getCoreActivationIdDisableAliases(aId).some(a => disabledRuleIds.has(a))
+            || disabledRuleIds.has(localId);
+        (off ? disabled : active).push(aId);
     });
-    compiledRule.disabledActivationIds = disabledActivationIds;
-    compiledRule.activationIds = activeActivationIds;
-    return activeActivationIds.length === 0;
+    compiledRule.disabledActivationIds = disabled;
+    compiledRule.activationIds = active;
+    return active.length === 0;
 }
 
 function getCoreActivationIdDisableAliases(activationId) {
-    const value = String(activationId || "").trim();
-    if (!value) return [];
-    const aliases = [value];
-    if (value.startsWith("domainPattern:")) {
-        aliases.push(`domain:${value.slice(14)}`);
-    } else if (value.startsWith("urlPattern:")) {
-        aliases.push(`url:${value.slice(11)}`);
-    } else if (value.startsWith("domain:")) {
-        aliases.push(`domainPattern:${value.slice(7)}`);
-    } else if (value.startsWith("url:")) {
-        aliases.push(`urlPattern:${value.slice(4)}`);
-    }
-    return aliases;
+    const v = String(activationId || "").trim();
+    if (!v) return [];
+    const a = [v];
+    if (v.startsWith("domainPattern:")) a.push(`domain:${v.slice(14)}`);
+    else if (v.startsWith("urlPattern:")) a.push(`url:${v.slice(11)}`);
+    else if (v.startsWith("domain:")) a.push(`domainPattern:${v.slice(7)}`);
+    else if (v.startsWith("url:")) a.push(`urlPattern:${v.slice(4)}`);
+    return a;
 }
 
 function parseCorePatternActivationScope(activationId) {
-    const value = String(activationId || "");
-    const separatorIndex = value.lastIndexOf("::");
-    if (separatorIndex === -1) return null;
-    const scope = value.slice(0, separatorIndex);
-    if (scope.startsWith("domainPattern:")) {
-        return { type: "domain", pattern: scope.slice(14) };
-    }
-    if (scope.startsWith("urlPattern:")) {
-        return { type: "url", pattern: scope.slice(11) };
-    }
-    if (scope.startsWith("domain:")) {
-        return { type: "domain", pattern: scope.slice(7) };
-    }
-    if (scope.startsWith("url:")) {
-        return { type: "url", pattern: scope.slice(4) };
-    }
+    const v = String(activationId || "");
+    const sep = v.lastIndexOf("::");
+    if (sep === -1) return null;
+    const scope = v.slice(0, sep);
+    if (scope.startsWith("domainPattern:")) return { type: "domain", pattern: scope.slice(14) };
+    if (scope.startsWith("urlPattern:")) return { type: "url", pattern: scope.slice(11) };
+    if (scope.startsWith("domain:")) return { type: "domain", pattern: scope.slice(7) };
+    if (scope.startsWith("url:")) return { type: "url", pattern: scope.slice(4) };
     return null;
 }
 
 function coreRuleHasActivePatternForUrl(compiledRule, url) {
     const activationIds = Array.isArray(compiledRule?.activationIds) ? compiledRule.activationIds : [];
-    const patternScopes = activationIds
-        .map(parseCorePatternActivationScope)
-        .filter(scope => scope && scope.pattern);
-
-    if (patternScopes.length === 0) {
-        return true;
-    }
-
+    const patternScopes = activationIds.map(parseCorePatternActivationScope).filter(s => s && s.pattern);
+    if (patternScopes.length === 0) return true;
     return patternScopes.some(scope => {
-        if (scope.type === "domain") {
-            return matchDomainPattern(url, [scope.pattern]);
-        }
+        if (scope.type === "domain") return matchDomainPattern(url, [scope.pattern]);
         if (scope.type === "url") {
-            try {
-                return new RegExp(scope.pattern, "i").test(url);
-            } catch (_) {
-                return false;
-            }
+            try { return new RegExp(scope.pattern, "i").test(url); } catch (_) { return false; }
         }
         return false;
     });
@@ -304,10 +277,9 @@ function registerCoreRuleInSnapshot(compiledRule) {
             section: compiledRule.section
         };
     }
-    (compiledRule.aliasRuntimeIds || []).forEach((aliasRuntimeId) => {
-        if (!clearurlsProviderSnapshot.aliasRuleIds[aliasRuntimeId]) {
-            clearurlsProviderSnapshot.aliasRuleIds[aliasRuntimeId] = compiledRule.runtimeRuleId;
-        }
+    (compiledRule.aliasRuntimeIds || []).forEach(aId => {
+        if (!clearurlsProviderSnapshot.aliasRuleIds[aId])
+            clearurlsProviderSnapshot.aliasRuleIds[aId] = compiledRule.runtimeRuleId;
     });
 }
 
@@ -331,82 +303,40 @@ function registerDisabledCoreRuleInSnapshot(compiledRule) {
 function normalizeAsciiHostname(value) {
     const host = String(value || '').trim().toLowerCase();
     if (!host) return null;
-
-    if (/^[\x00-\x7F]+$/.test(host)) {
-        return host.endsWith('.') ? host.slice(0, -1) : host;
-    }
-
-    try {
-        return new URL('http://' + host).hostname.toLowerCase();
-    } catch (e) {
-        return host.endsWith('.') ? host.slice(0, -1) : host;
-    }
+    if (/^[\x00-\x7F]+$/.test(host)) return host.endsWith('.') ? host.slice(0, -1) : host;
+    try { return new URL('http://' + host).hostname.toLowerCase(); }
+    catch (e) { return host.endsWith('.') ? host.slice(0, -1) : host; }
 }
 
 function getHostnameLookupTokens(hostnameInput) {
     const normalized = normalizeAsciiHostname(hostnameInput);
     const tokens = new Set();
     if (!normalized) return [];
-
-    function addLabels(value) {
-        String(value || '')
-            .split('.')
-            .map(label => label.trim().toLowerCase())
-            .filter(label => /^[a-z0-9-]+$/i.test(label))
-            .filter(label => label !== '*')
-            .forEach(label => tokens.add(label));
+    function addLabels(v) {
+        String(v || '').split('.').map(l => l.trim().toLowerCase())
+            .filter(l => /^[a-z0-9-]+$/i.test(l)).filter(l => l !== '*')
+            .forEach(l => tokens.add(l));
     }
-
     addLabels(normalized);
-
     const parsed = parseHostnameWithPsl(normalized);
-    if (parsed) {
-        addLabels(parsed.domain);
-        addLabels(parsed.subdomain);
-    }
-
+    if (parsed) { addLabels(parsed.domain); addLabels(parsed.subdomain); }
     return Array.from(tokens);
 }
 
 function initPslSupport() {
-    if (pslSupport.status === 'loading' || pslSupport.status === 'ready') {
-        return pslSupport.loadPromise;
-    }
-
+    if (pslSupport.status === 'loading' || pslSupport.status === 'ready') return pslSupport.loadPromise;
     pslSupport.status = 'loading';
     pslSupport.loadPromise = (async () => {
         try {
             const runtimeAPI = browser.runtime;
-
-            if (!runtimeAPI || typeof fetch !== 'function') {
-                throw new Error('PSL module/runtime API unavailable');
-            }
-
-            const pslService = (typeof globalThis !== 'undefined' && globalThis.linkumoriPsl)
-                ? globalThis.linkumoriPsl
-                : null;
-
-            if (
-                !pslService ||
-                typeof pslService.init !== 'function'
-            ) {
-                throw new Error('linkumoriPsl service missing in external_js/publicsuffixlist.js');
-            }
-
-            await pslService.init({
-                dataPath: 'data/public_suffix_list.dat',
-                runtimeAPI
-            });
-
-            if (
-                pslService.status !== 'ready' ||
-                !pslService.parser ||
+            if (!runtimeAPI || typeof fetch !== 'function') throw new Error('PSL module/runtime API unavailable');
+            const pslService = (typeof globalThis !== 'undefined' && globalThis.linkumoriPsl) ? globalThis.linkumoriPsl : null;
+            if (!pslService || typeof pslService.init !== 'function') throw new Error('linkumoriPsl service missing');
+            await pslService.init({ dataPath: 'data/public_suffix_list.dat', runtimeAPI });
+            if (pslService.status !== 'ready' || !pslService.parser ||
                 typeof pslService.parser.getPublicSuffix !== 'function' ||
-                typeof pslService.parser.getDomain !== 'function'
-            ) {
+                typeof pslService.parser.getDomain !== 'function')
                 throw new Error('PSL service initialized without usable parser');
-            }
-
             pslSupport.parser = pslService.parser;
             pslSupport.service = pslService;
             pslSupport.status = 'ready';
@@ -418,157 +348,95 @@ function initPslSupport() {
             pslSupport.service = null;
         }
     })();
-
     return pslSupport.loadPromise;
 }
 
 function parseHostnameWithPsl(hostnameInput) {
     const normalizedHostname = normalizeAsciiHostname(hostnameInput);
     if (!normalizedHostname) return null;
-
-    if (
-        pslSupport.status === 'ready' &&
-        pslSupport.service &&
-        typeof pslSupport.service.parseNormalizedHostname === 'function'
-    ) {
-        const parsed = pslSupport.service.parseNormalizedHostname(
-            normalizedHostname
-        );
-
-        if (parsed && parsed.listed && parsed.tld) {
-            return {
+    if (pslSupport.status === 'ready' && pslSupport.service) {
+        if (typeof pslSupport.service.parseNormalizedHostname === 'function') {
+            const parsed = pslSupport.service.parseNormalizedHostname(normalizedHostname);
+            if (parsed && parsed.listed && parsed.tld) return {
                 hostname: parsed.hostname || normalizedHostname,
-                tld: parsed.tld || null,
-                domain: parsed.domain || null,
-                subdomain: parsed.subdomain || null,
-                listed: true
+                tld: parsed.tld || null, domain: parsed.domain || null,
+                subdomain: parsed.subdomain || null, listed: true
             };
         }
-    }
-
-    if (
-        pslSupport.status === 'ready' &&
-        pslSupport.service &&
-        typeof pslSupport.service.lookupNormalized === 'function'
-    ) {
-        const lookup = pslSupport.service.lookupNormalized(normalizedHostname);
-        if (lookup) return lookup;
-    }
-
-    if (
-        pslSupport.status !== 'ready' ||
-        !pslSupport.parser ||
-        typeof pslSupport.parser.getPublicSuffix !== 'function' ||
-        typeof pslSupport.parser.getDomain !== 'function'
-    ) {
-        return null;
-    }
-
-    const hostname = normalizedHostname;
-
-    try {
-        const tld = pslSupport.parser.getPublicSuffix(hostname) || null;
-        if (!tld) return null;
-
-        const domain = pslSupport.parser.getDomain(hostname) || null;
-        let subdomain = null;
-        if (domain && hostname !== domain && hostname.endsWith('.' + domain)) {
-            const suffixToken = '.' + domain;
-            subdomain = hostname.slice(0, -suffixToken.length) || null;
+        if (typeof pslSupport.service.lookupNormalized === 'function') {
+            const lookup = pslSupport.service.lookupNormalized(normalizedHostname);
+            if (lookup) return lookup;
         }
-
-        return {
-            hostname,
-            tld,
-            domain,
-            subdomain,
-            listed: true
-        };
-    } catch (e) {
-        return null;
     }
+    if (pslSupport.status !== 'ready' || !pslSupport.parser ||
+        typeof pslSupport.parser.getPublicSuffix !== 'function' ||
+        typeof pslSupport.parser.getDomain !== 'function') return null;
+    try {
+        const tld = pslSupport.parser.getPublicSuffix(normalizedHostname) || null;
+        if (!tld) return null;
+        const domain = pslSupport.parser.getDomain(normalizedHostname) || null;
+        let subdomain = null;
+        if (domain && normalizedHostname !== domain && normalizedHostname.endsWith('.' + domain))
+            subdomain = normalizedHostname.slice(0, -(('.' + domain).length)) || null;
+        return { hostname: normalizedHostname, tld, domain, subdomain, listed: true };
+    } catch (e) { return null; }
 }
 
 function matchRootDomainWildcardTldWithPsl(hostnameValue, pattern) {
     if (pslSupport.status !== 'ready') return false;
-
     const normalizedHost = normalizeAsciiHostname(hostnameValue);
     const normalizedPattern = normalizeAsciiHostname(pattern);
-    if (!normalizedHost || !normalizedPattern || !normalizedPattern.endsWith('.*')) {
-        return false;
-    }
-
+    if (!normalizedHost || !normalizedPattern || !normalizedPattern.endsWith('.*')) return false;
     const base = normalizedPattern.slice(0, -2);
     if (!base) return false;
-
     const parsed = parseHostnameWithPsl(normalizedHost);
     if (!parsed || !parsed.tld) return false;
-
     const suffixToken = '.' + parsed.tld;
     if (!normalizedHost.endsWith(suffixToken)) return false;
-
     const prefix = normalizedHost.slice(0, -suffixToken.length);
     if (!prefix) return false;
-
-    // Match bare domain OR any subdomain (m.example.com, sub.example.com …).
-    // The old code only allowed www. as a subdomain variant.
     return prefix === base || prefix.endsWith('.' + base);
 }
 
-// Tracks tab/frame URLs so that subrequests from a whitelisted page context
-// can be skipped even if the subrequest URL itself is not whitelisted.
 var requestContextManager = {
     initialized: false,
     tabs: new Map(),
 
     ensureTab(tabId) {
-        let tabCtx = this.tabs.get(tabId);
-        if (!tabCtx) {
-            tabCtx = { url: '', frames: new Map() };
-            this.tabs.set(tabId, tabCtx);
-        }
-        return tabCtx;
+        let t = this.tabs.get(tabId);
+        if (!t) { t = { url: '', frames: new Map() }; this.tabs.set(tabId, t); }
+        return t;
     },
 
     setTabURL(tabId, url) {
-        if (typeof tabId !== 'number' || tabId < 0) return;
-        if (typeof url !== 'string' || url === '') return;
-        const tabCtx = this.ensureTab(tabId);
-        tabCtx.url = url;
-        tabCtx.frames.set(0, { url, parentFrameId: -1 });
+        if (typeof tabId !== 'number' || tabId < 0 || typeof url !== 'string' || !url) return;
+        const t = this.ensureTab(tabId);
+        t.url = url;
+        t.frames.set(0, { url, parentFrameId: -1 });
     },
 
     setFrameURL(tabId, frameId, url, parentFrameId = -1) {
         if (typeof tabId !== 'number' || tabId < 0) return;
         if (typeof frameId !== 'number' || frameId < 0) return;
-        if (typeof url !== 'string' || url === '') return;
-        const tabCtx = this.ensureTab(tabId);
-        tabCtx.frames.set(frameId, { url, parentFrameId });
-        if (frameId === 0) {
-            tabCtx.url = url;
-        }
+        if (typeof url !== 'string' || !url) return;
+        const t = this.ensureTab(tabId);
+        t.frames.set(frameId, { url, parentFrameId });
+        if (frameId === 0) t.url = url;
     },
 
     collectContextURLs(requestDetails) {
         const urls = [];
-        if (!requestDetails || typeof requestDetails !== 'object') {
-            return urls;
-        }
-
+        if (!requestDetails || typeof requestDetails !== 'object') return urls;
         if (typeof requestDetails.documentUrl === 'string') urls.push(requestDetails.documentUrl);
         if (typeof requestDetails.originUrl === 'string') urls.push(requestDetails.originUrl);
         if (typeof requestDetails.initiator === 'string') urls.push(requestDetails.initiator);
         if (typeof requestDetails.tabUrl === 'string') urls.push(requestDetails.tabUrl);
         if (typeof requestDetails.referrer === 'string') urls.push(requestDetails.referrer);
-
         const tabId = requestDetails.tabId;
         if (typeof tabId === 'number' && tabId >= 0) {
             const tabCtx = this.tabs.get(tabId);
             if (tabCtx) {
-                if (typeof tabCtx.url === 'string' && tabCtx.url) {
-                    urls.push(tabCtx.url);
-                }
-
+                if (typeof tabCtx.url === 'string' && tabCtx.url) urls.push(tabCtx.url);
                 const walkAncestors = (startFrameId) => {
                     if (typeof startFrameId !== 'number' || startFrameId < 0) return;
                     let frameId = startFrameId;
@@ -578,119 +446,96 @@ var requestContextManager = {
                         visited.add(frameId);
                         const entry = tabCtx.frames.get(frameId);
                         if (!entry) break;
-                        if (typeof entry.url === 'string' && entry.url) {
-                            urls.push(entry.url);
-                        }
+                        if (typeof entry.url === 'string' && entry.url) urls.push(entry.url);
                         if (typeof entry.parentFrameId !== 'number' || entry.parentFrameId < 0) break;
                         frameId = entry.parentFrameId;
                     }
                 };
-
                 walkAncestors(requestDetails.frameId);
                 walkAncestors(requestDetails.parentFrameId);
             }
         }
-
         return Array.from(new Set(urls));
     },
 
     init() {
         if (this.initialized) return;
         this.initialized = true;
-
-        browser.tabs.query({}).then((tabs) => {
+        browser.tabs.query({}).then(tabs => {
             if (!Array.isArray(tabs)) return;
-            for (const tab of tabs) {
-                if (typeof tab?.id === 'number' && typeof tab?.url === 'string') {
+            for (const tab of tabs)
+                if (typeof tab?.id === 'number' && typeof tab?.url === 'string')
                     this.setTabURL(tab.id, tab.url);
-                }
-            }
         }).catch(handleError);
-
         browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-            const candidateUrl = (changeInfo && typeof changeInfo.url === 'string')
-                ? changeInfo.url
-                : (tab && typeof tab.url === 'string' ? tab.url : null);
-            if (candidateUrl) {
-                this.setTabURL(tabId, candidateUrl);
-            }
+            const u = (changeInfo && typeof changeInfo.url === 'string')
+                ? changeInfo.url : (tab && typeof tab.url === 'string' ? tab.url : null);
+            if (u) this.setTabURL(tabId, u);
         });
-
-        browser.tabs.onRemoved.addListener((tabId) => {
-            this.tabs.delete(tabId);
-        });
-
+        browser.tabs.onRemoved.addListener(tabId => { this.tabs.delete(tabId); });
         if (browser.webNavigation && browser.webNavigation.onCommitted) {
-            browser.webNavigation.onCommitted.addListener((details) => {
+            browser.webNavigation.onCommitted.addListener(details => {
+                // BUGFIX 10: clear stale frame entries on top-level navigation.
+                if (details.frameId === 0) {
+                    const t = this.tabs.get(details.tabId);
+                    if (t) t.frames.clear();
+                }
                 this.setFrameURL(details.tabId, details.frameId, details.url, details.parentFrameId);
             });
         }
-        if (browser.webNavigation && browser.webNavigation.onHistoryStateUpdated) {
-            browser.webNavigation.onHistoryStateUpdated.addListener((details) => {
-                this.setFrameURL(details.tabId, details.frameId, details.url, details.parentFrameId);
-            });
-        }
-        if (browser.webNavigation && browser.webNavigation.onReferenceFragmentUpdated) {
-            browser.webNavigation.onReferenceFragmentUpdated.addListener((details) => {
-                this.setFrameURL(details.tabId, details.frameId, details.url, details.parentFrameId);
-            });
-        }
+        if (browser.webNavigation && browser.webNavigation.onHistoryStateUpdated)
+            browser.webNavigation.onHistoryStateUpdated.addListener(d =>
+                this.setFrameURL(d.tabId, d.frameId, d.url, d.parentFrameId));
+        if (browser.webNavigation && browser.webNavigation.onReferenceFragmentUpdated)
+            browser.webNavigation.onReferenceFragmentUpdated.addListener(d =>
+                this.setFrameURL(d.tabId, d.frameId, d.url, d.parentFrameId));
     }
 };
 
-"use strict";
+
+// ---------------------------------------------------------------------------
+// URLHashParams + Multimap
+// ---------------------------------------------------------------------------
 
 class URLHashParams {
     constructor(url) {
-        Object.defineProperty(this, "_params", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        Object.defineProperty(this, "_params", { enumerable: true, configurable: true, writable: true, value: void 0 });
         this._params = new Multimap();
         const hash = url.hash.slice(1);
         const params = hash.split('&');
         for (const p of params) {
-            const param = p.split('=');
-            if (!param[0])
+            if (!p) continue;
+            // BUGFIX 1: old code split on ALL '=' chars which destroyed values
+            // containing '=' (base64 padding, JWT tokens, OAuth tokens).
+            // Also dropped empty "key=" pairs. Split on the FIRST '=' only.
+            const eq = p.indexOf('=');
+            if (eq === -1) {
+                this._params.put(p, null);  // bare key, no '='
                 continue;
-            const key = param[0];
-            let value = null;
-            if (param.length === 2 && param[1]) {
-                value = param[1];
             }
-            this._params.put(key, value);
+            const key = p.slice(0, eq);
+            if (!key) continue;
+            this._params.put(key, p.slice(eq + 1));  // value may be empty string
         }
     }
-    append(name, value = null) {
-        this._params.put(name, value);
-    }
-    delete(name) {
-        this._params.delete(name);
-    }
+    append(name, value = null) { this._params.put(name, value); }
+    delete(name) { this._params.delete(name); }
     get(name) {
-        const [first] = this._params.get(name);
-        if (first) {
-            return first;
-        }
+        // BUGFIX 1: previous code: const [first] = this._params.get(name);
+        // if (first) return first; — this returned null for empty-string values.
+        for (const value of this._params.get(name)) return value;
         return null;
     }
-    getAll(name) {
-        return this._params.get(name);
-    }
-    keys() {
-        return this._params.keys();
-    }
+    getAll(name) { return this._params.get(name); }
+    keys() { return this._params.keys(); }
     toString() {
         const rtn = [];
         this._params.forEach((key, value) => {
-            if (value) {
-                rtn.push(key + '=' + value);
-            }
-            else {
-                rtn.push(key);
-            }
+            // BUGFIX 1: old code treated empty-string value like null (no '=')
+            // which silently turned "token=" into "token" on every rewrite.
+            // null means no '=' was present; empty string means "key=" was.
+            if (value !== null && value !== undefined) rtn.push(key + '=' + value);
+            else rtn.push(key);
         });
         return rtn.join('&');
     }
@@ -698,118 +543,70 @@ class URLHashParams {
 
 class Multimap {
     constructor() {
-        Object.defineProperty(this, "_map", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "_size", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        Object.defineProperty(this, "_map", { enumerable: true, configurable: true, writable: true, value: void 0 });
+        Object.defineProperty(this, "_size", { enumerable: true, configurable: true, writable: true, value: void 0 });
         this._size = 0;
         this._map = new Map();
     }
-    get size() {
-        return this._size;
-    }
+    get size() { return this._size; }
     get(key) {
         const values = this._map.get(key);
-        if (values) {
-            return new Set(values);
-        }
-        else {
-            return new Set();
-        }
+        return values ? new Set(values) : new Set();
     }
     put(key, value) {
         let values = this._map.get(key);
-        if (!values) {
-            values = new Set();
-        }
+        if (!values) values = new Set();
         const count = values.size;
         values.add(value);
-        if (values.size === count) {
-            return false;
-        }
+        if (values.size === count) return false;
         this._map.set(key, values);
         this._size++;
         return true;
     }
-    has(key) {
-        return this._map.has(key);
-    }
-    hasEntry(key, value) {
-        const values = this._map.get(key);
-        if (!values) {
-            return false;
-        }
-        return values.has(value);
-    }
+    has(key) { return this._map.has(key); }
+    hasEntry(key, value) { const v = this._map.get(key); return v ? v.has(value) : false; }
     delete(key) {
         const values = this._map.get(key);
-        if (values && this._map.delete(key)) {
-            this._size -= values.size;
-            return true;
-        }
+        if (values && this._map.delete(key)) { this._size -= values.size; return true; }
         return false;
     }
     deleteEntry(key, value) {
         const values = this._map.get(key);
         if (values) {
-            if (!values.delete(value)) {
-                return false;
-            }
+            if (!values.delete(value)) return false;
             this._size--;
             return true;
         }
         return false;
     }
-    clear() {
-        this._map.clear();
-        this._size = 0;
-    }
+    clear() { this._map.clear(); this._size = 0; }
     entries() {
         const self = this;
         function* gen() {
-            for (const [key, values] of self._map.entries()) {
-                for (const value of values) {
-                    yield [key, value];
-                }
-            }
+            for (const [key, values] of self._map.entries())
+                for (const value of values) yield [key, value];
         }
         return gen();
     }
     values() {
         const self = this;
-        function* gen() {
-            for (const [, value] of self.entries()) {
-                yield value;
-            }
-        }
+        function* gen() { for (const [, v] of self.entries()) yield v; }
         return gen();
     }
-    keys() {
-        return this._map.keys();
-    }
+    keys() { return this._map.keys(); }
     forEach(callback, thisArg) {
-        for (const [key, value] of this.entries()) {
+        for (const [key, value] of this.entries())
             callback.call(thisArg === undefined ? this : thisArg, key, value, this);
-        }
     }
-    [Symbol.iterator]() {
-        return this.entries();
-    }
+    [Symbol.iterator]() { return this.entries(); }
 }
 
+// ---------------------------------------------------------------------------
+// matchDomainPattern
+// ---------------------------------------------------------------------------
 
 function matchDomainPattern(url, patterns) {
-    if (typeof patterns === 'string') {
-        patterns = [patterns];
-    }
+    if (typeof patterns === 'string') patterns = [patterns];
     if (!Array.isArray(patterns) || patterns.length === 0) return false;
 
     function escapeRegexChar(char) {
@@ -820,175 +617,116 @@ function matchDomainPattern(url, patterns) {
         let output = '';
         for (let i = 0; i < input.length; i++) {
             const ch = input.charAt(i);
-            if (ch === '*') {
-                output += '.*';
-            } else if (ch === '^') {
-                output += '(?:[^0-9A-Za-z_\\-.%]|$)';
-            } else {
-                output += escapeRegexChar(ch);
-            }
+            if (ch === '*') output += '.*';
+            else if (ch === '^') output += '(?:[^0-9A-Za-z_\\-.%]|$)';
+            else output += escapeRegexChar(ch);
         }
         return output;
     }
 
     function compileLinkumoriRegex(pattern) {
         const cacheKey = String(pattern || '');
-        if (linkumoriPatternRegexCache.has(cacheKey)) {
-            return linkumoriPatternRegexCache.get(cacheKey);
-        }
+        if (linkumoriPatternRegexCache.has(cacheKey)) return linkumoriPatternRegexCache.get(cacheKey);
 
         let raw = cacheKey;
-        let domainAnchor = false;
-        let startAnchor = false;
-        let endAnchor = false;
-
-        if (raw.startsWith('||')) {
-            domainAnchor = true;
-            raw = raw.slice(2);
-        } else if (raw.startsWith('|')) {
-            startAnchor = true;
-            raw = raw.slice(1);
-        }
-
-        if (raw.endsWith('|')) {
-            endAnchor = true;
-            raw = raw.slice(0, -1);
-        }
-
+        let domainAnchor = false, startAnchor = false, endAnchor = false;
+        if (raw.startsWith('||')) { domainAnchor = true; raw = raw.slice(2); }
+        else if (raw.startsWith('|')) { startAnchor = true; raw = raw.slice(1); }
+        if (raw.endsWith('|')) { endAnchor = true; raw = raw.slice(0, -1); }
         if (domainAnchor) {
-            const hostBoundary = firstSpecialIndex(raw);
-            const hostExpr = hostBoundary === -1 ? raw : raw.slice(0, hostBoundary);
-            if (hostExpr.startsWith('*.')) {
-                raw = raw.slice(2);
-            }
+            const hb = firstSpecialIndex(raw);
+            const hx = hb === -1 ? raw : raw.slice(0, hb);
+            if (hx.startsWith('*.')) raw = raw.slice(2);
         }
 
         const source = linkumoriTokensToRegexSource(raw);
-        const prefix = domainAnchor
-            ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?'
-            : (startAnchor ? '^' : '');
+        const prefix = domainAnchor ? '^[A-Za-z][A-Za-z0-9+.-]*:\\/+(?:[^/?#]*\\.)?' : (startAnchor ? '^' : '');
         const suffix = endAnchor ? '$' : '';
-        // Without a trailing ^ or end-anchor, ||example.com would match
-        // example.com.evil.com. Add a host-boundary lookahead in that case.
-        // Patterns ending with ^ already compile (?:[^0-9A-Za-z_\-.%]|$).
-        const domainBoundary = (domainAnchor && !raw.endsWith('^') && !endAnchor)
-            ? '(?=[/?#]|$)' : '';
+        // BUGFIX 3: old boundary was (?=[/?#]|$) — excluded ':' so
+        // ||example.com never matched http://example.com:8080/…
+        const domainBoundary = (domainAnchor && !raw.endsWith('^') && !endAnchor) ? '(?=[:/?#]|$)' : '';
 
         let regex = null;
-        try {
-            regex = new RegExp(prefix + source + domainBoundary + suffix, 'i');
-        } catch (e) {
-            regex = null;
-        }
+        try { regex = new RegExp(prefix + source + domainBoundary + suffix, 'i'); }
+        catch (e) { regex = null; }
 
+        // BUGFIX 10: prevent unbounded cache growth.
+        if (linkumoriPatternRegexCache.size > 5000) linkumoriPatternRegexCache.clear();
         linkumoriPatternRegexCache.set(cacheKey, regex);
         return regex;
     }
 
     function compileTailRegex(tail) {
         let raw = String(tail || '');
-        let startAnchor = false;
-        let endAnchor = false;
-
-        if (raw.startsWith('|')) {
-            startAnchor = true;
-            raw = raw.slice(1);
-        }
-        if (raw.endsWith('|')) {
-            endAnchor = true;
-            raw = raw.slice(0, -1);
-        }
-
+        let startAnchor = false, endAnchor = false;
+        if (raw.startsWith('|')) { startAnchor = true; raw = raw.slice(1); }
+        if (raw.endsWith('|')) { endAnchor = true; raw = raw.slice(0, -1); }
         const source = linkumoriTokensToRegexSource(raw);
-        const prefix = startAnchor ? '^' : '';
-        const suffix = endAnchor ? '$' : '';
-        return new RegExp(prefix + source + suffix, 'i');
+        return new RegExp((startAnchor ? '^' : '') + source + (endAnchor ? '$' : ''), 'i');
     }
 
     function firstSpecialIndex(input) {
-        const slashIndex = input.indexOf('/');
-        const caretIndex = input.indexOf('^');
-        const pipeIndex = input.indexOf('|');
-
-        let index = -1;
-        if (slashIndex !== -1) index = slashIndex;
-        if (caretIndex !== -1 && (index === -1 || caretIndex < index)) index = caretIndex;
-        if (pipeIndex !== -1 && (index === -1 || pipeIndex < index)) index = pipeIndex;
-        return index;
+        const s = input.indexOf('/'), c = input.indexOf('^'), p = input.indexOf('|');
+        let idx = -1;
+        if (s !== -1) idx = s;
+        if (c !== -1 && (idx === -1 || c < idx)) idx = c;
+        if (p !== -1 && (idx === -1 || p < idx)) idx = p;
+        return idx;
     }
 
-    function isSimpleHostExpression(input) {
-        return /^[a-z0-9*.-]+$/i.test(input);
-    }
+    function isSimpleHostExpression(input) { return /^[a-z0-9*.-]+$/i.test(input); }
 
     function matchHostPattern(hostname, pattern) {
         if (pslSupport.status !== 'ready') return false;
-
         const normalizedHost = normalizeAsciiHostname(hostname);
         let normalizedPattern = normalizeAsciiHostname(pattern);
         if (!normalizedHost || !normalizedPattern) return false;
-
         const hostParsed = parseHostnameWithPsl(normalizedHost);
         if (!hostParsed || !hostParsed.tld) return false;
-
-        if (normalizedPattern.startsWith('*.')) {
-            normalizedPattern = normalizedPattern.slice(2);
-        }
+        if (normalizedPattern.startsWith('*.')) normalizedPattern = normalizedPattern.slice(2);
         if (!normalizedPattern) return false;
-
         const wildcardTld = normalizedPattern.endsWith('.*');
         const basePattern = wildcardTld ? normalizedPattern.slice(0, -2) : normalizedPattern;
         if (!basePattern) return false;
-
-        if (wildcardTld) {
-            return matchRootDomainWildcardTldWithPsl(normalizedHost, normalizedPattern);
-        }
-
+        if (wildcardTld) return matchRootDomainWildcardTldWithPsl(normalizedHost, normalizedPattern);
         const patternParsed = parseHostnameWithPsl(basePattern);
         if (!patternParsed || !patternParsed.tld) return false;
-
         return normalizedHost === basePattern || normalizedHost.endsWith('.' + basePattern);
     }
 
     function matchStructuredDomainAnchorPattern(pattern, urlObj, hostname) {
         const body = String(pattern || '').slice(2).trim();
         if (!body) return false;
-
         const specialIndex = firstSpecialIndex(body);
         const hostExpr = specialIndex === -1 ? body : body.slice(0, specialIndex);
         const tail = specialIndex === -1 ? '' : body.slice(specialIndex);
-
-        if (!hostExpr || !isSimpleHostExpression(hostExpr)) {
-            return null;
-        }
+        if (!hostExpr || !isSimpleHostExpression(hostExpr)) return null;
 
         if (!matchHostPattern(hostname, hostExpr)) {
-            // PSL not ready — return null so matchDomainPattern falls through to the
-            // compiled regex path instead of hard-failing. Without this, ||domain
-            // patterns never match anything during PSL initialisation or when PSL
-            // has failed to load, which silently breaks all exception rules.
+            // PSL not ready → fall through to regex path.
             if (pslSupport.status !== 'ready') return null;
+            // BUGFIX 4: when PSL is ready but the host or pattern is not in PSL
+            // (localhost, .lan, custom intranet TLDs) matchHostPattern always
+            // fails for structural reasons. Return null so we fall through to
+            // compileLinkumoriRegex instead of permanently hard-failing.
+            const hostParsed = parseHostnameWithPsl(hostname);
+            if (!hostParsed || !hostParsed.tld) return null;
+            let base = normalizeAsciiHostname(hostExpr) || '';
+            if (base.startsWith('*.')) base = base.slice(2);
+            if (!base.endsWith('.*')) {
+                const pp = parseHostnameWithPsl(base);
+                if (!pp || !pp.tld) return null;
+            }
             return false;
         }
 
         let rest = tail;
-        if (rest.startsWith('^')) {
-            // Host boundary is already enforced by URL parsing + host matcher.
-            rest = rest.slice(1);
-        }
-
+        if (rest.startsWith('^')) rest = rest.slice(1);
         if (!rest) return true;
-
         const pathTarget = (urlObj.pathname + urlObj.search + urlObj.hash).toLowerCase();
-        if (rest.startsWith('/') && !/[|*^]/.test(rest)) {
-            return pathTarget.startsWith(rest.toLowerCase());
-        }
-
-        try {
-            return compileTailRegex(rest.toLowerCase()).test(pathTarget);
-        } catch (e) {
-            return false;
-        }
+        if (rest.startsWith('/') && !/[|*^]/.test(rest)) return pathTarget.startsWith(rest.toLowerCase());
+        try { return compileTailRegex(rest.toLowerCase()).test(pathTarget); }
+        catch (e) { return false; }
     }
 
     try {
@@ -997,105 +735,66 @@ function matchDomainPattern(url, patterns) {
         if (!hostname) return false;
         const fullUrl = url.toLowerCase();
 
-        return patterns.some((pattern) => {
+        return patterns.some(pattern => {
             const p = String(pattern || '').trim();
             if (!p) return false;
 
-            // Regex literal: /pattern/ or /pattern/flags
-            // Tested against the original-case full URL so the author controls
-            // case sensitivity via the i flag. The closing slash is the last '/'
-            // so flags like /pattern/i work correctly.
+            // Regex literal: /body/ or /body/flags
             if (p.charAt(0) === '/') {
                 const closingSlash = p.lastIndexOf('/');
                 if (closingSlash > 0) {
-                    const body  = p.slice(1, closingSlash);
+                    const body = p.slice(1, closingSlash);
                     const flags = p.slice(closingSlash + 1);
-                    try {
-                        return new RegExp(body, flags).test(url);
-                    } catch (e) {
-                        return false;
+                    // BUGFIX 8: only treat as regex when flags are valid flag chars.
+                    // Otherwise fall through — plain paths like "/path/to/x" must
+                    // use the wildcard/substring path, not return false permanently.
+                    if (/^[a-z]*$/i.test(flags)) {
+                        try { return new RegExp(body, flags).test(url); }
+                        catch (e) { /* fall through */ }
                     }
                 }
             }
 
             const pLower = p.toLowerCase();
-
             if (pLower.startsWith('||')) {
                 const structured = matchStructuredDomainAnchorPattern(pLower, urlObj, hostname);
-                if (structured !== null) {
-                    return structured;
-                }
+                if (structured !== null) return structured;
             }
 
             const regex = compileLinkumoriRegex(pLower);
-            if (regex) {
-                return regex.test(fullUrl);
-            }
-
+            if (regex) return regex.test(fullUrl);
             return fullUrl.includes(pLower);
         });
-    } catch (e) {
-        return false;
-    }
+    } catch (e) { return false; }
 }
+
+
+// ---------------------------------------------------------------------------
+// Modifier / rule parsing helpers
+// ---------------------------------------------------------------------------
 
 function splitLinkumoriModifiers(modifiersText) {
     const text = String(modifiersText || '');
     if (!text) return [];
-
     const parts = [];
-    let current = '';
-    let inRegex = false;
-    let escaped = false;
-
+    let current = '', inRegex = false, escaped = false;
     for (let i = 0; i < text.length; i++) {
-        const ch = text.charAt(i);
-        const next = i + 1 < text.length ? text.charAt(i + 1) : '';
-
+        const ch = text.charAt(i), next = i + 1 < text.length ? text.charAt(i + 1) : '';
         if (!inRegex) {
-            if (ch === ',') {
-                if (current.trim()) parts.push(current.trim());
-                current = '';
-                continue;
-            }
-
+            if (ch === ',') { if (current.trim()) parts.push(current.trim()); current = ''; continue; }
             current += ch;
-
-            if (
-                ch === '=' &&
-                (
-                    next === '/' ||
-                    (
-                        next === '~' &&
-                        i + 2 < text.length &&
-                        text.charAt(i + 2) === '/'
-                    )
-                )
-            ) {
+            if (ch === '=' && (next === '/' || (next === '~' && i + 2 < text.length && text.charAt(i + 2) === '/'))) {
                 current += next === '~' ? '~/' : '/';
-                inRegex = true;
-                escaped = false;
+                inRegex = true; escaped = false;
                 i += next === '~' ? 2 : 1;
             }
             continue;
         }
-
         current += ch;
-        if (escaped) {
-            escaped = false;
-            continue;
-        }
-
-        if (ch === '\\') {
-            escaped = true;
-            continue;
-        }
-
-        if (ch === '/') {
-            inRegex = false;
-        }
+        if (escaped) { escaped = false; continue; }
+        if (ch === '\\') { escaped = true; continue; }
+        if (ch === '/') inRegex = false;
     }
-
     if (current.trim()) parts.push(current.trim());
     return parts;
 }
@@ -1103,55 +802,32 @@ function splitLinkumoriModifiers(modifiersText) {
 function findLinkumoriModifierStart(ruleText) {
     const text = String(ruleText || '');
     if (!text) return -1;
-
-    if (text.startsWith('/^')) {
+    // BUGFIX 7: the original only special-cased '/^…' patterns.  A rule like
+    // /foo$bar/i$removeparam=x has a '$' inside the regex body that is NOT
+    // the modifier separator.  Generalise: any rule whose pattern starts with
+    // '/' needs us to find the closing unescaped '/' first, then look for '$'.
+    if (text.startsWith('/')) {
         let escaped = false;
         for (let i = 1; i < text.length; i++) {
             const ch = text.charAt(i);
-            if (escaped) {
-                escaped = false;
-                continue;
-            }
-            if (ch === '\\') {
-                escaped = true;
-                continue;
-            }
-            if (ch === '/') {
-                return text.charAt(i + 1) === '$' ? i + 1 : text.indexOf('$', i + 1);
-            }
+            if (escaped) { escaped = false; continue; }
+            if (ch === '\\') { escaped = true; continue; }
+            if (ch === '/') return text.charAt(i + 1) === '$' ? i + 1 : text.indexOf('$', i + 1);
         }
     }
-
     return text.indexOf('$');
 }
 
 function splitLinkumoriDelimitedValues(rawValue) {
     const values = [];
-    let current = '';
-    let inRegex = false;
-    let escaped = false;
-
-    String(rawValue || '').split('').forEach((ch) => {
-        if (!inRegex && ch === '|') {
-            if (current.trim()) values.push(current.trim());
-            current = '';
-            return;
-        }
-
+    let current = '', inRegex = false, escaped = false;
+    String(rawValue || '').split('').forEach(ch => {
+        if (!inRegex && ch === '|') { if (current.trim()) values.push(current.trim()); current = ''; return; }
         current += ch;
-        if (escaped) {
-            escaped = false;
-            return;
-        }
-        if (ch === '\\') {
-            escaped = true;
-            return;
-        }
-        if (ch === '/') {
-            inRegex = !inRegex;
-        }
+        if (escaped) { escaped = false; return; }
+        if (ch === '\\') { escaped = true; return; }
+        if (ch === '/') inRegex = !inRegex;
     });
-
     if (current.trim()) values.push(current.trim());
     return values;
 }
@@ -1164,13 +840,8 @@ function parseLinkumoriRegexLiteral(value, defaultFlags = '') {
     const text = String(value || '').trim();
     const match = text.match(/^\/((?:\\.|[^/])+)\/([a-z]*)$/i);
     if (!match) return null;
-
     const flags = match[2] || defaultFlags;
-    try {
-        return new RegExp(match[1], flags.includes('i') ? 'i' : '');
-    } catch (e) {
-        return null;
-    }
+    try { return new RegExp(match[1], flags.includes('i') ? 'i' : ''); } catch (e) { return null; }
 }
 
 function getLinkumoriNormalizedRegexSource(regex) {
@@ -1183,103 +854,61 @@ function getLinkumoriSortedCopy(values) {
 }
 
 function getLinkumoriSortedRegexSources(regexes) {
-    return (Array.isArray(regexes) ? regexes : [])
-        .map(getLinkumoriNormalizedRegexSource)
-        .sort();
+    return (Array.isArray(regexes) ? regexes : []).map(getLinkumoriNormalizedRegexSource).sort();
 }
 
 function canonicalizeLinkumoriRemoveParamRule(rule) {
     const modifiers = [];
     let removeValue = '';
-
-    if (rule.removeAll) {
-        removeValue = '';
-    } else if (rule.regexParam) {
-        removeValue = (rule.negate ? '~' : '') + getLinkumoriNormalizedRegexSource(rule.regexParam);
-    } else if (rule.literalParam !== null) {
-        removeValue = (rule.negate ? '~' : '') + String(rule.literalParam);
-    }
-
+    if (rule.removeAll) removeValue = '';
+    else if (rule.regexParam) removeValue = (rule.negate ? '~' : '') + getLinkumoriNormalizedRegexSource(rule.regexParam);
+    else if (rule.literalParam !== null) removeValue = (rule.negate ? '~' : '') + String(rule.literalParam);
     modifiers.push(removeValue ? 'removeparam=' + removeValue : 'removeparam');
-
     [
-        ['domain', getLinkumoriSortedCopy(rule.includeDomains).concat(getLinkumoriSortedCopy(rule.excludeDomains).map(value => '~' + value)).concat(getLinkumoriSortedRegexSources(rule.includeDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeDomainRegexes).map(value => '~' + value))],
-        ['to', getLinkumoriSortedCopy(rule.includeTargetDomains).concat(getLinkumoriSortedCopy(rule.excludeTargetDomains).map(value => '~' + value)).concat(getLinkumoriSortedRegexSources(rule.includeTargetDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeTargetDomainRegexes).map(value => '~' + value))],
+        ['domain', getLinkumoriSortedCopy(rule.includeDomains).concat(getLinkumoriSortedCopy(rule.excludeDomains).map(v => '~' + v)).concat(getLinkumoriSortedRegexSources(rule.includeDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeDomainRegexes).map(v => '~' + v))],
+        ['to', getLinkumoriSortedCopy(rule.includeTargetDomains).concat(getLinkumoriSortedCopy(rule.excludeTargetDomains).map(v => '~' + v)).concat(getLinkumoriSortedRegexSources(rule.includeTargetDomainRegexes)).concat(getLinkumoriSortedRegexSources(rule.excludeTargetDomainRegexes).map(v => '~' + v))],
         ['denyallow', getLinkumoriSortedCopy(rule.denyallowDomains).concat(getLinkumoriSortedRegexSources(rule.denyallowDomainRegexes))],
-        ['method', getLinkumoriSortedCopy(rule.includeMethods).concat(getLinkumoriSortedCopy(rule.excludeMethods).map(value => '~' + value))]
-    ].forEach(([name, values]) => {
-        if (values.length > 0) modifiers.push(name + '=' + values.join('|'));
-    });
-
-    getLinkumoriSortedCopy(rule.requestTypes).forEach(value => modifiers.push(value));
-    getLinkumoriSortedCopy(rule.excludeRequestTypes).forEach(value => modifiers.push('~' + value));
-
+        ['method', getLinkumoriSortedCopy(rule.includeMethods).concat(getLinkumoriSortedCopy(rule.excludeMethods).map(v => '~' + v))]
+    ].forEach(([name, values]) => { if (values.length > 0) modifiers.push(name + '=' + values.join('|')); });
+    getLinkumoriSortedCopy(rule.requestTypes).forEach(v => modifiers.push(v));
+    getLinkumoriSortedCopy(rule.excludeRequestTypes).forEach(v => modifiers.push('~' + v));
     if (rule.firstPartyOnly) modifiers.push('first-party');
     if (rule.thirdPartyOnly) modifiers.push('third-party');
     if (rule.strictFirstPartyOnly) modifiers.push('strict-first-party');
     if (rule.strictThirdPartyOnly) modifiers.push('strict-third-party');
     if (rule.matchCase) modifiers.push('match-case');
-
-    return (rule.isException ? '@@' : '') +
-        (rule.urlPattern || '*') +
-        '$' +
-        modifiers.sort().join(',');
+    return (rule.isException ? '@@' : '') + (rule.urlPattern || '*') + '$' + modifiers.sort().join(',');
 }
 
 const LINKUMORI_REMOVE_PARAM_CONTENT_TYPES = Object.freeze({
-    document: ["main_frame"],
-    doc: ["main_frame"],
-    subdocument: ["sub_frame"],
-    frame: ["sub_frame"],
-    iframe: ["sub_frame"],
-    script: ["script"],
-    stylesheet: ["stylesheet"],
-    image: ["image"],
-    imageset: ["imageset"],
-    media: ["media"],
-    object: ["object"],
-    other: ["other"],
-    ping: ["ping"],
-    websocket: ["websocket"],
-    xmlhttprequest: ["xmlhttprequest"],
-    xhr: ["xmlhttprequest"],
-    font: ["font"],
-    popup: ["main_frame"]
+    document: ["main_frame"], doc: ["main_frame"], subdocument: ["sub_frame"],
+    frame: ["sub_frame"], iframe: ["sub_frame"], script: ["script"],
+    stylesheet: ["stylesheet"], image: ["image"], imageset: ["imageset"],
+    media: ["media"], object: ["object"], other: ["other"], ping: ["ping"],
+    websocket: ["websocket"], xmlhttprequest: ["xmlhttprequest"], xhr: ["xmlhttprequest"],
+    font: ["font"], popup: ["main_frame"]
 });
 
 function addLinkumoriRemoveParamRequestTypes(token, parsed) {
     const rawToken = String(token || '').trim();
     if (!rawToken) return false;
-
     const negated = rawToken.startsWith('~');
     const normalized = (negated ? rawToken.slice(1) : rawToken).trim().toLowerCase();
     const requestTypes = LINKUMORI_REMOVE_PARAM_CONTENT_TYPES[normalized];
     if (!requestTypes) return false;
-
     const target = negated ? parsed.excludeRequestTypes : parsed.requestTypes;
-    requestTypes.forEach((requestType) => {
-        if (!target.includes(requestType)) {
-            target.push(requestType);
-        }
-    });
-
+    requestTypes.forEach(rt => { if (!target.includes(rt)) target.push(rt); });
     return true;
 }
 
 function addLinkumoriHostnameValues(rawValue, includes, excludes, includeRegexes, excludeRegexes) {
-    splitLinkumoriDelimitedValues(rawValue).forEach((part) => {
+    splitLinkumoriDelimitedValues(rawValue).forEach(part => {
         const raw = String(part || '').trim();
         if (!raw) return;
-
         const negated = raw.startsWith('~');
         const value = negated ? raw.slice(1).trim() : raw;
         const regex = parseLinkumoriRegexLiteral(value);
-
-        if (regex) {
-            (negated ? excludeRegexes : includeRegexes).push(regex);
-            return;
-        }
-
+        if (regex) { (negated ? excludeRegexes : includeRegexes).push(regex); return; }
         (negated ? excludes : includes).push(value.toLowerCase());
     });
 }
@@ -1296,151 +925,68 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     const rawRule = String(ruleText || '').trim();
     if (!rawRule) return null;
     if (rawRule.startsWith('!') || rawRule.startsWith('[')) return null;
-
-    let candidate = rawRule;
-    let isException = false;
-    if (candidate.startsWith('@@')) {
-        isException = true;
-        candidate = candidate.slice(2);
-    }
-
+    let candidate = rawRule, isException = false;
+    if (candidate.startsWith('@@')) { isException = true; candidate = candidate.slice(2); }
     const modifierStart = findLinkumoriModifierStart(candidate);
     if (modifierStart === -1) return null;
-
     const patternPart = candidate.slice(0, modifierStart).trim();
     const modifiersPart = candidate.slice(modifierStart + 1).trim();
     if (!modifiersPart) return null;
-
     const modifiers = splitLinkumoriModifiers(modifiersPart);
-    let removeParamToken = null;
-    let domainToken = null;
-    let targetToken = null;
-    let denyallowToken = null;
-    let methodToken = null;
-    let unsupportedModifier = null;
-
+    let removeParamToken = null, domainToken = null, targetToken = null,
+        denyallowToken = null, methodToken = null, unsupportedModifier = null;
     for (const token of modifiers) {
         if (unsupportedModifier) break;
         const normalized = token.toLowerCase();
-        if (
-            normalized === 'removeparam' ||
-            normalized.startsWith('removeparam=') ||
-            normalized === 'queryprune' ||
-            normalized.startsWith('queryprune=')
-        ) {
-            removeParamToken = token;
-            continue;
+        if (normalized === 'removeparam' || normalized.startsWith('removeparam=') ||
+            normalized === 'queryprune' || normalized.startsWith('queryprune=')) {
+            removeParamToken = token; continue;
         }
-        if (normalized === 'badfilter' && !options.ignoreBadfilter) continue;
-        if (normalized === 'badfilter' && options.ignoreBadfilter) continue;
-        if (normalized === 'match-case') {
-            continue;
-        }
-        if (
-            normalized === 'first-party' ||
-            normalized === '1p' ||
-            normalized === '~third-party' ||
-            normalized === '~3p' ||
-            normalized === 'third-party' ||
-            normalized === '3p' ||
-            normalized === '~first-party' ||
-            normalized === '~1p' ||
-            normalized === 'strict-first-party' ||
-            normalized === 'strict1p' ||
-            normalized === 'strict-third-party' ||
-            normalized === 'strict3p'
-        ) {
-            continue;
-        }
+        // BUGFIX 7 (secondary): collapsed two identical badfilter checks into one.
+        if (normalized === 'badfilter') continue;
+        if (normalized === 'match-case') continue;
+        if (['first-party','1p','~third-party','~3p','third-party','3p',
+             '~first-party','~1p','strict-first-party','strict1p',
+             'strict-third-party','strict3p'].includes(normalized)) continue;
         if (normalized.startsWith('domain=') || normalized.startsWith('from=')) {
-            domainToken = token.slice(token.indexOf('=') + 1);
-            continue;
+            domainToken = token.slice(token.indexOf('=') + 1); continue;
         }
-        if (normalized.startsWith('to=')) {
-            targetToken = token.slice(token.indexOf('=') + 1);
-            continue;
-        }
-        if (normalized.startsWith('denyallow=')) {
-            denyallowToken = token.slice(token.indexOf('=') + 1);
-            continue;
-        }
-        if (normalized.startsWith('method=')) {
-            methodToken = token.slice(token.indexOf('=') + 1);
-            continue;
-        }
-        if (addLinkumoriRemoveParamRequestTypes(token, { requestTypes: [], excludeRequestTypes: [] })) {
-            continue;
-        }
+        if (normalized.startsWith('to=')) { targetToken = token.slice(token.indexOf('=') + 1); continue; }
+        if (normalized.startsWith('denyallow=')) { denyallowToken = token.slice(token.indexOf('=') + 1); continue; }
+        if (normalized.startsWith('method=')) { methodToken = token.slice(token.indexOf('=') + 1); continue; }
+        if (addLinkumoriRemoveParamRequestTypes(token, { requestTypes: [], excludeRequestTypes: [] })) continue;
         unsupportedModifier = token;
     }
-
     if (!removeParamToken) return null;
     if (unsupportedModifier) return null;
 
     const parsed = {
-        raw: rawRule,
-        isException,
-        urlPattern: patternPart || '*',
-        removeAll: false,
-        negate: false,
-        literalParam: null,
-        regexParam: null,
-        includeDomains: [],
-        excludeDomains: [],
-        includeDomainRegexes: [],
-        excludeDomainRegexes: [],
-        includeTargetDomains: [],
-        excludeTargetDomains: [],
-        includeTargetDomainRegexes: [],
-        excludeTargetDomainRegexes: [],
-        denyallowDomains: [],
-        denyallowDomainRegexes: [],
-        includeMethods: [],
-        excludeMethods: [],
-        firstPartyOnly: false,
-        thirdPartyOnly: false,
-        strictFirstPartyOnly: false,
-        strictThirdPartyOnly: false,
-        matchCase: modifiers.some(token => String(token || '').toLowerCase() === 'match-case'),
-        isBadfilter: !options.ignoreBadfilter && modifiers.some(token => String(token || '').toLowerCase() === 'badfilter'),
-        badfilterTarget: null,
-        id: null,
-        aliases: [],
-        activationIds: [],
-        requestTypes: [],
-        excludeRequestTypes: [],
-        replacePattern: null,
-        preprocessors: [],
-        canonical: null
+        raw: rawRule, isException, urlPattern: patternPart || '*',
+        removeAll: false, negate: false, literalParam: null, regexParam: null,
+        includeDomains: [], excludeDomains: [], includeDomainRegexes: [], excludeDomainRegexes: [],
+        includeTargetDomains: [], excludeTargetDomains: [], includeTargetDomainRegexes: [], excludeTargetDomainRegexes: [],
+        denyallowDomains: [], denyallowDomainRegexes: [], includeMethods: [], excludeMethods: [],
+        firstPartyOnly: false, thirdPartyOnly: false, strictFirstPartyOnly: false, strictThirdPartyOnly: false,
+        matchCase: modifiers.some(t => String(t || '').toLowerCase() === 'match-case'),
+        isBadfilter: !options.ignoreBadfilter && modifiers.some(t => String(t || '').toLowerCase() === 'badfilter'),
+        badfilterTarget: null, id: null, aliases: [], activationIds: [],
+        requestTypes: [], excludeRequestTypes: [], replacePattern: null, preprocessors: [], canonical: null
     };
     parsed.badfilterTarget = parsed.isBadfilter ? withoutLinkumoriBadfilterModifier(rawRule) : null;
-
-    for (const token of modifiers) {
-        addLinkumoriRemoveParamRequestTypes(token, parsed);
-    }
+    for (const token of modifiers) addLinkumoriRemoveParamRequestTypes(token, parsed);
 
     const removeValue = removeParamToken.indexOf('=') === -1
-        ? ''
-        : removeParamToken.slice(removeParamToken.indexOf('=') + 1).trim();
-
+        ? '' : removeParamToken.slice(removeParamToken.indexOf('=') + 1).trim();
     if (!removeValue) {
         parsed.removeAll = true;
     } else {
         let value = removeValue;
-        if (value.startsWith('~')) {
-            parsed.negate = true;
-            value = value.slice(1).trim();
-        }
-
+        if (value.startsWith('~')) { parsed.negate = true; value = value.slice(1).trim(); }
         const regex = parseLinkumoriRegexLiteral(value);
-        if (regex) {
-            parsed.regexParam = regex;
-        } else if (value.startsWith('|')) {
-            try {
-                parsed.regexParam = new RegExp('^' + escapeLinkumoriRegExp(value.slice(1)), 'i');
-            } catch (e) {
-                return null;
-            }
+        if (regex) parsed.regexParam = regex;
+        else if (value.startsWith('|')) {
+            try { parsed.regexParam = new RegExp('^' + escapeLinkumoriRegExp(value.slice(1)), 'i'); }
+            catch (e) { return null; }
         } else {
             parsed.literalParam = parsed.matchCase ? value : value.toLowerCase();
         }
@@ -1448,116 +994,53 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
 
     if (domainToken) {
         if (splitLinkumoriDelimitedValues(domainToken).length === 0) return null;
-        addLinkumoriHostnameValues(
-            domainToken,
-            parsed.includeDomains,
-            parsed.excludeDomains,
-            parsed.includeDomainRegexes,
-            parsed.excludeDomainRegexes
-        );
+        addLinkumoriHostnameValues(domainToken, parsed.includeDomains, parsed.excludeDomains,
+            parsed.includeDomainRegexes, parsed.excludeDomainRegexes);
     }
-
     if (targetToken) {
         if (splitLinkumoriDelimitedValues(targetToken).length === 0) return null;
-        addLinkumoriHostnameValues(
-            targetToken,
-            parsed.includeTargetDomains,
-            parsed.excludeTargetDomains,
-            parsed.includeTargetDomainRegexes,
-            parsed.excludeTargetDomainRegexes
-        );
+        addLinkumoriHostnameValues(targetToken, parsed.includeTargetDomains, parsed.excludeTargetDomains,
+            parsed.includeTargetDomainRegexes, parsed.excludeTargetDomainRegexes);
     }
-
     if (denyallowToken) {
-        const denyallowParts = splitLinkumoriDelimitedValues(denyallowToken);
-        if (
-            denyallowParts.length === 0 ||
-            denyallowParts.some((value) => {
-                const trimmed = String(value || '').trim();
-                return trimmed.startsWith('~') || trimmed.endsWith('.*') || parseLinkumoriRegexLiteral(trimmed) !== null;
-            })
-        ) {
-            return null;
-        }
-        addLinkumoriHostnameValues(
-            denyallowToken,
-            parsed.denyallowDomains,
-            [],
-            parsed.denyallowDomainRegexes,
-            []
-        );
+        const dp = splitLinkumoriDelimitedValues(denyallowToken);
+        if (dp.length === 0 || dp.some(v => {
+            const t = String(v || '').trim();
+            return t.startsWith('~') || t.endsWith('.*') || parseLinkumoriRegexLiteral(t) !== null;
+        })) return null;
+        addLinkumoriHostnameValues(denyallowToken, parsed.denyallowDomains, [], parsed.denyallowDomainRegexes, []);
     }
-
     if (methodToken) {
-        const methodTokens = splitLinkumoriDelimitedValues(methodToken);
-        if (
-            methodTokens.length === 0 ||
-            methodTokens.some(value => !LINKUMORI_SUPPORTED_METHODS.has(String(value || '').replace(/^~/, '').toUpperCase()))
-        ) {
-            return null;
-        }
-        methodTokens.forEach((part) => {
-            const value = String(part || '').trim().toUpperCase();
-            if (!value) return;
-
-            if (value.startsWith('~')) {
-                parsed.excludeMethods.push(value.slice(1).trim());
-            } else {
-                parsed.includeMethods.push(value);
-            }
+        const mt = splitLinkumoriDelimitedValues(methodToken);
+        if (mt.length === 0 || mt.some(v => !LINKUMORI_SUPPORTED_METHODS.has(String(v || '').replace(/^~/, '').toUpperCase()))) return null;
+        mt.forEach(part => {
+            const v = String(part || '').trim().toUpperCase();
+            if (!v) return;
+            if (v.startsWith('~')) parsed.excludeMethods.push(v.slice(1).trim());
+            else parsed.includeMethods.push(v);
         });
     }
-
-    modifiers.forEach((token) => {
-        const normalized = String(token || '').toLowerCase();
-        if (
-            normalized === 'third-party' ||
-            normalized === '3p' ||
-            normalized === '~first-party' ||
-            normalized === '~1p'
-        ) {
-            parsed.thirdPartyOnly = true;
-        } else if (
-            normalized === 'first-party' ||
-            normalized === '1p' ||
-            normalized === '~third-party' ||
-            normalized === '~3p'
-        ) {
-            parsed.firstPartyOnly = true;
-        } else if (normalized === 'strict-third-party' || normalized === 'strict3p') {
-            parsed.strictThirdPartyOnly = true;
-        } else if (normalized === 'strict-first-party' || normalized === 'strict1p') {
-            parsed.strictFirstPartyOnly = true;
-        }
+    modifiers.forEach(token => {
+        const n = String(token || '').toLowerCase();
+        if (['third-party','3p','~first-party','~1p'].includes(n)) parsed.thirdPartyOnly = true;
+        else if (['first-party','1p','~third-party','~3p'].includes(n)) parsed.firstPartyOnly = true;
+        else if (n === 'strict-third-party' || n === 'strict3p') parsed.strictThirdPartyOnly = true;
+        else if (n === 'strict-first-party' || n === 'strict1p') parsed.strictFirstPartyOnly = true;
     });
-
-    if (
-        (parsed.firstPartyOnly && parsed.thirdPartyOnly) ||
+    if ((parsed.firstPartyOnly && parsed.thirdPartyOnly) ||
         (parsed.strictFirstPartyOnly && parsed.strictThirdPartyOnly) ||
         (parsed.strictFirstPartyOnly && parsed.thirdPartyOnly) ||
-        (parsed.strictThirdPartyOnly && parsed.firstPartyOnly)
-    ) {
-        return null;
-    }
-
+        (parsed.strictThirdPartyOnly && parsed.firstPartyOnly)) return null;
     parsed.canonical = canonicalizeLinkumoriRemoveParamRule(parsed);
     return parsed;
 }
 
 function getLinkumoriRemoveParamRuleText(rule) {
-    if (typeof rule === 'string') {
-        return rule;
-    }
-
+    if (typeof rule === 'string') return rule;
     if (rule && typeof rule === 'object' && !Array.isArray(rule)) {
-        if (typeof rule.match === 'string') {
-            return rule.match;
-        }
-        if (typeof rule.matchPattern === 'string') {
-            return rule.matchPattern;
-        }
+        if (typeof rule.match === 'string') return rule.match;
+        if (typeof rule.matchPattern === 'string') return rule.matchPattern;
     }
-
     return '';
 }
 
@@ -1573,47 +1056,26 @@ function getLinkumoriRemoveParamTraceName(linkumoriRule) {
 }
 
 function safeDecodeLinkumoriParam(value) {
-    try {
-        return decodeURIComponent(String(value || ''));
-    } catch (e) {
-        return String(value || '');
-    }
+    try { return decodeURIComponent(String(value || '')); } catch (e) { return String(value || ''); }
 }
 
 function linkumoriRemoveParamMatchesRequestType(linkumoriRule, request = null) {
-    const requestTypes = Array.isArray(linkumoriRule?.requestTypes)
-        ? linkumoriRule.requestTypes
-        : [];
-    const excludeRequestTypes = Array.isArray(linkumoriRule?.excludeRequestTypes)
-        ? linkumoriRule.excludeRequestTypes
-        : [];
+    const requestTypes = Array.isArray(linkumoriRule?.requestTypes) ? linkumoriRule.requestTypes : [];
+    const excludeRequestTypes = Array.isArray(linkumoriRule?.excludeRequestTypes) ? linkumoriRule.excludeRequestTypes : [];
     if (requestTypes.length === 0 && excludeRequestTypes.length === 0) return true;
-
     const requestType = String(request && request.type || "").toLowerCase();
     if (!requestType) return false;
     if (excludeRequestTypes.indexOf(requestType) !== -1) return false;
-
     return requestTypes.length === 0 || requestTypes.indexOf(requestType) !== -1;
 }
 
 function getLinkumoriURLHostname(url) {
-    try {
-        return normalizeAsciiHostname(new URL(url).hostname) || '';
-    } catch (e) {
-        return '';
-    }
+    try { return normalizeAsciiHostname(new URL(url).hostname) || ''; } catch (e) { return ''; }
 }
 
 function linkumoriHostnameMatchesRegexes(hostname, regexes) {
     if (!hostname || !Array.isArray(regexes) || regexes.length === 0) return false;
-    return regexes.some((regex) => {
-        try {
-            regex.lastIndex = 0;
-            return regex.test(hostname);
-        } catch (e) {
-            return false;
-        }
-    });
+    return regexes.some(regex => { try { regex.lastIndex = 0; return regex.test(hostname); } catch (e) { return false; } });
 }
 
 function getLinkumoriRequestContextHosts(request, fallbackHost = '') {
@@ -1624,8 +1086,8 @@ function getLinkumoriRequestContextHosts(request, fallbackHost = '') {
 }
 
 function getLinkumoriDocumentHost(request) {
-    const contextHosts = getLinkumoriRequestContextHosts(request);
-    return contextHosts.length > 0 ? contextHosts[0] : '';
+    const ch = getLinkumoriRequestContextHosts(request);
+    return ch.length > 0 ? ch[0] : '';
 }
 
 function getLinkumoriRegistrableDomain(hostname) {
@@ -1634,74 +1096,32 @@ function getLinkumoriRegistrableDomain(hostname) {
 }
 
 function linkumoriRemoveParamMatchesParty(linkumoriRule, targetHost, request = null) {
-    if (
-        !linkumoriRule.firstPartyOnly &&
-        !linkumoriRule.thirdPartyOnly &&
-        !linkumoriRule.strictFirstPartyOnly &&
-        !linkumoriRule.strictThirdPartyOnly
-    ) {
-        return true;
-    }
-
+    if (!linkumoriRule.firstPartyOnly && !linkumoriRule.thirdPartyOnly &&
+        !linkumoriRule.strictFirstPartyOnly && !linkumoriRule.strictThirdPartyOnly) return true;
     if (!targetHost) return false;
-
     const documentHost = getLinkumoriDocumentHost(request);
-    if (!documentHost) {
-        return !linkumoriRule.thirdPartyOnly && !linkumoriRule.strictThirdPartyOnly;
-    }
-
+    if (!documentHost) return !linkumoriRule.thirdPartyOnly && !linkumoriRule.strictThirdPartyOnly;
     const sameHost = documentHost === targetHost;
     const sameSite = getLinkumoriRegistrableDomain(documentHost) === getLinkumoriRegistrableDomain(targetHost);
-
     if (linkumoriRule.strictFirstPartyOnly && !sameHost) return false;
     if (linkumoriRule.strictThirdPartyOnly && sameHost) return false;
     if (linkumoriRule.firstPartyOnly && !sameSite) return false;
     if (linkumoriRule.thirdPartyOnly && sameSite) return false;
-
     return true;
 }
 
 function linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, targetHost) {
     if (!targetHost) return false;
-
-    if (
-        Array.isArray(linkumoriRule.includeTargetDomains) &&
-        linkumoriRule.includeTargetDomains.length > 0 &&
-        !linkumoriRule.includeTargetDomains.some(pattern => matchWhitelistHostnamePattern(targetHost, pattern))
-    ) {
-        return false;
-    }
-
-    if (
-        Array.isArray(linkumoriRule.includeTargetDomainRegexes) &&
-        linkumoriRule.includeTargetDomainRegexes.length > 0 &&
-        !linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.includeTargetDomainRegexes)
-    ) {
-        return false;
-    }
-
-    if (
-        Array.isArray(linkumoriRule.excludeTargetDomains) &&
-        linkumoriRule.excludeTargetDomains.some(pattern => matchWhitelistHostnamePattern(targetHost, pattern))
-    ) {
-        return false;
-    }
-
-    if (linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.excludeTargetDomainRegexes)) {
-        return false;
-    }
-
-    if (
-        Array.isArray(linkumoriRule.denyallowDomains) &&
-        linkumoriRule.denyallowDomains.some(pattern => matchWhitelistHostnamePattern(targetHost, pattern))
-    ) {
-        return false;
-    }
-
-    if (linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.denyallowDomainRegexes)) {
-        return false;
-    }
-
+    if (Array.isArray(linkumoriRule.includeTargetDomains) && linkumoriRule.includeTargetDomains.length > 0 &&
+        !linkumoriRule.includeTargetDomains.some(p => matchWhitelistHostnamePattern(targetHost, p))) return false;
+    if (Array.isArray(linkumoriRule.includeTargetDomainRegexes) && linkumoriRule.includeTargetDomainRegexes.length > 0 &&
+        !linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.includeTargetDomainRegexes)) return false;
+    if (Array.isArray(linkumoriRule.excludeTargetDomains) &&
+        linkumoriRule.excludeTargetDomains.some(p => matchWhitelistHostnamePattern(targetHost, p))) return false;
+    if (linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.excludeTargetDomainRegexes)) return false;
+    if (Array.isArray(linkumoriRule.denyallowDomains) &&
+        linkumoriRule.denyallowDomains.some(p => matchWhitelistHostnamePattern(targetHost, p))) return false;
+    if (linkumoriHostnameMatchesRegexes(targetHost, linkumoriRule.denyallowDomainRegexes)) return false;
     return true;
 }
 
@@ -1709,94 +1129,56 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null)
     if (!linkumoriRule || !fullUrl) return false;
     if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
     if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) return false;
-
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
         if (!matchDomainPattern(fullUrl, [linkumoriRule.urlPattern])) {
-            // For @@ exception rules, also check the page context (documentUrl,
-            // originUrl, initiator, stored tab URL). This lets
-            // @@||gemini.google.com$removeparam=ei suppress ei removal on any
-            // request — including xmlhttprequests to google.com, facebook.com,
-            // map.google.com — that originates from a gemini.google.com page.
             if (linkumoriRule.isException && request) {
                 const contextUrls = requestContextManager.collectContextURLs(request);
-                if (!contextUrls.some(u => u && matchDomainPattern(u, [linkumoriRule.urlPattern]))) {
-                    return false;
-                }
-            } else {
-                return false;
-            }
+                if (!contextUrls.some(u => u && matchDomainPattern(u, [linkumoriRule.urlPattern]))) return false;
+            } else return false;
         }
     }
-
     let urlHost = getLinkumoriURLHostname(fullUrl);
-    if (!urlHost) {
-        return false;
-    }
+    if (!urlHost) return false;
     const contextHosts = getLinkumoriRequestContextHosts(request, urlHost);
-
     if (!linkumoriRemoveParamMatchesParty(linkumoriRule, urlHost, request)) return false;
     if (!linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, urlHost)) return false;
-
     if (linkumoriRule.includeDomains.length > 0) {
-        // For @@ exception rules, domain= matches the INITIATING PAGE, not the
-        // request destination. @@$removeparam=ei,domain=gemini.google.com means
-        // "when the page is gemini.google.com don't remove ei from any request".
-        const _dh = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
-        if (!linkumoriRule.includeDomains.some(p => _dh.some(h => matchWhitelistHostnamePattern(h, p)))) return false;
+        const dh = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
+        if (!linkumoriRule.includeDomains.some(p => dh.some(h => matchWhitelistHostnamePattern(h, p)))) return false;
     }
-
-    if (
-        Array.isArray(linkumoriRule.includeDomainRegexes) &&
-        linkumoriRule.includeDomainRegexes.length > 0
-    ) {
-        const _dh = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
-        if (!_dh.some(h => linkumoriHostnameMatchesRegexes(h, linkumoriRule.includeDomainRegexes))) return false;
+    if (Array.isArray(linkumoriRule.includeDomainRegexes) && linkumoriRule.includeDomainRegexes.length > 0) {
+        const dh = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
+        if (!dh.some(h => linkumoriHostnameMatchesRegexes(h, linkumoriRule.includeDomainRegexes))) return false;
     }
-
     if (linkumoriRule.excludeDomains.length > 0) {
-        const _dh2 = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
-        if (linkumoriRule.excludeDomains.some(p => _dh2.some(h => matchWhitelistHostnamePattern(h, p)))) return false;
+        const dh2 = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
+        if (linkumoriRule.excludeDomains.some(p => dh2.some(h => matchWhitelistHostnamePattern(h, p)))) return false;
     }
-
-    if (
-        Array.isArray(linkumoriRule.excludeDomainRegexes) &&
-        linkumoriRule.excludeDomainRegexes.length > 0
-    ) {
-        const _dh2 = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
-        if (_dh2.some(h => linkumoriHostnameMatchesRegexes(h, linkumoriRule.excludeDomainRegexes))) return false;
+    if (Array.isArray(linkumoriRule.excludeDomainRegexes) && linkumoriRule.excludeDomainRegexes.length > 0) {
+        const dh2 = (linkumoriRule.isException && request) ? contextHosts : [urlHost];
+        if (dh2.some(h => linkumoriHostnameMatchesRegexes(h, linkumoriRule.excludeDomainRegexes))) return false;
     }
-
     if (linkumoriRule.includeMethods.length > 0) {
-        const requestMethod = (request && typeof request.method === 'string')
-            ? request.method.toUpperCase()
-            : '';
-        if (!linkumoriRule.includeMethods.includes(requestMethod)) return false;
+        const rm = (request && typeof request.method === 'string') ? request.method.toUpperCase() : '';
+        if (!linkumoriRule.includeMethods.includes(rm)) return false;
     }
-
     if (linkumoriRule.excludeMethods.length > 0) {
-        const requestMethod = (request && typeof request.method === 'string')
-            ? request.method.toUpperCase()
-            : '';
-        if (linkumoriRule.excludeMethods.includes(requestMethod)) return false;
+        const rm = (request && typeof request.method === 'string') ? request.method.toUpperCase() : '';
+        if (linkumoriRule.excludeMethods.includes(rm)) return false;
     }
-
     return true;
 }
 
 function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = []) {
     if (!linkumoriRule || !fieldName) return false;
     if (linkumoriRule.removeAll) return true;
-
     const rawParamName = String(fieldName);
-    const paramName = linkumoriRule.matchCase
-        ? rawParamName
-        : rawParamName.toLowerCase();
+    const paramName = linkumoriRule.matchCase ? rawParamName : rawParamName.toLowerCase();
     let matched = false;
-
     if (linkumoriRule.regexParam) {
         const paramValues = Array.isArray(values) && values.length > 0 ? values : [''];
         linkumoriRule.regexParam.lastIndex = 0;
-        matched = linkumoriRule.regexParam.test(rawParamName) || paramValues.some((value) => {
+        matched = linkumoriRule.regexParam.test(rawParamName) || paramValues.some(value => {
             const pair = rawParamName + '=' + safeDecodeLinkumoriParam(value);
             linkumoriRule.regexParam.lastIndex = 0;
             return linkumoriRule.regexParam.test(pair);
@@ -1804,195 +1186,105 @@ function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = []) 
     } else if (linkumoriRule.literalParam !== null) {
         matched = paramName === linkumoriRule.literalParam;
     }
-
     return linkumoriRule.negate ? !matched : matched;
 }
 
 function evaluateLinkumoriRemoveParamRules(fullUrl, rules, request = null) {
-    return (rules || []).filter((rule) => {
-        return matchLinkumoriRemoveParamTarget(rule, fullUrl, request);
-    });
+    return (rules || []).filter(rule => matchLinkumoriRemoveParamTarget(rule, fullUrl, request));
 }
 
 function resolveLinkumoriParamDecision(fieldName, values, activeRules, activeExceptions) {
     const rawFieldName = String(fieldName || '');
-    if (!rawFieldName) {
-        return {
-            handled: false,
-            remove: false,
-            matchedRule: null
-        };
-    }
-
-    const matchedException = (activeExceptions || []).find((linkumoriRule) => {
-        return linkumoriRemoveParamMatchesName(linkumoriRule, rawFieldName, values);
-    });
-
-    if (matchedException) {
-        return {
-            handled: true,
-            remove: false,
-            matchedRule: getLinkumoriRemoveParamTraceName(matchedException),
-            rule: matchedException
-        };
-    }
-
-    const matchedRule = (activeRules || []).find((linkumoriRule) => {
-        return linkumoriRemoveParamMatchesName(linkumoriRule, rawFieldName, values);
-    });
-
-    if (matchedRule) {
-        return {
-            handled: true,
-            remove: matchedRule.replacePattern === null,
-            rewrite: matchedRule.replacePattern !== null,
-            replacePattern: matchedRule.replacePattern,
-            preprocessors: Array.isArray(matchedRule.preprocessors) ? matchedRule.preprocessors : [],
-            matchedRule: getLinkumoriRemoveParamTraceName(matchedRule),
-            rule: matchedRule
-        };
-    }
-
-    return {
-        handled: false,
-        remove: false,
-        rewrite: false,
-        matchedRule: null
+    if (!rawFieldName) return { handled: false, remove: false, matchedRule: null };
+    const matchedException = (activeExceptions || []).find(r => linkumoriRemoveParamMatchesName(r, rawFieldName, values));
+    if (matchedException) return { handled: true, remove: false, matchedRule: getLinkumoriRemoveParamTraceName(matchedException), rule: matchedException };
+    const matchedRule = (activeRules || []).find(r => linkumoriRemoveParamMatchesName(r, rawFieldName, values));
+    if (matchedRule) return {
+        handled: true,
+        remove: matchedRule.replacePattern === null,
+        rewrite: matchedRule.replacePattern !== null,
+        replacePattern: matchedRule.replacePattern,
+        preprocessors: Array.isArray(matchedRule.preprocessors) ? matchedRule.preprocessors : [],
+        matchedRule: getLinkumoriRemoveParamTraceName(matchedRule),
+        rule: matchedRule
     };
+    return { handled: false, remove: false, rewrite: false, matchedRule: null };
 }
 
 function linkumoriRemoveParamExceptionMatchesMethod(linkumoriRule, request = null) {
-    const requestMethod = (request && typeof request.method === 'string')
-        ? request.method.toUpperCase()
-        : '';
-
-    if (linkumoriRule.includeMethods.length > 0 && !linkumoriRule.includeMethods.includes(requestMethod)) {
-        return false;
-    }
-
-    if (linkumoriRule.excludeMethods.length > 0 && linkumoriRule.excludeMethods.includes(requestMethod)) {
-        return false;
-    }
-
+    const rm = (request && typeof request.method === 'string') ? request.method.toUpperCase() : '';
+    if (linkumoriRule.includeMethods.length > 0 && !linkumoriRule.includeMethods.includes(rm)) return false;
+    if (linkumoriRule.excludeMethods.length > 0 && linkumoriRule.excludeMethods.includes(rm)) return false;
     return true;
 }
 
 function linkumoriRemoveParamExceptionMatchesContext(linkumoriRule, contextUrls, request = null) {
-    if (!linkumoriRule || !linkumoriRule.isException || !Array.isArray(contextUrls)) {
-        return false;
-    }
-    if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) {
-        return false;
-    }
-    if (!linkumoriRemoveParamExceptionMatchesMethod(linkumoriRule, request)) {
-        return false;
-    }
-
-    return contextUrls.some((contextUrl) => {
-        return contextUrl && matchLinkumoriRemoveParamTarget(linkumoriRule, contextUrl, request);
-    });
+    if (!linkumoriRule || !linkumoriRule.isException || !Array.isArray(contextUrls)) return false;
+    if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) return false;
+    if (!linkumoriRemoveParamExceptionMatchesMethod(linkumoriRule, request)) return false;
+    return contextUrls.some(cu => cu && matchLinkumoriRemoveParamTarget(linkumoriRule, cu, request));
 }
 
-
 function resolveCoreRuleDefaults(rule, defaults = null) {
-    if (!rule || typeof rule !== "object" || Array.isArray(rule)) {
-        return rule;
-    }
-
-    const safeDefaults = defaults && typeof defaults === "object" ? defaults : {};
+    if (!rule || typeof rule !== "object" || Array.isArray(rule)) return rule;
+    const d = defaults && typeof defaults === "object" ? defaults : {};
     return {
         ...rule,
-        ...(rule.active === undefined && typeof safeDefaults.active === "boolean" ? { active: safeDefaults.active } : {}),
-        ...(rule.description === undefined && typeof safeDefaults.description === "string" ? { description: safeDefaults.description } : {}),
-        ...(rule.requestTypes === undefined && safeDefaults.requestTypes !== undefined ? { requestTypes: safeDefaults.requestTypes } : {}),
-        ...(rule.preprocessors === undefined && Array.isArray(safeDefaults.preprocessors) ? { preprocessors: safeDefaults.preprocessors } : {}),
-        ...(rule.exceptions === undefined && Array.isArray(safeDefaults.exceptions) ? { exceptions: safeDefaults.exceptions } : {})
+        ...(rule.active === undefined && typeof d.active === "boolean" ? { active: d.active } : {}),
+        ...(rule.description === undefined && typeof d.description === "string" ? { description: d.description } : {}),
+        ...(rule.requestTypes === undefined && d.requestTypes !== undefined ? { requestTypes: d.requestTypes } : {}),
+        ...(rule.preprocessors === undefined && Array.isArray(d.preprocessors) ? { preprocessors: d.preprocessors } : {}),
+        ...(rule.exceptions === undefined && Array.isArray(d.exceptions) ? { exceptions: d.exceptions } : {})
     };
 }
 
 function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) {
     if (typeof rule === "string") {
-        const safeDefaults = defaults && typeof defaults === "object" ? defaults : {};
-        const requestTypes = safeDefaults.requestTypes === "all"
-            ? null
-            : (Array.isArray(safeDefaults.requestTypes)
-                ? safeDefaults.requestTypes.map((item) => String(item || "").toLowerCase()).filter(Boolean)
-                : null);
+        const d = defaults && typeof defaults === "object" ? defaults : {};
+        const requestTypes = d.requestTypes === "all" ? null
+            : (Array.isArray(d.requestTypes) ? d.requestTypes.map(i => String(i || "").toLowerCase()).filter(Boolean) : null);
         return {
-            actionType: "remove",
-            active: typeof safeDefaults.active === "boolean" ? safeDefaults.active : true,
-            aliases: [],
-            description: typeof safeDefaults.description === "string" ? safeDefaults.description : "",
-            exceptions: Array.isArray(safeDefaults.exceptions) ? safeDefaults.exceptions.filter((item) => typeof item === "string") : [],
-            flags: defaultFlags,
-            id: null,
-            kind: null,
-            matchPattern: rule,
-            preprocessors: Array.isArray(safeDefaults.preprocessors) ? safeDefaults.preprocessors : [],
-            referralMarketing: false,
-            replacePattern: null,
-            requestTypes,
-            raw: rule,
-            sourceType: "legacy"
+            actionType: "remove", active: typeof d.active === "boolean" ? d.active : true,
+            aliases: [], description: typeof d.description === "string" ? d.description : "",
+            exceptions: Array.isArray(d.exceptions) ? d.exceptions.filter(i => typeof i === "string") : [],
+            flags: defaultFlags, id: null, kind: null, matchPattern: rule,
+            preprocessors: Array.isArray(d.preprocessors) ? d.preprocessors : [],
+            referralMarketing: false, replacePattern: null, requestTypes, raw: rule, sourceType: "legacy"
         };
     }
-
     const resolvedRule = resolveCoreRuleDefaults(rule, defaults);
-    if (!resolvedRule || typeof resolvedRule !== "object") {
-        return null;
-    }
-
+    if (!resolvedRule || typeof resolvedRule !== "object") return null;
     const isCanonical = typeof resolvedRule.match === "string";
     const matchPattern = isCanonical ? resolvedRule.match : resolvedRule.matchPattern;
-    if (typeof matchPattern !== "string") {
-        return null;
-    }
-
-    const action = resolvedRule.action && typeof resolvedRule.action === "object"
-        ? resolvedRule.action
-        : null;
-    const actionType = action && typeof action.type === "string"
-        ? action.type
+    if (typeof matchPattern !== "string") return null;
+    const action = resolvedRule.action && typeof resolvedRule.action === "object" ? resolvedRule.action : null;
+    const actionType = action && typeof action.type === "string" ? action.type
         : (typeof resolvedRule.replacePattern === "string" ? "rewrite" : "remove");
-    const replacePattern = action && typeof action.replacePattern === "string"
-        ? action.replacePattern
+    const replacePattern = action && typeof action.replacePattern === "string" ? action.replacePattern
         : (typeof resolvedRule.replacePattern === "string" ? resolvedRule.replacePattern : null);
-    const requestTypes = resolvedRule.requestTypes === "all"
-        ? null
+    const requestTypes = resolvedRule.requestTypes === "all" ? null
         : (Array.isArray(resolvedRule.requestTypes)
-            ? resolvedRule.requestTypes.map((item) => String(item || "").toLowerCase()).filter(Boolean)
-            : null);
+            ? resolvedRule.requestTypes.map(i => String(i || "").toLowerCase()).filter(Boolean) : null);
     const sourceType = isCanonical ? "canonical" : "legacy-object";
     const kind = typeof resolvedRule.kind === "string" ? resolvedRule.kind : null;
-
     if (sourceType === "canonical") {
-        const effectiveKind = kind || "field";
-        if ((effectiveKind === "field" || effectiveKind === "raw") && actionType === "redirect") {
-            return null;
-        }
-        if (effectiveKind === "redirection" && actionType !== "redirect") {
-            return null;
-        }
+        const ek = kind || "field";
+        if ((ek === "field" || ek === "raw") && actionType === "redirect") return null;
+        if (ek === "redirection" && actionType !== "redirect") return null;
     }
-
     return {
         actionType,
-        active: typeof resolvedRule.active === "boolean"
-            ? resolvedRule.active
+        active: typeof resolvedRule.active === "boolean" ? resolvedRule.active
             : (typeof resolvedRule.activeDefault === "boolean" ? resolvedRule.activeDefault : true),
-        aliases: Array.isArray(resolvedRule.aliases) ? resolvedRule.aliases.filter((item) => typeof item === "string") : [],
+        aliases: Array.isArray(resolvedRule.aliases) ? resolvedRule.aliases.filter(i => typeof i === "string") : [],
         description: typeof resolvedRule.description === "string" ? resolvedRule.description : "",
-        exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter((item) => typeof item === "string") : [],
+        exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter(i => typeof i === "string") : [],
         flags: typeof resolvedRule.flags === "string" ? resolvedRule.flags : defaultFlags,
         id: typeof resolvedRule.id === "string" ? resolvedRule.id : null,
-        kind,
-        matchPattern,
+        kind, matchPattern,
         preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
         referralMarketing: resolvedRule.referralMarketing === true,
-        replacePattern,
-        requestTypes,
-        raw: resolvedRule,
-        sourceType,
+        replacePattern, requestTypes, raw: resolvedRule, sourceType,
         _linkumoriActivationIds: normalizeCoreRuleActivationIds(resolvedRule._linkumoriActivationIds)
     };
 }
@@ -2000,79 +1292,42 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
 function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = false, defaults = null) {
     const normalized = normalizeCoreRuleDefinition(rule, defaultFlags, defaults);
     if (!normalized) return null;
-
     const source = wrapFieldRule ? "^" + normalized.matchPattern + "$" : normalized.matchPattern;
     try {
-        const exceptionRegexes = normalized.exceptions.map(ex => {
-            try { return new RegExp(ex); } catch (_) { return null; }
-        }).filter(Boolean);
-        return {
-            ...normalized,
-            exceptionRegexes,
-            regex: new RegExp(source, normalized.flags)
-        };
-    } catch (_) {
-        return null;
-    }
+        const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex); } catch (_) { return null; } }).filter(Boolean);
+        return { ...normalized, exceptionRegexes, regex: new RegExp(source, normalized.flags) };
+    } catch (_) { return null; }
 }
 
 function normalizeCoreDomainRedirection(redirection) {
-    if (typeof redirection === "string") {
-        return redirection.trim();
-    }
-
-    if (!redirection || typeof redirection !== "object" || Array.isArray(redirection)) {
-        return null;
-    }
-
-    const matchPattern = typeof redirection.match === "string"
-        ? redirection.match
-        : redirection.matchPattern;
-    const action = redirection.action && typeof redirection.action === "object"
-        ? redirection.action
-        : null;
-    const replacePattern = action && typeof action.replacePattern === "string"
-        ? action.replacePattern
-        : redirection.replacePattern;
-
-    if (typeof matchPattern !== "string" || typeof replacePattern !== "string") {
-        return null;
-    }
-
-    const pattern = matchPattern.trim();
-    const target = replacePattern.trim();
+    if (typeof redirection === "string") return redirection.trim();
+    if (!redirection || typeof redirection !== "object" || Array.isArray(redirection)) return null;
+    const matchPattern = typeof redirection.match === "string" ? redirection.match : redirection.matchPattern;
+    const action = redirection.action && typeof redirection.action === "object" ? redirection.action : null;
+    const replacePattern = action && typeof action.replacePattern === "string" ? action.replacePattern : redirection.replacePattern;
+    if (typeof matchPattern !== "string" || typeof replacePattern !== "string") return null;
+    const pattern = matchPattern.trim(), target = replacePattern.trim();
     return pattern && target ? `${pattern}$redirect=${target}` : null;
 }
 
 function getCoreRuleTraceName(compiledRule, fallback) {
-    return compiledRule && typeof compiledRule.id === "string" && compiledRule.id
-        ? compiledRule.id
-        : fallback;
+    return compiledRule && typeof compiledRule.id === "string" && compiledRule.id ? compiledRule.id : fallback;
 }
 
 function coreRuleAppliesToRequest(compiledRule, url, request) {
-    // Legacy maps may still contain bare RegExp values from persisted or older
-    // in-memory provider instances. Treat those as unconditional rules.
     if (compiledRule instanceof RegExp) return true;
     if (!compiledRule) return false;
     if (compiledRule.active === false) return false;
     if (!coreRuleHasActivePatternForUrl(compiledRule, url)) return false;
-
     if (compiledRule.requestTypes && compiledRule.requestTypes.length > 0) {
-        const requestType = String(request && request.type || "").toLowerCase();
-        if (!requestType || compiledRule.requestTypes.indexOf(requestType) === -1) return false;
+        const rt = String(request && request.type || "").toLowerCase();
+        if (!rt || compiledRule.requestTypes.indexOf(rt) === -1) return false;
     }
-
     if (Array.isArray(compiledRule.exceptionRegexes) && compiledRule.exceptionRegexes.length > 0) {
-        return !compiledRule.exceptionRegexes.some(regex => {
-            try { regex.lastIndex = 0; return regex.test(url); } catch (_) { return false; }
-        });
+        return !compiledRule.exceptionRegexes.some(regex => { try { regex.lastIndex = 0; return regex.test(url); } catch (_) { return false; } });
     }
-
     const exceptions = Array.isArray(compiledRule.exceptions) ? compiledRule.exceptions : [];
-    return !exceptions.some((exception) => {
-        try { return (new RegExp(exception)).test(url); } catch (_) { return false; }
-    });
+    return !exceptions.some(ex => { try { return (new RegExp(ex)).test(url); } catch (_) { return false; } });
 }
 
 function applyCoreRulePreprocessors(values, preprocessors) {
@@ -2080,38 +1335,21 @@ function applyCoreRulePreprocessors(values, preprocessors) {
     for (const preprocessor of preprocessors || []) {
         if (!preprocessor || typeof preprocessor.type !== "string") continue;
         const indexes = preprocessor.inputs === "all"
-            ? next.map((_, index) => index)
-            : (Array.isArray(preprocessor.inputs) ? preprocessor.inputs.map((value) => Number(value) - 1) : []);
-
+            ? next.map((_, i) => i)
+            : (Array.isArray(preprocessor.inputs) ? preprocessor.inputs.map(v => Number(v) - 1) : []);
         for (const index of indexes) {
             if (index < 0 || index >= next.length) continue;
             const current = String(next[index] == null ? "" : next[index]);
             try {
                 switch (preprocessor.type) {
-                    case "urlEncode":
-                        next[index] = encodeURIComponent(current);
-                        break;
-                    case "urlDecode":
-                        next[index] = decodeURIComponent(current);
-                        break;
-                    case "doubleUrlEncode":
-                    case "urlEncodeRepeated":
-                        next[index] = encodeURIComponent(encodeURIComponent(current));
-                        break;
-                    case "doubleUrlDecode":
-                    case "urlDecodeRepeated":
-                        next[index] = decodeURIComponent(decodeURIComponent(current));
-                        break;
-                    case "base64Encode":
-                        next[index] = btoa(unescape(encodeURIComponent(current)));
-                        break;
-                    case "base64Decode":
-                        next[index] = decodeURIComponent(escape(atob(current)));
-                        break;
+                    case "urlEncode": next[index] = encodeURIComponent(current); break;
+                    case "urlDecode": next[index] = decodeURIComponent(current); break;
+                    case "doubleUrlEncode": case "urlEncodeRepeated": next[index] = encodeURIComponent(encodeURIComponent(current)); break;
+                    case "doubleUrlDecode": case "urlDecodeRepeated": next[index] = decodeURIComponent(decodeURIComponent(current)); break;
+                    case "base64Encode": next[index] = btoa(unescape(encodeURIComponent(current))); break;
+                    case "base64Decode": next[index] = decodeURIComponent(escape(atob(current))); break;
                 }
-            } catch (_) {
-                // Keep original value when a preprocessor cannot transform it.
-            }
+            } catch (_) {}
         }
     }
     return next;
@@ -2119,7 +1357,7 @@ function applyCoreRulePreprocessors(values, preprocessors) {
 
 function applyCoreReplacePattern(pattern, values) {
     if (pattern === null || pattern === undefined) return "";
-    return String(pattern).replace(/§\d+?§/g, (placeholder) => {
+    return String(pattern).replace(/§\d+?§/g, placeholder => {
         const index = parseInt(placeholder.slice(1, -1), 10) - 1;
         return values[index] === undefined ? "" : values[index];
     });
@@ -2131,37 +1369,22 @@ function removeRawRuleMatchesPreservingQueryBoundary(value, regex) {
         const offsetIndex = hasNamedGroups ? args.length - 3 : args.length - 2;
         const offset = args[offsetIndex];
         const nextCharacter = value[offset + match.length];
-
-        // If a raw rule removes the first query item including its leading '?',
-        // keep the query boundary when additional items remain. Otherwise the
-        // surviving '&foo=bar' becomes part of the URL path when reparsed.
         return match.startsWith('?') && nextCharacter === '&' ? '?' : '';
     });
 }
 
 
+// ---------------------------------------------------------------------------
+// removeFieldsFormURL
+// ---------------------------------------------------------------------------
 
-// FIX: extraExceptions — cross-provider context exceptions collected in clearUrl()
-// and injected directly into activeLinkumoriExceptions, bypassing the URL-pattern
-// re-check in evaluateLinkumoriRemoveParamRules. They are already pre-qualified by
-// page context (documentUrl / originUrl / tab URL) in clearUrl(), so filtering them
-// again by the request URL would incorrectly discard them — e.g. the exception
-// @@||gemini.google.com$removeparam=ei must stay active for requests to google.com,
-// facebook.com, map.google.com, etc. that originate from a gemini.google.com page.
 function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = [], sessionRewrites = null) {
     let url = pureUrl;
-    let domain = "";
-    let fragments = "";
-    let fields = "";
+    let domain = "", fragments = "", fields = "";
     let linkumoriParamRules = provider.getLinkumoriRemoveParamRules();
     let linkumoriParamExceptions = provider.getLinkumoriRemoveParamExceptions();
-    let changes = false;
-    let actionType = null;
-    let matchedRuleForTrace = null;
+    let changes = false, actionType = null, matchedRuleForTrace = null;
     let urlObject = new URL(url);
-    // sessionRewrites persists across all cleaning iterations for one URL so that
-    // rewrite rules do not re-fire on the same (provider, field, rule) combination
-    // in subsequent passes of the pureCleaningTrace loop.
     const appliedFieldRewrites = sessionRewrites instanceof Set ? sessionRewrites : new Set();
     const providerMatch = {
         ...provider.getAppliedPatternForUrl(pureUrl),
@@ -2176,80 +1399,53 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     };
 
     if (storage.localHostsSkipping && checkLocalURL(urlObject)) {
-        return {
-            "changes": false,
-            "url": url,
-            "cancel": false,
-            "providerMatch": providerMatch,
-            "matchedRule": null,
-            "action": null
-        }
+        return { changes: false, url, cancel: false, providerMatch, matchedRule: null, action: null };
     }
 
     let re = storage.redirectionEnabled ? provider.getRedirection(url, request) : null;
     if (re !== null) {
         url = decodeURL(re);
-
         if (!quiet) {
             pushToLog(pureUrl, url, translate('log_redirect'), providerMatch);
             increaseTotalCounter(1);
-            increaseBadged(false, request)
+            increaseBadged(false, request);
         }
-
-        return {
-            "redirect": true,
-            "url": url,
-            "providerMatch": providerMatch,
-            "matchedRule": translate('log_redirect'),
-            "action": 'redirect'
-        }
+        return { redirect: true, url, providerMatch, matchedRule: translate('log_redirect'), action: 'redirect' };
     }
 
     if (provider.isCanceling() && storage.domainBlocking) {
-        if (!quiet) pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'), providerMatch);
-        increaseTotalCounter(1);
-        increaseBadged(false, request);
-        return {
-            "cancel": true,
-            "url": url,
-            "providerMatch": providerMatch,
-            "matchedRule": translate('log_domain_blocked'),
-            "action": 'cancel'
+        // BUGFIX 6: counters/badge were incremented even in quiet mode.
+        if (!quiet) {
+            pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'), providerMatch);
+            increaseTotalCounter(1);
+            increaseBadged(false, request);
         }
+        return { cancel: true, url, providerMatch, matchedRule: translate('log_domain_blocked'), action: 'cancel' };
     }
 
     const rawRulesMap = provider.getRawRulesMap();
-    Object.keys(rawRulesMap).forEach(function (rawRuleStr) {
+    Object.keys(rawRulesMap).forEach(rawRuleStr => {
         const compiled = rawRulesMap[rawRuleStr];
         if (!coreRuleAppliesToRequest(compiled, url, request)) return;
-        const activeRegex = compiled && compiled.regex instanceof RegExp
-            ? compiled.regex
-            : new RegExp(rawRuleStr, "gi");
+        const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp(rawRuleStr, "gi");
         let beforeReplace = url;
         if (compiled && compiled.replacePattern !== null) {
             url = url.replace(activeRegex, (...args) => {
                 const hasNamedGroups = args.length >= 3 && typeof args[args.length - 1] === 'object' && args[args.length - 1] !== null;
                 const endIndex = hasNamedGroups ? args.length - 3 : args.length - 2;
-                const values = applyCoreRulePreprocessors(args.slice(1, endIndex).map((value) => value === undefined ? '' : String(value)), compiled.preprocessors);
+                const values = applyCoreRulePreprocessors(args.slice(1, endIndex).map(v => v === undefined ? '' : String(v)), compiled.preprocessors);
                 return applyCoreReplacePattern(compiled.replacePattern, values);
             });
         } else {
             url = removeRawRuleMatchesPreservingQueryBoundary(url, activeRegex);
         }
-
         if (beforeReplace !== url) {
-            if (storage.loggingStatus && !quiet) {
-                pushToLog(beforeReplace, url, rawRuleStr, providerMatch);
-            }
-
-            increaseBadged(false, request);
+            if (storage.loggingStatus && !quiet) pushToLog(beforeReplace, url, rawRuleStr, providerMatch);
+            // BUGFIX 6: badge guard added.
+            if (!quiet) increaseBadged(false, request);
             changes = true;
-            if (!actionType) {
-                actionType = 'raw_rule';
-            }
-            if (!matchedRuleForTrace) {
-                matchedRuleForTrace = getCoreRuleTraceName(compiled, rawRuleStr);
-            }
+            if (!actionType) actionType = 'raw_rule';
+            if (!matchedRuleForTrace) matchedRuleForTrace = getCoreRuleTraceName(compiled, rawRuleStr);
         }
     });
 
@@ -2259,34 +1455,23 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     domain = urlWithoutParamsAndHash(urlObject).toString();
 
     if (fields.toString() !== "" || fragments.toString() !== "") {
-        const activeLinkumoriRules = evaluateLinkumoriRemoveParamRules(
-            url,
-            linkumoriParamRules,
-            request
-        );
-        // Provider exceptions are filtered normally by request URL pattern.
-        // extraExceptions are injected directly — pre-qualified by page context
-        // in clearUrl(), so re-filtering by request URL would wrongly discard them
-        // (e.g. @@||gemini.google.com$removeparam=ei must stay active for requests
-        // to google.com, facebook.com, map.google.com from a gemini.google.com page).
+        const activeLinkumoriRules = evaluateLinkumoriRemoveParamRules(url, linkumoriParamRules, request);
         const activeLinkumoriExceptions = [
             ...evaluateLinkumoriRemoveParamRules(url, linkumoriParamExceptions, request),
             ...(extraExceptions || [])
         ];
         const linkumoriDecisionCache = new Map();
-        const getLinkumoriDecision = (paramName, paramValues = []) => {
-            const values = Array.isArray(paramValues) ? paramValues : [];
-            const cacheKey = String(paramName || '') + "\u0000" + values.join("\u0001");
-            if (linkumoriDecisionCache.has(cacheKey)) {
-                return linkumoriDecisionCache.get(cacheKey);
-            }
 
-            const decision = resolveLinkumoriParamDecision(
-                paramName,
-                values,
-                activeLinkumoriRules,
-                activeLinkumoriExceptions
-            );
+        const getLinkumoriDecision = (paramName, paramValues = []) => {
+            // BUGFIX 2: URLHashParams.getAll() returns a Set (Multimap), so fragment
+            // values arrived as Sets and were collapsed to [] by Array.isArray().
+            // Value-based $removeparam regexes therefore never fired on hash params.
+            // Convert Set → Array so fragment and query params behave identically.
+            const values = Array.isArray(paramValues) ? paramValues
+                : (paramValues instanceof Set ? Array.from(paramValues) : []);
+            const cacheKey = String(paramName || '') + "\u0000" + values.join("\u0001");
+            if (linkumoriDecisionCache.has(cacheKey)) return linkumoriDecisionCache.get(cacheKey);
+            const decision = resolveLinkumoriParamDecision(paramName, values, activeLinkumoriRules, activeLinkumoriExceptions);
             linkumoriDecisionCache.set(cacheKey, decision);
             return decision;
         };
@@ -2295,21 +1480,14 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         Object.keys(rulesMap).forEach(rule => {
             const compiled = rulesMap[rule];
             if (!coreRuleAppliesToRequest(compiled, url, request)) return;
-            const activeRegex = compiled && compiled.regex instanceof RegExp
-                ? compiled.regex
-                : new RegExp("^"+rule+"$", "gi");
-            const beforeFields = fields.toString();
-            const beforeFragments = fragments.toString();
+            const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp("^" + rule + "$", "gi");
+            const beforeFields = fields.toString(), beforeFragments = fragments.toString();
             let localChange = false;
 
             const fieldsToDelete = [];
             for (const field of Array.from(fields.keys())) {
                 const decision = getLinkumoriDecision(field, fields.getAll(field));
-                // Only skip when $removeparam is actively mutating this field.
-                // An exception (handled:true, remove:false) must not suppress
-                // independent regex rules — @@$removeparam only excepts that system.
                 if (decision.handled && (decision.remove || decision.rewrite)) continue;
-
                 activeRegex.lastIndex = 0;
                 if (activeRegex.test(field)) {
                     if (compiled && compiled.replacePattern !== null) {
@@ -2317,24 +1495,21 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                         if (appliedFieldRewrites.has(rewriteKey)) continue;
                         const currentValues = fields.getAll(field);
                         fields.delete(field);
-                        currentValues.forEach((value) => {
-                            const values = applyCoreRulePreprocessors([value], compiled.preprocessors);
-                            fields.append(field, applyCoreReplacePattern(compiled.replacePattern, values));
+                        currentValues.forEach(value => {
+                            const vals = applyCoreRulePreprocessors([value], compiled.preprocessors);
+                            fields.append(field, applyCoreReplacePattern(compiled.replacePattern, vals));
                         });
                         appliedFieldRewrites.add(rewriteKey);
-                    } else {
-                        fieldsToDelete.push(field);
-                    }
+                    } else fieldsToDelete.push(field);
                     localChange = true;
                 }
             }
-            fieldsToDelete.forEach(field => fields.delete(field));
+            fieldsToDelete.forEach(f => fields.delete(f));
 
             const fragmentsToDelete = [];
             for (const fragment of Array.from(fragments.keys())) {
                 const decision = getLinkumoriDecision(fragment, fragments.getAll(fragment));
                 if (decision.handled && (decision.remove || decision.rewrite)) continue;
-
                 activeRegex.lastIndex = 0;
                 if (activeRegex.test(fragment)) {
                     if (compiled && compiled.replacePattern !== null) {
@@ -2342,301 +1517,212 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
                         if (appliedFieldRewrites.has(rewriteKey)) continue;
                         const currentValues = fragments.getAll(fragment);
                         fragments.delete(fragment);
-                        currentValues.forEach((value) => {
-                            const values = applyCoreRulePreprocessors([value], compiled.preprocessors);
-                            fragments.append(fragment, applyCoreReplacePattern(compiled.replacePattern, values));
+                        currentValues.forEach(value => {
+                            const vals = applyCoreRulePreprocessors([value], compiled.preprocessors);
+                            fragments.append(fragment, applyCoreReplacePattern(compiled.replacePattern, vals));
                         });
                         appliedFieldRewrites.add(rewriteKey);
-                    } else {
-                        fragmentsToDelete.push(fragment);
-                    }
+                    } else fragmentsToDelete.push(fragment);
                     localChange = true;
                 }
             }
-            fragmentsToDelete.forEach(fragment => fragments.delete(fragment));
+            fragmentsToDelete.forEach(f => fragments.delete(f));
 
             if (localChange) {
                 changes = true;
-                if (!actionType) {
-                    actionType = 'rule';
-                }
-                if (!matchedRuleForTrace) {
-                    matchedRuleForTrace = getCoreRuleTraceName(compiled, rule);
-                }
-                
+                if (!actionType) actionType = 'rule';
+                if (!matchedRuleForTrace) matchedRuleForTrace = getCoreRuleTraceName(compiled, rule);
                 if (storage.loggingStatus) {
-                    let tempURL = domain;
-                    let tempBeforeURL = domain;
-
+                    let tempURL = domain, tempBeforeURL = domain;
                     if (fields.toString() !== "") tempURL += "?" + fields.toString();
                     if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
-                    if (beforeFields.toString() !== "") tempBeforeURL += "?" + beforeFields.toString();
-                    if (beforeFragments.toString() !== "") tempBeforeURL += "#" + beforeFragments.toString();
-
+                    if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
+                    if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
                     if (!quiet) pushToLog(tempBeforeURL, tempURL, rule, providerMatch);
                 }
-
-                increaseBadged(false, request);
+                // BUGFIX 6: badge guard added.
+                if (!quiet) increaseBadged(false, request);
             }
         });
 
         if (activeLinkumoriRules.length > 0 || activeLinkumoriExceptions.length > 0) {
-            const beforeFields = fields.toString();
-            const beforeFragments = fragments.toString();
-            let localChange = false;
-            let matchedRuleForLog = null;
+            const beforeFields = fields.toString(), beforeFragments = fragments.toString();
+            let localChange = false, matchedRuleForLog = null;
 
             const fieldsToDelete = [];
             for (const field of Array.from(fields.keys())) {
                 const decision = getLinkumoriDecision(field, fields.getAll(field));
                 if (decision.remove) {
-                    fieldsToDelete.push(field);
-                    localChange = true;
-                    if (!matchedRuleForLog && decision.matchedRule) {
-                        matchedRuleForLog = decision.matchedRule;
-                    }
+                    fieldsToDelete.push(field); localChange = true;
+                    if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
                 } else if (decision.rewrite) {
                     const rewriteKey = provider.getName() + "::removeparam-search::" + field + "::" + (decision.matchedRule || '$removeparam');
                     if (appliedFieldRewrites.has(rewriteKey)) continue;
                     const currentValues = fields.getAll(field);
                     fields.delete(field);
-                    currentValues.forEach((value) => {
-                        const values = applyCoreRulePreprocessors([value], decision.preprocessors);
-                        fields.append(field, applyCoreReplacePattern(decision.replacePattern, values));
+                    currentValues.forEach(value => {
+                        const vals = applyCoreRulePreprocessors([value], decision.preprocessors);
+                        fields.append(field, applyCoreReplacePattern(decision.replacePattern, vals));
                     });
                     appliedFieldRewrites.add(rewriteKey);
                     localChange = true;
-                    if (!matchedRuleForLog && decision.matchedRule) {
-                        matchedRuleForLog = decision.matchedRule;
-                    }
+                    if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
                 }
             }
-            fieldsToDelete.forEach((field) => fields.delete(field));
+            fieldsToDelete.forEach(f => fields.delete(f));
 
             const fragmentsToDelete = [];
             for (const fragment of Array.from(fragments.keys())) {
                 const decision = getLinkumoriDecision(fragment, fragments.getAll(fragment));
                 if (decision.remove) {
-                    fragmentsToDelete.push(fragment);
-                    localChange = true;
-                    if (!matchedRuleForLog && decision.matchedRule) {
-                        matchedRuleForLog = decision.matchedRule;
-                    }
+                    fragmentsToDelete.push(fragment); localChange = true;
+                    if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
                 } else if (decision.rewrite) {
                     const rewriteKey = provider.getName() + "::removeparam-fragment::" + fragment + "::" + (decision.matchedRule || '$removeparam');
                     if (appliedFieldRewrites.has(rewriteKey)) continue;
                     const currentValues = fragments.getAll(fragment);
                     fragments.delete(fragment);
-                    currentValues.forEach((value) => {
-                        const values = applyCoreRulePreprocessors([value], decision.preprocessors);
-                        fragments.append(fragment, applyCoreReplacePattern(decision.replacePattern, values));
+                    currentValues.forEach(value => {
+                        const vals = applyCoreRulePreprocessors([value], decision.preprocessors);
+                        fragments.append(fragment, applyCoreReplacePattern(decision.replacePattern, vals));
                     });
                     appliedFieldRewrites.add(rewriteKey);
                     localChange = true;
-                    if (!matchedRuleForLog && decision.matchedRule) {
-                        matchedRuleForLog = decision.matchedRule;
-                    }
+                    if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
                 }
             }
-            fragmentsToDelete.forEach((fragment) => fragments.delete(fragment));
+            fragmentsToDelete.forEach(f => fragments.delete(f));
 
             if (localChange) {
                 changes = true;
-                if (!actionType) {
-                    actionType = 'removeparam';
-                }
-                if (!matchedRuleForTrace) {
-                    matchedRuleForTrace = matchedRuleForLog || '$removeparam';
-                }
-
+                if (!actionType) actionType = 'removeparam';
+                if (!matchedRuleForTrace) matchedRuleForTrace = matchedRuleForLog || '$removeparam';
                 if (storage.loggingStatus) {
-                    let tempURL = domain;
-                    let tempBeforeURL = domain;
-
+                    let tempURL = domain, tempBeforeURL = domain;
                     if (fields.toString() !== "") tempURL += "?" + fields.toString();
                     if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
-                    if (beforeFields.toString() !== "") tempBeforeURL += "?" + beforeFields.toString();
-                    if (beforeFragments.toString() !== "") tempBeforeURL += "#" + beforeFragments.toString();
-
+                    if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
+                    if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
                     if (!quiet) pushToLog(tempBeforeURL, tempURL, matchedRuleForLog || '$removeparam', providerMatch);
                 }
-
-                increaseBadged(false, request);
+                // BUGFIX 6: badge guard added.
+                if (!quiet) increaseBadged(false, request);
             }
         }
 
         let finalURL = domain;
-
         if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
         if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
-
         url = finalURL.replace(/\?&/, "?").replace(/#&/, "#");
     }
 
-    return {
-        "changes": changes,
-        "url": url,
-        "providerMatch": providerMatch,
-        "matchedRule": matchedRuleForTrace,
-        "action": actionType
-    }
+    return { changes, url, providerMatch, matchedRule: matchedRuleForTrace, action: actionType };
 }
+
+
+// ---------------------------------------------------------------------------
+// start() — Provider class + clearUrl()
+// ---------------------------------------------------------------------------
 
 function start() {
     initPslSupport();
     requestContextManager.init();
 
-    function getKeys(obj) {
-        prvKeys = Object.keys(obj || {});
-    }
+    function getKeys(obj) { prvKeys = Object.keys(obj || {}); }
 
     function createProviders() {
-        let data = storage.ClearURLsData;
-        
-        if (!data || !data.providers) {
-            return;
-        }
-
+        const data = storage.ClearURLsData;
+        if (!data || !data.providers) return;
         providers = [];
-
         for (let p = 0; p < prvKeys.length; p++) {
             const providerData = data.providers[prvKeys[p]];
-            if (providerData.getOrDefault('active', providerData.getOrDefault('defaultActive', true)) === false) {
-                continue;
-            }
-            const provider = new Provider(prvKeys[p], providerData.getOrDefault('completeProvider', false),
-                providerData.getOrDefault('forceRedirection', false), getClearURLsDisabledRuleIdSet());
+            if (providerData.getOrDefault('active', providerData.getOrDefault('defaultActive', true)) === false) continue;
+            const provider = new Provider(prvKeys[p],
+                providerData.getOrDefault('completeProvider', false),
+                providerData.getOrDefault('forceRedirection', false),
+                getClearURLsDisabledRuleIdSet());
             providers.push(provider);
 
-            let urlPattern = providerData.getOrDefault('urlPattern', '');
-            let indexPattern = providerData.getOrDefault('indexPattern', []);
-            let domainPatterns = providerData.getOrDefault('domainPatterns', []);
+            const urlPattern = providerData.getOrDefault('urlPattern', '');
+            const indexPattern = providerData.getOrDefault('indexPattern', []);
+            const domainPatterns = providerData.getOrDefault('domainPatterns', []);
 
-            if (Array.isArray(domainPatterns) && domainPatterns.length > 0) {
-                provider.setURLDomainPattern(domainPatterns);
-            } else if (domainPatterns && typeof domainPatterns === 'string') {
-                provider.setURLDomainPattern(domainPatterns);
-            } else if (urlPattern) {
+            if (Array.isArray(domainPatterns) && domainPatterns.length > 0) provider.setURLDomainPattern(domainPatterns);
+            else if (domainPatterns && typeof domainPatterns === 'string') provider.setURLDomainPattern(domainPatterns);
+            else if (urlPattern) {
                 provider.setURLPattern(urlPattern);
-                const hasIndex = Array.isArray(indexPattern)
-                    ? indexPattern.length > 0
-                    : Boolean(indexPattern);
-                if (hasIndex) {
-                    provider.setIndexPattern(indexPattern);
-                }
+                const hasIndex = Array.isArray(indexPattern) ? indexPattern.length > 0 : Boolean(indexPattern);
+                if (hasIndex) provider.setIndexPattern(indexPattern);
             }
 
             const providerDefaults = data && data.defaults && typeof data.defaults === 'object' ? data.defaults : null;
-            let rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
+            const rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
             for (let r = 0; r < rules.length; r++) {
                 const normalizedRule = normalizeCoreRuleDefinition(rules[r], "i", providerDefaults);
                 if (normalizedRule && normalizedRule.sourceType === 'canonical') {
-                    if (normalizedRule.kind === 'raw') {
-                        provider.addRawRule(rules[r], true, providerDefaults);
-                    } else if (normalizedRule.kind === 'redirection' || normalizedRule.actionType === 'redirect') {
-                        provider.addRedirection(rules[r], true, providerDefaults);
-                    } else if (normalizedRule.referralMarketing === true) {
-                        provider.addReferralMarketing(rules[r], true, providerDefaults);
-                    } else {
-                        provider.addRule(rules[r], true, providerDefaults);
-                    }
+                    if (normalizedRule.kind === 'raw') provider.addRawRule(rules[r], true, providerDefaults);
+                    else if (normalizedRule.kind === 'redirection' || normalizedRule.actionType === 'redirect') provider.addRedirection(rules[r], true, providerDefaults);
+                    else if (normalizedRule.referralMarketing === true) provider.addReferralMarketing(rules[r], true, providerDefaults);
+                    else provider.addRule(rules[r], true, providerDefaults);
                     continue;
                 }
                 provider.addRule(rules[r], true, providerDefaults);
             }
+            const rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
+            for (let raw = 0; raw < rawRules.length; raw++) provider.addRawRule(rawRules[raw], true, providerDefaults);
+            const referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
+            for (let rm = 0; rm < referralMarketingRules.length; rm++) provider.addReferralMarketing(referralMarketingRules[rm], true, providerDefaults);
+            const exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
+            for (let e = 0; e < exceptions.length; e++) provider.addException(exceptions[e], true, providerDefaults);
+            const domainExceptions = data.providers[prvKeys[p]].getOrDefault('domainExceptions', []);
+            for (let ude = 0; ude < domainExceptions.length; ude++) provider.addDomainException(domainExceptions[ude]);
+            const redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
+            for (let re = 0; re < redirections.length; re++) provider.addRedirection(redirections[re], true, providerDefaults);
+            const domainRedirections = data.providers[prvKeys[p]].getOrDefault('domainRedirections', []);
+            for (let udr = 0; udr < domainRedirections.length; udr++) provider.addDomainRedirection(domainRedirections[udr]);
+            const methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
+            for (let m = 0; m < methods.length; m++) provider.addMethod(methods[m]);
+            const resourceTypes = data.providers[prvKeys[p]].getOrDefault('resourceTypes', []);
+            for (let rt = 0; rt < resourceTypes.length; rt++) provider.addResourceType(resourceTypes[rt]);
 
-            let rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
-            for (let raw = 0; raw < rawRules.length; raw++) {
-                provider.addRawRule(rawRules[raw], true, providerDefaults);
-            }
-
-            let referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
-            for (let referralMarketing = 0; referralMarketing < referralMarketingRules.length; referralMarketing++) {
-                provider.addReferralMarketing(referralMarketingRules[referralMarketing], true, providerDefaults);
-            }
-
-            let exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
-            for (let e = 0; e < exceptions.length; e++) {
-                provider.addException(exceptions[e], true, providerDefaults);
-            }
-            
-            let domainExceptions = data.providers[prvKeys[p]].getOrDefault('domainExceptions', []);
-            for (let ude = 0; ude < domainExceptions.length; ude++) {
-                provider.addDomainException(domainExceptions[ude]);
-            }
-
-            let redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
-            for (let re = 0; re < redirections.length; re++) {
-                provider.addRedirection(redirections[re], true, providerDefaults);
-            }
-            
-            let domainRedirections = data.providers[prvKeys[p]].getOrDefault('domainRedirections', []);
-            for (let udr = 0; udr < domainRedirections.length; udr++) {
-                provider.addDomainRedirection(domainRedirections[udr]);
-            }
-
-            let methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
-            for (let re = 0; re < methods.length; re++) {
-                provider.addMethod(methods[re]);
-            }
-
-            let resourceTypes = data.providers[prvKeys[p]].getOrDefault('resourceTypes', []);
-            for (let rt = 0; rt < resourceTypes.length; rt++) {
-                provider.addResourceType(resourceTypes[rt]);
-            }
-
-            // Indexing logic
             const lookupTokens = provider.getLookupTokens();
-
             if (lookupTokens.length > 0) {
                 for (const token of lookupTokens) {
-                    if (!providersByToken[token]) {
-                        providersByToken[token] = [];
-                    }
+                    if (!providersByToken[token]) providersByToken[token] = [];
                     providersByToken[token].push(provider);
                 }
-                if (provider.requiresGlobalFallback()) {
-                    globalProviders.push(provider);
-                }
+                if (provider.requiresGlobalFallback()) globalProviders.push(provider);
             } else {
                 globalProviders.push(provider);
             }
         }
 
         const providersByTokenSnapshot = {};
-        Object.keys(providersByToken).forEach((token) => {
-            providersByTokenSnapshot[token] = providersByToken[token].map(provider => provider.getName());
+        Object.keys(providersByToken).forEach(token => {
+            providersByTokenSnapshot[token] = providersByToken[token].map(p => p.getName());
         });
         clearurlsProviderSnapshot.providerCount = providers.length;
-        clearurlsProviderSnapshot.providers = providers.map(provider => provider.getSnapshotMetadata());
+        clearurlsProviderSnapshot.providers = providers.map(p => p.getSnapshotMetadata());
         clearurlsProviderSnapshot.providersByToken = providersByTokenSnapshot;
-        clearurlsProviderSnapshot.globalProviders = globalProviders.map(provider => provider.getName());
+        clearurlsProviderSnapshot.globalProviders = globalProviders.map(p => p.getName());
         globalThis.linkumoriClearURLProviderSnapshot = clearurlsProviderSnapshot;
     }
 
     function initializeProviders() {
-        if (!rebuildProvidersFromStorage()) {
-            return false;
-        }
-
+        if (!rebuildProvidersFromStorage()) return false;
         setupWebRequestListener();
-
         return true;
     }
 
     function rebuildProvidersFromStorage() {
         if (!storage.ClearURLsData || !storage.ClearURLsData.providers) {
-            providers = [];
-            providersByToken = Object.create(null);
-            globalProviders = [];
+            providers = []; providersByToken = Object.create(null); globalProviders = [];
             clearurlsProviderSnapshot = createEmptyProviderSnapshot();
             globalThis.linkumoriClearURLProviderSnapshot = clearurlsProviderSnapshot;
             prvKeys = [];
             return false;
         }
-
-        providersByToken = Object.create(null);
-        globalProviders = [];
+        providersByToken = Object.create(null); globalProviders = [];
         clearurlsProviderSnapshot = createEmptyProviderSnapshot();
         clearurlsProviderSnapshot.disabledRuleIds = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
         getKeys(storage.ClearURLsData.providers);
@@ -2645,134 +1731,75 @@ function start() {
     }
 
     function setupWebRequestListener() {
-        if (clearurlsWebRequestHandler && browser.webRequest.onBeforeRequest.hasListener(clearurlsWebRequestHandler)) {
-            return;
-        }
+        if (clearurlsWebRequestHandler && browser.webRequest.onBeforeRequest.hasListener(clearurlsWebRequestHandler)) return;
 
         function hasWebRequestDecision(result) {
-            return !!(
-                result &&
-                (
-                    result.cancel === true ||
-                    typeof result.redirectUrl === 'string'
-                )
-            );
+            return !!(result && (result.cancel === true || typeof result.redirectUrl === 'string'));
         }
 
         clearurlsWebRequestHandler = function (requestDetails) {
             if (requestDetails && requestDetails.tabId >= 0) {
-                if (requestDetails.type === 'main_frame') {
+                if (requestDetails.type === 'main_frame')
                     requestContextManager.setTabURL(requestDetails.tabId, requestDetails.url);
-                } else if (requestDetails.type === 'sub_frame') {
-                    requestContextManager.setFrameURL(
-                        requestDetails.tabId,
-                        requestDetails.frameId,
-                        requestDetails.url,
-                        requestDetails.parentFrameId
-                    );
-                }
+                else if (requestDetails.type === 'sub_frame')
+                    requestContextManager.setFrameURL(requestDetails.tabId, requestDetails.frameId, requestDetails.url, requestDetails.parentFrameId);
             }
-
-            if (isDataURL(requestDetails)) {
-                return {};
-            } else {
-                const result = clearUrl(requestDetails);
-                if (hasWebRequestDecision(result)) {
-                    return result;
-                }
-
-                if (
-                    globalThis.LinkumoriDNS &&
-                    typeof globalThis.LinkumoriDNS.replayCNAMEIfNeeded === 'function'
-                ) {
-                    return globalThis.LinkumoriDNS.replayCNAMEIfNeeded(requestDetails, clearUrl);
-                }
-
-                return result;
-            }
+            if (isDataURL(requestDetails)) return {};
+            const result = clearUrl(requestDetails);
+            if (hasWebRequestDecision(result)) return result;
+            if (globalThis.LinkumoriDNS && typeof globalThis.LinkumoriDNS.replayCNAMEIfNeeded === 'function')
+                return globalThis.LinkumoriDNS.replayCNAMEIfNeeded(requestDetails, clearUrl);
+            return result;
         };
 
-        function isDataURL(requestDetails) {
-            const s = requestDetails.url;
-            return s.substring(0, 4) === "data";
-        }
+        function isDataURL(requestDetails) { return requestDetails.url.substring(0, 4) === "data"; }
 
         browser.webRequest.onBeforeRequest.addListener(
             clearurlsWebRequestHandler,
-            {urls: ["<all_urls>"], types: getData("types").concat(getData("pingRequestTypes"))},
+            { urls: ["<all_urls>"], types: getData("types").concat(getData("pingRequestTypes")) },
             ["blocking"]
         );
     }
 
-    // Called by storage.js after remote/custom rule refresh to apply changes
-    // immediately without reloading the extension background context.
     globalThis.updateProviderData = function () {
         const refreshed = rebuildProvidersFromStorage();
-        if (refreshed) {
-            initializationComplete = true;
-        }
+        if (refreshed) initializationComplete = true;
         return refreshed;
     };
 
     let initAttempts = 0;
     const maxInitAttempts = 50;
-    
     function tryInitialize() {
         initAttempts++;
-        
-        if (initializeProviders()) {
-            initializationComplete = true;
-            return;
-        }
-        
-        if (initAttempts < maxInitAttempts) {
-            setTimeout(tryInitialize, 200);
-        } else {
-            setupWebRequestListener();
-            console.warn('ClearURLs initialized with limited functionality');
-        }
+        if (initializeProviders()) { initializationComplete = true; return; }
+        if (initAttempts < maxInitAttempts) setTimeout(tryInitialize, 200);
+        else { setupWebRequestListener(); console.warn('ClearURLs initialized with limited functionality'); }
     }
-    
     tryInitialize();
-
     loadOldDataFromStore();
     setBadgedStatus();
 
+    // -----------------------------------------------------------------------
+    // Provider
+    // -----------------------------------------------------------------------
+
     function Provider(_name, _completeProvider = false, _forceRedirection = false, _disabledRuleIds = new Set()) {
         const name = _name;
-        let urlPattern;
-        let urlPatternSource = '';
-        let indexPatterns = [];  // domainPattern-syntax hints for providersByToken index only
-        let domainPatterns = [];
-        const fieldRuleMap = {};
-        const exceptionRuleMap = {};
-        const domainExceptionPatterns = [];
-        const domainRedirectionRules = [];
+        let urlPattern, urlPatternSource = '';
+        let indexPatterns = [], domainPatterns = [];
+        const fieldRuleMap = {}, exceptionRuleMap = {};
+        const domainExceptionPatterns = [], domainRedirectionRules = [];
         const canceling = _completeProvider;
-        const redirectionRuleMap = {};
-        const rawRuleMap = {};
-        const referralMarketingRuleMap = {};
-        const linkumoriRemoveParamRules = [];
-        const linkumoriRemoveParamExceptions = [];
-        const methods = [];
-        const resourceTypes = [];
+        const redirectionRuleMap = {}, rawRuleMap = {}, referralMarketingRuleMap = {};
+        const linkumoriRemoveParamRules = [], linkumoriRemoveParamExceptions = [];
+        const methods = [], resourceTypes = [];
 
-        if (_completeProvider) {
-            fieldRuleMap[".*"] = true;
-        }
+        if (_completeProvider) fieldRuleMap[".*"] = true;
 
         function getActivationScopeIds() {
-            if (domainPatterns.length > 0) {
-                return [...new Set(domainPatterns
-                    .map(pattern => String(pattern || '').trim())
-                    .filter(Boolean))]
-                    .map(pattern => `domainPattern:${pattern}`);
-            }
-
-            if (urlPatternSource) {
-                return [`urlPattern:${urlPatternSource}`];
-            }
-
+            if (domainPatterns.length > 0)
+                return [...new Set(domainPatterns.map(p => String(p || '').trim()).filter(Boolean))].map(p => `domainPattern:${p}`);
+            if (urlPatternSource) return [`urlPattern:${urlPatternSource}`];
             return [name];
         }
 
@@ -2781,200 +1808,67 @@ function start() {
             compiled.section = section;
             attachCoreRuleIdentity(name, compiled, section, getActivationScopeIds());
             if (filterCoreRuleActivationIds(compiled, _disabledRuleIds)) {
-                registerDisabledCoreRuleInSnapshot(compiled);
-                return null;
+                registerDisabledCoreRuleInSnapshot(compiled); return null;
             }
             registerCoreRuleInSnapshot(compiled);
             return compiled;
         }
 
-        this.shouldForceRedirect = function () {
-            return _forceRedirection;
-        };
-
-        this.getName = function () {
-            return name;
-        };
-
+        this.shouldForceRedirect = function () { return _forceRedirection; };
+        this.getName = function () { return name; };
         this.getSnapshotMetadata = function () {
-            return {
-                completeProvider: canceling,
-                domainPatterns: domainPatterns.slice(),
-                forceRedirection: _forceRedirection,
-                indexPatterns: indexPatterns.slice(),
-                methods: methods.slice(),
-                name,
-                resourceTypes: resourceTypes.slice(),
-                urlPattern: urlPatternSource
-            };
+            return { completeProvider: canceling, domainPatterns: domainPatterns.slice(), forceRedirection: _forceRedirection,
+                indexPatterns: indexPatterns.slice(), methods: methods.slice(), name, resourceTypes: resourceTypes.slice(), urlPattern: urlPatternSource };
         };
 
-        /**
-         * Extracts lookup tokens from domainPatterns and indexPattern.
-         *
-         * domainPatterns — used for both matching (matchURL) and indexing.
-         * indexPatterns  — used for indexing only; lets urlPattern providers
-         *                  declare their target domains explicitly in the simple
-         *                  domainPattern syntax (||youtube.com^) without having
-         *                  to infer them by parsing the regex source.
-         *
-         * Examples:
-         *   ||amazon.*^        -> amazon
-         *   *.google.com       -> google
-         *   example.co.uk      -> example
-         *   ||sub.domain.com/  -> domain
-         *
-         * @return {String[]}
-         */
         this.getDomainLookupTokens = function () {
             const tokens = new Set();
-
             function cleanDomainPattern(pattern) {
-                let value = String(pattern || '').trim().toLowerCase();
-                if (!value) return '';
-
-                // Regex literals (/pattern/flags) have no hostname to extract —
-                // return '' so the provider stays in globalProviders for this pattern.
-                if (value.charAt(0) === '/') return '';
-
-                if (value.startsWith('@@')) {
-                    value = value.slice(2);
-                }
-
-                if (value.startsWith('||')) {
-                    value = value.slice(2);
-                } else if (value.startsWith('|')) {
-                    value = value.slice(1);
-                }
-
-                if (value.endsWith('|')) {
-                    value = value.slice(0, -1);
-                }
-
-                if (value.startsWith('*.')) {
-                    value = value.slice(2);
-                }
-
-                if (value.startsWith('http://')) {
-                    value = value.slice(7);
-                } else if (value.startsWith('https://')) {
-                    value = value.slice(8);
-                }
-
-                const stopIndexes = [
-                    value.indexOf('/'),
-                    value.indexOf('^'),
-                    value.indexOf('$'),
-                    value.indexOf('?'),
-                    value.indexOf('#')
-                ].filter(index => index !== -1);
-
-                if (stopIndexes.length > 0) {
-                    value = value.slice(0, Math.min(...stopIndexes));
-                }
-
-                if (value.endsWith('.*')) {
-                    value = value.slice(0, -2);
-                }
-
-                return value;
+                let v = String(pattern || '').trim().toLowerCase();
+                if (!v) return '';
+                if (v.charAt(0) === '/') return '';
+                if (v.startsWith('@@')) v = v.slice(2);
+                if (v.startsWith('||')) v = v.slice(2); else if (v.startsWith('|')) v = v.slice(1);
+                if (v.endsWith('|')) v = v.slice(0, -1);
+                if (v.startsWith('*.')) v = v.slice(2);
+                if (v.startsWith('http://')) v = v.slice(7); else if (v.startsWith('https://')) v = v.slice(8);
+                const stopIndexes = [v.indexOf('/'), v.indexOf('^'), v.indexOf('$'), v.indexOf('?'), v.indexOf('#')].filter(i => i !== -1);
+                if (stopIndexes.length > 0) v = v.slice(0, Math.min(...stopIndexes));
+                if (v.endsWith('.*')) v = v.slice(0, -2);
+                return v;
             }
-
-            function tokenFromHostnameLikePattern(hostnameLikePattern) {
-                const normalized = normalizeAsciiHostname(hostnameLikePattern);
+            function tokenFromHostnameLikePattern(h) {
+                const normalized = normalizeAsciiHostname(h);
                 if (!normalized) return [];
-
-                /*
-                 * Prefer PSL parsing when available.
-                 *
-                 * Examples:
-                 *   example.co.uk -> parsed.domain = example.co.uk
-                 *   google.com    -> parsed.domain = google.com
-                 *
-                 * Token should be the registrable-domain label:
-                 *   example.co.uk -> example
-                 *   google.com    -> google
-                 */
                 const parsed = parseHostnameWithPsl(normalized);
                 if (parsed && parsed.domain && parsed.tld) {
                     const suffix = '.' + parsed.tld;
-                    const domainWithoutTld = parsed.domain.endsWith(suffix)
-                        ? parsed.domain.slice(0, -suffix.length)
-                        : parsed.domain;
-
-                    const labels = domainWithoutTld
-                        .split('.')
-                        .map(label => label.trim())
-                        .filter(Boolean);
-
-                    if (labels.length > 0) {
-                        return [labels[labels.length - 1].toLowerCase()];
-                    }
+                    const domainWithoutTld = parsed.domain.endsWith(suffix) ? parsed.domain.slice(0, -suffix.length) : parsed.domain;
+                    const labels = domainWithoutTld.split('.').map(l => l.trim()).filter(Boolean);
+                    if (labels.length > 0) return [labels[labels.length - 1].toLowerCase()];
                 }
-
-                /*
-                 * Fallback when PSL is not ready during provider creation.
-                 * No hardcoded TLDs are used here.
-                 *
-                 * Returns ALL labels except the last (probable bare TLD like "com",
-                 * "uk", "org") so that a provider for sub.example.co.uk is indexed
-                 * under both "sub" and "example" — fixing the miss when a sibling
-                 * subdomain makes the request and "sub" is not among its tokens.
-                 * Indexing under the bare TLD label is skipped to avoid every .com
-                 * request pulling in unrelated providers as candidates.
-                 * Final matching is still verified by provider.matchURL(), so
-                 * extra tokens here create false-positive candidates only, never
-                 * false rule application.
-                 */
-                const labels = normalized
-                    .split('.')
-                    .map(label => label.trim())
-                    .filter(label => /^[a-z0-9-]+$/i.test(label))
-                    .filter(label => label !== '*');
-
-                if (labels.length > 1) {
-                    return labels.slice(0, -1).map(l => l.toLowerCase());
-                }
+                const labels = normalized.split('.').map(l => l.trim())
+                    .filter(l => /^[a-z0-9-]+$/i.test(l)).filter(l => l !== '*');
+                if (labels.length > 1) return labels.slice(0, -1).map(l => l.toLowerCase());
                 return labels.map(l => l.toLowerCase());
             }
-
-            // domainPatterns are both the matcher and index source. indexPattern is
-            // only a speed hint for legacy urlPattern providers.
             const sources = domainPatterns.length > 0 ? domainPatterns : indexPatterns;
-
             for (const pattern of sources) {
                 const cleaned = cleanDomainPattern(pattern);
                 if (!cleaned) continue;
-
-                for (const token of tokenFromHostnameLikePattern(cleaned)) {
-                    tokens.add(token);
-                }
+                for (const token of tokenFromHostnameLikePattern(cleaned)) tokens.add(token);
             }
-
             return Array.from(tokens);
         };
 
-        /**
-         * Returns all lookup tokens for this provider.
-         *
-         * Tokens come exclusively from domainPatterns and indexPattern —
-         * both use the domainPattern syntax which maps cleanly to hostname
-         * labels. urlPattern never self-indexes: if a provider uses urlPattern
-         * without an indexPattern it falls to globalProviders, which is the
-         * correct conservative behaviour.
-         *
-         * @return {String[]}
-         */
         this.getLookupTokens = function () {
             const tokens = new Set();
-            for (const t of this.getDomainLookupTokens()) {
-                if (t) tokens.add(t);
-            }
+            for (const t of this.getDomainLookupTokens()) if (t) tokens.add(t);
             return Array.from(tokens);
         };
 
         this.requiresGlobalFallback = function () {
-            return domainPatterns.some(pattern => String(pattern || '').trim().charAt(0) === '/');
+            return domainPatterns.some(p => String(p || '').trim().charAt(0) === '/');
         };
 
         this.setURLPattern = function (urlPatterns) {
@@ -2982,119 +1876,48 @@ function start() {
             urlPattern = new RegExp(urlPatterns, "i");
         };
 
-        /**
-         * Sets the indexPatterns for this provider.
-         *
-         * indexPattern is HOSTNAME-ONLY. It declares which hostname(s) this
-         * provider targets so the engine can index it in providersByToken.
-         * providersByToken is queried with dot-split hostname labels, so any
-         * path, query, or fragment portion is meaningless and stripped at
-         * write time.
-         *
-         * Valid forms:
-         *   "||amazon.com^"          registrable domain, any subdomain
-         *   "||amazon.*^"            registrable domain, any TLD
-         *   "*.amazon.com"           any subdomain of amazon.com
-         *   "*.amazon.*"             any subdomain, any TLD
-         *   "amazon.com"             exact hostname (substring fallback)
-         *
-         * Invalid (path will be stripped, write a warning to console):
-         *   "||youtube.com/pagead"   → stored as "||youtube.com"
-         *
-         * Accepts a single string or an array for providers whose urlPattern
-         * covers multiple unrelated hostnames:
-         *   ["||youtube.com^", "||youtu.be^"]
-         *
-         * @param {string|string[]} pattern - hostname-only domainPattern-syntax string or array
-         */
         this.setIndexPattern = function (pattern) {
-            // Strip everything from the first path separator so callers that
-            // accidentally include a path get the hostname portion only.
             function hostnameOnly(p) {
                 if (!p) return '';
                 let v = String(p).trim();
-                // Strip anchors for the path-check, but preserve them in output
-                const prefix = v.startsWith('||') ? '||'
-                             : v.startsWith('|')  ? '|'
-                             : '';
+                const prefix = v.startsWith('||') ? '||' : v.startsWith('|') ? '|' : '';
                 const body = v.slice(prefix.length);
-                const pathStart = Math.min(
-                    ...[body.indexOf('/'), body.indexOf('?'), body.indexOf('#')]
-                        .filter(i => i !== -1)
-                        .concat([body.length])
-                );
-                if (pathStart < body.length) {
-                   
-                    // Rebuild: keep prefix + hostname + trailing ^ if present
-                    const host = body.slice(0, pathStart);
-                    v = prefix + host;
-                }
+                const pathStart = Math.min(...[body.indexOf('/'), body.indexOf('?'), body.indexOf('#')].filter(i => i !== -1).concat([body.length]));
+                if (pathStart < body.length) v = prefix + body.slice(0, pathStart);
                 return v;
             }
-
-            if (Array.isArray(pattern)) {
-                indexPatterns = pattern.map(hostnameOnly).filter(Boolean);
-            } else if (pattern) {
-                indexPatterns = [hostnameOnly(pattern)].filter(Boolean);
-            } else {
-                indexPatterns = [];
-            }
+            if (Array.isArray(pattern)) indexPatterns = pattern.map(hostnameOnly).filter(Boolean);
+            else if (pattern) indexPatterns = [hostnameOnly(pattern)].filter(Boolean);
+            else indexPatterns = [];
         };
 
         this.setURLDomainPattern = function (patterns) {
-            domainPatterns = Array.isArray(patterns)
-                ? patterns
-                : (patterns ? [patterns] : []);
+            domainPatterns = Array.isArray(patterns) ? patterns : (patterns ? [patterns] : []);
         };
 
         this.getAppliedPatternForUrl = function (url) {
             if (domainPatterns.length > 0) {
                 for (const pattern of domainPatterns) {
-                    if (matchDomainPattern(url, [pattern])) {
-                        return {
-                            providerName: name,
-                            patternType: 'domainPatterns',
-                            patternValue: pattern
-                        };
-                    }
+                    if (matchDomainPattern(url, [pattern]))
+                        return { providerName: name, patternType: 'domainPatterns', patternValue: pattern };
                 }
             }
-
-            if (urlPattern && urlPattern.test(url)) {
-                return {
-                    providerName: name,
-                    patternType: 'urlPattern',
-                    patternValue: urlPatternSource || urlPattern.source || ''
-                };
-            }
-
-            return {
-                providerName: name,
-                patternType: null,
-                patternValue: null
-            };
+            if (urlPattern && urlPattern.test(url))
+                return { providerName: name, patternType: 'urlPattern', patternValue: urlPatternSource || urlPattern.source || '' };
+            return { providerName: name, patternType: null, patternValue: null };
         };
 
-        this.isCanceling = function () {
-            return canceling;
-        };
+        this.isCanceling = function () { return canceling; };
 
         this.matchURL = function (url) {
-            if (domainPatterns.length > 0) {
-                return matchDomainPattern(url, domainPatterns) && !(this.matchException(url));
-            } else if (urlPattern) {
-                return urlPattern.test(url) && !(this.matchException(url));
-            }
+            if (domainPatterns.length > 0) return matchDomainPattern(url, domainPatterns) && !this.matchException(url);
+            if (urlPattern) return urlPattern.test(url) && !this.matchException(url);
             return false;
         };
 
         this.matchRequestURL = function (url, request = null) {
-            if (domainPatterns.length > 0) {
-                return matchDomainPattern(url, domainPatterns) && !(this.matchException(url, request));
-            } else if (urlPattern) {
-                urlPattern.lastIndex = 0;
-                return urlPattern.test(url) && !(this.matchException(url, request));
-            }
+            if (domainPatterns.length > 0) return matchDomainPattern(url, domainPatterns) && !this.matchException(url, request);
+            if (urlPattern) { urlPattern.lastIndex = 0; return urlPattern.test(url) && !this.matchException(url, request); }
             return false;
         };
 
@@ -3102,17 +1925,17 @@ function start() {
             const parsedLinkumoriRule = parseLinkumoriRemoveParamRuleDefinition(rule);
             if (parsedLinkumoriRule) {
                 if (parsedLinkumoriRule.isBadfilter) {
+                    // BUGFIX 9: check isActive BEFORE applying badfilter cancellation.
+                    // An inactive badfilter rule must not cancel live rules.
+                    const badfilterNormalized = normalizeCoreRuleDefinition(rule, "i", defaults);
+                    if (!isActive || (badfilterNormalized && badfilterNormalized.active === false)) return;
                     const target = parsedLinkumoriRule.badfilterTarget;
-                    for (let i = linkumoriRemoveParamRules.length - 1; i >= 0; i--) {
-                        if (linkumoriRemoveParamRules[i].raw === target || linkumoriRemoveParamRules[i].canonical === target) {
+                    for (let i = linkumoriRemoveParamRules.length - 1; i >= 0; i--)
+                        if (linkumoriRemoveParamRules[i].raw === target || linkumoriRemoveParamRules[i].canonical === target)
                             linkumoriRemoveParamRules.splice(i, 1);
-                        }
-                    }
-                    for (let i = linkumoriRemoveParamExceptions.length - 1; i >= 0; i--) {
-                        if (linkumoriRemoveParamExceptions[i].raw === target || linkumoriRemoveParamExceptions[i].canonical === target) {
+                    for (let i = linkumoriRemoveParamExceptions.length - 1; i >= 0; i--)
+                        if (linkumoriRemoveParamExceptions[i].raw === target || linkumoriRemoveParamExceptions[i].canonical === target)
                             linkumoriRemoveParamExceptions.splice(i, 1);
-                        }
-                    }
                     return;
                 }
                 const normalizedRule = normalizeCoreRuleDefinition(rule, "i", defaults);
@@ -3123,22 +1946,21 @@ function start() {
                     parsedLinkumoriRule.id = activeRule.id;
                     parsedLinkumoriRule.aliases = Array.isArray(activeRule.aliases) ? activeRule.aliases.slice() : [];
                     parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
-                    if (Array.isArray(activeRule.requestTypes)) {
+                    // BUGFIX 5: only apply canonical requestTypes when the rule itself
+                    // declared none. Previously this unconditionally clobbered inline
+                    // type modifiers and wiped all ~type exclusions.
+                    if (Array.isArray(activeRule.requestTypes) &&
+                        parsedLinkumoriRule.requestTypes.length === 0 &&
+                        parsedLinkumoriRule.excludeRequestTypes.length === 0) {
                         parsedLinkumoriRule.requestTypes = activeRule.requestTypes.slice();
-                        parsedLinkumoriRule.excludeRequestTypes = [];
                     }
                     parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
                     parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
                 }
-
-                if (parsedLinkumoriRule.isException) {
-                    linkumoriRemoveParamExceptions.push(parsedLinkumoriRule);
-                } else {
-                    linkumoriRemoveParamRules.push(parsedLinkumoriRule);
-                }
+                if (parsedLinkumoriRule.isException) linkumoriRemoveParamExceptions.push(parsedLinkumoriRule);
+                else linkumoriRemoveParamRules.push(parsedLinkumoriRule);
                 return;
             }
-
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'rules');
@@ -3147,9 +1969,7 @@ function start() {
         };
 
         this.getRulesMap = function () {
-            if (!storage.referralMarketing) {
-                return Object.assign({}, fieldRuleMap, referralMarketingRuleMap);
-            }
+            if (!storage.referralMarketing) return Object.assign({}, fieldRuleMap, referralMarketingRuleMap);
             return fieldRuleMap;
         };
 
@@ -3161,17 +1981,9 @@ function start() {
             rawRuleMap[activeCompiled.matchPattern] = activeCompiled;
         };
 
-        this.getRawRulesMap = function () {
-            return rawRuleMap;
-        };
-
-        this.getLinkumoriRemoveParamRules = function () {
-            return linkumoriRemoveParamRules.slice();
-        };
-
-        this.getLinkumoriRemoveParamExceptions = function () {
-            return linkumoriRemoveParamExceptions.slice();
-        };
+        this.getRawRulesMap = function () { return rawRuleMap; };
+        this.getLinkumoriRemoveParamRules = function () { return linkumoriRemoveParamRules.slice(); };
+        this.getLinkumoriRemoveParamExceptions = function () { return linkumoriRemoveParamExceptions.slice(); };
 
         this.addReferralMarketing = function (rule, isActive = true, defaults = null) {
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
@@ -3190,70 +2002,46 @@ function start() {
         };
 
         this.addDomainException = function (exception) {
-            if (domainExceptionPatterns.indexOf(exception) === -1) {
-                domainExceptionPatterns.push(exception);
-            }
+            if (domainExceptionPatterns.indexOf(exception) === -1) domainExceptionPatterns.push(exception);
         };
 
         this.addMethod = function (method) {
-            const normalized = String(method || '').toUpperCase();
-            if (normalized && methods.indexOf(normalized) === -1) {
-                methods.push(normalized);
-            }
-        }
-
-        this.getMethods = function () {
-            return methods.slice();
+            const n = String(method || '').toUpperCase();
+            if (n && methods.indexOf(n) === -1) methods.push(n);
         };
-
+        this.getMethods = function () { return methods.slice(); };
         this.matchMethod = function (details) {
             if (!methods.length) return true;
             return methods.indexOf(String(details['method'] || '').toUpperCase()) > -1;
-        }
+        };
 
         this.addResourceType = function (resourceType) {
-            const normalized = String(resourceType || '').toLowerCase();
-            if (normalized && resourceTypes.indexOf(normalized) === -1) {
-                resourceTypes.push(normalized);
-            }
+            const n = String(resourceType || '').toLowerCase();
+            if (n && resourceTypes.indexOf(n) === -1) resourceTypes.push(n);
         };
-
-        this.getResourceTypes = function () {
-            return resourceTypes.slice();
-        };
-
+        this.getResourceTypes = function () { return resourceTypes.slice(); };
         this.matchResourceType = function (details) {
             if (!resourceTypes.length) {
-                if (storage.types && storage.types.length > 0) {
-                    return storage.types.indexOf(details['type']) > -1;
-                }
+                if (storage.types && storage.types.length > 0) return storage.types.indexOf(details['type']) > -1;
                 return true;
             }
             return resourceTypes.indexOf(String(details['type'] || '').toLowerCase()) > -1;
         };
 
         this.matchException = function (url, request = null) {
-            let result = false;
-
             if (url === siteBlockedAlert) return true;
-
+            let result = false;
             for (const exception in exceptionRuleMap) {
                 if (result) break;
-
                 const exceptionRule = exceptionRuleMap[exception];
-                const exceptionRegex = exceptionRule && exceptionRule.regex instanceof RegExp
-                    ? exceptionRule.regex
+                const exceptionRegex = exceptionRule && exceptionRule.regex instanceof RegExp ? exceptionRule.regex
                     : (exceptionRule instanceof RegExp ? exceptionRule : new RegExp(exception, "i"));
                 if (coreRuleAppliesToRequest(exceptionRule, url, request)) {
                     exceptionRegex.lastIndex = 0;
                     result = exceptionRegex.test(url);
                 }
             }
-
-            if (!result && domainExceptionPatterns.length > 0) {
-                result = matchDomainPattern(url, domainExceptionPatterns);
-            }
-
+            if (!result && domainExceptionPatterns.length > 0) result = matchDomainPattern(url, domainExceptionPatterns);
             return result;
         };
 
@@ -3267,54 +2055,41 @@ function start() {
 
         this.addDomainRedirection = function (redirection) {
             const normalized = normalizeCoreDomainRedirection(redirection);
-            if (normalized && domainRedirectionRules.indexOf(normalized) === -1) {
-                domainRedirectionRules.push(normalized);
-            }
+            if (normalized && domainRedirectionRules.indexOf(normalized) === -1) domainRedirectionRules.push(normalized);
         };
 
         this.getRedirection = function (url, request = null) {
             let re = null;
-
             for (const redirection in redirectionRuleMap) {
                 const compiled = redirectionRuleMap[redirection];
-                const activeRegex = compiled && compiled.regex instanceof RegExp
-                    ? compiled.regex
-                    : new RegExp(redirection, "i");
+                const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp(redirection, "i");
                 if (!coreRuleAppliesToRequest(compiled, url, request)) continue;
                 activeRegex.lastIndex = 0;
                 const captured = activeRegex.exec(url);
-
                 if (captured && captured.length > 0 && redirection) {
                     const values = applyCoreRulePreprocessors(captured.slice(1), compiled.preprocessors);
-                    if (compiled.replacePattern !== null && compiled.replacePattern !== '') {
-                        re = applyCoreReplacePattern(compiled.replacePattern, values);
-                    } else if (captured[1] !== undefined) {
-                        re = values[0];
-                    }
+                    if (compiled.replacePattern !== null && compiled.replacePattern !== '') re = applyCoreReplacePattern(compiled.replacePattern, values);
+                    else if (captured[1] !== undefined) re = values[0];
                     break;
                 }
-            }            
+            }
             if (!re && domainRedirectionRules.length > 0) {
-                for (const domainRedirection of domainRedirectionRules) {
-                    if (typeof domainRedirection !== 'string' || !domainRedirection.includes('$redirect=')) {
-                        continue;
-                    }
-                    const [pattern, redirectTarget] = domainRedirection.split('$redirect=');
-                    if (matchDomainPattern(url, [pattern.trim()])) {
-                        re = redirectTarget;
-                        break;
-                    }
+                for (const dr of domainRedirectionRules) {
+                    if (typeof dr !== 'string' || !dr.includes('$redirect=')) continue;
+                    const [pattern, redirectTarget] = dr.split('$redirect=');
+                    if (matchDomainPattern(url, [pattern.trim()])) { re = redirectTarget; break; }
                 }
             }
-
             return re;
         };
-    }
+    } // end Provider
+
+    // -----------------------------------------------------------------------
+    // clearUrl()
+    // -----------------------------------------------------------------------
 
     function clearUrl(request) {
-        if (typeof isTemporarilyPaused === 'function' && isTemporarilyPaused()) {
-            return {};
-        }
+        if (typeof isTemporarilyPaused === 'function' && isTemporarilyPaused()) return {};
 
         if (isWhitelisted(request.url, request)) {
             if (storage.loggingStatus) {
@@ -3329,16 +2104,10 @@ function start() {
         }
 
         const URLbeforeReplaceCount = countFields(request.url);
-
         increaseTotalCounter(URLbeforeReplaceCount);
 
         if (storage.globalStatus) {
-            let result = {
-                "changes": false,
-                "url": "",
-                "redirect": false,
-                "cancel": false
-            };
+            let result = { changes: false, url: "", redirect: false, cancel: false };
 
             if (storage.pingBlocking && storage.pingRequestTypes.includes(request.type)) {
                 pushToLog(request.url, request.url, translate('log_ping_blocked'), {
@@ -3349,31 +2118,15 @@ function start() {
                 });
                 increaseBadged(false, request);
                 increaseTotalCounter(1);
-                return {cancel: true};
+                return { cancel: true };
             }
 
-            // Collect @@removeparam exceptions from every provider whose URL
-            // pattern matches the current page context (documentUrl, originUrl,
-            // initiator, stored tab URL, frame ancestors). These cross-provider
-            // exceptions are passed into removeFieldsFormURL so that a rule like
-            //   @@||gemini.google.com$removeparam=ei
-            // suppresses ei removal on ALL requests (facebook.com, map.google.com,
-            // etc.) that are loaded from a gemini.google.com page, not just on
-            // requests whose destination URL matches gemini.google.com.
-            // Context-based exceptions apply only to subrequests (XHR, script,
-            // image, etc.) that originate FROM a matched page. For main_frame
-            // navigations the documentUrl/initiator/referrer still reference the
-            // PREVIOUS page, so collecting context exceptions there would wrongly
-            // protect params on the new page just because the user came from a
-            // matched URL. e.g. navigating from www.google.com/search to
-            // books.google.co.in/?ei=11 would keep ei because the referrer is
-            // the search page — but that exception should not apply here.
+            // Collect cross-provider @@removeparam exceptions from every provider
+            // whose URL pattern matches the current page context.
             const contextUrls = (request.type !== 'main_frame')
-                ? requestContextManager.collectContextURLs(request)
-                : [];
+                ? requestContextManager.collectContextURLs(request) : [];
             const globalLinkumoriExceptions = [];
 
-            // Optimized context provider lookup
             let contextCandidateProviders = new Set(globalProviders);
             for (const ctxUrl of contextUrls) {
                 try {
@@ -3384,45 +2137,30 @@ function start() {
                         if (seenCtxTokens.has(token)) continue;
                         seenCtxTokens.add(token);
                         const tokenProviders = providersByToken[token];
-                        if (tokenProviders) {
-                            for (const p of tokenProviders) {
-                                contextCandidateProviders.add(p);
-                            }
-                        }
+                        if (tokenProviders) for (const p of tokenProviders) contextCandidateProviders.add(p);
                     }
                 } catch (e) {}
             }
 
             for (const provider of contextCandidateProviders) {
-                const matchesContext = contextUrls.some(ctxUrl => {
-                    try { return provider.matchURL(ctxUrl); } catch (e) { return false; }
-                });
+                const matchesContext = contextUrls.some(cu => { try { return provider.matchURL(cu); } catch (e) { return false; } });
                 if (matchesContext) {
-                    const matchedExceptions = provider.getLinkumoriRemoveParamExceptions().filter((exceptionRule) => {
-                        return linkumoriRemoveParamExceptionMatchesContext(exceptionRule, contextUrls, request);
-                    });
+                    const matchedExceptions = provider.getLinkumoriRemoveParamExceptions().filter(er =>
+                        linkumoriRemoveParamExceptionMatchesContext(er, contextUrls, request));
                     globalLinkumoriExceptions.push(...matchedExceptions);
                 }
             }
 
-            // Optimized request provider lookup
             let requestHost = "";
-            try {
-                requestHost = new URL(request.url).hostname;
-            } catch (e) {}
+            try { requestHost = new URL(request.url).hostname; } catch (e) {}
             const requestHostTokens = getHostnameLookupTokens(requestHost);
-
             let requestCandidateProviders = new Set(globalProviders);
             const seenRequestTokens = new Set();
             for (const token of requestHostTokens) {
                 if (seenRequestTokens.has(token)) continue;
                 seenRequestTokens.add(token);
                 const tokenProviders = providersByToken[token];
-                if (tokenProviders) {
-                    for (const p of tokenProviders) {
-                        requestCandidateProviders.add(p);
-                    }
-                }
+                if (tokenProviders) for (const p of tokenProviders) requestCandidateProviders.add(p);
             }
 
             const candidates = Array.from(requestCandidateProviders);
@@ -3435,49 +2173,31 @@ function start() {
                 }
 
                 if (result.redirect) {
-                    if (provider.shouldForceRedirect() &&
-                        request.type === 'main_frame') {
-                        browser.tabs.update(request.tabId, {url: result.url}).catch(handleError);
-                        return {cancel: true};
+                    if (provider.shouldForceRedirect() && request.type === 'main_frame') {
+                        browser.tabs.update(request.tabId, { url: result.url }).catch(handleError);
+                        return { cancel: true };
                     }
-
-                    return {
-                        redirectUrl: result.url
-                    };
+                    return { redirectUrl: result.url };
                 }
 
                 if (result.cancel) {
                     if (request.type === 'main_frame') {
                         const blockingPage = browser.runtime.getURL("html/siteBlockedAlert.html?source=" + encodeURIComponent(request.url));
-                        browser.tabs.update(request.tabId, {url: blockingPage}).catch(handleError);
-
-                        return {cancel: true};
-                    } else {
-                        return {
-                            redirectUrl: siteBlockedAlert
-                        };
+                        browser.tabs.update(request.tabId, { url: blockingPage }).catch(handleError);
+                        return { cancel: true };
                     }
+                    return { redirectUrl: siteBlockedAlert };
                 }
 
-                if (result.changes) {
-                    return {
-                        redirectUrl: result.url
-                    };
-                }
+                if (result.changes) return { redirectUrl: result.url };
             }
-
         }
 
         return {};
     }
 
     globalThis.traceClearURLWebRequestTest = function (requestDetails) {
-        const request = {
-            method: 'GET',
-            type: 'main_frame',
-            tabId: -1,
-            ...requestDetails
-        };
+        const request = { method: 'GET', type: 'main_frame', tabId: -1, ...requestDetails };
         const result = clearUrl(request) || {};
         return {
             input: request.url,
@@ -3487,4 +2207,4 @@ function start() {
             raw: result
         };
     };
-}
+} 
