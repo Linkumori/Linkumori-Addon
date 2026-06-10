@@ -32,7 +32,7 @@
 | **CSS** | `css/settings.css`<br>`css/siteBlockedAlert.css` |
 | **Icons (PNG)** | `img/icon16.png`<br>`img/icon19.png`<br>`img/icon20.png`<br>`img/icon24.png`<br>`img/icon30.png`<br>`img/icon32.png`<br>`img/icon38.png`<br>`img/icon48.png`<br>`img/icon64.png`<br>`img/icon96.png`<br>`img/icon128.png`<br>`img/icon128_gray.png` |
 | **Icons (SVG)** | `img/linkumori_icon_disabled.svg`<br>`img/linkumori_icons.svg`<br>`img/linkumori_icon_theme_dark.svg`<br>`img/linkumori_icon_theme_light.svg`<br>`img/linkumori_icon_theme_icecold.svg`<br>`img/linkumori_icon_theme_midnight.svg`<br>`img/linkumori_icon_theme_sunset.svg`<br>`img/linkumori_icon_theme_legacy.svg`<br>`img/linkumori_icon_theme_legacy_disabled.svg` |
-| **Data** | `<br>`data/privacy-policy-map.json`<br>`data/url-config.json`<br>`tests/regression-suite.json` |
+| **Data** | `data/privacy-policy-map.json`<br>`data/url-config.json`<br>`tests/regression-suite.json` |
 
 ### 1.2 Copyright & License
 
@@ -131,8 +131,8 @@
 
 | Category | Files |
 |----------|-------|
-| **Core JavaScript** | `core_js/badgedHandler.js`<br>`core_js/historyListener.js`<br>`core_js/settings.js`<br>`core_js/watchdog.js`<br>`core_js/cleaning_tool.js`<br>`core_js/log.js`<br>`core_js/report.js`<br>`core_js/siteBlockedAlert.js`<br>`core_js/write_version.js`<br>`core_js/context_menu.js`<br>`core_js/message_handler.js`<br>`core_js/storage.js`<br>`core_js/eTagFilter.js`<br>`core_js/popup.js`<br>`core_js/tools.js`<br>`core_js/pureCleaning.js`<br>`./clearurls.js` |
-| **HTML** | `html/log.html`<br>`html/report.html`<br>`html/siteBlockedAlert.html` |
+| **Core JavaScript** | `core_js/badgedHandler.js`<br>`core_js/historyListener.js`<br>`core_js/settings.js`<br>`core_js/watchdog.js`<br>`core_js/cleaning_tool.js`<br>`core_js/report.js`<br>`core_js/siteBlockedAlert.js`<br>`core_js/write_version.js`<br>`core_js/context_menu.js`<br>`core_js/message_handler.js`<br>`core_js/storage.js`<br>`core_js/eTagFilter.js`<br>`core_js/popup.js`<br>`core_js/tools.js`<br>`core_js/pureCleaning.js`<br>`./clearurls.js` |
+| **HTML** | `html/report.html`<br>`html/siteBlockedAlert.html` |
 | **Other** | `linkumori-cli-tool.js`<br>`linkumori-clearurls-min.json.lz4`<br>`manifest.json` |
 
 #### 2.3.2 Original Copyright
@@ -179,7 +179,59 @@
 
 {{LICENSE:APACHE-2.0}}
 
-#### 2.3.5 Report Page (`html/report.html`)
+#### 2.3.5 Log Page (`html/log.html`)
+
+**Based On:** ClearURLs log page
+
+**Original Copyright:** © 2017-2025 Kevin Röbert
+**Modified By:** © 2025-2026 Subham Mahesh
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+**Embedded Modified Google Material SVG Icons (Apache License 2.0)**
+
+| Icon | Source | Modifications | Used In |
+|------|--------|---------------|---------|
+| Pause Icon | `pause.svg` | Embedded inline in HTML, sized by CSS, fill=currentColor, accessibility attributes added | Live Logger pause button |
+| Delete Icon | `delete.svg` | Embedded inline in HTML, sized by CSS, fill=currentColor, accessibility attributes added | Live Logger clear button |
+| Unfold More Icon | `unfold_more.svg` | Embedded inline in HTML, sized by CSS, fill=currentColor, accessibility attributes added | Live Logger auto-scroll button |
+| Close Icon | `close.svg` | Embedded inline in HTML, sized by CSS, fill=currentColor, accessibility attributes added | Live Logger detail panel close button |
+
+**Google Material Icons Information:**
+- **Source:** <https://fonts.google.com/icons>
+- **License:** Apache License 2.0
+- **Documentation:** <https://developers.google.com/fonts/docs/material_icons#licensing>
+
+{{LICENSE:APACHE-2.0}}
+
+#### 2.3.6 Logger Script (`core_js/log.js`)
+
+**Based On:** ClearURLs log script
+
+**Original Copyright:** © 2017-2025 Kevin Röbert
+**Modified By:** © 2025-2026 Subham Mahesh
+
+**License:** GNU Lesser General Public License (LGPL) v3.0 or later
+
+{{LICENSE:LGPL-3.0}}
+
+**Embedded Modified Google Material SVG Icons (Apache License 2.0)**
+
+| Icon | Source | Modifications | Used In |
+|------|--------|---------------|---------|
+| Pause Icon | `pause.svg` | Embedded as runtime HTML string in `core_js/log.js`, sized by CSS, fill=currentColor, accessibility attributes added | Live Logger pause button runtime state |
+| Play Arrow Icon | `play_arrow.svg` | Embedded as runtime HTML string in `core_js/log.js`, sized by CSS, fill=currentColor, accessibility attributes added | Live Logger resume button runtime state |
+
+**Google Material Icons Information:**
+- **Source:** <https://fonts.google.com/icons>
+- **License:** Apache License 2.0
+- **Documentation:** <https://developers.google.com/fonts/docs/material_icons#licensing>
+
+{{LICENSE:APACHE-2.0}}
+
+#### 2.3.7 Report Page (`html/report.html`)
 
 **Based On:** ClearURLs report issue page
 
@@ -204,7 +256,7 @@
 
 {{LICENSE:APACHE-2.0}}
 
-#### 2.3.6 Cleaning Tool Page (`html/cleaningTool.html`)
+#### 2.3.8 Cleaning Tool Page (`html/cleaningTool.html`)
 
 **Based On:** ClearURLs Cleaning Tool Page
 
@@ -229,7 +281,7 @@
 
 {{LICENSE:APACHE-2.0}}
 
-#### 2.3.7 Localization Credits
+#### 2.3.9 Localization Credits
 
 ##### English (`_locales/en/messages.json`)
 

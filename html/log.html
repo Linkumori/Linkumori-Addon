@@ -3,7 +3,7 @@
   ClearURLs
   ============================================================
   Copyright (c) 2017–2025 Kevin Röbert
-  Modified by Subham Mahesh (c) 2025 (modified parts only)
+  Modified by Subham Mahesh (c) 2025-2026 (modified parts only)
 
   This program is free software: you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -27,6 +27,32 @@
   lightweight custom log viewer tailored to the specific needs
   of the Linkumori extension. Core log display functionality
   is retained while removing the overhead of those libraries.
+  2026-06-10 update by Subham Mahesh replaces logger button
+  emoji glyphs with inline SVG icons.
+
+  ============================================================
+  SVG ICON ATTRIBUTIONS
+  ============================================================
+
+  EMBEDDED ICONS — Google Material Icons (Modified)
+  --------------------------------------------------
+  License:   Apache License 2.0
+  Source:    https://fonts.google.com/icons
+  Docs:      https://developers.google.com/fonts/docs/material_icons#licensing
+
+  Modifications by Subham Mahesh, 2026-06-10:
+  SVG paths are embedded inline, sized by CSS, use fill=currentColor,
+  include accessibility attributes, and keep button text in separate
+  label spans for localization.
+
+  - Pause Icon       — derivative of pause.svg
+                       Used in: Live Logger pause button
+  - Delete Icon      — derivative of delete.svg
+                       Used in: Live Logger clear button
+  - Unfold More Icon — derivative of unfold_more.svg
+                       Used in: Live Logger auto-scroll button
+  - Close Icon       — derivative of close.svg
+                       Used in: Live Logger detail panel close button
 
   ============================================================
   MODIFICATION HISTORY
@@ -34,6 +60,7 @@
   2025-06-14   Subham Mahesh   First modification
   2025-08-21   Subham Mahesh   Second modification
   2025-09-05   Subham Mahesh   Third modification
+  2026-06-10   Subham Mahesh   Replaced logger emoji glyphs with inline SVG icons
 
   Note: Due to inline constraints, subsequent modifications may
   not appear here. To view the full history, run:
@@ -462,6 +489,21 @@
         .btn:focus { outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); }
         .btn:active { transform: translateY(0); }
         .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-icon {
+            width: 16px;
+            height: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 16px;
+            color: currentColor;
+        }
+        .icon-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            fill: currentColor;
+        }
 
         .btn-primary { background: var(--button-primary); color: #ffffff; }
         .btn-primary:hover { background: var(--button-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
@@ -1016,9 +1058,10 @@
         }
         #detail-title { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
         #detail-close {
-            cursor: pointer; font-size: 14px; color: var(--text-muted);
-            background: none; border: none; padding: 0 2px; line-height: 1;
-            font-family: inherit;
+            cursor: pointer; color: var(--text-muted);
+            background: none; border: none; padding: 2px; line-height: 1;
+            font-family: inherit; width: 24px; height: 24px;
+            display: inline-flex; align-items: center; justify-content: center;
         }
         #detail-close:hover { color: var(--text-primary); }
 
@@ -1366,12 +1409,30 @@
             <!-- Toolbar: live-dot + Pause / Clear / Auto-scroll -->
             <div class="button-controls">
                 <div id="live-dot"></div>
-                <button class="btn btn-primary" id="btn-pause"
-                        data-i18n="logger_btn_pause">⏸ Pause</button>
-                <button class="btn btn-danger"  id="btn-clear"
-                        data-i18n="logger_btn_clear">🗑 Clear</button>
-                <button class="btn btn-secondary" id="btn-scroll"
-                        data-i18n="logger_btn_autoscroll">↕ Auto-scroll</button>
+                <button class="btn btn-primary" id="btn-pause" aria-label="Pause">
+                    <span class="btn-icon" aria-hidden="true">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"></path>
+                        </svg>
+                    </span>
+                    <span class="btn-label">Pause</span>
+                </button>
+                <button class="btn btn-danger" id="btn-clear" aria-label="Clear">
+                    <span class="btn-icon" aria-hidden="true">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z"></path>
+                        </svg>
+                    </span>
+                    <span class="btn-label">Clear</span>
+                </button>
+                <button class="btn btn-secondary" id="btn-scroll" aria-label="Auto-scroll">
+                    <span class="btn-icon" aria-hidden="true">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 5.83 15.17 9l1.41-1.41L12 3 7.41 7.59 8.83 9 12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15 12 18.17z"></path>
+                        </svg>
+                    </span>
+                    <span class="btn-label">Auto-scroll</span>
+                </button>
             </div>
 
             <div class="table-container">
@@ -1428,7 +1489,11 @@
             <div id="detail-panel">
                 <div id="detail-header">
                     <span id="detail-title" data-i18n="logger_detail_title">Entry detail</span>
-                    <button id="detail-close">✕</button>
+                    <button id="detail-close" aria-label="Close" title="Close">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M18.3 5.71 16.89 4.3 12 9.17 7.11 4.3 5.7 5.71l4.89 4.89-4.89 4.89 1.41 1.41L12 12.01l4.89 4.89 1.41-1.41-4.89-4.89 4.89-4.89z"></path>
+                        </svg>
+                    </button>
                 </div>
                 <div id="detail-panel-inner"></div>
             </div>
