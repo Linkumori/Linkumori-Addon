@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.23.0] - 2026-06-11 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.22.0...linkumori-v100.23.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-06-11`, hash: [`929761c`](https://github.com/Linkumori/Linkumori-Addon/commit/929761c))
+
 ## [v100.22.0] - 2026-06-11 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.21.2...linkumori-v100.22.0))
 ### Changed
 - Downloaded latest public suffix list from upstream (`2026-06-11`, hash: [`fe153b2`](https://github.com/Linkumori/Linkumori-Addon/commit/fe153b2))
