@@ -1,6 +1,6 @@
 # Linkumori — Performance of Software and Acceptance of Risk
 
-**Version 1.0**
+**Version 2.0**
 
 ---
 
@@ -50,12 +50,7 @@ For the purposes of this Document, the following definitions shall apply:
 
 3.1 This Add-on is developed primarily with reference to the laws of the **Republic of India**. The Developer makes no representation that the Add-on is appropriate, lawful, or available for use outside India.
 
-3.2 If you choose to install or use this Add-on outside India, you do so at your own discretion and risk. By proceeding with installation regardless of your location, you fully accept all terms and conditions of this Document, including those relating to:
-
-- **Copying** — Reproduction of the Add-on or any of its components.
-- **Redistributing** — Distributing copies of the Add-on to third parties.
-- **Running** — Executing or operating the Add-on for any purpose.
-- **Modifying, merging, sublicensing, creating derivative works**, and any other use of the Add-on not expressly stated herein, etc.
+3.2 If you choose to install or use this Add-on outside India, you do so at your own discretion and risk. By proceeding with installation regardless of your location, you fully accept all terms and conditions of this Document, including those relating to the license for this Add-on and any third-party licenses.
 
 3.3 Users outside India are solely responsible for ensuring their use of the Add-on complies with all applicable local laws and regulations.
 
@@ -124,7 +119,7 @@ Those third-party servers may collect standard web server information including,
 - IP address and geolocation data;
 - Browser type, version, and operating system;
 - Request timestamps and access logs;
-- Referring URLs and session metadata, etc.
+- Referring URLs and session metadata.
 
 Linkumori does not control, monitor, or store any data transmitted to or collected by such third-party servers.
 
@@ -161,7 +156,7 @@ By enabling Remote Rules, the User acknowledges and accepts the following risks:
 - **Man-in-the-Middle Attacks** — Unencrypted or poorly secured connections to remote servers may be intercepted, resulting in tampered rule files being delivered to your device.
 - **Server Compromise** — Even trusted servers may be compromised at any time without notice, causing previously safe rule sources to become dangerous.
 - **Loss of Control** — Remote Rules are not verified or audited by Linkumori; the User assumes full responsibility for any consequences arising from their use.
-- **Legal and Compliance Risk** — Rules fetched from foreign servers may introduce functionality that violates applicable Indian or local laws, for which the User bears sole responsibility, etc.
+- **Legal and Compliance Risk** — Rules fetched from foreign servers may introduce functionality that violates applicable Indian or local laws, for which the User bears sole responsibility.
 
 **6.8 Limitation of Liability for Remote Rules**
 
@@ -209,7 +204,7 @@ The User enables and uses Remote Rules entirely at their own risk. Linkumori sha
 
 10.3 Regardless of age or consent status, Linkumori does not collect, process, or transmit any personal data.
 
-10.4 In the event of any conflict between this Document and either local law or the software license, the software license and applicable local law shall prevail in the context of data collection and privacy.
+10.4 In the event of any conflict between this Document and the Privacy Policy or applicable local law regarding data collection and privacy, the Privacy Policy and applicable local law shall prevail.
 
 ---
 
@@ -221,7 +216,7 @@ The User enables and uses Remote Rules entirely at their own risk. Linkumori sha
 
 11.3 Official versions of Linkumori may be verified against the following distribution channels:
 
-- **Firefox Add-ons (Mozilla):** [https://addons.mozilla.org/firefox/addon/linkumori-clean-urls/](https://addons.mozilla.org/firefox/addon/linkumori-clean-urls/)
+- **Firefox Add-ons (Mozilla):** [https://addons.mozilla.org/firefox/addon/linkumori-clean-urls/](https://addons.mozilla.org/firefox/addon/linkumori-clean-urls/)  
   *(Extension ID: `linkumori-addon-official@ClearURLs`)*
 - **Source Code (GitHub):** [https://github.com/Linkumori/Linkumori-Addon](https://github.com/Linkumori/Linkumori-Addon)
 
@@ -233,7 +228,7 @@ The User enables and uses Remote Rules entirely at their own risk. Linkumori sha
 
 12.2 Each version of the Add-on includes its own accompanying Document. The applicable version is distinguished by the version number at the top of this Document. If you upgrade from one version of the Add-on to another, the Document bundled with the newer version will apply.
 
-12.3 Please note that installing a new version, updating, or installing an older version of the Add-on may delete, reset, or modify locally saved settings and customisations. Such changes affect only locally stored data on the User's device and do not involve the collection, transmission, or storage of any personal or non-personal data by the Developer.
+12.3 Please note that installing a new version, updating, or installing an older version of the Add-on may delete, reset, or modify locally saved settings and customizations. Such changes affect only locally stored data on the User's device and do not involve the collection, transmission, or storage of any personal or non-personal data by the Developer.
 
 ---
 
@@ -265,4 +260,4 @@ For questions regarding this Document, please contact Linkumori through the offi
 
 ---
 
-*Linkumori — Performance of Software and Acceptance of Risk — Version 1.0*
+*Linkumori — Performance of Software and Acceptance of Risk — Version 2.0*
