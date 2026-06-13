@@ -1,6 +1,6 @@
 # Linkumori Privacy Policy
 
-**Last Updated:** 9 June, 2026
+**Last Updated:** 13 June, 2026
 
 Linkumori is a free, non-commercial, open-source tool.
 
@@ -76,6 +76,8 @@ When you click the report button, a dedicated report page opens in a new browser
 - Optional configuration sections selected from the report page
 
 For URL-related issue types, the Add-on validates the selected URL locally before building the report URL. For non-URL issue types, the URL and NSFW controls are hidden and no issue URL is included.
+
+The Add-on is designed to use non-personal issue-report data to create the GitHub issue URL or GitHub search URL. It does not add personal data of its own to the constructed URL. 
 
 The Add-on then constructs a GitHub issue URL or GitHub search URL entirely within your browser. **The Add-on does not transmit any data and does not contact any server while constructing this URL.** The constructed URL is only a string; no network request is made until you explicitly choose to proceed, at which point your browser opens the URL as a normal tab navigation.
 
