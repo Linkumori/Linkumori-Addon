@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Pročitao sam i prihvaćam Politiku privatnosti i Licencu.",
+    "message": "Pročitao sam i prihvaćam Politiku privatnosti, POSAR i Licencu.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Pročitajte Politiku privatnosti i Licencu prije korištenja ovog skočnog prozora. Ne prikupljamo vaše podatke. Svi podaci pohranjuju se na vašem uređaju i ne prenose se nama.",
+    "message": "Pročitajte Pravila o privatnosti, POSAR i Licencu prije korištenja ovog skočnog prozora. Ne prikupljamo vaše podatke. Svi podaci pohranjuju se na vašem uređaju i ne prenose se nama.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Pregledajte Pravila privatnosti i Licencu u nastavku, a zatim prihvatite nastavak korištenja Linkumorija.",
+    "message": "Pregledajte Pravila o privatnosti, POSAR i Licencu u nastavku, a zatim prihvatite nastavak korištenja Linkumorija.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumori pravni uvjeti su ažurirani. Pregledajte Pravila privatnosti i Licencu, a zatim prihvatite nastavak korištenja proširenja.",
+    "message": "Linkumori pravni uvjeti su ažurirani. Pregledajte Pravila o privatnosti, POSAR i Licencu, a zatim prihvatite nastavak korištenja proširenja.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Pregledajte Pravila privatnosti i Licencu u nastavku, a zatim prihvatite da biste dovršili postavljanje Linkumori.",
+    "message": "Pregledajte Pravila o privatnosti, POSAR i Licencu u nastavku, a zatim prihvatite da biste dovršili postavljanje Linkumorija.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Pregledajte Pravila privatnosti i Licencu u nastavku, a zatim prihvatite da završite migraciju na Linkumori.",
+    "message": "Pregledajte Pravila o privatnosti, POSAR i Licencu u nastavku, a zatim prihvatite da završite migraciju na Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori prema zadanim postavkama uklanja parametre praćenja s URL-ova i daje vam napredne kontrole kada je to potrebno. Pregledajte značajke u nastavku, a zatim prijeđite na Pravila privatnosti i Licencu."
+    "message": "Linkumori prema zadanim postavkama uklanja parametre praćenja s URL-ova i daje vam napredne kontrole kada je to potrebno. Pregledajte značajke u nastavku, a zatim prijeđite na Pravila privatnosti, POSAR i Licencu."
   },
   "welcomeHeading": {
     "message": "Dobrodošli u Linkumori"
   },
   "welcome_migration_description": {
-    "message": "Vaše ClearURLs postavke su uvezene. Pregledajte značajke Linkumorija u nastavku, a zatim nastavite čitati Pravila o privatnosti i Licencu.",
+    "message": "Vaše ClearURLs postavke su uvezene. Pregledajte značajke Linkumorija u nastavku, zatim nastavite čitati Pravila o privatnosti, POSAR i Licencu.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Pravne informacije - Politika privatnosti i licenca",
+    "message": "Pravne informacije - Politika privatnosti, POSAR i licenca",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR kopiran!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Pregledajte Linkumorijev dokument o izvedbi softvera i prihvaćanju rizika u nastavku.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR preuzet!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Izvedba softvera i prihvaćanje rizika",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Prihvati POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR prihvaćen",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR prihvaćen.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

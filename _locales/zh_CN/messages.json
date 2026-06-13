@@ -1316,10 +1316,12 @@
     "message": "接受并继续"
   },
   "popup_consent_checkbox": {
-    "message": "我已阅读并接受隐私政策和许可证。"
+    "message": "我已阅读并接受隐私政策、POSAR 和许可证。",
+    "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "在使用此弹出窗口之前，请阅读隐私政策和许可证。我们不会收集您的数据。所有数据都存储在您的设备上，不会传输给我们。"
+    "message": "使用此弹出窗口之前，请阅读隐私政策、POSAR 和许可证。我们不收集您的数据。所有数据都存储在您的设备上，不会传输给我们。",
+    "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
     "message": "阅读法律信息"
@@ -1397,16 +1399,20 @@
     "message": "Linkumori v."
   },
   "legal_consent_notice_default": {
-    "message": "请查看下方的隐私政策和许可证，然后接受以继续使用 Linkumori。"
+    "message": "查看下面的隐私政策、POSAR 和许可证，然后接受继续使用 Linkumori。",
+    "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumori 的法律条款已更新。请查看隐私政策和许可证，然后接受以继续使用该扩展。"
+    "message": "Linkumori 法律条款已更新。查看隐私政策、POSAR 和许可证，然后接受继续使用该扩展。",
+    "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "请查看下方的隐私政策和许可证，然后接受以完成 Linkumori 的设置。"
+    "message": "查看下面的隐私政策、POSAR 和许可证，然后接受以完成 Linkumori 的设置。",
+    "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "请查看下方的隐私政策和许可证，然后接受以完成向 Linkumori 的迁移。"
+    "message": "查看下面的隐私政策、POSAR 和许可证，然后接受以完成向 Linkumori 的迁移。",
+    "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
     "message": "需要同意。在您接受当前法律条款之前，Linkumori 将暂停运行。"
@@ -2382,13 +2388,14 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori 默认会从 URL 中移除追踪参数，并在需要时为您提供高级控制。请查看以下功能，然后继续阅读隐私政策和许可证。"
+    "message": "默认情况下，Linkumori 会从 URL 中删除跟踪参数，并在需要时为您提供高级控制。查看以下功能，然后继续查看隐私政策、POSAR 和许可证。"
   },
   "welcomeHeading": {
     "message": "欢迎使用 Linkumori"
   },
   "welcome_migration_description": {
-    "message": "您的 ClearURLs 设置已导入。请查看以下 Linkumori 功能，然后继续阅读隐私政策和许可证。"
+    "message": "您的 ClearURLs 设置已导入。查看下面的 Linkumori 功能，然后继续阅读隐私政策、POSAR 和许可证。",
+    "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
     "message": "默认启用内置的注重隐私的规则。"
@@ -2523,7 +2530,8 @@
     "message": "自定义规则"
   },
   "popup_consent_legal_button_title": {
-    "message": "法律信息 - 隐私政策和许可证"
+    "message": "法律信息 - 隐私政策、POSAR 和许可证",
+    "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
     "message": "白名单"
@@ -6137,5 +6145,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR复制了！",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "请查看下面的 Linkumori 的软件性能和风险接受文档。",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR已下载！",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "软件性能和风险接受",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "接受POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR 已接受",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR 接受。",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

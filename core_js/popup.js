@@ -105,6 +105,7 @@ var temporaryTabWhitelistDomains = [];
 var currentTabId = null;
 const POPUP_CONSENT_STORAGE_KEY = 'popupConsentAccepted';
 const POPUP_CONSENT_VERSION_STORAGE_KEY = 'popupConsentPolicyVersionAccepted';
+const POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY = 'popupConsentPOSARVersionAccepted';
 const POPUP_CONSENT_SIGNATURE_STORAGE_KEY = 'popupConsentPolicySignatureAccepted';
 const POPUP_CONSENT_TEXT_KEYS = {
     title: 'popup_consent_title',
@@ -205,6 +206,14 @@ function getPopupConsentPolicyVersion() {
     return version;
 }
 
+function getPopupConsentPOSARVersion() {
+    const version = Number(globalThis.LinkumoriPOSARversion);
+    if (!Number.isInteger(version) || version <= 0) {
+        throw new Error('Invalid LinkumoriPOSARversion');
+    }
+    return version;
+}
+
 function getCurrentConsentSignature() {
     const consentPayload = {
         title: getPopupI18nMessage(POPUP_CONSENT_TEXT_KEYS.title),
@@ -227,19 +236,22 @@ function getCurrentConsentSignature() {
  */
 async function hasPopupConsent(policyVersion) {
     try {
+        const posarVersion = getPopupConsentPOSARVersion();
         const result = await browser.storage.local.get([
             POPUP_CONSENT_STORAGE_KEY,
             POPUP_CONSENT_VERSION_STORAGE_KEY,
+            POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY,
             POPUP_CONSENT_SIGNATURE_STORAGE_KEY
         ]);
 
         const accepted = result[POPUP_CONSENT_STORAGE_KEY] === true;
         const acceptedVersion = Number(result[POPUP_CONSENT_VERSION_STORAGE_KEY] || 0);
+        const acceptedPOSARVersion = Number(result[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY] || 0);
         const storedSignature = typeof result[POPUP_CONSENT_SIGNATURE_STORAGE_KEY] === 'string'
             ? result[POPUP_CONSENT_SIGNATURE_STORAGE_KEY]
             : '';
 
-        if (accepted && acceptedVersion === policyVersion) {
+        if (accepted && acceptedVersion === policyVersion && acceptedPOSARVersion === posarVersion) {
             if (!isPopupI18nReady()) {
                 return true;
             }
@@ -256,8 +268,7 @@ async function hasPopupConsent(policyVersion) {
         // Policy version changed: revoke old consent and re-ask.
         if (accepted) {
             await browser.storage.local.set({
-                [POPUP_CONSENT_STORAGE_KEY]: false,
-                [POPUP_CONSENT_VERSION_STORAGE_KEY]: 0
+                [POPUP_CONSENT_STORAGE_KEY]: false
             });
         }
 
@@ -332,6 +343,7 @@ async function initializePopupConsentGate() {
             await browser.storage.local.set({
                 [POPUP_CONSENT_STORAGE_KEY]: true,
                 [POPUP_CONSENT_VERSION_STORAGE_KEY]: policyVersion,
+                [POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY]: getPopupConsentPOSARVersion(),
                 [POPUP_CONSENT_SIGNATURE_STORAGE_KEY]: getCurrentConsentSignature()
             });
             setPopupConsentLock(false);
@@ -2279,8 +2291,8 @@ function getFallbackText(attribute, id) {
         'popup_html_clearurls_addon_repository': 'ClearURLs addons V1.27.3 Repository',
         'license_third_party_title': 'Third Party Components',
         'popup_consent_title': 'Consent required',
-        'popup_consent_description': 'Please read Privacy Policy and License. We do not collect data. All data stays on your device and is not transmitted to us.',
-        'popup_consent_checkbox': 'I have read and accept the Privacy Policy and License.',
+        'popup_consent_description': 'Please read the Privacy Policy, POSAR, and License. We do not collect data. All data stays on your device and is not transmitted to us.',
+        'popup_consent_checkbox': 'I have read and accept the Privacy Policy, POSAR, and License.',
         'popup_consent_legal_button': 'Read Legal',
         'popup_consent_accept_button': 'Accept and continue',
         'popup_html_whitelist_button': 'Whitelist'

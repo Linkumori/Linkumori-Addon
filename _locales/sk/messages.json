@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Prečítal som si a súhlasím so Zásadami ochrany osobných údajov a licenciou.",
+    "message": "Prečítal som si a súhlasím so Zásadami ochrany osobných údajov, POSAR a licenciou.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Pred použitím tohto kontextového okna si prečítajte Zásady ochrany osobných údajov a licenciu. Vaše údaje nezhromažďujeme. Všetky údaje sú uložené vo vašom zariadení a nie sú prenášané k nám.",
+    "message": "Pred použitím tohto kontextového okna si prečítajte Zásady ochrany osobných údajov, POSAR a licenciu. Vaše údaje nezhromažďujeme. Všetky údaje sú uložené vo vašom zariadení a nie sú prenášané k nám.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Prečítajte si zásady ochrany osobných údajov a licenciu nižšie a potom akceptujte, aby ste mohli pokračovať v používaní Linkumori.",
+    "message": "Prečítajte si zásady ochrany osobných údajov, POSAR a licenciu nižšie a potom akceptujte, aby ste mohli pokračovať v používaní Linkumori.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Právne podmienky Linkumori boli aktualizované. Prečítajte si Zásady ochrany osobných údajov a licenciu a potom prijmite, aby ste rozšírenie mohli naďalej používať.",
+    "message": "Právne podmienky Linkumori boli aktualizované. Prečítajte si zásady ochrany osobných údajov, POSAR a licenciu a potom prijmite, aby ste rozšírenie mohli naďalej používať.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Prečítajte si Zásady ochrany osobných údajov a licenciu nižšie, potom akceptujte a dokončite nastavenie Linkumori.",
+    "message": "Prečítajte si Zásady ochrany osobných údajov, POSAR a licenciu nižšie a potom akceptovaním dokončite nastavenie Linkumori.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Prečítajte si Zásady ochrany osobných údajov a licenciu nižšie, potom akceptujte, aby ste dokončili migráciu na Linkumori.",
+    "message": "Prečítajte si Zásady ochrany osobných údajov, POSAR a licenciu nižšie a potom súhlas s dokončením migrácie na Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori predvolene odstraňuje parametre sledovania z adries URL a v prípade potreby vám poskytuje pokročilé ovládacie prvky. Prečítajte si nižšie uvedené funkcie a potom pokračujte na Zásady ochrany osobných údajov a Licencia."
+    "message": "Linkumori predvolene odstraňuje parametre sledovania z adries URL a v prípade potreby vám poskytuje pokročilé ovládacie prvky. Pozrite si funkcie nižšie a potom pokračujte na Zásady ochrany osobných údajov, POSAR a Licencia."
   },
   "welcomeHeading": {
     "message": "Vitajte v Linkumori"
   },
   "welcome_migration_description": {
-    "message": "Vaše nastavenia ClearURLs boli importované. Skontrolujte funkcie Linkumori nižšie a potom pokračujte v čítaní Zásad ochrany osobných údajov a licencie.",
+    "message": "Vaše nastavenia ClearURLs boli importované. Skontrolujte funkcie Linkumori nižšie a potom pokračujte v čítaní Zásad ochrany osobných údajov, POSAR a licencie.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Právne informácie – Zásady ochrany osobných údajov a licencia",
+    "message": "Právne informácie – Zásady ochrany osobných údajov, POSAR a licencia",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR skopírovaný!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Prečítajte si nižšie uvedený dokument o výkonnosti softvéru a akceptácii rizika spoločnosti Linkumori.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR stiahnuté!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Výkon softvéru a akceptovanie rizika",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Prijmite POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR akceptovaný",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR akceptovaný.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

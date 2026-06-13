@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Jeg har læst og accepterer fortrolighedspolitikken og licensen.",
+    "message": "Jeg har læst og accepterer fortrolighedspolitikken, POSAR og licensen.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Læs venligst privatlivspolitikken og licensen, før du bruger denne popup. Vi indsamler ikke dine data. Alle data gemmes på din enhed og overføres ikke til os.",
+    "message": "Læs venligst privatlivspolitikken, POSAR og licensen, før du bruger denne popup. Vi indsamler ikke dine data. Alle data gemmes på din enhed og overføres ikke til os.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Gennemgå privatlivspolitikken og licensen nedenfor, og accepter derefter at fortsætte med at bruge Linkumori.",
+    "message": "Gennemgå privatlivspolitikken, POSAR og licensen nedenfor, og accepter derefter at fortsætte med at bruge Linkumori.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumori juridiske vilkår blev opdateret. Gennemgå privatlivspolitikken og licensen, og accepter derefter for at fortsætte med at bruge udvidelsen.",
+    "message": "Linkumori juridiske vilkår blev opdateret. Gennemgå privatlivspolitikken, POSAR og licensen, og accepter derefter at fortsætte med at bruge udvidelsen.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Gennemgå privatlivspolitikken og licensen nedenfor, og accepter derefter for at afslutte opsætningen af ​​Linkumori.",
+    "message": "Gennemgå privatlivspolitikken, POSAR og licensen nedenfor, og accepter derefter for at afslutte opsætningen af ​​Linkumori.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Gennemgå privatlivspolitikken og licensen nedenfor, og accepter derefter for at afslutte migreringen til Linkumori.",
+    "message": "Gennemgå privatlivspolitikken, POSAR og licensen nedenfor, og accepter derefter at afslutte migreringen til Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori fjerner sporingsparametre fra URL'er som standard og giver dig avancerede kontroller, når det er nødvendigt. Gennemgå funktionerne nedenfor, og fortsæt derefter til Privatlivspolitik og Licens."
+    "message": "Linkumori fjerner sporingsparametre fra URL'er som standard og giver dig avancerede kontroller, når det er nødvendigt. Gennemgå funktionerne nedenfor, og fortsæt derefter til Privatlivspolitik, POSAR og Licens."
   },
   "welcomeHeading": {
     "message": "Velkommen til Linkumori"
   },
   "welcome_migration_description": {
-    "message": "Dine ClearURLs-indstillinger blev importeret. Gennemgå Linkumori-funktionerne nedenfor, og fortsæt derefter med at læse privatlivspolitik og -licens.",
+    "message": "Dine ClearURLs-indstillinger blev importeret. Gennemgå Linkumori-funktionerne nedenfor, og fortsæt derefter med at læse Privatlivspolitik, POSAR og Licens.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Juridiske oplysninger - Privatlivspolitik og licens",
+    "message": "Juridiske oplysninger - Privatlivspolitik, POSAR og licens",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR kopieret!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Gennemgå venligst Linkumoris ydelse af software og accept af risiko nedenfor.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR downloadet!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Udførelse af software og accept af risiko",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Accepter POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR accepteret",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR accepteret.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

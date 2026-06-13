@@ -66,8 +66,10 @@
      Configuration
   ----------------------------*/
   const LICENSE_PATH = '../License.md';
+  const POSAR_PATH = '../Linkumori-POSAR.md';
   const CONSENT_STORAGE_KEY = 'popupConsentAccepted';
   const CONSENT_VERSION_STORAGE_KEY = 'popupConsentPolicyVersionAccepted';
+  const CONSENT_POSAR_VERSION_STORAGE_KEY = 'popupConsentPOSARVersionAccepted';
   const CONSENT_SIGNATURE_STORAGE_KEY = 'popupConsentPolicySignatureAccepted';
   const PRIVACY_VERSION_CONFIG_PATH = 'data/privacy-policy-map.json';
   const POST_RELOAD_OPEN_URL_STORAGE_KEY = 'postReloadOpenUrl';
@@ -108,6 +110,7 @@
   ----------------------------*/
   let state = {
     licenseContent: '',
+    posarContent: '',
     privacyContent: '',
     currentPrivacyVersion: '',
     privacyVersionMap: {},
@@ -177,6 +180,8 @@
     const optionalFeaturesCard = $('optionalFeaturesSectionCard');
     const privacyHeader = $('privacySectionHeader');
     const privacyCard = $('privacySectionCard');
+    const posarHeader = $('posarSectionHeader');
+    const posarCard = $('posarSectionCard');
     const licenseHeader = $('licenseSectionHeader');
     const licenseCard = $('licenseSectionCard');
     const nextButton = $('welcomeNextBtn');
@@ -197,6 +202,8 @@
     const showLegalContentNow = !guidedMode;
     if (privacyHeader) privacyHeader.style.display = showLegalContentNow ? '' : 'none';
     if (privacyCard) privacyCard.style.display = showLegalContentNow ? '' : 'none';
+    if (posarHeader) posarHeader.style.display = showLegalContentNow ? '' : 'none';
+    if (posarCard) posarCard.style.display = showLegalContentNow ? '' : 'none';
     if (licenseHeader) licenseHeader.style.display = showLegalContentNow ? '' : 'none';
     if (licenseCard) licenseCard.style.display = showLegalContentNow ? '' : 'none';
     if (nextButton) nextButton.style.display = guidedMode ? '' : 'none';
@@ -204,6 +211,11 @@
 
   function getPopupConsentPolicyVersion() {
     const version = Number(globalThis.Linkumoriversion);
+    return Number.isInteger(version) && version > 0 ? version : null;
+  }
+
+  function getPopupConsentPOSARVersion() {
+    const version = Number(globalThis.LinkumoriPOSARversion);
     return Number.isInteger(version) && version > 0 ? version : null;
   }
 
@@ -229,27 +241,27 @@
     if (sourceMode === 'consent_update') {
       return i18n(
         'legal_consent_notice_update',
-        'Linkumori legal terms were updated. Review the Privacy Policy and License, then accept to continue using the extension.'
+        'Linkumori legal terms were updated. Review the Privacy Policy, POSAR, and License, then accept to continue using the extension.'
       );
     }
 
     if (sourceMode === 'first_install') {
       return i18n(
         'legal_consent_notice_first_install',
-        'Review the Privacy Policy and License below, then accept to finish setting up Linkumori.'
+        'Review the Privacy Policy, POSAR, and License below, then accept to finish setting up Linkumori.'
       );
     }
 
     if (sourceMode === 'clearurls_import') {
       return i18n(
         'legal_consent_notice_import',
-        'Review the Privacy Policy and License below, then accept to finish migrating to Linkumori.'
+        'Review the Privacy Policy, POSAR, and License below, then accept to finish migrating to Linkumori.'
       );
     }
 
     return i18n(
       'legal_consent_notice_default',
-      'Review the Privacy Policy and License below, then accept to continue using Linkumori.'
+      'Review the Privacy Policy, POSAR, and License below, then accept to continue using Linkumori.'
     );
   }
 
@@ -550,8 +562,11 @@
     const currentVersion = getPopupConsentPolicyVersion();
     const fallback = {
       accepted: false,
+      legalAccepted: false,
+      posarAccepted: false,
       currentVersion,
-      canAccept: currentVersion !== null
+      canAccept: currentVersion !== null,
+      canAcceptPOSAR: getPopupConsentPOSARVersion() !== null
     };
 
     try {
@@ -563,28 +578,34 @@
       const result = await browser.storage.local.get([
         CONSENT_STORAGE_KEY,
         CONSENT_VERSION_STORAGE_KEY,
+        CONSENT_POSAR_VERSION_STORAGE_KEY,
         CONSENT_SIGNATURE_STORAGE_KEY
       ]);
 
-      const accepted = result[CONSENT_STORAGE_KEY] === true;
       const acceptedVersion = Number(result[CONSENT_VERSION_STORAGE_KEY] || 0);
+      const acceptedPOSARVersion = Number(result[CONSENT_POSAR_VERSION_STORAGE_KEY] || 0);
+      const currentPOSARVersion = getPopupConsentPOSARVersion();
       const storedSignature = typeof result[CONSENT_SIGNATURE_STORAGE_KEY] === 'string'
         ? result[CONSENT_SIGNATURE_STORAGE_KEY]
         : '';
-      const hasAcceptedCurrentVersion = accepted &&
-        currentVersion !== null &&
+      const hasAcceptedCurrentPOSARVersion = currentPOSARVersion !== null &&
+        acceptedPOSARVersion === currentPOSARVersion;
+      const hasAcceptedCurrentLegalText = currentVersion !== null &&
         acceptedVersion === currentVersion;
 
-      if (hasAcceptedCurrentVersion && storedSignature !== currentSignature) {
+      if (hasAcceptedCurrentLegalText && storedSignature !== currentSignature) {
         await browser.storage.local.set({
           [CONSENT_SIGNATURE_STORAGE_KEY]: currentSignature
         });
       }
 
       return {
-        accepted: Boolean(hasAcceptedCurrentVersion),
+        accepted: Boolean(hasAcceptedCurrentLegalText && hasAcceptedCurrentPOSARVersion),
+        legalAccepted: Boolean(hasAcceptedCurrentLegalText),
+        posarAccepted: Boolean(hasAcceptedCurrentPOSARVersion),
         currentVersion,
-        canAccept: currentVersion !== null
+        canAccept: currentVersion !== null,
+        canAcceptPOSAR: currentPOSARVersion !== null
       };
     } catch (e) {
       return fallback;
@@ -595,6 +616,7 @@
     const statusNode = $('legalConsentStatus');
     const statusText = $('legalConsentStatusText');
     const acceptButton = $('legalConsentAcceptBtn');
+    const posarAcceptButton = $('posarConsentAcceptBtn');
 
     if (statusNode) {
       statusNode.classList.toggle('accepted', consentState.accepted);
@@ -614,10 +636,17 @@
     }
 
     if (acceptButton) {
-      acceptButton.disabled = consentState.accepted || !consentState.canAccept;
-      acceptButton.textContent = consentState.accepted
+      acceptButton.disabled = consentState.legalAccepted || !consentState.canAccept;
+      acceptButton.textContent = consentState.legalAccepted
         ? i18n('legal_consent_button_accepted', 'Accepted')
         : i18n('popup_consent_accept_button', 'Accept and continue');
+    }
+
+    if (posarAcceptButton) {
+      posarAcceptButton.disabled = consentState.posarAccepted || !consentState.canAcceptPOSAR;
+      posarAcceptButton.textContent = consentState.posarAccepted
+        ? i18n('posar_consent_button_accepted', 'POSAR accepted')
+        : i18n('posar_consent_accept_button', 'Accept POSAR');
     }
 
     updateSettingsButtonVisibility(consentState.accepted);
@@ -627,6 +656,26 @@
     updateConsentSectionText();
     const consentState = await getStoredConsentState();
     updateConsentSectionUI(consentState);
+  }
+
+  async function hasAcceptedCurrentPOSARConsent() {
+    const posarVersion = getPopupConsentPOSARVersion();
+    if (posarVersion === null || typeof browser === 'undefined' || !browser.storage || !browser.storage.local) {
+      return false;
+    }
+
+    const result = await browser.storage.local.get([CONSENT_POSAR_VERSION_STORAGE_KEY]);
+    return Number(result[CONSENT_POSAR_VERSION_STORAGE_KEY] || 0) === posarVersion;
+  }
+
+  async function hasAcceptedCurrentLegalConsent() {
+    const policyVersion = getPopupConsentPolicyVersion();
+    if (policyVersion === null || typeof browser === 'undefined' || !browser.storage || !browser.storage.local) {
+      return false;
+    }
+
+    const result = await browser.storage.local.get([CONSENT_VERSION_STORAGE_KEY]);
+    return Number(result[CONSENT_VERSION_STORAGE_KEY] || 0) === policyVersion;
   }
 
   async function acceptLegalConsent() {
@@ -649,13 +698,45 @@
       }
 
       await browser.storage.local.set({
-        [CONSENT_STORAGE_KEY]: true,
+        [CONSENT_STORAGE_KEY]: (await hasAcceptedCurrentPOSARConsent()),
         [CONSENT_VERSION_STORAGE_KEY]: policyVersion,
         [CONSENT_SIGNATURE_STORAGE_KEY]: signature
       });
 
       await refreshConsentUI();
       showNotification(i18n('legal_consent_saved', 'Consent accepted.'), 'success');
+    } catch (e) {
+      if (acceptButton) {
+        acceptButton.disabled = false;
+      }
+      showNotification(i18n('legal_consent_save_failed', 'Failed to save consent.'), 'error');
+    }
+  }
+
+  async function acceptPOSARConsent() {
+    const acceptButton = $('posarConsentAcceptBtn');
+    const posarVersion = getPopupConsentPOSARVersion();
+
+    if (posarVersion === null) {
+      showNotification(
+        i18n('legal_consent_error_version_unavailable', 'Unable to determine the current consent policy version.'),
+        'error'
+      );
+      return;
+    }
+
+    try {
+      if (acceptButton) {
+        acceptButton.disabled = true;
+      }
+
+      await browser.storage.local.set({
+        [CONSENT_POSAR_VERSION_STORAGE_KEY]: posarVersion,
+        [CONSENT_STORAGE_KEY]: (await hasAcceptedCurrentLegalConsent())
+      });
+
+      await refreshConsentUI();
+      showNotification(i18n('posar_consent_saved', 'POSAR accepted.'), 'success');
     } catch (e) {
       if (acceptButton) {
         acceptButton.disabled = false;
@@ -943,9 +1024,18 @@
     });
   }
 
+  async function loadPosarContent() {
+    disableActionButtons('posar');
+    return loadTextFile(POSAR_PATH, 'posarContent', (text) => {
+      state.posarContent = text;
+      enableActionButtons('posar');
+    });
+  }
+
   async function loadAllContent() {
     const results = await Promise.allSettled([
       loadLicenseContent(),
+      loadPosarContent(),
       loadPrivacyContent(state.currentPrivacyVersion)
     ]);
     
@@ -956,6 +1046,7 @@
   function enableActionButtons(type) {
     const buttons = {
       license: ['copyLicenseBtn', 'downloadLicenseBtn'],
+      posar: ['copyPosarBtn', 'downloadPosarBtn'],
       privacy: ['copyPrivacyBtn', 'downloadPrivacyBtn']
     };
     
@@ -974,6 +1065,7 @@
   function disableActionButtons(type) {
     const buttons = {
       license: ['copyLicenseBtn', 'downloadLicenseBtn'],
+      posar: ['copyPosarBtn', 'downloadPosarBtn'],
       privacy: ['copyPrivacyBtn', 'downloadPrivacyBtn']
     };
 
@@ -1053,7 +1145,9 @@
       let mimeType = 'text/html;charset=utf-8';
       
       // Check if filename suggests markdown content
-      const isMarkdown = filename.toLowerCase().includes('license') || filename.toLowerCase().includes('privacy');
+      const isMarkdown = filename.toLowerCase().includes('license') ||
+        filename.toLowerCase().includes('privacy') ||
+        filename.toLowerCase().includes('posar');
       
       if (isMarkdown) {
         // Convert markdown to HTML with proper document structure
@@ -1430,6 +1524,8 @@ ${htmlContent}
     const fileActions = [
       { btnId: 'copyLicenseBtn', action: () => copyToClipboard(state.licenseContent, i18n('licenseCopied', 'License copied!')) },
       { btnId: 'downloadLicenseBtn', action: () => downloadFile(state.licenseContent, 'LICENSE.html', i18n('licenseDownloaded', 'License downloaded!')) },
+      { btnId: 'copyPosarBtn', action: () => copyToClipboard(state.posarContent, i18n('posarCopied', 'POSAR copied!')) },
+      { btnId: 'downloadPosarBtn', action: () => downloadFile(state.posarContent, 'Linkumori-POSAR.html', i18n('posarDownloaded', 'POSAR downloaded!')) },
       { btnId: 'copyPrivacyBtn', action: () => copyToClipboard(state.privacyContent, i18n('privacyCopied', 'Privacy policy copied!')) },
       { btnId: 'downloadPrivacyBtn', action: () => downloadFile(state.privacyContent, 'privacy-policy.html', i18n('privacyDownloaded', 'Privacy policy downloaded!')) }
     ];
@@ -1448,6 +1544,8 @@ ${htmlContent}
         const optionalFeaturesCard = $('optionalFeaturesSectionCard');
         const privacyHeader = $('privacySectionHeader');
         const privacyCard = $('privacySectionCard');
+        const posarHeader = $('posarSectionHeader');
+        const posarCard = $('posarSectionCard');
         const licenseHeader = $('licenseSectionHeader');
         const licenseCard = $('licenseSectionCard');
 
@@ -1455,6 +1553,8 @@ ${htmlContent}
         if (optionalFeaturesCard) optionalFeaturesCard.style.display = 'none';
         if (privacyHeader) privacyHeader.style.display = '';
         if (privacyCard) privacyCard.style.display = '';
+        if (posarHeader) posarHeader.style.display = '';
+        if (posarCard) posarCard.style.display = '';
         if (licenseHeader) licenseHeader.style.display = '';
         if (licenseCard) licenseCard.style.display = '';
 
@@ -1471,6 +1571,13 @@ ${htmlContent}
     if (consentAcceptButton) {
       consentAcceptButton.addEventListener('click', () => {
         acceptLegalConsent();
+      });
+    }
+
+    const posarConsentAcceptButton = $('posarConsentAcceptBtn');
+    if (posarConsentAcceptButton) {
+      posarConsentAcceptButton.addEventListener('click', () => {
+        acceptPOSARConsent();
       });
     }
 
@@ -1583,7 +1690,7 @@ ${htmlContent}
             }
           }
 
-          if (changes[CONSENT_STORAGE_KEY] || changes[CONSENT_VERSION_STORAGE_KEY] || changes[CONSENT_SIGNATURE_STORAGE_KEY]) {
+          if (changes[CONSENT_STORAGE_KEY] || changes[CONSENT_VERSION_STORAGE_KEY] || changes[CONSENT_POSAR_VERSION_STORAGE_KEY] || changes[CONSENT_SIGNATURE_STORAGE_KEY]) {
             refreshConsentUI().catch(() => {
               updateSettingsButtonVisibility(false);
             });

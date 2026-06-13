@@ -94,6 +94,7 @@ var hasPendingSaves = false;
 var pendingSaves = new Set();
 const POPUP_CONSENT_STORAGE_KEY = 'popupConsentAccepted';
 const POPUP_CONSENT_VERSION_STORAGE_KEY = 'popupConsentPolicyVersionAccepted';
+const POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY = 'popupConsentPOSARVersionAccepted';
 const POST_RELOAD_OPEN_URL_STORAGE_KEY = 'postReloadOpenUrl';
 var clearurlsStarted = false;
 const OBSOLETE_STORAGE_KEYS = new Set([
@@ -2481,13 +2482,20 @@ function getPopupConsentPolicyVersion() {
     return null;
 }
 
+function getPopupConsentPOSARVersion() {
+    const configuredVersion = Number(globalThis.LinkumoriPOSARversion);
+    if (Number.isInteger(configuredVersion) && configuredVersion > 0) {
+        return configuredVersion;
+    }
+
+    return null;
+}
+
 function revokePopupConsentVersionMismatch() {
     storage[POPUP_CONSENT_STORAGE_KEY] = false;
-    storage[POPUP_CONSENT_VERSION_STORAGE_KEY] = 0;
 
     browser.storage.local.set({
-        [POPUP_CONSENT_STORAGE_KEY]: false,
-        [POPUP_CONSENT_VERSION_STORAGE_KEY]: 0
+        [POPUP_CONSENT_STORAGE_KEY]: false
     }).catch(() => {});
 
     if (browser.tabs && typeof browser.tabs.create === 'function') {
@@ -2507,8 +2515,14 @@ function hasPopupConsentForStartup() {
         return false;
     }
 
+    const currentPOSARVersion = getPopupConsentPOSARVersion();
+    if (currentPOSARVersion === null) {
+        return false;
+    }
+
     const acceptedPolicyVersion = Number(storage[POPUP_CONSENT_VERSION_STORAGE_KEY] || 0);
-    if (acceptedPolicyVersion === currentPolicyVersion) {
+    const acceptedPOSARVersion = Number(storage[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY] || 0);
+    if (acceptedPolicyVersion === currentPolicyVersion && acceptedPOSARVersion === currentPOSARVersion) {
         return true;
     }
 
@@ -2862,6 +2876,7 @@ function initSettings() {
     storage.clearurls_disabled_rule_ids = [];
     storage.popupConsentAccepted = false;
     storage.popupConsentPolicyVersionAccepted = 0;
+    storage.popupConsentPOSARVersionAccepted = 0;
     storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] = '';
     
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xml_dtd", "xmlhttprequest", "xslt"];
@@ -3134,8 +3149,9 @@ browser.storage.onChanged.addListener((changes, areaName) => {
 
     const hasConsentChange = Boolean(changes[POPUP_CONSENT_STORAGE_KEY]);
     const hasConsentVersionChange = Boolean(changes[POPUP_CONSENT_VERSION_STORAGE_KEY]);
+    const hasConsentPOSARVersionChange = Boolean(changes[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY]);
 
-    if (!hasConsentChange && !hasConsentVersionChange) {
+    if (!hasConsentChange && !hasConsentVersionChange && !hasConsentPOSARVersionChange) {
         return;
     }
 
@@ -3146,6 +3162,12 @@ browser.storage.onChanged.addListener((changes, areaName) => {
     if (hasConsentVersionChange) {
         storage[POPUP_CONSENT_VERSION_STORAGE_KEY] = Number(
             changes[POPUP_CONSENT_VERSION_STORAGE_KEY].newValue || 0
+        );
+    }
+
+    if (hasConsentPOSARVersionChange) {
+        storage[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY] = Number(
+            changes[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY].newValue || 0
         );
     }
 

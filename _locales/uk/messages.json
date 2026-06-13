@@ -1321,10 +1321,12 @@
     "message": "Прийняти та продовжити"
   },
   "popup_consent_checkbox": {
-    "message": "Я прочитав і приймаю Політику конфіденційності та Ліцензію."
+    "message": "Я прочитав і приймаю Політику конфіденційності, POSAR і Ліцензію.",
+    "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Будь ласка, прочитайте Політику конфіденційності та Ліцензію перед використанням цього спливаючого вікна. Ми не збираємо ваші дані. Усі дані зберігаються на вашому пристрої та не передаються нам."
+    "message": "Перш ніж використовувати це спливаюче вікно, прочитайте Політику конфіденційності, POSAR і Ліцензію. Ми не збираємо ваші дані. Усі дані зберігаються на вашому пристрої та не передаються нам.",
+    "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
     "message": "Прочитати юридичну інформацію"
@@ -1406,16 +1408,20 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Ознайомтеся з Політикою конфіденційності та Ліцензією нижче, а потім прийміть їх, щоб продовжити використання Linkumori."
+    "message": "Перегляньте Політику конфіденційності, POSAR і Ліцензію нижче, а потім прийміть продовження використання Linkumori.",
+    "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Юридичні умови Linkumori оновлено. Ознайомтеся з Політикою конфіденційності та Ліцензією, а потім прийміть їх, щоб продовжити використання розширення."
+    "message": "Правові умови Linkumori оновлено. Перегляньте Політику конфіденційності, POSAR і Ліцензію, а потім прийміть, щоб продовжити використання розширення.",
+    "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Ознайомтеся з Політикою конфіденційності та Ліцензією нижче, а потім прийміть їх, щоб завершити налаштування Linkumori."
+    "message": "Перегляньте Політику конфіденційності, POSAR і Ліцензію нижче, а потім прийміть, щоб завершити налаштування Linkumori.",
+    "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Ознайомтеся з Політикою конфіденційності та Ліцензією нижче, а потім прийміть їх, щоб завершити міграцію на Linkumori."
+    "message": "Перегляньте Політику конфіденційності, POSAR і Ліцензію нижче, а потім прийміть, щоб завершити перехід на Linkumori.",
+    "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
     "message": "Потрібна згода. Linkumori призупинено, доки ви не приймете поточні юридичні умови."
@@ -2403,13 +2409,14 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori за замовчуванням видаляє параметри стеження з URL і надає розширені засоби керування, коли це необхідно. Ознайомтеся з функціями нижче, а потім перейдіть до Політики конфіденційності та Ліцензії."
+    "message": "Linkumori за замовчуванням видаляє параметри відстеження з URL-адрес і за потреби надає розширені елементи керування. Перегляньте наведені нижче функції, а потім перейдіть до Політики конфіденційності, POSAR і Ліцензії."
   },
   "welcomeHeading": {
     "message": "Ласкаво просимо до Linkumori"
   },
   "welcome_migration_description": {
-    "message": "Ваші налаштування ClearURLs було імпортовано. Ознайомтеся з функціями Linkumori нижче, а потім перейдіть до читання Політики конфіденційності та Ліцензії."
+    "message": "Ваші налаштування ClearURL було імпортовано. Ознайомтеся з функціями Linkumori нижче, а потім продовжуйте читати Політику конфіденційності, POSAR і Ліцензію.",
+    "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
     "message": "Вбудовані правила, орієнтовані на конфіденційність, увімкнено за замовчуванням."
@@ -2544,7 +2551,8 @@
     "message": "Власні правила"
   },
   "popup_consent_legal_button_title": {
-    "message": "Юридична інформація — Політика конфіденційності та Ліцензія"
+    "message": "Юридична інформація – Політика конфіденційності, POSAR та Ліцензія",
+    "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
     "message": "Білий список"
@@ -6159,5 +6167,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR скопійовано!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Перегляньте наведений нижче документ «Продуктивність програмного забезпечення та прийняття ризику» Linkumori.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR завантажено!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Ефективність програмного забезпечення та прийняття ризику",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Прийняти POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR прийнято",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR прийнято.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

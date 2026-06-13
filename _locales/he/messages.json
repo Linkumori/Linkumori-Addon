@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "קראתי ומקבל את מדיניות הפרטיות והרישיון.",
+    "message": "קראתי ואני מקבל את מדיניות הפרטיות, POSAR והרישיון.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "אנא קרא את מדיניות הפרטיות והרישיון לפני השימוש בחלון קופץ זה. אנו לא אוספים את הנתונים שלך. כל הנתונים מאוחסנים במכשיר שלך ואינם מועברים אלינו.",
+    "message": "אנא קרא את מדיניות הפרטיות, POSAR והרישיון לפני השימוש בחלון קופץ זה. אנחנו לא אוספים את הנתונים שלך. כל הנתונים מאוחסנים במכשיר שלך ואינם מועברים אלינו.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "עיין במדיניות הפרטיות וברישיון להלן, ולאחר מכן קבל כדי להמשיך להשתמש בלינקומורי.",
+    "message": "עיין במדיניות הפרטיות, ב-POSAR וברישיון למטה, ולאחר מכן קבל את המשך השימוש ב-Linkumori.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "התנאים המשפטיים של לינקומורי עודכנו. עיין במדיניות הפרטיות וברישיון, ולאחר מכן קבל כדי להמשיך להשתמש בתוסף.",
+    "message": "התנאים המשפטיים של Linkumori עודכנו. עיין במדיניות הפרטיות, ב-POSAR וברישיון, ולאחר מכן אשר להמשך השימוש בתוסף.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "עיין במדיניות הפרטיות וברישיון להלן, ולאחר מכן קבל כדי לסיים את הגדרת לינקומורי.",
+    "message": "עיין במדיניות הפרטיות, POSAR והרישיון למטה, ולאחר מכן קבל כדי לסיים את הגדרת Linkumori.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "עיין במדיניות הפרטיות וברישיון להלן, ולאחר מכן קבל כדי לסיים את ההעברה ללינקומורי.",
+    "message": "עיין במדיניות הפרטיות, ב-POSAR וברישיון למטה, ולאחר מכן קבל כדי לסיים את ההגירה ל-Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori מסיר פרמטרי מעקב מכתובות URL כברירת מחדל ונותן לך שליטה מתקדמת בעת הצורך. סקור את התכונות להלן, ולאחר מכן המשך למדיניות פרטיות ורישיון."
+    "message": "Linkumori מסירה פרמטרי מעקב מכתובות אתרים כברירת מחדל ונותנת לך בקרות מתקדמות בעת הצורך. סקור את התכונות שלהלן, ולאחר מכן המשך למדיניות הפרטיות, POSAR ורישיון."
   },
   "welcomeHeading": {
     "message": "ברוך הבא ללינקומורי"
   },
   "welcome_migration_description": {
-    "message": "הגדרות ClearURLs שלך יובאו. סקור את תכונות Linkumori להלן, ולאחר מכן המשך לקרוא את מדיניות הפרטיות והרישיון.",
+    "message": "הגדרות ClearURLs שלך יובאו. סקור את התכונות של Linkumori למטה, ולאחר מכן המשך לקרוא את מדיניות הפרטיות, POSAR ורישיון.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "מידע משפטי - מדיניות פרטיות ורישיון",
+    "message": "מידע משפטי - מדיניות פרטיות, POSAR ורישיון",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR הועתק!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "אנא עיין במסמך ביצועי התוכנה וקבלת הסיכון של Linkumori להלן.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR הורד!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "ביצועי תוכנה וקבלת סיכונים",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "קבל את POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR התקבל",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR התקבל.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

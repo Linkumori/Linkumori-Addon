@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "개인정보처리방침 및 라이선스를 읽고 동의합니다.",
+    "message": "나는 개인 정보 보호 정책, POSAR 및 라이선스를 읽고 이에 동의합니다.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "이 팝업을 사용하기 전에 개인정보처리방침과 라이선스를 읽어주세요. 당사는 귀하의 데이터를 수집하지 않습니다. 모든 데이터는 귀하의 기기에 저장되며 당사에 전송되지 않습니다.",
+    "message": "이 팝업을 사용하기 전에 개인정보 보호정책, POSAR 및 라이선스를 읽어보시기 바랍니다. 우리는 귀하의 데이터를 수집하지 않습니다. 모든 데이터는 귀하의 장치에 저장되며 당사에 전송되지 않습니다.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "아래의 개인정보처리방침과 라이선스를 검토한 후 동의하여 Linkumori 사용을 계속하세요.",
+    "message": "아래의 개인 정보 보호 정책, POSAR 및 라이선스를 검토한 후 Linkumori를 계속 사용하려면 동의하세요.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumori의 법적 약관이 업데이트되었습니다. 개인정보처리방침과 라이선스를 검토한 후 동의하여 확장 프로그램 사용을 계속하세요.",
+    "message": "Linkumori 법률 용어가 업데이트되었습니다. 개인 정보 보호 정책, POSAR 및 라이센스를 검토한 후 확장 프로그램 사용을 계속하려면 동의하세요.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "아래의 개인정보처리방침과 라이선스를 검토한 후 동의하여 Linkumori 설정을 완료하세요.",
+    "message": "아래의 개인 정보 보호 정책, POSAR 및 라이선스를 검토한 후 동의하여 Linkumori 설정을 완료하세요.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "아래의 개인정보처리방침과 라이선스를 검토한 후 동의하여 Linkumori로의 마이그레이션을 완료하세요.",
+    "message": "아래의 개인 정보 보호 정책, POSAR 및 라이선스를 검토한 후 Linkumori로의 마이그레이션을 완료하는 데 동의하세요.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori는 기본적으로 URL에서 추적 매개변수를 제거하고 필요할 때 고급 제어 기능을 제공합니다. 아래 기능을 검토한 후 개인정보처리방침 및 라이선스로 진행하세요."
+    "message": "Linkumori는 기본적으로 URL에서 추적 매개변수를 제거하고 필요할 때 고급 제어 기능을 제공합니다. 아래 기능을 검토한 후 개인정보 보호정책, POSAR 및 라이선스를 계속 진행하세요."
   },
   "welcomeHeading": {
     "message": "Linkumori에 오신 것을 환영합니다"
   },
   "welcome_migration_description": {
-    "message": "ClearURLs 설정이 가져와졌습니다. 아래 Linkumori 기능을 검토한 후 개인정보처리방침 및 라이선스를 읽어보세요.",
+    "message": "ClearURL 설정을 가져왔습니다. 아래 Linkumori 기능을 검토한 다음 개인 정보 보호 정책, POSAR 및 라이센스를 계속 읽으십시오.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "법적 정보 - 개인정보처리방침 및 라이선스",
+    "message": "법률 정보 - 개인정보 보호정책, POSAR 및 라이선스",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR가 복사되었습니다!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "아래 Linkumori의 소프트웨어 성능 및 위험 수용 문서를 검토하십시오.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR를 다운로드했습니다!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "소프트웨어 성능 및 위험 수용",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "POSAR 수락",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR 허용",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR가 승인되었습니다.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }
