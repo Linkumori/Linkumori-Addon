@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Saya telah membaca dan menerima Dasar Privasi dan Lesen.",
+    "message": "Saya telah membaca dan menerima Dasar Privasi, POSAR dan Lesen.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Sila baca Dasar Privasi dan Lesen sebelum menggunakan pop timbul ini. Kami tidak mengumpul data anda. Semua data disimpan pada peranti anda dan tidak dihantar kepada kami.",
+    "message": "Sila baca Dasar Privasi, POSAR dan Lesen sebelum menggunakan pop timbul ini. Kami tidak mengumpul data anda. Semua data disimpan pada peranti anda dan tidak dihantar kepada kami.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Semak Dasar Privasi dan Lesen di bawah, kemudian terima untuk terus menggunakan Linkumori.",
+    "message": "Semak Dasar Privasi, POSAR dan Lesen di bawah, kemudian terima untuk terus menggunakan Linkumori.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Syarat undang-undang Linkumori telah dikemas kini. Semak Dasar Privasi dan Lesen, kemudian terima untuk terus menggunakan sambungan itu.",
+    "message": "Syarat undang-undang Linkumori telah dikemas kini. Semak Dasar Privasi, POSAR dan Lesen, kemudian terima untuk terus menggunakan sambungan.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Semak Dasar Privasi dan Lesen di bawah, kemudian terima untuk menyelesaikan penyediaan Linkumori.",
+    "message": "Semak Dasar Privasi, POSAR dan Lesen di bawah, kemudian terima untuk menyelesaikan penyediaan Linkumori.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Semak Dasar Privasi dan Lesen di bawah, kemudian terima untuk selesai berhijrah ke Linkumori.",
+    "message": "Semak Dasar Privasi, POSAR dan Lesen di bawah, kemudian terima untuk menyelesaikan pemindahan ke Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori mengalih keluar parameter penjejakan daripada URL secara lalai dan memberi anda kawalan lanjutan apabila diperlukan. Semak ciri di bawah, kemudian teruskan ke Dasar Privasi dan Lesen."
+    "message": "Linkumori mengalih keluar parameter penjejakan daripada URL secara lalai dan memberi anda kawalan lanjutan apabila diperlukan. Semak ciri di bawah, kemudian teruskan ke Dasar Privasi, POSAR dan Lesen."
   },
   "welcomeHeading": {
     "message": "Selamat datang ke Linkumori"
   },
   "welcome_migration_description": {
-    "message": "Tetapan ClearURLs anda telah diimport. Semak ciri Linkumori di bawah, kemudian teruskan membaca Dasar Privasi dan Lesen.",
+    "message": "Tetapan ClearURLs anda telah diimport. Semak ciri Linkumori di bawah, kemudian teruskan membaca Dasar Privasi, POSAR dan Lesen.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Maklumat Undang-undang - Dasar Privasi dan Lesen",
+    "message": "Maklumat Undang-undang - Dasar Privasi, POSAR dan Lesen",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR disalin!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Sila semak Dokumen Prestasi Perisian dan Penerimaan Risiko Linkumori di bawah.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR dimuat turun!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Prestasi Perisian dan Penerimaan Risiko",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Terima POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR diterima",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR diterima.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

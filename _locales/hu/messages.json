@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Elolvastam és elfogadom az Adatvédelmi Irányelveket és a Licencet.",
+    "message": "Elolvastam és elfogadom az Adatvédelmi szabályzatot, a POSAR-t és a licencet.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Kérlek, olvasd el az Adatvédelmi Irányelveket és a Licencet a felugró ablak használata előtt. Nem gyűjtünk adatokat. Minden adat az eszközödön tárolódik, és nem kerül továbbításra felénk.",
+    "message": "Kérjük, olvassa el az Adatvédelmi szabályzatot, a POSAR-t és a licencet az előugró ablak használata előtt. Nem gyűjtjük az Ön adatait. Minden adat az Ön készülékén van tárolva, és nem kerül továbbításra számunkra.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Tekintsd át az alábbi Adatvédelmi Irányelveket és Licencet, majd fogadd el a Linkumori használatának folytatásához.",
+    "message": "Tekintse át az alábbi adatvédelmi szabályzatot, POSAR-t és licencet, majd fogadja el a Linkumori használatának folytatását.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "A Linkumori jogi feltételei frissültek. Tekintsd át az Adatvédelmi Irányelveket és a Licencet, majd fogadd el a bővítmény használatának folytatásához.",
+    "message": "A Linkumori jogi feltételei frissültek. Tekintse át az adatvédelmi szabályzatot, a POSAR-t és a licencet, majd fogadja el a bővítmény további használatát.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Tekintsd át az alábbi Adatvédelmi Irányelveket és Licencet, majd fogadd el a Linkumori beállításának befejezéséhez.",
+    "message": "Tekintse át az alábbi adatvédelmi szabályzatot, POSAR-t és licencet, majd fogadja el a Linkumori beállításának befejezését.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Tekintsd át az alábbi Adatvédelmi Irányelveket és Licencet, majd fogadd el a Linkumori migráció befejezéséhez.",
+    "message": "Tekintse át az alábbi adatvédelmi szabályzatot, POSAR-t és licencet, majd fogadja el a Linkumorira való átállás befejezését.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "A Linkumori alapértelmezés szerint eltávolítja a követési paramétereket az URL-ekből, és szükség esetén fejlett vezérlőket biztosít. Tekintsd át az alábbi funkciókat, majd folytasd az Adatvédelmi Irányelvekkel és a Licenccel."
+    "message": "A Linkumori alapértelmezés szerint eltávolítja a nyomkövetési paramétereket az URL-ekből, és szükség esetén speciális vezérlőket biztosít. Tekintse át az alábbi funkciókat, majd folytassa az Adatvédelmi szabályzat, a POSAR és a Licenc részekkel."
   },
   "welcomeHeading": {
     "message": "Üdvözlünk a Linkumori-ban"
   },
   "welcome_migration_description": {
-    "message": "A ClearURLs beállításaid importálásra kerültek. Tekintsd át az alábbi Linkumori funkciókat, majd folytasd az Adatvédelmi Irányelvek és a Licenc elolvasásával.",
+    "message": "A ClearURLs beállításai importálva. Tekintse át a Linkumori funkcióit alább, majd olvassa el az Adatvédelmi szabályzatot, a POSAR-t és a licencet.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Jogi információk - Adatvédelmi Irányelvek és Licenc",
+    "message": "Jogi információk – Adatvédelmi szabályzat, POSAR és licenc",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR másolva!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Kérjük, tekintse át a Linkumori szoftver teljesítménye és kockázat elfogadása című dokumentumát alább.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR letöltve!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "A szoftver teljesítménye és a kockázat elfogadása",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "A POSAR elfogadása",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR elfogadva",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR elfogadva.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

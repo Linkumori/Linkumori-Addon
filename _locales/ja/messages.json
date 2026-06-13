@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "プライバシーポリシーとライセンスを読み、同意します。",
+    "message": "プライバシー ポリシー、POSAR、およびライセンスを読み、同意します。",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "このポップアップを使用する前に、プライバシーポリシーとライセンスをお読みください。当社はお客様のデータを収集しません。すべてのデータはお客様のデバイスに保存され、当社に送信されることはありません。",
+    "message": "このポップアップを使用する前に、プライバシー ポリシー、POSAR、およびライセンスをお読みください。当社はあなたのデータを収集しません。すべてのデータはお客様のデバイスに保存され、当社に送信されることはありません。",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "以下のプライバシーポリシーとライセンスを確認し、同意してLinkumoriの使用を続行してください。",
+    "message": "以下のプライバシー ポリシー、POSAR、およびライセンスを確認し、Linkumori の使用を続けることに同意します。",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumoriの法的条件が更新されました。プライバシーポリシーとライセンスを確認し、同意して拡張機能の使用を続行してください。",
+    "message": "Linkumori の法的条件が更新されました。プライバシー ポリシー、POSAR、およびライセンスを確認し、拡張機能の使用を続行することに同意します。",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "以下のプライバシーポリシーとライセンスを確認し、同意してLinkumoriのセットアップを完了してください。",
+    "message": "以下のプライバシー ポリシー、POSAR、およびライセンスを確認し、同意して Linkumori のセットアップを完了します。",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "以下のプライバシーポリシーとライセンスを確認し、同意してLinkumoriへの移行を完了してください。",
+    "message": "以下のプライバシー ポリシー、POSAR、およびライセンスを確認し、同意して Linkumori への移行を完了します。",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "LinkumoriはデフォルトでURLからトラッキングパラメータを削除し、必要に応じて高度な制御を提供します。以下の機能を確認し、プライバシーポリシーとライセンスに進んでください。"
+    "message": "Linkumori は、デフォルトで URL から追跡パラメータを削除し、必要に応じて高度なコントロールを提供します。以下の機能を確認してから、プライバシー ポリシー、POSAR、およびライセンスに進みます。"
   },
   "welcomeHeading": {
     "message": "Linkumoriへようこそ"
   },
   "welcome_migration_description": {
-    "message": "ClearURLsの設定がインポートされました。以下のLinkumori機能を確認し、プライバシーポリシーとライセンスをお読みください。",
+    "message": "ClearURLs 設定がインポートされました。以下の Linkumori の機能を確認してから、プライバシー ポリシー、POSAR、およびライセンスを読み続けてください。",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "法的情報 - プライバシーポリシーとライセンス",
+    "message": "法的情報 - プライバシー ポリシー、POSAR、およびライセンス",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSARがコピーされました！",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "以下の Linkumori のソフトウェアのパフォーマンスとリスクの受け入れに関する文書を確認してください。",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "ポサールをダウンロードしました！",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "ソフトウェアのパフォーマンスとリスクの受け入れ",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "POSARを受け入れる",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSARを受け入れました",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSARを受け入れました。",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

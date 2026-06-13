@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Tôi đã đọc và chấp nhận Chính sách quyền riêng tư và Giấy phép.",
+    "message": "Tôi đã đọc và chấp nhận Chính sách quyền riêng tư, POSAR và Giấy phép.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Vui lòng đọc Chính sách quyền riêng tư và Giấy phép trước khi sử dụng cửa sổ bật lên này. Chúng tôi không thu thập dữ liệu của bạn. Tất cả dữ liệu được lưu trữ trên thiết bị của bạn và không được truyền cho chúng tôi.",
+    "message": "Vui lòng đọc Chính sách quyền riêng tư, POSAR và Giấy phép trước khi sử dụng cửa sổ bật lên này. Chúng tôi không thu thập dữ liệu của bạn. Tất cả dữ liệu được lưu trữ trên thiết bị của bạn và không được truyền cho chúng tôi.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Xem lại Chính sách quyền riêng tư và Giấy phép bên dưới, sau đó chấp nhận tiếp tục sử dụng Linkumori.",
+    "message": "Xem lại Chính sách quyền riêng tư, POSAR và Giấy phép bên dưới, sau đó chấp nhận tiếp tục sử dụng Linkumori.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Các điều khoản pháp lý của Linkumori đã được cập nhật. Xem lại Chính sách quyền riêng tư và Giấy phép, sau đó chấp nhận tiếp tục sử dụng tiện ích mở rộng.",
+    "message": "Các điều khoản pháp lý của Linkumori đã được cập nhật. Xem lại Chính sách quyền riêng tư, POSAR và Giấy phép, sau đó chấp nhận tiếp tục sử dụng tiện ích mở rộng.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Xem lại Chính sách quyền riêng tư và Giấy phép bên dưới, sau đó chấp nhận hoàn tất thiết lập Linkumori.",
+    "message": "Xem lại Chính sách quyền riêng tư, POSAR và Giấy phép bên dưới, sau đó chấp nhận hoàn tất thiết lập Linkumori.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Xem lại Chính sách quyền riêng tư và Giấy phép bên dưới, sau đó chấp nhận hoàn tất quá trình di chuyển sang Linkumori.",
+    "message": "Xem lại Chính sách quyền riêng tư, POSAR và Giấy phép bên dưới, sau đó chấp nhận hoàn tất quá trình di chuyển sang Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori xóa các tham số theo dõi khỏi URL theo mặc định và cung cấp cho bạn các điều khiển nâng cao khi cần. Xem lại các tính năng bên dưới, sau đó tiếp tục tới Chính sách quyền riêng tư và Giấy phép."
+    "message": "Linkumori xóa các tham số theo dõi khỏi URL theo mặc định và cung cấp cho bạn các điều khiển nâng cao khi cần. Xem lại các tính năng bên dưới, sau đó tiếp tục tới Chính sách quyền riêng tư, POSAR và Giấy phép."
   },
   "welcomeHeading": {
     "message": "Chào mừng đến với Linkumori"
   },
   "welcome_migration_description": {
-    "message": "Cài đặt ClearURLs của bạn đã được nhập. Xem lại các tính năng của Linkumori bên dưới, sau đó tiếp tục đọc Chính sách quyền riêng tư và Giấy phép.",
+    "message": "Cài đặt ClearURLs của bạn đã được nhập. Xem lại các tính năng của Linkumori bên dưới, sau đó tiếp tục đọc Chính sách quyền riêng tư, POSAR và Giấy phép.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Thông tin pháp lý - Chính sách bảo mật và giấy phép",
+    "message": "Thông tin pháp lý - Chính sách quyền riêng tư, POSAR và Giấy phép",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR đã sao chép!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Vui lòng xem lại tài liệu về Hiệu suất của Phần mềm và Chấp nhận Rủi ro của Linkumori bên dưới.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "Đã tải xuống POSAR!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Hiệu suất của phần mềm và chấp nhận rủi ro",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Chấp nhận POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR được chấp nhận",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR được chấp nhận.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

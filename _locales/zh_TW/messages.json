@@ -1605,11 +1605,11 @@
     "description": "按鈕標籤，用於接受彈出視窗同意閘門。"
   },
   "popup_consent_checkbox": {
-    "message": "我已閱讀並接受隱私權政策和許可證。",
+    "message": "我已閱讀並接受隱私權政策、POSAR 和許可證。",
     "description": "彈出視窗閘門的同意複選框標籤。"
   },
   "popup_consent_description": {
-    "message": "在繼續使用此彈出視窗之前，請閱讀隱私權政策和許可證。我們不會收集您的數據。所有數據都儲存在您的設備上，並且不會傳輸給我們。",
+    "message": "使用此彈出視窗之前，請閱讀隱私權政策、POSAR 和許可證。我們不收集您的資料。所有資料都儲存在您的裝置上，不會傳輸給我們。",
     "description": "彈出視窗同意閘門的描述。"
   },
   "popup_consent_legal_button": {
@@ -2849,13 +2849,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori 默認情況下會移除 URL 中的追蹤參數，並在需要時提供高級控制。請查看以下功能，然後繼續閱讀《隱私政策》和《許可證》。"
+    "message": "預設情況下，Linkumori 會從 URL 中刪除追蹤參數，並在需要時為您提供進階控制。查看以下功能，然後繼續查看隱私權政策、POSAR 和許可證。"
   },
   "welcomeHeading": {
     "message": "歡迎使用 Linkumori"
   },
   "welcome_migration_description": {
-    "message": "您的 ClearURLs 設置已導入。請查看以下 Linkumori 功能，然後繼續閱讀《隱私政策》和《許可證》。",
+    "message": "您的 ClearURLs 設定已匯入。請參閱下面的 Linkumori 功能，然後繼續閱讀隱私權政策、POSAR 和授權。",
     "description": "在遷移歡迎屏幕上顯示的描述。"
   },
   "welcome_migration_feature_bundled": {
@@ -3035,7 +3035,7 @@
     "description": "自定義規則部分標題"
   },
   "popup_consent_legal_button_title": {
-    "message": "法律信息 - 隱私權政策和授權",
+    "message": "法律資訊 - 隱私權政策、POSAR 和許可證",
     "description": "彈出窗口同意門打開的法律信息頁面的標題"
   },
   "popup_html_whitelist_button_title": {
@@ -3378,19 +3378,19 @@
     "description": "統計卡片中唯一資源類型的標籤"
   },
   "legal_consent_notice_default": {
-    "message": "請閱讀下方的隱私權政策與授權條款，然後接受以繼續使用 Linkumori。",
+    "message": "請參閱下面的隱私權政策、POSAR 和許可證，然後接受繼續使用 Linkumori。",
     "description": "法律頁面同意區塊的預設提示文字"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumori 的法律條款已更新。請閱讀隱私權政策與授權條款，然後接受以繼續使用此擴充功能。",
+    "message": "Linkumori 法律條款已更新。查看隱私權政策、POSAR 和許可證，然後接受繼續使用該擴充功能。",
     "description": "同意版本更新後顯示於法律頁面的提示文字"
   },
   "legal_consent_notice_first_install": {
-    "message": "請閱讀下方的隱私權政策與授權條款，然後接受以完成 Linkumori 的設定。",
+    "message": "請參閱下面的隱私權政策、POSAR 和許可證，然後接受以完成 Linkumori 的設定。",
     "description": "首次安裝期間顯示於法律頁面的提示文字"
   },
   "legal_consent_notice_import": {
-    "message": "請閱讀下方的隱私權政策與授權條款，然後接受以完成遷移到 Linkumori。",
+    "message": "請參閱下面的隱私權政策、POSAR 和許可證，然後接受以完成向 Linkumori 的遷移。",
     "description": "匯入或遷移期間顯示於法律頁面的提示文字"
   },
   "legal_consent_status_required": {
@@ -7035,5 +7035,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR複製了！",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "請查看下面的 Linkumori 的軟體效能和風險接受文件。",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR已下載！",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "軟體效能與風險接受",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "接受POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR 已接受",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR 接受。",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "من خط مشی رازداری و مجوز را خوانده و می پذیرم.",
+    "message": "من خط مشی رازداری، POSAR و مجوز را خوانده و می پذیرم.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "لطفاً قبل از استفاده از این پنجره، سیاست حفظ حریم خصوصی و مجوز را بخوانید. ما داده های شما را جمع آوری نمی کنیم. تمام داده ها در دستگاه شما ذخیره می شود و به ما منتقل نمی شود.",
+    "message": "لطفاً قبل از استفاده از این پنجره، سیاست حفظ حریم خصوصی، POSAR و مجوز را بخوانید. ما داده های شما را جمع آوری نمی کنیم. تمام داده ها در دستگاه شما ذخیره می شود و به ما منتقل نمی شود.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "سیاست حفظ حریم خصوصی و مجوز زیر را مرور کنید، سپس ادامه استفاده از Linkumori را بپذیرید.",
+    "message": "سیاست حفظ حریم خصوصی، POSAR و مجوز زیر را مرور کنید، سپس ادامه استفاده از Linkumori را بپذیرید.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "شرایط قانونی Linkumori به روز شد. سیاست حفظ حریم خصوصی و مجوز را مرور کنید، سپس ادامه استفاده از برنامه افزودنی را بپذیرید.",
+    "message": "شرایط قانونی Linkumori به روز شد. سیاست حفظ حریم خصوصی، POSAR و مجوز را مرور کنید، سپس ادامه استفاده از برنامه افزودنی را بپذیرید.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "خط مشی رازداری و مجوز زیر را مرور کنید، سپس راه اندازی Linkumori را بپذیرید.",
+    "message": "خط‌مشی رازداری، POSAR و مجوز را در زیر مرور کنید، سپس راه‌اندازی Linkumori را بپذیرید.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "خط مشی رازداری و مجوز زیر را بررسی کنید، سپس مهاجرت به Linkumori را بپذیرید.",
+    "message": "سیاست حفظ حریم خصوصی، POSAR و مجوز را در زیر مرور کنید، سپس مهاجرت به Linkumori را بپذیرید.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori به طور پیش فرض پارامترهای ردیابی را از URL ها حذف می کند و در صورت نیاز به شما کنترل های پیشرفته می دهد. ویژگی های زیر را مرور کنید، سپس به خط مشی رازداری و مجوز ادامه دهید."
+    "message": "Linkumori به طور پیش فرض پارامترهای ردیابی را از URL ها حذف می کند و در صورت نیاز به شما کنترل های پیشرفته می دهد. ویژگی های زیر را مرور کنید، سپس به سیاست حفظ حریم خصوصی، POSAR و مجوز ادامه دهید."
   },
   "welcomeHeading": {
     "message": "به لینکوموری خوش آمدید"
   },
   "welcome_migration_description": {
-    "message": "تنظیمات ClearURL شما وارد شد. ویژگی های Linkumori را در زیر مرور کنید، سپس به خواندن خط مشی رازداری و مجوز ادامه دهید.",
+    "message": "تنظیمات ClearURL شما وارد شد. ویژگی های Linkumori را در زیر مرور کنید، سپس به خواندن خط مشی رازداری، POSAR و مجوز ادامه دهید.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "اطلاعات حقوقی - سیاست حفظ حریم خصوصی و مجوز",
+    "message": "اطلاعات حقوقی - سیاست حفظ حریم خصوصی، POSAR، و مجوز",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR کپی شد!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "لطفاً سند عملکرد نرم افزار و پذیرش ریسک Linkumori را در زیر بررسی کنید.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR دانلود شد!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "عملکرد نرم افزار و پذیرش ریسک",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "POSAR را بپذیرید",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR پذیرفته شد",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR پذیرفته شد.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

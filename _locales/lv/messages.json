@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Esmu izlasījis un piekrītu Privātuma politikai un licencei.",
+    "message": "Esmu izlasījis un piekrītu konfidencialitātes politikai, POSAR un licencei.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Pirms šī uznirstošā loga izmantošanas, lūdzu, izlasiet Privātuma politiku un licenci. Mēs neievācam jūsu datus. Visi dati tiek glabāti jūsu ierīcē un netiek mums pārsūtīti.",
+    "message": "Pirms šī uznirstošā loga izmantošanas, lūdzu, izlasiet konfidencialitātes politiku, POSAR un licenci. Mēs neievācam jūsu datus. Visi dati tiek glabāti jūsu ierīcē un netiek mums pārsūtīti.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Pārskatiet tālāk sniegto konfidencialitātes politiku un licenci, pēc tam piekrītiet, lai turpinātu lietot Linkumori.",
+    "message": "Pārskatiet tālāk sniegto konfidencialitātes politiku, POSAR un licenci, pēc tam piekrītiet, lai turpinātu lietot Linkumori.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumori juridiskie noteikumi tika atjaunināti. Pārskatiet konfidencialitātes politiku un licenci, pēc tam piekrītiet, lai turpinātu izmantot paplašinājumu.",
+    "message": "Linkumori juridiskie noteikumi tika atjaunināti. Pārskatiet konfidencialitātes politiku, POSAR un licenci, pēc tam piekrītiet, lai turpinātu izmantot paplašinājumu.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Pārskatiet tālāk sniegto konfidencialitātes politiku un licenci, pēc tam piekrītiet, lai pabeigtu Linkumori iestatīšanu.",
+    "message": "Pārskatiet tālāk norādīto konfidencialitātes politiku, POSAR un licenci, pēc tam piekrītiet, lai pabeigtu Linkumori iestatīšanu.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Pārskatiet tālāk sniegto konfidencialitātes politiku un licenci, pēc tam piekrītiet, lai pabeigtu migrēšanu uz Linkumori.",
+    "message": "Pārskatiet tālāk norādīto konfidencialitātes politiku, POSAR un licenci, pēc tam piekrītiet, lai pabeigtu migrēšanu uz Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori pēc noklusējuma noņem izsekošanas parametrus no vietrāžiem URL un vajadzības gadījumā nodrošina papildu vadīklas. Pārskatiet tālāk norādītās funkcijas, pēc tam pārejiet pie Privātuma politikas un licences."
+    "message": "Linkumori pēc noklusējuma noņem izsekošanas parametrus no vietrāžiem URL un vajadzības gadījumā nodrošina papildu vadīklas. Pārskatiet tālāk norādītās funkcijas, pēc tam turpiniet ar Privātuma politiku, POSAR un Licenci."
   },
   "welcomeHeading": {
     "message": "Laipni lūdzam Linkumoros"
   },
   "welcome_migration_description": {
-    "message": "Jūsu ClearURL iestatījumi tika importēti. Pārskatiet tālāk esošās Linkumori funkcijas, pēc tam turpiniet lasīt Privātuma politiku un licenci.",
+    "message": "Jūsu ClearURL iestatījumi tika importēti. Pārskatiet tālāk norādītās Linkumori funkcijas, pēc tam turpiniet lasīt konfidencialitātes politiku, POSAR un licenci.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Juridiskā informācija - Privātuma politika un licence",
+    "message": "Juridiskā informācija — privātuma politika, POSAR un licence",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR nokopēts!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Lūdzu, pārskatiet tālāk esošo Linkumori programmatūras veiktspējas un riska pieņemšanas dokumentu.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR lejupielādēts!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Programmatūras veiktspēja un riska pieņemšana",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Pieņemiet POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR pieņemts",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR pieņemts.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

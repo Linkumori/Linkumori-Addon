@@ -1321,10 +1321,12 @@
     "message": "Akceptuj i kontynuuj"
   },
   "popup_consent_checkbox": {
-    "message": "Przeczytałem i akceptuję Politykę prywatności i Licencję."
+    "message": "Przeczytałem i akceptuję Politykę prywatności, POSAR i Licencję.",
+    "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Przed użyciem tego wyskakującego okienka przeczytaj Politykę prywatności i Licencję. Nie zbieramy Twoich danych. Wszystkie dane są przechowywane na Twoim urządzeniu i nie są przesyłane do nas."
+    "message": "Przed użyciem tego wyskakującego okienka przeczytaj Politykę prywatności, POSAR i Licencję. Nie zbieramy Twoich danych. Wszystkie dane są przechowywane na Twoim urządzeniu i nie są nam przesyłane.",
+    "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
     "message": "Przeczytaj informacje prawne"
@@ -1406,16 +1408,20 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Zapoznaj się z Polityką prywatności i Licencją poniżej, a następnie zaakceptuj, aby kontynuować korzystanie z Linkumori."
+    "message": "Zapoznaj się z Polityką prywatności, POSAR i Licencją poniżej, a następnie zaakceptuj dalsze korzystanie z Linkumori.",
+    "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Warunki prawne Linkumori zostały zaktualizowane. Zapoznaj się z Polityką prywatności i Licencją, a następnie zaakceptuj, aby kontynuować korzystanie z rozszerzenia."
+    "message": "Warunki prawne Linkumori zostały zaktualizowane. Zapoznaj się z Polityką prywatności, POSAR i Licencją, a następnie zaakceptuj dalsze korzystanie z rozszerzenia.",
+    "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Zapoznaj się z Polityką prywatności i Licencją poniżej, a następnie zaakceptuj, aby zakończyć konfigurację Linkumori."
+    "message": "Przejrzyj poniższą Politykę prywatności, POSAR i Licencję, a następnie zaakceptuj, aby zakończyć konfigurowanie Linkumori.",
+    "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Zapoznaj się z Polityką prywatności i Licencją poniżej, a następnie zaakceptuj, aby zakończyć migrację do Linkumori."
+    "message": "Zapoznaj się z Polityką prywatności, POSAR i Licencją poniżej, a następnie zaakceptuj zakończenie migracji do Linkumori.",
+    "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
     "message": "Wymagana zgoda. Linkumori jest wstrzymane, dopóki nie zaakceptujesz bieżących warunków prawnych."
@@ -2406,13 +2412,14 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori domyślnie usuwa parametry śledzące z adresów URL i zapewnia zaawansowaną kontrolę, gdy jest to potrzebne. Zapoznaj się z funkcjami poniżej, a następnie przejdź do Polityki prywatności i Licencji."
+    "message": "Linkumori domyślnie usuwa parametry śledzenia z adresów URL i w razie potrzeby zapewnia zaawansowaną kontrolę. Przejrzyj poniższe funkcje, a następnie przejdź do Polityki prywatności, POSAR i Licencji."
   },
   "welcomeHeading": {
     "message": "Witamy w Linkumori"
   },
   "welcome_migration_description": {
-    "message": "Twoje ustawienia ClearURLs zostały zaimportowane. Zapoznaj się z funkcjami Linkumori poniżej, a następnie przeczytaj Politykę prywatności i Licencję."
+    "message": "Twoje ustawienia ClearURLs zostały zaimportowane. Przejrzyj funkcje Linkumori poniżej, a następnie kontynuuj czytanie Polityki prywatności, POSAR i Licencji.",
+    "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
     "message": "Wbudowane reguły zorientowane na prywatność są domyślnie włączone."
@@ -2547,7 +2554,8 @@
     "message": "Reguły niestandardowe"
   },
   "popup_consent_legal_button_title": {
-    "message": "Informacje prawne - Polityka prywatności i Licencja"
+    "message": "Informacje prawne - Polityka prywatności, POSAR i licencja",
+    "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
     "message": "Biała lista"
@@ -6163,5 +6171,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR skopiowany!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Prosimy o zapoznanie się z poniższym dokumentem dotyczącym działania oprogramowania i akceptacji ryzyka firmy Linkumori.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR pobrany!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Wydajność oprogramowania i akceptacja ryzyka",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Zaakceptuj POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR zaakceptowany",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR zaakceptowany.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Gizlilik Politikasını ve Lisansı okudum ve kabul ediyorum.",
+    "message": "Gizlilik Politikasını, POSAR'ı ve Lisansı okudum ve kabul ediyorum.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Bu açılır pencereyi kullanmadan önce lütfen Gizlilik Politikasını ve Lisansı okuyun. Verilerinizi toplamıyoruz. Tüm veriler cihazınızda saklanır ve bize iletilmez.",
+    "message": "Lütfen bu açılır pencereyi kullanmadan önce Gizlilik Politikasını, POSAR'ı ve Lisansı okuyun. Verilerinizi toplamıyoruz. Tüm veriler cihazınızda saklanır ve bize iletilmez.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Aşağıdaki Gizlilik Politikasını ve Lisansı inceleyin, ardından Linkumori'yi kullanmaya devam etmek için kabul edin.",
+    "message": "Aşağıdaki Gizlilik Politikasını, POSAR'ı ve Lisansı inceleyin ve ardından Linkumori'yi kullanmaya devam etmeyi kabul edin.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumori yasal koşulları güncellendi. Gizlilik Politikasını ve Lisansı inceleyin, ardından uzantıyı kullanmaya devam etmek için kabul edin.",
+    "message": "Linkumori yasal şartları güncellendi. Gizlilik Politikasını, POSAR'ı ve Lisansı inceleyin ve ardından uzantıyı kullanmaya devam etmeyi kabul edin.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Aşağıdaki Gizlilik Politikasını ve Lisansı inceleyin, ardından Linkumori kurulumunu tamamlamak için kabul edin.",
+    "message": "Aşağıdaki Gizlilik Politikasını, POSAR'ı ve Lisansı inceleyin ve ardından Linkumori kurulumunu tamamlamayı kabul edin.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Aşağıdaki Gizlilik Politikasını ve Lisansı inceleyin, ardından Linkumori'ye geçişi tamamlamak için kabul edin.",
+    "message": "Aşağıdaki Gizlilik Politikasını, POSAR'ı ve Lisansı inceleyin ve ardından Linkumori'ye geçişi tamamlamayı kabul edin.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori, URL'lerden izleme parametrelerini varsayılan olarak kaldırır ve gerektiğinde size gelişmiş kontroller sunar. Aşağıdaki özellikleri inceleyin, ardından Gizlilik Politikası ve Lisans'a devam edin."
+    "message": "Linkumori, izleme parametrelerini varsayılan olarak URL'lerden kaldırır ve gerektiğinde size gelişmiş kontroller sağlar. Aşağıdaki özellikleri inceleyin, ardından Gizlilik Politikası, POSAR ve Lisans ile devam edin."
   },
   "welcomeHeading": {
     "message": "Linkumori'ye Hoş Geldiniz"
   },
   "welcome_migration_description": {
-    "message": "ClearURLs ayarlarınız içe aktarıldı. Aşağıdaki Linkumori özelliklerini inceleyin, ardından Gizlilik Politikası ve Lisans'ı okumaya devam edin.",
+    "message": "ClearURLs ayarlarınız içe aktarıldı. Aşağıdaki Linkumori özelliklerini inceleyin, ardından Gizlilik Politikası, POSAR ve Lisansı okumaya devam edin.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Yasal Bilgiler - Gizlilik Politikası ve Lisans",
+    "message": "Yasal Bilgiler - Gizlilik Politikası, POSAR ve Lisans",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR kopyalandı!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Lütfen aşağıdaki Linkumori'nin Yazılım Performansı ve Riskin Kabulü belgesini inceleyin.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR indirildi!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Yazılımın Performansı ve Riskin Kabulü",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "POSAR'ı kabul et",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR'ı kabul etti",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR kabul edildi.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

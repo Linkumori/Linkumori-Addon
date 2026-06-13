@@ -1324,10 +1324,12 @@
     "message": "Accepteren en doorgaan"
   },
   "popup_consent_checkbox": {
-    "message": "Ik heb het Privacybeleid en de Licentie gelezen en accepteer deze."
+    "message": "Ik heb het privacybeleid, POSAR en de licentie gelezen en ga ermee akkoord.",
+    "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Lees het Privacybeleid en de Licentie voordat u deze pop-up gebruikt. We verzamelen uw gegevens niet. Alle gegevens worden op uw apparaat opgeslagen en niet naar ons verzonden."
+    "message": "Lees het privacybeleid, POSAR en de licentie voordat u deze pop-up gebruikt. Wij verzamelen uw gegevens niet. Alle gegevens worden op uw apparaat opgeslagen en niet naar ons verzonden.",
+    "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
     "message": "Juridische informatie lezen"
@@ -1409,16 +1411,20 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Bekijk het Privacybeleid en de Licentie hieronder en accepteer deze om door te gaan met het gebruik van Linkumori."
+    "message": "Bekijk het privacybeleid, POSAR en de licentie hieronder en accepteer vervolgens dat u Linkumori wilt blijven gebruiken.",
+    "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "De juridische voorwaarden van Linkumori zijn bijgewerkt. Bekijk het Privacybeleid en de Licentie en accepteer deze om door te gaan met het gebruik van de extensie."
+    "message": "De juridische voorwaarden van Linkumori zijn bijgewerkt. Bekijk het privacybeleid, POSAR en de licentie en accepteer vervolgens dat u de extensie wilt blijven gebruiken.",
+    "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Bekijk het Privacybeleid en de Licentie hieronder en accepteer deze om de installatie van Linkumori te voltooien."
+    "message": "Bekijk het privacybeleid, POSAR en de licentie hieronder en accepteer vervolgens om het instellen van Linkumori te voltooien.",
+    "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Bekijk het Privacybeleid en de Licentie hieronder en accepteer deze om de migratie naar Linkumori te voltooien."
+    "message": "Bekijk het privacybeleid, POSAR en de licentie hieronder en accepteer vervolgens om de migratie naar Linkumori te voltooien.",
+    "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
     "message": "Toestemming vereist. Linkumori wordt gepauzeerd totdat u de huidige juridische voorwaarden accepteert."
@@ -2421,13 +2427,14 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori verwijdert standaard traceringsparameters uit URL's en biedt geavanceerde bedieningselementen wanneer nodig. Bekijk de onderstaande functies en ga verder naar het Privacybeleid en de Licentie."
+    "message": "Linkumori verwijdert standaard trackingparameters van URL's en geeft u geavanceerde controles wanneer dat nodig is. Bekijk de onderstaande functies en ga vervolgens verder naar Privacybeleid, POSAR en Licentie."
   },
   "welcomeHeading": {
     "message": "Welkom bij Linkumori"
   },
   "welcome_migration_description": {
-    "message": "Uw ClearURLs-instellingen zijn geïmporteerd. Bekijk de onderstaande Linkumori-functies en ga verder met het lezen van het Privacybeleid en de Licentie."
+    "message": "Uw ClearURLs-instellingen zijn geïmporteerd. Bekijk de Linkumori-functies hieronder en lees vervolgens het Privacybeleid, POSAR en Licentie.",
+    "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
     "message": "Ingebouwde privacygerichte regels zijn standaard ingeschakeld."
@@ -2562,7 +2569,8 @@
     "message": "Aangepaste regels"
   },
   "popup_consent_legal_button_title": {
-    "message": "Juridische informatie - Privacybeleid en Licentie"
+    "message": "Juridische informatie - Privacybeleid, POSAR en licentie",
+    "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
     "message": "Witte lijst"
@@ -6181,5 +6189,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR gekopieerd!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Bekijk het document Prestaties van software en acceptatie van risico's van Linkumori hieronder.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR gedownload!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Prestaties van software en acceptatie van risico's",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Accepteer POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR geaccepteerd",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR geaccepteerd.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

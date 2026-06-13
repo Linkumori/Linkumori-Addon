@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Я прочитал и принимаю Политику конфиденциальности и Лицензию.",
+    "message": "Я прочитал и принимаю Политику конфиденциальности, POSAR и Лицензию.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Пожалуйста, прочитайте Политику конфиденциальности и Лицензию перед использованием этого всплывающего окна. Мы не собираем ваши данные. Все данные хранятся на вашем устройстве и не передаются нам.",
+    "message": "Пожалуйста, прочтите Политику конфиденциальности, POSAR и Лицензию перед использованием этого всплывающего окна. Мы не собираем ваши данные. Все данные хранятся на вашем устройстве и не передаются нам.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Ознакомьтесь с Политикой конфиденциальности и Лицензией ниже, затем примите их, чтобы продолжить использование Linkumori.",
+    "message": "Ознакомьтесь с Политикой конфиденциальности, POSAR и Лицензией ниже, а затем согласитесь продолжить использование Linkumori.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Юридические условия Linkumori обновлены. Ознакомьтесь с Политикой конфиденциальности и Лицензией, затем примите их, чтобы продолжить использование расширения.",
+    "message": "Юридические условия Линкумори были обновлены. Ознакомьтесь с Политикой конфиденциальности, POSAR и Лицензией, а затем согласитесь продолжить использование расширения.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Ознакомьтесь с Политикой конфиденциальности и Лицензией ниже, затем примите их, чтобы завершить настройку Linkumori.",
+    "message": "Ознакомьтесь с Политикой конфиденциальности, POSAR и Лицензией ниже, затем примите их, чтобы завершить настройку Linkumori.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Ознакомьтесь с Политикой конфиденциальности и Лицензией ниже, затем примите их, чтобы завершить миграцию на Linkumori.",
+    "message": "Ознакомьтесь с Политикой конфиденциальности, POSAR и Лицензией ниже, а затем примите решение завершить переход на Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori по умолчанию удаляет отслеживающие параметры из URL и предоставляет расширенные средства управления, когда это необходимо. Ознакомьтесь с функциями ниже, затем перейдите к Политике конфиденциальности и Лицензии."
+    "message": "Linkumori по умолчанию удаляет параметры отслеживания из URL-адресов и при необходимости предоставляет вам расширенные возможности управления. Ознакомьтесь с приведенными ниже функциями, а затем перейдите к Политике конфиденциальности, POSAR и Лицензии."
   },
   "welcomeHeading": {
     "message": "Добро пожаловать в Linkumori"
   },
   "welcome_migration_description": {
-    "message": "Ваши настройки ClearURLs были импортированы. Ознакомьтесь с функциями Linkumori ниже, затем перейдите к чтению Политики конфиденциальности и Лицензии.",
+    "message": "Ваши настройки ClearURLs были импортированы. Ознакомьтесь с функциями Linkumori ниже, а затем продолжите чтение Политики конфиденциальности, POSAR и Лицензии.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Юридическая информация — Политика конфиденциальности и Лицензия",
+    "message": "Юридическая информация: Политика конфиденциальности, POSAR и лицензия",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "ПОСАР скопирован!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Пожалуйста, ознакомьтесь с документом Linkumori «Производительность программного обеспечения и принятие рисков» ниже.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "ПОСАР скачан!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Производительность программного обеспечения и принятие риска",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Принять ПОСАР",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "ПОСАР принят",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "ПОСАР принят.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

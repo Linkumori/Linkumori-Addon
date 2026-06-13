@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Olen lukenut ja hyväksyn tietosuojakäytännön ja lisenssin.",
+    "message": "Olen lukenut ja hyväksyn tietosuojakäytännön, POSARin ja lisenssin.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Lue tietosuojakäytäntö ja lisenssi ennen tämän ponnahdusikkunan käyttöä. Emme kerää tietojasi. Kaikki tiedot tallennetaan laitteellesi, eikä niitä välitetä meille.",
+    "message": "Lue tietosuojakäytäntö, POSAR ja lisenssi ennen tämän ponnahdusikkunan käyttöä. Emme kerää tietojasi. Kaikki tiedot tallennetaan laitteellesi, eikä niitä välitetä meille.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1765,19 +1765,19 @@
     "description": "Footer prefix shown on blocked page before version number"
   },
   "legal_consent_notice_default": {
-    "message": "Tutustu alla olevaan tietosuojakäytäntöön ja lisenssiin ja hyväksy sitten jatkaaksesi Linkumorin käyttöä.",
+    "message": "Tutustu alla olevaan tietosuojakäytäntöön, POSARiin ja lisenssiin ja hyväksy sitten Linkumorin käytön jatkaminen.",
     "description": "Default notice text for the legal page consent section"
   },
   "legal_consent_notice_update": {
-    "message": "Linkumorin lakiehdot päivitettiin. Tutustu tietosuojakäytäntöön ja lisenssiin ja hyväksy sitten jatkaaksesi laajennuksen käyttöä.",
+    "message": "Linkumorin lakiehdot päivitettiin. Tarkista tietosuojakäytäntö, POSAR ja lisenssi ja hyväksy sitten jatkaaksesi laajennuksen käyttöä.",
     "description": "Notice text shown on the legal page after a consent version update"
   },
   "legal_consent_notice_first_install": {
-    "message": "Tutustu alla olevaan tietosuojakäytäntöön ja lisenssiin ja hyväksy sitten Linkumorin asetukset.",
+    "message": "Tutustu alla olevaan tietosuojakäytäntöön, POSARiin ja lisenssiin ja hyväksy sitten Linkumorin asetukset.",
     "description": "Notice text shown on the legal page during first install"
   },
   "legal_consent_notice_import": {
-    "message": "Tutustu alla olevaan tietosuojakäytäntöön ja lisenssiin ja hyväksy sitten siirtyminen Linkumoriin.",
+    "message": "Tutustu alla olevaan tietosuojakäytäntöön, POSARiin ja lisenssiin ja hyväksy sitten siirtyminen Linkumoriin.",
     "description": "Notice text shown on the legal page during import or migration"
   },
   "legal_consent_status_required": {
@@ -3017,13 +3017,13 @@
     }
   },
   "welcomeDescription": {
-    "message": "Linkumori poistaa seurantaparametrit URL-osoitteista oletuksena ja antaa tarvittaessa lisäasetuksia. Tarkista alla olevat ominaisuudet ja jatka sitten tietosuojakäytäntöön ja lisenssiin."
+    "message": "Linkumori poistaa seurantaparametrit URL-osoitteista oletuksena ja antaa tarvittaessa lisäasetuksia. Tarkista alla olevat ominaisuudet ja jatka sitten tietosuojakäytäntöön, POSARiin ja lisenssiin."
   },
   "welcomeHeading": {
     "message": "Tervetuloa Linkumorille"
   },
   "welcome_migration_description": {
-    "message": "ClearURL-asetuksesi tuotiin. Tutustu Linkumorin ominaisuuksiin alla ja jatka sitten tietosuojakäytännön ja lisenssin lukemista.",
+    "message": "ClearURL-asetuksesi tuotiin. Tutustu Linkumorin ominaisuuksiin alla ja jatka sitten tietosuojakäytännön, POSAR:n ja lisenssin lukemista.",
     "description": "Description shown on migration welcome screen."
   },
   "welcome_migration_feature_bundled": {
@@ -3203,7 +3203,7 @@
     "description": "Title for the custom rules section"
   },
   "popup_consent_legal_button_title": {
-    "message": "Lakitiedot - Tietosuojakäytäntö ja lisenssi",
+    "message": "Lakitiedot – Tietosuojakäytäntö, POSAR ja lisenssi",
     "description": "Title for legal information page opened from popup consent gate"
   },
   "popup_html_whitelist_button_title": {
@@ -7032,5 +7032,33 @@
   "theme_dark": {
     "message": "Dark theme",
     "description": "Accessible label for switching to the dark theme."
+  },
+  "posarCopied": {
+    "message": "POSAR kopioitu!",
+    "description": "Toast message after copying POSAR content"
+  },
+  "posarDescription": {
+    "message": "Tutustu Linkumorin ohjelmiston suorituskykyä ja riskien hyväksymistä käsittelevään asiakirjaan alla.",
+    "description": "Description text for POSAR section"
+  },
+  "posarDownloaded": {
+    "message": "POSAR ladattu!",
+    "description": "Toast message after downloading POSAR content"
+  },
+  "posarSection": {
+    "message": "Ohjelmiston suorituskyky ja riskin hyväksyminen",
+    "description": "Section header for Linkumori POSAR"
+  },
+  "posar_consent_accept_button": {
+    "message": "Hyväksy POSAR",
+    "description": "Button label to accept the POSAR document on the legal page"
+  },
+  "posar_consent_button_accepted": {
+    "message": "POSAR hyväksytty",
+    "description": "Button label shown after POSAR has been accepted"
+  },
+  "posar_consent_saved": {
+    "message": "POSAR hyväksytty.",
+    "description": "Toast shown after saving POSAR consent"
   }
 }

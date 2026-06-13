@@ -569,13 +569,16 @@
         }
 
         #licenseContent a,
-        #licenseContent a:visited {
+        #licenseContent a:visited,
+        #posarContent a,
+        #posarContent a:visited {
             color: var(--text-secondary);
             text-decoration: underline;
             text-underline-offset: 2px;
         }
 
-        #licenseContent a:hover {
+        #licenseContent a:hover,
+        #posarContent a:hover {
             color: var(--text-primary);
         }
 
@@ -1308,6 +1311,26 @@
                 </div>
             </div>
             <p id="legalConsentWithdrawNote" class="info-note" data-i18n="legal_consent_withdraw_note"></p>
+        </div>
+
+        <!-- POSAR Section -->
+        <h2 id="posarSectionHeader" class="section-header" data-i18n="posarSection">Performance of Software and Acceptance of Risk</h2>
+        <div id="posarSectionCard" class="card">
+            <p data-i18n="posarDescription">Please review Linkumori's Performance of Software and Acceptance of Risk document below.</p>
+
+            <div id="posarContent" class="content-area loading">
+                <span data-i18n="loadingContent"></span>
+            </div>
+
+            <div class="button-group">
+                <button id="copyPosarBtn" class="btn btn-secondary" disabled>
+                    <span data-i18n="copyText"></span>
+                </button>
+                <button id="downloadPosarBtn" class="btn btn-secondary" disabled>
+                    <span data-i18n="downloadText"></span>
+                </button>
+                <button id="posarConsentAcceptBtn" class="btn btn-secondary" type="button" disabled data-i18n="posar_consent_accept_button">Accept POSAR</button>
+            </div>
         </div>
 
         <!-- License Section -->
