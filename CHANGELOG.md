@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.26.0] - 2026-06-14 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.25.0...linkumori-v100.26.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-06-14`, hash: [`cd1f102`](https://github.com/Linkumori/Linkumori-Addon/commit/cd1f102))
+
 ## [v100.25.0] - 2026-06-13 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.24.0...linkumori-v100.25.0))
 ### Added
 - Introduce POSAR consent flow and translations (`2026-06-13`, hash: [`c1be6e6`](https://github.com/Linkumori/Linkumori-Addon/commit/c1be6e6))
