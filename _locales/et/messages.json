@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Olen lugenud privaatsuspoliitikat, POSAR-i ja litsentsi ning nõustun nendega.",
+    "message": "Kinnitan, et olen 18+ või seaduslikult täisealine ning olen lugenud privaatsuspoliitikat, POSARi ja litsentsi ning nõustun nendega.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Enne selle hüpikakna kasutamist lugege läbi privaatsuspoliitika, POSAR ja litsents. Me ei kogu teie andmeid. Kõik andmed salvestatakse teie seadmesse ja neid ei edastata meile.",
+    "message": "Enne selle hüpikakna kasutamist lugege läbi privaatsuspoliitika, POSAR ja litsents. Me ei kogu teie andmeid. Kõik andmed salvestatakse teie seadmesse ja neid ei edastata meile. Vanusekinnitus kehtib nii privaatsuspoliitika kui ka POSARi aktsepteerimise kohta.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Vaadake allolevad privaatsuspoliitika, POSAR ja litsents üle ning nõustuge seejärel Linkumorisse ülemineku lõpetamiseks.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Vajalik vanuse kinnitus",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori saab jätkata ainult siis, kui kinnitate, et olete 18-aastane või vanem või teie jurisdiktsioonis seaduslikult täisealine. See vanusekinnitus kehtib nii privaatsuspoliitika kui ka POSARi aktsepteerimise kohta.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Kui te ei saa seda kinnitada, jääb Linkumori peatatuks ja kumbagi dokumenti ei saa vastu võtta.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Tühista",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Ma ei ole täiskasvanu",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Taotlege privaatsus ja POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori on peatatud, kuna täiskasvanu kinnitust ei aktsepteeritud.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Vanusekinnitus on salvestatud privaatsuspoliitika ja POSAR jaoks.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Nõusolek on vajalik. Linkumori on peatatud, kuni nõustute kehtivate juriidiliste tingimustega.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Nõusolek on vajalik. Linkumori on peatatud, kuni kinnitate, et olete 18+ või seaduslikult täisealine.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Nõusolek on vajalik. Linkumori on peatatud, kuni nõustute kehtivate privaatsuspoliitika ja POSARiga.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Vastu võetud",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Kinnitage vanus",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Enne vastuvõtmist kinnitage, et olete 18+ või seaduslikult täisealine.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Nõusolek vastu võetud.",

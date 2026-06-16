@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Прочетох и приемам Политиката за поверителност, POSAR и Лиценза.",
+    "message": "Потвърждавам, че съм навършил 18 години или правно пълнолетен и съм прочел и приемам Политиката за поверителност, POSAR и Лиценза.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Моля, прочетете Политиката за поверителност, POSAR и Лиценза, преди да използвате този изскачащ прозорец. Ние не събираме вашите данни. Всички данни се съхраняват на вашето устройство и не се предават на нас.",
+    "message": "Моля, прочетете Политиката за поверителност, POSAR и Лиценза, преди да използвате този изскачащ прозорец. Ние не събираме вашите данни. Всички данни се съхраняват на вашето устройство и не се предават на нас. Потвърждаването на възрастта важи както за Политиката за поверителност, така и за приемането на POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Прегледайте Политиката за поверителност, POSAR и Лиценза по-долу, след което приемете, за да завършите мигрирането към Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Изисква се потвърждение на възрастта",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori може да продължи само ако потвърдите, че сте навършили 18 години или сте законно възрастен във вашата юрисдикция. Това потвърждение на възрастта важи както за Политиката за поверителност, така и за приемането на POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Ако не можете да потвърдите това, Linkumori ще остане на пауза и нито един документ не може да бъде приет.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Отказ",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Аз не съм възрастен",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Приложете за поверителност и POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori е поставен на пауза, защото потвърждението от възрастен не е прието.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Потвърждението на възрастта е запазено за Политиката за поверителност и POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Изисква се съгласие. Linkumori е на пауза, докато не приемете настоящите правни условия.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Изисква се съгласие. Linkumori се поставя на пауза, докато не потвърдите, че сте навършили 18 години или сте законно възрастен.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Изисква се съгласие. Linkumori е на пауза, докато не приемете настоящата Политика за поверителност и POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Прието",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Потвърдете възрастта",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Потвърдете, че сте навършили 18 години или сте пълнолетен по закон, преди да приемете.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Съгласието е прието.",

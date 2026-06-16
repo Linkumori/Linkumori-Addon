@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Nabasa at tinatanggap ko ang Patakaran sa Privacy, POSAR, at Lisensya.",
+    "message": "Kinukumpirma ko na ako ay 18+ o legal na nasa hustong gulang, at nabasa at tinatanggap ko ang Patakaran sa Privacy, POSAR, at Lisensya.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Pakibasa ang Patakaran sa Privacy, POSAR, at Lisensya bago gamitin ang popup na ito. Hindi namin kinokolekta ang iyong data. Ang lahat ng data ay naka-imbak sa iyong device at hindi ipinapadala sa amin.",
+    "message": "Pakibasa ang Patakaran sa Privacy, POSAR, at Lisensya bago gamitin ang popup na ito. Hindi namin kinokolekta ang iyong data. Ang lahat ng data ay naka-imbak sa iyong device at hindi ipinapadala sa amin. Nalalapat ang kumpirmasyon sa edad sa parehong Patakaran sa Privacy at pagtanggap ng POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Suriin ang Patakaran sa Privacy, POSAR, at Lisensya sa ibaba, pagkatapos ay tanggapin upang tapusin ang paglipat sa Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Kinakailangan ang kumpirmasyon sa edad",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Maaari lamang magpatuloy ang Linkumori kung kinumpirma mo na ikaw ay 18 taong gulang o mas matanda, o legal na nasa hustong gulang sa iyong hurisdiksyon. Nalalapat ang kumpirmasyon sa edad na ito sa parehong Patakaran sa Privacy at pagtanggap ng POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Kung hindi mo makumpirma ito, ang Linkumori ay mananatiling naka-pause at hindi maaaring tanggapin ang alinmang dokumento.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Kanselahin",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Hindi ako matanda",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Mag-apply sa Privacy at POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Naka-pause ang Linkumori dahil hindi tinanggap ang kumpirmasyon ng nasa hustong gulang.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Na-save ang kumpirmasyon ng edad para sa Patakaran sa Privacy at POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Kinakailangan ang pahintulot. Ang Linkumori ay naka-pause hanggang sa tanggapin mo ang kasalukuyang mga legal na tuntunin.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Kinakailangan ang pahintulot. Ang Linkumori ay naka-pause hanggang sa makumpirma mong ikaw ay 18+ o legal na nasa hustong gulang.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Kinakailangan ang pahintulot. Ang Linkumori ay naka-pause hanggang sa tanggapin mo ang kasalukuyang Patakaran sa Privacy at POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Tinanggap",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Kumpirmahin ang edad",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Kumpirmahin na ikaw ay 18+ o legal na nasa hustong gulang bago tanggapin.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Tinanggap ang pahintulot.",

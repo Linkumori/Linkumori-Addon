@@ -1325,11 +1325,11 @@
     "message": "Прийняти та продовжити"
   },
   "popup_consent_checkbox": {
-    "message": "Я прочитав і приймаю Політику конфіденційності, POSAR і Ліцензію.",
+    "message": "Я підтверджую, що мені виповнилося 18 років або я повнолітній, і я прочитав і приймаю Політику конфіденційності, POSAR і Ліцензію.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Перш ніж використовувати це спливаюче вікно, прочитайте Політику конфіденційності, POSAR і Ліцензію. Ми не збираємо ваші дані. Усі дані зберігаються на вашому пристрої та не передаються нам.",
+    "message": "Перш ніж використовувати це спливаюче вікно, прочитайте Політику конфіденційності, POSAR і Ліцензію. Ми не збираємо ваші дані. Усі дані зберігаються на вашому пристрої та не передаються нам. Підтвердження віку стосується як Політики конфіденційності, так і прийняття POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1427,8 +1427,44 @@
     "message": "Перегляньте Політику конфіденційності, POSAR і Ліцензію нижче, а потім прийміть, щоб завершити перехід на Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Необхідне підтвердження віку",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori може продовжити, лише якщо ви підтвердите, що вам виповнилося 18 років або ви є дорослим у вашій юрисдикції. Це підтвердження віку стосується як Політики конфіденційності, так і прийняття POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Якщо ви не можете підтвердити це, Linkumori залишатиметься призупиненим, і жоден документ не може бути прийнятий.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Скасувати",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Я не дорослий",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Подати заявку на конфіденційність і POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori призупинено, оскільки підтвердження дорослого не було прийнято.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Підтвердження віку збережено для Політики конфіденційності та POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Потрібна згода. Linkumori призупинено, доки ви не приймете поточні юридичні умови."
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Потрібна згода. Linkumori призупинено, доки ви не підтвердите, що вам виповнилося 18 років або ви є повнолітнім.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Потрібна згода. Linkumori призупинено, доки ви не приймете поточну Політику конфіденційності та POSAR.",
@@ -1487,6 +1523,14 @@
   },
   "legal_consent_button_accepted": {
     "message": "Прийнято"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Підтвердити вік",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Підтвердьте, що вам виповнилося 18 років або ви повнолітні, перш ніж приймати.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Згоду прийнято."

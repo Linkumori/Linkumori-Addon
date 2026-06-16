@@ -95,6 +95,7 @@ var pendingSaves = new Set();
 const POPUP_CONSENT_STORAGE_KEY = 'popupConsentAccepted';
 const POPUP_CONSENT_VERSION_STORAGE_KEY = 'popupConsentPolicyVersionAccepted';
 const POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY = 'popupConsentPOSARVersionAccepted';
+const POPUP_CONSENT_ADULT_STORAGE_KEY = 'popupConsentAdultAccepted';
 const POST_RELOAD_OPEN_URL_STORAGE_KEY = 'postReloadOpenUrl';
 var clearurlsStarted = false;
 const OBSOLETE_STORAGE_KEYS = new Set([
@@ -2491,14 +2492,19 @@ function getPopupConsentPOSARVersion() {
     return null;
 }
 
-function revokePopupConsentVersionMismatch() {
-    storage[POPUP_CONSENT_STORAGE_KEY] = false;
+function syncPopupConsentAggregate(consentAccepted, openLegalOnRevoke = false) {
+    const wasAccepted = storage[POPUP_CONSENT_STORAGE_KEY] === true;
+    if (wasAccepted === consentAccepted) {
+        return;
+    }
+
+    storage[POPUP_CONSENT_STORAGE_KEY] = consentAccepted;
 
     browser.storage.local.set({
-        [POPUP_CONSENT_STORAGE_KEY]: false
+        [POPUP_CONSENT_STORAGE_KEY]: consentAccepted
     }).catch(() => {});
 
-    if (browser.tabs && typeof browser.tabs.create === 'function') {
+    if (openLegalOnRevoke && browser.tabs && typeof browser.tabs.create === 'function') {
         browser.tabs.create({
             url: 'html/legal.html?source=consent_update',
         }).catch(() => {});
@@ -2506,28 +2512,27 @@ function revokePopupConsentVersionMismatch() {
 }
 
 function hasPopupConsentForStartup() {
-    if (storage[POPUP_CONSENT_STORAGE_KEY] !== true) {
-        return false;
-    }
-
     const currentPolicyVersion = getPopupConsentPolicyVersion();
     if (currentPolicyVersion === null) {
+        syncPopupConsentAggregate(false, storage[POPUP_CONSENT_STORAGE_KEY] === true);
         return false;
     }
 
     const currentPOSARVersion = getPopupConsentPOSARVersion();
     if (currentPOSARVersion === null) {
+        syncPopupConsentAggregate(false, storage[POPUP_CONSENT_STORAGE_KEY] === true);
         return false;
     }
 
     const acceptedPolicyVersion = Number(storage[POPUP_CONSENT_VERSION_STORAGE_KEY] || 0);
     const acceptedPOSARVersion = Number(storage[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY] || 0);
-    if (acceptedPolicyVersion === currentPolicyVersion && acceptedPOSARVersion === currentPOSARVersion) {
-        return true;
-    }
+    const adultAccepted = storage[POPUP_CONSENT_ADULT_STORAGE_KEY] === true;
+    const consentAccepted = acceptedPolicyVersion === currentPolicyVersion &&
+        acceptedPOSARVersion === currentPOSARVersion &&
+        adultAccepted;
 
-    revokePopupConsentVersionMismatch();
-    return false;
+    syncPopupConsentAggregate(consentAccepted, storage[POPUP_CONSENT_STORAGE_KEY] === true && !consentAccepted);
+    return consentAccepted;
 }
 
 function consumePostReloadOpenUrl() {
@@ -2877,6 +2882,7 @@ function initSettings() {
     storage.popupConsentAccepted = false;
     storage.popupConsentPolicyVersionAccepted = 0;
     storage.popupConsentPOSARVersionAccepted = 0;
+    storage.popupConsentAdultAccepted = false;
     storage[POST_RELOAD_OPEN_URL_STORAGE_KEY] = '';
     
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xml_dtd", "xmlhttprequest", "xslt"];
@@ -3150,8 +3156,9 @@ browser.storage.onChanged.addListener((changes, areaName) => {
     const hasConsentChange = Boolean(changes[POPUP_CONSENT_STORAGE_KEY]);
     const hasConsentVersionChange = Boolean(changes[POPUP_CONSENT_VERSION_STORAGE_KEY]);
     const hasConsentPOSARVersionChange = Boolean(changes[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY]);
+    const hasConsentAdultChange = Boolean(changes[POPUP_CONSENT_ADULT_STORAGE_KEY]);
 
-    if (!hasConsentChange && !hasConsentVersionChange && !hasConsentPOSARVersionChange) {
+    if (!hasConsentChange && !hasConsentVersionChange && !hasConsentPOSARVersionChange && !hasConsentAdultChange) {
         return;
     }
 
@@ -3169,6 +3176,10 @@ browser.storage.onChanged.addListener((changes, areaName) => {
         storage[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY] = Number(
             changes[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY].newValue || 0
         );
+    }
+
+    if (hasConsentAdultChange) {
+        storage[POPUP_CONSENT_ADULT_STORAGE_KEY] = changes[POPUP_CONSENT_ADULT_STORAGE_KEY].newValue === true;
     }
 
     if (hasPopupConsentForStartup()) {

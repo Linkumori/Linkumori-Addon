@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "ನಾನು ಗೌಪ್ಯತಾ ನೀತಿ, POSAR ಮತ್ತು ಪರವಾನಗಿಯನ್ನು ಓದಿದ್ದೇನೆ ಮತ್ತು ಸ್ವೀಕರಿಸಿದ್ದೇನೆ.",
+    "message": "ನಾನು 18+ ಅಥವಾ ಕಾನೂನುಬದ್ಧವಾಗಿ ವಯಸ್ಕ ಎಂದು ದೃಢೀಕರಿಸುತ್ತೇನೆ ಮತ್ತು ನಾನು ಗೌಪ್ಯತಾ ನೀತಿ, POSAR ಮತ್ತು ಪರವಾನಗಿಯನ್ನು ಓದಿದ್ದೇನೆ ಮತ್ತು ಸ್ವೀಕರಿಸಿದ್ದೇನೆ.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "ಈ ಪಾಪ್ಅಪ್ ಅನ್ನು ಬಳಸುವ ಮೊದಲು ದಯವಿಟ್ಟು ಗೌಪ್ಯತಾ ನೀತಿ, POSAR ಮತ್ತು ಪರವಾನಗಿಯನ್ನು ಓದಿ. ನಾವು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ. ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ ಮತ್ತು ನಮಗೆ ರವಾನಿಸುವುದಿಲ್ಲ.",
+    "message": "ಈ ಪಾಪ್ಅಪ್ ಅನ್ನು ಬಳಸುವ ಮೊದಲು ದಯವಿಟ್ಟು ಗೌಪ್ಯತಾ ನೀತಿ, POSAR ಮತ್ತು ಪರವಾನಗಿಯನ್ನು ಓದಿ. ನಾವು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ. ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ ಮತ್ತು ನಮಗೆ ರವಾನಿಸುವುದಿಲ್ಲ. ವಯಸ್ಸಿನ ದೃಢೀಕರಣವು ಗೌಪ್ಯತೆ ನೀತಿ ಮತ್ತು POSAR ಸ್ವೀಕಾರ ಎರಡಕ್ಕೂ ಅನ್ವಯಿಸುತ್ತದೆ.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "ಕೆಳಗಿನ ಗೌಪ್ಯತೆ ನೀತಿ, POSAR ಮತ್ತು ಪರವಾನಗಿಯನ್ನು ಪರಿಶೀಲಿಸಿ, ನಂತರ Linkumori ಗೆ ವಲಸೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಒಪ್ಪಿಕೊಳ್ಳಿ.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "ವಯಸ್ಸಿನ ದೃಢೀಕರಣ ಅಗತ್ಯವಿದೆ",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "ನೀವು 18 ವರ್ಷ ಅಥವಾ ಅದಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ವಯಸ್ಸಿನವರು ಅಥವಾ ನಿಮ್ಮ ಅಧಿಕಾರ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಕಾನೂನುಬದ್ಧವಾಗಿ ವಯಸ್ಕರು ಎಂದು ನೀವು ದೃಢೀಕರಿಸಿದರೆ ಮಾತ್ರ Linkumori ಮುಂದುವರೆಯಬಹುದು. ಈ ವಯಸ್ಸಿನ ದೃಢೀಕರಣವು ಗೌಪ್ಯತೆ ನೀತಿ ಮತ್ತು POSAR ಸ್ವೀಕಾರ ಎರಡಕ್ಕೂ ಅನ್ವಯಿಸುತ್ತದೆ.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "ನೀವು ಇದನ್ನು ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗದಿದ್ದರೆ, Linkumori ಅನ್ನು ವಿರಾಮಗೊಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಯಾವುದೇ ಡಾಕ್ಯುಮೆಂಟ್ ಅನ್ನು ಸ್ವೀಕರಿಸಲಾಗುವುದಿಲ್ಲ.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "ರದ್ದುಮಾಡಿ",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "ನಾನು ವಯಸ್ಕನಲ್ಲ",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "ಗೌಪ್ಯತೆ ಮತ್ತು POSAR ಗೆ ಅನ್ವಯಿಸಿ",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "ವಯಸ್ಕರ ದೃಢೀಕರಣವನ್ನು ಸ್ವೀಕರಿಸದ ಕಾರಣ Linkumori ಅನ್ನು ವಿರಾಮಗೊಳಿಸಲಾಗಿದೆ.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "ಗೌಪ್ಯತೆ ನೀತಿ ಮತ್ತು POSAR ಗಾಗಿ ವಯಸ್ಸಿನ ದೃಢೀಕರಣವನ್ನು ಉಳಿಸಲಾಗಿದೆ.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "ಒಪ್ಪಿಗೆ ಅಗತ್ಯವಿದೆ. ನೀವು ಪ್ರಸ್ತುತ ಕಾನೂನು ನಿಯಮಗಳನ್ನು ಒಪ್ಪಿಕೊಳ್ಳುವವರೆಗೆ Linkumori ಅನ್ನು ವಿರಾಮಗೊಳಿಸಲಾಗುತ್ತದೆ.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "ಒಪ್ಪಿಗೆ ಅಗತ್ಯವಿದೆ. ನೀವು 18+ ಅಥವಾ ಕಾನೂನುಬದ್ಧವಾಗಿ ವಯಸ್ಕರು ಎಂದು ನೀವು ಖಚಿತಪಡಿಸುವವರೆಗೆ Linkumori ಅನ್ನು ವಿರಾಮಗೊಳಿಸಲಾಗುತ್ತದೆ.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "ಒಪ್ಪಿಗೆ ಅಗತ್ಯವಿದೆ. ನೀವು ಪ್ರಸ್ತುತ ಗೌಪ್ಯತೆ ನೀತಿ ಮತ್ತು POSAR ಅನ್ನು ಒಪ್ಪಿಕೊಳ್ಳುವವರೆಗೆ Linkumori ಅನ್ನು ವಿರಾಮಗೊಳಿಸಲಾಗುತ್ತದೆ.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "ಸ್ವೀಕರಿಸಲಾಗಿದೆ",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "ವಯಸ್ಸನ್ನು ದೃಢೀಕರಿಸಿ",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "ಸ್ವೀಕರಿಸುವ ಮೊದಲು ನೀವು 18+ ಅಥವಾ ಕಾನೂನುಬದ್ಧವಾಗಿ ವಯಸ್ಕ ಎಂದು ದೃಢೀಕರಿಸಿ.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "ಒಪ್ಪಿಗೆಯನ್ನು ಸ್ವೀಕರಿಸಲಾಗಿದೆ.",

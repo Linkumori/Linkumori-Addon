@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "నేను గోప్యతా విధానం, POSAR మరియు లైసెన్స్‌ని చదివాను మరియు అంగీకరించాను.",
+    "message": "నేను 18+ లేదా చట్టబద్ధంగా పెద్దవాడిని అని ధృవీకరిస్తున్నాను మరియు నేను గోప్యతా విధానం, POSAR మరియు లైసెన్స్‌ని చదివి అంగీకరించాను.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "దయచేసి ఈ పాప్‌అప్‌ని ఉపయోగించే ముందు గోప్యతా విధానం, POSAR మరియు లైసెన్స్‌ని చదవండి. మేము మీ డేటాను సేకరించము. మొత్తం డేటా మీ పరికరంలో నిల్వ చేయబడుతుంది మరియు మాకు ప్రసారం చేయబడదు.",
+    "message": "దయచేసి ఈ పాప్‌అప్‌ని ఉపయోగించే ముందు గోప్యతా విధానం, POSAR మరియు లైసెన్స్‌ని చదవండి. మేము మీ డేటాను సేకరించము. మొత్తం డేటా మీ పరికరంలో నిల్వ చేయబడుతుంది మరియు మాకు ప్రసారం చేయబడదు. వయస్సు నిర్ధారణ గోప్యతా విధానం మరియు POSAR అంగీకారం రెండింటికీ వర్తిస్తుంది.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "దిగువన ఉన్న గోప్యతా విధానం, POSAR మరియు లైసెన్స్‌ని సమీక్షించండి, ఆపై Linkumoriకి మారడాన్ని పూర్తి చేయడానికి అంగీకరించండి.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "వయస్సు నిర్ధారణ అవసరం",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "మీరు 18 సంవత్సరాలు లేదా అంతకంటే ఎక్కువ వయస్సు ఉన్నారని లేదా మీ అధికార పరిధిలో చట్టబద్ధంగా పెద్దలు అని నిర్ధారిస్తే మాత్రమే Linkumori కొనసాగుతుంది. ఈ వయస్సు నిర్ధారణ గోప్యతా విధానం మరియు POSAR అంగీకారం రెండింటికీ వర్తిస్తుంది.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "మీరు దీన్ని నిర్ధారించలేకపోతే, Linkumori పాజ్ చేయబడి ఉంటుంది మరియు ఏ పత్రం ఆమోదించబడదు.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "రద్దు చేయి",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "నేను పెద్దవాడిని కాదు",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "గోప్యత మరియు POSARకి వర్తించండి",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "పెద్దల నిర్ధారణ ఆమోదించబడనందున Linkumori పాజ్ చేయబడింది.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "గోప్యతా విధానం మరియు POSAR కోసం వయస్సు నిర్ధారణ సేవ్ చేయబడింది.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "సమ్మతి అవసరం. మీరు ప్రస్తుత చట్టపరమైన నిబంధనలను ఆమోదించే వరకు Linkumori పాజ్ చేయబడుతుంది.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "సమ్మతి అవసరం. మీరు 18+ లేదా చట్టబద్ధంగా పెద్దలు అని నిర్ధారించే వరకు Linkumori పాజ్ చేయబడుతుంది.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "సమ్మతి అవసరం. మీరు ప్రస్తుత గోప్యతా విధానాన్ని మరియు POSARని ఆమోదించే వరకు Linkumori పాజ్ చేయబడుతుంది.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "అంగీకరించబడింది",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "వయస్సును నిర్ధారించండి",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "అంగీకరించే ముందు మీరు 18+ లేదా చట్టబద్ధంగా పెద్దలు అని నిర్ధారించండి.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "సమ్మతి ఆమోదించబడింది.",

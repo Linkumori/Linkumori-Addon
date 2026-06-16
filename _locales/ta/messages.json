@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "தனியுரிமைக் கொள்கை, POSAR மற்றும் உரிமத்தைப் படித்து ஏற்றுக்கொண்டேன்.",
+    "message": "நான் 18+ அல்லது சட்டப்பூர்வமாக வயது வந்தவர் என்பதை உறுதிப்படுத்துகிறேன், மேலும் தனியுரிமைக் கொள்கை, POSAR மற்றும் உரிமத்தைப் படித்து ஏற்றுக்கொண்டேன்.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "இந்த பாப்அப்பைப் பயன்படுத்துவதற்கு முன், தனியுரிமைக் கொள்கை, POSAR மற்றும் உரிமத்தைப் படிக்கவும். உங்கள் தரவை நாங்கள் சேகரிக்கவில்லை. எல்லா தரவும் உங்கள் சாதனத்தில் சேமிக்கப்பட்டு எங்களுக்கு அனுப்பப்படாது.",
+    "message": "இந்த பாப்அப்பைப் பயன்படுத்துவதற்கு முன், தனியுரிமைக் கொள்கை, POSAR மற்றும் உரிமத்தைப் படிக்கவும். உங்கள் தரவை நாங்கள் சேகரிக்கவில்லை. எல்லா தரவும் உங்கள் சாதனத்தில் சேமிக்கப்பட்டு எங்களுக்கு அனுப்பப்படாது. தனியுரிமைக் கொள்கை மற்றும் POSAR ஏற்பு ஆகிய இரண்டிற்கும் வயது உறுதிப்படுத்தல் பொருந்தும்.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "கீழே உள்ள தனியுரிமைக் கொள்கை, POSAR மற்றும் உரிமத்தை மதிப்பாய்வு செய்து, Linkumori க்கு இடம்பெயர்வதை முடிக்க ஏற்கவும்.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "வயது உறுதிப்படுத்தல் தேவை",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "நீங்கள் 18 வயது அல்லது அதற்கு மேற்பட்டவர் என்பதை உறுதிப்படுத்தினால் மட்டுமே Linkumori தொடர முடியும் அல்லது உங்கள் அதிகார வரம்பில் சட்டப்பூர்வமாக வயது வந்தவர். இந்த வயது உறுதிப்படுத்தல் தனியுரிமைக் கொள்கை மற்றும் POSAR ஏற்பு ஆகிய இரண்டிற்கும் பொருந்தும்.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "இதை உங்களால் உறுதிப்படுத்த முடியாவிட்டால், Linkumori இடைநிறுத்தப்பட்டு, எந்த ஆவணத்தையும் ஏற்க முடியாது.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "ரத்து செய்",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "நான் வயது முதிர்ந்தவன் அல்ல",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "தனியுரிமை மற்றும் POSAR க்கு விண்ணப்பிக்கவும்",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "வயது வந்தோர் உறுதிப்படுத்தல் ஏற்கப்படாததால் Linkumori இடைநிறுத்தப்பட்டது.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "தனியுரிமைக் கொள்கை மற்றும் POSAR க்கு வயது உறுதிப்படுத்தல் சேமிக்கப்பட்டது.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "ஒப்புதல் தேவை. தற்போதைய சட்ட விதிமுறைகளை ஏற்கும் வரை Linkumori இடைநிறுத்தப்படும்.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "ஒப்புதல் தேவை. நீங்கள் 18+ அல்லது சட்டப்பூர்வமாக வயது வந்தவர் என்பதை உறுதிப்படுத்தும் வரை Linkumori இடைநிறுத்தப்படும்.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "ஒப்புதல் தேவை. தற்போதைய தனியுரிமைக் கொள்கை மற்றும் POSARஐ ஏற்கும் வரை Linkumori இடைநிறுத்தப்படும்.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "ஏற்றுக்கொள்ளப்பட்டது",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "வயதை உறுதிப்படுத்தவும்",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "ஏற்றுக்கொள்வதற்கு முன் நீங்கள் 18+ அல்லது சட்டப்பூர்வமாக வயது வந்தவர் என்பதை உறுதிப்படுத்தவும்.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "ஒப்புதல் ஏற்கப்பட்டது.",

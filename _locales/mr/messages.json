@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "मी गोपनीयता धोरण, POSAR आणि परवाना वाचले आहे आणि स्वीकारले आहे.",
+    "message": "मी पुष्टी करतो की मी 18+ किंवा कायदेशीररित्या प्रौढ आहे आणि मी गोपनीयता धोरण, POSAR आणि परवाना वाचला आहे आणि स्वीकारला आहे.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "कृपया हा पॉपअप वापरण्यापूर्वी गोपनीयता धोरण, POSAR आणि परवाना वाचा. आम्ही तुमचा डेटा गोळा करत नाही. सर्व डेटा आपल्या डिव्हाइसवर संग्रहित केला जातो आणि आमच्याकडे प्रसारित केला जात नाही.",
+    "message": "कृपया हा पॉपअप वापरण्यापूर्वी गोपनीयता धोरण, POSAR आणि परवाना वाचा. आम्ही तुमचा डेटा गोळा करत नाही. सर्व डेटा आपल्या डिव्हाइसवर संग्रहित केला जातो आणि आमच्याकडे प्रसारित केला जात नाही. वयाची पुष्टी गोपनीयता धोरण आणि POSAR स्वीकृती या दोन्हींवर लागू होते.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "खालील गोपनीयता धोरण, POSAR आणि परवान्याचे पुनरावलोकन करा, त्यानंतर Linkumori वर स्थलांतर पूर्ण करण्यास स्वीकार करा.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "वयाची पुष्टी आवश्यक आहे",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "तुम्ही 18 वर्षे किंवा त्याहून अधिक वयाचे आहात किंवा तुमच्या अधिकारक्षेत्रात कायदेशीररित्या प्रौढ आहात याची तुम्ही पुष्टी केली तरच Linkumori सुरू ठेवू शकते. ही वयाची पुष्टी गोपनीयता धोरण आणि POSAR स्वीकृती या दोन्हींवर लागू होते.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "तुम्ही याची पुष्टी करू शकत नसल्यास, Linkumori ला विराम दिला जाईल आणि कोणताही दस्तऐवज स्वीकारला जाऊ शकत नाही.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "रद्द करा",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "मी प्रौढ नाही",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "गोपनीयता आणि POSAR वर अर्ज करा",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori ला विराम दिला आहे कारण प्रौढ पुष्टीकरण स्वीकारले गेले नाही.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "वय पुष्टीकरण गोपनीयता धोरण आणि POSAR साठी जतन केले आहे.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "संमती आवश्यक. तुम्ही सध्याच्या कायदेशीर अटी मान्य करेपर्यंत Linkumori ला विराम दिला जाईल.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "संमती आवश्यक. तुम्ही 18+ किंवा कायदेशीररित्या प्रौढ आहात याची तुम्ही खात्री करेपर्यंत Linkumori ला विराम दिला जाईल.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "संमती आवश्यक. तुम्ही वर्तमान गोपनीयता धोरण आणि POSAR स्वीकार करेपर्यंत Linkumori ला विराम दिला जाईल.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "स्वीकारले",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "वयाची पुष्टी करा",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "स्वीकार करण्यापूर्वी तुम्ही १८+ किंवा कायदेशीररित्या प्रौढ आहात याची पुष्टी करा.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "संमती स्वीकारली.",

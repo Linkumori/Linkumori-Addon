@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "আমি গোপনীয়তা নীতি, POSAR, এবং লাইসেন্স পড়েছি এবং গ্রহণ করেছি।",
+    "message": "আমি নিশ্চিত করছি যে আমি 18+ বা আইনত একজন প্রাপ্তবয়স্ক, এবং আমি গোপনীয়তা নীতি, POSAR, এবং লাইসেন্স পড়েছি এবং গ্রহণ করেছি।",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "এই পপআপ ব্যবহার করার আগে অনুগ্রহ করে গোপনীয়তা নীতি, POSAR এবং লাইসেন্স পড়ুন। আমরা আপনার ডেটা সংগ্রহ করি না। সমস্ত ডেটা আপনার ডিভাইসে সংরক্ষণ করা হয় এবং আমাদের কাছে প্রেরণ করা হয় না।",
+    "message": "এই পপআপ ব্যবহার করার আগে অনুগ্রহ করে গোপনীয়তা নীতি, POSAR এবং লাইসেন্স পড়ুন। আমরা আপনার ডেটা সংগ্রহ করি না। সমস্ত ডেটা আপনার ডিভাইসে সংরক্ষণ করা হয় এবং আমাদের কাছে প্রেরণ করা হয় না। বয়স নিশ্চিতকরণ গোপনীয়তা নীতি এবং POSAR গ্রহণ উভয় ক্ষেত্রেই প্রযোজ্য।",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "নীচের গোপনীয়তা নীতি, POSAR, এবং লাইসেন্স পর্যালোচনা করুন, তারপর Linkumori-এ স্থানান্তর করা শেষ করতে স্বীকার করুন।",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "বয়স নিশ্চিতকরণ প্রয়োজন",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori শুধুমাত্র তখনই চালিয়ে যেতে পারে যদি আপনি নিশ্চিত করেন যে আপনি 18 বছর বা তার বেশি বয়সী, অথবা আইনত আপনার এখতিয়ারে একজন প্রাপ্তবয়স্ক। এই বয়স নিশ্চিতকরণ গোপনীয়তা নীতি এবং POSAR গ্রহণ উভয় ক্ষেত্রেই প্রযোজ্য।",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "আপনি যদি এটি নিশ্চিত করতে না পারেন, তাহলে Linkumori থেমে থাকবে এবং নথি গ্রহণ করা যাবে না।",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "বাতিল করুন",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "আমি একজন প্রাপ্তবয়স্ক নই",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "গোপনীয়তা এবং POSAR এ আবেদন করুন",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "প্রাপ্তবয়স্কদের নিশ্চিতকরণ গ্রহণ করা হয়নি বলে Linkumori থামানো হয়েছে।",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "গোপনীয়তা নীতি এবং POSAR-এর জন্য বয়স নিশ্চিতকরণ সংরক্ষিত।",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "সম্মতি প্রয়োজন । আপনি বর্তমান আইনি শর্তাবলী গ্রহণ না করা পর্যন্ত Linkumori স্থগিত করা হয় ।",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "সম্মতি প্রয়োজন। আপনি 18+ বা আইনত একজন প্রাপ্তবয়স্ক হওয়ার বিষয়টি নিশ্চিত না হওয়া পর্যন্ত Linkumori থামানো হবে।",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "সম্মতি প্রয়োজন। আপনি বর্তমান গোপনীয়তা নীতি এবং POSAR গ্রহন না করা পর্যন্ত Linkumori থামানো হবে।",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "গৃহীত",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "বয়স নিশ্চিত করুন",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "স্বীকার করার আগে নিশ্চিত করুন যে আপনি 18+ বা আইনত একজন প্রাপ্তবয়স্ক।",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "সম্মতি গৃহীত হয়েছে ।",

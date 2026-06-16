@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "ഞാൻ സ്വകാര്യതാ നയം, POSAR, ലൈസൻസ് എന്നിവ വായിക്കുകയും അംഗീകരിക്കുകയും ചെയ്തിട്ടുണ്ട്.",
+    "message": "എനിക്ക് 18+ അല്ലെങ്കിൽ നിയമപരമായി പ്രായപൂർത്തിയായ ആളാണെന്ന് ഞാൻ സ്ഥിരീകരിക്കുന്നു, കൂടാതെ ഞാൻ സ്വകാര്യതാ നയം, POSAR, ലൈസൻസ് എന്നിവ വായിക്കുകയും അംഗീകരിക്കുകയും ചെയ്തിട്ടുണ്ട്.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "ഈ പോപ്പ്അപ്പ് ഉപയോഗിക്കുന്നതിന് മുമ്പ് ദയവായി സ്വകാര്യതാ നയം, POSAR, ലൈസൻസ് എന്നിവ വായിക്കുക. ഞങ്ങൾ നിങ്ങളുടെ ഡാറ്റ ശേഖരിക്കുന്നില്ല. എല്ലാ ഡാറ്റയും നിങ്ങളുടെ ഉപകരണത്തിൽ സംഭരിച്ചിരിക്കുന്നതിനാൽ ഞങ്ങൾക്ക് കൈമാറില്ല.",
+    "message": "ഈ പോപ്പ്അപ്പ് ഉപയോഗിക്കുന്നതിന് മുമ്പ് ദയവായി സ്വകാര്യതാ നയം, POSAR, ലൈസൻസ് എന്നിവ വായിക്കുക. ഞങ്ങൾ നിങ്ങളുടെ ഡാറ്റ ശേഖരിക്കുന്നില്ല. എല്ലാ ഡാറ്റയും നിങ്ങളുടെ ഉപകരണത്തിൽ സംഭരിച്ചിരിക്കുന്നതിനാൽ ഞങ്ങൾക്ക് കൈമാറില്ല. സ്വകാര്യതാ നയത്തിനും POSAR സ്വീകാര്യതയ്ക്കും പ്രായം സ്ഥിരീകരണം ബാധകമാണ്.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "ചുവടെയുള്ള സ്വകാര്യതാ നയം, POSAR, ലൈസൻസ് എന്നിവ അവലോകനം ചെയ്യുക, തുടർന്ന് Linkumori-ലേക്ക് മൈഗ്രേറ്റ് ചെയ്യുന്നത് പൂർത്തിയാക്കാൻ അംഗീകരിക്കുക.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "പ്രായം സ്ഥിരീകരണം ആവശ്യമാണ്",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "നിങ്ങൾക്ക് 18 വയസോ അതിൽ കൂടുതലോ പ്രായമുണ്ടെന്ന് അല്ലെങ്കിൽ നിങ്ങളുടെ അധികാരപരിധിയിൽ നിയമപരമായി പ്രായപൂർത്തിയായ ആളാണെന്ന് സ്ഥിരീകരിച്ചാൽ മാത്രമേ Linkumori തുടരാനാകൂ. ഈ പ്രായ സ്ഥിരീകരണം സ്വകാര്യതാ നയത്തിനും POSAR സ്വീകാര്യതയ്ക്കും ബാധകമാണ്.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "നിങ്ങൾക്ക് ഇത് സ്ഥിരീകരിക്കാൻ കഴിയുന്നില്ലെങ്കിൽ, ലിങ്കുമോറി താൽക്കാലികമായി നിർത്തും, ഒരു പ്രമാണവും സ്വീകരിക്കാൻ കഴിയില്ല.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "റദ്ദാക്കുക",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "ഞാൻ മുതിർന്ന ആളല്ല",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "സ്വകാര്യതയ്ക്കും POSAR-നും അപേക്ഷിക്കുക",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "മുതിർന്നവരുടെ സ്ഥിരീകരണം സ്വീകരിക്കാത്തതിനാൽ ലിങ്കുമോറി താൽക്കാലികമായി നിർത്തി.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "സ്വകാര്യതാ നയത്തിനും POSAR-നും പ്രായ സ്ഥിരീകരണം സംരക്ഷിച്ചു.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "സമ്മതം ആവശ്യമാണ്. നിലവിലെ നിയമ വ്യവസ്ഥകൾ നിങ്ങൾ അംഗീകരിക്കുന്നത് വരെ Linkumori താൽക്കാലികമായി നിർത്തി.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "സമ്മതം ആവശ്യമാണ്. നിങ്ങൾക്ക് 18 വയസ്സിനു മുകളിലോ നിയമപരമായി പ്രായപൂർത്തിയായവരോ ആണെന്ന് സ്ഥിരീകരിക്കുന്നത് വരെ Linkumori താൽക്കാലികമായി നിർത്തി.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "സമ്മതം ആവശ്യമാണ്. നിലവിലെ സ്വകാര്യതാ നയവും POSAR-ഉം നിങ്ങൾ അംഗീകരിക്കുന്നത് വരെ Linkumori താൽക്കാലികമായി നിർത്തിവച്ചിരിക്കുന്നു.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "സ്വീകരിച്ചു",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "പ്രായം സ്ഥിരീകരിക്കുക",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "അംഗീകരിക്കുന്നതിന് മുമ്പ് നിങ്ങൾ 18+ അല്ലെങ്കിൽ നിയമപരമായി പ്രായപൂർത്തിയായ ആളാണെന്ന് സ്ഥിരീകരിക്കുക.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "സമ്മതം സ്വീകരിച്ചു.",

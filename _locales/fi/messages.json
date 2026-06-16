@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Olen lukenut ja hyväksyn tietosuojakäytännön, POSARin ja lisenssin.",
+    "message": "Vakuutan, että olen yli 18-vuotias tai laillisesti täysi-ikäinen, ja olen lukenut ja hyväksyn tietosuojakäytännön, POSAR- ja lisenssin.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Lue tietosuojakäytäntö, POSAR ja lisenssi ennen tämän ponnahdusikkunan käyttöä. Emme kerää tietojasi. Kaikki tiedot tallennetaan laitteellesi, eikä niitä välitetä meille.",
+    "message": "Lue tietosuojakäytäntö, POSAR ja lisenssi ennen tämän ponnahdusikkunan käyttöä. Emme kerää tietojasi. Kaikki tiedot tallennetaan laitteellesi, eikä niitä välitetä meille. Ikävahvistus koskee sekä tietosuojakäytäntöä että POSAR-hyväksyntää.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Tutustu alla olevaan tietosuojakäytäntöön, POSARiin ja lisenssiin ja hyväksy sitten siirtyminen Linkumoriin.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Ikävahvistus vaaditaan",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori voi jatkaa vain, jos vahvistat olevasi vähintään 18-vuotias tai laillisesti täysi-ikäinen lainkäyttöalueellasi. Tämä iän vahvistus koskee sekä tietosuojakäytäntöä että POSAR-hyväksyntää.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Jos et voi vahvistaa tätä, Linkumori pysyy tauolla eikä kumpaakaan asiakirjaa voida hyväksyä.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Peruuttaa",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "En ole aikuinen",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Hae tietosuojaan ja POSARiin",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori on keskeytetty, koska aikuisen vahvistusta ei hyväksytty.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Ikävahvistus tallennettu tietosuojakäytäntöön ja POSARiin.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Suostumus vaaditaan. Linkumori on keskeytetty, kunnes hyväksyt voimassa olevat lailliset ehdot.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Suostumus vaaditaan. Linkumori on tauolla, kunnes vahvistat olevasi 18+ tai laillisesti täysi-ikäinen.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Suostumus vaaditaan. Linkumori on keskeytetty, kunnes hyväksyt nykyiset tietosuojakäytännöt ja POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Hyväksytty",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Vahvista ikä",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Varmista, että olet vähintään 18-vuotias tai laillisesti täysi-ikäinen ennen hyväksymistä.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Suostumus hyväksytty.",

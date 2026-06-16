@@ -84,6 +84,27 @@ const {
 } = globalThis.LinkumoriTheme;
 const LIGHT_THEME_OPTIONS = new Set(['light', 'icecold', 'sunset']);
 const DARK_THEME_OPTIONS = new Set(['dark', 'midnight', 'legacy']);
+const PRIVACY_VERSION_CONFIG_PATH = 'data/privacy-policy-map.json';
+const SETTINGS_LEGAL_DOCUMENTS = [
+    {
+        key: 'license',
+        path: 'License.md',
+        titleKey: 'licenseSection',
+        fallbackTitle: 'License'
+    },
+    {
+        key: 'privacy',
+        privacyMap: true,
+        titleKey: 'privacyPolicySection',
+        fallbackTitle: 'Privacy Policy'
+    },
+    {
+        key: 'posar',
+        path: 'Linkumori-POSAR.md',
+        titleKey: 'posarSection',
+        fallbackTitle: 'Performance of Software and Acceptance of Risk'
+    }
+];
 const themeSelectionState = {
     initialized: false,
     handlersBound: false,
@@ -115,6 +136,18 @@ let securityModalState = {
 
 let settingsImportPromptState = {
     resolver: null
+};
+
+let settingsPrivacyVersionMapState = {
+    loaded: false,
+    entries: [],
+    defaultVersion: '',
+    selectedVersionByPrefix: {}
+};
+
+let settingsLegalDocumentFlowState = {
+    active: false,
+    queue: []
 };
 
 function modalConfirm(message) {
@@ -442,6 +475,8 @@ function setupModalEventHandlers() {
     if (settingsImportPromptConfirm) {
         settingsImportPromptConfirm.onclick = () => resolveSettingsImportPrompt(true);
     }
+
+    bindSettingsLegalDocumentButtons();
     
     // Close modal on overlay click
     const securityOverlay = document.getElementById('securityDisclaimerModal');
@@ -449,6 +484,9 @@ function setupModalEventHandlers() {
     const redirectionWarningOverlay = document.getElementById('redirectionWarningModal');
     const confirmationOverlay = document.getElementById('confirmationModal');
     const settingsImportPromptOverlay = document.getElementById('settingsImportPromptModal');
+    const settingsLicenseDocumentOverlay = document.getElementById('settingsLicenseDocumentModal');
+    const settingsPrivacyDocumentOverlay = document.getElementById('settingsPrivacyDocumentModal');
+    const settingsPosarDocumentOverlay = document.getElementById('settingsPosarDocumentModal');
     
     if (securityOverlay) {
         securityOverlay.onclick = (e) => {
@@ -487,11 +525,32 @@ function setupModalEventHandlers() {
             }
         };
     }
+
+    [
+        ['license', settingsLicenseDocumentOverlay],
+        ['privacy', settingsPrivacyDocumentOverlay],
+        ['posar', settingsPosarDocumentOverlay]
+    ].forEach(([documentKey, overlay]) => {
+        if (!overlay) {
+            return;
+        }
+        overlay.onclick = (e) => {
+            if (e.target === overlay) {
+                cancelSettingsLegalDocumentFlow(documentKey);
+            }
+        };
+    });
     
     // ESC key to close modals
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            if (isModalVisible('securityDisclaimerModal')) {
+            if (isModalVisible('settingsLicenseDocumentModal')) {
+                cancelSettingsLegalDocumentFlow('license');
+            } else if (isModalVisible('settingsPrivacyDocumentModal')) {
+                cancelSettingsLegalDocumentFlow('privacy');
+            } else if (isModalVisible('settingsPosarDocumentModal')) {
+                cancelSettingsLegalDocumentFlow('posar');
+            } else if (isModalVisible('securityDisclaimerModal')) {
                 handleSecurityModalCancel();
             } else if (isModalVisible('disableGatekeeperRiskModal')) {
                 handleDisableGatekeeperRiskCancel();
@@ -754,6 +813,8 @@ function handleSecurityModalCancel() {
     securityModalState.pendingToggleChange = null;
     securityModalState.confirmationContext = null;
     securityModalState.customConfirmationPhrase = null;
+    settingsLegalDocumentFlowState.active = false;
+    settingsLegalDocumentFlowState.queue = [];
     
     // Hide modal
     hideModal('securityDisclaimerModal');
@@ -768,10 +829,11 @@ function handleSecurityModalCancel() {
 function handleSecurityModalContinue() {
     // Hide security modal
     hideModal('securityDisclaimerModal');
+    securityModalState.confirmationContext = null;
+    securityModalState.customConfirmationPhrase = null;
     
-    // Small delay before showing confirmation modal
     setTimeout(() => {
-        showConfirmationModal();
+        startSettingsLegalDocumentFlow();
     }, 400);
 }
 
@@ -779,6 +841,8 @@ function handleDisableGatekeeperRiskCancel() {
     securityModalState.pendingToggleChange = null;
     securityModalState.confirmationContext = null;
     securityModalState.customConfirmationPhrase = null;
+    settingsLegalDocumentFlowState.active = false;
+    settingsLegalDocumentFlowState.queue = [];
     hideModal('disableGatekeeperRiskModal');
     showStatus(translate('security_modal_cancelled'), 'info');
 }
@@ -790,7 +854,7 @@ function handleDisableGatekeeperRiskContinue() {
     securityModalState.customConfirmationPhrase = translate('disable_gatekeeper_confirmation_phrase');
 
     setTimeout(() => {
-        showConfirmationModal();
+        startSettingsLegalDocumentFlow();
     }, 400);
 }
 
@@ -1192,6 +1256,359 @@ function setHTMLContent(element, html) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(`<!doctype html><body>${html || ''}</body>`, 'text/html');
     element.replaceChildren(...Array.from(doc.body.childNodes));
+}
+
+function getSettingsLegalDocumentConfig(documentKey) {
+    return SETTINGS_LEGAL_DOCUMENTS.find((entry) => entry.key === documentKey) || null;
+}
+
+function getSettingsLegalDocumentModalId(documentKey) {
+    const ids = {
+        license: 'settingsLicenseDocumentModal',
+        privacy: 'settingsPrivacyDocumentModal',
+        posar: 'settingsPosarDocumentModal'
+    };
+    return ids[documentKey] || '';
+}
+
+function getSettingsLegalDocumentModalPrefix(documentKey) {
+    const prefixes = {
+        license: 'settings_license_modal',
+        privacy: 'settings_privacy_modal',
+        posar: 'settings_posar_modal'
+    };
+    return prefixes[documentKey] || '';
+}
+
+function bindSettingsLegalDocumentButtons() {
+    [
+        ['settingsLicenseDocumentClose', 'license'],
+        ['settingsPrivacyDocumentClose', 'privacy'],
+        ['settingsPosarDocumentClose', 'posar']
+    ].forEach(([buttonId, documentKey]) => {
+        const button = document.getElementById(buttonId);
+        if (button) {
+            button.onclick = () => advanceSettingsLegalDocumentFlow(documentKey);
+        }
+    });
+}
+
+function startSettingsLegalDocumentFlow() {
+    settingsLegalDocumentFlowState.active = true;
+    settingsLegalDocumentFlowState.queue = ['privacy', 'license', 'posar'];
+    showSettingsLegalDocumentModal(settingsLegalDocumentFlowState.queue[0]);
+}
+
+function advanceSettingsLegalDocumentFlow(documentKey) {
+    hideSettingsLegalDocumentModal(documentKey);
+    if (!settingsLegalDocumentFlowState.active) {
+        return;
+    }
+
+    settingsLegalDocumentFlowState.queue.shift();
+    const nextDocumentKey = settingsLegalDocumentFlowState.queue[0];
+    if (nextDocumentKey) {
+        setTimeout(() => {
+            showSettingsLegalDocumentModal(nextDocumentKey);
+        }, 300);
+        return;
+    }
+
+    settingsLegalDocumentFlowState.active = false;
+    setTimeout(() => {
+        showConfirmationModal();
+    }, 400);
+}
+
+function cancelSettingsLegalDocumentFlow(documentKey) {
+    hideSettingsLegalDocumentModal(documentKey);
+    settingsLegalDocumentFlowState.active = false;
+    settingsLegalDocumentFlowState.queue = [];
+    securityModalState.pendingField = null;
+    securityModalState.pendingValue = null;
+    securityModalState.pendingToggleChange = null;
+    securityModalState.confirmationContext = null;
+    securityModalState.customConfirmationPhrase = null;
+    showStatus(translate('security_modal_cancelled'), 'info');
+}
+
+function showSettingsLegalDocumentModal(documentKey) {
+    const config = getSettingsLegalDocumentConfig(documentKey);
+    const modalId = getSettingsLegalDocumentModalId(documentKey);
+    const prefix = getSettingsLegalDocumentModalPrefix(documentKey);
+    const modal = document.getElementById(modalId);
+    const title = document.getElementById(`${prefix}_title`);
+    const closeButton = document.getElementById({
+        license: 'settingsLicenseDocumentClose',
+        privacy: 'settingsPrivacyDocumentClose',
+        posar: 'settingsPosarDocumentClose'
+    }[documentKey]);
+
+    if (!config || !modal || !prefix) {
+        return;
+    }
+
+    const label = translate(config.titleKey) || config.fallbackTitle;
+    if (title) {
+        title.textContent = label;
+    }
+    if (closeButton) {
+        closeButton.textContent = settingsLegalDocumentFlowState.active
+            ? (translate('security_modal_continue') || 'Continue')
+            : (translate('button_close') || 'Close');
+    }
+
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => {
+        modal.classList.add('show');
+    });
+
+    loadSettingsLegalDocument(prefix, config);
+}
+
+function hideSettingsLegalDocumentModal(documentKey) {
+    hideModal(getSettingsLegalDocumentModalId(documentKey));
+}
+
+function parseSettingsMarkdownToHTML(markdown) {
+    if (!markdown || !markdown.trim()) {
+        return '';
+    }
+
+    try {
+        const markedLib = globalThis.marked;
+        if (typeof markedLib === 'function') {
+            return markedLib(markdown);
+        }
+    } catch (error) {
+        console.warn('Marked markdown parsing failed, falling back to plain text.', error);
+    }
+
+    const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+    const htmlParts = [];
+    let paragraph = [];
+    let listOpen = false;
+
+    const flushParagraph = () => {
+        if (paragraph.length === 0) {
+            return;
+        }
+        htmlParts.push(`<p>${escapeHtml(paragraph.join(' '))}</p>`);
+        paragraph = [];
+    };
+
+    const closeList = () => {
+        if (!listOpen) {
+            return;
+        }
+        htmlParts.push('</ul>');
+        listOpen = false;
+    };
+
+    lines.forEach((line) => {
+        const trimmed = line.trim();
+        if (!trimmed) {
+            flushParagraph();
+            closeList();
+            return;
+        }
+
+        const heading = trimmed.match(/^(#{1,3})\s+(.+)$/);
+        if (heading) {
+            flushParagraph();
+            closeList();
+            const level = heading[1].length;
+            htmlParts.push(`<h${level}>${escapeHtml(heading[2])}</h${level}>`);
+            return;
+        }
+
+        const bullet = trimmed.match(/^[-*]\s+(.+)$/);
+        if (bullet) {
+            flushParagraph();
+            if (!listOpen) {
+                htmlParts.push('<ul>');
+                listOpen = true;
+            }
+            htmlParts.push(`<li>${escapeHtml(bullet[1])}</li>`);
+            return;
+        }
+
+        paragraph.push(trimmed);
+    });
+
+    flushParagraph();
+    closeList();
+    return htmlParts.join('');
+}
+
+function setSettingsLegalDocumentLoading(element) {
+    if (!element) {
+        return;
+    }
+    element.classList.add('loading');
+    element.classList.remove('error');
+    element.textContent = translate('loadingContent') || 'Loading content...';
+}
+
+function setSettingsLegalDocumentError(element, error) {
+    if (!element) {
+        return;
+    }
+    element.classList.remove('loading');
+    element.classList.add('error');
+    const message = error && error.message ? error.message : '';
+    element.textContent = message
+        ? `${translate('loadError') || 'Error loading content'}: ${message}`
+        : (translate('loadError') || 'Error loading content');
+}
+
+function resolveSettingsPageRelativePath(path) {
+    return new URL(path, browser.runtime.getURL('html/settings.html')).href;
+}
+
+async function loadSettingsPrivacyVersionMap() {
+    if (settingsPrivacyVersionMapState.loaded) {
+        return settingsPrivacyVersionMapState;
+    }
+    const response = await fetch(browser.runtime.getURL(PRIVACY_VERSION_CONFIG_PATH), {
+        cache: 'no-cache',
+        headers: {
+            'Accept': 'application/json,*/*'
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const config = await response.json();
+    if (!config || !Array.isArray(config.versions) || config.versions.length === 0) {
+        throw new Error('Invalid privacy policy map config');
+    }
+
+    const validVersions = config.versions.filter((entry) =>
+        entry && typeof entry === 'object' &&
+        typeof entry.key === 'string' &&
+        entry.key.trim() &&
+        typeof entry.path === 'string' &&
+        entry.path.trim()
+    );
+
+    if (validVersions.length === 0) {
+        throw new Error('No valid privacy policy map entries');
+    }
+
+    const selectedVersion = validVersions.find((entry) => entry.key === config.defaultVersion) ||
+        validVersions[0];
+    settingsPrivacyVersionMapState = {
+        loaded: true,
+        entries: validVersions,
+        defaultVersion: selectedVersion.key,
+        selectedVersionByPrefix: settingsPrivacyVersionMapState.selectedVersionByPrefix || {}
+    };
+    return settingsPrivacyVersionMapState;
+}
+
+function getSettingsPrivacyVersionLabel(entry) {
+    if (!entry) {
+        return '';
+    }
+    return entry.labelKey ? (translate(entry.labelKey) || entry.key) : (entry.label || entry.key);
+}
+
+async function configureSettingsPrivacyVersionSelector(prefix) {
+    const row = document.getElementById(`${prefix}_privacy_version_row`);
+    const label = document.getElementById(`${prefix}_privacy_version_label`);
+    const selector = document.getElementById(`${prefix}_privacy_version_selector`);
+    const help = document.getElementById(`${prefix}_privacy_version_help`);
+    if (!row || !selector) {
+        return null;
+    }
+
+    const privacyMap = await loadSettingsPrivacyVersionMap();
+    row.style.display = '';
+
+    if (label) {
+        label.textContent = translate('privacyVersionLabel') || 'Privacy policy language';
+    }
+    if (help) {
+        help.textContent = translate('privacyVersionDescription') || 'Choose which privacy policy document to view.';
+    }
+
+    selector.replaceChildren();
+    privacyMap.entries.forEach((entry) => {
+        const option = document.createElement('option');
+        option.value = entry.key;
+        option.textContent = getSettingsPrivacyVersionLabel(entry);
+        selector.appendChild(option);
+    });
+
+    const selectedVersion = settingsPrivacyVersionMapState.selectedVersionByPrefix[prefix] ||
+        privacyMap.defaultVersion;
+    selector.value = privacyMap.entries.some((entry) => entry.key === selectedVersion)
+        ? selectedVersion
+        : privacyMap.defaultVersion;
+    settingsPrivacyVersionMapState.selectedVersionByPrefix[prefix] = selector.value;
+
+    selector.onchange = () => {
+        settingsPrivacyVersionMapState.selectedVersionByPrefix[prefix] = selector.value;
+        loadSettingsLegalDocument(prefix, SETTINGS_LEGAL_DOCUMENTS.find((entry) => entry.key === 'privacy'));
+    };
+
+    return privacyMap.entries.find((entry) => entry.key === selector.value) ||
+        privacyMap.entries.find((entry) => entry.key === privacyMap.defaultVersion) ||
+        privacyMap.entries[0];
+}
+
+async function resolveSettingsLegalDocumentUrl(prefix, documentConfig) {
+    if (!documentConfig.privacyMap) {
+        return browser.runtime.getURL(documentConfig.path);
+    }
+
+    const selectedVersion = await configureSettingsPrivacyVersionSelector(prefix);
+    if (!selectedVersion) {
+        throw new Error('No valid privacy policy map entries');
+    }
+    return resolveSettingsPageRelativePath(selectedVersion.path);
+}
+
+async function loadSettingsLegalDocument(prefix, documentConfig) {
+    const title = document.getElementById(`${prefix}_${documentConfig.key}_document_title`);
+    const content = document.getElementById(`${prefix}_${documentConfig.key}_document`);
+    if (!content) {
+        return;
+    }
+
+    if (title) {
+        title.textContent = translate(documentConfig.titleKey) || documentConfig.fallbackTitle;
+    }
+
+    setSettingsLegalDocumentLoading(content);
+
+    try {
+        const documentUrl = await resolveSettingsLegalDocumentUrl(prefix, documentConfig);
+        const response = await fetch(documentUrl, {
+            cache: 'no-cache',
+            headers: {
+                'Accept': 'text/plain,*/*'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const text = await response.text();
+        if (!text || !text.trim()) {
+            throw new Error(translate('fileEmptyError') || 'File is empty or unreadable');
+        }
+
+        content.classList.remove('loading', 'error');
+        setHTMLContent(content, parseSettingsMarkdownToHTML(text));
+        content.scrollTop = 0;
+    } catch (error) {
+        setSettingsLegalDocumentError(content, error);
+    }
 }
 
 function buildRemoteRuleDescriptionHtml({ basicText, mandatoryText, securityNotice, restrictionNotice = '' }) {

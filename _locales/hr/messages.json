@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Pročitao sam i prihvaćam Politiku privatnosti, POSAR i Licencu.",
+    "message": "Potvrđujem da sam stariji od 18 godina ili da sam zakonski punoljetan te da sam pročitao i prihvaćam Pravila o privatnosti, POSAR i Licencu.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Pročitajte Pravila o privatnosti, POSAR i Licencu prije korištenja ovog skočnog prozora. Ne prikupljamo vaše podatke. Svi podaci pohranjuju se na vašem uređaju i ne prenose se nama.",
+    "message": "Pročitajte Pravila o privatnosti, POSAR i Licencu prije korištenja ovog skočnog prozora. Ne prikupljamo vaše podatke. Svi podaci pohranjuju se na vašem uređaju i ne prenose se nama. Potvrda dobi primjenjuje se i na Pravila o privatnosti i na prihvaćanje POSAR-a.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Pregledajte Pravila o privatnosti, POSAR i Licencu u nastavku, a zatim prihvatite da završite migraciju na Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Potrebna potvrda dobi",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori može nastaviti samo ako potvrdite da imate 18 ili više godina ili da ste zakonski punoljetni u svojoj nadležnosti. Ova potvrda dobi odnosi se i na Politiku privatnosti i na prihvaćanje POSAR-a.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Ako to ne možete potvrditi, Linkumori će ostati pauziran i niti jedan dokument se ne može prihvatiti.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Otkazati",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "nisam odrasla osoba",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Prijavite se na Privatnost i POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori je pauziran jer potvrda odrasle osobe nije prihvaćena.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Potvrda o dobi spremljena za Pravila privatnosti i POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Potreban pristanak. Linkumori je pauziran dok ne prihvatite trenutne pravne uvjete.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Potreban pristanak. Linkumori je pauziran dok ne potvrdite da ste stariji od 18 godina ili ste zakonski punoljetni.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Potreban pristanak. Linkumori je pauziran dok ne prihvatite trenutna Pravila privatnosti i POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Prihvaćeno",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Potvrdite dob",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Potvrdite da imate 18+ ili da ste zakonski punoljetni prije prihvaćanja.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Pristanak prihvaćen.",

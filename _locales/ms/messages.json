@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Saya telah membaca dan menerima Dasar Privasi, POSAR dan Lesen.",
+    "message": "Saya mengesahkan bahawa saya berumur 18+ atau dewasa secara sah, dan saya telah membaca dan menerima Dasar Privasi, POSAR dan Lesen.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Sila baca Dasar Privasi, POSAR dan Lesen sebelum menggunakan pop timbul ini. Kami tidak mengumpul data anda. Semua data disimpan pada peranti anda dan tidak dihantar kepada kami.",
+    "message": "Sila baca Dasar Privasi, POSAR dan Lesen sebelum menggunakan pop timbul ini. Kami tidak mengumpul data anda. Semua data disimpan pada peranti anda dan tidak dihantar kepada kami. Pengesahan umur terpakai pada kedua-dua Polisi Privasi dan penerimaan POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Semak Dasar Privasi, POSAR dan Lesen di bawah, kemudian terima untuk menyelesaikan pemindahan ke Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Pengesahan umur diperlukan",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori hanya boleh diteruskan jika anda mengesahkan bahawa anda berumur 18 tahun ke atas, atau secara sah dewasa dalam bidang kuasa anda. Pengesahan umur ini terpakai pada kedua-dua Polisi Privasi dan penerimaan POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Jika anda tidak dapat mengesahkan ini, Linkumori akan kekal dijeda dan dokumen tidak boleh diterima.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Batal",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Saya bukan orang dewasa",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Mohon kepada Privasi dan POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori dijeda kerana pengesahan dewasa tidak diterima.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Pengesahan umur disimpan untuk Dasar Privasi dan POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Persetujuan diperlukan. Linkumori dijeda sehingga anda menerima syarat undang-undang semasa.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Persetujuan diperlukan. Linkumori dijeda sehingga anda mengesahkan anda berumur 18+ atau dewasa secara sah.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Persetujuan diperlukan. Linkumori dijeda sehingga anda menerima Dasar Privasi dan POSAR semasa.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Diterima",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Sahkan umur",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Sahkan bahawa anda berumur 18+ atau dewasa secara sah sebelum menerima.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Persetujuan diterima.",

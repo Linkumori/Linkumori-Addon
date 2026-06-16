@@ -825,23 +825,6 @@
             color: var(--withdraw-button);
         }
 
-        .consent-check {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin: 16px 0 0 0;
-            color: var(--text-secondary);
-        }
-
-        .consent-check input {
-            margin-top: 2px;
-            accent-color: var(--button-primary);
-        }
-
-        .consent-check label {
-            cursor: pointer;
-        }
-
         .consent-meta {
             margin-top: 10px;
             color: var(--text-muted);
@@ -1317,6 +1300,7 @@
                     <button id="downloadPrivacyBtn" class="btn btn-secondary" disabled>
                         <span data-i18n="downloadText"></span>
                     </button>
+                    <button id="legalAdultConsentOpenBtn" class="btn btn-secondary" type="button" data-i18n="legal_consent_confirm_age_button">Confirm age</button>
                     <button id="legalConsentAcceptBtn" class="btn btn-secondary" type="button" disabled data-i18n="popup_consent_accept_button"></button>
                     <button id="legalConsentWithdrawInfoBtn" class="btn btn-danger" type="button" data-i18n="legal_consent_withdraw_button"></button>
                 </div>
@@ -1381,6 +1365,24 @@
         </div>
     </div>
 
+    <div id="legalAdultConsentModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="legalAdultConsentModalTitle" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="legalAdultConsentModalTitle" class="modal-title" data-i18n="legal_adult_consent_modal_title">Age confirmation required</h2>
+                <button id="legalAdultConsentModalClose" class="modal-close" type="button" data-i18n-aria="legal_adult_consent_modal_cancel" aria-label="">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="legalAdultConsentModalIntro" data-i18n="legal_adult_consent_modal_intro">Linkumori can only continue if you confirm that you are 18 years or older, or legally an adult in your jurisdiction. This age confirmation applies to both Privacy Policy and POSAR acceptance.</p>
+                <p id="legalAdultConsentModalStop" data-i18n="legal_adult_consent_modal_stop">If you cannot confirm this, Linkumori will remain paused and neither document can be accepted.</p>
+            </div>
+            <div class="modal-actions">
+                <button id="legalAdultConsentModalCancel" class="btn btn-secondary" type="button" data-i18n="legal_adult_consent_modal_cancel">Cancel</button>
+                <button id="legalAdultConsentModalDecline" class="btn btn-danger" type="button" data-i18n="legal_adult_consent_modal_decline">I am not an adult</button>
+                <button id="legalAdultConsentModalConfirm" class="btn btn-secondary" type="button" data-i18n="legal_adult_consent_modal_confirm">Apply to Privacy and POSAR</button>
+            </div>
+        </div>
+    </div>
+
     <div id="legalDocumentReviewModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="legalDocumentReviewModalTitle" style="display: none;">
         <div class="modal-card document-review-modal">
             <div class="modal-header">
@@ -1389,6 +1391,11 @@
             </div>
             <div class="modal-body">
                 <p id="legalDocumentReviewModalIntro" data-i18n="legal_document_review_modal_intro">Read the current document before accepting it.</p>
+                <div id="legalDocumentReviewPrivacyVersionRow" class="privacy-version-row" style="display: none;">
+                    <label id="legalDocumentReviewPrivacyVersionLabel" class="privacy-version-label" for="legalDocumentReviewPrivacyVersionSelector" data-i18n="privacyVersionLabel"></label>
+                    <select id="legalDocumentReviewPrivacyVersionSelector" class="privacy-version-select"></select>
+                    <div id="legalDocumentReviewPrivacyVersionHelp" class="privacy-version-help" data-i18n="privacyVersionDescription"></div>
+                </div>
                 <div id="legalDocumentReviewModalContent" class="content-area document-review-content"></div>
             </div>
             <div class="modal-actions">

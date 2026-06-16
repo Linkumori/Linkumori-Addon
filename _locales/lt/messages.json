@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Perskaičiau ir sutinku su privatumo politika, POSAR ir licencija.",
+    "message": "Patvirtinu, kad esu vyresnis nei 18 metų arba teisiškai pilnametis, perskaičiau ir sutinku su privatumo politika, POSAR ir licencija.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Prieš naudodami šį iššokantįjį langą, perskaitykite privatumo politiką, POSAR ir licenciją. Mes nerenkame jūsų duomenų. Visi duomenys yra saugomi jūsų įrenginyje ir mums neperduodami.",
+    "message": "Prieš naudodami šį iššokantįjį langą, perskaitykite privatumo politiką, POSAR ir licenciją. Mes nerenkame jūsų duomenų. Visi duomenys yra saugomi jūsų įrenginyje ir mums neperduodami. Amžiaus patvirtinimas taikomas ir privatumo politikai, ir POSAR priėmimui.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Peržiūrėkite toliau pateiktą privatumo politiką, POSAR ir licenciją, tada sutikite, kad užbaigtumėte perkėlimą į Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Reikalingas amžiaus patvirtinimas",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori gali tęsti tik tuo atveju, jei patvirtinate, kad esate 18 metų ar vyresni arba teisiškai suaugęs jūsų jurisdikcijoje. Šis amžiaus patvirtinimas taikomas ir privatumo politikai, ir POSAR priėmimui.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Jei negalite to patvirtinti, Linkumori liks pristabdyta ir nė vienas dokumentas nebus priimtas.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Atšaukti",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Aš nesu suaugęs žmogus",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Kreipkitės į privatumą ir POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori yra pristabdyta, nes suaugusiojo patvirtinimas nebuvo priimtas.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Amžiaus patvirtinimas išsaugotas privatumo politikai ir POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Reikalingas sutikimas. „Linkumori“ yra pristabdytas, kol sutiksite su galiojančiomis teisinėmis sąlygomis.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Reikalingas sutikimas. Linkumori yra pristabdytas, kol patvirtinate, kad jums 18+ arba teisiškai pilnametis.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Reikalingas sutikimas. „Linkumori“ yra pristabdytas, kol sutiksite su dabartine privatumo politika ir POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Priimta",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Patvirtinkite amžių",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Prieš priimdami patvirtinkite, kad esate vyresnis nei 18 metų arba teisiškai pilnametis.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Sutikimas priimtas.",

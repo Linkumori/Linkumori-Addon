@@ -1605,11 +1605,11 @@
     "description": "按鈕標籤，用於接受彈出視窗同意閘門。"
   },
   "popup_consent_checkbox": {
-    "message": "我已閱讀並接受隱私權政策、POSAR 和許可證。",
+    "message": "我確認我已年滿 18 歲或在法律上已成年，並且我已閱讀並接受隱私權政策、POSAR 和許可證。",
     "description": "彈出視窗閘門的同意複選框標籤。"
   },
   "popup_consent_description": {
-    "message": "使用此彈出視窗之前，請閱讀隱私權政策、POSAR 和許可證。我們不收集您的資料。所有資料都儲存在您的裝置上，不會傳輸給我們。",
+    "message": "使用此彈出視窗之前，請閱讀隱私權政策、POSAR 和許可證。我們不收集您的資料。所有資料都儲存在您的裝置上，不會傳輸給我們。年齡確認適用於隱私權政策和 POSAR 接受。",
     "description": "彈出視窗同意閘門的描述。"
   },
   "popup_consent_legal_button": {
@@ -3393,9 +3393,45 @@
     "message": "請參閱下面的隱私權政策、POSAR 和許可證，然後接受以完成向 Linkumori 的遷移。",
     "description": "匯入或遷移期間顯示於法律頁面的提示文字"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "需要確認年齡",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "只有當您確認自己已年滿 18 歲，或在您所在司法管轄區已合法成年時，Linkumori 才能繼續。此年齡確認適用於隱私權政策和 POSAR 接受。",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "如果您無法確認這一點，Linkumori 將保持暫停狀態，並且不會接受任何文件。",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "取消",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "我還不是成年人",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "適用於隱私權和 POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "由於不接受成人確認，Linkumori 已暫停。",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "已為隱私權政策和 POSAR 保存年齡確認資訊。",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "需要同意。在您接受目前的法律條款之前，Linkumori 將保持暫停。",
     "description": "需要法律同意時顯示的狀態訊息"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "需要同意。 Linkumori 將暫停，直到您確認您已年滿 18 歲或在法律上已成年。",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "需要同意。 Linkumori 將暫停，直到您接受目前的隱私權政策和 POSAR。",
@@ -3456,6 +3492,14 @@
   "legal_consent_button_accepted": {
     "message": "已接受",
     "description": "法律同意已被接受後顯示的按鈕標籤"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "確認年齡",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "接受前請確認您已年滿 18 歲或在法律上已成年。",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "已接受同意。",

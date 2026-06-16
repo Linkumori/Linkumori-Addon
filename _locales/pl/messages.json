@@ -1325,11 +1325,11 @@
     "message": "Akceptuj i kontynuuj"
   },
   "popup_consent_checkbox": {
-    "message": "Przeczytałem i akceptuję Politykę prywatności, POSAR i Licencję.",
+    "message": "Potwierdzam, że mam ukończone 18 lat lub jestem osobą pełnoletnią oraz że przeczytałem i akceptuję Politykę prywatności, POSAR i Licencję.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Przed użyciem tego wyskakującego okienka przeczytaj Politykę prywatności, POSAR i Licencję. Nie zbieramy Twoich danych. Wszystkie dane są przechowywane na Twoim urządzeniu i nie są nam przesyłane.",
+    "message": "Przed użyciem tego wyskakującego okienka przeczytaj Politykę prywatności, POSAR i Licencję. Nie zbieramy Twoich danych. Wszystkie dane są przechowywane na Twoim urządzeniu i nie są nam przesyłane. Potwierdzenie wieku dotyczy zarówno Polityki Prywatności, jak i akceptacji POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1427,8 +1427,44 @@
     "message": "Zapoznaj się z Polityką prywatności, POSAR i Licencją poniżej, a następnie zaakceptuj zakończenie migracji do Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Wymagane potwierdzenie wieku",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori może kontynuować tylko wtedy, gdy potwierdzisz, że masz ukończone 18 lat lub jesteś osobą dorosłą w ​​swojej jurysdykcji. To potwierdzenie wieku dotyczy zarówno Polityki prywatności, jak i akceptacji POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Jeśli nie możesz tego potwierdzić, Linkumori pozostanie wstrzymane i żaden dokument nie będzie mógł zostać zaakceptowany.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Anulować",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Nie jestem dorosły",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Aplikuj do Prywatności i POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori zostało wstrzymane, ponieważ potwierdzenie osoby dorosłej nie zostało zaakceptowane.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Potwierdzenie wieku zapisane w Polityce prywatności i POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Wymagana zgoda. Linkumori jest wstrzymane, dopóki nie zaakceptujesz bieżących warunków prawnych."
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Wymagana zgoda. Linkumori zostanie wstrzymane do czasu potwierdzenia, że ​​masz ukończone 18 lat lub jesteś osobą dorosłą.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Wymagana zgoda. Linkumori zostanie wstrzymane do czasu zaakceptowania przez Ciebie aktualnej Polityki Prywatności i POSAR.",
@@ -1487,6 +1523,14 @@
   },
   "legal_consent_button_accepted": {
     "message": "Zaakceptowano"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Potwierdź wiek",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Przed akceptacją potwierdź, że masz ukończone 18 lat lub jesteś osobą dorosłą.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Zgoda zaakceptowana."

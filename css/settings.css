@@ -1430,6 +1430,110 @@
             opacity: 1 !important;
         }
 
+        .settings-document-modal-container {
+            max-width: 900px;
+        }
+
+        .settings-legal-document {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .settings-legal-document > h3 {
+            margin: 0;
+            padding: 12px 14px;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .settings-privacy-version-row {
+            display: grid;
+            gap: 6px;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .settings-privacy-version-row label {
+            color: var(--text-primary);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .settings-privacy-version-row select {
+            width: 100%;
+            min-height: 34px;
+            border: 1px solid var(--input-border);
+            border-radius: 6px;
+            padding: 6px 8px;
+            background: var(--input-bg);
+            color: var(--text-primary);
+            font-family: "Old-Country-Nobility";
+        }
+
+        .settings-privacy-version-help {
+            color: var(--text-muted);
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .settings-legal-document-content {
+            max-height: min(42vh, 420px);
+            overflow: auto;
+            padding: 14px;
+            color: var(--text-primary);
+            font-family: "Old-Country-Nobility";
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .settings-legal-document-content.loading,
+        .settings-legal-document-content.error {
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .settings-legal-document-content h1,
+        .settings-legal-document-content h2,
+        .settings-legal-document-content h3 {
+            margin: 16px 0 8px 0;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        .settings-legal-document-content h1:first-child,
+        .settings-legal-document-content h2:first-child,
+        .settings-legal-document-content h3:first-child,
+        .settings-legal-document-content p:first-child {
+            margin-top: 0;
+        }
+
+        .settings-legal-document-content p {
+            margin: 0 0 10px 0;
+            color: var(--text-primary);
+        }
+
+        .settings-legal-document-content ul,
+        .settings-legal-document-content ol {
+            margin: 0 0 10px 20px;
+            padding: 0;
+            color: var(--text-secondary);
+        }
+
+        .settings-legal-document-content li {
+            margin: 4px 0;
+        }
+
+        .settings-legal-document-content code {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1px 4px;
+        }
+
         #bundled_rules_status,
         #bundled_rules_status strong,
         #bundled_rules_status span {
