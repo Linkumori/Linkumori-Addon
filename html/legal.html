@@ -888,6 +888,11 @@
             box-shadow: 0 20px 48px var(--shadow-color);
         }
 
+        .modal-card.document-review-modal {
+            width: min(920px, 100%);
+            max-height: min(88vh, 860px);
+        }
+
         .modal-header {
             display: flex;
             align-items: center;
@@ -939,6 +944,12 @@
 
         .modal-body li {
             margin-bottom: 8px;
+        }
+
+        .document-review-content {
+            max-height: min(58vh, 560px);
+            overflow: auto;
+            margin-top: 14px;
         }
 
         .warning-inline-banner {
@@ -1366,6 +1377,23 @@
             </div>
             <div class="modal-actions">
                 <button id="withdrawConsentModalAcknowledge" class="btn btn-secondary" type="button" data-i18n="legal_consent_withdraw_modal_close"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="legalDocumentReviewModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="legalDocumentReviewModalTitle" style="display: none;">
+        <div class="modal-card document-review-modal">
+            <div class="modal-header">
+                <h2 id="legalDocumentReviewModalTitle" class="modal-title" data-i18n="legal_document_review_modal_title">Review document</h2>
+                <button id="legalDocumentReviewModalClose" class="modal-close" type="button" data-i18n-aria="legal_document_review_modal_cancel" aria-label="">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="legalDocumentReviewModalIntro" data-i18n="legal_document_review_modal_intro">Read the current document before accepting it.</p>
+                <div id="legalDocumentReviewModalContent" class="content-area document-review-content"></div>
+            </div>
+            <div class="modal-actions">
+                <button id="legalDocumentReviewModalCancel" class="btn btn-secondary" type="button" data-i18n="legal_document_review_modal_cancel">Cancel</button>
+                <button id="legalDocumentReviewModalAccept" class="btn btn-secondary" type="button" data-i18n="legal_document_review_modal_accept">Accept this document</button>
             </div>
         </div>
     </div>
