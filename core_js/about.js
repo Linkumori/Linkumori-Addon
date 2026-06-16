@@ -121,6 +121,7 @@
     isInitialized: false,
   };
   let legalRedirectionModalResolver = null;
+  let activeLegalReviewType = null;
 
   /* --------------------------- 
      Utility Functions
@@ -348,6 +349,72 @@
       legalRedirectionModalResolver(!!result);
       legalRedirectionModalResolver = null;
     }
+  }
+
+  function getLegalDocumentReviewConfig(type) {
+    if (type === 'privacy') {
+      return {
+        content: state.privacyContent,
+        title: i18n('legal_document_review_privacy_title', 'Review Privacy Policy'),
+        intro: i18n('legal_document_review_privacy_intro', 'Read the current Privacy Policy before accepting it.'),
+        acceptLabel: i18n('legal_document_review_privacy_accept', 'Accept Privacy Policy')
+      };
+    }
+
+    if (type === 'posar') {
+      return {
+        content: state.posarContent,
+        title: i18n('legal_document_review_posar_title', 'Review POSAR'),
+        intro: i18n('legal_document_review_posar_intro', 'Read the current Performance of Software and Acceptance of Risk document before accepting it.'),
+        acceptLabel: i18n('legal_document_review_posar_accept', 'Accept POSAR')
+      };
+    }
+
+    return null;
+  }
+
+  function showLegalDocumentReviewModal(type) {
+    const config = getLegalDocumentReviewConfig(type);
+    const modal = $('legalDocumentReviewModal');
+    const title = $('legalDocumentReviewModalTitle');
+    const intro = $('legalDocumentReviewModalIntro');
+    const content = $('legalDocumentReviewModalContent');
+    const acceptButton = $('legalDocumentReviewModalAccept');
+
+    if (!config || !modal || !content) {
+      return;
+    }
+
+    activeLegalReviewType = type;
+
+    if (title) {
+      title.textContent = config.title;
+    }
+    if (intro) {
+      intro.textContent = config.intro;
+    }
+    if (acceptButton) {
+      acceptButton.textContent = config.acceptLabel;
+      acceptButton.disabled = !config.content;
+    }
+
+    content.className = 'content-area document-review-content';
+    setHTMLContent(content, parseMarkdownToHTML(config.content || ''));
+    content.scrollTop = 0;
+
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => {
+      modal.classList.add('show');
+    });
+  }
+
+  function hideLegalDocumentReviewModal() {
+    const modal = $('legalDocumentReviewModal');
+    if (modal) {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+    }
+    activeLegalReviewType = null;
   }
 
   function openAuditPageFromLegal() {
@@ -624,15 +691,27 @@
     }
 
     if (statusText) {
-      statusText.textContent = consentState.accepted
-        ? i18n(
+      if (consentState.accepted) {
+        statusText.textContent = i18n(
           'legal_consent_status_accepted',
           'Consent accepted. Linkumori can run with the current legal terms.'
-        )
-        : i18n(
-          'legal_consent_status_required',
-          'Consent required. Linkumori is paused until you accept the current legal terms.'
         );
+      } else if (!consentState.legalAccepted && !consentState.posarAccepted) {
+        statusText.textContent = i18n(
+          'legal_consent_status_required_both',
+          'Consent required. Linkumori is paused until you accept the current Privacy Policy and POSAR.'
+        );
+      } else if (!consentState.legalAccepted) {
+        statusText.textContent = i18n(
+          'legal_consent_status_required_privacy',
+          'Consent required. Linkumori is paused until you accept the current Privacy Policy.'
+        );
+      } else {
+        statusText.textContent = i18n(
+          'legal_consent_status_required_posar',
+          'Consent required. Linkumori is paused until you accept the current POSAR.'
+        );
+      }
     }
 
     if (acceptButton) {
@@ -687,7 +766,7 @@
         i18n('legal_consent_error_version_unavailable', 'Unable to determine the current consent policy version.'),
         'error'
       );
-      return;
+      return false;
     }
 
     const signature = getCurrentConsentSignature();
@@ -705,11 +784,13 @@
 
       await refreshConsentUI();
       showNotification(i18n('legal_consent_saved', 'Consent accepted.'), 'success');
+      return true;
     } catch (e) {
       if (acceptButton) {
         acceptButton.disabled = false;
       }
       showNotification(i18n('legal_consent_save_failed', 'Failed to save consent.'), 'error');
+      return false;
     }
   }
 
@@ -722,7 +803,7 @@
         i18n('legal_consent_error_version_unavailable', 'Unable to determine the current consent policy version.'),
         'error'
       );
-      return;
+      return false;
     }
 
     try {
@@ -737,11 +818,13 @@
 
       await refreshConsentUI();
       showNotification(i18n('posar_consent_saved', 'POSAR accepted.'), 'success');
+      return true;
     } catch (e) {
       if (acceptButton) {
         acceptButton.disabled = false;
       }
       showNotification(i18n('legal_consent_save_failed', 'Failed to save consent.'), 'error');
+      return false;
     }
   }
 
@@ -1570,14 +1653,60 @@ ${htmlContent}
     const consentAcceptButton = $('legalConsentAcceptBtn');
     if (consentAcceptButton) {
       consentAcceptButton.addEventListener('click', () => {
-        acceptLegalConsent();
+        showLegalDocumentReviewModal('privacy');
       });
     }
 
     const posarConsentAcceptButton = $('posarConsentAcceptBtn');
     if (posarConsentAcceptButton) {
       posarConsentAcceptButton.addEventListener('click', () => {
-        acceptPOSARConsent();
+        showLegalDocumentReviewModal('posar');
+      });
+    }
+
+    const legalDocumentReviewModalClose = $('legalDocumentReviewModalClose');
+    if (legalDocumentReviewModalClose) {
+      legalDocumentReviewModalClose.addEventListener('click', hideLegalDocumentReviewModal);
+    }
+
+    const legalDocumentReviewModalCancel = $('legalDocumentReviewModalCancel');
+    if (legalDocumentReviewModalCancel) {
+      legalDocumentReviewModalCancel.addEventListener('click', hideLegalDocumentReviewModal);
+    }
+
+    const legalDocumentReviewModalAccept = $('legalDocumentReviewModalAccept');
+    if (legalDocumentReviewModalAccept) {
+      legalDocumentReviewModalAccept.addEventListener('click', async () => {
+        if (activeLegalReviewType !== 'privacy' && activeLegalReviewType !== 'posar') {
+          return;
+        }
+
+        legalDocumentReviewModalAccept.disabled = true;
+        const accepted = activeLegalReviewType === 'privacy'
+          ? await acceptLegalConsent()
+          : await acceptPOSARConsent();
+
+        if (accepted) {
+          const consentState = await getStoredConsentState();
+          if (!consentState.legalAccepted) {
+            showLegalDocumentReviewModal('privacy');
+          } else if (!consentState.posarAccepted) {
+            showLegalDocumentReviewModal('posar');
+          } else {
+            hideLegalDocumentReviewModal();
+          }
+        } else {
+          legalDocumentReviewModalAccept.disabled = false;
+        }
+      });
+    }
+
+    const legalDocumentReviewModal = $('legalDocumentReviewModal');
+    if (legalDocumentReviewModal) {
+      legalDocumentReviewModal.addEventListener('click', (event) => {
+        if (event.target === legalDocumentReviewModal) {
+          hideLegalDocumentReviewModal();
+        }
       });
     }
 
