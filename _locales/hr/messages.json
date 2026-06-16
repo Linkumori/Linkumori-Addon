@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Uzorci domene podržavaju jednostavne tokene i obrasce u stilu AdBlock-a. Ponašanje podudaranja ovisi o sintaksi (neki obrasci provjeravaju naziv hosta, drugi se podudaraju s punim nizom URL-a):",
+    "message": "Uzorci domene podržavaju jednostavne tokene i obrasce u stilu AdBlock-a. Kada domainPatterns nije prazan, clearurls.js ih koristi za podudaranje pružatelja usluga i ekstrakciju tokena za pretraživanje prije bilo kakvog rezervnog urlPatterna:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Oba polja mogu biti prisutna u podacima, ali urlPattern ima prioritet. Uzorci domene koriste se samo kada je urlPattern prazan. Spajanje domena je svjesno PSL-a, uključujući rukovanje domenom koja se može registrirati i višedijelnu TLD podršku.",
+    "message": "Za autorske prilagođene pružatelje odaberite ili domainPatterns ili urlPattern. U podacima o vremenu izvođenja clearurls.js, neprazni domainPatterns pobjeđuje i urlPattern se koristi samo kada domainPatterns nedostaje ili je prazan. Uparivanje domena je svjesno PSL-a za podržane obrasce u stilu AdBlock-a, uključujući rukovanje domenom koja se može registrirati i podršku za TLD više dijelova.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Pružatelji su logičke jedinice koje grupiraju više pravila pod istim uzorkom URL-a. Svaki pružatelj cilja određenu web stranicu ili uslugu i sadrži sva pravila potrebna za čišćenje URL-ova iz tog izvora.",
+    "message": "Davatelji su imenovani spremnici koji grupiraju polja za podudaranje i pravila za čišćenje URL-ova. Traženje kandidata koristi tokene naziva hosta iz domainPatterns ili indexPattern; ime pružatelja samo je oznaka/ključ i ne odlučuje hoće li zahtjev odgovarati.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "UrlPattern je regularni izraz koji mora odgovarati svakom URL-u na koji bi trebala utjecati pravila pružatelja usluga. Definira koje web stranice ovaj pružatelj treba obrađivati.",
+    "message": "urlPattern je regularni izraz testiran u odnosu na potpuni URL zahtjeva kada pružatelj nema neprazne uzorke domene. Ako koristite urlPattern, dodajte indexPattern kada je to moguće kako bi clearurls.js mogao pronaći davatelja prema tokenima naziva hosta prije testiranja regularnog izraza.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "IndexPattern je uzorak domene (npr. ||example.com^) koji služi kao savjet za sustav indeksiranja. Budući da je regularne izraze u urlPatternu teško analizirati za nazive hostova, indexPattern daje eksplicitni cilj za optimizaciju. Osigurava ispravno i učinkovito indeksiranje pružatelja usluga.",
+    "message": "indexPattern je savjet za traženje pružatelja usluge, a ne uvjet podudaranja. clearurls.js izvlači tokene naziva hosta iz indexPatterna kako bi postavio pružatelja urlPattern u segmente kandidata providersByToken. Davatelj se i dalje podudara samo ako provider.matchRequestURL() prosljeđuje pravi urlPattern i iznimke se ne podudaraju.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Pregledajte URL koji će se otvoriti. Ovaj URL sadrži informacije koje ste unijeli i preusmjerit će vas na GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Obavijest o politici privatnosti",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori stvara ovaj URL lokalno u vašem pregledniku. Linkumori ne prenosi izravno podatke s vas ili vašeg preglednika na GitHub ili na bilo koji drugi poslužitelj dok stvara ovaj URL.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Ako odaberete \"Otvori GitHub\", dopuštate pregledniku da otvori prikazani URL. Ta navigacija preglednika može poslati URL i njegove parametre upita na GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Za stvaranje problema, URL može sadržavati vrstu problema, odabrani URL problema, očišćeni URL, NSFW oznaku, komentare i odabrane odjeljke konfiguracije.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Za pretraživanje problema, URL može uključivati ​​odabrani naziv glavnog računala, domenu, vrstu problema i NSFW pojam za pretraživanje ako je odabran.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori ne podržava GitHub. Linkumori ne zna, ne provjerava niti jamči je li GitHub u skladu s vašim lokalnim zakonima o privatnosti, zaštiti podataka ili drugim primjenjivim zakonima.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Prije nastavka pregledajte cijeli URL. Odustani ako ne želiš da tvoj preglednik otvara GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL za otvaranje (tehnički format):",
@@ -4981,6 +5009,10 @@
     "message": "To nije vodič za kod JavaScript. Fokusira se samo na JSON oblike, formate pravila i primjere koji su potrebni autorima pravila.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Ovaj vodič se temelji na trenutnom ponašanju <code>clearurls.js</code> vremena izvođenja. Konkretno, traženje pružatelja koristi <code>providersByToken</code> spremnike kandidata iz <code>domainPatterns</code> ili <code>indexPattern</code>, a konačno podudaranje i dalje se odvija kroz <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Poglavlje 1: Osnovni JSON Oblik",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Davatelj je jedna grupa pravila za jednu web stranicu, tvrtku, tracker ili URL obrazac.",
+    "message": "Davatelj je jedan imenovani runtime spremnik za jednu web stranicu, tvrtku, alat za praćenje, skup uzoraka domene ili regularni izraz URL-a. Ime pružatelja je oznaka/ključ; podudaranje se vrši pomoću <code>domainPatterns</code> ili <code>urlPattern</code>, a ne prema imenu davatelja.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Puni predložak davatelja usluga:",
+    "message": "Polja pružatelja prihvaća <code>clearurls.js</code>. Za podudaranje, autor ili <code>domainPatterns</code> ili <code>urlPattern</code> s izbornim <code>indexPattern</code>; nemojte se oslanjati na to da su oba potrebna zajedno.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> je dodatak Linkumori. Koristite ga za većinu Linkumori JSON pružatelja usluga jer ga je lakše napisati nego puni <code>urlPattern</code> regularni izraz.",
+    "message": "<code>domainPatterns</code> je dodatak Linkumorija i preferira se za većinu prilagođenih pružatelja usluga. U <code>clearurls.js</code>, neprazni <code>domainPatterns</code> se koriste za podudaranje prije <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Koristite <code>urlPattern</code> samo kada podudaranje domene nije dovoljno.",
+    "message": "Koristite <code>urlPattern</code> samo kada podudaranje domene nije dovoljno, kao što je kada pružatelj mora uskladiti određenu stazu ili puni URL regularni izraz.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> je ClearURLs naslijeđe dodatka i ClearURLs core v2 kanonska sintaksa. Linkumori dodaje <code>indexPattern</code> kao dodatni savjet za traženje kako bi mehanizam brže pronašao pružatelje regularnih izraza.",
+    "message": "<code>urlPattern</code> je naslijeđe dodatka ClearURL-a i kanonske sintakse jezgre ClearURL-a v2. Linkumori dodaje <code>indexPattern</code> samo kao savjet traženja kandidata tako da se pružatelji regularnih izraza mogu brže pronaći pomoću tokena naziva hosta.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Važno: Linkumori <code>indexPattern</code> samo je savjet za pretraživanje. Ne odlučuje hoće li se pružatelj prijaviti.",
+    "message": "Važno: <code>indexPattern</code> ne odlučuje odgovara li pružatelj usluga. Nakon traženja kandidata, <code>clearurls.js</code> i dalje testira pravi <code>urlPattern</code> u <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> je uzvodna ClearURLs sintaksa. <code>indexPattern</code> je Linkumori dodatak za brže traženje kada trebate podudaranje regularnog izraza URL.",
+    "message": "<code>urlPattern</code> je uzvodna ClearURLs sintaksa. <code>indexPattern</code> je Linkumori savjet za traženje za pružatelje regularnih URL-ova; trebao bi ukazivati ​​na imena hostova s ​​kojima se regex može podudarati.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> nije obavezan, ali koristan za brzinu.",
+    "message": "<code>indexPattern</code> nije obavezan, ali koristan za brzinu. Indeksira pružatelja u spremnike kandidata za ime hosta-token; nikada ne zamjenjuje konačno podudaranje <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Kombinacija 5: <code>domainPatterns</code> i <code>urlPattern</code> zajedno",
+    "message": "Kombinacija 5: Ne miješajte <code>domainPatterns</code> i <code>urlPattern</code> kao kombinirani zahtjev",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Ovaj Linkumori oblik miješanog podudaranja je važeći JSON:",
+    "message": "Ovaj se oblik može pojaviti u starijim ili rukom pisanim podacima, ali ne znači da oba podudaranja moraju proći:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Važno ponašanje:",
+    "message": "Trenutno ponašanje <code>clearurls.js</code>:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Stoga nemojte koristiti oboje kada očekujete da će biti potrebno oboje. Ako trebate uvjet staze, upotrijebite <code>urlPattern</code> s <code>indexPattern</code> ili stavite ograničeni uzorak <code>$removeparam</code>/pravilo unutar <code>rules</code>.",
+    "message": "Ako je <code>domainPatterns</code> prisutan i nije prazan, <code>clearurls.js</code> ga koristi za podudaranje pružatelja i ignorira <code>urlPattern</code> za tog pružatelja. Putanja prilagođenog uređivača/uvoza odbija pružatelje koji sadrže oboje. Ako vam je potreban uvjet staze, koristite <code>urlPattern</code> sa <code>indexPattern</code> ili opseg pojedinačnih <code>$removeparam</code>/pravila unosa unutar <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs naslijeđeni dodatak i ClearURLs core v2 kanonski — samo <code>urlPattern</code>:",
+    "message": "ClearURLs addon legacy i ClearURLs core v2 kanonski — samo <code>urlPattern</code>. Bez <code>indexPattern</code>, pružatelji širokih regularnih izraza mogu se vratiti na globalne provjere kandidata:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori dodatak — <code>urlPattern</code> s <code>indexPattern</code>:",
+    "message": "Linkumori dodatak — <code>urlPattern</code> sa <code>indexPattern</code>. Uzorak indeksa je savjet za traženje, dok <code>urlPattern</code> ostaje konačna podudarnost:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori dodavanje — više <code>indexPattern</code> savjeta:",
+    "message": "Linkumori dodatak — više <code>indexPattern</code> savjeta za URL regex koji može odgovarati više od jednog naziva hosta:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori dodatak — samo <code>domainPatterns</code>:",
+    "message": "Linkumori dodatak — samo <code>domainPatterns</code>. Oni se koriste izravno za podudaranje pružatelja usluga i ekstrakciju tokena za pretraživanje:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori dodatak — i <code>domainPatterns</code> i <code>urlPattern</code>:",
+    "message": "Naslijeđeni/mješoviti podaci mogu sadržavati i <code>domainPatterns</code> i <code>urlPattern</code>, ali ne stvarajte nove pružatelje na ovaj način:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "ponašanje:",
+    "message": "Ponašanje: neprazna <code>domainPatterns</code> pobjeda. <code>urlPattern</code> se koristi samo kada <code>domainPatterns</code> nedostaje ili je prazan. Putanja prilagođenog uređivača/uvoza oboje zajedno tretira kao nevažeća.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js ponašanje: ako domainPatterns postoji i nije prazan, Linkumori koristi domainPatterns za podudaranje pružatelja usluga. urlPattern se koristi samo kada domainPatterns nedostaje ili je prazan. Putanja prilagođenog uređivača/uvoza odbija ovaj oblik miješanog podudaranja, stoga ga koristite samo za razumijevanje naslijeđenih podataka.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns pobjeđuje za podudaranje kada je prisutan i nije prazan. urlPattern se koristi samo kada domainPatterns nedostaje ili je prazan. Putanja prilagođenog uređivača/uvoza odbija pružatelje koji sadrže obje obitelji podudaranja.",
     "description": "Guide page text."
   },
   "guide_0735": {

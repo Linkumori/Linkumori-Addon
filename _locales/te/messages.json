@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "డొమైన్ నమూనాలు సాధారణ టోకెన్‌లు మరియు AdBlock-శైలి ఫారమ్‌లకు మద్దతు ఇస్తాయి. సరిపోలే ప్రవర్తన సింటాక్స్‌పై ఆధారపడి ఉంటుంది (కొన్ని ఫారమ్‌లు హోస్ట్ పేరును తనిఖీ చేస్తాయి, మరికొన్ని పూర్తి URL స్ట్రింగ్‌కు సరిపోతాయి):",
+    "message": "డొమైన్ నమూనాలు సాధారణ టోకెన్‌లు మరియు AdBlock-శైలి ఫారమ్‌లకు మద్దతు ఇస్తాయి. డొమైన్‌ప్యాటర్న్స్ ఖాళీగా లేనప్పుడు, ఏదైనా urlPattern ఫాల్‌బ్యాక్‌కు ముందు, clearurls.js వాటిని ప్రొవైడర్ మ్యాచింగ్ మరియు లుక్అప్-టోకెన్ ఎక్స్‌ట్రాక్షన్ కోసం ఉపయోగిస్తుంది:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "రెండు ఫీల్డ్‌లు డేటాలో ఉండవచ్చు, కానీ urlPattern ప్రాధాన్యతనిస్తుంది. urlPattern ఖాళీగా ఉన్నప్పుడు మాత్రమే డొమైన్ నమూనాలు ఉపయోగించబడతాయి. డొమైన్ మ్యాచింగ్ అనేది రిజిస్ట్రబుల్-డొమైన్ హ్యాండ్లింగ్ మరియు బహుళ-భాగాల TLD మద్దతుతో సహా PSL-అవగాహన.",
+    "message": "రచించిన అనుకూల ప్రొవైడర్‌ల కోసం, డొమైన్‌ప్యాటర్న్‌లు లేదా urlPatternని ఎంచుకోండి. clearurls.js రన్‌టైమ్ డేటాలో, నాన్-ఖాళీ డొమైన్ ప్యాటర్న్‌లు గెలుస్తాయి మరియు డొమైన్‌ప్యాటర్న్‌లు లేనప్పుడు లేదా ఖాళీగా ఉన్నప్పుడు మాత్రమే urlPattern ఉపయోగించబడుతుంది. డొమైన్ మ్యాచింగ్ అనేది రిజిస్ట్రబుల్-డొమైన్ హ్యాండ్లింగ్ మరియు బహుళ-భాగాల TLD మద్దతుతో సహా మద్దతు ఉన్న AdBlock-శైలి ఫారమ్‌ల కోసం PSL-అవగాహన.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "ప్రొవైడర్లు ఒకే URL నమూనాలో బహుళ నియమాలను సమూహపరిచే లాజికల్ యూనిట్లు. ప్రతి ప్రొవైడర్ నిర్దిష్ట వెబ్‌సైట్ లేదా సేవను లక్ష్యంగా చేసుకుంటారు మరియు ఆ మూలం నుండి URLలను క్లీన్ చేయడానికి అవసరమైన అన్ని నియమాలను కలిగి ఉంటారు.",
+    "message": "సమూహ సరిపోలిక ఫీల్డ్‌లు మరియు URL-క్లీనింగ్ నియమాలను సమూహపరిచే కంటైనర్‌లుగా ప్రొవైడర్లు పేరు పెట్టారు. అభ్యర్థి శోధన డొమైన్‌ప్యాటర్న్‌లు లేదా ఇండెక్స్‌ప్యాటర్న్ నుండి హోస్ట్‌నేమ్ టోకెన్‌లను ఉపయోగిస్తుంది; ప్రొవైడర్ పేరు లేబుల్/కీ మాత్రమే మరియు అభ్యర్థన సరిపోలుతుందో లేదో నిర్ణయించదు.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern అనేది ప్రొవైడర్ నియమాల ద్వారా ప్రభావితమయ్యే ప్రతి URLతో సరిపోలాలి. ఈ ప్రొవైడర్ ఏ వెబ్‌సైట్‌లను నిర్వహించాలో ఇది నిర్వచిస్తుంది.",
+    "message": "urlPattern అనేది ప్రొవైడర్ ఖాళీగా లేని డొమైన్ నమూనాలను కలిగి లేనప్పుడు పూర్తి అభ్యర్థన URLకి వ్యతిరేకంగా పరీక్షించిన సాధారణ వ్యక్తీకరణ. మీరు urlPatternని ఉపయోగిస్తుంటే, సాధ్యమైనప్పుడు indexPatternని జోడించండి, తద్వారా regexని పరీక్షించే ముందు clearurls.js హోస్ట్ నేమ్ టోకెన్‌ల ద్వారా ప్రొవైడర్‌ను కనుగొనవచ్చు.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -3143,7 +3143,7 @@
     "description": "Error message when trying to add empty domain"
   },
   "whitelist_examples_text": {
-    "message": "ఉదాహరణలు: <code>example.com</code>, XXTKNX2XXTKNXX*.google.com</code>, </code>, <code>subdomain.TKNXTK",
+    "message": "ఉదాహరణలు: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
     "description": "Text before domain format examples"
   },
   "whitelist_export_button": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern అనేది డొమైన్ నమూనా (ఉదా., ||example.com^) ఇది ఇండెక్సింగ్ సిస్టమ్‌కు సూచనగా పనిచేస్తుంది. urlPatternలోని సాధారణ వ్యక్తీకరణలు హోస్ట్ పేర్లను అన్వయించడం కష్టం కాబట్టి, indexPattern ఆప్టిమైజేషన్ కోసం స్పష్టమైన లక్ష్యాన్ని అందిస్తుంది. ఇది ప్రొవైడర్ సరిగ్గా మరియు సమర్ధవంతంగా సూచిక చేయబడిందని నిర్ధారిస్తుంది.",
+    "message": "indexPattern అనేది ప్రొవైడర్ లుకప్ సూచన, మ్యాచ్ కండిషన్ కాదు. clearurls.js indexPattern నుండి హోస్ట్‌నేమ్ టోకెన్‌లను సంగ్రహిస్తుంది, urlPattern ప్రొవైడర్‌ను ప్రొవైడర్ల ద్వారా టోకెన్ అభ్యర్థి బకెట్‌లలో ఉంచడానికి. Provider.matchRequestURL() నిజమైన urlPatternని దాటితే మరియు మినహాయింపులు సరిపోలకపోతే మాత్రమే ప్రొవైడర్ సరిపోలుతుంది.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "దయచేసి తెరవబడే URLని సమీక్షించండి. ఈ URL మీరు నమోదు చేసిన సమాచారాన్ని కలిగి ఉంది మరియు మిమ్మల్ని GitHubకి మళ్లిస్తుంది.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "గోప్యతా విధానం నోటీసు",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori మీ బ్రౌజర్‌లో స్థానికంగా ఈ URLని సృష్టిస్తుంది. ఈ URLని సృష్టించేటప్పుడు Linkumori మీ నుండి లేదా మీ బ్రౌజర్ నుండి నేరుగా GitHubకి లేదా మరేదైనా సర్వర్‌కి డేటాను బదిలీ చేయదు.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "మీరు \"Open GitHub\"ని ఎంచుకుంటే, మీరు ప్రదర్శించబడే URLని తెరవడానికి మీ బ్రౌజర్‌ని అనుమతించాలని ఎంచుకుంటున్నారు. ఆ బ్రౌజర్ నావిగేషన్ URL మరియు దాని ప్రశ్న పారామితులను GitHubకి పంపవచ్చు.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "సమస్య సృష్టి కోసం, URL సమస్య రకం, ఎంచుకున్న సమస్య URL, శుభ్రపరచబడిన URL, NSFW మార్కర్, వ్యాఖ్యలు మరియు ఎంచుకున్న కాన్ఫిగరేషన్ విభాగాలను కలిగి ఉండవచ్చు.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "సమస్య శోధన కోసం, URL ఎంచుకున్న హోస్ట్ పేరు, డొమైన్, సమస్య రకం మరియు NSFW శోధన పదాన్ని ఎంచుకోవచ్చు.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori GitHubని ఆమోదించలేదు. GitHub మీ స్థానిక గోప్యత, డేటా రక్షణ లేదా ఇతర వర్తించే చట్టాలకు అనుగుణంగా ఉందో లేదో Linkumoriకి తెలియదు, ధృవీకరించదు లేదా హామీ ఇవ్వదు.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "కొనసాగడానికి ముందు పూర్తి URLని సమీక్షించండి. మీ బ్రౌజర్ GitHubని తెరవకూడదనుకుంటే రద్దు చేయండి.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "తెరవాల్సిన URL (సాంకేతిక ఆకృతి):",
@@ -4981,6 +5009,10 @@
     "message": "ఇది JavaScript కోడ్‌కు మార్గదర్శకం కాదు. ఇది రూల్ రచయితలకు అవసరమైన JSON ఆకారాలు, రూల్ ఫార్మాట్‌లు మరియు ఉదాహరణలపై మాత్రమే దృష్టి పెడుతుంది.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "ఈ గైడ్ ప్రస్తుత <code>clearurls.js</code> రన్‌టైమ్ ప్రవర్తనపై ఆధారపడి ఉంటుంది. ప్రత్యేకించి, ప్రొవైడర్ లుక్అప్ <code>domainPatterns</code> లేదా <code>indexPattern</code> నుండి <code>providersByToken</code> అభ్యర్థి బకెట్‌లను ఉపయోగిస్తుంది మరియు తుది సరిపోలిక ఇప్పటికీ <code>provider.matchRequestURL()</code> ద్వారా నడుస్తుంది.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "అధ్యాయం 1: ప్రాథమిక JSON ఆకారం",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "ప్రొవైడర్ అనేది ఒక వెబ్‌సైట్, కంపెనీ, ట్రాకర్ లేదా URL నమూనా కోసం నియమాల సమూహం.",
+    "message": "ప్రొవైడర్ అనేది ఒక వెబ్‌సైట్, కంపెనీ, ట్రాకర్, డొమైన్ నమూనా సెట్ లేదా URL రీజెక్స్ కోసం రన్‌టైమ్ కంటైనర్ అని పేరు. ప్రొవైడర్ పేరు లేబుల్/కీ; మ్యాచింగ్ <code>domainPatterns</code> లేదా <code>urlPattern</code> ద్వారా చేయబడుతుంది, ప్రొవైడర్ పేరుతో కాదు.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "పూర్తి ప్రొవైడర్ టెంప్లేట్:",
+    "message": "<code>clearurls.js</code> ద్వారా ఆమోదించబడిన ప్రొవైడర్ ఫీల్డ్‌లు. సరిపోలిక కోసం, ఐచ్ఛిక <code>indexPattern</code>తో <code>domainPatterns</code> లేదా <code>urlPattern</code> రచయిత; రెండూ కలిసి ఉండటంపై ఆధారపడవద్దు.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> అనేది Linkumori అదనం. చాలా మంది Linkumori JSON ప్రొవైడర్‌ల కోసం దీన్ని ఉపయోగించండి ఎందుకంటే ఇది పూర్తి <code>urlPattern</code> రీజెక్స్ కంటే రాయడం సులభం.",
+    "message": "<code>domainPatterns</code> అనేది లింక్‌మోరి జోడింపు మరియు చాలా మంది అనుకూల ప్రొవైడర్‌లకు ప్రాధాన్యత ఇవ్వబడుతుంది. <code>clearurls.js</code>లో, <code>urlPattern</code> కంటే ముందు సరిపోలిక కోసం ఖాళీ కాని <code>domainPatterns</code> ఉపయోగించబడతాయి.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "డొమైన్ సరిపోలిక సరిపోనప్పుడు మాత్రమే <code>urlPattern</code> ఉపయోగించండి.",
+    "message": "డొమైన్ సరిపోలిక సరిపోనప్పుడు మాత్రమే <code>urlPattern</code>ని ఉపయోగించండి, అంటే ప్రొవైడర్ తప్పనిసరిగా నిర్దిష్ట మార్గం లేదా పూర్తి URL రీజెక్స్‌తో సరిపోలాలి.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> అనేది ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్ సింటాక్స్. Linkumori <code>indexPattern</code>ని ఐచ్ఛిక శోధన సూచనగా జోడిస్తుంది కాబట్టి ఇంజిన్ వేగంగా రీజెక్స్ ప్రొవైడర్‌లను కనుగొనగలదు.",
+    "message": "<code>urlPattern</code> అనేది ClearURLల యాడ్ఆన్ లెగసీ మరియు ClearURLల కోర్ v2 కానానికల్ సింటాక్స్. Linkumori <code>indexPattern</code>ని అభ్యర్థి శోధన సూచనగా మాత్రమే జోడిస్తుంది కాబట్టి హోస్ట్‌నేమ్ టోకెన్‌ల ద్వారా రెజెక్స్ ప్రొవైడర్‌లను వేగంగా కనుగొనవచ్చు.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "ముఖ్యమైనది: Linkumori <code>indexPattern</code> అనేది ఒక లుక్అప్ సూచన మాత్రమే. ఇది ప్రొవైడర్ వర్తిస్తుందో లేదో నిర్ణయించదు.",
+    "message": "ముఖ్యమైనది: <code>indexPattern</code> ప్రొవైడర్ సరిపోలుతుందో లేదో నిర్ణయించదు. అభ్యర్థి శోధన తర్వాత, <code>clearurls.js</code> ఇప్పటికీ <code>provider.matchRequestURL()</code>లో నిజమైన <code>urlPattern</code>ని పరీక్షిస్తుంది.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> అప్‌స్ట్రీమ్ ClearURLs సింటాక్స్. <code>indexPattern</code> అనేది మీకు రీజెక్స్ URL మ్యాచింగ్ అవసరమైనప్పుడు వేగవంతమైన శోధన కోసం Linkumori జోడింపు.",
+    "message": "<code>urlPattern</code> అనేది అప్‌స్ట్రీమ్ ClearURLల సింటాక్స్. <code>indexPattern</code> అనేది రీజెక్స్ URL ప్రొవైడర్ల కోసం లింక్మోరి లుక్అప్ సూచన; ఇది రీజెక్స్ సరిపోలగల హోస్ట్ పేర్లను సూచించాలి.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> ఐచ్ఛికం, కానీ వేగం కోసం ఉపయోగపడుతుంది.",
+    "message": "<code>indexPattern</code> ఐచ్ఛికం, కానీ వేగం కోసం ఉపయోగపడుతుంది. ఇది ప్రొవైడర్‌ను హోస్ట్‌నేమ్-టోకెన్ క్యాండిడేట్ బకెట్‌లలోకి సూచిక చేస్తుంది; ఇది చివరి <code>urlPattern</code> మ్యాచ్‌ను ఎప్పటికీ భర్తీ చేయదు.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "కలయిక 5: <code>domainPatterns</code> మరియు <code>urlPattern</code> కలిసి",
+    "message": "కలయిక 5: <code>domainPatterns</code> మరియు <code>urlPattern</code>లను కలిపి అవసరంగా కలపవద్దు",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "ఈ Linkumori మిక్స్‌డ్ మ్యాచర్ ఆకారం చెల్లుబాటు అయ్యేది JSON:",
+    "message": "ఈ ఆకారం పాత లేదా చేతితో వ్రాసిన డేటాలో కనిపించవచ్చు, కానీ రెండు మ్యాచ్‌లు తప్పక ఉత్తీర్ణత సాధించాలని దీని అర్థం కాదు:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "ముఖ్యమైన ప్రవర్తన:",
+    "message": "ప్రస్తుత <code>clearurls.js</code> ప్రవర్తన:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "కాబట్టి రెండూ అవసరమని మీరు ఆశించినప్పుడు రెండింటినీ ఉపయోగించవద్దు. మీకు పాత్ కండిషన్ కావాలంటే, <code>indexPattern</code>తో <code>urlPattern</code>ని ఉపయోగించండి లేదా <code>rules</code> లోపల స్కోప్డ్ <code>$removeparam</code>/రూల్ ప్యాటర్న్‌ను ఉంచండి.",
+    "message": "<code>domainPatterns</code> ఉన్నట్లయితే మరియు ఖాళీగా లేనట్లయితే, <code>clearurls.js</code> దానిని ప్రొవైడర్ మ్యాచింగ్ కోసం ఉపయోగిస్తుంది మరియు ఆ ప్రొవైడర్ కోసం <code>urlPattern</code>ని విస్మరిస్తుంది. అనుకూల ఎడిటర్/దిగుమతి మార్గం రెండింటినీ కలిగి ఉన్న ప్రొవైడర్‌లను తిరస్కరిస్తుంది. మీకు పాత్ కండిషన్ అవసరమైతే, <code>indexPattern</code>తో <code>urlPattern</code>ని ఉపయోగించండి లేదా <code>rules</code> లోపల వ్యక్తిగత <code>$removeparam</code>/రూల్ ఎంట్రీలను స్కోప్ చేయండి.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs యాడ్ఆన్ లెగసీ మరియు ClearURLs కోర్ v2 కానానికల్ — <code>urlPattern</code> మాత్రమే:",
+    "message": "ClearURLల యాడ్ఆన్ లెగసీ మరియు ClearURLల కోర్ v2 కానానికల్ — <code>urlPattern</code> మాత్రమే. <code>indexPattern</code> లేకుండా, విస్తృత రీజెక్స్ ప్రొవైడర్లు గ్లోబల్ అభ్యర్థుల తనిఖీలకు తిరిగి రావచ్చు:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori అదనంగా — <code>urlPattern</code> విత్ <code>indexPattern</code>:",
+    "message": "Linkumori జోడింపు — <code>indexPattern</code>తో <code>urlPattern</code>. ఇండెక్స్ నమూనా అనేది లుకప్ సూచన, అయితే <code>urlPattern</code> తుది సరిపోలికగా మిగిలిపోయింది:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori అదనంగా — బహుళ <code>indexPattern</code> సూచనలు:",
+    "message": "Linkumori జోడింపు — ఒకటి కంటే ఎక్కువ హోస్ట్ పేర్లతో సరిపోలే URL రీజెక్స్ కోసం బహుళ <code>indexPattern</code> సూచనలు:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori అదనంగా — <code>domainPatterns</code> మాత్రమే:",
+    "message": "Linkumori అదనంగా — <code>domainPatterns</code> మాత్రమే. ఇవి నేరుగా ప్రొవైడర్ మ్యాచింగ్ మరియు లుక్అప్-టోకెన్ ఎక్స్‌ట్రాక్షన్ కోసం ఉపయోగించబడతాయి:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori అదనంగా — <code>domainPatterns</code> మరియు <code>urlPattern</code>:",
+    "message": "లెగసీ/మిశ్రమ డేటా <code>domainPatterns</code> మరియు <code>urlPattern</code> రెండింటినీ కలిగి ఉండవచ్చు, కానీ కొత్త ప్రొవైడర్‌లను ఈ విధంగా వ్రాయవద్దు:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "ప్రవర్తన:",
+    "message": "ప్రవర్తన: ఖాళీ కాని <code>domainPatterns</code> విజయం. <code>domainPatterns</code> తప్పిపోయినప్పుడు లేదా ఖాళీగా ఉన్నప్పుడు మాత్రమే <code>urlPattern</code> ఉపయోగించబడుతుంది. అనుకూల ఎడిటర్/దిగుమతి మార్గం రెండింటినీ కలిపి చెల్లనిదిగా పరిగణిస్తుంది.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js ప్రవర్తన: డొమైన్‌ప్యాటర్న్‌లు ఉన్నట్లయితే మరియు ఖాళీగా లేకుంటే, లింక్మోరి ప్రొవైడర్ మ్యాచింగ్ కోసం డొమైన్‌ప్యాటర్న్‌లను ఉపయోగిస్తుంది. urlPattern డొమైన్ నమూనాలు లేనప్పుడు లేదా ఖాళీగా ఉన్నప్పుడు మాత్రమే ఉపయోగించబడుతుంది. అనుకూల ఎడిటర్/దిగుమతి మార్గం ఈ మిక్స్‌డ్ మ్యాచర్ ఆకారాన్ని తిరస్కరిస్తుంది, కాబట్టి లెగసీ డేటాను అర్థం చేసుకోవడానికి మాత్రమే దీన్ని ఉపయోగించండి.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "డొమైన్‌ప్యాటర్న్‌లు ప్రస్తుతం మరియు ఖాళీగా లేనప్పుడు సరిపోలిక కోసం గెలుస్తుంది. urlPattern డొమైన్ నమూనాలు లేనప్పుడు లేదా ఖాళీగా ఉన్నప్పుడు మాత్రమే ఉపయోగించబడుతుంది. అనుకూల ఎడిటర్/దిగుమతి మార్గం రెండు మ్యాచర్ కుటుంబాలను కలిగి ఉన్న ప్రొవైడర్‌లను తిరస్కరిస్తుంది.",
     "description": "Guide page text."
   },
   "guide_0735": {

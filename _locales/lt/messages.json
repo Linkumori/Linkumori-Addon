@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Domeno modeliai palaiko paprastus prieigos raktus ir AdBlock stiliaus formas. Atitikties elgsena priklauso nuo sintaksės (kai kurios formos tikrina pagrindinio kompiuterio pavadinimą, kitos atitinka visą URL eilutę):",
+    "message": "Domeno šablonai palaiko paprastus prieigos raktus ir AdBlock stiliaus formas. Kai „domainPatterns“ laukas nėra tuščias, clearurls.js naudoja juos tiekėjo atitikčiai ir peržvalgos rakto ištraukimui prieš bet kokį atsarginį urlPattern:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Abu laukai gali būti duomenyse, tačiau pirmenybė teikiama urlPattern. Domeno šablonai naudojami tik tada, kai urlPattern yra tuščias. Domeno atitikimas yra suderinamas su PSL, įskaitant registruojamo domeno tvarkymą ir kelių dalių ALD palaikymą.",
+    "message": "Jei autoriai pasirinkti, pasirinkite domeno šablonus arba urlPattern. Clearurls.js vykdymo duomenyse laimi ne tušti domainPatterns, o urlPattern naudojamas tik tada, kai trūksta domeno modelių arba jie yra tuščii. Domeno atitikimas yra suderinamas su PSL palaikomoms AdBlock stiliaus formoms, įskaitant registruojamo domeno tvarkymą ir kelių dalių ALD palaikymą.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Teikėjai yra loginiai vienetai, sugrupuojantys kelias taisykles pagal tą patį URL šabloną. Kiekvienas teikėjas taiko pagal konkrečią svetainę ar paslaugą ir jame yra visos taisyklės, reikalingos norint išvalyti URL iš to šaltinio.",
+    "message": "Teikėjai yra pavadinti konteineriais, kurie sugrupuoja atitikmenų laukus ir URL valymo taisykles. Kandidatų paieška naudoja pagrindinio kompiuterio vardo prieigos raktus iš domainPatterns arba indexPattern; teikėjo pavadinimas yra tik etiketė / raktas ir nenusprendžia, ar užklausa atitinka.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern yra reguliarioji išraiška, kuri turi atitikti kiekvieną URL, kuriam turėtų būti taikomos teikėjo taisyklės. Ji apibrėžia, kurias svetaines šis teikėjas turėtų tvarkyti.",
+    "message": "urlPattern yra reguliarioji išraiška, patikrinta pagal visą užklausos URL, kai teikėjas neturi tuščių domeno šablonų. Jei naudojate urlPattern, kai įmanoma, pridėkite indexPattern, kad clearurls.js galėtų rasti teikėją pagal pagrindinio kompiuterio pavadinimo prieigos raktus prieš išbandydamas reguliarųjį reiškinį.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "„IndexPattern“ yra domeno šablonas (pvz., ||example.com^), kuris veikia kaip indeksavimo sistemos užuomina. Kadangi įprastas urlPattern išraiškas sunku išanalizuoti prieglobos pavadinimams, indexPattern yra aiškus optimizavimo tikslas. Tai užtikrina, kad teikėjas būtų tinkamai ir efektyviai indeksuojamas.",
+    "message": "indexPattern yra teikėjo paieškos užuomina, o ne atitikties sąlyga. clearurls.js ištraukia pagrindinio kompiuterio pavadinimo prieigos raktus iš „indexPattern“, kad urlPattern teikėjas būtų įtrauktas į teikėjų „ByToken“ kandidatų segmentus. Teikėjas vis tiek atitinka tik tuo atveju, jei provider.matchRequestURL() perduoda tikrąjį urlPattern ir išimtys nesutampa.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Peržiūrėkite URL, kuris bus atidarytas. Šiame URL yra jūsų įvesta informacija ir jis nukreips jus į „GitHub“.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Privatumo politikos pranešimas",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori sukuria šį URL vietoje jūsų naršyklėje. Kuriant šį URL, Linkumori tiesiogiai neperduoda duomenų iš jūsų ar jūsų naršyklės į „GitHub“ ar į bet kurį kitą serverį.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Jei pasirenkate „Atidaryti GitHub“, pasirenkate leisti naršyklei atidaryti rodomą URL. Ši naršyklės naršymo priemonė gali siųsti URL ir jo užklausos parametrus į „GitHub“.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Kuriant problemą, URL gali apimti problemos tipą, pasirinktą problemos URL, išvalytą URL, NSFW žymeklį, komentarus ir pasirinktas konfigūracijos dalis.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Jei norite ieškoti problemų, URL gali apimti pasirinktą pagrindinio kompiuterio pavadinimą, domeną, problemos tipą ir NSFW paieškos terminą, jei pasirinkta.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori nepatvirtina GitHub. „Linkumori“ nežino, netikrina ir negarantuoja, ar „GitHub“ laikosi jūsų vietinių privatumo, duomenų apsaugos ar kitų taikomų įstatymų.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Prieš tęsdami peržiūrėkite visą URL. Atšaukite, jei nenorite, kad naršyklė atidarytų „GitHub“.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "Atidaromas URL (techninis formatas):",
@@ -4981,6 +5009,10 @@
     "message": "Tai nėra JavaScript kodo vadovas. Jame dėmesys sutelkiamas tik į JSON formas, taisyklių formatus ir pavyzdžius, kurių reikia taisyklių autoriams.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Šis vadovas yra pagrįstas dabartine <code>clearurls.js</code> vykdymo laiko elgsena. Konkrečiai, teikėjo paieška naudoja <code>providersByToken</code> kandidatų segmentus iš <code>domainPatterns</code> arba <code>indexPattern</code>, o galutinis atitikimas vis tiek vyksta per <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "1 skyrius: Pagrindinė JSON Forma",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Teikėjas yra viena taisyklių grupė, skirta vienai svetainei, įmonei, stebėjimo priemonei arba URL modeliui.",
+    "message": "Teikėjas yra vienas pavadintas vykdymo laiko konteineris, skirtas vienai svetainei, įmonei, stebėjimo priemonei, domeno šablonų rinkiniui arba URL reguliariajai išraiškai. Teikėjo pavadinimas yra etiketė/raktas; suderinimas atliekamas pagal <code>domainPatterns</code> arba <code>urlPattern</code>, o ne pagal teikėjo pavadinimą.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Visas teikėjo šablonas:",
+    "message": "Teikėjo laukus patvirtino <code>clearurls.js</code>. Norėdami suderinti, parašykite <code>domainPatterns</code> arba <code>urlPattern</code> su pasirenkamu <code>indexPattern</code>; nepasikliaukite tuo, kad abu reikalingi kartu.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> yra Linkumori papildymas. Naudokite jį daugeliui Linkumori JSON teikėjų, nes parašyti lengviau nei visą <code>urlPattern</code> reguliarųjį reiškinį.",
+    "message": "<code>domainPatterns</code> yra „Linkumori“ priedas ir yra pageidaujamas daugeliui pasirinktinių paslaugų teikėjų. <code>clearurls.js</code> netuščias <code>domainPatterns</code> naudojamas suderinti prieš <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Naudokite <code>urlPattern</code> tik tada, kai domeno atitikties nepakanka.",
+    "message": "Naudokite <code>urlPattern</code> tik tada, kai domeno atitikties nepakanka, pvz., kai teikėjas turi atitikti konkretų kelią arba visą URL reguliarųjį reiškinį.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> yra ClearURLs priedo sena ir ClearURLs pagrindinė v2 kanoninė sintaksė. Linkumori prideda <code>indexPattern</code> kaip pasirenkamą užuominą, kad variklis galėtų greičiau rasti reguliariojo reiškinio teikėjus.",
+    "message": "<code>urlPattern</code> yra „ClearURL“ priedo senoji ir „ClearURL“ pagrindinė v2 kanoninė sintaksė. „Linkumori“ prideda <code>indexPattern</code> tik kaip kandidato paieškos užuominą, kad reguliariosios išraiškos teikėjus būtų galima greičiau rasti pagal pagrindinio kompiuterio pavadinimo prieigos raktus.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Svarbu: Linkumori <code>indexPattern</code> yra tik užuomina. Ji nesprendžia, ar teikėjas kreipiasi.",
+    "message": "Svarbu: <code>indexPattern</code> nenusprendžia, ar teikėjas atitinka. Po kandidato paieškos <code>clearurls.js</code> vis tiek išbando tikrąjį <code>urlPattern</code> <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> yra prieš srovę ClearURLs sintaksė. <code>indexPattern</code> yra Linkumori papildymas, kad būtų galima greičiau ieškoti, kai reikia atitikties URL.",
+    "message": "<code>urlPattern</code> yra „ClearURL“ sintaksė. <code>indexPattern</code> yra „Linkumori“ paieškos užuomina, skirta reguliariojo reiškinio URL teikėjams; jis turėtų nurodyti pagrindinio kompiuterio pavadinimus, kuriuos gali atitikti reguliarioji išraiška.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> yra neprivalomas, bet naudingas dėl greičio.",
+    "message": "<code>indexPattern</code> yra neprivalomas, bet naudingas greičiui. Jis indeksuoja teikėją į pagrindinio kompiuterio pavadinimo prieigos rakto kandidatų segmentus; jis niekada nepakeičia galutinio <code>urlPattern</code> rungtynių.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "5 derinys: <code>domainPatterns</code> ir <code>urlPattern</code> kartu",
+    "message": "5 derinys: nemaišykite <code>domainPatterns</code> ir <code>urlPattern</code> kaip bendro reikalavimo",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Ši Linkumori mišri atitikmens forma galioja JSON:",
+    "message": "Ši forma gali būti rodoma senesniuose arba ranka rašytuose duomenyse, tačiau tai nereiškia, kad turi išlaikyti abu atitikmenys:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Svarbus elgesys:",
+    "message": "Dabartinis <code>clearurls.js</code> elgesys:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Taigi nenaudokite abiejų, kai tikitės, kad reikės abiejų. Jei jums reikia kelio sąlygos, naudokite <code>urlPattern</code> su <code>indexPattern</code> arba įtraukite <code>$removeparam</code> / taisyklės šabloną į <code>rules</code>.",
+    "message": "Jei yra <code>domainPatterns</code> ir jis nėra tuščias, <code>clearurls.js</code> naudoja jį tiekėjo atitikčiai ir nepaiso to teikėjo <code>urlPattern</code>. Pasirinktinis redaktorius / importavimo kelias atmeta tiekėjus, kuriuose yra abu. Jei jums reikia kelio sąlygos, naudokite <code>urlPattern</code> su <code>indexPattern</code> arba apimkite atskirus <code>$removeparam</code> / taisyklės įrašus <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs priedas senasis ir ClearURLs core v2 kanoninis – tik <code>urlPattern</code>:",
+    "message": "Senas „ClearURLs“ priedas ir „ClearURL“ pagrindinis v2 kanoninis – tik <code>urlPattern</code>. Be <code>indexPattern</code> plati reguliariojo reiškinio teikėjai gali grįžti prie visuotinių kandidatų patikrų:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori papildymas – <code>urlPattern</code> su <code>indexPattern</code>:",
+    "message": "Linkumori papildymas - <code>urlPattern</code> su <code>indexPattern</code>. Indekso šablonas yra užuomina, o <code>urlPattern</code> išlieka galutinis atitikmuo:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori papildymas – daug <code>indexPattern</code> patarimų:",
+    "message": "Linkumori papildymas – kelios <code>indexPattern</code> užuominos apie URL reguliarųjį reiškinį, kuris gali atitikti daugiau nei vieną pagrindinio kompiuterio pavadinimą:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori papildymas – tik <code>domainPatterns</code>:",
+    "message": "Linkumori papildymas – tik <code>domainPatterns</code>. Jie naudojami tiesiogiai tiekėjų atitikčiai ir paieškos prieigos rakto ištraukimui:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori papildymas – ir <code>domainPatterns</code>, ir <code>urlPattern</code>:",
+    "message": "Senuosiuose / mišriuose duomenyse gali būti ir <code>domainPatterns</code>, ir <code>urlPattern</code>, bet nekurkite naujų teikėjų tokiu būdu:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Elgesys:",
+    "message": "Elgesys: ne tuščias <code>domainPatterns</code> laimėjimas. <code>urlPattern</code> naudojamas tik tada, kai trūksta <code>domainPatterns</code> arba jis tuščias. Tinkintas redaktorius / importavimo kelias abu kartu laiko negaliojančiais.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js elgesys: jei domainPatterns egzistuoja ir nėra tuščias, Linkumori naudoja domainPatterns teikėjo atitikčiai. urlPattern naudojamas tik tada, kai trūksta domainPatterns arba jis tuščias. Pasirinktinis redaktorius / importavimo kelias atmeta šią mišrią atitikmens formą, todėl naudokite ją tik seniems duomenims suprasti.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "„domainPatterns“ laimi už atitikimą, kai jis yra ir nėra tuščias. urlPattern naudojamas tik tada, kai trūksta domainPatterns arba jis tuščias. Pasirinktinis redaktorius / importavimo kelias atmeta tiekėjus, kuriuose yra abi atitikmenų šeimos.",
     "description": "Guide page text."
   },
   "guide_0735": {

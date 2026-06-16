@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Els patrons de domini admeten fitxes senzilles i formularis d'estil AdBlock. El comportament de concordança depèn de la sintaxi (alguns formularis comproven el nom d'amfitrió, d'altres coincideixen amb la cadena d'URL completa):",
+    "message": "Els patrons de domini admeten fitxes senzilles i formularis d'estil AdBlock. Quan domainPatterns no està buit, clearurls.js els utilitza per a la concordança de proveïdors i l'extracció de testimonis de cerca abans de qualsevol alternativa d'urlPattern:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Tots dos camps poden estar presents a les dades, però urlPattern té prioritat. Els patrons de domini només s'utilitzen quan l'urlPattern està buit. La concordança de domini és conscient de PSL, inclosa la gestió de dominis registrables i el suport de TLD de diverses parts.",
+    "message": "Per als proveïdors personalitzats d'autor, trieu domainPatterns o urlPattern. A les dades de temps d'execució de clearurls.js, els patrons de domini no buits win i urlPattern només s'utilitza quan els patrons de domini no són o estan buits. La concordança de domini és compatible amb PSL per als formularis d'estil AdBlock compatibles, inclòs el maneig de dominis registrables i el suport de TLD de diverses parts.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Els proveïdors són unitats lògiques que agrupen diverses regles sota el mateix patró d'URL. Cada proveïdor s'orienta a un lloc web o servei específic i conté totes les regles necessàries per netejar els URL d'aquesta font.",
+    "message": "Els proveïdors s'anomenen contenidors que agrupen camps de concordança i regles de neteja d'URL. La cerca de candidats utilitza fitxes de nom d'amfitrió de domainPatterns o indexPattern; el nom del proveïdor només és una etiqueta/clau i no decideix si una sol·licitud coincideix.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "L'urlPattern és una expressió regular que ha de coincidir amb tots els URL que s'haurien de veure afectats per les regles del proveïdor. Defineix quins llocs web ha de gestionar aquest proveïdor.",
+    "message": "urlPattern és una expressió regular provada amb l'URL de sol·licitud completa quan el proveïdor no té patrons de domini no buits. Si utilitzeu urlPattern, afegiu indexPattern quan sigui possible perquè clearurls.js pugui trobar el proveïdor per testimonis de nom d'amfitrió abans de provar l'expressió regular.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "L'indexPattern és un patró de domini (p. ex., ||example.com^) que actua com una pista per al sistema d'indexació. Com que les expressions regulars a urlPattern són difícils d'analitzar per als noms d'amfitrió, indexPattern proporciona un objectiu explícit per a l'optimització. Assegura que el proveïdor estigui indexat correctament i de manera eficient.",
+    "message": "indexPattern és una pista de cerca del proveïdor, no una condició de coincidència. clearurls.js extreu els testimonis de nom d'amfitrió d'indexPattern per col·locar un proveïdor d'urlPattern als cubs candidats providersByToken. El proveïdor encara coincideix només si provider.matchRequestURL() passa l'urlPattern real i les excepcions no coincideixen.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Reviseu l'URL que s'obrirà. Aquest URL conté la informació que heu introduït i us redirigirà a GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Avís de política de privadesa",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori crea aquest URL localment al vostre navegador. Linkumori no transfereix directament dades de tu o del teu navegador a GitHub o cap altre servidor mentre crea aquest URL.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Si trieu \"Obre GitHub\", esteu decidint deixar que el vostre navegador obri l'URL mostrat. Aquesta navegació del navegador pot enviar l'URL i els seus paràmetres de consulta a GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Per a la creació del problema, l'URL pot incloure el tipus de problema, l'URL del problema seleccionat, l'URL netejat, el marcador NSFW, els comentaris i les seccions de configuració seleccionades.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Per a la cerca de problemes, l'URL pot incloure el nom d'amfitrió, el domini, el tipus de problema i el terme de cerca NSFW seleccionats si s'ha seleccionat.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori no avala GitHub. Linkumori no sap, verifica ni garanteix si GitHub compleix amb la vostra privadesa local, protecció de dades o altres lleis aplicables.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Reviseu l'URL complet abans de continuar. Cancel·la si no vols que el teu navegador obri GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL a obrir (format tècnic):",
@@ -4981,6 +5009,10 @@
     "message": "No és una guia del codi JavaScript. Se centra només en les formes JSON, els formats de regles i els exemples que necessiten els autors de regles.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Aquesta guia es basa en el comportament actual del temps d'execució de <code>clearurls.js</code>. En particular, la cerca de proveïdors utilitza grups de candidats <code>providersByToken</code> de <code>domainPatterns</code> o <code>indexPattern</code>, i la concordança final encara s'executa a través de <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Capítol 1: Forma bàsica JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Un proveïdor és un grup de regles per a un lloc web, empresa, rastrejador o patró URL.",
+    "message": "Un proveïdor és un contenidor de temps d'execució anomenat per a un lloc web, una empresa, un rastrejador, un conjunt de patrons de domini o una expressió regular d'URL. El nom del proveïdor és una etiqueta/clau; La concordança la fa <code>domainPatterns</code> o <code>urlPattern</code>, no pel nom del proveïdor.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Plantilla completa del proveïdor:",
+    "message": "Camps del proveïdor acceptats per <code>clearurls.js</code>. Per fer coincidir, creeu <code>domainPatterns</code> o <code>urlPattern</code> amb <code>indexPattern</code> opcional; no confieu que tots dos siguin necessaris junts.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> és una addició de Linkumori. Utilitzeu-lo per a la majoria de proveïdors Linkumori JSON perquè és més fàcil d'escriure que una expressió regular completa <code>urlPattern</code>.",
+    "message": "<code>domainPatterns</code> és una addició de Linkumori i es prefereix per a la majoria de proveïdors personalitzats. A <code>clearurls.js</code>, s'utilitzen <code>domainPatterns</code> no buits per fer coincidir abans de <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Utilitzeu <code>urlPattern</code> només quan la concordança del domini no sigui suficient.",
+    "message": "Utilitzeu <code>urlPattern</code> només quan la concordança del domini no sigui suficient, com ara quan el proveïdor ha de coincidir amb un camí específic o una expressió regular d'URL completa.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> és el llegat del complement ClearURLs i la sintaxi canònica ClearURLs core v2. Linkumori afegeix <code>indexPattern</code> com a pista de cerca opcional perquè el motor pugui trobar proveïdors d'expressió regular més ràpidament.",
+    "message": "<code>urlPattern</code> és el llegat del complement ClearURLs i la sintaxi canònica bàsica de ClearURLs v2. Linkumori afegeix <code>indexPattern</code> només com a pista de cerca de candidats, de manera que els proveïdors d'expressió regular es puguin trobar més ràpidament mitjançant fitxes de nom d'amfitrió.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Important: Linkumori <code>indexPattern</code> és només una pista de cerca. No decideix si el proveïdor s'aplica.",
+    "message": "Important: <code>indexPattern</code> no decideix si un proveïdor coincideix. Després de la cerca de candidats, <code>clearurls.js</code> encara prova el <code>urlPattern</code> real a <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> és la sintaxi amunt ClearURLs. <code>indexPattern</code> és una addició de Linkumori per a una cerca més ràpida quan necessiteu la coincidència de l'expressió regular URL.",
+    "message": "<code>urlPattern</code> és la sintaxi de ClearURLs amunt. <code>indexPattern</code> és una pista de cerca de Linkumori per als proveïdors d'URL d'expressió regular; hauria d'apuntar als noms d'amfitrió que pot coincidir amb l'expressió regular.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> és opcional, però útil per a la velocitat.",
+    "message": "<code>indexPattern</code> és opcional, però útil per a la velocitat. Indexa el proveïdor en dipòsits candidats de testimoni de nom d'amfitrió; mai substitueix el partit <code>urlPattern</code> final.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Combinació 5: <code>domainPatterns</code> i <code>urlPattern</code> junts",
+    "message": "Combinació 5: no barregeu <code>domainPatterns</code> i <code>urlPattern</code> com a requisit combinat",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Aquesta forma de combinació mixta Linkumori és vàlida JSON:",
+    "message": "Aquesta forma pot aparèixer en dades més antigues o escrites a mà, però no vol dir que tots dos coincidències hagin de passar:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Comportament important:",
+    "message": "Comportament actual de <code>clearurls.js</code>:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Per tant, no utilitzeu tots dos quan espereu que siguin necessaris. Si necessiteu una condició de camí, utilitzeu <code>urlPattern</code> amb <code>indexPattern</code> o poseu un patró <code>$removeparam</code>/regla amb àmbit dins <code>rules</code>.",
+    "message": "Si <code>domainPatterns</code> està present i no està buit, <code>clearurls.js</code> l'utilitza per a la concordança de proveïdors i ignora <code>urlPattern</code> per a aquest proveïdor. El camí d'importació/editor personalitzat rebutja els proveïdors que contenen tots dos. Si necessiteu una condició de camí, utilitzeu <code>urlPattern</code> amb <code>indexPattern</code> o abasteu entrades individuals de <code>$removeparam</code>/regla dins de <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon legacy i ClearURLs core v2 canonical — només <code>urlPattern</code>:",
+    "message": "ClearURLs complementa l'herència i ClearURLs core v2 canònic - només <code>urlPattern</code>. Sense <code>indexPattern</code>, els proveïdors d'expressió regular amplis poden recórrer a les comprovacions de candidats globals:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori addició — <code>urlPattern</code> amb <code>indexPattern</code>:",
+    "message": "Addició de Linkumori — <code>urlPattern</code> amb <code>indexPattern</code>. El patró d'índex és una pista de cerca, mentre que <code>urlPattern</code> continua sent l'ajustador final:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori addició — múltiples consells <code>indexPattern</code>:",
+    "message": "Addició de Linkumori: múltiples consells <code>indexPattern</code> per a una expressió regular d'URL que pot coincidir amb més d'un nom d'amfitrió:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori addició — només <code>domainPatterns</code>:",
+    "message": "Addició de Linkumori: només <code>domainPatterns</code>. S'utilitzen directament per a la concordança de proveïdors i l'extracció de testimonis de cerca:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori afegit, tant <code>domainPatterns</code> com <code>urlPattern</code>:",
+    "message": "Les dades heretades o mixtes poden contenir tant <code>domainPatterns</code> com <code>urlPattern</code>, però no creeu proveïdors nous d'aquesta manera:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Comportament:",
+    "message": "Comportament: victòria <code>domainPatterns</code> no buida. <code>urlPattern</code> només s'utilitza quan falta <code>domainPatterns</code> o està buit. El camí d'importació/editor personalitzat tracta tots dos junts com a no vàlids.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "Comportament clearurls.js: si domainPatterns existeix i no està buit, Linkumori utilitza domainPatterns per a la concordança de proveïdors. urlPattern només s'utilitza quan domainPatterns falta o està buit. El camí d'importació/editor personalitzat rebutja aquesta forma de concordança mixta, de manera que utilitzeu-la només per entendre les dades heretades.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns guanya per coincidir quan està present i no està buit. urlPattern només s'utilitza quan domainPatterns falta o està buit. El camí d'importació/editor personalitzat rebutja els proveïdors que contenen ambdues famílies de concordança.",
     "description": "Guide page text."
   },
   "guide_0735": {

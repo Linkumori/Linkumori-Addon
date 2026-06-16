@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Моделите на домейни поддържат прости токени и форми в стил AdBlock. Поведението за съвпадение зависи от синтаксиса (някои форми проверяват името на хоста, други съвпадат с пълния URL низ):",
+    "message": "Моделите на домейни поддържат прости токени и форми в стил AdBlock. Когато domainPatterns не е празен, clearurls.js ги използва за съпоставяне на доставчика и извличане на токен за търсене преди евентуален резервен urlPattern:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "И двете полета могат да присъстват в данните, но urlPattern има приоритет. Образците на домейни се използват само когато urlPattern е празен. Съпоставянето на домейни е съобразено с PSL, включително обработка на регистрируеми домейни и поддръжка на TLD от няколко части.",
+    "message": "За авторски персонализирани доставчици изберете или domainPatterns, или urlPattern. В данните за изпълнение на clearurls.js непразните domainPatterns печелят и urlPattern се използва само когато domainPatterns липсва или е празен. Съпоставянето на домейни е съобразено с PSL за поддържани форми в стил AdBlock, включително обработка на регистрируеми домейни и поддръжка на TLD от няколко части.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Доставчиците са логически единици, които групират множество правила под един и същ URL модел. Всеки доставчик е насочен към конкретен уебсайт или услуга и съдържа всички правила, необходими за почистване на URL адреси от този източник.",
+    "message": "Доставчиците са наименувани контейнери, които групират полета за съвпадение и правила за почистване на URL адреси. Търсенето на кандидат използва токени за име на хост от domainPatterns или indexPattern; името на доставчика е само етикет/ключ и не решава дали дадена заявка съвпада.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "UrlPattern е регулярен израз, който трябва да съответства на всеки URL адрес, който трябва да бъде засегнат от правилата на доставчика. Той определя кои уебсайтове трябва да обработва този доставчик.",
+    "message": "urlPattern е регулярен израз, тестван спрямо пълния URL адрес на заявката, когато доставчикът няма непразни domainPatterns. Ако използвате urlPattern, добавете indexPattern, когато е възможно, така че clearurls.js да може да намери доставчика чрез токени за име на хост, преди да тества регулярния израз.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern е модел на домейн (напр. ||example.com^), който действа като подсказка за системата за индексиране. Тъй като регулярните изрази в urlPattern са трудни за анализиране за имена на хостове, indexPattern предоставя изрична цел за оптимизиране. Той гарантира, че доставчикът е индексиран правилно и ефективно.",
+    "message": "indexPattern е намек за търсене на доставчик, а не условие за съвпадение. clearurls.js извлича токени за име на хост от indexPattern, за да постави доставчик на urlPattern в кофи с кандидати providersByToken. Доставчикът все още съвпада само ако provider.matchRequestURL() предава истинския urlPattern и изключенията не съвпадат.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Моля, прегледайте URL адреса, който ще се отвори. Този URL адрес съдържа въведената от вас информация и ще ви пренасочи към GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Декларация за поверителност",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori създава този URL локално във вашия браузър. Linkumori не прехвърля директно данни от вас или вашия браузър към GitHub или към друг сървър, докато създава този URL.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Ако изберете „Отваряне на GitHub“, вие избирате да оставите браузъра си да отваря показания URL адрес. Тази навигация на браузъра може да изпрати URL адреса и неговите параметри на заявката до GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "За създаване на проблем URL може да включва вида на проблема, избран URL адрес на проблем, изчистен URL адрес, NSFW маркер, коментари и избрани секции за конфигурация.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "За търсене на проблем, URL адресът може да включва избраното име на хост, домейн, тип проблем и термин за търсене на NSFW, ако е избран.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori не подкрепя GitHub. Linkumori не знае, не проверява и не гарантира дали GitHub спазва вашите местни закони за поверителност, защита на данните или други приложими закони.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Прегледайте пълния URL, преди да продължите. Отказ, ако не искате браузърът ви да отваря GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL адрес за отваряне (технически формат):",
@@ -4981,6 +5009,10 @@
     "message": "Това не е ръководство за кода JavaScript. Той се фокусира само върху JSON формите, форматите на правилата и примерите, от които се нуждаят авторите на правила.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Това ръководство се основава на текущото поведение на <code>clearurls.js</code> по време на изпълнение. По-специално, търсенето на доставчик използва <code>providersByToken</code> кандидат кофи от <code>domainPatterns</code> или <code>indexPattern</code>, а окончателното съпоставяне все още се изпълнява през <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Глава 1: Основна JSON Форма",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Доставчикът е една група от правила за един уебсайт, компания, тракер или URL модел.",
+    "message": "Доставчикът е един наименуван контейнер за време на изпълнение за един уебсайт, компания, инструмент за проследяване, набор от модели на домейни или URL регулярен израз. Името на доставчика е етикет/ключ; съвпадението се извършва от <code>domainPatterns</code> или <code>urlPattern</code>, а не от името на доставчика.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Пълен шаблон на доставчик:",
+    "message": "Полетата на доставчика се приемат от <code>clearurls.js</code>. За съвпадение създайте или <code>domainPatterns</code>, или <code>urlPattern</code> с незадължителен <code>indexPattern</code>; не разчитайте, че и двете са необходими заедно.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> е Linkumori допълнение. Използвайте го за повечето Linkumori JSON доставчици, защото е по-лесно да се напише от пълен <code>urlPattern</code> регулярен израз.",
+    "message": "<code>domainPatterns</code> е допълнение към Linkumori и е предпочитан за повечето персонализирани доставчици. В <code>clearurls.js</code> непразните <code>domainPatterns</code> се използват за съвпадение преди <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Използвайте <code>urlPattern</code> само когато съвпадението на домейна не е достатъчно.",
+    "message": "Използвайте <code>urlPattern</code> само когато съвпадението на домейна не е достатъчно, като например когато доставчикът трябва да съпостави конкретен път или пълен URL регулярен израз.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> е ClearURLs наследена добавка и ClearURLs core v2 каноничен синтаксис. Linkumori добавя <code>indexPattern</code> като допълнителен съвет за търсене, така че двигателят да може да намира доставчици на регулярни изрази по-бързо.",
+    "message": "<code>urlPattern</code> е ClearURLs наследен аддон и ClearURLs core v2 каноничен синтаксис. Linkumori добавя <code>indexPattern</code> само като подсказка за търсене на кандидат, така че доставчиците на регулярни изрази да могат да бъдат намерени по токени за име на хост по-бързо.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Важно: Linkumori <code>indexPattern</code> е само съвет за търсене. Той не решава дали доставчикът се прилага.",
+    "message": "Важно: <code>indexPattern</code> не ​​решава дали даден доставчик съвпада. След търсене на кандидат, <code>clearurls.js</code> все още тества истинския <code>urlPattern</code> в <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> е синтаксис нагоре по веригата ClearURLs. <code>indexPattern</code> е Linkumori допълнение за по-бързо търсене, когато имате нужда от съвпадение на регулярен израз URL.",
+    "message": "<code>urlPattern</code> е синтаксис на ClearURLs нагоре по веригата. <code>indexPattern</code> е съвет за търсене на Linkumori за доставчици на регулярни URL адреси; трябва да сочи към имената на хостове, на които регулярният израз може да съответства.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> не е задължителен, но полезен за скорост.",
+    "message": "<code>indexPattern</code> не ​​е задължителен, но полезен за скорост. Той индексира доставчика в кофи с кандидати за име на хост; той никога не замества крайния <code>urlPattern</code> мач.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Комбинация 5: <code>domainPatterns</code> и <code>urlPattern</code> заедно",
+    "message": "Комбинация 5: Не смесвайте <code>domainPatterns</code> и <code>urlPattern</code> като комбинирано изискване",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Тази Linkumori смесена форма за съвпадение е валидна JSON:",
+    "message": "Тази форма може да се появи в по-стари или ръкописни данни, но това не означава, че и двете съвпадения трябва да преминат:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Важно поведение:",
+    "message": "Текущо поведение на <code>clearurls.js</code>:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Така че не използвайте и двете, когато очаквате и двете да са необходими. Ако имате нужда от условие за път, използвайте <code>urlPattern</code> с <code>indexPattern</code> или поставете обхватен модел <code>$removeparam</code>/правило вътре в <code>rules</code>.",
+    "message": "Ако <code>domainPatterns</code> присъства и не е празен, <code>clearurls.js</code> го използва за съвпадение на доставчик и игнорира <code>urlPattern</code> за този доставчик. Персонализираният редактор/пътят за импортиране отхвърля доставчици, които съдържат и двете. Ако имате нужда от условие за път, използвайте <code>urlPattern</code> с <code>indexPattern</code> или обхват на отделни записи на <code>$removeparam</code>/правила в <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs наследени добавки и ClearURLs core v2 канонични — само <code>urlPattern</code>:",
+    "message": "ClearURLs addon legacy и ClearURLs core v2 canonical — само <code>urlPattern</code>. Без <code>indexPattern</code> доставчиците на широки регулярни изрази може да се върнат към глобални проверки на кандидати:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori допълнение — <code>urlPattern</code> с <code>indexPattern</code>:",
+    "message": "Добавяне на Linkumori — <code>urlPattern</code> с <code>indexPattern</code>. Моделът на индекса е намек за търсене, докато <code>urlPattern</code> остава крайният съвпадащ:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori добавяне — множество <code>indexPattern</code> съвети:",
+    "message": "Добавяне на Linkumori — множество <code>indexPattern</code> подсказки за URL регулярен израз, който може да съответства на повече от едно име на хост:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori допълнение — само <code>domainPatterns</code>:",
+    "message": "Добавяне на Linkumori — само <code>domainPatterns</code>. Те се използват директно за съпоставяне на доставчик и извличане на токен за търсене:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori допълнение — както <code>domainPatterns</code>, така и <code>urlPattern</code>:",
+    "message": "Наследените/смесени данни може да съдържат както <code>domainPatterns</code>, така и <code>urlPattern</code>, но не създавайте нови доставчици по този начин:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Поведение:",
+    "message": "Поведение: непразно <code>domainPatterns</code> печалба. <code>urlPattern</code> се използва само когато <code>domainPatterns</code> липсва или е празен. Пътят на персонализирания редактор/импортиране третира и двете заедно като невалидни.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js поведение: ако domainPatterns съществува и не е празен, Linkumori използва domainPatterns за съвпадение на доставчик. urlPattern се използва само когато domainPatterns липсва или е празен. Персонализираният редактор/пътят за импортиране отхвърля тази смесена форма за съвпадение, така че я използвайте само за разбиране на наследени данни.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns печели за съвпадение, когато присъства и не е празен. urlPattern се използва само когато domainPatterns липсва или е празен. Пътят за персонализиран редактор/импортиране отхвърля доставчици, които съдържат и двете семейства за съвпадение.",
     "description": "Guide page text."
   },
   "guide_0735": {

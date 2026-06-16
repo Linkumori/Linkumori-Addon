@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Domenemønstre støtter enkle tokens og skjemaer i AdBlock-stil. Samsvarende oppførsel avhenger av syntaks (noen skjemaer sjekker vertsnavn, andre samsvarer med hele URL-strengen):",
+    "message": "Domenemønstre støtter enkle tokens og skjemaer i AdBlock-stil. Når domainPatterns ikke er tomme, bruker clearurls.js dem for leverandørmatching og utvinning av oppslagssymboler før eventuell urlPattern fallback:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Begge feltene kan være tilstede i data, men urlPattern har prioritet. Domenemønstre brukes bare når urlPattern er tomt. Domenematching er PSL-bevisst, inkludert registrerbare domenehåndtering og flerdelt TLD-støtte.",
+    "message": "For opprettede tilpassede leverandører, velg enten domainPatterns eller urlPattern. I clearurls.js kjøretidsdata, brukes ikke-tomme domainPatterns og urlPattern kun når domainPatterns mangler eller er tomt. Domenematching er PSL-bevisst for støttede skjemaer i AdBlock-stil, inkludert registrerbare domenehåndtering og flerdelt TLD-støtte.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Leverandører er logiske enheter som grupperer flere regler under samme URL-mønster. Hver leverandør retter seg mot et bestemt nettsted eller en bestemt tjeneste og inneholder alle reglene som trengs for å rense nettadresser fra den kilden.",
+    "message": "Leverandører er navngitte containere som grupperer samsvarende felt og regler for URL-rensing. Kandidatoppslag bruker vertsnavn-tokens fra domenePatterns eller indexPattern; leverandørnavnet er kun en etikett/nøkkel og avgjør ikke om en forespørsel stemmer.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern er et regulært uttrykk som må samsvare med hver URL som skal påvirkes av leverandørens regler. Den definerer hvilke nettsteder denne leverandøren skal håndtere.",
+    "message": "urlPattern er et regulært uttrykk testet mot hele forespørsels-URLen når leverandøren ikke har ikke-tomme domenePatterns. Hvis du bruker urlPattern, legg til indexPattern når det er mulig slik at clearurls.js kan finne leverandøren etter vertsnavn-tokens før du tester regex.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "Indeksmønsteret er et domenemønster (f.eks. ||example.com^) som fungerer som et hint for indekseringssystemet. Siden regulære uttrykk i urlPattern er vanskelige å analysere for vertsnavn, gir indexPattern et eksplisitt mål for optimalisering. Det sikrer at leverandøren blir indeksert riktig og effektivt.",
+    "message": "indexPattern er et leverandøroppslagstips, ikke en samsvarsbetingelse. clearurls.js trekker ut vertsnavn-tokens fra indexPattern for å plassere en urlPattern-leverandør i providersByToken-kandidatbøtter. Leverandøren samsvarer fortsatt bare hvis provider.matchRequestURL() passerer det virkelige urlPattern og unntakene ikke samsvarer.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Se gjennom nettadressen som vil bli åpnet. Denne URL-en inneholder informasjonen du skrev inn og vil omdirigere deg til GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Personvernerklæring",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori oppretter denne URLen lokalt i nettleseren din. Linkumori overfører ikke data direkte fra deg eller nettleseren din til GitHub eller til noen annen server mens du oppretter denne URLen.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Hvis du velger \"Åpne GitHub\", velger du å la nettleseren din åpne den viste URL-en. Denne nettlesernavigasjonen kan sende URL-en og dens søkeparametere til GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "For problemoppretting kan URL-en inkludere problemtypen, valgt problem-URL, renset URL, NSFW-markør, kommentarer og valgte konfigurasjonsseksjoner.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "For problemsøk kan URL-en inkludere det valgte vertsnavnet, domenet, problemtypen og NSFW-søkeordet hvis valgt.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori støtter ikke GitHub. Linkumori vet, verifiserer eller garanterer ikke om GitHub overholder ditt lokale personvern, databeskyttelse eller andre gjeldende lover.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Se gjennom hele nettadressen før du fortsetter. Avbryt hvis du ikke vil at nettleseren din skal åpne GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL som skal åpnes (teknisk format):",
@@ -4981,6 +5009,10 @@
     "message": "Det er ikke en veiledning til JavaScript-koden. Den fokuserer bare på JSON-formene, regelformatene og eksemplene som regelforfattere trenger.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Denne veiledningen er basert på gjeldende <code>clearurls.js</code> kjøretidsatferd. Spesielt bruker leverandøroppslag <code>providersByToken</code>-kandidatblokker fra <code>domainPatterns</code> eller <code>indexPattern</code>, og den endelige matchingen går fortsatt gjennom <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Kapittel 1: Grunnleggende JSON Form",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "En leverandør er én gruppe regler for én nettside, bedrift, sporing eller URL-mønster.",
+    "message": "En leverandør er en navngitt kjøretidsbeholder for ett nettsted, selskap, sporing, domenemønstersett eller regulært URL-uttrykk. Leverandørnavnet er en etikett/nøkkel; matching gjøres av <code>domainPatterns</code> eller <code>urlPattern</code>, ikke av leverandørens navn.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Full leverandørmal:",
+    "message": "Leverandørfelt akseptert av <code>clearurls.js</code>. For matching, forfatter enten <code>domainPatterns</code> eller <code>urlPattern</code> med valgfri <code>indexPattern</code>; ikke stol på at begge kreves sammen.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> er et Linkumori tillegg. Bruk det for de fleste Linkumori JSON-leverandører fordi det er lettere å skrive enn et fullstendig <code>urlPattern</code> regulært uttrykk.",
+    "message": "<code>domainPatterns</code> er et Linkumori-tillegg og foretrekkes for de fleste tilpassede leverandører. I <code>clearurls.js</code> brukes ikke-tomme <code>domainPatterns</code> for matching før <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Bruk <code>urlPattern</code> bare når domenematching ikke er nok.",
+    "message": "Bruk <code>urlPattern</code> bare når domenematching ikke er nok, for eksempel når leverandøren må matche en bestemt bane eller full URL-regex.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> er ClearURLs arv og ClearURLs core v2 kanonisk syntaks. Linkumori legger til <code>indexPattern</code> som et valgfritt oppslagstips slik at motoren kan finne regex-leverandører raskere.",
+    "message": "<code>urlPattern</code> er ClearURLs addon legacy og ClearURLs core v2 kanonisk syntaks. Linkumori legger til <code>indexPattern</code> bare som et kandidatoppslagstips slik at regex-leverandører kan bli funnet av vertsnavn-tokens raskere.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Viktig: Linkumori <code>indexPattern</code> er bare et oppslagstips. Den avgjør ikke om tilbyderen søker.",
+    "message": "Viktig: <code>indexPattern</code> bestemmer ikke om en leverandør matcher. Etter kandidatoppslag, tester <code>clearurls.js</code> fortsatt den virkelige <code>urlPattern</code> i <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> er oppstrøms ClearURLs syntaks. <code>indexPattern</code> er et Linkumori tillegg for raskere oppslag når du trenger regex URL-matching.",
+    "message": "<code>urlPattern</code> er oppstrøms ClearURLs syntaks. <code>indexPattern</code> er et Linkumori-oppslagstips for nettadresseleverandører med regulære uttrykk; den skal peke på vertsnavnene regex kan matche.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> er valgfritt, men nyttig for hastighet.",
+    "message": "<code>indexPattern</code> er valgfritt, men nyttig for hastighet. Den indekserer leverandøren i vertsnavn-token-kandidatbøtter; den erstatter aldri den siste <code>urlPattern</code>-kampen.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Kombinasjon 5: <code>domainPatterns</code> Og <code>urlPattern</code> Sammen",
+    "message": "Kombinasjon 5: Ikke bland <code>domainPatterns</code> og <code>urlPattern</code> som et kombinert krav",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Denne Linkumori blandede matcher-formen er gyldig JSON:",
+    "message": "Denne formen kan vises i eldre eller håndskrevne data, men det betyr ikke at begge matcherne må bestå:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Viktig oppførsel:",
+    "message": "Gjeldende <code>clearurls.js</code>-adferd:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Så ikke bruk begge når du forventer at begge er påkrevd. Hvis du trenger en banebetingelse, bruk <code>urlPattern</code> med <code>indexPattern</code>, eller legg inn et område med <code>$removeparam</code>/regelmønster i <code>rules</code>.",
+    "message": "Hvis <code>domainPatterns</code> er tilstede og ikke er tom, bruker <code>clearurls.js</code> den for leverandørmatching og ignorerer <code>urlPattern</code> for den leverandøren. Den tilpassede redigerings-/importbanen avviser leverandører som inneholder begge deler. Hvis du trenger en banebetingelse, bruk <code>urlPattern</code> med <code>indexPattern</code>, eller scope individuelle <code>$removeparam</code>/regeloppføringer i <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs arv av tillegg og ClearURLs core v2 canonical — bare <code>urlPattern</code>:",
+    "message": "ClearURLs addon legacy og ClearURLs core v2 canonical – kun <code>urlPattern</code>. Uten <code>indexPattern</code> kan leverandører av brede regulære uttrykk falle tilbake til globale kandidatsjekker:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori tillegg — <code>urlPattern</code> med <code>indexPattern</code>:",
+    "message": "Linkumori tillegg — <code>urlPattern</code> med <code>indexPattern</code>. Indeksmønsteret er et oppslagstips, mens <code>urlPattern</code> forblir den siste matcheren:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori tillegg — flere <code>indexPattern</code> hint:",
+    "message": "Linkumori-tilføyelse – flere <code>indexPattern</code>-hint for et regulært URL-uttrykk som kan matche mer enn ett vertsnavn:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori tillegg — bare <code>domainPatterns</code>:",
+    "message": "Linkumori-tillegg – kun <code>domainPatterns</code>. Disse brukes direkte for leverandørmatching og utvinning av oppslagstoken:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori tillegg — både <code>domainPatterns</code> og <code>urlPattern</code>:",
+    "message": "Eldre/blandet data kan inneholde både <code>domainPatterns</code> og <code>urlPattern</code>, men skriv ikke nye leverandører på denne måten:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Atferd:",
+    "message": "Atferd: ikke-tom <code>domainPatterns</code> seier. <code>urlPattern</code> brukes bare når <code>domainPatterns</code> mangler eller er tom. Den tilpassede redigerings-/importbanen behandler begge sammen som ugyldige.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js-adferd: hvis domainPatterns eksisterer og ikke er tom, bruker Linkumori domainPatterns for leverandørmatching. urlPattern brukes bare når domenePatterns mangler eller er tomme. Den tilpassede redigerings-/importbanen avviser denne blandede matcher-formen, så bruk den kun for å forstå eldre data.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns vinner for matching når det er tilstede og ikke er tomt. urlPattern brukes bare når domenePatterns mangler eller er tomme. Den tilpassede redigerings-/importbanen avviser leverandører som inneholder begge matcherfamiliene.",
     "description": "Guide page text."
   },
   "guide_0735": {

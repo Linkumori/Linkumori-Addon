@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Domēna modeļi atbalsta vienkāršus marķierus un AdBlock stila formas. Atbilstības darbība ir atkarīga no sintakses (dažas formas pārbauda saimniekdatora nosaukumu, citas atbilst pilnai URL virknei):",
+    "message": "Domēna modeļi atbalsta vienkāršus marķierus un AdBlock stila veidlapas. Ja lauks domainPatterns nav tukšs, clearurls.js izmanto tos nodrošinātāja atbilstības noteikšanai un uzmeklēšanas marķiera ekstrakcijai pirms jebkura urlPattern atkāpšanās:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Datos var atrasties abi lauki, taču urlPattern ir prioritāte. Domēna modeļi tiek izmantoti tikai tad, ja lauks urlPattern ir tukšs. Domēna atbilstības noteikšana ir PSL informācija, tostarp reģistrēta domēna apstrāde un vairāku daļu TLD atbalsts.",
+    "message": "Autorizētiem pielāgotiem pakalpojumu sniedzējiem izvēlieties domēna šablonus vai urlPattern. Clearurls.js izpildlaika datos uzvar netukšs domainPatterns, un urlPattern tiek izmantots tikai tad, ja trūkst domēna Patterns vai tas ir tukšs. Domēna atbilstības noteikšana ir PSL informēta atbalstītām AdBlock stila formām, tostarp reģistrējamo domēnu apstrādi un vairāku daļu TLD atbalstu.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Pakalpojumu sniedzēji ir loģiskas vienības, kas grupē vairākas kārtulas zem viena URL modeļa. Katrs pakalpojumu sniedzējs atlasa konkrētu vietni vai pakalpojumu un ietver visus noteikumus, kas nepieciešami, lai no šī avota notīrītu vietrāžus URL.",
+    "message": "Pakalpojumu sniedzēji tiek nosaukti par konteineriem, kas grupē atbilstības laukus un URL tīrīšanas noteikumus. Kandidātu uzmeklēšanai tiek izmantoti saimniekdatora nosaukuma marķieri no domainPatterns vai indexPattern; nodrošinātāja nosaukums ir tikai iezīme/atslēga, un tas neizlemj, vai pieprasījums atbilst.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "UrlPattern ir regulāra izteiksme, kurai ir jāatbilst katram URL, kuru vajadzētu ietekmēt nodrošinātāja noteikumiem. Tas nosaka, kuras vietnes šim pakalpojumu sniedzējam ir jāapstrādā.",
+    "message": "urlPattern ir regulāra izteiksme, kas pārbaudīta pret pilnu pieprasījuma URL, ja pakalpojumu sniedzējam nav tukšu domēna modeļu. Ja izmantojat urlPattern, pievienojiet indexPattern, kad iespējams, lai clearurls.js varētu atrast nodrošinātāju pēc saimniekdatora nosaukuma pilnvarām pirms regulārā izteiksmes testēšanas.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "Indeksa modelis ir domēna modelis (piemēram, ||example.com^), kas darbojas kā mājiens indeksēšanas sistēmai. Tā kā urlPattern regulārās izteiksmes ir grūti parsēt resursdatora nosaukumiem, indexPattern nodrošina skaidru optimizācijas mērķi. Tas nodrošina, ka pakalpojumu sniedzējs tiek indeksēts pareizi un efektīvi.",
+    "message": "indexPattern ir nodrošinātāja uzmeklēšanas mājiens, nevis atbilstības nosacījums. clearurls.js izvelk resursdatora nosaukuma pilnvaras no indexPattern, lai ievietotu urlPattern nodrošinātāju pakalpojumu sniedzējusByToken kandidātu segmentos. Pakalpojumu sniedzējs joprojām atbilst tikai tad, ja provider.matchRequestURL() nodod īsto urlPattern un izņēmumi neatbilst.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Lūdzu, pārskatiet URL, kas tiks atvērts. Šajā URL ir ietverta jūsu ievadītā informācija, un tas jūs novirzīs uz GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Paziņojums par privātuma politiku",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori izveido šo URL lokāli jūsu pārlūkprogrammā. Šī URL izveides laikā Linkumori tieši nepārsūta datus no jums vai jūsu pārlūkprogrammas uz GitHub vai jebkuru citu serveri.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Ja izvēlaties \"Atvērt GitHub\", jūs izvēlaties ļaut pārlūkprogrammai atvērt parādīto URL. Šī pārlūkprogrammas navigācija var nosūtīt vietrādi URL un tā vaicājuma parametrus GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Lai izveidotu problēmu, URL var ietvert problēmas veidu, atlasīto problēmas URL, notīrīto URL, NSFW marķieri, komentārus un atlasītās konfigurācijas sadaļas.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Problēmu meklēšanai URL var ietvert atlasīto saimniekdatora nosaukumu, domēnu, problēmas veidu un NSFW meklēšanas vienumu, ja tas ir atlasīts.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori neatbalsta GitHub. Linkumori nezina, nepārbauda un negarantē, vai GitHub atbilst jūsu vietējiem privātuma, datu aizsardzības vai citiem piemērojamiem tiesību aktiem.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Pirms turpināt, pārskatiet pilnu URL. Atceliet, ja nevēlaties, lai pārlūkprogramma atvērtu GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "Atveramais URL (tehniskais formāts):",
@@ -4981,6 +5009,10 @@
     "message": "Tas nav JavaScript koda ceļvedis. Tas koncentrējas tikai uz JSON formām, kārtulu formātiem un piemēriem, kas nepieciešami kārtulu autoriem.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Šī rokasgrāmata ir balstīta uz pašreizējo <code>clearurls.js</code> izpildlaika darbību. Jo īpaši pakalpojumu sniedzēja uzmeklēšanā tiek izmantoti <code>providersByToken</code> kandidātu kopas no <code>domainPatterns</code> vai <code>indexPattern</code>, un galīgā atbilstība joprojām tiek veikta, izmantojot <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "1. nodaļa: Pamata JSON Forma",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Pakalpojumu sniedzējs ir viena noteikumu grupa vienai vietnei, uzņēmumam, izsekotājam vai URL modelim.",
+    "message": "Pakalpojumu sniedzējs ir viens nosaukts izpildlaika konteiners vienai vietnei, uzņēmumam, izsekotājam, domēna šablonu kopai vai URL regulārai izteiksmei. Pakalpojumu sniedzēja nosaukums ir etiķete/atslēga; saskaņošanu veic <code>domainPatterns</code> vai <code>urlPattern</code>, nevis pakalpojumu sniedzēja nosaukums.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Pilna pakalpojumu sniedzēja veidne:",
+    "message": "<code>clearurls.js</code> apstiprināja nodrošinātāja laukus. Saskaņošanai norādiet <code>domainPatterns</code> vai <code>urlPattern</code> ar izvēles <code>indexPattern</code>; nepaļaujieties uz to, ka abi ir nepieciešami kopā.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> ir Linkumori papildinājums. Izmantojiet to lielākajai daļai Linkumori JSON pakalpojumu sniedzēju, jo to ir vieglāk rakstīt nekā pilnu <code>urlPattern</code> regulāro izteiksmi.",
+    "message": "<code>domainPatterns</code> ir Linkumori papildinājums, un tas ir priekšroka lielākajai daļai pielāgoto pakalpojumu sniedzēju. Programmā <code>clearurls.js</code> saskaņošanai pirms <code>urlPattern</code> tiek izmantots netukšs <code>domainPatterns</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Izmantojiet <code>urlPattern</code> tikai tad, ja ar domēna atbilstību nepietiek.",
+    "message": "Izmantojiet <code>urlPattern</code> tikai tad, ja ar domēna atbilstību nepietiek, piemēram, ja pakalpojumu sniedzējam ir jāatbilst konkrētam ceļam vai pilnam URL regulārajam izteiksmei.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> ir ClearURLs papildinājuma mantojums un ClearURLs core v2 kanoniskā sintakse. Linkumori pievieno <code>indexPattern</code> kā izvēles uzmeklēšanas padomu, lai programma varētu ātrāk atrast regulārās izteiksmes nodrošinātājus.",
+    "message": "<code>urlPattern</code> ir ClearURL pievienojumprogrammu mantojums un ClearURL galvenā v2 kanoniskā sintakse. Linkumori pievieno <code>indexPattern</code> tikai kā kandidāta uzmeklēšanas mājienu, lai regulārās izteiksmes nodrošinātājus varētu ātrāk atrast pēc saimniekdatora nosaukuma pilnvarām.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Svarīgi: Linkumori <code>indexPattern</code> ir tikai uzmeklēšanas mājiens. Tas neizlemj, vai pakalpojumu sniedzējs piesakās.",
+    "message": "Svarīgi! <code>indexPattern</code> neizlemj, vai nodrošinātājs atbilst. Pēc kandidātu meklēšanas <code>clearurls.js</code> joprojām pārbauda īsto <code>urlPattern</code> <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> ir augšpus ClearURLs sintakse. <code>indexPattern</code> ir Linkumori papildinājums ātrākai meklēšanai, kad nepieciešama regulārā izteiksmes URL atbilstība.",
+    "message": "<code>urlPattern</code> ir augšējais ClearURL sintakse. <code>indexPattern</code> ir Linkumori uzmeklēšanas padoms regulārās izteiksmes URL nodrošinātājiem; tam jānorāda uz resursdatora nosaukumiem, kas var atbilst regulārajai izteiksmei.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> nav obligāta, taču noder ātrumam.",
+    "message": "<code>indexPattern</code> ir neobligāts, taču noderīgs ātrumam. Tas indeksē pakalpojumu sniedzēju resursdatora nosaukuma marķiera kandidātu segmentos; tas nekad neaizstāj pēdējo <code>urlPattern</code> spēli.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "5. kombinācija: <code>domainPatterns</code> un <code>urlPattern</code> kopā",
+    "message": "5. kombinācija: nejaukt <code>domainPatterns</code> un <code>urlPattern</code> kā kombinēto prasību",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Šī Linkumori jauktā atbilstības forma ir derīga JSON:",
+    "message": "Šī forma var parādīties vecākos vai ar roku rakstītos datos, taču tas nenozīmē, ka abiem atbilstošām ir jānokārto:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Svarīga uzvedība:",
+    "message": "Pašreizējā <code>clearurls.js</code> darbība:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Tāpēc neizmantojiet abus, ja domājat, ka abi būs nepieciešami. Ja jums ir nepieciešams ceļa nosacījums, izmantojiet <code>urlPattern</code> ar <code>indexPattern</code> vai ievietojiet tvēruma <code>$removeparam</code>/kārtulas modeli iekšpusē <code>rules</code>.",
+    "message": "Ja ir norādīts <code>domainPatterns</code> un tas nav tukšs, <code>clearurls.js</code> to izmanto pakalpojumu sniedzēja atbilstības noteikšanai un ignorē šī nodrošinātāja <code>urlPattern</code>. Pielāgotais redaktors/importēšanas ceļš noraida pakalpojumu sniedzējus, kas satur abus. Ja jums ir nepieciešams ceļa nosacījums, izmantojiet <code>urlPattern</code> ar <code>indexPattern</code> vai aptveriet atsevišķus <code>$removeparam</code>/kārtulas ierakstus iekšā <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs mantotais papildinājums un ClearURLs pamata v2 kanoniskais — tikai <code>urlPattern</code>:",
+    "message": "ClearURLs mantotais papildinājums un ClearURLs core v2 kanoniskais — tikai <code>urlPattern</code>. Bez <code>indexPattern</code> plašas regulārās izteiksmes nodrošinātāji var atgriezties pie globālajām kandidātu pārbaudēm.",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori papildinājums — <code>urlPattern</code> ar <code>indexPattern</code>:",
+    "message": "Linkumori papildinājums — <code>urlPattern</code> ar <code>indexPattern</code>. Indeksa modelis ir uzmeklēšanas mājiens, savukārt <code>urlPattern</code> joprojām ir pēdējais atbilstības rādītājs:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori papildinājums — vairāki <code>indexPattern</code> padomi:",
+    "message": "Linkumori papildinājums — vairāki <code>indexPattern</code> padomi par URL regulāru izteiksmi, kas var atbilst vairāk nekā vienam saimniekdatora nosaukumam:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori papildinājums — tikai <code>domainPatterns</code>:",
+    "message": "Linkumori papildinājums — tikai <code>domainPatterns</code>. Tie tiek tieši izmantoti pakalpojumu sniedzēja saskaņošanai un uzmeklēšanas marķiera iegūšanai:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori papildinājums — gan <code>domainPatterns</code>, gan <code>urlPattern</code>:",
+    "message": "Mantotie/jauktie dati var ietvert gan <code>domainPatterns</code>, gan <code>urlPattern</code>, taču neveidojiet jaunus pakalpojumu sniedzējus šādā veidā:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Uzvedība:",
+    "message": "Uzvedība: nav tukšs <code>domainPatterns</code> laimests. <code>urlPattern</code> tiek izmantots tikai tad, ja trūkst <code>domainPatterns</code> vai tas ir tukšs. Pielāgotais redaktors/importēšanas ceļš abus kopā uzskata par nederīgiem.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js uzvedība: ja domēns Patterns pastāv un nav tukšs, Linkumori pakalpojumu sniedzēja saskaņošanai izmanto domēna Patterns. urlPattern tiek izmantots tikai tad, ja domēna Patterns trūkst vai tas ir tukšs. Pielāgotais redaktors/importēšanas ceļš noraida šo jaukto atbilstības formu, tāpēc izmantojiet to tikai, lai izprastu mantotos datus.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns uzvar par atbilstību, ja tas ir un nav tukšs. urlPattern tiek izmantots tikai tad, ja domēna Patterns trūkst vai tas ir tukšs. Pielāgotais redaktors/importēšanas ceļš noraida pakalpojumu sniedzējus, kuros ir abas atbilstības saimes.",
     "description": "Guide page text."
   },
   "guide_0735": {

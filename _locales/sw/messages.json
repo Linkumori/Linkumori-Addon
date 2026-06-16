@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Miundo ya Vikoa inasaidia tokeni rahisi na aina za mtindo wa AdBlock. Tabia ya kulinganisha inategemea sintaksia (aina zingine huangalia jina la mwenyeji, zingine zinalingana na mfuatano kamili wa URL):",
+    "message": "Miundo ya Vikoa inasaidia tokeni rahisi na aina za mtindo wa AdBlock. Wakati domainPatterns si tupu, clearurls.js huzitumia kwa kulinganisha na mtoa huduma na uchimbaji wa ishara kabla ya urlPattern kurudi nyuma:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Sehemu zote mbili zinaweza kuwa katika data, lakini urlPattern inachukua kipaumbele. Miundo ya Kikoa hutumika tu wakati urlPattern ni tupu. Ulinganishaji wa kikoa unafahamu PSL, ikijumuisha ushughulikiaji wa kikoa kinachoweza kusajiliwa na usaidizi wa sehemu nyingi wa TLD.",
+    "message": "Kwa watoa huduma maalum walioidhinishwa, chagua ama domainPatterns au urlPattern. Katika data ya wakati wa utekelezaji wa clearurls.js, kikoa kisicho tupuPatterns kushinda na urlPattern inatumika tu wakati domainPatterns inakosekana au tupu. Ulinganishaji wa kikoa unafahamu PSL kwa fomu za mtindo wa AdBlock zinazotumika, ikijumuisha ushughulikiaji wa kikoa kinachoweza kusajiliwa na usaidizi wa TLD wa sehemu nyingi.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Watoa huduma ni vitengo vya kimantiki ambavyo vinapanga sheria nyingi chini ya muundo sawa wa URL. Kila mtoa huduma analenga tovuti au huduma mahususi na ana sheria zote zinazohitajika ili kusafisha URL kutoka chanzo hicho.",
+    "message": "Watoa huduma wamepewa majina ya vyombo vinavyopanga sehemu za kilinganishi na sheria za kusafisha URL. Utafutaji wa mtahiniwa hutumia ishara za jina la mpangishaji kutoka kwa kikoaPatterns au indexPattern; jina la mtoa huduma ni lebo/ufunguo pekee na haliamui kama ombi linalingana.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "UrlPattern ni usemi wa kawaida ambao lazima ulingane na kila URL ambayo inapaswa kuathiriwa na sheria za mtoaji. Inafafanua ni tovuti zipi mtoa huduma huyu anafaa kushughulikia.",
+    "message": "urlPattern ni usemi wa kawaida unaojaribiwa dhidi ya URL ya ombi kamili wakati mtoa huduma hana Miundo ya kikoa kisicho tupu. Ukitumia urlPattern, ongeza indexPattern inapowezekana ili clearurls.js iweze kupata mtoa huduma kwa tokeni za jina la mpangishaji kabla ya kujaribu regex.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "IndexPattern ni muundo wa kikoa (k.m., ||example.com^) ambao hufanya kama kidokezo cha mfumo wa kuorodhesha. Kwa kuwa misemo ya kawaida katika urlPattern ni ngumu kuchanganua kwa majina ya wapangishaji, indexPattern hutoa lengo dhahiri la uboreshaji. Inahakikisha mtoa huduma ameorodheshwa kwa usahihi na kwa ufanisi.",
+    "message": "indexPattern ni kidokezo cha kutafuta mtoa huduma, si hali inayolingana. clearurls.js hutoa tokeni za jina la mpangishaji kutoka indexPattern ili kuweka mtoa huduma wa urlPattern kwenye ndoo za wagombea wa providersByToken. Mtoa huduma bado analingana ikiwa provider.matchRequestURL() atapitisha urlPattern halisi na vighairi visivyofuatana havilingani.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Tafadhali kagua URL ambayo itafunguliwa. URL hii ina maelezo uliyoweka na itakuelekeza kwenye GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Notisi ya sera ya faragha",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori huunda URL hii ndani ya kivinjari chako. Linkumori haihamishi data moja kwa moja kutoka kwako au kivinjari chako hadi GitHub au kwa seva nyingine yoyote wakati wa kuunda URL hii.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Ukichagua \"Fungua GitHub\", unachagua kuruhusu kivinjari chako kufungua URL iliyoonyeshwa. Urambazaji huo wa kivinjari unaweza kutuma URL na vigezo vyake vya hoja kwa GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Kwa uundaji wa suala, URL inaweza kujumuisha aina ya suala, URL ya toleo iliyochaguliwa, URL iliyosafishwa, alama ya NSFW, maoni na sehemu za usanidi zilizochaguliwa.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Kwa utafutaji wa suala, URL inaweza kujumuisha jina la mpangishi lililochaguliwa, kikoa, aina ya toleo, na neno la utafutaji la NSFW ikiwa limechaguliwa.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linumori haikubali GitHub. Linkumori haijui, haithibitishi au haitoi dhamana ikiwa GitHub inatii faragha ya eneo lako, ulinzi wa data au sheria zingine zinazotumika.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Kagua URL kamili kabla ya kuendelea. Ghairi ikiwa hutaki kivinjari chako kufungua GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL ya kufunguliwa (muundo wa kiufundi):",
@@ -4981,6 +5009,10 @@
     "message": "Sio mwongozo wa nambari ya JavaScript. Inaangazia tu maumbo JSON, miundo ya sheria na mifano ambayo waandishi wa sheria wanahitaji.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Mwongozo huu unatokana na tabia ya sasa ya wakati wa utekelezaji ya <code>clearurls.js</code>. Hasa, utafutaji wa mtoa huduma hutumia ndoo za waombaji <code>providersByToken</code> kutoka <code>domainPatterns</code> au <code>indexPattern</code>, na ulinganishaji wa mwisho bado unaendelea kupitia <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Sura ya 1: Msingi JSON Umbo",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Mtoa huduma ni kundi moja la sheria za tovuti moja, kampuni, kifuatiliaji, au muundo wa URL.",
+    "message": "Mtoa huduma ni chombo kimoja cha wakati wa utekelezaji cha tovuti moja, kampuni, kifuatiliaji, seti ya muundo wa kikoa, au regex ya URL. Jina la mtoa huduma ni lebo/ufunguo; ulinganishaji unafanywa na <code>domainPatterns</code> au <code>urlPattern</code>, si kwa jina la mtoa huduma.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Kiolezo kamili cha mtoaji:",
+    "message": "Sehemu za mtoaji zimekubaliwa na <code>clearurls.js</code>. Kwa kulinganisha, mwandishi aidha <code>domainPatterns</code> au <code>urlPattern</code> na <code>indexPattern</code> ya hiari; usitegemee zote mbili kuhitajika pamoja.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> ni nyongeza ya Linkumori. Itumie kwa watoa huduma wengi Linkumori JSON kwa sababu ni rahisi kuandika kuliko regex kamili ya <code>urlPattern</code>.",
+    "message": "<code>domainPatterns</code> ni nyongeza ya Linkumori na inapendelewa kwa watoa huduma wengi maalum. Katika <code>clearurls.js</code>, <code>domainPatterns</code> isiyo tupu inatumika kwa kulinganisha kabla ya <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Tumia <code>urlPattern</code> tu wakati ulinganishaji wa kikoa hautoshi.",
+    "message": "Tumia <code>urlPattern</code> tu wakati ulinganishaji wa kikoa hautoshi, kama vile wakati lazima mtoaji alingane na njia mahususi au regex kamili ya URL.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> ni ClearURLs urithi wa addon na ClearURLs syntax ya msingi ya v2. Linkumori inaongeza <code>indexPattern</code> kama kidokezo cha hiari cha kuangalia ili injini iweze kupata watoa huduma wa regex haraka zaidi.",
+    "message": "<code>urlPattern</code> ni ClearURLs addon legacy na ClearURLs core v2 canonical syntax. Linkumori inaongeza <code>indexPattern</code> tu kama kidokezo cha kutafuta mgombea ili watoa huduma wa regex waweze kupatikana kwa tokeni za jina la mwenyeji haraka.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Muhimu: Linkumori <code>indexPattern</code> ni kidokezo tu cha kuangalia. Haiamui ikiwa mtoaji atatumika.",
+    "message": "Muhimu: <code>indexPattern</code> haiamui kama mtoa huduma analingana. Baada ya kutafutwa kwa mtahiniwa, <code>clearurls.js</code> bado hujaribu <code>urlPattern</code> halisi katika <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> iko juu ya mkondo ClearURLs syntax. <code>indexPattern</code> ni nyongeza ya Linkumori kwa utaftaji wa haraka unapohitaji kulinganisha regex URL.",
+    "message": "<code>urlPattern</code> ni sintaksia ya ClearURLs ya juu. <code>indexPattern</code> ni kidokezo cha kutafuta Linumori kwa watoa huduma wa regex URL; inapaswa kuelekeza kwa majina ya mwenyeji ambayo regex inaweza kulinganisha.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> ni ya hiari, lakini ni muhimu kwa kasi.",
+    "message": "<code>indexPattern</code> ni ya hiari, lakini ni muhimu kwa kasi. Huelekeza mtoa huduma kwenye ndoo za mgombea wa ishara ya jina la mpangishaji; haichukui nafasi ya mechi ya mwisho ya <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Mchanganyiko 5: <code>domainPatterns</code> Na <code>urlPattern</code> Pamoja",
+    "message": "Mchanganyiko wa 5: Usichanganye <code>domainPatterns</code> na <code>urlPattern</code> Kama Mahitaji ya Pamoja",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Umbo hili la kilinganishi Linkumori ni halali JSON:",
+    "message": "Umbo hili linaweza kuonekana katika data ya zamani au iliyoandikwa kwa mkono, lakini haimaanishi kwamba vilinganishi vyote viwili lazima vipite:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Tabia muhimu:",
+    "message": "Tabia ya sasa ya <code>clearurls.js</code>:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Kwa hivyo usitumie zote mbili wakati unatarajia zote mbili kuhitajika. Ikiwa unahitaji hali ya njia, tumia <code>urlPattern</code> na <code>indexPattern</code>, au weka muundo wa <code>$removeparam</code>/sheria ndani ya <code>rules</code>.",
+    "message": "Ikiwa <code>domainPatterns</code> ipo na haina tupu, <code>clearurls.js</code> huitumia kwa kulinganisha mtoa huduma na inapuuza <code>urlPattern</code> kwa mtoa huduma huyo. Kihariri/njia maalum ya kuagiza inakataa watoa huduma ambao wana zote mbili. Iwapo unahitaji hali ya njia, tumia <code>urlPattern</code> na <code>indexPattern</code>, au weka maingizo <code>$removeparam</code>/rule mahususi ndani ya <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs urithi wa addon na ClearURLs msingi v2 kisheria — <code>urlPattern</code> pekee:",
+    "message": "ClearURLs addon legacy na ClearURLs core v2 canonical — <code>urlPattern</code> pekee. Bila <code>indexPattern</code>, watoa huduma wa regex pana wanaweza kurudi kwenye ukaguzi wa wagombea wa kimataifa:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori nyongeza - <code>urlPattern</code> na <code>indexPattern</code>:",
+    "message": "Nyongeza ya Linkumori - <code>urlPattern</code> na <code>indexPattern</code>. Mchoro wa faharisi ni kidokezo cha utafutaji, wakati <code>urlPattern</code> inabaki kuwa kilinganishi cha mwisho:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Nyongeza ya Linkumori - vidokezo vingi <code>indexPattern</code>:",
+    "message": "Nyongeza ya Linkumori - vidokezo vingi vya <code>indexPattern</code> kwa regex ya URL ambayo inaweza kulinganisha zaidi ya jina moja la mpangishaji:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori nyongeza - <code>domainPatterns</code> pekee:",
+    "message": "Nyongeza ya Linkumori - <code>domainPatterns</code> pekee. Hizi hutumika moja kwa moja kwa ulinganishaji wa mtoaji na uchimbaji wa ishara:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori nyongeza - zote mbili <code>domainPatterns</code> na <code>urlPattern</code>:",
+    "message": "Data ya urithi/mchanganyiko inaweza kuwa na <code>domainPatterns</code> na <code>urlPattern</code>, lakini usiandike watoa huduma wapya kwa njia hii:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Tabia:",
+    "message": "Tabia: ushindi usio na tupu wa <code>domainPatterns</code>. <code>urlPattern</code> inatumika tu wakati <code>domainPatterns</code> haipo au tupu. Kihariri/njia maalum ya kuingiza hushughulikia zote mbili kama batili.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js tabia: kama domainPatterns zipo na si tupu, Linkumori hutumia domainPatterns kwa kulinganisha watoa huduma. urlPattern inatumika tu wakati domainPatterns inakosekana au tupu. Kihariri/njia maalum ya kuagiza inakataa umbo hili la kilinganishi, kwa hivyo litumie kuelewa data ya urithi pekee.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns inashinda kwa kulinganisha wakati iko na sio tupu. urlPattern inatumika tu wakati domainPatterns inakosekana au tupu. Kihariri/njia maalum ya kuagiza inakataa watoa huduma ambao wana familia zote mbili za kulinganisha.",
     "description": "Guide page text."
   },
   "guide_0735": {

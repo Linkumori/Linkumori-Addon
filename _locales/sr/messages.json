@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Обрасци домена подржавају једноставне токене и обрасце у АдБлоцк стилу. Понашање подударања зависи од синтаксе (неки обрасци проверавају име хоста, други се подударају са пуним УРЛ стрингом):",
+    "message": "Обрасци домена подржавају једноставне токене и обрасце у АдБлоцк стилу. Када домаинПаттернс није празан, цлеарурлс.јс их користи за упаривање добављача и екстракцију токена за тражење пре било каквог резервног урлПаттерн-а:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Оба поља могу бити присутна у подацима, али урлПаттерн има приоритет. Обрасци домена се користе само када је урлПаттерн празан. Подударање домена је свесно о ПСЛ-у, укључујући руковање доменима који се могу регистровати и вишеделну ТЛД подршку.",
+    "message": "За ауторизоване прилагођене провајдере, изаберите или домаинПаттернс или урлПаттерн. У подацима о времену извођења цлеарурлс.јс, непразан домаинПаттернс побеђује и урлПаттерн се користи само када домаинПаттернс недостаје или је празан. Подударање домена је свесно ПСЛ-а за подржане обрасце у АдБлоцк стилу, укључујући руковање доменима који се могу регистровати и вишеделну ТЛД подршку.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Добављачи су логичке јединице које групишу више правила под истим УРЛ обрасцем. Сваки провајдер циља одређену веб локацију или услугу и садржи сва правила потребна за чишћење УРЛ-ова из тог извора.",
+    "message": "Добављачи су именовани контејнери који групишу поља за подударање и правила чишћења УРЛ-а. Проналажење кандидата користи токене имена хоста из домаинПаттернс или индекПаттерн; име добављача је само ознака/кључ и не одлучује да ли се захтев подудара.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "УрлПаттерн је регуларни израз који мора да одговара сваком УРЛ-у на који би правила добављача требало да утичу. Дефинише које веб локације овај провајдер треба да обрађује.",
+    "message": "урлПаттерн је регуларни израз тестиран у односу на пуну УРЛ адресу захтева када добављач нема непразне обрасце домена. Ако користите урлПаттерн, додајте индекПаттерн када је то могуће како би цлеарурлс.јс могао да пронађе добављача по токенима имена хоста пре тестирања редовног израза.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "индекПаттерн је образац домена (нпр. ||екампле.цом^) који делује као наговештај за систем индексирања. Пошто је регуларне изразе у урлПаттерн тешко анализирати за имена хостова, индекПаттерн пружа експлицитни циљ за оптимизацију. Осигурава да је провајдер исправно и ефикасно индексиран.",
+    "message": "индекПаттерн је савет за тражење добављача, а не услов подударања. цлеарурлс.јс извлачи токене имена хоста из индекПаттерн-а да би поставио добављача урлПаттерн-а у провајдере за кандидате за провајдереБиТокен. Провајдер се и даље подудара само ако провидер.матцхРекуестУРЛ() проследи прави урл образац и изузеци се не подударају.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Прегледајте УРЛ који ће се отворити. Ова УРЛ адреса садржи информације које сте унели и преусмериће вас на ГитХуб.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Обавештење о политици приватности",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Линкумори креира ову УРЛ адресу локално у вашем претраживачу. Линкумори не преноси директно податке са вас или вашег претраживача на ГитХуб или на било који други сервер док креира овај УРЛ.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Ако изаберете „Отвори ГитХуб“, бирате да дозволите претраживачу да отвори приказани УРЛ. Та навигација претраживача може послати УРЛ и његове параметре упита ГитХуб-у.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "За креирање проблема, УРЛ може да садржи тип проблема, изабрану УРЛ адресу проблема, очишћену УРЛ адресу, НСФВ маркер, коментаре и изабране конфигурационе одељке.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "За претрагу проблема, УРЛ може да садржи изабрано име хоста, домен, тип проблема и термин за претрагу НСФВ ако је изабран.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Линкумори не подржава ГитХуб. Линкумори не зна, не верификује нити гарантује да ли је ГитХуб у складу са вашом локалном приватношћу, заштитом података или другим важећим законима.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Прегледајте цео УРЛ пре него што наставите. Откажите ако не желите да ваш претраживач отвара ГитХуб.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "УРЛ за отварање (технички формат):",
@@ -4981,6 +5009,10 @@
     "message": "То није водич за код JavaScript. Фокусира се само на JSON облике, формате правила и примере који су потребни ауторима правила.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Овај водич је заснован на тренутном понашању ЗКСЦОДЕ0ЗКС током извршавања. Конкретно, тражење провајдера користи групе кандидата за ЗКСЦОДЕ1ЗКС из ЗКСЦОДЕ2ЗКС или ЗКСЦОДЕ3ЗКС, а коначно подударање се и даље одвија кроз ЗКСЦОДЕ4ЗКС.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Поглавље 1: Основни облик JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Добављач је једна група правила за једну веб локацију, компанију, трагач или образац URL.",
+    "message": "Добављач је један именовани рунтиме контејнер за једну веб локацију, компанију, трагач, скуп шаблона домена или регуларни израз УРЛ-а. Име провајдера је ознака/кључ; подударање врши ЗКСЦОДЕ0ЗКС или ЗКСЦОДЕ1ЗКС, а не име провајдера.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Пун шаблон добављача:",
+    "message": "ЗКСЦОДЕ0ЗКС прихвата поља добављача. За подударање, аутор или ЗКСЦОДЕ1ЗКС или ЗКСЦОДЕ2ЗКС са опционим ЗКСЦОДЕ3ЗКС; немојте се ослањати на то да су оба потребна заједно.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> је додатак Linkumori. Користите га за већину Linkumori JSON добављача јер је лакше писати него пуни <code>urlPattern</code> регуларни израз.",
+    "message": "ЗКСЦОДЕ0ЗКС је Линкумори додатак и пожељан је за већину прилагођених провајдера. У ЗКСЦОДЕ1ЗКС, непразни ЗКСЦОДЕ2ЗКС се користе за подударање пре ЗКСЦОДЕ3ЗКС.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Користите <code>urlPattern</code> само када подударање домена није довољно.",
+    "message": "Користите ЗКСЦОДЕ0ЗКС само када подударање домена није довољно, на пример када добављач мора да се подудара са одређеном путањом или пуним регуларним изразом УРЛ-а.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> је ClearURLs аддон наслеђе и ClearURLs језгро в2 канонска синтакса. Linkumori додаје <code>indexPattern</code> као опциони савет за тражење тако да машина може брже да пронађе добављаче регуларних израза.",
+    "message": "ЗКСЦОДЕ0ЗКС је застарели додатак ЦлеарУРЛ-а и канонска синтакса ЦлеарУРЛ језгра в2. Линкумори додаје ЗКСЦОДЕ1ЗКС само као наговештај за тражење кандидата тако да се добављачи регуларних израза могу брже пронаћи по токенима имена хоста.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Важно: Linkumori <code>indexPattern</code> је само наговештај за тражење. Не одлучује да ли се провајдер примењује.",
+    "message": "Важно: ЗКСЦОДЕ0ЗКС не одлучује да ли се добављач подудара. Након тражења кандидата, ЗКСЦОДЕ1ЗКС и даље тестира прави ЗКСЦОДЕ2ЗКС у ЗКСЦОДЕ3ЗКС.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> је узводна синтакса ClearURLs. <code>indexPattern</code> је додатак Linkumori за брже тражење када вам је потребно подударање регуларног израза URL.",
+    "message": "ЗКСЦОДЕ0ЗКС је упстреам ЦлеарУРЛ синтакса. ЗКСЦОДЕ1ЗКС је савет за тражење Линкумори за добављаче УРЛ адреса регуларног израза; требало би да указује на имена хостова са којима се регуларни израз може подударати.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> је опционо, али корисно за брзину.",
+    "message": "ЗКСЦОДЕ0ЗКС је опционо, али корисно за брзину. Он индексира провајдера у кантице кандидата за токен имена хоста; никада не замењује коначну утакмицу ЗКСЦОДЕ1ЗКС.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Комбинација 5: <code>domainPatterns</code> и <code>urlPattern</code> заједно",
+    "message": "Комбинација 5: Не мешајте ЗКСЦОДЕ0ЗКС и ЗКСЦОДЕ1ЗКС као комбиновани захтев",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Овај Linkumori мешовити подударни облик је важећи JSON:",
+    "message": "Овај облик се може појавити у старијим или руком писаним подацима, али то не значи да оба подударања морају проћи:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Важно понашање:",
+    "message": "Тренутно понашање ЗКСЦОДЕ0ЗКС:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Дакле, немојте користити оба када очекујете да ће обоје бити потребни. Ако вам је потребан услов путање, користите <code>urlPattern</code> са <code>indexPattern</code> или ставите шаблон <code>$removeparam</code>/правило у опсегу унутар <code>rules</code>.",
+    "message": "Ако је ЗКСЦОДЕ0ЗКС присутан и није празан, ЗКСЦОДЕ1ЗКС га користи за подударање провајдера и игнорише ЗКСЦОДЕ2ЗКС за тог провајдера. Прилагођена путања уређивача/увоза одбија добављаче који садрже оба. Ако вам је потребан услов путање, користите ЗКСЦОДЕ3ЗКС са ЗКСЦОДЕ4ЗКС, или опсег појединачних уноса ЗКСЦОДЕ5ЗКС/правила унутар ЗКСЦОДЕ6ЗКС.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs аддон легаци и ClearURLs цоре в2 цаноницал — само <code>urlPattern</code>:",
+    "message": "ЦлеарУРЛс аддон наслеђе и ЦлеарУРЛс цоре в2 канонски — само ЗКСЦОДЕ0ЗКС. Без ЗКСЦОДЕ1ЗКС, широки добављачи регуларних израза могу се вратити на глобалне провере кандидата:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori додатак — <code>urlPattern</code> са <code>indexPattern</code>:",
+    "message": "Линкумори додатак — ЗКСЦОДЕ0ЗКС са ЗКСЦОДЕ1ЗКС. Образац индекса је наговештај за тражење, док ЗКСЦОДЕ2ЗКС остаје коначни упаривач:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori додатак — више <code>indexPattern</code> савета:",
+    "message": "Линкумори додатак — више ЗКСЦОДЕ0ЗКС наговештаја за УРЛ регуларни израз који може да се подудара са више од једног имена хоста:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori додатак — само <code>domainPatterns</code>:",
+    "message": "Додатак Линкумори — само ЗКСЦОДЕ0ЗКС. Они се користе директно за упаривање добављача и екстракцију токена за тражење:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori додатак — и <code>domainPatterns</code> и <code>urlPattern</code>:",
+    "message": "Наслеђени/мешовити подаци могу да садрже и ЗКСЦОДЕ0ЗКС и ЗКСЦОДЕ1ЗКС, али немојте да креирате нове добављаче на овај начин:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "понашање:",
+    "message": "Понашање: није празан ЗКСЦОДЕ0ЗКС победа. ЗКСЦОДЕ1ЗКС се користи само када ЗКСЦОДЕ2ЗКС недостаје или је празан. Прилагођена путања уређивача/увоза третира обоје заједно као неважеће.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "цлеарурлс.јс понашање: ако домаинПаттернс постоји и није празан, Линкумори користи домаинПаттернс за подударање добављача. урлПаттерн се користи само када домаинПаттернс недостаје или је празан. Прилагођена путања уређивача/увоза одбија овај мешовити облик подударања, па га користите само да бисте разумели старе податке.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "домаинПаттернс побеђује за подударање када је присутан и није празан. урлПаттерн се користи само када домаинПаттернс недостаје или је празан. Прилагођена путања уређивача/увоза одбија добављаче који садрже обе породице подударања.",
     "description": "Guide page text."
   },
   "guide_0735": {

@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "ドメインパターンは、シンプルなトークンとAdBlock形式をサポートします。マッチ動作は構文によって異なります（一部の形式はホスト名をチェックし、他の形式は完全なURL文字列とマッチします）:",
+    "message": "ドメイン パターンは、単純なトークンと AdBlock スタイルのフォームをサポートします。 DomainPatterns が空でない場合、clearurls.js は、urlPattern フォールバックの前に、プロバイダーの照合とルックアップ トークンの抽出にそれらを使用します。",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "両方のフィールドがデータに存在する可能性がありますが、urlPatternが優先されます。ドメインパターンはurlPatternが空の場合にのみ使用されます。ドメインマッチングはPSL対応であり、登録可能なドメインの処理と複数部分のTLDサポートを含みます。",
+    "message": "作成されたカスタム プロバイダーの場合は、domainPattern または urlPattern のいずれかを選択します。 clearurls.js ランタイム データでは、空でない domainPatterns が優先され、urlPattern は、domainPatterns が欠落しているか空の場合にのみ使用されます。ドメイン マッチングは、登録可能なドメインの処理やマルチパート TLD のサポートなど、サポートされている AdBlock スタイルのフォームに対して PSL を認識します。",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "プロバイダーは、複数のルールを同じURLパターンの下にグループ化する論理ユニットです。各プロバイダーは特定のウェブサイトまたはサービスをターゲットとし、そのソースからURLをクリーンアップするために必要なすべてのルールを含んでいます。",
+    "message": "プロバイダーは、マッチャー フィールドと URL クリーニング ルールをグループ化する名前付きコンテナーです。候補の検索では、domainPattern または IndexPattern からのホスト名トークンが使用されます。プロバイダー名は単なるラベル/キーであり、リクエストが一致するかどうかを決定するものではありません。",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPatternは、プロバイダーのルールの影響を受けるすべてのURLにマッチしなければならない正規表現です。このプロバイダーがどのウェブサイトを処理するかを定義します。",
+    "message": "urlPattern は、プロバイダーが空ではないドメインパターンを持たない場合に、完全なリクエスト URL に対してテストされる正規表現です。 urlPattern を使用する場合は、正規表現をテストする前に、clearurls.js がホスト名トークンでプロバイダーを見つけられるように、可能な場合は IndexPattern を追加します。",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "IndexPattern は、インデックス作成システムのヒントとして機能するドメイン パターン (例: ||example.com^) です。 urlPattern の正規表現はホスト名を解析するのが難しいため、indexPattern は最適化の明示的なターゲットを提供します。これにより、プロバイダーのインデックスが正しく効率的に作成されるようになります。",
+    "message": "IndexPattern はプロバイダー検索ヒントであり、一致条件ではありません。 clearurls.js は、indexPattern からホスト名トークンを抽出して、urlPattern プロバイダーを ProvidersByToken 候補バケットに配置します。プロバイダーは、provider.matchRequestURL() が実際の urlPattern を渡し、例外が一致しない場合にのみ一致します。",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "開いたURLを確認してください。この URL には入力した情報が含まれており、GitHub にリダイレクトされます。",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "プライバシーポリシーに関するお知らせ",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori は、この URL をブラウザ内でローカルに作成します。 Linkumori は、この URL の作成中に、ユーザーまたはブラウザーから GitHub または他のサーバーにデータを直接転送しません。",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "「Open GitHub」を選択すると、表示された URL をブラウザで開くことを選択したことになります。そのブラウザ ナビゲーションは、URL とそのクエリ パラメーターを GitHub に送信する場合があります。",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "問題の作成の場合、URL には問題のタイプ、選択した問題の URL、クリーンな URL、NSFW マーカー、コメント、および選択した構成セクションが含まれる場合があります。",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "問題検索の場合、URL には、選択したホスト名、ドメイン、問題タイプ、および NSFW 検索用語 (選択されている場合) が含まれる場合があります。",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori は GitHub を推奨しません。 Linkumori は、GitHub がお客様の地域のプライバシー、データ保護、またはその他の適用法に準拠しているかどうかを把握、検証、または保証しません。",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "続行する前に、完全な URL を確認してください。ブラウザで GitHub を開いたくない場合はキャンセルしてください。",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "開くURL（テクニカルフォーマット）：",
@@ -4981,6 +5009,10 @@
     "message": "これは JavaScript コードのガイドではありません。ルール作成者が必要とする JSON の形状、ルール形式、例のみに焦点を当てています。",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "このガイドは、現在の <code>clearurls.js</code> ランタイム動作に基づいています。特に、プロバイダーの検索では、<code>domainPatterns</code> または <code>indexPattern</code> の <code>providersByToken</code> 候補バケットが使用され、最終的なマッチングは依然として <code>provider.matchRequestURL()</code> を介して実行されます。",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "第 1 章: 基本 JSON 形状",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "プロバイダーは、1 つの Web サイト、会社、トラッカー、または URL パターンに対するルールの 1 つのグループです。",
+    "message": "プロバイダーは、1 つの Web サイト、会社、トラッカー、ドメイン パターン セット、または URL 正規表現用の 1 つの名前付きランタイム コンテナーです。プロバイダー名はラベル/キーです。マッチングは、プロバイダー名ではなく、<code>domainPatterns</code> または <code>urlPattern</code> によって行われます。",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "完全なプロバイダー テンプレート:",
+    "message": "<code>clearurls.js</code> によって受け入れられるプロバイダー フィールド。一致させるには、<code>domainPatterns</code> または <code>urlPattern</code> を、オプションの <code>indexPattern</code> とともに作成します。両方が同時に必要であることに依存しないでください。",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> は Linkumori の追加です。完全な <code>urlPattern</code> 正規表現よりも記述が簡単なため、ほとんどの Linkumori JSON プロバイダーに使用してください。",
+    "message": "<code>domainPatterns</code> は Linkumori の追加であり、ほとんどのカスタム プロバイダーに推奨されます。 <code>clearurls.js</code> では、<code>urlPattern</code> の前に空ではない <code>domainPatterns</code> が照合に使用されます。",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "<code>urlPattern</code> は、ドメインの一致が十分でない場合にのみ使用してください。",
+    "message": "<code>urlPattern</code> は、プロバイダーが特定のパスまたは完全な URL 正規表現と一致する必要がある場合など、ドメイン一致だけでは不十分な場合にのみ使用します。",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> は、ClearURLs アドオンレガシー、ClearURLs コア v2 正規構文です。 Linkumori は、エンジンが正規表現プロバイダーをより速く見つけられるように、オプションの検索ヒントとして <code>indexPattern</code> を追加します。",
+    "message": "<code>urlPattern</code> は、ClearURLs アドオンのレガシーおよび ClearURLs コア v2 の正規構文です。 Linkumori は、ホスト名トークンによって正規表現プロバイダーをより速く見つけられるように、候補検索ヒントとしてのみ <code>indexPattern</code> を追加します。",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "重要: Linkumori <code>indexPattern</code> は単なる検索ヒントです。プロバイダーが適用するかどうかを決定するものではありません。",
+    "message": "重要: <code>indexPattern</code> は、プロバイダーが一致するかどうかを決定しません。候補の検索後、<code>clearurls.js</code> は依然として <code>provider.matchRequestURL()</code> で実際の <code>urlPattern</code> をテストします。",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> は上流の ClearURLs 構文です。 <code>indexPattern</code> は、正規表現 URL の照合が必要な場合の検索を高速化するための Linkumori の追加です。",
+    "message": "<code>urlPattern</code> は、アップストリームの ClearURL 構文です。 <code>indexPattern</code> は、正規表現 URL プロバイダー用の Linkumori ルックアップ ヒントです。正規表現が一致するホスト名を指す必要があります。",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> はオプションですが、速度を上げるために役立ちます。",
+    "message": "<code>indexPattern</code> はオプションですが、速度向上に役立ちます。プロバイダーをホスト名トークン候補バケットにインデックス付けします。最終的な <code>urlPattern</code> の一致を置き換えることはありません。",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "組み合わせ 5: <code>domainPatterns</code> と <code>urlPattern</code> を一緒に",
+    "message": "組み合わせ 5: 複合要件として <code>domainPatterns</code> と <code>urlPattern</code> を混合しないでください",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "この Linkumori 混合マッチャー形状は有効です JSON:",
+    "message": "この形状は古いデータや手書きのデータに現れる可能性がありますが、両方のマッチャーが以下を通過する必要があるという意味ではありません。",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "重要な行動:",
+    "message": "現在の <code>clearurls.js</code> の動作:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "したがって、両方が必要であることが予想される場合は、両方を使用しないでください。パス条件が必要な場合は、<code>urlPattern</code> を <code>indexPattern</code> とともに使用するか、スコープ付きの <code>$removeparam</code>/rule パターンを <code>rules</code> 内に置きます。",
+    "message": "<code>domainPatterns</code> が存在し、空でない場合、<code>clearurls.js</code> はプロバイダーの照合にそれを使用し、そのプロバイダーの <code>urlPattern</code> を無視します。カスタム エディター/インポート パスは、両方を含むプロバイダーを拒否します。パス条件が必要な場合は、<code>indexPattern</code> とともに <code>urlPattern</code> を使用するか、<code>rules</code> 内の個々の <code>$removeparam</code>/ルール エントリをスコープします。",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs アドオン レガシーおよび ClearURLs コア v2 正規 — <code>urlPattern</code> のみ:",
+    "message": "ClearURLs アドオン レガシーおよび ClearURLs コア v2 正規 — <code>urlPattern</code> のみ。 <code>indexPattern</code> がないと、広範な正規表現プロバイダーはグローバル候補チェックにフォールバックする可能性があります。",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori 追加 — <code>urlPattern</code> と <code>indexPattern</code>:",
+    "message": "Linkumori 追加 — <code>urlPattern</code> と <code>indexPattern</code>。インデックス パターンは検索ヒントですが、<code>urlPattern</code> は最終マッチャーのままです。",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori 追加 — 複数の <code>indexPattern</code> ヒント:",
+    "message": "Linkumori の追加 — 複数のホスト名に一致する URL 正規表現に対する複数の <code>indexPattern</code> ヒント:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori 追加 — <code>domainPatterns</code> のみ:",
+    "message": "Linkumori 追加 — <code>domainPatterns</code> のみ。これらは、プロバイダーの照合とルックアップ トークンの抽出に直接使用されます。",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori 追加 — <code>domainPatterns</code> と <code>urlPattern</code> の両方:",
+    "message": "レガシー/混合データには <code>domainPatterns</code> と <code>urlPattern</code> の両方が含まれる場合がありますが、この方法で新しいプロバイダーを作成しないでください。",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "動作:",
+    "message": "動作: 空でない <code>domainPatterns</code> の勝利。 <code>urlPattern</code> は、<code>domainPatterns</code> が欠落しているか空の場合にのみ使用されます。カスタム エディター/インポート パスは、両方をまとめて無効として扱います。",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js の動作:domainPatterns が存在し、空でない場合、Linkumori はプロバイダーの照合に domainPatterns を使用します。 urlPattern は、domainPatterns が欠落しているか空の場合にのみ使用されます。カスタム エディター/インポート パスは、この混合マッチャー形状を拒否するため、レガシー データを理解する場合にのみ使用してください。",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "DomainPatterns が存在し、空ではない場合、一致に優先されます。 urlPattern は、domainPatterns が欠落しているか空の場合にのみ使用されます。カスタム エディター/インポート パスは、両方のマッチャー ファミリを含むプロバイダーを拒否します。",
     "description": "Guide page text."
   },
   "guide_0735": {

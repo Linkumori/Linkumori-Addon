@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Etki Alanı Kalıpları basit belirteçleri ve AdBlock tarzı biçimleri destekler. Eşleşme davranışı sözdizimine bağlıdır (bazı biçimler ana bilgisayar adını kontrol eder, diğerleri tam URL dizesiyle eşleşir):",
+    "message": "Etki Alanı Kalıpları, basit belirteçleri ve AdBlock tarzı formları destekler. domainPatterns boş olmadığında, clearurls.js bunları herhangi bir urlPattern geri dönüşünden önce sağlayıcı eşleştirme ve arama jetonu çıkarma için kullanır:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Her iki alan da verilerde bulunabilir, ancak urlPattern önceliklidir. Etki Alanı Kalıpları yalnızca urlPattern boş olduğunda kullanılır. Etki alanı eşlemesi PSL bilincine sahiptir, kayıtlı etki alanı işleme ve çok parçalı TLD desteği dahil.",
+    "message": "Yazılmış özel sağlayıcılar için domainPatterns veya urlPattern'i seçin. Clearurls.js çalışma zamanı verilerinde, boş olmayan domainPatterns kazanır ve urlPattern yalnızca domainPatterns eksik veya boş olduğunda kullanılır. Alan adı eşleştirme, kaydedilebilir alan adı işleme ve çok parçalı TLD desteği de dahil olmak üzere desteklenen AdBlock tarzı formlar için PSL uyumludur.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Sağlayıcılar, birden çok kuralı aynı URL kalıbı altında gruplandıran mantıksal birimlerdir. Her sağlayıcı belirli bir web sitesini veya hizmeti hedefler ve bu kaynaktan gelen URL'leri temizlemek için gereken tüm kuralları içerir.",
+    "message": "Sağlayıcılar, eşleştirici alanlarını ve URL temizleme kurallarını gruplandıran adlandırılmış kapsayıcılardır. Aday arama, domainPatterns veya indexPattern'den gelen ana bilgisayar adı belirteçlerini kullanır; sağlayıcı adı yalnızca bir etiket/anahtardır ve bir isteğin eşleşip eşleşmediğine karar vermez.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern, sağlayıcının kurallarından etkilenmesi gereken her URL ile eşleşmesi gereken düzenli bir ifadedir. Bu sağlayıcının hangi web sitelerini işlemesi gerektiğini tanımlar.",
+    "message": "urlPattern, sağlayıcının boş olmayan domainPattern'leri olmadığında tam istek URL'sine göre test edilen bir normal ifadedir. urlPattern kullanıyorsanız, mümkün olduğunda indexPattern ekleyin; böylece clearurls.js, regex'i test etmeden önce sağlayıcıyı ana makine adı belirteçlerine göre bulabilir.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern, indeksleme sistemi için ipucu görevi gören bir etki alanı modelidir (örneğin, ||example.com^). UrlPattern'deki normal ifadelerin ana makine adları için ayrıştırılması zor olduğundan, indexPattern optimizasyon için açık bir hedef sağlar. Sağlayıcının doğru ve verimli bir şekilde indekslenmesini sağlar.",
+    "message": "indexPattern bir eşleşme koşulu değil, sağlayıcı arama ipucudur. clearurls.js, bir urlPattern sağlayıcısını sağlayıcılarByToken aday gruplarına yerleştirmek için indexPattern'den ana makine adı belirteçlerini çıkarır. Sağlayıcı, yalnızca sağlayıcı.matchRequestURL() işlevinin gerçek urlPattern değerini geçmesi ve istisnaların eşleşmemesi durumunda eşleşir.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Lütfen açılacak URL'yi inceleyin. Bu URL girdiğiniz bilgileri içerir ve sizi GitHub'a yönlendirecektir.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Gizlilik politikası bildirimi",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori bu URL'yi tarayıcınızda yerel olarak oluşturur. Linkumori, bu URL'yi oluştururken doğrudan sizden veya tarayıcınızdan GitHub'a veya başka bir sunucuya veri aktarmaz.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "\"GitHub'ı Aç\"ı seçerseniz, tarayıcınızın görüntülenen URL'yi açmasına izin vermiş olursunuz. Bu tarayıcı navigasyonu, URL'yi ve sorgu parametrelerini GitHub'a gönderebilir.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Sorunun oluşturulması için URL, sorun türünü, seçilen sorun URL'sini, temizlenmiş URL'yi, NSFW işaretçisini, yorumları ve seçilen yapılandırma bölümlerini içerebilir.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Sorun arama için URL, seçilen ana bilgisayar adını, etki alanını, sorun türünü ve seçilirse NSFW arama terimini içerebilir.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori GitHub'u onaylamaz. Linkumori, GitHub'ın yerel gizlilik, veri koruma veya diğer geçerli yasalara uygun olup olmadığını bilmez, doğrulamaz veya garanti etmez.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Devam etmeden önce tam URL'yi inceleyin. Tarayıcınızın GitHub'u açmasını istemiyorsanız iptal edin.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "Açılacak URL (teknik format):",
@@ -4981,6 +5009,10 @@
     "message": "JavaScript koduna yönelik bir kılavuz değildir. Yalnızca kural yazarlarının ihtiyaç duyduğu JSON şekillerine, kural formatlarına ve örneklere odaklanır.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Bu kılavuz mevcut <code>clearurls.js</code> çalışma zamanı davranışını temel almaktadır. Özellikle sağlayıcı araması, <code>domainPatterns</code> veya <code>indexPattern</code>'ten <code>providersByToken</code> aday paketlerini kullanır ve son eşleştirme hala <code>provider.matchRequestURL()</code> üzerinden yürütülür.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Bölüm 1: Temel JSON Şekil",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Sağlayıcı, bir web sitesi, şirket, izleyici veya URL modeli için bir grup kuraldır.",
+    "message": "Sağlayıcı, bir web sitesi, şirket, izleyici, etki alanı modeli kümesi veya URL normal ifadesi için adlandırılmış bir çalışma zamanı kapsayıcısıdır. Sağlayıcı adı bir etiket/anahtardır; eşleştirme, sağlayıcı adına göre değil, <code>domainPatterns</code> veya <code>urlPattern</code> tarafından yapılır.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Tam sağlayıcı şablonu:",
+    "message": "<code>clearurls.js</code> tarafından kabul edilen sağlayıcı alanları. Eşleştirme için isteğe bağlı <code>indexPattern</code> ile <code>domainPatterns</code> veya <code>urlPattern</code> yazın; her ikisinin birlikte gerekli olmasına güvenmeyin.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code>, Linkumori'nin bir toplamıdır. Çoğu Linkumori JSON sağlayıcısı için bunu kullanın çünkü yazmak, tam bir <code>urlPattern</code> normal ifadesinden daha kolaydır.",
+    "message": "<code>domainPatterns</code> bir Linkumori eklentisidir ve çoğu özel sağlayıcı tarafından tercih edilir. <code>clearurls.js</code>'te, <code>urlPattern</code>'ten önce eşleştirme için boş olmayan <code>domainPatterns</code> kullanılır.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "<code>urlPattern</code>'i yalnızca alan adı eşleştirmenin yeterli olmadığı durumlarda kullanın.",
+    "message": "<code>urlPattern</code>'i yalnızca alan adı eşleştirmenin yeterli olmadığı durumlarda (örneğin, sağlayıcının belirli bir yolla veya tam URL normal ifadesiyle eşleşmesi gerektiğinde) kullanın.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code>, ClearURLs eklenti mirası ve ClearURLs çekirdek v2 kanonik sözdizimidir. Linkumori, motorun normal ifade sağlayıcılarını daha hızlı bulabilmesi için isteğe bağlı bir arama ipucu olarak <code>indexPattern</code>'i ekler.",
+    "message": "<code>urlPattern</code>, ClearURL'nin eski eklentisidir ve ClearURL'nin çekirdek v2 kanonik sözdizimidir. Linkumori, <code>indexPattern</code>'i yalnızca aday arama ipucu olarak ekler, böylece normal ifade sağlayıcıları ana bilgisayar adı belirteçleri tarafından daha hızlı bulunabilir.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Önemli: Linkumori <code>indexPattern</code> yalnızca bir arama ipucudur. Sağlayıcının başvurup başvurmayacağına karar vermez.",
+    "message": "Önemli: <code>indexPattern</code> bir sağlayıcının eşleşip eşleşmediğine karar vermez. Aday aramasının ardından <code>clearurls.js</code>, <code>provider.matchRequestURL()</code>'te gerçek <code>urlPattern</code>'i test etmeye devam ediyor.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code>, ClearURLs sözdiziminin yukarı akışıdır. <code>indexPattern</code>, regex URL eşleşmesine ihtiyaç duyduğunuzda daha hızlı arama yapmak için bir Linkumori eklentisidir.",
+    "message": "<code>urlPattern</code>, ClearURL'lerin yukarı akış sözdizimidir. <code>indexPattern</code>, normal ifade URL sağlayıcıları için bir Linkumori arama ipucudur; regex'in eşleşebileceği ana bilgisayar adlarını işaret etmelidir.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> isteğe bağlıdır ancak hız açısından kullanışlıdır.",
+    "message": "<code>indexPattern</code> isteğe bağlıdır ancak hız açısından kullanışlıdır. Sağlayıcıyı ana bilgisayar adı belirteci aday gruplarına indeksler; hiçbir zaman son <code>urlPattern</code> eşleşmesinin yerini almaz.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Kombinasyon 5: <code>domainPatterns</code> ve <code>urlPattern</code> Birlikte",
+    "message": "Kombinasyon 5: Birleşik Bir Gereksinim Olarak <code>domainPatterns</code> ve <code>urlPattern</code>'i Karıştırmayın",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Bu Linkumori karışık eşleştirici şekli JSON için geçerlidir:",
+    "message": "Bu şekil eski veya elle yazılmış verilerde görünebilir, ancak bu her iki eşleştiricinin de geçmesi gerektiği anlamına gelmez:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Önemli davranış:",
+    "message": "Mevcut <code>clearurls.js</code> davranışı:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Bu nedenle, her ikisinin de gerekli olmasını beklediğiniz zaman ikisini birden kullanmayın. Bir yol koşuluna ihtiyacınız varsa <code>urlPattern</code>'i <code>indexPattern</code> ile kullanın veya <code>rules</code>'ün içine kapsamlı bir <code>$removeparam</code>/kural modeli koyun.",
+    "message": "<code>domainPatterns</code> mevcutsa ve boş değilse, <code>clearurls.js</code> bunu sağlayıcı eşleştirmesi için kullanır ve bu sağlayıcı için <code>urlPattern</code>'i yok sayar. Özel düzenleyici/içe aktarma yolu, her ikisini de içeren sağlayıcıları reddeder. Bir yol koşuluna ihtiyacınız varsa <code>urlPattern</code>'i <code>indexPattern</code> ile kullanın veya <code>rules</code> içindeki ayrı ayrı <code>$removeparam</code>/kural girişlerini kapsayın.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon mirası ve ClearURLs core v2 canonical — yalnızca <code>urlPattern</code>:",
+    "message": "ClearURL'ler eski eklentiler ve ClearURL'ler çekirdek v2 kanonik — yalnızca <code>urlPattern</code>. <code>indexPattern</code> olmadan geniş normal ifade sağlayıcıları genel aday kontrollerine başvurabilir:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori eki — <code>urlPattern</code> ile <code>indexPattern</code>:",
+    "message": "Linkumori ilavesi — <code>indexPattern</code> ile <code>urlPattern</code>. Endeks modeli bir arama ipucudur, <code>urlPattern</code> ise son eşleştirici olarak kalır:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori ekleme — birden fazla <code>indexPattern</code> ipucu:",
+    "message": "Linkumori eklemesi — birden fazla ana makine adıyla eşleşebilen bir URL normal ifadesi için birden fazla <code>indexPattern</code> ipucu:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori ekleme — yalnızca <code>domainPatterns</code>:",
+    "message": "Linkumori eklentisi — yalnızca <code>domainPatterns</code>. Bunlar doğrudan sağlayıcı eşleştirme ve arama jetonunun çıkarılması için kullanılır:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori eki — hem <code>domainPatterns</code> hem de <code>urlPattern</code>:",
+    "message": "Eski/karma veriler hem <code>domainPatterns</code> hem de <code>urlPattern</code> içerebilir ancak yeni sağlayıcıları şu şekilde yazmayın:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Davranış:",
+    "message": "Davranış: boş olmayan <code>domainPatterns</code> kazanır. <code>urlPattern</code> yalnızca <code>domainPatterns</code> eksik veya boş olduğunda kullanılır. Özel düzenleyici/içe aktarma yolu her ikisini de birlikte geçersiz olarak değerlendirir.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js davranışı: domainPatterns mevcutsa ve boş değilse Linkumori, sağlayıcı eşleştirmesi için domainPatterns'i kullanır. urlPattern yalnızca domainPatterns eksik veya boş olduğunda kullanılır. Özel düzenleyici/içe aktarma yolu bu karışık eşleştirici şeklini reddeder; bu nedenle onu yalnızca eski verileri anlamak için kullanın.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns mevcut olduğunda ve boş olmadığında eşleştirme için kazanır. urlPattern yalnızca domainPatterns eksik veya boş olduğunda kullanılır. Özel düzenleyici/içe aktarma yolu, her iki eşleştirici aileyi de içeren sağlayıcıları reddeder.",
     "description": "Guide page text."
   },
   "guide_0735": {

@@ -544,7 +544,8 @@
     "message": "Domeinpatronen versus URL-patronen"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Domeinpatronen ondersteunen eenvoudige tokens en AdBlock-achtige vormen. Het overeenkomstgedrag hangt af van de syntaxis (sommige vormen controleren de hostnaam, andere komen overeen met de volledige URL-tekenreeks):"
+    "message": "Domeinpatronen ondersteunen eenvoudige tokens en formulieren in AdBlock-stijl. Wanneer domainPatterns niet leeg is, gebruikt clearurls.js ze voor het matchen van providers en het extraheren van lookup-tokens voordat er een urlPattern-fallback plaatsvindt:",
+    "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
     "message": "Wat zijn domeinomleidingen?"
@@ -655,7 +656,8 @@
     "message": "Opmerking:"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Beide velden kunnen in de gegevens voorkomen, maar urlPattern heeft prioriteit. Domeinpatronen worden alleen gebruikt als urlPattern leeg is. Domeinovereenkomst is PSL-bewust, inclusief afhandeling van registreerbare domeinen en ondersteuning voor meerdelige TLD's."
+    "message": "Voor geschreven aangepaste providers kiest u domainPatterns of urlPattern. In clearurls.js-runtimegegevens winnen niet-lege domainPatterns en wordt urlPattern alleen gebruikt wanneer domainPatterns ontbreekt of leeg is. Domeinmatching is PSL-bewust voor ondersteunde formulieren in AdBlock-stijl, inclusief afhandeling van registreerbare domeinen en ondersteuning voor meerdelige TLD's.",
+    "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
     "message": "Combineer meerdere vergelijkbare patronen in één regex"
@@ -703,7 +705,8 @@
     "message": "Open de aanbiederslijst vanuit de werkbalk van de editor om aanbieders te bekijken en te beheren."
   },
   "faq_providers_explanation": {
-    "message": "Aanbieders zijn logische eenheden die meerdere regels groeperen onder hetzelfde URL-patroon. Elke aanbieder richt zich op een specifieke website of dienst en bevat alle regels die nodig zijn om URL's uit die bron te schonen."
+    "message": "Providers zijn benoemde containers die matchervelden en regels voor het opschonen van URL's groeperen. Bij het zoeken naar kandidaten worden hostnaamtokens van domainPatterns of indexPattern gebruikt; de providernaam is slechts een label/sleutel en bepaalt niet of een verzoek overeenkomt.",
+    "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
     "message": "Canonieke onbewerkte regelobjecten passen regex-patronen toe op de gehele URL. Gebruik dit voor complexe patronen die niet in het standaard parameterformaat passen.",
@@ -864,7 +867,8 @@
     "message": "Wat is urlPattern?"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern is een reguliere expressie die moet overeenkomen met elke URL die door de regels van de aanbieder moet worden beïnvloed. Het definieert welke websites deze aanbieder moet afhandelen."
+    "message": "urlPattern is een reguliere expressie die wordt getest aan de hand van de volledige aanvraag-URL wanneer de provider geen niet-lege domeinpatronen heeft. Als u urlPattern gebruikt, voegt u indien mogelijk indexPattern toe, zodat clearurls.js de provider kan vinden op basis van hostnaamtokens voordat u de regex test.",
+    "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
     "message": "De typische structuur omvat: protocol + subdomein + domein + TLD + mappen + parameters"
@@ -3456,7 +3460,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "Het indexPattern is een domeinpatroon (bijvoorbeeld ||example.com^) dat fungeert als hint voor het indexeringssysteem. Omdat reguliere expressies in urlPattern moeilijk te parseren zijn voor hostnamen, biedt indexPattern een expliciet doel voor optimalisatie. Het zorgt ervoor dat de aanbieder correct en efficiënt wordt geïndexeerd.",
+    "message": "indexPattern is een opzoekhint van de provider, geen overeenkomstvoorwaarde. clearurls.js extraheert hostnaamtokens uit indexPattern om een ​​urlPattern-provider in kandidaat-buckets van providersByToken te plaatsen. De provider komt alleen nog steeds overeen als provider.matchRequestURL() het echte urlPattern doorgeeft en de uitzonderingen niet overeenkomen.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -3724,6 +3728,34 @@
   "urlPreviewWarning": {
     "message": "Controleer de URL die wordt geopend. Deze URL bevat de informatie die u heeft ingevoerd en zal u doorsturen naar GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Privacybeleid mededeling",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori maakt deze URL lokaal in uw browser aan. Linkumori draagt ​​tijdens het aanmaken van deze URL geen gegevens rechtstreeks van u of uw browser over naar GitHub of een andere server.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Als u \"Open GitHub\" kiest, kiest u ervoor om uw browser de weergegeven URL te laten openen. Die browsernavigatie kan de URL en de bijbehorende queryparameters naar GitHub sturen.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Voor het maken van een probleem kan de URL het probleemtype, de geselecteerde probleem-URL, de opgeschoonde URL, de NSFW-markering, opmerkingen en geselecteerde configuratiesecties bevatten.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Voor het zoeken naar problemen kan de URL de geselecteerde hostnaam, het domein, het probleemtype en de NSFW-zoekterm bevatten, indien geselecteerd.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori onderschrijft GitHub niet. Linkumori weet, verifieert of garandeert niet of GitHub voldoet aan uw lokale privacy-, gegevensbeschermings- of andere toepasselijke wetten.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Controleer de volledige URL voordat u doorgaat. Annuleer als u niet wilt dat uw browser GitHub opent.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "Te openen URL (technisch formaat):",
@@ -4138,6 +4170,10 @@
     "message": "Het is geen handleiding voor de JavaScript-code. Het richt zich alleen op de vormen, regelformaten en voorbeelden die regelauteurs nodig hebben.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Deze handleiding is gebaseerd op het huidige runtimegedrag van <code>clearurls.js</code>. Bij het opzoeken van providers worden met name <code>providersByToken</code>-kandidaat-buckets van <code>domainPatterns</code> of <code>indexPattern</code> gebruikt, en de uiteindelijke matching loopt nog steeds via <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Hoofdstuk 1: Basisvorm JSON",
     "description": "Guide page text."
@@ -4159,7 +4195,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Een provider is één groep regels voor één website, bedrijf, tracker of URL-patroon.",
+    "message": "Een provider is één benoemde runtimecontainer voor één website, bedrijf, tracker, domeinpatroonset of URL-regex. De providernaam is een label/sleutel; Het matchen wordt gedaan door <code>domainPatterns</code> of <code>urlPattern</code>, niet door de naam van de provider.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -4175,7 +4211,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Volledige providersjabloon:",
+    "message": "Providervelden geaccepteerd door <code>clearurls.js</code>. Voor matching schrijft u <code>domainPatterns</code> of <code>urlPattern</code> met optionele <code>indexPattern</code>; vertrouw er niet op dat beide samen nodig zijn.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -4391,7 +4427,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> is een toevoeging van Linkumori. Gebruik het voor de meeste Linkumori JSON providers omdat het gemakkelijker is om te schrijven dan een volledige <code>urlPattern</code> regex.",
+    "message": "<code>domainPatterns</code> is een Linkumori-toevoeging en heeft de voorkeur van de meeste maatwerkaanbieders. In <code>clearurls.js</code> worden niet-lege <code>domainPatterns</code> gebruikt voor matching vóór <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -4519,7 +4555,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Gebruik <code>urlPattern</code> alleen als domeinmatching niet voldoende is.",
+    "message": "Gebruik <code>urlPattern</code> alleen als domeinmatching niet voldoende is, bijvoorbeeld wanneer de provider een specifiek pad of volledige URL-regex moet matchen.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -4527,11 +4563,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> is ClearURLs add-on legacy en ClearURLs core v2 canonieke syntaxis. Linkumori voegt <code>indexPattern</code> toe als een optionele opzoekhint, zodat de engine regex-providers sneller kan vinden.",
+    "message": "<code>urlPattern</code> is de oude add-on van ClearURL en de canonieke kernsyntaxis van ClearURL v2. Linkumori voegt <code>indexPattern</code> alleen toe als kandidaat-opzoekhint, zodat regex-providers sneller kunnen worden gevonden op basis van hostnaamtokens.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Belangrijk: Linkumori <code>indexPattern</code> is slechts een opzoekhint. Het beslist niet of de aanbieder zich aanmeldt.",
+    "message": "Belangrijk: <code>indexPattern</code> beslist niet of een aanbieder matcht. Na het opzoeken van kandidaten test <code>clearurls.js</code> nog steeds de echte <code>urlPattern</code> in <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -4931,27 +4967,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> is de upstream-syntaxis van ClearURLs. <code>indexPattern</code> is een Linkumori-toevoeging voor sneller zoeken wanneer u regex URL-matching nodig heeft.",
+    "message": "<code>urlPattern</code> is de upstream ClearURL-syntaxis. <code>indexPattern</code> is een Linkumori-opzoekhint voor regex-URL-providers; het moet verwijzen naar de hostnamen die de regex kan matchen.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> is optioneel, maar handig voor snelheid.",
+    "message": "<code>indexPattern</code> is optioneel, maar handig voor snelheid. Het indexeert de provider in kandidaat-buckets met hostnaam-tokens; het vervangt nooit de laatste <code>urlPattern</code>-wedstrijd.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Combinatie 5: <code>domainPatterns</code> en <code>urlPattern</code> samen",
+    "message": "Combinatie 5: Meng <code>domainPatterns</code> en <code>urlPattern</code> niet als gecombineerde vereiste",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Deze Linkumori gemengde matchervorm is geldig JSON:",
+    "message": "Deze vorm kan voorkomen in oudere of handgeschreven gegevens, maar dit betekent niet dat beide matchers moeten slagen:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Belangrijk gedrag:",
+    "message": "Huidig ​​<code>clearurls.js</code>-gedrag:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Gebruik dus niet beide als u verwacht dat beide nodig zijn. Als je een padvoorwaarde nodig hebt, gebruik dan <code>urlPattern</code> met <code>indexPattern</code>, of plaats een scoped <code>$removeparam</code>/regelpatroon in <code>rules</code>.",
+    "message": "Als <code>domainPatterns</code> aanwezig en niet leeg is, gebruikt <code>clearurls.js</code> deze voor het matchen van providers en negeert <code>urlPattern</code> voor die provider. Het aangepaste editor-/importpad wijst providers af die beide bevatten. Als u een padvoorwaarde nodig heeft, gebruikt u <code>urlPattern</code> met <code>indexPattern</code>, of gebruikt u individuele <code>$removeparam</code>/regel-items binnen <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5127,19 +5163,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon legacy en ClearURLs core v2 canonical — alleen <code>urlPattern</code>:",
+    "message": "ClearURLs add-on legacy en ClearURLs core v2 canoniek - alleen <code>urlPattern</code>. Zonder <code>indexPattern</code> kunnen brede regex-providers terugvallen op wereldwijde kandidatencontroles:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori aanvulling — <code>urlPattern</code> met <code>indexPattern</code>:",
+    "message": "Linkumori-toevoeging - <code>urlPattern</code> met <code>indexPattern</code>. Het indexpatroon is een opzoekhint, terwijl <code>urlPattern</code> de laatste matcher blijft:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori aanvulling — meerdere <code>indexPattern</code> hints:",
+    "message": "Linkumori-toevoeging - meerdere <code>indexPattern</code>-hints voor een URL-regex die met meer dan één hostnaam kan overeenkomen:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori aanvulling — alleen <code>domainPatterns</code>:",
+    "message": "Linkumori-toevoeging - alleen <code>domainPatterns</code>. Deze worden rechtstreeks gebruikt voor het matchen van providers en het extraheren van lookup-tokens:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5151,11 +5187,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori aanvulling — zowel <code>domainPatterns</code> als <code>urlPattern</code>:",
+    "message": "Verouderde/gemengde gegevens kunnen zowel <code>domainPatterns</code> als <code>urlPattern</code> bevatten, maar schrijven geen nieuwe providers op deze manier:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Gedrag:",
+    "message": "Gedrag: niet-lege <code>domainPatterns</code>-overwinning. <code>urlPattern</code> wordt alleen gebruikt als <code>domainPatterns</code> ontbreekt of leeg is. Het aangepaste editor-/importpad beschouwt beide samen als ongeldig.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -5491,7 +5527,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -5807,7 +5843,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js gedrag: als domainPatterns bestaat en niet leeg is, gebruikt Linkumori domainPatterns voor het matchen van providers. urlPattern wordt alleen gebruikt als domainPatterns ontbreekt of leeg is. Het aangepaste editor-/importpad wijst deze mixed matcher-vorm af, dus gebruik deze alleen om oudere gegevens te begrijpen.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -5915,7 +5951,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns wint voor matching wanneer het aanwezig en niet leeg is. urlPattern wordt alleen gebruikt als domainPatterns ontbreekt of leeg is. Het aangepaste editor-/importpad wijst providers af die beide matcherfamilies bevatten.",
     "description": "Guide page text."
   },
   "guide_0735": {

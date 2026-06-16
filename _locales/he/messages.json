@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Domain Patterns תומכים בטוקנים פשוטים ובצורות בסגנון AdBlock. התנהגות ההתאמה תלויה בתחביר (צורות מסוימות בודקות hostname, אחרות מתאימות מול מחרוזת ה-URL המלאה):",
+    "message": "תבניות דומיין תומכות באסימונים פשוטים ובטפסים בסגנון AdBlock. כאשר domainPatterns אינו ריק, clearurls.js משתמש בהם עבור התאמת ספק וחילוץ אסימון חיפוש לפני כל סתירה של urlPattern:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "שני השדות יכולים להיות נוכחים בנתונים, אך urlPattern נותן עדיפות. Domain Patterns משמשים רק כאשר urlPattern ריק. התאמת הדומיין מודעת ל-PSL, כולל טיפול בדומיין רשום ותמיכה ב-TLDs מרובי חלקים.",
+    "message": "עבור ספקים מותאמים אישית מותאמים, בחר domainPatterns או urlPattern. בנתוני זמן ריצה של clearurls.js, domainPatterns לא ריק מנצח ו-urlPattern משמש רק כאשר domainPatterns חסר או ריק. התאמת דומיינים מודעת ל-PSL עבור טפסים נתמכים בסגנון AdBlock, כולל טיפול בדומיין בר רישום ותמיכה ב-TLD מרובה חלקים.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "ספקים הם יחידות לוגיות המק�צות מספר כללים תחת אותה תבנית URL. כל ספק מכוון לאתר או שירות ספציפי ומכיל את כל הכללים הדרושים לניקוי כתובות URL ממקור זה.",
+    "message": "ספקים נקראים מיכלים שמקבצים שדות תואמים וכללי ניקוי כתובות אתרים. חיפוש מועמד משתמש באסימוני שם מארח מ-domainPatterns או indexPattern; שם הספק הוא רק תווית/מפתח ואינו מחליט אם בקשה תואמת.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern הוא ביטוי רגולרי שחייב להתאים לכל כתובת URL שצריכה להיות מושפעת מהכללים של הספק. הוא מגדיר אילו אתרים ספק זה צריך לטפל בהם.",
+    "message": "urlPattern הוא ביטוי רגולרי שנבדק מול כתובת ה-URL המלאה של הבקשה כאשר לספק אין דפוסי דומיין לא ריקים. אם אתה משתמש ב-urlPattern, הוסף indexPattern כשאפשר כדי ש-clearurls.js יוכל למצוא את הספק לפי אסימוני שם מארח לפני בדיקת ה-Regex.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "ה-indexPattern הוא דפוס תחום (לדוגמה, ||example.com^) שפועל כרמז למערכת האינדקס. מכיוון שקשה לנתח ביטויים רגולריים ב-urlPattern עבור שמות מארח, indexPattern מספק יעד מפורש לאופטימיזציה. זה מבטיח שהספק מתווסף בצורה נכונה ויעילה.",
+    "message": "indexPattern הוא רמז לבדיקת ספק, לא תנאי התאמה. clearurls.js מחלץ אסימוני שם מארח מ-indexPattern כדי למקם ספק urlPattern לתוך דליים של מועמדים של providersByToken. הספק עדיין תואם רק אם provider.matchRequestURL() מעביר את ה-urlPattern האמיתי וחריגים אינם תואמים.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "אנא עיין בכתובת האתר שתיפתח. כתובת האתר הזו מכילה את המידע שהזנת ותפנה אותך אל GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "הודעת מדיניות פרטיות",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori יוצר את כתובת האתר הזו באופן מקומי בדפדפן שלך. Linkumori לא מעביר ישירות נתונים ממך או מהדפדפן שלך ל-GitHub או לכל שרת אחר בזמן יצירת כתובת URL זו.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "אם תבחר \"פתח את GitHub\", אתה בוחר לאפשר לדפדפן שלך לפתוח את כתובת האתר המוצגת. ניווט בדפדפן זה עשוי לשלוח את כתובת האתר ואת פרמטרי השאילתה שלה אל GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "ליצירת בעיה, כתובת האתר עשויה לכלול את סוג הבעיה, כתובת האתר של הבעיה שנבחרה, כתובת ה-URL הנקתה, סמן NSFW, הערות וקטעי תצורה נבחרים.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "עבור חיפוש בעיה, כתובת האתר עשויה לכלול את שם המארח, הדומיין, סוג הבעיה ומונח החיפוש NSFW אם נבחר.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori לא תומכת ב-GitHub. Linkumori אינה יודעת, מאמת או מבטיחה אם GitHub מצייתת לפרטיות המקומית שלך, להגנת הנתונים או לחוקים החלים אחרים.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "בדוק את כתובת האתר המלאה לפני שתמשיך. בטל אם אינך רוצה שהדפדפן שלך יפתח את GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "כתובת אתר לפתיחה (פורמט טכני):",
@@ -4981,6 +5009,10 @@
     "message": "זה לא מדריך לקוד JavaScript. הוא מתמקד רק בצורות JSON, פורמטים של כללים ודוגמאות שמחברי כללים צריכים.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "מדריך זה מבוסס על התנהגות זמן הריצה הנוכחית של <code>clearurls.js</code>. בפרט, חיפוש ספק משתמש בדליים של מועמדים <code>providersByToken</code> מ-<code>domainPatterns</code> או <code>indexPattern</code>, וההתאמה הסופית עדיין פועלת דרך <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "פרק 1: צורה בסיסית JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "ספק הוא קבוצה אחת של כללים עבור אתר אינטרנט, חברה, עוקב או דפוס URL אחד.",
+    "message": "ספק הוא מיכל אחד בשם זמן ריצה עבור אתר אינטרנט, חברה, מעקב, ערכת דפוסי דומיין או ביטוי רגולרי של כתובת אתר אחד. שם הספק הוא תווית/מפתח; ההתאמה מתבצעת על ידי <code>domainPatterns</code> או <code>urlPattern</code>, לא על ידי שם הספק.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "תבנית ספק מלאה:",
+    "message": "שדות ספק מקובלים על ידי <code>clearurls.js</code>. להתאמה, מחבר או <code>domainPatterns</code> או <code>urlPattern</code> עם <code>indexPattern</code> אופציונלי; אל תסתמך על שניהם נדרשים יחד.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> הוא תוספת Linkumori. השתמש בו עבור רוב הספקים של Linkumori JSON כי קל יותר לכתוב אותו מאשר <code>urlPattern</code> מלא.",
+    "message": "<code>domainPatterns</code> היא תוספת של Linkumori ומועדפת לרוב הספקים המותאמים אישית. ב-<code>clearurls.js</code>, נעשה שימוש ב-<code>domainPatterns</code> שאינו ריק להתאמה לפני <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "השתמש ב-<code>urlPattern</code> רק כאשר התאמת הדומיין אינה מספיקה.",
+    "message": "השתמש ב-<code>urlPattern</code> רק כאשר התאמת הדומיין אינה מספיקה, כגון כאשר הספק חייב להתאים לנתיב ספציפי או לביטוי רגולרי מלא של כתובת URL.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> הוא ClearURLs מדור קודם ותחביר קנוני ClearURLs core v2. Linkumori מוסיף את <code>indexPattern</code> כרמז חיפוש אופציונלי כדי שהמנוע יוכל למצוא ספקי ביטויים רגילים מהר יותר.",
+    "message": "<code>urlPattern</code> הוא התחביר הקנוני של ClearURL ותחביר הליבה v2 של ClearURL. Linkumori מוסיפה <code>indexPattern</code> רק כרמז לחיפוש מועמד, כך שניתן יהיה למצוא ספקי ביטויים רגילים על ידי אסימוני שמות מארח מהר יותר.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "חשוב: Linkumori <code>indexPattern</code> הוא רק רמז לחיפוש. היא לא מחליטה אם הספק מגיש בקשה.",
+    "message": "חשוב: <code>indexPattern</code> אינו מחליט אם ספק מתאים. לאחר חיפוש מועמדים, <code>clearurls.js</code> עדיין בודק את ה-<code>urlPattern</code> האמיתי ב-<code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> הוא תחביר ClearURLs במעלה הזרם. <code>indexPattern</code> הוא תוספת של Linkumori לחיפוש מהיר יותר כאשר אתה צריך התאמה רגקס URL.",
+    "message": "<code>urlPattern</code> הוא תחביר של ClearURL במעלה הזרם. <code>indexPattern</code> הוא רמז חיפוש Linkumori עבור ספקי כתובות אתרים רגילים; זה צריך להצביע על שמות המארחים שהביטוי הרגולרי יכול להתאים.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> הוא אופציונלי, אך שימושי למהירות.",
+    "message": "<code>indexPattern</code> הוא אופציונלי, אך שימושי למהירות. הוא מוסיף את הספק לדליים של מועמדים עם שם מארח; זה אף פעם לא מחליף את המשחק האחרון של <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "שילוב 5: <code>domainPatterns</code> ו-<code>urlPattern</code> ביחד",
+    "message": "שילוב 5: אל תערבב <code>domainPatterns</code> ו-<code>urlPattern</code> כדרישה משולבת",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "צורת התאמה מעורבת זו Linkumori תקפה JSON:",
+    "message": "צורה זו עשויה להופיע בנתונים ישנים יותר או בכתב יד, אך אין זה אומר ששני המתאמים חייבים לעבור:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "התנהגות חשובה:",
+    "message": "התנהגות נוכחית של <code>clearurls.js</code>:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "אז אל תשתמש בשניהם כאשר אתה מצפה ששניהם יידרשו. אם אתה צריך תנאי נתיב, השתמש ב-<code>urlPattern</code> עם <code>indexPattern</code>, או הכנס תבנית <code>$removeparam</code>/כלל בטווח של <code>rules</code>.",
+    "message": "אם <code>domainPatterns</code> קיים ואינו ריק, <code>clearurls.js</code> משתמש בו עבור התאמת ספק ומתעלם מ-<code>urlPattern</code> עבור אותו ספק. נתיב העורך/ייבוא ​​המותאם אישית דוחה ספקים המכילים את שניהם. אם אתה זקוק לתנאי נתיב, השתמש ב-<code>urlPattern</code> עם <code>indexPattern</code>, או בחן ערכי <code>$removeparam</code>/כלל בודדים בתוך <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs מדור קודם ו-ClearURLs core v2 canonical - <code>urlPattern</code> בלבד:",
+    "message": "תוסף ClearURLs מדור קודם ו-ClearURLs core v2 canonical - <code>urlPattern</code> בלבד. ללא <code>indexPattern</code>, ספקי ביטוי רגולרי רחב עשויים לחזור לבדיקות מועמדים גלובליות:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "תוספת Linkumori — <code>urlPattern</code> עם <code>indexPattern</code>:",
+    "message": "תוספת Linkumori - <code>urlPattern</code> עם <code>indexPattern</code>. דפוס האינדקס הוא רמז לחיפוש, בעוד <code>urlPattern</code> נשאר התואם הסופי:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "תוספת Linkumori - <code>indexPattern</code> רמזים מרובים:",
+    "message": "תוספת Linkumori - רמזים מרובים של <code>indexPattern</code> עבור ביטוי רגולרי של כתובת URL שיכול להתאים ליותר משם מארח אחד:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "תוספת Linkumori — <code>domainPatterns</code> בלבד:",
+    "message": "תוספת Linkumori - <code>domainPatterns</code> בלבד. אלה משמשים ישירות להתאמת ספקים ולחילוץ אסימון חיפוש:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "תוספת Linkumori - גם <code>domainPatterns</code> וגם <code>urlPattern</code>:",
+    "message": "נתונים מדור קודם/מעורבים עשויים להכיל גם <code>domainPatterns</code> וגם <code>urlPattern</code>, אך אל תחבר ספקים חדשים בדרך זו:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "התנהגות:",
+    "message": "התנהגות: זכייה <code>domainPatterns</code> לא ריקה. <code>urlPattern</code> משמש רק כאשר <code>domainPatterns</code> חסר או ריק. העורך/נתיב היבוא המותאם אישית מתייחס לשניהם יחדיו כבלתי חוקיים.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "התנהגות clearurls.js: אם domainPatterns קיים ואינו ריק, Linkumori משתמש ב-domainPatterns עבור התאמת ספקים. urlPattern משמש רק כאשר domainPatterns חסר או ריק. נתיב העורך/ייבוא ​​המותאם אישית דוחה את צורת ההתאמה המעורבת הזו, אז השתמש בו רק כדי להבין נתונים מדור קודם.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns זוכה עבור התאמה כאשר הוא קיים ואינו ריק. urlPattern משמש רק כאשר domainPatterns חסר או ריק. נתיב העורך/ייבוא ​​המותאם אישית דוחה ספקים המכילים את שתי משפחות ההתאמה.",
     "description": "Guide page text."
   },
   "guide_0735": {

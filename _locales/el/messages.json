@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Τα μοτίβα τομέα υποστηρίζουν απλά διακριτικά και φόρμες τύπου AdBlock. Η συμπεριφορά αντιστοίχισης εξαρτάται από τη σύνταξη (ορισμένες φόρμες ελέγχουν το όνομα κεντρικού υπολογιστή, άλλες ταιριάζουν με την πλήρη συμβολοσειρά URL):",
+    "message": "Τα μοτίβα τομέα υποστηρίζουν απλά διακριτικά και φόρμες τύπου AdBlock. Όταν το domainPatterns δεν είναι κενό, το clearurls.js τα χρησιμοποιεί για αντιστοίχιση παρόχου και εξαγωγή διακριτικού αναζήτησης πριν από οποιαδήποτε εναλλακτική διεύθυνση urlPattern:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Και τα δύο πεδία μπορούν να υπάρχουν στα δεδομένα, αλλά το urlPattern έχει προτεραιότητα. Τα μοτίβα τομέα χρησιμοποιούνται μόνο όταν το urlPattern είναι κενό. Η αντιστοίχιση τομέα είναι ενήμερη για το PSL, συμπεριλαμβανομένου του χειρισμού καταχωρίσιμου τομέα και της υποστήριξης TLD πολλαπλών τμημάτων.",
+    "message": "Για εγγεγραμμένους προσαρμοσμένους παρόχους, επιλέξτε είτε μοτίβα τομέα είτε urlPattern. Στα δεδομένα χρόνου εκτέλεσης clearurls.js, τα μη κενά μοτίβα τομέα κερδίζουν και το urlPattern χρησιμοποιείται μόνο όταν λείπει ή είναι κενό το μοτίβο τομέα. Η αντιστοίχιση τομέα γνωρίζει το PSL για υποστηριζόμενες φόρμες τύπου AdBlock, συμπεριλαμβανομένου του χειρισμού καταχωρίσιμου τομέα και της υποστήριξης TLD πολλαπλών τμημάτων.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Οι πάροχοι είναι λογικές μονάδες που ομαδοποιούν πολλούς κανόνες κάτω από το ίδιο μοτίβο διεύθυνσης URL. Κάθε πάροχος στοχεύει έναν συγκεκριμένο ιστότοπο ή υπηρεσία και περιέχει όλους τους κανόνες που απαιτούνται για τον καθαρισμό διευθύνσεων URL από αυτήν την πηγή.",
+    "message": "Οι πάροχοι ονομάζονται κοντέινερ που ομαδοποιούν πεδία αντιστοίχισης και κανόνες καθαρισμού διευθύνσεων URL. Η αναζήτηση υποψηφίου χρησιμοποιεί διακριτικά ονόματος κεντρικού υπολογιστή από το domainPatterns ή το indexPattern. το όνομα του παρόχου είναι μόνο μια ετικέτα/κλειδί και δεν αποφασίζει εάν ένα αίτημα ταιριάζει.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "Το urlPattern είναι μια τυπική έκφραση που πρέπει να ταιριάζει με κάθε διεύθυνση URL που θα πρέπει να επηρεάζεται από τους κανόνες του παρόχου. Καθορίζει ποιους ιστότοπους θα πρέπει να χειρίζεται αυτός ο πάροχος.",
+    "message": "Το urlPattern είναι μια τυπική έκφραση που ελέγχεται έναντι της πλήρους διεύθυνσης URL αιτήματος όταν ο πάροχος δεν έχει μη κενά μοτίβα τομέα. Εάν χρησιμοποιείτε urlPattern, προσθέστε indexPattern όταν είναι δυνατόν, ώστε το clearurls.js να μπορεί να βρει τον πάροχο με διακριτικά ονόματος κεντρικού υπολογιστή πριν δοκιμάσει το regex.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -3143,7 +3143,7 @@
     "description": "Error message when trying to add empty domain"
   },
   "whitelist_examples_text": {
-    "message": "Παραδείγματα: <code>example.com</code>, <code>*.google.com</code>, <code>subdomNXXXT.",
+    "message": "Παραδείγματα: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
     "description": "Text before domain format examples"
   },
   "whitelist_export_button": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "Το indexPattern είναι ένα μοτίβο τομέα (π.χ., ||example.com^) που λειτουργεί ως υπόδειξη για το σύστημα ευρετηρίου. Δεδομένου ότι οι τυπικές εκφράσεις στο urlPattern είναι δύσκολο να αναλυθούν για ονόματα κεντρικών υπολογιστών, το indexPattern παρέχει έναν ρητό στόχο για βελτιστοποίηση. Διασφαλίζει ότι ο πάροχος ευρετηριάζεται σωστά και αποτελεσματικά.",
+    "message": "Το indexPattern είναι μια υπόδειξη αναζήτησης παρόχου, όχι μια συνθήκη αντιστοίχισης. Το clearurls.js εξάγει διακριτικά ονόματος κεντρικού υπολογιστή από το indexPattern για να τοποθετήσει έναν πάροχο urlPattern στους υποψήφιους κάδους του providersByToken. Ο πάροχος εξακολουθεί να ταιριάζει μόνο εάν το provider.matchRequestURL() περάσει το πραγματικό urlPattern και οι εξαιρέσεις δεν ταιριάζουν.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Ελέγξτε τη διεύθυνση URL που θα ανοίξει. Αυτή η διεύθυνση URL περιέχει τις πληροφορίες που εισαγάγατε και θα σας ανακατευθύνει στο GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Σημείωση για την πολιτική απορρήτου",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Το Linkumori δημιουργεί αυτό το URL τοπικά στο πρόγραμμα περιήγησής σας. Το Linkumori δεν μεταφέρει απευθείας δεδομένα από εσάς ή το πρόγραμμα περιήγησής σας στο GitHub ή σε οποιονδήποτε άλλο διακομιστή κατά τη δημιουργία αυτής της διεύθυνσης URL.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Εάν επιλέξετε \"Άνοιγμα GitHub\", επιλέγετε να αφήσετε το πρόγραμμα περιήγησής σας να ανοίξει τη διεύθυνση URL που εμφανίζεται. Αυτή η πλοήγηση του προγράμματος περιήγησης μπορεί να στείλει τη διεύθυνση URL και τις παραμέτρους ερωτήματός της στο GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Για τη δημιουργία προβλήματος, η διεύθυνση URL μπορεί να περιλαμβάνει τον τύπο προβλήματος, τη διεύθυνση URL επιλεγμένου ζητήματος, τη διεύθυνση URL που έχει καθαριστεί, τον δείκτη NSFW, τα σχόλια και τις επιλεγμένες ενότητες διαμόρφωσης.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Για αναζήτηση προβλήματος, η διεύθυνση URL μπορεί να περιλαμβάνει το επιλεγμένο όνομα κεντρικού υπολογιστή, τομέα, τύπο προβλήματος και όρο αναζήτησης NSFW, εάν επιλεγεί.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Η Linkumori δεν υποστηρίζει το GitHub. Η Linkumori δεν γνωρίζει, δεν επαληθεύει ή δεν εγγυάται εάν το GitHub συμμορφώνεται με το τοπικό σας απόρρητο, την προστασία δεδομένων ή άλλους ισχύοντες νόμους.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Ελέγξτε την πλήρη διεύθυνση URL πριν συνεχίσετε. Ακυρώστε εάν δεν θέλετε το πρόγραμμα περιήγησής σας να ανοίξει το GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL που θα ανοίξει (τεχνική μορφή):",
@@ -4981,6 +5009,10 @@
     "message": "Δεν είναι οδηγός για τον κωδικό JavaScript. Εστιάζει μόνο στα JSON σχήματα, μορφές κανόνων και παραδείγματα που χρειάζονται οι συντάκτες κανόνων.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Αυτός ο οδηγός βασίζεται στην τρέχουσα συμπεριφορά χρόνου εκτέλεσης <code>clearurls.js</code>. Συγκεκριμένα, η αναζήτηση παρόχου χρησιμοποιεί υποψήφιους κάδους <code>providersByToken</code> από το <code>domainPatterns</code> ή το <code>indexPattern</code> και η τελική αντιστοίχιση εξακολουθεί να εκτελείται μέσω του <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Κεφάλαιο 1: Βασικό σχήμα JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Ένας πάροχος είναι μια ομάδα κανόνων για έναν ιστότοπο, εταιρεία, πρόγραμμα παρακολούθησης ή μοτίβο URL.",
+    "message": "Ένας πάροχος είναι ένα κοντέινερ χρόνου εκτέλεσης με όνομα για έναν ιστότοπο, εταιρεία, πρόγραμμα παρακολούθησης, σύνολο μοτίβων τομέα ή regex διεύθυνσης URL. Το όνομα του παρόχου είναι μια ετικέτα/κλειδί. Η αντιστοίχιση γίνεται από το <code>domainPatterns</code> ή το <code>urlPattern</code>, όχι από το όνομα του παρόχου.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Πλήρες πρότυπο παρόχου:",
+    "message": "Τα πεδία παρόχου γίνονται δεκτά από το <code>clearurls.js</code>. Για αντιστοίχιση, συντάξτε είτε το <code>domainPatterns</code> είτε το <code>urlPattern</code> με το προαιρετικό <code>indexPattern</code>. μην βασίζεστε στο ότι και τα δύο απαιτούνται μαζί.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "Το <code>domainPatterns</code> είναι μια προσθήκη Linkumori. Χρησιμοποιήστε το για τους περισσότερους παρόχους JSON, επειδή είναι πιο εύκολο να γράψετε από ένα πλήρες regex <code>urlPattern</code>.",
+    "message": "Το <code>domainPatterns</code> είναι μια προσθήκη Linkumori και προτιμάται για τους περισσότερους προσαρμοσμένους παρόχους. Στο <code>clearurls.js</code>, τα μη κενά <code>domainPatterns</code> χρησιμοποιούνται για αντιστοίχιση πριν από το <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Χρησιμοποιήστε το <code>urlPattern</code> μόνο όταν η αντιστοίχιση τομέα δεν είναι αρκετή.",
+    "message": "Χρησιμοποιήστε το <code>urlPattern</code> μόνο όταν η αντιστοίχιση τομέα δεν είναι αρκετή, όπως όταν ο πάροχος πρέπει να αντιστοιχίσει μια συγκεκριμένη διαδρομή ή πλήρες regex διεύθυνσης URL.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "Το <code>urlPattern</code> είναι κληρονομιά προσθήκης ClearURLs και κανονική σύνταξη ClearURLs core v2. Το Linkumori προσθέτει το <code>indexPattern</code> ως προαιρετική υπόδειξη αναζήτησης, ώστε ο κινητήρας να βρίσκει τους παρόχους regex πιο γρήγορα.",
+    "message": "Το <code>urlPattern</code> είναι η κληρονομιά του πρόσθετου ClearURL και η κανονική σύνταξη του πυρήνα v2 του ClearURL. Το Linkumori προσθέτει το <code>indexPattern</code> μόνο ως υπόδειξη αναζήτησης υποψηφίου, έτσι ώστε οι πάροχοι regex να μπορούν να βρεθούν γρηγορότερα με διακριτικά ονόματος κεντρικού υπολογιστή.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Σημαντικό: Το Linkumori <code>indexPattern</code> είναι μόνο μια υπόδειξη αναζήτησης. Δεν αποφασίζει εάν ο πάροχος θα κάνει αίτηση.",
+    "message": "Σημαντικό: Το <code>indexPattern</code> δεν αποφασίζει εάν ένας πάροχος ταιριάζει. Μετά την αναζήτηση υποψηφίου, το <code>clearurls.js</code> εξακολουθεί να δοκιμάζει το πραγματικό <code>urlPattern</code> στο <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "Το <code>urlPattern</code> είναι σύνταξη ανοδικής ροής ClearURLs. Το <code>indexPattern</code> είναι μια προσθήκη Linkumori για ταχύτερη αναζήτηση όταν χρειάζεστε αντιστοίχιση regex URL.",
+    "message": "Το <code>urlPattern</code> είναι η σύνταξη ClearURLs upstream. Το <code>indexPattern</code> είναι μια υπόδειξη αναζήτησης Linkumori για παρόχους διευθύνσεων URL regex. θα πρέπει να δείχνει στα ονόματα κεντρικών υπολογιστών με τα οποία μπορεί να ταιριάξει το regex.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "Το <code>indexPattern</code> είναι προαιρετικό, αλλά χρήσιμο για ταχύτητα.",
+    "message": "Το <code>indexPattern</code> είναι προαιρετικό, αλλά χρήσιμο για ταχύτητα. Ευρετηριάζει τον πάροχο σε υποψηφίους κουβάδες ονόματος κεντρικού υπολογιστή. δεν αντικαθιστά ποτέ τον τελικό αγώνα <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Συνδυασμός 5: <code>domainPatterns</code> Και <code>urlPattern</code> Μαζί",
+    "message": "Συνδυασμός 5: Μην αναμιγνύετε τα <code>domainPatterns</code> και <code>urlPattern</code> ως συνδυασμένη απαίτηση",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Αυτό το σχήμα μικτής αντιστοίχισης Linkumori ισχύει JSON:",
+    "message": "Αυτό το σχήμα μπορεί να εμφανίζεται σε παλαιότερα ή χειρόγραφα δεδομένα, αλλά δεν σημαίνει ότι πρέπει να περάσουν και οι δύο αντιστοιχίσεις:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Σημαντική συμπεριφορά:",
+    "message": "Τρέχουσα συμπεριφορά <code>clearurls.js</code>:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Επομένως, μην χρησιμοποιείτε και τα δύο όταν περιμένετε να απαιτηθούν και τα δύο. Εάν χρειάζεστε μια συνθήκη διαδρομής, χρησιμοποιήστε το <code>urlPattern</code> με το <code>indexPattern</code> ή τοποθετήστε ένα μοτίβο <code>$removeparam</code>/κανόνα με εμβέλεια στο <code>rules</code>.",
+    "message": "Εάν το <code>domainPatterns</code> υπάρχει και δεν είναι κενό, το <code>clearurls.js</code> το χρησιμοποιεί για αντιστοίχιση παρόχου και αγνοεί το <code>urlPattern</code> για αυτόν τον πάροχο. Η προσαρμοσμένη διαδρομή επεξεργασίας/εισαγωγής απορρίπτει παρόχους που περιέχουν και τα δύο. Εάν χρειάζεστε μια συνθήκη διαδρομής, χρησιμοποιήστε το <code>urlPattern</code> με το <code>indexPattern</code> ή καλύψετε μεμονωμένες εγγραφές <code>$removeparam</code>/κανόνα μέσα στο <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon legacy και ClearURLs core v2 canonical — μόνο <code>urlPattern</code>:",
+    "message": "ClearURLs addon legacy και ClearURLs core v2 canonical — μόνο <code>urlPattern</code>. Χωρίς το <code>indexPattern</code>, οι πάροχοι ευρείας regex ενδέχεται να επανέλθουν σε παγκόσμιους ελέγχους υποψηφίων:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori προσθήκη — <code>urlPattern</code> με <code>indexPattern</code>:",
+    "message": "Linkumori προσθήκη — <code>urlPattern</code> με <code>indexPattern</code>. Το μοτίβο ευρετηρίου είναι μια υπόδειξη αναζήτησης, ενώ το <code>urlPattern</code> παραμένει το τελικό ταίριασμα:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori προσθήκη — πολλαπλές <code>indexPattern</code> συμβουλές:",
+    "message": "Προσθήκη Linkumori — πολλές υποδείξεις <code>indexPattern</code> για ένα regex διεύθυνσης URL που μπορεί να ταιριάζει με περισσότερα από ένα ονόματα κεντρικού υπολογιστή:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori προσθήκη — <code>domainPatterns</code> μόνο:",
+    "message": "Linkumori προσθήκη — <code>domainPatterns</code> μόνο. Αυτά χρησιμοποιούνται απευθείας για αντιστοίχιση παρόχου και εξαγωγή διακριτικού αναζήτησης:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori προσθήκη — τόσο <code>domainPatterns</code> όσο και <code>urlPattern</code>:",
+    "message": "Τα παλαιού τύπου/μεικτά δεδομένα ενδέχεται να περιέχουν τόσο <code>domainPatterns</code> όσο και <code>urlPattern</code>, αλλά μην δημιουργείτε νέους παρόχους με αυτόν τον τρόπο:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Συμπεριφορά:",
+    "message": "Συμπεριφορά: μη κενή νίκη <code>domainPatterns</code>. Το <code>urlPattern</code> χρησιμοποιείται μόνο όταν το <code>domainPatterns</code> λείπει ή είναι κενό. Η προσαρμοσμένη διαδρομή επεξεργασίας/εισαγωγής αντιμετωπίζει και τα δύο μαζί ως μη έγκυρα.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "Συμπεριφορά clearurls.js: εάν το domainPatterns υπάρχει και δεν είναι κενό, το Linkumori χρησιμοποιεί μοτίβα τομέα για αντιστοίχιση παρόχου. Το urlPattern χρησιμοποιείται μόνο όταν λείπει ή είναι κενό το domainPatterns. Η προσαρμοσμένη διαδρομή επεξεργασίας/εισαγωγής απορρίπτει αυτό το μικτό σχήμα αντιστοίχισης, επομένως χρησιμοποιήστε το μόνο για να κατανοήσετε δεδομένα παλαιού τύπου.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "Το domainPatterns κερδίζει για αντιστοίχιση όταν είναι παρόν και δεν είναι κενό. Το urlPattern χρησιμοποιείται μόνο όταν λείπει ή είναι κενό το domainPatterns. Η προσαρμοσμένη διαδρομή επεξεργασίας/εισαγωγής απορρίπτει παρόχους που περιέχουν και τις δύο οικογένειες αντιστοίχισης.",
     "description": "Guide page text."
   },
   "guide_0735": {

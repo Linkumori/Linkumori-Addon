@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "डोमेन पैटर्न सरल टोकन और एडब्लॉक-शैली फॉर्म का समर्थन करते हैं। मिलान व्यवहार सिंटैक्स पर निर्भर करता है (कुछ फॉर्म होस्टनाम की जांच करते हैं, अन्य पूर्ण यूआरएल स्ट्रिंग के विरुद्ध मेल खाते हैं):",
+    "message": "डोमेन पैटर्न सरल टोकन और एडब्लॉक-शैली फॉर्म का समर्थन करते हैं। जब डोमेनपैटर्न खाली नहीं होता है, तो Clearurls.js किसी भी यूआरएलपैटर्न फ़ॉलबैक से पहले प्रदाता मिलान और लुकअप-टोकन निष्कर्षण के लिए उनका उपयोग करता है:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "दोनों फ़ील्ड डेटा में मौजूद हो सकते हैं, लेकिन urlPattern को प्राथमिकता दी जाती है। डोमेन पैटर्न का उपयोग केवल तभी किया जाता है जब यूआरएलपैटर्न खाली हो। डोमेन मिलान पीएसएल-जागरूक है, जिसमें पंजीकरण योग्य-डोमेन हैंडलिंग और बहु-भाग टीएलडी समर्थन शामिल है।",
+    "message": "लिखित कस्टम प्रदाताओं के लिए, या तो डोमेनपैटर्न या यूआरएलपैटर्न चुनें। Clearurls.js रनटाइम डेटा में, गैर-रिक्त डोमेनपैटर्न जीतता है और urlपैटर्न का उपयोग केवल तभी किया जाता है जब डोमेनपैटर्न गायब या खाली होता है। डोमेन मिलान समर्थित एडब्लॉक-शैली फॉर्म के लिए पीएसएल-जागरूक है, जिसमें पंजीकरण योग्य-डोमेन हैंडलिंग और बहु-भाग टीएलडी समर्थन शामिल है।",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "प्रदाता तार्किक इकाइयाँ हैं जो एक ही यूआरएल पैटर्न के तहत कई नियमों को समूहित करती हैं। प्रत्येक प्रदाता एक विशिष्ट वेबसाइट या सेवा को लक्षित करता है और उसमें उस स्रोत से यूआरएल साफ़ करने के लिए आवश्यक सभी नियम शामिल होते हैं।",
+    "message": "प्रदाताओं को कंटेनर नाम दिया गया है जो मिलानकर्ता फ़ील्ड और यूआरएल-सफाई नियमों को समूहित करते हैं। उम्मीदवार लुकअप डोमेनपैटर्न या इंडेक्सपैटर्न से होस्टनाम टोकन का उपयोग करता है; प्रदाता का नाम केवल एक लेबल/कुंजी है और यह तय नहीं करता कि अनुरोध मेल खाता है या नहीं।",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "यूआरएलपैटर्न एक नियमित अभिव्यक्ति है जिसे प्रदाता के नियमों से प्रभावित होने वाले प्रत्येक यूआरएल से मेल खाना चाहिए। यह परिभाषित करता है कि इस प्रदाता को कौन सी वेबसाइटें संभालनी चाहिए।",
+    "message": "यूआरएलपैटर्न एक नियमित अभिव्यक्ति है जिसे पूर्ण अनुरोध यूआरएल के खिलाफ परीक्षण किया जाता है जब प्रदाता के पास गैर-रिक्त डोमेनपैटर्न नहीं होता है। यदि आप यूआरएलपैटर्न का उपयोग करते हैं, तो जब संभव हो तो इंडेक्सपैटर्न जोड़ें ताकि क्लियरयूआरएल.जेएस रेगेक्स का परीक्षण करने से पहले होस्टनाम टोकन द्वारा प्रदाता को ढूंढ सके।",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "इंडेक्सपैटर्न एक डोमेन पैटर्न है (उदाहरण के लिए, ||example.com^) जो इंडेक्सिंग सिस्टम के लिए एक संकेत के रूप में कार्य करता है। चूंकि होस्टनाम के लिए urlPattern में नियमित अभिव्यक्तियों को पार्स करना कठिन है, इसलिए IndexPattern अनुकूलन के लिए एक स्पष्ट लक्ष्य प्रदान करता है। यह सुनिश्चित करता है कि प्रदाता सही और कुशलता से अनुक्रमित है।",
+    "message": "इंडेक्सपैटर्न एक प्रदाता लुकअप संकेत है, मिलान स्थिति नहीं। Clearurls.js एक यूआरएलपैटर्न प्रदाता को प्रदाताओंबायटोकन उम्मीदवार बकेट में रखने के लिए इंडेक्सपैटर्न से होस्टनाम टोकन निकालता है। प्रदाता अभी भी तभी मेल खाता है जब प्रदाता.matchRequestURL() वास्तविक यूआरएलपैटर्न पास करता है और अपवाद मेल नहीं खाते हैं।",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "कृपया उस यूआरएल की समीक्षा करें जो खोला जाएगा। इस URL में आपके द्वारा दर्ज की गई जानकारी शामिल है और यह आपको GitHub पर रीडायरेक्ट कर देगा।",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "गोपनीयता नीति सूचना",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "लिंकुमोरी इस यूआरएल को आपके ब्राउज़र में स्थानीय रूप से बनाता है। इस यूआरएल को बनाते समय लिंकुमोरी सीधे आपके या आपके ब्राउज़र से डेटा को GitHub या किसी अन्य सर्वर पर स्थानांतरित नहीं करता है।",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "यदि आप \"ओपन गिटहब\" चुनते हैं, तो आप अपने ब्राउज़र को प्रदर्शित यूआरएल खोलने देना चुन रहे हैं। वह ब्राउज़र नेविगेशन URL और उसके क्वेरी पैरामीटर्स को GitHub पर भेज सकता है।",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "समस्या निर्माण के लिए, URL में समस्या प्रकार, चयनित समस्या URL, साफ़ किया गया URL, NSFW मार्कर, टिप्पणियाँ और चयनित कॉन्फ़िगरेशन अनुभाग शामिल हो सकते हैं।",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "समस्या खोज के लिए, यदि चयनित हो तो URL में चयनित होस्टनाम, डोमेन, समस्या प्रकार और NSFW खोज शब्द शामिल हो सकते हैं।",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "लिंकुमोरी गिटहब का समर्थन नहीं करता है। लिंकुमोरी यह नहीं जानता, सत्यापित या गारंटी नहीं देता कि GitHub आपकी स्थानीय गोपनीयता, डेटा सुरक्षा, या अन्य लागू कानूनों का अनुपालन करता है या नहीं।",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "जारी रखने से पहले संपूर्ण URL की समीक्षा करें. यदि आप नहीं चाहते कि आपका ब्राउज़र GitHub खोले तो रद्द करें।",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "खोला जाने वाला यूआरएल (तकनीकी प्रारूप):",
@@ -4981,6 +5009,10 @@
     "message": "यह JavaScript कोड के लिए मार्गदर्शक नहीं है। यह केवल JSON आकृतियों, नियम प्रारूपों और उदाहरणों पर केंद्रित है जिनकी नियम लेखकों को आवश्यकता है।",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "यह मार्गदर्शिका वर्तमान <code>clearurls.js</code> रनटाइम व्यवहार पर आधारित है। विशेष रूप से, प्रदाता लुकअप <code>domainPatterns</code> या <code>indexPattern</code> से <code>providersByToken</code> उम्मीदवार बकेट का उपयोग करता है, और अंतिम मिलान अभी भी <code>provider.matchRequestURL()</code> के माध्यम से चलता है।",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "अध्याय 1: मूल JSON आकार",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "एक प्रदाता एक वेबसाइट, कंपनी, ट्रैकर या URL पैटर्न के लिए नियमों का एक समूह है।",
+    "message": "एक प्रदाता एक वेबसाइट, कंपनी, ट्रैकर, डोमेन पैटर्न सेट या यूआरएल रेगेक्स के लिए नामित रनटाइम कंटेनर है। प्रदाता का नाम एक लेबल/कुंजी है; मिलान <code>domainPatterns</code> या <code>urlPattern</code> द्वारा किया जाता है, प्रदाता नाम से नहीं।",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "पूर्ण प्रदाता टेम्पलेट:",
+    "message": "प्रदाता फ़ील्ड <code>clearurls.js</code> द्वारा स्वीकार किए जाते हैं। मिलान के लिए, वैकल्पिक <code>indexPattern</code> के साथ या तो <code>domainPatterns</code> या <code>urlPattern</code> लिखें; दोनों की एक साथ आवश्यकता होने पर भरोसा न करें।",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> एक Linkumori जोड़ है। अधिकांश Linkumori JSON प्रदाताओं के लिए इसका उपयोग करें क्योंकि पूर्ण <code>urlPattern</code> रेगेक्स की तुलना में इसे लिखना आसान है।",
+    "message": "<code>domainPatterns</code> एक लिंकुमोरी अतिरिक्त है और अधिकांश कस्टम प्रदाताओं के लिए इसे प्राथमिकता दी जाती है। <code>clearurls.js</code> में, <code>urlPattern</code> से पहले मिलान के लिए गैर-रिक्त <code>domainPatterns</code> का उपयोग किया जाता है।",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "<code>urlPattern</code> का उपयोग केवल तभी करें जब डोमेन मिलान पर्याप्त न हो।",
+    "message": "<code>urlPattern</code> का उपयोग केवल तभी करें जब डोमेन मिलान पर्याप्त न हो, जैसे कि जब प्रदाता को किसी विशिष्ट पथ या पूर्ण URL रेगेक्स से मेल खाना चाहिए।",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> ClearURLs ऐडऑन लीगेसी और ClearURLs कोर वी2 कैनोनिकल सिंटैक्स है। Linkumori वैकल्पिक लुकअप संकेत के रूप में <code>indexPattern</code> जोड़ता है ताकि इंजन रेगेक्स प्रदाताओं को तेजी से ढूंढ सके।",
+    "message": "<code>urlPattern</code> ClearURLs ऐडऑन लीगेसी और ClearURLs कोर v2 कैनोनिकल सिंटैक्स है। लिंकुमोरी <code>indexPattern</code> को केवल एक उम्मीदवार लुकअप संकेत के रूप में जोड़ता है ताकि रेगेक्स प्रदाताओं को होस्टनाम टोकन द्वारा तेजी से पाया जा सके।",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "महत्वपूर्ण: Linkumori <code>indexPattern</code> केवल एक लुकअप संकेत है। यह तय नहीं करता कि प्रदाता आवेदन करता है या नहीं।",
+    "message": "महत्वपूर्ण: <code>indexPattern</code> यह तय नहीं करता कि कोई प्रदाता मेल खाता है या नहीं। उम्मीदवार लुकअप के बाद, <code>clearurls.js</code> अभी भी <code>provider.matchRequestURL()</code> में वास्तविक <code>urlPattern</code> का परीक्षण करता है।",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> अपस्ट्रीम ClearURLs सिंटैक्स है। जब आपको रेगेक्स URL मिलान की आवश्यकता हो तो <code>indexPattern</code> तेज लुकअप के लिए Linkumori अतिरिक्त है।",
+    "message": "<code>urlPattern</code> अपस्ट्रीम ClearURLs सिंटैक्स है। <code>indexPattern</code> रेगेक्स यूआरएल प्रदाताओं के लिए एक लिंकुमोरी लुकअप संकेत है; इसे उन होस्टनामों की ओर इंगित करना चाहिए जिनका रेगेक्स मिलान कर सकता है।",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> वैकल्पिक है, लेकिन गति के लिए उपयोगी है।",
+    "message": "<code>indexPattern</code> वैकल्पिक है, लेकिन गति के लिए उपयोगी है। यह प्रदाता को होस्टनाम-टोकन उम्मीदवार बकेट में अनुक्रमित करता है; यह कभी भी अंतिम <code>urlPattern</code> मैच को प्रतिस्थापित नहीं करता है।",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "संयोजन 5: <code>domainPatterns</code> और <code>urlPattern</code> एक साथ",
+    "message": "संयोजन 5: संयुक्त आवश्यकता के रूप में <code>domainPatterns</code> और <code>urlPattern</code> को न मिलाएं",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "यह Linkumori मिश्रित मिलान आकार मान्य है JSON:",
+    "message": "यह आकृति पुराने या हस्तलिखित डेटा में दिखाई दे सकती है, लेकिन इसका मतलब यह नहीं है कि दोनों मिलानकर्ताओं को पास होना होगा:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "महत्वपूर्ण व्यवहार:",
+    "message": "वर्तमान <code>clearurls.js</code> व्यवहार:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "इसलिए जब आपको दोनों की आवश्यकता हो तो दोनों का उपयोग न करें। यदि आपको पथ शर्त की आवश्यकता है, तो <code>indexPattern</code> के साथ <code>urlPattern</code> का उपयोग करें, या <code>rules</code> के अंदर एक स्कोप्ड <code>$removeparam</code>/नियम पैटर्न डालें।",
+    "message": "यदि <code>domainPatterns</code> मौजूद है और खाली नहीं है, तो <code>clearurls.js</code> इसे प्रदाता मिलान के लिए उपयोग करता है और उस प्रदाता के लिए <code>urlPattern</code> को अनदेखा करता है। कस्टम संपादक/आयात पथ उन प्रदाताओं को अस्वीकार करता है जिनमें दोनों शामिल हैं। यदि आपको पथ स्थिति की आवश्यकता है, तो <code>indexPattern</code> के साथ <code>urlPattern</code> का उपयोग करें, या <code>rules</code> के अंदर व्यक्तिगत <code>$removeparam</code>/नियम प्रविष्टियों का दायरा रखें।",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs ऐडऑन लेगेसी और ClearURLs कोर वी2 कैनोनिकल - <code>urlPattern</code> केवल:",
+    "message": "ClearURLs ऐडऑन लेगेसी और ClearURLs कोर v2 कैनोनिकल - केवल <code>urlPattern</code>। <code>indexPattern</code> के बिना, व्यापक रेगेक्स प्रदाता वैश्विक उम्मीदवार जांच पर वापस आ सकते हैं:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori अतिरिक्त - <code>urlPattern</code> <code>indexPattern</code> के साथ:",
+    "message": "लिंकुमोरी जोड़ - <code>urlPattern</code> <code>indexPattern</code> के साथ। सूचकांक पैटर्न एक लुकअप संकेत है, जबकि <code>urlPattern</code> अंतिम मिलानकर्ता बना हुआ है:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori जोड़ — एकाधिक <code>indexPattern</code> संकेत:",
+    "message": "लिंकुमोरी जोड़ - एक यूआरएल रेगेक्स के लिए एकाधिक <code>indexPattern</code> संकेत जो एक से अधिक होस्टनाम से मेल खा सकते हैं:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori अतिरिक्त - <code>domainPatterns</code> केवल:",
+    "message": "लिंकुमोरी जोड़ - केवल <code>domainPatterns</code>। इनका उपयोग सीधे प्रदाता मिलान और लुकअप-टोकन निष्कर्षण के लिए किया जाता है:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori अतिरिक्त - दोनों <code>domainPatterns</code> और <code>urlPattern</code>:",
+    "message": "लीगेसी/मिश्रित डेटा में <code>domainPatterns</code> और <code>urlPattern</code> दोनों शामिल हो सकते हैं, लेकिन नए प्रदाताओं को इस तरह से न लिखें:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "व्यवहार:",
+    "message": "व्यवहार: गैर-रिक्त <code>domainPatterns</code> जीत। <code>urlPattern</code> का उपयोग केवल तभी किया जाता है जब <code>domainPatterns</code> गायब या खाली हो। कस्टम संपादक/आयात पथ दोनों को एक साथ अमान्य मानता है।",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "Clearurls.js व्यवहार: यदि डोमेनपैटर्न मौजूद है और खाली नहीं है, तो लिंकुमोरी प्रदाता मिलान के लिए डोमेनपैटर्न का उपयोग करता है। यूआरएलपैटर्न का उपयोग केवल तभी किया जाता है जब डोमेनपैटर्न गायब या खाली हो। कस्टम संपादक/आयात पथ इस मिश्रित मिलानकर्ता आकार को अस्वीकार करता है, इसलिए इसका उपयोग केवल विरासत डेटा को समझने के लिए करें।",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "डोमेनपैटर्न तब मिलान के लिए जीतता है जब वह मौजूद हो और खाली न हो। यूआरएलपैटर्न का उपयोग केवल तभी किया जाता है जब डोमेनपैटर्न गायब या खाली हो। कस्टम संपादक/आयात पथ उन प्रदाताओं को अस्वीकार करता है जिनमें दोनों मिलान परिवार शामिल हैं।",
     "description": "Guide page text."
   },
   "guide_0735": {

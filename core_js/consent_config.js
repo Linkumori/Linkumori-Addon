@@ -32,6 +32,7 @@
    2026-05-07   Subham Mahesh   Bump internal policy tracking from 6 to 7.
  * 2026-06-09   Subham Mahesh   Bump internal policy tracking from 8 to 9.
  * 2026-06-13   Subham Mahesh   Bump internal policy tracking from 9 to 10.
+ * 2026-06-16   Subham Mahesh   Bump internal policy tracking from 10 to 11.
  * Note: Due to inline constraints, subsequent modifications may
  * not appear here. To view the full history, run:
  *
@@ -61,7 +62,7 @@
  * ============================================================
  */
 
-const Linkumoriversion = 10;
+const Linkumoriversion = 11;
 const LinkumoriPOSARversion = 2;
 
 globalThis.Linkumoriversion = Linkumoriversion;

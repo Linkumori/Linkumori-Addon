@@ -638,8 +638,8 @@
     "description": "คำถามที่พบบ่อยเกี่ยวกับรูปแบบโดเมนเทียบกับรูปแบบ URL"
   },
   "faq_domain_patterns_explanation": {
-    "message": "รูปแบบโดเมนรองรับโทเค็นอย่างง่ายและรูปแบบ AdBlock ลักษณะการจับคู่ขึ้นอยู่กับไวยากรณ์ (บางรูปแบบตรวจสอบชื่อโฮสต์ บางรูปแบบจับคู่กับสตริง URL เต็ม):",
-    "description": "คำอธิบายที่พบบ่อยของรูปแบบโดเมน"
+    "message": "รูปแบบโดเมนรองรับโทเค็นแบบง่ายและรูปแบบสไตล์ AdBlock เมื่อ domainPatterns ไม่ว่างเปล่า clearurls.js จะใช้สิ่งเหล่านี้สำหรับการจับคู่ผู้ให้บริการและการแยกโทเค็นการค้นหาก่อนทางเลือก urlPattern ใดๆ:",
+    "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
     "message": "การเปลี่ยนเส้นทางโดเมนคืออะไร?",
@@ -786,8 +786,8 @@
     "description": "ป้ายกำกับสำหรับหมายเหตุสำคัญในคำถามที่พบบ่อย"
   },
   "faq_pattern_exclusive_note": {
-    "message": "ทั้งสองฟิลด์สามารถมีอยู่ในข้อมูลได้ แต่ urlPattern มีลำดับความสำคัญสูงกว่า รูปแบบโดเมนจะใช้ก็ต่อเมื่อ urlPattern ว่างเปล่า การจับคู่โดเมนคำนึงถึง PSL รวมถึงการจัดการโดเมนที่ลงทะเบียนได้และการรองรับ TLD หลายส่วน",
-    "description": "หมายเหตุที่พบบ่อยเกี่ยวกับการแยกประเภทรูปแบบ"
+    "message": "สำหรับผู้ให้บริการแบบกำหนดเองที่เขียนขึ้น ให้เลือก domainPatterns หรือ urlPattern ในข้อมูลรันไทม์ของ clearurls.js นั้น domainPatterns ที่ไม่ว่างเปล่าจะชนะและ urlPattern จะใช้เฉพาะเมื่อ domainPatterns หายไปหรือว่างเปล่า การจับคู่โดเมนเป็นแบบ PSL-aware สำหรับแบบฟอร์มสไตล์ AdBlock ที่รองรับ รวมถึงการจัดการโดเมนที่จดทะเบียนได้และการสนับสนุน TLD แบบหลายส่วน",
+    "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
     "message": "รวมรูปแบบที่คล้ายกันหลายรูปแบบเป็น regex เดียว",
@@ -850,8 +850,8 @@
     "description": "เคล็ดลับที่พบบ่อยเกี่ยวกับรายชื่อผู้ให้บริการ"
   },
   "faq_providers_explanation": {
-    "message": "ผู้ให้บริการคือหน่วยตรรกะที่จัดกลุ่มกฎหลายข้อภายใต้รูปแบบ URL เดียวกัน ผู้ให้บริการแต่ละรายกำหนดเป้าหมายไปที่เว็บไซต์หรือบริการเฉพาะและมีกฎทั้งหมดที่จำเป็นในการทำความสะอาด URL จากแหล่งนั้น",
-    "description": "คำตอบที่พบบ่อยอธิบายผู้ให้บริการ"
+    "message": "ผู้ให้บริการคือชื่อคอนเทนเนอร์ที่จัดกลุ่มฟิลด์ตัวจับคู่และกฎการทำความสะอาด URL การค้นหาผู้สมัครใช้โทเค็นชื่อโฮสต์จากรูปแบบโดเมนหรือดัชนีรูปแบบ ชื่อผู้ให้บริการเป็นเพียงป้ายกำกับ/คีย์ และไม่ได้ตัดสินว่าคำขอตรงกันหรือไม่",
+    "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
     "message": "ออบเจ็กต์กฎดิบของ Canonical จะใช้รูปแบบ regex กับ URL ทั้งหมด ใช้สำหรับรูปแบบที่ซับซ้อนซึ่งไม่ตรงกับรูปแบบพารามิเตอร์มาตรฐาน",
@@ -1058,8 +1058,8 @@
     "description": "คำถามที่พบบ่อยเกี่ยวกับ urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern คือนิพจน์ปกติที่ต้องจับคู่ทุก URL ที่ควรได้รับผลกระทบจากกฎของผู้ให้บริการ ซึ่งกำหนดว่าเว็บไซต์ใดที่ผู้ให้บริการนี้ควรจัดการ",
-    "description": "คำตอบที่พบบ่อยอธิบาย urlPattern"
+    "message": "urlPattern เป็นนิพจน์ทั่วไปที่ทดสอบกับ URL คำขอแบบเต็มเมื่อผู้ให้บริการไม่มีรูปแบบโดเมนที่ไม่ว่างเปล่า หากคุณใช้ urlPattern ให้เพิ่ม indexPattern เมื่อเป็นไปได้เพื่อให้ clearurls.js สามารถค้นหาผู้ให้บริการด้วยโทเค็นชื่อโฮสต์ก่อนที่จะทดสอบ regex",
+    "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
     "message": "โครงสร้างทั่วไปครอบคลุม: โปรโตคอล + ซับโดเมน + โดเมน + TLD + ไดเรกทอรี + พารามิเตอร์",
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern คือรูปแบบโดเมน (เช่น ||example.com^) ที่ทำหน้าที่เป็นคำใบ้สำหรับระบบการจัดทำดัชนี เนื่องจากนิพจน์ทั่วไปใน urlPattern นั้นแยกวิเคราะห์ชื่อโฮสต์ได้ยาก ดังนั้น indexPattern จึงมีเป้าหมายที่ชัดเจนสำหรับการเพิ่มประสิทธิภาพ ช่วยให้มั่นใจได้ว่าผู้ให้บริการได้รับการจัดทำดัชนีอย่างถูกต้องและมีประสิทธิภาพ",
+    "message": "indexPattern เป็นคำใบ้ในการค้นหาผู้ให้บริการ ไม่ใช่เงื่อนไขการจับคู่ clearurls.js แยกโทเค็นชื่อโฮสต์จาก indexPattern เพื่อวางผู้ให้บริการ urlPattern ลงในที่เก็บข้อมูลผู้สมัครของ providerByToken ผู้ให้บริการยังคงจับคู่เฉพาะในกรณีที่ provider.matchRequestURL() ผ่าน urlPattern จริงและข้อยกเว้นไม่ตรงกัน",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "โปรดตรวจสอบ URL ที่จะเปิด URL นี้มีข้อมูลที่คุณป้อนและจะนำคุณไปยัง GitHub",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "ประกาศนโยบายความเป็นส่วนตัว",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori สร้าง URL นี้ในเบราว์เซอร์ของคุณ Linkumori จะไม่ถ่ายโอนข้อมูลจากคุณหรือเบราว์เซอร์ของคุณโดยตรงไปยัง GitHub หรือไปยังเซิร์ฟเวอร์อื่นใดในขณะที่สร้าง URL นี้",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "หากคุณเลือก \"เปิด GitHub\" แสดงว่าคุณกำลังเลือกให้เบราว์เซอร์ของคุณเปิด URL ที่แสดง การนำทางของเบราว์เซอร์นั้นอาจส่ง URL และพารามิเตอร์การสืบค้นไปยัง GitHub",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "สำหรับการสร้างปัญหา URL อาจมีประเภทปัญหา, URL ของปัญหาที่เลือก, URL ที่ล้างข้อมูล, เครื่องหมาย NSFW, ความคิดเห็น และส่วนการกำหนดค่าที่เลือก",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "สำหรับการค้นหาปัญหา URL อาจมีชื่อโฮสต์ โดเมน ประเภทปัญหา และคำค้นหา NSFW ที่เลือก หากเลือกไว้",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori ไม่สนับสนุน GitHub Linkumori ไม่ทราบ ตรวจสอบ หรือรับประกันว่า GitHub ปฏิบัติตามความเป็นส่วนตัวในท้องถิ่นของคุณ การปกป้องข้อมูล หรือกฎหมายอื่น ๆ ที่บังคับใช้",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "ตรวจสอบ URL แบบเต็มก่อนดำเนินการต่อ ยกเลิกหากคุณไม่ต้องการให้เบราว์เซอร์ของคุณเปิด GitHub",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL ที่จะเปิด (รูปแบบทางเทคนิค):",
@@ -4981,6 +5009,10 @@
     "message": "ไม่ใช่คำแนะนำสำหรับรหัส JavaScript โดยจะเน้นเฉพาะรูปร่าง JSON รูปแบบกฎ และตัวอย่างที่ผู้สร้างกฎต้องการเท่านั้น",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "คู่มือนี้อิงตามพฤติกรรมรันไทม์ของ <code>clearurls.js</code> ในปัจจุบัน โดยเฉพาะอย่างยิ่ง การค้นหาผู้ให้บริการใช้ที่เก็บข้อมูลผู้สมัคร <code>providersByToken</code> จาก <code>domainPatterns</code> หรือ <code>indexPattern</code> และการจับคู่ขั้นสุดท้ายยังคงดำเนินการผ่าน <code>provider.matchRequestURL()</code>",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "บทที่ 1: รูปร่างพื้นฐาน JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "ผู้ให้บริการคือกลุ่มกฎกลุ่มหนึ่งสำหรับเว็บไซต์ บริษัท ตัวติดตาม หรือรูปแบบ URL หนึ่งรายการ",
+    "message": "ผู้ให้บริการคือคอนเทนเนอร์รันไทม์ที่มีชื่อหนึ่งรายการสำหรับเว็บไซต์ บริษัท ตัวติดตาม ชุดรูปแบบโดเมน หรือ regex URL หนึ่งรายการ ชื่อผู้ให้บริการคือป้ายกำกับ/คีย์ การจับคู่ทำได้โดย <code>domainPatterns</code> หรือ <code>urlPattern</code> ไม่ใช่โดยชื่อผู้ให้บริการ",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "เทมเพลตผู้ให้บริการแบบเต็ม:",
+    "message": "ช่องผู้ให้บริการยอมรับโดย <code>clearurls.js</code> สำหรับการจับคู่ ให้เขียน <code>domainPatterns</code> หรือ <code>urlPattern</code> พร้อมด้วย <code>indexPattern</code> ซึ่งเป็นอุปกรณ์เสริม ไม่ต้องพึ่งทั้งความต้องการร่วมกัน",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> คือส่วนเพิ่มเติม Linkumori ใช้สำหรับผู้ให้บริการ Linkumori JSON ส่วนใหญ่ เนื่องจากเขียนได้ง่ายกว่า regex <code>urlPattern</code> แบบเต็ม",
+    "message": "<code>domainPatterns</code> เป็นส่วนเสริมของ Linkumori และเป็นที่นิยมสำหรับผู้ให้บริการแบบกำหนดเองส่วนใหญ่ ใน <code>clearurls.js</code> นั้น <code>domainPatterns</code> ที่ไม่ว่างเปล่าจะถูกใช้สำหรับการจับคู่ก่อน <code>urlPattern</code>",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "ใช้ <code>urlPattern</code> เฉพาะเมื่อการจับคู่โดเมนไม่เพียงพอ",
+    "message": "ใช้ <code>urlPattern</code> เฉพาะเมื่อการจับคู่โดเมนไม่เพียงพอ เช่น เมื่อผู้ให้บริการต้องตรงกับเส้นทางเฉพาะหรือ regex URL แบบเต็ม",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> คือ ClearURLs addon Legacy และ ClearURLs core v2 canonical syntax Linkumori เพิ่ม <code>indexPattern</code> เป็นคำแนะนำในการค้นหาเพิ่มเติม เพื่อให้กลไกค้นหาผู้ให้บริการ regex ได้เร็วขึ้น",
+    "message": "<code>urlPattern</code> คือ ClearURLs addon แบบเดิมและ ClearURLs core v2 canonical syntax Linkumori เพิ่ม <code>indexPattern</code> เป็นคำแนะนำในการค้นหาผู้สมัครเท่านั้น เพื่อให้ค้นหาผู้ให้บริการ regex ด้วยโทเค็นชื่อโฮสต์ได้เร็วขึ้น",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "สิ่งสำคัญ: Linkumori <code>indexPattern</code> เป็นเพียงคำแนะนำในการค้นหา ไม่ได้ตัดสินใจว่าผู้ให้บริการจะใช้หรือไม่",
+    "message": "สำคัญ: <code>indexPattern</code> ไม่ได้ตัดสินใจว่าผู้ให้บริการจะตรงกันหรือไม่ หลังจากการค้นหาผู้สมัครแล้ว <code>clearurls.js</code> ยังคงทดสอบ <code>urlPattern</code> จริงใน <code>provider.matchRequestURL()</code>",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> เป็นไวยากรณ์ต้นน้ำ ClearURLs <code>indexPattern</code> เป็นส่วนเสริม Linkumori เพื่อการค้นหาที่รวดเร็วยิ่งขึ้นเมื่อคุณต้องการการจับคู่ regex URL",
+    "message": "<code>urlPattern</code> เป็นไวยากรณ์ ClearURLs อัปสตรีม <code>indexPattern</code> เป็นคำแนะนำในการค้นหา Linkumori สำหรับผู้ให้บริการ URL regex ควรชี้ไปที่ชื่อโฮสต์ที่ regex สามารถจับคู่ได้",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> เป็นทางเลือก แต่มีประโยชน์ในด้านความเร็ว",
+    "message": "<code>indexPattern</code> เป็นทางเลือก แต่มีประโยชน์ในด้านความเร็ว โดยจะจัดทำดัชนีผู้ให้บริการลงในที่ฝากข้อมูลผู้สมัครโทเค็นชื่อโฮสต์ มันจะไม่แทนที่การแข่งขัน <code>urlPattern</code> สุดท้าย",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "ชุดที่ 5: <code>domainPatterns</code> และ <code>urlPattern</code> รวมกัน",
+    "message": "ชุดค่าผสมที่ 5: ห้ามผสม <code>domainPatterns</code> และ <code>urlPattern</code> เป็นข้อกำหนดรวม",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "รูปร่างของเครื่องมือจับคู่แบบผสม Linkumori นี้ใช้ได้ JSON:",
+    "message": "รูปร่างนี้อาจปรากฏในข้อมูลที่เก่ากว่าหรือเขียนด้วยลายมือ แต่ไม่ได้หมายความว่าผู้จับคู่ทั้งสองจะต้องผ่าน:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "พฤติกรรมที่สำคัญ:",
+    "message": "พฤติกรรม <code>clearurls.js</code> ปัจจุบัน:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "ดังนั้นอย่าใช้ทั้งสองอย่างเมื่อคุณคาดหวังว่าจำเป็นต้องใช้ทั้งสองอย่าง หากคุณต้องการเงื่อนไขเส้นทาง ให้ใช้ <code>urlPattern</code> กับ <code>indexPattern</code> หรือใส่รูปแบบที่กำหนดขอบเขต <code>$removeparam</code>/rule ภายใน <code>rules</code>",
+    "message": "หากมี <code>domainPatterns</code> อยู่และไม่ว่างเปล่า <code>clearurls.js</code> จะใช้ <code>clearurls.js</code> สำหรับการจับคู่ผู้ให้บริการ และละเว้น <code>urlPattern</code> สำหรับผู้ให้บริการรายนั้น ตัวแก้ไข/เส้นทางการนำเข้าที่กำหนดเองจะปฏิเสธผู้ให้บริการที่มีทั้งสองอย่าง หากคุณต้องการเงื่อนไขเส้นทาง ให้ใช้ <code>urlPattern</code> กับ <code>indexPattern</code> หรือกำหนดขอบเขต <code>$removeparam</code>/รายการกฎแต่ละรายการภายใน <code>rules</code>",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon Legacy และ ClearURLs core v2 canonical — <code>urlPattern</code> เท่านั้น:",
+    "message": "ClearURLs addon แบบเดิมและ ClearURLs core v2 canonical — <code>urlPattern</code> เท่านั้น หากไม่มี <code>indexPattern</code> ผู้ให้บริการ regex ในวงกว้างอาจถอยกลับไปใช้การตรวจสอบผู้สมัครทั่วโลก:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori นอกจากนี้ - <code>urlPattern</code> กับ <code>indexPattern</code>:",
+    "message": "การเติม Linkumori — <code>urlPattern</code> พร้อมด้วย <code>indexPattern</code> รูปแบบดัชนีเป็นเพียงคำใบ้ในการค้นหา ในขณะที่ <code>urlPattern</code> ยังคงเป็นคู่แข่งรายสุดท้าย:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "การเพิ่ม Linkumori — หลายคำแนะนำ <code>indexPattern</code>:",
+    "message": "การเพิ่ม Linkumori — คำแนะนำ <code>indexPattern</code> หลายรายการสำหรับ regex URL ที่สามารถจับคู่ชื่อโฮสต์ได้มากกว่าหนึ่งชื่อ:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "นอกจากนี้ Linkumori — <code>domainPatterns</code> เท่านั้น:",
+    "message": "นอกจากนี้ Linkumori — <code>domainPatterns</code> เท่านั้น สิ่งเหล่านี้ใช้โดยตรงสำหรับการจับคู่ผู้ให้บริการและการแยกโทเค็นการค้นหา:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "นอกจากนี้ Linkumori - ทั้ง <code>domainPatterns</code> และ <code>urlPattern</code>:",
+    "message": "ข้อมูลเดิม/ผสมอาจมีทั้ง <code>domainPatterns</code> และ <code>urlPattern</code> แต่อย่าสร้างผู้ให้บริการใหม่ด้วยวิธีนี้:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "พฤติกรรม:",
+    "message": "ลักษณะการทำงาน: ชนะ <code>domainPatterns</code> ที่ไม่ว่างเปล่า <code>urlPattern</code> ใช้เฉพาะเมื่อ <code>domainPatterns</code> หายไปหรือว่างเปล่า ตัวแก้ไข/เส้นทางการนำเข้าที่กำหนดเองถือว่าทั้งสองอย่างรวมกันว่าไม่ถูกต้อง",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "พฤติกรรม clearurls.js: หากมีรูปแบบโดเมนอยู่และไม่ว่างเปล่า Linkumori จะใช้รูปแบบโดเมนสำหรับการจับคู่ผู้ให้บริการ urlPattern ใช้เฉพาะเมื่อ domainPatterns หายไปหรือว่างเปล่า ตัวแก้ไข/เส้นทางการนำเข้าแบบกำหนดเองจะปฏิเสธรูปแบบการจับคู่แบบผสมนี้ ดังนั้นให้ใช้รูปแบบนี้เพื่อทำความเข้าใจข้อมูลเดิมเท่านั้น",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns ชนะสำหรับการจับคู่เมื่อมีอยู่และไม่ว่างเปล่า urlPattern ใช้เฉพาะเมื่อ domainPatterns หายไปหรือว่างเปล่า ตัวแก้ไข/เส้นทางการนำเข้าแบบกำหนดเองจะปฏิเสธผู้ให้บริการที่มีทั้งตระกูลตัวจับคู่",
     "description": "Guide page text."
   },
   "guide_0735": {

@@ -544,7 +544,8 @@
     "message": "Wzorce domenowe a wzorce URL"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Wzorce domenowe obsługują proste tokeny i formy w stylu AdBlock. Zachowanie dopasowania zależy od składni (niektóre formy sprawdzają nazwę hosta, inne dopasowują się do pełnego ciągu URL):"
+    "message": "Wzorce domen obsługują proste tokeny i formularze w stylu AdBlock. Gdy domainPatterns nie jest pusty, clearurls.js używa ich do dopasowywania dostawców i wyodrębniania tokenów wyszukiwania przed jakimkolwiek zwrotem urlPattern:",
+    "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
     "message": "Co to są przekierowania domenowe?"
@@ -655,7 +656,8 @@
     "message": "Uwaga:"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Oba pola mogą występować w danych, ale urlPattern ma pierwszeństwo. Wzorce domenowe są używane tylko wtedy, gdy urlPattern jest pusty. Dopasowanie domen jest świadome PSL, w tym obsługa domen rejestrowalnych i obsługa TLD wieloczęściowych."
+    "message": "W przypadku tworzonych niestandardowych dostawców wybierz opcję domainPatterns lub urlPattern. W danych wykonawczych clearurls.js niepusta zmienna domainPatterns wygrywa, a urlPattern jest używana tylko wtedy, gdy brakuje domeny domainPatterns lub jest ona pusta. Dopasowywanie domen jest zgodne z PSL dla obsługiwanych formularzy w stylu AdBlock, w tym obsługi rejestrowanych domen i obsługi wieloczęściowych TLD.",
+    "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
     "message": "Połącz wiele podobnych wzorców w jeden regex"
@@ -703,7 +705,8 @@
     "message": "Otwórz listę dostawców z paska narzędzi edytora, aby przeglądać i zarządzać dostawcami."
   },
   "faq_providers_explanation": {
-    "message": "Dostawcy to logiczne jednostki grupujące wiele reguł pod tym samym wzorcem URL. Każdy dostawca jest przeznaczony dla konkretnej strony internetowej lub usługi i zawiera wszystkie reguły potrzebne do czyszczenia adresów URL z tego źródła."
+    "message": "Dostawcy to nazwane kontenery, które grupują pola dopasowujące i reguły czyszczenia adresów URL. Wyszukiwanie kandydatów wykorzystuje tokeny nazw hostów z domainPatterns lub IndexPattern; nazwa dostawcy jest jedynie etykietą/kluczem i nie decyduje o dopasowaniu żądania.",
+    "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
     "message": "Kanoniczne surowe obiekty reguł stosują wzorce wyrażeń regularnych do całego URL. Używaj w przypadku złożonych wzorców, które nie pasują do standardowego formatu parametrów.",
@@ -863,7 +866,8 @@
     "message": "Co to jest urlPattern?"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern to wyrażenie regularne, które musi pasować do każdego adresu URL, na który mają wpływać reguły dostawcy. Określa, które strony internetowe powinien obsługiwać ten dostawca."
+    "message": "urlPattern to wyrażenie regularne sprawdzane pod kątem pełnego adresu URL żądania, jeśli dostawca nie ma niepustych wzorców domeny. Jeśli używasz urlPattern, jeśli to możliwe, dodaj IndexPattern, aby clearurls.js mógł znaleźć dostawcę na podstawie tokenów nazwy hosta przed przetestowaniem wyrażenia regularnego.",
+    "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
     "message": "Typowa struktura obejmuje: protokół + subdomena + domena + TLD + katalogi + parametry"
@@ -3438,7 +3442,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "IndexPattern to wzorzec domeny (np. ||example.com^), który działa jako wskazówka dla systemu indeksowania. Ponieważ wyrażenia regularne w urlPattern są trudne do przeanalizowania pod kątem nazw hostów, IndexPattern zapewnia wyraźny cel optymalizacji. Zapewnia prawidłowe i skuteczne indeksowanie dostawcy.",
+    "message": "IndexPattern to wskazówka dotycząca wyszukiwania dostawcy, a nie warunek dopasowania. clearurls.js wyodrębnia tokeny nazwy hosta z wzorca indeksu, aby umieścić dostawcę urlPattern w zasobnikach kandydatów na dostawcówByToken. Dostawca nadal pasuje tylko wtedy, gdy dostawca.matchRequestURL() przekazuje prawdziwy adres urlPattern, a wyjątki nie są zgodne.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -3706,6 +3710,34 @@
   "urlPreviewWarning": {
     "message": "Sprawdź adres URL, który zostanie otwarty. Ten adres URL zawiera wprowadzone informacje i przekieruje Cię do GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Informacja o polityce prywatności",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori tworzy ten adres URL lokalnie w Twojej przeglądarce. Linkumori nie przesyła bezpośrednio danych z Ciebie ani Twojej przeglądarki do GitHub ani na żaden inny serwer podczas tworzenia tego adresu URL.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Jeśli wybierzesz opcję „Otwórz GitHub”, zezwalasz przeglądarce na otwarcie wyświetlanego adresu URL. Ta nawigacja przeglądarki może wysłać adres URL i jego parametry zapytania do GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "W przypadku tworzenia problemu adres URL może zawierać typ problemu, adres URL wybranego problemu, oczyszczony adres URL, znacznik NSFW, komentarze i wybrane sekcje konfiguracji.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "W przypadku wyszukiwania problemów adres URL może zawierać wybraną nazwę hosta, domenę, typ problemu i wyszukiwane hasło NSFW, jeśli zostało wybrane.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori nie wspiera GitHuba. Linkumori nie wie, nie weryfikuje ani nie gwarantuje, że GitHub przestrzega lokalnych przepisów dotyczących prywatności, ochrony danych ani innych obowiązujących przepisów.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Zanim przejdziesz dalej, przejrzyj pełny adres URL. Anuluj, jeśli nie chcesz, aby Twoja przeglądarka otwierała GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "Adres URL, który należy otworzyć (format techniczny):",
@@ -4120,6 +4152,10 @@
     "message": "To nie jest przewodnik po kodzie JavaScript. Koncentruje się wyłącznie na kształtach JSON, formatach reguł i przykładach potrzebnych autorom reguł.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Ten przewodnik opiera się na bieżącym zachowaniu środowiska wykonawczego <code>clearurls.js</code>. W szczególności wyszukiwanie dostawców wykorzystuje zasobniki kandydatów <code>providersByToken</code> z <code>domainPatterns</code> lub <code>indexPattern</code>, a ostateczne dopasowanie nadal przebiega przez <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Rozdział 1: Podstawowy kształt JSON",
     "description": "Guide page text."
@@ -4141,7 +4177,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Dostawca to jedna grupa reguł dla jednej witryny internetowej, firmy, modułu śledzącego lub wzorca URL.",
+    "message": "Dostawca to jeden nazwany kontener środowiska wykonawczego dla jednej witryny internetowej, firmy, modułu śledzącego, zestawu wzorców domeny lub wyrażenia regularnego adresu URL. Nazwa dostawcy to etykieta/klucz; dopasowanie odbywa się za pomocą <code>domainPatterns</code> lub <code>urlPattern</code>, a nie nazwy dostawcy.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -4157,7 +4193,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Pełny szablon dostawcy:",
+    "message": "Pola dostawcy akceptowane przez <code>clearurls.js</code>. W celu dopasowania utwórz <code>domainPatterns</code> lub <code>urlPattern</code> z opcjonalnym <code>indexPattern</code>; nie polegaj na tym, że oba są wymagane razem.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -4373,7 +4409,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> to dodatek Linkumori. Użyj go dla większości dostawców Linkumori JSON, ponieważ łatwiej jest go napisać niż pełne wyrażenie regularne <code>urlPattern</code>.",
+    "message": "<code>domainPatterns</code> jest dodatkiem Linkumori i jest preferowany przez większość niestandardowych dostawców. W <code>clearurls.js</code>, niepuste <code>domainPatterns</code> są używane do dopasowania przed <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -4501,7 +4537,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Użyj numeru <code>urlPattern</code> tylko wtedy, gdy dopasowanie domeny nie wystarczy.",
+    "message": "Używaj <code>urlPattern</code> tylko wtedy, gdy dopasowanie domeny nie jest wystarczające, na przykład gdy dostawca musi dopasować określoną ścieżkę lub pełne wyrażenie regularne adresu URL.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -4509,11 +4545,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> to starszy dodatek ClearURLs i kanoniczna składnia ClearURLs core v2. Linkumori dodaje <code>indexPattern</code> jako opcjonalną wskazówkę dotyczącą wyszukiwania, dzięki czemu silnik może szybciej znajdować dostawców wyrażeń regularnych.",
+    "message": "<code>urlPattern</code> to starszy dodatek ClearURL i podstawowa składnia kanoniczna ClearURL v2. Linkumori dodaje <code>indexPattern</code> tylko jako wskazówkę dotyczącą potencjalnego wyszukiwania, dzięki czemu dostawców wyrażeń regularnych można szybciej znaleźć na podstawie tokenów nazw hostów.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Ważne: Linkumori <code>indexPattern</code> to tylko wskazówka dotycząca wyszukiwania. Nie decyduje o tym, czy dostawca składa wniosek.",
+    "message": "Ważne: <code>indexPattern</code> nie decyduje o dopasowaniu dostawcy. Po wyszukaniu kandydata <code>clearurls.js</code> nadal testuje prawdziwy <code>urlPattern</code> w <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -4913,27 +4949,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> to składnia nadrzędna ClearURLs. <code>indexPattern</code> to dodatek Linkumori umożliwiający szybsze wyszukiwanie, gdy potrzebujesz dopasowania wyrażenia regularnego URL.",
+    "message": "<code>urlPattern</code> to składnia wyższego szczebla ClearURL. <code>indexPattern</code> to wskazówka dotycząca wyszukiwania Linkumori dla dostawców adresów URL wyrażeń regularnych; powinien wskazywać nazwy hostów, do których może pasować wyrażenie regularne.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "Numer <code>indexPattern</code> jest opcjonalny, ale przydatny ze względu na szybkość.",
+    "message": "<code>indexPattern</code> jest opcjonalny, ale przydatny ze względu na szybkość. Indeksuje dostawcę w zasobnikach kandydatów na tokeny nazwy hosta; nigdy nie zastępuje ostatecznego dopasowania <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Kombinacja 5: <code>domainPatterns</code> i <code>urlPattern</code> Razem",
+    "message": "Kombinacja 5: Nie mieszaj <code>domainPatterns</code> i <code>urlPattern</code> jako łączonego wymagania",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Ten Linkumori mieszany kształt dopasowujący jest prawidłowy JSON:",
+    "message": "Ten kształt może pojawić się w starszych lub odręcznych danych, ale nie oznacza to, że obaj dopasowujący muszą przejść:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Ważne zachowanie:",
+    "message": "Bieżące zachowanie <code>clearurls.js</code>:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Nie używaj więc obu, jeśli spodziewasz się, że oba będą wymagane. Jeśli potrzebujesz warunku ścieżki, użyj <code>urlPattern</code> z <code>indexPattern</code> lub umieść zakres <code>$removeparam</code>/wzorzec reguły wewnątrz <code>rules</code>.",
+    "message": "Jeśli <code>domainPatterns</code> jest obecny i nie jest pusty, <code>clearurls.js</code> używa go do dopasowywania dostawcy i ignoruje <code>urlPattern</code> dla tego dostawcy. Niestandardowa ścieżka edytora/importu odrzuca dostawców, którzy zawierają oba. Jeśli potrzebujesz warunku ścieżki, użyj <code>urlPattern</code> z <code>indexPattern</code> lub określ zakres poszczególnych wpisów <code>$removeparam</code>/rule w <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5109,19 +5145,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs dodatek starszy i ClearURLs core v2 kanoniczny — tylko <code>urlPattern</code>:",
+    "message": "Starszy dodatek ClearURLs i rdzeń ClearURLs v2 kanoniczny — tylko <code>urlPattern</code>. Bez <code>indexPattern</code> dostawcy szerokich wyrażeń regularnych mogą powrócić do globalnych kontroli kandydatów:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori dodatek — <code>urlPattern</code> z <code>indexPattern</code>:",
+    "message": "Dodatek Linkumori — <code>urlPattern</code> z <code>indexPattern</code>. Wzorzec indeksu jest wskazówką do wyszukiwania, podczas gdy <code>urlPattern</code> pozostaje ostatecznym dopasowaniem:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori dodatek — wielokrotne <code>indexPattern</code> podpowiedzi:",
+    "message": "Dodatek Linkumori — wiele wskazówek <code>indexPattern</code> dotyczących wyrażenia regularnego adresu URL, które może pasować do więcej niż jednej nazwy hosta:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori dodatek — tylko <code>domainPatterns</code>:",
+    "message": "Dodatek Linkumori — tylko <code>domainPatterns</code>. Są one używane bezpośrednio do dopasowywania dostawców i wyodrębniania tokenów wyszukiwania:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5133,11 +5169,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori dodatek — oba <code>domainPatterns</code> i <code>urlPattern</code>:",
+    "message": "Starsze/mieszane dane mogą zawierać zarówno <code>domainPatterns</code>, jak i <code>urlPattern</code>, ale nie twórz nowych dostawców w ten sposób:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Zachowanie:",
+    "message": "Zachowanie: niepusta wygrana <code>domainPatterns</code>. <code>urlPattern</code> jest używany tylko wtedy, gdy brakuje <code>domainPatterns</code> lub jest on pusty. Niestandardowa ścieżka edytora/importu traktuje oba razem jako nieprawidłowe.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -5473,7 +5509,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -5789,7 +5825,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "Zachowanie clearurls.js: jeśli domainPatterns istnieje i nie jest pusta, Linkumori używa domainPatterns do dopasowywania dostawców. urlPattern jest używany tylko wtedy, gdy brakuje domeny domainPattern lub jest ona pusta. Niestandardowa ścieżka edytora/importu odrzuca ten mieszany kształt modułu dopasowującego, dlatego używaj go tylko do zrozumienia starszych danych.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -5897,7 +5933,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns wygrywa za dopasowanie, gdy jest obecne i niepuste. urlPattern jest używany tylko wtedy, gdy brakuje domeny domainPattern lub jest ona pusta. Niestandardowa ścieżka edytora/importu odrzuca dostawców zawierających obie rodziny dopasowujące.",
     "description": "Guide page text."
   },
   "guide_0735": {

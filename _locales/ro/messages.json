@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Modelele de domeniu acceptă jetoane simple și formulare în stil AdBlock. Comportamentul de potrivire depinde de sintaxă (unele forme verifică numele gazdei, altele se potrivesc cu șirul URL complet):",
+    "message": "Modelele de domeniu acceptă jetoane simple și formulare în stil AdBlock. Când domainPatterns nu este gol, clearurls.js le folosește pentru potrivirea furnizorilor și extragerea jetonului de căutare înainte de orice alternativă urlPattern:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Ambele câmpuri pot fi prezente în date, dar urlPattern are prioritate. Modelele de domeniu sunt folosite numai când urlPattern este gol. Potrivirea domeniilor este compatibilă cu PSL, inclusiv gestionarea domeniului care pot fi înregistrate și suportul TLD în mai multe părți.",
+    "message": "Pentru furnizorii personalizați creați, alegeți fie domainPatterns, fie urlPattern. În datele de execuție clearurls.js, domainPatterns non-vide câștigă și urlPattern este utilizat numai atunci când domainPatterns lipsește sau este gol. Potrivirea domeniilor este compatibilă cu PSL pentru formularele de tip AdBlock acceptate, inclusiv gestionarea domeniilor care pot fi înregistrate și suportul TLD în mai multe părți.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Furnizorii sunt unități logice care grupează mai multe reguli sub același model URL. Fiecare furnizor vizează un anumit site web sau serviciu și conține toate regulile necesare pentru curățarea adreselor URL din acea sursă.",
+    "message": "Furnizorii sunt denumiți containere care grupează câmpurile de potrivire și regulile de curățare a adreselor URL. Căutarea candidaților folosește token-uri de nume de gazdă de la domainPatterns sau indexPattern; numele furnizorului este doar o etichetă/cheie și nu decide dacă o cerere se potrivește.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "UrlPattern este o expresie regulată care trebuie să se potrivească cu fiecare adresă URL care ar trebui să fie afectată de regulile furnizorului. Acesta definește ce site-uri web ar trebui să se ocupe de acest furnizor.",
+    "message": "urlPattern este o expresie regulată testată cu adresa URL a solicitării complete atunci când furnizorul nu are domainPatterns nevide. Dacă utilizați urlPattern, adăugați indexPattern atunci când este posibil, astfel încât clearurls.js să poată găsi furnizorul după nume de gazdă înainte de a testa expresia regex.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern este un model de domeniu (de exemplu, ||example.com^) care acționează ca un indiciu pentru sistemul de indexare. Deoarece expresiile regulate din urlPattern sunt greu de analizat pentru numele de gazdă, indexPattern oferă o țintă explicită pentru optimizare. Se asigură că furnizorul este indexat corect și eficient.",
+    "message": "indexPattern este un indiciu de căutare a furnizorului, nu o condiție de potrivire. clearurls.js extrage jetoanele de nume de gazdă din indexPattern pentru a plasa un furnizor de urlPattern în găleți candidati providersByToken. Furnizorul se potrivește în continuare numai dacă provider.matchRequestURL() trece urlPattern real și excepțiile nu se potrivesc.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Vă rugăm să examinați adresa URL care va fi deschisă. Această adresă URL conține informațiile pe care le-ați introdus și vă va redirecționa către GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Notificare privind politica de confidențialitate",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori creează această adresă URL local în browserul dvs. Linkumori nu transferă direct date de la dvs. sau browserul dvs. către GitHub sau pe orice alt server în timp ce creează această adresă URL.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Dacă alegeți „Deschide GitHub”, alegi să lași browserul să deschidă adresa URL afișată. Navigarea în browser poate trimite adresa URL și parametrii săi de interogare către GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Pentru crearea problemei, adresa URL poate include tipul problemei, adresa URL a problemei selectate, adresa URL curățată, marcatorul NSFW, comentariile și secțiunile de configurare selectate.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Pentru căutarea problemelor, adresa URL poate include numele de gazdă selectat, domeniul, tipul problemei și termenul de căutare NSFW, dacă este selectat.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori nu aprobă GitHub. Linkumori nu știe, nu verifică și nu garantează dacă GitHub respectă confidențialitatea locală, protecția datelor sau alte legi aplicabile.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Examinați adresa URL completă înainte de a continua. Anulați dacă nu doriți ca browserul dvs. să deschidă GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL de deschis (format tehnic):",
@@ -4981,6 +5009,10 @@
     "message": "Nu este un ghid pentru codul JavaScript. Se concentrează numai pe formele JSON, formatele de reguli și exemplele de care au nevoie autorii de reguli.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Acest ghid se bazează pe comportamentul curent de rulare <code>clearurls.js</code>. În special, căutarea furnizorului folosește segmente de candidat <code>providersByToken</code> de la <code>domainPatterns</code> sau <code>indexPattern</code>, iar potrivirea finală se desfășoară în continuare prin <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Capitolul 1: Forma de bază JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Un furnizor este un grup de reguli pentru un site web, companie, tracker sau model URL.",
+    "message": "Un furnizor este un container numit runtime pentru un site web, companie, tracker, set de modele de domeniu sau expresie regex URL. Numele furnizorului este o etichetă/cheie; potrivirea se face de <code>domainPatterns</code> sau <code>urlPattern</code>, nu de numele furnizorului.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Șablon complet de furnizor:",
+    "message": "Câmpurile furnizorului sunt acceptate de <code>clearurls.js</code>. Pentru potrivire, creați fie <code>domainPatterns</code>, fie <code>urlPattern</code> cu <code>indexPattern</code> opțional; nu vă bazați că ambele sunt solicitate împreună.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> este o adăugare Linkumori. Folosiți-l pentru majoritatea furnizorilor Linkumori JSON, deoarece este mai ușor de scris decât un regex complet <code>urlPattern</code>.",
+    "message": "<code>domainPatterns</code> este o completare Linkumori și este preferată pentru majoritatea furnizorilor personalizați. În <code>clearurls.js</code>, <code>domainPatterns</code> non-vide sunt utilizate pentru potrivire înainte de <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Utilizați <code>urlPattern</code> numai atunci când potrivirea domeniului nu este suficientă.",
+    "message": "Utilizați <code>urlPattern</code> numai atunci când potrivirea domeniului nu este suficientă, cum ar fi atunci când furnizorul trebuie să se potrivească cu o anumită cale sau cu expresia regex URL completă.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> este ClearURLs supliment moștenit și ClearURLs core v2 sintaxă canonică. Linkumori adaugă <code>indexPattern</code> ca un indiciu de căutare opțional, astfel încât motorul să poată găsi mai rapid furnizorii de expresii regex.",
+    "message": "<code>urlPattern</code> este suplimentul moștenit ClearURLs și sintaxa canonică de bază ClearURLs v2. Linkumori adaugă <code>indexPattern</code> doar ca un indiciu de căutare a candidaților, astfel încât furnizorii de expresii regex să poată fi găsiți mai rapid după jetoanele de nume de gazdă.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Important: Linkumori <code>indexPattern</code> este doar un indiciu de căutare. Nu decide dacă furnizorul aplică.",
+    "message": "Important: <code>indexPattern</code> nu decide dacă un furnizor se potrivește. După căutarea candidatului, <code>clearurls.js</code> încă testează <code>urlPattern</code> real în <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> este sintaxa ClearURLs în amonte. <code>indexPattern</code> este o completare Linkumori pentru o căutare mai rapidă atunci când aveți nevoie de potrivire regex URL.",
+    "message": "<code>urlPattern</code> este sintaxa ClearURLs în amonte. <code>indexPattern</code> este un indiciu de căutare Linkumori pentru furnizorii de URL-uri regex; ar trebui să indice numele de gazdă cu care regex le poate potrivi.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> este opțional, dar util pentru viteză.",
+    "message": "<code>indexPattern</code> este opțional, dar util pentru viteză. Acesta indexează furnizorul în găleți candidate pentru nume de gazdă; nu înlocuiește niciodată meciul final <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Combinația 5: <code>domainPatterns</code> și <code>urlPattern</code> împreună",
+    "message": "Combinația 5: nu amestecați <code>domainPatterns</code> și <code>urlPattern</code> ca o cerință combinată",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Această formă de potrivire mixtă Linkumori este valabilă JSON:",
+    "message": "Această formă poate apărea în date mai vechi sau scrise de mână, dar nu înseamnă că ambele potriviri trebuie să treacă:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Comportament important:",
+    "message": "Comportamentul actual al <code>clearurls.js</code>:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Așa că nu folosiți ambele când vă așteptați să fie necesare ambele. Dacă aveți nevoie de o condiție de cale, utilizați <code>urlPattern</code> cu <code>indexPattern</code> sau introduceți un model <code>$removeparam</code>/regula în interiorul <code>rules</code>.",
+    "message": "Dacă <code>domainPatterns</code> este prezent și nu este gol, <code>clearurls.js</code> îl folosește pentru potrivirea furnizorului și ignoră <code>urlPattern</code> pentru furnizorul respectiv. Editorul personalizat/calea de import respinge furnizorii care le conțin pe ambii. Dacă aveți nevoie de o condiție de cale, utilizați <code>urlPattern</code> cu <code>indexPattern</code> sau acoperiți intrările individuale <code>$removeparam</code>/regulă în <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs supliment legacy și ClearURLs core v2 canonical — numai <code>urlPattern</code>:",
+    "message": "Suplimentul ClearURLs moștenit și ClearURLs core v2 canonic - numai <code>urlPattern</code>. Fără <code>indexPattern</code>, furnizorii de expresii regex largi se pot întoarce la verificările globale ale candidaților:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori adăugare — <code>urlPattern</code> cu <code>indexPattern</code>:",
+    "message": "Adăugarea Linkumori — <code>urlPattern</code> cu <code>indexPattern</code>. Modelul de index este un indiciu de căutare, în timp ce <code>urlPattern</code> rămâne finalul de potrivire:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori adăugare — multiple <code>indexPattern</code> indicii:",
+    "message": "Adăugarea Linkumori - mai multe indicii <code>indexPattern</code> pentru o expresie regex URL care poate potrivi mai mult de un nume de gazdă:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori adăugare — numai <code>domainPatterns</code>:",
+    "message": "Adăugarea Linkumori - numai <code>domainPatterns</code>. Acestea sunt utilizate direct pentru potrivirea furnizorilor și extragerea jetonului de căutare:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori adăugare — atât <code>domainPatterns</code>, cât și <code>urlPattern</code>:",
+    "message": "Datele moștenite/mixte pot conține atât <code>domainPatterns</code>, cât și <code>urlPattern</code>, dar nu creați furnizori noi în acest fel:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Comportament:",
+    "message": "Comportament: victorie <code>domainPatterns</code> negoală. <code>urlPattern</code> este utilizat numai atunci când <code>domainPatterns</code> lipsește sau este gol. Editorul personalizat/calea de import le tratează pe ambele împreună ca nevalide.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "Comportament clearurls.js: dacă domainPatterns există și nu este gol, Linkumori folosește domainPatterns pentru potrivirea furnizorilor. urlPattern este folosit numai atunci când domainPatterns lipsește sau este gol. Editorul personalizat/Calea de import respinge această formă de potrivire mixtă, așa că utilizați-o numai pentru a înțelege datele vechi.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns câștigă pentru potrivire atunci când este prezent și nu este gol. urlPattern este folosit numai atunci când domainPatterns lipsește sau este gol. Editorul personalizat/calea de import respinge furnizorii care conțin ambele familii de potriviri.",
     "description": "Guide page text."
   },
   "guide_0735": {

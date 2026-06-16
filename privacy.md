@@ -1,6 +1,6 @@
 # Linkumori Privacy Policy
 
-**Last Updated:** 13 June, 2026
+**Last Updated:** 16 June, 2026
 
 Linkumori is a free, non-commercial, open-source tool.
 
@@ -77,9 +77,9 @@ When you click the report button, a dedicated report page opens in a new browser
 
 For URL-related issue types, the Add-on validates the selected URL locally before building the report URL. For non-URL issue types, the URL and NSFW controls are hidden and no issue URL is included.
 
-The Add-on is designed to use non-personal issue-report data to create the GitHub issue URL or GitHub search URL. It does not add personal data of its own to the constructed URL. 
+The Add-on is designed to use non-personal issue-report data to create the GitHub issue URL or GitHub search URL. It does not add personal data of its own to the constructed URL.
 
-The Add-on then constructs a GitHub issue URL or GitHub search URL entirely within your browser. **The Add-on does not transmit any data and does not contact any server while constructing this URL.** The constructed URL is only a string; no network request is made until you explicitly choose to proceed, at which point your browser opens the URL as a normal tab navigation.
+The Add-on then constructs a GitHub issue URL or GitHub search URL entirely within your browser. **The Add-on does not directly transfer data from you, your browser, or your device to GitHub or to any other server while constructing this URL.** The constructed URL is only a string; no network request is made until you explicitly choose to proceed, at which point your browser opens the URL as a normal tab navigation.
 
 ### Consent and URL Preview
 
@@ -89,7 +89,7 @@ Before any redirect takes place, the Add-on:
 2. Displays a full preview of the constructed URL (in both encoded and human-readable decoded form) so you can review every piece of information before it leaves your browser.
 3. Gives you the option to copy the URL, cancel entirely, or proceed.
 
-No redirect occurs unless you explicitly click **"Open GitHub"**. You retain full control at every step.
+No redirect occurs unless you explicitly click **"Open GitHub"**. If you click **"Open GitHub"**, you are choosing to let your browser open the displayed URL. That browser navigation may send the URL and its query parameters to GitHub. You retain full control at every step.
 
 ### GitHub Issue Creation
 
@@ -117,6 +117,7 @@ Once your browser loads the GitHub page:
 
 - You remain in full control and may choose to submit or discard the issue.
 - Your interaction with GitHub is governed by [GitHub's Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement) and [GitHub's Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service).
+- Linkumori does not endorse GitHub. Linkumori does not know, verify, or guarantee whether GitHub complies with your local privacy, data protection, or other applicable laws.
 - As with any website you visit, GitHub receives a standard browser request and may log data such as your IP address, browser type, and the URL parameters, in accordance with their own privacy policy — regardless of whether you ultimately submit the issue.
 - If you submit the issue, the information you provide — including any additional comments — will be publicly visible on the repository, as it is a public GitHub repository.
 

@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "I Pattern di dominio supportano token semplici e forme in stile AdBlock. Il comportamento di corrispondenza dipende dalla sintassi (alcune forme controllano il nome host, altre corrispondono all'intera stringa URL):",
+    "message": "I modelli di dominio supportano token semplici e moduli in stile AdBlock. Quando domainPatterns non è vuoto, clearurls.js li utilizza per la corrispondenza dei provider e l'estrazione dei token di ricerca prima di qualsiasi fallback urlPattern:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Entrambi i campi possono essere presenti nei dati, ma urlPattern ha la priorità. I Pattern di dominio vengono usati solo quando urlPattern è vuoto. La corrispondenza dei domini è PSL-aware, inclusa la gestione dei domini registrabili e il supporto per TLD multi-parte.",
+    "message": "Per i provider personalizzati creati, scegli domainPatterns o urlPattern. Nei dati di runtime clearurls.js prevalgono domainPatterns non vuoti e urlPattern viene utilizzato solo quando domainPatterns è mancante o vuoto. La corrispondenza dei domini è compatibile con PSL per i moduli in stile AdBlock supportati, inclusa la gestione dei domini registrabili e il supporto TLD in più parti.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "I provider sono unità logiche che raggruppano più regole sotto lo stesso pattern URL. Ogni provider punta a un sito web o servizio specifico e contiene tutte le regole necessarie per pulire gli URL da quella fonte.",
+    "message": "I provider sono contenitori denominati che raggruppano i campi di corrispondenza e le regole di pulizia degli URL. La ricerca dei candidati utilizza token del nome host da domainPatterns o indexPattern; il nome del provider è solo un'etichetta/chiave e non decide se una richiesta corrisponde.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern è un'espressione regolare che deve corrispondere a ogni URL che deve essere interessato dalle regole del provider. Definisce quali siti web deve gestire questo provider.",
+    "message": "urlPattern è un'espressione regolare testata rispetto all'URL completo della richiesta quando il provider non dispone di domainPattern non vuoti. Se utilizzi urlPattern, aggiungi indexPattern quando possibile in modo che clearurls.js possa trovare il provider in base ai token del nome host prima di testare la regex.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "L'indexPattern è un modello di dominio (ad esempio, ||example.com^) che funge da suggerimento per il sistema di indicizzazione. Poiché le espressioni regolari in urlPattern sono difficili da analizzare per i nomi host, indexPattern fornisce un obiettivo esplicito per l'ottimizzazione. Garantisce che il provider sia indicizzato in modo corretto ed efficiente.",
+    "message": "indexPattern è un suggerimento per la ricerca del provider, non una condizione di corrispondenza. clearurls.js estrae i token del nome host da indexPattern per inserire un provider urlPattern nei bucket candidati providerByToken. Il provider corrisponde ancora solo se provider.matchRequestURL() passa l'urlPattern reale e le eccezioni non corrispondono.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Controlla l'URL che verrà aperto. Questo URL contiene le informazioni che hai inserito e ti reindirizzerà a GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Informativa sulla privacy",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori crea questo URL localmente nel tuo browser. Linkumori non trasferisce direttamente i dati da te o dal tuo browser a GitHub o a qualsiasi altro server durante la creazione di questo URL.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Se scegli \"Apri GitHub\", scegli di consentire al tuo browser di aprire l'URL visualizzato. La navigazione nel browser potrebbe inviare l'URL e i relativi parametri di query a GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Per la creazione del problema, l'URL può includere il tipo di problema, l'URL del problema selezionato, l'URL pulito, l'indicatore NSFW, i commenti e le sezioni di configurazione selezionate.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Per la ricerca dei problemi, l'URL può includere il nome host, il dominio, il tipo di problema e il termine di ricerca NSFW selezionati, se selezionati.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori non approva GitHub. Linkumori non conosce, verifica o garantisce se GitHub rispetta la privacy locale, la protezione dei dati o altre leggi applicabili.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Controlla l'URL completo prima di continuare. Annulla se non desideri che il tuo browser apra GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL da aprire (formato tecnico):",
@@ -4981,6 +5009,10 @@
     "message": "Non è una guida al codice JavaScript. Si concentra solo sulle forme JSON, sui formati delle regole e sugli esempi necessari agli autori delle regole.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Questa guida si basa sull'attuale comportamento di runtime di <code>clearurls.js</code>. In particolare, la ricerca del provider utilizza i bucket candidati <code>providersByToken</code> da <code>domainPatterns</code> o <code>indexPattern</code> e la corrispondenza finale viene comunque eseguita tramite <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Capitolo 1: Forma base JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Un provider è un gruppo di regole per un sito web, azienda, tracker o modello URL.",
+    "message": "Un provider è un contenitore di runtime denominato per un sito Web, un'azienda, un tracker, un set di modelli di dominio o un'espressione regolare di URL. Il nome del provider è un'etichetta/chiave; la corrispondenza viene eseguita da <code>domainPatterns</code> o <code>urlPattern</code>, non dal nome del provider.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Modello completo del fornitore:",
+    "message": "Campi del provider accettati da <code>clearurls.js</code>. Per la corrispondenza, crea <code>domainPatterns</code> o <code>urlPattern</code> con <code>indexPattern</code> opzionale; non fare affidamento sul fatto che entrambi siano richiesti insieme.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> è un'aggiunta Linkumori. Usalo per la maggior parte dei provider Linkumori JSON perché è più semplice da scrivere rispetto a un'espressione regolare <code>urlPattern</code> completa.",
+    "message": "<code>domainPatterns</code> è un'aggiunta Linkumori ed è preferita per la maggior parte dei provider personalizzati. In <code>clearurls.js</code>, <code>domainPatterns</code> non vuoti vengono utilizzati per la corrispondenza prima di <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Utilizza <code>urlPattern</code> solo quando la corrispondenza del dominio non è sufficiente.",
+    "message": "Utilizza <code>urlPattern</code> solo quando la corrispondenza del dominio non è sufficiente, ad esempio quando il provider deve corrispondere a un percorso specifico o all'espressione regolare dell'URL completo.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> è il componente aggiuntivo legacy ClearURLs e la sintassi canonica core v2 ClearURLs. Linkumori aggiunge <code>indexPattern</code> come suggerimento di ricerca opzionale in modo che il motore possa trovare i provider di espressioni regolari più velocemente.",
+    "message": "<code>urlPattern</code> è il componente aggiuntivo legacy di ClearURL e la sintassi canonica v2 principale di ClearURL. Linkumori aggiunge <code>indexPattern</code> solo come suggerimento per la ricerca dei candidati in modo che i provider regex possano essere trovati più velocemente dai token del nome host.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Importante: Linkumori <code>indexPattern</code> è solo un suggerimento per la ricerca. Non decide se il fornitore si candida.",
+    "message": "Importante: <code>indexPattern</code> non decide se un provider corrisponde. Dopo la ricerca del candidato, <code>clearurls.js</code> testa ancora il vero <code>urlPattern</code> in <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> è la sintassi ClearURLs a monte. <code>indexPattern</code> è un'aggiunta Linkumori per una ricerca più rapida quando è necessaria la corrispondenza regex URL.",
+    "message": "<code>urlPattern</code> è la sintassi ClearURLs upstream. <code>indexPattern</code> è un suggerimento di ricerca Linkumori per i provider di URL regex; dovrebbe puntare ai nomi host a cui la regex può corrispondere.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> è facoltativo, ma utile per la velocità.",
+    "message": "<code>indexPattern</code> è facoltativo, ma utile per la velocità. Indicizza il provider in bucket candidati token nome host; non sostituisce mai la corrispondenza <code>urlPattern</code> finale.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Combinazione 5: <code>domainPatterns</code> E <code>urlPattern</code> Insieme",
+    "message": "Combinazione 5: non mescolare <code>domainPatterns</code> e <code>urlPattern</code> come requisito combinato",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Questa forma di corrispondenza mista Linkumori è valida JSON:",
+    "message": "Questa forma può apparire in dati più vecchi o scritti a mano, ma ciò non significa che entrambi i matcher debbano passare:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Comportamento importante:",
+    "message": "Comportamento <code>clearurls.js</code> attuale:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Pertanto non utilizzare entrambi quando si prevede che siano necessari entrambi. Se è necessaria una condizione del percorso, utilizzare <code>urlPattern</code> con <code>indexPattern</code> oppure inserire un modello <code>$removeparam</code>/rule con ambito all'interno di <code>rules</code>.",
+    "message": "Se <code>domainPatterns</code> è presente e non vuoto, <code>clearurls.js</code> lo utilizza per la corrispondenza del provider e ignora <code>urlPattern</code> per quel provider. Il percorso di importazione/editor personalizzato rifiuta i provider che li contengono entrambi. Se è necessaria una condizione del percorso, utilizzare <code>urlPattern</code> con <code>indexPattern</code> o definire l'ambito delle singole voci <code>$removeparam</code>/regola all'interno di <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "Componente aggiuntivo ClearURLs legacy e ClearURLs core v2 canonico - solo <code>urlPattern</code>:",
+    "message": "Componente aggiuntivo ClearURLs legacy e ClearURLs core v2 canonico: solo <code>urlPattern</code>. Senza <code>indexPattern</code>, i fornitori di regex ampi potrebbero ricorrere ai controlli dei candidati globali:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori aggiunta — <code>urlPattern</code> con <code>indexPattern</code>:",
+    "message": "Aggiunta Linkumori: <code>urlPattern</code> con <code>indexPattern</code>. Il modello dell'indice è un suggerimento per la ricerca, mentre <code>urlPattern</code> rimane il matcher finale:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Aggiunta Linkumori: più suggerimenti <code>indexPattern</code>:",
+    "message": "Aggiunta Linkumori: più suggerimenti <code>indexPattern</code> per una regex URL che può corrispondere a più di un nome host:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori aggiunta — solo <code>domainPatterns</code>:",
+    "message": "Aggiunta Linkumori: solo <code>domainPatterns</code>. Questi vengono utilizzati direttamente per la corrispondenza dei provider e l'estrazione dei token di ricerca:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Aggiunta Linkumori: sia <code>domainPatterns</code> che <code>urlPattern</code>:",
+    "message": "I dati legacy/misti possono contenere sia <code>domainPatterns</code> che <code>urlPattern</code>, ma non creare nuovi provider in questo modo:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Comportamento:",
+    "message": "Comportamento: vittoria <code>domainPatterns</code> non vuota. <code>urlPattern</code> viene utilizzato solo quando <code>domainPatterns</code> è mancante o vuoto. L'editor personalizzato/percorso di importazione considera entrambi come non validi.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "Comportamento clearurls.js: se domainPatterns esiste e non è vuoto, Linkumori utilizza domainPatterns per la corrispondenza del provider. urlPattern viene utilizzato solo quando domainPatterns è mancante o vuoto. L'editor personalizzato/il percorso di importazione rifiuta questa forma di corrispondenza mista, quindi utilizzala solo per comprendere i dati legacy.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns vince per la corrispondenza quando è presente e non vuoto. urlPattern viene utilizzato solo quando domainPatterns è mancante o vuoto. Il percorso di importazione/editor personalizzato rifiuta i provider che contengono entrambe le famiglie di corrispondenze.",
     "description": "Guide page text."
   },
   "guide_0735": {
