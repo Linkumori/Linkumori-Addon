@@ -16,6 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.27.0] - 2026-06-16 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.26.0...linkumori-v100.27.0))
+### Added
+- Introduce chained legal consent review modal (`2026-06-16`, hash: [`d926446`](https://github.com/Linkumori/Linkumori-Addon/commit/d926446))
+
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-06-16`, hash: [`1374a25`](https://github.com/Linkumori/Linkumori-Addon/commit/1374a25))
+- Generated compressed URL cleaning rules bundle (`2026-06-16`, hash: [`1374a25`](https://github.com/Linkumori/Linkumori-Addon/commit/1374a25))
+- Update privacy notices and rules guide (`2026-06-16`, hash: [`dd19ccc`](https://github.com/Linkumori/Linkumori-Addon/commit/dd19ccc))
+
 ## [v100.26.0] - 2026-06-14 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.25.0...linkumori-v100.26.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-06-14`, hash: [`cd1f102`](https://github.com/Linkumori/Linkumori-Addon/commit/cd1f102))
