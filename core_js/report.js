@@ -633,9 +633,20 @@ function safeDecodeUrl(url) {
 
 /******************************************************************************/
 
-// Updated URL Preview Modal with decoded URL display
-function showUrlPreview(url) {
+// Updated URL Preview Modal with decoded URL display and privacy/legal notice.
+function showUrlPreview(url, purpose = 'github') {
     return new Promise((resolve) => {
+        let settled = false;
+        const finish = (result) => {
+            if (settled) { return; }
+            settled = true;
+            if (overlay.parentNode) {
+                overlay.parentNode.removeChild(overlay);
+            }
+            document.removeEventListener('keydown', handleKeydown);
+            resolve(result);
+        };
+
         // Create modal overlay
         const overlay = createElement('div', {
             class: 'url-preview-modal',
@@ -680,6 +691,21 @@ function showUrlPreview(url) {
         const warning = createElement('p', {
             style: 'margin-bottom: 16px; font-size: 14px; line-height: 1.5; color: var(--text-secondary);'
         });
+
+        const privacyNotice = createElement('div', {
+            class: 'url-preview-privacy-notice'
+        });
+        const privacyNoticeTitle = createElement('h4');
+        const privacyNoticeList = createElement('ul');
+        const privacyNoticeItems = [
+            t('urlPreviewPrivacyNoticeLocalOnly', undefined, 'Linkumori creates this URL locally in your browser. Linkumori does not directly transfer data from you or your browser to GitHub or to any other server while creating this URL.'),
+            t('urlPreviewPrivacyNoticeBrowserNavigation', undefined, 'If you choose "Open GitHub", you are choosing to let your browser open the displayed URL. That browser navigation may send the URL and its query parameters to GitHub.'),
+            purpose === 'search'
+                ? t('urlPreviewPrivacyNoticeSearchContents', undefined, 'For issue search, the URL may include the selected hostname, domain, issue type, and NSFW search term if selected.')
+                : t('urlPreviewPrivacyNoticeIssueContents', undefined, 'For issue creation, the URL may include the issue type, selected issue URL, cleaned URL, NSFW marker, comments, and selected configuration sections.'),
+            t('urlPreviewPrivacyNoticeNoEndorsement', undefined, 'Linkumori does not endorse GitHub. Linkumori does not know, verify, or guarantee whether GitHub complies with your local privacy, data protection, or other applicable laws.'),
+            t('urlPreviewPrivacyNoticeReview', undefined, 'Review the full URL before continuing. Cancel if you do not want your browser to open GitHub.')
+        ];
 
         // Create URL display section
         const urlSection = createElement('div', {
@@ -825,6 +851,14 @@ function showUrlPreview(url) {
         // Set text content with i18n fallbacks
     header.textContent = t('urlPreviewTitle', undefined, 'URL Preview');
     warning.textContent = t('urlPreviewWarning', undefined, 'Please review the URL that will be opened. This URL contains the information you entered and will redirect you to GitHub.');
+    privacyNoticeTitle.textContent = t('urlPreviewPrivacyNoticeTitle', undefined, 'Privacy policy notice');
+    privacyNoticeItems.forEach((item) => {
+        const li = createElement('li');
+        li.textContent = item;
+        privacyNoticeList.appendChild(li);
+    });
+    privacyNotice.appendChild(privacyNoticeTitle);
+    privacyNotice.appendChild(privacyNoticeList);
     encodedUrlLabel.textContent = t('urlPreviewEncodedUrl', undefined, 'URL to be opened (technical format):');
     decodedSummary.textContent = t('urlPreviewShowDecoded', undefined, 'Show readable format (decoded URL)');
     copyButton.textContent = t('urlPreviewCopy', undefined, 'Copy URL');
@@ -869,21 +903,17 @@ function showUrlPreview(url) {
         });
 
         cancelButton.addEventListener('click', () => {
-            document.body.removeChild(overlay);
-            resolve(false);
+            finish(false);
         });
 
         proceedButton.addEventListener('click', () => {
-            document.body.removeChild(overlay);
-            resolve(true);
+            finish(true);
         });
 
         // Close on escape key
         const handleKeydown = (e) => {
             if (e.key === 'Escape') {
-                document.body.removeChild(overlay);
-                document.removeEventListener('keydown', handleKeydown);
-                resolve(false);
+                finish(false);
             }
         };
         document.addEventListener('keydown', handleKeydown);
@@ -891,8 +921,7 @@ function showUrlPreview(url) {
         // Close on overlay click (but not modal click)
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
-                document.body.removeChild(overlay);
-                resolve(false);
+                finish(false);
             }
         });
 
@@ -913,6 +942,7 @@ function showUrlPreview(url) {
         // Assemble modal
         modal.appendChild(header);
         modal.appendChild(warning);
+        modal.appendChild(privacyNotice);
         modal.appendChild(urlSection);
         modal.appendChild(securityNotice);
         modal.appendChild(buttonContainer);
@@ -1075,7 +1105,7 @@ async function reportIssue() {
         githubURL.searchParams.set('description', descriptionText);
         
         // Show URL preview before proceeding
-        const shouldProceed = await showUrlPreview(githubURL.href);
+        const shouldProceed = await showUrlPreview(githubURL.href, 'issue');
         
         if (shouldProceed) {
             openURL(githubURL.href);
@@ -1165,7 +1195,7 @@ async function findExistingIssues() {
         url.searchParams.set('q', queryString);
         
         // Show URL preview before proceeding
-        const shouldProceed = await showUrlPreview(url.href);
+        const shouldProceed = await showUrlPreview(url.href, 'search');
         
         if (shouldProceed) {
             openURL(url.href);

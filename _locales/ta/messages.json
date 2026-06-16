@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "டொமைன் வடிவங்கள் எளிய டோக்கன்கள் மற்றும் AdBlock-பாணி வடிவங்களை ஆதரிக்கின்றன. பொருந்தக்கூடிய நடத்தை தொடரியல் சார்ந்தது (சில வடிவங்கள் ஹோஸ்ட்பெயரை சரிபார்க்கின்றன, மற்றவை முழு URL சரத்துடன் பொருந்துகின்றன):",
+    "message": "டொமைன் வடிவங்கள் எளிய டோக்கன்கள் மற்றும் AdBlock-பாணி வடிவங்களை ஆதரிக்கின்றன. டொமைன் பேட்டர்ன்கள் காலியாக இல்லாதபோது, ​​urlPattern ஃபால்பேக்கிற்கு முன் வழங்குநர் பொருத்தம் மற்றும் லுக்அப்-டோக்கன் பிரித்தெடுத்தல் ஆகியவற்றிற்காக clearurls.js அவற்றைப் பயன்படுத்துகிறது:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "இரண்டு புலங்களும் தரவுகளில் இருக்கலாம், ஆனால் urlPattern முன்னுரிமை பெறுகிறது. urlPattern காலியாக இருக்கும்போது மட்டுமே டொமைன் பேட்டர்ன்கள் பயன்படுத்தப்படும். பதிவு செய்யக்கூடிய டொமைன் கையாளுதல் மற்றும் பல பகுதி TLD ஆதரவு உட்பட டொமைன் பொருத்தம் PSL-அறிவு கொண்டது.",
+    "message": "எழுதப்பட்ட தனிப்பயன் வழங்குநர்களுக்கு, domainPatterns அல்லது urlPattern என்பதைத் தேர்ந்தெடுக்கவும். clearurls.js இயக்க நேரத் தரவில், காலியாக இல்லாத டொமைன் பேட்டர்ன்கள் வெற்றி பெறுகின்றன, மேலும் டொமைன் பேட்டர்ன்கள் இல்லாதபோது அல்லது காலியாக இருக்கும்போது மட்டுமே urlPattern பயன்படுத்தப்படும். பதிவுசெய்யக்கூடிய-டொமைன் கையாளுதல் மற்றும் பல-பகுதி TLD ஆதரவு உட்பட ஆதரிக்கப்படும் AdBlock-பாணி படிவங்களுக்கான டொமைன் பொருத்தம் PSL-அறிவாகும்.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "வழங்குநர்கள் ஒரே URL வடிவத்தின் கீழ் பல விதிகளைக் குழுவாக்கும் தருக்க அலகுகள். ஒவ்வொரு வழங்குநரும் ஒரு குறிப்பிட்ட இணையதளம் அல்லது சேவையை குறிவைத்து அந்த மூலத்திலிருந்து URLகளை சுத்தம் செய்ய தேவையான அனைத்து விதிகளையும் கொண்டுள்ளது.",
+    "message": "வழங்குநர்கள் கன்டெய்னர்கள் என்று பெயரிடப்பட்டுள்ளனர், அவை மேட்ச்சர் புலங்கள் மற்றும் URL-சுத்தப்படுத்தும் விதிகளைக் குழுவாகக் கொண்டுள்ளன. வேட்பாளர் தேடுதல் டொமைன் பேட்டர்ன்ஸ் அல்லது இன்டெக்ஸ் பேட்டர்னில் இருந்து ஹோஸ்ட்பெயர் டோக்கன்களைப் பயன்படுத்துகிறது; வழங்குநரின் பெயர் ஒரு லேபிள்/விசை மட்டுமே மற்றும் கோரிக்கை பொருந்துமா என்பதை முடிவு செய்யாது.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern என்பது ஒரு வழக்கமான வெளிப்பாடு ஆகும், இது வழங்குநரின் விதிகளால் பாதிக்கப்படக்கூடிய ஒவ்வொரு URL உடன் பொருந்த வேண்டும். இந்த வழங்குநர் எந்த இணையதளங்களைக் கையாள வேண்டும் என்பதை இது வரையறுக்கிறது.",
+    "message": "urlPattern என்பது, வழங்குநரிடம் காலியாக இல்லாத டொமைன் பேட்டர்ன்கள் இல்லாத போது, ​​முழு கோரிக்கை URL க்கு எதிராக சோதிக்கப்படும் வழக்கமான வெளிப்பாடு ஆகும். நீங்கள் urlPattern ஐப் பயன்படுத்தினால், முடிந்தால் indexPattern ஐச் சேர்க்கவும், அதனால் regex ஐச் சோதிப்பதற்கு முன், hostname டோக்கன்கள் மூலம் வழங்குநரை clearurls.js கண்டறியும்.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern என்பது ஒரு டொமைன் பேட்டர்ன் (எ.கா., ||example.com^) இது குறியீட்டு முறைக்கான குறிப்பாக செயல்படுகிறது. urlPattern இல் உள்ள வழக்கமான வெளிப்பாடுகள் புரவலன் பெயர்களை அலசுவது கடினமாக இருப்பதால், indexPattern தேர்வுமுறைக்கான தெளிவான இலக்கை வழங்குகிறது. வழங்குநர் சரியாகவும் திறமையாகவும் குறியிடப்படுவதை இது உறுதி செய்கிறது.",
+    "message": "indexPattern என்பது வழங்குநரின் தேடல் குறிப்பு, பொருத்த நிபந்தனை அல்ல. clearurls.js, urlPattern வழங்குநரை வழங்குநர்கள்ByToken வேட்பாளர் பக்கெட்டுகளில் வைக்க, indexPattern இலிருந்து ஹோஸ்ட்பெயர் டோக்கன்களைப் பிரித்தெடுக்கிறது. வழங்குநர் இன்னும் பொருந்தும், provider.matchRequestURL() உண்மையான urlPattern ஐக் கடந்தால் மற்றும் விதிவிலக்குகள் பொருந்தவில்லை.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "திறக்கப்படும் URL ஐ மதிப்பாய்வு செய்யவும். இந்த URL ஆனது நீங்கள் உள்ளிட்ட தகவலைக் கொண்டுள்ளது மற்றும் உங்களை GitHub க்கு திருப்பிவிடும்.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "தனியுரிமைக் கொள்கை அறிவிப்பு",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori இந்த URL ஐ உங்கள் உலாவியில் உள்நாட்டில் உருவாக்குகிறது. இந்த URL ஐ உருவாக்கும் போது Linkumori உங்களிடமிருந்தோ அல்லது உங்கள் உலாவியிலிருந்தோ நேரடியாக GitHub அல்லது வேறு எந்த சேவையகத்திற்கும் தரவை மாற்றாது.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "\"GitHubஐத் திற\" என்பதைத் தேர்வுசெய்தால், உங்கள் உலாவியில் காட்டப்படும் URLஐத் திறக்க அனுமதிக்க வேண்டும். அந்த உலாவி வழிசெலுத்தல் URL மற்றும் அதன் வினவல் அளவுருக்களை GitHub க்கு அனுப்பலாம்.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "சிக்கலை உருவாக்க, URL ஆனது சிக்கல் வகை, தேர்ந்தெடுக்கப்பட்ட சிக்கல் URL, சுத்தம் செய்யப்பட்ட URL, NSFW மார்க்கர், கருத்துகள் மற்றும் தேர்ந்தெடுக்கப்பட்ட உள்ளமைவுப் பிரிவுகளை உள்ளடக்கியிருக்கலாம்.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "சிக்கல் தேடலுக்கு, தேர்ந்தெடுக்கப்பட்ட ஹோஸ்ட்பெயர், டொமைன், சிக்கல் வகை மற்றும் NSFW தேடல் சொல் ஆகியவற்றை URL சேர்க்கலாம்.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori GitHub ஐ ஆதரிக்கவில்லை. உங்கள் உள்ளூர் தனியுரிமை, தரவுப் பாதுகாப்பு அல்லது பொருந்தக்கூடிய பிற சட்டங்களுடன் GitHub இணங்குகிறதா என்பதை Linkumori அறியவோ, சரிபார்க்கவோ அல்லது உத்தரவாதம் அளிக்கவோ இல்லை.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "தொடர்வதற்கு முன் முழு URL ஐ மதிப்பாய்வு செய்யவும். உங்கள் உலாவி GitHub ஐ திறக்க விரும்பவில்லை எனில் ரத்துசெய்யவும்.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "திறக்கப்படும் URL (தொழில்நுட்ப வடிவம்):",
@@ -4981,6 +5009,10 @@
     "message": "இது JavaScript குறியீட்டிற்கான வழிகாட்டி அல்ல. இது JSON வடிவங்கள், விதி வடிவங்கள் மற்றும் விதி ஆசிரியர்களுக்குத் தேவையான எடுத்துக்காட்டுகளில் மட்டுமே கவனம் செலுத்துகிறது.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "இந்த வழிகாட்டி தற்போதைய <code>clearurls.js</code> இயக்க நேர நடத்தையை அடிப்படையாகக் கொண்டது. குறிப்பாக, வழங்குநர் தேடல் <code>domainPatterns</code> அல்லது <code>indexPattern</code> இலிருந்து <code>providersByToken</code> கேண்டிடேட் வாளிகளைப் பயன்படுத்துகிறது, மேலும் இறுதிப் பொருத்தம் இன்னும் <code>provider.matchRequestURL()</code> மூலம் இயங்குகிறது.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "அத்தியாயம் 1: அடிப்படை JSON வடிவம்",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "வழங்குநர் என்பது ஒரு இணையதளம், நிறுவனம், டிராக்கர் அல்லது URL வடிவத்திற்கான விதிகளின் குழுவாகும்.",
+    "message": "வழங்குநர் என்பது ஒரு இணையதளம், நிறுவனம், டிராக்கர், டொமைன் பேட்டர்ன் செட் அல்லது URL regex ஆகியவற்றுக்கான இயக்க நேரக் கொள்கலன் என்று பெயரிடப்பட்டுள்ளது. வழங்குநரின் பெயர் ஒரு லேபிள்/விசை; பொருத்துதல் வழங்குநர் பெயரால் அல்ல, <code>domainPatterns</code> அல்லது <code>urlPattern</code> ஆல் செய்யப்படுகிறது.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "முழு வழங்குநர் டெம்ப்ளேட்:",
+    "message": "வழங்குநர் புலங்கள் <code>clearurls.js</code> ஆல் ஏற்றுக்கொள்ளப்பட்டது. பொருத்துவதற்கு, <code>domainPatterns</code> அல்லது <code>urlPattern</code> விருப்பமான <code>indexPattern</code> உடன் ஆசிரியர்; இரண்டும் ஒன்றாக தேவைப்படுவதை நம்ப வேண்டாம்.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> என்பது Linkumori கூடுதலாகும். பெரும்பாலான Linkumori JSON வழங்குநர்களுக்கு இதைப் பயன்படுத்தவும், ஏனெனில் இது முழு <code>urlPattern</code> ரீஜெக்ஸை விட எழுத எளிதானது.",
+    "message": "<code>domainPatterns</code> என்பது லிங்க்குமோரி கூடுதலாகும் மற்றும் பெரும்பாலான தனிப்பயன் வழங்குநர்களுக்கு இது விரும்பப்படுகிறது. <code>clearurls.js</code> இல், <code>urlPattern</code>க்கு முன் பொருத்துவதற்கு காலியாக இல்லாத <code>domainPatterns</code> பயன்படுத்தப்படுகிறது.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "டொமைன் பொருத்தம் போதுமானதாக இல்லாதபோது மட்டும் <code>urlPattern</code> ஐப் பயன்படுத்தவும்.",
+    "message": "வழங்குநர் ஒரு குறிப்பிட்ட பாதை அல்லது முழு URL ரீஜெக்ஸுடன் பொருந்த வேண்டும் போன்ற டொமைன் பொருத்தம் போதுமானதாக இல்லாதபோது மட்டுமே <code>urlPattern</code> ஐப் பயன்படுத்தவும்.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> என்பது ClearURLs addon லெகசி மற்றும் ClearURLs கோர் v2 கேனானிகல் தொடரியல். Linkumori ஆனது <code>indexPattern</code> ஐ விருப்பத் தேடல் குறிப்பாகச் சேர்க்கிறது, இதனால் இயந்திரம் ரீஜெக்ஸ் வழங்குநர்களை விரைவாகக் கண்டறிய முடியும்.",
+    "message": "<code>urlPattern</code> என்பது ClearURLs addon மரபு மற்றும் ClearURLs கோர் v2 கேனானிகல் தொடரியல் ஆகும். Linkumori <code>indexPattern</code>ஐ ஒரு வேட்பாளர் தேடல் குறிப்பாக மட்டுமே சேர்க்கிறது, எனவே regex வழங்குநர்களை ஹோஸ்ட்பெயர் டோக்கன்கள் மூலம் விரைவாகக் கண்டறிய முடியும்.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "முக்கியமானது: Linkumori <code>indexPattern</code> என்பது ஒரு தேடல் குறிப்பு மட்டுமே. வழங்குநர் பொருந்துமா என்பதை இது தீர்மானிக்காது.",
+    "message": "முக்கியமானது: வழங்குநர் பொருந்துமா என்பதை <code>indexPattern</code> தீர்மானிக்கவில்லை. வேட்பாளர் தேடலுக்குப் பிறகு, <code>clearurls.js</code> இன்னும் <code>provider.matchRequestURL()</code> இல் உண்மையான <code>urlPattern</code> ஐ சோதிக்கிறது.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> என்பது அப்ஸ்ட்ரீம் ClearURLs தொடரியல். <code>indexPattern</code> என்பது உங்களுக்கு regex URL பொருத்தம் தேவைப்படும்போது விரைவாகத் தேடுவதற்கு Linkumori கூடுதலாகும்.",
+    "message": "<code>urlPattern</code> என்பது அப்ஸ்ட்ரீம் ClearURLகளின் தொடரியல் ஆகும். <code>indexPattern</code> என்பது ரீஜெக்ஸ் URL வழங்குநர்களுக்கான Linkumori தேடல் குறிப்பு; அது ரெஜெக்ஸ் பொருத்தக்கூடிய ஹோஸ்ட்பெயர்களை சுட்டிக்காட்ட வேண்டும்.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> விருப்பமானது, ஆனால் வேகத்திற்கு பயனுள்ளதாக இருக்கும்.",
+    "message": "<code>indexPattern</code> விருப்பமானது, ஆனால் வேகத்திற்கு பயனுள்ளதாக இருக்கும். இது வழங்குநரை ஹோஸ்ட்பெயர்-டோக்கன் கேண்டிடேட் வாளிகளில் குறியிடுகிறது; இது இறுதி <code>urlPattern</code> போட்டியை ஒருபோதும் மாற்றாது.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "சேர்க்கை 5: <code>domainPatterns</code> மற்றும் <code>urlPattern</code> ஒன்றாக",
+    "message": "சேர்க்கை 5: ஒருங்கிணைந்த தேவையாக <code>domainPatterns</code> மற்றும் <code>urlPattern</code> ஆகியவற்றைக் கலக்க வேண்டாம்",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "இந்த Linkumori கலப்பு மேட்சர் வடிவம் செல்லுபடியாகும் JSON:",
+    "message": "இந்த வடிவம் பழைய அல்லது கையால் எழுதப்பட்ட தரவுகளில் தோன்றலாம், ஆனால் இரண்டு போட்டியாளர்களும் தேர்ச்சி பெற வேண்டும் என்று அர்த்தமல்ல:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "முக்கியமான நடத்தை:",
+    "message": "தற்போதைய <code>clearurls.js</code> நடத்தை:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "எனவே இரண்டும் தேவை என்று நீங்கள் எதிர்பார்க்கும் போது இரண்டையும் பயன்படுத்த வேண்டாம். உங்களுக்கு பாதை நிபந்தனை தேவைப்பட்டால், <code>indexPattern</code> உடன் <code>urlPattern</code> ஐப் பயன்படுத்தவும் அல்லது <code>rules</code> என்ற எண்ணிற்குள் <code>$removeparam</code>/விதி வடிவத்தை அமைக்கவும்.",
+    "message": "<code>domainPatterns</code> இருந்தால் மற்றும் காலியாக இல்லை என்றால், <code>clearurls.js</code> வழங்குநரின் பொருத்தத்திற்காக அதைப் பயன்படுத்துகிறது மற்றும் அந்த வழங்குநருக்கு <code>urlPattern</code> ஐப் புறக்கணிக்கிறது. தனிப்பயன் எடிட்டர்/இறக்குமதி பாதை இரண்டையும் கொண்ட வழங்குநர்களை நிராகரிக்கிறது. உங்களுக்கு பாதை நிபந்தனை தேவைப்பட்டால், <code>indexPattern</code> உடன் <code>urlPattern</code> ஐப் பயன்படுத்தவும் அல்லது <code>rules</code> க்குள் தனிப்பட்ட <code>$removeparam</code>/விதி உள்ளீடுகளைப் பயன்படுத்தவும்.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon legacy மற்றும் ClearURLs core v2 canonical — <code>urlPattern</code> மட்டும்:",
+    "message": "ClearURLs addon legacy மற்றும் ClearURLs core v2 canonical — <code>urlPattern</code> மட்டும். <code>indexPattern</code> இல்லாமல், பரந்த regex வழங்குநர்கள் உலகளாவிய வேட்பாளர் காசோலைகளுக்குத் திரும்பலாம்:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori கூடுதலாக — <code>urlPattern</code> உடன் <code>indexPattern</code>:",
+    "message": "Linkumori சேர்த்தல் — <code>indexPattern</code> உடன் <code>urlPattern</code>. இண்டெக்ஸ் பேட்டர்ன் ஒரு தேடல் குறிப்பு, அதே சமயம் <code>urlPattern</code> இறுதிப் பொருத்தமாக இருக்கும்:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori சேர்த்தல் — பல <code>indexPattern</code> குறிப்புகள்:",
+    "message": "Linkumori சேர்த்தல் — ஒன்றுக்கும் மேற்பட்ட ஹோஸ்ட்பெயர்களுடன் பொருந்தக்கூடிய URL regexக்கான பல <code>indexPattern</code> குறிப்புகள்:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori கூடுதலாக — <code>domainPatterns</code> மட்டும்:",
+    "message": "Linkumori சேர்த்தல் — <code>domainPatterns</code> மட்டும். வழங்குநர் பொருத்தம் மற்றும் லுக்அப்-டோக்கன் பிரித்தெடுக்க இவை நேரடியாகப் பயன்படுத்தப்படுகின்றன:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori கூடுதலாக — <code>domainPatterns</code> மற்றும் <code>urlPattern</code>:",
+    "message": "மரபு/கலப்பு தரவு <code>domainPatterns</code> மற்றும் <code>urlPattern</code> இரண்டையும் கொண்டிருக்கலாம், ஆனால் புதிய வழங்குநர்களை இவ்வாறு எழுத வேண்டாம்:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "நடத்தை:",
+    "message": "நடத்தை: காலியாக இல்லாத <code>domainPatterns</code> வெற்றி. <code>domainPatterns</code> காணவில்லை அல்லது காலியாக இருக்கும்போது மட்டுமே <code>urlPattern</code> பயன்படுத்தப்படும். தனிப்பயன் எடிட்டர்/இறக்குமதி பாதை இரண்டையும் ஒன்றாகச் செல்லாததாகக் கருதுகிறது.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "தெளிவானது urlPattern என்பது domainPatterns காணவில்லை அல்லது காலியாக இருக்கும்போது மட்டுமே பயன்படுத்தப்படும். தனிப்பயன் எடிட்டர்/இறக்குமதி பாதை இந்த கலவையான மேட்ச்சர் வடிவத்தை நிராகரிக்கிறது, எனவே மரபுத் தரவைப் புரிந்துகொள்ள மட்டுமே இதைப் பயன்படுத்தவும்.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "டொமைன் பேட்டர்ன்ஸ் இருக்கும் போது மற்றும் காலியாக இல்லாத போது பொருத்தம் வெற்றி பெறுகிறது. urlPattern என்பது domainPatterns காணவில்லை அல்லது காலியாக இருக்கும்போது மட்டுமே பயன்படுத்தப்படும். தனிப்பயன் எடிட்டர்/இறக்குமதி பாதை இரண்டு மேட்சர் குடும்பங்களைக் கொண்ட வழங்குநர்களை நிராகரிக்கிறது.",
     "description": "Guide page text."
   },
   "guide_0735": {

@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Vzory domén podporují jednoduché tokeny a formuláře ve stylu AdBlock. Chování shody závisí na syntaxi (některé formuláře kontrolují název hostitele, jiné se shodují s celým řetězcem adresy URL):",
+    "message": "Vzory domén podporují jednoduché tokeny a formuláře ve stylu AdBlock. Když není doména domainPatterns prázdná, clearurls.js je používá pro párování poskytovatelů a extrakci vyhledávacích tokenů před jakýmkoli nouzovým řešením urlPattern:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "V datech mohou být přítomna obě pole, ale prioritu má urlPattern. Vzory domény se používají pouze v případě, že je adresa urlPattern prázdná. Shoda domén podporuje PSL, včetně manipulace s registrovatelnými doménami a vícedílné podpory TLD.",
+    "message": "U vytvořených vlastních poskytovatelů zvolte buď domainPatterns, nebo urlPattern. V runtime datech clearurls.js vyhrávají neprázdné domainPatterns a urlPattern se používá pouze v případě, že domainPatterns chybí nebo je prázdné. Shoda domén podporuje PSL pro podporované formuláře ve stylu AdBlock, včetně manipulace s registrovatelnými doménami a podpory vícedílných TLD.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Poskytovatelé jsou logické jednotky, které seskupují více pravidel pod stejným vzorem adresy URL. Každý poskytovatel cílí na konkrétní web nebo službu a obsahuje všechna pravidla potřebná k vyčištění adres URL z daného zdroje.",
+    "message": "Poskytovatelé jsou pojmenované kontejnery, které seskupují porovnávací pole a pravidla pro čištění adres URL. Vyhledávání kandidátů používá tokeny názvu hostitele z domainPatterns nebo indexPattern; jméno poskytovatele je pouze štítkem/klíčem a nerozhoduje o tom, zda se požadavek shoduje.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "UrlPattern je regulární výraz, který musí odpovídat každé adrese URL, která by měla být ovlivněna pravidly poskytovatele. Definuje, které webové stránky by měl tento poskytovatel spravovat.",
+    "message": "urlPattern je regulární výraz testovaný proti úplné URL požadavku, když poskytovatel nemá neprázdné domainPatterns. Pokud používáte urlPattern, přidejte indexPattern, pokud je to možné, aby clearurls.js mohl najít poskytovatele podle tokenů názvu hostitele před testováním regulárního výrazu.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "IndexPattern je vzor domény (např. ||example.com^), který funguje jako nápověda pro systém indexování. Vzhledem k tomu, že regulární výrazy v urlPattern je obtížné analyzovat pro názvy hostitelů, indexPattern poskytuje explicitní cíl pro optimalizaci. Zajišťuje, že poskytovatel je indexován správně a efektivně.",
+    "message": "indexPattern je nápověda pro vyhledávání poskytovatele, nikoli podmínka shody. clearurls.js extrahuje tokeny názvu hostitele z indexPattern a umístí poskytovatele urlPattern do segmentů kandidátů providersByToken. Poskytovatel se stále shoduje, pouze pokud provider.matchRequestURL() předá skutečný urlPattern a výjimky se neshodují.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Zkontrolujte prosím adresu URL, která se otevře. Tato adresa URL obsahuje vámi zadané informace a přesměruje vás na GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Upozornění na zásady ochrany osobních údajů",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori vytvoří tuto URL lokálně ve vašem prohlížeči. Linkumori při vytváření této adresy URL přímo nepřenáší data z vás nebo vašeho prohlížeče na GitHub nebo na jakýkoli jiný server.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Pokud zvolíte \"Otevřít GitHub\", rozhodnete se nechat váš prohlížeč otevřít zobrazenou URL. Tato navigace prohlížeče může odeslat adresu URL a její parametry dotazu na GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Pro vytvoření problému může adresa URL obsahovat typ problému, adresu URL vybraného problému, vyčištěnou adresu URL, značku NSFW, komentáře a vybrané sekce konfigurace.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Pro hledání problému může adresa URL obsahovat vybraný název hostitele, doménu, typ problému a hledaný výraz NSFW, pokud je vybrán.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori nepodporuje GitHub. Linkumori neví, neověřuje ani nezaručuje, zda GitHub dodržuje vaše místní soukromí, ochranu dat nebo jiné platné zákony.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Než budete pokračovat, zkontrolujte celou adresu URL. Zrušte, pokud nechcete, aby váš prohlížeč otevíral GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "Adresa URL k otevření (technický formát):",
@@ -4981,6 +5009,10 @@
     "message": "Není to návod na kód JavaScript. Zaměřuje se pouze na JSON tvary, formáty pravidel a příklady, které autoři pravidel potřebují.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Tato příručka je založena na aktuálním chování běhového prostředí <code>clearurls.js</code>. Zejména vyhledávání poskytovatelů používá segmenty kandidátů <code>providersByToken</code> ze <code>domainPatterns</code> nebo <code>indexPattern</code> a konečné párování stále probíhá přes <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Kapitola 1: Základní tvar JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Poskytovatel je jedna skupina pravidel pro jeden web, společnost, sledovač nebo vzor URL.",
+    "message": "Poskytovatel je jeden pojmenovaný běhový kontejner pro jeden web, společnost, sledovač, sadu vzorů domény nebo regulární výraz adresy URL. Jméno poskytovatele je štítek/klíč; párování se provádí pomocí <code>domainPatterns</code> nebo <code>urlPattern</code>, nikoli podle názvu poskytovatele.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Kompletní šablona poskytovatele:",
+    "message": "Pole poskytovatele akceptovaná <code>clearurls.js</code>. Pro párování vytvořte buď <code>domainPatterns</code> nebo <code>urlPattern</code> s volitelným <code>indexPattern</code>; nespoléhejte na to, že obojí bude vyžadováno společně.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> je sčítání Linkumori. Použijte jej pro většinu poskytovatelů Linkumori JSON, protože je jednodušší zapsat než úplný regulární výraz <code>urlPattern</code>.",
+    "message": "<code>domainPatterns</code> je doplněk Linkumori a je preferován pro většinu vlastních poskytovatelů. V <code>clearurls.js</code> se pro párování před <code>urlPattern</code> používají neprázdné <code>domainPatterns</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Použijte <code>urlPattern</code> pouze v případě, že shoda domény nestačí.",
+    "message": "<code>urlPattern</code> použijte pouze v případě, že shoda domény nestačí, například když poskytovatel musí odpovídat konkrétní cestě nebo úplnému regulárnímu výrazu adresy URL.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> je dědictví doplňku ClearURLs a kanonická syntaxe jádra v2 ClearURLs. Linkumori přidá <code>indexPattern</code> jako volitelnou nápovědu pro vyhledávání, aby motor mohl rychleji najít poskytovatele regulárních výrazů.",
+    "message": "<code>urlPattern</code> je starší verze doplňku ClearURLs a kanonická syntaxe jádra ClearURLs v2. Linkumori přidává <code>indexPattern</code> pouze jako nápovědu pro vyhledávání kandidátů, takže poskytovatele regulárních výrazů lze rychleji najít podle tokenů názvu hostitele.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Důležité: Linkumori <code>indexPattern</code> je pouze nápověda pro vyhledávání. Nerozhoduje o tom, zda se poskytovatel přihlásí.",
+    "message": "Důležité: <code>indexPattern</code> nerozhoduje, zda se poskytovatel shoduje. Po vyhledání kandidátů <code>clearurls.js</code> stále testuje skutečný <code>urlPattern</code> v <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> je předřazená syntaxe ClearURLs. <code>indexPattern</code> je doplněk Linkumori pro rychlejší vyhledávání, když potřebujete shodu s regulárním výrazem URL.",
+    "message": "<code>urlPattern</code> je upstream syntaxe ClearURLs. <code>indexPattern</code> je nápověda pro vyhledávání Linkumori pro poskytovatele regulárních URL; měl by ukazovat na názvy hostitelů, kterým se regulární výraz může shodovat.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> je volitelné, ale užitečné pro rychlost.",
+    "message": "<code>indexPattern</code> je volitelný, ale užitečný pro rychlost. Indexuje poskytovatele do segmentů kandidátů na název hostitele-tokenu; nikdy nenahrazuje poslední zápas <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Kombinace 5: <code>domainPatterns</code> a <code>urlPattern</code> dohromady",
+    "message": "Kombinace 5: Nemíchejte <code>domainPatterns</code> a <code>urlPattern</code> jako kombinovaný požadavek",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Tento tvar smíšeného porovnávače Linkumori je platný JSON:",
+    "message": "Tento tvar se může objevit ve starších nebo ručně psaných datech, ale neznamená to, že oba porovnávači musí projít:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Důležité chování:",
+    "message": "Aktuální chování <code>clearurls.js</code>:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Takže nepoužívejte oba, když očekáváte, že budou vyžadovány oba. Pokud potřebujete podmínku cesty, použijte <code>urlPattern</code> s <code>indexPattern</code> nebo vložte vzor <code>$removeparam</code>/pravidlo do <code>rules</code>.",
+    "message": "Pokud je <code>domainPatterns</code> přítomen a není prázdný, <code>clearurls.js</code> jej použije pro párování poskytovatelů a ignoruje <code>urlPattern</code> pro tohoto poskytovatele. Vlastní cesta editoru/importu odmítne poskytovatele, kteří obsahují obojí. Pokud potřebujete podmínku cesty, použijte <code>urlPattern</code> s <code>indexPattern</code> nebo rozsah jednotlivých položek <code>$removeparam</code>/pravidel uvnitř <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "Starší doplněk ClearURLs a ClearURLs jádro v2 kanonické — pouze <code>urlPattern</code>:",
+    "message": "Starší doplněk ClearURLs a kanonické jádro ClearURLs v2 – pouze <code>urlPattern</code>. Bez <code>indexPattern</code> se mohou poskytovatelé širokého regulárního výrazu vrátit ke globálním kontrolám kandidátů:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori přidání — <code>urlPattern</code> s <code>indexPattern</code>:",
+    "message": "Přidání Linkumori — <code>urlPattern</code> s <code>indexPattern</code>. Vzor indexu je nápovědou pro vyhledávání, zatímco <code>urlPattern</code> zůstává konečným přiřazovačem:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori sčítání — více <code>indexPattern</code> tipů:",
+    "message": "Přidání Linkumori — několik <code>indexPattern</code> nápověd pro regulární výraz URL, který může odpovídat více než jednomu názvu hostitele:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Přidání Linkumori — pouze <code>domainPatterns</code>:",
+    "message": "Přidání Linkumori — pouze <code>domainPatterns</code>. Používají se přímo pro párování poskytovatelů a extrakci vyhledávacích tokenů:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Přidání Linkumori — jak <code>domainPatterns</code>, tak <code>urlPattern</code>:",
+    "message": "Starší/smíšená data mohou obsahovat <code>domainPatterns</code> i <code>urlPattern</code>, ale nevytvářejte nové poskytovatele tímto způsobem:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Chování:",
+    "message": "Chování: neprázdná výhra <code>domainPatterns</code>. <code>urlPattern</code> se používá pouze tehdy, když <code>domainPatterns</code> chybí nebo je prázdný. Vlastní cesta editoru/importu považuje obojí společně za neplatné.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "chování clearurls.js: pokud domainPatterns existuje a není prázdné, Linkumori používá domainPatterns pro párování poskytovatelů. urlPattern se používá pouze v případě, že doménaPatterns chybí nebo je prázdná. Vlastní cesta editoru/importu tento tvar smíšeného porovnávače odmítá, takže jej používejte pouze k pochopení starších dat.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns vyhrává za shodu, pokud je přítomen a není prázdný. urlPattern se používá pouze v případě, že doménaPatterns chybí nebo je prázdná. Vlastní cesta editoru/importu odmítne poskytovatele, kteří obsahují obě rodiny porovnávačů.",
     "description": "Guide page text."
   },
   "guide_0735": {

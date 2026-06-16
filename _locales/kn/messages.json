@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್‌ಗಳು ಸರಳ ಟೋಕನ್‌ಗಳು ಮತ್ತು ಆಡ್‌ಬ್ಲಾಕ್ ಶೈಲಿಯ ರೂಪಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತವೆ. ಹೊಂದಾಣಿಕೆಯ ನಡವಳಿಕೆಯು ಸಿಂಟ್ಯಾಕ್ಸ್ ಅನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ (ಕೆಲವು ಫಾರ್ಮ್‌ಗಳು ಹೋಸ್ಟ್‌ಹೆಸರನ್ನು ಪರಿಶೀಲಿಸುತ್ತವೆ, ಇತರವು ಪೂರ್ಣ URL ಸ್ಟ್ರಿಂಗ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತವೆ):",
+    "message": "ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್‌ಗಳು ಸರಳ ಟೋಕನ್‌ಗಳು ಮತ್ತು ಆಡ್‌ಬ್ಲಾಕ್ ಶೈಲಿಯ ರೂಪಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತವೆ. ಡೊಮೇನ್‌ಪ್ಯಾಟರ್ನ್‌ಗಳು ಖಾಲಿಯಾಗಿಲ್ಲದಿದ್ದಾಗ, ಯಾವುದೇ urlPattern ಫಾಲ್‌ಬ್ಯಾಕ್‌ಗೆ ಮುನ್ನ ಒದಗಿಸುವವರ ಹೊಂದಾಣಿಕೆ ಮತ್ತು ಲುಕಪ್-ಟೋಕನ್ ಹೊರತೆಗೆಯುವಿಕೆಗಾಗಿ clearurls.js ಅವುಗಳನ್ನು ಬಳಸುತ್ತದೆ:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "ಡೇಟಾದಲ್ಲಿ ಎರಡೂ ಕ್ಷೇತ್ರಗಳು ಇರುತ್ತವೆ, ಆದರೆ urlPattern ಆದ್ಯತೆಯನ್ನು ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ. urlPattern ಖಾಲಿಯಾಗಿರುವಾಗ ಮಾತ್ರ ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್‌ಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ನೋಂದಾಯಿಸಬಹುದಾದ-ಡೊಮೇನ್ ನಿರ್ವಹಣೆ ಮತ್ತು ಬಹು-ಭಾಗ TLD ಬೆಂಬಲ ಸೇರಿದಂತೆ ಡೊಮೇನ್ ಹೊಂದಾಣಿಕೆಯು PSL-ಅರಿವು.",
+    "message": "ಲೇಖಕರ ಕಸ್ಟಮ್ ಪೂರೈಕೆದಾರರಿಗೆ, ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್ ಅಥವಾ urlPattern ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿ. clearurls.js ರನ್‌ಟೈಮ್ ಡೇಟಾದಲ್ಲಿ, ಖಾಲಿ-ಅಲ್ಲದ ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್‌ಗಳು ಗೆಲ್ಲುತ್ತವೆ ಮತ್ತು ಡೊಮೇನ್‌ಪ್ಯಾಟರ್ನ್ಸ್ ಕಾಣೆಯಾಗಿರುವಾಗ ಅಥವಾ ಖಾಲಿಯಾಗಿರುವಾಗ ಮಾತ್ರ urlPattern ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ಡೊಮೇನ್ ಹೊಂದಾಣಿಕೆಯು ನೋಂದಾಯಿಸಬಹುದಾದ-ಡೊಮೇನ್ ನಿರ್ವಹಣೆ ಮತ್ತು ಬಹು-ಭಾಗ TLD ಬೆಂಬಲವನ್ನು ಒಳಗೊಂಡಂತೆ ಬೆಂಬಲಿತ AdBlock-ಶೈಲಿಯ ಫಾರ್ಮ್‌ಗಳಿಗಾಗಿ PSL-ಅರಿವು.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "ಪೂರೈಕೆದಾರರು ಒಂದೇ URL ಮಾದರಿಯ ಅಡಿಯಲ್ಲಿ ಬಹು ನಿಯಮಗಳನ್ನು ಗುಂಪು ಮಾಡುವ ತಾರ್ಕಿಕ ಘಟಕಗಳಾಗಿವೆ. ಪ್ರತಿಯೊಬ್ಬ ಪೂರೈಕೆದಾರರು ನಿರ್ದಿಷ್ಟ ವೆಬ್‌ಸೈಟ್ ಅಥವಾ ಸೇವೆಯನ್ನು ಗುರಿಪಡಿಸುತ್ತಾರೆ ಮತ್ತು ಆ ಮೂಲದಿಂದ URL ಗಳನ್ನು ಸ್ವಚ್ಛಗೊಳಿಸಲು ಅಗತ್ಯವಿರುವ ಎಲ್ಲಾ ನಿಯಮಗಳನ್ನು ಒಳಗೊಂಡಿರುತ್ತದೆ.",
+    "message": "ಪೂರೈಕೆದಾರರನ್ನು ಧಾರಕಗಳೆಂದು ಹೆಸರಿಸಲಾಗಿದೆ, ಅದು ಗುಂಪು ಮ್ಯಾಚರ್ ಕ್ಷೇತ್ರಗಳು ಮತ್ತು URL-ಕ್ಲೀನಿಂಗ್ ನಿಯಮಗಳನ್ನು ಹೊಂದಿದೆ. ಅಭ್ಯರ್ಥಿ ಲುಕಪ್ ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್ಸ್ ಅಥವಾ ಇಂಡೆಕ್ಸ್ ಪ್ಯಾಟರ್ನ್ ನಿಂದ ಹೋಸ್ಟ್ ನೇಮ್ ಟೋಕನ್ ಗಳನ್ನು ಬಳಸುತ್ತದೆ; ಒದಗಿಸುವವರ ಹೆಸರು ಲೇಬಲ್/ಕೀ ಮಾತ್ರ ಮತ್ತು ವಿನಂತಿಯು ಹೊಂದಿಕೆಯಾಗುತ್ತದೆಯೇ ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸುವುದಿಲ್ಲ.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern ಎನ್ನುವುದು ನಿಯಮಿತ ಅಭಿವ್ಯಕ್ತಿಯಾಗಿದ್ದು ಅದು ಒದಗಿಸುವವರ ನಿಯಮಗಳಿಂದ ಪ್ರಭಾವಿತವಾಗಿರುವ ಪ್ರತಿಯೊಂದು URL ಗೆ ಹೊಂದಿಕೆಯಾಗಬೇಕು. ಈ ಪೂರೈಕೆದಾರರು ಯಾವ ವೆಬ್‌ಸೈಟ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಬೇಕು ಎಂಬುದನ್ನು ಇದು ವಿವರಿಸುತ್ತದೆ.",
+    "message": "urlPattern ಎನ್ನುವುದು ಪೂರೈಕೆದಾರರು ಖಾಲಿ-ಅಲ್ಲದ ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್‌ಗಳನ್ನು ಹೊಂದಿರದಿದ್ದಾಗ ಪೂರ್ಣ ವಿನಂತಿಯ URL ವಿರುದ್ಧ ಪರೀಕ್ಷಿಸಲಾದ ನಿಯಮಿತ ಅಭಿವ್ಯಕ್ತಿಯಾಗಿದೆ. ನೀವು urlPattern ಅನ್ನು ಬಳಸಿದರೆ, ಸಾಧ್ಯವಾದಾಗ indexPattern ಅನ್ನು ಸೇರಿಸಿ ಆದ್ದರಿಂದ regex ಅನ್ನು ಪರೀಕ್ಷಿಸುವ ಮೊದಲು ಹೋಸ್ಟ್‌ನೇಮ್ ಟೋಕನ್‌ಗಳ ಮೂಲಕ ಪೂರೈಕೆದಾರರನ್ನು clearurls.js ಹುಡುಕಬಹುದು.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern ಒಂದು ಡೊಮೇನ್ ಮಾದರಿಯಾಗಿದೆ (ಉದಾ., ||example.com^) ಇದು ಇಂಡೆಕ್ಸಿಂಗ್ ಸಿಸ್ಟಮ್‌ಗೆ ಸುಳಿವಿನಂತೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. urlPattern ನಲ್ಲಿನ ನಿಯಮಿತ ಅಭಿವ್ಯಕ್ತಿಗಳು ಹೋಸ್ಟ್ ಹೆಸರುಗಳಿಗಾಗಿ ಪಾರ್ಸ್ ಮಾಡಲು ಕಷ್ಟವಾಗುವುದರಿಂದ, indexPattern ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗೆ ಸ್ಪಷ್ಟ ಗುರಿಯನ್ನು ಒದಗಿಸುತ್ತದೆ. ಇದು ಪೂರೈಕೆದಾರರನ್ನು ಸರಿಯಾಗಿ ಮತ್ತು ಪರಿಣಾಮಕಾರಿಯಾಗಿ ಸೂಚಿಕೆ ಮಾಡಲಾಗಿದೆ ಎಂದು ಖಚಿತಪಡಿಸುತ್ತದೆ.",
+    "message": "indexPattern ಎಂಬುದು ಪೂರೈಕೆದಾರರ ಲುಕಪ್ ಸುಳಿವು, ಹೊಂದಾಣಿಕೆಯ ಸ್ಥಿತಿಯಲ್ಲ. clearurls.js ಹೋಸ್ಟ್‌ನೇಮ್ ಟೋಕನ್‌ಗಳನ್ನು indexPattern ನಿಂದ ಹೊರತೆಗೆಯುತ್ತದೆ ಮತ್ತು urlPattern ಪೂರೈಕೆದಾರರನ್ನು ಪೂರೈಕೆದಾರರ ಮೂಲಕ ಅಭ್ಯರ್ಥಿ ಬಕೆಟ್‌ಗಳಲ್ಲಿ ಇರಿಸುತ್ತದೆ. provider.matchRequestURL() ನಿಜವಾದ urlPattern ಅನ್ನು ಹಾದುಹೋದರೆ ಮತ್ತು ವಿನಾಯಿತಿಗಳು ಹೊಂದಿಕೆಯಾಗದಿದ್ದರೆ ಮಾತ್ರ ಪೂರೈಕೆದಾರರು ಇನ್ನೂ ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಾರೆ.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "ದಯವಿಟ್ಟು ತೆರೆಯಲಾಗುವ URL ಅನ್ನು ಪರಿಶೀಲಿಸಿ. ಈ URL ನೀವು ನಮೂದಿಸಿದ ಮಾಹಿತಿಯನ್ನು ಒಳಗೊಂಡಿದೆ ಮತ್ತು ನಿಮ್ಮನ್ನು GitHub ಗೆ ಮರುನಿರ್ದೇಶಿಸುತ್ತದೆ.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "ಗೌಪ್ಯತೆ ನೀತಿ ಸೂಚನೆ",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಸ್ಥಳೀಯವಾಗಿ ಈ URL ಅನ್ನು ರಚಿಸುತ್ತದೆ. ಈ URL ಅನ್ನು ರಚಿಸುವಾಗ Linkumori ನೇರವಾಗಿ ನಿಮ್ಮ ಅಥವಾ ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನಿಂದ GitHub ಗೆ ಅಥವಾ ಯಾವುದೇ ಇತರ ಸರ್ವರ್‌ಗೆ ಡೇಟಾವನ್ನು ವರ್ಗಾಯಿಸುವುದಿಲ್ಲ.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "ನೀವು \"Open GitHub\" ಅನ್ನು ಆರಿಸಿದರೆ, ನಿಮ್ಮ ಬ್ರೌಸರ್ ಪ್ರದರ್ಶಿತ URL ಅನ್ನು ತೆರೆಯಲು ನೀವು ಆಯ್ಕೆ ಮಾಡುತ್ತಿದ್ದೀರಿ. ಆ ಬ್ರೌಸರ್ ನ್ಯಾವಿಗೇಶನ್ URL ಮತ್ತು ಅದರ ಪ್ರಶ್ನೆ ಪ್ಯಾರಾಮೀಟರ್‌ಗಳನ್ನು GitHub ಗೆ ಕಳುಹಿಸಬಹುದು.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "ಸಮಸ್ಯೆ ರಚನೆಗಾಗಿ, URL ಸಮಸ್ಯೆಯ ಪ್ರಕಾರ, ಆಯ್ಕೆಮಾಡಿದ ಸಂಚಿಕೆ URL, ಸ್ವಚ್ಛಗೊಳಿಸಿದ URL, NSFW ಮಾರ್ಕರ್, ಕಾಮೆಂಟ್‌ಗಳು ಮತ್ತು ಆಯ್ಕೆಮಾಡಿದ ಕಾನ್ಫಿಗರೇಶನ್ ವಿಭಾಗಗಳನ್ನು ಒಳಗೊಂಡಿರಬಹುದು.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "ಸಮಸ್ಯೆಯ ಹುಡುಕಾಟಕ್ಕಾಗಿ, URL ಆಯ್ಕೆಮಾಡಿದ ಹೋಸ್ಟ್ ಹೆಸರು, ಡೊಮೇನ್, ಸಮಸ್ಯೆಯ ಪ್ರಕಾರ ಮತ್ತು NSFW ಹುಡುಕಾಟ ಪದವನ್ನು ಆಯ್ಕೆಮಾಡಿದರೆ ಒಳಗೊಂಡಿರಬಹುದು.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori GitHub ಅನ್ನು ಅನುಮೋದಿಸುವುದಿಲ್ಲ. ನಿಮ್ಮ ಸ್ಥಳೀಯ ಗೌಪ್ಯತೆ, ಡೇಟಾ ರಕ್ಷಣೆ ಅಥವಾ ಇತರ ಅನ್ವಯವಾಗುವ ಕಾನೂನುಗಳಿಗೆ GitHub ಅನುಸರಿಸುತ್ತದೆಯೇ ಎಂಬುದನ್ನು Linkumori ತಿಳಿದಿರುವುದಿಲ್ಲ, ಪರಿಶೀಲಿಸುವುದಿಲ್ಲ ಅಥವಾ ಖಾತರಿಪಡಿಸುವುದಿಲ್ಲ.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "ಮುಂದುವರಿಯುವ ಮೊದಲು ಪೂರ್ಣ URL ಅನ್ನು ಪರಿಶೀಲಿಸಿ. ನಿಮ್ಮ ಬ್ರೌಸರ್ GitHub ಅನ್ನು ತೆರೆಯಲು ನೀವು ಬಯಸದಿದ್ದರೆ ರದ್ದುಗೊಳಿಸಿ.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "ತೆರೆಯಬೇಕಾದ URL (ತಾಂತ್ರಿಕ ಸ್ವರೂಪ):",
@@ -4981,6 +5009,10 @@
     "message": "ಇದು JavaScript ಕೋಡ್‌ಗೆ ಮಾರ್ಗದರ್ಶಿಯಲ್ಲ. ಇದು JSON ಆಕಾರಗಳು, ನಿಯಮ ಸ್ವರೂಪಗಳು ಮತ್ತು ನಿಯಮ ಲೇಖಕರಿಗೆ ಅಗತ್ಯವಿರುವ ಉದಾಹರಣೆಗಳ ಮೇಲೆ ಮಾತ್ರ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "ಈ ಮಾರ್ಗದರ್ಶಿ ಪ್ರಸ್ತುತ <code>clearurls.js</code> ರನ್ಟೈಮ್ ನಡವಳಿಕೆಯನ್ನು ಆಧರಿಸಿದೆ. ನಿರ್ದಿಷ್ಟವಾಗಿ, ಪೂರೈಕೆದಾರರ ಲುಕಪ್ <code>domainPatterns</code> ಅಥವಾ <code>indexPattern</code> ನಿಂದ <code>providersByToken</code> ಅಭ್ಯರ್ಥಿ ಬಕೆಟ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ ಮತ್ತು ಅಂತಿಮ ಹೊಂದಾಣಿಕೆಯು ಇನ್ನೂ <code>provider.matchRequestURL()</code> ಮೂಲಕ ನಡೆಯುತ್ತದೆ.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "ಅಧ್ಯಾಯ 1: ಮೂಲ JSON ಆಕಾರ",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "ಒದಗಿಸುವವರು ಒಂದು ವೆಬ್‌ಸೈಟ್, ಕಂಪನಿ, ಟ್ರ್ಯಾಕರ್ ಅಥವಾ URL ಮಾದರಿಯ ನಿಯಮಗಳ ಒಂದು ಗುಂಪು.",
+    "message": "ಒದಗಿಸುವವರು ಒಂದು ವೆಬ್‌ಸೈಟ್, ಕಂಪನಿ, ಟ್ರ್ಯಾಕರ್, ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್ ಸೆಟ್ ಅಥವಾ URL ರಿಜೆಕ್ಸ್‌ಗಾಗಿ ಹೆಸರಿನ ರನ್‌ಟೈಮ್ ಕಂಟೇನರ್ ಆಗಿದೆ. ಒದಗಿಸುವವರ ಹೆಸರು ಲೇಬಲ್/ಕೀ; ಹೊಂದಾಣಿಕೆಯನ್ನು <code>domainPatterns</code> ಅಥವಾ <code>urlPattern</code> ಮೂಲಕ ಮಾಡಲಾಗುತ್ತದೆ, ಒದಗಿಸುವವರ ಹೆಸರಿನಿಂದಲ್ಲ.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "ಪೂರ್ಣ ಪೂರೈಕೆದಾರರ ಟೆಂಪ್ಲೇಟ್:",
+    "message": "ಒದಗಿಸುವವರ ಕ್ಷೇತ್ರಗಳನ್ನು <code>clearurls.js</code> ಸ್ವೀಕರಿಸಿದೆ. ಹೊಂದಾಣಿಕೆಗಾಗಿ, ಐಚ್ಛಿಕ <code>indexPattern</code> ನೊಂದಿಗೆ <code>domainPatterns</code> ಅಥವಾ <code>urlPattern</code> ಲೇಖಕ; ಎರಡನ್ನೂ ಒಟ್ಟಿಗೆ ಅವಲಂಬಿಸಬೇಡಿ.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> ಎಂಬುದು Linkumori ಸೇರ್ಪಡೆಯಾಗಿದೆ. ಹೆಚ್ಚಿನ Linkumori JSON ಪೂರೈಕೆದಾರರಿಗೆ ಇದನ್ನು ಬಳಸಿ ಏಕೆಂದರೆ ಇದು ಪೂರ್ಣ <code>urlPattern</code> ರಿಜೆಕ್ಸ್‌ಗಿಂತ ಬರೆಯಲು ಸುಲಭವಾಗಿದೆ.",
+    "message": "<code>domainPatterns</code> ಒಂದು Linkumori ಸೇರ್ಪಡೆಯಾಗಿದೆ ಮತ್ತು ಹೆಚ್ಚಿನ ಕಸ್ಟಮ್ ಪೂರೈಕೆದಾರರಿಗೆ ಆದ್ಯತೆ ನೀಡಲಾಗುತ್ತದೆ. <code>clearurls.js</code> ನಲ್ಲಿ, <code>urlPattern</code> ಗಿಂತ ಮೊದಲು ಹೊಂದಾಣಿಕೆ ಮಾಡಲು ಖಾಲಿ ಅಲ್ಲದ <code>domainPatterns</code> ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "ಡೊಮೇನ್ ಹೊಂದಾಣಿಕೆ ಸಾಕಾಗದೇ ಇದ್ದಾಗ ಮಾತ್ರ <code>urlPattern</code> ಬಳಸಿ.",
+    "message": "ಡೊಮೇನ್ ಹೊಂದಾಣಿಕೆಯು ಸಾಕಷ್ಟಿಲ್ಲದಿದ್ದಾಗ ಮಾತ್ರ <code>urlPattern</code> ಅನ್ನು ಬಳಸಿ, ಉದಾಹರಣೆಗೆ ಪೂರೈಕೆದಾರರು ನಿರ್ದಿಷ್ಟ ಮಾರ್ಗ ಅಥವಾ ಪೂರ್ಣ URL ರಿಜೆಕ್ಸ್ ಅನ್ನು ಹೊಂದಿಸಬೇಕು.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> ClearURLs addon ಪರಂಪರೆ ಮತ್ತು ClearURLs ಕೋರ್ v2 ಕ್ಯಾನೊನಿಕಲ್ ಸಿಂಟ್ಯಾಕ್ಸ್. Linkumori <code>indexPattern</code> ಅನ್ನು ಐಚ್ಛಿಕ ಲುಕಪ್ ಸುಳಿವಾಗಿ ಸೇರಿಸುತ್ತದೆ ಆದ್ದರಿಂದ ಎಂಜಿನ್ ರಿಜೆಕ್ಸ್ ಪೂರೈಕೆದಾರರನ್ನು ವೇಗವಾಗಿ ಹುಡುಕಬಹುದು.",
+    "message": "<code>urlPattern</code> ಎಂಬುದು ClearURLs addon ಪರಂಪರೆ ಮತ್ತು ClearURLs ಕೋರ್ v2 ಕ್ಯಾನೊನಿಕಲ್ ಸಿಂಟ್ಯಾಕ್ಸ್ ಆಗಿದೆ. Linkumori <code>indexPattern</code> ಅನ್ನು ಅಭ್ಯರ್ಥಿಯ ಲುಕಪ್ ಸುಳಿವಿನಂತೆ ಮಾತ್ರ ಸೇರಿಸುತ್ತದೆ ಆದ್ದರಿಂದ ರಿಜೆಕ್ಸ್ ಪೂರೈಕೆದಾರರನ್ನು ಹೋಸ್ಟ್‌ನೇಮ್ ಟೋಕನ್‌ಗಳ ಮೂಲಕ ವೇಗವಾಗಿ ಕಂಡುಹಿಡಿಯಬಹುದು.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "ಪ್ರಮುಖ: Linkumori <code>indexPattern</code> ಕೇವಲ ಲುಕಪ್ ಸುಳಿವು. ಒದಗಿಸುವವರು ಅನ್ವಯಿಸುತ್ತಾರೆಯೇ ಎಂಬುದನ್ನು ಇದು ನಿರ್ಧರಿಸುವುದಿಲ್ಲ.",
+    "message": "ಪ್ರಮುಖ: <code>indexPattern</code> ಪೂರೈಕೆದಾರರು ಹೊಂದಿಕೆಯಾಗುತ್ತದೆಯೇ ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸುವುದಿಲ್ಲ. ಅಭ್ಯರ್ಥಿಯ ಹುಡುಕಾಟದ ನಂತರ, <code>clearurls.js</code> ಇನ್ನೂ <code>provider.matchRequestURL()</code> ನಲ್ಲಿ ನಿಜವಾದ <code>urlPattern</code> ಅನ್ನು ಪರೀಕ್ಷಿಸುತ್ತದೆ.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> ಅಪ್‌ಸ್ಟ್ರೀಮ್ ClearURLs ಸಿಂಟ್ಯಾಕ್ಸ್ ಆಗಿದೆ. <code>indexPattern</code> ಎಂಬುದು ನಿಮಗೆ ರೀಜೆಕ್ಸ್ URL ಹೊಂದಾಣಿಕೆಯ ಅಗತ್ಯವಿರುವಾಗ ವೇಗವಾಗಿ ಹುಡುಕುವುದಕ್ಕಾಗಿ Linkumori ಸೇರ್ಪಡೆಯಾಗಿದೆ.",
+    "message": "<code>urlPattern</code> ಅಪ್‌ಸ್ಟ್ರೀಮ್ ClearURL ಗಳ ಸಿಂಟ್ಯಾಕ್ಸ್ ಆಗಿದೆ. <code>indexPattern</code> ರಿಜೆಕ್ಸ್ URL ಪೂರೈಕೆದಾರರಿಗೆ ಲಿಂಕ್ಮೋರಿ ಲುಕಪ್ ಸುಳಿವು; ಇದು ರೆಜೆಕ್ಸ್ ಹೊಂದಿಕೆಯಾಗಬಹುದಾದ ಹೋಸ್ಟ್ ಹೆಸರುಗಳನ್ನು ಸೂಚಿಸಬೇಕು.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> ಐಚ್ಛಿಕವಾಗಿದೆ, ಆದರೆ ವೇಗಕ್ಕೆ ಉಪಯುಕ್ತವಾಗಿದೆ.",
+    "message": "<code>indexPattern</code> ಐಚ್ಛಿಕ, ಆದರೆ ವೇಗಕ್ಕೆ ಉಪಯುಕ್ತವಾಗಿದೆ. ಇದು ಪೂರೈಕೆದಾರರನ್ನು ಹೋಸ್ಟ್‌ಹೆಸರು-ಟೋಕನ್ ಅಭ್ಯರ್ಥಿ ಬಕೆಟ್‌ಗಳಾಗಿ ಸೂಚಿಕೆ ಮಾಡುತ್ತದೆ; ಇದು ಅಂತಿಮ <code>urlPattern</code> ಪಂದ್ಯವನ್ನು ಎಂದಿಗೂ ಬದಲಿಸುವುದಿಲ್ಲ.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "ಸಂಯೋಜನೆ 5: <code>domainPatterns</code> ಮತ್ತು <code>urlPattern</code> ಒಟ್ಟಿಗೆ",
+    "message": "ಸಂಯೋಜನೆ 5: ಸಂಯೋಜಿತ ಅವಶ್ಯಕತೆಯಂತೆ <code>domainPatterns</code> ಮತ್ತು <code>urlPattern</code> ಅನ್ನು ಮಿಶ್ರಣ ಮಾಡಬೇಡಿ",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "ಈ Linkumori ಮಿಶ್ರಿತ ಹೊಂದಾಣಿಕೆಯ ಆಕಾರವು ಮಾನ್ಯವಾಗಿದೆ JSON:",
+    "message": "ಈ ಆಕಾರವು ಹಳೆಯ ಅಥವಾ ಕೈಬರಹದ ಡೇಟಾದಲ್ಲಿ ಕಾಣಿಸಬಹುದು, ಆದರೆ ಎರಡೂ ಹೊಂದಾಣಿಕೆದಾರರು ಉತ್ತೀರ್ಣರಾಗಬೇಕೆಂದು ಇದರ ಅರ್ಥವಲ್ಲ:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "ಪ್ರಮುಖ ನಡವಳಿಕೆ:",
+    "message": "ಪ್ರಸ್ತುತ <code>clearurls.js</code> ನಡವಳಿಕೆ:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "ಆದ್ದರಿಂದ ಎರಡೂ ಅಗತ್ಯವಿದೆ ಎಂದು ನೀವು ನಿರೀಕ್ಷಿಸಿದಾಗ ಎರಡನ್ನೂ ಬಳಸಬೇಡಿ. ನಿಮಗೆ ಮಾರ್ಗದ ಸ್ಥಿತಿಯ ಅಗತ್ಯವಿದ್ದರೆ, <code>indexPattern</code> ಜೊತೆಗೆ <code>urlPattern</code> ಅನ್ನು ಬಳಸಿ ಅಥವಾ <code>rules</code> ಒಳಗೆ ಸ್ಕೋಪ್ಡ್ <code>$removeparam</code>/ನಿಯಮ ಮಾದರಿಯನ್ನು ಹಾಕಿ.",
+    "message": "<code>domainPatterns</code> ಇದ್ದರೆ ಮತ್ತು ಖಾಲಿಯಾಗಿಲ್ಲದಿದ್ದರೆ, <code>clearurls.js</code> ಅದನ್ನು ಒದಗಿಸುವವರ ಹೊಂದಾಣಿಕೆಗಾಗಿ ಬಳಸುತ್ತದೆ ಮತ್ತು ಆ ಪೂರೈಕೆದಾರರಿಗೆ <code>urlPattern</code> ಅನ್ನು ನಿರ್ಲಕ್ಷಿಸುತ್ತದೆ. ಕಸ್ಟಮ್ ಎಡಿಟರ್/ಆಮದು ಮಾರ್ಗವು ಎರಡನ್ನೂ ಒಳಗೊಂಡಿರುವ ಪೂರೈಕೆದಾರರನ್ನು ತಿರಸ್ಕರಿಸುತ್ತದೆ. ನಿಮಗೆ ಮಾರ್ಗದ ಸ್ಥಿತಿಯ ಅಗತ್ಯವಿದ್ದರೆ, <code>indexPattern</code> ಜೊತೆಗೆ <code>urlPattern</code> ಬಳಸಿ, ಅಥವಾ <code>rules</code> ಒಳಗೆ ವೈಯಕ್ತಿಕ <code>$removeparam</code>/ನಿಯಮ ನಮೂದುಗಳನ್ನು ಸ್ಕೋಪ್ ಮಾಡಿ.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon ಪರಂಪರೆ ಮತ್ತು ClearURLs ಕೋರ್ v2 ಕ್ಯಾನೊನಿಕಲ್ — <code>urlPattern</code> ಮಾತ್ರ:",
+    "message": "ClearURLs addon legacy ಮತ್ತು ClearURLs core v2 canonical — <code>urlPattern</code> ಮಾತ್ರ. <code>indexPattern</code> ಇಲ್ಲದೆ, ವಿಶಾಲವಾದ ರಿಜೆಕ್ಸ್ ಪೂರೈಕೆದಾರರು ಜಾಗತಿಕ ಅಭ್ಯರ್ಥಿ ಪರಿಶೀಲನೆಗಳಿಗೆ ಹಿಂತಿರುಗಬಹುದು:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori ಸೇರ್ಪಡೆ — <code>urlPattern</code> ಜೊತೆಗೆ <code>indexPattern</code>:",
+    "message": "Linkumori ಸೇರ್ಪಡೆ — <code>indexPattern</code> ಜೊತೆಗೆ <code>urlPattern</code>. ಸೂಚ್ಯಂಕ ಮಾದರಿಯು ಲುಕಪ್ ಸುಳಿವು, ಆದರೆ <code>urlPattern</code> ಅಂತಿಮ ಹೊಂದಾಣಿಕೆಯಾಗಿ ಉಳಿದಿದೆ:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori ಸೇರ್ಪಡೆ — ಬಹು <code>indexPattern</code> ಸುಳಿವುಗಳು:",
+    "message": "Linkumori ಸೇರ್ಪಡೆ — ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚು ಹೋಸ್ಟ್‌ಹೆಸರುಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗುವ URL ರಿಜೆಕ್ಸ್‌ಗಾಗಿ ಬಹು <code>indexPattern</code> ಸುಳಿವುಗಳು:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori ಸೇರ್ಪಡೆ — <code>domainPatterns</code> ಮಾತ್ರ:",
+    "message": "Linkumori ಸೇರ್ಪಡೆ — <code>domainPatterns</code> ಮಾತ್ರ. ಪೂರೈಕೆದಾರರ ಹೊಂದಾಣಿಕೆ ಮತ್ತು ಲುಕಪ್-ಟೋಕನ್ ಹೊರತೆಗೆಯುವಿಕೆಗಾಗಿ ಇವುಗಳನ್ನು ನೇರವಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori ಸೇರ್ಪಡೆ — <code>domainPatterns</code> ಮತ್ತು <code>urlPattern</code> ಎರಡೂ:",
+    "message": "ಲೆಗಸಿ/ಮಿಶ್ರ ಡೇಟಾ <code>domainPatterns</code> ಮತ್ತು <code>urlPattern</code> ಎರಡನ್ನೂ ಒಳಗೊಂಡಿರಬಹುದು, ಆದರೆ ಹೊಸ ಪೂರೈಕೆದಾರರನ್ನು ಈ ರೀತಿ ಬರೆಯಬೇಡಿ:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "ನಡವಳಿಕೆ:",
+    "message": "ನಡವಳಿಕೆ: ಖಾಲಿ ಅಲ್ಲದ <code>domainPatterns</code> ಗೆಲುವು. <code>domainPatterns</code> ಕಾಣೆಯಾದಾಗ ಅಥವಾ ಖಾಲಿಯಾದಾಗ ಮಾತ್ರ <code>urlPattern</code> ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ಕಸ್ಟಮ್ ಎಡಿಟರ್/ಆಮದು ಮಾರ್ಗ ಎರಡನ್ನೂ ಒಟ್ಟಿಗೆ ಅಮಾನ್ಯವೆಂದು ಪರಿಗಣಿಸುತ್ತದೆ.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js ನಡವಳಿಕೆ: ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್‌ಗಳು ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ ಮತ್ತು ಖಾಲಿಯಾಗಿಲ್ಲದಿದ್ದರೆ, ಪೂರೈಕೆದಾರರ ಹೊಂದಾಣಿಕೆಗಾಗಿ Linkumori ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ. ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್ ಕಾಣೆಯಾದಾಗ ಅಥವಾ ಖಾಲಿಯಾದಾಗ ಮಾತ್ರ urlPattern ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ಕಸ್ಟಮ್ ಎಡಿಟರ್/ಆಮದು ಮಾರ್ಗವು ಈ ಮಿಶ್ರ ಹೊಂದಾಣಿಕೆಯ ಆಕಾರವನ್ನು ತಿರಸ್ಕರಿಸುತ್ತದೆ, ಆದ್ದರಿಂದ ಪರಂಪರೆ ಡೇಟಾವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಮಾತ್ರ ಇದನ್ನು ಬಳಸಿ.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns ಅದು ಇರುವಾಗ ಮತ್ತು ಖಾಲಿ ಇಲ್ಲದಿದ್ದಾಗ ಹೊಂದಾಣಿಕೆಗಾಗಿ ಗೆಲ್ಲುತ್ತದೆ. ಡೊಮೇನ್ ಪ್ಯಾಟರ್ನ್ ಕಾಣೆಯಾದಾಗ ಅಥವಾ ಖಾಲಿಯಾದಾಗ ಮಾತ್ರ urlPattern ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ಕಸ್ಟಮ್ ಎಡಿಟರ್/ಆಮದು ಮಾರ್ಗವು ಎರಡೂ ಹೊಂದಾಣಿಕೆಯ ಕುಟುಂಬಗಳನ್ನು ಒಳಗೊಂಡಿರುವ ಪೂರೈಕೆದಾರರನ್ನು ತಿರಸ್ಕರಿಸುತ್ತದೆ.",
     "description": "Guide page text."
   },
   "guide_0735": {

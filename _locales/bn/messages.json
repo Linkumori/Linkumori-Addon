@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "ডোমেন প্যাটার্নগুলি সহজ টোকেন এবং অ্যাডব্লক-স্টাইল ফর্মগুলিকে সমর্থন করে । ম্যাচিং আচরণ সিনট্যাক্সের উপর নির্ভর করে (কিছু ফর্ম হোস্টনাম চেক করে, অন্যরা সম্পূর্ণ URL স্ট্রিংয়ের সাথে মেলে):",
+    "message": "ডোমেন প্যাটার্ন সহজ টোকেন এবং অ্যাডব্লক-স্টাইল ফর্ম সমর্থন করে। যখন ডোমেনপ্যাটার্নগুলি খালি থাকে না, তখন clearurls.js এগুলিকে কোনও urlPattern ফলব্যাকের আগে প্রদানকারীর মিল এবং লুকআপ-টোকেন নিষ্কাশনের জন্য ব্যবহার করে:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "উভয় ক্ষেত্র ডেটাতে উপস্থিত থাকতে পারে, তবে urlPattern অগ্রাধিকার পায় । ডোমেন প্যাটার্নগুলি কেবল তখনই ব্যবহৃত হয় যখন urlPattern খালি থাকে । রেজিস্ট্রেবল ডোমেন হ্যান্ডলিং এবং মাল্টি-পার্ট টিএলডি সমর্থন সহ ডোমেন ম্যাচিং পিএসএল-সচেতন ।",
+    "message": "লেখক কাস্টম প্রদানকারীদের জন্য, ডোমেন প্যাটার্ন বা urlPattern বেছে নিন। clearurls.js রানটাইম ডেটাতে, অ-খালি ডোমেইনপ্যাটার্ন জয়ী হয় এবং urlPattern শুধুমাত্র তখনই ব্যবহার করা হয় যখন ডোমেইন প্যাটার্ন অনুপস্থিত বা খালি থাকে। রেজিস্ট্রেবল-ডোমেন হ্যান্ডলিং এবং মাল্টি-পার্ট টিএলডি সমর্থন সহ সমর্থিত অ্যাডব্লক-স্টাইল ফর্মগুলির জন্য ডোমেন ম্যাচিং পিএসএল-সচেতন।",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "প্রদানকারীরা লজিক্যাল ইউনিট যা একই URL প্যাটার্নের অধীনে একাধিক নিয়মকে গ্রুপ করে । প্রতিটি প্রদানকারী একটি নির্দিষ্ট ওয়েবসাইট বা পরিষেবা লক্ষ্য করে এবং সেই উত্স থেকে URLগুলি পরিষ্কার করার জন্য প্রয়োজনীয় সমস্ত নিয়ম রয়েছে ।",
+    "message": "প্রোভাইডারদের নাম দেওয়া হয় কন্টেইনার যা গ্রুপ ম্যাচার ফিল্ড এবং ইউআরএল-ক্লিনিং নিয়ম। প্রার্থী লুকআপ ডোমেইনপ্যাটার্ন বা ইনডেক্সপ্যাটার্ন থেকে হোস্টনাম টোকেন ব্যবহার করে; প্রদানকারীর নাম শুধুমাত্র একটি লেবেল/কী এবং একটি অনুরোধ মেলে কিনা তা নির্ধারণ করে না।",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "UrlPattern একটি নিয়মিত অভিব্যক্তি যা অবশ্যই প্রদানকারীর নিয়ম দ্বারা প্রভাবিত হওয়া প্রতিটি URL এর সাথে মিলতে হবে । এটি এই প্রদানকারীর কোন ওয়েবসাইটগুলি পরিচালনা করা উচিত তা নির্ধারণ করে ।",
+    "message": "urlPattern হল একটি রেগুলার এক্সপ্রেশন যা সম্পূর্ণ অনুরোধ URL-এর বিরুদ্ধে পরীক্ষা করা হয় যখন প্রদানকারীর কাছে খালি ডোমেনপ্যাটার্ন না থাকে। আপনি যদি urlPattern ব্যবহার করেন, সম্ভব হলে indexPattern যোগ করুন যাতে clearurls.js রেজেক্স পরীক্ষা করার আগে হোস্টনাম টোকেন দ্বারা প্রদানকারীকে খুঁজে পেতে পারে।",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern হল একটি ডোমেন প্যাটার্ন (যেমন, ||example.com^) যা ইন্ডেক্সিং সিস্টেমের জন্য একটি ইঙ্গিত হিসাবে কাজ করে। যেহেতু urlPattern-এ রেগুলার এক্সপ্রেশনগুলি হোস্টনামের জন্য পার্স করা কঠিন, তাই indexPattern অপ্টিমাইজেশনের জন্য একটি সুস্পষ্ট লক্ষ্য প্রদান করে। এটি নিশ্চিত করে যে প্রদানকারী সঠিকভাবে এবং দক্ষতার সাথে সূচিত হয়েছে।",
+    "message": "indexPattern হল একটি প্রোভাইডার লুকআপ ইঙ্গিত, ম্যাচ কন্ডিশন নয়। clearurls.js indexPattern থেকে হোস্টনেম টোকেন বের করে একটি urlPattern প্রোভাইডারকে প্রোভাইডারবাইটোকেন ক্যান্ডিডেট বালতিতে রাখতে। প্রদানকারী এখনও মেলে যদি provider.matchRequestURL() আসল urlPattern পাস করে এবং ব্যতিক্রমগুলি মেলে না।",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "খোলা হবে যে URL পর্যালোচনা করুন. এই ইউআরএলে আপনার দেওয়া তথ্য রয়েছে এবং আপনাকে গিটহাবে রিডাইরেক্ট করবে।",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "গোপনীয়তা নীতি বিজ্ঞপ্তি",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori আপনার ব্রাউজারে স্থানীয়ভাবে এই URL তৈরি করে। এই URL তৈরি করার সময় Linkumori সরাসরি আপনার বা আপনার ব্রাউজার থেকে GitHub বা অন্য কোনো সার্ভারে ডেটা স্থানান্তর করে না।",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "আপনি যদি \"GitHub খুলুন\" নির্বাচন করেন, তাহলে আপনি আপনার ব্রাউজারকে প্রদর্শিত URL খুলতে দিতে চান৷ সেই ব্রাউজার নেভিগেশন ইউআরএল এবং এর ক্যোয়ারী প্যারামিটার গিটহাবে পাঠাতে পারে।",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "ইস্যু তৈরির জন্য, ইউআরএলে সমস্যার ধরন, নির্বাচিত ইস্যু ইউআরএল, পরিষ্কার করা ইউআরএল, NSFW মার্কার, মন্তব্য এবং নির্বাচিত কনফিগারেশন বিভাগ থাকতে পারে।",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "ইস্যু সার্চের জন্য, ইউআরএলে নির্বাচিত হোস্টনাম, ডোমেন, ইস্যু টাইপ এবং NSFW সার্চ টার্ম নির্বাচন করা থাকলে অন্তর্ভুক্ত থাকতে পারে।",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori GitHub সমর্থন করে না। GitHub আপনার স্থানীয় গোপনীয়তা, ডেটা সুরক্ষা, বা অন্যান্য প্রযোজ্য আইন মেনে চলছে কিনা তা Linkumori জানে না, যাচাই করে বা গ্যারান্টি দেয় না।",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "চালিয়ে যাওয়ার আগে সম্পূর্ণ URL পর্যালোচনা করুন। আপনি যদি আপনার ব্রাউজারটি GitHub খুলতে না চান তবে বাতিল করুন।",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL খুলতে হবে (প্রযুক্তিগত বিন্যাস):",
@@ -4981,6 +5009,10 @@
     "message": "এটি JavaScript কোডের নির্দেশিকা নয়। এটি শুধুমাত্র JSON আকার, নিয়ম বিন্যাস এবং নিয়ম লেখকদের প্রয়োজন এমন উদাহরণগুলিতে ফোকাস করে।",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "এই নির্দেশিকা বর্তমান <code>clearurls.js</code> রানটাইম আচরণের উপর ভিত্তি করে। বিশেষ করে, প্রোভাইডার লুকআপ <code>domainPatterns</code> বা <code>indexPattern</code> থেকে <code>providersByToken</code> প্রার্থীর বালতি ব্যবহার করে এবং চূড়ান্ত মিল এখনও <code>provider.matchRequestURL()</code> এর মাধ্যমে চলে।",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "অধ্যায় 1: মৌলিক JSON আকৃতি",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "একটি প্রদানকারী হল একটি ওয়েবসাইট, কোম্পানি, ট্র্যাকার বা URL প্যাটার্নের জন্য নিয়মগুলির একটি গ্রুপ৷",
+    "message": "একটি প্রদানকারী হল একটি ওয়েবসাইট, কোম্পানি, ট্র্যাকার, ডোমেন প্যাটার্ন সেট বা URL regex-এর জন্য রানটাইম কন্টেইনার। প্রদানকারীর নাম একটি লেবেল/কী; ম্যাচিং <code>domainPatterns</code> বা <code>urlPattern</code> দ্বারা করা হয়, প্রদানকারীর নামে নয়।",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "সম্পূর্ণ প্রদানকারী টেমপ্লেট:",
+    "message": "<code>clearurls.js</code> দ্বারা গৃহীত প্রদানকারী ক্ষেত্র। মিলের জন্য, লেখক <code>domainPatterns</code> বা <code>urlPattern</code> ঐচ্ছিক <code>indexPattern</code> সহ; একসাথে প্রয়োজন উভয় উপর নির্ভর করবেন না.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> হল একটি Linkumori সংযোজন৷ বেশিরভাগ Linkumori JSON প্রদানকারীর জন্য এটি ব্যবহার করুন কারণ সম্পূর্ণ <code>urlPattern</code> রেজেক্সের চেয়ে এটি লেখা সহজ।",
+    "message": "<code>domainPatterns</code> হল একটি Linkumori সংযোজন এবং বেশিরভাগ কাস্টম প্রদানকারীদের জন্য এটি পছন্দের৷ <code>clearurls.js</code>-এ, অ-খালি <code>domainPatterns</code> ব্যবহার করা হয় <code>urlPattern</code>-এর আগে ম্যাচ করার জন্য।",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "<code>urlPattern</code> শুধুমাত্র তখনই ব্যবহার করুন যখন ডোমেইন ম্যাচিং যথেষ্ট নয়।",
+    "message": "<code>urlPattern</code> শুধুমাত্র তখনই ব্যবহার করুন যখন ডোমেন ম্যাচিং যথেষ্ট না হয়, যেমন যখন প্রদানকারীকে একটি নির্দিষ্ট পাথ বা সম্পূর্ণ URL regex এর সাথে মেলে।",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> হল ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল সিনট্যাক্স। Linkumori একটি ঐচ্ছিক লুকআপ ইঙ্গিত হিসাবে <code>indexPattern</code> যোগ করে যাতে ইঞ্জিন দ্রুত রেজেক্স প্রদানকারীদের খুঁজে পেতে পারে।",
+    "message": "<code>urlPattern</code> হল ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল সিনট্যাক্স। Linkumori <code>indexPattern</code> শুধুমাত্র প্রার্থীর সন্ধানের ইঙ্গিত হিসাবে যোগ করে যাতে regex প্রদানকারীদের হোস্টনাম টোকেন দ্বারা দ্রুত খুঁজে পাওয়া যায়।",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "গুরুত্বপূর্ণ: Linkumori <code>indexPattern</code> শুধুমাত্র একটি লুকআপ ইঙ্গিত৷ প্রদানকারী প্রযোজ্য কিনা তা নির্ধারণ করে না।",
+    "message": "গুরুত্বপূর্ণ: <code>indexPattern</code> কোন প্রদানকারীর সাথে মিলছে কিনা তা নির্ধারণ করে না। প্রার্থীর সন্ধানের পরে, <code>clearurls.js</code> এখনও <code>provider.matchRequestURL()</code>-এ আসল <code>urlPattern</code> পরীক্ষা করে।",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> হল আপস্ট্রিম ClearURLs সিনট্যাক্স। <code>indexPattern</code> হল একটি Linkumori সংযোজন যাতে আপনার regex URL ম্যাচিং প্রয়োজন হয়।",
+    "message": "<code>urlPattern</code> হল আপস্ট্রিম ClearURLs সিনট্যাক্স। <code>indexPattern</code> হল regex URL প্রদানকারীদের জন্য একটি Linkumori লুকআপ ইঙ্গিত; এটি রেজেক্সের সাথে মেলে এমন হোস্টনামের দিকে নির্দেশ করা উচিত।",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> ঐচ্ছিক, কিন্তু গতির জন্য দরকারী।",
+    "message": "<code>indexPattern</code> ঐচ্ছিক, কিন্তু গতির জন্য দরকারী। এটি হোস্টনাম-টোকেন প্রার্থী বালতিতে প্রদানকারীকে সূচী করে; এটি কখনই চূড়ান্ত <code>urlPattern</code> ম্যাচ প্রতিস্থাপন করে না।",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "সমন্বয় 5: <code>domainPatterns</code> এবং <code>urlPattern</code> একসাথে",
+    "message": "সমন্বয় 5: একটি সম্মিলিত প্রয়োজন হিসাবে <code>domainPatterns</code> এবং <code>urlPattern</code> মিশ্রিত করবেন না",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "এই Linkumori মিক্সড ম্যাচার আকৃতিটি বৈধ JSON:",
+    "message": "এই আকৃতিটি পুরানো বা হাতে লিখিত ডেটাতে প্রদর্শিত হতে পারে, তবে এর অর্থ এই নয় যে উভয় মিলকে অবশ্যই পাস করতে হবে:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "গুরুত্বপূর্ণ আচরণ:",
+    "message": "বর্তমান <code>clearurls.js</code> আচরণ:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "সুতরাং যখন আপনি উভয়ের প্রয়োজন হবে বলে আশা করেন তখন উভয়ই ব্যবহার করবেন না। আপনার যদি একটি পথের অবস্থার প্রয়োজন হয়, <code>indexPattern</code> এর সাথে <code>indexPattern</code> ব্যবহার করুন, অথবা <code>rules</code> এর ভিতরে একটি স্কোপড <code>$removeparam</code>/রুল প্যাটার্ন রাখুন।",
+    "message": "যদি <code>domainPatterns</code> উপস্থিত থাকে এবং খালি না থাকে, তাহলে <code>clearurls.js</code> প্রদানকারীর মিলের জন্য এটি ব্যবহার করে এবং সেই প্রদানকারীর জন্য <code>urlPattern</code> উপেক্ষা করে। কাস্টম এডিটর/আমদানি পথ উভয়ই ধারণকারী প্রদানকারীদের প্রত্যাখ্যান করে। আপনার যদি পাথের অবস্থার প্রয়োজন হয়, তাহলে <code>indexPattern</code>-এর সাথে <code>urlPattern</code> ব্যবহার করুন, অথবা <code>rules</code>-এর ভিতরে পৃথক <code>$removeparam</code>/নিয়ম এন্ট্রি স্কোপ করুন।",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল — <code>urlPattern</code> শুধুমাত্র:",
+    "message": "ClearURLs অ্যাডন লিগ্যাসি এবং ClearURLs কোর v2 ক্যানোনিকাল — শুধুমাত্র <code>urlPattern</code>। <code>indexPattern</code> ছাড়া, বিস্তৃত রেজেক্স প্রদানকারী বিশ্বব্যাপী প্রার্থী পরীক্ষায় ফিরে আসতে পারে:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori যোগ করুন — <code>urlPattern</code> সহ <code>indexPattern</code>:",
+    "message": "Linkumori সংযোজন — <code>indexPattern</code> এর সাথে <code>urlPattern</code>। ইনডেক্স প্যাটার্ন হল একটি লুকআপ ইঙ্গিত, যখন <code>urlPattern</code> ফাইনাল ম্যাচার থাকে:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori সংযোজন — একাধিক <code>indexPattern</code> ইঙ্গিত:",
+    "message": "Linkumori সংযোজন — একটি URL regex এর জন্য একাধিক <code>indexPattern</code> ইঙ্গিত যা একাধিক হোস্টনামের সাথে মেলে:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori সংযোজন — <code>domainPatterns</code> শুধুমাত্র:",
+    "message": "Linkumori সংযোজন — শুধুমাত্র <code>domainPatterns</code>। এগুলি সরাসরি প্রদানকারীর মিল এবং লুকআপ-টোকেন নিষ্কাশনের জন্য ব্যবহৃত হয়:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori সংযোজন — <code>domainPatterns</code> এবং <code>urlPattern</code> উভয়ই:",
+    "message": "লিগ্যাসি/মিশ্র ডেটাতে <code>domainPatterns</code> এবং <code>urlPattern</code> উভয়ই থাকতে পারে, কিন্তু নতুন প্রদানকারীকে এভাবে লিখবেন না:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "আচরণ:",
+    "message": "আচরণ: অ-খালি <code>domainPatterns</code> জয়। <code>urlPattern</code> শুধুমাত্র তখনই ব্যবহার করা হয় যখন <code>domainPatterns</code> অনুপস্থিত বা খালি থাকে। কাস্টম এডিটর/আমদানি পাথ উভয়কেই অবৈধ হিসেবে বিবেচনা করে।",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js আচরণ: যদি ডোমেনপ্যাটার্ন বিদ্যমান থাকে এবং খালি না থাকে, লিঙ্কুমোরি প্রদানকারীর মিলের জন্য ডোমেনপ্যাটার্ন ব্যবহার করে। urlPattern শুধুমাত্র তখনই ব্যবহৃত হয় যখন domainPatterns অনুপস্থিত বা খালি থাকে। কাস্টম সম্পাদক/আমদানি পথ এই মিশ্র ম্যাচার আকৃতি প্রত্যাখ্যান করে, তাই এটি শুধুমাত্র উত্তরাধিকার ডেটা বোঝার জন্য ব্যবহার করুন।",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "ডোমেইনপ্যাটার্ন যখন উপস্থিত থাকে এবং খালি থাকে তখন ম্যাচিং এর জন্য জয়ী হয়। urlPattern শুধুমাত্র তখনই ব্যবহৃত হয় যখন domainPatterns অনুপস্থিত বা খালি থাকে। কাস্টম এডিটর/আমদানি পথ উভয় ম্যাচার ফ্যামিলি ধারণকারী প্রদানকারীদের প্রত্যাখ্যান করে।",
     "description": "Guide page text."
   },
   "guide_0735": {

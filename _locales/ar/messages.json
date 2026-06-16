@@ -638,8 +638,8 @@
     "description": "سؤال في الأسئلة الشائعة حول أنماط النطاق مقابل أنماط URL"
   },
   "faq_domain_patterns_explanation": {
-    "message": "تدعم أنماط النطاق الرموز البسيطة وأشكال نمط AdBlock. يعتمد سلوك المطابقة على بناء الجملة (بعض الأشكال تتحقق من اسم المضيف، والبعض الآخر يطابق سلسلة URL الكاملة):",
-    "description": "شرح في الأسئلة الشائعة لأنماط النطاق"
+    "message": "تدعم أنماط المجال الرموز البسيطة والنماذج ذات نمط AdBlock. عندما يكون domainPatterns غير فارغ، يستخدمه Clearurls.js لمطابقة الموفر واستخراج رمز البحث المميز قبل أي بديل urlPattern:",
+    "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
     "message": "ما هي عمليات إعادة توجيه النطاق (Domain Redirections)؟",
@@ -786,8 +786,8 @@
     "description": "تسمية للملاحظات الهامة في الأسئلة الشائعة"
   },
   "faq_pattern_exclusive_note": {
-    "message": "يمكن أن يكون كلا الحقلين موجودين في البيانات، لكن urlPattern له الأولوية. تُستخدم أنماط النطاق فقط عندما يكون urlPattern فارغًا. مطابقة النطاق مدركة لـ PSL، بما في ذلك معالجة النطاق القابل للتسجيل ودعم TLD متعدد الأجزاء.",
-    "description": "ملاحظة في الأسئلة الشائعة حول حصرية النمط"
+    "message": "بالنسبة للموفرين المخصصين المعتمدين، اختر إما domainPatterns أو urlPattern. في بيانات وقت تشغيل Clearurls.js، يفوز domainPatterns غير الفارغ ويتم استخدام urlPattern فقط عندما يكون domainPatterns مفقودًا أو فارغًا. تتوافق مطابقة النطاق مع PSL للنماذج المدعومة بنمط AdBlock، بما في ذلك معالجة النطاق القابل للتسجيل ودعم TLD متعدد الأجزاء.",
+    "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
     "message": "دمج عدة أنماط متشابهة في regex واحد",
@@ -850,8 +850,8 @@
     "description": "نصيحة في الأسئلة الشائعة حول قائمة المزودين"
   },
   "faq_providers_explanation": {
-    "message": "المزودون هم وحدات منطقية تجمع قواعد متعددة تحت نفس نمط URL. يستهدف كل مزود موقع ويب أو خدمة معينة ويحتوي على جميع القواعد اللازمة لتنظيف عناوين URL من هذا المصدر.",
-    "description": "إجابة في الأسئلة الشائعة تشرح المزودين"
+    "message": "يتم تسمية الموفرين بالحاويات التي تجمع الحقول المتطابقة وقواعد تنظيف عنوان URL. يستخدم البحث عن المرشح الرموز المميزة لاسم المضيف من domainPatterns أو IndexPattern؛ اسم الموفر هو مجرد تسمية/مفتاح ولا يقرر ما إذا كان الطلب مطابقًا أم لا.",
+    "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
     "message": "تطبق كائنات القاعدة الأساسية الأساسية أنماط التعبير العادي على URL بالكامل. يُستخدم للأنماط المعقدة التي لا تتناسب مع تنسيق المعلمة القياسي.",
@@ -1058,8 +1058,8 @@
     "description": "سؤال في الأسئلة الشائعة حول urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern هو تعبير منتظم يجب أن يطابق كل عنوان URL يجب أن يتأثر بقواعد المزود. يحدد مواقع الويب التي يجب أن يتعامل معها هذا المزود.",
-    "description": "إجابة في الأسئلة الشائعة تشرح urlPattern"
+    "message": "urlPattern هو تعبير عادي تم اختباره مقابل عنوان URL الكامل للطلب عندما لا يكون لدى الموفر domainPatterns غير فارغ. إذا كنت تستخدم urlPattern، فأضف IndexPattern عندما يكون ذلك ممكنًا حتى يتمكن Clearurls.js من العثور على الموفر من خلال الرموز المميزة لاسم المضيف قبل اختبار التعبير العادي.",
+    "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
     "message": "الهيكل النموذجي يغطي: البروتوكول + النطاق الفرعي + النطاق + TLD + الدلائل + المعلمات",
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "إن نمط الفهرس هو نمط مجال (على سبيل المثال، ||example.com^) يعمل بمثابة تلميح لنظام الفهرسة. نظرًا لصعوبة تحليل التعبيرات العادية في urlPattern لأسماء المضيفين، يوفر مؤشر IndexPattern هدفًا واضحًا للتحسين. فهو يضمن فهرسة الموفر بشكل صحيح وفعال.",
+    "message": "إن IndexPattern هو تلميح بحث عن الموفر، وليس شرط مطابقة. يقوم Clearurls.js باستخراج الرموز المميزة لاسم المضيف من IndexPattern لوضع موفر urlPattern في مجموعات مرشح ProvidersByToken. يظل الموفر مطابقًا فقط إذا قام Provider.matchRequestURL() بتمرير urlPattern الحقيقي والاستثناءات غير متطابقة.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "يرجى مراجعة عنوان URL الذي سيتم فتحه. يحتوي عنوان URL هذا على المعلومات التي أدخلتها وسيعيد توجيهك إلى GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "إشعار سياسة الخصوصية",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "يقوم Linkumori بإنشاء عنوان URL هذا محليًا في متصفحك. لا يقوم Linkumori بنقل البيانات مباشرة منك أو من متصفحك إلى GitHub أو إلى أي خادم آخر أثناء إنشاء عنوان URL هذا.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "إذا اخترت \"فتح GitHub\"، فأنت تختار السماح للمتصفح الخاص بك بفتح عنوان URL المعروض. قد يرسل التنقل في المتصفح عنوان URL ومعلمات الاستعلام الخاصة به إلى GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "لإنشاء المشكلة، قد يتضمن عنوان URL نوع المشكلة، وعنوان URL للمشكلة المحددة، وعنوان URL الذي تم تنظيفه، وعلامة NSFW، والتعليقات، وأقسام التكوين المحددة.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "بالنسبة للبحث عن المشكلات، قد يتضمن عنوان URL اسم المضيف المحدد والنطاق ونوع المشكلة ومصطلح بحث NSFW إذا تم تحديده.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori لا يؤيد GitHub. لا يعرف Linkumori أو يتحقق أو يضمن ما إذا كان GitHub يلتزم بالخصوصية المحلية أو حماية البيانات أو القوانين الأخرى المعمول بها.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "قم بمراجعة عنوان URL الكامل قبل المتابعة. قم بالإلغاء إذا كنت لا تريد أن يفتح متصفحك GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "عنوان URL الذي سيتم فتحه (التنسيق الفني):",
@@ -4981,6 +5009,10 @@
     "message": "إنه ليس دليلاً لرمز JavaScript. فهو يركز فقط على أشكال JSON وتنسيقات القواعد والأمثلة التي يحتاجها مؤلفو القواعد.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "يعتمد هذا الدليل على سلوك وقت التشغيل <code>clearurls.js</code> الحالي. على وجه الخصوص، يستخدم بحث الموفر مجموعات مرشحة <code>providersByToken</code> من <code>domainPatterns</code> أو <code>indexPattern</code>، ولا تزال المطابقة النهائية تعمل من خلال <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "الفصل الأول: الشكل الأساسي JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "الموفر عبارة عن مجموعة واحدة من القواعد لموقع ويب أو شركة أو متتبع أو نمط URL واحد.",
+    "message": "الموفر عبارة عن حاوية وقت تشغيل واحدة مسماة لموقع ويب واحد، أو شركة، أو متتبع، أو مجموعة أنماط مجال، أو regex لعنوان URL. اسم الموفر هو تسمية/مفتاح؛ تتم المطابقة بواسطة <code>domainPatterns</code> أو <code>urlPattern</code>، وليس بواسطة اسم الموفر.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "قالب الموفر الكامل:",
+    "message": "تم قبول حقول الموفر بواسطة <code>clearurls.js</code>. للمطابقة، قم بتأليف إما <code>domainPatterns</code> أو <code>urlPattern</code> مع <code>indexPattern</code> الاختياري؛ لا تعتمد على كونهما مطلوبين معًا.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> عبارة عن إضافة Linkumori. استخدمه لمعظم موفري Linkumori JSON لأنه أسهل في الكتابة من <code>urlPattern</code> regex الكامل.",
+    "message": "<code>domainPatterns</code> هي إضافة Linkumori وهي مفضلة لدى معظم موفري الخدمة المخصصين. في <code>clearurls.js</code>، يتم استخدام <code>domainPatterns</code> غير الفارغ للمطابقة قبل <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "استخدم <code>urlPattern</code> فقط عندما لا تكون مطابقة النطاق كافية.",
+    "message": "استخدم <code>urlPattern</code> فقط عندما لا تكون مطابقة النطاق كافية، على سبيل المثال عندما يجب على الموفر مطابقة مسار محدد أو التعبير العادي الكامل لعنوان URL.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> هو ClearURLs تراث إضافي وClearURLs بناء الجملة الأساسي v2 الأساسي. يضيف Linkumori <code>indexPattern</code> كتلميح بحث اختياري حتى يتمكن المحرك من العثور على موفري regex بشكل أسرع.",
+    "message": "<code>urlPattern</code> هو ملحق تراث ClearURLs وبناء جملة ClearURLs الأساسي v2 الأساسي. يضيف Linkumori <code>indexPattern</code> فقط كتلميح بحث عن مرشح بحيث يمكن العثور على موفري regex من خلال الرموز المميزة لاسم المضيف بشكل أسرع.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "هام: Linkumori <code>indexPattern</code> هو مجرد تلميح بحث. ولا يقرر ما إذا كان الموفر ينطبق أم لا.",
+    "message": "هام: لا يقرر <code>indexPattern</code> ما إذا كان الموفر مطابقًا أم لا. بعد البحث عن المرشح، لا يزال <code>clearurls.js</code> يختبر <code>urlPattern</code> الحقيقي في <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> هو بناء الجملة ClearURLs. <code>indexPattern</code> عبارة عن إضافة Linkumori للبحث بشكل أسرع عندما تحتاج إلى مطابقة regex URL.",
+    "message": "<code>urlPattern</code> هو بناء جملة ClearURLs الأولي. <code>indexPattern</code> عبارة عن تلميح بحث عن Linkumori لموفري عناوين URL الخاصة بالتعبير العادي؛ يجب أن يشير إلى أسماء المضيفين التي يمكن أن يطابقها التعبير العادي.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> اختياري، ولكنه مفيد للسرعة.",
+    "message": "<code>indexPattern</code> اختياري، ولكنه مفيد للسرعة. يقوم بفهرسة الموفر في مجموعات مرشحة لرمز اسم المضيف؛ فهو لا يحل محل مباراة <code>urlPattern</code> النهائية أبدًا.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "المجموعة 5: <code>domainPatterns</code> و<code>urlPattern</code> معًا",
+    "message": "المجموعة 5: لا تخلط <code>domainPatterns</code> و<code>urlPattern</code> كشرط مشترك",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "هذا الشكل المطابق المختلط Linkumori صالح JSON:",
+    "message": "قد يظهر هذا الشكل في البيانات القديمة أو المكتوبة بخط اليد، لكن هذا لا يعني أنه يجب اجتياز كلا المتطابقين:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "سلوك مهم:",
+    "message": "سلوك <code>clearurls.js</code> الحالي:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "لذلك لا تستخدم كليهما عندما تتوقع أن تكون هناك حاجة إلى كليهما. إذا كنت بحاجة إلى شرط مسار، فاستخدم <code>urlPattern</code> مع <code>indexPattern</code>، أو ضع نمط <code>$removeparam</code>/القاعدة ضمن نطاق <code>rules</code>.",
+    "message": "إذا كان <code>domainPatterns</code> موجودًا وغير فارغ، فإن <code>clearurls.js</code> يستخدمه لمطابقة الموفر ويتجاهل <code>urlPattern</code> لذلك الموفر. يرفض مسار المحرر/الاستيراد المخصص الموفرين الذين يحتويون على كليهما. إذا كنت بحاجة إلى شرط مسار، فاستخدم <code>urlPattern</code> مع <code>indexPattern</code>، أو قم بنطاق إدخالات <code>$removeparam</code>/القاعدة الفردية داخل <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs الملحق القديم وClearURLs الأساسية الإصدار 2 الأساسي - <code>urlPattern</code> فقط:",
+    "message": "ملحق ClearURLs القديم وClearURLs core v2 الأساسي - <code>urlPattern</code> فقط. بدون <code>indexPattern</code>، قد يلجأ موفرو التعبير العادي إلى عمليات التحقق من المرشحين العالمية:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "إضافة Linkumori - <code>urlPattern</code> مع <code>indexPattern</code>:",
+    "message": "إضافة Linkumori — <code>urlPattern</code> مع <code>indexPattern</code>. نمط الفهرس هو تلميح بحث، بينما يظل <code>urlPattern</code> هو المطابق النهائي:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "إضافة Linkumori - تلميحات متعددة <code>indexPattern</code>:",
+    "message": "إضافة Linkumori - تلميحات <code>indexPattern</code> متعددة لتعبير URL العادي الذي يمكن أن يتطابق مع أكثر من اسم مضيف واحد:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "إضافة Linkumori — <code>domainPatterns</code> فقط:",
+    "message": "إضافة Linkumori — <code>domainPatterns</code> فقط. يتم استخدامها مباشرة لمطابقة الموفر واستخراج رمز البحث:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "إضافة Linkumori - كل من <code>domainPatterns</code> و<code>urlPattern</code>:",
+    "message": "قد تحتوي البيانات القديمة/المختلطة على كل من <code>domainPatterns</code> و<code>urlPattern</code>، ولكن لا يتم تأليف موفري خدمات جدد بهذه الطريقة:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "السلوك:",
+    "message": "السلوك: فوز <code>domainPatterns</code> غير فارغ. يتم استخدام <code>urlPattern</code> فقط عندما يكون <code>domainPatterns</code> مفقودًا أو فارغًا. يعامل مسار الاستيراد/المحرر المخصص كليهما معًا على أنهما غير صالحين.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "سلوك Clearurls.js: إذا كان domainPatterns موجودًا ولم يكن فارغًا، فإن Linkumori يستخدم domainPatterns لمطابقة الموفر. يتم استخدام urlPattern فقط عندما يكون domainPatterns مفقودًا أو فارغًا. يرفض مسار المحرر/الاستيراد المخصص هذا الشكل المطابق المختلط، لذا استخدمه فقط لفهم البيانات القديمة.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "يفوز domainPatterns بالمطابقة عندما يكون موجودًا وغير فارغ. يتم استخدام urlPattern فقط عندما يكون domainPatterns مفقودًا أو فارغًا. يرفض مسار المحرر/الاستيراد المخصص الموفرين الذين يحتويون على كلتا العائلتين المطابقتين.",
     "description": "Guide page text."
   },
   "guide_0735": {

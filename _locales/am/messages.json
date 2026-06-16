@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "የጎራ ቅጦች ቀላል ቶከኖች እና የAdBlock አይነት ቅጾችን ይደግፋሉ። የማዛመድ ባህሪ በአገባብ ላይ የተመሰረተ ነው (አንዳንድ ቅጾች የአስተናጋጅ ስምን ያረጋግጣሉ፣ ሌሎች ደግሞ ከሙሉ ዩአርኤል ሕብረቁምፊ ጋር ይዛመዳሉ)",
+    "message": "የጎራ ቅጦች ቀላል ቶከኖች እና የAdBlock አይነት ቅጾችን ይደግፋሉ። domainPatterns ባዶ በማይሆንበት ጊዜ clearurls.js ከማንኛውም የurlPattern ውድቀት በፊት ለአቅራቢዎች ማዛመጃ እና ፍለጋ-ቶከን ማውጣት ይጠቀምባቸዋል፡",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "ሁለቱም መስኮች በውሂብ ውስጥ ሊኖሩ ይችላሉ፣ ነገር ግን urlPattern ቅድሚያ ይሰጣል። የጎራ ቅጦች ጥቅም ላይ የሚውሉት urlPattern ባዶ ሲሆን ብቻ ነው። የጎራ ማዛመድ ፒኤስኤልን የሚያውቅ ነው፣ ሊመዘገብ የሚችል የጎራ አያያዝ እና ባለብዙ ክፍል TLD ድጋፍን ጨምሮ።",
+    "message": "ለደራሲ ብጁ አቅራቢዎች፣ ዶሜይን ፓተርን ወይም urlPatternን ይምረጡ። በ clearurls.js የሩጫ ጊዜ ውሂብ ባዶ ያልሆነ የጎራ ፓተርን ያሸንፋል እና urlPattern የሚጠቀመው domainPatterns ሲጎድል ወይም ባዶ ሲሆን ብቻ ነው። የጎራ ማዛመድ ፒኤስኤልን የሚያውቅ ነው የሚደገፉ የAdBlock አይነት ቅጾች፣ የሚመዘገቡ የጎራ አያያዝ እና ባለብዙ ክፍል TLD ድጋፍን ጨምሮ።",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "አቅራቢዎች በተመሳሳዩ የዩአርኤል ስርዓተ-ጥለት ስር ብዙ ደንቦችን የሚያሰባስቡ ምክንያታዊ ክፍሎች ናቸው። እያንዳንዱ አቅራቢ አንድን የተወሰነ ድር ጣቢያ ወይም አገልግሎት ላይ ያነጣጠረ ሲሆን ዩአርኤሎችን ከዚያ ምንጭ ለማጽዳት የሚያስፈልጉትን ሁሉንም ደንቦች ይዟል።",
+    "message": "አቅራቢዎች የተዛማጅ መስኮችን እና የዩአርኤል ማጽጃ ሕጎችን የሚቧደኑ መያዣዎች ተሰይመዋል። የእጩ ፍለጋ የአስተናጋጅ ስም ቶከኖችን ከ domainPatterns ወይም indexPattern ይጠቀማል። የአቅራቢው ስም መለያ/ቁልፍ ብቻ ነው እና ጥያቄው ይዛመዳል የሚለውን አይወስንም።",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "የ urlPattern መደበኛ አገላለጽ ነው በአገልግሎት አቅራቢው ህጎች ሊነካ ከሚገባው እያንዳንዱ ዩአርኤል ጋር መዛመድ አለበት። ይህ አቅራቢ የትኞቹን ድር ጣቢያዎች ማስተናገድ እንዳለበት ይገልጻል።",
+    "message": "urlPattern አቅራቢው ባዶ ያልሆነ የጎራ ጥለት በሌለው ጊዜ ከሙሉ ጥያቄ ዩአርኤል ጋር የሚሞከር መደበኛ አገላለጽ ነው። urlPattern የሚጠቀሙ ከሆነ፣ ሬጌክስን ከመሞከርዎ በፊት clearurls.js አቅራቢውን በአስተናጋጅ ስም ቶከኖች ማግኘት እንዲችሉ ሲቻል indexPattern ያክሉ።",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -3143,7 +3143,7 @@
     "description": "Error message when trying to add empty domain"
   },
   "whitelist_examples_text": {
-    "message": "ምሳሌዎች፡ <code>example.com</code>፣ <code>*.google.com</code>፣ <code>Subdomain.site.comXXTKNXXXX5",
+    "message": "ምሳሌዎች፡ <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
     "description": "Text before domain format examples"
   },
   "whitelist_export_button": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "የመረጃ ጠቋሚው ስርዓተ-ጥለት (ለምሳሌ ||example.com^) ለጠቋሚ ስርዓቱ ፍንጭ ሆኖ የሚያገለግል ነው። በ urlPattern ውስጥ ያሉ መደበኛ አገላለጾች የአስተናጋጅ ስሞችን ለመተንተን አስቸጋሪ ስለሆኑ፣ indexPattern ለማመቻቸት ግልጽ ኢላማ ይሰጣል። አቅራቢው በትክክል እና በብቃት መያዙን ያረጋግጣል።",
+    "message": "indexPattern የአቅራቢ ፍለጋ ፍንጭ እንጂ ተዛማጅ ሁኔታ አይደለም። clearurls.js ዩአርኤል ፓተርን አቅራቢን ወደ አቅራቢዎችByToken እጩ ባልዲ ለማስቀመጥ የአስተናጋጅ ስም ቶከኖችን ከindexPattern ያወጣል። አቅራቢው አሁንም የሚዛመደው Provider.matchRequestURL() እውነተኛውን urlPattern ካለፈ እና ልዩ ሁኔታዎች የማይዛመዱ ከሆነ ብቻ ነው።",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "እባክዎ የሚከፈተውን ዩአርኤል ይገምግሙ። ይህ ዩአርኤል ያስገቡትን መረጃ ይዟል እና ወደ GitHub ይመራዎታል።",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "የግላዊነት ፖሊሲ ማስታወቂያ",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori ይህን ዩአርኤል በአሳሽዎ ውስጥ በአገር ውስጥ ይፈጥራል። Linkumori ይህን ዩአርኤል በሚፈጥሩበት ጊዜ በቀጥታ ከእርስዎ ወይም ከአሳሽዎ ወደ GitHub ወይም ወደ ሌላ አገልጋይ አያስተላልፍም።",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "\"GitHubን ክፈት\" ከመረጡ አሳሽዎ የሚታየውን URL እንዲከፍት እየመረጡ ነው። ያ አሳሽ ዳሰሳ ዩአርኤሉን እና መጠይቁን ወደ GitHub ሊልክ ይችላል።",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "ለችግር ፈጠራ፣ ዩአርኤሉ የችግሩን አይነት፣ የተመረጠ እትም ዩአርኤልን፣ የጸዳ ዩአርኤልን፣ NSFW ማርከርን፣ አስተያየቶችን እና የተመረጡ የውቅር ክፍሎችን ሊያካትት ይችላል።",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "ለችግር ፍለጋ፣ ዩአርኤሉ የተመረጠውን የአስተናጋጅ ስም፣ ጎራ፣ የችግር አይነት እና ከተመረጠ NSFW መፈለጊያ ቃልን ሊያካትት ይችላል።",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori GitHubን አይደግፍም። Linkumori GitHub የአካባቢዎን ግላዊነት፣ የውሂብ ጥበቃ ወይም ሌሎች የሚመለከታቸው ህጎችን የሚያከብር መሆኑን አያውቅም፣ አያረጋግጥም ወይም ዋስትና የለውም።",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "ከመቀጠልዎ በፊት ሙሉውን ዩአርኤል ይገምግሙ። አሳሽዎ GitHub እንዲከፍት ካልፈለጉ ይሰርዙ።",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "የሚከፈተው URL (ቴክኒካዊ ቅርጸት)",
@@ -4981,6 +5009,10 @@
     "message": "ለJavaScript ኮድ መመሪያ አይደለም። እሱ የሚያተኩረው በJSON ቅርጾች፣የደንብ ቅርጸቶች እና ገዥ ደራሲዎች በሚያስፈልጋቸው ምሳሌዎች ላይ ብቻ ነው።",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "ይህ መመሪያ አሁን ባለው የ<code>clearurls.js</code> የአሂድ ጊዜ ባህሪ ላይ የተመሰረተ ነው። በተለይም የአቅራቢ ፍለጋ <code>providersByToken</code> እጩ ባልዲዎችን ከ<code>domainPatterns</code> ወይም <code>indexPattern</code> ይጠቀማል፣ እና የመጨረሻው ማዛመድ አሁንም በ<code>provider.matchRequestURL()</code> ውስጥ ያልፋል።",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "ምዕራፍ 1: መሰረታዊ JSON ቅርጽ",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "አቅራቢ ለአንድ ድር ጣቢያ፣ ኩባንያ፣ መከታተያ ወይም URL ጥለት አንድ የሕጎች ቡድን ነው።",
+    "message": "አቅራቢ ለአንድ ድር ጣቢያ፣ ኩባንያ፣ መከታተያ፣ የጎራ ጥለት ስብስብ ወይም URL regex የሚል ስም ያለው የአሂድ ጊዜ መያዣ ነው። የአቅራቢው ስም መለያ/ቁልፍ ነው; ማዛመድ የሚከናወነው በ<code>domainPatterns</code> ወይም <code>urlPattern</code> ነው እንጂ በአቅራቢው ስም አይደለም።",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "ሙሉ አቅራቢ አብነት፡-",
+    "message": "በ<code>clearurls.js</code> ተቀባይነት ያላቸው የአቅራቢ መስኮች። ለማዛመድ፣ ደራሲ ወይ <code>domainPatterns</code> ወይም <code>urlPattern</code> ከአማራጭ <code>indexPattern</code> ጋር፤ ሁለቱንም አንድ ላይ በመፈለግ ላይ አትመኑ.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> Linkumori መደመር ነው። ለአብዛኛዎቹ Linkumori JSON አቅራቢዎች ይጠቀሙበት ምክንያቱም ከሙሉ <code>urlPattern</code> regex ለመፃፍ ቀላል ነው።",
+    "message": "<code>domainPatterns</code> የሊንኩሞሪ ተጨማሪ ነው እና ለአብዛኛዎቹ ብጁ አቅራቢዎች ይመረጣል። በ<code>clearurls.js</code>፣ ባዶ ያልሆኑ <code>domainPatterns</code> ከ<code>urlPattern</code> በፊት ለማዛመድ ጥቅም ላይ ይውላሉ።",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "ጎራ ማዛመድ በቂ ካልሆነ ብቻ <code>urlPattern</code> ይጠቀሙ።",
+    "message": "<code>urlPattern</code> ይጠቀሙ ጎራ ማዛመድ በቂ ካልሆነ ብቻ ለምሳሌ አቅራቢው ከአንድ የተወሰነ ዱካ ወይም ሙሉ ዩአርኤል ሪጅክስ ጋር ማዛመድ ሲኖርበት።",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> ClearURLs addon legacy እና ClearURLs ኮር v2 ቀኖናዊ አገባብ ነው። Linkumori <code>indexPattern</code>ን እንደ አማራጭ መፈለጊያ ፍንጭ ይጨምራል ስለዚህ ሞተሩ የሬጌክስ አገልግሎት ሰጪዎችን በፍጥነት ማግኘት ይችላል።",
+    "message": "<code>urlPattern</code> ClearURLs addon legacy እና ClearURLs ኮር v2 ቀኖናዊ አገባብ ነው። Linkumori <code>indexPattern</code>ን እንደ እጩ መፈለጊያ ፍንጭ ይጨምራል ስለዚህ regex አቅራቢዎች በአስተናጋጅ ስም ቶከኖች በፍጥነት ሊገኙ ይችላሉ።",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "ጠቃሚ፡ Linkumori <code>indexPattern</code> የመፈለጊያ ፍንጭ ብቻ ነው። አቅራቢው ማመልከት አለመቻሉን አይወስንም.",
+    "message": "ጠቃሚ፡ <code>indexPattern</code> አቅራቢው ይዛመዳል አይስማማም የሚለውን አይወስንም። ከእጩ ፍለጋ በኋላ፣ <code>clearurls.js</code> አሁንም ትክክለኛውን <code>urlPattern</code> በ<code>provider.matchRequestURL()</code> ውስጥ ይፈትናል።",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> ወደላይ ClearURLs አገባብ ነው። <code>indexPattern</code> regex URL ማዛመድ ሲፈልጉ ለፈጣን ፍለጋ Linkumori ተጨማሪ ነው።",
+    "message": "<code>urlPattern</code> የላይኛው የ ClearURLs አገባብ ነው። <code>indexPattern</code> ለ regex URL አቅራቢዎች የሊንኩሞሪ ፍለጋ ፍንጭ ነው። regex ሊዛመድ በሚችል የአስተናጋጅ ስሞች ላይ መጠቆም አለበት።",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> አማራጭ ነው፣ ግን ለፍጥነት ጠቃሚ ነው።",
+    "message": "<code>indexPattern</code> አማራጭ ነው፣ ግን ለፍጥነት ጠቃሚ ነው። አቅራቢውን ወደ አስተናጋጅ ስም-ቶከን እጩ ባልዲዎች ይጠቁማል; የመጨረሻውን <code>urlPattern</code> ግጥሚያ በጭራሽ አይተካም።",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "ጥምር 5፡ <code>domainPatterns</code> እና <code>urlPattern</code> አንድ ላይ",
+    "message": "ጥምር 5፡ <code>domainPatterns</code> እና <code>urlPattern</code> እንደ ጥምር መስፈርት አትቀላቅሉ",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "ይህ Linkumori የተቀላቀለ ተዛማጅ ቅርጽ ልክ ነው JSON፡",
+    "message": "ይህ ቅርጽ አሮጌ ወይም በእጅ በተጻፈ ውሂብ ላይ ሊታይ ይችላል ነገር ግን ሁለቱም ተዛማጆች ማለፍ አለባቸው ማለት አይደለም፡",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "ጠቃሚ ባህሪ;",
+    "message": "የአሁኑ <code>clearurls.js</code> ባህሪ፡",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "ስለዚህ ሁለቱም እንደሚያስፈልጉ ሲጠብቁ ሁለቱንም አይጠቀሙ. የመንገድ ሁኔታ ከፈለጉ፣ <code>urlPattern</code>ን በ<code>indexPattern</code> ይጠቀሙ ወይም <code>$removeparam</code>/የደንብ ጥለት በ<code>rules</code> ውስጥ ያስቀምጡ።",
+    "message": "<code>domainPatterns</code> ካለ እና ባዶ ካልሆነ፣ <code>clearurls.js</code> ለአቅራቢ ማዛመጃ ይጠቀምበታል እና ለዚያ አቅራቢ <code>urlPattern</code>ን ችላ ይላል። ብጁ አርታዒ/አስመጪ መንገድ ሁለቱንም ያካተቱ አቅራቢዎችን ውድቅ ያደርጋል። የመንገድ ሁኔታ ከፈለጉ፣ <code>urlPattern</code>ን ከ<code>indexPattern</code> ጋር ይጠቀሙ፣ ወይም የግለሰብ <code>$removeparam</code>/ደንብ ግቤቶችን በ<code>rules</code> ውስጥ ያሳድጉ።",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon legacy እና ClearURLs ኮር v2 ቀኖናዊ — <code>urlPattern</code> ብቻ፡-",
+    "message": "ClearURLs addon legacy እና ClearURLs ኮር v2 ቀኖናዊ - <code>urlPattern</code> ብቻ። ያለ <code>indexPattern</code>፣ ሰፊ regex አቅራቢዎች ወደ አለምአቀፍ እጩ ቼኮች ሊመለሱ ይችላሉ፡",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori መደመር — <code>urlPattern</code> በ<code>indexPattern</code>፡",
+    "message": "Linkumori በተጨማሪ - <code>urlPattern</code> ከ <code>indexPattern</code> ጋር። የመረጃ ጠቋሚ ንድፉ የመፈለጊያ ፍንጭ ሲሆን <code>urlPattern</code> የመጨረሻው ተዛማጅ ሆኖ ይቆያል፡",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori መደመር - በርካታ <code>indexPattern</code> ፍንጮች፡-",
+    "message": "Linkumori መደመር - ከአንድ በላይ የአስተናጋጅ ስም ሊዛመድ የሚችል የዩአርኤል regex በርካታ <code>indexPattern</code> ፍንጮች።",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori መደመር — <code>domainPatterns</code> ብቻ፡",
+    "message": "Linkumori መደመር - <code>domainPatterns</code> ብቻ። እነዚህ ለአቅራቢዎች ማዛመጃ እና ፍለጋ-ቶከን ማውጣት በቀጥታ ጥቅም ላይ ይውላሉ፡",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori መደመር - ሁለቱም <code>domainPatterns</code> እና <code>urlPattern</code>፡",
+    "message": "የቆየ/የተደባለቀ ውሂብ ሁለቱንም <code>domainPatterns</code> እና <code>urlPattern</code> ሊይዝ ይችላል፣ነገር ግን አዲስ አቅራቢዎችን በዚህ መንገድ አትጽፉ፡-",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "ባህሪ፡",
+    "message": "ባህሪ፡- ባዶ ያልሆነ <code>domainPatterns</code> አሸንፏል። <code>urlPattern</code> ጥቅም ላይ የሚውለው <code>domainPatterns</code> ሲጎድል ወይም ባዶ ሲሆን ብቻ ነው። ብጁ አርታዒ/አስመጪ ዱካ ሁለቱንም አንድ ላይ ልክ እንደሌላቸው ይመለከታቸዋል።",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js ባህሪ፡ domainPatterns ካለ እና ባዶ ካልሆነ Linkumori ለአቅራቢ ማዛመጃ የጎራ ፓተርን ይጠቀማል። urlPattern ጥቅም ላይ የሚውለው domainPatterns ሲጎድል ወይም ባዶ ሲሆን ብቻ ነው። ብጁ አርታዒ/አስመጪ ዱካ ይህን የተቀላቀለ ተዛማጅ ቅርጽን አይቀበለውም፣ስለዚህ የቆየ ውሂብን ለመረዳት ብቻ ይጠቀሙበት።",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns ሲገኝ እና ባዶ በማይሆንበት ጊዜ ለማዛመድ ያሸንፋል። urlPattern ጥቅም ላይ የሚውለው domainPatterns ሲጎድል ወይም ባዶ ሲሆን ብቻ ነው። ብጁ አርታዒ/አስመጪ መንገድ ሁለቱንም ተዛማጅ ቤተሰቦችን የያዙ አቅራቢዎችን ውድቅ ያደርጋል።",
     "description": "Guide page text."
   },
   "guide_0735": {

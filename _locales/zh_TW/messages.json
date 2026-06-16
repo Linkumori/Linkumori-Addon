@@ -638,8 +638,8 @@
     "description": "關於領域模式與URL模式的FAQ問題"
   },
   "faq_domain_patterns_explanation": {
-    "message": "領域模式支持簡單的標記和AdBlock風格的形式。 匹配行為取決於語法 (某些形式檢查主機名，其他形式針對完整的URL字符串):",
-    "description": "關於領域模式的解釋"
+    "message": "域模式支援簡單的令牌和 AdBlock 樣式的表單。當domainPatterns非空時，clearurls.js在任何urlPattern回退之前使用它們進行提供者匹配和查找令牌提取：",
+    "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
     "message": "什麼是領域重定向？",
@@ -786,8 +786,8 @@
     "description": "FAQ 中重要提示的標籤"
   },
   "faq_pattern_exclusive_note": {
-    "message": "這兩個欄位都可能出現在資料中，但 urlPattern 具有優先權。只有在 urlPattern 為空時才會使用 Domain Patterns。網域比對支援 PSL 感知行為，包含可註冊網域邏輯與多部分 TLD 支援。",
-    "description": "關於模式排他的 FAQ 提示"
+    "message": "對於創作的自訂提供程序，請選擇domainPatterns 或urlPattern。在clearurls.js運行時資料中，非空domainPatterns獲勝，並且僅當domainPatterns缺失或為空時才使用urlPattern。域匹配可感知 PSL，支援支援的 AdBlock 樣式表單，包括可註冊域處理和多部分 TLD 支援。",
+    "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
     "message": "將多個相似的模式合併為一個正規表達式。",
@@ -850,8 +850,8 @@
     "description": "關於提供者列表的提示。"
   },
   "faq_providers_explanation": {
-    "message": "提供者是邏輯單元，它們將多個規則分組到相同的 URL 模式下。每個提供者都針對特定的網站或服務，並包含所有用於清理來自該來源的 URL 的規則。",
-    "description": "解釋提供者的常見問題解答。"
+    "message": "提供者是將匹配器欄位和 URL 清理規則進行分組的命名容器。候選查找使用來自domainPatterns或indexPattern的主機名稱標記；提供者名稱只是一個標籤/鍵，並不能決定請求是否符合。",
+    "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
     "message": "規範原始規則物件將正規表示式模式套用至整個 URL。用於不符合標準參數格式的複雜模式。",
@@ -1058,8 +1058,8 @@
     "description": "關於 urlPattern 的常見問題解答。"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern 是一個正規表達式，必須與所有受提供者規則影響的 URL 相符。 它定義了此提供者應該處理哪些網站。",
-    "description": "關於 urlPattern 的常見問題解答說明。"
+    "message": "urlPattern 是當提供者沒有非空domainPatterns 時針對完整請求URL 進行測試的正規表示式。如果您使用 urlPattern，請盡可能新增 indexPattern，以便clearurls.js 可以在測試正規表示式之前透過主機名稱標記找到提供者。",
+    "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
     "message": "典型的結構涵蓋：協定 + 子網域 + 網域名稱 + TLD + 目錄 + 參數。",
@@ -4302,7 +4302,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern 是一個網域模式（例如 ||example.com^），可作為索引系統的提示。由於 urlPattern 中的正規表示式很難解析主機名，因此 indexPattern 提供了明確的最佳化目標。它確保提供者被正確有效地索引。",
+    "message": "indexPattern 是提供者尋找提示，而不是符合條件。 clearurls.js 從indexPattern 中提取主機名稱令牌，以將urlPattern 提供者放入providersByToken 候選儲存桶中。只有當provider.matchRequestURL()傳遞真實的urlPattern且異常不符時，提供者仍然匹配。",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4570,6 +4570,34 @@
   "urlPreviewWarning": {
     "message": "請檢查將開啟的 URL。此 URL 包含您輸入的資訊並將您重新導向至 GitHub。",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "隱私權政策通知",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori 在您的瀏覽器本機上建立此 URL。建立此 URL 時，Linkumori 不會直接將資料從您或您的瀏覽器傳輸到 GitHub 或任何其他伺服器。",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "如果您選擇“開啟 GitHub”，則表示您選擇讓瀏覽器開啟顯示的 URL。此瀏覽器導覽可能會將 URL 及其查詢參數傳送至 GitHub。",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "對於問題創建，URL 可以包括問題類型、選定的問題 URL、清理的 URL、NSFW 標記、註釋和選定的配置部分。",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "對於問題搜索，URL 可能包括選定的主機名稱、網域、問題類型和 NSFW 搜尋字詞（如果選擇）。",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori 不認可 GitHub。 Linkumori 不知道、驗證或保證 GitHub 是否遵守您當地的隱私、資料保護或其他適用法律。",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "在繼續之前查看完整的 URL。如果您不希望瀏覽器開啟 GitHub，請取消。",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "要開啟的URL（技術格式）：",
@@ -4984,6 +5012,10 @@
     "message": "它不是 JavaScript 代碼的指南。它只關注規則作者所需的 JSON 形狀、規則格式和範例。",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "本指南基於目前的 <code>clearurls.js</code> 運行時行為。特別是，提供者查找使用來自 <code>domainPatterns</code> 或 <code>indexPattern</code> 的 <code>providersByToken</code> 候選儲存桶，最終匹配仍然透過 <code>provider.matchRequestURL()</code> 運行。",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "第一章：基本JSON形狀",
     "description": "Guide page text."
@@ -5005,7 +5037,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "提供者是針對一個網站、公司、追蹤器或 URL 模式的一組規則。",
+    "message": "提供者是一個網站、公司、追蹤器、網域模式集或 URL 正規表示式的命名運行時容器。提供者名稱是一個標籤/鍵；匹配是透過 <code>domainPatterns</code> 或 <code>urlPattern</code> 完成的，而不是透過提供者名稱完成的。",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5021,7 +5053,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "完整的提供者範本：",
+    "message": "<code>clearurls.js</code> 接受的提供者欄位。為了進行匹配，請編寫 <code>domainPatterns</code> 或 <code>urlPattern</code> 以及可選的 <code>indexPattern</code>；不要依賴兩者同時需要。",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5237,7 +5269,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> 是 Linkumori 的補充。將其用於大多數 Linkumori JSON 提供程序，因為它比完整的 <code>urlPattern</code> 正則表達式更容易編寫。",
+    "message": "<code>domainPatterns</code> 是 Linkumori 的補充，是大多數客製化提供者的首選。在<code>clearurls.js</code>中，在<code>urlPattern</code>之前使用非空的<code>domainPatterns</code>進行比對。",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5365,7 +5397,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "僅當域匹配不夠時才使用 <code>urlPattern</code>。",
+    "message": "僅當域匹配不夠時才使用 <code>urlPattern</code>，例如當提供者必須匹配特定路徑或完整 URL 正規表示式時。",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5373,11 +5405,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> 是 ClearURLs 遺留插件和 ClearURLs 核心 v2 規範語法。 Linkumori 新增 <code>indexPattern</code> 作為可選查找提示，以便引擎可以更快找到正規表示式提供者。",
+    "message": "<code>urlPattern</code> 是 ClearURLs 插件遺留和 ClearURLs 核心 v2 規範語法。 Linkumori 新增 <code>indexPattern</code> 僅作為候選查找提示，因此可以透過主機名稱標記更快找到正規表示式提供者。",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "重要提示：Linkumori <code>indexPattern</code> 只是找出提示。它不決定提供者是否適用。",
+    "message": "重要提示：<code>indexPattern</code> 不決定提供者是否符合。候選查找後，<code>clearurls.js</code> 仍然在 <code>provider.matchRequestURL()</code> 中測試真實的 <code>urlPattern</code>。",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5777,27 +5809,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> 是上游 ClearURLs 語法。 <code>indexPattern</code> 是 Linkumori 的補充，以便在需要正規表示式 URL 匹配時更快地找到。",
+    "message": "<code>urlPattern</code> 是上游 ClearURLs 語法。 <code>indexPattern</code> 是正規表示式 URL 提供者的 Linkumori 查找提示；它應該指向正規表示式可以符合的主機名稱。",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> 是可選的，但對於速度很有用。",
+    "message": "<code>indexPattern</code> 是可選的，但對於速度很有用。它將提供者索引到主機名稱令牌候選儲存桶中；它永遠不會取代最終的 <code>urlPattern</code> 匹配。",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "組合 5：<code>domainPatterns</code> 和 <code>urlPattern</code> 一起",
+    "message": "組合 5：不要將 <code>domainPatterns</code> 和 <code>urlPattern</code> 混合作為組合需求",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "此 Linkumori 混合匹配器形狀有效 JSON：",
+    "message": "這種形狀可能會出現在較舊的或手寫的資料中，但這並不意味著兩個匹配器都必須通過：",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "重要行為：",
+    "message": "當前 <code>clearurls.js</code> 行為：",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "因此，當您希望兩者都需要時，請不要同時使用兩者。如果需要路徑條件，請將 <code>urlPattern</code> 與 <code>indexPattern</code> 一起使用，或將範圍 <code>$removeparam</code>/規則模式放入 <code>rules</code> 內。",
+    "message": "如果 <code>domainPatterns</code> 存在且非空，則 <code>clearurls.js</code> 將其用於提供者配對並忽略該提供者的 <code>urlPattern</code>。自訂編輯器/匯入路徑拒絕包含兩者的提供者。如果您需要路徑條件，請將 <code>urlPattern</code> 與 <code>indexPattern</code> 結合使用，或在 <code>rules</code> 內限定單一 <code>$removeparam</code>/規則條目。",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5973,19 +6005,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs 外掛程式舊版和 ClearURLs 核心 v2 規格 — 僅 <code>urlPattern</code>：",
+    "message": "ClearURLs 外掛程式舊版和 ClearURLs 核心 v2 規格 - 僅 <code>urlPattern</code>。如果沒有 <code>indexPattern</code>，廣泛的正規表示式提供者可能會退回到全域候選檢查：",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori 加法 — <code>urlPattern</code> 與 <code>indexPattern</code>：",
+    "message": "Linkumori 新增 — <code>urlPattern</code> 和 <code>indexPattern</code>。索引模式是尋找提示，而 <code>urlPattern</code> 仍然是最終匹配器：",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori 加法 — 多個 <code>indexPattern</code> 提示：",
+    "message": "Linkumori 新增 — 可符合多個主機名稱的 URL 正規表示式的多個 <code>indexPattern</code> 提示：",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori 新增 — 僅 <code>domainPatterns</code>：",
+    "message": "Linkumori 新增 — 僅 <code>domainPatterns</code>。這些直接用於提供者匹配和查找令牌提取：",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5997,11 +6029,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori 加法 — <code>domainPatterns</code> 和 <code>urlPattern</code>：",
+    "message": "遺留/混合資料可能同時包含 <code>domainPatterns</code> 和 <code>urlPattern</code>，但不要以這種方式建立新的提供者：",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "行為：",
+    "message": "行為：非空<code>domainPatterns</code>獲勝。僅當 <code>domainPatterns</code> 缺失或為空時才使用 <code>urlPattern</code>。自訂編輯器/匯入路徑將兩者一起視為無效。",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6337,7 +6369,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6653,7 +6685,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js 行為：如果domainPatterns 存在且不為空，Linkumori 將使用domainPatterns 進行提供者配對。僅當domainPatterns 缺失或為空時才使用urlPattern。自訂編輯器/匯入路徑拒絕這種混合匹配器形狀，因此僅使用它來理解遺留資料。",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6761,7 +6793,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "當domainPatterns 存在且非空時，它會贏得匹配。僅當domainPatterns 缺失或為空時才使用urlPattern。自訂編輯器/匯入路徑拒絕包含兩個符合器系列的提供者。",
     "description": "Guide page text."
   },
   "guide_0735": {

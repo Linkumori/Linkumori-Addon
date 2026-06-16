@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "الگوهای دامنه از توکن های ساده و فرم های به سبک AdBlock پشتیبانی می کنند. رفتار تطبیق به نحو بستگی دارد (برخی از فرم ها نام میزبان را بررسی می کنند، برخی دیگر با رشته URL کامل مطابقت دارند):",
+    "message": "الگوهای دامنه از توکن های ساده و فرم های به سبک AdBlock پشتیبانی می کنند. وقتی DomainPatterns خالی نیست، clearurls.js از آنها برای تطبیق ارائه دهنده و استخراج نشانه جستجو قبل از بازگشت urlPattern استفاده می کند:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "هر دو فیلد می توانند در داده ها وجود داشته باشند، اما urlPattern اولویت دارد. الگوهای دامنه فقط زمانی استفاده می شوند که urlPattern خالی باشد. تطبیق دامنه از PSL آگاه است، از جمله مدیریت دامنه قابل ثبت و پشتیبانی TLD چند قسمتی.",
+    "message": "برای ارائه دهندگان سفارشی تألیف شده، یک domainPattern یا urlPattern را انتخاب کنید. در داده‌های زمان اجرا clearurls.js، DomainPatterns غیر خالی برنده می‌شود و urlPattern تنها زمانی استفاده می‌شود که domainPatterns وجود نداشته باشد یا خالی باشد. تطبیق دامنه برای فرم‌های پشتیبانی‌شده به سبک AdBlock، از جمله مدیریت دامنه قابل ثبت و پشتیبانی TLD چند قسمتی، از PSL آگاه است.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "ارائه دهندگان واحدهای منطقی هستند که چندین قانون را تحت یک الگوی URL گروه بندی می کنند. هر ارائه دهنده یک وب سایت یا سرویس خاص را هدف قرار می دهد و شامل تمام قوانین مورد نیاز برای پاک کردن URL ها از آن منبع است.",
+    "message": "ارائه دهندگان کانتینرهایی نام دارند که فیلدهای تطبیق و قوانین پاکسازی URL را گروه بندی می کنند. جستجوی نامزد از نشانه‌های نام میزبان از domainPatterns یا indexPattern استفاده می‌کند. نام ارائه دهنده فقط یک برچسب/کلید است و تصمیم نمی گیرد که آیا یک درخواست مطابقت دارد یا خیر.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern یک عبارت منظم است که باید با هر URL که باید تحت تأثیر قوانین ارائه دهنده قرار گیرد مطابقت داشته باشد. مشخص می کند که این ارائه دهنده باید چه وب سایت هایی را مدیریت کند.",
+    "message": "urlPattern یک عبارت معمولی است که در برابر URL درخواست کامل آزمایش می‌شود، زمانی که ارائه‌دهنده الگوهای دامنه غیرخالی نداشته باشد. اگر از urlPattern استفاده می کنید، در صورت امکان indexPattern را اضافه کنید تا clearurls.js بتواند ارائه دهنده را با توکن های نام میزبان قبل از آزمایش regex پیدا کند.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -3143,7 +3143,7 @@
     "description": "Error message when trying to add empty domain"
   },
   "whitelist_examples_text": {
-    "message": "مثال‌ها: <code>example.com</code>، <code>*.google.com</code>، <code>site.comKXXXT.",
+    "message": "مثال‌ها: <code>example.com</code>، <code>*.google.com</code>، <code>subdomain.site.com</code>",
     "description": "Text before domain format examples"
   },
   "whitelist_export_button": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "indexPattern یک الگوی دامنه است (به عنوان مثال، ||example.com^) که به عنوان یک راهنمایی برای سیستم نمایه سازی عمل می کند. از آنجایی که عبارات منظم در urlPattern تجزیه نام هاست سخت است، indexPattern یک هدف صریح برای بهینه سازی فراهم می کند. این تضمین می کند که ارائه دهنده به درستی و کارآمد ایندکس شده است.",
+    "message": "indexPattern یک راهنمایی جستجوی ارائه دهنده است، نه یک شرط مطابقت. clearurls.js توکن‌های نام میزبان را از indexPattern استخراج می‌کند تا یک ارائه‌دهنده urlPattern را در سطل‌های کاندید providersByToken قرار دهد. تنها در صورتی که provider.matchRequestURL() از urlPattern واقعی عبور کند و استثناها مطابقت نداشته باشند، ارائه دهنده همچنان مطابقت دارد.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "لطفاً URL باز شده را بررسی کنید. این URL حاوی اطلاعاتی است که شما وارد کرده اید و شما را به GitHub هدایت می کند.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "اطلاعیه سیاست حفظ حریم خصوصی",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori این URL را به صورت محلی در مرورگر شما ایجاد می کند. Linkumori هنگام ایجاد این URL مستقیماً داده‌ها را از شما یا مرورگرتان به GitHub یا هر سرور دیگری منتقل نمی‌کند.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "اگر \"Open GitHub\" را انتخاب کنید، به مرورگر خود اجازه می دهید URL نمایش داده شده را باز کند. این پیمایش مرورگر ممکن است URL و پارامترهای جستجوی آن را به GitHub ارسال کند.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "برای ایجاد مشکل، URL ممکن است شامل نوع مشکل، نشانی اینترنتی مشکل انتخاب شده، URL پاک شده، نشانگر NSFW، نظرات و بخش های پیکربندی انتخاب شده باشد.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "برای جستجوی مشکل، URL ممکن است در صورت انتخاب، شامل نام میزبان، دامنه، نوع مشکل و عبارت جستجوی NSFW باشد.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori GitHub را تایید نمی کند. Linkumori نمی داند، تأیید یا تضمین نمی کند که آیا GitHub با حریم خصوصی محلی، حفاظت از داده ها یا سایر قوانین قابل اجرا مطابقت دارد یا خیر.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "قبل از ادامه، URL کامل را مرور کنید. اگر نمی خواهید مرورگر شما GitHub را باز کند لغو کنید.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL برای باز شدن (فرمت فنی):",
@@ -4981,6 +5009,10 @@
     "message": "راهنمای کد JavaScript نیست. این فقط بر روی JSON اشکال، قالب‌های قوانین و نمونه‌هایی که نویسندگان قوانین به آن‌ها نیاز دارند، تمرکز می‌کند.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "این راهنما بر اساس رفتار زمان اجرا فعلی <code>clearurls.js</code> است. به طور خاص، جستجوی ارائه‌دهنده از سطل‌های نامزد <code>providersByToken</code> از <code>domainPatterns</code> یا <code>indexPattern</code> استفاده می‌کند و تطبیق نهایی همچنان از طریق <code>provider.matchRequestURL()</code> انجام می‌شود.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "فصل 1: پایه JSON شکل",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "ارائه دهنده یک گروه از قوانین برای یک وب سایت، شرکت، ردیاب یا الگوی URL است.",
+    "message": "ارائه‌دهنده یک کانتینر زمان اجرا نام‌گذاری شده برای یک وب‌سایت، شرکت، ردیاب، مجموعه الگوی دامنه، یا URL regex است. نام ارائه دهنده یک برچسب/کلید است. تطبیق توسط <code>domainPatterns</code> یا <code>urlPattern</code> انجام می شود، نه با نام ارائه دهنده.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "الگوی کامل ارائه دهنده:",
+    "message": "زمینه های ارائه دهنده پذیرفته شده توسط <code>clearurls.js</code>. برای تطبیق، <code>domainPatterns</code> یا <code>urlPattern</code> را با <code>indexPattern</code> اختیاری بنویسید. به اینکه هر دو با هم مورد نیاز هستند تکیه نکنید.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> یک اضافه Linkumori است. از آن برای اکثر ارائه دهندگان Linkumori JSON استفاده کنید زیرا نوشتن آسان تر از یک regex کامل <code>urlPattern</code> است.",
+    "message": "<code>domainPatterns</code> افزودنی Linkumori است و برای اکثر ارائه دهندگان سفارشی ترجیح داده می شود. در <code>clearurls.js</code>، <code>domainPatterns</code> غیر خالی برای تطبیق قبل از <code>urlPattern</code> استفاده می شود.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "فقط زمانی از <code>urlPattern</code> استفاده کنید که تطبیق دامنه کافی نیست.",
+    "message": "فقط زمانی از <code>urlPattern</code> استفاده کنید که تطبیق دامنه کافی نیست، مانند زمانی که ارائه دهنده باید یک مسیر خاص یا رجکس کامل URL را مطابقت دهد.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> میراث افزونه ClearURLs و سینتکس متعارف هسته v2 ClearURLs است. Linkumori <code>indexPattern</code> را به عنوان یک راهنمایی جستجوی اختیاری اضافه می کند تا موتور بتواند ارائه دهندگان regex را سریعتر پیدا کند.",
+    "message": "<code>urlPattern</code> میراث افزونه ClearURLs و نحو متعارف ClearURLs هسته v2 است. Linkumori <code>indexPattern</code> را فقط به عنوان یک راهنمایی جستجوی نامزد اضافه می کند تا ارائه دهندگان regex بتوانند با توکن های نام میزبان سریعتر پیدا شوند.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "مهم: Linkumori <code>indexPattern</code> فقط یک راهنمایی جستجو است. این تصمیم نمی گیرد که آیا ارائه دهنده اعمال می کند یا خیر.",
+    "message": "مهم: <code>indexPattern</code> تعیین نمی کند که آیا ارائه دهنده مطابقت دارد یا خیر. پس از جستجوی نامزد، <code>clearurls.js</code> همچنان <code>urlPattern</code> واقعی را در <code>provider.matchRequestURL()</code> آزمایش می‌کند.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> سینتکس بالادستی ClearURLs است. <code>indexPattern</code> یک افزونه Linkumori برای جستجوی سریعتر در مواقعی که نیاز به تطبیق regex URL دارید است.",
+    "message": "<code>urlPattern</code> سینتکس ClearURLs بالادست است. <code>indexPattern</code> یک راهنمایی جستجوی Linkumori برای ارائه دهندگان URL regex است. باید به نام میزبان هایی اشاره کند که regex می تواند مطابقت داشته باشد.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> اختیاری است، اما برای سرعت مفید است.",
+    "message": "<code>indexPattern</code> اختیاری است، اما برای سرعت مفید است. ارائه‌دهنده را در سطل‌های کاندید کد نام میزبان نمایه می‌کند. هرگز جایگزین بازی نهایی <code>urlPattern</code> نمی شود.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "ترکیب 5: <code>domainPatterns</code> و <code>urlPattern</code> با هم",
+    "message": "ترکیب 5: <code>domainPatterns</code> و <code>urlPattern</code> را به عنوان یک نیاز ترکیبی با هم مخلوط نکنید",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "این شکل تطبیق مخلوط Linkumori معتبر است JSON:",
+    "message": "این شکل ممکن است در داده‌های قدیمی‌تر یا دست‌نویس ظاهر شود، اما به این معنا نیست که هر دو تطبیق باید پاس شوند:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "رفتار مهم:",
+    "message": "رفتار <code>clearurls.js</code> فعلی:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "بنابراین زمانی که انتظار دارید هر دو مورد نیاز باشند از هر دو استفاده نکنید. اگر به یک شرط مسیر نیاز دارید، از <code>urlPattern</code> با <code>indexPattern</code> استفاده کنید، یا یک الگوی <code>$removeparam</code>/قاعده محدوده را در <code>rules</code> قرار دهید.",
+    "message": "اگر <code>domainPatterns</code> وجود داشته باشد و خالی نباشد، <code>clearurls.js</code> از آن برای تطبیق ارائه دهنده استفاده می کند و <code>urlPattern</code> را برای آن ارائه دهنده نادیده می گیرد. مسیر ویرایشگر/واردات سفارشی ارائه‌دهندگانی را که هر دو را در بر دارند رد می‌کند. اگر به شرایط مسیر نیاز دارید، از <code>urlPattern</code> با <code>indexPattern</code> استفاده کنید، یا ورودی های <code>$removeparam</code>/قانون را در داخل <code>rules</code> قرار دهید.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs افزونه میراث و ClearURLs core v2 canonical — فقط <code>urlPattern</code>:",
+    "message": "میراث افزونه ClearURLs و ClearURLs هسته نسخه ۲ متعارف — فقط <code>urlPattern</code>. بدون <code>indexPattern</code>، ارائه دهندگان regex گسترده ممکن است به بررسی های کاندید جهانی برگردند:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori علاوه بر این — <code>urlPattern</code> با <code>indexPattern</code>:",
+    "message": "لینکوموری اضافه شده - <code>urlPattern</code> با <code>indexPattern</code>. الگوی فهرست یک اشاره جستجو است، در حالی که <code>urlPattern</code> تطبیق نهایی باقی می ماند:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori اضافه کردن - چندین <code>indexPattern</code> نکات:",
+    "message": "Linkumori اضافه شده - چندین نکته <code>indexPattern</code> برای یک URL regex که می تواند با بیش از یک نام میزبان مطابقت داشته باشد:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori علاوه بر این — فقط <code>domainPatterns</code>:",
+    "message": "افزودن لینکوموری - فقط <code>domainPatterns</code>. اینها مستقیماً برای تطبیق ارائه دهنده و استخراج نشانه جستجو استفاده می شوند:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori علاوه بر این — هر دو <code>domainPatterns</code> و <code>urlPattern</code>:",
+    "message": "داده‌های قدیمی/مختلط ممکن است حاوی <code>domainPatterns</code> و <code>urlPattern</code> باشند، اما ارائه‌دهندگان جدید را به این شکل ایجاد نکنید:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "رفتار:",
+    "message": "رفتار: برد غیر خالی <code>domainPatterns</code>. <code>urlPattern</code> فقط زمانی استفاده می شود که <code>domainPatterns</code> وجود نداشته باشد یا خالی باشد. مسیر ویرایش/وارد کردن سفارشی هر دو را با هم به عنوان نامعتبر تلقی می کند.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "رفتار clearurls.js: اگر domainPatterns وجود داشته باشد و خالی نباشد، Linkumori از domainPatterns برای تطبیق ارائه دهنده استفاده می کند. urlPattern فقط زمانی استفاده می شود که domainPatterns گم یا خالی باشد. مسیر ویرایشگر/واردات سفارشی این شکل تطبیق ترکیبی را رد می‌کند، بنابراین از آن فقط برای درک داده‌های قدیمی استفاده کنید.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns برای تطبیق زمانی که موجود باشد و خالی نباشد برنده است. urlPattern فقط زمانی استفاده می شود که domainPatterns گم یا خالی باشد. مسیر ویرایش/واردات سفارشی ارائه‌دهندگانی را که شامل هر دو خانواده همسان هستند رد می‌کند.",
     "description": "Guide page text."
   },
   "guide_0735": {

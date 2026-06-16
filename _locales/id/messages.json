@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Pola Domain mendukung token sederhana dan bentuk gaya AdBlock. Perilaku pencocokan tergantung pada sintaks (beberapa bentuk memeriksa nama host, yang lain cocok dengan string URL lengkap):",
+    "message": "Pola Domain mendukung token sederhana dan formulir bergaya AdBlock. Jika domainPatterns tidak kosong, clearurls.js menggunakannya untuk pencocokan penyedia dan ekstraksi token pencarian sebelum penggantian urlPattern:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Kedua bidang dapat hadir dalam data, tetapi urlPattern memiliki prioritas. Pola Domain hanya digunakan ketika urlPattern kosong. Pencocokan domain sadar-PSL, termasuk penanganan domain yang dapat didaftarkan dan dukungan TLD multi-bagian.",
+    "message": "Untuk penyedia kustom yang dibuat, pilih domainPatterns atau urlPattern. Dalam data runtime clearurls.js, domainPatterns yang tidak kosong menang dan urlPattern hanya digunakan ketika domainPatterns hilang atau kosong. Pencocokan domain peka terhadap PSL untuk formulir gaya AdBlock yang didukung, termasuk penanganan domain yang dapat didaftarkan dan dukungan TLD multi-bagian.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Penyedia adalah unit logis yang mengelompokkan beberapa aturan di bawah pola URL yang sama. Setiap penyedia menargetkan situs web atau layanan tertentu dan berisi semua aturan yang diperlukan untuk membersihkan URL dari sumber tersebut.",
+    "message": "Penyedia diberi nama wadah yang mengelompokkan bidang pencocokan dan aturan pembersihan URL. Pencarian kandidat menggunakan token nama host dari domainPatterns atau indexPattern; nama penyedia hanya berupa label/kunci dan tidak memutuskan apakah suatu permintaan cocok.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern adalah ekspresi reguler yang harus cocok dengan setiap URL yang harus terpengaruh oleh aturan penyedia. Ini mendefinisikan situs web mana yang harus ditangani oleh penyedia ini.",
+    "message": "urlPattern adalah ekspresi reguler yang diuji terhadap URL permintaan lengkap ketika penyedia tidak memiliki domainPatterns yang tidak kosong. Jika Anda menggunakan urlPattern, tambahkan indexPattern bila memungkinkan sehingga clearurls.js dapat menemukan penyedia berdasarkan token nama host sebelum menguji regex.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "IndexPattern adalah pola domain (misalnya ||example.com^) yang bertindak sebagai petunjuk untuk sistem pengindeksan. Karena ekspresi reguler di urlPattern sulit diurai untuk nama host, indexPattern memberikan target eksplisit untuk pengoptimalan. Ini memastikan penyedia diindeks dengan benar dan efisien.",
+    "message": "indexPattern adalah petunjuk pencarian penyedia, bukan kondisi kecocokan. clearurls.js mengekstrak token nama host dari indexPattern untuk menempatkan penyedia urlPattern ke dalam keranjang kandidat penyediaByToken. Penyedia masih cocok hanya jika provider.matchRequestURL() meneruskan urlPattern yang sebenarnya dan pengecualian tidak cocok.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Silakan tinjau URL yang akan dibuka. URL ini berisi informasi yang Anda masukkan dan akan mengarahkan Anda ke GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Pemberitahuan kebijakan privasi",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori membuat URL ini secara lokal di browser Anda. Linkumori tidak secara langsung mentransfer data dari Anda atau browser Anda ke GitHub atau ke server lain mana pun saat membuat URL ini.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Jika Anda memilih \"Buka GitHub\", Anda memilih untuk membiarkan browser Anda membuka URL yang ditampilkan. Navigasi browser tersebut dapat mengirimkan URL dan parameter kuerinya ke GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Untuk pembuatan masalah, URL dapat mencakup jenis masalah, URL masalah yang dipilih, URL yang dibersihkan, penanda NSFW, komentar, dan bagian konfigurasi yang dipilih.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Untuk pencarian masalah, URL dapat menyertakan nama host, domain, jenis masalah, dan istilah pencarian NSFW yang dipilih jika dipilih.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori tidak mendukung GitHub. Linkumori tidak mengetahui, memverifikasi, atau menjamin apakah GitHub mematuhi privasi lokal Anda, perlindungan data, atau undang-undang lain yang berlaku.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Tinjau URL lengkapnya sebelum melanjutkan. Batalkan jika Anda tidak ingin browser Anda membuka GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL yang akan dibuka (format teknis):",
@@ -4981,6 +5009,10 @@
     "message": "Ini bukan panduan untuk kode JavaScript. Ini hanya berfokus pada bentuk JSON, format aturan, dan contoh yang dibutuhkan penulis aturan.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Panduan ini didasarkan pada perilaku runtime <code>clearurls.js</code> saat ini. Secara khusus, pencarian penyedia menggunakan kandidat bucket <code>providersByToken</code> dari <code>domainPatterns</code> atau <code>indexPattern</code>, dan pencocokan akhir masih berjalan melalui <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Bab 1: Bentuk Dasar JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Penyedia adalah satu kelompok aturan untuk satu situs web, perusahaan, pelacak, atau pola URL.",
+    "message": "Penyedia adalah wadah runtime bernama untuk satu situs web, perusahaan, pelacak, kumpulan pola domain, atau regex URL. Nama penyedia adalah label/kunci; pencocokan dilakukan oleh <code>domainPatterns</code> atau <code>urlPattern</code>, bukan oleh nama penyedia.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Templat penyedia lengkap:",
+    "message": "Bidang penyedia diterima oleh <code>clearurls.js</code>. Untuk pencocokan, tulis <code>domainPatterns</code> atau <code>urlPattern</code> dengan <code>indexPattern</code> opsional; jangan bergantung pada keduanya yang diperlukan secara bersamaan.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> adalah tambahan Linkumori. Gunakan ini untuk sebagian besar penyedia Linkumori JSON karena lebih mudah untuk menulis daripada regex <code>urlPattern</code> lengkap.",
+    "message": "<code>domainPatterns</code> adalah tambahan Linkumori dan lebih disukai oleh sebagian besar penyedia khusus. Di <code>clearurls.js</code>, <code>domainPatterns</code> yang tidak kosong digunakan untuk pencocokan sebelum <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Gunakan <code>urlPattern</code> hanya jika pencocokan domain tidak cukup.",
+    "message": "Gunakan <code>urlPattern</code> hanya ketika pencocokan domain saja tidak cukup, seperti ketika penyedia harus mencocokkan jalur tertentu atau regex URL lengkap.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> adalah ClearURLs addon legacy dan ClearURLs core v2 sintaksis kanonik. Linkumori menambahkan <code>indexPattern</code> sebagai petunjuk pencarian opsional sehingga mesin dapat menemukan penyedia regex lebih cepat.",
+    "message": "<code>urlPattern</code> adalah warisan addon ClearURL dan sintaksis kanonik inti v2 ClearURL. Linkumori menambahkan <code>indexPattern</code> hanya sebagai petunjuk pencarian kandidat sehingga penyedia regex dapat ditemukan dengan token nama host lebih cepat.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Penting: Linkumori <code>indexPattern</code> hanyalah petunjuk pencarian. Itu tidak memutuskan apakah penyedia mengajukan permohonan.",
+    "message": "Penting: <code>indexPattern</code> tidak menentukan apakah suatu penyedia cocok. Setelah pencarian kandidat, <code>clearurls.js</code> masih menguji <code>urlPattern</code> asli di <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> adalah sintaksis hulu ClearURLs. <code>indexPattern</code> adalah tambahan Linkumori untuk pencarian lebih cepat ketika Anda memerlukan pencocokan regex URL.",
+    "message": "<code>urlPattern</code> adalah sintaks ClearURL hulu. <code>indexPattern</code> adalah petunjuk pencarian Linkumori untuk penyedia URL regex; itu harus menunjuk pada nama host yang cocok dengan regex.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> bersifat opsional, namun berguna untuk kecepatan.",
+    "message": "<code>indexPattern</code> bersifat opsional, tetapi berguna untuk kecepatan. Ini mengindeks penyedia ke dalam wadah kandidat token nama host; itu tidak pernah menggantikan pertandingan <code>urlPattern</code> terakhir.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Kombinasi 5: <code>domainPatterns</code> Dan <code>urlPattern</code> Bersama-sama",
+    "message": "Kombinasi 5: Jangan Mencampur <code>domainPatterns</code> Dan <code>urlPattern</code> Sebagai Persyaratan Gabungan",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Bentuk pencocokan campuran Linkumori ini valid JSON:",
+    "message": "Bentuk ini mungkin muncul pada data lama atau data tulisan tangan, namun hal ini tidak berarti kedua pencocokan harus lulus:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Perilaku penting:",
+    "message": "Perilaku <code>clearurls.js</code> saat ini:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Jadi jangan gunakan keduanya saat Anda mengharapkan keduanya diperlukan. Jika Anda memerlukan kondisi jalur, gunakan <code>urlPattern</code> dengan <code>indexPattern</code>, atau letakkan pola cakupan <code>$removeparam</code>/aturan di dalam <code>rules</code>.",
+    "message": "Jika <code>domainPatterns</code> ada dan tidak kosong, <code>clearurls.js</code> menggunakannya untuk pencocokan penyedia dan mengabaikan <code>urlPattern</code> untuk penyedia tersebut. Jalur editor/impor khusus menolak penyedia yang berisi keduanya. Jika Anda memerlukan kondisi jalur, gunakan <code>urlPattern</code> dengan <code>indexPattern</code>, atau cakupan entri <code>$removeparam</code>/aturan individual di dalam <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon legacy dan ClearURLs core v2 canonical — hanya <code>urlPattern</code>:",
+    "message": "Addon lama ClearURL dan kanonik inti ClearURL v2 — hanya <code>urlPattern</code>. Tanpa <code>indexPattern</code>, penyedia regex luas dapat kembali melakukan pemeriksaan kandidat global:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori tambahan — <code>urlPattern</code> dengan <code>indexPattern</code>:",
+    "message": "Penambahan Linkumori — <code>urlPattern</code> dengan <code>indexPattern</code>. Pola indeks adalah petunjuk pencarian, sedangkan <code>urlPattern</code> tetap menjadi pencocokan terakhir:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori tambahan — beberapa <code>indexPattern</code> petunjuk:",
+    "message": "Penambahan Linkumori — beberapa petunjuk <code>indexPattern</code> untuk regex URL yang dapat cocok dengan lebih dari satu nama host:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori tambahan — hanya <code>domainPatterns</code>:",
+    "message": "Penambahan Linkumori — hanya <code>domainPatterns</code>. Ini digunakan secara langsung untuk pencocokan penyedia dan ekstraksi token pencarian:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Penambahan Linkumori — keduanya <code>domainPatterns</code> dan <code>urlPattern</code>:",
+    "message": "Data lama/campuran mungkin berisi <code>domainPatterns</code> dan <code>urlPattern</code>, namun jangan membuat penyedia baru dengan cara ini:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Perilaku:",
+    "message": "Perilaku: kemenangan <code>domainPatterns</code> yang tidak kosong. <code>urlPattern</code> hanya digunakan bila <code>domainPatterns</code> hilang atau kosong. Jalur editor/impor khusus menganggap keduanya tidak valid.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "perilaku clearurls.js: jika domainPatterns ada dan tidak kosong, Linkumori menggunakan domainPatterns untuk pencocokan penyedia. urlPattern hanya digunakan ketika domainPatterns hilang atau kosong. Jalur editor/impor khusus menolak bentuk pencocokan campuran ini, jadi gunakan hanya untuk memahami data lama.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns menang untuk pencocokan jika ada dan tidak kosong. urlPattern hanya digunakan ketika domainPatterns hilang atau kosong. Jalur editor/impor khusus menolak penyedia yang berisi kedua kelompok pencocokan.",
     "description": "Guide page text."
   },
   "guide_0735": {

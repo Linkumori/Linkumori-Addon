@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Domeenimustrid toetavad lihtsaid märke ja AdBlocki stiilis vorme. Sobivuskäitumine sõltub süntaksist (mõned vormid kontrollivad hostinime, teised vastavad täielikule URL-i stringile):",
+    "message": "Domeenimustrid toetavad lihtsaid märke ja AdBlocki stiilis vorme. Kui domainPatterns pole tühi, kasutab clearurls.js neid pakkuja sobitamiseks ja otsingumärgi ekstraheerimiseks enne mis tahes urlPattern varuosa:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Mõlemad väljad võivad andmetes esineda, kuid prioriteet on urlPattern. Domeenimustreid kasutatakse ainult siis, kui urlPattern on tühi. Domeeni sobitamine on PSL-teadlik, sealhulgas registreeritavate domeenide haldamine ja mitmeosaline tippdomeeni tugi.",
+    "message": "Autoriseeritud kohandatud pakkujate jaoks valige kas domainPatterns või urlPattern. Clearurls.js käitusandmetes võidavad mittetühjad domeenipatternid ja urlPatternit kasutatakse ainult siis, kui domeenipatterns puudub või see on tühi. Domeeni sobitamine on toetatud AdBlock-stiilis vormide puhul PSL-teadlik, sealhulgas registreeritava domeeni käsitlemine ja mitmeosalise tippdomeeni tugi.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Pakkujad on loogilised üksused, mis koondavad mitu reeglit sama URL-i mustri alla. Iga pakkuja sihib konkreetset veebisaiti või teenust ja sisaldab kõiki reegleid, mis on vajalikud URL-ide puhastamiseks sellest allikast.",
+    "message": "Pakkujaid nimetatakse konteineriteks, mis rühmitavad vasteväljad ja URL-i puhastamise reeglid. Kandidaatide otsing kasutab hostinime lubasid domeenist Patterns või indexPattern; pakkuja nimi on ainult silt/võti ega otsusta, kas päring sobib.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern on regulaaravaldis, mis peab ühtima iga URL-iga, mida pakkuja reeglid peaksid mõjutama. See määrab, milliseid veebisaite see pakkuja peaks käsitlema.",
+    "message": "urlPattern on regulaaravaldis, mida testitakse täieliku päringu URL-i suhtes, kui pakkujal pole mittetühja domeenimustreid. Kui kasutate urlPattern, lisage võimalusel indexPattern, et clearurls.js saaks enne regexi testimist hostinime lubade järgi pakkuja leida.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "Indeksi muster on domeenimuster (nt ||example.com^), mis toimib vihjena indekseerimissüsteemile. Kuna urlPattern regulaaravaldisi on hostinimede jaoks raske sõeluda, pakub indexPattern optimeerimiseks selget sihtmärki. See tagab pakkuja korrektse ja tõhusa indekseerimise.",
+    "message": "indexPattern on pakkuja otsingu vihje, mitte vastetingimus. clearurls.js ekstraktib hostinime märgid indexPatternist, et paigutada urlPattern pakkuja pakkujate ByToken kandidaatide ämbritesse. Pakkuja vastab endiselt ainult siis, kui pakkuja.matchRequestURL() edastab tegeliku urlPattern ja erandid ei ühti.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Vaadake avatav URL üle. See URL sisaldab teie sisestatud teavet ja suunab teid GitHubisse.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Privaatsuspoliitika teatis",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori loob selle URL-i teie brauseris kohapeal. Linkumori ei edasta selle URL-i loomise ajal andmeid otse teilt või teie brauserist GitHubisse või mõnesse teise serverisse.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Kui valite \"Ava GitHub\", lubate brauseris kuvatava URL-i avada. See brauseri navigeerimine võib saata URL-i ja selle päringuparameetrid GitHubile.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Probleemi loomisel võib URL sisaldada probleemi tüüpi, valitud probleemi URL-i, puhastatud URL-i, NSFW-markerit, kommentaare ja valitud konfiguratsiooni jaotisi.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Probleemide otsimiseks võib URL sisaldada valitud hostinime, domeeni, probleemi tüüpi ja NSFW otsinguterminit, kui see on valitud.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori ei toeta GitHubi. Linkumori ei tea, kinnita ega garanteeri, kas GitHub järgib teie kohalikke privaatsus-, andmekaitse- või muid kohaldatavaid seadusi.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Enne jätkamist vaadake üle täielik URL. Tühistage, kui te ei soovi, et teie brauser GitHubi avaks.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "Avatav URL (tehniline vorming):",
@@ -4981,6 +5009,10 @@
     "message": "See ei ole koodi JavaScript juhend. See keskendub ainult JSON kujunditele, reeglivormingutele ja näidetele, mida reegli autorid vajavad.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "See juhend põhineb praegusel <code>clearurls.js</code> käitusaja käitumisel. Eelkõige kasutab teenusepakkuja otsimine <code>providersByToken</code> kandidaatsalve, mis pärinevad <code>domainPatterns</code> või <code>indexPattern</code>, ja lõplik sobitamine toimub ikka läbi <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "1. peatükk: Põhiline JSON Kuju",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Pakkuja on üks reeglite rühm ühe veebisaidi, ettevõtte, jälgija või URL mustri jaoks.",
+    "message": "Pakkuja on ühe nimega käitusaja konteiner ühe veebisaidi, ettevõtte, jälgija, domeenimustri komplekti või URL-i regexi jaoks. Pakkuja nimi on silt/võti; sobitamine toimub <code>domainPatterns</code> või <code>urlPattern</code>, mitte pakkuja nime järgi.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Täielik pakkuja mall:",
+    "message": "Pakkuja väljad aktsepteeris <code>clearurls.js</code>. Sobitamiseks kirjutage kas <code>domainPatterns</code> või <code>urlPattern</code> valikulise <code>indexPattern</code>-iga; ärge lootke sellele, et mõlemat nõutakse koos.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> on Linkumori lisand. Kasutage seda enamiku Linkumori JSON pakkujate jaoks, kuna seda on lihtsam kirjutada kui täielikku <code>urlPattern</code> regexit.",
+    "message": "<code>domainPatterns</code> on Linkumori lisand ja seda eelistatakse enamiku kohandatud pakkujate jaoks. <code>clearurls.js</code>-s kasutatakse enne <code>urlPattern</code> sobitamiseks mittetühja <code>domainPatterns</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Kasutage numbrit <code>urlPattern</code> ainult siis, kui domeeni sobitamisest ei piisa.",
+    "message": "Kasutage <code>urlPattern</code> ainult siis, kui domeeni sobitamisest ei piisa, näiteks kui pakkuja peab sobitama kindla tee või täieliku URL-i regexi.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> on ClearURLs lisandmooduli pärand ja ClearURLs tuum v2 kanooniline süntaks. Linkumori lisab valikulise otsinguvihjena numbri <code>indexPattern</code>, et mootor saaks regexi pakkujaid kiiremini leida.",
+    "message": "<code>urlPattern</code> on ClearURL-i lisandmooduli pärand ja ClearURL-i põhiv2 kanooniline süntaks. Linkumori lisab <code>indexPattern</code> ainult kandidaadiotsingu vihjena, et regexi pakkujad saaks hostinime lubade järgi kiiremini üles leida.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Tähtis: Linkumori <code>indexPattern</code> on ainult otsinguvihje. See ei otsusta, kas teenusepakkuja taotleb.",
+    "message": "Tähtis: <code>indexPattern</code> ei otsusta, kas pakkuja sobib. Pärast kandidaatide otsimist testib <code>clearurls.js</code> endiselt tegelikku <code>urlPattern</code>-i <code>provider.matchRequestURL()</code>-is.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> on ülesvoolu ClearURLs süntaks. <code>indexPattern</code> on Linkumori lisand kiiremaks otsimiseks, kui vajate regex URL sobitamist.",
+    "message": "<code>urlPattern</code> on ülesvoolu ClearURL-i süntaks. <code>indexPattern</code> on Linkumori otsingu vihje regex-URL-i pakkujatele; see peaks osutama hostinimedele, millele regex võib sobida.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> on valikuline, kuid kasulik kiiruse tagamiseks.",
+    "message": "<code>indexPattern</code> on valikuline, kuid kasulik kiiruse jaoks. See indekseerib pakkuja hostinime-tokeni kandidaatide ämbritesse; see ei asenda kunagi viimast <code>urlPattern</code> matši.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Kombinatsioon 5: <code>domainPatterns</code> ja <code>urlPattern</code> koos",
+    "message": "Kombinatsioon 5: ärge segage <code>domainPatterns</code> ja <code>urlPattern</code> kombineeritud nõudena",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "See Linkumori segatud sobivuse kuju on kehtiv JSON:",
+    "message": "See kujund võib esineda vanemates või käsitsi kirjutatud andmetes, kuid see ei tähenda, et mõlemad vasted peavad läbima:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Oluline käitumine:",
+    "message": "<code>clearurls.js</code> praegune käitumine:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Seega ärge kasutage mõlemat, kui eeldate, et mõlemad on vajalikud. Kui vajate teetingimust, kasutage numbrit <code>urlPattern</code> koos numbriga <code>indexPattern</code> või sisestage ulatusega <code>$removeparam</code>/reeglimuster <code>rules</code> sisse.",
+    "message": "Kui <code>domainPatterns</code> on olemas ja see pole tühi, kasutab <code>clearurls.js</code> seda pakkuja sobitamiseks ja ignoreerib selle pakkuja puhul <code>urlPattern</code>. Kohandatud redaktor/imporditee lükkab tagasi pakkujad, mis sisaldavad mõlemat. Kui vajate teetingimust, kasutage <code>urlPattern</code> koos <code>indexPattern</code>-ga või määrake üksikud <code>$removeparam</code>/reeglikirjed sees <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs lisandmooduli pärand ja ClearURLs core v2 kanooniline – ainult <code>urlPattern</code>:",
+    "message": "ClearURL-i lisandmooduli pärand ja ClearURL-i core v2 kanooniline – ainult <code>urlPattern</code>. Ilma <code>indexPattern</code>-ita võivad laiaulatuslikud regexi pakkujad hakata kasutama ülemaailmseid kandidaatide kontrolli.",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori lisamine — <code>urlPattern</code> koos numbriga <code>indexPattern</code>:",
+    "message": "Linkumori lisand — <code>urlPattern</code> koos <code>indexPattern</code>-ga. Indeksi muster on otsinguvihje, samas kui <code>urlPattern</code> jääb lõplikuks vasteks:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori lisamine — mitu <code>indexPattern</code> vihjet:",
+    "message": "Linkumori lisamine – mitu <code>indexPattern</code>-i vihjet URL-i regexile, mis võib ühtida rohkem kui ühe hostinimega:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori lisamine — ainult <code>domainPatterns</code>:",
+    "message": "Linkumori lisand – ainult <code>domainPatterns</code>. Neid kasutatakse otse pakkuja sobitamiseks ja otsingumärgi ekstraheerimiseks:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori lisamine – nii <code>domainPatterns</code> kui ka <code>urlPattern</code>:",
+    "message": "Pärand-/segaandmed võivad sisaldada nii <code>domainPatterns</code> kui ka <code>urlPattern</code>, kuid ärge looge uusi pakkujaid järgmisel viisil:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Käitumine:",
+    "message": "Käitumine: mittetühi <code>domainPatterns</code> võit. <code>urlPattern</code> kasutatakse ainult siis, kui <code>domainPatterns</code> puudub või on tühi. Kohandatud redaktor/imporditee käsitleb mõlemat koos kehtetutena.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js käitumine: kui domainPatterns on olemas ja see pole tühi, kasutab Linkumori pakkuja sobitamiseks domeeni Patterns. urlPattern kasutatakse ainult siis, kui domainPatterns puudub või on tühi. Kohandatud redaktor/imporditee lükkab selle segatud sobitaja kuju tagasi, seega kasutage seda ainult pärandandmete mõistmiseks.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns võidab sobitamise, kui see on olemas ja pole tühi. urlPattern kasutatakse ainult siis, kui domainPatterns puudub või on tühi. Kohandatud redaktor/imporditee lükkab tagasi pakkujad, mis sisaldavad mõlemat sobitajaperekonda.",
     "description": "Guide page text."
   },
   "guide_0735": {

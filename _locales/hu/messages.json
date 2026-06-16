@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "A tartomány minták támogatják az egyszerű tokeneket és az AdBlock-stílusú formákat. Az illesztési viselkedés a szintaxistól függ (egyes formák a hosztnevet ellenőrzik, mások a teljes URL karakterláncot illesztik):",
+    "message": "A tartományminták támogatják az egyszerű tokeneket és az AdBlock-stílusú űrlapokat. Ha a domainPatterns nem üres, a clearurls.js ezeket használja a szolgáltató egyeztetésére és a keresési jogkivonat kibontására az urlPattern tartalékok előtt:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Mindkét mező jelen lehet az adatokban, de az urlPattern elsőbbséget élvez. A Tartomány minták csak akkor használatosak, ha az urlPattern üres. A tartományillesztés PSL-tudatos, beleértve a regisztrálható tartomány kezelését és a több részből álló TLD támogatást.",
+    "message": "A szerző egyéni szolgáltatók esetén válassza a domainPatterns vagy az urlPattern lehetőséget. A clearurls.js futásidejű adatokban a nem üres domainPatterns nyer, és az urlPattern csak akkor használatos, ha a domainPatterns hiányzik vagy üres. A domainegyeztetés PSL-tudatos a támogatott AdBlock-stílusú űrlapoknál, beleértve a regisztrálható tartományok kezelését és a többrészes TLD támogatást.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "A szolgáltatók olyan logikai egységek, amelyek több szabályt csoportosítanak ugyanazon URL minta alá. Minden szolgáltató egy adott weboldalt vagy szolgáltatást céloz meg, és tartalmazza az összes szabályt, amely az adott forrásból származó URL-ek tisztításához szükséges.",
+    "message": "A szolgáltatók elnevezésű tárolók, amelyek az egyeztető mezőket és az URL-tisztítási szabályokat csoportosítják. A jelöltek keresése a domainPatterns vagy indexPattern gazdagépnév-tokenjeit használja; a szolgáltató neve csak egy címke/kulcs, és nem dönti el, hogy egy kérés megfelel-e.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "Az urlPattern egy reguláris kifejezés, amelynek illeszkednie kell minden olyan URL-re, amelyre a szolgáltató szabályainak hatnia kell. Meghatározza, hogy mely weboldalakat kell kezelnie ennek a szolgáltatónak.",
+    "message": "Az urlPattern egy reguláris kifejezés, amelyet a teljes kérés URL-címéhez viszonyítva tesztelnek, ha a szolgáltató nem rendelkezik nem üres domainPattern-ekkel. Ha urlPattern-t használ, lehetőség szerint adja hozzá az indexPattern paramétert, hogy a clearurls.js a gazdanév-tokenek alapján megtalálja a szolgáltatót a reguláris kifejezés tesztelése előtt.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "Az indexPattern egy tartományminta (pl. ||example.com^), amely tippként szolgál az indexelő rendszer számára. Mivel az urlPattern reguláris kifejezéseit nehéz feldolgozni a gazdagépnevekhez, az indexPattern kifejezett célpontot biztosít az optimalizáláshoz. Biztosítja a szolgáltató helyes és hatékony indexelését.",
+    "message": "Az indexPattern egy szolgáltatókeresési tipp, nem pedig egyezési feltétel. A clearurls.js kivonja a gazdagépnév-jogkivonatokat az indexPattern-ből, hogy egy urlPattern-szolgáltatót helyezzen el a providersByToken jelölt tárolókba. A szolgáltató továbbra is csak akkor egyezik, ha a provider.matchRequestURL() átadja a valódi urlPattern-t, és a kivételek nem egyeznek.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Kérjük, tekintse át a megnyíló URL-t. Ez az URL tartalmazza az Ön által megadott információkat, és átirányítja a GitHub oldalára.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Adatvédelmi nyilatkozat",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "A Linkumori helyileg hozza létre ezt az URL-t a böngészőjében. A Linkumori nem továbbít közvetlenül adatokat Öntől vagy böngészőjétől a GitHubba vagy bármely más szerverre az URL létrehozásakor.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Ha a „GitHub megnyitása” lehetőséget választja, akkor azt választja, hogy a böngésző megnyitja a megjelenített URL-t. Ez a böngészőnavigáció elküldheti az URL-t és lekérdezési paramétereit a GitHubnak.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "A probléma létrehozásához az URL tartalmazhatja a probléma típusát, a kiválasztott probléma URL-címét, a tisztított URL-t, az NSFW-jelölőt, a megjegyzéseket és a kiválasztott konfigurációs szakaszokat.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "A problémakereséshez az URL tartalmazhatja a kiválasztott gazdagépnevet, tartományt, problématípust és az NSFW keresési kifejezést, ha ki van választva.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "A Linkumori nem támogatja a GitHubot. A Linkumori nem tudja, ellenőrzi és nem garantálja, hogy a GitHub megfelel-e az Ön helyi adatvédelmi, adatvédelmi vagy egyéb vonatkozó törvényeinek.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "A folytatás előtt tekintse át a teljes URL-t. Mégse, ha nem szeretné, hogy böngészője megnyitja a GitHubot.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "Megnyitandó URL (technikai formátum):",
@@ -4981,6 +5009,10 @@
     "message": "Ez nem útmutató a JavaScript kódhoz. Csak azokra a JSON alakzatokra, szabályformátumokra és példákra összpontosít, amelyekre a szabályok szerzőinek szüksége van.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Ez az útmutató a jelenlegi <code>clearurls.js</code> futásidejű viselkedésen alapul. A szolgáltatók keresése különösen a <code>domainPatterns</code> vagy <code>indexPattern</code> <code>providersByToken</code> jelöltcsoportjait használja, és a végső egyeztetés továbbra is a <code>provider.matchRequestURL()</code>-en keresztül fut.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "1. fejezet: Alap JSON Alak",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "A szolgáltató egy szabálycsoport egy webhelyhez, vállalathoz, nyomkövetőhöz vagy URL mintához.",
+    "message": "A szolgáltató egy elnevezett futásidejű tároló egy webhelyhez, vállalathoz, nyomkövetőhöz, domainminta-készlethez vagy URL regexhez. A szolgáltató neve egy címke/kulcs; Az egyeztetést a <code>domainPatterns</code> vagy a <code>urlPattern</code> végzi, nem a szolgáltató neve.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Teljes szolgáltató sablon:",
+    "message": "A <code>clearurls.js</code> által elfogadott szolgáltatói mezők. Az egyeztetéshez írja be a <code>domainPatterns</code> vagy a <code>urlPattern</code> opcionális <code>indexPattern</code>-et; ne hagyatkozz arra, hogy mindkettő együtt szükséges.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "A <code>domainPatterns</code> egy Linkumori kiegészítés. Használja a legtöbb Linkumori JSON szolgáltatónál, mert egyszerűbb írni, mint egy teljes <code>urlPattern</code> reguláris kifejezést.",
+    "message": "A <code>domainPatterns</code> egy Linkumori kiegészítés, és a legtöbb egyéni szolgáltató számára előnyös. A <code>clearurls.js</code>-ben a nem üres <code>domainPatterns</code> a <code>urlPattern</code> előtti egyeztetéshez.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Csak akkor használja a <code>urlPattern</code> számot, ha a tartományegyeztetés nem elegendő.",
+    "message": "A <code>urlPattern</code>-et csak akkor használja, ha a tartományegyeztetés nem elegendő, például ha a szolgáltatónak meg kell felelnie egy adott elérési útnak vagy teljes URL regexnek.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "A <code>urlPattern</code> a ClearURLs addon örökölt és a ClearURLs core v2 kanonikus szintaxis. A Linkumori opcionális keresési tippként hozzáadja a <code>indexPattern</code> számot, így a motor gyorsabban találja meg a regex szolgáltatókat.",
+    "message": "A <code>urlPattern</code> a ClearURL-bővítmény örökölt és a ClearURLs core v2 kanonikus szintaxisa. A Linkumori a <code>indexPattern</code>-et csak jelöltkeresési tippként adja hozzá, így a regex-szolgáltatók gyorsabban megtalálhatók a gazdagépnév-tokenek alapján.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Fontos: Linkumori <code>indexPattern</code> csak egy tipp. Nem dönti el, hogy a szolgáltató jelentkezik-e.",
+    "message": "Fontos: A <code>indexPattern</code> nem dönti el, hogy egy szolgáltató megfelel-e. A jelöltek keresése után a <code>clearurls.js</code> továbbra is teszteli a valódi <code>urlPattern</code>-et a <code>provider.matchRequestURL()</code>-ben.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "A <code>urlPattern</code> a ClearURLs szintaxis. A <code>indexPattern</code> egy Linkumori kiegészítés a gyorsabb kereséshez, ha URL reguláris kifejezésre van szüksége.",
+    "message": "A <code>urlPattern</code> egy felfelé irányuló ClearURL szintaxis. A <code>indexPattern</code> egy Linkumori keresési tipp a regex URL-szolgáltatók számára; azokra a gazdagépnevekre kell mutatnia, amelyeknek a regex megfelelhet.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "A <code>indexPattern</code> opcionális, de hasznos a sebesség szempontjából.",
+    "message": "A <code>indexPattern</code> opcionális, de hasznos a sebesség szempontjából. Indexeli a szolgáltatót a gazdagépnév-token jelölt csoportokba; soha nem helyettesíti az utolsó <code>urlPattern</code> mérkőzést.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "5. kombináció: <code>domainPatterns</code> és <code>urlPattern</code> együtt",
+    "message": "5. kombináció: Ne keverje össze a <code>domainPatterns</code> és a <code>urlPattern</code> szabványt kombinált követelményként",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Ez a Linkumori vegyes egyező forma érvényes JSON:",
+    "message": "Ez az alakzat megjelenhet régebbi vagy kézzel írott adatokban, de ez nem jelenti azt, hogy mindkét megfelelőnek át kell adnia:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Fontos viselkedés:",
+    "message": "Jelenlegi <code>clearurls.js</code> viselkedés:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Tehát ne használja mindkettőt, ha arra számít, hogy mindkettőre szükség lesz. Ha elérési feltételre van szüksége, használja a <code>urlPattern</code> számot a <code>indexPattern</code>-es számmal, vagy helyezzen el egy hatókörű <code>$removeparam</code>/szabálymintát a <code>rules</code> számba.",
+    "message": "Ha a <code>domainPatterns</code> van jelen, és nem üres, a <code>clearurls.js</code> ezt használja a szolgáltató egyeztetéséhez, és figyelmen kívül hagyja az adott szolgáltatónál a <code>urlPattern</code> fájlt. Az egyéni szerkesztő/importálási útvonal elutasítja azokat a szolgáltatókat, amelyek mindkettőt tartalmazzák. Ha elérési feltételre van szüksége, használja a <code>urlPattern</code>-et a <code>indexPattern</code>-szel, vagy terjedjen ki az egyes <code>$removeparam</code>/szabály bejegyzésekre a <code>rules</code>-en belül.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs kiegészítő örökölt és ClearURLs core v2 kanonikus – csak <code>urlPattern</code>:",
+    "message": "Legacy ClearURLs addon és Canonical ClearURLs core v2 – csak a <code>urlPattern</code>. A <code>indexPattern</code> nélkül a széles körű regex-szolgáltatók visszatérhetnek a globális jelöltek ellenőrzéséhez:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori kiegészítés — <code>urlPattern</code> a <code>indexPattern</code> számmal:",
+    "message": "Linkumori kiegészítés — <code>urlPattern</code> és <code>indexPattern</code>. Az indexminta egy keresési tipp, míg a <code>urlPattern</code> marad a végső egyező:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori kiegészítés — több <code>indexPattern</code> tipp:",
+    "message": "Linkumori-kiegészítés – több <code>indexPattern</code> tipp egy URL regexhez, amely egynél több gazdagépnévnek felelhet meg:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori kiegészítés – csak <code>domainPatterns</code>:",
+    "message": "Linkumori kiegészítés – csak a <code>domainPatterns</code>. Ezeket közvetlenül a szolgáltató egyeztetésére és a keresési token kivonására használják:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori kiegészítés – <code>domainPatterns</code> és <code>urlPattern</code>:",
+    "message": "A régebbi/vegyes adatok tartalmazhatják a <code>domainPatterns</code> és a <code>urlPattern</code> elemeket is, de ne hozzon létre új szolgáltatókat így:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Viselkedés:",
+    "message": "Viselkedés: nem üres <code>domainPatterns</code> nyer. A <code>urlPattern</code> csak akkor használható, ha a <code>domainPatterns</code> hiányzik vagy üres. Az egyéni szerkesztő/importálási útvonal mindkettőt együtt érvénytelenként kezeli.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js viselkedése: ha a domainPatterns létezik, és nem üres, a Linkumori domainPatterns-t használ a szolgáltató egyeztetéséhez. Az urlPattern csak akkor használatos, ha a domainPatterns hiányzik vagy üres. Az egyéni szerkesztő/importálási útvonal elutasítja ezt a vegyes egyező alakzatot, ezért csak a régi adatok megértéséhez használja.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "A domainPatterns akkor nyer egyezést, ha jelen van és nem üres. Az urlPattern csak akkor használatos, ha a domainPatterns hiányzik vagy üres. Az egyéni szerkesztő/importálási útvonal elutasítja azokat a szolgáltatókat, amelyek mindkét illesztőcsaládot tartalmazzák.",
     "description": "Guide page text."
   },
   "guide_0735": {

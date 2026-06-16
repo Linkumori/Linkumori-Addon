@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Mẫu miền hỗ trợ mã thông báo đơn giản và biểu mẫu kiểu AdBlock. Hành vi so khớp phụ thuộc vào cú pháp (một số biểu mẫu kiểm tra tên máy chủ, một số biểu mẫu khác khớp với chuỗi URL đầy đủ):",
+    "message": "Mẫu miền hỗ trợ mã thông báo đơn giản và biểu mẫu kiểu AdBlock. Khi domainPattern không trống, Clearurls.js sẽ sử dụng chúng để so khớp nhà cung cấp và trích xuất mã thông báo tra cứu trước bất kỳ dự phòng urlPattern nào:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Cả hai trường đều có thể xuất hiện trong dữ liệu, nhưng urlPattern được ưu tiên. Mẫu miền chỉ được sử dụng khi urlPattern trống. Đối sánh tên miền nhận biết PSL, bao gồm xử lý tên miền có thể đăng ký và hỗ trợ TLD nhiều phần.",
+    "message": "Đối với các nhà cung cấp tùy chỉnh được ủy quyền, hãy chọn domainPatterns hoặc urlPattern. Trong dữ liệu thời gian chạy Clearurls.js, các domainPattern không trống và urlPattern chỉ được sử dụng khi domainPattern bị thiếu hoặc trống. Đối sánh tên miền có khả năng nhận biết PSL cho các biểu mẫu kiểu AdBlock được hỗ trợ, bao gồm xử lý tên miền có thể đăng ký và hỗ trợ TLD nhiều phần.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Nhà cung cấp là các đơn vị logic nhóm nhiều quy tắc theo cùng một mẫu URL. Mỗi nhà cung cấp nhắm mục tiêu đến một trang web hoặc dịch vụ cụ thể và chứa tất cả các quy tắc cần thiết để xóa URL khỏi nguồn đó.",
+    "message": "Các nhà cung cấp được đặt tên là các vùng chứa nhóm các trường đối sánh và quy tắc làm sạch URL. Tra cứu ứng viên sử dụng mã thông báo tên máy chủ từ domainPatterns hoặc indexPattern; tên nhà cung cấp chỉ là nhãn/khóa và không quyết định liệu yêu cầu có khớp hay không.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern là một biểu thức chính quy phải khớp với mọi URL chịu ảnh hưởng bởi các quy tắc của nhà cung cấp. Nó xác định những trang web mà nhà cung cấp này sẽ xử lý.",
+    "message": "urlPattern là một biểu thức chính quy được kiểm tra dựa trên URL yêu cầu đầy đủ khi nhà cung cấp không có các mẫu miền không trống. Nếu bạn sử dụng urlPattern, hãy thêm indexPattern khi có thể để clearurls.js có thể tìm thấy nhà cung cấp bằng mã thông báo tên máy chủ trước khi kiểm tra biểu thức chính quy.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "IndexPattern là một mẫu miền (ví dụ: ||example.com^) hoạt động như một gợi ý cho hệ thống lập chỉ mục. Vì các biểu thức chính quy trong urlPattern khó phân tích cú pháp cho tên máy chủ, nên indexPattern cung cấp mục tiêu rõ ràng để tối ưu hóa. Nó đảm bảo nhà cung cấp được lập chỉ mục chính xác và hiệu quả.",
+    "message": "indexPattern là gợi ý tra cứu nhà cung cấp, không phải là điều kiện phù hợp. Clearurls.js trích xuất mã thông báo tên máy chủ từ indexPattern để đặt nhà cung cấp urlPattern vào nhóm ứng viên của nhà cung cấpByToken. Nhà cung cấp vẫn chỉ khớp nếu nhà cung cấp.matchRequestURL() chuyển urlPattern thực và các ngoại lệ không khớp.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Vui lòng xem lại URL sẽ được mở. URL này chứa thông tin bạn đã nhập và sẽ chuyển hướng bạn đến GitHub.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Thông báo chính sách bảo mật",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori tạo URL này cục bộ trong trình duyệt của bạn. Linkumori không trực tiếp chuyển dữ liệu từ bạn hoặc trình duyệt của bạn sang GitHub hoặc tới bất kỳ máy chủ nào khác trong khi tạo URL này.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Nếu bạn chọn \"Mở GitHub\", bạn đang chọn cho phép trình duyệt của mình mở URL được hiển thị. Điều hướng trình duyệt đó có thể gửi URL và các tham số truy vấn của nó tới GitHub.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Để tạo sự cố, URL có thể bao gồm loại sự cố, URL sự cố đã chọn, URL đã được làm sạch, điểm đánh dấu NSFW, nhận xét và các phần cấu hình đã chọn.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Để tìm kiếm vấn đề, URL có thể bao gồm tên máy chủ, miền, loại vấn đề đã chọn và cụm từ tìm kiếm NSFW nếu được chọn.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori không xác nhận GitHub. Linkumori không biết, xác minh hoặc đảm bảo liệu GitHub có tuân thủ quyền riêng tư, bảo vệ dữ liệu tại địa phương của bạn hoặc các luật hiện hành khác hay không.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Xem lại URL đầy đủ trước khi tiếp tục. Hủy nếu bạn không muốn trình duyệt của mình mở GitHub.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "URL sẽ được mở (định dạng kỹ thuật):",
@@ -4981,6 +5009,10 @@
     "message": "Đây không phải là hướng dẫn về mã JavaScript. Nó chỉ tập trung vào JSON hình dạng, định dạng quy tắc và ví dụ mà tác giả quy tắc cần.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Hướng dẫn này dựa trên hành vi thời gian chạy <code>clearurls.js</code> hiện tại. Cụ thể, việc tra cứu nhà cung cấp sử dụng nhóm ứng viên <code>providersByToken</code> từ <code>domainPatterns</code> hoặc <code>indexPattern</code> và kết quả khớp cuối cùng vẫn chạy qua <code>provider.matchRequestURL()</code>.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Chương 1: Hình dạng cơ bản JSON",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Nhà cung cấp là một nhóm quy tắc cho một trang web, công ty, trình theo dõi hoặc mẫu URL.",
+    "message": "Nhà cung cấp là một vùng chứa thời gian chạy được đặt tên cho một trang web, công ty, trình theo dõi, bộ mẫu miền hoặc biểu thức chính quy URL. Tên nhà cung cấp là nhãn/khóa; việc so khớp được thực hiện bởi <code>domainPatterns</code> hoặc <code>urlPattern</code>, không phải theo tên nhà cung cấp.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Mẫu nhà cung cấp đầy đủ:",
+    "message": "Các trường nhà cung cấp được <code>clearurls.js</code> chấp nhận. Để đối sánh, hãy tạo <code>domainPatterns</code> hoặc <code>urlPattern</code> với <code>indexPattern</code> tùy chọn; không dựa vào cả hai được yêu cầu cùng nhau.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> là số cộng Linkumori. Sử dụng nó cho hầu hết các nhà cung cấp Linkumori JSON vì nó dễ viết hơn một biểu thức chính quy <code>urlPattern</code> đầy đủ.",
+    "message": "<code>domainPatterns</code> là một phần bổ sung của Linkumori và được hầu hết các nhà cung cấp tùy chỉnh ưa thích. Trong <code>clearurls.js</code>, <code>domainPatterns</code> không trống được sử dụng để khớp trước <code>urlPattern</code>.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Chỉ sử dụng <code>urlPattern</code> khi việc khớp tên miền là không đủ.",
+    "message": "Chỉ sử dụng <code>urlPattern</code> khi việc khớp tên miền là không đủ, chẳng hạn như khi nhà cung cấp phải khớp một đường dẫn cụ thể hoặc biểu thức chính quy URL đầy đủ.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> là ClearURLs phần bổ trợ kế thừa và cú pháp chuẩn ClearURLs lõi v2. Linkumori thêm <code>indexPattern</code> làm gợi ý tra cứu tùy chọn để công cụ có thể tìm thấy nhà cung cấp biểu thức chính quy nhanh hơn.",
+    "message": "<code>urlPattern</code> là di sản bổ trợ ClearURLs và cú pháp chuẩn lõi v2 của ClearURLs. Linkumori chỉ thêm <code>indexPattern</code> làm gợi ý tra cứu ứng viên để các nhà cung cấp biểu thức chính quy có thể được tìm thấy bằng mã thông báo tên máy chủ nhanh hơn.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Quan trọng: Linkumori <code>indexPattern</code> chỉ là gợi ý tra cứu. Nó không quyết định liệu nhà cung cấp có áp dụng hay không.",
+    "message": "Quan trọng: <code>indexPattern</code> không quyết định liệu nhà cung cấp có phù hợp hay không. Sau khi tra cứu ứng viên, <code>clearurls.js</code> vẫn kiểm tra <code>urlPattern</code> thực trong <code>provider.matchRequestURL()</code>.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> là cú pháp ngược dòng ClearURLs. <code>indexPattern</code> là phần bổ sung Linkumori để tra cứu nhanh hơn khi bạn cần đối sánh biểu thức chính quy URL.",
+    "message": "<code>urlPattern</code> là cú pháp ClearURLs ngược dòng. <code>indexPattern</code> là gợi ý tra cứu Linkumori dành cho các nhà cung cấp URL biểu thức chính quy; nó phải trỏ đến tên máy chủ mà biểu thức chính quy có thể khớp.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> là tùy chọn nhưng hữu ích cho tốc độ.",
+    "message": "<code>indexPattern</code> là tùy chọn nhưng hữu ích về tốc độ. Nó lập chỉ mục nhà cung cấp vào các nhóm ứng viên tên máy chủ-mã thông báo; nó không bao giờ thay thế trận đấu <code>urlPattern</code> cuối cùng.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Kết hợp 5: <code>domainPatterns</code> Và <code>urlPattern</code> Cùng nhau",
+    "message": "Kết hợp 5: Không kết hợp <code>domainPatterns</code> và <code>urlPattern</code> như một yêu cầu kết hợp",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Hình dạng đối sánh hỗn hợp Linkumori này hợp lệ JSON:",
+    "message": "Hình dạng này có thể xuất hiện trong dữ liệu cũ hơn hoặc dữ liệu viết tay, nhưng điều đó không có nghĩa là cả hai đối sánh đều phải vượt qua:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Hành vi quan trọng:",
+    "message": "Hành vi <code>clearurls.js</code> hiện tại:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Vì vậy, không sử dụng cả hai khi bạn mong đợi cả hai đều được yêu cầu. Nếu bạn cần điều kiện đường dẫn, hãy sử dụng <code>urlPattern</code> với <code>indexPattern</code> hoặc đặt <code>$removeparam</code>/mẫu quy tắc trong phạm vi <code>rules</code>.",
+    "message": "Nếu <code>domainPatterns</code> hiện diện và không trống, <code>clearurls.js</code> sẽ sử dụng nó để khớp nhà cung cấp và bỏ qua <code>urlPattern</code> cho nhà cung cấp đó. Đường dẫn nhập/trình chỉnh sửa tùy chỉnh từ chối các nhà cung cấp có chứa cả hai. Nếu bạn cần điều kiện đường dẫn, hãy sử dụng <code>urlPattern</code> với <code>indexPattern</code> hoặc xác định phạm vi các mục nhập quy tắc/<code>$removeparam</code> riêng lẻ bên trong <code>rules</code>.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs phần bổ trợ kế thừa và ClearURLs lõi v2 chuẩn — chỉ <code>urlPattern</code>:",
+    "message": "ClearURLs addon kế thừa và ClearURLs core v2 canonical - chỉ <code>urlPattern</code>. Nếu không có <code>indexPattern</code>, các nhà cung cấp biểu thức chính quy rộng rãi có thể quay lại kiểm tra ứng viên toàn cầu:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Thêm Linkumori — <code>urlPattern</code> với <code>indexPattern</code>:",
+    "message": "Bổ sung Linkumori - <code>urlPattern</code> với <code>indexPattern</code>. Mẫu chỉ mục là gợi ý tra cứu, trong khi <code>urlPattern</code> vẫn là mẫu so khớp cuối cùng:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Bổ sung Linkumori - nhiều gợi ý <code>indexPattern</code>:",
+    "message": "Bổ sung Linkumori - nhiều gợi ý <code>indexPattern</code> cho biểu thức chính quy URL có thể khớp với nhiều tên máy chủ:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Bổ sung Linkumori — chỉ <code>domainPatterns</code>:",
+    "message": "Bổ sung Linkumori - chỉ <code>domainPatterns</code>. Chúng được sử dụng trực tiếp để so khớp nhà cung cấp và trích xuất mã thông báo tra cứu:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Bổ sung Linkumori — cả <code>domainPatterns</code> và <code>urlPattern</code>:",
+    "message": "Dữ liệu cũ/hỗn hợp có thể chứa cả <code>domainPatterns</code> và <code>urlPattern</code>, nhưng không tạo ra các nhà cung cấp mới theo cách này:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Hành vi:",
+    "message": "Hành vi: <code>domainPatterns</code> không trống chiến thắng. <code>urlPattern</code> chỉ được sử dụng khi <code>domainPatterns</code> bị thiếu hoặc trống. Đường dẫn nhập/trình chỉnh sửa tùy chỉnh coi cả hai đều không hợp lệ.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "hành vi clearurls.js: nếu domainPatterns tồn tại và không trống, Linkumori sẽ sử dụng domainPatterns để so khớp nhà cung cấp. urlPattern chỉ được sử dụng khi domainPatterns bị thiếu hoặc trống. Đường dẫn nhập/trình chỉnh sửa tùy chỉnh từ chối hình dạng so khớp hỗn hợp này, vì vậy chỉ sử dụng nó để hiểu dữ liệu cũ.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns thắng khi so khớp khi nó hiện diện và không trống. urlPattern chỉ được sử dụng khi domainPatterns bị thiếu hoặc trống. Đường dẫn nhập/trình chỉnh sửa tùy chỉnh từ chối các nhà cung cấp có chứa cả hai dòng đối sánh.",
     "description": "Guide page text."
   },
   "guide_0735": {

@@ -638,7 +638,7 @@
     "description": "FAQ question about domain patterns vs URL patterns"
   },
   "faq_domain_patterns_explanation": {
-    "message": "Verkkotunnusmallit tukevat yksinkertaisia ​​tunnuksia ja AdBlock-tyylisiä lomakkeita. Vastaavuus riippuu syntaksista (jotkut lomakkeet tarkistavat isäntänimen, toiset vastaavat koko URL-merkkijonoa):",
+    "message": "Verkkotunnusmallit tukevat yksinkertaisia ​​tunnuksia ja AdBlock-tyylisiä lomakkeita. Kun domainPatterns ei ole tyhjä, clearurls.js käyttää niitä palveluntarjoajan täsmäämiseen ja hakutunnisteiden poimimiseen ennen urlPattern-varamuutoksia:",
     "description": "FAQ explanation of domain patterns"
   },
   "faq_domain_redirections": {
@@ -786,7 +786,7 @@
     "description": "Label for important notes in FAQ"
   },
   "faq_pattern_exclusive_note": {
-    "message": "Molemmat kentät voivat olla tiedoissa, mutta urlPattern on etusijalla. Domain Patterns -malleja käytetään vain, kun urlPattern on tyhjä. Domain matching on PSL-tietoinen, mukaan lukien rekisteröitävän verkkotunnuksen käsittely ja moniosainen TLD-tuki.",
+    "message": "Valitse valtuutetuille mukautetuille palveluntarjoajille joko domainPatterns tai urlPattern. Ajonaikaisissa clearurls.js-tiedoissa ei-tyhjät domainPatterns voittaa ja urlPattern-tunnusta käytetään vain, kun domainPatterns puuttuu tai on tyhjä. Domain matching on PSL-tietoinen tuetuissa AdBlock-tyylisissä lomakkeissa, mukaan lukien rekisteröitävien verkkotunnusten käsittely ja moniosainen TLD-tuki.",
     "description": "FAQ note about pattern exclusivity"
   },
   "faq_perf_combine": {
@@ -850,7 +850,7 @@
     "description": "FAQ tip about provider list"
   },
   "faq_providers_explanation": {
-    "message": "Palveluntarjoajat ovat loogisia yksiköitä, jotka ryhmittelevät useita sääntöjä saman URL-osoitemallin alle. Jokainen palveluntarjoaja kohdistaa tiettyyn verkkosivustoon tai palveluun ja sisältää kaikki säännöt, joita tarvitaan URL-osoitteiden puhdistamiseen kyseisestä lähteestä.",
+    "message": "Palveluntarjoajat ovat nimettyjä säilöjä, jotka ryhmittelevät hakukentät ja URL-osoitteen puhdistussäännöt. Ehdokashaku käyttää isäntänimitunnuksia domainPatterns- tai indexPatternista; palveluntarjoajan nimi on vain tunniste/avain, eikä se päätä, vastaako pyyntö.",
     "description": "FAQ answer explaining providers"
   },
   "faq_raw_rules_explanation": {
@@ -1058,7 +1058,7 @@
     "description": "FAQ question about urlPattern"
   },
   "faq_url_pattern_explanation": {
-    "message": "urlPattern on säännöllinen lauseke, jonka on vastattava kaikkia URL-osoitteita, joihin palveluntarjoajan sääntöjen tulisi vaikuttaa. Se määrittää, mitä verkkosivustoja tämän palveluntarjoajan tulee käsitellä.",
+    "message": "urlPattern on säännöllinen lauseke, joka testataan täyttä pyynnön URL-osoitetta vastaan, kun toimittajalla ei ole ei-tyhjiä domainPatterns. Jos käytät urlPatternia, lisää indexPattern, kun mahdollista, jotta clearurls.js voi löytää palveluntarjoajan isäntänimen tunnisteiden perusteella ennen säännöllisen lausekkeen testaamista.",
     "description": "FAQ answer explaining urlPattern"
   },
   "faq_url_pattern_structure": {
@@ -4299,7 +4299,7 @@
     "description": "FAQ question about indexPattern"
   },
   "faq_index_pattern_explanation": {
-    "message": "IndeksiPattern on verkkotunnuksen malli (esim. ||example.com^), joka toimii vihjeenä indeksointijärjestelmälle. Koska urlPatternin säännöllisiä lausekkeita on vaikea jäsentää isäntänimille, indexPattern tarjoaa selkeän kohteen optimointia varten. Se varmistaa, että palveluntarjoaja indeksoidaan oikein ja tehokkaasti.",
+    "message": "indexPattern on palveluntarjoajan hakuvinkki, ei vastaavuusehto. clearurls.js poimii isäntänimitunnisteet indexPatternista sijoittaakseen urlPattern-tarjoajan providersByToken-ehdokasryhmiin. Palveluntarjoaja vastaa edelleen vain, jos provider.matchRequestURL() välittää todellisen urlPatternin ja poikkeukset eivät täsmää.",
     "description": "FAQ answer explaining indexPattern"
   },
   "settings_import_regression_detected": {
@@ -4567,6 +4567,34 @@
   "urlPreviewWarning": {
     "message": "Tarkista avattava URL-osoite. Tämä URL-osoite sisältää antamasi tiedot ja ohjaa sinut GitHubiin.",
     "description": "Warning about URL contents and redirection"
+  },
+  "urlPreviewPrivacyNoticeTitle": {
+    "message": "Tietosuojakäytäntö",
+    "description": "Title for privacy notice in URL preview dialog"
+  },
+  "urlPreviewPrivacyNoticeLocalOnly": {
+    "message": "Linkumori luo tämän URL-osoitteen paikallisesti selaimessasi. Linkumori ei siirrä tietoja suoraan sinulta tai selaimeltasi GitHubille tai millekään muulle palvelimelle tätä URL-osoitetta luodessaan.",
+    "description": "Privacy notice explaining local-only URL construction"
+  },
+  "urlPreviewPrivacyNoticeBrowserNavigation": {
+    "message": "Jos valitset \"Avaa GitHub\", annat selaimesi avata näkyvän URL-osoitteen. Tämä selaimen navigointi voi lähettää URL-osoitteen ja sen kyselyparametrit GitHubille.",
+    "description": "Privacy notice explaining browser navigation after user proceeds"
+  },
+  "urlPreviewPrivacyNoticeIssueContents": {
+    "message": "Ongelman luomista varten URL-osoite voi sisältää ongelman tyypin, valitun ongelman URL-osoitteen, puhdistetun URL-osoitteen, NSFW-merkin, kommentit ja valitut määritysosiot.",
+    "description": "Privacy notice explaining data that may be included in a GitHub issue URL"
+  },
+  "urlPreviewPrivacyNoticeSearchContents": {
+    "message": "Ongelmahaussa URL-osoite voi sisältää valitun isäntänimen, toimialueen, ongelman tyypin ja NSFW-hakutermin, jos se on valittuna.",
+    "description": "Privacy notice explaining data that may be included in a GitHub search URL"
+  },
+  "urlPreviewPrivacyNoticeNoEndorsement": {
+    "message": "Linkumori ei tue GitHubia. Linkumori ei tiedä, vahvista tai takaa, noudattaako GitHub paikallista tietosuoja-, tietosuoja- tai muita soveltuvia lakeja.",
+    "description": "Privacy notice explaining GitHub non-endorsement and local-law compliance disclaimer"
+  },
+  "urlPreviewPrivacyNoticeReview": {
+    "message": "Tarkista koko URL-osoite ennen kuin jatkat. Peruuta, jos et halua selaimesi avaavan GitHubia.",
+    "description": "Privacy notice asking the user to review or cancel before opening GitHub"
   },
   "urlPreviewEncodedUrl": {
     "message": "Avattava URL-osoite (tekninen muoto):",
@@ -4981,6 +5009,10 @@
     "message": "Se ei ole opas koodiin JavaScript. Se keskittyy vain JSON-muotoihin, sääntömuotoihin ja esimerkkeihin, joita sääntöjen kirjoittajat tarvitsevat.",
     "description": "Guide page text."
   },
+  "guide_runtime_source_note": {
+    "message": "Tämä opas perustuu nykyiseen <code>clearurls.js</code> ajonaikaiseen käyttäytymiseen. Erityisesti palveluntarjoajan haku käyttää <code>providersByToken</code>-ehdokasryhmiä <code>domainPatterns</code>:stä tai <code>indexPattern</code>:stä, ja lopullinen vastaavuus suoritetaan edelleen <code>provider.matchRequestURL()</code>:n kautta.",
+    "description": "Rules guide note that identifies clearurls.js as the source of truth for matcher behavior"
+  },
   "guide_0112": {
     "message": "Luku 1: Perus JSON Muoto",
     "description": "Guide page text."
@@ -5002,7 +5034,7 @@
     "description": "Guide page text."
   },
   "guide_0117": {
-    "message": "Palveluntarjoaja on yksi sääntöryhmä yhdelle verkkosivustolle, yritykselle, seurantaohjelmalle tai URL-mallille.",
+    "message": "Palveluntarjoaja on yksi nimetty suoritusaikasäilö yhdelle verkkosivustolle, yritykselle, seurannalle, verkkotunnusmallijoukolle tai URL-osoitteen regexille. Palveluntarjoajan nimi on tunniste/avain; täsmäämisen tekee <code>domainPatterns</code> tai <code>urlPattern</code>, ei palveluntarjoajan nimen mukaan.",
     "description": "Guide page text."
   },
   "guide_0118": {
@@ -5018,7 +5050,7 @@
     "description": "Guide page text."
   },
   "guide_0121": {
-    "message": "Täysi palveluntarjoajan malli:",
+    "message": "<code>clearurls.js</code>:n hyväksymät tarjoajan kentät. Kirjoita joko <code>domainPatterns</code> tai <code>urlPattern</code> ja valinnainen <code>indexPattern</code>; Älä luota siihen, että molempia vaaditaan yhdessä.",
     "description": "Guide page text."
   },
   "guide_0122": {
@@ -5234,7 +5266,7 @@
     "description": "Guide page text."
   },
   "guide_0175": {
-    "message": "<code>domainPatterns</code> on Linkumori lisäys. Käytä sitä useimmille Linkumori JSON-palveluntarjoajille, koska se on helpompi kirjoittaa kuin täydellinen <code>urlPattern</code> regex.",
+    "message": "<code>domainPatterns</code> on Linkumori-lisäys, ja sitä suosivat useimmat mukautetut palveluntarjoajat. <code>clearurls.js</code>:ssä ei-tyhjiä <code>domainPatterns</code> käytetään sovitukseen ennen <code>urlPattern</code>:ää.",
     "description": "Guide page text."
   },
   "guide_0176": {
@@ -5362,7 +5394,7 @@
     "description": "Guide page text."
   },
   "guide_0207": {
-    "message": "Käytä numeroa <code>urlPattern</code> vain silloin, kun verkkotunnuksen vastaavuus ei riitä.",
+    "message": "Käytä <code>urlPattern</code>:ää vain, kun verkkotunnuksen vastaavuus ei riitä, esimerkiksi kun palveluntarjoajan on vastattava tiettyä polkua tai koko URL-osoitteen regex.",
     "description": "Guide page text."
   },
   "guide_0208": {
@@ -5370,11 +5402,11 @@
     "description": "Guide page text."
   },
   "guide_0209": {
-    "message": "<code>urlPattern</code> on ClearURLs addon-perintö ja ClearURLs core v2 kanoninen syntaksi. Linkumori lisää numeron <code>indexPattern</code> valinnaiseksi hakuvihjeeksi, jotta moottori voi löytää regex-palveluntarjoajia nopeammin.",
+    "message": "<code>urlPattern</code> on ClearURL-lisäosien perintö ja ClearURL-ydin v2 kanoninen syntaksi. Linkumori lisää <code>indexPattern</code>:n vain ehdokashakuvihjeeksi, jotta regex-palveluntarjoajat voidaan löytää isäntänimen tunnisteilla nopeammin.",
     "description": "Guide page text."
   },
   "guide_0210": {
-    "message": "Tärkeää: Linkumori <code>indexPattern</code> on vain hakuvinkki. Se ei ratkaise sitä, hakeeko palveluntarjoaja.",
+    "message": "Tärkeää: <code>indexPattern</code> ei päätä, sopiiko palveluntarjoaja. Ehdokashaun jälkeen <code>clearurls.js</code> testaa edelleen todellista <code>urlPattern</code>:ää <code>provider.matchRequestURL()</code>:ssä.",
     "description": "Guide page text."
   },
   "guide_0211": {
@@ -5774,27 +5806,27 @@
     "description": "Guide page text."
   },
   "guide_0310": {
-    "message": "<code>urlPattern</code> on ylävirran ClearURLs syntaksi. <code>indexPattern</code> on Linkumori-lisäys, joka nopeuttaa hakua, kun tarvitset säännöllisen lausekkeen URL vastaavuuden.",
+    "message": "<code>urlPattern</code> on ylävirran ClearURL-syntaksi. <code>indexPattern</code> on Linkumori-hakuvinkki regex-URL-palveluntarjoajille; sen pitäisi osoittaa isäntänimiä, joita säännöllinen lauseke voi vastata.",
     "description": "Guide page text."
   },
   "guide_0311": {
-    "message": "<code>indexPattern</code> on valinnainen, mutta hyödyllinen nopeuden kannalta.",
+    "message": "<code>indexPattern</code> on valinnainen, mutta hyödyllinen nopeuden kannalta. Se indeksoi palveluntarjoajan isäntänimi-token-ehdokasryhmiin; se ei koskaan korvaa viimeistä <code>urlPattern</code>-ottelua.",
     "description": "Guide page text."
   },
   "guide_0312": {
-    "message": "Yhdistelmä 5: <code>domainPatterns</code> ja <code>urlPattern</code> yhdessä",
+    "message": "Yhdistelmä 5: Älä sekoita <code>domainPatterns</code>:ää ja <code>urlPattern</code>:ää yhdistettynä vaatimuksena",
     "description": "Guide page text."
   },
   "guide_0313": {
-    "message": "Tämä Linkumori sekoitettu sovitusmuoto on voimassa JSON:",
+    "message": "Tämä muoto voi esiintyä vanhemmissa tai käsinkirjoitetuissa tiedoissa, mutta se ei tarkoita, että molempien vastaajien on läpäistävä:",
     "description": "Guide page text."
   },
   "guide_0314": {
-    "message": "Tärkeää käyttäytymistä:",
+    "message": "Nykyinen <code>clearurls.js</code>-käyttäytyminen:",
     "description": "Guide page text."
   },
   "guide_0315": {
-    "message": "Älä siis käytä kumpaakaan, kun odotat molempia vaadittavan. Jos tarvitset polkuehdon, käytä numeroa <code>urlPattern</code> ja numeroa <code>indexPattern</code> tai laita laajennettu <code>$removeparam</code>/sääntökuvio <code>rules</code>:n sisään.",
+    "message": "Jos <code>domainPatterns</code> on läsnä eikä tyhjä, <code>clearurls.js</code> käyttää sitä palveluntarjoajan täsmäämiseen ja jättää huomioimatta kyseisen palveluntarjoajan <code>urlPattern</code>:n. Mukautettu muokkaus-/tuontipolku hylkää palveluntarjoajat, jotka sisältävät molemmat. Jos tarvitset polkuehdon, käytä <code>urlPattern</code>:ää <code>indexPattern</code>:n kanssa tai laajenna yksittäisiä <code>$removeparam</code>/sääntömerkintöjä <code>rules</code>:n sisällä.",
     "description": "Guide page text."
   },
   "guide_0316": {
@@ -5970,19 +6002,19 @@
     "description": "Guide page text."
   },
   "guide_0359": {
-    "message": "ClearURLs addon legacy ja ClearURLs core v2 canonical – vain <code>urlPattern</code>:",
+    "message": "ClearURLs addon legacy ja ClearURLs core v2 canonical – vain <code>urlPattern</code>. Ilman <code>indexPattern</code>:tä laajan säännöllisen lausekkeen tarjoajat saattavat palata maailmanlaajuisiin ehdokastarkistuksiin:",
     "description": "Guide page text."
   },
   "guide_0360": {
-    "message": "Linkumori lisäys — <code>urlPattern</code> ja <code>indexPattern</code>:",
+    "message": "Linkumori-lisäys — <code>urlPattern</code> ja <code>indexPattern</code>. Indeksikuvio on hakuvinkki, kun taas <code>urlPattern</code> on lopullinen vastaaja:",
     "description": "Guide page text."
   },
   "guide_0361": {
-    "message": "Linkumori lisäys — useita <code>indexPattern</code> vihjeitä:",
+    "message": "Linkumori-lisäys — useita <code>indexPattern</code>-vinkkejä URL-säännölliselle lausekkeelle, joka voi vastata useampaa kuin yhtä isäntänimeä:",
     "description": "Guide page text."
   },
   "guide_0362": {
-    "message": "Linkumori lisäys — vain <code>domainPatterns</code>:",
+    "message": "Linkumori-lisäys – vain <code>domainPatterns</code>. Näitä käytetään suoraan palveluntarjoajan vastaavuuksiin ja hakutunnisteiden poimimiseen:",
     "description": "Guide page text."
   },
   "guide_0363": {
@@ -5994,11 +6026,11 @@
     "description": "Guide page text."
   },
   "guide_0365": {
-    "message": "Linkumori lisäys – sekä <code>domainPatterns</code> että <code>urlPattern</code>:",
+    "message": "Vanhat/sekoitetut tiedot voivat sisältää sekä <code>domainPatterns</code>:n että <code>urlPattern</code>:n, mutta älä luo uusia palveluntarjoajia tällä tavalla:",
     "description": "Guide page text."
   },
   "guide_0366": {
-    "message": "Käyttäytyminen:",
+    "message": "Käyttäytyminen: ei-tyhjä <code>domainPatterns</code> voitto. <code>urlPattern</code> käytetään vain, kun <code>domainPatterns</code> puuttuu tai on tyhjä. Muokattu muokkaus-/tuontipolku käsittelee molempia yhdessä virheellisinä.",
     "description": "Guide page text."
   },
   "guide_0367": {
@@ -6334,7 +6366,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Provider Name\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"]\n    }\n  }\n}\n",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6650,7 +6682,7 @@
     "description": "Guide page text."
   },
   "guide_0707": {
-    "message": "If domainPatterns exists and is not empty, Linkumori extension uses domainPatterns for provider matching.\nurlPattern is only used when domainPatterns is missing or empty.\n",
+    "message": "clearurls.js-käyttäytyminen: jos domainPatterns on olemassa eikä se ole tyhjä, Linkumori käyttää domainPatterns-tunnusta tarjoajan täsmäykseen. urlPattern käytetään vain, kun domainPatterns puuttuu tai on tyhjä. Mukautettu muokkaus-/tuontipolku hylkää tämän sekavastausmuodon, joten käytä sitä vain vanhojen tietojen ymmärtämiseen.",
     "description": "Guide page text."
   },
   "guide_0708": {
@@ -6758,7 +6790,7 @@
     "description": "Guide page text."
   },
   "guide_0734": {
-    "message": "domainPatterns wins for matching when it is present and non-empty.\nurlPattern is used only when domainPatterns is missing or empty.\n",
+    "message": "domainPatterns voittaa vastaavuuden, kun se on läsnä ja ei-tyhjä. urlPattern käytetään vain, kun domainPatterns puuttuu tai on tyhjä. Mukautettu muokkaus-/tuontipolku hylkää palveluntarjoajat, jotka sisältävät molemmat täsmäytysperheet.",
     "description": "Guide page text."
   },
   "guide_0735": {

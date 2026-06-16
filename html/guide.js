@@ -58,6 +58,7 @@
  --*/
 (function(){
     const THEMES=['midnight','light','icecold','dark','sunset'];
+    const GUIDE_RUNTIME_SOURCE='clearurls.js';
     const THEME_LABEL_KEYS={
         midnight:'guide_theme_midnight',
         light:'guide_theme_light',
@@ -114,6 +115,7 @@
         document.querySelectorAll('.theme-btn').forEach(b=>b.classList.toggle('active',b.dataset.theme===n));
     }
     document.addEventListener('DOMContentLoaded',function(){
+        document.documentElement.dataset.guideRuntimeSource=GUIDE_RUNTIME_SOURCE;
         const bar=document.getElementById('theme-bar');
         THEMES.forEach(t=>{
             const btn=document.createElement('button');
