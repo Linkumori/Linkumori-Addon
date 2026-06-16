@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Elolvastam és elfogadom az Adatvédelmi szabályzatot, a POSAR-t és a licencet.",
+    "message": "Kijelentem, hogy 18 év feletti vagy jogilag nagykorú vagyok, és elolvastam és elfogadom az Adatvédelmi szabályzatot, a POSAR-t és a licencet.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Kérjük, olvassa el az Adatvédelmi szabályzatot, a POSAR-t és a licencet az előugró ablak használata előtt. Nem gyűjtjük az Ön adatait. Minden adat az Ön készülékén van tárolva, és nem kerül továbbításra számunkra.",
+    "message": "Kérjük, olvassa el az Adatvédelmi szabályzatot, a POSAR-t és a licencet az előugró ablak használata előtt. Nem gyűjtjük az Ön adatait. Minden adat az Ön készülékén van tárolva, és nem kerül továbbításra számunkra. Az életkor megerősítése az adatvédelmi szabályzatra és a POSAR elfogadására egyaránt vonatkozik.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Tekintse át az alábbi adatvédelmi szabályzatot, POSAR-t és licencet, majd fogadja el a Linkumorira való átállás befejezését.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Életkor megerősítése szükséges",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "A Linkumori csak akkor folytathatja tevékenységét, ha megerősíti, hogy Ön 18 éves vagy idősebb, vagy jogilag nagykorú az Ön illetékességi területén. Ez az életkor megerősítése vonatkozik mind az adatvédelmi szabályzatra, mind a POSAR elfogadására.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Ha ezt nem tudja megerősíteni, a Linkumori szüneteltetve marad, és egyik dokumentum sem fogadható el.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Mégse",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Nem vagyok felnőtt",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Jelentkezzen az Adatvédelem és a POSAR oldalra",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori szünetel, mert a felnőttkori visszaigazolást nem fogadták el.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Az életkor megerősítése mentve az Adatvédelmi szabályzat és a POSAR számára.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Hozzájárulás szükséges. A Linkumori szünetel, amíg el nem fogadod a jelenlegi jogi feltételeket.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Hozzájárulás szükséges. A Linkumori szünetel mindaddig, amíg meg nem erősíti, hogy 18 év feletti vagy jogilag nagykorú.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Hozzájárulás szükséges. A Linkumori szünetel, amíg el nem fogadja a jelenlegi adatvédelmi szabályzatot és a POSAR-t.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Elfogadva",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Erősítse meg az életkort",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Az elfogadás előtt erősítse meg, hogy 18 év feletti vagy jogilag nagykorú.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Hozzájárulás elfogadva.",

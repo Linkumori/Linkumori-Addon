@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "나는 개인 정보 보호 정책, POSAR 및 라이선스를 읽고 이에 동의합니다.",
+    "message": "나는 18세 이상이거나 법적으로 성인임을 확인하며 개인정보 보호정책, POSAR 및 라이선스를 읽고 이에 동의합니다.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "이 팝업을 사용하기 전에 개인정보 보호정책, POSAR 및 라이선스를 읽어보시기 바랍니다. 우리는 귀하의 데이터를 수집하지 않습니다. 모든 데이터는 귀하의 장치에 저장되며 당사에 전송되지 않습니다.",
+    "message": "이 팝업을 사용하기 전에 개인정보 보호정책, POSAR 및 라이선스를 읽어보시기 바랍니다. 우리는 귀하의 데이터를 수집하지 않습니다. 모든 데이터는 귀하의 장치에 저장되며 당사에 전송되지 않습니다. 연령 확인은 개인정보 보호정책과 POSAR 동의 모두에 적용됩니다.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "아래의 개인 정보 보호 정책, POSAR 및 라이선스를 검토한 후 Linkumori로의 마이그레이션을 완료하는 데 동의하세요.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "연령 확인 필요",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori는 귀하가 18세 이상이거나 해당 관할권에서 법적으로 성인임을 확인한 경우에만 계속할 수 있습니다. 이 연령 확인은 개인정보 보호정책과 POSAR 동의 모두에 적용됩니다.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "이를 확인할 수 없으면 Linkumori는 일시 중지된 상태로 유지되며 두 문서 모두 승인될 수 없습니다.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "취소",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "나는 어른이 아니다",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "개인 정보 보호 및 POSAR에 적용",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "성인인증이 받아들여지지 않아 린쿠모리가 일시중지되었습니다.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "개인정보 보호정책 및 POSAR에 대한 연령 확인이 저장되었습니다.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "동의가 필요합니다. 현재 법적 약관에 동의할 때까지 Linkumori가 일시 중지됩니다.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "동의가 필요합니다. Linkumori는 귀하가 18세 이상이거나 법적으로 성인임을 확인할 때까지 일시 중지됩니다.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "동의가 필요합니다. Linkumori는 현재 개인 정보 보호 정책 및 POSAR에 동의할 때까지 일시 중지됩니다.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "수락됨",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "연령 확인",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "수락하기 전에 귀하가 18세 이상이거나 법적으로 성인인지 확인하세요.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "동의가 수락되었습니다.",

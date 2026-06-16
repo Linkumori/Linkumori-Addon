@@ -1657,11 +1657,11 @@
     "description": "Schaltflächenbezeichnung, um die Popup-Zustimmungsabfrage zu akzeptieren"
   },
   "popup_consent_checkbox": {
-    "message": "Ich habe die Datenschutzrichtlinie, POSAR und die Lizenz gelesen und akzeptiere sie.",
+    "message": "Ich bestätige, dass ich mindestens 18 Jahre alt oder volljährig bin und dass ich die Datenschutzrichtlinie, POSAR und die Lizenz gelesen und akzeptiert habe.",
     "description": "Zustimmungs-Kontrollkästchenbeschriftung für Popup-Sperre"
   },
   "popup_consent_description": {
-    "message": "Bitte lesen Sie die Datenschutzrichtlinie, POSAR und die Lizenz, bevor Sie dieses Popup verwenden. Wir erfassen Ihre Daten nicht. Sämtliche Daten werden auf Ihrem Gerät gespeichert und nicht an uns übermittelt.",
+    "message": "Bitte lesen Sie die Datenschutzrichtlinie, POSAR und die Lizenz, bevor Sie dieses Popup verwenden. Wir erfassen Ihre Daten nicht. Sämtliche Daten werden auf Ihrem Gerät gespeichert und nicht an uns übermittelt. Die Altersbestätigung gilt sowohl für die Datenschutzrichtlinie als auch für die POSAR-Akzeptanz.",
     "description": "Beschreibung für Popup-Zustimmungsabfrage"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Lesen Sie die Datenschutzrichtlinie, POSAR und die Lizenz unten durch und akzeptieren Sie dann, um die Migration zu Linkumori abzuschließen.",
     "description": "Hinweistext auf der Rechtsseite während Import oder Migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Altersbestätigung erforderlich",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori kann nur fortfahren, wenn Sie bestätigen, dass Sie mindestens 18 Jahre alt oder in Ihrem Land volljährig sind. Diese Altersbestätigung gilt sowohl für die Datenschutzrichtlinie als auch für die POSAR-Akzeptanz.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Wenn Sie dies nicht bestätigen können, bleibt Linkumori pausiert und keines der Dokumente kann akzeptiert werden.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Stornieren",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Ich bin kein Erwachsener",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Bewerben Sie sich bei Privacy und POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori wurde pausiert, da die Bestätigung durch Erwachsene nicht akzeptiert wurde.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Altersbestätigung für Datenschutzrichtlinie und POSAR gespeichert.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Zustimmung erforderlich. Linkumori ist pausiert, bis Sie die aktuellen rechtlichen Bedingungen akzeptieren.",
     "description": "Statusmeldung, wenn eine rechtliche Zustimmung erforderlich ist"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Einwilligung erforderlich. Linkumori wird pausiert, bis Sie bestätigen, dass Sie mindestens 18 Jahre alt oder volljährig sind.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Einwilligung erforderlich. Linkumori wird angehalten, bis Sie die aktuelle Datenschutzrichtlinie und POSAR akzeptieren.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Akzeptiert",
     "description": "Schaltflächenbezeichnung, nachdem die rechtliche Zustimmung akzeptiert wurde"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Alter bestätigen",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Bestätigen Sie vor der Annahme, dass Sie mindestens 18 Jahre alt oder volljährig sind.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Zustimmung akzeptiert.",

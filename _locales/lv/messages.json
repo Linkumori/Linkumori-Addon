@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Esmu izlasījis un piekrītu konfidencialitātes politikai, POSAR un licencei.",
+    "message": "Es apstiprinu, ka esmu 18+ vai juridiski pilngadīgs, un esmu izlasījis un piekrītu Privātuma politikai, POSAR un licencei.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Pirms šī uznirstošā loga izmantošanas, lūdzu, izlasiet konfidencialitātes politiku, POSAR un licenci. Mēs neievācam jūsu datus. Visi dati tiek glabāti jūsu ierīcē un netiek mums pārsūtīti.",
+    "message": "Pirms šī uznirstošā loga izmantošanas, lūdzu, izlasiet konfidencialitātes politiku, POSAR un licenci. Mēs neievācam jūsu datus. Visi dati tiek glabāti jūsu ierīcē un netiek mums pārsūtīti. Vecuma apstiprinājums attiecas gan uz privātuma politiku, gan POSAR pieņemšanu.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Pārskatiet tālāk norādīto konfidencialitātes politiku, POSAR un licenci, pēc tam piekrītiet, lai pabeigtu migrēšanu uz Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Nepieciešams vecuma apstiprinājums",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori var turpināt darbu tikai tad, ja apstiprināsit, ka esat 18 gadus vecs vai vecāks vai juridiski pilngadīgs jūsu jurisdikcijā. Šis vecuma apstiprinājums attiecas gan uz privātuma politiku, gan POSAR pieņemšanu.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Ja nevarat to apstiprināt, Linkumori paliks apturēts un neviens dokuments nevar tikt pieņemts.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Atcelt",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Es neesmu pieaugušais",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Piesakieties privātumam un POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori ir apturēta, jo pieaugušo apstiprinājums netika pieņemts.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Vecuma apstiprinājums saglabāts konfidencialitātes politikai un POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Nepieciešama piekrišana. Linkumori darbība ir apturēta, līdz jūs piekrītat pašreizējiem juridiskajiem noteikumiem.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Nepieciešama piekrišana. Linkumori darbība ir apturēta, līdz apstiprināsiet, ka esat sasniedzis 18 gadu vecumu vai juridiski pilngadīgu personu.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Nepieciešama piekrišana. Linkumori darbība ir apturēta, līdz jūs piekrītat pašreizējai konfidencialitātes politikai un POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Pieņemts",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Apstipriniet vecumu",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Pirms pieņemšanas apstipriniet, ka esat vismaz 18 gadus vecs vai juridiski pilngadīgs.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Piekrišana pieņemta.",

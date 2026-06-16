@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Jag har läst och accepterar integritetspolicyn, POSAR och licensen.",
+    "message": "Jag bekräftar att jag är 18+ eller lagligen vuxen, och jag har läst och accepterar integritetspolicyn, POSAR och licensen.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Läs integritetspolicyn, POSAR och licensen innan du använder denna popup. Vi samlar inte in dina uppgifter. All data lagras på din enhet och överförs inte till oss.",
+    "message": "Läs integritetspolicyn, POSAR och licensen innan du använder denna popup. Vi samlar inte in dina uppgifter. All data lagras på din enhet och överförs inte till oss. Åldersbekräftelse gäller både sekretesspolicy och POSAR-acceptans.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Läs integritetspolicyn, POSAR och licensen nedan och acceptera sedan att slutföra migreringen till Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Åldersbekräftelse krävs",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori kan bara fortsätta om du bekräftar att du är 18 år eller äldre, eller juridiskt vuxen i din jurisdiktion. Denna åldersbekräftelse gäller både sekretesspolicy och POSAR-godkännande.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Om du inte kan bekräfta detta förblir Linkumori pausad och inget av dokumenten kan accepteras.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Avboka",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Jag är inte vuxen",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Ansök till Privacy och POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori är pausad eftersom vuxenbekräftelse inte accepterades.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Åldersbekräftelse sparad för integritetspolicy och POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Samtycke krävs. Linkumori är pausat tills du accepterar de aktuella juridiska villkoren.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Samtycke krävs. Linkumori pausas tills du bekräftar att du är 18+ eller lagligen vuxen.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Samtycke krävs. Linkumori pausas tills du accepterar den aktuella integritetspolicyn och POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Accepterad",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Bekräfta ålder",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Bekräfta att du är 18+ eller lagligt vuxen innan du accepterar.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Samtycke accepterat.",

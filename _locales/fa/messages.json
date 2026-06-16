@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "من خط مشی رازداری، POSAR و مجوز را خوانده و می پذیرم.",
+    "message": "من تأیید می‌کنم که 18 سال به بالا هستم یا از نظر قانونی یک بزرگسال هستم، و خط‌مشی رازداری، POSAR و مجوز را خوانده‌ام و می‌پذیرم.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "لطفاً قبل از استفاده از این پنجره، سیاست حفظ حریم خصوصی، POSAR و مجوز را بخوانید. ما داده های شما را جمع آوری نمی کنیم. تمام داده ها در دستگاه شما ذخیره می شود و به ما منتقل نمی شود.",
+    "message": "لطفاً قبل از استفاده از این پنجره، سیاست حفظ حریم خصوصی، POSAR و مجوز را بخوانید. ما داده های شما را جمع آوری نمی کنیم. تمام داده ها در دستگاه شما ذخیره می شود و به ما منتقل نمی شود. تأیید سن هم برای سیاست حفظ حریم خصوصی و هم برای پذیرش POSAR اعمال می شود.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "سیاست حفظ حریم خصوصی، POSAR و مجوز را در زیر مرور کنید، سپس مهاجرت به Linkumori را بپذیرید.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "تایید سن لازم است",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori تنها در صورتی می تواند ادامه دهد که تأیید کنید 18 سال یا بزرگتر هستید یا از نظر قانونی بالغ در حوزه قضایی خود هستید. این تاییدیه سنی هم برای سیاست حفظ حریم خصوصی و هم برای پذیرش POSAR اعمال می شود.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "اگر نتوانید این موضوع را تأیید کنید، Linkumori در حالت مکث باقی می‌ماند و هیچ یک از اسناد قابل پذیرش نیست.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "لغو کنید",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "من بالغ نیستم",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "برای حریم خصوصی و POSAR درخواست دهید",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "لینکوموری موقتاً متوقف شده است زیرا تأیید بزرگسالان پذیرفته نشد.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "تأیید سن برای سیاست حفظ حریم خصوصی و POSAR ذخیره شد.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "رضایت لازم است. Linkumori تا زمانی که شرایط قانونی فعلی را قبول نکنید متوقف می شود.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "رضایت لازم است. Linkumori تا زمانی که تأیید کنید 18 سال به بالا هستید یا از نظر قانونی بالغ هستید متوقف می شود.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "رضایت لازم است. Linkumori تا زمانی که سیاست حفظ حریم خصوصی فعلی و POSAR را بپذیرید متوقف می شود.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "پذیرفته شد",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "تایید سن",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "قبل از پذیرش تأیید کنید که بالای 18 سال دارید یا از نظر قانونی بالغ هستید.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "رضایت پذیرفته شد.",

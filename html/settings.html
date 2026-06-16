@@ -585,7 +585,7 @@
                 <div class="warning-banner">
                     <strong id="security_modal_advanced_warning"></strong>
                 </div>
-                
+
                 <div class="disclaimer-text">
                     <p id="security_modal_main_warning"></p>
                     
@@ -759,6 +759,65 @@
         </div>
     </div>
 
+    <!-- Settings License Document Modal -->
+    <div id="settingsLicenseDocumentModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container settings-document-modal-container">
+            <div class="modal-header">
+                <h2 id="settings_license_modal_title" class="modal-title"></h2>
+            </div>
+            <div class="modal-content">
+                <div class="settings-legal-document">
+                    <h3 id="settings_license_modal_license_document_title"></h3>
+                    <div id="settings_license_modal_license_document" class="settings-legal-document-content"></div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="settingsLicenseDocumentClose" class="btn btn-secondary" type="button"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Privacy Document Modal -->
+    <div id="settingsPrivacyDocumentModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container settings-document-modal-container">
+            <div class="modal-header">
+                <h2 id="settings_privacy_modal_title" class="modal-title"></h2>
+            </div>
+            <div class="modal-content">
+                <div class="settings-legal-document">
+                    <h3 id="settings_privacy_modal_privacy_document_title"></h3>
+                    <div id="settings_privacy_modal_privacy_version_row" class="settings-privacy-version-row">
+                        <label id="settings_privacy_modal_privacy_version_label" for="settings_privacy_modal_privacy_version_selector"></label>
+                        <select id="settings_privacy_modal_privacy_version_selector"></select>
+                        <div id="settings_privacy_modal_privacy_version_help" class="settings-privacy-version-help"></div>
+                    </div>
+                    <div id="settings_privacy_modal_privacy_document" class="settings-legal-document-content"></div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="settingsPrivacyDocumentClose" class="btn btn-secondary" type="button"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings POSAR Document Modal -->
+    <div id="settingsPosarDocumentModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container settings-document-modal-container">
+            <div class="modal-header">
+                <h2 id="settings_posar_modal_title" class="modal-title"></h2>
+            </div>
+            <div class="modal-content">
+                <div class="settings-legal-document">
+                    <h3 id="settings_posar_modal_posar_document_title"></h3>
+                    <div id="settings_posar_modal_posar_document" class="settings-legal-document-content"></div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="settingsPosarDocumentClose" class="btn btn-secondary" type="button"></button>
+            </div>
+        </div>
+    </div>
+
     <!-- Settings Import Prompt Modal -->
     <div id="settingsImportPromptModal" class="modal-overlay" style="display: none;">
         <div class="modal-container modal-container-small">
@@ -786,6 +845,7 @@
     <script src="../external_js/linkumori-pickr.js"></script>
     <script src="../external_js/linkumori-i18n.js"></script>
     <script src="../core_js/modal_dialog.js"></script>
+    <script src="../external_js/marked.js"></script>
     <script type="module" src="../core_js/settings.js"></script>
 
     <script src="../core_js/write_version.js"></script>

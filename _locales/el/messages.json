@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Έχω διαβάσει και αποδέχομαι την Πολιτική Απορρήτου, το POSAR και την Άδεια.",
+    "message": "Επιβεβαιώνω ότι είμαι 18+ ή νόμιμα ενήλικας και έχω διαβάσει και αποδέχομαι την Πολιτική Απορρήτου, το POSAR και την Άδεια.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Διαβάστε την Πολιτική Απορρήτου, το POSAR και την Άδεια πριν χρησιμοποιήσετε αυτό το αναδυόμενο παράθυρο. Δεν συλλέγουμε τα δεδομένα σας. Όλα τα δεδομένα αποθηκεύονται στη συσκευή σας και δεν μεταδίδονται σε εμάς.",
+    "message": "Διαβάστε την Πολιτική Απορρήτου, το POSAR και την Άδεια πριν χρησιμοποιήσετε αυτό το αναδυόμενο παράθυρο. Δεν συλλέγουμε τα δεδομένα σας. Όλα τα δεδομένα αποθηκεύονται στη συσκευή σας και δεν μεταδίδονται σε εμάς. Η επιβεβαίωση ηλικίας ισχύει τόσο για την Πολιτική Απορρήτου όσο και για την αποδοχή του POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Διαβάστε παρακάτω την Πολιτική Απορρήτου, το POSAR και την Άδεια χρήσης και, στη συνέχεια, αποδεχτείτε να ολοκληρώσετε τη μετεγκατάσταση στο Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Απαιτείται επιβεβαίωση ηλικίας",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Το Linkumori μπορεί να συνεχίσει μόνο εάν επιβεβαιώσετε ότι είστε 18 ετών και άνω ή νομικά ενήλικας στη δικαιοδοσία σας. Αυτή η επιβεβαίωση ηλικίας ισχύει τόσο για την Πολιτική Απορρήτου όσο και για την αποδοχή του POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Εάν δεν μπορείτε να το επιβεβαιώσετε, το Linkumori θα παραμείνει σε παύση και κανένα έγγραφο δεν μπορεί να γίνει δεκτό.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Ματαίωση",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Δεν είμαι ενήλικας",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Εφαρμόστε το Privacy και το POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Το Linkumori έχει τεθεί σε παύση επειδή η επιβεβαίωση ενηλίκων δεν έγινε αποδεκτή.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Η επιβεβαίωση ηλικίας αποθηκεύτηκε για την Πολιτική Απορρήτου και το POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Απαιτείται συναίνεση. Το Linkumori τίθεται σε παύση έως ότου αποδεχτείτε τους τρέχοντες νομικούς όρους.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Απαιτείται συναίνεση. Το Linkumori τίθεται σε παύση μέχρι να επιβεβαιώσετε ότι είστε 18+ ή νομικά ενήλικας.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Απαιτείται συναίνεση. Το Linkumori τίθεται σε παύση έως ότου αποδεχτείτε την τρέχουσα Πολιτική Απορρήτου και το POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Δεκτός",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Επιβεβαιώστε την ηλικία",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Επιβεβαιώστε ότι είστε 18+ ή νομικά ενήλικας πριν αποδεχτείτε.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Η συγκατάθεση αποδεκτή.",

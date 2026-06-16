@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Jeg har læst og accepterer fortrolighedspolitikken, POSAR og licensen.",
+    "message": "Jeg bekræfter, at jeg er 18+ eller lovligt voksen, og jeg har læst og accepterer privatlivspolitikken, POSAR og licensen.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Læs venligst privatlivspolitikken, POSAR og licensen, før du bruger denne popup. Vi indsamler ikke dine data. Alle data gemmes på din enhed og overføres ikke til os.",
+    "message": "Læs venligst privatlivspolitikken, POSAR og licensen, før du bruger denne popup. Vi indsamler ikke dine data. Alle data gemmes på din enhed og overføres ikke til os. Aldersbekræftelse gælder både for privatlivspolitik og POSAR-accept.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Gennemgå privatlivspolitikken, POSAR og licensen nedenfor, og accepter derefter at afslutte migreringen til Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Aldersbekræftelse påkrævet",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori kan kun fortsætte, hvis du bekræfter, at du er 18 år eller ældre, eller lovligt voksen i din jurisdiktion. Denne aldersbekræftelse gælder både for privatlivspolitik og POSAR-accept.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Hvis du ikke kan bekræfte dette, vil Linkumori forblive sat på pause, og ingen af ​​dokumenterne kan accepteres.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Ophæve",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Jeg er ikke voksen",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Ansøg om Privacy og POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori er sat på pause, fordi voksenbekræftelse ikke blev accepteret.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Aldersbekræftelse gemt til privatlivspolitik og POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Samtykke påkrævet. Linkumori er sat på pause, indtil du accepterer de nuværende juridiske vilkår.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Samtykke påkrævet. Linkumori er sat på pause, indtil du bekræfter, at du er 18+ eller lovligt voksen.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Samtykke påkrævet. Linkumori er sat på pause, indtil du accepterer den nuværende privatlivspolitik og POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Accepteret",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Bekræft alder",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Bekræft, at du er 18+ eller lovligt voksen, før du accepterer.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Samtykke accepteret.",

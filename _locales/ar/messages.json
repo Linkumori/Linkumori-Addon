@@ -1657,11 +1657,11 @@
     "description": "تسمية زر لقبول بوابة موافقة النافذة المنبثقة"
   },
   "popup_consent_checkbox": {
-    "message": "لقد قرأت وقبلت سياسة الخصوصية وPOSAR والترخيص.",
+    "message": "أؤكد أنني أكبر من 18 عامًا أو أنني شخص بالغ من الناحية القانونية، وقد قرأت وقبلت سياسة الخصوصية وPOSAR والترخيص.",
     "description": "تسمية مربع اختيار الموافقة لبوابة النافذة المنبثقة"
   },
   "popup_consent_description": {
-    "message": "يرجى قراءة سياسة الخصوصية وPOSAR والترخيص قبل استخدام هذه النافذة المنبثقة. نحن لا نجمع البيانات الخاصة بك. يتم تخزين جميع البيانات على جهازك ولا يتم نقلها إلينا.",
+    "message": "يرجى قراءة سياسة الخصوصية وPOSAR والترخيص قبل استخدام هذه النافذة المنبثقة. نحن لا نجمع البيانات الخاصة بك. يتم تخزين جميع البيانات على جهازك ولا يتم نقلها إلينا. ينطبق تأكيد العمر على كل من سياسة الخصوصية وقبول POSAR.",
     "description": "وصف بوابة موافقة النافذة المنبثقة"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "قم بمراجعة سياسة الخصوصية وPOSAR والترخيص أدناه، ثم وافق على إنهاء الترحيل إلى Linkumori.",
     "description": "نص الإشعار المعروض في صفحة المعلومات القانونية أثناء الاستيراد أو الترحيل"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "تأكيد العمر مطلوب",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "لا يمكن لـ Linkumori الاستمرار إلا إذا أكدت أن عمرك 18 عامًا أو أكثر، أو أنك شخص بالغ قانونيًا في نطاق ولايتك القضائية. ينطبق تأكيد العمر هذا على كل من سياسة الخصوصية وقبول POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "إذا لم تتمكن من تأكيد ذلك، فسيظل Linkumori متوقفًا مؤقتًا ولا يمكن قبول أي مستند.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "يلغي",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "أنا لست بالغًا",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "تنطبق على الخصوصية وPOSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "تم إيقاف Linkumori مؤقتًا لأنه لم يتم قبول تأكيد الشخص البالغ.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "تم حفظ تأكيد العمر في سياسة الخصوصية وPOSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "الموافقة مطلوبة. تم إيقاف Linkumori مؤقتًا حتى تقبل الشروط القانونية الحالية.",
     "description": "رسالة الحالة المعروضة عندما تكون الموافقة القانونية مطلوبة"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "الموافقة مطلوبة. يتم إيقاف Linkumori مؤقتًا حتى تؤكد أنك تبلغ من العمر 18 عامًا أو أكبر من الناحية القانونية.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "الموافقة مطلوبة. يتم إيقاف Linkumori مؤقتًا حتى تقبل سياسة الخصوصية الحالية وPOSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "تم القبول",
     "description": "تسمية الزر المعروضة بعد قبول الموافقة القانونية"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "تأكيد العمر",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "تأكد من أنك تبلغ من العمر 18 عامًا أو أكثر أو أنك شخص بالغ قانونيًا قبل القبول.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "تم قبول الموافقة.",

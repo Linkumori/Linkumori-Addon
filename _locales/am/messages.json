@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "የግላዊነት ፖሊሲን፣ POSAR እና ፍቃድ አንብቤ ተቀብያለሁ።",
+    "message": "18+ ወይም በህጋዊ ጎልማሳ መሆኔን አረጋግጣለሁ፣ እና የግላዊነት ፖሊሲን፣ POSAR እና ፍቃድ አንብቤ ተቀብያለሁ።",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "እባክዎ ይህን ብቅ ባይ ከመጠቀምዎ በፊት የግላዊነት ፖሊሲን፣ POSAR እና ፍቃድ ያንብቡ። የእርስዎን ውሂብ አንሰበስብም። ሁሉም ውሂብ በመሣሪያዎ ላይ ተከማችቷል እና ወደ እኛ አይተላለፍም።",
+    "message": "እባክዎ ይህን ብቅ ባይ ከመጠቀምዎ በፊት የግላዊነት ፖሊሲን፣ POSAR እና ፍቃድ ያንብቡ። የእርስዎን ውሂብ አንሰበስብም። ሁሉም ውሂብ በመሣሪያዎ ላይ ተከማችቷል እና ወደ እኛ አይተላለፍም። የዕድሜ ማረጋገጫ በሁለቱም የግላዊነት ፖሊሲ እና በPOSAR መቀበል ላይ ተፈጻሚ ይሆናል።",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "ከታች ያለውን የግላዊነት ፖሊሲ፣ POSAR እና ፍቃድ ይከልሱ እና ወደ Linkumori መሰደዱን ለመጨረስ ይቀበሉ።",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "የዕድሜ ማረጋገጫ ያስፈልጋል",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori ሊቀጥል የሚችለው 18 አመት ወይም ከዚያ በላይ መሆንዎን ካረጋገጡ ወይም በህጋዊ በእርስዎ ስልጣን ውስጥ አዋቂ ሰው መሆንዎን ካረጋገጡ ብቻ ነው። ይህ የዕድሜ ማረጋገጫ ሁለቱንም የግላዊነት ፖሊሲ እና የPOSAR መቀበልን ይመለከታል።",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "ይህንን ማረጋገጥ ካልቻሉ፣ Linkumori ባለበት እንደቆመ ይቆያል እና የትኛውም ሰነድ መቀበል አይቻልም።",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "ሰርዝ",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "እኔ ትልቅ ሰው አይደለሁም",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "ለግላዊነት እና ለPOSAR ያመልክቱ",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "ሊንኩሞሪ ባለበት ቆሟል ምክንያቱም የአዋቂዎች ማረጋገጫ ተቀባይነት አላገኘም።",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "ለግላዊነት ፖሊሲ እና ለPOSAR የዕድሜ ማረጋገጫ ተቀምጧል።",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "ፈቃድ ያስፈልጋል። የአሁኑን የህግ ውሎች እስክትቀበሉ ድረስ Linkumori ባለበት ቆሟል።",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "ፈቃድ ያስፈልጋል። ሊንኩሞሪ 18+ ወይም በህጋዊ አዋቂ መሆንዎን እስካላረጋገጡ ድረስ ባለበት ቆሟል።",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "ፈቃድ ያስፈልጋል። የአሁኑን የግላዊነት ፖሊሲ እና POSAR እስክትቀበሉ ድረስ Linkumori ባለበት ቆሟል።",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "ተቀባይነት አግኝቷል",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "ዕድሜን ያረጋግጡ",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "ከመቀበላችሁ በፊት 18+ ወይም በህጋዊ መንገድ አዋቂ መሆንዎን ያረጋግጡ።",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "ስምምነት ተቀብሏል።",

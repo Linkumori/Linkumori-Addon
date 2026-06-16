@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Jeg har lest og godtar personvernreglene, POSAR og lisensen.",
+    "message": "Jeg bekrefter at jeg er 18+ eller juridisk voksen, og jeg har lest og godtar personvernreglene, POSAR og lisensen.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Vennligst les personvernreglene, POSAR og lisensen før du bruker denne popup-vinduet. Vi samler ikke inn dataene dine. Alle data lagres på enheten din og overføres ikke til oss.",
+    "message": "Vennligst les personvernreglene, POSAR og lisensen før du bruker denne popupen. Vi samler ikke inn dataene dine. All data lagres på enheten din og overføres ikke til oss. Aldersbekreftelse gjelder både for personvernreglene og POSAR-godkjenning.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Se gjennom personvernreglene, POSAR og lisensen nedenfor, og godta deretter å fullføre migreringen til Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Aldersbekreftelse kreves",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori kan bare fortsette hvis du bekrefter at du er 18 år eller eldre, eller lovlig voksen i din jurisdiksjon. Denne aldersbekreftelsen gjelder både for personvernreglene og POSAR-godkjenning.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Hvis du ikke kan bekrefte dette, vil Linkumori forbli satt på pause, og ingen av dokumentene kan godtas.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Kansellere",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Jeg er ikke voksen",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Søk på Personvern og POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori er satt på pause fordi voksenbekreftelse ikke ble akseptert.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Aldersbekreftelse lagret for personvernpolitikk og POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Samtykke kreves. Linkumori er satt på pause til du godtar gjeldende juridiske vilkår.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Samtykke kreves. Linkumori er satt på pause til du bekrefter at du er 18+ eller lovlig voksen.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Samtykke kreves. Linkumori er satt på pause til du godtar gjeldende personvernerklæring og POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Godtatt",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Bekreft alder",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Bekreft at du er 18+ eller lovlig voksen før du godtar.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Samtykke godtatt.",

@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Prečítal som si a súhlasím so Zásadami ochrany osobných údajov, POSAR a licenciou.",
+    "message": "Potvrdzujem, že som starší ako 18 rokov alebo som plnoletý, prečítal som si Zásady ochrany osobných údajov, POSAR a licenciu a súhlasím s nimi.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Pred použitím tohto kontextového okna si prečítajte Zásady ochrany osobných údajov, POSAR a licenciu. Vaše údaje nezhromažďujeme. Všetky údaje sú uložené vo vašom zariadení a nie sú prenášané k nám.",
+    "message": "Pred použitím tohto kontextového okna si prečítajte Zásady ochrany osobných údajov, POSAR a licenciu. Vaše údaje nezhromažďujeme. Všetky údaje sú uložené vo vašom zariadení a nie sú prenášané k nám. Potvrdenie veku sa vzťahuje na zásady ochrany osobných údajov aj na prijatie POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Prečítajte si Zásady ochrany osobných údajov, POSAR a licenciu nižšie a potom súhlas s dokončením migrácie na Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Vyžaduje sa potvrdenie veku",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori môže pokračovať len vtedy, ak potvrdíte, že máte 18 rokov alebo viac, alebo ste podľa zákona plnoletý vo vašej jurisdikcii. Toto potvrdenie veku sa vzťahuje na Zásady ochrany osobných údajov aj na prijatie POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Ak to nemôžete potvrdiť, Linkumori zostane pozastavený a žiadny dokument nebude možné prijať.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Zrušiť",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "nie som dospelý",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Použiť na ochranu osobných údajov a POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori je pozastavené, pretože nebolo prijaté potvrdenie pre dospelých.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Potvrdenie veku uložené pre zásady ochrany osobných údajov a POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Vyžaduje sa súhlas. Linkumori je pozastavený, kým neprijmete aktuálne právne podmienky.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Vyžaduje sa súhlas. Linkumori je pozastavené, kým nepotvrdíte, že máte 18+ alebo ste zákonne dospelí.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Vyžaduje sa súhlas. Linkumori je pozastavený, kým neprijmete aktuálne Zásady ochrany osobných údajov a POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Prijaté",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Potvrďte vek",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Pred prijatím potvrďte, že máte 18+ alebo ste plnoletý.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Súhlas prijatý.",

@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "קראתי ואני מקבל את מדיניות הפרטיות, POSAR והרישיון.",
+    "message": "אני מאשר שאני בן 18+ או מבוגר מבחינה חוקית, וקראתי ומקבל את מדיניות הפרטיות, POSAR והרישיון.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "אנא קרא את מדיניות הפרטיות, POSAR והרישיון לפני השימוש בחלון קופץ זה. אנחנו לא אוספים את הנתונים שלך. כל הנתונים מאוחסנים במכשיר שלך ואינם מועברים אלינו.",
+    "message": "אנא קרא את מדיניות הפרטיות, POSAR והרישיון לפני השימוש בחלון קופץ זה. אנחנו לא אוספים את הנתונים שלך. כל הנתונים מאוחסנים במכשיר שלך ואינם מועברים אלינו. אישור הגיל חל הן על מדיניות הפרטיות והן על קבלת POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "עיין במדיניות הפרטיות, ב-POSAR וברישיון למטה, ולאחר מכן קבל כדי לסיים את ההגירה ל-Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "נדרש אישור גיל",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori יכולה להמשיך רק אם אתה מאשר שאתה בן 18 ומעלה, או מבוגר מבחינה חוקית בתחום השיפוט שלך. אישור גיל זה חל הן על מדיניות הפרטיות והן על קבלת POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "אם אינך יכול לאשר זאת, Linkumori יישאר מושהה ולא ניתן לאשר אף אחד מהמסמכים.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "לְבַטֵל",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "אני לא מבוגר",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "הגש בקשה לפרטיות ול-POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori מושהה כי אישור מבוגר לא התקבל.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "אישור הגיל נשמר עבור מדיניות הפרטיות ו-POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "נדרשת הסכמה. לינקומורי מושהה עד שתקבל את התנאים המשפטיים הנוכחיים.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "נדרשת הסכמה. Linkumori מושהה עד שתאשר שאתה בן 18+ או מבוגר חוקית.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "נדרשת הסכמה. Linkumori מושהה עד שתקבל את מדיניות הפרטיות הנוכחית ואת POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "התקבל",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "אשר את הגיל",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "אשר שאתה בן 18+ או מבוגר חוקית לפני קבלת.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "ההסכמה התקבלה.",

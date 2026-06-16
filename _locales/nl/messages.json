@@ -1328,11 +1328,11 @@
     "message": "Accepteren en doorgaan"
   },
   "popup_consent_checkbox": {
-    "message": "Ik heb het privacybeleid, POSAR en de licentie gelezen en ga ermee akkoord.",
+    "message": "Ik bevestig dat ik 18+ ben of wettelijk volwassen, en dat ik het privacybeleid, POSAR en de licentie heb gelezen en geaccepteerd.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Lees het privacybeleid, POSAR en de licentie voordat u deze pop-up gebruikt. Wij verzamelen uw gegevens niet. Alle gegevens worden op uw apparaat opgeslagen en niet naar ons verzonden.",
+    "message": "Lees het privacybeleid, POSAR en de licentie voordat u deze pop-up gebruikt. Wij verzamelen uw gegevens niet. Alle gegevens worden op uw apparaat opgeslagen en niet naar ons verzonden. Leeftijdsbevestiging is van toepassing op zowel het privacybeleid als de POSAR-acceptatie.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1430,8 +1430,44 @@
     "message": "Bekijk het privacybeleid, POSAR en de licentie hieronder en accepteer vervolgens om de migratie naar Linkumori te voltooien.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Bevestiging van leeftijd vereist",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori kan alleen doorgaan als u bevestigt dat u 18 jaar of ouder bent, of wettelijk volwassen bent in uw rechtsgebied. Deze leeftijdsbevestiging is van toepassing op zowel het privacybeleid als de POSAR-acceptatie.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Als u dit niet kunt bevestigen, blijft Linkumori gepauzeerd en kunnen geen van beide documenten worden geaccepteerd.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Annuleren",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Ik ben geen volwassene",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Toepassen op Privacy en POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori is gepauzeerd omdat de bevestiging voor volwassenen niet is geaccepteerd.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Leeftijdsbevestiging opgeslagen voor privacybeleid en POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Toestemming vereist. Linkumori wordt gepauzeerd totdat u de huidige juridische voorwaarden accepteert."
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Toestemming vereist. Linkumori wordt gepauzeerd totdat u bevestigt dat u 18 jaar of ouder bent of wettelijk volwassen bent.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Toestemming vereist. Linkumori wordt gepauzeerd totdat u het huidige privacybeleid en POSAR accepteert.",
@@ -1490,6 +1526,14 @@
   },
   "legal_consent_button_accepted": {
     "message": "Geaccepteerd"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Bevestig de leeftijd",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Bevestig dat u 18+ of wettelijk volwassen bent voordat u accepteert.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Toestemming geaccepteerd."

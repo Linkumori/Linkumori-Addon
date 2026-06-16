@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "I have read and accept the Privacy Policy, POSAR, and License.",
+    "message": "I confirm that I am 18+ or legally an adult, and I have read and accept the Privacy Policy, POSAR, and License.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Please read the Privacy Policy, POSAR, and License before using this popup. We do not collect your data. All data is stored on your device and is not transmitted to us.",
+    "message": "Please read the Privacy Policy, POSAR, and License before using this popup. We do not collect your data. All data is stored on your device and is not transmitted to us. Age confirmation applies to both Privacy Policy and POSAR acceptance.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Review the Privacy Policy, POSAR, and License below, then accept to finish migrating to Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Age confirmation required",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori can only continue if you confirm that you are 18 years or older, or legally an adult in your jurisdiction. This age confirmation applies to both Privacy Policy and POSAR acceptance.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "If you cannot confirm this, Linkumori will remain paused and neither document can be accepted.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Cancel",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "I am not an adult",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Apply to Privacy and POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori is paused because adult confirmation was not accepted.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Age confirmation saved for Privacy Policy and POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Consent required. Linkumori is paused until you accept the current legal terms.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Consent required. Linkumori is paused until you confirm you are 18+ or legally an adult.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Consent required. Linkumori is paused until you accept the current Privacy Policy and POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Accepted",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Confirm age",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Confirm that you are 18+ or legally an adult before accepting.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Consent accepted.",

@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Nimesoma na kukubali Sera ya Faragha, POSAR, na Leseni.",
+    "message": "Ninathibitisha kuwa mimi ni 18+ au mtu mzima kisheria, na nimesoma na kukubali Sera ya Faragha, POSAR na Leseni.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Tafadhali soma Sera ya Faragha, POSAR, na Leseni kabla ya kutumia kidukizo hiki. Hatukusanyi data yako. Data yote huhifadhiwa kwenye kifaa chako na haitumiwi kwetu.",
+    "message": "Tafadhali soma Sera ya Faragha, POSAR, na Leseni kabla ya kutumia kidukizo hiki. Hatukusanyi data yako. Data yote huhifadhiwa kwenye kifaa chako na haitumiwi kwetu. Uthibitishaji wa umri unatumika kwa Sera ya Faragha na kukubalika kwa POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Kagua Sera ya Faragha, POSAR na Leseni hapa chini, kisha ukubali kumaliza kuhamia Linumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Uthibitisho wa umri unahitajika",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori inaweza tu kuendelea ikiwa unathibitisha kuwa una umri wa miaka 18 au zaidi, au kisheria ni mtu mzima katika eneo lako la mamlaka. Uthibitishaji huu wa umri unatumika kwa Sera ya Faragha na ukubalifu wa POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Ikiwa huwezi kuthibitisha hili, Linumori itasalia imesitishwa na wala hati haiwezi kukubaliwa.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Ghairi",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Mimi si mtu mzima",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Omba kwa Faragha na POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori imesitishwa kwa sababu uthibitisho wa watu wazima haukukubaliwa.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Uthibitishaji wa umri umehifadhiwa kwa Sera ya Faragha na POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Idhini inahitajika. Linkumori imesimamishwa hadi ukubali masharti ya sasa ya kisheria.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Idhini inahitajika. Linkumori imesimamishwa hadi uthibitishe kuwa wewe ni 18+ au ni mtu mzima kisheria.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Idhini inahitajika. Linkumori imesimamishwa hadi ukubali Sera ya Faragha ya sasa na POSAR.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Imekubaliwa",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Thibitisha umri",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Thibitisha kuwa wewe ni 18+ au mtu mzima kisheria kabla ya kukubali.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Idhini imekubaliwa.",

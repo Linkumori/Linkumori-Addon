@@ -107,6 +107,7 @@ const POPUP_CONSENT_STORAGE_KEY = 'popupConsentAccepted';
 const POPUP_CONSENT_VERSION_STORAGE_KEY = 'popupConsentPolicyVersionAccepted';
 const POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY = 'popupConsentPOSARVersionAccepted';
 const POPUP_CONSENT_SIGNATURE_STORAGE_KEY = 'popupConsentPolicySignatureAccepted';
+const POPUP_CONSENT_ADULT_STORAGE_KEY = 'popupConsentAdultAccepted';
 const POPUP_CONSENT_TEXT_KEYS = {
     title: 'popup_consent_title',
     description: 'popup_consent_description',
@@ -180,9 +181,7 @@ function applyPopupLanguageLayout() {
             '.pause-title',
             '.pause-status',
             '.pause-buttons button',
-            '.button-group button',
-            '.popup-consent-card button',
-            '.popup-consent-card span'
+            '.button-group button'
         ].join(',')));
 
         const hasLongLabels = adaptiveElements.some((item) => {
@@ -241,17 +240,19 @@ async function hasPopupConsent(policyVersion) {
             POPUP_CONSENT_STORAGE_KEY,
             POPUP_CONSENT_VERSION_STORAGE_KEY,
             POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY,
-            POPUP_CONSENT_SIGNATURE_STORAGE_KEY
+            POPUP_CONSENT_SIGNATURE_STORAGE_KEY,
+            POPUP_CONSENT_ADULT_STORAGE_KEY
         ]);
 
         const accepted = result[POPUP_CONSENT_STORAGE_KEY] === true;
         const acceptedVersion = Number(result[POPUP_CONSENT_VERSION_STORAGE_KEY] || 0);
         const acceptedPOSARVersion = Number(result[POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY] || 0);
+        const adultAccepted = result[POPUP_CONSENT_ADULT_STORAGE_KEY] === true;
         const storedSignature = typeof result[POPUP_CONSENT_SIGNATURE_STORAGE_KEY] === 'string'
             ? result[POPUP_CONSENT_SIGNATURE_STORAGE_KEY]
             : '';
 
-        if (accepted && acceptedVersion === policyVersion && acceptedPOSARVersion === posarVersion) {
+        if (accepted && acceptedVersion === policyVersion && acceptedPOSARVersion === posarVersion && adultAccepted) {
             if (!isPopupI18nReady()) {
                 return true;
             }
@@ -344,7 +345,8 @@ async function initializePopupConsentGate() {
                 [POPUP_CONSENT_STORAGE_KEY]: true,
                 [POPUP_CONSENT_VERSION_STORAGE_KEY]: policyVersion,
                 [POPUP_CONSENT_POSAR_VERSION_STORAGE_KEY]: getPopupConsentPOSARVersion(),
-                [POPUP_CONSENT_SIGNATURE_STORAGE_KEY]: getCurrentConsentSignature()
+                [POPUP_CONSENT_SIGNATURE_STORAGE_KEY]: getCurrentConsentSignature(),
+                [POPUP_CONSENT_ADULT_STORAGE_KEY]: true
             });
             setPopupConsentLock(false);
         } catch (error) {

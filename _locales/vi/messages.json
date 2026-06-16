@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Tôi đã đọc và chấp nhận Chính sách quyền riêng tư, POSAR và Giấy phép.",
+    "message": "Tôi xác nhận rằng tôi trên 18 tuổi hoặc là người lớn hợp pháp và tôi đã đọc và chấp nhận Chính sách quyền riêng tư, POSAR và Giấy phép.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Vui lòng đọc Chính sách quyền riêng tư, POSAR và Giấy phép trước khi sử dụng cửa sổ bật lên này. Chúng tôi không thu thập dữ liệu của bạn. Tất cả dữ liệu được lưu trữ trên thiết bị của bạn và không được truyền cho chúng tôi.",
+    "message": "Vui lòng đọc Chính sách quyền riêng tư, POSAR và Giấy phép trước khi sử dụng cửa sổ bật lên này. Chúng tôi không thu thập dữ liệu của bạn. Tất cả dữ liệu được lưu trữ trên thiết bị của bạn và không được truyền cho chúng tôi. Xác nhận độ tuổi áp dụng cho cả Chính sách quyền riêng tư và chấp nhận POSAR.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Xem lại Chính sách quyền riêng tư, POSAR và Giấy phép bên dưới, sau đó chấp nhận hoàn tất quá trình di chuyển sang Linkumori.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Yêu cầu xác nhận độ tuổi",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori chỉ có thể tiếp tục nếu bạn xác nhận rằng bạn từ 18 tuổi trở lên hoặc là người trưởng thành hợp pháp trong khu vực pháp lý của bạn. Xác nhận độ tuổi này áp dụng cho cả Chính sách quyền riêng tư và chấp nhận POSAR.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Nếu bạn không thể xác nhận điều này, Linkumori sẽ vẫn bị tạm dừng và không tài liệu nào có thể được chấp nhận.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "Hủy bỏ",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Tôi không phải là người lớn",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Áp dụng cho Quyền riêng tư và POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori bị tạm dừng vì xác nhận của người lớn không được chấp nhận.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Đã lưu xác nhận độ tuổi cho Chính sách quyền riêng tư và POSAR.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Cần có sự đồng ý. Linkumori bị tạm dừng cho đến khi bạn chấp nhận các điều khoản pháp lý hiện hành.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Cần có sự đồng ý. Linkumori bị tạm dừng cho đến khi bạn xác nhận rằng bạn đủ 18 tuổi hoặc người lớn hợp pháp.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Cần có sự đồng ý. Linkumori bị tạm dừng cho đến khi bạn chấp nhận Chính sách quyền riêng tư và POSAR hiện tại.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Đã chấp nhận",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Xác nhận tuổi",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Xác nhận rằng bạn đủ 18 tuổi hoặc là người trưởng thành hợp pháp trước khi chấp nhận.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Sự đồng ý được chấp nhận.",

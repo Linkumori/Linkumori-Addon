@@ -71,6 +71,7 @@
   const CONSENT_VERSION_STORAGE_KEY = 'popupConsentPolicyVersionAccepted';
   const CONSENT_POSAR_VERSION_STORAGE_KEY = 'popupConsentPOSARVersionAccepted';
   const CONSENT_SIGNATURE_STORAGE_KEY = 'popupConsentPolicySignatureAccepted';
+  const CONSENT_ADULT_STORAGE_KEY = 'popupConsentAdultAccepted';
   const PRIVACY_VERSION_CONFIG_PATH = 'data/privacy-policy-map.json';
   const POST_RELOAD_OPEN_URL_STORAGE_KEY = 'postReloadOpenUrl';
   const OPTIONAL_FEATURES = [
@@ -122,6 +123,7 @@
   };
   let legalRedirectionModalResolver = null;
   let activeLegalReviewType = null;
+  let pendingAdultConsentReviewType = null;
 
   /* --------------------------- 
      Utility Functions
@@ -237,6 +239,21 @@
     return String(hash);
   }
 
+  async function syncStoredConsentAggregate(consentAccepted, storedConsentAccepted) {
+    if (
+      storedConsentAccepted === consentAccepted ||
+      typeof browser === 'undefined' ||
+      !browser.storage ||
+      !browser.storage.local
+    ) {
+      return;
+    }
+
+    await browser.storage.local.set({
+      [CONSENT_STORAGE_KEY]: consentAccepted
+    });
+  }
+
   function getConsentNoticeMessage() {
     const sourceMode = getPageSourceMode();
     if (sourceMode === 'consent_update') {
@@ -304,6 +321,98 @@
 
     modal.classList.remove('show');
     modal.style.display = 'none';
+  }
+
+  function showAdultConsentModal(reviewType) {
+    const modal = $('legalAdultConsentModal');
+    if (!modal) {
+      showLegalDocumentReviewModal(reviewType);
+      return;
+    }
+
+    pendingAdultConsentReviewType = reviewType;
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => {
+      modal.classList.add('show');
+    });
+
+    const confirmButton = $('legalAdultConsentModalConfirm');
+    if (confirmButton) {
+      setTimeout(() => {
+        try {
+          confirmButton.focus();
+        } catch (e) {
+          // no-op
+        }
+      }, 50);
+    }
+  }
+
+  function hideAdultConsentModal() {
+    const modal = $('legalAdultConsentModal');
+    if (modal) {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+    }
+    pendingAdultConsentReviewType = null;
+  }
+
+  async function openLegalDocumentReviewWithAdultGate(reviewType) {
+    if (await hasAcceptedAdultConsent()) {
+      showLegalDocumentReviewModal(reviewType);
+      return;
+    }
+
+    showAdultConsentModal(reviewType);
+  }
+
+  async function confirmAdultConsentAndContinue() {
+    const reviewType = pendingAdultConsentReviewType;
+
+    try {
+      await browser.storage.local.set({
+        [CONSENT_ADULT_STORAGE_KEY]: true,
+        [CONSENT_STORAGE_KEY]: (await hasAcceptedCurrentLegalConsent()) && (await hasAcceptedCurrentPOSARConsent())
+      });
+      hideAdultConsentModal();
+      await refreshConsentUI();
+      const consentState = await getStoredConsentState();
+      if (reviewType !== 'privacy' && reviewType !== 'posar') {
+        showNotification(i18n('legal_adult_consent_saved', 'Age confirmation saved for Privacy Policy and POSAR.'), 'success');
+      } else if (reviewType === 'privacy' && !consentState.legalAccepted) {
+        showLegalDocumentReviewModal('privacy');
+      } else if (reviewType === 'posar' && !consentState.posarAccepted) {
+        showLegalDocumentReviewModal('posar');
+      } else if (!consentState.legalAccepted) {
+        showLegalDocumentReviewModal('privacy');
+      } else if (!consentState.posarAccepted) {
+        showLegalDocumentReviewModal('posar');
+      } else {
+        showNotification(i18n('legal_consent_saved', 'Consent accepted.'), 'success');
+      }
+    } catch (e) {
+      showNotification(
+        i18n('legal_consent_save_failed', 'Failed to save consent.'),
+        'error'
+      );
+    }
+  }
+
+  async function declineAdultConsent() {
+    try {
+      await browser.storage.local.set({
+        [CONSENT_ADULT_STORAGE_KEY]: false,
+        [CONSENT_STORAGE_KEY]: false
+      });
+    } catch (e) {
+      // no-op
+    }
+    hideAdultConsentModal();
+    await refreshConsentUI();
+    showNotification(
+      i18n('legal_adult_consent_declined_notice', 'Linkumori is paused because adult confirmation was not accepted.'),
+      'error'
+    );
   }
 
   function showLegalRedirectionWarningModal() {
@@ -398,6 +507,8 @@
       acceptButton.disabled = !config.content;
     }
 
+    configureLegalReviewPrivacyVersionSelector(type);
+
     content.className = 'content-area document-review-content';
     setHTMLContent(content, parseMarkdownToHTML(config.content || ''));
     content.scrollTop = 0;
@@ -415,6 +526,72 @@
       modal.style.display = 'none';
     }
     activeLegalReviewType = null;
+  }
+
+  function getPrivacyVersionDisplayLabel(versionKey, value) {
+    if (!value) {
+      return versionKey;
+    }
+
+    return value.labelKey ? i18n(value.labelKey, versionKey) : (value.label || versionKey);
+  }
+
+  function configureLegalReviewPrivacyVersionSelector(type) {
+    const row = $('legalDocumentReviewPrivacyVersionRow');
+    const selector = $('legalDocumentReviewPrivacyVersionSelector');
+    const label = $('legalDocumentReviewPrivacyVersionLabel');
+    const help = $('legalDocumentReviewPrivacyVersionHelp');
+    if (!row || !selector) {
+      return;
+    }
+
+    const showSelector = type === 'privacy' && Object.keys(state.privacyVersionMap).length > 0;
+    row.style.display = showSelector ? '' : 'none';
+    if (!showSelector) {
+      selector.onchange = null;
+      return;
+    }
+
+    if (label) {
+      label.textContent = i18n('privacyVersionLabel', 'Privacy policy language');
+    }
+    if (help) {
+      help.textContent = i18n('privacyVersionDescription', 'Choose which privacy policy document to view.');
+    }
+
+    selector.replaceChildren();
+    Object.entries(state.privacyVersionMap).forEach(([versionKey, value]) => {
+      const option = document.createElement('option');
+      option.value = versionKey;
+      option.textContent = getPrivacyVersionDisplayLabel(versionKey, value);
+      selector.appendChild(option);
+    });
+
+    selector.value = state.currentPrivacyVersion || state.defaultPrivacyVersion;
+    selector.onchange = async () => {
+      const selectedVersion = selector.value;
+      if (!state.privacyVersionMap[selectedVersion]) {
+        return;
+      }
+
+      const content = $('legalDocumentReviewModalContent');
+      if (content) {
+        content.className = 'content-area document-review-content loading';
+        content.textContent = i18n('loadingContent', 'Loading content...');
+      }
+
+      await loadPrivacyContent(selectedVersion);
+      if (content) {
+        content.className = 'content-area document-review-content';
+        setHTMLContent(content, parseMarkdownToHTML(state.privacyContent || ''));
+        content.scrollTop = 0;
+      }
+
+      const mainSelector = $('privacyVersionSelector');
+      if (mainSelector) {
+        mainSelector.value = state.currentPrivacyVersion;
+      }
+    };
   }
 
   function openAuditPageFromLegal() {
@@ -631,6 +808,7 @@
       accepted: false,
       legalAccepted: false,
       posarAccepted: false,
+      adultAccepted: false,
       currentVersion,
       canAccept: currentVersion !== null,
       canAcceptPOSAR: getPopupConsentPOSARVersion() !== null
@@ -646,12 +824,15 @@
         CONSENT_STORAGE_KEY,
         CONSENT_VERSION_STORAGE_KEY,
         CONSENT_POSAR_VERSION_STORAGE_KEY,
-        CONSENT_SIGNATURE_STORAGE_KEY
+        CONSENT_SIGNATURE_STORAGE_KEY,
+        CONSENT_ADULT_STORAGE_KEY
       ]);
 
       const acceptedVersion = Number(result[CONSENT_VERSION_STORAGE_KEY] || 0);
       const acceptedPOSARVersion = Number(result[CONSENT_POSAR_VERSION_STORAGE_KEY] || 0);
       const currentPOSARVersion = getPopupConsentPOSARVersion();
+      const storedConsentAccepted = result[CONSENT_STORAGE_KEY] === true;
+      const adultAccepted = result[CONSENT_ADULT_STORAGE_KEY] === true;
       const storedSignature = typeof result[CONSENT_SIGNATURE_STORAGE_KEY] === 'string'
         ? result[CONSENT_SIGNATURE_STORAGE_KEY]
         : '';
@@ -659,6 +840,7 @@
         acceptedPOSARVersion === currentPOSARVersion;
       const hasAcceptedCurrentLegalText = currentVersion !== null &&
         acceptedVersion === currentVersion;
+      const consentAccepted = Boolean(hasAcceptedCurrentLegalText && hasAcceptedCurrentPOSARVersion && adultAccepted);
 
       if (hasAcceptedCurrentLegalText && storedSignature !== currentSignature) {
         await browser.storage.local.set({
@@ -666,10 +848,13 @@
         });
       }
 
+      await syncStoredConsentAggregate(consentAccepted, storedConsentAccepted);
+
       return {
-        accepted: Boolean(hasAcceptedCurrentLegalText && hasAcceptedCurrentPOSARVersion),
+        accepted: consentAccepted,
         legalAccepted: Boolean(hasAcceptedCurrentLegalText),
         posarAccepted: Boolean(hasAcceptedCurrentPOSARVersion),
+        adultAccepted,
         currentVersion,
         canAccept: currentVersion !== null,
         canAcceptPOSAR: currentPOSARVersion !== null
@@ -684,6 +869,7 @@
     const statusText = $('legalConsentStatusText');
     const acceptButton = $('legalConsentAcceptBtn');
     const posarAcceptButton = $('posarConsentAcceptBtn');
+    const adultConsentButton = $('legalAdultConsentOpenBtn');
 
     if (statusNode) {
       statusNode.classList.toggle('accepted', consentState.accepted);
@@ -695,6 +881,11 @@
         statusText.textContent = i18n(
           'legal_consent_status_accepted',
           'Consent accepted. Linkumori can run with the current legal terms.'
+        );
+      } else if (!consentState.adultAccepted) {
+        statusText.textContent = i18n(
+          'legal_consent_status_required_adult',
+          'Consent required. Linkumori is paused until you confirm you are 18+ or legally an adult.'
         );
       } else if (!consentState.legalAccepted && !consentState.posarAccepted) {
         statusText.textContent = i18n(
@@ -728,6 +919,11 @@
         : i18n('posar_consent_accept_button', 'Accept POSAR');
     }
 
+    if (adultConsentButton) {
+      adultConsentButton.hidden = consentState.adultAccepted;
+      adultConsentButton.disabled = consentState.adultAccepted;
+    }
+
     updateSettingsButtonVisibility(consentState.accepted);
   }
 
@@ -757,13 +953,31 @@
     return Number(result[CONSENT_VERSION_STORAGE_KEY] || 0) === policyVersion;
   }
 
+  async function hasAcceptedAdultConsent() {
+    if (typeof browser === 'undefined' || !browser.storage || !browser.storage.local) {
+      return false;
+    }
+
+    const result = await browser.storage.local.get([CONSENT_ADULT_STORAGE_KEY]);
+    return result[CONSENT_ADULT_STORAGE_KEY] === true;
+  }
+
   async function acceptLegalConsent() {
     const acceptButton = $('legalConsentAcceptBtn');
     const policyVersion = getPopupConsentPolicyVersion();
+    const adultAccepted = await hasAcceptedAdultConsent();
 
     if (policyVersion === null) {
       showNotification(
         i18n('legal_consent_error_version_unavailable', 'Unable to determine the current consent policy version.'),
+        'error'
+      );
+      return false;
+    }
+
+    if (!adultAccepted) {
+      showNotification(
+        i18n('legal_consent_adult_required', 'Confirm that you are 18+ or legally an adult before accepting.'),
         'error'
       );
       return false;
@@ -777,7 +991,7 @@
       }
 
       await browser.storage.local.set({
-        [CONSENT_STORAGE_KEY]: (await hasAcceptedCurrentPOSARConsent()),
+        [CONSENT_STORAGE_KEY]: (await hasAcceptedCurrentPOSARConsent()) && adultAccepted,
         [CONSENT_VERSION_STORAGE_KEY]: policyVersion,
         [CONSENT_SIGNATURE_STORAGE_KEY]: signature
       });
@@ -797,10 +1011,19 @@
   async function acceptPOSARConsent() {
     const acceptButton = $('posarConsentAcceptBtn');
     const posarVersion = getPopupConsentPOSARVersion();
+    const adultAccepted = await hasAcceptedAdultConsent();
 
     if (posarVersion === null) {
       showNotification(
         i18n('legal_consent_error_version_unavailable', 'Unable to determine the current consent policy version.'),
+        'error'
+      );
+      return false;
+    }
+
+    if (!adultAccepted) {
+      showNotification(
+        i18n('legal_consent_adult_required', 'Confirm that you are 18+ or legally an adult before accepting.'),
         'error'
       );
       return false;
@@ -813,7 +1036,7 @@
 
       await browser.storage.local.set({
         [CONSENT_POSAR_VERSION_STORAGE_KEY]: posarVersion,
-        [CONSENT_STORAGE_KEY]: (await hasAcceptedCurrentLegalConsent())
+        [CONSENT_STORAGE_KEY]: (await hasAcceptedCurrentLegalConsent()) && adultAccepted
       });
 
       await refreshConsentUI();
@@ -1059,7 +1282,7 @@
     versionEntries.forEach(([versionKey, value]) => {
       const option = document.createElement('option');
       option.value = versionKey;
-      option.textContent = value.labelKey ? i18n(value.labelKey, versionKey) : (value.label || versionKey);
+      option.textContent = getPrivacyVersionDisplayLabel(versionKey, value);
       selector.appendChild(option);
     });
 
@@ -1653,14 +1876,64 @@ ${htmlContent}
     const consentAcceptButton = $('legalConsentAcceptBtn');
     if (consentAcceptButton) {
       consentAcceptButton.addEventListener('click', () => {
-        showLegalDocumentReviewModal('privacy');
+        openLegalDocumentReviewWithAdultGate('privacy').catch(() => {
+          showNotification(
+            i18n('legal_consent_save_failed', 'Failed to save consent.'),
+            'error'
+          );
+        });
+      });
+    }
+
+    const adultConsentOpenButton = $('legalAdultConsentOpenBtn');
+    if (adultConsentOpenButton) {
+      adultConsentOpenButton.addEventListener('click', () => {
+        showAdultConsentModal(null);
       });
     }
 
     const posarConsentAcceptButton = $('posarConsentAcceptBtn');
     if (posarConsentAcceptButton) {
       posarConsentAcceptButton.addEventListener('click', () => {
-        showLegalDocumentReviewModal('posar');
+        openLegalDocumentReviewWithAdultGate('posar').catch(() => {
+          showNotification(
+            i18n('legal_consent_save_failed', 'Failed to save consent.'),
+            'error'
+          );
+        });
+      });
+    }
+
+    const adultConsentModalClose = $('legalAdultConsentModalClose');
+    if (adultConsentModalClose) {
+      adultConsentModalClose.addEventListener('click', hideAdultConsentModal);
+    }
+
+    const adultConsentModalCancel = $('legalAdultConsentModalCancel');
+    if (adultConsentModalCancel) {
+      adultConsentModalCancel.addEventListener('click', hideAdultConsentModal);
+    }
+
+    const adultConsentModalDecline = $('legalAdultConsentModalDecline');
+    if (adultConsentModalDecline) {
+      adultConsentModalDecline.addEventListener('click', () => {
+        declineAdultConsent().catch(() => {});
+      });
+    }
+
+    const adultConsentModalConfirm = $('legalAdultConsentModalConfirm');
+    if (adultConsentModalConfirm) {
+      adultConsentModalConfirm.addEventListener('click', () => {
+        confirmAdultConsentAndContinue().catch(() => {});
+      });
+    }
+
+    const adultConsentModal = $('legalAdultConsentModal');
+    if (adultConsentModal) {
+      adultConsentModal.addEventListener('click', (event) => {
+        if (event.target === adultConsentModal) {
+          hideAdultConsentModal();
+        }
       });
     }
 
@@ -1735,6 +2008,10 @@ ${htmlContent}
     }
 
     document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && $('legalAdultConsentModal')?.classList.contains('show')) {
+        hideAdultConsentModal();
+      }
+
       if (event.key === 'Escape' && $('withdrawConsentModal')?.classList.contains('show')) {
         hideWithdrawConsentModal();
       }
@@ -1819,7 +2096,7 @@ ${htmlContent}
             }
           }
 
-          if (changes[CONSENT_STORAGE_KEY] || changes[CONSENT_VERSION_STORAGE_KEY] || changes[CONSENT_POSAR_VERSION_STORAGE_KEY] || changes[CONSENT_SIGNATURE_STORAGE_KEY]) {
+          if (changes[CONSENT_STORAGE_KEY] || changes[CONSENT_VERSION_STORAGE_KEY] || changes[CONSENT_POSAR_VERSION_STORAGE_KEY] || changes[CONSENT_SIGNATURE_STORAGE_KEY] || changes[CONSENT_ADULT_STORAGE_KEY]) {
             refreshConsentUI().catch(() => {
               updateSettingsButtonVisibility(false);
             });

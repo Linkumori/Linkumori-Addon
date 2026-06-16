@@ -1657,11 +1657,11 @@
     "description": "ป้ายกำกับปุ่มเพื่อยอมรับประตูยินยอมของป็อปอัพ"
   },
   "popup_consent_checkbox": {
-    "message": "ฉันได้อ่านและยอมรับนโยบายความเป็นส่วนตัว POSAR และใบอนุญาตแล้ว",
+    "message": "ฉันยืนยันว่าฉันอายุ 18 ปีขึ้นไปหรือเป็นผู้ใหญ่ตามกฎหมาย และฉันได้อ่านและยอมรับนโยบายความเป็นส่วนตัว POSAR และใบอนุญาตแล้ว",
     "description": "ป้ายกำกับช่องทำเครื่องหมายยินยอมสำหรับประตูป็อปอัพ"
   },
   "popup_consent_description": {
-    "message": "โปรดอ่านนโยบายความเป็นส่วนตัว POSAR และใบอนุญาตก่อนใช้ป๊อปอัปนี้ เราไม่รวบรวมข้อมูลของคุณ ข้อมูลทั้งหมดจะถูกเก็บไว้ในอุปกรณ์ของคุณและไม่ได้ส่งถึงเรา",
+    "message": "โปรดอ่านนโยบายความเป็นส่วนตัว POSAR และใบอนุญาตก่อนใช้ป๊อปอัปนี้ เราไม่รวบรวมข้อมูลของคุณ ข้อมูลทั้งหมดจะถูกเก็บไว้ในอุปกรณ์ของคุณและไม่ได้ส่งถึงเรา การยืนยันอายุใช้กับทั้งนโยบายความเป็นส่วนตัวและการยอมรับ POSAR",
     "description": "คำอธิบายสำหรับประตูยินยอมของป็อปอัพ"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "ตรวจสอบนโยบายความเป็นส่วนตัว POSAR และใบอนุญาตด้านล่าง จากนั้นยอมรับเพื่อเสร็จสิ้นการย้ายไปยัง Linkumori",
     "description": "ข้อความแจ้งเตือนที่แสดงในหน้าข้อกฎหมายระหว่างการนำเข้าหรือการย้าย"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "จำเป็นต้องยืนยันอายุ",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori สามารถดำเนินการต่อได้ก็ต่อเมื่อคุณยืนยันว่าคุณมีอายุ 18 ปีขึ้นไป หรือเป็นผู้ใหญ่ตามกฎหมายในเขตอำนาจศาลของคุณ การยืนยันอายุนี้ใช้กับทั้งนโยบายความเป็นส่วนตัวและการยอมรับ POSAR",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "หากคุณไม่สามารถยืนยันสิ่งนี้ Linkumori จะยังคงหยุดชั่วคราวและไม่สามารถยอมรับเอกสารทั้งสองฉบับได้",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "ยกเลิก",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "ฉันไม่ใช่ผู้ใหญ่",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "นำไปใช้กับความเป็นส่วนตัวและ POSAR",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Linkumori ถูกหยุดชั่วคราวเนื่องจากไม่ยอมรับการยืนยันของผู้ใหญ่",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "การยืนยันอายุที่บันทึกไว้สำหรับนโยบายความเป็นส่วนตัวและ POSAR",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "ต้องยินยอม Linkumori ถูกหยุดชั่วคราวจนกว่าคุณจะยอมรับข้อกำหนดทางกฎหมายปัจจุบัน",
     "description": "ข้อความสถานะที่แสดงเมื่อต้องการการยินยอมทางกฎหมาย"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "ต้องได้รับความยินยอม Linkumori จะถูกหยุดชั่วคราวจนกว่าคุณจะยืนยันว่าคุณมีอายุ 18 ปีขึ้นไปหรือเป็นผู้ใหญ่ตามกฎหมาย",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "ต้องได้รับความยินยอม Linkumori จะถูกหยุดชั่วคราวจนกว่าคุณจะยอมรับนโยบายความเป็นส่วนตัวและ POSAR ฉบับปัจจุบัน",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "ยอมรับแล้ว",
     "description": "ป้ายกำกับปุ่มที่แสดงหลังจากยอมรับการยินยอมทางกฎหมาย"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "ยืนยันอายุ",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "ยืนยันว่าคุณมีอายุ 18 ปีขึ้นไปหรือเป็นผู้ใหญ่ตามกฎหมายก่อนที่จะยอมรับ",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "ยอมรับการยินยอมแล้ว",

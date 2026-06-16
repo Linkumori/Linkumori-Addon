@@ -1657,11 +1657,11 @@
     "description": "Button label to accept popup consent gate"
   },
   "popup_consent_checkbox": {
-    "message": "Gizlilik Politikasını, POSAR'ı ve Lisansı okudum ve kabul ediyorum.",
+    "message": "18 yaş üstü veya yasal olarak yetişkin olduğumu ve Gizlilik Politikasını, POSAR'ı ve Lisansı okuyup kabul ettiğimi onaylıyorum.",
     "description": "Consent checkbox label for popup gate"
   },
   "popup_consent_description": {
-    "message": "Lütfen bu açılır pencereyi kullanmadan önce Gizlilik Politikasını, POSAR'ı ve Lisansı okuyun. Verilerinizi toplamıyoruz. Tüm veriler cihazınızda saklanır ve bize iletilmez.",
+    "message": "Lütfen bu açılır pencereyi kullanmadan önce Gizlilik Politikasını, POSAR'ı ve Lisansı okuyun. Verilerinizi toplamıyoruz. Tüm veriler cihazınızda saklanır ve bize iletilmez. Yaş onayı hem Gizlilik Politikası hem de POSAR kabulü için geçerlidir.",
     "description": "Description for popup consent gate"
   },
   "popup_consent_legal_button": {
@@ -1780,9 +1780,45 @@
     "message": "Aşağıdaki Gizlilik Politikasını, POSAR'ı ve Lisansı inceleyin ve ardından Linkumori'ye geçişi tamamlamayı kabul edin.",
     "description": "Notice text shown on the legal page during import or migration"
   },
+  "legal_adult_consent_modal_title": {
+    "message": "Yaş onayı gerekli",
+    "description": "Title for the age confirmation modal shown before legal document acceptance"
+  },
+  "legal_adult_consent_modal_intro": {
+    "message": "Linkumori yalnızca 18 yaşında veya daha büyük olduğunuzu ya da yargı bölgenizde yasal olarak yetişkin olduğunuzu onaylamanız durumunda devam edebilir. Bu yaş onayı hem Gizlilik Politikası hem de POSAR kabulü için geçerlidir.",
+    "description": "Intro text for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_stop": {
+    "message": "Bunu onaylayamazsanız Linkumori duraklatılmış durumda kalacak ve hiçbir belge kabul edilmeyecektir.",
+    "description": "Stop notice in the age confirmation modal"
+  },
+  "legal_adult_consent_modal_cancel": {
+    "message": "İptal etmek",
+    "description": "Cancel button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_decline": {
+    "message": "Ben yetişkin değilim",
+    "description": "Decline button label for the age confirmation modal"
+  },
+  "legal_adult_consent_modal_confirm": {
+    "message": "Gizlilik ve POSAR'a Başvurun",
+    "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
+  },
+  "legal_adult_consent_declined_notice": {
+    "message": "Yetişkin onayı kabul edilmediğinden Linkumori duraklatıldı.",
+    "description": "Toast shown when the user declines adult confirmation"
+  },
+  "legal_adult_consent_saved": {
+    "message": "Gizlilik Politikası ve POSAR için yaş onayı kaydedildi.",
+    "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
+  },
   "legal_consent_status_required": {
     "message": "Onay gerekli. Linkumori, mevcut yasal koşulları kabul edene kadar duraklatıldı.",
     "description": "Status message shown when legal consent is required"
+  },
+  "legal_consent_status_required_adult": {
+    "message": "Onay gerekli. Siz 18+ yaşında veya yasal olarak yetişkin olduğunuzu onaylayana kadar Linkumori duraklatılır.",
+    "description": "Status message shown when adult confirmation is required"
   },
   "legal_consent_status_required_both": {
     "message": "Onay gerekli. Linkumori, siz mevcut Gizlilik Politikasını ve POSAR'ı kabul edene kadar duraklatılır.",
@@ -1843,6 +1879,14 @@
   "legal_consent_button_accepted": {
     "message": "Kabul Edildi",
     "description": "Button label shown after legal consent has been accepted"
+  },
+  "legal_consent_confirm_age_button": {
+    "message": "Yaşı onayla",
+    "description": "Button label shown when legal documents are accepted but adult confirmation is still required"
+  },
+  "legal_consent_adult_required": {
+    "message": "Kabul etmeden önce 18+ yaşında veya yasal olarak yetişkin olduğunuzu doğrulayın.",
+    "description": "Error message shown when adult confirmation is missing during consent acceptance"
   },
   "legal_consent_saved": {
     "message": "Onay kabul edildi.",
