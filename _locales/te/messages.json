@@ -1804,10 +1804,6 @@
     "message": "గోప్యత మరియు POSARకి వర్తించండి",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "పెద్దల నిర్ధారణ ఆమోదించబడనందున Linkumori పాజ్ చేయబడింది.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "గోప్యతా విధానం మరియు POSAR కోసం వయస్సు నిర్ధారణ సేవ్ చేయబడింది.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Linkumori బాహ్య సర్వర్‌లకు ఎటువంటి డేటాను ప్రసారం చేయనందున, తొలగింపును అభ్యర్థించడానికి రిమోట్ డేటా లేదు.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "ఈ పేజీ నుంచే బ్రౌజర్‌ను Linkumoriని అన్‌ఇన్‌స్టాల్ చేయమని అడిగి మీరు సమ్మతిని ఉపసంహరించుకోవచ్చు.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Linkumoriని అన్‌ఇన్‌స్టాల్ చేయండి",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "అన్‌ఇన్‌స్టాల్‌ను నిర్ధారించండి",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Linkumoriని అన్‌ఇన్‌స్టాల్ చేయడం మీ సమ్మతిని ఉపసంహరిస్తుంది మరియు ఈ బ్రౌజర్ నుండి ఎక్స్‌టెన్షన్‌ను తొలగిస్తుంది.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "ఇది ఈ బ్రౌజర్‌లో స్థానికంగా నిల్వ చేసిన Linkumori డేటాను తొలగిస్తుంది. మీరు రద్దు చేసి Linkumoriని ఇన్‌స్టాల్‌గా ఉంచవచ్చు.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Linkumoriని ఇన్‌స్టాల్‌గా ఉంచండి",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Linkumoriని అన్‌ఇన్‌స్టాల్ చేయండి",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori అన్‌ఇన్‌స్టాల్ కాలేదు. మీరు మళ్లీ ప్రయత్నించవచ్చు లేదా బ్రౌజర్ add-ons పేజీ నుండి అన్‌ఇన్‌స్టాల్ చేయవచ్చు.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "అన్‌ఇన్‌స్టాల్ రద్దు చేయబడింది. Linkumori ఇన్‌స్టాల్‌గా ఉంటుంది.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "ఇక్కడ ప్రత్యక్ష అన్‌ఇన్‌స్టాల్ అందుబాటులో లేదు. బ్రౌజర్ add-ons పేజీ నుండి Linkumoriని అన్‌ఇన్‌స్టాల్ చేసి మీరు ఇంకా సమ్మతిని ఉపసంహరించుకోవచ్చు.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "మూసివేయి",

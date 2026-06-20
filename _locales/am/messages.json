@@ -1804,10 +1804,6 @@
     "message": "ለግላዊነት እና ለPOSAR ያመልክቱ",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "ሊንኩሞሪ ባለበት ቆሟል ምክንያቱም የአዋቂዎች ማረጋገጫ ተቀባይነት አላገኘም።",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "ለግላዊነት ፖሊሲ እና ለPOSAR የዕድሜ ማረጋገጫ ተቀምጧል።",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Linkumori ምንም አይነት ውሂብ ወደ ውጫዊ አገልጋዮች የማያስተላልፍ በመሆኑ እንዲሰረዝ የሚጠይቅ የርቀት ውሂብ የለም።",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "እንዲሁም አሳሹ Linkumori እንዲያስወግድ በመጠየቅ ከዚህ ገጽ ፈቃድዎን መሰረዝ ይችላሉ።",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Linkumoriን አስወግድ",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "ማስወገድን ያረጋግጡ",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Linkumoriን ማስወገድ ፈቃድዎን ይሰርዛል እና ቅጥያውን ከዚህ አሳሽ ያስወግዳል።",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "ይህ በዚህ አሳሽ ውስጥ በአካባቢ የተቀመጠውን የLinkumori ውሂብ ያስወግዳል። መሰረዝ እና Linkumoriን ተጭኖ ማቆየት ይችላሉ።",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Linkumoriን ተጭኖ አቆይ",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Linkumoriን አስወግድ",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori አልተወገደም። እንደገና መሞከር ወይም ከአሳሹ ቅጥያዎች ገጽ ማስወገድ ይችላሉ።",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "ማስወገድ ተሰርዟል። Linkumori ተጭኖ ይቆያል።",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "ቀጥታ ማስወገድ እዚህ አይገኝም። ከአሳሹ ቅጥያዎች ገጽ Linkumoriን በማስወገድ ፈቃድዎን መሰረዝ ይችላሉ።",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "ገጠመ",

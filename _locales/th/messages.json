@@ -1804,10 +1804,6 @@
     "message": "นำไปใช้กับความเป็นส่วนตัวและ POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori ถูกหยุดชั่วคราวเนื่องจากไม่ยอมรับการยืนยันของผู้ใหญ่",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "การยืนยันอายุที่บันทึกไว้สำหรับนโยบายความเป็นส่วนตัวและ POSAR",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "เนื่องจาก Linkumori ไม่ได้ส่งข้อมูลใดๆ ไปยังเซิร์ฟเวอร์ภายนอก จึงไม่มีข้อมูลระยะไกลให้ขอให้ลบ",
     "description": "คำชี้แจงข้อมูลระยะไกลในโมดัลการถอนการยินยอม"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "คุณยังสามารถถอนความยินยอมจากหน้านี้ได้โดยขอให้เบราว์เซอร์ถอนการติดตั้ง Linkumori",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "ถอนการติดตั้ง Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "ยืนยันการถอนการติดตั้ง",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "การถอนการติดตั้ง Linkumori จะถอนความยินยอมของคุณและนำส่วนขยายออกจากเบราว์เซอร์นี้",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "การดำเนินการนี้จะลบข้อมูล Linkumori ที่จัดเก็บไว้ในเครื่องจากเบราว์เซอร์นี้ คุณสามารถยกเลิกและเก็บ Linkumori ไว้ต่อได้",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "เก็บ Linkumori ไว้",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "ถอนการติดตั้ง Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "ไม่ได้ถอนการติดตั้ง Linkumori คุณสามารถลองอีกครั้งหรือถอนการติดตั้งจากหน้าส่วนเสริมของเบราว์เซอร์",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "ยกเลิกการถอนการติดตั้งแล้ว Linkumori ยังคงติดตั้งอยู่",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "ไม่สามารถถอนการติดตั้งโดยตรงได้ที่นี่ คุณยังสามารถถอนความยินยอมได้โดยถอนการติดตั้ง Linkumori จากหน้าส่วนเสริมของเบราว์เซอร์",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "ปิด",

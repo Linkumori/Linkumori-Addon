@@ -3417,10 +3417,6 @@
     "message": "適用於隱私權和 POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "由於不接受成人確認，Linkumori 已暫停。",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "已為隱私權政策和 POSAR 保存年齡確認資訊。",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -3536,6 +3532,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "由於 Linkumori 不會將任何資料傳輸到外部伺服器，因此沒有需要另外請求刪除的遠端資料。",
     "description": "撤回同意視窗中的遠端資料說明"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "你也可以在此頁面要求瀏覽器解除安裝 Linkumori 來撤回同意。",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "解除安裝 Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "確認解除安裝",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "解除安裝 Linkumori 會撤回你的同意，並從此瀏覽器移除此擴充功能。",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "這會從此瀏覽器移除本機儲存的 Linkumori 資料。你可以取消並保留 Linkumori。",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "保留 Linkumori",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "解除安裝 Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori 尚未解除安裝。你可以再試一次，或從瀏覽器的附加元件頁面解除安裝。",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "解除安裝已取消。Linkumori 仍保持安裝。",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "此處無法直接解除安裝。你仍可從瀏覽器的附加元件頁面解除安裝 Linkumori 來撤回同意。",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "關閉",

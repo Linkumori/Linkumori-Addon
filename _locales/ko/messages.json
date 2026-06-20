@@ -1804,10 +1804,6 @@
     "message": "개인 정보 보호 및 POSAR에 적용",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "성인인증이 받아들여지지 않아 린쿠모리가 일시중지되었습니다.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "개인정보 보호정책 및 POSAR에 대한 연령 확인이 저장되었습니다.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Linkumori는 외부 서버로 데이터를 전송하지 않으므로 삭제를 요청할 원격 데이터가 없습니다.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "이 페이지에서 브라우저에 Linkumori 제거를 요청하여 동의를 철회할 수도 있습니다.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Linkumori 제거",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "제거 확인",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Linkumori를 제거하면 동의가 철회되고 이 브라우저에서 확장 프로그램이 제거됩니다.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "이 브라우저에 로컬로 저장된 Linkumori 데이터가 제거됩니다. 취소하고 Linkumori를 설치된 상태로 유지할 수 있습니다.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Linkumori 설치 유지",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Linkumori 제거",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori가 제거되지 않았습니다. 다시 시도하거나 브라우저 부가 기능 페이지에서 제거할 수 있습니다.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "제거가 취소되었습니다. Linkumori는 설치된 상태로 유지됩니다.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "여기서는 직접 제거를 사용할 수 없습니다. 브라우저 부가 기능 페이지에서 Linkumori를 제거하여 동의를 철회할 수 있습니다.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "닫기",

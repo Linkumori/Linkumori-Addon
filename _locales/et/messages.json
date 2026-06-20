@@ -1804,10 +1804,6 @@
     "message": "Taotlege privaatsus ja POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori on peatatud, kuna täiskasvanu kinnitust ei aktsepteeritud.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Vanusekinnitus on salvestatud privaatsuspoliitika ja POSAR jaoks.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Kuna Linkumori ei edasta andmeid välistele serveritele, pole kaugandmeid, mille kustutamist taotleda.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Saate nõusoleku tagasi võtta ka sellelt lehelt, paludes brauseril Linkumori desinstallida.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Desinstalli Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Kinnita desinstallimine",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Linkumori desinstallimine tühistab teie nõusoleku ja eemaldab laienduse sellest brauserist.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "See eemaldab sellest brauserist kohapeal salvestatud Linkumori andmed. Võite tühistada ja jätta Linkumori installituks.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Jäta Linkumori installituks",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Desinstalli Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumorit ei desinstallitud. Võite uuesti proovida või desinstallida selle brauseri lisandmoodulite lehelt.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Desinstallimine tühistati. Linkumori jääb installituks.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Otsene desinstallimine pole siin saadaval. Saate nõusoleku siiski tagasi võtta, desinstallides Linkumori brauseri lisandmoodulite lehelt.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Sule",

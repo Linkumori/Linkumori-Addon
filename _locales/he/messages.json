@@ -1804,10 +1804,6 @@
     "message": "הגש בקשה לפרטיות ול-POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori מושהה כי אישור מבוגר לא התקבל.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "אישור הגיל נשמר עבור מדיניות הפרטיות ו-POSAR.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "מכיוון שלינקומורי אינו משדר נתונים לשרתים חיצוניים, אין נתונים מרוחקים לבקש את מחיקתם.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "אפשר גם לבטל את ההסכמה מעמוד זה על ידי בקשה מהדפדפן להסיר את Linkumori.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "הסר את Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "אישור הסרה",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "הסרת Linkumori מבטלת את הסכמתך ומסירה את ההרחבה מדפדפן זה.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "פעולה זו תסיר מדפדפן זה נתוני Linkumori שנשמרו מקומית. אפשר לבטל ולהשאיר את Linkumori מותקן.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "השאר את Linkumori מותקן",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "הסר את Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori לא הוסר. אפשר לנסות שוב או להסיר אותו מעמוד התוספים של הדפדפן.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "ההסרה בוטלה. Linkumori נשאר מותקן.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "הסרה ישירה אינה זמינה כאן. עדיין אפשר לבטל את ההסכמה על ידי הסרת Linkumori מעמוד התוספים של הדפדפן.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "סגור",

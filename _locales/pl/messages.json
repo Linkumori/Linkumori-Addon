@@ -1451,10 +1451,6 @@
     "message": "Aplikuj do Prywatności i POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori zostało wstrzymane, ponieważ potwierdzenie osoby dorosłej nie zostało zaakceptowane.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Potwierdzenie wieku zapisane w Polityce prywatności i POSAR.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1558,6 +1554,46 @@
   },
   "legal_consent_withdraw_modal_remote": {
     "message": "Ponieważ Linkumori nie przesyła żadnych danych do zewnętrznych serwerów, nie ma zdalnych danych, których usunięcie można by zażądać."
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Możesz też wycofać zgodę z tej strony, prosząc przeglądarkę o odinstalowanie Linkumori.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Odinstaluj Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Potwierdź odinstalowanie",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Odinstalowanie Linkumori wycofa Twoją zgodę i usunie rozszerzenie z tej przeglądarki.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Spowoduje to usunięcie lokalnie zapisanych danych Linkumori z tej przeglądarki. Możesz anulować i pozostawić Linkumori zainstalowane.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Pozostaw Linkumori zainstalowane",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Odinstaluj Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori nie zostało odinstalowane. Możesz spróbować ponownie lub odinstalować je ze strony dodatków przeglądarki.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Odinstalowanie anulowane. Linkumori pozostaje zainstalowane.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Bezpośrednie odinstalowanie nie jest tutaj dostępne. Nadal możesz wycofać zgodę, odinstalowując Linkumori ze strony dodatków przeglądarki.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Zamknij"

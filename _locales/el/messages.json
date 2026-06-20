@@ -1804,10 +1804,6 @@
     "message": "Εφαρμόστε το Privacy και το POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Το Linkumori έχει τεθεί σε παύση επειδή η επιβεβαίωση ενηλίκων δεν έγινε αποδεκτή.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Η επιβεβαίωση ηλικίας αποθηκεύτηκε για την Πολιτική Απορρήτου και το POSAR.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Εφόσον το Linkumori δεν μεταδίδει δεδομένα σε εξωτερικούς διακομιστές, δεν υπάρχουν απομακρυσμένα δεδομένα για να ζητήσετε τη διαγραφή τους.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Μπορείτε επίσης να αποσύρετε τη συγκατάθεσή σας από αυτήν τη σελίδα ζητώντας από το πρόγραμμα περιήγησης να απεγκαταστήσει το Linkumori.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Απεγκατάσταση Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Επιβεβαίωση απεγκατάστασης",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Η απεγκατάσταση του Linkumori αποσύρει τη συγκατάθεσή σας και αφαιρεί την επέκταση από αυτό το πρόγραμμα περιήγησης.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Αυτό θα αφαιρέσει τα τοπικά αποθηκευμένα δεδομένα του Linkumori από αυτό το πρόγραμμα περιήγησης. Μπορείτε να ακυρώσετε και να κρατήσετε το Linkumori εγκατεστημένο.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Διατήρηση του Linkumori εγκατεστημένου",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Απεγκατάσταση Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Το Linkumori δεν απεγκαταστάθηκε. Μπορείτε να δοκιμάσετε ξανά ή να το απεγκαταστήσετε από τη σελίδα πρόσθετων του προγράμματος περιήγησης.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Η απεγκατάσταση ακυρώθηκε. Το Linkumori παραμένει εγκατεστημένο.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Η άμεση απεγκατάσταση δεν είναι διαθέσιμη εδώ. Μπορείτε ακόμα να αποσύρετε τη συγκατάθεσή σας απεγκαθιστώντας το Linkumori από τη σελίδα πρόσθετων του προγράμματος περιήγησης.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Κοντά",

@@ -1804,10 +1804,6 @@
     "message": "தனியுரிமை மற்றும் POSAR க்கு விண்ணப்பிக்கவும்",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "வயது வந்தோர் உறுதிப்படுத்தல் ஏற்கப்படாததால் Linkumori இடைநிறுத்தப்பட்டது.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "தனியுரிமைக் கொள்கை மற்றும் POSAR க்கு வயது உறுதிப்படுத்தல் சேமிக்கப்பட்டது.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Linkumori எந்த தரவையும் வெளிப்புற சேவையகங்களுக்கு அனுப்பாததால், நீக்கக் கோருவதற்கு தொலைநிலை தரவு எதுவும் இல்லை.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "இந்தப் பக்கத்திலிருந்தே உலாவியிடம் Linkumori ஐ நிறுவல் நீக்கச் சொல்லி உங்கள் சம்மதத்தை திரும்பப் பெறலாம்.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Linkumori ஐ நிறுவல் நீக்கு",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "நிறுவல் நீக்கத்தை உறுதிப்படுத்து",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Linkumori ஐ நிறுவல் நீக்குவது உங்கள் சம்மதத்தை திரும்பப் பெற்று, இந்த உலாவியிலிருந்து நீட்சியை அகற்றும்.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "இது இந்த உலாவியில் உள்ளூராக சேமிக்கப்பட்ட Linkumori தரவை அகற்றும். நீங்கள் ரத்து செய்து Linkumori ஐ நிறுவப்பட்டபடியே வைத்திருக்கலாம்.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Linkumori ஐ நிறுவப்பட்டபடி வைத்திரு",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Linkumori ஐ நிறுவல் நீக்கு",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori நிறுவல் நீக்கப்படவில்லை. மீண்டும் முயற்சிக்கலாம் அல்லது உலாவியின் add-ons பக்கத்திலிருந்து நிறுவல் நீக்கலாம்.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "நிறுவல் நீக்கம் ரத்து செய்யப்பட்டது. Linkumori நிறுவப்பட்டபடியே இருக்கும்.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "நேரடி நிறுவல் நீக்கம் இங்கே கிடைக்கவில்லை. உலாவியின் add-ons பக்கத்திலிருந்து Linkumori ஐ நிறுவல் நீக்கி இன்னும் உங்கள் சம்மதத்தை திரும்பப் பெறலாம்.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "மூடு",

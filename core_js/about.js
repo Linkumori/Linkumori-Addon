@@ -296,6 +296,13 @@
       return;
     }
 
+    const uninstallButton = $('withdrawConsentModalUninstall');
+    if (uninstallButton) {
+      const canUninstallSelf = canUseManagementUninstallSelf();
+      uninstallButton.hidden = !canUninstallSelf;
+      uninstallButton.disabled = !canUninstallSelf;
+    }
+
     modal.style.display = 'flex';
     requestAnimationFrame(() => {
       modal.classList.add('show');
@@ -321,6 +328,85 @@
 
     modal.classList.remove('show');
     modal.style.display = 'none';
+  }
+
+  function showWithdrawUninstallConfirmModal() {
+    const modal = $('withdrawUninstallConfirmModal');
+    if (!modal) {
+      withdrawConsentByUninstalling().catch(() => {});
+      return;
+    }
+
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => {
+      modal.classList.add('show');
+    });
+
+    const cancelButton = $('withdrawUninstallConfirmModalCancel');
+    if (cancelButton) {
+      setTimeout(() => {
+        try {
+          cancelButton.focus();
+        } catch (e) {
+          // no-op
+        }
+      }, 50);
+    }
+  }
+
+  function hideWithdrawUninstallConfirmModal() {
+    const modal = $('withdrawUninstallConfirmModal');
+    if (!modal) {
+      return;
+    }
+
+    modal.classList.remove('show');
+    modal.style.display = 'none';
+  }
+
+  function cancelWithdrawUninstallConfirmModal() {
+    hideWithdrawUninstallConfirmModal();
+    showNotification(
+      i18n('legal_consent_withdraw_uninstall_cancelled', 'Uninstall cancelled. Linkumori remains installed.'),
+      'info'
+    );
+  }
+
+  function canUseManagementUninstallSelf() {
+    return typeof browser !== 'undefined' &&
+      browser.management &&
+      typeof browser.management.uninstallSelf === 'function';
+  }
+
+  async function withdrawConsentByUninstalling(triggerButton = $('withdrawUninstallConfirmModalProceed')) {
+    const uninstallButton = triggerButton;
+    if (!canUseManagementUninstallSelf()) {
+      showNotification(
+        i18n('legal_consent_withdraw_uninstall_unavailable', 'Direct uninstall is not available here. You can still withdraw consent by uninstalling Linkumori from the browser add-ons page.'),
+        'error'
+      );
+      return false;
+    }
+
+    try {
+      if (uninstallButton) {
+        uninstallButton.disabled = true;
+      }
+
+      await browser.management.uninstallSelf({
+        showConfirmDialog: false
+      });
+      return true;
+    } catch (e) {
+      if (uninstallButton) {
+        uninstallButton.disabled = false;
+      }
+      showNotification(
+        i18n('legal_consent_withdraw_uninstall_failed', 'Linkumori was not uninstalled. You can try again or uninstall it from the browser add-ons page.'),
+        'error'
+      );
+      return false;
+    }
   }
 
   function showAdultConsentModal(reviewType) {
@@ -399,7 +485,12 @@
   }
 
   async function declineAdultConsent() {
+    const declineButton = $('legalAdultConsentModalDecline');
     try {
+      if (declineButton) {
+        declineButton.disabled = true;
+      }
+
       await browser.storage.local.set({
         [CONSENT_ADULT_STORAGE_KEY]: false,
         [CONSENT_STORAGE_KEY]: false
@@ -407,12 +498,13 @@
     } catch (e) {
       // no-op
     }
+
     hideAdultConsentModal();
     await refreshConsentUI();
-    showNotification(
-      i18n('legal_adult_consent_declined_notice', 'Linkumori is paused because adult confirmation was not accepted.'),
-      'error'
-    );
+    const uninstallStarted = await withdrawConsentByUninstalling(declineButton);
+    if (!uninstallStarted && declineButton) {
+      declineButton.disabled = false;
+    }
   }
 
   function showLegalRedirectionWarningModal() {
@@ -1998,6 +2090,11 @@ ${htmlContent}
       withdrawModalAcknowledge.addEventListener('click', hideWithdrawConsentModal);
     }
 
+    const withdrawModalUninstall = $('withdrawConsentModalUninstall');
+    if (withdrawModalUninstall) {
+      withdrawModalUninstall.addEventListener('click', showWithdrawUninstallConfirmModal);
+    }
+
     const withdrawModal = $('withdrawConsentModal');
     if (withdrawModal) {
       withdrawModal.addEventListener('click', (event) => {
@@ -2007,7 +2104,37 @@ ${htmlContent}
       });
     }
 
+    const withdrawUninstallConfirmModalClose = $('withdrawUninstallConfirmModalClose');
+    if (withdrawUninstallConfirmModalClose) {
+      withdrawUninstallConfirmModalClose.addEventListener('click', cancelWithdrawUninstallConfirmModal);
+    }
+
+    const withdrawUninstallConfirmModalCancel = $('withdrawUninstallConfirmModalCancel');
+    if (withdrawUninstallConfirmModalCancel) {
+      withdrawUninstallConfirmModalCancel.addEventListener('click', cancelWithdrawUninstallConfirmModal);
+    }
+
+    const withdrawUninstallConfirmModalProceed = $('withdrawUninstallConfirmModalProceed');
+    if (withdrawUninstallConfirmModalProceed) {
+      withdrawUninstallConfirmModalProceed.addEventListener('click', () => {
+        withdrawConsentByUninstalling().catch(() => {});
+      });
+    }
+
+    const withdrawUninstallConfirmModal = $('withdrawUninstallConfirmModal');
+    if (withdrawUninstallConfirmModal) {
+      withdrawUninstallConfirmModal.addEventListener('click', (event) => {
+        if (event.target === withdrawUninstallConfirmModal) {
+          cancelWithdrawUninstallConfirmModal();
+        }
+      });
+    }
+
     document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && $('withdrawUninstallConfirmModal')?.classList.contains('show')) {
+        cancelWithdrawUninstallConfirmModal();
+      }
+
       if (event.key === 'Escape' && $('legalAdultConsentModal')?.classList.contains('show')) {
         hideAdultConsentModal();
       }

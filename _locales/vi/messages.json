@@ -1804,10 +1804,6 @@
     "message": "Áp dụng cho Quyền riêng tư và POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori bị tạm dừng vì xác nhận của người lớn không được chấp nhận.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Đã lưu xác nhận độ tuổi cho Chính sách quyền riêng tư và POSAR.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Vì Linkumori không truyền bất kỳ dữ liệu nào đến máy chủ bên ngoài nên không có dữ liệu từ xa nào để yêu cầu xóa.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Bạn cũng có thể rút lại sự đồng ý từ trang này bằng cách yêu cầu trình duyệt gỡ cài đặt Linkumori.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Gỡ cài đặt Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Xác nhận gỡ cài đặt",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Gỡ cài đặt Linkumori sẽ rút lại sự đồng ý của bạn và xóa tiện ích khỏi trình duyệt này.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Thao tác này sẽ xóa dữ liệu Linkumori được lưu cục bộ khỏi trình duyệt này. Bạn có thể hủy và giữ Linkumori đã cài đặt.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Giữ Linkumori đã cài đặt",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Gỡ cài đặt Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori chưa được gỡ cài đặt. Bạn có thể thử lại hoặc gỡ cài đặt từ trang tiện ích của trình duyệt.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Đã hủy gỡ cài đặt. Linkumori vẫn được cài đặt.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Không thể gỡ cài đặt trực tiếp tại đây. Bạn vẫn có thể rút lại sự đồng ý bằng cách gỡ cài đặt Linkumori từ trang tiện ích của trình duyệt.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Đóng",
