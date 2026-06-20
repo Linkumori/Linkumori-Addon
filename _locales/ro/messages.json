@@ -1804,10 +1804,6 @@
     "message": "Aplică la Confidențialitate și POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori este întrerupt deoarece confirmarea adultului nu a fost acceptată.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Confirmarea vârstei a fost salvată pentru Politica de confidențialitate și POSAR.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Deoarece Linkumori nu transmite date către servere externe, nu există date de la distanță pentru a solicita ștergerea.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Îți poți retrage consimțământul și de pe această pagină cerând browserului să dezinstaleze Linkumori.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Dezinstalează Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Confirmă dezinstalarea",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Dezinstalarea Linkumori îți retrage consimțământul și elimină extensia din acest browser.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Aceasta va elimina datele Linkumori stocate local în acest browser. Poți anula și păstra Linkumori instalat.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Păstrează Linkumori instalat",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Dezinstalează Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori nu a fost dezinstalat. Poți încerca din nou sau îl poți dezinstala din pagina de suplimente a browserului.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Dezinstalarea a fost anulată. Linkumori rămâne instalat.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Dezinstalarea directă nu este disponibilă aici. Îți poți retrage în continuare consimțământul dezinstalând Linkumori din pagina de suplimente a browserului.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Aproape",

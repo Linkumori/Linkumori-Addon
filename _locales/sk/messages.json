@@ -1804,10 +1804,6 @@
     "message": "Použiť na ochranu osobných údajov a POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori je pozastavené, pretože nebolo prijaté potvrdenie pre dospelých.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Potvrdenie veku uložené pre zásady ochrany osobných údajov a POSAR.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Keďže Linkumori neprenáša žiadne údaje na externé servery, neexistujú žiadne vzdialené údaje, o ktoré by bolo možné požiadať.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Súhlas môžete odvolať aj z tejto stránky tým, že požiadate prehliadač o odinštalovanie Linkumori.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Odinštalovať Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Potvrdiť odinštalovanie",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Odinštalovaním Linkumori odvoláte svoj súhlas a odstránite rozšírenie z tohto prehliadača.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Tým sa z tohto prehliadača odstránia lokálne uložené údaje Linkumori. Môžete zrušiť akciu a ponechať Linkumori nainštalované.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Ponechať Linkumori nainštalované",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Odinštalovať Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori nebolo odinštalované. Môžete to skúsiť znova alebo ho odinštalovať zo stránky doplnkov prehliadača.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Odinštalovanie zrušené. Linkumori zostáva nainštalované.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Priame odinštalovanie tu nie je dostupné. Súhlas môžete stále odvolať odinštalovaním Linkumori zo stránky doplnkov prehliadača.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Zavrieť",

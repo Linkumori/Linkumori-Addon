@@ -1804,10 +1804,6 @@
     "message": "Gizlilik ve POSAR'a Başvurun",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Yetişkin onayı kabul edilmediğinden Linkumori duraklatıldı.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Gizlilik Politikası ve POSAR için yaş onayı kaydedildi.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Linkumori, harici sunuculara herhangi bir veri iletmediğinden, silinmesini talep edecek uzak veri yoktur.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Tarayıcıdan Linkumori’yi kaldırmasını isteyerek bu sayfadan da onayınızı geri çekebilirsiniz.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Linkumori’yi kaldır",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Kaldırmayı onayla",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Linkumori’yi kaldırmak onayınızı geri çeker ve uzantıyı bu tarayıcıdan kaldırır.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Bu, bu tarayıcıda yerel olarak depolanan Linkumori verilerini kaldırır. İptal edip Linkumori’yi yüklü tutabilirsiniz.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Linkumori yüklü kalsın",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Linkumori’yi kaldır",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori kaldırılmadı. Tekrar deneyebilir veya tarayıcının eklentiler sayfasından kaldırabilirsiniz.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Kaldırma iptal edildi. Linkumori yüklü kalır.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Doğrudan kaldırma burada kullanılamıyor. Linkumori’yi tarayıcının eklentiler sayfasından kaldırarak yine de onayınızı geri çekebilirsiniz.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Kapat",

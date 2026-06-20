@@ -1804,10 +1804,6 @@
     "message": "Mag-apply sa Privacy at POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Naka-pause ang Linkumori dahil hindi tinanggap ang kumpirmasyon ng nasa hustong gulang.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Na-save ang kumpirmasyon ng edad para sa Patakaran sa Privacy at POSAR.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Dahil ang Linkumori ay hindi nagpapadala ng anumang data sa mga panlabas na server, walang malayuang data na humiling ng pagtanggal.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Maaari mo ring bawiin ang pahintulot mula sa pahinang ito sa pamamagitan ng paghingi sa browser na i-uninstall ang Linkumori.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "I-uninstall ang Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Kumpirmahin ang pag-uninstall",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Ang pag-uninstall ng Linkumori ay babawi sa iyong pahintulot at aalisin ang extension mula sa browser na ito.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Aalisin nito ang lokal na nakaimbak na datos ng Linkumori mula sa browser na ito. Maaari kang magkansela at panatilihing naka-install ang Linkumori.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Panatilihing naka-install ang Linkumori",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "I-uninstall ang Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Hindi na-uninstall ang Linkumori. Maaari mong subukang muli o i-uninstall ito mula sa pahina ng mga add-on ng browser.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Kinansela ang pag-uninstall. Mananatiling naka-install ang Linkumori.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Hindi available dito ang direktang pag-uninstall. Maaari mo pa ring bawiin ang pahintulot sa pamamagitan ng pag-uninstall ng Linkumori mula sa pahina ng mga add-on ng browser.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Isara",

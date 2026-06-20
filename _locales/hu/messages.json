@@ -1804,10 +1804,6 @@
     "message": "Jelentkezzen az Adatvédelem és a POSAR oldalra",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori szünetel, mert a felnőttkori visszaigazolást nem fogadták el.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Az életkor megerősítése mentve az Adatvédelmi szabályzat és a POSAR számára.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Mivel a Linkumori nem továbbít adatokat külső szerverekre, nincs távoli adat, amelynek törlését kérni lehetne.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "A hozzájárulását ezen az oldalon is visszavonhatja, ha megkéri a böngészőt a Linkumori eltávolítására.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Linkumori eltávolítása",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Eltávolítás megerősítése",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "A Linkumori eltávolítása visszavonja a hozzájárulását, és eltávolítja a bővítményt ebből a böngészőből.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Ez eltávolítja az ebben a böngészőben helyileg tárolt Linkumori-adatokat. Megszakíthatja a műveletet, és megtarthatja a Linkumorit telepítve.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Linkumori maradjon telepítve",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Linkumori eltávolítása",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "A Linkumori nem lett eltávolítva. Megpróbálhatja újra, vagy eltávolíthatja a böngésző bővítmények oldaláról.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Eltávolítás megszakítva. A Linkumori telepítve marad.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "A közvetlen eltávolítás itt nem érhető el. A hozzájárulását továbbra is visszavonhatja, ha eltávolítja a Linkumorit a böngésző bővítmények oldaláról.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Bezárás",

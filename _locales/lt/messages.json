@@ -1804,10 +1804,6 @@
     "message": "Kreipkitės į privatumą ir POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori yra pristabdyta, nes suaugusiojo patvirtinimas nebuvo priimtas.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Amžiaus patvirtinimas išsaugotas privatumo politikai ir POSAR.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "Kadangi Linkumori neperduoda jokių duomenų išoriniams serveriams, nėra jokių nuotolinių duomenų, kuriuos būtų galima prašyti ištrinti.",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Taip pat galite atšaukti sutikimą šiame puslapyje paprašydami naršyklės pašalinti Linkumori.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Pašalinti Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Patvirtinti pašalinimą",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Pašalinus Linkumori, jūsų sutikimas bus atšauktas, o plėtinys pašalintas iš šios naršyklės.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Tai pašalins šioje naršyklėje vietoje saugomus Linkumori duomenis. Galite atšaukti ir palikti Linkumori įdiegtą.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Palikti Linkumori įdiegtą",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Pašalinti Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori nebuvo pašalintas. Galite bandyti dar kartą arba pašalinti jį iš naršyklės priedų puslapio.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Pašalinimas atšauktas. Linkumori lieka įdiegtas.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Tiesioginis pašalinimas čia nepasiekiamas. Vis tiek galite atšaukti sutikimą pašalindami Linkumori iš naršyklės priedų puslapio.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Uždaryti",

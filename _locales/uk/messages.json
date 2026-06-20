@@ -1451,10 +1451,6 @@
     "message": "Подати заявку на конфіденційність і POSAR",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "Linkumori призупинено, оскільки підтвердження дорослого не було прийнято.",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "Підтвердження віку збережено для Політики конфіденційності та POSAR.",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1558,6 +1554,46 @@
   },
   "legal_consent_withdraw_modal_remote": {
     "message": "Оскільки Linkumori не передає жодних даних на зовнішні сервери, немає віддалених даних, видалення яких можна було б запросити."
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "Ви також можете відкликати згоду з цієї сторінки, попросивши браузер видалити Linkumori.",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Видалити Linkumori",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "Підтвердити видалення",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Видалення Linkumori відкликає вашу згоду та прибирає розширення з цього браузера.",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "Це видалить локально збережені дані Linkumori з цього браузера. Ви можете скасувати дію й залишити Linkumori встановленим.",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Залишити Linkumori встановленим",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Видалити Linkumori",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori не було видалено. Ви можете спробувати ще раз або видалити його зі сторінки додатків браузера.",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "Видалення скасовано. Linkumori залишається встановленим.",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "Пряме видалення тут недоступне. Ви все одно можете відкликати згоду, видаливши Linkumori зі сторінки додатків браузера.",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "Закрити"

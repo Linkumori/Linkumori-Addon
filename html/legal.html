@@ -1358,9 +1358,28 @@
                 <p id="withdrawConsentModalIntro" data-i18n="legal_consent_withdraw_modal_intro"></p>
                 <p id="withdrawConsentModalDeletion" data-i18n="legal_consent_withdraw_modal_deletion"></p>
                 <p id="withdrawConsentModalRemote" data-i18n="legal_consent_withdraw_modal_remote"></p>
+                <p id="withdrawConsentModalUninstallSelf" data-i18n="legal_consent_withdraw_modal_uninstall_self"></p>
             </div>
             <div class="modal-actions">
+                <button id="withdrawConsentModalUninstall" class="btn btn-danger" type="button" data-i18n="legal_consent_withdraw_modal_uninstall_button"></button>
                 <button id="withdrawConsentModalAcknowledge" class="btn btn-secondary" type="button" data-i18n="legal_consent_withdraw_modal_close"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="withdrawUninstallConfirmModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="withdrawUninstallConfirmModalTitle" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="withdrawUninstallConfirmModalTitle" class="modal-title" data-i18n="legal_consent_withdraw_uninstall_confirm_title"></h2>
+                <button id="withdrawUninstallConfirmModalClose" class="modal-close" type="button" data-i18n-aria="legal_consent_withdraw_uninstall_confirm_cancel" aria-label="">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="withdrawUninstallConfirmModalIntro" data-i18n="legal_consent_withdraw_uninstall_confirm_intro"></p>
+                <p id="withdrawUninstallConfirmModalWarning" data-i18n="legal_consent_withdraw_uninstall_confirm_warning"></p>
+            </div>
+            <div class="modal-actions">
+                <button id="withdrawUninstallConfirmModalCancel" class="btn btn-secondary" type="button" data-i18n="legal_consent_withdraw_uninstall_confirm_cancel"></button>
+                <button id="withdrawUninstallConfirmModalProceed" class="btn btn-danger" type="button" data-i18n="legal_consent_withdraw_uninstall_confirm_button"></button>
             </div>
         </div>
     </div>

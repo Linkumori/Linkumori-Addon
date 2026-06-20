@@ -1804,10 +1804,6 @@
     "message": "गोपनीयता और POSAR पर लागू करें",
     "description": "Confirm button label for applying age confirmation to Privacy Policy and POSAR acceptance"
   },
-  "legal_adult_consent_declined_notice": {
-    "message": "लिंकुमोरी को रोक दिया गया है क्योंकि वयस्क पुष्टि स्वीकार नहीं की गई थी।",
-    "description": "Toast shown when the user declines adult confirmation"
-  },
   "legal_adult_consent_saved": {
     "message": "गोपनीयता नीति और POSAR के लिए आयु पुष्टिकरण सहेजा गया।",
     "description": "Toast shown after saving shared age confirmation for Privacy Policy and POSAR"
@@ -1923,6 +1919,46 @@
   "legal_consent_withdraw_modal_remote": {
     "message": "चूंकि लिंकुमोरी किसी भी डेटा को बाहरी सर्वर पर प्रसारित नहीं करता है, इसलिए हटाने का अनुरोध करने के लिए कोई दूरस्थ डेटा नहीं है।",
     "description": "Remote data clarification in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_self": {
+    "message": "आप इस पृष्ठ से ब्राउज़र से Linkumori अनइंस्टॉल करने के लिए कहकर भी अपनी सहमति वापस ले सकते हैं।",
+    "description": "Explains the direct uninstall action in the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_modal_uninstall_button": {
+    "message": "Linkumori अनइंस्टॉल करें",
+    "description": "Button label to uninstall Linkumori from the withdrawal of consent modal"
+  },
+  "legal_consent_withdraw_uninstall_confirm_title": {
+    "message": "अनइंस्टॉल की पुष्टि करें",
+    "description": "Title for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_intro": {
+    "message": "Linkumori को अनइंस्टॉल करने से आपकी सहमति वापस हो जाएगी और यह एक्सटेंशन इस ब्राउज़र से हट जाएगा।",
+    "description": "Intro text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_warning": {
+    "message": "यह इस ब्राउज़र में स्थानीय रूप से संग्रहीत Linkumori डेटा को हटा देगा। आप रद्द करके Linkumori को इंस्टॉल रहने दे सकते हैं।",
+    "description": "Warning text for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_cancel": {
+    "message": "Linkumori इंस्टॉल रहने दें",
+    "description": "Cancel button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_confirm_button": {
+    "message": "Linkumori अनइंस्टॉल करें",
+    "description": "Confirm button for the HTML confirmation modal before uninstalling Linkumori"
+  },
+  "legal_consent_withdraw_uninstall_failed": {
+    "message": "Linkumori अनइंस्टॉल नहीं हुआ। आप फिर से कोशिश कर सकते हैं या ब्राउज़र के ऐड-ऑन पृष्ठ से इसे अनइंस्टॉल कर सकते हैं।",
+    "description": "Toast shown when browser self-uninstall does not complete"
+  },
+  "legal_consent_withdraw_uninstall_cancelled": {
+    "message": "अनइंस्टॉल रद्द किया गया। Linkumori इंस्टॉल रहेगा।",
+    "description": "Toast shown when the uninstall confirmation modal is cancelled"
+  },
+  "legal_consent_withdraw_uninstall_unavailable": {
+    "message": "यहाँ सीधे अनइंस्टॉल उपलब्ध नहीं है। आप फिर भी ब्राउज़र के ऐड-ऑन पृष्ठ से Linkumori को अनइंस्टॉल करके सहमति वापस ले सकते हैं।",
+    "description": "Toast shown when direct uninstall is unavailable"
   },
   "legal_consent_withdraw_modal_close": {
     "message": "बंद करना",
