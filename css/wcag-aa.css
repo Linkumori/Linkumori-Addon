@@ -1,0 +1,69 @@
+/*
+ * Linkumori WCAG 2.2 AA helper styles.
+ * * Copyright (c) 2026 Subham Mahesh
+ *
+ * This program is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation, either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this program. If not, see
+ * <http://www.gnu.org/licenses/>.
+ *
+ * ============================================================
+ * MODIFICATION HISTORY
+ * ============================================================
+ * 2026-06-29   Subham Mahesh   First modification
+ * This shared layer keeps keyboard focus, minimum target size, and reduced
+ * motion behavior consistent across extension HTML pages. It supports the
+ * page-specific themes without replacing their visual design.
+ */
+
+:focus-visible {
+    outline: 2px solid var(--input-focus, var(--button-primary, #2563eb));
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.24);
+}
+
+button,
+[role="button"],
+[role="switch"],
+[role="radio"],
+a.btn,
+.btn,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select {
+    min-width: 24px;
+    min-height: 24px;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+    cursor: not-allowed;
+}
+
+svg[aria-hidden="true"],
+img[aria-hidden="true"] {
+    forced-color-adjust: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

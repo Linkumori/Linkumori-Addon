@@ -1571,7 +1571,7 @@ function renderWhitelistList() {
     const items = filtered.map(domain => `
         <li class="whitelist-item">
             <span class="whitelist-domain" title="${escapeHtml(domain)}">${escapeHtml(domain)}</span>
-            <button class="btn btn-danger btn-sm whitelist-remove" data-domain="${escapeHtml(domain)}" title="${i18n('whitelist_remove_button')}">${i18n('whitelist_remove_button')}</button>
+            <button type="button" class="btn btn-danger btn-sm whitelist-remove" data-domain="${escapeHtml(domain)}" title="${i18n('whitelist_remove_button')}">${i18n('whitelist_remove_button')}</button>
         </li>
     `).join('');
     setHTMLContent(list, items);
@@ -2127,7 +2127,7 @@ function populateProviderListModal() {
         setHTMLContent(modalContent, `
             <div class="provider-list-empty">
                 <p>${i18n('providerList_noProvidersFound')}</p>
-                <button class="btn btn-primary" id="provider-list-create-first-btn">
+                <button type="button" class="btn btn-primary" id="provider-list-create-first-btn">
                     ${i18n('providerList_createFirst')}
                 </button>
             </div>
@@ -2209,20 +2209,20 @@ function createProviderListItemHTML(providerName, provider) {
                 </div>
             </div>
             <div class="provider-list-item-actions">
-                <button class="btn btn-sm btn-primary provider-list-edit-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('providerList_editTooltip')}">
-                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" class="btn btn-sm btn-primary provider-list-edit-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('providerList_editTooltip')}">
+                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>
                     </svg>
                     ${i18n('providerList_edit')}
                 </button>
-                <button class="btn btn-sm btn-warning provider-list-duplicate-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('providerList_duplicateTooltip')}">
-                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" class="btn btn-sm btn-warning provider-list-duplicate-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('providerList_duplicateTooltip')}">
+                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M120-220v-80h80v80h-80Zm0-140v-80h80v80h-80Zm0-140v-80h80v80h-80ZM260-80v-80h80v80h-80Zm100-160q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480Zm40 240v-80h80v80h-80Zm-200 0q-33 0-56.5-23.5T120-160h80v80Zm340 0v-80h80q0 33-23.5 56.5T540-80ZM120-640q0-33 23.5-56.5T200-720v80h-80Zm420 80Z"/>
                     </svg>
                     ${i18n('providerList_duplicate')}
                 </button>
-                <button class="btn btn-sm btn-danger provider-list-delete-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('providerList_deleteTooltip')}">
-                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" class="btn btn-sm btn-danger provider-list-delete-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('providerList_deleteTooltip')}">
+                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/>
                     </svg>
                     ${i18n('providerList_delete')}
@@ -3277,7 +3277,7 @@ function setupFAQAccordion() {
         // Replace any existing FAQ question icons with the new SVG
         const existingIcon = question.querySelector('.faq-question-icon');
         if (existingIcon) {
-            existingIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-360 280-560h400L480-360Z"/></svg>';
+            existingIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true" focusable="false"><path d="M480-360 280-560h400L480-360Z"/></svg>';
         }
         
         question.addEventListener('click', function() {
@@ -3608,7 +3608,7 @@ async function enforceRules() {
         const originalContent = enforceBtn.innerHTML;
         
         setHTMLContent(enforceBtn, `
-            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                 <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
             </svg>
             <span>${i18n('customRulesEditor_enforceSuccess')}</span>
@@ -3629,7 +3629,7 @@ async function enforceRules() {
         const originalContent = enforceBtn.innerHTML;
         
         setHTMLContent(enforceBtn, `
-            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                 <path d="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm302-40q17 0 28.5-11.5T520-280q0-17-11.5-28.5T480-320q-17 0-28.5 11.5T440-280q0 17 11.5 28.5T480-240Zm-40-120h80v-200h-80v200Zm40-100Z"/>
             </svg>
             <span>${i18n('customRulesEditor_enforceError')}</span>
@@ -3828,13 +3828,13 @@ function createProviderListItem(providerName) {
         setHTMLContent(li, `
             <span class="provider-name" title="${escapeHtml(providerName)}">${escapeHtml(providerName)}</span>
             <div class="provider-actions">
-                <button class="provider-action-btn edit-provider-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('customRulesEditor_editName')}">
-                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" class="provider-action-btn edit-provider-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('customRulesEditor_editName')}" aria-label="${escapeHtml(i18n('customRulesEditor_editName'))}">
+                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>
                     </svg>
                 </button>
-                <button class="provider-action-btn duplicate-provider-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('customRulesEditor_duplicate')}">
-                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" class="provider-action-btn duplicate-provider-btn" data-provider="${escapeHtml(providerName)}" title="${i18n('customRulesEditor_duplicate')}" aria-label="${escapeHtml(i18n('customRulesEditor_duplicate'))}">
+                    <svg width="12" height="12" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M120-220v-80h80v80h-80Zm0-140v-80h80v80h-80Zm0-140v-80h80v80h-80ZM260-80v-80h80v80h-80Zm100-160q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480Zm40 240v-80h80v80h-80Zm-200 0q-33 0-56.5-23.5T120-160h80v80Zm340 0v-80h80q0 33-23.5 56.5T540-80ZM120-640q0-33 23.5-56.5T200-720v80h-80Zm420 80Z"/>
                     </svg>
                 </button>
@@ -4594,7 +4594,7 @@ function showEmptyState() {
                 <div class="provider-list-page">
                     <div class="provider-list-page-header">
                         <h3 class="modal-title">${i18n('providerList_title')}</h3>
-                        <button class="btn btn-danger btn-sm" id="editor-delete-all-btn">${i18n('customRulesEditor_deleteAll')}</button>
+                        <button type="button" class="btn btn-danger btn-sm" id="editor-delete-all-btn">${i18n('customRulesEditor_deleteAll')}</button>
                     </div>
                     <input type="text" class="provider-list-search" id="editor-provider-list-search" data-i18n-placeholder="providerList_searchPlaceholder" placeholder="${i18n('providerList_searchPlaceholder')}">
                     <div class="provider-list-modal-content" id="editor-provider-list-content">
@@ -4668,8 +4668,8 @@ function showEmptyState() {
                 <div class="empty-state">
                     <h3>${i18n('customRulesEditor_welcome')}</h3>
                     <p>${i18n('customRulesEditor_description')}</p>
-                    <button class="btn btn-primary" id="empty-state-add-btn">
-                        <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                    <button type="button" class="btn btn-primary" id="empty-state-add-btn">
+                        <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                             <path d="M440-120v-320H120v-80h320v-320h80v320h320v80H520v320h-80Z"/>
                         </svg>
                         ${i18n('customRulesEditor_createFirst')}

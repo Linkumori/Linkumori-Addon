@@ -1166,13 +1166,14 @@
             :root[data-theme="light"] { --border-color: rgba(0,0,0,0.4); }
         }
     </style>
+    <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
 
     <!-- ── Header ─────────────────────────────────────────────────────── -->
     <div class="header">
         <div class="header-content">
-            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
                 <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
                 <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
                     fill="none" stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round"/>
@@ -1409,7 +1410,7 @@
             <!-- Toolbar: live-dot + Pause / Clear / Auto-scroll -->
             <div class="button-controls">
                 <div id="live-dot"></div>
-                <button class="btn btn-primary" id="btn-pause" aria-label="Pause">
+                <button type="button" class="btn btn-primary" id="btn-pause" aria-label="Pause">
                     <span class="btn-icon" aria-hidden="true">
                         <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"></path>
@@ -1417,7 +1418,7 @@
                     </span>
                     <span class="btn-label">Pause</span>
                 </button>
-                <button class="btn btn-danger" id="btn-clear" aria-label="Clear">
+                <button type="button" class="btn btn-danger" id="btn-clear" aria-label="Clear">
                     <span class="btn-icon" aria-hidden="true">
                         <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z"></path>
@@ -1425,7 +1426,7 @@
                     </span>
                     <span class="btn-label">Clear</span>
                 </button>
-                <button class="btn btn-secondary" id="btn-scroll" aria-label="Auto-scroll">
+                <button type="button" class="btn btn-secondary" id="btn-scroll" aria-label="Auto-scroll">
                     <span class="btn-icon" aria-hidden="true">
                         <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M12 5.83 15.17 9l1.41-1.41L12 3 7.41 7.59 8.83 9 12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15 12 18.17z"></path>
@@ -1489,7 +1490,7 @@
             <div id="detail-panel">
                 <div id="detail-header">
                     <span id="detail-title" data-i18n="logger_detail_title">Entry detail</span>
-                    <button id="detail-close" aria-label="Close" title="Close">
+                    <button type="button" id="detail-close" aria-label="Close" title="Close">
                         <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M18.3 5.71 16.89 4.3 12 9.17 7.11 4.3 5.7 5.71l4.89 4.89-4.89 4.89 1.41 1.41L12 12.01l4.89 4.89 1.41-1.41-4.89-4.89 4.89-4.89z"></path>
                         </svg>

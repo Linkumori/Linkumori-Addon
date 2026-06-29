@@ -1173,12 +1173,13 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">             
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">             
                 <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>             
                 <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" 
                       fill="none" 
@@ -1200,9 +1201,9 @@
             </div>
         </div>
 
-        <button id="themeToggle" class="theme-toggle-btn" data-i18n-aria="themeToggleAriaLabel">
-            <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" data-i18n-alt="sunIconAlt">
-            <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" data-i18n-alt="moonIconAlt">
+        <button type="button" id="themeToggle" class="theme-toggle-btn" data-i18n-aria="themeToggleAriaLabel">
+            <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" data-i18n-alt="sunIconAlt" aria-hidden="true">
+            <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" data-i18n-alt="moonIconAlt" aria-hidden="true">
         </button>
     </header>
 
@@ -1294,10 +1295,10 @@
 
             <div class="controls-row">
                 <div class="button-group">
-                    <button id="copyPrivacyBtn" class="btn btn-secondary" disabled>
+                    <button type="button" id="copyPrivacyBtn" class="btn btn-secondary" disabled>
                         <span data-i18n="copyText"></span>
                     </button>
-                    <button id="downloadPrivacyBtn" class="btn btn-secondary" disabled>
+                    <button type="button" id="downloadPrivacyBtn" class="btn btn-secondary" disabled>
                         <span data-i18n="downloadText"></span>
                     </button>
                     <button id="legalAdultConsentOpenBtn" class="btn btn-secondary" type="button" data-i18n="legal_consent_confirm_age_button">Confirm age</button>
@@ -1318,10 +1319,10 @@
             </div>
 
             <div class="button-group">
-                <button id="copyPosarBtn" class="btn btn-secondary" disabled>
+                <button type="button" id="copyPosarBtn" class="btn btn-secondary" disabled>
                     <span data-i18n="copyText"></span>
                 </button>
-                <button id="downloadPosarBtn" class="btn btn-secondary" disabled>
+                <button type="button" id="downloadPosarBtn" class="btn btn-secondary" disabled>
                     <span data-i18n="downloadText"></span>
                 </button>
                 <button id="posarConsentAcceptBtn" class="btn btn-secondary" type="button" disabled data-i18n="posar_consent_accept_button">Accept POSAR</button>
@@ -1338,10 +1339,10 @@
             </div>
 
             <div class="button-group">
-                <button id="copyLicenseBtn" class="btn btn-secondary" disabled>
+                <button type="button" id="copyLicenseBtn" class="btn btn-secondary" disabled>
                     <span data-i18n="copyText"></span>
                 </button>
-                <button id="downloadLicenseBtn" class="btn btn-secondary" disabled>
+                <button type="button" id="downloadLicenseBtn" class="btn btn-secondary" disabled>
                     <span data-i18n="downloadText"></span>
                 </button>
             </div>

@@ -88,6 +88,12 @@ var temporaryPauseState = {
     until: null,
     remainingMs: 0
 };
+const POPUP_SWITCH_ACCESSIBILITY = {
+    globalStatus: 'configs_switch_filter',
+    logging: 'configs_switch_log',
+    tabcounter: 'configs_switch_badges',
+    statistics: 'configs_switch_statistics'
+};
 const {
     THEME_STORAGE_KEY,
     LAST_DARK_THEME_STORAGE_KEY,
@@ -1470,12 +1476,9 @@ function setSwitchButton(id, varname) {
             break;
     }
     
-    // Update the visual state
-    if (isActive) {
-        element.classList.add('active');
-    } else {
-        element.classList.remove('active');
-    }
+    // Update the visual and accessibility state.
+    element.classList.toggle('active', !!isActive);
+    element.setAttribute('aria-checked', isActive ? 'true' : 'false');
 }
 
 /**
@@ -1490,18 +1493,30 @@ function changeSwitchButton(id, storageID) {
         return;
     }
 
+    element.setAttribute('role', 'switch');
+    element.setAttribute('tabindex', '0');
+    element.setAttribute('aria-checked', element.classList.contains('active') ? 'true' : 'false');
+    const labelId = POPUP_SWITCH_ACCESSIBILITY[id];
+    if (labelId && document.getElementById(labelId)) {
+        element.setAttribute('aria-labelledby', labelId);
+    }
+
     // Set initial visibility
     changeVisibility(id, storageID);
+
+    element.onkeydown = function(event) {
+        if (event.key === ' ' || event.key === 'Enter') {
+            event.preventDefault();
+            element.click();
+        }
+    };
 
     element.onclick = async function(){
         const isActive = element.classList.contains('active');
         const newValue = !isActive;
         
-        if (newValue) {
-            element.classList.add('active');
-        } else {
-            element.classList.remove('active');
-        }
+        element.classList.toggle('active', newValue);
+        element.setAttribute('aria-checked', newValue ? 'true' : 'false');
 
         try {
             // Try background script first
@@ -1543,6 +1558,7 @@ function changeSwitchButton(id, storageID) {
                 } else {
                     element.classList.add('active');
                 }
+                element.setAttribute('aria-checked', newValue ? 'false' : 'true');
             }
         }
     };

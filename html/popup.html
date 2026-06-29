@@ -1149,11 +1149,12 @@
         }
 
     </style>
+    <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body class="consent-locked">
     <div class="header">
         <div class="header-content">
-            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
                 <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
                 <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
                     fill="none"
@@ -1174,14 +1175,14 @@
             </div>
         </div>
         <div class="header-actions">
-            <button id="cleaning_tools_icon" class="tools-icon-btn" aria-label="" title="">
+            <button type="button" id="cleaning_tools_icon" class="tools-icon-btn" aria-label="" title="">
                 <img src="../LinkumorI_HTML_SVG/paintbrush.svg" alt="" aria-hidden="true">
             </button>
-            <button id="reportButton" class="tools-icon-btn" aria-label="" title="">
+            <button type="button" id="reportButton" class="tools-icon-btn" aria-label="" title="">
                 <img src="../LinkumorI_HTML_SVG/bug-material-icon-dark.svg" alt="" class="bug-icon-dark" aria-hidden="true">
                 <img src="../LinkumorI_HTML_SVG/bug-material-icon-light.svg" alt="" class="bug-icon-light" aria-hidden="true">
             </button>
-            <button id="themeToggle" class="theme-toggle-btn" aria-label="" title="">
+            <button type="button" id="themeToggle" class="theme-toggle-btn" aria-label="" title="">
                 <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" aria-hidden="true">
                 <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" aria-hidden="true">
             </button>
@@ -1190,10 +1191,10 @@
 
     <!-- Navigation Bar -->
     <div class="nav-bar">
-        <button class="nav-item active" id="navMain" data-target="mainContent">
+        <button type="button" class="nav-item active" id="navMain" data-target="mainContent">
             <span id="nav_main_label"></span>
         </button>
-        <button class="nav-item" id="navLicense" data-target="licenseContent">
+        <button type="button" class="nav-item" id="navLicense" data-target="licenseContent">
             <span id="nav_license_label"></span>
         </button>
     </div>
@@ -1222,12 +1223,12 @@
 
         <div class="pause-card">
             <div class="pause-title" id="temporaryPauseTitle"></div>
-            <div class="pause-status" id="temporaryPauseStatus"></div>
+            <div class="pause-status" id="temporaryPauseStatus" role="status" aria-live="polite" aria-atomic="true"></div>
             <div class="pause-buttons">
-                <button id="pause15mBtn" class="btn-small"></button>
-                <button id="pause1hBtn" class="btn-small"></button>
-                <button id="pauseUntilRestartBtn" class="btn-small"></button>
-                <button id="resumePauseBtn" class="btn-small btn-small-danger"></button>
+                <button type="button" id="pause15mBtn" class="btn-small"></button>
+                <button type="button" id="pause1hBtn" class="btn-small"></button>
+                <button type="button" id="pauseUntilRestartBtn" class="btn-small"></button>
+                <button type="button" id="resumePauseBtn" class="btn-small btn-small-danger"></button>
             </div>
         </div>
 
@@ -1252,22 +1253,22 @@
                     <div class="progress-fill" id="progress_blocked"></div>
                 </div>
 
-                <button id="reset_counter_btn" class="btn-full-primary"></button>
+                <button type="button" id="reset_counter_btn" class="btn-full-primary"></button>
             </div>
         </div>
 
         <div class="content" id="log_section">
-            <button id="loggingPage" class="btn-full-primary"></button>
+            <button type="button" id="loggingPage" class="btn-full-primary"></button>
         </div>
 
         <div class="bottom-actions">
             <!-- Dynamic Whitelist Button -->
-            <button id="singledynamicwhitelistunwhitelistbutton" class="is-hidden"></button>
+            <button type="button" id="singledynamicwhitelistunwhitelistbutton" class="is-hidden"></button>
 
             <div class="button-group">
-                 <button id="customrules"></button>
-                <button id="whitelist_page"></button>
-                <button id="settings"></button>
+                 <button type="button" id="customrules"></button>
+                <button type="button" id="whitelist_page"></button>
+                <button type="button" id="settings"></button>
             </div>
         </div>
 
@@ -1290,12 +1291,12 @@
             <div class="license-links">
                 <a href="#" id="legalLink" class="license-link"></a>
                 <a href="#" id="license_guide_link" class="license-link"></a>
-                <a href="../licenses/LGPL-3.0.txt" id="license_lgpl_link" class="license-link" target="_blank"></a>
-                <a href="https://github.com/Linkumori/Linkumori-Addon" id="license_source_repo_link" class="license-link" target="_blank"></a>
-                <a href="https://github.com/Linkumori/Linkumori-Addon/releases/" id="license_source_repo_link_direct" class="license-link" target="_blank"></a>
-                <a href="https://github.com/Linkumori/Linkumori-Addon/issues" id="license_report_issues_link" class="license-link" target="_blank"></a>
-                <a href="https://gitlab.com/ClearURLs/ClearUrls/-/tree/m3-migration?ref_type=heads" id="license_clearurls_migration_link" class="license-link" target="_blank"></a>
-                <a href="https://github.com/ClearURLs/Addon/tree/1.27.3" id="license_clearurls_addon_link" class="license-link" target="_blank"></a>
+                <a href="../licenses/LGPL-3.0.txt" id="license_lgpl_link" class="license-link" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://github.com/Linkumori/Linkumori-Addon" id="license_source_repo_link" class="license-link" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://github.com/Linkumori/Linkumori-Addon/releases/" id="license_source_repo_link_direct" class="license-link" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://github.com/Linkumori/Linkumori-Addon/issues" id="license_report_issues_link" class="license-link" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://gitlab.com/ClearURLs/ClearUrls/-/tree/m3-migration?ref_type=heads" id="license_clearurls_migration_link" class="license-link" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://github.com/ClearURLs/Addon/tree/1.27.3" id="license_clearurls_addon_link" class="license-link" target="_blank" rel="noopener noreferrer"></a>
             </div>
         </div>
 
