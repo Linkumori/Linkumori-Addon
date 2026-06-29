@@ -16,6 +16,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.30.0] - 2026-06-28 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.29.0...linkumori-v100.30.0))
+### Changed
+- Downloaded latest public suffix list from upstream (`2026-06-28`, hash: [`e636898`](https://github.com/Linkumori/Linkumori-Addon/commit/e636898))
+- Generated compressed URL cleaning rules bundle (`2026-06-28`, hash: [`e636898`](https://github.com/Linkumori/Linkumori-Addon/commit/e636898))
+
+## [v100.29.0] - 2026-06-21 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.28.1...linkumori-v100.29.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-06-21`, hash: [`33f7fb2`](https://github.com/Linkumori/Linkumori-Addon/commit/33f7fb2))
+
+## [v100.28.1] - 2026-06-20 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.28.0...linkumori-v100.28.1))
+### Changed
+- Add withdrawn button (`2026-06-20`, hash: [`a1c4df5`](https://github.com/Linkumori/Linkumori-Addon/commit/a1c4df5))
+- Generated compressed URL cleaning rules bundle (`2026-06-20`, hash: [`b79948b`](https://github.com/Linkumori/Linkumori-Addon/commit/b79948b))
+
 ## [v100.28.0] - 2026-06-16 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.27.0...linkumori-v100.28.0))
 ### Changed
 - Although we do not collect any personal data from users, there has been increasing pressure in recent years from various groups advocating for broader age-verification and surveillance measures. To address these concerns while preserving user privacy, we have adopted the following approach (`2026-06-16`, hash: [`43769ff`](https://github.com/Linkumori/Linkumori-Addon/commit/43769ff))
