@@ -244,6 +244,7 @@
         header.className = 'lkm-dialog-header';
         const titleEl = document.createElement('h2');
         titleEl.className = 'lkm-dialog-title';
+        titleEl.id = `${ROOT_ID}-title`;
         titleEl.textContent = title;
         header.appendChild(titleEl);
 
@@ -251,6 +252,7 @@
         body.className = 'lkm-dialog-body';
         const messageEl = document.createElement('p');
         messageEl.className = 'lkm-dialog-message';
+        messageEl.id = `${ROOT_ID}-message`;
         messageEl.textContent = message;
         body.appendChild(messageEl);
 
@@ -260,6 +262,7 @@
             inputEl.className = 'lkm-dialog-input';
             inputEl.type = 'text';
             inputEl.value = defaultValue;
+            inputEl.setAttribute('aria-label', title);
             body.appendChild(inputEl);
         }
 
@@ -286,6 +289,8 @@
         dialog.appendChild(actions);
 
         root.replaceChildren(dialog);
+        root.setAttribute('aria-labelledby', titleEl.id);
+        root.setAttribute('aria-describedby', messageEl.id);
         root.style.display = 'flex';
         root.classList.add('show');
 

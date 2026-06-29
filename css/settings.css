@@ -512,6 +512,18 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
         }
 
+        .btn:focus-visible,
+        .theme-toggle-btn:focus-visible,
+        .form-input:focus-visible,
+        .color-preview:focus-visible,
+        .toggle-switch:focus-visible,
+        .theme-card:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--input-focus);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+
         .btn:active {
             transform: translateY(0);
         }
@@ -634,10 +646,10 @@
         }
 
         .toggle-switch {
-            width: 36px;
-            height: 18px;
+            width: 44px;
+            height: 24px;
             background: var(--toggle-bg);
-            border-radius: 9px;
+            border-radius: 12px;
             position: relative;
             cursor: pointer;
             transition: background-color 0.2s ease;
@@ -652,8 +664,8 @@
         .toggle-switch:before {
             content: '';
             position: absolute;
-            width: 14px;
-            height: 14px;
+            width: 20px;
+            height: 20px;
             background: #ffffff;
             border-radius: 50%;
             top: 2px;
@@ -663,7 +675,7 @@
         }
 
         .toggle-switch.active:before {
-            transform: translateX(18px);
+            transform: translateX(20px);
         }
 
         .toggle-content {
@@ -1693,6 +1705,8 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    min-height: 92px;
+    min-width: 92px;
     border: 2px solid var(--border-color);
     border-radius: 8px;
     cursor: pointer;

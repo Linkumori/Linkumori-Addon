@@ -782,13 +782,14 @@
             }
         }
      </style>
+    <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 
 <body>
     <section>
         <header class="header">
             <div class="header-content">
-                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">             
+                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">             
                     <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>             
                     <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" 
                           fill="none" 
@@ -806,7 +807,7 @@
                 <h1 data-i18n="reportIssueTitle"></h1>
             </div>
             <div class="header-buttons">
-                <button class="theme-toggle-btn" id="themeToggle" data-i18n-title="popup_theme_toggle_aria" data-i18n-aria="popup_theme_toggle_aria">
+                <button type="button" class="theme-toggle-btn" id="themeToggle" data-i18n-title="popup_theme_toggle_aria" data-i18n-aria="popup_theme_toggle_aria">
                     <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" width="16" height="16" class="sun-icon" aria-hidden="true">
                     <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" width="16" height="16" class="moon-icon" aria-hidden="true">
                 </button>
@@ -822,7 +823,7 @@
                 <label class="checkbox-wrapper">
                     <span class="input checkbox">
                         <input id="findExistingConsentCheckbox" type="checkbox">
-                        <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                     </span>
                     <span class="consent-text" data-i18n="findExistingConsentMessage"></span>
                 </label>
@@ -856,7 +857,8 @@
                     <input type="text" 
                            id="customUrlInput" 
                            name="customUrlInput" 
-                           data-i18n-placeholder="customUrlPlaceholder">
+                           data-i18n-placeholder="customUrlPlaceholder"
+                           data-i18n-aria="customUrlPlaceholder">
                 </div>
             </div>
             
@@ -865,7 +867,7 @@
                 <label class="checkbox-wrapper">
                     <span class="input checkbox">
                         <input id="isNSFW" type="checkbox">
-                        <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                     </span>
                     <span data-i18n="nsfwLabel"></span>
                 </label>
@@ -885,7 +887,7 @@
                 <label class="checkbox-wrapper">
                     <span class="input checkbox">
                         <input id="consentCheckbox" type="checkbox">
-                        <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                     </span>
                     <span class="consent-text" data-i18n="consentMessage"></span>
                 </label>
@@ -901,35 +903,35 @@
                     <label class="checkbox-wrapper">
                         <span class="input checkbox">
                             <input type="checkbox" data-config-section="extension" checked>
-                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                         </span>
                         <span data-i18n="report_share_extension_info"></span>
                     </label>
                     <label class="checkbox-wrapper">
                         <span class="input checkbox">
                             <input type="checkbox" data-config-section="settings" checked>
-                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                         </span>
                         <span data-i18n="report_share_settings_info"></span>
                     </label>
                     <label class="checkbox-wrapper">
                         <span class="input checkbox">
                             <input type="checkbox" data-config-section="whitelist" checked>
-                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                         </span>
                         <span data-i18n="report_share_whitelist_info"></span>
                     </label>
                     <label class="checkbox-wrapper">
                         <span class="input checkbox">
                             <input type="checkbox" data-config-section="customRules" checked>
-                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                         </span>
                         <span data-i18n="report_share_custom_rules_info"></span>
                     </label>
                     <label class="checkbox-wrapper">
                         <span class="input checkbox">
                             <input type="checkbox" data-config-section="disabledRules" checked>
-                            <svg viewBox="0 0 24 24"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                         </span>
                         <span data-i18n="report_share_disabled_rules_info"></span>
                     </label>

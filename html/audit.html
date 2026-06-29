@@ -247,11 +247,12 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
     <div class="header">
         <div class="header-content">
-            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
                 <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
                 <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
                     fill="none"
@@ -271,14 +272,14 @@
                 <span class="version-badge" id="auditBadgeLabel"></span>
             </div>
         </div>
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="">
-            <img id="auditSunIcon" src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon">
-            <img id="auditMoonIcon" src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon">
+        <button type="button" id="themeToggle" class="theme-toggle-btn" aria-label="">
+            <img id="auditSunIcon" src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" aria-hidden="true">
+            <img id="auditMoonIcon" src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" aria-hidden="true">
         </button>
     </div>
 
     <div class="container">
-        <div id="statusMessage" class="status-message"></div>
+        <div id="statusMessage" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
 
         <h2 class="section-header" id="auditSectionTitle"></h2>
         <div class="card">

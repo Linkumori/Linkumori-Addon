@@ -2833,11 +2833,12 @@
         }
 
     </style>
+    <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
     <div class="header">
         <div class="header-content">
-            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
                 <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
                 <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
                     fill="none"
@@ -2858,32 +2859,32 @@
             </div>
         </div>
         <div class="header-actions">
-            <button class="faq-btn" id="faq-btn">
-                <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+            <button type="button" class="faq-btn" id="faq-btn">
+                <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                     <path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
                 </svg>
                 <span data-i18n="faq_title"></span>
             </button>
-            <button class="theme-toggle-btn" id="theme-toggle" aria-label="" data-i18n-aria="themeToggleAriaLabel">
-                <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" data-i18n-alt="sunIconAlt">
-                <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" data-i18n-alt="moonIconAlt">
+            <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="" data-i18n-aria="themeToggleAriaLabel">
+                <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" data-i18n-alt="sunIconAlt" aria-hidden="true">
+                <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" data-i18n-alt="moonIconAlt" aria-hidden="true">
             </button>
         </div>
     </div>
 
     <!-- FAQ Modal -->
-    <div class="modal" id="faq-modal">
+    <div class="modal" id="faq-modal" role="dialog" aria-modal="true" aria-labelledby="faq-modal-title">
         <div class="modal-content modal-large">
             <div class="modal-header">
-                <h3 class="modal-title" data-i18n="faq_title"></h3>
-                <button class="modal-close" id="faq-modal-close">&times;</button>
+                <h3 class="modal-title" id="faq-modal-title" data-i18n="faq_title"></h3>
+                <button type="button" class="modal-close" id="faq-modal-close" data-i18n-aria="button_close" aria-label="">&times;</button>
             </div>
             
             <div class="faq-section">
                 <h4 class="faq-section-title" data-i18n="faq_section_basics"></h4>
                 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="what-is-custom-rules">
+                    <button type="button" class="faq-question" data-faq="what-is-custom-rules">
                         <span data-i18n="faq_what_is_custom_rules"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -2898,7 +2899,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="how-providers-work">
+                    <button type="button" class="faq-question" data-faq="how-providers-work">
                         <span data-i18n="faq_how_providers_work"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -2911,14 +2912,14 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="rules-guide-syntax">
+                    <button type="button" class="faq-question" data-faq="rules-guide-syntax">
                         <span data-i18n="faq_rules_guide_syntax"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <p data-i18n="faq_rules_guide_syntax_answer"></p>
-                            <p><a class="btn btn-primary btn-sm" href="guide.html#guide1-chapter-9-removeparam-rules" target="_blank" data-i18n="faq_rules_guide_open_page"></a></p>
+                            <p><a class="btn btn-primary btn-sm" href="guide.html#guide1-chapter-9-removeparam-rules" target="_blank" data-i18n="faq_rules_guide_open_page" rel="noopener noreferrer"></a></p>
                             <div class="faq-info">
                                 <strong data-i18n="faq_note"></strong> <span data-i18n="faq_rules_guide_syntax_note"></span>
                             </div>
@@ -2931,7 +2932,7 @@
                 <h4 class="faq-section-title" data-i18n="faq_section_properties"></h4>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="url-pattern">
+                    <button type="button" class="faq-question" data-faq="url-pattern">
                         <span data-i18n="faq_url_pattern"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -2948,7 +2949,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="index-pattern">
+                    <button type="button" class="faq-question" data-faq="index-pattern">
                         <span data-i18n="faq_index_pattern"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -2961,7 +2962,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="domain-patterns">
+                    <button type="button" class="faq-question" data-faq="domain-patterns">
                         <span data-i18n="faq_domain_patterns"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -2999,7 +3000,7 @@ subdomain.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="complete-provider">
+                    <button type="button" class="faq-question" data-faq="complete-provider">
                         <span data-i18n="faq_complete_provider"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3015,7 +3016,7 @@ subdomain.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="rules-vs-raw-rules">
+                    <button type="button" class="faq-question" data-faq="rules-vs-raw-rules">
                         <span data-i18n="faq_rules_vs_raw"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3033,7 +3034,7 @@ subdomain.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="referral-marketing">
+                    <button type="button" class="faq-question" data-faq="referral-marketing">
                         <span data-i18n="faq_referral_marketing"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3049,7 +3050,7 @@ subdomain.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="exceptions">
+                    <button type="button" class="faq-question" data-faq="exceptions">
                         <span data-i18n="faq_exceptions"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3063,7 +3064,7 @@ subdomain.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="redirections">
+                    <button type="button" class="faq-question" data-faq="redirections">
                         <span data-i18n="faq_redirections"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3080,7 +3081,7 @@ subdomain.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="force-redirection">
+                    <button type="button" class="faq-question" data-faq="force-redirection">
                         <span data-i18n="faq_force_redirection"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3096,7 +3097,7 @@ subdomain.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="domain-exceptions">
+                    <button type="button" class="faq-question" data-faq="domain-exceptions">
                         <span data-i18n="faq_domain_exceptions"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3114,7 +3115,7 @@ admin.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="domain-redirections">
+                    <button type="button" class="faq-question" data-faq="domain-redirections">
                         <span data-i18n="faq_domain_redirections"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3131,7 +3132,7 @@ admin.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="resource-types">
+                    <button type="button" class="faq-question" data-faq="resource-types">
                         <span data-i18n="faq_resource_types"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3168,7 +3169,7 @@ admin.example.com
                 <h4 class="faq-section-title" data-i18n="faq_section_new_features"></h4>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="provider-import">
+                    <button type="button" class="faq-question" data-faq="provider-import">
                         <span data-i18n="faq_provider_import"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3190,7 +3191,7 @@ admin.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="provider-list">
+                    <button type="button" class="faq-question" data-faq="provider-list">
                         <span data-i18n="faq_provider_list"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3216,7 +3217,7 @@ admin.example.com
                 <h4 class="faq-section-title" data-i18n="faq_section_advanced"></h4>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="http-methods">
+                    <button type="button" class="faq-question" data-faq="http-methods">
                         <span data-i18n="faq_http_methods"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3244,7 +3245,7 @@ admin.example.com
                 <h4 class="faq-section-title" data-i18n="faq_section_examples"></h4>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="simple-example">
+                    <button type="button" class="faq-question" data-faq="simple-example">
                         <span data-i18n="faq_simple_example"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3273,7 +3274,7 @@ admin.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="complex-example">
+                    <button type="button" class="faq-question" data-faq="complex-example">
                         <span data-i18n="faq_complex_example"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3311,7 +3312,7 @@ admin.example.com
                 <h4 class="faq-section-title" data-i18n="faq_section_tips"></h4>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="testing-tips">
+                    <button type="button" class="faq-question" data-faq="testing-tips">
                         <span data-i18n="faq_testing_tips"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3329,7 +3330,7 @@ admin.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="common-mistakes">
+                    <button type="button" class="faq-question" data-faq="common-mistakes">
                         <span data-i18n="faq_common_mistakes"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3347,7 +3348,7 @@ admin.example.com
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" data-faq="performance-tips">
+                    <button type="button" class="faq-question" data-faq="performance-tips">
                         <span data-i18n="faq_performance_tips"></span>
                         <span class="faq-question-icon">▼</span>
                     </button>
@@ -3366,17 +3367,17 @@ admin.example.com
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-primary" id="faq-close-btn" data-i18n="button_close"></button>
+                <button type="button" class="btn btn-primary" id="faq-close-btn" data-i18n="button_close"></button>
             </div>
         </div>
     </div>
 
     <!-- Provider Import Modal -->
-    <div class="modal" id="provider-import-modal">
+    <div class="modal" id="provider-import-modal" role="dialog" aria-modal="true" aria-labelledby="provider-import-modal-title">
         <div class="modal-content modal-xl">
             <div class="modal-header">
-                <h3 class="modal-title" data-i18n="providerImport_title"></h3>
-                <button class="modal-close" id="provider-import-modal-close">&times;</button>
+                <h3 class="modal-title" id="provider-import-modal-title" data-i18n="providerImport_title"></h3>
+                <button type="button" class="modal-close" id="provider-import-modal-close" data-i18n-aria="button_close" aria-label="">&times;</button>
             </div>
             
             <div class="provider-browser" id="provider-browser">
@@ -3388,7 +3389,7 @@ admin.example.com
                         <span class="provider-source-count" id="active-provider-count"></span>
                     </div>
                     <div class="provider-disabled-section provider-import-disabled-section">
-                        <div class="provider-disabled-title-row">
+                    <div class="provider-disabled-title-row">
                             <h5 class="provider-disabled-title" data-i18n="providerImport_disabledTitle"></h5>
                             <button type="button" class="btn btn-sm btn-secondary" id="provider-import-disabled-clear-btn" data-i18n="providerImport_disabledClear"></button>
                         </div>
@@ -3400,10 +3401,10 @@ admin.example.com
                 <!-- Provider Browser Content -->
                 <div class="provider-browser-content">
                     <div class="selection-controls">
-                        <input type="text" class="provider-search" id="provider-search" data-i18n-placeholder="providerImport_searchPlaceholder">
-                        <button class="btn btn-sm btn-secondary" id="select-all-btn" data-i18n="providerImport_selectAll"></button>
-                        <button class="btn btn-sm btn-secondary" id="clear-selection-btn" data-i18n="providerImport_clearSelection"></button>
-                        <span class="selection-count" id="selection-count"></span>
+                        <input type="text" class="provider-search" id="provider-search" data-i18n-placeholder="providerImport_searchPlaceholder" data-i18n-aria="providerImport_searchPlaceholder">
+                        <button type="button" class="btn btn-sm btn-secondary" id="select-all-btn" data-i18n="providerImport_selectAll"></button>
+                        <button type="button" class="btn btn-sm btn-secondary" id="clear-selection-btn" data-i18n="providerImport_clearSelection"></button>
+                    <span class="selection-count" id="selection-count" role="status" aria-live="polite" aria-atomic="true"></span>
                     </div>
 
                     <div class="provider-grid" id="provider-grid">
@@ -3415,9 +3416,9 @@ admin.example.com
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-secondary" id="provider-import-cancel" data-i18n="button_cancel"></button>
-                <button class="btn btn-warning" id="provider-import-disable-selected" disabled data-i18n="providerImport_disableSelected"></button>
-                <button class="btn btn-primary" id="provider-import-confirm" disabled data-i18n="providerImport_import"></button>
+                <button type="button" class="btn btn-secondary" id="provider-import-cancel" data-i18n="button_cancel"></button>
+                <button type="button" class="btn btn-warning" id="provider-import-disable-selected" disabled data-i18n="providerImport_disableSelected"></button>
+                <button type="button" class="btn btn-primary" id="provider-import-confirm" disabled data-i18n="providerImport_import"></button>
             </div>
         </div>
     </div>
@@ -3434,7 +3435,7 @@ admin.example.com
             <div class="sidebar">
                 <div class="sidebar-header">
                     <h3 data-i18n="customRulesEditor_customProviders"></h3>
-                    <span id="provider-count" class="status-indicator status-valid">0</span>
+                    <span id="provider-count" class="status-indicator status-valid" role="status" aria-live="polite" aria-atomic="true">0</span>
                 </div>
                 
                 <!-- Rules Status Display -->
@@ -3448,39 +3449,39 @@ admin.example.com
                         </div>
                         <div class="rules-status-row">
                             <span data-i18n="customRulesEditor_builtin"></span>
-                            <span id="builtin-count" data-i18n="status_loading"></span>
+                        <span id="builtin-count" data-i18n="status_loading" role="status" aria-live="polite" aria-atomic="true"></span>
                         </div>
                         <div class="rules-status-row">
                             <span data-i18n="customRulesEditor_total"></span>
-                            <span id="total-count" data-i18n="status_loading"></span>
+                        <span id="total-count" data-i18n="status_loading" role="status" aria-live="polite" aria-atomic="true"></span>
                         </div>
                         <div class="rules-status-row">
                             <span data-i18n="customRulesEditor_disabled"></span>
-                            <span id="disabled-count">0</span>
+                        <span id="disabled-count" role="status" aria-live="polite" aria-atomic="true">0</span>
                         </div>
-                        <div class="rules-status-merge" id="merge-status" data-i18n="status_loading"></div>
+                        <div class="rules-status-merge" id="merge-status" data-i18n="status_loading" role="status" aria-live="polite" aria-atomic="true"></div>
 
                     </div>
                 </div>
                 
                 <!-- Enforce Rule Button -->
-                <button class="btn btn-info enforce-btn" id="enforce-rules-btn" data-i18n-title="customRulesEditor_enforceTooltip">
+                <button type="button" class="btn btn-info enforce-btn" id="enforce-rules-btn" data-i18n-title="customRulesEditor_enforceTooltip">
                     <span data-i18n="customRulesEditor_enforceRules"></span>
                 </button>
                 
 <div class="import-export-buttons">
-    <button class="btn btn-primary btn-sm" id="import-rules-btn" data-i18n="customRulesEditor_importTooltip">
+    <button type="button" class="btn btn-primary btn-sm" id="import-rules-btn" data-i18n="customRulesEditor_importTooltip">
     </button>
-    <button class="btn btn-success btn-sm" id="export-rules-btn" data-i18n="customRulesEditor_exportTooltip">
+    <button type="button" class="btn btn-success btn-sm" id="export-rules-btn" data-i18n="customRulesEditor_exportTooltip">
     </button>
-    <button class="btn btn-info btn-sm" id="disabled-rules-btn" data-i18n="providerImport_disabledTitle"></button>
-    <button class="btn btn-warning btn-sm" id="import-from-rules-btn">
+    <button type="button" class="btn btn-info btn-sm" id="disabled-rules-btn" data-i18n="providerImport_disabledTitle"></button>
+    <button type="button" class="btn btn-warning btn-sm" id="import-from-rules-btn">
         <span data-i18n="providerImport_button"></span>
     </button>
     <button class="btn btn-warning btn-sm" id="open-rule-test-lab-btn" type="button" data-i18n="customRulesEditor_ruleTestLab_button"></button>
                 </div>
-                <button class="btn btn-primary add-provider-btn" id="add-provider-btn">
-                    <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" class="btn btn-primary add-provider-btn" id="add-provider-btn">
+                    <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M440-120v-320H120v-80h320v-320h80v320h320v80H520v320h-80Z"/>
                     </svg>
                     <span data-i18n="customRulesEditor_addProvider"></span>
@@ -3492,27 +3493,27 @@ admin.example.com
                 <div class="editor-header">
                     <h2 class="editor-title" id="editor-title" data-i18n="customRulesEditor_selectProvider"></h2>
                     <div class="editor-actions">
-                        <span id="editor-status" class="status-indicator status-valid u-hidden" data-i18n="status_valid"></span>
-                        <button class="btn btn-secondary u-hidden" id="exit-editor-btn" data-i18n-title="customRulesEditor_exitTooltip">
-                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                        <span id="editor-status" class="status-indicator status-valid u-hidden" data-i18n="status_valid" role="status" aria-live="polite" aria-atomic="true"></span>
+                        <button type="button" class="btn btn-secondary u-hidden" id="exit-editor-btn" data-i18n-title="customRulesEditor_exitTooltip">
+                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                                 <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
                             </svg>
                             <span data-i18n="button_exit"></span>
                         </button>
-                        <button class="btn btn-success u-hidden" id="save-provider-btn" data-i18n-title="customRulesEditor_saveTooltip">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <button type="button" class="btn btn-success u-hidden" id="save-provider-btn" data-i18n-title="customRulesEditor_saveTooltip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                                 <path d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z"/>
                             </svg>
                             <span data-i18n="button_save"></span>
                         </button>
-                        <button class="btn btn-warning u-hidden" id="edit-provider-name-btn" data-i18n-title="customRulesEditor_editName">
-                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                        <button type="button" class="btn btn-warning u-hidden" id="edit-provider-name-btn" data-i18n-title="customRulesEditor_editName">
+                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                                 <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>
                             </svg>
                             <span data-i18n="customRulesEditor_editName"></span>
                         </button>
-                        <button class="btn btn-danger u-hidden" id="delete-provider-btn" data-i18n-title="customRulesEditor_deleteTooltip">
-                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                        <button type="button" class="btn btn-danger u-hidden" id="delete-provider-btn" data-i18n-title="customRulesEditor_deleteTooltip">
+                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                                 <path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/>
                             </svg>
                             <span data-i18n="button_delete"></span>
@@ -3524,8 +3525,8 @@ admin.example.com
                     <div class="empty-state">
                         <h3 data-i18n="customRulesEditor_welcome"></h3>
                         <p data-i18n="customRulesEditor_description"></p>
-                        <button class="btn btn-primary" id="create-first-provider">
-                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor">
+                        <button type="button" class="btn btn-primary" id="create-first-provider">
+                            <svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                                 <path d="M440-120v-320H120v-80h320v-320h80v320h320v80H520v320h-80Z"/>
                             </svg>
                             <span data-i18n="customRulesEditor_createFirst"></span>
@@ -3542,18 +3543,18 @@ admin.example.com
                     <h4 class="whitelist-section-title" data-i18n="whitelist_section_title"></h4>
                     <p class="whitelist-section-description" data-i18n="whitelist_section_description"></p>
                     <div class="whitelist-input-row">
-                        <input id="customrules-whitelist-input" class="whitelist-input" type="text" data-i18n-placeholder="whitelist_input_placeholder">
-                        <button class="btn btn-primary btn-sm" id="customrules-whitelist-add-btn" data-i18n="whitelist_add_button"></button>
+                        <input id="customrules-whitelist-input" class="whitelist-input" type="text" data-i18n-placeholder="whitelist_input_placeholder" data-i18n-aria="whitelist_input_placeholder">
+                        <button type="button" class="btn btn-primary btn-sm" id="customrules-whitelist-add-btn" data-i18n="whitelist_add_button"></button>
                     </div>
                     <div class="whitelist-action-row">
-                        <button class="btn btn-primary btn-sm" id="customrules-whitelist-import-btn" data-i18n="whitelist_import_button"></button>
-                        <button class="btn btn-primary btn-sm" id="customrules-whitelist-export-btn" data-i18n="whitelist_export_button"></button>
+                        <button type="button" class="btn btn-primary btn-sm" id="customrules-whitelist-import-btn" data-i18n="whitelist_import_button"></button>
+                        <button type="button" class="btn btn-primary btn-sm" id="customrules-whitelist-export-btn" data-i18n="whitelist_export_button"></button>
                     </div>
                     <div id="whitelist_examples_text" class="whitelist-examples"></div>
-                    <input id="customrules-whitelist-search" class="whitelist-search" type="text" data-i18n-placeholder="whitelist_search_placeholder">
+                    <input id="customrules-whitelist-search" class="whitelist-search" type="text" data-i18n-placeholder="whitelist_search_placeholder" data-i18n-aria="whitelist_search_placeholder">
                     <ul id="customrules-whitelist-list" class="whitelist-list"></ul>
-                    <div id="customrules-whitelist-count" class="whitelist-count"></div>
-                    <div id="customrules-whitelist-status" class="whitelist-status"></div>
+                    <div id="customrules-whitelist-count" class="whitelist-count" role="status" aria-live="polite" aria-atomic="true"></div>
+                    <div id="customrules-whitelist-status" class="whitelist-status" role="status" aria-live="polite" aria-atomic="true"></div>
                 </div>
             </div>
         </div>
@@ -3561,9 +3562,9 @@ admin.example.com
             <div class="provider-list-page">
                 <div class="provider-list-page-header">
                     <h3 class="modal-title" data-i18n="providerList_title"></h3>
-                    <button class="btn btn-secondary btn-sm" id="provider-list-close-btn" data-i18n="button_close"></button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="provider-list-close-btn" data-i18n="button_close"></button>
                 </div>
-                <input type="text" class="provider-list-search" id="provider-list-search" data-i18n-placeholder="providerList_searchPlaceholder" />
+                <input type="text" class="provider-list-search" id="provider-list-search" data-i18n-placeholder="providerList_searchPlaceholder" data-i18n-aria="providerList_searchPlaceholder" />
                 <div class="provider-list-modal-content" id="provider-list-modal-content">
                     <!-- Provider list will be populated here -->
                 </div>
@@ -3574,8 +3575,8 @@ admin.example.com
                 <div class="provider-list-page-header">
                     <h3 class="modal-title" data-i18n="providerImport_disabledTitle"></h3>
                     <div class="provider-list-page-actions">
-                        <button class="btn btn-warning btn-sm" id="disabled-rules-page-clear-all-btn" data-i18n="providerImport_disabledClearAll"></button>
-                        <button class="btn btn-secondary btn-sm" id="disabled-rules-page-close-btn" data-i18n="button_close"></button>
+                        <button type="button" class="btn btn-warning btn-sm" id="disabled-rules-page-clear-all-btn" data-i18n="providerImport_disabledClearAll"></button>
+                        <button type="button" class="btn btn-secondary btn-sm" id="disabled-rules-page-close-btn" data-i18n="button_close"></button>
                     </div>
                 </div>
                 <div class="provider-list-modal-content" id="disabled-rules-page-content"></div>
@@ -3584,11 +3585,11 @@ admin.example.com
     </div>
 
     <!-- Add/Edit Provider Modal -->
-    <div class="modal" id="provider-modal">
+    <div class="modal" id="provider-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title" id="modal-title" data-i18n="customRulesEditor_addNewProvider"></h3>
-                <button class="modal-close" id="modal-close">&times;</button>
+                <button type="button" class="modal-close" id="modal-close" data-i18n-aria="button_close" aria-label="">&times;</button>
             </div>
             
             <form id="provider-form">
@@ -3651,21 +3652,21 @@ admin.example.com
     </div>
 
     <!-- Rule Test Lab Modal -->
-    <div class="modal" id="rule-test-modal">
+    <div class="modal" id="rule-test-modal" role="dialog" aria-modal="true" aria-labelledby="rule-test-modal-title">
         <div class="modal-content modal-large">
             <div class="modal-header">
-                <h3 class="modal-title" data-i18n="customRulesEditor_ruleTestLab_title"></h3>
-                <button class="modal-close" id="rule-test-modal-close" data-i18n-aria="customRulesEditor_ruleTestLab_close_aria" aria-label="">&times;</button>
+                <h3 class="modal-title" id="rule-test-modal-title" data-i18n="customRulesEditor_ruleTestLab_title"></h3>
+                <button type="button" class="modal-close" id="rule-test-modal-close" data-i18n-aria="customRulesEditor_ruleTestLab_close_aria" aria-label="">&times;</button>
             </div>
 
             <div class="rule-test-lab">
                 <p class="form-help" data-i18n="customRulesEditor_ruleTestLab_description"></p>
                 <div class="rule-test-controls">
-                    <input id="rule-test-input" class="form-input" type="text" data-i18n-placeholder="customRulesEditor_ruleTestLab_input_placeholder">
-                    <input id="rule-test-param-input" class="form-input" type="text" data-i18n-placeholder="customRulesEditor_ruleTestLab_param_placeholder">
+                    <input id="rule-test-input" class="form-input" type="text" data-i18n-placeholder="customRulesEditor_ruleTestLab_input_placeholder" data-i18n-aria="customRulesEditor_ruleTestLab_input_placeholder">
+                    <input id="rule-test-param-input" class="form-input" type="text" data-i18n-placeholder="customRulesEditor_ruleTestLab_param_placeholder" data-i18n-aria="customRulesEditor_ruleTestLab_param_placeholder">
                     <button id="rule-test-run-btn" class="btn btn-primary" type="button" data-i18n="customRulesEditor_ruleTestLab_run"></button>
                 </div>
-                <div id="rule-test-status" class="form-help"></div>
+                <div id="rule-test-status" class="form-help" role="status" aria-live="polite" aria-atomic="true"></div>
                 <pre id="rule-test-output" class="form-input rule-test-output"></pre>
             </div>
 

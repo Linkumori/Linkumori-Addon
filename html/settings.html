@@ -117,7 +117,7 @@
     <script src="../external_js/theme_favicon.js"></script>
     <link rel="stylesheet" href="../css/settings.css">
     <link rel="stylesheet" href="../css/linkumori-pickr.min.css">
-
+    <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
     <!-- 
@@ -128,7 +128,7 @@
     <div class="header">
         <div class="header-content">
             <!-- Linkumori Logo SVG - Custom Design by Subham Mahesh (c) 2025 -->
-            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
                 <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
                 <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
                     fill="none"
@@ -149,15 +149,15 @@
             </div>
         </div>
         <!-- Theme Toggle Button with Google Material Icons (Apache 2.0) -->
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="">
+        <button type="button" id="themeToggle" class="theme-toggle-btn" aria-label="">
             <!-- Icons from Google Material Icons - https://fonts.google.com/icons (Apache 2.0) -->
-            <img id="themeToggleSunIcon" src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon">
-            <img id="themeToggleMoonIcon" src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon">
+            <img id="themeToggleSunIcon" src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" aria-hidden="true">
+            <img id="themeToggleMoonIcon" src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" aria-hidden="true">
         </button>
     </div>
 
     <div class="container">
-        <div id="statusMessage" class="status-message"></div>
+        <div id="statusMessage" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
 
         <h2 class="section-header" id="general_settings_title"></h2>
         <div class="card">
@@ -172,13 +172,13 @@
 
             <!-- Theme Selection with SVG Previews -->
             <div class="form-group">
-                <label class="form-label" id="theme_selection_label"></label>
+                <div class="form-label" id="theme_selection_label"></div>
                 <div class="theme-groups-inline">
                     <div class="theme-group">
                         <div class="theme-group-label" id="theme_group_light_label"></div>
-                        <div class="theme-grid" style="min-height: 100px;">
-                        <div class="theme-card active-light" data-theme="light" data-theme-category="light">
-                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                        <div class="theme-grid" style="min-height: 100px;" role="radiogroup" aria-labelledby="theme_group_light_label" aria-describedby="theme_description">
+                        <div class="theme-card active-light" data-theme="light" data-theme-category="light" role="radio" tabindex="0" aria-checked="true" aria-labelledby="theme_name_light">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                 <rect width="80" height="12" fill="#f1f5f9"/>
                                 <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
                                 <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
@@ -193,8 +193,8 @@
                             </svg>
                             <span class="theme-name" id="theme_name_light"></span>
                         </div>
-                        <div class="theme-card" data-theme="icecold" data-theme-category="light">
-                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                        <div class="theme-card" data-theme="icecold" data-theme-category="light" role="radio" tabindex="-1" aria-checked="false" aria-labelledby="theme_name_icecold">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                 <rect width="80" height="12" fill="#d0bdf4"/>
                                 <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
                                 <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
@@ -209,8 +209,8 @@
                             </svg>
                             <span class="theme-name" id="theme_name_icecold"></span>
                         </div>
-                        <div class="theme-card" data-theme="sunset" data-theme-category="light">
-                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                        <div class="theme-card" data-theme="sunset" data-theme-category="light" role="radio" tabindex="-1" aria-checked="false" aria-labelledby="theme_name_sunset">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                 <rect width="80" height="12" fill="#fffdfb"/>
                                 <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
                                 <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
@@ -229,9 +229,9 @@
                     </div>
                     <div class="theme-group">
                         <div class="theme-group-label" id="theme_group_dark_label"></div>
-                        <div class="theme-grid" style="min-height: 100px;">
-                        <div class="theme-card active active-dark" data-theme="dark" data-theme-category="dark">
-                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                        <div class="theme-grid" style="min-height: 100px;" role="radiogroup" aria-labelledby="theme_group_dark_label" aria-describedby="theme_description">
+                        <div class="theme-card active active-dark" data-theme="dark" data-theme-category="dark" role="radio" tabindex="0" aria-checked="true" aria-labelledby="theme_name_dark">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                 <rect width="80" height="12" fill="#161a24"/>
                                 <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
                                 <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
@@ -246,8 +246,8 @@
                             </svg>
                             <span class="theme-name" id="theme_name_dark"></span>
                         </div>
-                        <div class="theme-card" data-theme="midnight" data-theme-category="dark">
-                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                        <div class="theme-card" data-theme="midnight" data-theme-category="dark" role="radio" tabindex="-1" aria-checked="false" aria-labelledby="theme_name_midnight">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                 <rect width="80" height="12" fill="#1e293b"/>
                                 <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
                                 <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
@@ -262,8 +262,8 @@
                             </svg>
                             <span class="theme-name" id="theme_name_midnight"></span>
                         </div>
-                        <div class="theme-card" data-theme="legacy" data-theme-category="dark">
-                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                        <div class="theme-card" data-theme="legacy" data-theme-category="dark" role="radio" tabindex="-1" aria-checked="false" aria-labelledby="theme_name_legacy">
+                            <svg class="theme-preview" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                 <rect width="80" height="12" fill="#343a40"/>
                                 <circle cx="4" cy="6" r="1.5" fill="#ff5f57"/>
                                 <circle cx="8" cy="6" r="1.5" fill="#ffbd2e"/>
@@ -314,14 +314,14 @@
 
             <div id="remoteUrlTransferControls" class="button-group remote-url-transfer-controls" style="display: none;">
                 <button id="export_remote_urls_btn" class="btn btn-secondary" type="button" title="">
-                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M202-65l-56-57 118-118h-90v-80h226v226h-80v-89L202-65Zm278-15v-80h240v-440H520v-200H240v400h-80v-400q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H480Z"/>
                     </svg>
                     <span id="export_remote_urls_btn_text"></span>
                 </button>
                 <div class="file-input-wrapper">
                     <button id="import_remote_urls_btn" class="btn btn-secondary" type="button" title="">
-                        <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                        <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                             <path d="M440-280h80v-168l64 64 56-56-160-160-160 160 56 56 64-64v168ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/>
                         </svg>
                         <span id="import_remote_urls_btn_text"></span>
@@ -366,7 +366,7 @@
                     <div class="extension-icon-demo">
                         <div class="icon-placeholder">
                             <!-- Linkumori Logo - Same as header -->
-                            <svg width="20" height="20" viewBox="0 0 100 100">
+                            <svg width="20" height="20" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
                                 <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>
                                 <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65"
                                     fill="none"
@@ -531,16 +531,16 @@
         <div class="card">
             <div class="button-group">
                 <!-- Save Icon - Updated with new SVG path -->
-                <button id="save_settings_btn" class="btn btn-primary">
-                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" id="save_settings_btn" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/>
                     </svg>
                     <span id="save_settings_btn_text"></span>
                 </button>
 
                 <!-- Export Icon - Updated with new SVG path -->
-                <button id="export_settings_btn" class="btn btn-secondary">
-                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" id="export_settings_btn" class="btn btn-secondary">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M202-65l-56-57 118-118h-90v-80h226v226h-80v-89L202-65Zm278-15v-80h240v-440H520v-200H240v400h-80v-400q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H480Z"/>
                     </svg>
                     <span id="export_settings_btn_text"></span>
@@ -548,8 +548,8 @@
 
                 <!-- Import Icon - Updated with new SVG path -->
                 <div class="file-input-wrapper">
-                    <button id="import_settings_btn" class="btn btn-secondary">
-                        <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                    <button type="button" id="import_settings_btn" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                             <path d="M440-280h80v-168l64 64 56-56-160-160-160 160 56 56 64-64v168ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/>
                         </svg>
                         <span id="import_settings_btn_text"></span>
@@ -558,14 +558,14 @@
                 </div>
 
                 <!-- Reset Icon - Updated with new SVG path -->
-                <button id="reset_settings_btn" class="btn btn-danger">
-                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" id="reset_settings_btn" class="btn btn-danger">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M280-200v-80h284q63 0 109.5-40T720-420q0-60-46.5-100T564-560H312l104 104-56 56-200-200 200-200 56 56-104 104h252q97 0 166.5 63T800-420q0 94-69.5 157T564-200H280Z"/>
                     </svg>
                     <span id="reset_settings_btn_text"></span>
                 </button>
-                <button id="audit_settings_btn" class="btn btn-secondary">
-                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor">
+                <button type="button" id="audit_settings_btn" class="btn btn-secondary">
+                    <svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80Zm-80 320q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h360l200 200v520q0 33-23.5 56.5T720-80H240Zm320-560v-160H240v640h480v-480H560Zm-320-160v160-160 640-640Z"/>
                     </svg>
                     <span id="audit_settings_btn_text"></span>
@@ -574,7 +574,7 @@
         </div>
     </div>
  <!-- Security Disclaimer Modal -->
-    <div id="securityDisclaimerModal" class="modal-overlay" style="display: none;">
+    <div id="securityDisclaimerModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="security_modal_title" style="display: none;">
         <div class="modal-container">
             <div class="modal-header">
                 <img class="modal-warning-icon" src="../LinkumorI_HTML_SVG/warning.svg" alt="" aria-hidden="true">
@@ -613,10 +613,10 @@
             </div>
             
             <div class="modal-actions">
-                <button id="securityModalCancel" class="btn btn-secondary">
+                <button type="button" id="securityModalCancel" class="btn btn-secondary">
                     <span id="security_modal_cancel"></span>
                 </button>
-                <button id="securityModalContinue" class="btn btn-danger">
+                <button type="button" id="securityModalContinue" class="btn btn-danger">
                     <span id="security_modal_continue"></span>
                 </button>
             </div>
@@ -624,7 +624,7 @@
     </div>
 
     <!-- Disable Gatekeeper Risk Modal -->
-    <div id="disableGatekeeperRiskModal" class="modal-overlay" style="display: none;">
+    <div id="disableGatekeeperRiskModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="disable_gatekeeper_modal_title" style="display: none;">
         <div class="modal-container">
             <div class="modal-header">
                 <img class="modal-warning-icon" src="../LinkumorI_HTML_SVG/warning.svg" alt="" aria-hidden="true">
@@ -663,10 +663,10 @@
             </div>
 
             <div class="modal-actions">
-                <button id="disableGatekeeperRiskCancel" class="btn btn-secondary">
+                <button type="button" id="disableGatekeeperRiskCancel" class="btn btn-secondary">
                     <span id="disable_gatekeeper_modal_cancel"></span>
                 </button>
-                <button id="disableGatekeeperRiskContinue" class="btn btn-danger">
+                <button type="button" id="disableGatekeeperRiskContinue" class="btn btn-danger">
                     <span id="disable_gatekeeper_modal_continue"></span>
                 </button>
             </div>
@@ -674,7 +674,7 @@
     </div>
 
     <!-- Redirection Warning Modal -->
-    <div id="redirectionWarningModal" class="modal-overlay" style="display: none;">
+    <div id="redirectionWarningModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="redirection_warning_modal_title" style="display: none;">
         <div class="modal-container">
             <div class="modal-header">
                 <img class="modal-warning-icon" src="../LinkumorI_HTML_SVG/warning.svg" alt="" aria-hidden="true">
@@ -707,13 +707,13 @@
             </div>
 
             <div class="modal-actions">
-                <button id="redirectionWarningCancel" class="btn btn-secondary">
+                <button type="button" id="redirectionWarningCancel" class="btn btn-secondary">
                     <span id="redirection_warning_modal_cancel"></span>
                 </button>
-                <button id="redirectionWarningAudit" class="btn btn-secondary">
+                <button type="button" id="redirectionWarningAudit" class="btn btn-secondary">
                     <span id="redirection_warning_modal_audit"></span>
                 </button>
-                <button id="redirectionWarningContinue" class="btn btn-danger">
+                <button type="button" id="redirectionWarningContinue" class="btn btn-danger">
                     <span id="redirection_warning_modal_continue"></span>
                 </button>
             </div>
@@ -721,7 +721,7 @@
     </div>
 
     <!-- Confirmation Modal -->
-    <div id="confirmationModal" class="modal-overlay" style="display: none;">
+    <div id="confirmationModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="confirmation_modal_title" style="display: none;">
         <div class="modal-container modal-container-small">
             <div class="modal-header">
                 <img class="modal-confirm-icon" src="../LinkumorI_HTML_SVG/lucid-user-round-key.svg" alt="" aria-hidden="true">
@@ -749,10 +749,10 @@
             </div>
             
             <div class="modal-actions">
-                <button id="confirmationModalCancel" class="btn btn-secondary">
+                <button type="button" id="confirmationModalCancel" class="btn btn-secondary">
                     <span id="confirmation_modal_cancel"></span>
                 </button>
-                <button id="confirmationModalConfirm" class="btn btn-danger" disabled>
+                <button type="button" id="confirmationModalConfirm" class="btn btn-danger" disabled>
                     <span id="confirmation_modal_confirm"></span>
                 </button>
             </div>
@@ -760,7 +760,7 @@
     </div>
 
     <!-- Settings License Document Modal -->
-    <div id="settingsLicenseDocumentModal" class="modal-overlay" style="display: none;">
+    <div id="settingsLicenseDocumentModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="settings_license_modal_title" style="display: none;">
         <div class="modal-container settings-document-modal-container">
             <div class="modal-header">
                 <h2 id="settings_license_modal_title" class="modal-title"></h2>
@@ -778,7 +778,7 @@
     </div>
 
     <!-- Settings Privacy Document Modal -->
-    <div id="settingsPrivacyDocumentModal" class="modal-overlay" style="display: none;">
+    <div id="settingsPrivacyDocumentModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="settings_privacy_modal_title" style="display: none;">
         <div class="modal-container settings-document-modal-container">
             <div class="modal-header">
                 <h2 id="settings_privacy_modal_title" class="modal-title"></h2>
@@ -801,7 +801,7 @@
     </div>
 
     <!-- Settings POSAR Document Modal -->
-    <div id="settingsPosarDocumentModal" class="modal-overlay" style="display: none;">
+    <div id="settingsPosarDocumentModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="settings_posar_modal_title" style="display: none;">
         <div class="modal-container settings-document-modal-container">
             <div class="modal-header">
                 <h2 id="settings_posar_modal_title" class="modal-title"></h2>
@@ -819,7 +819,7 @@
     </div>
 
     <!-- Settings Import Prompt Modal -->
-    <div id="settingsImportPromptModal" class="modal-overlay" style="display: none;">
+    <div id="settingsImportPromptModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="settings_import_prompt_title" style="display: none;">
         <div class="modal-container modal-container-small">
             <div class="modal-header">
                 <img class="modal-warning-icon" src="../LinkumorI_HTML_SVG/warning.svg" alt="" aria-hidden="true">
@@ -831,10 +831,10 @@
             </div>
 
             <div class="modal-actions">
-                <button id="settingsImportPromptCancel" class="btn btn-secondary">
+                <button type="button" id="settingsImportPromptCancel" class="btn btn-secondary">
                     <span id="settings_import_prompt_cancel"></span>
                 </button>
-                <button id="settingsImportPromptConfirm" class="btn btn-danger">
+                <button type="button" id="settingsImportPromptConfirm" class="btn btn-danger">
                     <span id="settings_import_prompt_confirm"></span>
                 </button>
             </div>

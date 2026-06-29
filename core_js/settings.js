@@ -115,6 +115,72 @@ const themeSelectionState = {
     pendingLight: 'light',
     pendingDark: DEFAULT_THEME
 };
+const SWITCH_ACCESSIBILITY = {
+    domainBlocking: {
+        labelId: 'domain_blocking_enabled',
+        descriptionId: 'domain_blocking_enabled_description'
+    },
+    localHostsSkipping: {
+        labelId: 'local_hosts_skipping',
+        descriptionId: 'local_hosts_skipping_description'
+    },
+    historyListenerEnabled: {
+        labelId: 'history_listener_enabled',
+        descriptionId: 'history_listener_enabled_description'
+    },
+    searchLinkFixEnabled: {
+        labelId: 'search_link_fix_enabled',
+        descriptionId: 'search_link_fix_enabled_description'
+    },
+    contextMenuEnabled: {
+        labelId: 'context_menu_enabled',
+        descriptionId: 'context_menu_enabled_description'
+    },
+    referralMarketing: {
+        labelId: 'referral_marketing_enabled',
+        descriptionId: 'referral_marketing_enabled_description'
+    },
+    pingBlocking: {
+        labelId: 'ping_blocking_enabled',
+        descriptionId: 'ping_blocking_enabled_description'
+    },
+    redirectionEnabled: {
+        labelId: 'redirection_enabled',
+        descriptionId: 'redirection_enabled_description'
+    },
+    eTagFiltering: {
+        labelId: 'eTag_filtering_enabled',
+        descriptionId: 'eTag_filtering_enabled_description'
+    },
+    remoteRulesEnabled: {
+        labelId: 'remote_rules_enabled',
+        descriptionId: 'remote_rules_enabled_description'
+    },
+    disableGatekeeper: {
+        labelId: 'disable_gatekeeper_enabled',
+        descriptionId: 'disable_gatekeeper_enabled_description'
+    },
+    builtInRulesEnabled: {
+        labelId: 'built_in_rules_enabled',
+        descriptionId: 'built_in_rules_enabled_description'
+    },
+    linkumoriCNAMEUncloakEnabled: {
+        labelId: 'linkumori_cname_uncloak_enabled',
+        descriptionId: 'linkumori_cname_uncloak_enabled_description'
+    },
+    cnameIgnoreRootDocument: {
+        labelId: 'cname_ignore_root_document_enabled',
+        descriptionId: 'cname_ignore_root_document_enabled_description'
+    },
+    cnameReplayFullURL: {
+        labelId: 'cname_replay_full_url_enabled',
+        descriptionId: 'cname_replay_full_url_enabled_description'
+    },
+    overloadModeEnabled: {
+        labelId: 'overload_mode_enabled',
+        descriptionId: 'overload_mode_enabled_description'
+    }
+};
 
 // Security Modal State Management
 let securityModalState = {
@@ -1934,6 +2000,8 @@ function initializeTheme() {
                 card.classList.toggle('active', isSelectedTheme);
                 card.classList.toggle('active-light', cardTheme === themeSelectionState.pendingLight);
                 card.classList.toggle('active-dark', cardTheme === themeSelectionState.pendingDark);
+                card.setAttribute('aria-checked', isSelectedTheme ? 'true' : 'false');
+                card.setAttribute('tabindex', isSelectedTheme ? '0' : '-1');
             });
         };
         const applyThemeToUI = (theme) => {
@@ -1989,37 +2057,76 @@ function initializeTheme() {
         // Initialize theme cards
         const themeCards = document.querySelectorAll('.theme-card');
 
+        const selectThemeCard = async (card) => {
+            const newTheme = normalizeTheme(card.dataset.theme);
+            const category = getThemeCategory(newTheme);
+            const payload = {};
+            if (category === 'light') {
+                themeSelectionState.pendingLight = newTheme;
+                themeSelectionState.preferredLight = newTheme;
+                payload[LIGHT_THEME_STORAGE_KEY] = newTheme;
+            } else {
+                themeSelectionState.pendingDark = newTheme;
+                themeSelectionState.preferredDark = newTheme;
+                payload[DARK_THEME_STORAGE_KEY] = newTheme;
+                payload[LAST_DARK_THEME_STORAGE_KEY] = newTheme;
+            }
+
+            // Apply immediately only when selected theme matches current mode.
+            if (category === themeSelectionState.currentMode) {
+                payload[THEME_STORAGE_KEY] = newTheme;
+                applyThemeToUI(newTheme);
+            } else {
+                updateThemeCardState(themeSelectionState.currentTheme);
+            }
+
+            try {
+                await browser.storage.local.set(payload);
+            } catch (error) {
+                console.warn('Failed to persist theme selection:', error);
+            }
+        };
+
         if (themeCards.length > 0 && !themeSelectionState.handlersBound) {
             themeCards.forEach(card => {
-                // Add click handler
-                card.addEventListener('click', async () => {
-                    const newTheme = normalizeTheme(card.dataset.theme);
-                    const category = getThemeCategory(newTheme);
-                    const payload = {};
-                    if (category === 'light') {
-                        themeSelectionState.pendingLight = newTheme;
-                        themeSelectionState.preferredLight = newTheme;
-                        payload[LIGHT_THEME_STORAGE_KEY] = newTheme;
-                    } else {
-                        themeSelectionState.pendingDark = newTheme;
-                        themeSelectionState.preferredDark = newTheme;
-                        payload[DARK_THEME_STORAGE_KEY] = newTheme;
-                        payload[LAST_DARK_THEME_STORAGE_KEY] = newTheme;
+                card.addEventListener('click', () => {
+                    selectThemeCard(card);
+                });
+
+                card.addEventListener('keydown', (event) => {
+                    const key = event.key;
+                    if (key === ' ' || key === 'Enter') {
+                        event.preventDefault();
+                        selectThemeCard(card);
+                        return;
                     }
 
-                    // Apply immediately only when selected theme matches current mode.
-                    if (category === themeSelectionState.currentMode) {
-                        payload[THEME_STORAGE_KEY] = newTheme;
-                        applyThemeToUI(newTheme);
-                    } else {
-                        updateThemeCardState(themeSelectionState.currentTheme);
+                    if (!['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'Home', 'End'].includes(key)) {
+                        return;
                     }
 
-                    try {
-                        await browser.storage.local.set(payload);
-                    } catch (error) {
-                        console.warn('Failed to persist theme selection:', error);
+                    const groupCards = Array.from(card.closest('[role="radiogroup"]')?.querySelectorAll('.theme-card') || []);
+                    if (groupCards.length === 0) {
+                        return;
                     }
+
+                    event.preventDefault();
+                    const currentIndex = groupCards.indexOf(card);
+                    const lastIndex = groupCards.length - 1;
+                    let nextIndex = currentIndex;
+                    if (key === 'Home') {
+                        nextIndex = 0;
+                    } else if (key === 'End') {
+                        nextIndex = lastIndex;
+                    } else if (key === 'ArrowLeft' || key === 'ArrowUp') {
+                        nextIndex = currentIndex <= 0 ? lastIndex : currentIndex - 1;
+                    } else {
+                        nextIndex = currentIndex >= lastIndex ? 0 : currentIndex + 1;
+                    }
+
+                    const nextCard = groupCards[nextIndex];
+                    nextCard.focus();
+                    selectThemeCard(nextCard);
                 });
             });
 
@@ -4042,17 +4149,42 @@ async function saveData(key, data) {
     });
 }
 
+function setSwitchVisualState(element, isActive) {
+    if (!element) {
+        return;
+    }
+
+    element.classList.toggle('active', !!isActive);
+    element.setAttribute('aria-checked', isActive ? 'true' : 'false');
+}
+
+function configureSwitchAccessibility(id) {
+    const element = document.getElementById(id);
+    if (!element) {
+        return;
+    }
+
+    const config = SWITCH_ACCESSIBILITY[id] || {};
+    element.setAttribute('role', 'switch');
+    element.setAttribute('tabindex', '0');
+    element.setAttribute('aria-checked', element.classList.contains('active') ? 'true' : 'false');
+
+    if (config.labelId && document.getElementById(config.labelId)) {
+        element.setAttribute('aria-labelledby', config.labelId);
+    }
+
+    if (config.descriptionId && document.getElementById(config.descriptionId)) {
+        element.setAttribute('aria-describedby', config.descriptionId);
+    }
+}
+
 function applyToggleChange(id, storageID, newValue) {
     const element = document.getElementById(id);
     if (!element) {
         return;
     }
 
-    if (newValue) {
-        element.classList.add('active');
-    } else {
-        element.classList.remove('active');
-    }
+    setSwitchVisualState(element, newValue);
 
     browser.runtime.sendMessage({
         function: "setData",
@@ -4119,11 +4251,7 @@ function applyToggleChange(id, storageID, newValue) {
             params: []
         });
     }).catch(() => {
-        if (newValue) {
-            element.classList.remove('active');
-        } else {
-            element.classList.add('active');
-        }
+        setSwitchVisualState(element, !newValue);
         const errorMsg = translate('status_save_setting_failed');
         showStatus(errorMsg.replace('%s', storageID), 'error');
     });
@@ -4141,8 +4269,17 @@ function changeSwitchButton(id, storageID) {
         return;
     }
 
+    configureSwitchAccessibility(id);
+
     // Set initial state
     setSwitchButton(id, storageID);
+
+    element.onkeydown = function(event) {
+        if (event.key === ' ' || event.key === 'Enter') {
+            event.preventDefault();
+            element.click();
+        }
+    };
 
     // Add click handler
     element.onclick = function(event) {
@@ -4190,11 +4327,7 @@ function changeSwitchButton(id, storageID) {
             return;
         }
 
-        if (newValue) {
-            element.classList.add('active');
-        } else {
-            element.classList.remove('active');
-        }
+        setSwitchVisualState(element, newValue);
         showStatus(translate('settings_change_pending_save_apply'), 'info');
     };
 }
@@ -4207,11 +4340,7 @@ function changeSwitchButton(id, storageID) {
 function setSwitchButton(id, varname) {
     const element = document.getElementById(id);
     if (element && settings[varname] !== undefined) {
-        if (settings[varname]) {
-            element.classList.add('active');
-        } else {
-            element.classList.remove('active');
-        }
+        setSwitchVisualState(element, settings[varname]);
     }
 }
 function updateRemoteRulesFieldsVisibility() {
