@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.34.0] - 2026-07-12 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.33.0...linkumori-v100.34.0))
+### Added
+- Introduce Samarth reference removeparam exception (`2026-07-12`, hash: [`2065850`](https://github.com/Linkumori/Linkumori-Addon/commit/2065850))
+
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-07-12`, hash: [`635655d`](https://github.com/Linkumori/Linkumori-Addon/commit/635655d))
+- Updated canonical URL cleaning rules source (`2026-07-12`, hash: [`2065850`](https://github.com/Linkumori/Linkumori-Addon/commit/2065850))
+
 ## [v100.33.0] - 2026-07-12 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.32.0...linkumori-v100.33.0))
 ### Changed
 - Downloaded latest public suffix list from upstream (`2026-07-12`, hash: [`0870758`](https://github.com/Linkumori/Linkumori-Addon/commit/0870758))
