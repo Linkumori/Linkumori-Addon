@@ -70,6 +70,7 @@
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="header">
     <div class="header-content">
       <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
@@ -81,7 +82,7 @@
       <div class="header-text"><h1 id="page-heading"></h1><span class="version-badge" id="version"></span></div>
     </div>
   </div>
-  <div class="container">
+  <main id="main-content" tabindex="-1" class="container">
     <div class="card">
       <div class="regression-toolbar">
         <button type="button" id="run" class="btn btn-primary"></button>
@@ -91,7 +92,7 @@
       <div id="summary" class="regression-summary" aria-live="polite" aria-atomic="true"></div>
     </div>
     <div id="results" class="regression-results" aria-live="polite" aria-atomic="true"></div>
-  </div>
+  </main>
   <script src="../external_js/linkumori-i18n.js"></script>
   <script src="../core_js/regression_page.js"></script>
   <script src="../core_js/write_version.js"></script>

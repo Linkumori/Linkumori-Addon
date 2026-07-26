@@ -134,7 +134,7 @@
             --text-secondary: #334155;
             --text-primary-domain: #334155;
             --button-text: #ffffff;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(0, 0, 0, 0.1);
             --shadow-color: rgba(0, 0, 0, 0.1);
             --input-bg: rgba(0, 0, 0, 0.05);
@@ -178,7 +178,7 @@
             --text-primary: #1f2937;
             --text-primary-domain: #1f2937;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(148, 163, 184, 0.35);
             --shadow-color: rgba(0, 0, 0, 0.08);
             --input-bg: #ffffff;
@@ -248,9 +248,9 @@
             --logo-bg: #ffffff;
             --logo-accent: #f76f53;
             --text-primary: #1a1a1a;
-            --text-secondary: #6b6b6b;
+            --text-secondary: #565656;
             --text-primary-domain: #1a1a1a;
-            --text-muted: #6b6b6b;
+            --text-muted: #565656;
             --border-color: rgba(0, 0, 0, 0.08);
             --shadow-color: rgba(0, 0, 0, 0.06);
             --input-bg: rgba(0, 0, 0, 0.04);
@@ -786,6 +786,7 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
     <section>
         <header class="header">
             <div class="header-content">
@@ -814,6 +815,7 @@
             </div>
         </header>
 
+        <main id="main-content" tabindex="-1">
         <h2 data-i18n="reportIssueHeader"></h2>
         <p data-i18n="reportIssueDescription"></p>
         
@@ -939,6 +941,7 @@
                 <pre id="configData" style="user-select: all;"></pre>
             </details>
         </div>
+        </main>
     </section>
 
     <script src="../external_js/linkumori-i18n.js"></script>

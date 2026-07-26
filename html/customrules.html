@@ -283,7 +283,7 @@
             --bg-primary-theme: #f1f5f9;
             --text-primary: #0f172a;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(0, 0, 0, 0.1);
             --shadow-color: rgba(0, 0, 0, 0.1);
             --input-bg: rgba(0, 0, 0, 0.05);
@@ -337,7 +337,7 @@
 
             --text-primary: #1f2937;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
 
             --border-color: rgba(148, 163, 184, 0.35);
             --shadow-color: rgba(0, 0, 0, 0.08);
@@ -356,7 +356,7 @@
             --code-keyword: #8458b3;
             --code-string: #a28089;
             --code-number: #8458b3;
-            --code-comment: #64748b;
+            --code-comment: #475569;
         }
 
         /* Dark theme */
@@ -426,8 +426,8 @@
             --logo-accent: #f76f53;
             
             --text-primary: #1a1a1a;
-            --text-secondary: #6b6b6b;
-            --text-muted: #6b6b6b;
+            --text-secondary: #565656;
+            --text-muted: #565656;
             
             --border-color: rgba(0, 0, 0, 0.08);
             --shadow-color: rgba(0, 0, 0, 0.06);
@@ -446,7 +446,7 @@
             --code-keyword: #c85a3e;
             --code-string: #f76f53;
             --code-number: #c85a3e;
-            --code-comment: #6b6b6b;
+            --code-comment: #565656;
         }
         /* Legacy theme */
         :root[data-theme="legacy"] {
@@ -2836,6 +2836,7 @@
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
     <div class="header">
         <div class="header-content">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
@@ -3423,18 +3424,18 @@ admin.example.com
         </div>
     </div>
 
-    <div class="container">
-        <div class="view-nav">
+    <main id="main-content" tabindex="-1" class="container">
+        <nav class="view-nav" data-i18n-aria="customRulesViewNavAriaLabel" aria-label="Custom rules views">
             <button type="button" id="nav-custom-rules" class="view-nav-btn active" data-i18n="customRulesEditor_nav_rules"></button>
             <button type="button" id="nav-whitelist" class="view-nav-btn" data-i18n="customRulesEditor_nav_whitelist"></button>
-        </div>
+        </nav>
 
         <div id="custom-rules-view" class="view-panel active">
         <div class="main-layout">
             <!-- Sidebar with provider list -->
             <div class="sidebar">
                 <div class="sidebar-header">
-                    <h3 data-i18n="customRulesEditor_customProviders"></h3>
+                    <h2 data-i18n="customRulesEditor_customProviders"></h2>
                     <span id="provider-count" class="status-indicator status-valid" role="status" aria-live="polite" aria-atomic="true">0</span>
                 </div>
                 
@@ -3540,7 +3541,7 @@ admin.example.com
         <div id="whitelist-view" class="view-panel">
             <div class="whitelist-page">
                 <div class="whitelist-section whitelist-section-no-top">
-                    <h4 class="whitelist-section-title" data-i18n="whitelist_section_title"></h4>
+                    <h2 class="whitelist-section-title" data-i18n="whitelist_section_title"></h2>
                     <p class="whitelist-section-description" data-i18n="whitelist_section_description"></p>
                     <div class="whitelist-input-row">
                         <input id="customrules-whitelist-input" class="whitelist-input" type="text" data-i18n-placeholder="whitelist_input_placeholder" data-i18n-aria="whitelist_input_placeholder">
@@ -3582,7 +3583,7 @@ admin.example.com
                 <div class="provider-list-modal-content" id="disabled-rules-page-content"></div>
             </div>
         </div>
-    </div>
+    </main>
 
     <!-- Add/Edit Provider Modal -->
     <div class="modal" id="provider-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -3595,8 +3596,8 @@ admin.example.com
             <form id="provider-form">
                 <div class="form-group">
                     <label class="form-label" for="provider-name" data-i18n="customRulesEditor_providerName"></label>
-                    <input type="text" class="form-input" id="provider-name" required data-i18n-placeholder="customRulesEditor_providerNamePlaceholder">
-                    <div class="form-help" data-i18n="customRulesEditor_providerNameHelp"></div>
+                    <input type="text" class="form-input" id="provider-name" required aria-describedby="provider-name-help" data-i18n-placeholder="customRulesEditor_providerNamePlaceholder">
+                    <div class="form-help" id="provider-name-help" data-i18n="customRulesEditor_providerNameHelp"></div>
                 </div>
 
                 <div class="form-group">
@@ -3618,19 +3619,19 @@ admin.example.com
                 
                 <div class="form-group" id="url-pattern-group">
                     <label class="form-label" for="url-pattern" data-i18n="customRulesEditor_urlPattern"></label>
-                    <input type="text" class="form-input" id="url-pattern" data-i18n-placeholder="customRulesEditor_urlPatternPlaceholder">
-                    <div class="form-help" data-i18n="customRulesEditor_urlPatternHelp"></div>
+                    <input type="text" class="form-input" id="url-pattern" aria-describedby="url-pattern-help" data-i18n-placeholder="customRulesEditor_urlPatternPlaceholder">
+                    <div class="form-help" id="url-pattern-help" data-i18n="customRulesEditor_urlPatternHelp"></div>
                 </div>
 
                 <div class="form-group" id="index-pattern-group">
                     <label class="form-label" for="index-pattern" data-i18n="customRulesEditor_indexPattern"></label>
-                    <textarea class="form-input" id="index-pattern" rows="3" data-i18n-placeholder="customRulesEditor_indexPatternPlaceholder"></textarea>
-                    <div class="form-help" data-i18n="customRulesEditor_indexPatternHelp"></div>
+                    <textarea class="form-input" id="index-pattern" rows="3" aria-describedby="index-pattern-help" data-i18n-placeholder="customRulesEditor_indexPatternPlaceholder"></textarea>
+                    <div class="form-help" id="index-pattern-help" data-i18n="customRulesEditor_indexPatternHelp"></div>
                 </div>
 
                 <div class="form-group u-hidden" id="domain-patterns-group">                    <label class="form-label" for="domain-patterns" data-i18n="customRulesEditor_domainPatterns"></label>
-                    <textarea class="form-input" id="domain-patterns" rows="3" data-i18n-placeholder="customRulesEditor_domainPatternsPlaceholder"></textarea>
-                    <div class="form-help" data-i18n="customRulesEditor_domainPatternsHelp"></div>
+                    <textarea class="form-input" id="domain-patterns" rows="3" aria-describedby="domain-patterns-help" data-i18n-placeholder="customRulesEditor_domainPatternsPlaceholder"></textarea>
+                    <div class="form-help" id="domain-patterns-help" data-i18n="customRulesEditor_domainPatternsHelp"></div>
                 </div>
 
                 <div class="form-checkbox">

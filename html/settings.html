@@ -120,7 +120,8 @@
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
-    <!-- 
+    <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
+    <!--
     Header Content Design and Implementation
     Copyright (c) 2025 Subham Mahesh
     Licensed under GNU Lesser General Public License v3.0
@@ -156,7 +157,7 @@
         </button>
     </div>
 
-    <div class="container">
+    <main id="main-content" tabindex="-1" class="container">
         <div id="statusMessage" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
 
         <h2 class="section-header" id="general_settings_title"></h2>
@@ -572,7 +573,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </main>
  <!-- Security Disclaimer Modal -->
     <div id="securityDisclaimerModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="security_modal_title" style="display: none;">
         <div class="modal-container">
@@ -788,7 +789,7 @@
                     <h3 id="settings_privacy_modal_privacy_document_title"></h3>
                     <div id="settings_privacy_modal_privacy_version_row" class="settings-privacy-version-row">
                         <label id="settings_privacy_modal_privacy_version_label" for="settings_privacy_modal_privacy_version_selector"></label>
-                        <select id="settings_privacy_modal_privacy_version_selector"></select>
+                        <select id="settings_privacy_modal_privacy_version_selector" aria-describedby="settings_privacy_modal_privacy_version_help"></select>
                         <div id="settings_privacy_modal_privacy_version_help" class="settings-privacy-version-help"></div>
                     </div>
                     <div id="settings_privacy_modal_privacy_document" class="settings-legal-document-content"></div>

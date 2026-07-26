@@ -23,7 +23,28 @@
  * This shared layer keeps keyboard focus, minimum target size, and reduced
  * motion behavior consistent across extension HTML pages. It supports the
  * page-specific themes without replacing their visual design.
+ * 2026-07-26   Subham Mahesh   Second modification
+ * Added a shared skip-link pattern (2.4.1 Bypass Blocks) used by every page.
  */
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    z-index: 10000;
+    padding: 8px 16px;
+    background: var(--button-primary, #2563eb);
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+    top: 8px;
+}
 
 :focus-visible {
     outline: 2px solid var(--input-focus, var(--button-primary, #2563eb));
