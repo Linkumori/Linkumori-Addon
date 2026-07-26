@@ -156,7 +156,7 @@
             --text-secondary: #334155;
             --text-primary-domain: #334155;
             --button-text: #ffffff;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(0, 0, 0, 0.1);
             --shadow-color: rgba(0, 0, 0, 0.1);
             --input-bg: rgba(0, 0, 0, 0.05);
@@ -205,7 +205,7 @@
             --text-primary: #1f2937;
             --text-primary-domain: #1f2937;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
 
             --border-color: rgba(148, 163, 184, 0.35);
             --shadow-color: rgba(0, 0, 0, 0.08);
@@ -291,7 +291,7 @@
     --logo-accent: #f76f53;
     
    --text-primary: #1a1a1a;
-    --text-secondary: #6b6b6b;
+    --text-secondary: #565656;
     --text-primary-domain: #1a1a1a;
     
     --border-color: rgba(0, 0, 0, 0.08);
@@ -638,6 +638,7 @@
             margin-bottom: 12px;
         }
 
+        .license-section h2,
         .license-section h3 {
             color: var(--text-secondary);
             font-size: 13px;
@@ -1152,6 +1153,7 @@
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body class="consent-locked">
+    <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
     <div class="header">
         <div class="header-content">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
@@ -1190,15 +1192,16 @@
     </div>
 
     <!-- Navigation Bar -->
-    <div class="nav-bar">
+    <nav class="nav-bar" data-i18n-aria="popupNavAriaLabel" aria-label="Popup navigation">
         <button type="button" class="nav-item active" id="navMain" data-target="mainContent">
             <span id="nav_main_label"></span>
         </button>
         <button type="button" class="nav-item" id="navLicense" data-target="licenseContent">
             <span id="nav_license_label"></span>
         </button>
-    </div>
+    </nav>
 
+    <main id="main-content" tabindex="-1">
     <!-- Main Content -->
     <div id="mainContent">
         <div class="toggle-container">
@@ -1277,14 +1280,14 @@
     <!-- License Content -->
     <div id="licenseContent">
         <div class="license-section">
-            <h3 id="license_name"></h3>
+            <h2 id="license_name"></h2>
             <p class="version-info"><span id="license_version_label"></span> <span id="license_version"></span></p>
             <p class="version-info"><span id="license_firefox_signature_label"></span> <span id="license_firefox_signature_value"></span></p>
     
         </div>
 
         <div class="license-section">
-            <h3 id="license_title"></h3>
+            <h2 id="license_title"></h2>
             <p id="license_description"></p>
             <h3 id="license_links_title"></h3>
         </div>
@@ -1299,6 +1302,7 @@
                 <a href="https://github.com/ClearURLs/Addon/tree/1.27.3" id="license_clearurls_addon_link" class="license-link" target="_blank" rel="noopener noreferrer"></a>
             </div>
         </div>
+    </main>
 
     <div id="popupConsentGate" role="dialog" aria-modal="true" aria-labelledby="popupConsentTitle">
         <div class="popup-consent-card">

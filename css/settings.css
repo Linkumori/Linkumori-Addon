@@ -108,7 +108,7 @@
             --bg-primary-theme: #f1f5f9;
             --text-primary: #0f172a;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(0, 0, 0, 0.1);
             --shadow-color: rgba(0, 0, 0, 0.1);
             --input-bg: rgba(0, 0, 0, 0.05);
@@ -149,7 +149,7 @@
 
             --text-primary: #1f2937;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
 
             --border-color: rgba(148, 163, 184, 0.35);
             --shadow-color: rgba(0, 0, 0, 0.08);
@@ -219,8 +219,8 @@
             --button-secondary-hover: #4b5563;
 
             --text-primary: #1a1a1a;
-            --text-secondary: #6b6b6b;
-            --text-muted: #6b6b6b;
+            --text-secondary: #565656;
+            --text-muted: #565656;
 
             --border-color: rgba(0, 0, 0, 0.08);
             --shadow-color: rgba(0, 0, 0, 0.06);
@@ -952,8 +952,9 @@
 
         .linkumori-linkumori-picker .linkumori-picker-result:focus {
             border-color: var(--input-focus) !important;
-            outline: none !important;
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1) !important;
+            outline: 2px solid var(--input-focus, #2563eb) !important;
+            outline-offset: 2px !important;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.24) !important;
         }
 
         .linkumori-linkumori-picker .linkumori-picker-type {
@@ -1299,30 +1300,18 @@
             font-style: italic;
             font-weight: 300;
             font-size: 13px;
-            opacity: 0.5;
             color: var(--text-muted);
             letter-spacing: 0.2px;
             transition: opacity 0.2s ease, transform 0.2s ease;
         }
 
         .modal-content .form-input:focus::placeholder {
-            opacity: 0.25;
             transform: translateY(-2px);
         }
 
         .modal-content .form-input:not(:placeholder-shown)::placeholder {
             opacity: 0;
             transform: translateY(-4px);
-        }
-
-        /* Light theme adjustments for placeholder */
-        :root[data-theme="light"] .modal-content .form-input::placeholder {
-            color: var(--text-muted);
-            opacity: 0.6;
-        }
-
-        :root[data-theme="light"] .modal-content .form-input:focus::placeholder {
-            opacity: 0.35;
         }
 
         /* Warning Banner */

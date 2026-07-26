@@ -138,7 +138,7 @@
             --bg-primary-theme: #f1f5f9;
             --text-primary: #0f172a;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(0, 0, 0, 0.1);
             --shadow-color: rgba(0, 0, 0, 0.1);
             --input-bg: rgba(0, 0, 0, 0.05);
@@ -186,7 +186,7 @@
 
            --text-primary: #1f2937;
            --text-secondary: #334155;
-           --text-muted: #64748b;
+           --text-muted: #475569;
 
            --border-color: rgba(148, 163, 184, 0.35);
            --shadow-color: rgba(0, 0, 0, 0.08);
@@ -265,8 +265,8 @@
            --button-info-hover: #c85a3e;
     
            --text-primary: #1a1a1a;
-           --text-secondary: #6b6b6b;
-           --text-muted: #6b6b6b;
+           --text-secondary: #565656;
+           --text-muted: #565656;
     
            --border-color: rgba(0, 0, 0, 0.08);
            --shadow-color: rgba(0, 0, 0, 0.06);
@@ -1176,6 +1176,7 @@
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
     <!-- Header -->
     <header class="header">
         <div class="header-content">
@@ -1207,7 +1208,7 @@
         </button>
     </header>
 
-    <div class="container">
+    <main id="main-content" tabindex="-1" class="container">
         <!-- Welcome Section -->
         <h2 id="welcomeSectionHeader" class="section-header" data-i18n="welcomeHeading"></h2>
         <div id="welcomeSectionCard" class="card">
@@ -1347,7 +1348,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </main>
 
     <div id="withdrawConsentModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="withdrawConsentModalTitle" style="display: none;">
         <div class="modal-card">

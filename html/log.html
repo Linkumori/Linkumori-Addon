@@ -161,7 +161,7 @@
             --bg-quaternary: #cbd5e1;
             --text-primary: #0f172a;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(0, 0, 0, 0.1);
             --shadow-color: rgba(0, 0, 0, 0.1);
             --input-bg: rgba(0, 0, 0, 0.05);
@@ -189,7 +189,7 @@
             --pagination-button-disabled-bg: #f1f5f9;
             --pagination-button-disabled-border: #e2e8f0;
             --pagination-button-disabled-text: #94a3b8;
-            --pagination-ellipsis-color: #64748b;
+            --pagination-ellipsis-color: #475569;
             --pagination-shadow-color: rgba(0, 0, 0, 0.1);
         }
 
@@ -209,7 +209,7 @@
             --logo-accent: #8458b3;
             --text-primary: #1f2937;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(148, 163, 184, 0.35);
             --shadow-color: rgba(0, 0, 0, 0.08);
             --input-bg: #ffffff;
@@ -228,8 +228,8 @@
             --pagination-button-active-text: #ffffff;
             --pagination-button-disabled-bg: rgba(160, 210, 235, 0.2);
             --pagination-button-disabled-border: rgba(148, 163, 184, 0.35);
-            --pagination-button-disabled-text: #64748b;
-            --pagination-ellipsis-color: #64748b;
+            --pagination-button-disabled-text: #475569;
+            --pagination-ellipsis-color: #475569;
             --pagination-shadow-color: rgba(0, 0, 0, 0.08);
         }
 
@@ -288,8 +288,8 @@
             --logo-bg: #ffffff;
             --logo-accent: #f76f53;
             --text-primary: #1a1a1a;
-            --text-secondary: #6b6b6b;
-            --text-muted: #6b6b6b;
+            --text-secondary: #565656;
+            --text-muted: #565656;
             --border-color: rgba(0, 0, 0, 0.08);
             --shadow-color: rgba(0, 0, 0, 0.06);
             --input-bg: rgba(0, 0, 0, 0.04);
@@ -308,8 +308,8 @@
             --pagination-button-active-text: #ffffff;
             --pagination-button-disabled-bg: rgba(247, 111, 83, 0.05);
             --pagination-button-disabled-border: rgba(0, 0, 0, 0.08);
-            --pagination-button-disabled-text: #6b6b6b;
-            --pagination-ellipsis-color: #6b6b6b;
+            --pagination-button-disabled-text: #565656;
+            --pagination-ellipsis-color: #565656;
             --pagination-shadow-color: rgba(0, 0, 0, 0.06);
         }
 
@@ -1170,6 +1170,8 @@
 </head>
 <body>
 
+    <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
+
     <!-- ── Header ─────────────────────────────────────────────────────── -->
     <div class="header">
         <div class="header-content">
@@ -1194,17 +1196,17 @@
     </div>
 
     <!-- ── Main container ─────────────────────────────────────────────── -->
-    <div class="container">
+    <main id="main-content" tabindex="-1" class="container">
 
         <!-- ── Tab navigation ─────────────────────────────────────────── -->
-        <div class="view-nav">
+        <nav class="view-nav" data-i18n-aria="logViewNavAriaLabel" aria-label="Log views">
             <button type="button" id="nav-dashboard" class="view-nav-btn active"
                     data-i18n="log_nav_dashboard"></button>
             <button type="button" id="nav-logs" class="view-nav-btn"
                     data-i18n="log_nav_logs"></button>
             <button type="button" id="nav-logger" class="view-nav-btn"
                     data-i18n="logger_nav_label">Live Logger</button>
-        </div>
+        </nav>
 
         <!-- ═══════════════════════════════════════════════════════════
              TAB 1 · DASHBOARD  (unchanged from log.html)
@@ -1501,7 +1503,7 @@
 
         </section>
 
-    </div><!-- /.container -->
+    </main><!-- /.container -->
 
     <!-- ── Loading overlay ────────────────────────────────────────────── -->
     <div id="loading-overlay" class="loading-overlay">

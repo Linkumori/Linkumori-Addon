@@ -121,7 +121,7 @@
             --text-primary: #334155;
             --text-button-primary: #ffffff;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(0, 0, 0, 0.1);
             --shadow-color: rgba(0, 0, 0, 0.1);
             --input-bg: rgba(0, 0, 0, 0.05);
@@ -146,7 +146,7 @@
             --text-button-primary: #ffffff;
             --text-primary: #1f2937;
             --text-secondary: #334155;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border-color: rgba(148, 163, 184, 0.35);
             --shadow-color: rgba(0, 0, 0, 0.08);
             --input-bg: #ffffff;
@@ -187,8 +187,8 @@
     --logo-accent: #f76f53;
     --text-button-primary: #ffffff;
     --text-primary: #1a1a1a;
-    --text-secondary: #6b6b6b;
-    --text-muted: #6b6b6b;
+    --text-secondary: #565656;
+    --text-muted: #565656;
     --border-color: rgba(0, 0, 0, 0.08);
     --shadow-color: rgba(0, 0, 0, 0.06);
     --input-bg: rgba(0, 0, 0, 0.04);
@@ -404,6 +404,7 @@
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
     <header class="header">
         <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">             
             <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>             
@@ -433,7 +434,7 @@
         </div>
     </header>
 
-    <div class="container">
+    <main id="main-content" tabindex="-1" class="container">
         <div class="section">
             <h2 id="inputUrlsTitle" class="section-title"></h2>
             <p id="inputUrlsDescription" class="section-description"></p>
@@ -448,8 +449,8 @@
                 <button type="button" id="copyUrlsButton"></button>
             </div>
         </div>
-    </div>
-    
+    </main>
+
     <div id="copyStatus" class="copy-status" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script src="../core_js/cleaning_tool.js"></script>
