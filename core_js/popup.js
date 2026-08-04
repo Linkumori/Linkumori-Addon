@@ -512,12 +512,42 @@ function domainToUnicode(domain) {
  * @param {string} domain - Domain to normalize
  * @returns {string} Normalized domain
  */
+// Strips a wrapping "[...]" (the form IPv6 literals take in a URL's hostname).
+function stripIpv6Brackets(value) {
+    if (typeof value !== 'string') return value;
+    return (value.startsWith('[') && value.endsWith(']')) ? value.slice(1, -1) : value;
+}
+
+// Canonicalizes an IP whitelist entry: IPv4 is kept as-is, IPv6 is compressed
+// to its canonical form and wrapped in brackets, matching how a browser
+// reports an IPv6 literal as a URL hostname. Returns null when the value
+// isn't an IP literal (caller should fall back to domain-name handling).
+function canonicalizeIpEntry(value) {
+    if (!value || typeof value !== 'string') return null;
+    const candidate = stripIpv6Brackets(value);
+    if (!candidate || typeof IP === 'undefined' || !IP.isValid(candidate)) {
+        return null;
+    }
+    try {
+        const addr = IP.address(candidate);
+        return addr.type === 'ipv6' ? '[' + addr.toString() + ']' : candidate;
+    } catch (_) {
+        return candidate;
+    }
+}
+
 function normalizeDomain(domain) {
     if (!domain || typeof domain !== 'string') {
         return domain;
     }
-    
-    return domainToPunycode(domain.trim().toLowerCase());
+
+    const trimmed = domain.trim().toLowerCase();
+    const canonicalIp = canonicalizeIpEntry(trimmed);
+    if (canonicalIp !== null) {
+        return canonicalIp;
+    }
+
+    return domainToPunycode(trimmed);
 }
 
 // ===== WHITELIST FUNCTIONS (NEW ADDITION) =====
