@@ -3243,7 +3243,7 @@
     "description": "Error message when trying to add empty domain"
   },
   "whitelist_examples_text": {
-    "message": "Examples: <code>example.com</code>, <code>*.google.com</code>, <code>subdomain.site.com</code>",
+    "message": "Examples: <code>example.com</code>, <code>*.google.com</code>, <code>192.168.1.1</code>, <code>::1</code>",
     "description": "Text before domain format examples"
   },
   "whitelist_export_button": {
@@ -3283,11 +3283,11 @@
     "description": "Error shown when whitelist import file is invalid JSON"
   },
   "whitelist_input_placeholder": {
-    "message": "example.com or *.example.com",
+    "message": "example.com, *.example.com, or 192.168.1.1",
     "description": "Placeholder text for the domain input field"
   },
   "whitelist_invalid_format": {
-    "message": "Invalid domain format. Use: example.com or *.example.com",
+    "message": "Invalid format. Use a domain (example.com, *.example.com) or an IP address (192.168.1.1, ::1)",
     "description": "Error message for invalid domain format"
   },
   "whitelist_load_failed": {
@@ -3311,7 +3311,7 @@
     "description": "Placeholder text for searching whitelisted domains"
   },
   "whitelist_section_description": {
-    "message": "Domains added here will bypass ALL URL cleaning. Tracking parameters will be preserved on these sites.",
+    "message": "Domains and IP addresses added here will bypass ALL URL cleaning. Tracking parameters will be preserved on these sites.",
     "description": "Description explaining what the whitelist does"
   },
   "whitelist_section_title": {

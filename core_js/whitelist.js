@@ -115,6 +115,13 @@ browser.tabs.onRemoved.addListener((tabId) => {
 
 // ── Pattern matching ──────────────────────────────────────────────────────────
 
+// True for a plain IPv4 pattern or an IPv6 pattern in its stored "[...]" form.
+function isIpLiteralPattern(value) {
+    if (!value || typeof value !== 'string') return false;
+    const candidate = (value.startsWith('[') && value.endsWith(']')) ? value.slice(1, -1) : value;
+    return candidate.length > 0 && typeof IP !== 'undefined' && IP.isValid(candidate);
+}
+
 function matchWhitelistHostnamePattern(hostname, pattern) {
     const normalizedHostname = normalizeAsciiHostname(hostname);
     if (!normalizedHostname) return false;
@@ -124,6 +131,13 @@ function matchWhitelistHostnamePattern(hostname, pattern) {
 
     const cleanPattern = normalizeAsciiHostname(rawPattern.startsWith('||') ? rawPattern.slice(2).replace(/\^$/, '') : rawPattern);
     if (!cleanPattern) return false;
+
+    // IP literal patterns (IPv4, or IPv6 in its bracketed hostname form) match
+    // by exact address only — the wildcard/PSL suffix semantics below are for
+    // domain names and don't apply to IPs.
+    if (isIpLiteralPattern(cleanPattern)) {
+        return normalizedHostname === cleanPattern;
+    }
 
     // PSL-aware any-TLD wildcard: example.* or *.example.*
     if (cleanPattern.endsWith('.*')) {

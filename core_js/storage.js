@@ -2944,21 +2944,26 @@ function addToWhitelist(domain) {
     if (!storage.userWhitelist) {
         storage.userWhitelist = [];
     }
-    
+
     if (!domain || typeof domain !== 'string') {
         return false;
     }
-    
-    const cleanDomain = domain.toLowerCase().trim();
-    
+
+    let cleanDomain = domain.toLowerCase().trim();
+
     if (!cleanDomain || !isValidWhitelistDomain(cleanDomain)) {
         return false;
     }
-    
+
+    const canonicalIp = canonicalizeIpEntry(cleanDomain);
+    if (canonicalIp !== null) {
+        cleanDomain = canonicalIp;
+    }
+
     if (storage.userWhitelist.includes(cleanDomain)) {
         return false;
     }
-    
+
     storage.userWhitelist.push(cleanDomain);
     
     try {
@@ -3022,23 +3027,58 @@ function isInWhitelist(domain) {
     return result;
 }
 
+// Strips a wrapping "[...]" (the form IPv6 literals take in a URL's hostname).
+function stripIpv6Brackets(value) {
+    if (typeof value !== 'string') return value;
+    return (value.startsWith('[') && value.endsWith(']')) ? value.slice(1, -1) : value;
+}
+
+// True for a bare IPv4 address or an IPv6 address (with or without [brackets]).
+function isValidIpLiteral(value) {
+    if (!value || typeof value !== 'string') return false;
+    const candidate = stripIpv6Brackets(value);
+    if (!candidate) return false;
+    return typeof IP !== 'undefined' && IP.isValid(candidate);
+}
+
+// Canonicalizes a validated IP whitelist entry for storage: IPv4 is kept as
+// typed, IPv6 is compressed to its canonical form and wrapped in brackets so
+// it matches the hostname a browser reports for an IPv6 literal URL.
+// Returns null when the value isn't an IP literal.
+function canonicalizeIpEntry(value) {
+    if (!value || typeof value !== 'string') return null;
+    const candidate = stripIpv6Brackets(value);
+    if (!candidate || typeof IP === 'undefined' || !IP.isValid(candidate)) {
+        return null;
+    }
+    try {
+        const addr = IP.address(candidate);
+        return addr.type === 'ipv6' ? '[' + addr.toString() + ']' : candidate;
+    } catch (_) {
+        return candidate;
+    }
+}
+
 function isValidWhitelistDomain(domain) {
     if (!domain || typeof domain !== 'string') {
         return false;
     }
-    
-    let testDomain = domain;
-    
-    if (domain.startsWith('*.')) {
-        testDomain = domain.substring(2);
-        if (!testDomain) {
-            return false;
-        }
+
+    const hasWildcard = domain.startsWith('*.');
+    let testDomain = hasWildcard ? domain.substring(2) : domain;
+
+    if (hasWildcard && !testDomain) {
+        return false;
     }
-    
+
+    // IP addresses are whitelisted by exact address only — wildcards aren't supported.
+    if (isValidIpLiteral(testDomain)) {
+        return !hasWildcard;
+    }
+
     const domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9](?:\.[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])*$/;
     const isValid = domainRegex.test(testDomain);
-    
+
     return isValid;
 }
 
