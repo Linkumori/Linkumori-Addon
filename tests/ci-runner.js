@@ -200,10 +200,8 @@ async function buildExtension() {
 }
 
 async function launchDriver(xpiPath) {
-    // -remote-allow-system-access is required (Firefox 138+) for the
-    // Marionette chrome-context fallback in navigateToExtensionPage.
     const options = new firefox.Options()
-        .addArguments('-headless', '-remote-allow-system-access')
+        .addArguments('-headless')
         .setPreference('extensions.webextensions.uuids', JSON.stringify({ [EXTENSION_ID]: EXTENSION_UUID }))
         .setPreference('xpinstall.signatures.required', false)
         .setPreference('extensions.langpacks.signatures.required', false)
@@ -214,9 +212,17 @@ async function launchDriver(xpiPath) {
         options.setBinary(FIREFOX_BINARY);
     }
 
+    // Firefox 138+ requires system access for Marionette chrome-scope
+    // commands (the extension-page navigation fallback). geckodriver
+    // forbids the flag via capabilities, so it must be passed to
+    // geckodriver itself (supported since geckodriver 0.36).
+    const service = new firefox.ServiceBuilder()
+        .addArguments('--allow-system-access');
+
     const driver = await new Builder()
         .forBrowser('firefox')
         .setFirefoxOptions(options)
+        .setFirefoxService(service)
         .build();
 
     await driver.installAddon(xpiPath, true);
