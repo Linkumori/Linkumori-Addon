@@ -206,8 +206,7 @@ async function launchDriver(xpiPath) {
         .setPreference('xpinstall.signatures.required', false)
         .setPreference('extensions.langpacks.signatures.required', false)
         .setPreference('extensions.autoDisableScopes', 0)
-        .setPreference('extensions.enabledScopes', 15)
-        .setPreference('browser.tabs.remote.autostart', false);
+        .setPreference('extensions.enabledScopes', 15);
 
     if (FIREFOX_BINARY) {
         options.setBinary(FIREFOX_BINARY);
@@ -224,10 +223,52 @@ async function launchDriver(xpiPath) {
     return driver;
 }
 
+/**
+ * Navigate the current tab to an extension page.
+ *
+ * Recent Firefox releases reject WebDriver classic navigation to privileged
+ * moz-extension:// URLs ("Navigation to ... is not allowed in this context"),
+ * so when driver.get() fails we fall back to loading the URL with the system
+ * principal from Marionette's chrome context.
+ */
+async function navigateToExtensionPage(driver, url) {
+    try {
+        await driver.get(url);
+        return;
+    } catch (err) {
+        console.log(`[ci] Direct navigation blocked (${err.message.split('\n')[0]}); retrying via chrome context...`);
+    }
+
+    await driver.setContext(firefox.Context.CHROME);
+    try {
+        await driver.executeScript(`
+            const url = arguments[0];
+            const win = Services.wm.getMostRecentWindow('navigator:browser');
+            if (typeof win.openTrustedLinkIn === 'function') {
+                win.openTrustedLinkIn(url, 'current');
+            } else {
+                win.gBrowser.selectedBrowser.loadURI(Services.io.newURI(url), {
+                    triggeringPrincipal: Services.scriptSecurityManager.getSystemPrincipal()
+                });
+            }
+        `, url);
+    } finally {
+        await driver.setContext(firefox.Context.CONTENT);
+    }
+
+    await driver.wait(async () => {
+        try {
+            return (await driver.getCurrentUrl()) === url;
+        } catch (e) {
+            return false;
+        }
+    }, 15000, `Timed out loading extension page ${url}`);
+}
+
 async function injectSuite(driver, suite) {
     const popupUrl = `moz-extension://${EXTENSION_UUID}/html/popup.html`;
     console.log(`[ci] Navigating to extension popup to inject suite (${suite.cases.length} cases)...`);
-    await driver.get(popupUrl);
+    await navigateToExtensionPage(driver, popupUrl);
     await driver.sleep(500);
 
     const result = await driver.executeAsyncScript(`
@@ -247,7 +288,7 @@ async function injectSuite(driver, suite) {
 async function runBatch(driver, suite) {
     const popupUrl = `moz-extension://${EXTENSION_UUID}/html/popup.html`;
     console.log('[ci] Navigating to popup to run batch...');
-    await driver.get(popupUrl);
+    await navigateToExtensionPage(driver, popupUrl);
     await driver.sleep(500);
 
     // Set script timeout high enough to cover the full suite
