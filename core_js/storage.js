@@ -881,7 +881,8 @@ function mergeRemoteProviderGroup(providerGroup) {
     if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
     if (merged.completeProvider !== true) delete merged.completeProvider;
     if (merged.forceRedirection !== true) delete merged.forceRedirection;
-    if (merged.domainPatterns.length > 0 || merged.indexPattern.length === 0) {
+    // merged.domainPatterns may have been deleted just above when empty.
+    if ((Array.isArray(merged.domainPatterns) && merged.domainPatterns.length > 0) || merged.indexPattern.length === 0) {
         delete merged.indexPattern;
     } else if (merged.indexPattern.length === 1) {
         merged.indexPattern = merged.indexPattern[0];
@@ -1336,8 +1337,11 @@ function saveOnDisk(keys) {
 }
 
 function deferSaveOnDisk(key) {
+    // The key must be queued on every call — including the one that creates
+    // the alarm — or the first deferred key is never written to disk.
+    pendingSaves.add(key);
+
     if (hasPendingSaves) {
-        pendingSaves.add(key);
         return;
     }
 
@@ -1355,6 +1359,28 @@ browser.alarms.onAlarm.addListener(function (alarmInfo) {
         hasPendingSaves = false;
     }
 });
+
+// Deterministic JSON serialization for hashing rule data. Passing a key array
+// as JSON.stringify's replacer filters keys at EVERY nesting level, so the old
+// `JSON.stringify(rules, Object.keys(rules).sort())` calls reduced any rule set
+// to '{"metadata":{},"providers":{}}' and produced the same hash for different
+// content. This sorts keys recursively instead.
+function stableStringifyForHash(value) {
+    if (value === undefined) return undefined;
+    if (value === null || typeof value !== 'object') return JSON.stringify(value);
+    if (Array.isArray(value)) {
+        return '[' + value.map(item => {
+            const encoded = stableStringifyForHash(item);
+            return encoded === undefined ? 'null' : encoded;
+        }).join(',') + ']';
+    }
+    const parts = [];
+    Object.keys(value).sort().forEach(key => {
+        const encoded = stableStringifyForHash(value[key]);
+        if (encoded !== undefined) parts.push(JSON.stringify(key) + ':' + encoded);
+    });
+    return '{' + parts.join(',') + '}';
+}
 
 async function verifyRulesHash(rulesData, expectedHash) {
     const verificationResult = {
@@ -1517,7 +1543,12 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
             return;
         }
 
-       fetch(url)
+       // no-store keeps the rules fetch in lockstep with the hash fetch below;
+       // a cached (stale) rules body against a fresh hash guarantees a mismatch.
+       fetch(url, {
+            method: 'GET',
+            cache: 'no-store'
+       })
        .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -1915,7 +1946,7 @@ function loadBundledRulesInternal(isFallback = false) {
                 throw new Error('No providers found in rules file');
             }
             
-            const bundledRulesHash = await sha256(JSON.stringify(bundledRules, Object.keys(bundledRules).sort()));
+            const bundledRulesHash = await sha256(stableStringifyForHash(bundledRules));
             storage.dataHash = bundledRulesHash;
             
             if (isFallback) {
@@ -2070,7 +2101,7 @@ function loadCustomOnlyRules() {
             };
 
             storage.hashStatus = providerCount > 0 ? 'custom_only_loaded' : 'custom_only_no_rules';
-            storage.dataHash = await sha256(JSON.stringify(storage.ClearURLsData, Object.keys(storage.ClearURLsData).sort()));
+            storage.dataHash = await sha256(stableStringifyForHash(storage.ClearURLsData));
 
             saveOnDisk(['ClearURLsData', 'dataHash', 'hashStatus', 'mergeStats']);
             resolve(storage.ClearURLsData);
@@ -2201,7 +2232,7 @@ function mergeCustomRules(bundledRules) {
                     hasOverrides: false
                 };
                 
-                const ruleString = JSON.stringify(annotatedBundledRules, Object.keys(annotatedBundledRules).sort());
+                const ruleString = stableStringifyForHash(annotatedBundledRules);
                 const hash = await sha256(ruleString);
                 storage.dataHash = hash;
                 const isOverloadStatus = typeof storage.hashStatus === 'string' &&
@@ -2294,7 +2325,7 @@ function mergeCustomRules(bundledRules) {
                 };
                 
                 storage.ClearURLsData = normalizeClearURLsDataFields(mergedRules);
-                const ruleStringmerge = JSON.stringify(mergedRules, Object.keys(mergedRules).sort());
+                const ruleStringmerge = stableStringifyForHash(mergedRules);
                 const hashmerge = await sha256(ruleStringmerge);
                 storage.dataHash = hashmerge;
                 const isOverloadStatus = typeof storage.hashStatus === 'string' &&
@@ -2744,9 +2775,11 @@ function setData(key, value) {
                 storage[key] = value;
             }
             break;
-        case "logLimit":
-            storage[key] = Math.max(0, Number(value));
+        case "logLimit": {
+            const parsedLimit = Number(value);
+            storage[key] = Number.isFinite(parsedLimit) ? Math.max(0, parsedLimit) : 100;
             break;
+        }
         case "remoteRulesEnabled":
         case "overloadModeEnabled":
         case "builtInRulesEnabled":
