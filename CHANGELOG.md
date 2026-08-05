@@ -16,6 +16,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.38.1] - 2026-08-05 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.38.0...linkumori-v100.38.1))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-08-05`, hash: [`96770ab`](https://github.com/Linkumori/Linkumori-Addon/commit/96770ab))
+- Launch Firefox with -remote-allow-system-access for chrome-context fallback (`2026-08-05`, hash: [`7cee215`](https://github.com/Linkumori/Linkumori-Addon/commit/7cee215))
+- Migrate GitHub Actions workflows to Node 24 runtime (`2026-08-05`, hash: [`09e0405`](https://github.com/Linkumori/Linkumori-Addon/commit/09e0405))
+- Update package.json (`2026-08-05`, hash: [`a1ee936`](https://github.com/Linkumori/Linkumori-Addon/commit/a1ee936))
+- Update regression-test.yml (`2026-08-05`, hash: [`c4fb5f9`](https://github.com/Linkumori/Linkumori-Addon/commit/c4fb5f9))
+- Update regression-test.yml (`2026-08-05`, hash: [`f46b0b7`](https://github.com/Linkumori/Linkumori-Addon/commit/f46b0b7))
+
+### Fixed
+- Resolve parser and storage bugs in clearurls, IP-Ranger, and storage (`2026-08-05`, hash: [`3534415`](https://github.com/Linkumori/Linkumori-Addon/commit/3534415))
+- Resolve regression runner navigation to extension pages (`2026-08-05`, hash: [`cc63773`](https://github.com/Linkumori/Linkumori-Addon/commit/cc63773))
+
+### Removed
+- Delete .github/workflows/regression-test.yml (`2026-08-05`, hash: [`a043662`](https://github.com/Linkumori/Linkumori-Addon/commit/a043662))
+- Delete tests/ci-runner.js (`2026-08-05`, hash: [`1c9cdb7`](https://github.com/Linkumori/Linkumori-Addon/commit/1c9cdb7))
+- Delete tests/package-lock.json (`2026-08-05`, hash: [`3756bd3`](https://github.com/Linkumori/Linkumori-Addon/commit/3756bd3))
+- Delete tests/package.json (`2026-08-05`, hash: [`964ea98`](https://github.com/Linkumori/Linkumori-Addon/commit/964ea98))
+- Delete tests/regression-server.js (`2026-08-05`, hash: [`243f345`](https://github.com/Linkumori/Linkumori-Addon/commit/243f345))
+
 ## [v100.38.0] - 2026-08-04 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.37.0...linkumori-v100.38.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-08-04`, hash: [`c4608a1`](https://github.com/Linkumori/Linkumori-Addon/commit/c4608a1))
