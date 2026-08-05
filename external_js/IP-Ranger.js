@@ -130,8 +130,16 @@ class NetworkAddress {
     return this.belongsTo(networks);
   }
 
+  // IPv4-mapped IPv6 addresses (::ffff:a.b.c.d) reach the same endpoint as
+  // the embedded IPv4 address, so classification must see through the mapping.
+  #embeddedIPv4() {
+    return (this.#type === 'ipv6' && this.isIPv4Mapped()) ? this.toIPv4() : null;
+  }
+
   // Type checking methods
   isPrivate() {
+    const mapped = this.#embeddedIPv4();
+    if (mapped) return mapped.isPrivate();
     return this.belongsTo(PrivateNetworks.getAll(this.#type));
   }
 
@@ -140,18 +148,26 @@ class NetworkAddress {
   }
 
   isLoopback() {
+    const mapped = this.#embeddedIPv4();
+    if (mapped) return mapped.isLoopback();
     return this.belongsTo(SpecialNetworks.loopback(this.#type));
   }
 
   isLinkLocal() {
+    const mapped = this.#embeddedIPv4();
+    if (mapped) return mapped.isLinkLocal();
     return this.belongsTo(SpecialNetworks.linkLocal(this.#type));
   }
 
   isMulticast() {
+    const mapped = this.#embeddedIPv4();
+    if (mapped) return mapped.isMulticast();
     return this.belongsTo(SpecialNetworks.multicast(this.#type));
   }
 
   isBroadcast() {
+    const mapped = this.#embeddedIPv4();
+    if (mapped) return mapped.isBroadcast();
     if (this.#type !== 'ipv4') return false;
     return this.belongsTo('255.255.255.255/32');
   }
@@ -214,27 +230,32 @@ class NetworkAddress {
       const segment = parseInt(this.#binary.slice(i, i + 16), 2).toString(16);
       segments.push(segment);
     }
-    
-    let result = segments.join(':');
-    
+
+    let result;
     if (compress) {
-      const zeroPattern = /(^|:)(0:){2,}/g;
-      let bestMatch = { index: -1, length: 0 };
-      let match;
-      
-      while ((match = zeroPattern.exec(result)) !== null) {
-        if (match[0].length > bestMatch.length) {
-          bestMatch = { index: match.index, length: match[0].length };
+      // RFC 5952: replace the first longest run of two or more zero groups,
+      // including runs that touch either end of the address.
+      let bestStart = -1, bestLen = 0, curStart = -1, curLen = 0;
+      for (let i = 0; i < segments.length; i++) {
+        if (segments[i] === '0') {
+          if (curStart === -1) curStart = i;
+          curLen++;
+          if (curLen > bestLen) { bestLen = curLen; bestStart = curStart; }
+        } else {
+          curStart = -1;
+          curLen = 0;
         }
       }
-      
-      if (bestMatch.length > 0) {
-        const before = result.slice(0, bestMatch.index);
-        const after = result.slice(bestMatch.index + bestMatch.length);
-        result = before + (before.endsWith(':') ? ':' : '::') + after;
+      if (bestLen >= 2) {
+        result = segments.slice(0, bestStart).join(':') + '::' +
+                 segments.slice(bestStart + bestLen).join(':');
+      } else {
+        result = segments.join(':');
       }
+    } else {
+      result = segments.join(':');
     }
-    
+
     return result + (this.#zoneId ? '%' + this.#zoneId : '');
   }
 }
@@ -314,10 +335,18 @@ class NetworkRange {
 
 class NetworkParser {
   static parseAddress(input) {
-    if (input.includes(':')) {
-      return this.#parseIPv6(input);
+    if (typeof input !== 'string') {
+      throw new Error('Address must be a string');
     }
-    return this.#parseIPv4(input);
+    let address = input.trim();
+    // URL.hostname wraps IPv6 literals in brackets ("[::1]").
+    if (address.startsWith('[') && address.endsWith(']')) {
+      address = address.slice(1, -1);
+    }
+    if (address.includes(':')) {
+      return this.#parseIPv6(address);
+    }
+    return this.#parseIPv4(address);
   }
 
   static splitCIDR(cidr) {
@@ -395,13 +424,18 @@ class NetworkParser {
 
   static #parseOctet(octetString) {
     let value;
-    
-    if (octetString.startsWith('0x')) {
+
+    // Every digit must be valid for the detected radix; parseInt alone stops
+    // at the first bad character and silently mis-parses octets like "09".
+    if (/^0x[0-9a-f]+$/i.test(octetString)) {
       value = parseInt(octetString, 16);
     } else if (octetString.startsWith('0') && octetString.length > 1) {
+      if (!/^0[0-7]+$/.test(octetString)) return null;
       value = parseInt(octetString, 8);
-    } else {
+    } else if (/^\d+$/.test(octetString)) {
       value = parseInt(octetString, 10);
+    } else {
+      return null;
     }
 
     return (value >= 0 && value <= 255) ? value : null;
@@ -417,12 +451,15 @@ class NetworkParser {
 
     const ipv4InV6Match = input.match(/^(.+:)(\d+\.\d+\.\d+\.\d+)$/);
     if (ipv4InV6Match) {
-      const ipv6Part = ipv4InV6Match[1].slice(0, -1);
+      // Keep a trailing "::" intact ("::1.2.3.4", "64:ff9b::1.2.3.4"); only
+      // strip the separator colon after a regular hex group ("::ffff:1.2.3.4").
+      const rawIPv6Part = ipv4InV6Match[1];
+      const ipv6Part = rawIPv6Part.endsWith('::') ? rawIPv6Part : rawIPv6Part.slice(0, -1);
       const ipv4Part = ipv4InV6Match[2];
-      
+
       const ipv6Binary = this.#expandIPv6(ipv6Part, 6);
       const ipv4Address = this.#parseIPv4(ipv4Part);
-      
+
       const fullBinary = ipv6Binary + ipv4Address.binary;
       return new NetworkAddress(fullBinary, 'ipv6', { zoneId });
     }
@@ -435,13 +472,17 @@ class NetworkParser {
     if (input.includes('::')) {
       const parts = input.split('::');
       if (parts.length > 2) throw new Error('Multiple :: not allowed');
-      
+
       const leftSegments = parts[0] ? parts[0].split(':') : [];
       const rightSegments = parts[1] ? parts[1].split(':') : [];
-      
+
       const missingSegments = expectedSegments - leftSegments.length - rightSegments.length;
+      // "::" must stand in for at least one zero group.
+      if (missingSegments < 1) {
+        throw new Error(`Expected at most ${expectedSegments} IPv6 segments around ::`);
+      }
       const zeroSegments = Array(missingSegments).fill('0');
-      
+
       const allSegments = [...leftSegments, ...zeroSegments, ...rightSegments];
       return this.#segmentsToIPv6Binary(allSegments);
     } else {
@@ -455,9 +496,12 @@ class NetworkParser {
 
   static #segmentsToIPv6Binary(segments) {
     return segments.map(segment => {
-      const value = parseInt(segment || '0', 16);
-      if (value > 0xffff) throw new Error('Invalid IPv6 segment');
-      return value.toString(2).padStart(16, '0');
+      // Reject empty and non-hex groups; parseInt would turn them into NaN
+      // (or a truncated value) and corrupt the binary representation.
+      if (!/^[0-9a-f]{1,4}$/i.test(segment)) {
+        throw new Error('Invalid IPv6 segment');
+      }
+      return parseInt(segment, 16).toString(2).padStart(16, '0');
     }).join('');
   }
 }
@@ -525,11 +569,17 @@ class IP {
   }
 
   static fromBytes(bytes) {
+    if (!Array.isArray(bytes) || (bytes.length !== 4 && bytes.length !== 16)) {
+      throw new Error('Expected 4 (IPv4) or 16 (IPv6) bytes');
+    }
     let binary = '';
     for (const byte of bytes) {
+      if (!Number.isInteger(byte) || byte < 0 || byte > 255) {
+        throw new Error('Byte values must be integers between 0 and 255');
+      }
       binary += byte.toString(2).padStart(8, '0');
     }
-    
+
     const type = bytes.length === 4 ? 'ipv4' : 'ipv6';
     return new NetworkAddress(binary, type);
   }

@@ -783,7 +783,10 @@ function splitLinkumoriModifiers(modifiersText) {
         if (!inRegex) {
             if (ch === ',') { if (current.trim()) parts.push(current.trim()); current = ''; continue; }
             current += ch;
-            if (ch === '=' && (next === '/' || (next === '~' && i + 2 < text.length && text.charAt(i + 2) === '/'))) {
+            // A regex literal can start a modifier value ("=/re/") or any later
+            // item of a |-separated list ("domain=a.com|/re/"); both must shield
+            // commas inside the regex body from being treated as separators.
+            if ((ch === '=' || ch === '|') && (next === '/' || (next === '~' && i + 2 < text.length && text.charAt(i + 2) === '/'))) {
                 current += next === '~' ? '~/' : '/';
                 inRegex = true; escaped = false;
                 i += next === '~' ? 2 : 1;
