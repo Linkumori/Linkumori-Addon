@@ -115,9 +115,14 @@ class NetworkAddress {
   // Network testing methods
   belongsTo(network) {
     if (typeof network === 'string') {
+      // "start-end" spans vs CIDR/netmask notation. IPv6 addresses never
+      // contain '-', so its presence always means a span.
+      if (network.includes('-')) {
+        return AddressSpan.from(network).contains(this);
+      }
       return NetworkRange.from(network).contains(this);
     }
-    if (network instanceof NetworkRange) {
+    if (network instanceof NetworkRange || network instanceof AddressSpan) {
       return network.contains(this);
     }
     if (Array.isArray(network)) {
@@ -130,10 +135,12 @@ class NetworkAddress {
     return this.belongsTo(networks);
   }
 
-  // IPv4-mapped IPv6 addresses (::ffff:a.b.c.d) reach the same endpoint as
-  // the embedded IPv4 address, so classification must see through the mapping.
+  // IPv4-mapped (::ffff:a.b.c.d) and NAT64-translated (64:ff9b::a.b.c.d)
+  // IPv6 addresses reach the same endpoint as the embedded IPv4 address,
+  // so classification must see through the embedding.
   #embeddedIPv4() {
-    return (this.#type === 'ipv6' && this.isIPv4Mapped()) ? this.toIPv4() : null;
+    if (this.#type !== 'ipv6') return null;
+    return (this.isIPv4Mapped() || this.isIPv4Translated()) ? this.toIPv4() : null;
   }
 
   // Type checking methods
@@ -172,8 +179,25 @@ class NetworkAddress {
     return this.belongsTo('255.255.255.255/32');
   }
 
+  isUnspecified() {
+    return !this.#binary.includes('1');
+  }
+
+  isReserved() {
+    const mapped = this.#embeddedIPv4();
+    if (mapped) return mapped.isReserved();
+    return this.belongsTo(SpecialNetworks.reserved(this.#type));
+  }
+
+  // Transition-mechanism addresses (NAT64, 6to4, Teredo). These route on the
+  // public internet, so they are deliberately NOT part of isSpecial().
+  isTransition() {
+    return this.belongsTo(SpecialNetworks.transition(this.#type));
+  }
+
   isSpecial() {
-    return this.isLoopback() || this.isLinkLocal() || this.isMulticast() || this.isBroadcast();
+    return this.isLoopback() || this.isLinkLocal() || this.isMulticast() ||
+           this.isBroadcast() || this.isReserved() || this.isUnspecified();
   }
 
   isIPv4Mapped() {
@@ -181,11 +205,16 @@ class NetworkAddress {
     return this.#binary.startsWith('0'.repeat(80) + '1'.repeat(16));
   }
 
+  isIPv4Translated() {
+    if (this.#type !== 'ipv6') return false;
+    return this.belongsTo('64:ff9b::/96');
+  }
+
   // Conversion methods
   toIPv4() {
     if (this.#type === 'ipv4') return this;
-    if (!this.isIPv4Mapped()) {
-      throw new Error('Cannot convert non-IPv4-mapped IPv6 to IPv4');
+    if (!this.isIPv4Mapped() && !this.isIPv4Translated()) {
+      throw new Error('Cannot convert IPv6 without an embedded IPv4 address to IPv4');
     }
     const ipv4Binary = this.#binary.slice(96);
     return new NetworkAddress(ipv4Binary, 'ipv4');
@@ -195,6 +224,39 @@ class NetworkAddress {
     if (this.#type === 'ipv6') return this;
     const mappedBinary = '0'.repeat(80) + '1'.repeat(16) + this.#binary;
     return new NetworkAddress(mappedBinary, 'ipv6');
+  }
+
+  toBigInt() {
+    return BigInt('0b' + this.#binary);
+  }
+
+  toReverseDNS() {
+    if (this.#type === 'ipv4') {
+      return this.toBytes().reverse().join('.') + '.in-addr.arpa';
+    }
+    const nibbles = [];
+    for (let i = 0; i < 128; i += 4) {
+      nibbles.push(parseInt(this.#binary.slice(i, i + 4), 2).toString(16));
+    }
+    return nibbles.reverse().join('.') + '.ip6.arpa';
+  }
+
+  // Address arithmetic
+  offset(n) {
+    const bits = this.#type === 'ipv4' ? 32 : 128;
+    const value = this.toBigInt() + BigInt(n);
+    if (value < 0n || value >= (1n << BigInt(bits))) {
+      throw new Error('Address arithmetic out of range');
+    }
+    return new NetworkAddress(value.toString(2).padStart(bits, '0'), this.#type);
+  }
+
+  next() {
+    return this.offset(1);
+  }
+
+  previous() {
+    return this.offset(-1);
   }
 
   // Comparison methods
@@ -270,16 +332,26 @@ class NetworkRange {
   static from(cidr) {
     const [addressStr, prefixStr] = NetworkParser.splitCIDR(cidr);
     const address = IP.address(addressStr);
-    const prefix = parseInt(prefixStr, 10);
-    
     const maxPrefix = address.type === 'ipv4' ? 32 : 128;
+
+    let prefix;
+    if (/^\d+$/.test(prefixStr)) {
+      prefix = parseInt(prefixStr, 10);
+    } else {
+      // Dotted netmask notation, e.g. "192.168.0.0/255.255.255.0".
+      if (address.type !== 'ipv4') {
+        throw new Error('Netmask notation is only supported for IPv4');
+      }
+      prefix = IP.maskToPrefix(prefixStr);
+    }
+
     if (prefix < 0 || prefix > maxPrefix) {
       throw new Error(`Invalid prefix length: ${prefix}`);
     }
 
     const networkBinary = address.binary.slice(0, prefix) + '0'.repeat(maxPrefix - prefix);
     const network = new NetworkAddress(networkBinary, address.type);
-    
+
     return new NetworkRange(network, prefix);
   }
 
@@ -304,19 +376,111 @@ class NetworkRange {
     return this.network;
   }
 
+  getLastAddress() {
+    const bits = this.type === 'ipv4' ? 32 : 128;
+    const lastBinary = this.network.binary.slice(0, this.prefixLength) +
+                       '1'.repeat(bits - this.prefixLength);
+    return new NetworkAddress(lastBinary, this.type);
+  }
+
   getBroadcastAddress() {
     if (this.type !== 'ipv4') {
       throw new Error('Broadcast address only applies to IPv4');
     }
-    
-    const broadcastBinary = this.network.binary.slice(0, this.prefixLength) + 
-                           '1'.repeat(32 - this.prefixLength);
-    return new NetworkAddress(broadcastBinary, 'ipv4');
+    return this.getLastAddress();
+  }
+
+  getNetmask() {
+    const bits = this.type === 'ipv4' ? 32 : 128;
+    const maskBinary = '1'.repeat(this.prefixLength) + '0'.repeat(bits - this.prefixLength);
+    return new NetworkAddress(maskBinary, this.type);
+  }
+
+  // IPv4 subnets reserve the network and broadcast addresses, except /31
+  // (RFC 3021 point-to-point) and /32. IPv6 has no broadcast address.
+  getFirstUsableHost() {
+    if (this.type === 'ipv4' && this.prefixLength < 31) {
+      return this.network.next();
+    }
+    return this.network;
+  }
+
+  getLastUsableHost() {
+    const last = this.getLastAddress();
+    if (this.type === 'ipv4' && this.prefixLength < 31) {
+      return last.previous();
+    }
+    return last;
   }
 
   getAddressCount() {
     const hostBits = (this.type === 'ipv4' ? 32 : 128) - this.prefixLength;
-    return Math.pow(2, hostBits);
+    return 1n << BigInt(hostBits);
+  }
+
+  *addresses() {
+    const start = this.network.toBigInt();
+    const count = this.getAddressCount();
+    const version = this.type === 'ipv4' ? 4 : 6;
+    for (let i = 0n; i < count; i++) {
+      yield IP.fromBigInt(start + i, version);
+    }
+  }
+
+  *hosts() {
+    const start = this.getFirstUsableHost().toBigInt();
+    const end = this.getLastUsableHost().toBigInt();
+    const version = this.type === 'ipv4' ? 4 : 6;
+    for (let value = start; value <= end; value++) {
+      yield IP.fromBigInt(value, version);
+    }
+  }
+
+  *subnets(newPrefix) {
+    const maxPrefix = this.type === 'ipv4' ? 32 : 128;
+    if (!Number.isInteger(newPrefix) || newPrefix <= this.prefixLength || newPrefix > maxPrefix) {
+      throw new Error(`New prefix must be between ${this.prefixLength + 1} and ${maxPrefix}`);
+    }
+    const count = 1n << BigInt(newPrefix - this.prefixLength);
+    const step = 1n << BigInt(maxPrefix - newPrefix);
+    const start = this.network.toBigInt();
+    const version = this.type === 'ipv4' ? 4 : 6;
+    for (let i = 0n; i < count; i++) {
+      yield new NetworkRange(IP.fromBigInt(start + i * step, version), newPrefix);
+    }
+  }
+
+  split(newPrefix) {
+    const count = 1n << BigInt(newPrefix - this.prefixLength);
+    if (count > 65536n) {
+      throw new Error('Refusing to materialize more than 65536 subnets; use subnets() to iterate');
+    }
+    return [...this.subnets(newPrefix)];
+  }
+
+  supernet(newPrefix = this.prefixLength - 1) {
+    if (!Number.isInteger(newPrefix) || newPrefix < 0 || newPrefix >= this.prefixLength) {
+      throw new Error(`Supernet prefix must be between 0 and ${this.prefixLength - 1}`);
+    }
+    const bits = this.type === 'ipv4' ? 32 : 128;
+    const networkBinary = this.network.binary.slice(0, newPrefix) + '0'.repeat(bits - newPrefix);
+    return new NetworkRange(new NetworkAddress(networkBinary, this.type), newPrefix);
+  }
+
+  overlaps(other) {
+    if (typeof other === 'string') {
+      other = NetworkRange.from(other);
+    }
+    if (other.type !== this.type) return false;
+    return this.contains(other.network) || other.contains(this.network);
+  }
+
+  containsRange(other) {
+    if (typeof other === 'string') {
+      other = NetworkRange.from(other);
+    }
+    if (other.type !== this.type) return false;
+    return this.prefixLength <= other.prefixLength && this.contains(other.network);
   }
 
   toString() {
@@ -328,7 +492,73 @@ class NetworkRange {
       network: this.network.toString(),
       prefixLength: this.prefixLength,
       type: this.type,
-      addressCount: this.getAddressCount()
+      // String because BigInt cannot be serialized by JSON.stringify and
+      // IPv6 counts exceed Number.MAX_SAFE_INTEGER.
+      addressCount: this.getAddressCount().toString()
+    };
+  }
+}
+
+// A contiguous inclusive range between two arbitrary addresses, e.g.
+// "192.168.1.10-192.168.1.20" — not restricted to CIDR boundaries.
+class AddressSpan {
+  constructor(start, end) {
+    start = IP.address(start);
+    end = IP.address(end);
+    if (start.type !== end.type) {
+      throw new Error('Span endpoints must be the same IP version');
+    }
+    if (start.compare(end) > 0) {
+      [start, end] = [end, start];
+    }
+    this.start = start;
+    this.end = end;
+    this.type = start.type;
+  }
+
+  static from(spec) {
+    if (spec instanceof AddressSpan) return spec;
+    const parts = String(spec).split('-');
+    if (parts.length !== 2) {
+      throw new Error('Invalid address span; expected "start-end"');
+    }
+    return new AddressSpan(parts[0].trim(), parts[1].trim());
+  }
+
+  contains(address) {
+    if (!(address instanceof NetworkAddress)) {
+      address = IP.address(address);
+    }
+    if (address.type !== this.type) return false;
+    return this.start.compare(address) <= 0 && this.end.compare(address) >= 0;
+  }
+
+  includes(address) {
+    return this.contains(address);
+  }
+
+  getAddressCount() {
+    return this.end.toBigInt() - this.start.toBigInt() + 1n;
+  }
+
+  *addresses() {
+    const end = this.end.toBigInt();
+    const version = this.type === 'ipv4' ? 4 : 6;
+    for (let value = this.start.toBigInt(); value <= end; value++) {
+      yield IP.fromBigInt(value, version);
+    }
+  }
+
+  toString() {
+    return `${this.start.toString()}-${this.end.toString()}`;
+  }
+
+  toJSON() {
+    return {
+      start: this.start.toString(),
+      end: this.end.toString(),
+      type: this.type,
+      addressCount: this.getAddressCount().toString()
     };
   }
 }
@@ -350,7 +580,8 @@ class NetworkParser {
   }
 
   static splitCIDR(cidr) {
-    const match = cidr.match(/^(.+)\/(\d+)$/);
+    // Prefix part is either a decimal prefix length or an IPv4 dotted netmask.
+    const match = cidr.match(/^(.+)\/([\d.]+)$/);
     if (!match) {
       throw new Error('Invalid CIDR format');
     }
@@ -378,7 +609,10 @@ class NetworkParser {
           break;
 
         case states.OCTET:
-          if (/\d/.test(char)) {
+          // Accept hex digits and the 0x marker so "0x7f.0.0.1" reaches
+          // #parseOctet, which strictly validates each radix form and
+          // rejects junk like "1a" or "0xzz".
+          if (/[0-9a-fx]/i.test(char)) {
             currentOctet += char;
           } else if (char === '.') {
             const octetValue = this.#parseOctet(currentOctet);
@@ -511,8 +745,9 @@ class PrivateNetworks {
     if (type === 'ipv4') {
       return [
         '10.0.0.0/8',
-        '172.16.0.0/12', 
+        '172.16.0.0/12',
         '192.168.0.0/16',
+        '100.64.0.0/10',
         '127.0.0.0/8'
       ];
     } else {
@@ -548,12 +783,29 @@ class SpecialNetworks {
   static reserved(type) {
     if (type === 'ipv4') {
       return [
+        '0.0.0.0/8',        // "this network" (RFC 6890)
         '192.0.0.0/24', '192.0.2.0/24', '192.88.99.0/24',
+        '198.18.0.0/15',    // benchmarking (RFC 2544)
         '198.51.100.0/24', '203.0.113.0/24', '240.0.0.0/4'
       ];
     } else {
-      return ['2001:db8::/32'];
+      return [
+        '100::/64',         // discard-only (RFC 6666)
+        '2001:db8::/32'
+      ];
     }
+  }
+
+  // Transition mechanisms; globally routable, so kept out of reserved().
+  static transition(type) {
+    if (type === 'ipv4') {
+      return [];
+    }
+    return [
+      '64:ff9b::/96',       // NAT64 well-known prefix (RFC 6052)
+      '2001::/32',          // Teredo (RFC 4380)
+      '2002::/16'           // 6to4 (RFC 3056)
+    ];
   }
 }
 
@@ -566,6 +818,43 @@ class IP {
 
   static network(cidr) {
     return NetworkRange.from(cidr);
+  }
+
+  static span(spec) {
+    return AddressSpan.from(spec);
+  }
+
+  static fromBigInt(value, version = 4) {
+    if (version !== 4 && version !== 6) {
+      throw new Error('Version must be 4 or 6');
+    }
+    const bits = version === 4 ? 32 : 128;
+    value = BigInt(value);
+    if (value < 0n || value >= (1n << BigInt(bits))) {
+      throw new Error(`Value out of range for IPv${version}`);
+    }
+    return new NetworkAddress(value.toString(2).padStart(bits, '0'),
+                              version === 4 ? 'ipv4' : 'ipv6');
+  }
+
+  static maskToPrefix(mask) {
+    const address = this.address(mask);
+    if (address.type !== 'ipv4') {
+      throw new Error('Netmasks are only supported for IPv4');
+    }
+    if (!/^1*0*$/.test(address.binary)) {
+      throw new Error(`Invalid netmask: ${mask}`);
+    }
+    return (address.binary.match(/1/g) || []).length;
+  }
+
+  static prefixToMask(prefix, version = 4) {
+    const bits = version === 6 ? 128 : 32;
+    if (!Number.isInteger(prefix) || prefix < 0 || prefix > bits) {
+      throw new Error(`Invalid prefix length: ${prefix}`);
+    }
+    const binary = '1'.repeat(prefix) + '0'.repeat(bits - prefix);
+    return new NetworkAddress(binary, version === 6 ? 'ipv6' : 'ipv4');
   }
 
   static fromBytes(bytes) {
@@ -631,13 +920,25 @@ class IP {
   static isMulticast(input) {
     return this.address(input).isMulticast();
   }
+
+  static isUnspecified(input) {
+    return this.address(input).isUnspecified();
+  }
+
+  static isReserved(input) {
+    return this.address(input).isReserved();
+  }
+
+  static isSpecial(input) {
+    return this.address(input).isSpecial();
+  }
 }
 
 // Export for different environments
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { IP, NetworkAddress, NetworkRange, PrivateNetworks, SpecialNetworks };
+  module.exports = { IP, NetworkAddress, NetworkRange, AddressSpan, PrivateNetworks, SpecialNetworks };
 } else if (typeof window !== 'undefined') {
-  Object.assign(window, { IP, NetworkAddress, NetworkRange, PrivateNetworks, SpecialNetworks });
+  Object.assign(window, { IP, NetworkAddress, NetworkRange, AddressSpan, PrivateNetworks, SpecialNetworks });
 }
 
 /**
