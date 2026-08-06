@@ -165,19 +165,13 @@ function checkLocalURL(url) {
     }
 
     try {
-        // Use modern IP library for comprehensive local network detection
+        // isPrivate() covers RFC 1918, carrier-grade NAT, IPv6 ULA and
+        // loopback; isSpecial() covers link-local, multicast, broadcast,
+        // reserved ranges (incl. 0.0.0.0/8) and the unspecified address —
+        // both see through IPv4-mapped/NAT64 IPv6 embeddings.
         const address = IP.address(host);
-        
-        // Check against all local/private network ranges
-        return address.belongsTo([
-            "10.0.0.0/8",        // Class A private
-            "172.16.0.0/12",     // Class B private
-            "192.168.0.0/16",    // Class C private
-            "100.64.0.0/10",     // Carrier-grade NAT
-            "169.254.0.0/16",    // Link-local
-            "127.0.0.0/8"        // Loopback (entire range)
-        ]) || address.isLoopback() || address.isLinkLocal();
-        
+        return address.isPrivate() || address.isSpecial();
+
     } catch (error) {
         // Fallback: if IP parsing fails, check hostname patterns
         console.warn('[ClearURLs] IP parsing failed for host:', host, error);
