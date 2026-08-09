@@ -79,6 +79,12 @@ img[aria-hidden="true"] {
     forced-color-adjust: auto;
 }
 
+html.linkumori-theme-switching *,
+html.linkumori-theme-switching *::before,
+html.linkumori-theme-switching *::after {
+    transition: none !important;
+}
+
 :root.linkumori-a11y-high-contrast {
     --bg-primary: #000000;
     --bg-secondary: #0b0b0b;
