@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.39.0] - 2026-08-09 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.38.2...linkumori-v100.39.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-08-09`, hash: [`cc7b34e`](https://github.com/Linkumori/Linkumori-Addon/commit/cc7b34e))
+
 ## [v100.38.2] - 2026-08-06 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.38.1...linkumori-v100.38.2))
 ### Changed
 - Extend IP-Ranger: fix classification gaps and add network utilities (`2026-08-06`, hash: [`0aff808`](https://github.com/Linkumori/Linkumori-Addon/commit/0aff808))
