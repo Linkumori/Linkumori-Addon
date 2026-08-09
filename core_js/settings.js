@@ -115,6 +115,52 @@ const themeSelectionState = {
     pendingLight: 'light',
     pendingDark: DEFAULT_THEME
 };
+
+function getThemeCategory(theme) {
+    const normalizedTheme = normalizeTheme(theme || DEFAULT_THEME);
+    return LIGHT_THEME_OPTIONS.has(normalizedTheme) ? 'light' : 'dark';
+}
+
+function normalizePreferredTheme(theme, category) {
+    const normalizedTheme = normalizeTheme(theme || (category === 'light' ? 'light' : DEFAULT_THEME));
+
+    if (category === 'light') {
+        return LIGHT_THEME_OPTIONS.has(normalizedTheme) ? normalizedTheme : 'light';
+    }
+
+    return DARK_THEME_OPTIONS.has(normalizedTheme) ? normalizedTheme : DEFAULT_THEME;
+}
+
+function updateThemeCardState(currentTheme) {
+    const normalizedCurrentTheme = normalizeTheme(currentTheme || DEFAULT_THEME);
+    themeSelectionState.currentTheme = normalizedCurrentTheme;
+    themeSelectionState.currentMode = getThemeCategory(normalizedCurrentTheme);
+    const themeCards = document.querySelectorAll('.theme-card');
+
+    if (themeCards.length === 0) {
+        return;
+    }
+
+    themeCards.forEach(card => {
+        const cardTheme = normalizeTheme(card.dataset.theme);
+        const isSelectedTheme = (
+            cardTheme === themeSelectionState.pendingLight ||
+            cardTheme === themeSelectionState.pendingDark
+        );
+        card.classList.toggle('active', isSelectedTheme);
+        card.classList.toggle('active-light', cardTheme === themeSelectionState.pendingLight);
+        card.classList.toggle('active-dark', cardTheme === themeSelectionState.pendingDark);
+        card.setAttribute('aria-checked', isSelectedTheme ? 'true' : 'false');
+        card.setAttribute('tabindex', isSelectedTheme ? '0' : '-1');
+    });
+}
+
+function applyThemeToUI(theme) {
+    const normalizedTheme = normalizeTheme(theme || DEFAULT_THEME);
+    syncBootstrapTheme(normalizedTheme);
+    updateThemeCardState(normalizedTheme);
+}
+
 const SWITCH_ACCESSIBILITY = {
     domainBlocking: {
         labelId: 'domain_blocking_enabled',
@@ -1973,43 +2019,6 @@ function refreshColorDisplay() {
 function initializeTheme() {
     try {
         const themeToggle = document.getElementById('themeToggle');
-        const getThemeCategory = (theme) => {
-            const normalizedTheme = normalizeTheme(theme || DEFAULT_THEME);
-            return LIGHT_THEME_OPTIONS.has(normalizedTheme) ? 'light' : 'dark';
-        };
-        const normalizePreferredTheme = (theme, category) => {
-            const normalizedTheme = normalizeTheme(theme || (category === 'light' ? 'light' : DEFAULT_THEME));
-            if (category === 'light') {
-                return LIGHT_THEME_OPTIONS.has(normalizedTheme) ? normalizedTheme : 'light';
-            }
-            return DARK_THEME_OPTIONS.has(normalizedTheme) ? normalizedTheme : DEFAULT_THEME;
-        };
-        const updateThemeCardState = (currentTheme) => {
-            const normalizedCurrentTheme = normalizeTheme(currentTheme || DEFAULT_THEME);
-            themeSelectionState.currentTheme = normalizedCurrentTheme;
-            themeSelectionState.currentMode = getThemeCategory(normalizedCurrentTheme);
-            const themeCards = document.querySelectorAll('.theme-card');
-            if (themeCards.length === 0) return;
-
-            themeCards.forEach(card => {
-                const cardTheme = normalizeTheme(card.dataset.theme);
-                const isSelectedTheme = (
-                    cardTheme === themeSelectionState.pendingLight ||
-                    cardTheme === themeSelectionState.pendingDark
-                );
-                card.classList.toggle('active', isSelectedTheme);
-                card.classList.toggle('active-light', cardTheme === themeSelectionState.pendingLight);
-                card.classList.toggle('active-dark', cardTheme === themeSelectionState.pendingDark);
-                card.setAttribute('aria-checked', isSelectedTheme ? 'true' : 'false');
-                card.setAttribute('tabindex', isSelectedTheme ? '0' : '-1');
-            });
-        };
-        const applyThemeToUI = (theme) => {
-            const normalizedTheme = normalizeTheme(theme || DEFAULT_THEME);
-            document.documentElement.setAttribute('data-theme', normalizedTheme);
-            syncBootstrapTheme(normalizedTheme);
-            updateThemeCardState(normalizedTheme);
-        };
 
         applyThemeToUI(document.documentElement.getAttribute('data-theme') || DEFAULT_THEME);
 

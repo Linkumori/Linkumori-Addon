@@ -63,9 +63,13 @@
     const LAST_DARK_THEME_STORAGE_KEY = 'linkumori-last-dark-theme';
     const LIGHT_THEME_STORAGE_KEY = 'linkumori-light-mode-theme';
     const DARK_THEME_STORAGE_KEY = 'linkumori-dark-mode-theme';
+    const ACCESSIBILITY_STORAGE_KEY = 'linkumori_accessibility_tools_v1';
     const DEFAULT_THEME = 'dark';
     const SUPPORTED_THEMES = new Set(['light', 'midnight', 'dark', 'icecold', 'sunset', 'legacy']);
     const LIGHT_THEME_OPTIONS = new Set(['light', 'icecold', 'sunset']);
+    let themeSwitchFrame = 0;
+    let themeSwitchTimer = 0;
+
     const normalizeTheme = (theme) => {
         const candidate = String(theme || '').toLowerCase();
         return SUPPORTED_THEMES.has(candidate) ? candidate : DEFAULT_THEME;
@@ -82,9 +86,113 @@
         try {
             localStorage.setItem(THEME_STORAGE_KEY, normalizedTheme);
         } catch (_) {}
+        setThemeAttribute(normalizedTheme);
+    };
+
+    const setThemeAttribute = (theme) => {
+        const normalizedTheme = normalizeTheme(theme);
+
         try {
-            document.documentElement.setAttribute('data-theme', normalizedTheme);
+            if (document.documentElement.getAttribute('data-theme') !== normalizedTheme) {
+                beginThemeSwitch();
+                document.documentElement.setAttribute('data-theme', normalizedTheme);
+            }
         } catch (_) {}
+
+        return normalizedTheme;
+    };
+
+    const beginThemeSwitch = () => {
+        if (!hasActiveAccessibilityState()) {
+            return;
+        }
+
+        try {
+            document.documentElement.classList.add('linkumori-theme-switching');
+        } catch (_) {
+            return;
+        }
+
+        if (themeSwitchFrame && typeof cancelAnimationFrame === 'function') {
+            cancelAnimationFrame(themeSwitchFrame);
+        }
+
+        if (themeSwitchTimer) {
+            clearTimeout(themeSwitchTimer);
+            themeSwitchTimer = 0;
+        }
+
+        const clearThemeSwitching = () => {
+            themeSwitchTimer = setTimeout(() => {
+                try {
+                    document.documentElement.classList.remove('linkumori-theme-switching');
+                } catch (_) {}
+                themeSwitchTimer = 0;
+            }, 80);
+        };
+
+        if (typeof requestAnimationFrame === 'function') {
+            themeSwitchFrame = requestAnimationFrame(() => {
+                themeSwitchFrame = requestAnimationFrame(clearThemeSwitching);
+            });
+            return;
+        }
+
+        clearThemeSwitching();
+    };
+
+    const hasActiveAccessibilityState = () => {
+        try {
+            const classLists = [
+                document.documentElement && document.documentElement.classList,
+                document.body && document.body.classList
+            ];
+
+            for (const classList of classLists) {
+                if (!classList) continue;
+
+                for (const className of classList) {
+                    if (className.indexOf('linkumori-a11y-') === 0) {
+                        return true;
+                    }
+                }
+            }
+        } catch (_) {}
+
+        try {
+            const rawState = localStorage.getItem(ACCESSIBILITY_STORAGE_KEY);
+
+            if (!rawState) {
+                return false;
+            }
+
+            const state = JSON.parse(rawState);
+
+            if (!state || typeof state !== 'object') {
+                return false;
+            }
+
+            return (
+                state.contrast && state.contrast !== 'normal' ||
+                state.highlightLinks === true ||
+                state.invert === true ||
+                state.saturation && state.saturation !== 'default' ||
+                Number(state.fontLevel) !== 0 ||
+                state.textSpacing && state.textSpacing !== 'default' ||
+                state.lineHeight && state.lineHeight !== 'default' ||
+                state.hideImages === true ||
+                state.bigCursor === true ||
+                state.biggerCursor === true ||
+                state.pauseAnimations === true ||
+                state.dyslexiaFont === true ||
+                state.fontFamily && state.fontFamily !== 'default' ||
+                state.fontSelection && state.fontSelection !== 'default' ||
+                state.colorFilter && state.colorFilter !== 'default' ||
+                state.textAlign && state.textAlign !== 'default'
+            );
+        } catch (_) {
+            return false;
+        }
     };
     const isLightTheme = (theme) => LIGHT_THEME_OPTIONS.has(normalizeTheme(theme));
     const sanitizeThemePreferences = (source = {}) => {
@@ -120,16 +228,17 @@
         sanitizeThemePreferences,
         buildThemeTogglePayload,
         readBootstrapTheme,
-        syncBootstrapTheme
+        syncBootstrapTheme,
+        setThemeAttribute
     };
 
     try {
         if (!document.documentElement.hasAttribute('data-theme')) {
-            document.documentElement.setAttribute('data-theme', readBootstrapTheme());
+            setThemeAttribute(readBootstrapTheme());
         }
     } catch (_) {
         if (!document.documentElement.hasAttribute('data-theme')) {
-            document.documentElement.setAttribute('data-theme', DEFAULT_THEME);
+            setThemeAttribute(DEFAULT_THEME);
         }
     }
 })();
