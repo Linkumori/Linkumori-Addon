@@ -25,6 +25,7 @@
  * page-specific themes without replacing their visual design.
  * 2026-07-26   Subham Mahesh   Second modification
  * Added a shared skip-link pattern (2.4.1 Bypass Blocks) used by every page.
+ * 2026-08-09   Subham Mahesh   Added shared accessibility tools.
  */
 
 .skip-link {
@@ -76,6 +77,444 @@ button:disabled,
 svg[aria-hidden="true"],
 img[aria-hidden="true"] {
     forced-color-adjust: auto;
+}
+
+:root.linkumori-a11y-high-contrast {
+    --bg-primary: #000000;
+    --bg-secondary: #0b0b0b;
+    --bg-tertiary: #161616;
+    --bg-quaternary: #262626;
+    --bg-primary-theme: #000000;
+    --button-primary: #ffea00;
+    --button-hover: #fff176;
+    --button-danger: #ff4d4d;
+    --button-danger-hover: #ff7777;
+    --button-success: #00d45a;
+    --button-success-hover: #2bff84;
+    --button-secondary: #ffffff;
+    --button-secondary-hover: #d9d9d9;
+    --button-text: #000000;
+    --text-primary: #ffffff;
+    --text-primary-domain: #ffffff;
+    --text-secondary: #f5f5f5;
+    --text-muted: #e6e6e6;
+    --border-color: #ffffff;
+    --shadow-color: rgba(255, 255, 255, 0.32);
+    --input-bg: #000000;
+    --input-border: #ffffff;
+    --input-focus: #ffea00;
+    --toggle-bg: #2f2f2f;
+    --toggle-active: #ffea00;
+    --logo-bg: #ffffff;
+    --logo-accent: #000000;
+    --nav-bg: #000000;
+    --nav-item-hover: #262626;
+    --nav-item-active: #ffea00;
+    --nav-border: #ffffff;
+    --nav-text: #ffffff;
+    --nav-text-active: #000000;
+    --link-color: #00e5ff;
+    --link-color-hover: #ffea00;
+    color-scheme: dark;
+}
+
+body.linkumori-a11y-high-contrast {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.linkumori-a11y-high-contrast > :not(#linkumoriA11yTools) :is(a, button, input, select, textarea) {
+    border-color: #ffffff !important;
+}
+
+body.linkumori-a11y-high-contrast > :not(#linkumoriA11yTools) a {
+    color: #00e5ff !important;
+}
+
+body.linkumori-a11y-highlight-links > :not(#linkumoriA11yTools) a {
+    background: #ffea00 !important;
+    color: #000000 !important;
+    outline: 2px solid #000000 !important;
+    outline-offset: 2px !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px !important;
+}
+
+body.linkumori-a11y-filtered > :not(#linkumoriA11yTools) {
+    filter: var(--linkumori-a11y-page-filter, none);
+}
+
+body.linkumori-a11y-font-xsmall {
+    font-size: 85% !important;
+}
+
+body.linkumori-a11y-font-small {
+    font-size: 92.5% !important;
+}
+
+body.linkumori-a11y-font-large {
+    font-size: 112.5% !important;
+}
+
+body.linkumori-a11y-font-xlarge {
+    font-size: 125% !important;
+}
+
+body.linkumori-a11y-font-xxlarge {
+    font-size: 137.5% !important;
+}
+
+body.linkumori-a11y-text-spacing > :not(#linkumoriA11yTools) {
+    letter-spacing: 0.08em !important;
+    word-spacing: 0.16em !important;
+}
+
+body.linkumori-a11y-text-spacing > :not(#linkumoriA11yTools) * {
+    letter-spacing: inherit !important;
+    word-spacing: inherit !important;
+}
+
+body.linkumori-a11y-line-height > :not(#linkumoriA11yTools),
+body.linkumori-a11y-line-height > :not(#linkumoriA11yTools) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6) {
+    line-height: 1.8 !important;
+}
+
+body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools) {
+    line-height: 1.45 !important;
+}
+
+body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools) :is(button, [role="button"], [role="switch"], .nav-item, .btn-small, .btn-full-primary, #singledynamicwhitelistunwhitelistbutton) {
+    line-height: 1.25 !important;
+}
+
+body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools) :is(.toggle-label, .pause-title, .pause-status, .stat-label, .version-info, #license_description, .license-link, .popup-consent-description) {
+    line-height: 1.45 !important;
+}
+
+body.linkumori-a11y-hide-images > :not(#linkumoriA11yTools) * {
+    background-image: none !important;
+}
+
+body.linkumori-a11y-hide-images > :not(#linkumoriA11yTools) :is(img, picture, video, canvas, svg) {
+    visibility: hidden !important;
+}
+
+body.linkumori-a11y-big-cursor,
+body.linkumori-a11y-big-cursor > :not(#linkumoriA11yTools),
+body.linkumori-a11y-big-cursor > :not(#linkumoriA11yTools) * {
+    cursor: none !important;
+}
+
+#linkumoriA11yTools,
+#linkumoriA11yTools * {
+    box-sizing: border-box;
+}
+
+#linkumoriA11yTools {
+    color: #111827;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 1.4;
+}
+
+#linkumoriA11yTools button {
+    appearance: none;
+    font: inherit;
+}
+
+.linkumori-a11y-inline-trigger {
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    color: var(--text-secondary, #475569);
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    height: 24px;
+    justify-content: center;
+    margin-left: 8px;
+    padding: 4px;
+    position: relative;
+    transition: background-color 0.16s ease, color 0.16s ease;
+    width: 24px;
+    z-index: 10001;
+}
+
+.linkumori-a11y-inline-trigger:hover {
+    background: var(--bg-tertiary, rgba(148, 163, 184, 0.18));
+    color: var(--text-primary, #111827);
+}
+
+.linkumori-a11y-inline-trigger .linkumori-a11y-icon {
+    height: 14px;
+    pointer-events: none;
+    width: 14px;
+}
+
+.header > .linkumori-a11y-inline-trigger,
+header > .linkumori-a11y-inline-trigger {
+    margin-left: auto;
+    margin-right: 8px;
+}
+
+.header-actions > .linkumori-a11y-inline-trigger,
+.header-buttons > .linkumori-a11y-inline-trigger {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#main-content > .linkumori-a11y-inline-trigger {
+    float: right;
+    margin: 0 0 12px 12px;
+}
+
+.linkumori-a11y-backdrop {
+    background: rgba(15, 23, 42, 0.38);
+    inset: 0;
+    position: fixed;
+    z-index: 2147483001;
+}
+
+.linkumori-a11y-modal {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+    color: #111827;
+    left: 50%;
+    max-height: calc(100vh - 32px);
+    overflow: auto;
+    padding: 24px;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(560px, calc(100vw - 24px));
+    z-index: 2147483002;
+}
+
+.linkumori-a11y-modal-header {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 18px;
+    min-height: 32px;
+    position: relative;
+}
+
+.linkumori-a11y-modal-header h2 {
+    color: #111827;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+    text-align: center;
+}
+
+.linkumori-a11y-close {
+    align-items: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: #111827;
+    cursor: pointer;
+    display: inline-flex;
+    height: 32px;
+    justify-content: center;
+    padding: 0;
+    position: absolute;
+    right: -8px;
+    top: -5px;
+    width: 32px;
+}
+
+.linkumori-a11y-close:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.linkumori-a11y-modal-body {
+    display: grid;
+    gap: 22px;
+}
+
+.linkumori-a11y-group h3 {
+    color: #111827;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.linkumori-a11y-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.linkumori-a11y-tool {
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #c9cdd3;
+    border-radius: 6px;
+    color: #111827;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    min-height: 100px;
+    padding: 12px 10px;
+    position: relative;
+    text-align: center;
+    transition: background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.linkumori-a11y-tool:hover {
+    border-color: #9ca3af;
+    box-shadow: 0 8px 18px rgba(17, 24, 39, 0.12);
+}
+
+.linkumori-a11y-tool[aria-pressed="true"] {
+    background: #e5e5e5;
+    border-color: #9ca3af;
+    box-shadow: inset 0 0 0 1px #c4c4c4;
+}
+
+.linkumori-a11y-tool[aria-pressed="true"]::after {
+    background: #07881e;
+    border-radius: 999px;
+    content: "";
+    height: 21px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 21px;
+}
+
+.linkumori-a11y-tool[aria-pressed="true"]::before {
+    border-bottom: 3px solid #ffffff;
+    border-right: 3px solid #ffffff;
+    content: "";
+    height: 9px;
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    transform: rotate(45deg);
+    width: 5px;
+    z-index: 1;
+}
+
+.linkumori-a11y-tool-visual {
+    align-items: center;
+    color: #000000;
+    display: inline-flex;
+    justify-content: center;
+    min-height: 36px;
+}
+
+.linkumori-a11y-icon {
+    fill: none;
+    height: 36px;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.2;
+    width: 36px;
+}
+
+.linkumori-a11y-text-icon {
+    color: #000000;
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.linkumori-a11y-tool-label {
+    color: #111827;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.linkumori-a11y-visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.linkumori-a11y-cursor {
+    color: #ffffff;
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.6));
+    height: 38px;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 38px;
+    z-index: 2147483003;
+}
+
+.linkumori-a11y-cursor svg {
+    fill: #111827;
+    stroke: #ffffff;
+    stroke-linejoin: round;
+    stroke-width: 3;
+}
+
+#linkumoriA11yTools [hidden] {
+    display: none !important;
+}
+
+body.linkumori-a11y-big-cursor #linkumoriA11yTools,
+body.linkumori-a11y-big-cursor #linkumoriA11yTools * {
+    cursor: none !important;
+}
+
+body.linkumori-a11y-big-cursor [data-linkumori-a11y-trigger] {
+    cursor: none !important;
+}
+
+html.linkumori-a11y-big-cursor,
+html.linkumori-a11y-big-cursor *,
+html.linkumori-a11y-big-cursor *::before,
+html.linkumori-a11y-big-cursor *::after {
+    cursor: none !important;
+}
+
+@media (max-width: 520px) {
+    .linkumori-a11y-modal {
+        max-height: calc(100vh - 20px);
+        padding: 18px;
+        width: calc(100vw - 20px);
+    }
+
+    .linkumori-a11y-modal-header h2 {
+        font-size: 20px;
+    }
+
+    .linkumori-a11y-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .linkumori-a11y-tool {
+        min-height: 90px;
+        padding: 10px 8px;
+    }
+
+    .linkumori-a11y-tool-label {
+        font-size: 14px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

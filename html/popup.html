@@ -614,6 +614,14 @@
             display: none;
         }
 
+        #main-content {
+            display: flex;
+            flex: 1 1 auto;
+            flex-direction: column;
+            min-height: 0;
+            overflow: hidden;
+        }
+
         #mainContent {
             display: flex;
             flex-direction: column;
@@ -1152,7 +1160,7 @@
     </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
-<body class="consent-locked">
+<body class="consent-locked linkumori-popup-page">
     <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
     <div class="header">
         <div class="header-content">
@@ -1184,6 +1192,7 @@
                 <img src="../LinkumorI_HTML_SVG/bug-material-icon-dark.svg" alt="" class="bug-icon-dark" aria-hidden="true">
                 <img src="../LinkumorI_HTML_SVG/bug-material-icon-light.svg" alt="" class="bug-icon-light" aria-hidden="true">
             </button>
+            <button type="button" id="linkumoriA11yTrigger" class="tools-icon-btn linkumori-a11y-inline-trigger" data-linkumori-a11y-trigger aria-label="Accessibility Tools" title="Accessibility Tools"></button>
             <button type="button" id="themeToggle" class="theme-toggle-btn" aria-label="" title="">
                 <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" class="sun-icon" aria-hidden="true">
                 <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" class="moon-icon" aria-hidden="true">
@@ -1324,6 +1333,7 @@
 <script src="../external_js/IP-Ranger.js"></script>
 <script src="../external_js/linkumori-i18n.js"></script>
 <script src="../core_js/popup.js"></script>
+<script src="../core_js/accessibility_tools.js"></script>
 <script src="../core_js/write_version.js"></script>
 </body>
 </html>
