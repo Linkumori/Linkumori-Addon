@@ -131,6 +131,21 @@ body.linkumori-a11y-high-contrast > :not(#linkumoriA11yTools) a {
     color: #00e5ff !important;
 }
 
+body.linkumori-a11y-contrast-ultra {
+    background: #000000 !important;
+    color: #ffff00 !important;
+}
+
+body.linkumori-a11y-contrast-ultra > :not(#linkumoriA11yTools),
+body.linkumori-a11y-contrast-ultra > :not(#linkumoriA11yTools) * {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+}
+
+body.linkumori-a11y-contrast-ultra > :not(#linkumoriA11yTools) :is(a, button, input, select, textarea) {
+    border-color: #ffff00 !important;
+}
+
 body.linkumori-a11y-highlight-links > :not(#linkumoriA11yTools) a {
     background: #ffea00 !important;
     color: #000000 !important;
@@ -174,9 +189,39 @@ body.linkumori-a11y-text-spacing > :not(#linkumoriA11yTools) * {
     word-spacing: inherit !important;
 }
 
+body.linkumori-a11y-text-spacing-light > :not(#linkumoriA11yTools) {
+    letter-spacing: 0.05em !important;
+    word-spacing: 0.12em !important;
+}
+
+body.linkumori-a11y-text-spacing-medium > :not(#linkumoriA11yTools) {
+    letter-spacing: 0.09em !important;
+    word-spacing: 0.2em !important;
+}
+
+body.linkumori-a11y-text-spacing-heavy > :not(#linkumoriA11yTools) {
+    letter-spacing: 0.14em !important;
+    word-spacing: 0.32em !important;
+}
+
 body.linkumori-a11y-line-height > :not(#linkumoriA11yTools),
 body.linkumori-a11y-line-height > :not(#linkumoriA11yTools) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6) {
     line-height: 1.8 !important;
+}
+
+body.linkumori-a11y-line-height-2em > :not(#linkumoriA11yTools),
+body.linkumori-a11y-line-height-2em > :not(#linkumoriA11yTools) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6) {
+    line-height: 2 !important;
+}
+
+body.linkumori-a11y-line-height-3em > :not(#linkumoriA11yTools),
+body.linkumori-a11y-line-height-3em > :not(#linkumoriA11yTools) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6) {
+    line-height: 3 !important;
+}
+
+body.linkumori-a11y-line-height-4em > :not(#linkumoriA11yTools),
+body.linkumori-a11y-line-height-4em > :not(#linkumoriA11yTools) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6) {
+    line-height: 4 !important;
 }
 
 body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools) {
@@ -197,6 +242,58 @@ body.linkumori-a11y-hide-images > :not(#linkumoriA11yTools) * {
 
 body.linkumori-a11y-hide-images > :not(#linkumoriA11yTools) :is(img, picture, video, canvas, svg) {
     visibility: hidden !important;
+}
+
+body.linkumori-a11y-hide-images > :not(#linkumoriA11yTools) [data-linkumori-a11y-trigger],
+body.linkumori-a11y-hide-images > :not(#linkumoriA11yTools) [data-linkumori-a11y-trigger] *,
+body.linkumori-a11y-hide-images [data-linkumori-a11y-trigger],
+body.linkumori-a11y-hide-images [data-linkumori-a11y-trigger] :is(img, svg) {
+    visibility: visible !important;
+}
+
+body.linkumori-a11y-pause-animations > :not(#linkumoriA11yTools),
+body.linkumori-a11y-pause-animations > :not(#linkumoriA11yTools) *,
+body.linkumori-a11y-pause-animations > :not(#linkumoriA11yTools) *::before,
+body.linkumori-a11y-pause-animations > :not(#linkumoriA11yTools) *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+}
+
+body.linkumori-a11y-dyslexia-font > :not(#linkumoriA11yTools),
+body.linkumori-a11y-dyslexia-font > :not(#linkumoriA11yTools) * {
+    font-family: Verdana, Arial, Tahoma, sans-serif !important;
+    letter-spacing: 0.03em;
+}
+
+body.linkumori-a11y-font-arial > :not(#linkumoriA11yTools),
+body.linkumori-a11y-font-arial > :not(#linkumoriA11yTools) * {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+body.linkumori-a11y-font-times > :not(#linkumoriA11yTools),
+body.linkumori-a11y-font-times > :not(#linkumoriA11yTools) * {
+    font-family: "Times New Roman", Times, serif !important;
+}
+
+body.linkumori-a11y-font-verdana > :not(#linkumoriA11yTools),
+body.linkumori-a11y-font-verdana > :not(#linkumoriA11yTools) * {
+    font-family: Verdana, Geneva, sans-serif !important;
+}
+
+body.linkumori-a11y-text-align-left > :not(#linkumoriA11yTools),
+body.linkumori-a11y-text-align-left > :not(#linkumoriA11yTools) * {
+    text-align: left !important;
+}
+
+body.linkumori-a11y-text-align-center > :not(#linkumoriA11yTools),
+body.linkumori-a11y-text-align-center > :not(#linkumoriA11yTools) * {
+    text-align: center !important;
+}
+
+body.linkumori-a11y-text-align-right > :not(#linkumoriA11yTools),
+body.linkumori-a11y-text-align-right > :not(#linkumoriA11yTools) * {
+    text-align: right !important;
 }
 
 body.linkumori-a11y-big-cursor,
@@ -221,6 +318,13 @@ body.linkumori-a11y-big-cursor > :not(#linkumoriA11yTools) * {
 #linkumoriA11yTools button {
     appearance: none;
     font: inherit;
+}
+
+.linkumori-a11y-filter-defs {
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0;
 }
 
 .linkumori-a11y-inline-trigger {
@@ -290,7 +394,7 @@ header > .linkumori-a11y-inline-trigger {
     position: fixed;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: min(560px, calc(100vw - 24px));
+    width: min(640px, calc(100vw - 24px));
     z-index: 2147483002;
 }
 
@@ -313,7 +417,8 @@ header > .linkumori-a11y-inline-trigger {
     text-align: center;
 }
 
-.linkumori-a11y-close {
+.linkumori-a11y-close,
+.linkumori-a11y-reset {
     align-items: center;
     background: transparent;
     border: 1px solid transparent;
@@ -330,7 +435,13 @@ header > .linkumori-a11y-inline-trigger {
     width: 32px;
 }
 
-.linkumori-a11y-close:hover {
+.linkumori-a11y-reset {
+    left: -8px;
+    right: auto;
+}
+
+.linkumori-a11y-close:hover,
+.linkumori-a11y-reset:hover {
     background: #f3f4f6;
     border-color: #d1d5db;
 }
@@ -362,18 +473,23 @@ header > .linkumori-a11y-inline-trigger {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 7px;
     justify-content: center;
-    min-height: 100px;
+    min-height: 118px;
     padding: 12px 10px;
     position: relative;
     text-align: center;
     transition: background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
 }
 
-.linkumori-a11y-tool:hover {
+.linkumori-a11y-tool:hover:not(:disabled) {
     border-color: #9ca3af;
     box-shadow: 0 8px 18px rgba(17, 24, 39, 0.12);
+}
+
+.linkumori-a11y-tool:disabled {
+    cursor: not-allowed;
+    opacity: 0.52;
 }
 
 .linkumori-a11y-tool[aria-pressed="true"] {
@@ -439,6 +555,36 @@ header > .linkumori-a11y-inline-trigger {
     font-weight: 600;
     line-height: 1.25;
     overflow-wrap: anywhere;
+}
+
+.linkumori-a11y-tool-status {
+    color: #4b5563;
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    min-height: 15px;
+    overflow-wrap: anywhere;
+}
+
+.linkumori-a11y-steps {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    min-height: 5px;
+    width: 100%;
+}
+
+.linkumori-a11y-step {
+    background: #d1d5db;
+    border-radius: 999px;
+    display: block;
+    height: 5px;
+    width: 18px;
+}
+
+.linkumori-a11y-step.active {
+    background: #07881e;
 }
 
 .linkumori-a11y-visually-hidden {
@@ -508,12 +654,20 @@ html.linkumori-a11y-big-cursor *::after {
     }
 
     .linkumori-a11y-tool {
-        min-height: 90px;
+        min-height: 108px;
         padding: 10px 8px;
     }
 
     .linkumori-a11y-tool-label {
         font-size: 14px;
+    }
+
+    .linkumori-a11y-tool-status {
+        font-size: 11px;
+    }
+
+    .linkumori-a11y-step {
+        width: 15px;
     }
 }
 
