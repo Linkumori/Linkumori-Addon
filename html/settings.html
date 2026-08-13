@@ -118,8 +118,33 @@
     <link rel="stylesheet" href="../css/settings.css">
     <link rel="stylesheet" href="../css/linkumori-pickr.min.css">
     <link rel="stylesheet" href="../css/wcag-aa.css">
+    <style>
+        /* Skip link must stay off-screen even if wcag-aa.css fails to load */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 8px;
+            z-index: 10000;
+            padding: 8px 16px;
+            background: var(--button-primary, #2563eb);
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .skip-link:focus:not(:focus-visible) {
+            top: -40px;
+        }
+
+        .skip-link:focus-visible {
+            top: 8px;
+        }
+    </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
     <!--
     Header Content Design and Implementation
     Copyright (c) 2025 Subham Mahesh

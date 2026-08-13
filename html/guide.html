@@ -369,10 +369,35 @@ li { margin-bottom:.2em; }
         padding:2rem 1.25rem;
     }
 }
+
+/* Skip link must stay off-screen even if wcag-aa.css fails to load */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    z-index: 10000;
+    padding: 8px 16px;
+    background: var(--button-primary, #2563eb);
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.skip-link:focus:not(:focus-visible) {
+    top: -40px;
+}
+
+.skip-link:focus-visible {
+    top: 8px;
+}
 </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 <body>
+
+<a href="#main-content" class="skip-link" data-i18n="skip_to_main_content">Skip to main content</a>
 
 <div id="theme-bar"><span class="bar-label" data-i18n-html="guide_0002"></span></div>
 
@@ -488,7 +513,7 @@ li { margin-bottom:.2em; }
     </div>
   </nav>
 
-  <main class="content">
+  <main id="main-content" tabindex="-1" class="content">
     <!-- Guide 1 -->
     <div class="guide1-section">
 <h1 id="guide1-clearurls-json-writing-guide" data-i18n-html="guide_0108"></h1>
