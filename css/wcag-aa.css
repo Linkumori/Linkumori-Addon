@@ -40,6 +40,7 @@
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
+    line-height: 1.2;
     transition: top 0.15s ease;
 }
 
@@ -210,35 +211,35 @@ body.linkumori-a11y-text-spacing-heavy > :not(#linkumoriA11yTools) {
     word-spacing: 0.32em !important;
 }
 
-body.linkumori-a11y-line-height > :not(#linkumoriA11yTools),
-body.linkumori-a11y-line-height > :not(#linkumoriA11yTools) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6) {
+body.linkumori-a11y-line-height > :not(#linkumoriA11yTools):not(.skip-link),
+body.linkumori-a11y-line-height > :not(#linkumoriA11yTools):not(.skip-link) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6):not(.skip-link) {
     line-height: 1.8 !important;
 }
 
-body.linkumori-a11y-line-height-2em > :not(#linkumoriA11yTools),
-body.linkumori-a11y-line-height-2em > :not(#linkumoriA11yTools) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6) {
+body.linkumori-a11y-line-height-2em > :not(#linkumoriA11yTools):not(.skip-link),
+body.linkumori-a11y-line-height-2em > :not(#linkumoriA11yTools):not(.skip-link) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6):not(.skip-link) {
     line-height: 2 !important;
 }
 
-body.linkumori-a11y-line-height-3em > :not(#linkumoriA11yTools),
-body.linkumori-a11y-line-height-3em > :not(#linkumoriA11yTools) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6) {
+body.linkumori-a11y-line-height-3em > :not(#linkumoriA11yTools):not(.skip-link),
+body.linkumori-a11y-line-height-3em > :not(#linkumoriA11yTools):not(.skip-link) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6):not(.skip-link) {
     line-height: 3 !important;
 }
 
-body.linkumori-a11y-line-height-4em > :not(#linkumoriA11yTools),
-body.linkumori-a11y-line-height-4em > :not(#linkumoriA11yTools) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6) {
+body.linkumori-a11y-line-height-4em > :not(#linkumoriA11yTools):not(.skip-link),
+body.linkumori-a11y-line-height-4em > :not(#linkumoriA11yTools):not(.skip-link) :is(p, li, span, label, button, input, select, textarea, td, th, a, h1, h2, h3, h4, h5, h6):not(.skip-link) {
     line-height: 4 !important;
 }
 
-body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools) {
+body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools):not(.skip-link) {
     line-height: 1.45 !important;
 }
 
-body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools) :is(button, [role="button"], [role="switch"], .nav-item, .btn-small, .btn-full-primary, #singledynamicwhitelistunwhitelistbutton) {
+body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools):not(.skip-link) :is(button, [role="button"], [role="switch"], .nav-item, .btn-small, .btn-full-primary, #singledynamicwhitelistunwhitelistbutton):not(.skip-link) {
     line-height: 1.25 !important;
 }
 
-body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools) :is(.toggle-label, .pause-title, .pause-status, .stat-label, .version-info, #license_description, .license-link, .popup-consent-description) {
+body.linkumori-popup-page.linkumori-a11y-line-height > :not(#linkumoriA11yTools):not(.skip-link) :is(.toggle-label, .pause-title, .pause-status, .stat-label, .version-info, #license_description, .license-link, .popup-consent-description):not(.skip-link) {
     line-height: 1.45 !important;
 }
 
