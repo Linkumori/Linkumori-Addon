@@ -73,6 +73,7 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,10 +81,9 @@
     <title data-i18n="reportIssueTitle"></title>
     <script src="../external_js/theme_bootstrap.js"></script>
     <style>
-        /* Base styles from original CSS - color scheme, etc. */
         @font-face {
-            font-family: 'Liberation Serif';
-            src: url('../liberation-fonts/LiberationSerif-Regular.ttf') format('truetype');
+            font-family: 'Old-Country-Nobility';
+            src: url('../Old-Country-Nobility/Old-Country-Nobility.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -308,7 +308,7 @@
         body {
             max-width: 700px;
             margin: 0 auto;
-            font-family: "Liberation Serif";
+            font-family: "Old-Country-Nobility";
             background: var(--bg-primary);
             transition: background-color 0.2s;
             color: var(--text-secondary);
@@ -366,38 +366,54 @@
             border-radius: 4px;
         }
 
-        .sun-icon, .moon-icon {
+        .sun-icon,
+        .moon-icon {
             display: none;
             width: 16px;
             height: 16px;
             filter: var(--theme-icon-filter);
         }
 
-        :root[data-theme="light"] .sun-icon { display: block; }
-        :root[data-theme="light"] .moon-icon { display: none; }
-        :root:not([data-theme="light"]) .sun-icon { display: none; }
-        :root:not([data-theme="light"]) .moon-icon { display: block; }
+        :root[data-theme="light"] .sun-icon {
+            display: block;
+        }
+
+        :root[data-theme="light"] .moon-icon {
+            display: none;
+        }
+
+        :root:not([data-theme="light"]) .sun-icon {
+            display: none;
+        }
+
+        :root:not([data-theme="light"]) .moon-icon {
+            display: block;
+        }
 
         /* Professional Form Redesign - New CSS */
         /* Base Form Element Styling */
-        select, input[type="text"], textarea {
+        select,
+        input[type="text"],
+        textarea {
             width: 100%;
             padding: 8px 10px;
             border: 1px solid var(--input-border);
             border-radius: 4px;
             font-size: 13px;
-            font-family: "Liberation Serif";
+            font-family: "Old-Country-Nobility";
             background: var(--input-bg);
             color: var(--text-primary-domain);
             transition: all 0.2s ease;
             margin-bottom: 10px;
             line-height: 1.4;
-            box-sizing: border-box; /* Ensures padding doesn't add to width */
+            box-sizing: border-box;
+            /* Ensures padding doesn't add to width */
         }
 
         /* Select Dropdown Styling */
         select {
-            appearance: none; /* Remove default styling */
+            appearance: none;
+            /* Remove default styling */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 10px center;
@@ -408,16 +424,20 @@
         /* Textarea specific styling */
         textarea {
             resize: vertical;
-            min-height: 80px; /* Reduced height */
+            min-height: 80px;
+            /* Reduced height */
             max-height: 200px;
             padding: 10px;
-            font-family: "Liberation Serif";
+            font-family: "Old-Country-Nobility";
             margin-top: 5px;
-            overflow-y: auto; /* Added scrolling for overflow content */
+            overflow-y: auto;
+            /* Added scrolling for overflow content */
         }
 
         /* Focus States */
-        select:focus, input:focus, textarea:focus {
+        select:focus,
+        input:focus,
+        textarea:focus {
             outline: none;
             border-color: var(--input-focus);
             box-shadow: 0 0 0 1px var(--input-focus);
@@ -438,7 +458,7 @@
             background: var(--button-primary);
             color: var(--text-primary);
             border: none;
-            font-family: "Liberation Serif";
+            font-family: "Old-Country-Nobility";
             border-radius: 4px;
             cursor: pointer;
             font-size: 13px;
@@ -489,7 +509,7 @@
             background: var(--input-bg);
         }
 
-        .checkbox input:checked ~ svg {
+        .checkbox input:checked~svg {
             background: var(--button-primary);
             border-color: var(--button-primary);
         }
@@ -503,7 +523,7 @@
             display: none;
         }
 
-        .checkbox input:checked ~ svg path {
+        .checkbox input:checked~svg path {
             display: block;
         }
 
@@ -622,7 +642,7 @@
             border: 1px solid var(--input-border);
             border-radius: 4px;
             font-size: 13px;
-            font-family: "Liberation Serif";
+            font-family: "Old-Country-Nobility";
             background: var(--input-bg);
             color: var(--text-primary-domain);
             transition: all 0.2s ease;
@@ -674,7 +694,7 @@
 
         /* URL Preview Modal Styling */
         .url-preview-modal {
-            font-family: "Liberation Serif";
+            font-family: "Old-Country-Nobility";
         }
 
         .url-preview-modal button:focus {
@@ -722,11 +742,11 @@
             section {
                 padding: 12px;
             }
-            
+
             .supportEntry {
                 padding: 14px;
             }
-            
+
             body {
                 font-size: 13px;
             }
@@ -737,18 +757,18 @@
                 padding: 16px !important;
                 max-height: 90vh !important;
             }
-            
+
             /* Button container for mobile */
             .url-preview-modal [style*="display: flex"]:last-child {
                 flex-direction: column !important;
                 gap: 8px !important;
             }
-            
+
             .url-preview-modal [style*="display: flex"]:last-child button {
                 width: 100% !important;
                 padding: 10px 16px !important;
             }
-            
+
             /* URL display adjustments */
             .url-preview-modal [style*="font-family: monospace"] {
                 font-size: 11px !important;
@@ -761,7 +781,7 @@
             .url-preview-modal button {
                 transition: none !important;
             }
-            
+
             .url-preview-modal button:hover {
                 transform: none !important;
             }
@@ -769,19 +789,19 @@
 
         /* High contrast mode support */
         @media (prefers-contrast: high) {
-            .url-preview-modal > div {
+            .url-preview-modal>div {
                 border: 2px solid var(--text-secondary) !important;
             }
-            
+
             .url-preview-modal [style*="font-family: monospace"] {
                 border: 2px solid var(--border-color) !important;
             }
-            
+
             .url-preview-modal [style*="rgba(59, 130, 246"] {
                 border: 2px solid var(--button-primary) !important;
             }
         }
-     </style>
+    </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
 
@@ -790,157 +810,164 @@
     <section>
         <header class="header">
             <div class="header-content">
-                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">             
-                    <circle cx="50" cy="50" r="45" fill="var(--logo-bg)"/>             
-                    <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" 
-                          fill="none" 
-                          stroke="var(--logo-accent)" 
-                          stroke-width="8" 
-                          stroke-linecap="round"/>             
-                    <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35" 
-                          fill="none" 
-                          stroke="var(--logo-accent)" 
-                          stroke-width="8" 
-                          stroke-linecap="round"/>             
-                    <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" 
-                             fill="var(--logo-accent)"/>         
+                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"
+                    focusable="false">
+                    <circle cx="50" cy="50" r="45" fill="var(--logo-bg)" />
+                    <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" fill="none"
+                        stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round" />
+                    <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35" fill="none"
+                        stroke="var(--logo-accent)" stroke-width="8" stroke-linecap="round" />
+                    <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" fill="var(--logo-accent)" />
                 </svg>
                 <h1 data-i18n="reportIssueTitle"></h1>
             </div>
             <div class="header-buttons">
-                <button type="button" class="theme-toggle-btn" id="themeToggle" data-i18n-title="popup_theme_toggle_aria" data-i18n-aria="popup_theme_toggle_aria">
-                    <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" width="16" height="16" class="sun-icon" aria-hidden="true">
-                    <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" width="16" height="16" class="moon-icon" aria-hidden="true">
+                <button type="button" class="theme-toggle-btn" id="themeToggle"
+                    data-i18n-title="popup_theme_toggle_aria" data-i18n-aria="popup_theme_toggle_aria">
+                    <img src="../LinkumorI_HTML_SVG/sun.svg" alt="" width="16" height="16" class="sun-icon"
+                        aria-hidden="true">
+                    <img src="../LinkumorI_HTML_SVG/moon.svg" alt="" width="16" height="16" class="moon-icon"
+                        aria-hidden="true">
                 </button>
             </div>
         </header>
 
         <main id="main-content" tabindex="-1">
-        <h2 data-i18n="reportIssueHeader"></h2>
-        <p data-i18n="reportIssueDescription"></p>
-        
-        <div class="supportEntry">
-            <p data-i18n="beforeReporting"></p>
-            <div class="consent-container">
-                <label class="checkbox-wrapper">
-                    <span class="input checkbox">
-                        <input id="findExistingConsentCheckbox" type="checkbox">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                    </span>
-                    <span class="consent-text" data-i18n="findExistingConsentMessage"></span>
-                </label>
-            </div>
-            <button type="button" id="findExistingButton" data-i18n="findExistingButton"></button>
-        </div>
-        
-        <div class="supportEntry">
-            <div class="field-group">
-                <label for="issueTypeSelect" data-i18n="issueTypeLabel"></label>
-                <select name="type" id="issueTypeSelect">
-                    <option value="[unknown]" selected disabled data-i18n="issueTypeSelect"></option>
-                    <option value="tracking-not-removed" data-i18n="issueTypeTrackingNotRemoved"></option>
-                    <option value="url-broken" data-i18n="issueTypeUrlBroken"></option>
-                    <option value="false-positive" data-i18n="issueTypeFalsePositive"></option>
-                    <option value="performance" data-i18n="issueTypePerformance"></option>
-                    <option value="ui-issue" data-i18n="issueTypeUi"></option>
-                    <option value="feature-request" data-i18n="issueTypeFeatureRequest"></option>
-                    <option value="rule-suggestion" data-i18n="issueTypeRuleSuggestion"></option>
-                </select>
-            </div>
-            
-            <!-- URL input container with dropdown -->
-            <div class="url-input-container field-group">
-                <label for="urlSelect" data-i18n="urlLabel"></label>
-                <select id="urlSelect" name="urlSelect" class="url-select">
-                    <!-- Options will be populated dynamically -->
-                </select>
-                
-                <div id="customUrlContainer" style="display: none; margin-top: 10px;">
-                    <input type="text" 
-                           id="customUrlInput" 
-                           name="customUrlInput" 
-                           data-i18n-placeholder="customUrlPlaceholder"
-                           data-i18n-aria="customUrlPlaceholder">
-                </div>
-            </div>
-            
-            <!-- NSFW container -->
-            <div class="nsfw-container field-group">
-                <label class="checkbox-wrapper">
-                    <span class="input checkbox">
-                        <input id="isNSFW" type="checkbox">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                    </span>
-                    <span data-i18n="nsfwLabel"></span>
-                </label>
-            </div>
-            
-            <div class="field-group">
-                <label for="additionalInfo" data-i18n="additionalInfoLabel"></label>
-                <textarea 
-                    id="additionalInfo" 
-                    name="additionalInfo" 
-                    rows="4" 
-                    data-i18n-placeholder="additionalInfoPlaceholder"></textarea>
-            </div>
-            
-            <!-- Consent checkbox -->
-            <div class="consent-container">
-                <label class="checkbox-wrapper">
-                    <span class="input checkbox">
-                        <input id="consentCheckbox" type="checkbox">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                    </span>
-                    <span class="consent-text" data-i18n="consentMessage"></span>
-                </label>
-            </div>
-            
-            <button type="button" id="reportIssueButton" class="preferred" data-i18n="reportOnGitHub"></button>
-        </div>
-        
-        <div class="supportEntry" style="font-size: smaller;">
-            <details open>
-                <summary data-i18n="configInformation"></summary>
-                <div class="config-share-options" id="configShareOptions">
+            <h2 data-i18n="reportIssueHeader"></h2>
+            <p data-i18n="reportIssueDescription"></p>
+
+            <div class="supportEntry">
+                <p data-i18n="beforeReporting"></p>
+                <div class="consent-container">
                     <label class="checkbox-wrapper">
                         <span class="input checkbox">
-                            <input type="checkbox" data-config-section="extension" checked>
-                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                            <input id="findExistingConsentCheckbox" type="checkbox">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                            </svg>
                         </span>
-                        <span data-i18n="report_share_extension_info"></span>
-                    </label>
-                    <label class="checkbox-wrapper">
-                        <span class="input checkbox">
-                            <input type="checkbox" data-config-section="settings" checked>
-                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                        </span>
-                        <span data-i18n="report_share_settings_info"></span>
-                    </label>
-                    <label class="checkbox-wrapper">
-                        <span class="input checkbox">
-                            <input type="checkbox" data-config-section="whitelist" checked>
-                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                        </span>
-                        <span data-i18n="report_share_whitelist_info"></span>
-                    </label>
-                    <label class="checkbox-wrapper">
-                        <span class="input checkbox">
-                            <input type="checkbox" data-config-section="customRules" checked>
-                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                        </span>
-                        <span data-i18n="report_share_custom_rules_info"></span>
-                    </label>
-                    <label class="checkbox-wrapper">
-                        <span class="input checkbox">
-                            <input type="checkbox" data-config-section="disabledRules" checked>
-                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                        </span>
-                        <span data-i18n="report_share_disabled_rules_info"></span>
+                        <span class="consent-text" data-i18n="findExistingConsentMessage"></span>
                     </label>
                 </div>
-                <pre id="configData" style="user-select: all;"></pre>
-            </details>
-        </div>
+                <button type="button" id="findExistingButton" data-i18n="findExistingButton"></button>
+            </div>
+
+            <div class="supportEntry">
+                <div class="field-group">
+                    <label for="issueTypeSelect" data-i18n="issueTypeLabel"></label>
+                    <select name="type" id="issueTypeSelect">
+                        <option value="[unknown]" selected disabled data-i18n="issueTypeSelect"></option>
+                        <option value="tracking-not-removed" data-i18n="issueTypeTrackingNotRemoved"></option>
+                        <option value="url-broken" data-i18n="issueTypeUrlBroken"></option>
+                        <option value="false-positive" data-i18n="issueTypeFalsePositive"></option>
+                        <option value="performance" data-i18n="issueTypePerformance"></option>
+                        <option value="ui-issue" data-i18n="issueTypeUi"></option>
+                        <option value="feature-request" data-i18n="issueTypeFeatureRequest"></option>
+                        <option value="rule-suggestion" data-i18n="issueTypeRuleSuggestion"></option>
+                    </select>
+                </div>
+
+                <!-- URL input container with dropdown -->
+                <div class="url-input-container field-group">
+                    <label for="urlSelect" data-i18n="urlLabel"></label>
+                    <select id="urlSelect" name="urlSelect" class="url-select">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+
+                    <div id="customUrlContainer" style="display: none; margin-top: 10px;">
+                        <input type="text" id="customUrlInput" name="customUrlInput"
+                            data-i18n-placeholder="customUrlPlaceholder" data-i18n-aria="customUrlPlaceholder">
+                    </div>
+                </div>
+
+                <!-- NSFW container -->
+                <div class="nsfw-container field-group">
+                    <label class="checkbox-wrapper">
+                        <span class="input checkbox">
+                            <input id="isNSFW" type="checkbox">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                            </svg>
+                        </span>
+                        <span data-i18n="nsfwLabel"></span>
+                    </label>
+                </div>
+
+                <div class="field-group">
+                    <label for="additionalInfo" data-i18n="additionalInfoLabel"></label>
+                    <textarea id="additionalInfo" name="additionalInfo" rows="4"
+                        data-i18n-placeholder="additionalInfoPlaceholder"></textarea>
+                </div>
+
+                <!-- Consent checkbox -->
+                <div class="consent-container">
+                    <label class="checkbox-wrapper">
+                        <span class="input checkbox">
+                            <input id="consentCheckbox" type="checkbox">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                            </svg>
+                        </span>
+                        <span class="consent-text" data-i18n="consentMessage"></span>
+                    </label>
+                </div>
+
+                <button type="button" id="reportIssueButton" class="preferred" data-i18n="reportOnGitHub"></button>
+            </div>
+
+            <div class="supportEntry" style="font-size: smaller;">
+                <details open>
+                    <summary data-i18n="configInformation"></summary>
+                    <div class="config-share-options" id="configShareOptions">
+                        <label class="checkbox-wrapper">
+                            <span class="input checkbox">
+                                <input type="checkbox" data-config-section="extension" checked>
+                                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                            </span>
+                            <span data-i18n="report_share_extension_info"></span>
+                        </label>
+                        <label class="checkbox-wrapper">
+                            <span class="input checkbox">
+                                <input type="checkbox" data-config-section="settings" checked>
+                                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                            </span>
+                            <span data-i18n="report_share_settings_info"></span>
+                        </label>
+                        <label class="checkbox-wrapper">
+                            <span class="input checkbox">
+                                <input type="checkbox" data-config-section="whitelist" checked>
+                                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                            </span>
+                            <span data-i18n="report_share_whitelist_info"></span>
+                        </label>
+                        <label class="checkbox-wrapper">
+                            <span class="input checkbox">
+                                <input type="checkbox" data-config-section="customRules" checked>
+                                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                            </span>
+                            <span data-i18n="report_share_custom_rules_info"></span>
+                        </label>
+                        <label class="checkbox-wrapper">
+                            <span class="input checkbox">
+                                <input type="checkbox" data-config-section="disabledRules" checked>
+                                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                            </span>
+                            <span data-i18n="report_share_disabled_rules_info"></span>
+                        </label>
+                    </div>
+                    <pre id="configData" style="user-select: all;"></pre>
+                </details>
+            </div>
         </main>
     </section>
 
@@ -948,4 +975,5 @@
     <script src="../core_js/report.js"></script>
     <script src="../core_js/accessibility_tools.js"></script>
 </body>
+
 </html>
