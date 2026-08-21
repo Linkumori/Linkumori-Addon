@@ -425,6 +425,8 @@ function handleRegularFunction(request) {
             'getTemporaryPauseState',
             'getTemporaryTabWhitelistForTab',
             'initSettings',
+            'pauseCleaningTemporarily',
+            'pauseCleaningUntilRestart',
             'pureCleaning',
             'refreshRemoteRulesNow',
             'reload',

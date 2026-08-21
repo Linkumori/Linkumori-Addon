@@ -88,6 +88,7 @@ var temporaryPauseState = {
     until: null,
     remainingMs: 0
 };
+var temporaryPauseRefreshTimer = null;
 const POPUP_SWITCH_ACCESSIBILITY = {
     globalStatus: 'configs_switch_filter',
     logging: 'configs_switch_log',
@@ -1175,13 +1176,37 @@ function formatPauseRemaining(ms) {
     return `${formatLocalizedNumber(hours, { maximumFractionDigits: 0 })}${translate('popup_pause_unit_hour_short')} ${formatLocalizedNumber(minutes, { maximumFractionDigits: 0 })}${translate('popup_pause_unit_min_short')}`;
 }
 
+function isValidTemporaryPauseState(value) {
+    return !!(
+        value &&
+        typeof value === 'object' &&
+        typeof value.isPaused === 'boolean' &&
+        typeof value.mode === 'string' &&
+        Object.prototype.hasOwnProperty.call(value, 'until') &&
+        Object.prototype.hasOwnProperty.call(value, 'remainingMs')
+    );
+}
+
+function applyTemporaryPauseResponse(response) {
+    if (response && response.error) {
+        throw new Error(response.error);
+    }
+
+    const nextState = response?.response;
+    if (!isValidTemporaryPauseState(nextState)) {
+        throw new Error('Invalid temporary pause response');
+    }
+
+    temporaryPauseState = nextState;
+}
+
 async function loadTemporaryPauseState() {
     try {
         const response = await browser.runtime.sendMessage({
             function: "getTemporaryPauseState",
             params: []
         });
-        temporaryPauseState = response?.response || temporaryPauseState;
+        applyTemporaryPauseResponse(response);
     } catch (error) {
         temporaryPauseState = {
             isPaused: false,
@@ -1192,10 +1217,34 @@ async function loadTemporaryPauseState() {
     }
 }
 
+function scheduleTemporaryPauseRefresh() {
+    if (temporaryPauseRefreshTimer) {
+        clearTimeout(temporaryPauseRefreshTimer);
+        temporaryPauseRefreshTimer = null;
+    }
+
+    if (!temporaryPauseState || temporaryPauseState.mode !== 'timed') {
+        return;
+    }
+
+    const remainingMs = Number(temporaryPauseState.remainingMs) || 0;
+    const delay = Math.max(1000, Math.min(30000, remainingMs + 50));
+    temporaryPauseRefreshTimer = setTimeout(async () => {
+        temporaryPauseRefreshTimer = null;
+        await loadTemporaryPauseState();
+        renderTemporaryPauseState();
+    }, delay);
+}
+
 function renderTemporaryPauseState() {
     const statusEl = document.getElementById('temporaryPauseStatus');
     if (!statusEl) {
         return;
+    }
+
+    if (temporaryPauseRefreshTimer) {
+        clearTimeout(temporaryPauseRefreshTimer);
+        temporaryPauseRefreshTimer = null;
     }
 
     if (!temporaryPauseState || !temporaryPauseState.isPaused) {
@@ -1212,6 +1261,7 @@ function renderTemporaryPauseState() {
 
     const remainingText = formatPauseRemaining(temporaryPauseState.remainingMs);
     statusEl.textContent = translate('popup_pause_status_timed').replace('%s', remainingText);
+    scheduleTemporaryPauseRefresh();
     applyPopupLanguageLayout();
 }
 
@@ -1224,7 +1274,7 @@ async function setTemporaryPause(minutes = null) {
             params
         });
 
-        temporaryPauseState = response?.response || temporaryPauseState;
+        applyTemporaryPauseResponse(response);
         renderTemporaryPauseState();
     } catch (error) {
         alert(translate('popup_pause_error_update'));
@@ -1237,7 +1287,7 @@ async function clearTemporaryPause() {
             function: "resumeCleaningNow",
             params: []
         });
-        temporaryPauseState = response?.response || temporaryPauseState;
+        applyTemporaryPauseResponse(response);
         renderTemporaryPauseState();
     } catch (error) {
         alert(translate('popup_pause_error_resume'));
@@ -1294,6 +1344,10 @@ async function refreshAllData() {
  * Cleanup function for when popup is closed
  */
 function cleanup() {
+    if (temporaryPauseRefreshTimer) {
+        clearTimeout(temporaryPauseRefreshTimer);
+        temporaryPauseRefreshTimer = null;
+    }
 }
 
 /**
