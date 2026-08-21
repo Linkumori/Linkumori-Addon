@@ -140,9 +140,6 @@ Third-party libraries and their licenses are listed in [THIRD-PARTY-NOTICE](THIR
 
 ---
 
-## Star History
-
-![Star History Chart](https://api.star-history.com/svg?repos=Linkumori/Linkumori-Addon&type=Date)
 
 ---
 
