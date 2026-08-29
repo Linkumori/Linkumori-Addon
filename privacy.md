@@ -1,6 +1,6 @@
 # Linkumori Privacy Policy
 
-**Last Updated:** 16 June, 2026
+**Last Updated:** 29 August, 2026
 
 Linkumori is a free, non-commercial, open-source tool.
 
@@ -9,6 +9,8 @@ Linkumori is a free, non-commercial, open-source tool.
 **Definition.** "Personal data" means any data about an individual who is identifiable by or in relation to such data. This may include information that directly identifies you, as well as information that can reasonably be linked to you when combined with other data.
 
 **Definition.** "Data Fiduciary or data controller" means a person or organization that, alone or together with others, determines the purpose and means of processing personal data. In other jurisdictions, a similar role may be called a data controller.
+
+**Definition.** "GitHub" or "github" means GitHub, Inc. and, where the context requires, its affiliates, partners, operators, owners, controllers, assigns, and successors.
 
 ---
 
