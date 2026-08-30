@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.46.0] - 2026-08-30 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.45.0...linkumori-v100.46.0))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-08-30`, hash: [`e03981c`](https://github.com/Linkumori/Linkumori-Addon/commit/e03981c))
+- Update privacy policy GitHub definition (`2026-08-29`, hash: [`661bdd0`](https://github.com/Linkumori/Linkumori-Addon/commit/661bdd0))
+
+### Removed
+- Delete core_js/regression_batch.js (`2026-08-29`, hash: [`310f8f9`](https://github.com/Linkumori/Linkumori-Addon/commit/310f8f9))
+
 ## [v100.45.0] - 2026-08-23 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.44.0...linkumori-v100.45.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-08-23`, hash: [`8df36a0`](https://github.com/Linkumori/Linkumori-Addon/commit/8df36a0))
