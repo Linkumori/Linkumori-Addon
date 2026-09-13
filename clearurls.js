@@ -74,6 +74,7 @@
 
 
 
+
 // BUGFIX 10: "use strict" moved to prologue (was mid-file, no-op there).
 "use strict";
 
@@ -626,7 +627,13 @@ function matchDomainPattern(url, patterns) {
 
     function compileLinkumoriRegex(pattern) {
         const cacheKey = String(pattern || '');
-        if (linkumoriPatternRegexCache.has(cacheKey)) return linkumoriPatternRegexCache.get(cacheKey);
+        if (linkumoriPatternRegexCache.has(cacheKey)) {
+            // BUGFIX 11: refresh recency on hit so eviction below is LRU, not FIFO.
+            const cached = linkumoriPatternRegexCache.get(cacheKey);
+            linkumoriPatternRegexCache.delete(cacheKey);
+            linkumoriPatternRegexCache.set(cacheKey, cached);
+            return cached;
+        }
 
         let raw = cacheKey;
         let domainAnchor = false, startAnchor = false, endAnchor = false;
@@ -650,8 +657,14 @@ function matchDomainPattern(url, patterns) {
         try { regex = new RegExp(prefix + source + domainBoundary + suffix, 'i'); }
         catch (e) { regex = null; }
 
-        // BUGFIX 10: prevent unbounded cache growth.
-        if (linkumoriPatternRegexCache.size > 5000) linkumoriPatternRegexCache.clear();
+        // BUGFIX 11: was a full clear() on overflow, which caused every cached
+        // pattern to recompile at once and produced a periodic latency spike.
+        // Evict the single oldest (least-recently-used) entry instead so the
+        // cache stays warm under steady load.
+        if (linkumoriPatternRegexCache.size >= 5000) {
+            const oldestKey = linkumoriPatternRegexCache.keys().next().value;
+            if (oldestKey !== undefined) linkumoriPatternRegexCache.delete(oldestKey);
+        }
         linkumoriPatternRegexCache.set(cacheKey, regex);
         return regex;
     }
@@ -1318,8 +1331,17 @@ function getCoreRuleTraceName(compiledRule, fallback) {
 }
 
 function coreRuleAppliesToRequest(compiledRule, url, request) {
-    if (compiledRule instanceof RegExp) return true;
     if (!compiledRule) return false;
+    // BUGFIX 12: a bare RegExp used to short-circuit straight to `true`,
+    // skipping active/exception/request-type checks entirely. Nothing in this
+    // file constructs a bare-RegExp "compiled rule" anymore (all rule paths
+    // go through compileCoreRuleDefinition / parseLinkumoriRemoveParamRule),
+    // so treat it the same as any other compiled rule: test it as the regex
+    // it is, with no special bypass.
+    if (compiledRule instanceof RegExp) {
+        compiledRule.lastIndex = 0;
+        return compiledRule.test(url);
+    }
     if (compiledRule.active === false) return false;
     if (!coreRuleHasActivePatternForUrl(compiledRule, url)) return false;
     if (compiledRule.requestTypes && compiledRule.requestTypes.length > 0) {
@@ -1352,7 +1374,13 @@ function applyCoreRulePreprocessors(values, preprocessors) {
                     case "base64Encode": next[index] = btoa(unescape(encodeURIComponent(current))); break;
                     case "base64Decode": next[index] = decodeURIComponent(escape(atob(current))); break;
                 }
-            } catch (_) {}
+            } catch (e) {
+                // BUGFIX 13: preprocessor failures (malformed base64/URI-encoding)
+                // used to vanish silently, leaving a stale/undefined value with no
+                // trace. Log once with enough context to diagnose which rule and
+                // preprocessor step failed, then keep the pre-step value.
+                console.warn('[linkumori] preprocessor failed', { type: preprocessor.type, index, error: String(e && e.message || e) });
+            }
         }
     }
     return next;
@@ -1380,6 +1408,47 @@ function removeRawRuleMatchesPreservingQueryBoundary(value, regex) {
 // ---------------------------------------------------------------------------
 // removeFieldsFormURL
 // ---------------------------------------------------------------------------
+
+// BUGFIX 14: extracted from three near-identical inline blocks that used to
+// live in removeFieldsFormURL (one for provider rules over query fields, one
+// for provider rules over fragments, one for $removeparam over both). Each
+// copy independently walked keys, decided delete-vs-rewrite-vs-skip, applied
+// preprocessors, and logged — any fix to that logic had to be made three
+// times and was easy to miss one of. This is now the single implementation.
+//
+// `decide(key, values)` returns either:
+//   - null / { handled:false }                → leave the param untouched
+//   - { handled:true, remove:true }            → delete the param
+//   - { handled:true, rewrite:true, replacePattern, preprocessors } → rewrite its value(s)
+// `rewriteTracker` is the shared `appliedFieldRewrites` Set (mirrors the
+// original cross-pass dedup). `dedupeKey(key, decision)`, if given, builds
+// the string identifying this specific rewrite; when omitted, no dedup is
+// applied (a `decide` that never rewrites twice for the same key doesn't need it).
+function applyParamDecisionsToStore(store, decide, rewriteTracker, dedupeKey) {
+    let changed = false;
+    const toDelete = [];
+    for (const key of Array.from(store.keys())) {
+        const decision = decide(key, store.getAll(key));
+        if (!decision || !decision.handled) continue;
+        if (decision.remove) {
+            toDelete.push(key);
+            changed = true;
+        } else if (decision.rewrite) {
+            const dupKey = (rewriteTracker && dedupeKey) ? dedupeKey(key, decision) : null;
+            if (dupKey && rewriteTracker.has(dupKey)) continue;
+            const currentValues = store.getAll(key);
+            store.delete(key);
+            currentValues.forEach(value => {
+                const vals = applyCoreRulePreprocessors([value], decision.preprocessors);
+                store.append(key, applyCoreReplacePattern(decision.replacePattern, vals));
+            });
+            if (dupKey) rewriteTracker.add(dupKey);
+            changed = true;
+        }
+    }
+    toDelete.forEach(k => store.delete(k));
+    return changed;
+}
 
 function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = [], sessionRewrites = null) {
     let url = pureUrl;
@@ -1485,51 +1554,28 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             if (!coreRuleAppliesToRequest(compiled, url, request)) return;
             const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp("^" + rule + "$", "gi");
             const beforeFields = fields.toString(), beforeFragments = fragments.toString();
-            let localChange = false;
 
-            const fieldsToDelete = [];
-            for (const field of Array.from(fields.keys())) {
-                const decision = getLinkumoriDecision(field, fields.getAll(field));
-                if (decision.handled && (decision.remove || decision.rewrite)) continue;
+            // A provider field-style rule matches against the *key name*.
+            // If a $removeparam rule already claimed this key this pass,
+            // leave it alone — same guard the original had in both its
+            // fields loop and its fragments loop.
+            const decide = (key, values) => {
+                const linkumoriDecision = getLinkumoriDecision(key, values);
+                if (linkumoriDecision.handled && (linkumoriDecision.remove || linkumoriDecision.rewrite)) return { handled: false };
                 activeRegex.lastIndex = 0;
-                if (activeRegex.test(field)) {
-                    if (compiled && compiled.replacePattern !== null) {
-                        const rewriteKey = provider.getName() + "::search::" + field + "::" + rule;
-                        if (appliedFieldRewrites.has(rewriteKey)) continue;
-                        const currentValues = fields.getAll(field);
-                        fields.delete(field);
-                        currentValues.forEach(value => {
-                            const vals = applyCoreRulePreprocessors([value], compiled.preprocessors);
-                            fields.append(field, applyCoreReplacePattern(compiled.replacePattern, vals));
-                        });
-                        appliedFieldRewrites.add(rewriteKey);
-                    } else fieldsToDelete.push(field);
-                    localChange = true;
+                if (!activeRegex.test(key)) return { handled: false };
+                if (compiled && compiled.replacePattern !== null) {
+                    return { handled: true, rewrite: true, replacePattern: compiled.replacePattern, preprocessors: compiled.preprocessors };
                 }
-            }
-            fieldsToDelete.forEach(f => fields.delete(f));
+                return { handled: true, remove: true };
+            };
+            // Original dedup keys: "<provider>::search::<field>::<rule>" and
+            // "<provider>::fragment::<fragment>::<rule>".
+            const dedupeKeyFor = (scope) => (key) => provider.getName() + "::" + scope + "::" + key + "::" + rule;
 
-            const fragmentsToDelete = [];
-            for (const fragment of Array.from(fragments.keys())) {
-                const decision = getLinkumoriDecision(fragment, fragments.getAll(fragment));
-                if (decision.handled && (decision.remove || decision.rewrite)) continue;
-                activeRegex.lastIndex = 0;
-                if (activeRegex.test(fragment)) {
-                    if (compiled && compiled.replacePattern !== null) {
-                        const rewriteKey = provider.getName() + "::fragment::" + fragment + "::" + rule;
-                        if (appliedFieldRewrites.has(rewriteKey)) continue;
-                        const currentValues = fragments.getAll(fragment);
-                        fragments.delete(fragment);
-                        currentValues.forEach(value => {
-                            const vals = applyCoreRulePreprocessors([value], compiled.preprocessors);
-                            fragments.append(fragment, applyCoreReplacePattern(compiled.replacePattern, vals));
-                        });
-                        appliedFieldRewrites.add(rewriteKey);
-                    } else fragmentsToDelete.push(fragment);
-                    localChange = true;
-                }
-            }
-            fragmentsToDelete.forEach(f => fragments.delete(f));
+            const fieldsChanged = applyParamDecisionsToStore(fields, decide, appliedFieldRewrites, dedupeKeyFor('search'));
+            const fragmentsChanged = applyParamDecisionsToStore(fragments, decide, appliedFieldRewrites, dedupeKeyFor('fragment'));
+            const localChange = fieldsChanged || fragmentsChanged;
 
             if (localChange) {
                 changes = true;
@@ -1550,51 +1596,24 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
         if (activeLinkumoriRules.length > 0 || activeLinkumoriExceptions.length > 0) {
             const beforeFields = fields.toString(), beforeFragments = fragments.toString();
-            let localChange = false, matchedRuleForLog = null;
+            let matchedRuleForLog = null;
 
-            const fieldsToDelete = [];
-            for (const field of Array.from(fields.keys())) {
-                const decision = getLinkumoriDecision(field, fields.getAll(field));
-                if (decision.remove) {
-                    fieldsToDelete.push(field); localChange = true;
-                    if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
-                } else if (decision.rewrite) {
-                    const rewriteKey = provider.getName() + "::removeparam-search::" + field + "::" + (decision.matchedRule || '$removeparam');
-                    if (appliedFieldRewrites.has(rewriteKey)) continue;
-                    const currentValues = fields.getAll(field);
-                    fields.delete(field);
-                    currentValues.forEach(value => {
-                        const vals = applyCoreRulePreprocessors([value], decision.preprocessors);
-                        fields.append(field, applyCoreReplacePattern(decision.replacePattern, vals));
-                    });
-                    appliedFieldRewrites.add(rewriteKey);
-                    localChange = true;
-                    if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
-                }
-            }
-            fieldsToDelete.forEach(f => fields.delete(f));
+            const decide = (key, values) => {
+                const decision = getLinkumoriDecision(key, values);
+                if (!decision.remove && !decision.rewrite) return { handled: false };
+                if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
+                return decision;
+            };
+            // Original dedup keys used the rule that matched *this specific
+            // key* (decision.matchedRule), not a hoisted "first match seen"
+            // value — keep that per-key precision rather than collapsing it
+            // to whatever `matchedRuleForLog` happens to hold at call time.
+            const dedupeKeyFor = (scope) => (key, decision) =>
+                provider.getName() + "::removeparam-" + scope + "::" + key + "::" + (decision.matchedRule || '$removeparam');
 
-            const fragmentsToDelete = [];
-            for (const fragment of Array.from(fragments.keys())) {
-                const decision = getLinkumoriDecision(fragment, fragments.getAll(fragment));
-                if (decision.remove) {
-                    fragmentsToDelete.push(fragment); localChange = true;
-                    if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
-                } else if (decision.rewrite) {
-                    const rewriteKey = provider.getName() + "::removeparam-fragment::" + fragment + "::" + (decision.matchedRule || '$removeparam');
-                    if (appliedFieldRewrites.has(rewriteKey)) continue;
-                    const currentValues = fragments.getAll(fragment);
-                    fragments.delete(fragment);
-                    currentValues.forEach(value => {
-                        const vals = applyCoreRulePreprocessors([value], decision.preprocessors);
-                        fragments.append(fragment, applyCoreReplacePattern(decision.replacePattern, vals));
-                    });
-                    appliedFieldRewrites.add(rewriteKey);
-                    localChange = true;
-                    if (!matchedRuleForLog && decision.matchedRule) matchedRuleForLog = decision.matchedRule;
-                }
-            }
-            fragmentsToDelete.forEach(f => fragments.delete(f));
+            const fieldsChanged = applyParamDecisionsToStore(fields, decide, appliedFieldRewrites, dedupeKeyFor('search'));
+            const fragmentsChanged = applyParamDecisionsToStore(fragments, decide, appliedFieldRewrites, dedupeKeyFor('fragment'));
+            const localChange = fieldsChanged || fragmentsChanged;
 
             if (localChange) {
                 changes = true;
@@ -1757,6 +1776,13 @@ function start() {
 
         function isDataURL(requestDetails) { return requestDetails.url.substring(0, 4) === "data"; }
 
+        // NOTE: `["blocking"]` requires the webRequest blocking API, which is
+        // only available under Manifest V2 (or Firefox's MV3, which still
+        // supports it). Chrome's Manifest V3 removed blocking webRequest in
+        // favor of declarativeNetRequest, so this listener will silently fail
+        // to register — or throw — if this extension is ever built for
+        // Chrome MV3. Left as-is rather than guessed at, since migrating this
+        // to declarativeNetRequest is a platform decision, not a bugfix.
         browser.webRequest.onBeforeRequest.addListener(
             clearurlsWebRequestHandler,
             { urls: ["<all_urls>"], types: getData("types").concat(getData("pingRequestTypes")) },
@@ -2142,7 +2168,13 @@ function start() {
                         const tokenProviders = providersByToken[token];
                         if (tokenProviders) for (const p of tokenProviders) contextCandidateProviders.add(p);
                     }
-                } catch (e) {}
+                } catch (e) {
+                    // BUGFIX 13: swallowed malformed-context-URL errors with no
+                    // trace. A bad documentUrl/initiator/referrer just means this
+                    // one context URL contributes no lookup tokens; log for
+                    // diagnosability and continue with the rest.
+                    console.warn('[linkumori] failed to parse context URL for provider lookup', { url: ctxUrl, error: String(e && e.message || e) });
+                }
             }
 
             for (const provider of contextCandidateProviders) {
@@ -2155,7 +2187,13 @@ function start() {
             }
 
             let requestHost = "";
-            try { requestHost = new URL(request.url).hostname; } catch (e) {}
+            try { requestHost = new URL(request.url).hostname; } catch (e) {
+                // BUGFIX 13: malformed request.url would otherwise fail silently
+                // here and fall through to the empty-hostname / no-token path
+                // below with no indication why. Log it — a request URL that
+                // can't be parsed by `new URL()` is worth knowing about.
+                console.warn('[linkumori] failed to parse request URL', { url: request && request.url, error: String(e && e.message || e) });
+            }
             const requestHostTokens = getHostnameLookupTokens(requestHost);
             let requestCandidateProviders = new Set(globalProviders);
             const seenRequestTokens = new Set();
