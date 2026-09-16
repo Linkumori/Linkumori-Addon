@@ -79,8 +79,12 @@ async function historyCleaner(details) {
             return;
         }
 
-        // Permanent whitelist check.
-        if (isWhitelisted(details.url, details)) {
+        // General and tab-only whitelists bypass every cleaner. A History API
+        // exception bypasses only this listener and leaves other protections on.
+        if (
+            isWhitelisted(details.url, details) ||
+            (typeof isHistoryApiWhitelisted === 'function' && isHistoryApiWhitelisted(details.url))
+        ) {
             return;
         }
 

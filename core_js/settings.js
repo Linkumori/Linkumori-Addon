@@ -3129,7 +3129,8 @@ async function importSettings(evt) {
             case 'log':
             case 'custom_rules':
                 return parseJSONObject(value, key === 'log' ? { log: [] } : { providers: {} });
-            case 'userWhitelist': {
+            case 'userWhitelist':
+            case 'historyApiWhitelist': {
                 const wl = parseJSONObject(value, []);
                 return Array.isArray(wl) ? wl : [];
             }

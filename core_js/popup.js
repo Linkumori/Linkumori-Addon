@@ -108,6 +108,7 @@ const {
 
 // ===== WHITELIST STATE (NEW ADDITION) =====
 var userWhitelist = [];
+var historyApiWhitelist = [];
 var temporaryTabWhitelistDomains = [];
 var currentTabId = null;
 const POPUP_CONSENT_STORAGE_KEY = 'popupConsentAccepted';
@@ -619,19 +620,46 @@ async function loadTemporaryTabWhitelist(tabId) {
 }
 
 /**
- * Resolve the current whitelist state for a domain.
+ * Resolve the active popup whitelist state for a domain.
  * @param {string} domain  ASCII/punycode domain
- * @returns {'none'|'permanent'|'temporary'}
+ * @returns {'none'|'general'|'history'|'tab'}
  */
 function getWhitelistState(domain) {
     const ascii = normalizeDomain(domain);
     if (temporaryTabWhitelistDomains.some(d => normalizeDomain(d) === ascii)) {
-        return 'temporary';
+        return 'tab';
     }
+
     if (Array.isArray(userWhitelist) && userWhitelist.some(d => normalizeDomain(d) === ascii)) {
-        return 'permanent';
+        return 'general';
     }
+
+    if (Array.isArray(historyApiWhitelist) && historyApiWhitelist.some(d => normalizeDomain(d) === ascii)) {
+        return 'history';
+    }
+
     return 'none';
+}
+
+function isDomainInWhitelist(domain, whitelist) {
+    const ascii = normalizeDomain(domain);
+    return Array.isArray(whitelist) && whitelist.some(entry => normalizeDomain(entry) === ascii);
+}
+
+function getPopupWhitelistMessage(key, substitutions, fallback) {
+    const translated = getPopupI18nMessage(key, substitutions, fallback);
+    return translated && translated !== key && translated !== `[${key}]` ? translated : fallback;
+}
+
+function getDynamicWhitelistButtonText(state, displayDomain) {
+    const labels = {
+        none: ['popup_whitelist_add_general', `Add ${displayDomain} to general whitelist`],
+        general: ['popup_whitelist_cycle_general', `General whitelist: ${displayDomain} - click for History API only`],
+        history: ['popup_whitelist_cycle_history_api', `History API exception: ${displayDomain} - click for this tab only`],
+        tab: ['popup_whitelist_remove_tab', `Tab-only: ${displayDomain} - click to remove`]
+    };
+    const [key, fallback] = labels[state] || labels.none;
+    return getPopupWhitelistMessage(key, [displayDomain], fallback);
 }
 
 /**
@@ -694,14 +722,45 @@ async function loadWhitelist() {
 }
 
 /**
+ * Load History API-only exceptions from the background script.
+ * @returns {Promise<Array>} History API exception array
+ */
+async function loadHistoryApiWhitelist() {
+    try {
+        const response = await browser.runtime.sendMessage({
+            function: "getData",
+            params: ["historyApiWhitelist"]
+        });
+
+        historyApiWhitelist = Array.isArray(response?.response) ? response.response : [];
+        return historyApiWhitelist;
+    } catch (error) {
+        try {
+            const value = await getFromStorageDirectly("historyApiWhitelist");
+            historyApiWhitelist = Array.isArray(value) ? value : [];
+            return historyApiWhitelist;
+        } catch (directError) {
+            historyApiWhitelist = [];
+            return [];
+        }
+    }
+}
+
+/**
  * Handle whitelist change (add/remove domain)
  * @param {string} domain - Domain to add/remove (in punycode)
  * @param {boolean} shouldAdd - True to add, false to remove
+ * @param {'general'|'history'} mode - Persistent whitelist scope to update
  * @returns {Promise<boolean>} Success status
  */
-async function handleWhitelistChange(domain, shouldAdd) {
+async function handleWhitelistChange(domain, shouldAdd, mode = 'general') {
+    const isHistoryMode = mode === 'history';
+    const storageKey = isHistoryMode ? 'historyApiWhitelist' : 'userWhitelist';
+
     try {
-        const action = shouldAdd ? "addToWhitelist" : "removeFromWhitelist";
+        const action = shouldAdd
+            ? (isHistoryMode ? "addToHistoryApiWhitelist" : "addToWhitelist")
+            : (isHistoryMode ? "removeFromHistoryApiWhitelist" : "removeFromWhitelist");
         
         const response = await browser.runtime.sendMessage({
             function: action,
@@ -717,7 +776,7 @@ async function handleWhitelistChange(domain, shouldAdd) {
         
         // Fallback to direct storage
         try {
-            const currentWhitelist = await getFromStorageDirectly("userWhitelist") || [];
+            const currentWhitelist = await getFromStorageDirectly(storageKey) || [];
             let updatedWhitelist = Array.isArray(currentWhitelist) ? currentWhitelist : [];
             
             if (shouldAdd) {
@@ -729,7 +788,7 @@ async function handleWhitelistChange(domain, shouldAdd) {
             }
             
             await browser.storage.local.set({
-                userWhitelist: updatedWhitelist
+                [storageKey]: JSON.stringify(updatedWhitelist)
             });
             
             return true;
@@ -740,9 +799,54 @@ async function handleWhitelistChange(domain, shouldAdd) {
 }
 
 /**
- * Handle dynamic whitelist toggle button click.
- * Cycles through three states per domain:
- *   none → permanent (click 1) → tab-only temporary (click 2) → none (click 3)
+ * Update one persistent whitelist scope and roll back the local cache on failure.
+ */
+async function updatePersistentWhitelistScope(domain, shouldAdd, mode) {
+    const isHistoryMode = mode === 'history';
+    const previousWhitelist = [...(isHistoryMode ? historyApiWhitelist : userWhitelist)];
+    const updatedWhitelist = shouldAdd
+        ? [...previousWhitelist, domain]
+        : previousWhitelist.filter(entry => normalizeDomain(entry) !== domain);
+
+    if (isHistoryMode) {
+        historyApiWhitelist = updatedWhitelist;
+    } else {
+        userWhitelist = updatedWhitelist;
+    }
+
+    const success = await handleWhitelistChange(domain, shouldAdd, mode);
+    if (!success) {
+        if (isHistoryMode) {
+            historyApiWhitelist = previousWhitelist;
+        } else {
+            userWhitelist = previousWhitelist;
+        }
+    }
+    return success;
+}
+
+/**
+ * Update the temporary tab whitelist and roll back the local cache on failure.
+ */
+async function updateTemporaryTabWhitelistScope(domain, tabId, shouldAdd) {
+    const previousTemporaryWhitelist = [...temporaryTabWhitelistDomains];
+    temporaryTabWhitelistDomains = shouldAdd
+        ? [...temporaryTabWhitelistDomains, domain]
+        : temporaryTabWhitelistDomains.filter(entry => normalizeDomain(entry) !== domain);
+
+    const success = shouldAdd
+        ? await addToTemporaryTabWhitelistBackground(domain, tabId)
+        : await removeFromTemporaryTabWhitelistBackground(domain, tabId);
+    if (!success) {
+        temporaryTabWhitelistDomains = previousTemporaryWhitelist;
+    }
+    return success;
+}
+
+/**
+ * Cycle the single popup button through general, History API-only, tab-only,
+ * and no whitelist. This keeps the original popup layout while exposing every
+ * exception type.
  */
 async function handleDynamicWhitelistToggle() {
     const tabInfo = await getCurrentTab();
@@ -758,7 +862,6 @@ async function handleDynamicWhitelistToggle() {
     currentTabId = tabId;
     const asciiDomain = normalizeDomain(domain);
     const state = getWhitelistState(domain);
-
     const button = document.getElementById('singledynamicwhitelistunwhitelistbutton');
     if (button) {
         button.disabled = true;
@@ -766,42 +869,25 @@ async function handleDynamicWhitelistToggle() {
     }
 
     let success = false;
-
     if (state === 'none') {
-        // → permanent whitelist
-        userWhitelist = userWhitelist.filter(d => normalizeDomain(d) !== asciiDomain);
-        userWhitelist.push(asciiDomain);
-        success = await handleWhitelistChange(asciiDomain, true);
-        if (!success) {
-            userWhitelist = userWhitelist.filter(d => normalizeDomain(d) !== asciiDomain);
-        }
-    } else if (state === 'permanent') {
-        // → temporary tab whitelist (remove from permanent, add to tab-only)
-        const prevWhitelist = [...userWhitelist];
-        userWhitelist = userWhitelist.filter(d => normalizeDomain(d) !== asciiDomain);
-        const removed = await handleWhitelistChange(asciiDomain, false);
-        if (removed) {
-            temporaryTabWhitelistDomains = temporaryTabWhitelistDomains.filter(d => normalizeDomain(d) !== asciiDomain);
-            temporaryTabWhitelistDomains.push(asciiDomain);
-            success = await addToTemporaryTabWhitelistBackground(asciiDomain, tabId);
+        success = await updatePersistentWhitelistScope(asciiDomain, true, 'general');
+    } else if (state === 'general') {
+        const historyAlreadyActive = isDomainInWhitelist(asciiDomain, historyApiWhitelist);
+        if (await updatePersistentWhitelistScope(asciiDomain, false, 'general')) {
+            success = historyAlreadyActive || await updatePersistentWhitelistScope(asciiDomain, true, 'history');
             if (!success) {
-                userWhitelist = prevWhitelist;
-                temporaryTabWhitelistDomains = temporaryTabWhitelistDomains.filter(d => normalizeDomain(d) !== asciiDomain);
-                // Restore permanent whitelist in background
-                await handleWhitelistChange(asciiDomain, true);
+                await updatePersistentWhitelistScope(asciiDomain, true, 'general');
             }
-        } else {
-            userWhitelist = prevWhitelist;
-            success = false;
+        }
+    } else if (state === 'history') {
+        if (await updatePersistentWhitelistScope(asciiDomain, false, 'history')) {
+            success = await updateTemporaryTabWhitelistScope(asciiDomain, tabId, true);
+            if (!success) {
+                await updatePersistentWhitelistScope(asciiDomain, true, 'history');
+            }
         }
     } else {
-        // temporary → none
-        const prevTemp = [...temporaryTabWhitelistDomains];
-        temporaryTabWhitelistDomains = temporaryTabWhitelistDomains.filter(d => normalizeDomain(d) !== asciiDomain);
-        success = await removeFromTemporaryTabWhitelistBackground(asciiDomain, tabId);
-        if (!success) {
-            temporaryTabWhitelistDomains = prevTemp;
-        }
+        success = await updateTemporaryTabWhitelistScope(asciiDomain, tabId, false);
     }
 
     await updateDynamicWhitelistButton();
@@ -821,8 +907,7 @@ async function handleDynamicWhitelistToggle() {
 }
 
 /**
- * Update dynamic whitelist button text and visibility.
- * Reflects three states: none / permanent / tab-only temporary.
+ * Update dynamic whitelist button text and visibility for the current scope.
  */
 async function updateDynamicWhitelistButton() {
     await waitForPopupI18n();
@@ -834,14 +919,14 @@ async function updateDynamicWhitelistButton() {
 
     if (!tabInfo) {
         button.style.display = 'block';
-        const fallbackText = getPopupI18nMessage('addcurrentdomain_to_whitelist', undefined, 'Add current domain to whitelist');
+        const fallbackText = getPopupWhitelistMessage('addcurrentdomain_to_whitelist', undefined, 'Add current domain to whitelist');
         const unavailableTitle = getLocalizedText('popup_dynamic_whitelist_unavailable_title', 'Cannot detect domain for this page');
         const unavailableAria = getLocalizedText('popup_dynamic_whitelist_unavailable_aria', 'Whitelist button disabled because this page has no supported domain');
         button.textContent = fallbackText;
         button.disabled = true;
         button.setAttribute('title', unavailableTitle);
         button.setAttribute('aria-label', unavailableAria);
-        button.classList.remove('whitelisted', 'not-whitelisted', 'tab-whitelisted');
+        button.classList.remove('whitelisted', 'not-whitelisted', 'history-api-whitelisted', 'tab-whitelisted');
         applyPopupLanguageLayout();
         return;
     }
@@ -853,23 +938,7 @@ async function updateDynamicWhitelistButton() {
     const displayDomain = asciiDomain !== unicodeDomain ? `${unicodeDomain} (${asciiDomain})` : domain;
 
     const state = getWhitelistState(domain);
-
-    let buttonText = '';
-    if (state === 'permanent') {
-        buttonText = getPopupI18nMessage(
-            'popup_whitelist_state_permanent',
-            [displayDomain],
-            `Whitelisted: ${displayDomain} — click for tab-only`
-        );
-    } else if (state === 'temporary') {
-        buttonText = getPopupI18nMessage(
-            'popup_whitelist_state_temporary',
-            [displayDomain],
-            `Tab-only: ${displayDomain} — click to remove`
-        );
-    } else {
-        buttonText = getPopupI18nMessage('addDomainToWhitelist', [displayDomain], `Add ${displayDomain} to whitelist`);
-    }
+    const buttonText = getDynamicWhitelistButtonText(state, displayDomain);
 
     button.textContent = buttonText;
     button.style.display = 'block';
@@ -877,10 +946,12 @@ async function updateDynamicWhitelistButton() {
     button.setAttribute('title', buttonText);
     button.setAttribute('aria-label', buttonText);
 
-    button.classList.remove('whitelisted', 'not-whitelisted', 'tab-whitelisted');
-    if (state === 'permanent') {
+    button.classList.remove('whitelisted', 'not-whitelisted', 'history-api-whitelisted', 'tab-whitelisted');
+    if (state === 'general') {
         button.classList.add('whitelisted');
-    } else if (state === 'temporary') {
+    } else if (state === 'history') {
+        button.classList.add('history-api-whitelisted');
+    } else if (state === 'tab') {
         button.classList.add('tab-whitelisted');
     } else {
         button.classList.add('not-whitelisted');
@@ -1060,6 +1131,18 @@ function initializeStorageListener() {
                         userWhitelist = Array.isArray(parsedWhitelist) ? parsedWhitelist : [];
                         updateAllDynamicButtons();
                         break;
+                    case 'historyApiWhitelist':
+                        let parsedHistoryApiWhitelist = newValue;
+                        if (typeof newValue === 'string') {
+                            try {
+                                parsedHistoryApiWhitelist = JSON.parse(newValue);
+                            } catch (parseError) {
+                                parsedHistoryApiWhitelist = [];
+                            }
+                        }
+                        historyApiWhitelist = Array.isArray(parsedHistoryApiWhitelist) ? parsedHistoryApiWhitelist : [];
+                        updateAllDynamicButtons();
+                        break;
                     case 'temporaryPauseUntil':
                         loadTemporaryPauseState().then(() => {
                             renderTemporaryPauseState();
@@ -1096,6 +1179,7 @@ async function getFromStorageDirectly(key) {
                     case 'ClearURLsData':
                     case 'log':
                     case 'userWhitelist':
+                    case 'historyApiWhitelist':
                         value = JSON.parse(value);
                         break;
                     case 'types':
@@ -1132,6 +1216,7 @@ function getDefaultValue(key) {
         case 'hashStatus':
             return 'no_rules_loaded';
         case 'userWhitelist':
+        case 'historyApiWhitelist':
             return [];
         default:
             return null;
@@ -1309,6 +1394,7 @@ async function refreshAllData() {
         await loadTemporaryPauseState();
         // Load whitelist
         await loadWhitelist();
+        await loadHistoryApiWhitelist();
 
         // Load temporary tab whitelist for current tab
         const tabInfo = await getCurrentTab();
@@ -1940,6 +2026,10 @@ async function openLoggerWindow() {
                 userWhitelist = [];
                 return [];
             }),
+            loadHistoryApiWhitelist().catch(error => {
+                historyApiWhitelist = [];
+                return [];
+            }),
             getCurrentTab().then(async (tabInfo) => {
                 if (tabInfo) {
                     currentTabId = tabInfo.tabId;
@@ -1956,7 +2046,7 @@ async function openLoggerWindow() {
             resetBtn.onclick = resetGlobalCounter;
         }
         
-        // Set up dynamic whitelist button with activeTab API
+        // Set up the dynamic whitelist button with activeTab API.
         const dynamicWhitelistBtn = document.getElementById('singledynamicwhitelistunwhitelistbutton');
         if (dynamicWhitelistBtn) {
             dynamicWhitelistBtn.addEventListener('click', handleDynamicWhitelistToggle);
@@ -2078,6 +2168,7 @@ async function openLoggerWindow() {
             setText();
             updateStatisticsWithLocalization();
             renderTemporaryPauseState();
+            updateAllDynamicButtons().catch(() => {});
             initializePopupConsentGate().catch(() => {});
         }).catch(error => {
             setText();

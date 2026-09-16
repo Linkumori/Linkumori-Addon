@@ -3590,6 +3590,14 @@
     "message": "Add",
     "description": "Text for the add domain button"
   },
+  "whitelist_added_general": {
+    "message": "Added %s to general whitelist",
+    "description": "Success message when a general whitelist exception is added."
+  },
+  "whitelist_added_history_api": {
+    "message": "Added %s as a History API exception",
+    "description": "Success message when a History API-only exception is added."
+  },
   "whitelist_add_failed": {
     "message": "Failed to add domain to whitelist",
     "description": "Error message when adding domain fails"
@@ -3605,6 +3613,14 @@
   "whitelist_count": {
     "message": "%d domain(s) whitelisted",
     "description": "Text showing number of whitelisted domains. %d is replaced with the count."
+  },
+  "whitelist_exception_count": {
+    "message": "%d exception(s)",
+    "description": "Text showing the total number of general and History API exceptions."
+  },
+  "whitelist_exception_empty": {
+    "message": "No whitelist exceptions",
+    "description": "Text shown when there are no general or History API whitelist exceptions."
   },
   "whitelist_empty": {
     "message": "No domains whitelisted",
@@ -3643,8 +3659,8 @@
     "description": "Success message for whitelist import. %s is replaced with imported domain count"
   },
   "whitelist_import_invalid_format": {
-    "message": "Invalid whitelist format. Use a JSON array of domains.",
-    "description": "Error shown when imported whitelist structure is not supported"
+    "message": "Invalid whitelist format. Use a JSON array or an object with userWhitelist and historyApiWhitelist arrays.",
+    "description": "Error shown when imported whitelist structure is not supported."
   },
   "whitelist_import_no_valid_domain": {
     "message": "No valid domains found in whitelist file",
@@ -3657,6 +3673,22 @@
   "whitelist_input_placeholder": {
     "message": "example.com, *.example.com, or 192.168.1.1",
     "description": "Placeholder text for the domain input field"
+  },
+  "whitelist_mode_general": {
+    "message": "General whitelist",
+    "description": "Whitelist mode that bypasses all Linkumori protections."
+  },
+  "whitelist_mode_history_api": {
+    "message": "History API only",
+    "description": "Whitelist mode that bypasses only History API protection."
+  },
+  "whitelist_mode_label": {
+    "message": "Whitelist scope",
+    "description": "Accessible label for the whitelist exception type selector."
+  },
+  "whitelist_mode_tab_only": {
+    "message": "This tab only",
+    "description": "Temporary whitelist mode that is limited to the current tab."
   },
   "whitelist_invalid_format": {
     "message": "Invalid format. Use a domain (example.com, *.example.com) or an IP address (192.168.1.1, ::1)",
@@ -3678,6 +3710,14 @@
     "message": "Removed %s from whitelist",
     "description": "Success message when domain is removed. %s is replaced with domain name."
   },
+  "whitelist_removed_general": {
+    "message": "Removed %s from general whitelist",
+    "description": "Success message when a general whitelist exception is removed."
+  },
+  "whitelist_removed_history_api": {
+    "message": "Removed History API exception for %s",
+    "description": "Success message when a History API-only exception is removed."
+  },
   "whitelist_search_placeholder": {
     "message": "Search whitelisted domains",
     "description": "Placeholder text for searching whitelisted domains"
@@ -3689,6 +3729,14 @@
   "whitelist_section_title": {
     "message": "Domain Whitelist",
     "description": "Title for the whitelist settings section"
+  },
+  "whitelist_type_general": {
+    "message": "General",
+    "description": "Type label shown beside a general whitelist exception."
+  },
+  "whitelist_type_history_api": {
+    "message": "History API only",
+    "description": "Type label shown beside a History API-only exception."
   },
   "whitelist_update_failed": {
     "message": "Failed to update whitelist",
@@ -4437,6 +4485,22 @@
   "popup_dynamic_whitelist_unavailable_aria": {
     "message": "Whitelist button disabled because this page has no supported domain",
     "description": "ARIA label for disabled dynamic whitelist button when current page has no supported domain"
+  },
+  "popup_whitelist_add_general": {
+    "message": "Add $1 to general whitelist",
+    "description": "Popup action label for adding the current domain to the general whitelist."
+  },
+  "popup_whitelist_cycle_general": {
+    "message": "General whitelist: $1 - click for History API only",
+    "description": "Popup action label for moving the current domain from the general whitelist to a History API-only exception."
+  },
+  "popup_whitelist_cycle_history_api": {
+    "message": "History API exception: $1 - click for this tab only",
+    "description": "Popup action label for moving the current domain from a History API-only exception to a tab-only exception."
+  },
+  "popup_whitelist_remove_tab": {
+    "message": "Tab-only: $1 - click to remove",
+    "description": "Popup action label for removing the current domain from temporary tab-only exceptions."
   },
   "popup_pause_15m_title": {
     "message": "Temporarily pause cleaning for 15 minutes",

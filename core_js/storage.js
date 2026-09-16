@@ -1297,6 +1297,7 @@ function storageDataAsString(key) {
         case "log":
             return JSON.stringify(value);
         case "userWhitelist":
+        case "historyApiWhitelist":
             if (Array.isArray(value)) {
                 return JSON.stringify(value);
             } else if (typeof value === 'string') {
@@ -2711,6 +2712,7 @@ function setData(key, value) {
             }
             break;
         case "userWhitelist":
+        case "historyApiWhitelist":
             if (typeof value === 'string') {
                 try {
                     storage[key] = JSON.parse(value);
@@ -2910,6 +2912,7 @@ function initSettings() {
     storage.eTagFiltering = false;
     storage.watchDogErrorCount = 0;
     storage.userWhitelist = [];
+    storage.historyApiWhitelist = [];
     storage.custom_rules = { providers: {} };
     storage.clearurls_disabled_rule_ids = [];
     storage.popupConsentAccepted = false;
@@ -3058,6 +3061,94 @@ function isInWhitelist(domain) {
     const cleanDomain = domain.toLowerCase().trim();
     const result = storage.userWhitelist.includes(cleanDomain);
     return result;
+}
+
+// History API exceptions use the same validated domain syntax as the general
+// whitelist, but are consulted only by historyListener.js.
+function addToHistoryApiWhitelist(domain) {
+    if (!storage.historyApiWhitelist) {
+        storage.historyApiWhitelist = [];
+    }
+
+    if (!domain || typeof domain !== 'string') {
+        return false;
+    }
+
+    let cleanDomain = domain.toLowerCase().trim();
+    if (!cleanDomain || !isValidWhitelistDomain(cleanDomain)) {
+        return false;
+    }
+
+    const canonicalIp = canonicalizeIpEntry(cleanDomain);
+    if (canonicalIp !== null) {
+        cleanDomain = canonicalIp;
+    }
+
+    if (storage.historyApiWhitelist.includes(cleanDomain)) {
+        return false;
+    }
+
+    storage.historyApiWhitelist.push(cleanDomain);
+
+    try {
+        saveOnDisk(['historyApiWhitelist']);
+    } catch (error) {
+    }
+
+    return true;
+}
+
+function removeFromHistoryApiWhitelist(domain) {
+    if (!storage.historyApiWhitelist || storage.historyApiWhitelist.length === 0) {
+        return false;
+    }
+
+    if (!domain || typeof domain !== 'string') {
+        return false;
+    }
+
+    const cleanDomain = domain.toLowerCase().trim();
+    const index = storage.historyApiWhitelist.indexOf(cleanDomain);
+
+    if (index === -1) {
+        return false;
+    }
+
+    storage.historyApiWhitelist.splice(index, 1);
+
+    try {
+        saveOnDisk(['historyApiWhitelist']);
+    } catch (error) {
+    }
+
+    return true;
+}
+
+function getHistoryApiWhitelist() {
+    return storage.historyApiWhitelist || [];
+}
+
+function clearHistoryApiWhitelist() {
+    storage.historyApiWhitelist = [];
+
+    try {
+        saveOnDisk(['historyApiWhitelist']);
+    } catch (error) {
+    }
+
+    return true;
+}
+
+function isInHistoryApiWhitelist(domain) {
+    if (!storage.historyApiWhitelist || storage.historyApiWhitelist.length === 0) {
+        return false;
+    }
+
+    if (!domain || typeof domain !== 'string') {
+        return false;
+    }
+
+    return storage.historyApiWhitelist.includes(domain.toLowerCase().trim());
 }
 
 // Strips a wrapping "[...]" (the form IPv6 literals take in a URL's hostname).

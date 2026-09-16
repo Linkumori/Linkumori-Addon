@@ -148,8 +148,19 @@ let clearURLsDisabledRuleIds = [];
 let clearURLsProviderSnapshot = null;
 let disabledRulesActivationMode = 'pattern';
 let userWhitelist = [];
+let historyApiWhitelist = [];
 let whitelistSearchTerm = '';
 let whitelistStatusTimer = null;
+const CUSTOM_RULES_WHITELIST_TYPES = Object.freeze({
+    general: {
+        addFunction: 'addToWhitelist',
+        removeFunction: 'removeFromWhitelist'
+    },
+    history: {
+        addFunction: 'addToHistoryApiWhitelist',
+        removeFunction: 'removeFromHistoryApiWhitelist'
+    }
+});
 
 // DOM elements
 let providerList, editorContent, editorTitle, editorStatus, saveBtn, editNameBtn, deleteBtn, exitBtn;
@@ -1560,6 +1571,42 @@ function isValidDomain(domain) {
     }
 }
 
+function getWhitelistText(key, fallback, ...substitutions) {
+    try {
+        const text = i18n(key, ...substitutions);
+        return text && text !== key ? text : fallback;
+    } catch (_) {
+        return fallback;
+    }
+}
+
+function getWhitelistExceptionType() {
+    const select = document.getElementById('customrules-whitelist-mode');
+    return select && CUSTOM_RULES_WHITELIST_TYPES[select.value] ? select.value : 'general';
+}
+
+function getWhitelistExceptionTypeLabel(type) {
+    return type === 'history'
+        ? getWhitelistText('whitelist_type_history_api', 'History API only')
+        : getWhitelistText('whitelist_type_general', 'General');
+}
+
+function getWhitelistEntries() {
+    const generalEntries = Array.isArray(userWhitelist)
+        ? userWhitelist.map(domain => ({ domain, type: 'general' }))
+        : [];
+    const historyEntries = Array.isArray(historyApiWhitelist)
+        ? historyApiWhitelist.map(domain => ({ domain, type: 'history' }))
+        : [];
+
+    return [...generalEntries, ...historyEntries]
+        .filter(entry => typeof entry.domain === 'string')
+        .sort((left, right) => {
+            const domainOrder = left.domain.localeCompare(right.domain);
+            return domainOrder || left.type.localeCompare(right.type);
+        });
+}
+
 function setWhitelistStatus(type, message) {
     const status = document.getElementById('customrules-whitelist-status');
     if (!status) return;
@@ -1588,20 +1635,30 @@ function renderWhitelistCount() {
     const countEl = document.getElementById('customrules-whitelist-count');
     if (!countEl) return;
 
-    const localizedCount = getLocalizedNumber(userWhitelist.length);
-    countEl.textContent = i18n('whitelist_count').replace('%d', localizedCount);
+    const localizedCount = getLocalizedNumber(getWhitelistEntries().length);
+    countEl.textContent = getWhitelistText(
+        'whitelist_exception_count',
+        `${localizedCount} exception(s)`
+    ).replace('%d', localizedCount);
 }
 
 function renderWhitelistList() {
     const list = document.getElementById('customrules-whitelist-list');
     if (!list) return;
 
+    const entries = getWhitelistEntries();
     const term = whitelistSearchTerm.trim().toLowerCase();
-    const filtered = userWhitelist.filter(domain => !term || domain.toLowerCase().includes(term));
+    const filtered = entries.filter((entry) => {
+        if (!term) {
+            return true;
+        }
+        return entry.domain.toLowerCase().includes(term) ||
+            getWhitelistExceptionTypeLabel(entry.type).toLowerCase().includes(term);
+    });
 
-    if (userWhitelist.length === 0) {
+    if (entries.length === 0) {
         const countEl = document.getElementById('customrules-whitelist-count');
-        setHTMLContent(list, `<li class="whitelist-empty">${i18n('whitelist_empty')}</li>`);
+        setHTMLContent(list, `<li class="whitelist-empty">${getWhitelistText('whitelist_exception_empty', 'No whitelist exceptions')}</li>`);
         if (countEl) {
             countEl.textContent = '';
         }
@@ -1609,16 +1666,20 @@ function renderWhitelistList() {
     }
 
     if (filtered.length === 0) {
-        setHTMLContent(list, `<li class="whitelist-empty">${i18n('whitelist_empty')}</li>`);
+        setHTMLContent(list, `<li class="whitelist-empty">${getWhitelistText('whitelist_exception_empty', 'No whitelist exceptions')}</li>`);
         renderWhitelistCount();
         addWhitelistRemoveHandlers();
         return;
     }
 
-    const items = filtered.map(domain => `
+    const removeLabel = getWhitelistText('whitelist_remove_button', 'Remove');
+    const items = filtered.map(({ domain, type }) => `
         <li class="whitelist-item">
-            <span class="whitelist-domain" title="${escapeHtml(domain)}">${escapeHtml(domain)}</span>
-            <button type="button" class="btn btn-danger btn-sm whitelist-remove" data-domain="${escapeHtml(domain)}" title="${i18n('whitelist_remove_button')}">${i18n('whitelist_remove_button')}</button>
+            <div class="whitelist-entry">
+                <span class="whitelist-domain" title="${escapeHtml(domain)}">${escapeHtml(domain)}</span>
+                <span class="whitelist-type whitelist-type-${escapeHtml(type)}">${escapeHtml(getWhitelistExceptionTypeLabel(type))}</span>
+            </div>
+            <button type="button" class="btn btn-danger btn-sm whitelist-remove" data-domain="${escapeHtml(domain)}" data-whitelist-type="${escapeHtml(type)}" title="${escapeHtml(removeLabel)}">${escapeHtml(removeLabel)}</button>
         </li>
     `).join('');
     setHTMLContent(list, items);
@@ -1643,18 +1704,26 @@ function handleWhitelistRemove(event) {
     }
 
     const domain = target.getAttribute('data-domain');
-    if (domain) {
-        removeWhitelistDomain(domain);
+    const type = target.getAttribute('data-whitelist-type');
+    if (domain && CUSTOM_RULES_WHITELIST_TYPES[type]) {
+        removeWhitelistDomain(domain, type);
     }
 }
 
 async function loadWhitelist() {
     try {
-        const response = await browser.runtime.sendMessage({
-            function: "getData",
-            params: ["userWhitelist"]
-        });
-        userWhitelist = response.response || [];
+        const [generalResponse, historyResponse] = await Promise.all([
+            browser.runtime.sendMessage({
+                function: "getData",
+                params: ["userWhitelist"]
+            }),
+            browser.runtime.sendMessage({
+                function: "getData",
+                params: ["historyApiWhitelist"]
+            })
+        ]);
+        userWhitelist = Array.isArray(generalResponse?.response) ? generalResponse.response : [];
+        historyApiWhitelist = Array.isArray(historyResponse?.response) ? historyResponse.response : [];
 
         renderWhitelistList();
         setTimeout(() => {
@@ -1662,6 +1731,7 @@ async function loadWhitelist() {
         }, 100);
     } catch (_) {
         userWhitelist = [];
+        historyApiWhitelist = [];
         renderWhitelistList();
         setWhitelistStatus('error', i18n('whitelist_load_failed'));
     }
@@ -1682,16 +1752,22 @@ async function addWhitelistDomain() {
     }
 
     const punnycodeDomain = normalizeDomain(raw);
+    const type = getWhitelistExceptionType();
+    const whitelistType = CUSTOM_RULES_WHITELIST_TYPES[type];
     try {
         const response = await browser.runtime.sendMessage({
-            function: "addToWhitelist",
+            function: whitelistType.addFunction,
             params: [punnycodeDomain]
         });
 
         if (response && response.response) {
             input.value = '';
             await loadWhitelist();
-            setWhitelistStatus('success', i18n('whitelist_added').replace('%s', domainToUnicode(punnycodeDomain)));
+            const key = type === 'history' ? 'whitelist_added_history_api' : 'whitelist_added_general';
+            const fallback = type === 'history'
+                ? `Added ${domainToUnicode(punnycodeDomain)} as a History API exception`
+                : `Added ${domainToUnicode(punnycodeDomain)} to general whitelist`;
+            setWhitelistStatus('success', getWhitelistText(key, fallback).replace('%s', domainToUnicode(punnycodeDomain)));
         } else {
             setWhitelistStatus('error', i18n('whitelist_already_exists'));
         }
@@ -1700,20 +1776,29 @@ async function addWhitelistDomain() {
     }
 }
 
-async function removeWhitelistDomain(domain) {
+async function removeWhitelistDomain(domain, type = 'general') {
     if (!domain) {
+        return;
+    }
+
+    const whitelistType = CUSTOM_RULES_WHITELIST_TYPES[type];
+    if (!whitelistType) {
         return;
     }
 
     try {
         const response = await browser.runtime.sendMessage({
-            function: "removeFromWhitelist",
+            function: whitelistType.removeFunction,
             params: [domain]
         });
 
         if (response && response.response) {
             await loadWhitelist();
-            setWhitelistStatus('success', i18n('whitelist_removed').replace('%s', domainToUnicode(domain)));
+            const key = type === 'history' ? 'whitelist_removed_history_api' : 'whitelist_removed_general';
+            const fallback = type === 'history'
+                ? `Removed History API exception for ${domainToUnicode(domain)}`
+                : `Removed ${domainToUnicode(domain)} from general whitelist`;
+            setWhitelistStatus('success', getWhitelistText(key, fallback).replace('%s', domainToUnicode(domain)));
         } else {
             setWhitelistStatus('error', i18n('whitelist_remove_failed'));
         }
@@ -1725,12 +1810,16 @@ async function removeWhitelistDomain(domain) {
 async function exportWhitelistDomains() {
     let url = null;
     try {
-        if (!Array.isArray(userWhitelist) || userWhitelist.length === 0) {
+        if (getWhitelistEntries().length === 0) {
             setWhitelistStatus('error', i18n('whitelist_export_empty'));
             return;
         }
 
-        const payload = JSON.stringify(userWhitelist, null, 2);
+        const payload = JSON.stringify({
+            formatVersion: 2,
+            userWhitelist: Array.isArray(userWhitelist) ? userWhitelist : [],
+            historyApiWhitelist: Array.isArray(historyApiWhitelist) ? historyApiWhitelist : []
+        }, null, 2);
         const blob = new Blob([payload], { type: 'application/json' });
         url = URL.createObjectURL(blob);
         const fileName = `Linkumori-Whitelist-${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.json`;
@@ -1763,42 +1852,53 @@ async function importWhitelistDomainsFromFile(file) {
         return;
     }
 
-    let importedDomains = null;
+    let importedDomainsByType = null;
     if (Array.isArray(parsed)) {
-        importedDomains = parsed;
-    } else if (parsed && Array.isArray(parsed.userWhitelist)) {
-        importedDomains = parsed.userWhitelist;
+        // Legacy exports were a plain general-whitelist array.
+        importedDomainsByType = { general: parsed, history: [] };
+    } else if (parsed && typeof parsed === 'object') {
+        const generalEntries = Array.isArray(parsed.userWhitelist) ? parsed.userWhitelist : [];
+        const historyEntries = Array.isArray(parsed.historyApiWhitelist) ? parsed.historyApiWhitelist : [];
+        if (Array.isArray(parsed.userWhitelist) || Array.isArray(parsed.historyApiWhitelist)) {
+            importedDomainsByType = { general: generalEntries, history: historyEntries };
+        }
     }
 
-    if (!Array.isArray(importedDomains)) {
+    if (!importedDomainsByType) {
         setWhitelistStatus('error', i18n('whitelist_import_invalid_format'));
         return;
     }
 
-    const normalizedToImport = Array.from(new Set(
-        importedDomains
-            .filter(item => typeof item === 'string')
-            .map(item => item.trim())
-            .filter(item => item.length > 0 && isValidDomain(item))
-            .map(item => normalizeDomain(item))
-    ));
+    const normalizedByType = Object.fromEntries(Object.entries(importedDomainsByType).map(([type, domains]) => [
+        type,
+        Array.from(new Set(
+            domains
+                .filter(item => typeof item === 'string')
+                .map(item => item.trim())
+                .filter(item => item.length > 0 && isValidDomain(item))
+                .map(item => normalizeDomain(item))
+        ))
+    ]));
 
-    if (normalizedToImport.length === 0) {
+    if (normalizedByType.general.length === 0 && normalizedByType.history.length === 0) {
         setWhitelistStatus('error', i18n('whitelist_import_no_valid_domain'));
         return;
     }
 
     let addedCount = 0;
-    for (const domain of normalizedToImport) {
-        try {
-            const response = await browser.runtime.sendMessage({
-                function: "addToWhitelist",
-                params: [domain]
-            });
-            if (response && response.response) {
-                addedCount++;
+    for (const [type, domains] of Object.entries(normalizedByType)) {
+        const whitelistType = CUSTOM_RULES_WHITELIST_TYPES[type];
+        for (const domain of domains) {
+            try {
+                const response = await browser.runtime.sendMessage({
+                    function: whitelistType.addFunction,
+                    params: [domain]
+                });
+                if (response && response.response) {
+                    addedCount++;
+                }
+            } catch (_) {
             }
-        } catch (_) {
         }
     }
 
@@ -1813,11 +1913,12 @@ function setupWhitelistUI() {
     const exportBtn = document.getElementById('customrules-whitelist-export-btn');
     const importInput = document.getElementById('customrules-whitelist-import-input');
     const input = document.getElementById('customrules-whitelist-input');
+    const mode = document.getElementById('customrules-whitelist-mode');
     const search = document.getElementById('customrules-whitelist-search');
     const list = document.getElementById('customrules-whitelist-list');
     const examples = document.getElementById('whitelist_examples_text');
 
-    if (!addBtn || !input || !search || !list || !importBtn || !exportBtn || !importInput) {
+    if (!addBtn || !input || !mode || !search || !list || !importBtn || !exportBtn || !importInput) {
         return;
     }
 
