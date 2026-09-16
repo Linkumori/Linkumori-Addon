@@ -401,6 +401,9 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     if (rule.referralMarketing !== undefined && typeof rule.referralMarketing !== 'boolean') {
         throw new Error(`${prefix}.referralMarketing must be a boolean`);
     }
+    if (rule.historyBypassProtection !== undefined && typeof rule.historyBypassProtection !== 'boolean') {
+        throw new Error(`${prefix}.historyBypassProtection must be a boolean`);
+    }
     if (rule.exceptions !== undefined &&
         (!Array.isArray(rule.exceptions) || rule.exceptions.some(item => typeof item !== 'string'))) {
         throw new Error(`${prefix}.exceptions must be an array of strings`);
@@ -2346,6 +2349,7 @@ function createProviderListItemHTML(providerName, provider) {
     if (domainRedirectionsCount > 0) stats.push(`${getLocalizedNumber(domainRedirectionsCount)} ${i18n('customRulesEditor_domainRedirections')}`);
     if (provider.indexPattern) stats.push(`Index: ${provider.indexPattern}`);
     if (provider.completeProvider) stats.push(i18n('providerList_complete'));
+    if (provider.historyBypassProtection === false) stats.push(i18n('providerList_historyBypassProtection'));
     
     return `
         <div class="provider-list-item" data-provider="${escapeHtml(providerName)}">
@@ -3151,6 +3155,7 @@ function createProviderCard(name, provider, source) {
                 ${domainExceptionsCount > 0 ? `<span class="provider-card-stat" title="${i18n('providerImport_domainExceptions')}">${getLocalizedNumber(domainExceptionsCount)} ${i18n('providerImport_domainExceptionsAbbr')}</span>` : ''}
                 ${domainRedirectionsCount > 0 ? `<span class="provider-card-stat" title="${i18n('providerImport_domainRedirections')}">${getLocalizedNumber(domainRedirectionsCount)} ${i18n('providerImport_domainRedirectionsAbbr')}</span>` : ''}
                 ${provider.completeProvider ? `<span class="provider-card-stat" title="${i18n('providerImport_completeProvider')}">${i18n('providerImport_complete')}</span>` : ''}
+                ${provider.historyBypassProtection === false ? `<span class="provider-card-stat" title="${i18n('providerList_historyBypassProtection')}">${i18n('providerImport_historyBypassProtectionAbbr')}</span>` : ''}
             </div>
             ${existsInCustom ? `<div style="font-size: 10px; color: var(--button-warning); margin-top: 4px;">${statusText}</div>` : ''}
         </div>
@@ -4383,6 +4388,7 @@ function compactProviderForEditor(provider) {
     });
     if (next.completeProvider === false) delete next.completeProvider;
     if (next.forceRedirection === false) delete next.forceRedirection;
+    if (next.historyBypassProtection === true) delete next.historyBypassProtection;
     return next;
 }
 
@@ -4394,7 +4400,7 @@ function normalizeProviderForEditor(provider) {
 }
 
 function getJsonFieldButtons() {
-    const fields = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions', 'domainExceptions', 'domainRedirections', 'completeProvider', 'forceRedirection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
+    const fields = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions', 'domainExceptions', 'domainRedirections', 'completeProvider', 'forceRedirection', 'historyBypassProtection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
     const labels = {
         rules: i18n('customRulesEditor_rules'),
         rawRules: i18n('customRulesEditor_rawRules'),
@@ -4405,6 +4411,7 @@ function getJsonFieldButtons() {
         domainRedirections: i18n('customRulesEditor_domainRedirections'),
         completeProvider: i18n('customRulesEditor_completeProvider'),
         forceRedirection: i18n('customRulesEditor_forceRedirection'),
+        historyBypassProtection: i18n('customRulesEditor_historyBypassProtection'),
         urlPattern: i18n('customRulesEditor_urlPattern'),
         indexPattern: i18n('customRulesEditor_indexPattern'),
         domainPatterns: i18n('customRulesEditor_domainPatterns'),
@@ -4484,6 +4491,7 @@ function getDefaultValueForJsonKey(key) {
         domainRedirections: [],
         completeProvider: false,
         forceRedirection: false,
+        historyBypassProtection: false,
         urlPattern: '',
         indexPattern: '',
         domainPatterns: [],

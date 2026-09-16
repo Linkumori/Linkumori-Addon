@@ -364,6 +364,9 @@
   "customRulesEditor_forceRedirection": {
     "message": "Force Redirection"
   },
+  "customRulesEditor_historyBypassProtection": {
+    "message": "History Bypass Protection (skip during in-page navigation)"
+  },
   "customRulesEditor_httpMethods": {
     "message": "HTTP Methods",
     "description": "Label for HTTP methods field"
@@ -733,6 +736,22 @@
   "faq_force_redirection_warning": {
     "message": "Only use when normal redirections fail, as this method is more intrusive.",
     "description": "FAQ warning about forceRedirection"
+  },
+  "faq_history_bypass_protection": {
+    "message": "What does historyBypassProtection do?",
+    "description": "FAQ question about historyBypassProtection"
+  },
+  "faq_history_bypass_protection_explanation": {
+    "message": "Single-page sites sometimes change the URL with history.pushState/replaceState instead of loading a new page. Linkumori cleans those URLs too. Add history-bypass-protection=false to a $removeparam rule to skip just that rule during this in-page cleanup — it still runs normally on real page loads.",
+    "description": "FAQ explanation of the history-bypass-protection modifier"
+  },
+  "faq_history_bypass_protection_provider": {
+    "message": "To skip every rule in a provider at once instead of repeating the modifier, set it at the provider level:",
+    "description": "FAQ note about the provider-level historyBypassProtection field"
+  },
+  "faq_history_bypass_protection_default": {
+    "message": "Missing means true (protection stays on). A rule can still opt back in with history-bypass-protection=true even when its provider sets the blanket above.",
+    "description": "FAQ note about the default value of historyBypassProtection"
   },
   "faq_how_providers_work": {
     "message": "How do providers work?",
@@ -2459,6 +2478,9 @@
   "providerImport_complete": {
     "message": "Complete"
   },
+  "providerImport_historyBypassProtectionAbbr": {
+    "message": "Skips in-page nav"
+  },
   "providerImport_completeProvider": {
     "message": "Complete provider"
   },
@@ -2687,6 +2709,10 @@
   "providerList_complete": {
     "message": "Complete",
     "description": "Label indicating a provider is a complete provider"
+  },
+  "providerList_historyBypassProtection": {
+    "message": "Skips in-page navigation cleanup",
+    "description": "Label indicating a provider has historyBypassProtection set to false"
   },
   "providerList_confirmDelete": {
     "message": "Are you sure you want to delete provider \"$1\"?",
@@ -6557,6 +6583,38 @@
     "message": "Redirect a tracker URL:",
     "description": "Guide page text."
   },
+  "guide_0446": {
+    "message": "Skip A Rule During In-Page Navigation",
+    "description": "Guide page text."
+  },
+  "guide_0447": {
+    "message": "<code>historyBypassProtection</code>",
+    "description": "Guide page text."
+  },
+  "guide_0448": {
+    "message": "Linkumori addition",
+    "description": "Guide page text."
+  },
+  "guide_0449": {
+    "message": "Set <code>false</code> to skip this provider during in-page (History API) navigation cleanup; defaults to <code>true</code>.",
+    "description": "Guide page text."
+  },
+  "guide_0450": {
+    "message": "Skip A Rule During In-Page (<code>history.pushState</code>/<code>replaceState</code>) Navigation",
+    "description": "Guide page text."
+  },
+  "guide_0451": {
+    "message": "Single-page apps sometimes change the address bar with <code>history.pushState</code>/<code>replaceState</code> instead of a full page load. Linkumori cleans those URLs too, and by default every rule still applies there. Add the <code>history-bypass-protection=false</code> modifier to a <code>$removeparam</code> rule to skip just that rule during this in-page cleanup pass — it still runs normally on real page loads and network requests.",
+    "description": "Guide page text."
+  },
+  "guide_0452": {
+    "message": "The modifier is missing by default, which means <code>true</code> (protection stays on). A rule can opt back in explicitly even when its provider sets the blanket below:",
+    "description": "Guide page text."
+  },
+  "guide_0453": {
+    "message": "To exempt every rule in a provider at once instead of repeating the modifier on each one, set <code>historyBypassProtection: false</code> at the provider level (see the provider fields table in <a href=\"#guide1-chapter-3-provider-fields-you-can-use\">Chapter 3</a>):",
+    "description": "Guide page text."
+  },
   "guide_0624": {
     "message": "{\n  \"providers\": {\n    \"Example Provider\": {\n      \"active\": true,\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
     "description": "Guide page text."
@@ -7255,6 +7313,18 @@
   },
   "guide_0798": {
     "message": "{\n  \"redirections\": [\n    {\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0799": {
+    "message": "{\n  \"rules\": [\"$removeparam=session_id,history-bypass-protection=false\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0800": {
+    "message": "{\n  \"rules\": [\"$removeparam=session_id,history-bypass-protection=true\"]\n}\n",
+    "description": "Guide page text."
+  },
+  "guide_0801": {
+    "message": "{\n  \"reddit.com\": {\n    \"historyBypassProtection\": false,\n    \"rules\": [\"$removeparam=correlation_id\", \"$removeparam=share_id\"]\n  }\n}\n",
     "description": "Guide page text."
   },
   "popup_html_guide_link": {
