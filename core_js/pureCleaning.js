@@ -72,14 +72,14 @@
  * @param {boolean} quiet   if the action should be displayed in log and statistics
  * @return {String}         cleaned URL
  */
-function pureCleaning(url, quiet = false) {
+function pureCleaning(url, quiet = false, isHistoryUpdate = false) {
     let before = url;
     let after = url;
     const sessionRewrites = new Set();
 
     do {
         before = after;
-        after = _cleaning(before, quiet, null, null, 1, '', null, sessionRewrites);
+        after = _cleaning(before, quiet, null, null, 1, '', null, sessionRewrites, isHistoryUpdate);
     } while (after !== before); // do recursive cleaning
 
     return after;
@@ -252,7 +252,7 @@ function runRuleTestLab(inputUrl, testParamRaw = '', requestOverrides = {}) {
 /**
  * Internal function to clean the given URL.
  */
-function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollector = null, iteration = 1, testParamName = '', requestDetails = null, sessionRewrites = null) {
+function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollector = null, iteration = 1, testParamName = '', requestDetails = null, sessionRewrites = null, isHistoryUpdate = false) {
     let cleanURL = url;
     const URLbeforeReplaceCount = countFields(url);
 
@@ -290,7 +290,7 @@ function _cleaning(url, quiet = false, traceCollector = null, diagnosticsCollect
             ? providers[i].matchRequestURL(cleanURL, effectiveRequest)
             : providers[i].matchURL(cleanURL));
         if (requestMatches && providerMatchesUrl) {
-            result = removeFieldsFormURL(providers[i], cleanURL, quiet, effectiveRequest, null, [], sessionRewrites);
+            result = removeFieldsFormURL(providers[i], cleanURL, quiet, effectiveRequest, null, [], sessionRewrites, isHistoryUpdate);
             cleanURL = result.url;
         }
 

@@ -1203,6 +1203,9 @@ documentation when you run the build process.
       if (data.forceRedirection === true) {
         merged.forceRedirection = true;
       }
+      if (data.historyBypassProtection === false) {
+        merged.historyBypassProtection = false;
+      }
     }
 
     if (typeof merged.urlPattern !== 'string' || merged.urlPattern.length === 0) delete merged.urlPattern;
@@ -1703,6 +1706,12 @@ documentation when you run the build process.
 
       if (data.providers[provider].forceRedirection === true) {
         self.forceRedirection = true;
+      }
+
+      // Blanket per-provider override for history-triggered (SPA/pushState) cleaning.
+      // Default is true (protection stays on), so only the non-default false is worth keeping.
+      if (data.providers[provider].historyBypassProtection === false) {
+        self.historyBypassProtection = false;
       }
 
       // Only include non-empty strings and arrays
@@ -2490,8 +2499,8 @@ ${commit.message}
         }
       }
 
-      // completeProvider / forceRedirection must be boolean if present
-      for (const flag of ['completeProvider', 'forceRedirection']) {
+      // completeProvider / forceRedirection / historyBypassProtection must be boolean if present
+      for (const flag of ['completeProvider', 'forceRedirection', 'historyBypassProtection', 'history-bypass-protection']) {
         if (provider[flag] !== undefined && typeof provider[flag] !== 'boolean') {
           errors.push(`${tag} "${flag}" must be a boolean, got ${typeof provider[flag]}`);
         }

@@ -113,7 +113,9 @@ async function historyCleaner(details) {
         }
 
         const urlBefore = details.url;
-        const urlAfter = pureCleaning(details.url);
+        // isHistoryUpdate=true lets rules opt out of this pass individually via
+        // the history-bypass-protection modifier/field (default true = still applies).
+        const urlAfter = pureCleaning(details.url, false, true);
 
         if(urlBefore !== urlAfter) {
             

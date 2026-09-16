@@ -893,6 +893,7 @@ function canonicalizeLinkumoriRemoveParamRule(rule) {
     if (rule.strictFirstPartyOnly) modifiers.push('strict-first-party');
     if (rule.strictThirdPartyOnly) modifiers.push('strict-third-party');
     if (rule.matchCase) modifiers.push('match-case');
+    if (rule.historyBypassProtection === false) modifiers.push('history-bypass-protection=false');
     return (rule.isException ? '@@' : '') + (rule.urlPattern || '*') + '$' + modifiers.sort().join(',');
 }
 
@@ -950,7 +951,7 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     if (!modifiersPart) return null;
     const modifiers = splitLinkumoriModifiers(modifiersPart);
     let removeParamToken = null, domainToken = null, targetToken = null,
-        denyallowToken = null, methodToken = null, unsupportedModifier = null;
+        denyallowToken = null, methodToken = null, historyBypassProtectionToken = null, unsupportedModifier = null;
     for (const token of modifiers) {
         if (unsupportedModifier) break;
         const normalized = token.toLowerCase();
@@ -970,11 +971,26 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
         if (normalized.startsWith('to=')) { targetToken = token.slice(token.indexOf('=') + 1); continue; }
         if (normalized.startsWith('denyallow=')) { denyallowToken = token.slice(token.indexOf('=') + 1); continue; }
         if (normalized.startsWith('method=')) { methodToken = token.slice(token.indexOf('=') + 1); continue; }
+        if (normalized.startsWith('history-bypass-protection=')) {
+            historyBypassProtectionToken = token.slice(token.indexOf('=') + 1); continue;
+        }
         if (addLinkumoriRemoveParamRequestTypes(token, { requestTypes: [], excludeRequestTypes: [] })) continue;
         unsupportedModifier = token;
     }
     if (!removeParamToken) return null;
     if (unsupportedModifier) return null;
+
+    // history-bypass-protection: true (default, missing = true) keeps this rule
+    // active when a URL is cleaned because of a History API (pushState/replaceState)
+    // update; false exempts this specific rule from that pass only — it still
+    // applies to normal network-request cleaning.
+    let historyBypassProtection = null;
+    if (historyBypassProtectionToken !== null) {
+        const v = String(historyBypassProtectionToken).trim().toLowerCase();
+        if (['false', '0', 'no'].includes(v)) historyBypassProtection = false;
+        else if (['true', '1', 'yes'].includes(v)) historyBypassProtection = true;
+        else return null;
+    }
 
     const parsed = {
         raw: rawRule, isException, urlPattern: patternPart || '*',
@@ -984,6 +1000,7 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
         denyallowDomains: [], denyallowDomainRegexes: [], includeMethods: [], excludeMethods: [],
         firstPartyOnly: false, thirdPartyOnly: false, strictFirstPartyOnly: false, strictThirdPartyOnly: false,
         matchCase: modifiers.some(t => String(t || '').toLowerCase() === 'match-case'),
+        historyBypassProtection,
         isBadfilter: !options.ignoreBadfilter && modifiers.some(t => String(t || '').toLowerCase() === 'badfilter'),
         badfilterTarget: null, id: null, aliases: [], activationIds: [],
         requestTypes: [], excludeRequestTypes: [], replacePattern: null, preprocessors: [], canonical: null
@@ -1141,8 +1158,9 @@ function linkumoriRemoveParamMatchesTargetDomains(linkumoriRule, targetHost) {
     return true;
 }
 
-function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null) {
+function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false) {
     if (!linkumoriRule || !fullUrl) return false;
+    if (isHistoryUpdate && linkumoriRule.historyBypassProtection === false) return false;
     if (!coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
     if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) return false;
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
@@ -1205,8 +1223,8 @@ function linkumoriRemoveParamMatchesName(linkumoriRule, fieldName, values = []) 
     return linkumoriRule.negate ? !matched : matched;
 }
 
-function evaluateLinkumoriRemoveParamRules(fullUrl, rules, request = null) {
-    return (rules || []).filter(rule => matchLinkumoriRemoveParamTarget(rule, fullUrl, request));
+function evaluateLinkumoriRemoveParamRules(fullUrl, rules, request = null, isHistoryUpdate = false) {
+    return (rules || []).filter(rule => matchLinkumoriRemoveParamTarget(rule, fullUrl, request, isHistoryUpdate));
 }
 
 function resolveLinkumoriParamDecision(fieldName, values, activeRules, activeExceptions) {
@@ -1241,6 +1259,19 @@ function linkumoriRemoveParamExceptionMatchesContext(linkumoriRule, contextUrls,
     return contextUrls.some(cu => cu && matchLinkumoriRemoveParamTarget(linkumoriRule, cu, request));
 }
 
+function resolveLinkumoriHistoryBypassProtection(rule, defaults) {
+    if (rule && typeof rule === 'object') {
+        if (typeof rule.historyBypassProtection === 'boolean') return rule.historyBypassProtection;
+        if (typeof rule['history-bypass-protection'] === 'boolean') return rule['history-bypass-protection'];
+    }
+    if (defaults && typeof defaults === 'object') {
+        if (typeof defaults.historyBypassProtection === 'boolean') return defaults.historyBypassProtection;
+        if (typeof defaults['history-bypass-protection'] === 'boolean') return defaults['history-bypass-protection'];
+    }
+    // Missing everywhere in the rule chain: default to true (protection stays on for history updates).
+    return true;
+}
+
 function resolveCoreRuleDefaults(rule, defaults = null) {
     if (!rule || typeof rule !== "object" || Array.isArray(rule)) return rule;
     const d = defaults && typeof defaults === "object" ? defaults : {};
@@ -1265,7 +1296,8 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
             exceptions: Array.isArray(d.exceptions) ? d.exceptions.filter(i => typeof i === "string") : [],
             flags: defaultFlags, id: null, kind: null, matchPattern: rule,
             preprocessors: Array.isArray(d.preprocessors) ? d.preprocessors : [],
-            referralMarketing: false, replacePattern: null, requestTypes, raw: rule, sourceType: "legacy"
+            referralMarketing: false, replacePattern: null, requestTypes, raw: rule, sourceType: "legacy",
+            historyBypassProtection: resolveLinkumoriHistoryBypassProtection(null, d)
         };
     }
     const resolvedRule = resolveCoreRuleDefaults(rule, defaults);
@@ -1301,6 +1333,7 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
         referralMarketing: resolvedRule.referralMarketing === true,
         replacePattern, requestTypes, raw: resolvedRule, sourceType,
+        historyBypassProtection: resolveLinkumoriHistoryBypassProtection(resolvedRule, defaults),
         _linkumoriActivationIds: normalizeCoreRuleActivationIds(resolvedRule._linkumoriActivationIds)
     };
 }
@@ -1330,8 +1363,9 @@ function getCoreRuleTraceName(compiledRule, fallback) {
     return compiledRule && typeof compiledRule.id === "string" && compiledRule.id ? compiledRule.id : fallback;
 }
 
-function coreRuleAppliesToRequest(compiledRule, url, request) {
+function coreRuleAppliesToRequest(compiledRule, url, request, isHistoryUpdate = false) {
     if (!compiledRule) return false;
+    if (isHistoryUpdate && compiledRule.historyBypassProtection === false) return false;
     // BUGFIX 12: a bare RegExp used to short-circuit straight to `true`,
     // skipping active/exception/request-type checks entirely. Nothing in this
     // file constructs a bare-RegExp "compiled rule" anymore (all rule paths
@@ -1450,7 +1484,7 @@ function applyParamDecisionsToStore(store, decide, rewriteTracker, dedupeKey) {
     return changed;
 }
 
-function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = [], sessionRewrites = null) {
+function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, traceCollector = null, extraExceptions = [], sessionRewrites = null, isHistoryUpdate = false) {
     let url = pureUrl;
     let domain = "", fragments = "", fields = "";
     let linkumoriParamRules = provider.getLinkumoriRemoveParamRules();
@@ -1498,7 +1532,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     const rawRulesMap = provider.getRawRulesMap();
     Object.keys(rawRulesMap).forEach(rawRuleStr => {
         const compiled = rawRulesMap[rawRuleStr];
-        if (!coreRuleAppliesToRequest(compiled, url, request)) return;
+        if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
         const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp(rawRuleStr, "gi");
         let beforeReplace = url;
         if (compiled && compiled.replacePattern !== null) {
@@ -1527,9 +1561,9 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
     domain = urlWithoutParamsAndHash(urlObject).toString();
 
     if (fields.toString() !== "" || fragments.toString() !== "") {
-        const activeLinkumoriRules = evaluateLinkumoriRemoveParamRules(url, linkumoriParamRules, request);
+        const activeLinkumoriRules = evaluateLinkumoriRemoveParamRules(url, linkumoriParamRules, request, isHistoryUpdate);
         const activeLinkumoriExceptions = [
-            ...evaluateLinkumoriRemoveParamRules(url, linkumoriParamExceptions, request),
+            ...evaluateLinkumoriRemoveParamRules(url, linkumoriParamExceptions, request, isHistoryUpdate),
             ...(extraExceptions || [])
         ];
         const linkumoriDecisionCache = new Map();
@@ -1551,7 +1585,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         const rulesMap = provider.getRulesMap();
         Object.keys(rulesMap).forEach(rule => {
             const compiled = rulesMap[rule];
-            if (!coreRuleAppliesToRequest(compiled, url, request)) return;
+            if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
             const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp("^" + rule + "$", "gi");
             const beforeFields = fields.toString(), beforeFragments = fragments.toString();
 
@@ -1677,7 +1711,16 @@ function start() {
                 if (hasIndex) provider.setIndexPattern(indexPattern);
             }
 
-            const providerDefaults = data && data.defaults && typeof data.defaults === 'object' ? data.defaults : null;
+            // A provider-level "historyBypassProtection" (or "history-bypass-protection")
+            // blanket applies to every rule under this provider that doesn't set its own
+            // value inline, without having to touch each rule string individually.
+            const globalRuleDefaults = data && data.defaults && typeof data.defaults === 'object' ? data.defaults : null;
+            const providerHistoryBypassProtection = providerData.getOrDefault('historyBypassProtection',
+                providerData.getOrDefault('history-bypass-protection', undefined));
+            const providerDefaults = (globalRuleDefaults || typeof providerHistoryBypassProtection === 'boolean')
+                ? Object.assign({}, globalRuleDefaults, typeof providerHistoryBypassProtection === 'boolean'
+                    ? { historyBypassProtection: providerHistoryBypassProtection } : {})
+                : null;
             const rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
             for (let r = 0; r < rules.length; r++) {
                 const normalizedRule = normalizeCoreRuleDefinition(rules[r], "i", providerDefaults);
@@ -1985,6 +2028,11 @@ function start() {
                     }
                     parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
                     parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
+                    // Only fall back to the canonical object's field when the $-modifier
+                    // text itself didn't specify history-bypass-protection inline.
+                    if (parsedLinkumoriRule.historyBypassProtection === null && typeof activeRule.historyBypassProtection === 'boolean') {
+                        parsedLinkumoriRule.historyBypassProtection = activeRule.historyBypassProtection;
+                    }
                 }
                 if (parsedLinkumoriRule.isException) linkumoriRemoveParamExceptions.push(parsedLinkumoriRule);
                 else linkumoriRemoveParamRules.push(parsedLinkumoriRule);
