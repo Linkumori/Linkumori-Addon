@@ -900,6 +900,18 @@
             background: #b45309;
         }
 
+        #singledynamicwhitelistunwhitelistbutton.history-api-whitelisted {
+            background: #0369a1;
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.history-api-whitelisted:hover {
+            background: #075985;
+        }
+
+        #singledynamicwhitelistunwhitelistbutton.history-api-whitelisted:disabled:hover {
+            background: #0369a1;
+        }
+
         #singledynamicwhitelistunwhitelistbutton.whitelist-feedback-success {
             box-shadow: 0 0 0 2px var(--button-primary), 0 2px 6px var(--shadow-color);
             transform: translateY(-1px);
@@ -1274,7 +1286,6 @@
         </div>
 
         <div class="bottom-actions">
-            <!-- Dynamic Whitelist Button -->
             <button type="button" id="singledynamicwhitelistunwhitelistbutton" class="is-hidden"></button>
 
             <div class="button-group">

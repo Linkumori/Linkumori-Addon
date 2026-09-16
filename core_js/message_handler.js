@@ -218,7 +218,7 @@ function handleSetData(request) {
             window.setData(key, value);
             
             // Auto-save to disk for important data
-            if (['custom_rules', 'clearurls_disabled_rule_ids', 'userWhitelist', 'ClearURLsData'].includes(key)) {
+            if (['custom_rules', 'clearurls_disabled_rule_ids', 'userWhitelist', 'historyApiWhitelist', 'ClearURLsData'].includes(key)) {
                 if (typeof window.saveOnDisk === 'function') {
                     try {
                         window.saveOnDisk([key]);
@@ -422,6 +422,7 @@ function handleRegularFunction(request) {
             'getPendingRegressionSuite',
             'getRemoteRulesHealth',
             'getRuleSourceInfo',
+            'getHistoryApiWhitelist',
             'getTemporaryPauseState',
             'getTemporaryTabWhitelistForTab',
             'initSettings',
@@ -431,10 +432,12 @@ function handleRegularFunction(request) {
             'refreshRemoteRulesNow',
             'reload',
             'removeFromTemporaryTabWhitelist',
+            'removeFromHistoryApiWhitelist',
             'removeFromWhitelist',
             'resumeCleaningNow',
             'runRuleTestLab',
             'saveOnExit',
+            'addToHistoryApiWhitelist',
             'setBadgedStatus',
             'setPendingRegressionSuite',
             'start',

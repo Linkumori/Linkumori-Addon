@@ -1,7 +1,8 @@
 /**
  * Centralized whitelist module.
  *
- * Permanent whitelist: entries stored in storage.userWhitelist (persisted).
+ * General whitelist: entries stored in storage.userWhitelist (persisted).
+ * History API whitelist: persisted entries used only by historyListener.js.
  * Temporary whitelist: per-tab in-memory Map, cleared on tab close or restart.
  *
  * Depends on normalizeAsciiHostname and parseHostnameWithPsl from clearurls.js
@@ -171,10 +172,10 @@ function matchWhitelistHostnamePattern(hostname, pattern) {
     return normalizedHostname === cleanPattern || normalizedHostname.endsWith('.' + cleanPattern);
 }
 
-// ── Permanent whitelist checks ────────────────────────────────────────────────
+// ── Persistent whitelist checks ───────────────────────────────────────────────
 
-function isHostnameWhitelisted(hostname) {
-    if (!storage.userWhitelist || storage.userWhitelist.length === 0) {
+function isHostnameInWhitelist(hostname, whitelist) {
+    if (!Array.isArray(whitelist) || whitelist.length === 0) {
         return false;
     }
 
@@ -183,9 +184,17 @@ function isHostnameWhitelisted(hostname) {
         return false;
     }
 
-    return storage.userWhitelist.some((pattern) => {
+    return whitelist.some((pattern) => {
         return matchWhitelistHostnamePattern(normalizedHostname, pattern);
     });
+}
+
+function isHostnameWhitelisted(hostname) {
+    return isHostnameInWhitelist(hostname, storage.userWhitelist);
+}
+
+function isHostnameHistoryApiWhitelisted(hostname) {
+    return isHostnameInWhitelist(hostname, storage.historyApiWhitelist);
 }
 
 function isUrlWhitelisted(url) {
@@ -198,6 +207,21 @@ function isUrlWhitelisted(url) {
     } catch (e) {
         return false;
     }
+}
+
+function isUrlHistoryApiWhitelisted(url) {
+    if (!url || typeof url !== 'string') return false;
+
+    try {
+        const urlObj = new URL(url);
+        return isHostnameHistoryApiWhitelisted(urlObj.hostname.toLowerCase());
+    } catch (e) {
+        return false;
+    }
+}
+
+function isHistoryApiWhitelisted(url) {
+    return isUrlHistoryApiWhitelisted(url);
 }
 
 // ── Combined check (permanent + temporary) ────────────────────────────────────

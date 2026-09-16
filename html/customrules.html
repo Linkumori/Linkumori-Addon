@@ -835,7 +835,8 @@
         }
 
         .whitelist-input,
-        .whitelist-search {
+        .whitelist-search,
+        .whitelist-mode {
             width: 100%;
             min-width: 0;
             border: 1px solid var(--input-border);
@@ -848,10 +849,34 @@
         }
 
         .whitelist-input:focus,
-        .whitelist-search:focus {
+        .whitelist-search:focus,
+        .whitelist-mode:focus {
             outline: none;
             border-color: var(--input-focus);
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        .whitelist-input {
+            flex: 1 1 auto;
+        }
+
+        .whitelist-mode {
+            flex: 0 1 150px;
+            width: auto;
+        }
+
+        @media (max-width: 520px) {
+            .whitelist-input-row {
+                flex-wrap: wrap;
+            }
+
+            .whitelist-input {
+                flex-basis: 100%;
+            }
+
+            .whitelist-mode {
+                flex: 1 1 0;
+            }
         }
 
         .whitelist-search {
@@ -901,11 +926,29 @@
         }
 
         .whitelist-domain {
+            display: block;
             font-size: 12px;
             color: var(--text-secondary);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        .whitelist-entry {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .whitelist-type {
+            display: block;
+            margin-top: 2px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .whitelist-type-history {
+            color: var(--button-primary);
         }
 
         .whitelist-empty {
@@ -3568,6 +3611,11 @@ admin.example.com
                     <p class="whitelist-section-description" data-i18n="whitelist_section_description"></p>
                     <div class="whitelist-input-row">
                         <input id="customrules-whitelist-input" class="whitelist-input" type="text" data-i18n-placeholder="whitelist_input_placeholder" data-i18n-aria="whitelist_input_placeholder">
+                        <label class="linkumori-a11y-visually-hidden" for="customrules-whitelist-mode" data-i18n="whitelist_mode_label">Whitelist scope</label>
+                        <select id="customrules-whitelist-mode" class="whitelist-mode" data-i18n-aria="whitelist_mode_label">
+                            <option value="general" data-i18n="whitelist_mode_general">General whitelist</option>
+                            <option value="history" data-i18n="whitelist_mode_history_api">History API only</option>
+                        </select>
                         <button type="button" class="btn btn-primary btn-sm" id="customrules-whitelist-add-btn" data-i18n="whitelist_add_button"></button>
                     </div>
                     <div class="whitelist-action-row">
