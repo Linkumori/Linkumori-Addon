@@ -1152,7 +1152,7 @@ function areValidRemoteURLsPresent() {
 }
 
 function saveOnExit() {
-    saveOnDisk(Object.keys(storage));
+    return saveOnDisk(Object.keys(storage));
 }
 
 function storageAsJSON() {
@@ -1334,7 +1334,7 @@ function saveOnDisk(keys) {
         }
     });
 
-    browser.storage.local.set(json).catch(handleError);
+    return browser.storage.local.set(json).catch(handleError);
 }
 
 function deferSaveOnDisk(key) {
