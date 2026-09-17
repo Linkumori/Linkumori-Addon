@@ -216,18 +216,26 @@ function handleSetData(request) {
         
         if (typeof window.setData === 'function') {
             window.setData(key, value);
-            
-            // Auto-save to disk for important data
+
+            // Auto-save to disk for important data. This is awaited so the
+            // response (and anything that follows it, such as a "reload"
+            // message that restarts the extension) only arrives after the
+            // write has actually landed in browser.storage.local — on
+            // Firefox for Android the disk write can be slow enough that a
+            // fire-and-forget call loses the save when the reload tears
+            // down the background page first.
             if (['custom_rules', 'clearurls_disabled_rule_ids', 'userWhitelist', 'historyApiWhitelist', 'ClearURLsData'].includes(key)) {
                 if (typeof window.saveOnDisk === 'function') {
                     try {
-                        window.saveOnDisk([key]);
+                        return Promise.resolve(window.saveOnDisk([key])).then(() => ({
+                            response: "Data saved successfully"
+                        }));
                     } catch (error) {
                         // Silent fail for auto-save
                     }
                 }
             }
-            
+
             return Promise.resolve({response: "Data saved successfully"});
         } else {
             return Promise.resolve({
