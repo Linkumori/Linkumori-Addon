@@ -823,7 +823,8 @@
             font-size: 12px;
         }
 
-        button {
+        button,
+        a[role="button"] {
             padding: 5px 8px;
             background: var(--button-primary);
             color: var(--button-text, #ffffff);
@@ -837,13 +838,19 @@
             min-width: 0;
             white-space: normal;
             overflow-wrap: anywhere;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
         }
 
-        button:hover {
+        button:hover,
+        a[role="button"]:hover {
             background: var(--button-hover);
         }
 
-        button:focus {
+        button:focus,
+        a[role="button"]:focus {
             outline: none;
             box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.3);
         }
@@ -1021,7 +1028,8 @@
             padding-bottom: 2px;
         }
 
-        .button-group button {
+        .button-group button,
+        .button-group a[role="button"] {
             /* FIXED: Make buttons smaller in height */
             padding: 4px 6px;
             font-size: 10px;
@@ -1035,6 +1043,7 @@
         }
 
         body.popup-long-text .button-group button,
+        body.popup-long-text .button-group a[role="button"],
         body.popup-long-text .btn-small {
             min-height: 30px;
         }
@@ -1125,7 +1134,8 @@
             }
 
             .btn-small,
-            .button-group button {
+            .button-group button,
+            .button-group a[role="button"] {
                 min-height: 40px;
                 font-size: 11px;
             }
@@ -1272,9 +1282,9 @@
             </div>
         </div>
         <div class="header-actions">
-            <button type="button" id="cleaning_tools_icon" class="tools-icon-btn" aria-label="" title="">
+            <a href="#" id="cleaning_tools_icon" class="tools-icon-btn" role="button" target="_blank" rel="noopener" aria-label="" title="">
                 <img src="../LinkumorI_HTML_SVG/paintbrush.svg" alt="" aria-hidden="true">
-            </button>
+            </a>
             <button type="button" id="reportButton" class="tools-icon-btn" aria-label="" title="">
                 <img src="../LinkumorI_HTML_SVG/bug-material-icon-dark.svg" alt="" class="bug-icon-dark" aria-hidden="true">
                 <img src="../LinkumorI_HTML_SVG/bug-material-icon-light.svg" alt="" class="bug-icon-light" aria-hidden="true">
@@ -1357,16 +1367,16 @@
         </div>
 
         <div class="content" id="log_section">
-            <button type="button" id="loggingPage" class="btn-full-primary"></button>
+            <a href="#" id="loggingPage" class="btn-full-primary" role="button" target="_blank" rel="noopener"></a>
         </div>
 
         <div class="bottom-actions">
             <button type="button" id="singledynamicwhitelistunwhitelistbutton" class="is-hidden"></button>
 
             <div class="button-group">
-                 <button type="button" id="customrules"></button>
-                <button type="button" id="whitelist_page"></button>
-                <button type="button" id="settings"></button>
+                 <a href="#" id="customrules" role="button" target="_blank" rel="noopener"></a>
+                <a href="#" id="whitelist_page" role="button" target="_blank" rel="noopener"></a>
+                <a href="#" id="settings" role="button" target="_blank" rel="noopener"></a>
             </div>
         </div>
 
@@ -1387,8 +1397,8 @@
             <h3 id="license_links_title"></h3>
         </div>
             <div class="license-links">
-                <a href="#" id="legalLink" class="license-link"></a>
-                <a href="#" id="license_guide_link" class="license-link"></a>
+                <a href="#" id="legalLink" class="license-link" target="_blank" rel="noopener"></a>
+                <a href="#" id="license_guide_link" class="license-link" target="_blank" rel="noopener"></a>
                 <a href="../licenses/LGPL-3.0.txt" id="license_lgpl_link" class="license-link" target="_blank" rel="noopener noreferrer"></a>
                 <a href="https://github.com/Linkumori/Linkumori-Addon" id="license_source_repo_link" class="license-link" target="_blank" rel="noopener noreferrer"></a>
                 <a href="https://github.com/Linkumori/Linkumori-Addon/releases/" id="license_source_repo_link_direct" class="license-link" target="_blank" rel="noopener noreferrer"></a>

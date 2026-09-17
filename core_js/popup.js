@@ -2087,52 +2087,48 @@ async function openLoggerWindow() {
             resumePauseBtn.onclick = clearTemporaryPause;
         }
         
-        // Set up navigation links
+        // Set up navigation links. These are real <a href> links (instead of
+        // buttons that call browser.tabs.create() on click) so tapping them
+        // on Firefox for Android reliably navigates instead of silently
+        // doing nothing, and so long-press/middle-click "open in new tab"
+        // works natively.
         const loggingPage = document.getElementById('loggingPage');
         if (loggingPage) {
-            loggingPage.onclick = openLoggerWindow;
+            loggingPage.href = browser.runtime.getURL('./html/log.html');
+            loggingPage.addEventListener('click', (event) => {
+                event.preventDefault();
+                openLoggerWindow();
+            });
         }
-        
+
         const settingsBtn = document.getElementById('settings');
         if (settingsBtn) {
-            settingsBtn.onclick = () => {
-                browser.tabs.create({url: browser.runtime.getURL('./html/settings.html')});
-            };
+            settingsBtn.href = browser.runtime.getURL('./html/settings.html');
         }
-        
+
         const cleaningToolsBtn = document.getElementById('cleaning_tools_icon');
         if (cleaningToolsBtn) {
-            cleaningToolsBtn.onclick = () => {
-                browser.tabs.create({url: browser.runtime.getURL('./html/cleaningTool.html')});
-            };
+            cleaningToolsBtn.href = browser.runtime.getURL('./html/cleaningTool.html');
         }
-        const customrulesBtn =document.getElementById('customrules');
+        const customrulesBtn = document.getElementById('customrules');
         if (customrulesBtn) {
-            customrulesBtn.onclick = () => {
-                browser.tabs.create({url: browser.runtime.getURL('./html/customrules.html#customrule')})
-            }
+            customrulesBtn.href = browser.runtime.getURL('./html/customrules.html#customrule');
         }
 
         const whitelistPageBtn = document.getElementById('whitelist_page');
         if (whitelistPageBtn) {
-            whitelistPageBtn.onclick = () => {
-                browser.tabs.create({url: browser.runtime.getURL('./html/customrules.html#whitelist')});
-            };
+            whitelistPageBtn.href = browser.runtime.getURL('./html/customrules.html#whitelist');
         }
-        
+
         // Set up legal link
         const legalLink = document.getElementById('legalLink');
         if (legalLink) {
-            legalLink.onclick = () => {
-                browser.tabs.create({url: browser.runtime.getURL('./html/legal.html')});
-            };
+            legalLink.href = browser.runtime.getURL('./html/legal.html');
         }
 
         const guideLink = document.getElementById('license_guide_link');
         if (guideLink) {
-            guideLink.onclick = () => {
-                browser.tabs.create({url: browser.runtime.getURL('./html/guide.html')});
-            };
+            guideLink.href = browser.runtime.getURL('./html/guide.html');
         }
         
         
