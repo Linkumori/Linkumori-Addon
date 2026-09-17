@@ -392,6 +392,16 @@ li { margin-bottom:.2em; }
 .skip-link:focus-visible {
     top: 8px;
 }
+
+/* Touch-target sizing for Firefox for Android and other touch devices */
+@media (hover: none), (pointer: coarse) {
+    .theme-btn {
+        padding: .5rem .75rem;
+    }
+    .sidebar .toc a {
+        padding: .5rem .3rem;
+    }
+}
 </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>

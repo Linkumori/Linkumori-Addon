@@ -400,6 +400,45 @@
         body * {
             transition: background-color 0.2s, color 0.2s, border-color 0.2s;
         }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px;
+            }
+
+            .section {
+                padding: 14px;
+            }
+
+            .header {
+                padding: 10px;
+            }
+
+            .header-title {
+                font-size: 14px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .button-group button {
+                width: 100%;
+            }
+        }
+
+        /* Touch-target sizing for Firefox for Android and other touch devices */
+        @media (hover: none), (pointer: coarse) {
+            .theme-toggle-btn {
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+            }
+
+            button {
+                min-height: 40px;
+            }
+        }
     </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>

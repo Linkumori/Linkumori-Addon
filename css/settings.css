@@ -2011,10 +2011,12 @@
                 font-size: 15px;
             }
 
-            /* Ultra mobile theme grid */
+            /* Ultra mobile theme grid: stack the light/dark groups instead
+               of placing them side by side, since two 3-column card grids
+               side by side no longer fit a phone-width viewport */
             .theme-groups-inline {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 6px;
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
 
             .theme-grid {
@@ -2026,9 +2028,51 @@
                 width: 50px;
                 height: 38px;
             }
-            
+
             .theme-name {
                 font-size: 10px;
+            }
+        }
+
+        /*
+         * Touch-target sizing for Firefox for Android and other touch
+         * devices. (hover: none) / (pointer: coarse) target touchscreens
+         * specifically, independent of viewport width, so controls stay
+         * comfortably tappable even where the layout above shrinks icons
+         * to save space on narrow screens.
+         */
+        @media (hover: none), (pointer: coarse) {
+            .theme-toggle-btn {
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+            }
+
+            .theme-toggle-btn img {
+                width: 16px;
+                height: 16px;
+            }
+
+            .toggle-switch {
+                width: 44px;
+                height: 24px;
+            }
+
+            .toggle-switch:before {
+                width: 20px;
+                height: 20px;
+            }
+
+            .toggle-switch.active:before {
+                transform: translateX(20px);
+            }
+
+            .toggle-container {
+                min-height: 44px;
+            }
+
+            .btn {
+                min-height: 40px;
             }
         }
 
