@@ -16,6 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.51.0] - 2026-09-17 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.50.0...linkumori-v100.51.0))
+### Added
+- Introduce history-bypass-protection flag for in-page navigation cleanup (`2026-09-16`, hash: [`8792225`](https://github.com/Linkumori/Linkumori-Addon/commit/8792225))
+
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-09-16`, hash: [`8792225`](https://github.com/Linkumori/Linkumori-Addon/commit/8792225))
+- Generated compressed URL cleaning rules bundle (`2026-09-17`, hash: [`cce230c`](https://github.com/Linkumori/Linkumori-Addon/commit/cce230c))
+- Updated canonical URL cleaning rules source (`2026-09-16`, hash: [`8792225`](https://github.com/Linkumori/Linkumori-Addon/commit/8792225))
+
 ## [v100.50.0] - 2026-09-16 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.49.0...linkumori-v100.50.0))
 ### Added
 - Introduce scoped History API whitelist (`2026-09-16`, hash: [`f37ea14`](https://github.com/Linkumori/Linkumori-Addon/commit/f37ea14))
