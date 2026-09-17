@@ -686,17 +686,6 @@
     };
   }
 
-  function openAuditPageFromLegal() {
-    try {
-      if (browser.tabs && browser.runtime && typeof browser.runtime.getURL === 'function') {
-        const auditUrl = browser.runtime.getURL('html/audit.html');
-        browser.tabs.create({ url: auditUrl }).catch(() => {});
-      }
-    } catch (e) {
-      // no-op
-    }
-  }
-
   function buildOptionalFeatureDefaults() {
     return OPTIONAL_FEATURES.reduce((acc, { key }) => {
       acc[key] = false;
@@ -2179,8 +2168,8 @@ ${htmlContent}
     }
 
     const legalRedirectionWarningAudit = $('legalRedirectionWarningAudit');
-    if (legalRedirectionWarningAudit) {
-      legalRedirectionWarningAudit.addEventListener('click', openAuditPageFromLegal);
+    if (legalRedirectionWarningAudit && browser.runtime && typeof browser.runtime.getURL === 'function') {
+      legalRedirectionWarningAudit.href = browser.runtime.getURL('html/audit.html');
     }
 
     OPTIONAL_FEATURES.forEach(({ key, toggleId }) => {

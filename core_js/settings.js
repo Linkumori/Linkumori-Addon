@@ -576,7 +576,7 @@ function setupModalEventHandlers() {
         redirectionWarningCancel.onclick = handleRedirectionWarningCancel;
     }
     if (redirectionWarningAudit) {
-        redirectionWarningAudit.onclick = openAuditPage;
+        redirectionWarningAudit.href = browser.runtime.getURL('html/audit.html');
     }
     if (redirectionWarningContinue) {
         redirectionWarningContinue.onclick = handleRedirectionWarningContinue;
@@ -2213,7 +2213,7 @@ browser.storage.onChanged.addListener((changes, namespace) => {
 function setupEventHandlers() {
     // Data management buttons
     document.getElementById('reset_settings_btn').onclick = reset;
-    document.getElementById('audit_settings_btn').onclick = openAuditPage;
+    document.getElementById('audit_settings_btn').href = browser.runtime.getURL('html/audit.html');
     document.getElementById('save_settings_btn').onclick = save;
     document.getElementById('export_settings_btn').onclick = exportSettings;
     
@@ -2231,11 +2231,6 @@ function setupEventHandlers() {
     if (refreshRemoteBtn) {
         refreshRemoteBtn.onclick = refreshRemoteRulesNowFromSettings;
     }
-}
-
-function openAuditPage() {
-    const auditUrl = browser.runtime.getURL('html/audit.html');
-    browser.tabs.create({ url: auditUrl }).catch(handleError);
 }
 
 /**
@@ -3956,7 +3951,7 @@ function displayBundledRulesInfo() {
 
                 const whitelistRecommendation = translate('rules_whitelist_manage_recommendation');
                 const openEditorText = translate('rules_whitelist_open_editor');
-                html += `<br>${whitelistRecommendation} <a href="#" id="open-custom-rules-editor-link">${openEditorText}</a>`;
+                html += `<br>${whitelistRecommendation} <a href="${browser.runtime.getURL('./html/customrules.html')}" id="open-custom-rules-editor-link" target="_blank" rel="noopener">${openEditorText}</a>`;
                 
                 // Add rule source information
                 if (sourceInfo.source) {
@@ -4084,14 +4079,6 @@ function displayBundledRulesInfo() {
                 
                 setHTMLContent(statusElement, html);
                 statusElement.style.color = 'var(--text-primary)';
-
-                const openEditorLink = statusElement.querySelector('#open-custom-rules-editor-link');
-                if (openEditorLink) {
-                    openEditorLink.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        browser.tabs.create({ url: browser.runtime.getURL('./html/customrules.html') });
-                    });
-                }
             }
         } else {
             if (statusElement) {
