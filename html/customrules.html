@@ -2898,6 +2898,31 @@
             top: 8px;
         }
 
+        /* Touch-target sizing for Firefox for Android and other touch devices */
+        @media (hover: none), (pointer: coarse) {
+            .theme-toggle-btn {
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+            }
+
+            .form-checkbox input[type="checkbox"],
+            .radio-option input[type="radio"] {
+                width: 20px;
+                height: 20px;
+            }
+
+            .view-nav-btn {
+                min-height: 40px;
+            }
+
+            .modal-close {
+                width: 40px;
+                height: 40px;
+                font-size: 26px;
+            }
+        }
+
     </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>

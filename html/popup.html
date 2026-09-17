@@ -1069,6 +1069,81 @@
             }
         }
 
+        /*
+         * Firefox for Android opens the browser_action popup as a normal
+         * full-width page in a tab rather than a small anchored panel, so
+         * the fixed 340px desktop width leaves the rest of the screen
+         * blank and touch targets sized for a mouse are too small to tap
+         * reliably. (hover: none) / (pointer: coarse) reliably identify
+         * that touch context regardless of the viewport size Firefox used
+         * while auto-sizing the desktop popup, so this only affects touch
+         * devices such as Android.
+         */
+        @media (hover: none), (pointer: coarse) {
+            body {
+                width: 100%;
+                max-width: 100vw;
+                min-height: 100dvh;
+                max-height: none;
+            }
+
+            .theme-toggle-btn,
+            .tools-icon-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .theme-toggle-btn img,
+            .tools-icon-btn img {
+                width: 18px;
+                height: 18px;
+            }
+
+            .nav-item {
+                min-height: 44px;
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .toggle-container {
+                padding: 8px 10px;
+            }
+
+            .toggle-switch {
+                width: 44px;
+                flex: 0 0 44px;
+                height: 24px;
+            }
+
+            .toggle-switch:before {
+                width: 20px;
+                height: 20px;
+            }
+
+            .toggle-switch.active:before {
+                transform: translateX(20px);
+            }
+
+            .btn-small,
+            .button-group button {
+                min-height: 40px;
+                font-size: 11px;
+            }
+
+            #singledynamicwhitelistunwhitelistbutton {
+                min-height: 44px;
+            }
+
+            .license-link {
+                padding: 6px 0;
+            }
+
+            #popupConsentAccept,
+            #popupConsentCheckbox {
+                min-height: 24px;
+            }
+        }
+
         /* Firefox-safe custom scrollbar styling */
         #licenseContent,
         #mainContent,

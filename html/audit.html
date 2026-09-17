@@ -246,6 +246,14 @@
                 white-space: normal;
             }
         }
+
+        /* Touch-target sizing for Firefox for Android and other touch devices */
+        @media (hover: none), (pointer: coarse) {
+            .audit-modal-close {
+                min-height: 40px;
+                padding: 10px 12px;
+            }
+        }
     </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>

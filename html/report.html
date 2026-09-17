@@ -801,6 +801,25 @@
                 border: 2px solid var(--button-primary) !important;
             }
         }
+
+        /* Touch-target sizing for Firefox for Android and other touch devices */
+        @media (hover: none), (pointer: coarse) {
+            .theme-toggle-btn {
+                width: 40px;
+                height: 40px;
+                padding: 10px;
+            }
+
+            select,
+            button {
+                min-height: 40px;
+            }
+
+            .checkbox svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
     </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>

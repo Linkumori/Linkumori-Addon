@@ -1172,6 +1172,29 @@
                 max-width: none;
             }
         }
+
+        /* Touch-target sizing for Firefox for Android and other touch devices */
+        @media (hover: none), (pointer: coarse) {
+            .theme-toggle-btn {
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+            }
+
+            .feature-toggle-switch {
+                width: 44px;
+                height: 24px;
+            }
+
+            .feature-toggle-switch::before {
+                width: 20px;
+                height: 20px;
+            }
+
+            .feature-toggle-switch.active::before {
+                transform: translateX(20px);
+            }
+        }
     </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>

@@ -1165,6 +1165,20 @@
             :root { --border-color: rgba(255,255,255,0.4); }
             :root[data-theme="light"] { --border-color: rgba(0,0,0,0.4); }
         }
+
+        /* Touch-target sizing for Firefox for Android and other touch devices */
+        @media (hover: none), (pointer: coarse) {
+            .chart-select,
+            .table-controls select,
+            .length-control select {
+                min-height: 40px;
+                padding: 8px 10px;
+            }
+
+            .btn {
+                min-height: 40px;
+            }
+        }
     </style>
     <link rel="stylesheet" href="../css/wcag-aa.css">
 </head>
