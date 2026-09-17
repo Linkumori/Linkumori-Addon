@@ -16,6 +16,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased commit entries.
 
+## [v100.53.1] - 2026-09-17 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.53.0...linkumori-v100.53.1))
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-09-17`, hash: [`52cd78a`](https://github.com/Linkumori/Linkumori-Addon/commit/52cd78a))
+- Use real <a href> links instead of tabs.create() for internal page navigation (`2026-09-17`, hash: [`ca70275`](https://github.com/Linkumori/Linkumori-Addon/commit/ca70275))
+
+### Fixed
+- Resolve settings/custom rules save being lost on reload on Android (`2026-09-17`, hash: [`ee63f3a`](https://github.com/Linkumori/Linkumori-Addon/commit/ee63f3a))
+
+## [v100.53.0] - 2026-09-17 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.52.0...linkumori-v100.53.0))
+### Added
+- Introduce Firefox for Android support and touch-target accessibility sizing (`2026-09-17`, hash: [`b9fac3a`](https://github.com/Linkumori/Linkumori-Addon/commit/b9fac3a))
+
+### Changed
+- Generated compressed URL cleaning rules bundle (`2026-09-17`, hash: [`8b846fe`](https://github.com/Linkumori/Linkumori-Addon/commit/8b846fe))
+- Update COMMIT_HISTORY.md (`2026-09-17`, hash: [`0625f83`](https://github.com/Linkumori/Linkumori-Addon/commit/0625f83))
+- Update commit history (`2026-09-17`, hash: [`accfc0f`](https://github.com/Linkumori/Linkumori-Addon/commit/accfc0f))
+
 ## [v100.52.0] - 2026-09-17 ([compare](https://github.com/Linkumori/Linkumori-Addon/compare/linkumori-v100.51.0...linkumori-v100.52.0))
 ### Changed
 - Generated compressed URL cleaning rules bundle (`2026-09-17`, hash: [`34505a9`](https://github.com/Linkumori/Linkumori-Addon/commit/34505a9))
