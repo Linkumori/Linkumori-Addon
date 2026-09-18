@@ -824,7 +824,7 @@
         }
 
         button,
-        a[role="button"] {
+        .btn-action {
             padding: 5px 8px;
             background: var(--button-primary);
             color: var(--button-text, #ffffff);
@@ -845,12 +845,12 @@
         }
 
         button:hover,
-        a[role="button"]:hover {
+        .btn-action:hover {
             background: var(--button-hover);
         }
 
         button:focus,
-        a[role="button"]:focus {
+        .btn-action:focus {
             outline: none;
             box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.3);
         }
@@ -1029,12 +1029,15 @@
         }
 
         .button-group button,
-        .button-group a[role="button"] {
+        .button-group .btn-action {
             /* FIXED: Make buttons smaller in height */
             padding: 4px 6px;
             font-size: 10px;
             min-height: 28px;
             line-height: 1.2;
+            /* Force full-width so centered text actually centers in the grid cell */
+            width: 100%;
+            text-align: center;
         }
 
         body.popup-long-text .pause-buttons,
@@ -1043,7 +1046,7 @@
         }
 
         body.popup-long-text .button-group button,
-        body.popup-long-text .button-group a[role="button"],
+        body.popup-long-text .button-group .btn-action,
         body.popup-long-text .btn-small {
             min-height: 30px;
         }
@@ -1135,7 +1138,7 @@
 
             .btn-small,
             .button-group button,
-            .button-group a[role="button"] {
+            .button-group .btn-action {
                 min-height: 40px;
                 font-size: 11px;
             }
@@ -1367,16 +1370,16 @@
         </div>
 
         <div class="content" id="log_section">
-            <a href="#" id="loggingPage" class="btn-full-primary" role="button" target="_blank" rel="noopener"></a>
+            <a href="#" id="loggingPage" class="btn-full-primary btn-action" role="button" target="_blank" rel="noopener"></a>
         </div>
 
         <div class="bottom-actions">
             <button type="button" id="singledynamicwhitelistunwhitelistbutton" class="is-hidden"></button>
 
             <div class="button-group">
-                 <a href="#" id="customrules" role="button" target="_blank" rel="noopener"></a>
-                <a href="#" id="whitelist_page" role="button" target="_blank" rel="noopener"></a>
-                <a href="#" id="settings" role="button" target="_blank" rel="noopener"></a>
+                 <a href="#" id="customrules" class="btn-action" role="button" target="_blank" rel="noopener"></a>
+                <a href="#" id="whitelist_page" class="btn-action" role="button" target="_blank" rel="noopener"></a>
+                <a href="#" id="settings" class="btn-action" role="button" target="_blank" rel="noopener"></a>
             </div>
         </div>
 
