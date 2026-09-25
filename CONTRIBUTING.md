@@ -190,252 +190,62 @@ URL cleaning rules tell Linkumori which tracking parameters to strip, which doma
 
 ### Rule File Structure
 
-`data/linkumori-clearurls.json` follows this top-level structure:
-
-```json
-{
-  "providers": {
-    "providerName": {
-      ...provider fields...
-    },
-    "anotherProvider": {
-      ...provider fields...
-    }
-  }
-}
-```
-
-Each key inside `providers` is a unique name for that provider (website or service). Provider names are arbitrary but should be lowercase and descriptive.
-
----
-
-### All Provider Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `urlPattern` | string (regex) | One of `urlPattern` or `domainPatterns` required | Regex matched against the full URL to identify this provider |
-| `domainPatterns` | array of strings | One of `urlPattern` or `domainPatterns` required | AdBlock-style domain patterns (see Domain Patterns below) |
-| `completeProvider` | boolean | Yes | If `true`, blocks all requests to this provider entirely (domain blocking) |
-| `forceRedirection` | boolean | No | If `true`, forces following redirects even without a matching redirection rule |
-| `rules` | array of strings (regex) | No | Query parameter names to strip from the URL |
-| `rawRules` | array of strings (regex) | No | Regex patterns applied directly to the raw URL string before parameter parsing |
-| `referralMarketing` | array of strings (regex) | No | Affiliate/referral parameters — stripped separately and can be toggled by the user |
-| `exceptions` | array of strings (regex) | No | Full URL regex patterns — matching URLs are skipped even if they match `urlPattern` |
-| `domainExceptions` | array of strings | No | AdBlock-style domain patterns — matching domains are skipped |
-| `redirections` | array of strings (regex) | No | Regex patterns to unwrap redirect URLs; must capture the real destination URL |
-| `domainRedirections` | array of strings | No | AdBlock-style domain patterns that trigger redirect unwrapping |
-| `methods` | array of strings | No | HTTP methods to apply rules to (e.g. `"GET"`, `"POST"`). If omitted, applies to all |
-| `resourceTypes` | array of strings | No | Browser resource types to apply rules to (e.g. `"main_frame"`, `"sub_frame"`, `"xmlhttprequest"`) |
-
----
-
-### Choosing: `urlPattern` vs `domainPatterns`
-
-The provider requires **one** of these two fields to identify which URLs it applies to:
-
-**`urlPattern`** — a standard JavaScript regex matched against the full URL string:
-```json
-"urlPattern": "^https?://([a-z0-9-]+\\.)?example\\.com/"
-```
-
-**`domainPatterns`** — an array of AdBlock-style domain patterns (simpler and preferred for most cases):
-```json
-"domainPatterns": ["||example.com^", "||example.co.uk^"]
-```
-
----
-
-### Domain Patterns Syntax
-
-Domain patterns use AdBlock-style notation. The following formats are supported:
-
-| Pattern | Matches |
-|---------|---------|
-| `\|\|example.com^` | `example.com` and all subdomains (e.g. `www.example.com`, `sub.example.com`) |
-| `\|\|example.*^` | `example.com`, `example.co.uk`, `example.de`, etc. — any TLD. Only matches root domain and `www.` prefix |
-| `\|\|*.example.com^` | All subdomains of `example.com` but not `example.com` itself |
-| `\|\|*.example.*^` | All subdomains of `example` across any TLD |
-| `\|\|example.com/path` | `example.com` and subdomains, but only on URLs starting with `/path` |
-
-Examples:
-
-```json
-"domainPatterns": [
-  "||example.com^",
-  "||example.*^",
-  "||cdn.example.com^",
-  "||example.com/redirect"
-]
-```
-
----
-
-### `rules` — Stripping Query Parameters
-
-Each rule is a regex pattern matched against **query parameter keys** (not values). Parameters whose keys match are removed from the URL.
-
-```json
-"rules": [
-  "utm_source",
-  "utm_medium",
-  "utm_campaign",
-  "utm_term",
-  "utm_content",
-  "utm_[a-z]+",
-  "fbclid",
-  "gclid",
-  "mc_eid",
-  "tracking_id"
-]
-```
-
-Rules use anchored matching (`^rule$`), so `"ref"` will only match a parameter named exactly `ref`, not `referral`. To match both, use `"ref(erral)?"`.
-
----
-
-### `rawRules` — Raw URL String Replacement
-
-Raw rules are regex patterns applied directly to the entire URL string via `String.replace()` **before** query parameters are parsed. Use these for tracking tokens embedded in the URL path rather than as query parameters.
-
-```json
-"rawRules": [
-  "/ref=[^&]*",
-  ";jsessionid=[^?]*"
-]
-```
-
-> Use `rawRules` sparingly — incorrect patterns can corrupt the URL.
-
----
-
-### `referralMarketing` — Affiliate Parameters
-
-Same syntax as `rules`, but these are treated as a separate category. Users can choose to keep or strip affiliate/referral parameters independently of standard tracking parameters.
-
-```json
-"referralMarketing": [
-  "ref",
-  "tag",
-  "affiliate_id",
-  "partner"
-]
-```
-
----
-
-### `exceptions` — Skip Specific URLs
-
-Regex patterns matched against the full URL. If a URL matches an exception, the provider's rules are not applied to it even if the URL matches `urlPattern` or `domainPatterns`.
-
-```json
-"exceptions": [
-  "^https?://example\\.com/checkout",
-  "^https?://api\\.example\\.com/"
-]
-```
-
----
-
-### `domainExceptions` — Skip Specific Domains
-
-AdBlock-style domain patterns (same syntax as `domainPatterns`) for domains that should be excluded from this provider's rules.
-
-```json
-"domainExceptions": [
-  "||safe.example.com^"
-]
-```
-
----
-
-### `redirections` — Unwrap Redirect URLs
-
-Regex patterns matched against the full URL. The **first capture group** must capture the real destination URL. Linkumori will navigate to the captured URL instead.
-
-```json
-"redirections": [
-  "^https?://example\\.com/redirect\\?url=([^&]*)",
-  "^https?://out\\.example\\.com/\\?link=(.*)"
-]
-```
-
-The captured value is automatically decoded before navigation.
-
----
-
-### `domainRedirections`
-
-AdBlock-style domain patterns that flag a domain as a redirect wrapper, triggering redirect unwrapping logic.
-
-```json
-"domainRedirections": [
-  "||out.example.com^"
-]
-```
-
----
-
-### `methods` — Limit by HTTP Method
-
-By default rules apply to all HTTP methods. Use `methods` to restrict to specific ones:
-
-```json
-"methods": ["GET"]
-```
-
----
-
-### `resourceTypes` — Limit by Resource Type
-
-By default rules apply to all resource types. Use `resourceTypes` to restrict to specific browser resource types:
-
-```json
-"resourceTypes": ["main_frame", "sub_frame"]
-```
-
-Common values: `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font`, `object`, `xmlhttprequest`, `ping`, `media`, `websocket`, `other`.
-
----
-
-### Complete Example
+Every provider has the same two parts: `match` (where it applies) and `rules` (what it does). Each rule is one filter string. The full reference is [docs/rule-syntax.md](docs/rule-syntax.md).
 
 ```json
 {
   "providers": {
     "example-shop": {
-      "domainPatterns": ["||example.com^", "||example.*^"],
-      "completeProvider": false,
-      "forceRedirection": false,
+      "match": ["||example.com^", "||example.*^"],
       "rules": [
-        "utm_[a-z]+",
-        "fbclid",
-        "gclid",
-        "tracking_id",
-        "session_id"
-      ],
-      "rawRules": [
-        ";jsessionid=[^?#]*"
-      ],
-      "referralMarketing": [
-        "ref",
-        "tag",
-        "affiliate"
-      ],
-      "exceptions": [
-        "^https?://api\\.example\\.com/"
-      ],
-      "domainExceptions": [
-        "||payments.example.com^"
-      ],
-      "redirections": [
-        "^https?://([a-z0-9-]+\\.)?example\\.com/out\\?url=([^&]*)"
-      ],
-      "methods": ["GET"],
-      "resourceTypes": ["main_frame"]
+        "$removeparam=/^utm_[a-z]+$/i",
+        "$removeparam=fbclid",
+        "$removeparam=tag,referral",
+        "@@||payments.example.com^",
+        "/^https?:\\/\\/(?:[a-z0-9-]+\\.)?example\\.com\\/out\\?url=([^&]*)/i$redirect",
+        "/;jsessionid=[^?#]*/i$strip"
+      ]
     }
   }
 }
 ```
+
+Provider names are arbitrary but should be lowercase and descriptive.
+
+### Provider Fields
+
+| Field | Required | Description |
+|---|---|---|
+| `match` | Yes | Patterns for the URLs this provider handles: `\|\|example.com^` (site and subdomains), `\|\|example.*^` (any TLD), `\|\|example.com^/path`, or `/regex/i` |
+| `rules` | No | Filters, see below |
+| `methods` | No | Only handle these HTTP methods, e.g. `["GET"]` |
+| `resourceTypes` | No | Only handle these request types, e.g. `["main_frame"]` |
+| `active` | No | `false` disables the provider |
+| `historyBypassProtection` | No | `false` skips the provider for History API URL changes |
+
+### Filters
+
+| Filter | Effect |
+|---|---|
+| `$removeparam=name` | Remove a parameter |
+| `$removeparam=/^utm_/i` | Remove parameters matching a regex |
+| `$removeparam=tag,referral` | Referral/affiliate parameter, kept when the user allows referral marketing |
+| `@@\|\|example.com^/login` | Exception: leave matching URLs alone |
+| `@@\|\|example.com^$removeparam=id` | Keep one parameter on matching URLs/pages |
+| `/regex(capture)/i$redirect` | Unwrap a redirect URL (first capture group) |
+| `/regex/i$strip` | Delete matching text from the URL |
+| `$block` | Block every request the provider matches |
+
+`$removeparam` also takes `domain=`, `to=`, `denyallow=`, `method=`, party (`1p`/`3p`), request-type and `match-case` modifiers. See [docs/rule-syntax.md](docs/rule-syntax.md) for all of them and for rule objects (`id`, `description`, `active`, `replace`).
+
+### Checking Your Changes
+
+```bash
+node linkumori-cli-tool.js lint-rules   # validate data/linkumori-clearurls.json
+node linkumori-cli-tool.js clearurls    # rebuild the LZ4 bundle
+```
+
+Rules in the older multi-section format (`urlPattern`, `referralMarketing`, `rawRules`, `exceptions`, `redirections`, …) can be converted with `node scripts/convert-rule-syntax.js <file.json>`.
 
 ---
 
@@ -453,8 +263,8 @@ git checkout -b rules/new-provider-example-com
 ### What Not to Add
 
 - Do not add rules that would break legitimate website functionality
-- Do not set `completeProvider: true` without strong justification and discussion
-- Do not use overly broad `urlPattern` or `domainPatterns` that could match unintended sites
+- Do not add `$block` without strong justification and discussion
+- Do not use overly broad `match` patterns that could match unintended sites
 
 ---
 
