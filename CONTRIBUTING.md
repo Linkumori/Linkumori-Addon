@@ -184,7 +184,7 @@ To view full modification history for third-party files, run the CLI tool and se
 
 ## 7. Adding or Updating URL Rules
 
-URL cleaning rules tell Linkumori which tracking parameters to strip, which domains to apply them to, and how to handle redirects. Bundled rules live in `data/linkumori-clearurls.json`.
+URL cleaning rules tell Linkumori which tracking parameters to strip, which domains to apply them to, and how to handle redirects. Bundled rules live in `data/linkumori-clearurls.json`. The complete syntax reference is [docs/rule-syntax.md](docs/rule-syntax.md).
 
 ---
 
@@ -220,10 +220,8 @@ Each key inside `providers` is a unique name for that provider (website or servi
 | `rules` | array of strings (regex) | No | Query parameter names to strip from the URL |
 | `rawRules` | array of strings (regex) | No | Regex patterns applied directly to the raw URL string before parameter parsing |
 | `referralMarketing` | array of strings (regex) | No | Affiliate/referral parameters — stripped separately and can be toggled by the user |
-| `exceptions` | array of strings (regex) | No | Full URL regex patterns — matching URLs are skipped even if they match `urlPattern` |
-| `domainExceptions` | array of strings | No | AdBlock-style domain patterns — matching domains are skipped |
-| `redirections` | array of strings (regex) | No | Regex patterns to unwrap redirect URLs; must capture the real destination URL |
-| `domainRedirections` | array of strings | No | AdBlock-style domain patterns that trigger redirect unwrapping |
+| `exceptions` | array of strings (regex or `\|\|domain^` pattern) | No | URLs to skip even if they match `urlPattern` / `domainPatterns` |
+| `redirections` | array of strings (regex or `\|\|domain^$redirect=…`) | No | Unwrap redirect URLs (regex capturing the destination) or send a domain to a fixed address |
 | `methods` | array of strings | No | HTTP methods to apply rules to (e.g. `"GET"`, `"POST"`). If omitted, applies to all |
 | `resourceTypes` | array of strings | No | Browser resource types to apply rules to (e.g. `"main_frame"`, `"sub_frame"`, `"xmlhttprequest"`) |
 
@@ -325,53 +323,36 @@ Same syntax as `rules`, but these are treated as a separate category. Users can 
 
 ### `exceptions` — Skip Specific URLs
 
-Regex patterns matched against the full URL. If a URL matches an exception, the provider's rules are not applied to it even if the URL matches `urlPattern` or `domainPatterns`.
+URLs the provider should leave alone, even if they match `urlPattern` or `domainPatterns`. Each entry is either:
+
+- a regex matched against the full URL, or
+- a domain pattern starting with `|` (same syntax as `domainPatterns`).
 
 ```json
 "exceptions": [
   "^https?://example\\.com/checkout",
-  "^https?://api\\.example\\.com/"
+  "||api.example.com^",
+  "||example.com^/login"
 ]
 ```
 
----
-
-### `domainExceptions` — Skip Specific Domains
-
-AdBlock-style domain patterns (same syntax as `domainPatterns`) for domains that should be excluded from this provider's rules.
-
-```json
-"domainExceptions": [
-  "||safe.example.com^"
-]
-```
 
 ---
 
 ### `redirections` — Unwrap Redirect URLs
 
-Regex patterns matched against the full URL. The **first capture group** must capture the real destination URL. Linkumori will navigate to the captured URL instead.
+Each entry is either:
+
+- a regex matched against the full URL, whose **first capture group** is the real destination (it is decoded before navigation), or
+- a domain redirect starting with `|`, which sends every matching URL to a fixed address.
 
 ```json
 "redirections": [
   "^https?://example\\.com/redirect\\?url=([^&]*)",
-  "^https?://out\\.example\\.com/\\?link=(.*)"
+  "||go.example.com^$redirect=https://example.com/"
 ]
 ```
 
-The captured value is automatically decoded before navigation.
-
----
-
-### `domainRedirections`
-
-AdBlock-style domain patterns that flag a domain as a redirect wrapper, triggering redirect unwrapping logic.
-
-```json
-"domainRedirections": [
-  "||out.example.com^"
-]
-```
 
 ---
 
@@ -422,9 +403,7 @@ Common values: `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font
         "affiliate"
       ],
       "exceptions": [
-        "^https?://api\\.example\\.com/"
-      ],
-      "domainExceptions": [
+        "^https?://api\\.example\\.com/",
         "||payments.example.com^"
       ],
       "redirections": [

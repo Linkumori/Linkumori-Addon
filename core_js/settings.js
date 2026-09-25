@@ -3161,31 +3161,14 @@ async function importSettings(evt) {
 
     const mapImportedEntries = (entries, knownKeys) => {
         const mapped = new Map();
-        let legacySearchLinkFixValue = null;
 
         entries.forEach(([key, value]) => {
-            if (key === 'googleLinkFixEnabled' || key === 'yandexLinkFixEnabled') {
-                const normalizedLegacyValue = value !== false;
-                legacySearchLinkFixValue = legacySearchLinkFixValue === null
-                    ? normalizedLegacyValue
-                    : (legacySearchLinkFixValue && normalizedLegacyValue);
-                return;
-            }
-
             if (!knownKeys.has(key)) {
                 return;
             }
 
             mapped.set(key, normalizeImportValue(key, value));
         });
-
-        if (
-            knownKeys.has('searchLinkFixEnabled') &&
-            !mapped.has('searchLinkFixEnabled') &&
-            legacySearchLinkFixValue !== null
-        ) {
-            mapped.set('searchLinkFixEnabled', legacySearchLinkFixValue);
-        }
 
         return Array.from(mapped.entries());
     };

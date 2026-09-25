@@ -256,9 +256,6 @@
   "customRulesEditor_disabled": {
     "message": "Atspējots:"
   },
-  "customRulesEditor_domainExceptions": {
-    "message": "Domēna izņēmumi"
-  },
   "customRulesEditor_domainPatterns": {
     "message": "Domēna modeļi"
   },
@@ -274,9 +271,6 @@
   },
   "customRulesEditor_domainPatternsRequired": {
     "message": "Ir nepieciešams vismaz viens domēna modelis"
-  },
-  "customRulesEditor_domainRedirections": {
-    "message": "Domēna novirzīšana"
   },
   "customRulesEditor_duplicate": {
     "message": "Dublikāts"
@@ -593,18 +587,6 @@
     "message": "Noklusējums:",
     "description": "Label for default behavior notes in FAQ"
   },
-  "faq_domain_exceptions": {
-    "message": "Kādi ir domēnu izņēmumi?",
-    "description": "FAQ question about domain exceptions"
-  },
-  "faq_domain_exceptions_explanation": {
-    "message": "Domēna izņēmumi darbojas kā parastie izņēmumi, taču regulārā izteiksmes vietā izmanto vienkāršāku domēna modeļa formātu. Tie ļauj izslēgt konkrētus domēnus vai apakšdomēnus no apstrādes.",
-    "description": "FAQ explanation of domain exceptions"
-  },
-  "faq_domain_exceptions_tip": {
-    "message": "Domēna izņēmumos tiek izmantoti tādi paši modeļi kā domēna modeļiem, taču tie ir vienkāršāki nekā regulārās izteiksmes izņēmumi.",
-    "description": "FAQ tip about domain exceptions"
-  },
   "faq_domain_pattern_adblock": {
     "message": "||example.com^ — resursdatora nosaukums atbilst example.com un tā apakšdomēniem",
     "description": "FAQ explanation of AdBlock domain pattern"
@@ -640,18 +622,6 @@
   "faq_domain_patterns_explanation": {
     "message": "Domēna modeļi atbalsta vienkāršus marķierus un AdBlock stila veidlapas. Ja lauks domainPatterns nav tukšs, clearurls.js izmanto tos nodrošinātāja atbilstības noteikšanai un uzmeklēšanas marķiera ekstrakcijai pirms jebkura urlPattern atkāpšanās:",
     "description": "FAQ explanation of domain patterns"
-  },
-  "faq_domain_redirections": {
-    "message": "Kas ir domēna novirzīšana?",
-    "description": "FAQ question about domain redirections"
-  },
-  "faq_domain_redirections_example": {
-    "message": "redirect.example.com$redirect=https://target.com novirzīs visus URL no redirect.example.com uz https://target.com",
-    "description": "FAQ example of domain redirections"
-  },
-  "faq_domain_redirections_explanation": {
-    "message": "Domēna novirzīšana izmanto domēna modeļus, lai noteiktu novirzīšanas vietrāžus URL un iegūtu mērķa galamērķi. Tie atbalsta īpašo $redirect= sintaksi vienkāršai novirzīšanas kartēšanai.",
-    "description": "FAQ explanation of domain redirections"
   },
   "faq_example": {
     "message": "Piemērs:",
@@ -2173,14 +2143,6 @@
     "message": "Atspējotie noteikumi",
     "description": "Title for disabled provider signature list in provider import sidebar"
   },
-  "providerImport_domainExceptions": {
-    "message": "Domēna izņēmumi",
-    "description": "Full text for domain exceptions tooltip in provider cards"
-  },
-  "providerImport_domainExceptionsAbbr": {
-    "message": "DE",
-    "description": "Abbreviation for domain exceptions count in provider cards"
-  },
   "providerImport_domainPatterns": {
     "message": "Domēna modeļi",
     "description": "Full text for domain patterns tooltip in provider cards"
@@ -2188,14 +2150,6 @@
   "providerImport_domainPatternsAbbr": {
     "message": "DP",
     "description": "Abbreviation for domain patterns count in provider cards"
-  },
-  "providerImport_domainRedirections": {
-    "message": "Domēna novirzīšana",
-    "description": "Full text for domain redirections tooltip in provider cards"
-  },
-  "providerImport_domainRedirectionsAbbr": {
-    "message": "DR",
-    "description": "Abbreviation for domain redirections count in provider cards"
   },
   "providerImport_exceptions": {
     "message": "Izņēmumi"
@@ -4909,16 +4863,8 @@
     "message": "19. nodaļa. Priekšapstrādātāji",
     "description": "Guide page text."
   },
-  "guide_0035": {
-    "message": "20. nodaļa: Kārtulu ID un aizstājvārdi",
-    "description": "Guide page text."
-  },
-  "guide_0036": {
-    "message": "21. nodaļa: Noklusējumi",
-    "description": "Guide page text."
-  },
   "guide_0037": {
-    "message": "22. nodaļa: Atļautās JSON kombinācijas",
+    "message": "20. nodaļa: Atļautās JSON kombinācijas",
     "description": "Guide page text."
   },
   "guide_0038": {
@@ -4985,68 +4931,8 @@
     "message": "16. kombinācija: Pilna jaukta pakalpojumu sniedzēja piemērs",
     "description": "Guide page text."
   },
-  "guide_0054": {
-    "message": "23. nodaļa: mantotā, kanoniskā un jaukto formu matrica",
-    "description": "Guide page text."
-  },
-  "guide_0055": {
-    "message": "Augstākā līmeņa failu veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0056": {
-    "message": "Pakalpojumu sniedzēja atbilstības veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0057": {
-    "message": "Piegādātāja valsts veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0058": {
-    "message": "noteikumi[] Pieteikšanās veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0059": {
-    "message": "rawRules[] Ieejas veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0060": {
-    "message": "referralMarketing[] Ieejas veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0061": {
-    "message": "izņēmumi[] Pieteikšanās veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0062": {
-    "message": "domēnsIzņēmumi[] Ieejas veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0063": {
-    "message": "pāradresācijas[] Ieejas veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0064": {
-    "message": "domainRedirections[] Ieejas veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0065": {
-    "message": "Noteikumu objektu lauku kombinācijas",
-    "description": "Guide page text."
-  },
-  "guide_0066": {
-    "message": "Viens pakalpojumu sniedzējs ar katru mantoto masīvu",
-    "description": "Guide page text."
-  },
-  "guide_0067": {
-    "message": "Viens pakalpojumu sniedzējs ar katru kanonisko stilu",
-    "description": "Guide page text."
-  },
-  "guide_0068": {
-    "message": "Maksimālās jauktās saderības nodrošinātājs",
-    "description": "Guide page text."
-  },
   "guide_0069": {
-    "message": "24. nodaļa: Pilni piemēri",
+    "message": "21. nodaļa: Pilni piemēri",
     "description": "Guide page text."
   },
   "guide_0070": {
@@ -5070,7 +4956,7 @@
     "description": "Guide page text."
   },
   "guide_0075": {
-    "message": "25. nodaļa: Ātrās kopēšanas veidnes",
+    "message": "22. nodaļa: Ātrās kopēšanas veidnes",
     "description": "Guide page text."
   },
   "guide_0108": {
@@ -5159,18 +5045,6 @@
   },
   "guide_0128": {
     "message": "Iestatiet <code>false</code>, lai atspējotu šo pakalpojumu sniedzēju.",
-    "description": "Guide page text."
-  },
-  "guide_0129": {
-    "message": "<code>defaultActive</code>",
-    "description": "Guide page text."
-  },
-  "guide_0130": {
-    "message": "Linkumori papildinājums",
-    "description": "Guide page text."
-  },
-  "guide_0131": {
-    "message": "Noklusējuma aktīvais stāvoklis, kad trūkst <code>active</code>.",
     "description": "Guide page text."
   },
   "guide_0132": {
@@ -5813,36 +5687,8 @@
     "message": "<code>inputs</code> var būt:",
     "description": "Guide page text."
   },
-  "guide_0292": {
-    "message": "20. nodaļa: Kārtulu ID un aizstājvārdi",
-    "description": "Guide page text."
-  },
-  "guide_0293": {
-    "message": "Norādiet svarīgus noteikumus <code>id</code>.",
-    "description": "Guide page text."
-  },
-  "guide_0294": {
-    "message": "Pievienojiet aizstājvārdus, kad vecajam ID joprojām jādarbojas:",
-    "description": "Guide page text."
-  },
-  "guide_0295": {
-    "message": "Dzinējs var atspējot šo noteikumu ar šādiem nosaukumiem:",
-    "description": "Guide page text."
-  },
-  "guide_0296": {
-    "message": "21. nodaļa: Noklusējumi",
-    "description": "Guide page text."
-  },
-  "guide_0297": {
-    "message": "ClearURLs core v2 canonical ir nepieciešams augstākā līmeņa numurs <code>defaults</code>. Linkumori tiek pieņemts arī <code>defaults</code> jauktajā pakalpojumu sniedzējā JSON, neprasot numuru 9283072465.",
-    "description": "Guide page text."
-  },
-  "guide_0298": {
-    "message": "Kārtulas var mantot šos noklusējuma laukus, ja tie nedefinē savas vērtības.",
-    "description": "Guide page text."
-  },
   "guide_0299": {
-    "message": "22. nodaļa: Atļautās JSON kombinācijas",
+    "message": "20. nodaļa: Atļautās JSON kombinācijas",
     "description": "Guide page text."
   },
   "guide_0300": {
@@ -6045,316 +5891,8 @@
     "message": "Tas ir derīgs Linkumori jauktais pakalpojumu sniedzējs JSON.",
     "description": "Guide page text."
   },
-  "guide_0350": {
-    "message": "23. nodaļa: mantotā, kanoniskā un jaukto formu matrica",
-    "description": "Guide page text."
-  },
-  "guide_0351": {
-    "message": "Šī nodaļa ir pilna saderības karte JSON autorēšanai. Katra veidlapa ir apzīmēta vietā, kur tā parādās: <code>ClearURLs addon legacy</code> nozīmē, ka tā nāk no augšpus papildinājuma <code>clearurls.js</code>, <code>ClearURLs core v2 canonical</code> nozīmē, ka tā nāk no kodola, 95083073. <code>Linkumori addition</code> nozīmē, ka Linkumori to pieņem papildus šīm iepriekšējām veidlapām.",
-    "description": "Guide page text."
-  },
-  "guide_0352": {
-    "message": "Augstākā līmeņa failu veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0353": {
-    "message": "ClearURLs papildinājuma mantojums — minimālais nodrošinātāja fails:",
-    "description": "Guide page text."
-  },
-  "guide_0354": {
-    "message": "ClearURLs core v2 kanoniskais formāts:",
-    "description": "Guide page text."
-  },
-  "guide_0355": {
-    "message": "Linkumori papildinājums — paplašināts avots ar noklusējuma iestatījumiem:",
-    "description": "Guide page text."
-  },
-  "guide_0356": {
-    "message": "Linkumori addition - provider JSON with inline filter-list rules:",
-    "description": "Guide label for provider JSON with inline $removeparam rules."
-  },
-  "guide_0357": {
-    "message": "Svarīgi:",
-    "description": "Guide page text."
-  },
-  "guide_0358": {
-    "message": "Pakalpojumu sniedzēja atbilstības veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0359": {
-    "message": "ClearURLs mantotais papildinājums un ClearURLs core v2 kanoniskais — tikai <code>urlPattern</code>. Bez <code>indexPattern</code> plašas regulārās izteiksmes nodrošinātāji var atgriezties pie globālajām kandidātu pārbaudēm.",
-    "description": "Guide page text."
-  },
-  "guide_0360": {
-    "message": "Linkumori papildinājums — <code>urlPattern</code> ar <code>indexPattern</code>. Indeksa modelis ir uzmeklēšanas mājiens, savukārt <code>urlPattern</code> joprojām ir pēdējais atbilstības rādītājs:",
-    "description": "Guide page text."
-  },
-  "guide_0361": {
-    "message": "Linkumori papildinājums — vairāki <code>indexPattern</code> padomi par URL regulāru izteiksmi, kas var atbilst vairāk nekā vienam saimniekdatora nosaukumam:",
-    "description": "Guide page text."
-  },
-  "guide_0362": {
-    "message": "Linkumori papildinājums — tikai <code>domainPatterns</code>. Tie tiek tieši izmantoti pakalpojumu sniedzēja saskaņošanai un uzmeklēšanas marķiera iegūšanai:",
-    "description": "Guide page text."
-  },
-  "guide_0363": {
-    "message": "Linkumori papildinājums — vairākkārtējs <code>domainPatterns</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0364": {
-    "message": "Linkumori papildinājums — regex iekšā <code>domainPatterns</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0365": {
-    "message": "Mantotie/jauktie dati var ietvert gan <code>domainPatterns</code>, gan <code>urlPattern</code>, taču neveidojiet jaunus pakalpojumu sniedzējus šādā veidā:",
-    "description": "Guide page text."
-  },
-  "guide_0366": {
-    "message": "Uzvedība: nav tukšs <code>domainPatterns</code> laimests. <code>urlPattern</code> tiek izmantots tikai tad, ja trūkst <code>domainPatterns</code> vai tas ir tukšs. Pielāgotais redaktors/importēšanas ceļš abus kopā uzskata par nederīgiem.",
-    "description": "Guide page text."
-  },
-  "guide_0367": {
-    "message": "Piegādātāja valsts veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0368": {
-    "message": "Linkumori papildinājums — aktīvais nodrošinātājs:",
-    "description": "Guide page text."
-  },
-  "guide_0369": {
-    "message": "Linkumori papildinājums — neaktīvs pakalpojumu sniedzējs:",
-    "description": "Guide page text."
-  },
-  "guide_0370": {
-    "message": "Linkumori papildinājums — noklusējuma aktīvais nodrošinātājs:",
-    "description": "Guide page text."
-  },
-  "guide_0371": {
-    "message": "ClearURLs mantotais papildinājums un ClearURLs pamata v2 kanoniskais — pilnīgs/bloķējošs nodrošinātājs. Šeit parādītā atbilstība <code>domainPatterns</code> ir Linkumori papildinājums:",
-    "description": "Guide page text."
-  },
-  "guide_0372": {
-    "message": "ClearURLs mantotais papildinājums un ClearURLs pamata v2 kanoniskais — pilnīgs nodrošinātājs ar tīrīšanas noteikumiem. Šeit parādītā atbilstība <code>domainPatterns</code> ir Linkumori papildinājums:",
-    "description": "Guide page text."
-  },
-  "guide_0373": {
-    "message": "ClearURLs papildinājuma mantojums un ClearURLs pamata v2 kanoniskais — piespiedu novirzīšanas nodrošinātājs. Atbilstošais numurs <code>domainPatterns</code> un kanoniskā stila objekts <code>redirections[]</code> ir Linkumori papildinājumi:",
-    "description": "Guide page text."
-  },
-  "guide_0374": {
-    "message": "<code>rules[]</code> Pieteikšanās veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0375": {
-    "message": "ClearURLs papildinājuma mantojums un ClearURLs core v2 canonical — vienkārša lauka virkne:",
-    "description": "Guide page text."
-  },
-  "guide_0376": {
-    "message": "ClearURLs papildinājuma mantojums un ClearURLs core v2 canonical — vienkārša regex lauka virkne:",
-    "description": "Guide page text."
-  },
-  "guide_0377": {
-    "message": "Linkumori papildinājums — iekļauts <code>$removeparam</code> noteikums pakalpojumu sniedzēja <code>rules[]</code> iekšienē:",
-    "description": "Guide page text."
-  },
-  "guide_0378": {
-    "message": "Linkumori papildinājums — iekļauts <code>$removeparam</code> izņēmums pakalpojumu sniedzēja <code>rules[]</code> iekšienē:",
-    "description": "Guide page text."
-  },
-  "guide_0379": {
-    "message": "Linkumori papildinājums — objekts ar <code>matchPattern</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0380": {
-    "message": "ClearURLs core v2 canonical — lauka objekts:",
-    "description": "Guide page text."
-  },
-  "guide_0381": {
-    "message": "ClearURLs core v2 canonical — lauka pārrakstīšanas objekts:",
-    "description": "Guide page text."
-  },
-  "guide_0382": {
-    "message": "ClearURLs kodols v2 kanoniskais objekts iekšpusē <code>rules[]</code>; <code>flags</code> šeit ir Linkumori papildinājums:",
-    "description": "Guide page text."
-  },
-  "guide_0383": {
-    "message": "ClearURLs core v2 canonical — novirzīšanas objekts iekšpusē <code>rules[]</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0384": {
-    "message": "ClearURLs pamata v2 kanoniskais — novirzīšanas mārketinga objekts <code>rules[]</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0385": {
-    "message": "Linkumori papildinājums — visas <code>rules[]</code> veidlapas, kas sajauktas vienā mantotā nodrošinātāja masīvā:",
-    "description": "Guide page text."
-  },
-  "guide_0386": {
-    "message": "<code>rawRules[]</code> Pieteikšanās veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0387": {
-    "message": "ClearURLs papildinājuma mantojums — neapstrādāta virkne:",
-    "description": "Guide page text."
-  },
-  "guide_0388": {
-    "message": "Linkumori papildinājums — neapstrādāts objekts ar <code>matchPattern</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0389": {
-    "message": "ClearURLs core v2 canonical raw objekts; <code>flags</code> šeit ir Linkumori papildinājums:",
-    "description": "Guide page text."
-  },
-  "guide_0390": {
-    "message": "ClearURLs core v2 canonical — neapstrādāta pārrakstīšana:",
-    "description": "Guide page text."
-  },
-  "guide_0391": {
-    "message": "Linkumori papildinājums — jaukts <code>rawRules[]</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0392": {
-    "message": "<code>referralMarketing[]</code> Pieteikšanās veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0393": {
-    "message": "ClearURLs papildinājuma mantojums — novirzīšanas virkne:",
-    "description": "Guide page text."
-  },
-  "guide_0394": {
-    "message": "Linkumori papildinājums — novirzīšanas objekts ar <code>matchPattern</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0395": {
-    "message": "Linkumori papildinājums — kanoniskā stila objekts mantojumā <code>referralMarketing[]</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0396": {
-    "message": "Linkumori papildinājums — jaukti novirzīšanas noteikumi:",
-    "description": "Guide page text."
-  },
-  "guide_0397": {
-    "message": "<code>exceptions[]</code> Pieteikšanās veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0398": {
-    "message": "ClearURLs papildinājuma mantojums un ClearURLs pamata v2 kanoniskais — izņēmumu virkne:",
-    "description": "Guide page text."
-  },
-  "guide_0399": {
-    "message": "Linkumori papildinājums — izņēmuma objekts ar <code>matchPattern</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0400": {
-    "message": "Linkumori papildinājums — kanoniskā stila objekts nodrošinātāja <code>exceptions[]</code> iekšienē:",
-    "description": "Guide page text."
-  },
-  "guide_0401": {
-    "message": "Linkumori papildinājums — dažādi izņēmumi:",
-    "description": "Guide page text."
-  },
-  "guide_0402": {
-    "message": "<code>domainExceptions[]</code> Pieteikšanās veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0403": {
-    "message": "Linkumori papildinājums — domēna izņēmumi ir vienkāršas domēna modeļa virknes.",
-    "description": "Guide page text."
-  },
-  "guide_0404": {
-    "message": "<code>redirections[]</code> Pieteikšanās veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0405": {
-    "message": "ClearURLs papildinājuma mantojums — novirzīšanas virkne:",
-    "description": "Guide page text."
-  },
-  "guide_0406": {
-    "message": "Izmantojot ClearURLs papildinājuma mantoto novirzīšanas virkni, pirmā uztveršanas grupa tiek izmantota kā novirzīšanas mērķis.",
-    "description": "Guide page text."
-  },
-  "guide_0407": {
-    "message": "Linkumori papildinājums — novirzīšanas objekts ar <code>matchPattern</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0408": {
-    "message": "ClearURLs core v2 kanoniskais novirzīšanas objekts, ko šeit pieņēma Linkumori mantotajā <code>redirections[]</code>:",
-    "description": "Guide page text."
-  },
-  "guide_0409": {
-    "message": "Linkumori papildinājums — jauktas novirzīšanas:",
-    "description": "Guide page text."
-  },
-  "guide_0410": {
-    "message": "<code>domainRedirections[]</code> Pieteikšanās veidlapas",
-    "description": "Guide page text."
-  },
-  "guide_0411": {
-    "message": "Linkumori papildinājums — virknes forma:",
-    "description": "Guide page text."
-  },
-  "guide_0412": {
-    "message": "Linkumori papildinājums — objekta forma:",
-    "description": "Guide page text."
-  },
-  "guide_0413": {
-    "message": "Linkumori pievienošana — objekta forma ar ligzdotu darbību:",
-    "description": "Guide page text."
-  },
-  "guide_0414": {
-    "message": "Linkumori pievienošana — jaukta domēna novirzīšana:",
-    "description": "Guide page text."
-  },
-  "guide_0415": {
-    "message": "Noteikumu objektu lauku kombinācijas",
-    "description": "Guide page text."
-  },
-  "guide_0416": {
-    "message": "Linkumori papildinājums — ar mantojumu saderīgi objektu lauki:",
-    "description": "Guide page text."
-  },
-  "guide_0417": {
-    "message": "ClearURLs pamata v2 kanonisko objektu lauki; <code>flags</code> šeit ir Linkumori papildinājums:",
-    "description": "Guide page text."
-  },
-  "guide_0418": {
-    "message": "ClearURLs core v2 canonical — pārrakstīt objektu:",
-    "description": "Guide page text."
-  },
-  "guide_0419": {
-    "message": "ClearURLs core v2 canonical — novirzīšanas objekts:",
-    "description": "Guide page text."
-  },
-  "guide_0420": {
-    "message": "Viens pakalpojumu sniedzējs ar katru mantoto masīvu",
-    "description": "Guide page text."
-  },
-  "guide_0421": {
-    "message": "Masīvu nosaukumi šajā piemērā nāk no ClearURLs papildinājuma mantojuma JSON. Pakalpojumu sniedzēja stāvoklis, indeksēšana, domēna izņēmums, domēna novirzīšana un resursa tipa lauki, kas tiek parādīti kopā ar tiem, ir Linkumori papildinājumi.",
-    "description": "Guide page text."
-  },
-  "guide_0422": {
-    "message": "Viens pakalpojumu sniedzējs ar katru kanonisko stilu",
-    "description": "Guide page text."
-  },
-  "guide_0423": {
-    "message": "Šis piemērs ir derīga ClearURLs kodola v2 kanoniskā forma. Linkumori var arī nolasīt šos kanonisko noteikumu objektus savā jauktajā nodrošinātājā JSON.",
-    "description": "Guide page text."
-  },
-  "guide_0424": {
-    "message": "Maksimālās jauktās saderības nodrošinātājs",
-    "description": "Guide page text."
-  },
-  "guide_0425": {
-    "message": "Šī ir nodrošinātāja forma Linkumori “viss var līdzāspastāvēt”. Tajā apzināti tiek sajaukti ClearURLs papildinājumu mantotie masīvi, ClearURLs pamata v2 kanonisko noteikumu objekti un Linkumori nodrošinātāja lauki.",
-    "description": "Guide page text."
-  },
-  "guide_0426": {
-    "message": "Piezīme:",
-    "description": "Guide page text."
-  },
   "guide_0427": {
-    "message": "24. nodaļa: Pilni piemēri",
+    "message": "21. nodaļa: Pilni piemēri",
     "description": "Guide page text."
   },
   "guide_0428": {
@@ -6398,7 +5936,7 @@
     "description": "Guide page text."
   },
   "guide_0438": {
-    "message": "25. nodaļa: Ātrās kopēšanas veidnes",
+    "message": "22. nodaļa: Ātrās kopēšanas veidnes",
     "description": "Guide page text."
   },
   "guide_0439": {
@@ -6446,7 +5984,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6725,22 +6263,6 @@
     "message": "\"all\"\n",
     "description": "Guide page text."
   },
-  "guide_0698": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"action\": {\n    \"type\": \"remove\"\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0699": {
-    "message": "{\n  \"id\": \"remove-utm-source\",\n  \"aliases\": [\"utm-source-old\"],\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"action\": {\n    \"type\": \"remove\"\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0700": {
-    "message": "Provider Name::remove-utm-source\nremove-utm-source\nProvider Name::utm-source-old\nutm-source-old\n",
-    "description": "Guide page text."
-  },
-  "guide_0701": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"description\": \"Default rule\",\n    \"requestTypes\": \"all\",\n    \"preprocessors\": [],\n    \"exceptions\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
   "guide_0702": {
     "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    },\n    \"Shop\": {\n      \"domainPatterns\": [\"||shop.test^\"],\n      \"rules\": [\"fbclid\"]\n    },\n    \"Tracker Redirect\": {\n      \"domainPatterns\": [\"||tracker.test^\"],\n      \"redirections\": [\n        {\n          \"kind\": \"redirection\",\n          \"match\": \"https://tracker\\\\.test/click\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
     "description": "Guide page text."
@@ -6819,246 +6341,6 @@
   },
   "guide_0721": {
     "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Full Mixed Example\": {\n      \"active\": true,\n      \"domainPatterns\": [\n        \"||example.com^\",\n        \"||example.org^\"\n      ],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"remove-gclid\",\n          \"kind\": \"field\",\n          \"match\": \"gclid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_tracking=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          },\n          \"flags\": \"gi\"\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\"\n      ],\n      \"referralMarketing\": [\n        \"tag\"\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/account\"\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        {\n          \"id\": \"unwrap-outbound\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          },\n          \"preprocessors\": [\n            {\n              \"type\": \"urlDecode\",\n              \"inputs\": [1]\n            }\n          ]\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old.example.com^$redirect=https://example.com/\"\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0722": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0723": {
-    "message": "{\n  \"version\": 2,\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": [],\n    \"exceptions\": []\n  },\n  \"providers\": {\n    \"Example\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\n        {\n          \"id\": \"remove-utm-source\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0724": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0725": {
-    "message": "{\n  \"providers\": {\n    \"Example\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\n        \"utm_source\",\n        \"*$removeparam=fbclid\"\n      ]\n    }\n  }\n}\n",
-    "description": "Guide code example for provider JSON with inline $removeparam rules."
-  },
-  "guide_0726": {
-    "message": "Provider-local <code>rules[]</code> entries are compiled into the same provider set before <code>clearurls.js</code> runs. Keep filter-list style <code>$removeparam</code> lines inside provider <code>rules[]</code> when authoring Linkumori JSON.\n",
-    "description": "Guide note explaining provider-local filter-list rules."
-  },
-  "guide_0727": {
-    "message": "{\n  \"providers\": {\n    \"Legacy URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0728": {
-    "message": "{\n  \"providers\": {\n    \"Indexed URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0729": {
-    "message": "{\n  \"providers\": {\n    \"Multi Host URL Regex Provider\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/(www\\\\.)?(youtube\\\\.com|youtu\\\\.be)\\\\/.*\",\n      \"indexPattern\": [\"||youtube.com^\", \"||youtu.be^\"],\n      \"rules\": [\"feature\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0730": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0731": {
-    "message": "{\n  \"providers\": {\n    \"Multi Domain Provider\": {\n      \"domainPatterns\": [\"||example.com^\", \"||example.org^\", \"||example.net^\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0732": {
-    "message": "{\n  \"providers\": {\n    \"Regex Domain Pattern Provider\": {\n      \"domainPatterns\": [\"/^https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/special/i\"],\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0733": {
-    "message": "{\n  \"providers\": {\n    \"Both Matcher Fields\": {\n      \"domainPatterns\": [\"||example.com^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/example\\\\.com\\\\/special\\\\/.*\",\n      \"rules\": [\"utm_source\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0734": {
-    "message": "domainPatterns uzvar par atbilstību, ja tas ir un nav tukšs. urlPattern tiek izmantots tikai tad, ja domēna Patterns trūkst vai tas ir tukšs. Pielāgotais redaktors/importēšanas ceļš noraida pakalpojumu sniedzējus, kuros ir abas atbilstības saimes.",
-    "description": "Guide page text."
-  },
-  "guide_0735": {
-    "message": "{\n  \"active\": true,\n  \"domainPatterns\": [\"||example.com^\"],\n  \"rules\": [\"utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0736": {
-    "message": "{\n  \"active\": false,\n  \"domainPatterns\": [\"||example.com^\"],\n  \"rules\": [\"utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0737": {
-    "message": "{\n  \"defaultActive\": true,\n  \"domainPatterns\": [\"||example.com^\"],\n  \"rules\": [\"utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0738": {
-    "message": "{\n  \"completeProvider\": true,\n  \"domainPatterns\": [\"||badtracker.example^\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0739": {
-    "message": "{\n  \"completeProvider\": true,\n  \"domainPatterns\": [\"||badtracker.example^\"],\n  \"rules\": [\"utm_source\"],\n  \"rawRules\": [\"[?&]bad=[^&#]*\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0740": {
-    "message": "{\n  \"forceRedirection\": true,\n  \"domainPatterns\": [\"||tracker.example^\"],\n  \"redirections\": [\n    {\n      \"match\": \"https://tracker\\\\.example/out\\\\?url=([^&#]+)\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0741": {
-    "message": "{\n  \"rules\": [\"utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0742": {
-    "message": "{\n  \"rules\": [\"^utm_\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0743": {
-    "message": "{\n  \"rules\": [\"*$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0744": {
-    "message": "{\n  \"rules\": [\"@@||example.com^$removeparam=utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0745": {
-    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"legacy-object-rule\",\n      \"matchPattern\": \"utm_source\",\n      \"active\": true,\n      \"flags\": \"i\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0746": {
-    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"canonical-field-rule\",\n      \"kind\": \"field\",\n      \"match\": \"utm_source\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0747": {
-    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"canonical-field-rewrite\",\n      \"kind\": \"field\",\n      \"match\": \"tag\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"clean\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0748": {
-    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"raw-inside-rules\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0749": {
-    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"redirect-inside-rules\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0750": {
-    "message": "{\n  \"rules\": [\n    {\n      \"id\": \"referral-inside-rules\",\n      \"kind\": \"field\",\n      \"match\": \"tag\",\n      \"referralMarketing\": true,\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0751": {
-    "message": "{\n  \"rules\": [\n    \"utm_source\",\n    \"^utm_\",\n    \"*$removeparam=fbclid\",\n    \"@@||example.com/login^$removeparam=fbclid\",\n    {\n      \"id\": \"legacy-object\",\n      \"matchPattern\": \"gclid\"\n    },\n    {\n      \"id\": \"canonical-field\",\n      \"kind\": \"field\",\n      \"match\": \"msclkid\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    },\n    {\n      \"id\": \"canonical-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]raw_id=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    },\n    {\n      \"id\": \"canonical-redirection\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0752": {
-    "message": "{\n  \"rawRules\": [\"[?&]utm_source=[^&#]*\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0753": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"legacy-raw-object\",\n      \"matchPattern\": \"[?&]utm_source=[^&#]*\",\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0754": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"canonical-raw-object\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]utm_source=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      },\n      \"flags\": \"gi\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0755": {
-    "message": "{\n  \"rawRules\": [\n    {\n      \"id\": \"canonical-raw-rewrite\",\n      \"kind\": \"raw\",\n      \"match\": \"https://tracker\\\\.example/out\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"rewrite\",\n        \"replacePattern\": \"§1§\"\n      },\n      \"preprocessors\": [\n        {\n          \"type\": \"urlDecode\",\n          \"inputs\": [1]\n        }\n      ]\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0756": {
-    "message": "{\n  \"rawRules\": [\n    \"[?&]utm_source=[^&#]*\",\n    {\n      \"id\": \"raw-object\",\n      \"matchPattern\": \"[?&]fbclid=[^&#]*\"\n    },\n    {\n      \"id\": \"canonical-raw\",\n      \"kind\": \"raw\",\n      \"match\": \"[?&]gclid=[^&#]*\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0757": {
-    "message": "{\n  \"referralMarketing\": [\"tag\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0758": {
-    "message": "{\n  \"referralMarketing\": [\n    {\n      \"id\": \"legacy-referral-object\",\n      \"matchPattern\": \"tag\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0759": {
-    "message": "{\n  \"referralMarketing\": [\n    {\n      \"id\": \"canonical-referral\",\n      \"kind\": \"field\",\n      \"match\": \"tag\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0760": {
-    "message": "{\n  \"referralMarketing\": [\n    \"tag\",\n    \"ascsubtag\",\n    {\n      \"id\": \"canonical-referral\",\n      \"kind\": \"field\",\n      \"match\": \"affid\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0761": {
-    "message": "{\n  \"exceptions\": [\"example\\\\.com\\\\/login\"]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0762": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"legacy-exception-object\",\n      \"matchPattern\": \"example\\\\.com\\\\/login\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0763": {
-    "message": "{\n  \"exceptions\": [\n    {\n      \"id\": \"canonical-exception\",\n      \"kind\": \"field\",\n      \"match\": \"example\\\\.com\\\\/login\",\n      \"action\": {\n        \"type\": \"remove\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0764": {
-    "message": "{\n  \"exceptions\": [\n    \"example\\\\.com\\\\/login\",\n    {\n      \"id\": \"checkout-exception\",\n      \"matchPattern\": \"example\\\\.com\\\\/checkout\"\n    },\n    {\n      \"id\": \"account-exception\",\n      \"match\": \"example\\\\.com\\\\/account\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0765": {
-    "message": "{\n  \"domainExceptions\": [\n    \"||safe.example.com^\",\n    \"||accounts.example.com^\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0766": {
-    "message": "{\n  \"redirections\": [\n    \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0767": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"legacy-redirection-object\",\n      \"matchPattern\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n      \"replacePattern\": \"§1§\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0768": {
-    "message": "{\n  \"redirections\": [\n    {\n      \"id\": \"canonical-redirection\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0769": {
-    "message": "{\n  \"redirections\": [\n    \"https://tracker\\\\.example/a\\\\?url=([^&#]+)\",\n    {\n      \"id\": \"legacy-redirection-object\",\n      \"matchPattern\": \"https://tracker\\\\.example/b\\\\?url=([^&#]+)\",\n      \"replacePattern\": \"§1§\"\n    },\n    {\n      \"id\": \"canonical-redirection\",\n      \"kind\": \"redirection\",\n      \"match\": \"https://tracker\\\\.example/c\\\\?url=([^&#]+)\",\n      \"action\": {\n        \"type\": \"redirect\",\n        \"replacePattern\": \"§1§\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0770": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker.example^$redirect=https://example.com/\"\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0771": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"replacePattern\": \"https://example.com/\"\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0772": {
-    "message": "{\n  \"domainRedirections\": [\n    {\n      \"match\": \"||tracker.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://example.com/\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0773": {
-    "message": "{\n  \"domainRedirections\": [\n    \"||tracker-a.example^$redirect=https://example.com/a\",\n    {\n      \"match\": \"||tracker-b.example^\",\n      \"replacePattern\": \"https://example.com/b\"\n    },\n    {\n      \"match\": \"||tracker-c.example^\",\n      \"action\": {\n        \"replacePattern\": \"https://example.com/c\"\n      }\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0774": {
-    "message": "{\n  \"id\": \"legacy-object\",\n  \"matchPattern\": \"utm_source\",\n  \"replacePattern\": null,\n  \"flags\": \"i\",\n  \"active\": true,\n  \"aliases\": [\"old-id\"],\n  \"exceptions\": [\"example\\\\.com\\\\/keep\"],\n  \"requestTypes\": [\"main_frame\"],\n  \"preprocessors\": []\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0775": {
-    "message": "{\n  \"id\": \"canonical-object\",\n  \"kind\": \"field\",\n  \"match\": \"utm_source\",\n  \"active\": true,\n  \"aliases\": [\"old-id\"],\n  \"description\": \"Remove utm_source\",\n  \"exceptions\": [\"example\\\\.com\\\\/keep\"],\n  \"requestTypes\": [\"main_frame\"],\n  \"flags\": \"i\",\n  \"preprocessors\": [],\n  \"action\": {\n    \"type\": \"remove\"\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0776": {
-    "message": "{\n  \"id\": \"rewrite-object\",\n  \"kind\": \"field\",\n  \"match\": \"tag\",\n  \"action\": {\n    \"type\": \"rewrite\",\n    \"replacePattern\": \"clean\"\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0777": {
-    "message": "{\n  \"id\": \"redirect-object\",\n  \"kind\": \"redirection\",\n  \"match\": \"https://tracker\\\\.example/click\\\\?url=([^&#]+)\",\n  \"action\": {\n    \"type\": \"redirect\",\n    \"replacePattern\": \"§1§\"\n  },\n  \"preprocessors\": [\n    {\n      \"type\": \"urlDecode\",\n      \"inputs\": [1]\n    }\n  ]\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0778": {
-    "message": "{\n  \"providers\": {\n    \"Every Legacy Array\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [\"utm_source\"],\n      \"rawRules\": [\"[?&]raw_id=[^&#]*\"],\n      \"referralMarketing\": [\"tag\"],\n      \"exceptions\": [\"example\\\\.com\\\\/login\"],\n      \"domainExceptions\": [\"||safe.example.com^\"],\n      \"redirections\": [\"https://example\\\\.com/out\\\\?url=([^&#]+)\"],\n      \"domainRedirections\": [\"||old.example.com^$redirect=https://example.com/\"],\n      \"methods\": [\"GET\"],\n      \"resourceTypes\": [\"main_frame\"]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0779": {
-    "message": "{\n  \"version\": 2,\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\",\n    \"preprocessors\": [],\n    \"exceptions\": []\n  },\n  \"providers\": {\n    \"Every Canonical Style\": {\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"exceptions\": [\n        \"example\\\\.com\\\\/login\"\n      ],\n      \"rules\": [\n        {\n          \"id\": \"field\",\n          \"kind\": \"field\",\n          \"match\": \"utm_source\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"raw\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]raw_id=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"redirection\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        },\n        {\n          \"id\": \"referral\",\n          \"kind\": \"field\",\n          \"match\": \"tag\",\n          \"referralMarketing\": true,\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0780": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Maximum Mixed Compatibility\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\"||example.com^\", \"||example.org^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": [\"||example.com^\", \"||example.org^\"],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"^utm_\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"legacy-field-object\",\n          \"matchPattern\": \"gclid\"\n        },\n        {\n          \"id\": \"canonical-field-object\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]rule_raw=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-redirect-in-rules\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/r\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\",\n        {\n          \"id\": \"raw-object\",\n          \"matchPattern\": \"[?&]raw_object=[^&#]*\"\n        },\n        {\n          \"id\": \"canonical-raw-object\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]canonical_raw=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"referralMarketing\": [\n        \"tag\",\n        {\n          \"id\": \"canonical-referral-object\",\n          \"kind\": \"field\",\n          \"match\": \"ascsubtag\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/login\",\n        {\n          \"id\": \"exception-object\",\n          \"matchPattern\": \"example\\\\.com\\\\/checkout\"\n        },\n        {\n          \"id\": \"canonical-exception-object\",\n          \"match\": \"example\\\\.com\\\\/account\"\n        }\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        \"https://example\\\\.com/out-a\\\\?url=([^&#]+)\",\n        {\n          \"id\": \"legacy-redirection-object\",\n          \"matchPattern\": \"https://example\\\\.com/out-b\\\\?url=([^&#]+)\",\n          \"replacePattern\": \"§1§\"\n        },\n        {\n          \"id\": \"canonical-redirection-object\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out-c\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old-a.example.com^$redirect=https://example.com/a\",\n        {\n          \"match\": \"||old-b.example.com^\",\n          \"replacePattern\": \"https://example.com/b\"\n        },\n        {\n          \"match\": \"||old-c.example.com^\",\n          \"action\": {\n            \"replacePattern\": \"https://example.com/c\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
-    "description": "Guide page text."
-  },
-  "guide_0781": {
-    "message": "This example is for compatibility documentation. In real rule files, keep providers simpler when possible.\n",
     "description": "Guide page text."
   },
   "guide_0782": {
