@@ -2354,6 +2354,119 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "provider fieldRedirections parameter name",
+      "dialect": "provider",
+      "input": "https://example.com/field-redirect/out?a=1&redirect=https%3A%2F%2Fwww.iana.org%2F%3Fx%3D1%26y%3D2",
+      "expectedOutput": "https://www.iana.org/?x=1&y=2",
+      "providers": {
+        "provider-field-redirect": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/field-redirect(?:[/?#]|$)",
+          "fieldRedirections": [
+            "redirect"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider fieldRedirections removeparam regex, first in URL order",
+      "dialect": "provider",
+      "input": "https://example.com/field-redirect-regex/out?dest=https%3A%2F%2Fwww.iana.org%2F&u=https%3A%2F%2Fexample.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-field-redirect-regex": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/field-redirect-regex(?:[/?#]|$)",
+          "fieldRedirections": [
+            "$removeparam=/^(u|dest)$/i"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider fieldRedirections rule exception",
+      "dialect": "provider",
+      "input": "https://example.com/field-redirect-keep/internal?redirect=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://example.com/field-redirect-keep/internal?redirect=https%3A%2F%2Fwww.iana.org%2F",
+      "providers": {
+        "provider-field-redirect-keep": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/field-redirect-keep(?:[/?#]|$)",
+          "fieldRedirections": [
+            {
+              "id": "unwrap-redirect",
+              "matchPattern": "redirect",
+              "exceptions": [
+                "^https?:\\/\\/example\\.com\\/field-redirect-keep\\/internal"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider rule order runs field rule before raw rule",
+      "dialect": "provider",
+      "input": "https://example.com/rule-order/?token=abc&keep=1",
+      "expectedOutput": "https://example.com/rule-order/?keep=1&token",
+      "providers": {
+        "provider-rule-order": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/rule-order(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "mark-token",
+              "matchPattern": "token",
+              "replacePattern": "secret",
+              "order": 1
+            }
+          ],
+          "rawRules": [
+            {
+              "id": "strip-secret",
+              "matchPattern": "secret",
+              "order": 2
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider rule flags referralMarketing",
+      "dialect": "provider",
+      "input": "https://example.com/rule-flag-referral/?tag=x&keep=1",
+      "expectedOutput": "https://example.com/rule-flag-referral/?keep=1",
+      "providers": {
+        "provider-rule-flag-referral": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/rule-flag-referral(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "remove-tag",
+              "matchPattern": "tag",
+              "flags": [
+                "referralMarketing"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "referralMarketing": true
+      }
     }
   ]
 }
