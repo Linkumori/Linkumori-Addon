@@ -31,8 +31,7 @@ descriptive) mapped to the fields below.
 | `referralMarketing` | array | Referral/affiliate parameters to remove. Same syntax as `rules`; skipped while *Allow referral marketing* is on. |
 | `rawRules` | array | Regexes run against the full URL; every match is deleted. |
 | `exceptions` | array | URLs the provider leaves alone (see [exceptions](#exceptions)). |
-| `redirections` | array | Regexes whose first capture group is the real destination; the request is redirected there. |
-| `domainRedirections` | array | `"pattern$redirect=https://target"`: redirect any URL matching the pattern to a fixed target. |
+| `redirections` | array | Where to send the request instead (see [redirections](#redirections)). |
 | `completeProvider` | boolean | `true` blocks every request the provider matches. |
 | `forceRedirection` | boolean | `true`: for page loads, redirects navigate the tab instead of redirecting the request. |
 | `methods` | array | Only handle these HTTP methods, e.g. `["GET"]`. |
@@ -44,8 +43,8 @@ If a provider has both `domainPatterns` and `urlPattern`, `domainPatterns` is us
 
 ## Patterns
 
-Used by `domainPatterns`, by `|`-prefixed `exceptions`, by
-`domainRedirections`, and in front of `$removeparam`.
+Used by `domainPatterns`, by `|`-prefixed `exceptions` and `redirections`,
+and in front of `$removeparam`.
 
 | Pattern | Matches |
 |---|---|
@@ -91,7 +90,7 @@ The optional pattern in front limits the filter to matching URLs:
 | `to=a.com` | only for requests to these domains |
 | `denyallow=a.com` | not for requests to these domains |
 | `method=get\|~post` | only for these HTTP methods |
-| `first-party` / `third-party` (`1p` / `3p`), `strict-first-party`, `strict-third-party` | request party |
+| `first-party`, `third-party`, `strict-first-party`, `strict-third-party` | request party |
 | `document`, `subdocument`, `script`, `stylesheet`, `image`, `media`, `font`, `object`, `xmlhttprequest`, `websocket`, `ping`, `other` (`~` excludes) | request type |
 | `match-case` | case-sensitive parameter names |
 | `history-bypass-protection=false` | skip this filter for History API URL changes |
@@ -132,12 +131,24 @@ rules should use `exceptions`.
 
 ## redirections
 
-```json
-"redirections": ["^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/url\\?.*?(?:url|q)=(https?[^&]+)"]
-```
+Each entry is either:
 
-The request is redirected to the first capture group (URL-decoded). The
-regex must contain a capture group.
+- a **regex** matched against the full URL. The request is redirected to its
+  first capture group (URL-decoded), so the regex must contain one:
+
+  ```json
+  "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}\\/url\\?.*?(?:url|q)=(https?[^&]+)"
+  ```
+
+- a **domain redirect** starting with `|`: every URL matching the pattern
+  goes to a fixed address.
+
+  ```json
+  "||go.example.com^$redirect=https://example.com/"
+  ```
+
+The older `domainRedirections` field is still read for existing rules; new
+rules should use `redirections`.
 
 ## Rule objects
 
@@ -170,9 +181,8 @@ id, needs to start switched off, or needs to rewrite instead of remove:
 | `active` | `false` makes the rule off by default |
 | `description` | free text |
 
-Rules imported from ClearURLs core v2 use `match`, `kind` and
-`action: { "type": "remove" | "rewrite" | "redirect", "replacePattern" }`;
-those are read as well.
+A rule object always goes in the list for what it does: `rawRules` for raw
+rules, `redirections` for redirects, and so on.
 
 ## Checking rules
 
@@ -183,14 +193,28 @@ node linkumori-cli-tool.js clearurls    # rebuild the bundled LZ4 rules
 
 The custom rules editor validates the same syntax when you save.
 
-## Removed spellings
+## Old spellings
 
-These duplicated another name and are no longer read. The editor and
-`lint-rules` report them:
+Each of these duplicated another name and is no longer read by the engine.
+Custom rules, remote rule lists and imported files that still use them are
+rewritten to the current form automatically when they load. The editor and
+`lint-rules` report them when they are typed or found in the bundled rules.
 
-| Removed | Use |
+| Old | Current |
 |---|---|
+| `domainRedirections: ["\|\|a.com^$redirect=…"]` | `redirections: ["\|\|a.com^$redirect=…"]` |
+| `domainExceptions: ["\|\|a.com^"]` | `exceptions: ["\|\|a.com^"]` |
+| `{ "match", "kind", "action" }` rule objects | `{ "matchPattern", "replacePattern" }` in `rules`, `rawRules` or `redirections` |
+| `"referralMarketing": true` on a rule object | the rule inside `referralMarketing` |
+| `urlEncodeRepeated` / `urlDecodeRepeated` | `doubleUrlEncode` / `doubleUrlDecode` |
 | `$queryprune` | `$removeparam` |
-| `defaultActive` (provider) | `active` |
-| `activeDefault` (rule object) | `active` |
-| `"history-bypass-protection"` as a JSON key | `historyBypassProtection` (the `history-bypass-protection=` filter modifier is unchanged) |
+| `xhr` | `xmlhttprequest` |
+| `doc`, `popup` | `document` |
+| `frame`, `iframe` | `subdocument` |
+| `1p`, `~third-party` | `first-party` |
+| `3p`, `~first-party` | `third-party` |
+| `strict1p` / `strict3p` | `strict-first-party` / `strict-third-party` |
+| `from=` | `domain=` |
+| `defaultActive` (provider), `activeDefault` (rule object) | `active` |
+| `"history-bypass-protection"` as a JSON key | `historyBypassProtection` (the `history-bypass-protection=` filter option is unchanged) |
+| `"syntax"` marker | nothing (remove it) |

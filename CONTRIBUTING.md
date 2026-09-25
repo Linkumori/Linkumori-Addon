@@ -222,8 +222,7 @@ Each key inside `providers` is a unique name for that provider (website or servi
 | `referralMarketing` | array of strings (regex) | No | Affiliate/referral parameters — stripped separately and can be toggled by the user |
 | `exceptions` | array of strings (regex or `\|\|domain^` pattern) | No | URLs to skip even if they match `urlPattern` / `domainPatterns` |
 | `domainExceptions` | array of strings | No | Older field; put `\|\|domain^` patterns in `exceptions` instead |
-| `redirections` | array of strings (regex) | No | Regex patterns to unwrap redirect URLs; must capture the real destination URL |
-| `domainRedirections` | array of strings | No | AdBlock-style domain patterns that trigger redirect unwrapping |
+| `redirections` | array of strings (regex or `\|\|domain^$redirect=…`) | No | Unwrap redirect URLs (regex capturing the destination) or send a domain to a fixed address |
 | `methods` | array of strings | No | HTTP methods to apply rules to (e.g. `"GET"`, `"POST"`). If omitted, applies to all |
 | `resourceTypes` | array of strings | No | Browser resource types to apply rules to (e.g. `"main_frame"`, `"sub_frame"`, `"xmlhttprequest"`) |
 
@@ -344,28 +343,19 @@ The older `domainExceptions` field still works, but new rules should put domain 
 
 ### `redirections` — Unwrap Redirect URLs
 
-Regex patterns matched against the full URL. The **first capture group** must capture the real destination URL. Linkumori will navigate to the captured URL instead.
+Each entry is either:
+
+- a regex matched against the full URL, whose **first capture group** is the real destination (it is decoded before navigation), or
+- a domain redirect starting with `|`, which sends every matching URL to a fixed address.
 
 ```json
 "redirections": [
   "^https?://example\\.com/redirect\\?url=([^&]*)",
-  "^https?://out\\.example\\.com/\\?link=(.*)"
+  "||go.example.com^$redirect=https://example.com/"
 ]
 ```
 
-The captured value is automatically decoded before navigation.
-
----
-
-### `domainRedirections`
-
-AdBlock-style domain patterns that flag a domain as a redirect wrapper, triggering redirect unwrapping logic.
-
-```json
-"domainRedirections": [
-  "||out.example.com^"
-]
-```
+The older `domainRedirections` field still works, but new rules should put domain redirects in `redirections`.
 
 ---
 
