@@ -476,6 +476,10 @@ function attachRuleActivationIdsToArray(section, rules, activationScopeIds, occu
             : null;
         const ruleId = explicitId || createStorageGeneratedRuleId(section, match, occupiedIds);
         if (explicitId) occupiedIds.add(explicitId);
+        // A rule's old ids stay reserved so a generated id never takes one.
+        if (rule && typeof rule === 'object' && Array.isArray(rule.aliases)) {
+            rule.aliases.forEach(alias => { if (typeof alias === 'string') occupiedIds.add(alias); });
+        }
         const activationIds = (Array.isArray(activationScopeIds) && activationScopeIds.length > 0
             ? activationScopeIds
             : [''])
@@ -1487,11 +1491,13 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
                 return;
             }
 
+            // Remote lists may be Linkumori JSON or a ClearURLs new-format
+            // (YAML or JSON) or compiled list; all are read into Linkumori format.
             let remoteRulesData;
             try {
-                remoteRulesData = JSON.parse(data);
+                remoteRulesData = LinkumoriRuleFormats.normalizeRuleDocument(data).data;
             } catch (parseError) {
-                throw new Error(`Invalid JSON in remote rules: ${parseError.message}`);
+                throw new Error(`Invalid remote rules: ${parseError.message}`);
             }
 
             if (!remoteRulesData || typeof remoteRulesData !== 'object') {

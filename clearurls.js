@@ -183,17 +183,41 @@ function attachCoreRuleIdentity(providerName, compiledRule, section, activationS
         ? activationScopeIds : [providerName])
         .map(scopeId => buildCorePatternRuleActivationId(scopeId, ruleId));
     compiledRule.id = ruleId;
+    compiledRule.aliases = normalizeCoreRuleAliases(compiledRule.aliases).filter(alias => alias !== ruleId);
     compiledRule.providerName = providerName;
     compiledRule.runtimeRuleId = buildCoreRuntimeRuleId(providerName, ruleId);
     compiledRule.activationIds = activationIds.length > 0 ? activationIds : fallbackActivationIds;
     return compiledRule;
 }
 
+// Disabled ids saved under a rule's old name (one of its "aliases"), keyed
+// by that old id, with the id they now belong to. Filled while providers are
+// built and written back by migrateCoreRuleAliasActivationIds().
+let pendingCoreRuleAliasMigrations = new Map();
+
+// True when `activationId` ("<scope>::<ruleId>") is disabled, either as is
+// or under one of the rule's aliases ("<scope>::<alias>").
+function isCoreActivationIdDisabled(activationId, aliases, disabledRuleIds) {
+    if (disabledRuleIds.has(activationId)) return true;
+    if (!Array.isArray(aliases) || aliases.length === 0) return false;
+    const sep = activationId.lastIndexOf("::");
+    if (sep === -1) return false;
+    const scope = activationId.slice(0, sep);
+    for (const alias of aliases) {
+        const aliasId = `${scope}::${alias}`;
+        if (disabledRuleIds.has(aliasId)) {
+            pendingCoreRuleAliasMigrations.set(aliasId, activationId);
+            return true;
+        }
+    }
+    return false;
+}
+
 function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return false;
     // A rule is switched off either for its whole provider ("provider::ruleId")
     // or for one of its match patterns ("domainPattern:<pattern>::ruleId").
-    if (compiledRule.runtimeRuleId && disabledRuleIds.has(compiledRule.runtimeRuleId)) {
+    if (compiledRule.runtimeRuleId && isCoreActivationIdDisabled(compiledRule.runtimeRuleId, compiledRule.aliases, disabledRuleIds)) {
         compiledRule.disabledActivationIds = (compiledRule.activationIds || []).slice();
         compiledRule.activationIds = [];
         return true;
@@ -201,7 +225,7 @@ function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     const activationIds = Array.isArray(compiledRule.activationIds) ? compiledRule.activationIds : [];
     if (activationIds.length === 0) return false;
     const active = [], disabled = [];
-    activationIds.forEach(aId => (disabledRuleIds.has(aId) ? disabled : active).push(aId));
+    activationIds.forEach(aId => (isCoreActivationIdDisabled(aId, compiledRule.aliases, disabledRuleIds) ? disabled : active).push(aId));
     compiledRule.disabledActivationIds = disabled;
     compiledRule.activationIds = active;
     return active.length === 0;
@@ -230,6 +254,20 @@ function coreRuleHasActivePatternForUrl(compiledRule, url) {
     });
 }
 
+// Moves disabled ids saved under a rule alias to the rule's current id, so
+// the rule on/off controls (which only know current ids) can switch it back on.
+function migrateCoreRuleAliasActivationIds() {
+    if (pendingCoreRuleAliasMigrations.size === 0) return false;
+    const current = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
+    const migrated = [...new Set(current.map(id => pendingCoreRuleAliasMigrations.get(id) || id))];
+    pendingCoreRuleAliasMigrations = new Map();
+    if (migrated.length === current.length && migrated.every((id, i) => id === current[i])) return false;
+    storage.clearurls_disabled_rule_ids = migrated;
+    if (clearurlsProviderSnapshot) clearurlsProviderSnapshot.disabledRuleIds = migrated.slice();
+    if (typeof saveOnDisk === 'function') saveOnDisk(['clearurls_disabled_rule_ids']);
+    return true;
+}
+
 function getCoreRuleKindForSection(section) {
     if (section === 'rawRules') return 'raw';
     if (section === 'redirections') return 'redirection';
@@ -246,6 +284,7 @@ function registerCoreRuleInSnapshot(compiledRule) {
             kind: getCoreRuleKindForSection(compiledRule.section),
             match: compiledRule.matchPattern,
             activationIds: (compiledRule.activationIds || []).slice(),
+            aliases: (compiledRule.aliases || []).slice(),
             providerName: compiledRule.providerName,
             runtimeRuleId: compiledRule.runtimeRuleId,
             section: compiledRule.section
@@ -262,6 +301,7 @@ function registerDisabledCoreRuleInSnapshot(compiledRule) {
         match: compiledRule.matchPattern,
         activationIds: (compiledRule.activationIds || []).slice(),
         disabledActivationIds: (compiledRule.disabledActivationIds || []).slice(),
+        aliases: (compiledRule.aliases || []).slice(),
         providerName: compiledRule.providerName,
         runtimeRuleId: compiledRule.runtimeRuleId,
         section: compiledRule.section
@@ -1231,10 +1271,15 @@ function resolveLinkumoriHistoryBypassProtection(rule, defaults) {
     return true;
 }
 
+function normalizeCoreRuleAliases(value) {
+    if (!Array.isArray(value)) return [];
+    return [...new Set(value.filter(alias => typeof alias === "string" && /^[a-z0-9][a-z0-9_-]*$/.test(alias)))];
+}
+
 function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) {
     if (typeof rule === "string") {
         return {
-            actionType: "remove", active: true, description: "", exceptions: [],
+            actionType: "remove", active: true, aliases: [], description: "", exceptions: [],
             flags: defaultFlags, id: null, matchPattern: rule, preprocessors: [],
             replacePattern: null, requestTypes: null, raw: rule,
             historyBypassProtection: resolveLinkumoriHistoryBypassProtection(null, defaults)
@@ -1251,6 +1296,7 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
     return {
         actionType,
         active: typeof resolvedRule.active === "boolean" ? resolvedRule.active : true,
+        aliases: normalizeCoreRuleAliases(resolvedRule.aliases),
         description: typeof resolvedRule.description === "string" ? resolvedRule.description : "",
         exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter(i => typeof i === "string") : [],
         flags: typeof resolvedRule.flags === "string" ? resolvedRule.flags : defaultFlags,
@@ -1687,8 +1733,10 @@ function start() {
         providersByToken = Object.create(null); globalProviders = [];
         clearurlsProviderSnapshot = createEmptyProviderSnapshot();
         clearurlsProviderSnapshot.disabledRuleIds = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
+        pendingCoreRuleAliasMigrations = new Map();
         getKeys(storage.ClearURLsData.providers);
         createProviders();
+        migrateCoreRuleAliasActivationIds();
         return true;
     }
 

@@ -272,7 +272,7 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
 }
 
 const RULE_OBJECT_KEYS = Object.freeze([
-    'id', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
+    'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
     'flags', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
 ]);
 
@@ -299,6 +299,13 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     }
     if (rule.id !== undefined && !CORE_RULE_ID_PATTERN.test(rule.id)) {
         throw new Error(`${prefix}.id must match ${CORE_RULE_ID_PATTERN.source}`);
+    }
+    if (rule.aliases !== undefined &&
+        (!Array.isArray(rule.aliases) || rule.aliases.some(alias => typeof alias !== 'string' || !CORE_RULE_ID_PATTERN.test(alias)))) {
+        throw new Error(`${prefix}.aliases must be a list of ids matching ${CORE_RULE_ID_PATTERN.source}`);
+    }
+    if (rule.aliases !== undefined && rule.id !== undefined && rule.aliases.includes(rule.id)) {
+        throw new Error(`${prefix}.aliases must not contain the rule's own id`);
     }
     if (rule.description !== undefined && typeof rule.description !== 'string') {
         throw new Error(`${prefix}.description must be a string`);
@@ -497,6 +504,8 @@ function assertRuleEntrySyntax(provider, providerName = '') {
             assertObjectStyleRuleSyntax(entry, providerName, fieldName, index);
             const names = [];
             if (typeof entry.id === 'string') names.push(entry.id);
+            // Ids and aliases share one namespace per provider.
+            if (Array.isArray(entry.aliases)) names.push(...entry.aliases);
             names.forEach((name) => {
                 const firstSeenAt = occupiedNames.get(name);
                 const here = `${fieldName}[${index}]`;
@@ -5103,13 +5112,17 @@ async function exportCustomRules() {
     }
 }
 
-// Accepts this editor's export ({ clearurlsCustomRules: { providers } }) and a
-// plain rules file ({ providers }).
+// Accepts this editor's export ({ clearurlsCustomRules: { providers } }), a
+// plain rules file ({ providers }) and ClearURLs new-format (version: 2) or
+// compiled lists, in JSON or YAML.
 function getProvidersFromImportedCustomRules(imported) {
     if (!isPlainObject(imported)) {
         return null;
     }
     const container = isPlainObject(imported.clearurlsCustomRules) ? imported.clearurlsCustomRules : imported;
+    if (typeof LinkumoriRuleFormats !== 'undefined' && LinkumoriRuleFormats.detectRuleFormat(container) !== 'linkumori') {
+        return LinkumoriRuleFormats.normalizeRuleDocument(container).data.providers;
+    }
     return isPlainObject(container.providers) ? container.providers : null;
 }
 
@@ -5181,7 +5194,7 @@ async function handleFileImport(e) {
     const reader = new FileReader();
     reader.onload = async function(event) {
         try {
-            const imported = JSON.parse(event.target.result);
+            const imported = LinkumoriRuleFormats.parseRuleText(event.target.result);
 
             if (!imported || typeof imported !== 'object' || Array.isArray(imported)) {
                 throw new Error(i18n('customRulesEditor_invalidFileStructure'));
