@@ -3890,7 +3890,7 @@ function displayBundledRulesInfo() {
             const providerCount = Object.keys(rulesData.providers).length;
             const countProviderRuleEntries = provider => {
                 if (!provider || typeof provider !== 'object') return 0;
-                return ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions']
+                return ['rules', 'rawRules', 'referralMarketing', 'redirections', 'fieldRedirections', 'exceptions']
                     .reduce((total, key) => total + (Array.isArray(provider[key]) ? provider[key].length : 0), 0);
             };
             const hasSnapshotRuleIds = !!(

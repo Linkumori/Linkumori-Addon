@@ -231,8 +231,26 @@ const OBJECT_STYLE_RULE_FIELDS = Object.freeze([
     'rawRules',
     'referralMarketing',
     'exceptions',
-    'redirections'
+    'redirections',
+    'fieldRedirections'
 ]);
+
+// Lists whose entries are field rules: parameter names, name regexes or
+// $removeparam filters.
+const FIELD_RULE_LISTS = Object.freeze(['rules', 'referralMarketing', 'fieldRedirections']);
+
+// Lists a rule's `order` can reorder; everything else runs at a fixed step.
+const ORDERABLE_RULE_LISTS = Object.freeze(['rules', 'rawRules', 'referralMarketing']);
+
+// Behavior tags allowed in a rule's `flags` array, and the lists they mean
+// something in. (A `flags` string is the rule's regex flags instead.)
+const RULE_BEHAVIOR_FLAG_LISTS = Object.freeze({
+    referralMarketing: Object.freeze(['rules', 'referralMarketing'])
+});
+
+function isRemoveParamRuleText(text) {
+    return getRemoveParamOptions(text) !== null;
+}
 
 const CORE_RULE_ID_PATTERN = /^[a-z0-9][a-z0-9_-]*$/;
 
@@ -273,7 +291,7 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
 
 const RULE_OBJECT_KEYS = Object.freeze([
     'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
-    'flags', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
+    'flags', 'order', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
 ]);
 
 function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
@@ -288,8 +306,29 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     if (rule.replacePattern !== undefined && typeof rule.replacePattern !== 'string') {
         throw new Error(`${prefix}.replacePattern must be a string`);
     }
-    if (rule.flags !== undefined && typeof rule.flags !== 'string') {
-        throw new Error(`${prefix}.flags must be a string`);
+    if (Array.isArray(rule.flags)) {
+        rule.flags.forEach((flag) => {
+            const lists = RULE_BEHAVIOR_FLAG_LISTS[flag];
+            if (typeof flag !== 'string' || !lists) {
+                throw new Error(`${prefix}.flags has unknown flag "${flag}"; known flags: ${Object.keys(RULE_BEHAVIOR_FLAG_LISTS).join(', ')}`);
+            }
+            if (!lists.includes(fieldName)) {
+                throw new Error(`${prefix}.flags "${flag}" has no effect in ${fieldName}; it only applies in ${lists.join(', ')}`);
+            }
+        });
+    } else if (rule.flags !== undefined && typeof rule.flags !== 'string') {
+        throw new Error(`${prefix}.flags must be a string (regex flags) or an array of flags such as ["referralMarketing"]`);
+    }
+    if (rule.order !== undefined) {
+        if (typeof rule.order !== 'number' || !Number.isFinite(rule.order)) {
+            throw new Error(`${prefix}.order must be a number`);
+        }
+        if (!ORDERABLE_RULE_LISTS.includes(fieldName)) {
+            throw new Error(`${prefix}.order has no effect in ${fieldName}; it only applies in ${ORDERABLE_RULE_LISTS.join(', ')}`);
+        }
+        if (isRemoveParamRuleText(rule.matchPattern)) {
+            throw new Error(`${prefix}.order has no effect on a $removeparam filter; $removeparam filters always run after the other rules`);
+        }
     }
     if (rule.active !== undefined && typeof rule.active !== 'boolean') {
         throw new Error(`${prefix}.active must be a boolean`);
@@ -330,14 +369,14 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     if (rule.matchPattern.trim().startsWith('|') && (fieldName === 'exceptions' || fieldName === 'redirections')) {
         if (fieldName === 'redirections') assertDomainRedirectEntry(rule.matchPattern, prefix);
     } else {
-        new RegExp(rule.matchPattern, rule.flags === undefined ? 'i' : rule.flags);
+        new RegExp(rule.matchPattern, typeof rule.flags === 'string' ? rule.flags : 'i');
     }
     (rule.exceptions || []).forEach(exception => new RegExp(exception));
 }
 
 const PROVIDER_FIELDS = Object.freeze([
     'domainPatterns', 'urlPattern', 'indexPattern', 'rules', 'referralMarketing', 'rawRules',
-    'exceptions', 'redirections', 'completeProvider', 'forceRedirection', 'methods',
+    'exceptions', 'redirections', 'fieldRedirections', 'completeProvider', 'forceRedirection', 'methods',
     'resourceTypes', 'historyBypassProtection', 'active'
 ]);
 const REMOVEPARAM_VALUE_OPTIONS = new Set(['removeparam', 'domain', 'to', 'denyallow', 'method', 'history-bypass-protection']);
@@ -405,10 +444,14 @@ function assertKnownFieldsAndOptions(provider, providerName = '') {
             throw new Error(`${label}: unknown field "${key}"`);
         }
     });
-    ['rules', 'referralMarketing'].forEach((fieldName) => {
+    FIELD_RULE_LISTS.forEach((fieldName) => {
         (Array.isArray(provider[fieldName]) ? provider[fieldName] : []).forEach((entry, index) => {
             const text = typeof entry === 'string' ? entry
                 : (isPlainObject(entry) && typeof entry.matchPattern === 'string' ? entry.matchPattern : '');
+            // @@ keeps a parameter; a redirect has nothing to keep.
+            if (fieldName === 'fieldRedirections' && text.trim().startsWith('@@')) {
+                throw new Error(`${label}: fieldRedirections[${index}] starts with "@@", which only applies to $removeparam filters in rules and referralMarketing; use a rule object's "exceptions" instead`);
+            }
             const options = getRemoveParamOptions(text);
             if (!options) return;
             options.forEach((option) => {
@@ -466,7 +509,7 @@ function assertNoSilentMistakes(provider, providerName = '') {
             checkPattern(String(text || '').split('$redirect=')[0], `${fieldName}[${index}]`);
         });
     });
-    ['rules', 'referralMarketing'].forEach((fieldName) => {
+    FIELD_RULE_LISTS.forEach((fieldName) => {
         (Array.isArray(provider[fieldName]) ? provider[fieldName] : []).forEach((entry, index) => {
             const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? String(entry.matchPattern || '') : '');
             const body = text.startsWith('@@') ? text.slice(2) : text;
@@ -1123,7 +1166,7 @@ function collectProviderRuleIdEntries(providerName, provider) {
 
     const entries = [];
     const activationScopeIds = getProviderRuleActivationScopeIds(providerName, provider);
-    const sections = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions'];
+    const sections = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'fieldRedirections', 'exceptions'];
     sections.forEach(section => {
         const rules = provider[section];
         if (!Array.isArray(rules)) {
@@ -1148,7 +1191,7 @@ function collectProviderRuleIdEntries(providerName, provider) {
                     scopeId,
                     providerName,
                     disableKeys,
-                    kind: section === 'rawRules' ? 'raw' : (section === 'redirections' ? 'redirection' : 'field'),
+                    kind: section === 'rawRules' ? 'raw' : (section === 'redirections' ? 'redirection' : (section === 'exceptions' ? 'exception' : 'field')),
                     match: typeof rule.matchPattern === 'string' ? rule.matchPattern : '',
                     disabled
                 });
@@ -1184,6 +1227,9 @@ function renderProviderRuleIdControls(providerName, provider) {
                     <strong>${escapeHtml(entry.id)}</strong>
                     <span class="provider-disabled-source">${escapeHtml(providerText)}${escapeHtml(entry.section)} · ${escapeHtml(entry.kind)}${escapeHtml(scopeText)}${escapeHtml(matchText)}</span>
                 </span>
+                <button type="button" class="btn btn-sm btn-secondary provider-rule-id-copy-btn" data-section="${escapeHtml(entry.section)}" data-index="${entry.index}">
+                    ${i18n('customRulesEditor_copyRule')}
+                </button>
                 <button type="button" class="btn btn-sm ${entry.disabled ? 'btn-secondary provider-rule-id-restore-btn' : 'btn-warning provider-rule-id-disable-btn'}">
                     ${entry.disabled ? i18n('providerImport_disabledRestore') : i18n('providerImport_disable')}
                 </button>
@@ -4230,7 +4276,41 @@ function handleJsonEditorInput() {
     renderProviderRuleIdControlsFromEditor();
 }
 
+// A rule object on its own does not say which list it belongs to, so the
+// copy is wrapped in that list: { "rawRules": [ { … } ] }. This is worked
+// out from where the rule is now, never stored on the rule.
+function buildRuleExport(section, rule) {
+    const clean = isPlainObject(rule) ? { ...rule } : rule;
+    if (isPlainObject(clean)) delete clean._linkumoriActivationIds;
+    return { [section]: [clean] };
+}
+
+async function copyProviderRuleFromEditor(section, index) {
+    const jsonEditor = document.getElementById('json-editor');
+    if (!jsonEditor) return;
+    let provider;
+    try {
+        provider = JSON.parse(jsonEditor.value);
+    } catch (_) {
+        updateEditorStatus('invalid', i18n('status_invalidJson'));
+        return;
+    }
+    const rule = Array.isArray(provider?.[section]) ? provider[section][index] : undefined;
+    if (rule === undefined) return;
+    try {
+        await navigator.clipboard.writeText(JSON.stringify(buildRuleExport(section, rule), null, 2));
+        updateEditorStatus('valid', i18n('customRulesEditor_ruleCopied'));
+    } catch (_) {
+        updateEditorStatus('error', i18n('customRulesEditor_ruleCopyFailed'));
+    }
+}
+
 async function handleProviderRuleIdControlsClick(event) {
+    const copyBtn = event.target.closest('.provider-rule-id-copy-btn');
+    if (copyBtn) {
+        await copyProviderRuleFromEditor(copyBtn.dataset.section, Number(copyBtn.dataset.index));
+        return;
+    }
     const disableBtn = event.target.closest('.provider-rule-id-disable-btn');
     const restoreBtn = event.target.closest('.provider-rule-id-restore-btn');
     if (!disableBtn && !restoreBtn) {
@@ -4395,7 +4475,7 @@ function createProviderSkeleton() {
 
 function compactProviderForEditor(provider) {
     const next = JSON.parse(JSON.stringify(provider || {}));
-    const optionalArrays = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'domainPatterns', 'exceptions', 'methods', 'resourceTypes'];
+    const optionalArrays = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'fieldRedirections', 'domainPatterns', 'exceptions', 'methods', 'resourceTypes'];
 
     optionalArrays.forEach((key) => {
         if (Array.isArray(next[key]) && next[key].length === 0) delete next[key];
@@ -4416,12 +4496,13 @@ function normalizeProviderForEditor(provider) {
 }
 
 function getJsonFieldButtons() {
-    const fields = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions', 'completeProvider', 'forceRedirection', 'historyBypassProtection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
+    const fields = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'fieldRedirections', 'exceptions', 'completeProvider', 'forceRedirection', 'historyBypassProtection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
     const labels = {
         rules: i18n('customRulesEditor_rules'),
         rawRules: i18n('customRulesEditor_rawRules'),
         referralMarketing: i18n('customRulesEditor_referralMarketing'),
         redirections: i18n('customRulesEditor_redirections'),
+        fieldRedirections: i18n('customRulesEditor_fieldRedirections'),
         exceptions: i18n('customRulesEditor_exceptions'),
         completeProvider: i18n('customRulesEditor_completeProvider'),
         forceRedirection: i18n('customRulesEditor_forceRedirection'),
@@ -4454,7 +4535,7 @@ function createCanonicalRuleTemplate(kind) {
 
 function createUniqueRuleId(provider, baseId) {
     const occupied = new Set(Object.values(RULE_TEMPLATE_LISTS)
-        .concat(['referralMarketing', 'exceptions'])
+        .concat(['referralMarketing', 'exceptions', 'fieldRedirections'])
         .flatMap(list => (Array.isArray(provider[list]) ? provider[list] : []))
         .filter(rule => isPlainObject(rule) && typeof rule.id === 'string')
         .map(rule => rule.id));
@@ -4473,6 +4554,7 @@ function getDefaultValueForJsonKey(key) {
         rawRules: [],
         referralMarketing: [],
         redirections: [],
+        fieldRedirections: [],
         exceptions: [],
         completeProvider: false,
         forceRedirection: false,
@@ -5174,6 +5256,7 @@ function assertProviderArrayFields(provider, providerName = '') {
         'rawRules',
         'referralMarketing',
         'redirections',
+        'fieldRedirections',
         'exceptions',
         'methods',
         'resourceTypes'

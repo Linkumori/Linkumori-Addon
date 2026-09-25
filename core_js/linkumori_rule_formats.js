@@ -31,7 +31,7 @@
  * Text input may be JSON or YAML (the subset the new rule format uses).
  * Linkumori additions (domainPatterns, $removeparam filters, "|" patterns,
  * resourceTypes, historyBypassProtection, …) are accepted inside the
- * ClearURLs formats too; see docs/rule-syntax.md §10.
+ * ClearURLs formats too; see docs/rule-syntax.md §11.
  *
  * Loaded as a classic script (background, custom rules page) and imported
  * by linkumori-cli-tool.js; both read globalThis.LinkumoriRuleFormats.
@@ -44,19 +44,22 @@
     const PREPROCESSOR_TYPES = ['urlEncode', 'urlDecode', 'doubleUrlEncode', 'doubleUrlDecode', 'base64Encode', 'base64Decode'];
     const RULE_KINDS = ['field', 'raw', 'redirection', 'exception'];
     const ACTION_TYPES = ['remove', 'rewrite', 'redirect'];
-    const LEGACY_SECTIONS = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions'];
+    const LEGACY_SECTIONS = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'fieldRedirections', 'exceptions'];
+    // Values allowed in a rule's `flags` array (behavior tags). A `flags`
+    // string is something else: the rule's regex flags.
+    const RULE_BEHAVIOR_FLAGS = ['referralMarketing'];
 
     // Provider keys Linkumori adds on top of the ClearURLs formats.
     const LINKUMORI_PROVIDER_KEYS = ['domainPatterns', 'indexPattern', 'resourceTypes', 'historyBypassProtection',
-        'rawRules', 'referralMarketing', 'redirections'];
+        'rawRules', 'referralMarketing', 'redirections', 'fieldRedirections'];
     const V2_PROVIDER_KEYS = ['urlPattern', 'completeProvider', 'forceRedirection', 'methods', 'exceptions', 'rules',
         'active', ...LINKUMORI_PROVIDER_KEYS];
     const COMPILED_PROVIDER_KEYS = ['providerId', 'urlPattern', 'defaultActive', 'completeProvider', 'forceRedirection',
         'methods', 'exceptions', 'rules', ...LINKUMORI_PROVIDER_KEYS];
     const V2_DEFAULT_KEYS = ['active', 'description', 'requestTypes', 'preprocessors', 'exceptions', 'historyBypassProtection'];
     const V2_RULE_KEYS = ['id', 'aliases', 'kind', 'match', 'active', 'description', 'exceptions', 'requestTypes',
-        'preprocessors', 'referralMarketing', 'action', 'flags', 'historyBypassProtection'];
-    const COMPILED_RULE_KEYS = ['id', 'aliases', 'kind', 'section', 'match', 'flags', 'action', 'activeDefault',
+        'preprocessors', 'referralMarketing', 'action', 'flags', 'order', 'historyBypassProtection'];
+    const COMPILED_RULE_KEYS = ['id', 'aliases', 'kind', 'section', 'match', 'flags', 'order', 'action', 'activeDefault',
         'description', 'exceptions', 'requestTypes', 'preprocessors', 'referralMarketing', 'historyBypassProtection'];
 
     function isPlainObject(value) {
@@ -536,12 +539,32 @@
         return { type: action.type, replacePattern };
     }
 
+    // `flags` is either the regex flags (a string) or behavior tags (a list).
+    function readFlags(value, path) {
+        if (value === undefined || value === null) return undefined;
+        if (typeof value === 'string') return value;
+        if (!Array.isArray(value)) fail(path, 'flags must be a string (regex flags) or a list of behavior tags');
+        value.forEach(flag => {
+            if (!RULE_BEHAVIOR_FLAGS.includes(flag)) fail(path, `unknown flag "${flag}" (known: ${RULE_BEHAVIOR_FLAGS.join(', ')})`);
+        });
+        return value.slice();
+    }
+
+    function readOrder(value, path) {
+        if (value === undefined || value === null) return undefined;
+        if (typeof value !== 'number' || !Number.isFinite(value)) fail(path, 'order must be a number');
+        return value;
+    }
+
     // Which Linkumori list a rule goes into, from its kind and action.
     function resolveSection(kind, actionType, referralMarketing, path) {
         if (referralMarketing && kind !== 'field') fail(path, 'referralMarketing is only allowed on field rules');
         switch (kind) {
             case 'field':
-                if (actionType === 'redirect') fail(path, 'field rules cannot redirect; use kind: redirection');
+                if (actionType === 'redirect') {
+                    if (referralMarketing) fail(path, 'a referralMarketing rule cannot redirect');
+                    return 'fieldRedirections';
+                }
                 return referralMarketing ? 'referralMarketing' : 'rules';
             case 'raw':
                 return actionType === 'redirect' ? 'redirections' : 'rawRules';
@@ -588,7 +611,8 @@
         if (fields.preprocessors && fields.preprocessors.length > 0) rule.preprocessors = fields.preprocessors;
         if (fields.requestTypes) rule.requestTypes = fields.requestTypes;
         if (fields.exceptions && fields.exceptions.length > 0) rule.exceptions = fields.exceptions;
-        if (typeof fields.flags === 'string') rule.flags = fields.flags;
+        if (typeof fields.flags === 'string' || Array.isArray(fields.flags)) rule.flags = fields.flags;
+        if (typeof fields.order === 'number') rule.order = fields.order;
         if (fields.active === false) rule.active = false;
         if (fields.description) rule.description = fields.description;
         if (typeof fields.historyBypassProtection === 'boolean') rule.historyBypassProtection = fields.historyBypassProtection;
@@ -631,7 +655,7 @@
         if (resourceTypes.length > 0) output.resourceTypes = resourceTypes;
         // Linkumori lists (rawRules, redirections, …) are allowed next to the
         // unified "rules" list and keep their usual syntax.
-        ['rawRules', 'referralMarketing', 'redirections'].forEach(section => {
+        ['rawRules', 'referralMarketing', 'redirections', 'fieldRedirections'].forEach(section => {
             if (input[section] === undefined || input[section] === null) return;
             if (!Array.isArray(input[section])) fail(path, `${section} must be a list`);
             input[section].forEach(rule => pushToSection(output, section, typeof rule === 'string' ? { matchPattern: rule } : rule));
@@ -684,7 +708,8 @@
         const action = readAction(entry.action, rulePath);
         const referralMarketing = readBoolean(entry.referralMarketing, rulePath, 'referralMarketing') === true;
         const section = resolveSection(kind, action ? action.type : null, referralMarketing, rulePath);
-        if (entry.flags !== undefined && typeof entry.flags !== 'string') fail(rulePath, 'flags must be a string');
+        const flags = readFlags(entry.flags, rulePath);
+        const order = readOrder(entry.order, rulePath);
         if (entry.description !== undefined && entry.description !== null && typeof entry.description !== 'string') {
             fail(rulePath, 'description must be a string');
         }
@@ -698,7 +723,8 @@
             preprocessors: entry.preprocessors === undefined ? defaults.preprocessors : readPreprocessors(entry.preprocessors, rulePath),
             requestTypes: entry.requestTypes === undefined ? defaults.requestTypes : readRequestTypes(entry.requestTypes, rulePath),
             exceptions: entry.exceptions === undefined ? defaults.exceptions : readStringList(entry.exceptions, rulePath, 'exceptions'),
-            flags: entry.flags,
+            flags,
+            order,
             active: active === undefined ? defaults.active : active,
             description: typeof entry.description === 'string' ? entry.description : defaults.description,
             historyBypassProtection: historyBypassProtection === undefined ? defaults.historyBypassProtection : historyBypassProtection
@@ -746,18 +772,21 @@
         registerId(entry.id, 'id', rulePath);
         const aliases = readAliases(entry.aliases, entry.id, rulePath, registerId);
         if (typeof entry.match !== 'string' || !entry.match) fail(rulePath, 'match must be a non-empty string');
-        if (entry.flags !== undefined && typeof entry.flags !== 'string') fail(rulePath, 'flags must be a string');
+        const flags = readFlags(entry.flags, rulePath);
+        const order = readOrder(entry.order, rulePath);
         const action = readAction(entry.action, rulePath);
         const referralMarketing = readBoolean(entry.referralMarketing, rulePath, 'referralMarketing') === true;
         let kind = entry.kind;
         if (kind === undefined || kind === null) {
-            const bySection = { rules: 'field', referralMarketing: 'field', rawRules: 'raw', redirections: 'redirection', exceptions: 'exception' };
+            const bySection = { rules: 'field', referralMarketing: 'field', fieldRedirections: 'field', rawRules: 'raw', redirections: 'redirection', exceptions: 'exception' };
             if (entry.section !== undefined && !LEGACY_SECTIONS.includes(entry.section)) {
                 fail(rulePath, `section must be one of: ${LEGACY_SECTIONS.join(', ')}`);
             }
             kind = bySection[entry.section] || 'field';
         }
-        const actionType = kind === 'exception' && action && action.type === 'remove' ? null : (action ? action.type : null);
+        let actionType = kind === 'exception' && action && action.type === 'remove' ? null : (action ? action.type : null);
+        // A field rule listed under section "fieldRedirections" redirects even without an explicit action.
+        if (entry.section === 'fieldRedirections' && kind === 'field' && actionType === null) actionType = 'redirect';
         const section = resolveSection(kind, actionType, referralMarketing || entry.section === 'referralMarketing', rulePath);
         const active = readBoolean(entry.activeDefault, rulePath, 'activeDefault');
         pushToSection(provider, section, buildRuleObject({
@@ -768,7 +797,8 @@
             preprocessors: readPreprocessors(entry.preprocessors, rulePath),
             requestTypes: readRequestTypes(entry.requestTypes, rulePath),
             exceptions: readStringList(entry.exceptions, rulePath, 'exceptions'),
-            flags: entry.flags,
+            flags,
+            order,
             active: active === undefined ? true : active,
             description: typeof entry.description === 'string' ? entry.description : '',
             historyBypassProtection: readBoolean(entry.historyBypassProtection, rulePath, 'historyBypassProtection')
@@ -826,6 +856,7 @@
         normalizeRuleDocument,
         parseRuleText,
         parseYaml,
+        RULE_BEHAVIOR_FLAGS,
         RULE_ID_PATTERN
     });
 

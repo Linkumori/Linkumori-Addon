@@ -148,6 +148,7 @@ function slugifyCoreRuleIdPart(value) {
 function createGeneratedCoreRuleId(section, matchPattern) {
     const prefix = section === 'rawRules' ? 'raw'
         : section === 'redirections' ? 'redirect'
+        : section === 'fieldRedirections' ? 'field-redirect'
         : section === 'referralMarketing' ? 'referral'
         : section === 'exceptions' ? 'exception'
         : 'field';
@@ -272,6 +273,7 @@ function getCoreRuleKindForSection(section) {
     if (section === 'rawRules') return 'raw';
     if (section === 'redirections') return 'redirection';
     if (section === 'exceptions') return 'exception';
+    // fieldRedirections entries are field rules whose action is "redirect".
     return 'field';
 }
 
@@ -1276,11 +1278,21 @@ function normalizeCoreRuleAliases(value) {
     return [...new Set(value.filter(alias => typeof alias === "string" && /^[a-z0-9][a-z0-9_-]*$/.test(alias)))];
 }
 
+// Behavior tags live in a `flags` *array* ("referralMarketing"). A `flags`
+// *string* is something else: the rule's regex flags.
+function ruleHasBehaviorFlag(rule, flag) {
+    return !!rule && typeof rule === "object" && Array.isArray(rule.flags) && rule.flags.includes(flag);
+}
+
+function normalizeCoreRuleOrder(value) {
+    return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
 function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) {
     if (typeof rule === "string") {
         return {
             actionType: "remove", active: true, aliases: [], description: "", exceptions: [],
-            flags: defaultFlags, id: null, matchPattern: rule, preprocessors: [],
+            flags: defaultFlags, order: null, id: null, matchPattern: rule, preprocessors: [],
             replacePattern: null, requestTypes: null, raw: rule,
             historyBypassProtection: resolveLinkumoriHistoryBypassProtection(null, defaults)
         };
@@ -1300,6 +1312,7 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         description: typeof resolvedRule.description === "string" ? resolvedRule.description : "",
         exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter(i => typeof i === "string") : [],
         flags: typeof resolvedRule.flags === "string" ? resolvedRule.flags : defaultFlags,
+        order: normalizeCoreRuleOrder(resolvedRule.order),
         id: typeof resolvedRule.id === "string" ? resolvedRule.id : null,
         matchPattern,
         preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
@@ -1480,6 +1493,19 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         return { redirect: true, url, providerMatch, matchedRule: translate('log_redirect'), action: 'redirect' };
     }
 
+    if (storage.redirectionEnabled) {
+        const fieldRedirect = provider.getFieldRedirection(url, request, isHistoryUpdate);
+        if (fieldRedirect) {
+            url = decodeURL(fieldRedirect.url);
+            if (!quiet) {
+                pushToLog(pureUrl, url, translate('log_redirect'), providerMatch);
+                increaseTotalCounter(1);
+                increaseBadged(false, request);
+            }
+            return { redirect: true, url, providerMatch, matchedRule: translate('log_redirect'), action: 'redirect' };
+        }
+    }
+
     if (provider.isCanceling() && storage.domainBlocking) {
         // BUGFIX 6: counters/badge were incremented even in quiet mode.
         if (!quiet) {
@@ -1490,9 +1516,67 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
         return { cancel: true, url, providerMatch, matchedRule: translate('log_domain_blocked'), action: 'cancel' };
     }
 
-    const rawRulesMap = provider.getRawRulesMap();
-    Object.keys(rawRulesMap).forEach(rawRuleStr => {
-        const compiled = rawRulesMap[rawRuleStr];
+    // rawRules work on the URL string; rules/referralMarketing work on the
+    // parsed query and fragment. Rule `order` can interleave the two, so the
+    // URL is parsed when a field rule needs it and written back when a raw
+    // rule comes after field rules that changed something.
+    let parsed = false, hadParams = false, fieldsDirty = false;
+    let linkumoriState = null;
+
+    const buildURLFromParts = () => {
+        let finalURL = domain;
+        if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
+        if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
+        return finalURL.replace(/\?&/, "?").replace(/#&/, "#");
+    };
+
+    const parseURL = () => {
+        if (parsed) return;
+        urlObject = new URL(url);
+        fields = urlObject.searchParams;
+        fragments = extractFragments(urlObject);
+        domain = urlWithoutParamsAndHash(urlObject).toString();
+        hadParams = fields.toString() !== "" || fragments.toString() !== "";
+        fieldsDirty = false;
+        linkumoriState = null;
+        parsed = true;
+    };
+
+    const unparseURL = () => {
+        if (!parsed) return;
+        if (fieldsDirty) url = buildURLFromParts();
+        parsed = false;
+    };
+
+    const hasParams = () => fields.toString() !== "" || fragments.toString() !== "";
+
+    const getLinkumoriState = () => {
+        if (linkumoriState) return linkumoriState;
+        const activeRules = evaluateLinkumoriRemoveParamRules(url, linkumoriParamRules, request, isHistoryUpdate);
+        const activeExceptions = [
+            ...evaluateLinkumoriRemoveParamRules(url, linkumoriParamExceptions, request, isHistoryUpdate),
+            ...(extraExceptions || [])
+        ];
+        const cache = new Map();
+        const getDecision = (paramName, paramValues = []) => {
+            // BUGFIX 2: URLHashParams.getAll() returns a Set (Multimap), so fragment
+            // values arrived as Sets and were collapsed to [] by Array.isArray().
+            // Value-based $removeparam regexes therefore never fired on hash params.
+            // Convert Set → Array so fragment and query params behave identically.
+            const values = Array.isArray(paramValues) ? paramValues
+                : (paramValues instanceof Set ? Array.from(paramValues) : []);
+            const cacheKey = String(paramName || '') + "\u0000" + values.join("\u0001");
+            if (cache.has(cacheKey)) return cache.get(cacheKey);
+            const decision = resolveLinkumoriParamDecision(paramName, values, activeRules, activeExceptions);
+            cache.set(cacheKey, decision);
+            return decision;
+        };
+        linkumoriState = { activeRules, activeExceptions, getDecision };
+        return linkumoriState;
+    };
+
+    const runRawStep = (rawRuleStr, compiled) => {
+        unparseURL();
         if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
         const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp(rawRuleStr, "gi");
         let beforeReplace = url;
@@ -1514,81 +1598,64 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             if (!actionType) actionType = 'raw_rule';
             if (!matchedRuleForTrace) matchedRuleForTrace = getCoreRuleTraceName(compiled, rawRuleStr);
         }
+    };
+
+    const runFieldStep = (rule, compiled) => {
+        parseURL();
+        if (!hasParams()) return;
+        if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
+        const { getDecision } = getLinkumoriState();
+        const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp("^" + rule + "$", "gi");
+        const beforeFields = fields.toString(), beforeFragments = fragments.toString();
+
+        // A provider field-style rule matches against the *key name*.
+        // If a $removeparam rule already claimed this key this pass,
+        // leave it alone — same guard the original had in both its
+        // fields loop and its fragments loop.
+        const decide = (key, values) => {
+            const linkumoriDecision = getDecision(key, values);
+            if (linkumoriDecision.handled && (linkumoriDecision.remove || linkumoriDecision.rewrite)) return { handled: false };
+            activeRegex.lastIndex = 0;
+            if (!activeRegex.test(key)) return { handled: false };
+            if (compiled && compiled.replacePattern !== null) {
+                return { handled: true, rewrite: true, replacePattern: compiled.replacePattern, preprocessors: compiled.preprocessors };
+            }
+            return { handled: true, remove: true };
+        };
+        // Original dedup keys: "<provider>::search::<field>::<rule>" and
+        // "<provider>::fragment::<fragment>::<rule>".
+        const dedupeKeyFor = (scope) => (key) => provider.getName() + "::" + scope + "::" + key + "::" + rule;
+
+        const fieldsChanged = applyParamDecisionsToStore(fields, decide, appliedFieldRewrites, dedupeKeyFor('search'));
+        const fragmentsChanged = applyParamDecisionsToStore(fragments, decide, appliedFieldRewrites, dedupeKeyFor('fragment'));
+        const localChange = fieldsChanged || fragmentsChanged;
+
+        if (localChange) {
+            changes = true;
+            fieldsDirty = true;
+            if (!actionType) actionType = 'rule';
+            if (!matchedRuleForTrace) matchedRuleForTrace = getCoreRuleTraceName(compiled, rule);
+            if (storage.loggingStatus) {
+                let tempURL = domain, tempBeforeURL = domain;
+                if (fields.toString() !== "") tempURL += "?" + fields.toString();
+                if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
+                if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
+                if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
+                if (!quiet) pushToLog(tempBeforeURL, tempURL, rule, providerMatch);
+            }
+            // BUGFIX 6: badge guard added.
+            if (!quiet) increaseBadged(false, request);
+        }
+    };
+
+    provider.getOrderedCleaningSteps().forEach(step => {
+        if (step.type === 'raw') runRawStep(step.key, step.compiled);
+        else runFieldStep(step.key, step.compiled);
     });
 
-    urlObject = new URL(url);
-    fields = urlObject.searchParams;
-    fragments = extractFragments(urlObject);
-    domain = urlWithoutParamsAndHash(urlObject).toString();
-
-    if (fields.toString() !== "" || fragments.toString() !== "") {
-        const activeLinkumoriRules = evaluateLinkumoriRemoveParamRules(url, linkumoriParamRules, request, isHistoryUpdate);
-        const activeLinkumoriExceptions = [
-            ...evaluateLinkumoriRemoveParamRules(url, linkumoriParamExceptions, request, isHistoryUpdate),
-            ...(extraExceptions || [])
-        ];
-        const linkumoriDecisionCache = new Map();
-
-        const getLinkumoriDecision = (paramName, paramValues = []) => {
-            // BUGFIX 2: URLHashParams.getAll() returns a Set (Multimap), so fragment
-            // values arrived as Sets and were collapsed to [] by Array.isArray().
-            // Value-based $removeparam regexes therefore never fired on hash params.
-            // Convert Set → Array so fragment and query params behave identically.
-            const values = Array.isArray(paramValues) ? paramValues
-                : (paramValues instanceof Set ? Array.from(paramValues) : []);
-            const cacheKey = String(paramName || '') + "\u0000" + values.join("\u0001");
-            if (linkumoriDecisionCache.has(cacheKey)) return linkumoriDecisionCache.get(cacheKey);
-            const decision = resolveLinkumoriParamDecision(paramName, values, activeLinkumoriRules, activeLinkumoriExceptions);
-            linkumoriDecisionCache.set(cacheKey, decision);
-            return decision;
-        };
-
-        const rulesMap = provider.getRulesMap();
-        Object.keys(rulesMap).forEach(rule => {
-            const compiled = rulesMap[rule];
-            if (!coreRuleAppliesToRequest(compiled, url, request, isHistoryUpdate)) return;
-            const activeRegex = compiled && compiled.regex instanceof RegExp ? compiled.regex : new RegExp("^" + rule + "$", "gi");
-            const beforeFields = fields.toString(), beforeFragments = fragments.toString();
-
-            // A provider field-style rule matches against the *key name*.
-            // If a $removeparam rule already claimed this key this pass,
-            // leave it alone — same guard the original had in both its
-            // fields loop and its fragments loop.
-            const decide = (key, values) => {
-                const linkumoriDecision = getLinkumoriDecision(key, values);
-                if (linkumoriDecision.handled && (linkumoriDecision.remove || linkumoriDecision.rewrite)) return { handled: false };
-                activeRegex.lastIndex = 0;
-                if (!activeRegex.test(key)) return { handled: false };
-                if (compiled && compiled.replacePattern !== null) {
-                    return { handled: true, rewrite: true, replacePattern: compiled.replacePattern, preprocessors: compiled.preprocessors };
-                }
-                return { handled: true, remove: true };
-            };
-            // Original dedup keys: "<provider>::search::<field>::<rule>" and
-            // "<provider>::fragment::<fragment>::<rule>".
-            const dedupeKeyFor = (scope) => (key) => provider.getName() + "::" + scope + "::" + key + "::" + rule;
-
-            const fieldsChanged = applyParamDecisionsToStore(fields, decide, appliedFieldRewrites, dedupeKeyFor('search'));
-            const fragmentsChanged = applyParamDecisionsToStore(fragments, decide, appliedFieldRewrites, dedupeKeyFor('fragment'));
-            const localChange = fieldsChanged || fragmentsChanged;
-
-            if (localChange) {
-                changes = true;
-                if (!actionType) actionType = 'rule';
-                if (!matchedRuleForTrace) matchedRuleForTrace = getCoreRuleTraceName(compiled, rule);
-                if (storage.loggingStatus) {
-                    let tempURL = domain, tempBeforeURL = domain;
-                    if (fields.toString() !== "") tempURL += "?" + fields.toString();
-                    if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
-                    if (beforeFields !== "") tempBeforeURL += "?" + beforeFields;
-                    if (beforeFragments !== "") tempBeforeURL += "#" + beforeFragments;
-                    if (!quiet) pushToLog(tempBeforeURL, tempURL, rule, providerMatch);
-                }
-                // BUGFIX 6: badge guard added.
-                if (!quiet) increaseBadged(false, request);
-            }
-        });
-
+    parseURL();
+    if (hadParams) {
+        const { activeRules: activeLinkumoriRules, activeExceptions: activeLinkumoriExceptions, getDecision: getLinkumoriDecision } = getLinkumoriState();
         if (activeLinkumoriRules.length > 0 || activeLinkumoriExceptions.length > 0) {
             const beforeFields = fields.toString(), beforeFragments = fragments.toString();
             let matchedRuleForLog = null;
@@ -1627,10 +1694,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             }
         }
 
-        let finalURL = domain;
-        if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
-        if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
-        url = finalURL.replace(/\?&/, "?").replace(/#&/, "#");
+        url = buildURLFromParts();
     }
 
     return { changes, url, providerMatch, matchedRule: matchedRuleForTrace, action: actionType };
@@ -1688,6 +1752,8 @@ function start() {
             for (let e = 0; e < exceptions.length; e++) provider.addException(exceptions[e], true, providerDefaults);
             const redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
             for (let re = 0; re < redirections.length; re++) provider.addRedirection(redirections[re], true, providerDefaults);
+            const fieldRedirections = data.providers[prvKeys[p]].getOrDefault('fieldRedirections', []);
+            for (let fr = 0; fr < fieldRedirections.length; fr++) provider.addFieldRedirection(fieldRedirections[fr], true, providerDefaults);
             const methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
             for (let m = 0; m < methods.length; m++) provider.addMethod(methods[m]);
             const resourceTypes = data.providers[prvKeys[p]].getOrDefault('resourceTypes', []);
@@ -1810,7 +1876,11 @@ function start() {
         const redirectionRuleMap = {}, rawRuleMap = {}, referralMarketingRuleMap = {};
         const linkumoriRemoveParamRules = [], linkumoriRemoveParamExceptions = [];
         const referralMarketingRemoveParamRules = [], referralMarketingRemoveParamExceptions = [];
+        const fieldRedirectionRules = [];
         const methods = [], resourceTypes = [];
+        // Position of each rule in the provider, used to keep list order when
+        // rules are sorted by `order` (see getOrderedCleaningSteps).
+        let nextRuleSequence = 0;
 
         if (_completeProvider) fieldRuleMap[".*"] = true;
 
@@ -1824,6 +1894,7 @@ function start() {
         function activateCompiledRule(compiled, section) {
             if (!compiled) return null;
             compiled.section = section;
+            compiled.sequence = nextRuleSequence++;
             attachCoreRuleIdentity(name, compiled, section, getActivationScopeIds());
             if (filterCoreRuleActivationIds(compiled, _disabledRuleIds)) {
                 registerDisabledCoreRuleInSnapshot(compiled); return null;
@@ -1988,13 +2059,18 @@ function start() {
         }
 
         this.addRule = function (rule, isActive = true, defaults = null) {
+            // `flags: ["referralMarketing"]` treats the rule as a referral-marketing
+            // rule while it stays in `rules`; its id is still generated as a
+            // `rules` entry so switching the flag on keeps its on/off setting.
+            const isReferral = ruleHasBehaviorFlag(rule, 'referralMarketing');
             if (addLinkumoriRemoveParamEntry(rule, isActive, defaults, 'rules',
-                linkumoriRemoveParamRules, linkumoriRemoveParamExceptions)) return;
+                isReferral ? referralMarketingRemoveParamRules : linkumoriRemoveParamRules,
+                isReferral ? referralMarketingRemoveParamExceptions : linkumoriRemoveParamExceptions)) return;
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'rules');
             if (!activeCompiled) return;
-            fieldRuleMap[activeCompiled.matchPattern] = activeCompiled;
+            (isReferral ? referralMarketingRuleMap : fieldRuleMap)[activeCompiled.matchPattern] = activeCompiled;
         };
 
         this.getRulesMap = function () {
@@ -2011,6 +2087,33 @@ function start() {
         };
 
         this.getRawRulesMap = function () { return rawRuleMap; };
+
+        // rawRules, rules and referralMarketing as one list in the order they
+        // run: entries with an `order` first (lowest first), then the rest in
+        // their default order (rawRules before rules/referralMarketing).
+        // Ties keep list order. $removeparam filters are not in this list;
+        // they always run afterwards, together with their @@ exceptions.
+        this.getOrderedCleaningSteps = function () {
+            const steps = [];
+            Object.keys(rawRuleMap).forEach(key => steps.push({ type: 'raw', key, compiled: rawRuleMap[key], stage: 0 }));
+            const rulesMap = this.getRulesMap();
+            Object.keys(rulesMap).forEach(key => steps.push({ type: 'field', key, compiled: rulesMap[key], stage: 1 }));
+            const orderOf = step => (step.compiled && typeof step.compiled.order === 'number' ? step.compiled.order : null);
+            const sequenceOf = step => (step.compiled && typeof step.compiled.sequence === 'number' ? step.compiled.sequence : 0);
+            return steps
+                .map((step, index) => ({ step, index }))
+                .sort((a, b) => {
+                    const ao = orderOf(a.step), bo = orderOf(b.step);
+                    if (ao !== null || bo !== null) {
+                        if (ao === null) return 1;
+                        if (bo === null) return -1;
+                        if (ao !== bo) return ao - bo;
+                        return sequenceOf(a.step) - sequenceOf(b.step);
+                    }
+                    return a.index - b.index;
+                })
+                .map(entry => entry.step);
+        };
         this.getLinkumoriRemoveParamRules = function () {
             if (!storage.referralMarketing) return linkumoriRemoveParamRules.concat(referralMarketingRemoveParamRules);
             return linkumoriRemoveParamRules.slice();
@@ -2029,6 +2132,68 @@ function start() {
             const activeCompiled = activateCompiledRule(compiled, 'referralMarketing');
             if (!activeCompiled) return;
             referralMarketingRuleMap[activeCompiled.matchPattern] = activeCompiled;
+        };
+
+        // fieldRedirections take the same entries as `rules`: a parameter name,
+        // a name regex, or a $removeparam filter that only selects the
+        // parameter. The matching parameter's value becomes the new URL.
+        this.addFieldRedirection = function (rule, isActive = true, defaults = null) {
+            const parsedLinkumoriRule = parseLinkumoriRemoveParamRuleDefinition(rule);
+            if (parsedLinkumoriRule) {
+                // @@ and badfilter make no sense for a redirect; lint-rules and
+                // the editor reject them, and they are ignored here.
+                if (parsedLinkumoriRule.isException || parsedLinkumoriRule.isBadfilter) return;
+                const normalized = normalizeCoreRuleDefinition(rule, "i", defaults);
+                if (!normalized || !isActive || normalized.active === false) return;
+                const activeRule = activateCompiledRule(normalized, 'fieldRedirections');
+                if (!activeRule) return;
+                parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
+                if (parsedLinkumoriRule.historyBypassProtection === null && typeof activeRule.historyBypassProtection === 'boolean') {
+                    parsedLinkumoriRule.historyBypassProtection = activeRule.historyBypassProtection;
+                }
+                fieldRedirectionRules.push({ compiled: activeRule, removeParam: parsedLinkumoriRule });
+                return;
+            }
+            const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
+            if (!compiled || !isActive || compiled.active === false) return;
+            const activeCompiled = activateCompiledRule(compiled, 'fieldRedirections');
+            if (!activeCompiled) return;
+            fieldRedirectionRules.push({ compiled: activeCompiled, removeParam: null });
+        };
+
+        // The redirect target from the first parameter (in URL order, query
+        // before fragment) that a fieldRedirections entry matches, or null.
+        this.getFieldRedirection = function (url, request = null, isHistoryUpdate = false) {
+            if (fieldRedirectionRules.length === 0) return null;
+            const applicable = fieldRedirectionRules.filter(entry => {
+                if (!coreRuleAppliesToRequest(entry.compiled, url, request, isHistoryUpdate)) return false;
+                return !entry.removeParam || matchLinkumoriRemoveParamTarget(entry.removeParam, url, request, isHistoryUpdate);
+            });
+            if (applicable.length === 0) return null;
+            let urlObject;
+            try { urlObject = new URL(url); } catch (_) { return null; }
+            const params = [];
+            for (const [key, value] of urlObject.searchParams) params.push([key, value]);
+            extractFragments(urlObject)._params.forEach((key, value) => params.push([key, value === null ? '' : value]));
+            for (const [key, value] of params) {
+                if (!value) continue;
+                for (const entry of applicable) {
+                    let matched;
+                    if (entry.removeParam) {
+                        matched = linkumoriRemoveParamMatchesName(entry.removeParam, key, [value]);
+                    } else {
+                        entry.compiled.regex.lastIndex = 0;
+                        matched = entry.compiled.regex.test(key);
+                    }
+                    if (!matched) continue;
+                    const values = applyCoreRulePreprocessors([value], entry.compiled.preprocessors);
+                    const target = entry.compiled.replacePattern !== null && entry.compiled.replacePattern !== ''
+                        ? applyCoreReplacePattern(entry.compiled.replacePattern, values)
+                        : values[0];
+                    if (target) return { url: target, rule: getCoreRuleTraceName(entry.compiled, entry.compiled.matchPattern) };
+                }
+            }
+            return null;
         };
 
         this.addException = function (exception, isActive = true, defaults = null) {
