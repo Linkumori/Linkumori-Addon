@@ -2478,6 +2478,8 @@ ${commit.message}
           errors.push(`${tag} exception "${exLabel}" → missing match/matchPattern`);
           continue;
         }
+        // Entries starting with "|" are domain patterns (||example.com^), not regexes.
+        if (exPattern.trim().startsWith('|')) continue;
         tryRegex(exPattern, 'i', `${tag} exception "${exLabel.substring(0, 60)}..."`);
       }
 

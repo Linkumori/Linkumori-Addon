@@ -346,7 +346,7 @@
     "message": "Reload extension to apply all rules immediately"
   },
   "customRulesEditor_exceptions": {
-    "message": "Exceptions (URLs to exclude)"
+    "message": "Exceptions (URL regexes or ||domain^ patterns to exclude)"
   },
   "customRulesEditor_exitTooltip": {
     "message": "Exit editor and return to provider list",
@@ -650,7 +650,7 @@
     "description": "FAQ question about domain exceptions"
   },
   "faq_domain_exceptions_explanation": {
-    "message": "Domain Exceptions work like regular exceptions but use the simpler domain pattern format instead of regex. They allow you to exclude specific domains or subdomains from processing.",
+    "message": "Domain patterns now go straight into \"exceptions\" (entries starting with |, such as ||example.com^). The separate \"domainExceptions\" field still works for existing rules, and the editor moves its ||domain^ entries into \"exceptions\" when you open a provider.",
     "description": "FAQ explanation of domain exceptions"
   },
   "faq_domain_exceptions_tip": {
@@ -714,7 +714,7 @@
     "description": "FAQ question about exceptions"
   },
   "faq_exceptions_explanation": {
-    "message": "Exceptions are regex patterns that match URLs where no processing should occur. If a URL matches an exception, all other rules are ignored.",
+    "message": "Exceptions match URLs where no processing should occur. Each entry is either a URL regex (for example ^https?:\\/\\/example\\.com\\/login) or a domain pattern starting with | (for example ||example.com^/login). If a URL matches an exception, all other rules of the provider are ignored.",
     "description": "FAQ explanation of exceptions"
   },
   "faq_exceptions_usage": {

@@ -4396,11 +4396,34 @@ function normalizeProviderForEditor(provider) {
     const next = JSON.parse(JSON.stringify(provider || {}));
     next.syntax = LINKUMORI_CLEARURLS_DIALECT_SYNTAX;
     if (!Array.isArray(next.rules)) next.rules = [];
+    mergeDomainExceptionsIntoExceptions(next);
     return next;
 }
 
+// "exceptions" takes both URL regexes and "||example.com^"-style domain
+// patterns, so domain patterns from the older "domainExceptions" field are
+// moved there. Other domainExceptions entries (without a leading "|") would
+// be read as regexes in "exceptions", so they stay where they are.
+function mergeDomainExceptionsIntoExceptions(provider) {
+    if (!Array.isArray(provider.domainExceptions)) return provider;
+    const exceptions = Array.isArray(provider.exceptions) ? provider.exceptions : [];
+    const remaining = [];
+    provider.domainExceptions.forEach((pattern) => {
+        const value = typeof pattern === 'string' ? pattern.trim() : '';
+        if (!value.startsWith('|')) {
+            remaining.push(pattern);
+        } else if (!exceptions.includes(value)) {
+            exceptions.push(value);
+        }
+    });
+    if (exceptions.length > 0) provider.exceptions = exceptions;
+    if (remaining.length > 0) provider.domainExceptions = remaining;
+    else delete provider.domainExceptions;
+    return provider;
+}
+
 function getJsonFieldButtons() {
-    const fields = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions', 'domainExceptions', 'domainRedirections', 'completeProvider', 'forceRedirection', 'historyBypassProtection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
+    const fields = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions', 'domainRedirections', 'completeProvider', 'forceRedirection', 'historyBypassProtection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
     const labels = {
         rules: i18n('customRulesEditor_rules'),
         rawRules: i18n('customRulesEditor_rawRules'),

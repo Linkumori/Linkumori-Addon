@@ -2446,6 +2446,69 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "provider exceptions domain pattern",
+      "dialect": "provider",
+      "input": "https://example.com/merged-exceptions/domain?utm_source=x",
+      "expectedOutput": "https://example.com/merged-exceptions/domain?utm_source=x",
+      "providers": {
+        "provider-merged-exceptions": {
+          "urlPattern": "^https?:\\/\\/(?:www\\.)?example\\.com\\/merged-exceptions",
+          "rules": [
+            "utm_source"
+          ],
+          "exceptions": [
+            "^https?:\\/\\/(?:www\\.)?example\\.com\\/merged-exceptions\\/regex",
+            "||example.com^/merged-exceptions/domain"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider exceptions regex pattern",
+      "dialect": "provider",
+      "input": "https://example.com/merged-exceptions/regex?utm_source=x",
+      "expectedOutput": "https://example.com/merged-exceptions/regex?utm_source=x",
+      "providers": {
+        "provider-merged-exceptions": {
+          "urlPattern": "^https?:\\/\\/(?:www\\.)?example\\.com\\/merged-exceptions",
+          "rules": [
+            "utm_source"
+          ],
+          "exceptions": [
+            "^https?:\\/\\/(?:www\\.)?example\\.com\\/merged-exceptions\\/regex",
+            "||example.com^/merged-exceptions/domain"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider exceptions no match",
+      "dialect": "provider",
+      "input": "https://example.com/merged-exceptions/other?utm_source=x&keep=1",
+      "expectedOutput": "https://example.com/merged-exceptions/other?keep=1",
+      "providers": {
+        "provider-merged-exceptions": {
+          "urlPattern": "^https?:\\/\\/(?:www\\.)?example\\.com\\/merged-exceptions",
+          "rules": [
+            "utm_source"
+          ],
+          "exceptions": [
+            "^https?:\\/\\/(?:www\\.)?example\\.com\\/merged-exceptions\\/regex",
+            "||example.com^/merged-exceptions/domain"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }

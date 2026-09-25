@@ -220,8 +220,8 @@ Each key inside `providers` is a unique name for that provider (website or servi
 | `rules` | array of strings (regex) | No | Query parameter names to strip from the URL |
 | `rawRules` | array of strings (regex) | No | Regex patterns applied directly to the raw URL string before parameter parsing |
 | `referralMarketing` | array of strings (regex) | No | Affiliate/referral parameters — stripped separately and can be toggled by the user |
-| `exceptions` | array of strings (regex) | No | Full URL regex patterns — matching URLs are skipped even if they match `urlPattern` |
-| `domainExceptions` | array of strings | No | AdBlock-style domain patterns — matching domains are skipped |
+| `exceptions` | array of strings (regex or `\|\|domain^` pattern) | No | URLs to skip even if they match `urlPattern` / `domainPatterns` |
+| `domainExceptions` | array of strings | No | Older field; put `\|\|domain^` patterns in `exceptions` instead |
 | `redirections` | array of strings (regex) | No | Regex patterns to unwrap redirect URLs; must capture the real destination URL |
 | `domainRedirections` | array of strings | No | AdBlock-style domain patterns that trigger redirect unwrapping |
 | `methods` | array of strings | No | HTTP methods to apply rules to (e.g. `"GET"`, `"POST"`). If omitted, applies to all |
@@ -325,26 +325,20 @@ Same syntax as `rules`, but these are treated as a separate category. Users can 
 
 ### `exceptions` — Skip Specific URLs
 
-Regex patterns matched against the full URL. If a URL matches an exception, the provider's rules are not applied to it even if the URL matches `urlPattern` or `domainPatterns`.
+URLs the provider should leave alone, even if they match `urlPattern` or `domainPatterns`. Each entry is either:
+
+- a regex matched against the full URL, or
+- a domain pattern starting with `|` (same syntax as `domainPatterns`).
 
 ```json
 "exceptions": [
   "^https?://example\\.com/checkout",
-  "^https?://api\\.example\\.com/"
+  "||api.example.com^",
+  "||example.com^/login"
 ]
 ```
 
----
-
-### `domainExceptions` — Skip Specific Domains
-
-AdBlock-style domain patterns (same syntax as `domainPatterns`) for domains that should be excluded from this provider's rules.
-
-```json
-"domainExceptions": [
-  "||safe.example.com^"
-]
-```
+The older `domainExceptions` field still works, but new rules should put domain patterns in `exceptions`.
 
 ---
 
@@ -422,9 +416,7 @@ Common values: `main_frame`, `sub_frame`, `stylesheet`, `script`, `image`, `font
         "affiliate"
       ],
       "exceptions": [
-        "^https?://api\\.example\\.com/"
-      ],
-      "domainExceptions": [
+        "^https?://api\\.example\\.com/",
         "||payments.example.com^"
       ],
       "redirections": [

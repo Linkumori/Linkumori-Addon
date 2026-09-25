@@ -2088,6 +2088,14 @@ function start() {
         };
 
         this.addException = function (exception, isActive = true, defaults = null) {
+            // "exceptions" takes both pattern kinds: domain patterns such as
+            // "||example.com^/login" (anything starting with "|") and URL regexes.
+            const normalized = normalizeCoreRuleDefinition(exception, "i", defaults);
+            const pattern = normalized ? normalized.matchPattern.trim() : '';
+            if (pattern.startsWith('|')) {
+                if (isActive && normalized.active !== false) this.addDomainException(pattern);
+                return;
+            }
             const compiled = compileCoreRuleDefinition(exception, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'exceptions');
