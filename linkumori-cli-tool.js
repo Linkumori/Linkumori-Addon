@@ -2511,8 +2511,14 @@ ${commit.message}
           continue;
         }
         const ok = tryRegex(rdPattern, 'i', `${tag} redirection "${rdLabel.substring(0, 60)}..."`);
-        if (ok && !rdPattern.includes('(')) {
-          warnings.push(`${tag} Redirection has no capture group (destination will be undefined): "${rdLabel.substring(0, 60)}..."`);
+        // Without replacePattern the target is the first capture group, so the
+        // regex needs exactly one: none never redirects, more than one is a trap.
+        const hasTemplate = rd && typeof rd === 'object' && typeof rd.replacePattern === 'string' && rd.replacePattern !== '';
+        if (ok && !hasTemplate) {
+          const groups = new RegExp(`${rdPattern}|`, 'i').exec('').length - 1;
+          if (groups !== 1) {
+            errors.push(`${tag} redirection "${rdLabel.substring(0, 60)}..." has ${groups} capture groups; it needs exactly one around the destination URL (write other groups as "(?: … )")`);
+          }
         }
       }
 
@@ -2521,6 +2527,36 @@ ${commit.message}
         const arr = provider[field];
         if (arr !== undefined && !Array.isArray(arr)) {
           errors.push(`${tag} "${field}" must be an array`);
+        }
+      }
+
+      // Valid JSON that silently does the wrong thing.
+      if (hasUrlPattern && hasDomainPattern) {
+        errors.push(`${tag} has both urlPattern and domainPatterns; domainPatterns would win and urlPattern is ignored. Keep one, or split the provider`);
+      }
+      if (hasUrlPattern && !hasDomainPattern && !provider.indexPattern) {
+        warnings.push(`${tag} urlPattern without indexPattern is checked against every URL; add indexPattern hints such as "||example.com^"`);
+      }
+      // "|example.com^" only matches URLs that literally begin with "example.com",
+      // and none do (they begin with a scheme), so it is always a typo for "||".
+      const checkSinglePipe = (pattern, where) => {
+        const text = String(pattern || '').trim();
+        if (text.startsWith('|') && !text.startsWith('||') && !/^\|[a-z][a-z0-9+.-]*:/i.test(text)) {
+          errors.push(`${tag} ${where} "${text}" starts with a single "|" and can never match; use "||${text.slice(1)}"`);
+        }
+      };
+      for (const dp of (Array.isArray(provider.domainPatterns) ? provider.domainPatterns : [])) checkSinglePipe(dp, 'domainPattern');
+      for (const ip of (Array.isArray(provider.indexPattern) ? provider.indexPattern : [provider.indexPattern])) checkSinglePipe(ip, 'indexPattern');
+      for (const field of ['exceptions', 'redirections', 'domainExceptions', 'domainRedirections']) {
+        for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
+          checkSinglePipe(getRulePattern(entry).split('$redirect=')[0], field);
+        }
+      }
+      for (const field of ['rules', 'referralMarketing']) {
+        for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
+          const text = getRulePattern(entry);
+          const body = text.startsWith('@@') ? text.slice(2) : text;
+          if (!body.startsWith('/') && /\$removeparam/i.test(body)) checkSinglePipe(body.slice(0, body.indexOf('$')), field);
         }
       }
 

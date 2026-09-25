@@ -390,8 +390,66 @@ function assertNoRemovedSpellings(provider, providerName = '') {
     });
 }
 
+// A pattern with a single leading "|" only matches URLs that literally start
+// with the rest of it. Without a scheme ("|https://...") nothing can match,
+// so "|example.com^" is always a typo for "||example.com^".
+function isBrokenSinglePipePattern(pattern) {
+    const text = String(pattern || '').trim();
+    return text.startsWith('|') && !text.startsWith('||') && !/^\|[a-z][a-z0-9+.-]*:/i.test(text);
+}
+
+function singlePipeError(label, pattern) {
+    const rest = String(pattern).trim().slice(1);
+    return new Error(`${label}: "${pattern}" starts with a single "|", so it only matches URLs that literally begin with "${rest}" and none do (URLs start with "https://"). Use "||${rest}" to match the domain.`);
+}
+
+function countCaptureGroups(source, flags) {
+    return new RegExp(`${source}|`, flags).exec('').length - 1;
+}
+
+// Checks for mistakes that are valid JSON but silently do the wrong thing.
+function assertNoSilentMistakes(provider, providerName = '') {
+    const label = providerName || 'Provider';
+    const hasUrlPattern = typeof provider.urlPattern === 'string' && provider.urlPattern.trim() !== '';
+    if (hasUrlPattern && toDomainPatternArray(provider.domainPatterns).length > 0) {
+        throw new Error(i18n('customRulesEditor_providerHasBothPatternTypes', label));
+    }
+    const checkPattern = (pattern, where) => {
+        if (isBrokenSinglePipePattern(pattern)) throw singlePipeError(`${label}: ${where}`, pattern);
+    };
+    toDomainPatternArray(provider.domainPatterns).forEach((pattern, index) => checkPattern(pattern, `domainPatterns[${index}]`));
+    toDomainPatternArray(provider.indexPattern).forEach((pattern, index) => checkPattern(pattern, `indexPattern[${index}]`));
+    ['exceptions', 'redirections', 'domainExceptions', 'domainRedirections'].forEach((fieldName) => {
+        (Array.isArray(provider[fieldName]) ? provider[fieldName] : []).forEach((entry, index) => {
+            const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? entry.matchPattern : '');
+            checkPattern(String(text || '').split('$redirect=')[0], `${fieldName}[${index}]`);
+        });
+    });
+    ['rules', 'referralMarketing'].forEach((fieldName) => {
+        (Array.isArray(provider[fieldName]) ? provider[fieldName] : []).forEach((entry, index) => {
+            const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? String(entry.matchPattern || '') : '');
+            const body = text.startsWith('@@') ? text.slice(2) : text;
+            if (body.startsWith('/') || !/\$removeparam/i.test(body)) return;
+            checkPattern(body.slice(0, body.indexOf('$')), `${fieldName}[${index}]`);
+        });
+    });
+    // A regex redirect without replacePattern goes to its first capture group,
+    // so it needs exactly one: none never redirects, more than one is a trap.
+    (Array.isArray(provider.redirections) ? provider.redirections : []).forEach((entry, index) => {
+        const source = typeof entry === 'string' ? entry : (isPlainObject(entry) ? entry.matchPattern : '');
+        if (typeof source !== 'string' || source.trim().startsWith('|')) return;
+        if (isPlainObject(entry) && typeof entry.replacePattern === 'string' && entry.replacePattern !== '') return;
+        let groups;
+        try { groups = countCaptureGroups(source, isPlainObject(entry) && entry.flags ? entry.flags : 'i'); } catch (_) { return; }
+        if (groups !== 1) {
+            throw new Error(`${label}: redirections[${index}] has ${groups} capture groups; it needs exactly one "( … )" around the destination URL (write other groups as "(?: … )")`);
+        }
+    });
+}
+
 function assertRuleEntrySyntax(provider, providerName = '') {
     assertNoRemovedSpellings(provider, providerName);
+    assertNoSilentMistakes(provider, providerName);
     const occupiedNames = new Map();
     OBJECT_STYLE_RULE_FIELDS.forEach((fieldName) => {
         const entries = provider[fieldName];

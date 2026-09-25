@@ -2408,6 +2408,30 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "rule object exceptions are case-insensitive",
+      "dialect": "provider",
+      "input": "https://example.com/Per-Rule-Case/Keep/?utm_source=x",
+      "expectedOutput": "https://example.com/Per-Rule-Case/Keep/?utm_source=x",
+      "providers": {
+        "provider-per-rule-case": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-case",
+          "indexPattern": "||example.com^",
+          "rules": [
+            {
+              "id": "remove-utm",
+              "matchPattern": "utm_source",
+              "exceptions": [
+                "^https?:\\/\\/example\\.com\\/per-rule-case\\/keep"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }

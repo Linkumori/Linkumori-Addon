@@ -1329,7 +1329,8 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
     if (!normalized) return null;
     const source = wrapFieldRule ? "^" + normalized.matchPattern + "$" : normalized.matchPattern;
     try {
-        const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex); } catch (_) { return null; } }).filter(Boolean);
+        // Per-rule exceptions are case-insensitive, like provider-level exceptions.
+        const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } }).filter(Boolean);
         return { ...normalized, exceptionRegexes, regex: new RegExp(source, normalized.flags) };
     } catch (_) { return null; }
 }
@@ -1361,7 +1362,7 @@ function coreRuleAppliesToRequest(compiledRule, url, request, isHistoryUpdate = 
         return !compiledRule.exceptionRegexes.some(regex => { try { regex.lastIndex = 0; return regex.test(url); } catch (_) { return false; } });
     }
     const exceptions = Array.isArray(compiledRule.exceptions) ? compiledRule.exceptions : [];
-    return !exceptions.some(ex => { try { return (new RegExp(ex)).test(url); } catch (_) { return false; } });
+    return !exceptions.some(ex => { try { return (new RegExp(ex, "i")).test(url); } catch (_) { return false; } });
 }
 
 function applyCoreRulePreprocessors(values, preprocessors) {
