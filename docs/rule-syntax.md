@@ -218,33 +218,7 @@ id, needs to start switched off, or needs to rewrite instead of remove:
 A rule object goes in the list for what it does: `rawRules` for raw rules,
 `redirections` for redirects, and so on.
 
-## 9. Old spellings
-
-Each of these duplicated another name and is no longer read by the engine.
-Custom rules, remote rule lists and imported files that still use them are
-rewritten to the current form automatically when they load. The editor and
-`lint-rules` report them when they are typed or found in the bundled rules.
-
-| Old | Current |
-|---|---|
-| `domainRedirections: ["\|\|a.com^$redirect=…"]` | `redirections: ["\|\|a.com^$redirect=…"]` |
-| `domainExceptions: ["\|\|a.com^"]` | `exceptions: ["\|\|a.com^"]` |
-| `{ "match", "kind", "action" }` rule objects | `{ "matchPattern", "replacePattern" }` in `rules`, `rawRules` or `redirections` |
-| `"referralMarketing": true` on a rule object | the rule inside `referralMarketing` |
-| `urlEncodeRepeated` / `urlDecodeRepeated` | `doubleUrlEncode` / `doubleUrlDecode` |
-| `$queryprune` | `$removeparam` |
-| `xhr` | `xmlhttprequest` |
-| `doc`, `popup` | `document` |
-| `frame`, `iframe` | `subdocument` |
-| `1p`, `~third-party` | `first-party` |
-| `3p`, `~first-party` | `third-party` |
-| `strict1p` / `strict3p` | `strict-first-party` / `strict-third-party` |
-| `from=` | `domain=` |
-| `defaultActive` (provider), `activeDefault` (rule object) | `active` |
-| `"history-bypass-protection"` as a JSON key | `historyBypassProtection` (the `history-bypass-protection=` filter option is unchanged) |
-| `"syntax"` marker | nothing (remove it; it did nothing) |
-
-## 10. Checking rules
+## 9. Checking rules
 
 ```bash
 node linkumori-cli-tool.js lint-rules   # validate data/linkumori-clearurls.json
@@ -252,7 +226,7 @@ node linkumori-cli-tool.js clearurls    # rebuild the bundled LZ4 rules
 ```
 
 The custom rules editor runs the same checks when you save. Besides
-invalid regexes and old spellings, they catch rules that are valid JSON but
+invalid regexes, unknown fields and unknown options, they catch rules that are valid JSON but
 would silently do the wrong thing:
 
 | Mistake | Why it is rejected |

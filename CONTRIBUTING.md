@@ -221,7 +221,6 @@ Each key inside `providers` is a unique name for that provider (website or servi
 | `rawRules` | array of strings (regex) | No | Regex patterns applied directly to the raw URL string before parameter parsing |
 | `referralMarketing` | array of strings (regex) | No | Affiliate/referral parameters — stripped separately and can be toggled by the user |
 | `exceptions` | array of strings (regex or `\|\|domain^` pattern) | No | URLs to skip even if they match `urlPattern` / `domainPatterns` |
-| `domainExceptions` | array of strings | No | Older field; put `\|\|domain^` patterns in `exceptions` instead |
 | `redirections` | array of strings (regex or `\|\|domain^$redirect=…`) | No | Unwrap redirect URLs (regex capturing the destination) or send a domain to a fixed address |
 | `methods` | array of strings | No | HTTP methods to apply rules to (e.g. `"GET"`, `"POST"`). If omitted, applies to all |
 | `resourceTypes` | array of strings | No | Browser resource types to apply rules to (e.g. `"main_frame"`, `"sub_frame"`, `"xmlhttprequest"`) |
@@ -337,7 +336,6 @@ URLs the provider should leave alone, even if they match `urlPattern` or `domain
 ]
 ```
 
-The older `domainExceptions` field still works, but new rules should put domain patterns in `exceptions`.
 
 ---
 
@@ -355,7 +353,6 @@ Each entry is either:
 ]
 ```
 
-The older `domainRedirections` field still works, but new rules should put domain redirects in `redirections`.
 
 ---
 
