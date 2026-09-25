@@ -8,9 +8,11 @@
       "expectedOutput": "https://example.com/provider-rules/?keep=1",
       "providers": {
         "provider-url-rules": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-rules(?:[/?#]|$)",
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-rules(?:[\\/?#]|$)/i"
+          ],
           "rules": [
-            "utm_source"
+            "$removeparam=utm_source"
           ]
         }
       },
@@ -25,10 +27,11 @@
       "expectedOutput": "https://example.com/provider-syntax/?keep=1",
       "providers": {
         "provider-syntax-clearurls": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-syntax(?:[/?#]|$)",
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-syntax(?:[\\/?#]|$)/i"
+          ],
           "rules": [
-            "fbclid"
+            "$removeparam=fbclid"
           ]
         }
       },
@@ -43,10 +46,11 @@
       "expectedOutput": "https://example.com/provider-syntax-alias/?keep=1",
       "providers": {
         "provider-syntax-clearursl-alias": {
-          "syntax": "linkumori-clearursl-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-syntax-alias(?:[/?#]|$)",
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-syntax-alias(?:[\\/?#]|$)/i"
+          ],
           "rules": [
-            "fbclid"
+            "$removeparam=fbclid"
           ]
         }
       },
@@ -56,6 +60,2301 @@
     },
     {
       "id": "provider canonical clearurls dialect field rule",
+      "dialect": "provider",
+      "input": "https://example.com/provider-canonical/?utm_source=x&keep=1",
+      "expectedOutput": "https://example.com/provider-canonical/?keep=1",
+      "providers": {
+        "provider-canonical-clearurls": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-canonical(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=utm_source",
+              "id": "remove-utm-source"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical unified linkumori-clearurls dialect",
+      "dialect": "provider",
+      "input": "https://example.com/provider-canonical-alias/?utm_medium=x&keep=1",
+      "expectedOutput": "https://example.com/provider-canonical-alias/?keep=1",
+      "providers": {
+        "provider-canonical-linkumori-unified": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-canonical-alias(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=utm_medium",
+              "id": "remove-utm-medium"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical clearurls dialect raw rule",
+      "dialect": "provider",
+      "input": "https://example.com/provider-canonical-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/provider-canonical-raw/?keep=1",
+      "providers": {
+        "provider-canonical-raw": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-canonical-raw(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/[?&]raw=[^&#]*/i$strip",
+              "id": "remove-raw"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "canonical linkumori raw rule",
+      "dialect": "provider",
+      "input": "https://example.com/core-section-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/core-section-raw/?keep=1",
+      "providers": {
+        "core-section-raw": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/core-section-raw(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/[?&]raw=[^&#]*/i$strip",
+              "id": "raw-rule"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "canonical linkumori redirection rule",
+      "dialect": "provider",
+      "input": "https://example.com/core-section-redirect/go?target=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "core-section-redirection": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/core-section-redirect(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/^https?:\\/\\/example\\.com\\/core-section-redirect\\/go\\?target=([^&]+)$/i$redirect=$1",
+              "id": "redirect-rule"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "canonical linkumori referral marketing rule",
+      "dialect": "provider",
+      "input": "https://example.com/core-section-referral/?tag=abc&keep=1",
+      "expectedOutput": "https://example.com/core-section-referral/?keep=1",
+      "providers": {
+        "core-section-referral": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/core-section-referral(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=tag",
+              "id": "referral-rule"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "referralMarketing": false
+      }
+    },
+    {
+      "id": "provider-level exception with canonical linkumori rule",
+      "dialect": "provider",
+      "input": "https://example.com/core-section-exception/keep/?utm_source=x",
+      "expectedOutput": "https://example.com/core-section-exception/keep/?utm_source=x",
+      "providers": {
+        "core-section-exception": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/core-section-exception(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=utm_source",
+              "id": "remove-utm"
+            },
+            "@@/^https?:\\/\\/example\\.com\\/core-section-exception\\/keep/i"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "core parity canonical activeDefault false rule",
+      "dialect": "provider",
+      "input": "https://example.com/core-inactive-rule/?utm_source=x",
+      "expectedOutput": "https://example.com/core-inactive-rule/?utm_source=x",
+      "providers": {
+        "core-inactive-rule": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/core-inactive-rule(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=utm_source",
+              "id": "inactive-remove",
+              "active": false
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "core parity canonical provider defaultActive false",
+      "dialect": "provider",
+      "input": "https://example.com/core-inactive-provider/?utm_source=x",
+      "expectedOutput": "https://example.com/core-inactive-provider/?utm_source=x",
+      "providers": {
+        "core-inactive-provider": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/core-inactive-provider(?:[\\/?#]|$)/i"
+          ],
+          "active": false,
+          "rules": [
+            {
+              "filter": "$removeparam=utm_source",
+              "id": "remove-utm"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "core parity canonical urlDecodeRepeated preprocessor",
+      "dialect": "provider",
+      "input": "https://example.com/core-preprocessor/?target=hello%2520world",
+      "expectedOutput": "https://example.com/core-preprocessor/?target=hello%20world",
+      "providers": {
+        "core-preprocessor": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/core-preprocessor(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=target",
+              "id": "decode-rewrite",
+              "preprocessors": [
+                {
+                  "type": "urlDecodeRepeated",
+                  "inputs": [
+                    1
+                  ]
+                }
+              ],
+              "replace": "$1"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider rawRules",
+      "dialect": "provider",
+      "input": "https://example.com/provider-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/provider-raw/?keep=1",
+      "providers": {
+        "provider-raw": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-raw(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/[?&]raw=[^&#]*/i$strip",
+              "id": "remove-raw"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider referralMarketing",
+      "dialect": "provider",
+      "input": "https://example.com/provider-referral/?ref=x&keep=1",
+      "expectedOutput": "https://example.com/provider-referral/?keep=1",
+      "providers": {
+        "provider-referral": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-referral(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=ref",
+              "id": "remove-referral"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "referralMarketing": true
+      }
+    },
+    {
+      "id": "provider legacy rawRules",
+      "dialect": "provider",
+      "input": "https://example.com/provider-legacy-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/provider-legacy-raw/?keep=1",
+      "providers": {
+        "provider-legacy-raw": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-legacy-raw(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "/[?&]raw=[^&#]*/i$strip"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider legacy referralMarketing",
+      "dialect": "provider",
+      "input": "https://example.com/provider-legacy-referral/?ref=x&keep=1",
+      "expectedOutput": "https://example.com/provider-legacy-referral/?keep=1",
+      "providers": {
+        "provider-legacy-referral": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-legacy-referral(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "$removeparam=ref,referral"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "referralMarketing": true
+      }
+    },
+    {
+      "id": "provider exceptions",
+      "dialect": "provider",
+      "input": "https://example.com/provider-exception/keep/?utm_source=x",
+      "expectedOutput": "https://example.com/provider-exception/keep/?utm_source=x",
+      "providers": {
+        "provider-exception": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-exception(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "$removeparam=utm_source",
+            "@@/^https?:\\/\\/example\\.com\\/provider-exception\\/keep/i"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider redirections",
+      "dialect": "provider",
+      "input": "https://example.com/provider-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-redirection": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-redirection(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/^https?:\\/\\/example\\.com\\/provider-redirection\\/redirect\\?url=(https%3A%2F%2Fwww\\.iana\\.org%2F)$/i$redirect=$1",
+              "id": "redirect-target"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider legacy redirections",
+      "dialect": "provider",
+      "input": "https://example.com/provider-legacy-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-legacy-redirection": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-legacy-redirection(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "/^https?:\\/\\/example\\.com\\/provider-legacy-redirection\\/redirect\\?url=(https%3A%2F%2Fwww\\.iana\\.org%2F)$/i$redirect"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider activation object field rule",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-field/?utm_source=x&keep=1",
+      "expectedOutput": "https://example.com/provider-activation-field/?keep=1",
+      "providers": {
+        "provider-activation-field": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-activation-field(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=utm_source",
+              "_linkumoriActivationIds": [
+                "provider-activation-field::field-utm-source"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider activation object raw rule",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/provider-activation-raw/?keep=1",
+      "providers": {
+        "provider-activation-raw": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-activation-raw(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/[?&]raw=[^&#]*/i$strip",
+              "_linkumoriActivationIds": [
+                "provider-activation-raw::raw-raw"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider activation object referralMarketing",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-referral/?ref=x&keep=1",
+      "expectedOutput": "https://example.com/provider-activation-referral/?keep=1",
+      "providers": {
+        "provider-activation-referral": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-activation-referral(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=ref,referral",
+              "_linkumoriActivationIds": [
+                "provider-activation-referral::referral-ref"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "referralMarketing": true
+      }
+    },
+    {
+      "id": "provider activation object exception",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-exception/keep/?utm_source=x",
+      "expectedOutput": "https://example.com/provider-activation-exception/keep/?utm_source=x",
+      "providers": {
+        "provider-activation-exception": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-activation-exception(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=utm_source",
+              "_linkumoriActivationIds": [
+                "provider-activation-exception::field-utm-source"
+              ]
+            },
+            {
+              "filter": "@@/^https?:\\/\\/example\\.com\\/provider-activation-exception\\/keep/i",
+              "_linkumoriActivationIds": [
+                "provider-activation-exception::exception-keep"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider activation object redirection",
+      "dialect": "provider",
+      "input": "https://example.com/provider-activation-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-activation-redirection": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-activation-redirection(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/^https?:\\/\\/example\\.com\\/provider-activation-redirection\\/redirect\\?url=(https%3A%2F%2Fwww\\.iana\\.org%2F)$/i$redirect",
+              "_linkumoriActivationIds": [
+                "provider-activation-redirection::redirect-target"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider domainPatterns",
+      "dialect": "provider",
+      "input": "https://example.com/provider-domain/?utm_source=x",
+      "expectedOutput": "https://example.com/provider-domain/",
+      "providers": {
+        "provider-domain": {
+          "match": [
+            "||example.com/provider-domain^"
+          ],
+          "rules": [
+            "$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider domainExceptions",
+      "dialect": "provider",
+      "input": "https://example.com/provider-domain-exception/keep/?utm_source=x",
+      "expectedOutput": "https://example.com/provider-domain-exception/keep/?utm_source=x",
+      "providers": {
+        "provider-domain-exception": {
+          "match": [
+            "||example.com/provider-domain-exception^"
+          ],
+          "rules": [
+            "$removeparam=utm_source",
+            "@@||example.com/provider-domain-exception/keep^"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider domainRedirections",
+      "dialect": "provider",
+      "input": "https://example.com/provider-domain-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-domain-redirection": {
+          "match": [
+            "||example.com/provider-domain-redirection^"
+          ],
+          "rules": [
+            "||example.com/provider-domain-redirection^$redirect=https%3A%2F%2Fwww.iana.org%2F"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider completeProvider",
+      "dialect": "provider",
+      "input": "https://example.com/provider-complete/?a=1&b=2",
+      "providers": {
+        "provider-complete": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-complete(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "$block"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "domainBlocking": true
+      },
+      "expectedBlocked": true
+    },
+    {
+      "id": "provider removeparam literal",
+      "dialect": "provider",
+      "input": "https://example.com/provider-removeparam/?literal=x&keep=1",
+      "expectedOutput": "https://example.com/provider-removeparam/?keep=1",
+      "providers": {
+        "provider-removeparam": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-removeparam(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "||example.com/provider-removeparam^$removeparam=literal",
+            "||example.com/provider-removeparam^$removeparam=/^regex_/",
+            "@@||example.com/provider-removeparam/exception^$removeparam=literal"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider removeparam regex",
+      "dialect": "provider",
+      "input": "https://example.com/provider-removeparam/?regex_one=x&keep=1",
+      "expectedOutput": "https://example.com/provider-removeparam/?keep=1",
+      "providers": {
+        "provider-removeparam": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-removeparam(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "||example.com/provider-removeparam^$removeparam=literal",
+            "||example.com/provider-removeparam^$removeparam=/^regex_/",
+            "@@||example.com/provider-removeparam/exception^$removeparam=literal"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider removeparam negated",
+      "dialect": "provider",
+      "input": "https://example.com/provider-removeparam-negated/?campaign=x&keep=1",
+      "expectedOutput": "https://example.com/provider-removeparam-negated/?keep=1",
+      "providers": {
+        "provider-removeparam-negated": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-removeparam-negated(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "||example.com/provider-removeparam-negated^$removeparam=~keep"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider removeparam exception",
+      "dialect": "provider",
+      "input": "https://example.com/provider-removeparam/exception/?literal=x",
+      "expectedOutput": "https://example.com/provider-removeparam/exception/?literal=x",
+      "providers": {
+        "provider-removeparam": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-removeparam(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "||example.com/provider-removeparam^$removeparam=literal",
+            "||example.com/provider-removeparam^$removeparam=/^regex_/",
+            "@@||example.com/provider-removeparam/exception^$removeparam=literal"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider inline removeparam remove all",
+      "dialect": "provider",
+      "input": "https://example.com/provider-inline-all/?a=1&b=2",
+      "expectedOutput": "https://example.com/provider-inline-all/",
+      "providers": {
+        "provider-inline-all": {
+          "match": [
+            "||example.com^"
+          ],
+          "rules": [
+            "||example.com/provider-inline-all^$removeparam"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider inline removeparam domain",
+      "dialect": "provider",
+      "input": "https://example.com/provider-inline-domain/?campaign=x",
+      "expectedOutput": "https://example.com/provider-inline-domain/",
+      "providers": {
+        "provider-inline-domain": {
+          "match": [
+            "||example.com^"
+          ],
+          "rules": [
+            "||example.com/provider-inline-domain^$removeparam=campaign,domain=example.com"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider inline removeparam method",
+      "dialect": "provider",
+      "input": "https://example.com/provider-inline-method/?campaign=x",
+      "expectedOutput": "https://example.com/provider-inline-method/",
+      "request": {
+        "method": "POST"
+      },
+      "providers": {
+        "provider-inline-method": {
+          "match": [
+            "||example.com^"
+          ],
+          "rules": [
+            "||example.com/provider-inline-method^$removeparam=campaign,method=POST"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider indexPattern with urlPattern",
+      "dialect": "provider",
+      "input": "https://example.com/provider-index/?campaign=x",
+      "expectedOutput": "https://example.com/provider-index/",
+      "providers": {
+        "provider-index": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-index(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider forceRedirection",
+      "dialect": "provider",
+      "input": "https://example.com/provider-force-redirect/?url=https%3A%2F%2Fwww.iana.org%2F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-force-redirect": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-force-redirect(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/^https?:\\/\\/example\\.com\\/provider-force-redirect\\/?\\?url=([^&]+)/i$redirect=$1",
+              "id": "force-redirect-target"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider methods include",
+      "dialect": "provider",
+      "input": "https://example.com/provider-post/?campaign=x",
+      "expectedOutput": "https://example.com/provider-post/",
+      "request": {
+        "method": "POST"
+      },
+      "providers": {
+        "provider-post": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-post(?:[\\/?#]|$)/i"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider methods exclude by mismatch",
+      "dialect": "provider",
+      "input": "https://example.com/provider-post/?campaign=x",
+      "expectedOutput": "https://example.com/provider-post/?campaign=x",
+      "request": {
+        "method": "GET"
+      },
+      "providers": {
+        "provider-post": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-post(?:[\\/?#]|$)/i"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider resourceTypes include",
+      "dialect": "provider",
+      "input": "https://example.com/provider-type/?campaign=x",
+      "expectedOutput": "https://example.com/provider-type/",
+      "request": {
+        "type": "xmlhttprequest"
+      },
+      "providers": {
+        "provider-type": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-type(?:[\\/?#]|$)/i"
+          ],
+          "resourceTypes": [
+            "xmlhttprequest"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider resourceTypes exclude by mismatch",
+      "dialect": "provider",
+      "input": "https://example.com/provider-type/?campaign=x",
+      "expectedOutput": "https://example.com/provider-type/?campaign=x",
+      "request": {
+        "type": "main_frame"
+      },
+      "providers": {
+        "provider-type": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-type(?:[\\/?#]|$)/i"
+          ],
+          "resourceTypes": [
+            "xmlhttprequest"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider domain wildcard",
+      "dialect": "provider",
+      "input": "https://developer.mozilla.org/?utm_source=x",
+      "expectedOutput": "https://developer.mozilla.org/",
+      "providers": {
+        "provider-domain-wild": {
+          "match": [
+            "||*.mozilla.org^"
+          ],
+          "rules": [
+            "$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider domain regex literal",
+      "dialect": "provider",
+      "input": "https://developer.mozilla.org/?campaign=x",
+      "expectedOutput": "https://developer.mozilla.org/",
+      "providers": {
+        "provider-domain-regex": {
+          "match": [
+            "/^https?:\\/\\/developer\\.mozilla\\.org\\//"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider lowercase method normalized",
+      "dialect": "provider",
+      "input": "https://example.com/provider-lower-method/?campaign=x",
+      "expectedOutput": "https://example.com/provider-lower-method/",
+      "request": {
+        "method": "POST"
+      },
+      "providers": {
+        "provider-lower-method": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-lower-method(?:[\\/?#]|$)/i"
+          ],
+          "methods": [
+            "post"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider mixed-case resource type normalized",
+      "dialect": "provider",
+      "input": "https://example.com/provider-mixed-type/?campaign=x",
+      "expectedOutput": "https://example.com/provider-mixed-type/",
+      "request": {
+        "type": "xmlhttprequest"
+      },
+      "providers": {
+        "provider-mixed-type": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-mixed-type(?:[\\/?#]|$)/i"
+          ],
+          "resourceTypes": [
+            "XMLHttpRequest"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider string domain pattern normalized",
+      "dialect": "provider",
+      "input": "https://example.com/provider-string-domain/?campaign=x",
+      "expectedOutput": "https://example.com/provider-string-domain/",
+      "providers": {
+        "provider-string-domain": {
+          "match": [
+            "||example.com/provider-string-domain^"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider mixed domain pattern fallback",
+      "dialect": "provider",
+      "input": "https://example.com/provider-mixed-domain/?campaign=x",
+      "expectedOutput": "https://example.com/provider-mixed-domain/",
+      "providers": {
+        "provider-mixed-domain": {
+          "match": [
+            "||example.com/provider-mixed-domain^",
+            42,
+            null
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider object rule rewrite",
+      "dialect": "provider",
+      "input": "https://example.com/object-rule/?token=abc&keep=1",
+      "expectedOutput": "https://example.com/object-rule/?keep=1&token=clean-abc",
+      "providers": {
+        "provider-object-rule": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/object-rule(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "replace": "clean-$1"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider object raw rewrite",
+      "dialect": "provider",
+      "input": "https://example.com/object-raw/?wrapped=abc&keep=1",
+      "expectedOutput": "https://example.com/object-raw/?clean=abc&keep=1",
+      "providers": {
+        "provider-object-raw": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/object-raw(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/wrapped=([^&#]+)/i$strip",
+              "id": "rewrite-wrapped",
+              "replace": "clean=$1"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider object redirection",
+      "dialect": "provider",
+      "input": "https://example.com/object-redirect/?url=https%253A%252F%252Fwww.iana.org%252F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-object-redirect": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/object-redirect(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/^https?:\\/\\/example\\.com\\/object-redirect\\/\\?url=(.+)$/i$redirect=$1",
+              "id": "redirect-object",
+              "preprocessors": [
+                {
+                  "type": "doubleUrlDecode",
+                  "inputs": [
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider canonical v2 field rewrite",
+      "dialect": "provider",
+      "input": "https://example.com/v2-field/?token=abc&keep=1",
+      "expectedOutput": "https://example.com/v2-field/?keep=1&token=v2-abc",
+      "providers": {
+        "provider-v2-field": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/v2-field(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "id": "rewrite-token",
+              "replace": "v2-$1"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical v2 raw remove",
+      "dialect": "provider",
+      "input": "https://example.com/v2-raw/?raw=x&keep=1",
+      "expectedOutput": "https://example.com/v2-raw/?keep=1",
+      "providers": {
+        "provider-v2-raw": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/v2-raw(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/[?&]raw=[^&#]*/i$strip",
+              "id": "remove-raw"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical v2 redirect",
+      "dialect": "provider",
+      "input": "https://example.com/v2-redirect/?url=https%253A%252F%252Fwww.iana.org%252F",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-v2-redirect": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/v2-redirect(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/^https?:\\/\\/example\\.com\\/v2-redirect\\/\\?url=(.+)$/i$redirect=$1",
+              "id": "redirect-out",
+              "preprocessors": [
+                {
+                  "type": "doubleUrlDecode",
+                  "inputs": [
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      }
+    },
+    {
+      "id": "provider canonical v2 defaults request type",
+      "dialect": "provider",
+      "input": "https://example.com/v2-defaults/?token=abc",
+      "expectedOutput": "https://example.com/v2-defaults/?token=abc",
+      "providers": {
+        "provider-v2-defaults": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/v2-defaults(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token,xmlhttprequest",
+              "id": "default-gated"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "main_frame"
+      }
+    },
+    {
+      "id": "provider canonical v2 defaults inactive string",
+      "dialect": "provider",
+      "input": "https://example.com/v2-default-inactive/?token=abc",
+      "expectedOutput": "https://example.com/v2-default-inactive/?token=abc",
+      "providers": {
+        "provider-v2-default-inactive": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/v2-default-inactive(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "active": false
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical rule id disabled",
+      "dialect": "provider",
+      "input": "https://example.com/rule-id-disabled/?token=abc",
+      "expectedOutput": "https://example.com/rule-id-disabled/?token=abc",
+      "activationState": {
+        "disabledRuleIds": [
+          "provider-rule-id-disabled::disable-token"
+        ]
+      },
+      "providers": {
+        "provider-rule-id-disabled": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/rule-id-disabled(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "id": "disable-token"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider generated global rule id disabled",
+      "dialect": "provider",
+      "input": "https://example.com/global-rule-id-disabled/?fbclid=abc&keep=1",
+      "expectedOutput": "https://example.com/global-rule-id-disabled/?fbclid=abc&keep=1",
+      "activationState": {
+        "disabledRuleIds": [
+          "globalRules::field-removeparam-3f-fbclid-i"
+        ]
+      },
+      "providers": {
+        "globalRules": {
+          "match": [
+            "/.*/i"
+          ],
+          "rules": [
+            "$removeparam=/^(?:(?:%3F)?fbclid)$/i"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider activation id disabled after merge",
+      "dialect": "provider",
+      "input": "https://example.com/activation-rule-id-disabled/?activation_token=abc&keep=1",
+      "expectedOutput": "https://example.com/activation-rule-id-disabled/?activation_token=abc&keep=1",
+      "activationState": {
+        "disabledRuleIds": [
+          "provider-activation-rule-id-disabled::remove-activation-token"
+        ]
+      },
+      "providers": {
+        "merged-activation-rule-id-disabled": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/activation-rule-id-disabled(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=activation_token",
+              "id": "remove-activation-token",
+              "_linkumoriActivationIds": [
+                "provider-activation-rule-id-disabled::remove-activation-token"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical v2 indexPattern",
+      "dialect": "provider",
+      "input": "https://example.com/v2-index/?token=abc",
+      "expectedOutput": "https://example.com/v2-index/",
+      "providers": {
+        "provider-v2-index": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/v2-index(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "id": "remove-token"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "canonical per-rule exceptions match (no clean)",
+      "dialect": "provider",
+      "input": "https://example.com/per-rule-ex/keep/?utm_source=x",
+      "expectedOutput": "https://example.com/per-rule-ex/keep/?utm_source=x",
+      "providers": {
+        "provider-per-rule-ex": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/per-rule-ex(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=utm_source",
+              "id": "remove-utm"
+            },
+            "@@/^https?:\\/\\/example\\.com\\/per-rule-ex\\/keep/$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "canonical per-rule exceptions no match (clean fires)",
+      "dialect": "provider",
+      "input": "https://example.com/per-rule-ex/other/?utm_source=x",
+      "expectedOutput": "https://example.com/per-rule-ex/other/",
+      "providers": {
+        "provider-per-rule-ex": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/per-rule-ex(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=utm_source",
+              "id": "remove-utm"
+            },
+            "@@/^https?:\\/\\/example\\.com\\/per-rule-ex\\/keep/$removeparam=utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "canonical per-rule requestTypes filtered (no clean)",
+      "dialect": "provider",
+      "input": "https://example.com/per-rule-type/?token=abc",
+      "expectedOutput": "https://example.com/per-rule-type/?token=abc",
+      "providers": {
+        "provider-per-rule-type": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/per-rule-type(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token,xmlhttprequest",
+              "id": "remove-gated"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "main_frame"
+      }
+    },
+    {
+      "id": "canonical per-rule requestTypes matched (clean fires)",
+      "dialect": "provider",
+      "input": "https://example.com/per-rule-type/?token=abc",
+      "expectedOutput": "https://example.com/per-rule-type/",
+      "providers": {
+        "provider-per-rule-type": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/per-rule-type(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token,xmlhttprequest",
+              "id": "remove-gated"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "xmlhttprequest"
+      }
+    },
+    {
+      "id": "canonical rule active false explicit (no clean)",
+      "dialect": "provider",
+      "input": "https://example.com/rule-active-false/?token=abc",
+      "expectedOutput": "https://example.com/rule-active-false/?token=abc",
+      "providers": {
+        "provider-rule-active-false": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/rule-active-false(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "id": "disabled-rule",
+              "active": false
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "canonical provider exception requestTypes filtered (clean fires)",
+      "dialect": "provider",
+      "input": "https://example.com/provider-exception-type/?token=abc",
+      "expectedOutput": "https://example.com/provider-exception-type/",
+      "providers": {
+        "provider-exception-type": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-exception-type(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "$removeparam=token",
+            {
+              "filter": "@@/^https?:\\/\\/example\\.com\\/provider-exception-type/i$xmlhttprequest",
+              "id": "xhr-only-exception"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "main_frame"
+      }
+    },
+    {
+      "id": "canonical provider exception requestTypes matched (no clean)",
+      "dialect": "provider",
+      "input": "https://example.com/provider-exception-type/?token=abc",
+      "expectedOutput": "https://example.com/provider-exception-type/?token=abc",
+      "providers": {
+        "provider-exception-type": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-exception-type(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "$removeparam=token",
+            {
+              "filter": "@@/^https?:\\/\\/example\\.com\\/provider-exception-type/i$xmlhttprequest",
+              "id": "xhr-only-exception"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      },
+      "request": {
+        "type": "xmlhttprequest"
+      }
+    },
+    {
+      "id": "canonical redirection requestTypes filtered (no redirect)",
+      "dialect": "provider",
+      "input": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
+      "expectedOutput": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
+      "providers": {
+        "provider-redirect-type": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/redirect-type(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)/i$xmlhttprequest,redirect=$1",
+              "id": "extract-target"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      },
+      "request": {
+        "type": "main_frame"
+      }
+    },
+    {
+      "id": "canonical redirection requestTypes matched (redirect)",
+      "dialect": "provider",
+      "input": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
+      "expectedOutput": "https://target.example/",
+      "providers": {
+        "provider-redirect-type": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/redirect-type(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "/^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)/i$xmlhttprequest,redirect=$1",
+              "id": "extract-target"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true,
+        "redirectionEnabled": true
+      },
+      "request": {
+        "type": "xmlhttprequest"
+      }
+    },
+    {
+      "id": "appliedFieldRewrites per-call isolation first",
+      "dialect": "provider",
+      "input": "https://example.com/rewrite-isolation/?token=abc&keep=1",
+      "expectedOutput": "https://example.com/rewrite-isolation/?keep=1&token=v2-abc",
+      "providers": {
+        "provider-rewrite-isolation": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/rewrite-isolation(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "id": "rewrite-token",
+              "replace": "v2-$1"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "appliedFieldRewrites per-call isolation second",
+      "dialect": "provider",
+      "input": "https://example.com/rewrite-isolation/?token=xyz&keep=1",
+      "expectedOutput": "https://example.com/rewrite-isolation/?keep=1&token=v2-xyz",
+      "providers": {
+        "provider-rewrite-isolation": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/rewrite-isolation(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "id": "rewrite-token",
+              "replace": "v2-$1"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest main_frame ignores context whitelist",
+      "dialect": "providerWebRequest",
+      "input": "https://target.example/path/?campaign=x&keep=1",
+      "expectedOutput": "https://target.example/path/?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://source.example/",
+        "referrer": "https://source.example/"
+      },
+      "storage": {
+        "userWhitelist": [
+          "source.example"
+        ]
+      },
+      "providers": {
+        "target-provider": {
+          "match": [
+            "/^https?:\\/\\/target\\.example\\/path(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest subrequest honors context whitelist",
+      "dialect": "providerWebRequest",
+      "input": "https://target.example/path/?campaign=x&keep=1",
+      "expectedOutput": "https://target.example/path/?campaign=x&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://source.example/"
+      },
+      "storage": {
+        "userWhitelist": [
+          "source.example"
+        ]
+      },
+      "providers": {
+        "target-provider": {
+          "match": [
+            "/^https?:\\/\\/target\\.example\\/path(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "$removeparam=campaign"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest context exception scoped to own target",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei",
+            "@@||gemini.google.com$removeparam=ei"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest context exception applies to matching context",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://gemini.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei",
+            "@@||gemini.google.com$removeparam=ei"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest context exception respects method include",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://gemini.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei",
+            "@@||gemini.google.com$removeparam=ei,method=POST"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam exception respects xhr include",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei",
+            "@@||google.*^$removeparam=ei,xmlhttprequest"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam xhr exception ignored for main frame",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei",
+            "@@||google.*^$removeparam=ei,xmlhttprequest"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam match-case keeps case-sensitive miss",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?campaign=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?campaign=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=Campaign,match-case"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam badfilter disables matching rule",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei",
+            "$removeparam=ei,badfilter"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam to modifier filters target domain",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei,to=example.com"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam third-party modifier matches cross-site request",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://example.org/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei,third-party"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest queryprune alias removes parameter",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam denyallow blocks denied target",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei,denyallow=google.com"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam first-party modifier matches same-site request",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest",
+        "documentUrl": "https://mail.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei,first-party"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam regex url pattern may contain dollar",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/price$path?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/price$path?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "/^https?:\\/\\/www\\.google\\.com\\/price\\$path/$removeparam=ei"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam domain regex keeps pipe inside regex",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei,domain=/^(?:www|mail)\\.google\\.com$/"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam negated regex domain via tilde regex",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei,domain=~/^www\\.google\\.com$/"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam prefix parameter syntax",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?utm_source=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=|utm_"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam regex can inspect name value pair",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?token=secret&keep=1",
+      "expectedOutput": "https://www.google.com/search?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=/^token=secret$/"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam invalid denyallow regex ignored",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei,denyallow=/google/"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam invalid method ignored",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "TRACE",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "$removeparam=ei,method=TRACE"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest removeparam badfilter canonicalizes modifier order",
+      "dialect": "providerWebRequest",
+      "input": "https://www.google.com/search?ei=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame",
+        "documentUrl": "https://www.google.com/"
+      },
+      "providers": {
+        "google-provider": {
+          "match": [
+            "/^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com/i"
+          ],
+          "rules": [
+            "||google.com^$removeparam=ei,domain=google.com",
+            "||google.com^$domain=google.com,removeparam=ei,badfilter"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest domainPatterns indexes without indexPattern",
+      "dialect": "providerWebRequest",
+      "input": "https://shop.example.co.uk/path/?tracking=x&keep=1",
+      "expectedOutput": "https://shop.example.co.uk/path/?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "noise-provider-one": {
+          "match": [
+            "||noise-one.example^"
+          ],
+          "rules": [
+            "$removeparam=noise"
+          ]
+        },
+        "noise-provider-two": {
+          "match": [
+            "||noise-two.example^"
+          ],
+          "rules": [
+            "$removeparam=noise"
+          ]
+        },
+        "target-provider": {
+          "match": [
+            "||example.co.uk/path^"
+          ],
+          "rules": [
+            "$removeparam=tracking"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest domainPatterns wins over stale urlPattern",
+      "dialect": "providerWebRequest",
+      "input": "https://domain-wins.example/path/?tracking=x&keep=1",
+      "expectedOutput": "https://domain-wins.example/path/?keep=1",
+      "request": {
+        "method": "GET",
+        "type": "main_frame"
+      },
+      "providers": {
+        "target-provider": {
+          "match": [
+            "||domain-wins.example/path^"
+          ],
+          "rules": [
+            "$removeparam=tracking"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider google removeparam after global pattern-only provider",
+      "dialect": "provider",
+      "input": "https://www.google.com/search?q=holi%202026%20april&sca_esv=6b9ebf8ee3cf918e&sxsrf=ANbL-n4O28u-f00xmwZwzqTI-Yyi3DlJlQ%3A1779894186529&ei=qgcXasupHcuW4-EPjbXiwQE&biw=1226&bih=744&oq=holi%202026&gs_lp=abc&sclient=gws-wiz-serp",
+      "expectedOutput": "https://www.google.com/search?q=holi%202026%20april&sclient=gws-wiz-serp",
+      "providers": {
+        "*": {
+          "match": [
+            "*"
+          ],
+          "rules": []
+        },
+        "google": {
+          "match": [
+            "||google.*^"
+          ],
+          "rules": [
+            "$removeparam=/^bi[a-z]*$/i",
+            "$removeparam=ei",
+            "$removeparam=/^gs_[a-z]*$/i",
+            "$removeparam=oq",
+            "$removeparam=sxsrf",
+            "$removeparam=/^sca_(?:esv|upv)$/i"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider removeparam activation object disabled",
+      "dialect": "provider",
+      "input": "https://www.google.com/search?q=hi&sca_esv=abc&keep=1",
+      "expectedOutput": "https://www.google.com/search?q=hi&sca_esv=abc&keep=1",
+      "activationState": {
+        "disabledRuleIds": [
+          "google::field-removeparam-sca-esv"
+        ]
+      },
+      "providers": {
+        "google": {
+          "match": [
+            "||google.*^"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=sca_esv",
+              "_linkumoriActivationIds": [
+                "google::field-removeparam-sca-esv"
+              ]
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider referralMarketing removeparam",
+      "dialect": "provider",
+      "input": "https://example.com/provider-referral/?tag=x&keep=1",
+      "expectedOutput": "https://example.com/provider-referral/?keep=1",
+      "providers": {
+        "provider-referral-removeparam": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-referral(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "||example.com/provider-referral^$removeparam=tag,referral",
+            "@@||example.com/provider-referral/exception^$removeparam=tag,referral"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider referralMarketing removeparam exception",
+      "dialect": "provider",
+      "input": "https://example.com/provider-referral/exception/?tag=x&keep=1",
+      "expectedOutput": "https://example.com/provider-referral/exception/?tag=x&keep=1",
+      "providers": {
+        "provider-referral-removeparam": {
+          "match": [
+            "/^https?:\\/\\/example\\.com\\/provider-referral(?:[\\/?#]|$)/i"
+          ],
+          "rules": [
+            "||example.com/provider-referral^$removeparam=tag,referral",
+            "@@||example.com/provider-referral/exception^$removeparam=tag,referral"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider urlPattern + rules (older format)",
+      "dialect": "provider",
+      "input": "https://example.com/provider-rules/?utm_source=x&keep=1",
+      "expectedOutput": "https://example.com/provider-rules/?keep=1",
+      "providers": {
+        "provider-url-rules": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-rules(?:[/?#]|$)",
+          "rules": [
+            "utm_source"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider canonical clearurls dialect field rule (older format)",
       "dialect": "provider",
       "input": "https://example.com/provider-canonical/?utm_source=x&keep=1",
       "expectedOutput": "https://example.com/provider-canonical/?keep=1",
@@ -81,83 +2380,7 @@
       }
     },
     {
-      "id": "provider canonical unified linkumori-clearurls dialect",
-      "dialect": "provider",
-      "input": "https://example.com/provider-canonical-alias/?utm_medium=x&keep=1",
-      "expectedOutput": "https://example.com/provider-canonical-alias/?keep=1",
-      "providers": {
-        "provider-canonical-linkumori-unified": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-canonical-alias(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-utm-medium",
-              "kind": "field",
-              "match": "utm_medium",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider canonical clearurls dialect raw rule",
-      "dialect": "provider",
-      "input": "https://example.com/provider-canonical-raw/?raw=x&keep=1",
-      "expectedOutput": "https://example.com/provider-canonical-raw/?keep=1",
-      "providers": {
-        "provider-canonical-raw": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-canonical-raw(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-raw",
-              "kind": "raw",
-              "match": "[?&]raw=[^&#]*",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "canonical linkumori raw rule",
-      "dialect": "provider",
-      "input": "https://example.com/core-section-raw/?raw=x&keep=1",
-      "expectedOutput": "https://example.com/core-section-raw/?keep=1",
-      "providers": {
-        "core-section-raw": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-raw(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "raw-rule",
-              "kind": "raw",
-              "match": "[?&]raw=[^&#]*",
-              "action": {
-                "type": "remove"
-              },
-              "flags": "gi"
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "canonical linkumori redirection rule",
+      "id": "canonical linkumori redirection rule (older format)",
       "dialect": "provider",
       "input": "https://example.com/core-section-redirect/go?target=https%3A%2F%2Fwww.iana.org%2F",
       "expectedOutput": "https://www.iana.org/",
@@ -185,34 +2408,7 @@
       }
     },
     {
-      "id": "canonical linkumori referral marketing rule",
-      "dialect": "provider",
-      "input": "https://example.com/core-section-referral/?tag=abc&keep=1",
-      "expectedOutput": "https://example.com/core-section-referral/?keep=1",
-      "providers": {
-        "core-section-referral": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-referral(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "referral-rule",
-              "kind": "field",
-              "match": "tag",
-              "referralMarketing": true,
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "referralMarketing": false
-      }
-    },
-    {
-      "id": "provider-level exception with canonical linkumori rule",
+      "id": "provider-level exception with canonical linkumori rule (older format)",
       "dialect": "provider",
       "input": "https://example.com/core-section-exception/keep/?utm_source=x",
       "expectedOutput": "https://example.com/core-section-exception/keep/?utm_source=x",
@@ -240,33 +2436,7 @@
       }
     },
     {
-      "id": "core parity canonical activeDefault false rule",
-      "dialect": "provider",
-      "input": "https://example.com/core-inactive-rule/?utm_source=x",
-      "expectedOutput": "https://example.com/core-inactive-rule/?utm_source=x",
-      "providers": {
-        "core-inactive-rule": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/core-inactive-rule(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "inactive-remove",
-              "kind": "field",
-              "match": "utm_source",
-              "activeDefault": false,
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "core parity canonical provider defaultActive false",
+      "id": "core parity canonical provider defaultActive false (older format)",
       "dialect": "provider",
       "input": "https://example.com/core-inactive-provider/?utm_source=x",
       "expectedOutput": "https://example.com/core-inactive-provider/?utm_source=x",
@@ -292,94 +2462,7 @@
       }
     },
     {
-      "id": "core parity canonical urlDecodeRepeated preprocessor",
-      "dialect": "provider",
-      "input": "https://example.com/core-preprocessor/?target=hello%2520world",
-      "expectedOutput": "https://example.com/core-preprocessor/?target=hello%20world",
-      "providers": {
-        "core-preprocessor": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/core-preprocessor(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "decode-rewrite",
-              "kind": "field",
-              "match": "target",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "§1§"
-              },
-              "preprocessors": [
-                {
-                  "type": "urlDecodeRepeated",
-                  "inputs": [
-                    1
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider rawRules",
-      "dialect": "provider",
-      "input": "https://example.com/provider-raw/?raw=x&keep=1",
-      "expectedOutput": "https://example.com/provider-raw/?keep=1",
-      "providers": {
-        "provider-raw": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-raw(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-raw",
-              "kind": "raw",
-              "match": "[?&]raw=[^&#]*",
-              "action": {
-                "type": "remove"
-              },
-              "flags": "gi"
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider referralMarketing",
-      "dialect": "provider",
-      "input": "https://example.com/provider-referral/?ref=x&keep=1",
-      "expectedOutput": "https://example.com/provider-referral/?keep=1",
-      "providers": {
-        "provider-referral": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-referral(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-referral",
-              "kind": "field",
-              "match": "ref",
-              "referralMarketing": true,
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "referralMarketing": true
-      }
-    },
-    {
-      "id": "provider legacy rawRules",
+      "id": "provider legacy rawRules (older format)",
       "dialect": "provider",
       "input": "https://example.com/provider-legacy-raw/?raw=x&keep=1",
       "expectedOutput": "https://example.com/provider-legacy-raw/?keep=1",
@@ -396,7 +2479,7 @@
       }
     },
     {
-      "id": "provider legacy referralMarketing",
+      "id": "provider legacy referralMarketing (older format)",
       "dialect": "provider",
       "input": "https://example.com/provider-legacy-referral/?ref=x&keep=1",
       "expectedOutput": "https://example.com/provider-legacy-referral/?keep=1",
@@ -414,54 +2497,7 @@
       }
     },
     {
-      "id": "provider exceptions",
-      "dialect": "provider",
-      "input": "https://example.com/provider-exception/keep/?utm_source=x",
-      "expectedOutput": "https://example.com/provider-exception/keep/?utm_source=x",
-      "providers": {
-        "provider-exception": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-exception(?:[/?#]|$)",
-          "rules": [
-            "utm_source"
-          ],
-          "exceptions": [
-            "^https?:\\/\\/example\\.com\\/provider-exception/keep"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider redirections",
-      "dialect": "provider",
-      "input": "https://example.com/provider-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
-      "expectedOutput": "https://www.iana.org/",
-      "providers": {
-        "provider-redirection": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-redirection(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "redirect-target",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/provider-redirection/redirect\\?url=(https%3A%2F%2Fwww\\.iana\\.org%2F)$",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "redirectionEnabled": true
-      }
-    },
-    {
-      "id": "provider legacy redirections",
+      "id": "provider legacy redirections (older format)",
       "dialect": "provider",
       "input": "https://example.com/provider-legacy-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
       "expectedOutput": "https://www.iana.org/",
@@ -479,146 +2515,7 @@
       }
     },
     {
-      "id": "provider activation object field rule",
-      "dialect": "provider",
-      "input": "https://example.com/provider-activation-field/?utm_source=x&keep=1",
-      "expectedOutput": "https://example.com/provider-activation-field/?keep=1",
-      "providers": {
-        "provider-activation-field": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-field(?:[/?#]|$)",
-          "rules": [
-            {
-              "matchPattern": "utm_source",
-              "_linkumoriActivationIds": [
-                "provider-activation-field::field-utm-source"
-              ]
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider activation object raw rule",
-      "dialect": "provider",
-      "input": "https://example.com/provider-activation-raw/?raw=x&keep=1",
-      "expectedOutput": "https://example.com/provider-activation-raw/?keep=1",
-      "providers": {
-        "provider-activation-raw": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-raw(?:[/?#]|$)",
-          "rawRules": [
-            {
-              "matchPattern": "[?&]raw=[^&#]*",
-              "_linkumoriActivationIds": [
-                "provider-activation-raw::raw-raw"
-              ]
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider activation object referralMarketing",
-      "dialect": "provider",
-      "input": "https://example.com/provider-activation-referral/?ref=x&keep=1",
-      "expectedOutput": "https://example.com/provider-activation-referral/?keep=1",
-      "providers": {
-        "provider-activation-referral": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-referral(?:[/?#]|$)",
-          "referralMarketing": [
-            {
-              "matchPattern": "ref",
-              "_linkumoriActivationIds": [
-                "provider-activation-referral::referral-ref"
-              ]
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "referralMarketing": true
-      }
-    },
-    {
-      "id": "provider activation object exception",
-      "dialect": "provider",
-      "input": "https://example.com/provider-activation-exception/keep/?utm_source=x",
-      "expectedOutput": "https://example.com/provider-activation-exception/keep/?utm_source=x",
-      "providers": {
-        "provider-activation-exception": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-exception(?:[/?#]|$)",
-          "rules": [
-            {
-              "matchPattern": "utm_source",
-              "_linkumoriActivationIds": [
-                "provider-activation-exception::field-utm-source"
-              ]
-            }
-          ],
-          "exceptions": [
-            {
-              "matchPattern": "^https?:\\/\\/example\\.com\\/provider-activation-exception/keep",
-              "_linkumoriActivationIds": [
-                "provider-activation-exception::exception-keep"
-              ]
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider activation object redirection",
-      "dialect": "provider",
-      "input": "https://example.com/provider-activation-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
-      "expectedOutput": "https://www.iana.org/",
-      "providers": {
-        "provider-activation-redirection": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-activation-redirection(?:[/?#]|$)",
-          "redirections": [
-            {
-              "matchPattern": "^https?:\\/\\/example\\.com\\/provider-activation-redirection/redirect\\?url=(https%3A%2F%2Fwww\\.iana\\.org%2F)$",
-              "_linkumoriActivationIds": [
-                "provider-activation-redirection::redirect-target"
-              ]
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "redirectionEnabled": true
-      }
-    },
-    {
-      "id": "provider domainPatterns",
-      "dialect": "provider",
-      "input": "https://example.com/provider-domain/?utm_source=x",
-      "expectedOutput": "https://example.com/provider-domain/",
-      "providers": {
-        "provider-domain": {
-          "domainPatterns": [
-            "||example.com/provider-domain^"
-          ],
-          "rules": [
-            "utm_source"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider domainExceptions",
+      "id": "provider domainExceptions (older format)",
       "dialect": "provider",
       "input": "https://example.com/provider-domain-exception/keep/?utm_source=x",
       "expectedOutput": "https://example.com/provider-domain-exception/keep/?utm_source=x",
@@ -640,7 +2537,7 @@
       }
     },
     {
-      "id": "provider domainRedirections",
+      "id": "provider domainRedirections (older format)",
       "dialect": "provider",
       "input": "https://example.com/provider-domain-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
       "expectedOutput": "https://www.iana.org/",
@@ -660,1791 +2557,226 @@
       }
     },
     {
-      "id": "provider completeProvider",
+      "id": "unified syntax: template redirect",
       "dialect": "provider",
-      "input": "https://example.com/provider-complete/?a=1&b=2",
+      "input": "https://t.example.com/item?id=42&x=1",
+      "expectedOutput": "https://example.com/item/42",
       "providers": {
-        "provider-complete": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-complete(?:[/?#]|$)",
-          "completeProvider": true
+        "p": {
+          "match": [
+            "||t.example.com^"
+          ],
+          "rules": [
+            "/[?&]id=(\\d+)/$redirect=https://example.com/item/$1"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: fixed redirect",
+      "dialect": "provider",
+      "input": "https://go.example.com/anything",
+      "expectedOutput": "https://example.com/",
+      "providers": {
+        "p": {
+          "match": [
+            "||go.example.com^"
+          ],
+          "rules": [
+            "||go.example.com^$redirect=https://example.com/"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: capture redirect",
+      "dialect": "provider",
+      "input": "https://out.example.com/?u=https%3A%2F%2Fiana.org%2F",
+      "expectedOutput": "https://iana.org/",
+      "providers": {
+        "p": {
+          "match": [
+            "||out.example.com^"
+          ],
+          "rules": [
+            "/[?&]u=([^&]+)/i$redirect"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: strip",
+      "dialect": "provider",
+      "input": "https://s.example.com/a;jsessionid=XYZ/b?k=1",
+      "expectedOutput": "https://s.example.com/a/b?k=1",
+      "providers": {
+        "p": {
+          "match": [
+            "||s.example.com^"
+          ],
+          "rules": [
+            "/;jsessionid=[^\\/?#]*/i$strip"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: removeparam replace",
+      "dialect": "provider",
+      "input": "https://r.example.com/?token=abc&keep=1",
+      "expectedOutput": "https://r.example.com/?keep=1&token=v-abc",
+      "providers": {
+        "p": {
+          "match": [
+            "||r.example.com^"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "replace": "v-$1"
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: inactive object",
+      "dialect": "provider",
+      "input": "https://i.example.com/?token=abc",
+      "expectedOutput": "https://i.example.com/?token=abc",
+      "providers": {
+        "p": {
+          "match": [
+            "||i.example.com^"
+          ],
+          "rules": [
+            {
+              "filter": "$removeparam=token",
+              "active": false
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: allow exception path",
+      "dialect": "provider",
+      "input": "https://e.example.com/login?utm_source=1",
+      "expectedOutput": "https://e.example.com/login?utm_source=1",
+      "providers": {
+        "p": {
+          "match": [
+            "||e.example.com^"
+          ],
+          "rules": [
+            "$removeparam=utm_source",
+            "@@||e.example.com^/login"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: allow exception elsewhere",
+      "dialect": "provider",
+      "input": "https://e.example.com/home?utm_source=1",
+      "expectedOutput": "https://e.example.com/home",
+      "providers": {
+        "p": {
+          "match": [
+            "||e.example.com^"
+          ],
+          "rules": [
+            "$removeparam=utm_source",
+            "@@||e.example.com^/login"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: regex allow",
+      "dialect": "provider",
+      "input": "https://e.example.com/api/v1?utm_source=1",
+      "expectedOutput": "https://e.example.com/api/v1?utm_source=1",
+      "providers": {
+        "p": {
+          "match": [
+            "||e.example.com^"
+          ],
+          "rules": [
+            "$removeparam=utm_source",
+            "@@/^https:\\/\\/e\\.example\\.com\\/api\\//"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: referral removeparam",
+      "dialect": "provider",
+      "input": "https://f.example.com/?tag=a&keep=1",
+      "expectedOutput": "https://f.example.com/?keep=1",
+      "providers": {
+        "p": {
+          "match": [
+            "||f.example.com^"
+          ],
+          "rules": [
+            "$removeparam=tag,referral"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "unified syntax: block",
+      "dialect": "providerWebRequest",
+      "input": "https://ads.example.com/x",
+      "expectedBlocked": true,
+      "request": {
+        "type": "main_frame",
+        "method": "GET"
+      },
+      "providers": {
+        "p": {
+          "match": [
+            "||ads.example.com^"
+          ],
+          "rules": [
+            "$block"
+          ]
         }
       },
       "preferences": {
         "globalStatus": true,
         "domainBlocking": true
-      },
-      "expectedBlocked": true
-    },
-    {
-      "id": "provider removeparam literal",
-      "dialect": "provider",
-      "input": "https://example.com/provider-removeparam/?literal=x&keep=1",
-      "expectedOutput": "https://example.com/provider-removeparam/?keep=1",
-      "providers": {
-        "provider-removeparam": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-removeparam(?:[/?#]|$)",
-          "rules": [
-            "||example.com/provider-removeparam^$removeparam=literal",
-            "||example.com/provider-removeparam^$removeparam=/^regex_/",
-            "@@||example.com/provider-removeparam/exception^$removeparam=literal"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider removeparam regex",
-      "dialect": "provider",
-      "input": "https://example.com/provider-removeparam/?regex_one=x&keep=1",
-      "expectedOutput": "https://example.com/provider-removeparam/?keep=1",
-      "providers": {
-        "provider-removeparam": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-removeparam(?:[/?#]|$)",
-          "rules": [
-            "||example.com/provider-removeparam^$removeparam=literal",
-            "||example.com/provider-removeparam^$removeparam=/^regex_/",
-            "@@||example.com/provider-removeparam/exception^$removeparam=literal"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider removeparam negated",
-      "dialect": "provider",
-      "input": "https://example.com/provider-removeparam-negated/?campaign=x&keep=1",
-      "expectedOutput": "https://example.com/provider-removeparam-negated/?keep=1",
-      "providers": {
-        "provider-removeparam-negated": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-removeparam-negated(?:[/?#]|$)",
-          "rules": [
-            "||example.com/provider-removeparam-negated^$removeparam=~keep"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider removeparam exception",
-      "dialect": "provider",
-      "input": "https://example.com/provider-removeparam/exception/?literal=x",
-      "expectedOutput": "https://example.com/provider-removeparam/exception/?literal=x",
-      "providers": {
-        "provider-removeparam": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-removeparam(?:[/?#]|$)",
-          "rules": [
-            "||example.com/provider-removeparam^$removeparam=literal",
-            "||example.com/provider-removeparam^$removeparam=/^regex_/",
-            "@@||example.com/provider-removeparam/exception^$removeparam=literal"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider inline removeparam remove all",
-      "dialect": "provider",
-      "input": "https://example.com/provider-inline-all/?a=1&b=2",
-      "expectedOutput": "https://example.com/provider-inline-all/",
-      "providers": {
-        "provider-inline-all": {
-          "domainPatterns": [
-            "||example.com^"
-          ],
-          "rules": [
-            "||example.com/provider-inline-all^$removeparam"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider inline removeparam domain",
-      "dialect": "provider",
-      "input": "https://example.com/provider-inline-domain/?campaign=x",
-      "expectedOutput": "https://example.com/provider-inline-domain/",
-      "providers": {
-        "provider-inline-domain": {
-          "domainPatterns": [
-            "||example.com^"
-          ],
-          "rules": [
-            "||example.com/provider-inline-domain^$removeparam=campaign,domain=example.com"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider inline removeparam method",
-      "dialect": "provider",
-      "input": "https://example.com/provider-inline-method/?campaign=x",
-      "expectedOutput": "https://example.com/provider-inline-method/",
-      "request": {
-        "method": "POST"
-      },
-      "providers": {
-        "provider-inline-method": {
-          "domainPatterns": [
-            "||example.com^"
-          ],
-          "rules": [
-            "||example.com/provider-inline-method^$removeparam=campaign,method=POST"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider indexPattern with urlPattern",
-      "dialect": "provider",
-      "input": "https://example.com/provider-index/?campaign=x",
-      "expectedOutput": "https://example.com/provider-index/",
-      "providers": {
-        "provider-index": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-index(?:[/?#]|$)",
-          "indexPattern": "||example.com^",
-          "rules": [
-            "campaign"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider forceRedirection",
-      "dialect": "provider",
-      "input": "https://example.com/provider-force-redirect/?url=https%3A%2F%2Fwww.iana.org%2F",
-      "expectedOutput": "https://www.iana.org/",
-      "providers": {
-        "provider-force-redirect": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-force-redirect(?:[/?#]|$)",
-          "forceRedirection": true,
-          "rules": [
-            {
-              "id": "force-redirect-target",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/provider-force-redirect\\/?\\?url=([^&]+)",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "redirectionEnabled": true
-      }
-    },
-    {
-      "id": "provider methods include",
-      "dialect": "provider",
-      "input": "https://example.com/provider-post/?campaign=x",
-      "expectedOutput": "https://example.com/provider-post/",
-      "request": {
-        "method": "POST"
-      },
-      "providers": {
-        "provider-post": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-post(?:[/?#]|$)",
-          "rules": [
-            "campaign"
-          ],
-          "methods": [
-            "POST"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider methods exclude by mismatch",
-      "dialect": "provider",
-      "input": "https://example.com/provider-post/?campaign=x",
-      "expectedOutput": "https://example.com/provider-post/?campaign=x",
-      "request": {
-        "method": "GET"
-      },
-      "providers": {
-        "provider-post": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-post(?:[/?#]|$)",
-          "rules": [
-            "campaign"
-          ],
-          "methods": [
-            "POST"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider resourceTypes include",
-      "dialect": "provider",
-      "input": "https://example.com/provider-type/?campaign=x",
-      "expectedOutput": "https://example.com/provider-type/",
-      "request": {
-        "type": "xmlhttprequest"
-      },
-      "providers": {
-        "provider-type": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-type(?:[/?#]|$)",
-          "rules": [
-            "campaign"
-          ],
-          "resourceTypes": [
-            "xmlhttprequest"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider resourceTypes exclude by mismatch",
-      "dialect": "provider",
-      "input": "https://example.com/provider-type/?campaign=x",
-      "expectedOutput": "https://example.com/provider-type/?campaign=x",
-      "request": {
-        "type": "main_frame"
-      },
-      "providers": {
-        "provider-type": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-type(?:[/?#]|$)",
-          "rules": [
-            "campaign"
-          ],
-          "resourceTypes": [
-            "xmlhttprequest"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider domain wildcard",
-      "dialect": "provider",
-      "input": "https://developer.mozilla.org/?utm_source=x",
-      "expectedOutput": "https://developer.mozilla.org/",
-      "providers": {
-        "provider-domain-wild": {
-          "domainPatterns": [
-            "||*.mozilla.org^"
-          ],
-          "rules": [
-            "utm_source"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider domain regex literal",
-      "dialect": "provider",
-      "input": "https://developer.mozilla.org/?campaign=x",
-      "expectedOutput": "https://developer.mozilla.org/",
-      "providers": {
-        "provider-domain-regex": {
-          "domainPatterns": [
-            "/^https?:\\/\\/developer\\.mozilla\\.org\\//"
-          ],
-          "rules": [
-            "campaign"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider lowercase method normalized",
-      "dialect": "provider",
-      "input": "https://example.com/provider-lower-method/?campaign=x",
-      "expectedOutput": "https://example.com/provider-lower-method/",
-      "request": {
-        "method": "POST"
-      },
-      "providers": {
-        "provider-lower-method": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-lower-method(?:[/?#]|$)",
-          "rules": [
-            "campaign"
-          ],
-          "methods": [
-            "post"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider mixed-case resource type normalized",
-      "dialect": "provider",
-      "input": "https://example.com/provider-mixed-type/?campaign=x",
-      "expectedOutput": "https://example.com/provider-mixed-type/",
-      "request": {
-        "type": "xmlhttprequest"
-      },
-      "providers": {
-        "provider-mixed-type": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-mixed-type(?:[/?#]|$)",
-          "rules": [
-            "campaign"
-          ],
-          "resourceTypes": [
-            "XMLHttpRequest"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider string domain pattern normalized",
-      "dialect": "provider",
-      "input": "https://example.com/provider-string-domain/?campaign=x",
-      "expectedOutput": "https://example.com/provider-string-domain/",
-      "providers": {
-        "provider-string-domain": {
-          "domainPatterns": "||example.com/provider-string-domain^",
-          "rules": [
-            "campaign"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider mixed domain pattern fallback",
-      "dialect": "provider",
-      "input": "https://example.com/provider-mixed-domain/?campaign=x",
-      "expectedOutput": "https://example.com/provider-mixed-domain/",
-      "providers": {
-        "provider-mixed-domain": {
-          "domainPatterns": [
-            "||example.com/provider-mixed-domain^",
-            42,
-            null
-          ],
-          "rules": [
-            "campaign"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider object rule rewrite",
-      "dialect": "provider",
-      "input": "https://example.com/object-rule/?token=abc&keep=1",
-      "expectedOutput": "https://example.com/object-rule/?keep=1&token=clean-abc",
-      "providers": {
-        "provider-object-rule": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/object-rule(?:[/?#]|$)",
-          "rules": [
-            {
-              "matchPattern": "token",
-              "replacePattern": "clean-§1§",
-              "preprocessors": []
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider object raw rewrite",
-      "dialect": "provider",
-      "input": "https://example.com/object-raw/?wrapped=abc&keep=1",
-      "expectedOutput": "https://example.com/object-raw/?clean=abc&keep=1",
-      "providers": {
-        "provider-object-raw": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/object-raw(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "rewrite-wrapped",
-              "kind": "raw",
-              "match": "wrapped=([^&#]+)",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "clean=§1§"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider object redirection",
-      "dialect": "provider",
-      "input": "https://example.com/object-redirect/?url=https%253A%252F%252Fwww.iana.org%252F",
-      "expectedOutput": "https://www.iana.org/",
-      "providers": {
-        "provider-object-redirect": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/object-redirect(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "redirect-object",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/object-redirect\\/\\?url=(.+)$",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              },
-              "preprocessors": [
-                {
-                  "type": "doubleUrlDecode",
-                  "inputs": [
-                    1
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "redirectionEnabled": true
-      }
-    },
-    {
-      "id": "provider canonical v2 field rewrite",
-      "dialect": "provider",
-      "input": "https://example.com/v2-field/?token=abc&keep=1",
-      "expectedOutput": "https://example.com/v2-field/?keep=1&token=v2-abc",
-      "defaults": {
-        "active": true,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
-      "providers": {
-        "provider-v2-field": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-field(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "rewrite-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "v2-§1§"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider canonical v2 raw remove",
-      "dialect": "provider",
-      "input": "https://example.com/v2-raw/?raw=x&keep=1",
-      "expectedOutput": "https://example.com/v2-raw/?keep=1",
-      "defaults": {
-        "active": true,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
-      "providers": {
-        "provider-v2-raw": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-raw(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-raw",
-              "kind": "raw",
-              "match": "[?&]raw=[^&#]*",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider canonical v2 redirect",
-      "dialect": "provider",
-      "input": "https://example.com/v2-redirect/?url=https%253A%252F%252Fwww.iana.org%252F",
-      "expectedOutput": "https://www.iana.org/",
-      "defaults": {
-        "active": true,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
-      "providers": {
-        "provider-v2-redirect": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-redirect(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "redirect-out",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/v2-redirect\\/\\?url=(.+)$",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              },
-              "preprocessors": [
-                {
-                  "type": "doubleUrlDecode",
-                  "inputs": [
-                    1
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "redirectionEnabled": true
-      }
-    },
-    {
-      "id": "provider canonical v2 defaults request type",
-      "dialect": "provider",
-      "input": "https://example.com/v2-defaults/?token=abc",
-      "expectedOutput": "https://example.com/v2-defaults/?token=abc",
-      "defaults": {
-        "active": true,
-        "requestTypes": [
-          "xmlhttprequest"
-        ],
-        "preprocessors": [],
-        "exceptions": []
-      },
-      "providers": {
-        "provider-v2-defaults": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-defaults(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "default-gated",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      },
-      "request": {
-        "type": "main_frame"
-      }
-    },
-    {
-      "id": "provider canonical v2 defaults inactive string",
-      "dialect": "provider",
-      "input": "https://example.com/v2-default-inactive/?token=abc",
-      "expectedOutput": "https://example.com/v2-default-inactive/?token=abc",
-      "defaults": {
-        "active": false,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
-      "providers": {
-        "provider-v2-default-inactive": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-default-inactive(?:[/?#]|$)",
-          "rules": [
-            "token"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider canonical rule id disabled",
-      "dialect": "provider",
-      "input": "https://example.com/rule-id-disabled/?token=abc",
-      "expectedOutput": "https://example.com/rule-id-disabled/?token=abc",
-      "activationState": {
-        "disabledRuleIds": [
-          "provider-rule-id-disabled::disable-token"
-        ]
-      },
-      "providers": {
-        "provider-rule-id-disabled": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/rule-id-disabled(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "disable-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider generated global rule id disabled",
-      "dialect": "provider",
-      "input": "https://example.com/global-rule-id-disabled/?fbclid=abc&keep=1",
-      "expectedOutput": "https://example.com/global-rule-id-disabled/?fbclid=abc&keep=1",
-      "activationState": {
-        "disabledRuleIds": [
-          "globalRules::field-3f-fbclid"
-        ]
-      },
-      "providers": {
-        "globalRules": {
-          "urlPattern": ".*",
-          "rules": [
-            "(?:%3F)?fbclid"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider activation id disabled after merge",
-      "dialect": "provider",
-      "input": "https://example.com/activation-rule-id-disabled/?activation_token=abc&keep=1",
-      "expectedOutput": "https://example.com/activation-rule-id-disabled/?activation_token=abc&keep=1",
-      "activationState": {
-        "disabledRuleIds": [
-          "provider-activation-rule-id-disabled::remove-activation-token"
-        ]
-      },
-      "providers": {
-        "merged-activation-rule-id-disabled": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/activation-rule-id-disabled(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-activation-token",
-              "kind": "field",
-              "match": "activation_token",
-              "_linkumoriActivationIds": [
-                "provider-activation-rule-id-disabled::remove-activation-token"
-              ],
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider canonical v2 indexPattern",
-      "dialect": "provider",
-      "input": "https://example.com/v2-index/?token=abc",
-      "expectedOutput": "https://example.com/v2-index/",
-      "defaults": {
-        "active": true,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
-      "providers": {
-        "provider-v2-index": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-index(?:[/?#]|$)",
-          "indexPattern": "||example.com^",
-          "rules": [
-            {
-              "id": "remove-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "canonical per-rule exceptions match (no clean)",
-      "dialect": "provider",
-      "input": "https://example.com/per-rule-ex/keep/?utm_source=x",
-      "expectedOutput": "https://example.com/per-rule-ex/keep/?utm_source=x",
-      "providers": {
-        "provider-per-rule-ex": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-ex(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-utm",
-              "kind": "field",
-              "match": "utm_source",
-              "exceptions": [
-                "^https?:\\/\\/example\\.com\\/per-rule-ex\\/keep"
-              ],
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "canonical per-rule exceptions no match (clean fires)",
-      "dialect": "provider",
-      "input": "https://example.com/per-rule-ex/other/?utm_source=x",
-      "expectedOutput": "https://example.com/per-rule-ex/other/",
-      "providers": {
-        "provider-per-rule-ex": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-ex(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-utm",
-              "kind": "field",
-              "match": "utm_source",
-              "exceptions": [
-                "^https?:\\/\\/example\\.com\\/per-rule-ex\\/keep"
-              ],
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "canonical per-rule requestTypes filtered (no clean)",
-      "dialect": "provider",
-      "input": "https://example.com/per-rule-type/?token=abc",
-      "expectedOutput": "https://example.com/per-rule-type/?token=abc",
-      "providers": {
-        "provider-per-rule-type": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-type(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-gated",
-              "kind": "field",
-              "match": "token",
-              "requestTypes": [
-                "xmlhttprequest"
-              ],
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      },
-      "request": {
-        "type": "main_frame"
-      }
-    },
-    {
-      "id": "canonical per-rule requestTypes matched (clean fires)",
-      "dialect": "provider",
-      "input": "https://example.com/per-rule-type/?token=abc",
-      "expectedOutput": "https://example.com/per-rule-type/",
-      "providers": {
-        "provider-per-rule-type": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-type(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "remove-gated",
-              "kind": "field",
-              "match": "token",
-              "requestTypes": [
-                "xmlhttprequest"
-              ],
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      },
-      "request": {
-        "type": "xmlhttprequest"
-      }
-    },
-    {
-      "id": "canonical rule active false explicit (no clean)",
-      "dialect": "provider",
-      "input": "https://example.com/rule-active-false/?token=abc",
-      "expectedOutput": "https://example.com/rule-active-false/?token=abc",
-      "providers": {
-        "provider-rule-active-false": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/rule-active-false(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "disabled-rule",
-              "kind": "field",
-              "match": "token",
-              "active": false,
-              "action": {
-                "type": "remove"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "canonical provider exception requestTypes filtered (clean fires)",
-      "dialect": "provider",
-      "input": "https://example.com/provider-exception-type/?token=abc",
-      "expectedOutput": "https://example.com/provider-exception-type/",
-      "providers": {
-        "provider-exception-type": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-exception-type(?:[/?#]|$)",
-          "exceptions": [
-            {
-              "id": "xhr-only-exception",
-              "match": "^https?:\\/\\/example\\.com\\/provider-exception-type",
-              "requestTypes": [
-                "xmlhttprequest"
-              ],
-              "action": {
-                "type": "remove"
-              }
-            }
-          ],
-          "rules": [
-            "token"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      },
-      "request": {
-        "type": "main_frame"
-      }
-    },
-    {
-      "id": "canonical provider exception requestTypes matched (no clean)",
-      "dialect": "provider",
-      "input": "https://example.com/provider-exception-type/?token=abc",
-      "expectedOutput": "https://example.com/provider-exception-type/?token=abc",
-      "providers": {
-        "provider-exception-type": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-exception-type(?:[/?#]|$)",
-          "exceptions": [
-            {
-              "id": "xhr-only-exception",
-              "match": "^https?:\\/\\/example\\.com\\/provider-exception-type",
-              "requestTypes": [
-                "xmlhttprequest"
-              ],
-              "action": {
-                "type": "remove"
-              }
-            }
-          ],
-          "rules": [
-            "token"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      },
-      "request": {
-        "type": "xmlhttprequest"
-      }
-    },
-    {
-      "id": "canonical redirection requestTypes filtered (no redirect)",
-      "dialect": "provider",
-      "input": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
-      "expectedOutput": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
-      "providers": {
-        "provider-redirect-type": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/redirect-type(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "extract-target",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)",
-              "requestTypes": [
-                "xmlhttprequest"
-              ],
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "redirectionEnabled": true
-      },
-      "request": {
-        "type": "main_frame"
-      }
-    },
-    {
-      "id": "canonical redirection requestTypes matched (redirect)",
-      "dialect": "provider",
-      "input": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
-      "expectedOutput": "https://target.example/",
-      "providers": {
-        "provider-redirect-type": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/redirect-type(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "extract-target",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)",
-              "requestTypes": [
-                "xmlhttprequest"
-              ],
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true,
-        "redirectionEnabled": true
-      },
-      "request": {
-        "type": "xmlhttprequest"
-      }
-    },
-    {
-      "id": "appliedFieldRewrites per-call isolation first",
-      "dialect": "provider",
-      "input": "https://example.com/rewrite-isolation/?token=abc&keep=1",
-      "expectedOutput": "https://example.com/rewrite-isolation/?keep=1&token=v2-abc",
-      "providers": {
-        "provider-rewrite-isolation": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/rewrite-isolation(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "rewrite-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "v2-§1§"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "appliedFieldRewrites per-call isolation second",
-      "dialect": "provider",
-      "input": "https://example.com/rewrite-isolation/?token=xyz&keep=1",
-      "expectedOutput": "https://example.com/rewrite-isolation/?keep=1&token=v2-xyz",
-      "providers": {
-        "provider-rewrite-isolation": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/rewrite-isolation(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "rewrite-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "v2-§1§"
-              }
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest main_frame ignores context whitelist",
-      "dialect": "providerWebRequest",
-      "input": "https://target.example/path/?campaign=x&keep=1",
-      "expectedOutput": "https://target.example/path/?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://source.example/",
-        "referrer": "https://source.example/"
-      },
-      "storage": {
-        "userWhitelist": [
-          "source.example"
-        ]
-      },
-      "providers": {
-        "target-provider": {
-          "urlPattern": "^https?:\\/\\/target\\.example\\/path(?:[/?#]|$)",
-          "rules": [
-            "campaign"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest subrequest honors context whitelist",
-      "dialect": "providerWebRequest",
-      "input": "https://target.example/path/?campaign=x&keep=1",
-      "expectedOutput": "https://target.example/path/?campaign=x&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "xmlhttprequest",
-        "documentUrl": "https://source.example/"
-      },
-      "storage": {
-        "userWhitelist": [
-          "source.example"
-        ]
-      },
-      "providers": {
-        "target-provider": {
-          "urlPattern": "^https?:\\/\\/target\\.example\\/path(?:[/?#]|$)",
-          "rules": [
-            "campaign"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest context exception scoped to own target",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "xmlhttprequest",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei",
-            "@@||gemini.google.com$removeparam=ei"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest context exception applies to matching context",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "xmlhttprequest",
-        "documentUrl": "https://gemini.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei",
-            "@@||gemini.google.com$removeparam=ei"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest context exception respects method include",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "xmlhttprequest",
-        "documentUrl": "https://gemini.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei",
-            "@@||gemini.google.com$removeparam=ei,method=POST"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam exception respects xhr include",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "xmlhttprequest",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei",
-            "@@||google.*^$removeparam=ei,xmlhttprequest"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam xhr exception ignored for main frame",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei",
-            "@@||google.*^$removeparam=ei,xmlhttprequest"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam match-case keeps case-sensitive miss",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?campaign=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?campaign=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=Campaign,match-case"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam badfilter disables matching rule",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei",
-            "$removeparam=ei,badfilter"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam to modifier filters target domain",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei,to=example.com"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam third-party modifier matches cross-site request",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "xmlhttprequest",
-        "documentUrl": "https://example.org/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei,third-party"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest queryprune alias removes parameter",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$queryprune=ei"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam denyallow blocks denied target",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei,denyallow=google.com"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam first-party modifier matches same-site request",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "xmlhttprequest",
-        "documentUrl": "https://mail.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei,first-party"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam regex url pattern may contain dollar",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/price$path?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/price$path?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "/^https?:\\/\\/www\\.google\\.com\\/price\\$path/$removeparam=ei"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam domain regex keeps pipe inside regex",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei,domain=/^(?:www|mail)\\.google\\.com$/"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam negated regex domain via tilde regex",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei,domain=~/^www\\.google\\.com$/"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam prefix parameter syntax",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?utm_source=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=|utm_"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam regex can inspect name value pair",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?token=secret&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=/^token=secret$/"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam invalid denyallow regex ignored",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei,denyallow=/google/"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam invalid method ignored",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "TRACE",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "$removeparam=ei,method=TRACE"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest removeparam badfilter canonicalizes modifier order",
-      "dialect": "providerWebRequest",
-      "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame",
-        "documentUrl": "https://www.google.com/"
-      },
-      "providers": {
-        "google-provider": {
-          "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google\\.com",
-          "indexPattern": "||google.com^",
-          "rules": [
-            "||google.com^$removeparam=ei,domain=google.com",
-            "||google.com^$domain=google.com,removeparam=ei,badfilter"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest domainPatterns indexes without indexPattern",
-      "dialect": "providerWebRequest",
-      "input": "https://shop.example.co.uk/path/?tracking=x&keep=1",
-      "expectedOutput": "https://shop.example.co.uk/path/?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame"
-      },
-      "providers": {
-        "noise-provider-one": {
-          "domainPatterns": [
-            "||noise-one.example^"
-          ],
-          "rules": [
-            "$removeparam=noise"
-          ]
-        },
-        "noise-provider-two": {
-          "domainPatterns": [
-            "||noise-two.example^"
-          ],
-          "rules": [
-            "$removeparam=noise"
-          ]
-        },
-        "target-provider": {
-          "domainPatterns": [
-            "||example.co.uk/path^"
-          ],
-          "rules": [
-            "$removeparam=tracking"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "webrequest domainPatterns wins over stale urlPattern",
-      "dialect": "providerWebRequest",
-      "input": "https://domain-wins.example/path/?tracking=x&keep=1",
-      "expectedOutput": "https://domain-wins.example/path/?keep=1",
-      "request": {
-        "method": "GET",
-        "type": "main_frame"
-      },
-      "providers": {
-        "target-provider": {
-          "urlPattern": "^https?:\\/\\/stale-url-pattern\\.example(?:[/?#]|$)",
-          "indexPattern": "||stale-url-pattern.example^",
-          "domainPatterns": [
-            "||domain-wins.example/path^"
-          ],
-          "rules": [
-            "$removeparam=tracking"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider google removeparam after global pattern-only provider",
-      "dialect": "provider",
-      "input": "https://www.google.com/search?q=holi%202026%20april&sca_esv=6b9ebf8ee3cf918e&sxsrf=ANbL-n4O28u-f00xmwZwzqTI-Yyi3DlJlQ%3A1779894186529&ei=qgcXasupHcuW4-EPjbXiwQE&biw=1226&bih=744&oq=holi%202026&gs_lp=abc&sclient=gws-wiz-serp",
-      "expectedOutput": "https://www.google.com/search?q=holi%202026%20april&sclient=gws-wiz-serp",
-      "providers": {
-        "*": {
-          "domainPatterns": [
-            "*"
-          ],
-          "rules": []
-        },
-        "google": {
-          "domainPatterns": [
-            "||google.*^"
-          ],
-          "rules": [
-            {
-              "matchPattern": "$removeparam=/^bi[a-z]*$/i"
-            },
-            {
-              "matchPattern": "$removeparam=ei"
-            },
-            {
-              "matchPattern": "$removeparam=/^gs_[a-z]*$/i"
-            },
-            {
-              "matchPattern": "$removeparam=oq"
-            },
-            {
-              "matchPattern": "$removeparam=sxsrf"
-            },
-            {
-              "matchPattern": "$removeparam=/^sca_(?:esv|upv)$/i"
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider removeparam activation object disabled",
-      "dialect": "provider",
-      "input": "https://www.google.com/search?q=hi&sca_esv=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?q=hi&sca_esv=abc&keep=1",
-      "activationState": {
-        "disabledRuleIds": [
-          "google::field-removeparam-sca-esv"
-        ]
-      },
-      "providers": {
-        "google": {
-          "domainPatterns": [
-            "||google.*^"
-          ],
-          "rules": [
-            {
-              "matchPattern": "$removeparam=sca_esv",
-              "_linkumoriActivationIds": [
-                "google::field-removeparam-sca-esv"
-              ]
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider referralMarketing removeparam",
-      "dialect": "provider",
-      "input": "https://example.com/provider-referral/?tag=x&keep=1",
-      "expectedOutput": "https://example.com/provider-referral/?keep=1",
-      "providers": {
-        "provider-referral-removeparam": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-referral(?:[/?#]|$)",
-          "referralMarketing": [
-            "||example.com/provider-referral^$removeparam=tag",
-            "@@||example.com/provider-referral/exception^$removeparam=tag"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider referralMarketing removeparam exception",
-      "dialect": "provider",
-      "input": "https://example.com/provider-referral/exception/?tag=x&keep=1",
-      "expectedOutput": "https://example.com/provider-referral/exception/?tag=x&keep=1",
-      "providers": {
-        "provider-referral-removeparam": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-referral(?:[/?#]|$)",
-          "referralMarketing": [
-            "||example.com/provider-referral^$removeparam=tag",
-            "@@||example.com/provider-referral/exception^$removeparam=tag"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
       }
     }
   ]
