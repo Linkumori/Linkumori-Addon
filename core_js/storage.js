@@ -370,7 +370,7 @@ function slugifyStorageRuleIdPart(value) {
 function createStorageGeneratedRuleId(section, matchPattern, occupiedIds = new Set()) {
     const prefix = section === 'rawRules'
         ? 'raw'
-        : (section === 'redirections' ? 'redirect' : (section === 'referralMarketing' ? 'referral' : (section === 'exceptions' ? 'exception' : 'field')));
+        : (section === 'redirections' ? 'redirect' : (section === 'fieldRedirections' ? 'field-redirect' : (section === 'referralMarketing' ? 'referral' : (section === 'exceptions' ? 'exception' : 'field'))));
     const slug = slugifyStorageRuleIdPart(matchPattern).slice(0, 32) || createStorageStableRuleHash(matchPattern);
     const candidate = `${prefix}-${slug}`;
     let uniqueId = candidate;
@@ -494,7 +494,7 @@ function attachProviderActivationIds(providerName, providerData) {
         : {};
     const occupiedIds = new Set();
     const activationScopeIds = getProviderActivationScopeIds(providerName, data);
-    ['exceptions', 'rules', 'referralMarketing', 'rawRules', 'redirections'].forEach(section => {
+    ['exceptions', 'rules', 'referralMarketing', 'rawRules', 'redirections', 'fieldRedirections'].forEach(section => {
         if (Array.isArray(data[section])) {
             data[section] = attachRuleActivationIdsToArray(section, data[section], activationScopeIds, occupiedIds);
         }
@@ -729,6 +729,7 @@ function mergeRemoteProviderGroup(providerGroup) {
         referralMarketing: [],
         exceptions: [],
         redirections: [],
+        fieldRedirections: [],
         domainPatterns: [],
         methods: [],
         resourceTypes: [],
@@ -766,6 +767,9 @@ function mergeRemoteProviderGroup(providerGroup) {
         if (Array.isArray(data.redirections)) {
             merged.redirections = mergeRuleLikeArrays(merged.redirections, data.redirections);
         }
+        if (Array.isArray(data.fieldRedirections)) {
+            merged.fieldRedirections = mergeRuleLikeArrays(merged.fieldRedirections, data.fieldRedirections);
+        }
         // Handle domainPatterns: could be array or string
         if (data.domainPatterns) {
             let patterns = [];
@@ -802,6 +806,7 @@ function mergeRemoteProviderGroup(providerGroup) {
     if (merged.referralMarketing.length === 0) delete merged.referralMarketing;
     if (merged.exceptions.length === 0) delete merged.exceptions;
     if (merged.redirections.length === 0) delete merged.redirections;
+    if (merged.fieldRedirections.length === 0) delete merged.fieldRedirections;
     if (merged.domainPatterns.length === 0) delete merged.domainPatterns;
     if (merged.methods.length === 0) delete merged.methods;
     if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
@@ -1167,6 +1172,11 @@ function minifyCustomRules(data) {
         
         if (data.providers[provider].redirections && data.providers[provider].redirections.length !== 0) {
             self.redirections = data.providers[provider].redirections;
+            hasContent = true;
+        }
+
+        if (data.providers[provider].fieldRedirections && data.providers[provider].fieldRedirections.length !== 0) {
+            self.fieldRedirections = data.providers[provider].fieldRedirections;
             hasContent = true;
         }
         

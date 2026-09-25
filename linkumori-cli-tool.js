@@ -1825,6 +1825,58 @@ ${commit.message}
     return true;
   }
 
+  // Prints the rule with this id (or alias) wrapped in the list it is in:
+  // { "rawRules": [ { … } ] }. A rule object does not record its list, so
+  // the wrapper is worked out here from where the rule actually is.
+  showRule(ruleRef, rulesFile = null) {
+    if (!ruleRef) {
+      this.error('Missing rule id. Example: node linkumori-cli-tool.js show-rule ref-strip');
+      return false;
+    }
+    const file = rulesFile || this.clearurlsConfig.sourceRulesFile || this.clearurlsConfig.combinedRulesFile;
+    if (!fs.existsSync(file)) {
+      this.error(`❌ Rules file not found: ${file}`);
+      return false;
+    }
+    let data;
+    try {
+      data = LinkumoriRuleFormats.normalizeRuleDocument(this.readMaybeLZ4Text(file)).data;
+    } catch (err) {
+      this.error(`❌ ${err.message}`);
+      return false;
+    }
+    const separator = ruleRef.lastIndexOf('::');
+    const providerFilter = separator === -1 ? null : ruleRef.slice(0, separator);
+    const ruleId = separator === -1 ? ruleRef : ruleRef.slice(separator + 2);
+    const lists = ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections', 'fieldRedirections'];
+    const matches = [];
+    for (const [providerName, provider] of Object.entries(data.providers || {})) {
+      if (providerFilter !== null && providerName !== providerFilter) continue;
+      for (const list of lists) {
+        for (const entry of (Array.isArray(provider && provider[list]) ? provider[list] : [])) {
+          if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue;
+          const aliases = Array.isArray(entry.aliases) ? entry.aliases : [];
+          if (entry.id === ruleId || aliases.includes(ruleId)) matches.push({ providerName, list, entry });
+        }
+      }
+    }
+    if (matches.length === 0) {
+      this.error(`❌ No rule with id or alias "${ruleId}"${providerFilter !== null ? ` in provider "${providerFilter}"` : ''} in ${file}`);
+      return false;
+    }
+    if (matches.length > 1) {
+      this.error(`❌ "${ruleId}" is used in more than one provider; pick one:`);
+      for (const match of matches) this.log(`  ${match.providerName}::${ruleId}   (${match.list})`, 'white');
+      return false;
+    }
+    const { providerName, list, entry } = matches[0];
+    const clean = { ...entry };
+    delete clean._linkumoriActivationIds;
+    this.info(`📌 ${providerName} → ${list}`);
+    console.log(JSON.stringify({ [list]: [clean] }, null, 2));
+    return true;
+  }
+
   async lintClearURLsRules(rulesFile = null) {
     this.section('🔍 ClearURLs Rules Linter');
 
@@ -1952,13 +2004,20 @@ ${commit.message}
 
     const PROVIDER_FIELDS = new Set([
       'domainPatterns', 'urlPattern', 'indexPattern', 'rules', 'referralMarketing', 'rawRules',
-      'exceptions', 'redirections', 'completeProvider', 'forceRedirection', 'methods',
+      'exceptions', 'redirections', 'fieldRedirections', 'completeProvider', 'forceRedirection', 'methods',
       'resourceTypes', 'historyBypassProtection', 'active'
     ]);
     const RULE_OBJECT_KEYS = new Set([
       'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
-      'flags', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
+      'flags', 'order', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
     ]);
+    const RULE_LISTS = ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections', 'fieldRedirections'];
+    // Lists whose entries are field rules (names, name regexes, $removeparam filters).
+    const FIELD_RULE_LISTS = ['rules', 'referralMarketing', 'fieldRedirections'];
+    // `order` only reorders these lists; the others run at a fixed step.
+    const ORDERABLE_RULE_LISTS = ['rules', 'rawRules', 'referralMarketing'];
+    // Behavior tags allowed in a `flags` array, and the lists they apply in.
+    const BEHAVIOR_FLAG_LISTS = { referralMarketing: ['rules', 'referralMarketing'] };
     const PREPROCESSORS = new Set(['urlEncode', 'urlDecode', 'doubleUrlEncode', 'doubleUrlDecode', 'base64Encode', 'base64Decode']);
     const REMOVEPARAM_VALUE_OPTIONS = new Set(['removeparam', 'domain', 'to', 'denyallow', 'method', 'history-bypass-protection']);
     const REMOVEPARAM_TYPE_OPTIONS = new Set([
@@ -2199,6 +2258,25 @@ ${commit.message}
         tryRegex(rawPattern, 'gi', `${tag} rawRule "${rawLabel}"`);
       }
 
+      // fieldRedirections — same entries as rules, minus @@ exceptions
+      for (const fr of (Array.isArray(provider.fieldRedirections) ? provider.fieldRedirections : [])) {
+        const frPattern = getRulePattern(fr);
+        const frLabel = getRuleLabel(fr);
+        if (!frPattern) {
+          errors.push(`${tag} fieldRedirection "${frLabel}" → missing matchPattern`);
+          continue;
+        }
+        if (frPattern.trim().startsWith('@@')) {
+          errors.push(`${tag} fieldRedirection "${frLabel}" starts with "@@", which only applies to $removeparam filters in rules and referralMarketing; use a rule object's "exceptions" instead`);
+          continue;
+        }
+        if (isRemoveParamRule(fr)) {
+          validateRemoveParamRule(fr, `${tag} fieldRedirection "${frLabel}"`);
+        } else {
+          tryRegex(`^${frPattern}$`, 'gi', `${tag} fieldRedirection "${frLabel}"`);
+        }
+      }
+
       // referralMarketing
       for (const rm of (Array.isArray(provider.referralMarketing) ? provider.referralMarketing : [])) {
         const rmPattern = getRulePattern(rm);
@@ -2277,7 +2355,7 @@ ${commit.message}
           checkSinglePipe(getRulePattern(entry).split('$redirect=')[0], field);
         }
       }
-      for (const field of ['rules', 'referralMarketing']) {
+      for (const field of FIELD_RULE_LISTS) {
         for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
           const text = getRulePattern(entry);
           const body = text.startsWith('@@') ? text.slice(2) : text;
@@ -2289,17 +2367,40 @@ ${commit.message}
       for (const key of Object.keys(provider)) {
         if (!PROVIDER_FIELDS.has(key)) errors.push(`${tag} unknown field "${key}"`);
       }
-      for (const field of ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections']) {
+      for (const field of RULE_LISTS) {
         for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
           if (entry && typeof entry === 'object' && !Array.isArray(entry)) {
+            const label = `${tag} ${field} "${getRuleLabel(entry)}"`;
             for (const key of Object.keys(entry)) {
-              if (!RULE_OBJECT_KEYS.has(key)) errors.push(`${tag} ${field} "${getRuleLabel(entry)}" has unknown key "${key}"`);
+              if (!RULE_OBJECT_KEYS.has(key)) errors.push(`${label} has unknown key "${key}"`);
             }
             for (const pre of (Array.isArray(entry.preprocessors) ? entry.preprocessors : [])) {
-              if (!PREPROCESSORS.has(pre && pre.type)) errors.push(`${tag} ${field} "${getRuleLabel(entry)}" has unknown preprocessor "${pre && pre.type}"`);
+              if (!PREPROCESSORS.has(pre && pre.type)) errors.push(`${label} has unknown preprocessor "${pre && pre.type}"`);
+            }
+            // `flags` is either regex flags (a string) or behavior tags (a list).
+            if (Array.isArray(entry.flags)) {
+              for (const flag of entry.flags) {
+                const lists = BEHAVIOR_FLAG_LISTS[flag];
+                if (typeof flag !== 'string' || !lists) {
+                  errors.push(`${label} has unknown flag "${flag}"; known flags: ${Object.keys(BEHAVIOR_FLAG_LISTS).join(', ')}`);
+                } else if (!lists.includes(field)) {
+                  errors.push(`${label} flag "${flag}" has no effect in ${field}; it only applies in ${lists.join(', ')}`);
+                }
+              }
+            } else if (entry.flags !== undefined && typeof entry.flags !== 'string') {
+              errors.push(`${label} flags must be a string (regex flags) or a list such as ["referralMarketing"]`);
+            }
+            if (entry.order !== undefined) {
+              if (typeof entry.order !== 'number' || !Number.isFinite(entry.order)) {
+                errors.push(`${label} order must be a number`);
+              } else if (!ORDERABLE_RULE_LISTS.includes(field)) {
+                errors.push(`${label} order has no effect in ${field}; it only applies in ${ORDERABLE_RULE_LISTS.join(', ')}`);
+              } else if (getRemoveParamOptions(getRulePattern(entry)).length > 0) {
+                errors.push(`${label} order has no effect on a $removeparam filter; $removeparam filters always run after the other rules`);
+              }
             }
           }
-          if (field !== 'rules' && field !== 'referralMarketing') continue;
+          if (!FIELD_RULE_LISTS.includes(field)) continue;
           for (const option of getRemoveParamOptions(getRulePattern(entry))) {
             const lower = option.toLowerCase();
             const name = lower.split('=')[0];
@@ -2313,7 +2414,7 @@ ${commit.message}
 
       // Rule ids and aliases share one namespace per provider.
       const usedRuleIds = new Map();
-      for (const field of ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections']) {
+      for (const field of RULE_LISTS) {
         for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
           if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue;
           const names = [];
@@ -3846,8 +3947,15 @@ coverage/**
           break;
         case 'lint-rules':
         case 'lint-clearurls':
+          if (args[1] === '--show-rule') {
+            if (!this.showRule(args[2], args[3] || null)) process.exit(1);
+            break;
+          }
           // pass explicit path if given; null triggers the interactive prompt
           await this.lintClearURLsRules(args[1] || null);
+          break;
+        case 'show-rule':
+          if (!this.showRule(args[1], args[2] || null)) process.exit(1);
           break;
         case 'compress-lz4':
           if (!args[1]) {
@@ -3964,6 +4072,7 @@ coverage/**
     this.log('  lint-clearurls        Alias for lint-rules', 'white');
     this.log('  compress-lz4          Create a Linkumori LZ4 copy of a JSON file', 'white');
     this.log('  convert-rules         Convert ClearURLs new-format (YAML/JSON) or compiled rules to Linkumori JSON', 'white');
+    this.log('  show-rule <id>        Print one rule, wrapped in the list it belongs to', 'white');
     this.log('  unminify              Unminify ClearURLs rules to readable JSON', 'white');
     this.log('  commit-history        Create formatted markdown of git commit history', 'white');
     this.log('  clearurls-template    Create ClearURLs source template', 'white');
@@ -4077,6 +4186,8 @@ coverage/**
     this.log('    - urlPattern compiles as a valid JS regex', 'dim');
     this.log('    - rules / rawRules / referralMarketing / exceptions all compile', 'dim');
     this.log('    - redirections compile AND have a capture group', 'dim');
+    this.log('    - fieldRedirections use rules syntax and no @@ exceptions', 'dim');
+    this.log('    - rule order / flags are valid and have an effect where used', 'dim');
     this.log('    - completeProvider / forceRedirection are boolean if present', 'dim');
     this.log('  Functional smoke tests (URL-pattern based, no hardcoded provider names):', 'dim');
     this.log('    Amazon qid/pd_rd_r/tag, Global utm_*/fbclid,', 'dim');
@@ -4085,6 +4196,11 @@ coverage/**
     this.log('  Optional path argument:', 'dim');
     this.log('    bun linkumori-cli-tool.js lint-rules data/linkumori-clearurls.json', 'dim');
     this.log('  Also reads ClearURLs new-format (version 2, YAML or JSON) and compiled lists', 'dim');
+
+    this.log('\nShow Rule (show-rule <id> [file], or lint-rules --show-rule <id> [file]):', 'cyan');
+    this.log('  Prints one rule, wrapped in the list it is in, e.g. { "rawRules": [ { … } ] }', 'white');
+    this.log('  Finds the rule by id or alias; use <provider>::<id> when several providers have it', 'white');
+    this.log('    bun linkumori-cli-tool.js show-rule ref-strip', 'dim');
 
     this.log('\nConvert Rules (convert-rules <input> [output]):', 'cyan');
     this.log('  Reads a ClearURLs new-format (version 2, YAML or JSON) or compiled list', 'white');
