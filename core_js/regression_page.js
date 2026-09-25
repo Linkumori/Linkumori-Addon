@@ -87,7 +87,6 @@
     async function applyRulesForCase(testCase) {
         const ruleData = {
             activationState: testCase.activationState || suite.activationState || undefined,
-            defaults: testCase.defaults || suite.defaults || undefined,
             providers: testCase.providers || suite.providers || {}
         };
         const key = JSON.stringify(ruleData);

@@ -336,7 +336,7 @@ function getStableRuleSignature(rule) {
         active: rule.active !== false,
         exceptions: Array.isArray(rule.exceptions) ? rule.exceptions.filter(item => typeof item === 'string').slice().sort() : [],
         flags: typeof rule.flags === 'string' ? rule.flags : '',
-        matchPattern: typeof rule.match === 'string' ? rule.match : (typeof rule.matchPattern === 'string' ? rule.matchPattern : ''),
+        matchPattern: typeof rule.matchPattern === 'string' ? rule.matchPattern : '',
         preprocessors: Array.isArray(rule.preprocessors) ? rule.preprocessors : [],
         replacePattern: typeof rule.replacePattern === 'string' ? rule.replacePattern : null,
         requestTypes: Array.isArray(rule.requestTypes) ? rule.requestTypes.map(item => String(item || '').toLowerCase()).filter(Boolean).sort() : []
@@ -420,9 +420,7 @@ function getRuleMatchForActivation(section, rule) {
     if (!rule || typeof rule !== 'object' || Array.isArray(rule)) {
         return '';
     }
-    if (typeof rule.match === 'string') return rule.match;
-    if (typeof rule.matchPattern === 'string') return rule.matchPattern;
-    return '';
+    return typeof rule.matchPattern === 'string' ? rule.matchPattern : '';
 }
 
 function cloneRuleWithActivationIds(section, rule, activationId) {
@@ -477,13 +475,10 @@ function attachRuleActivationIdsToArray(section, rules, activationScopeIds, occu
             ? rule.id
             : null;
         const ruleId = explicitId || createStorageGeneratedRuleId(section, match, occupiedIds);
-        if (explicitId) {
-            occupiedIds.add(explicitId);
-            if (Array.isArray(rule.aliases)) {
-                rule.aliases.forEach(alias => {
-                    if (typeof alias === 'string' && alias.trim()) occupiedIds.add(alias.trim());
-                });
-            }
+        if (explicitId) occupiedIds.add(explicitId);
+        // A rule's old ids stay reserved so a generated id never takes one.
+        if (rule && typeof rule === 'object' && Array.isArray(rule.aliases)) {
+            rule.aliases.forEach(alias => { if (typeof alias === 'string') occupiedIds.add(alias); });
         }
         const activationIds = (Array.isArray(activationScopeIds) && activationScopeIds.length > 0
             ? activationScopeIds
@@ -592,55 +587,6 @@ function getProviderPatternOnlyGroupKey(providerData, providerName) {
     return `no-pattern:${providerName}`;
 }
 
-function getLegacyProviderScopedGroupKey(providerData, providerName) {
-    const normalizedList = value => {
-        const items = Array.isArray(value)
-            ? value
-            : (typeof value === 'string' && value.trim() ? [value] : []);
-        return [...new Set(items
-            .map(item => {
-                if (typeof item === 'string' && item.trim()) return item.trim();
-                return getStableRuleSignature(item);
-            })
-            .filter(Boolean))]
-            .sort((a, b) => a.localeCompare(b));
-    };
-    const scopeSignature = JSON.stringify({
-        exceptions: normalizedList(providerData?.exceptions),
-        redirections: normalizedList(providerData?.redirections),
-        domainExceptions: normalizedList(providerData?.domainExceptions),
-        domainRedirections: normalizedList(providerData?.domainRedirections),
-        methods: normalizedList(providerData?.methods).map(method => method.toUpperCase()),
-        resourceTypes: normalizedList(providerData?.resourceTypes).map(type => type.toLowerCase()),
-        completeProvider: providerData?.completeProvider === true,
-        forceRedirection: providerData?.forceRedirection === true
-    });
-    const urlPattern = (typeof providerData?.urlPattern === 'string')
-        ? providerData.urlPattern.trim()
-        : '';
-    if (urlPattern) {
-        return `url:${urlPattern}|scope:${scopeSignature}`;
-    }
-
-    const domainPatterns = [];
-    if (Array.isArray(providerData?.domainPatterns)) {
-        providerData.domainPatterns.forEach(pattern => {
-            if (typeof pattern === 'string' && pattern.trim()) {
-                domainPatterns.push(pattern.trim());
-            }
-        });
-    } else if (typeof providerData?.domainPatterns === 'string' && providerData.domainPatterns.trim()) {
-        domainPatterns.push(providerData.domainPatterns.trim());
-    }
-
-    if (domainPatterns.length > 0) {
-        const normalized = [...new Set(domainPatterns)].sort((a, b) => a.localeCompare(b));
-        return `domain:${normalized.join('||')}|scope:${scopeSignature}`;
-    }
-
-    return `no-pattern:${providerName}`;
-}
-
 function normalizeProviderEntries(providers, primaryProviderNames = new Set()) {
     if (Array.isArray(providers)) {
         return providers
@@ -667,15 +613,6 @@ function normalizeProviderEntries(providers, primaryProviderNames = new Set()) {
 function getDisabledSignatures(rawExclusions) {
     const signatures = new Set();
 
-    if (Array.isArray(rawExclusions)) {
-        rawExclusions.forEach(signature => {
-            if (typeof signature === 'string' && signature.trim().length > 0) {
-                signatures.add(signature.trim());
-            }
-        });
-        return signatures;
-    }
-
     if (!rawExclusions || typeof rawExclusions !== 'object' || Array.isArray(rawExclusions)) {
         return signatures;
     }
@@ -699,14 +636,13 @@ function isProviderSignatureDisabled(providerData, providerName, disabledSignatu
         return false;
     }
 
-    const key = getProviderGroupKey(providerData, providerName);
+    // The custom rules editor stores the pattern-only key ("url:…" / "domain:…").
+    const key = getProviderPatternOnlyGroupKey(providerData, providerName);
     if (typeof key !== 'string' || key.startsWith('no-pattern:')) {
         return false;
     }
 
-    return disabledSignatures.has(key) ||
-        disabledSignatures.has(getProviderPatternOnlyGroupKey(providerData, providerName)) ||
-        disabledSignatures.has(getLegacyProviderScopedGroupKey(providerData, providerName));
+    return disabledSignatures.has(key);
 }
 
 function filterProvidersByDisabledSignatures(providers, disabledSignatures) {
@@ -794,8 +730,6 @@ function mergeRemoteProviderGroup(providerGroup) {
         exceptions: [],
         redirections: [],
         domainPatterns: [],
-        domainExceptions: [],
-        domainRedirections: [],
         methods: [],
         resourceTypes: [],
         completeProvider: false,
@@ -844,12 +778,6 @@ function mergeRemoteProviderGroup(providerGroup) {
                 merged.domainPatterns = [...new Set([...merged.domainPatterns, ...patterns])];
             }
         }
-        if (Array.isArray(data.domainExceptions)) {
-            merged.domainExceptions = [...new Set([...merged.domainExceptions, ...data.domainExceptions])];
-        }
-        if (Array.isArray(data.domainRedirections)) {
-            merged.domainRedirections = [...new Set([...merged.domainRedirections, ...data.domainRedirections])];
-        }
         if (Array.isArray(data.methods)) {
             merged.methods = [...new Set([...merged.methods, ...data.methods])];
         }
@@ -875,8 +803,6 @@ function mergeRemoteProviderGroup(providerGroup) {
     if (merged.exceptions.length === 0) delete merged.exceptions;
     if (merged.redirections.length === 0) delete merged.redirections;
     if (merged.domainPatterns.length === 0) delete merged.domainPatterns;
-    if (merged.domainExceptions.length === 0) delete merged.domainExceptions;
-    if (merged.domainRedirections.length === 0) delete merged.domainRedirections;
     if (merged.methods.length === 0) delete merged.methods;
     if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
     if (merged.completeProvider !== true) delete merged.completeProvider;
@@ -1249,16 +1175,6 @@ function minifyCustomRules(data) {
             hasContent = true;
         }
         
-        if (data.providers[provider].domainExceptions && data.providers[provider].domainExceptions.length !== 0) {
-            self.domainExceptions = data.providers[provider].domainExceptions;
-            hasContent = true;
-        }
-        
-        if (data.providers[provider].domainRedirections && data.providers[provider].domainRedirections.length !== 0) {
-            self.domainRedirections = data.providers[provider].domainRedirections;
-            hasContent = true;
-        }
-        
         if (data.providers[provider].methods && data.providers[provider].methods.length !== 0) {
             self.methods = data.providers[provider].methods;
             hasContent = true;
@@ -1575,11 +1491,13 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
                 return;
             }
 
+            // Remote lists may be Linkumori JSON or a ClearURLs new-format
+            // (YAML or JSON) or compiled list; all are read into Linkumori format.
             let remoteRulesData;
             try {
-                remoteRulesData = JSON.parse(data);
+                remoteRulesData = LinkumoriRuleFormats.normalizeRuleDocument(data).data;
             } catch (parseError) {
-                throw new Error(`Invalid JSON in remote rules: ${parseError.message}`);
+                throw new Error(`Invalid remote rules: ${parseError.message}`);
             }
 
             if (!remoteRulesData || typeof remoteRulesData !== 'object') {
@@ -2064,10 +1982,6 @@ function loadCustomOnlyRules() {
                 }
             }
 
-            if (customRules && typeof customRules === 'object' && !customRules.providers) {
-                customRules = { providers: customRules };
-            }
-
             const providers = (customRules && customRules.providers && typeof customRules.providers === 'object')
                 ? customRules.providers
                 : {};
@@ -2157,9 +2071,6 @@ function mergeCustomRules(bundledRules) {
                     
                     if (customRules && customRules.providers) {
                         customProviderCount = Object.keys(customRules.providers).length;
-                    } else if (customRules && typeof customRules === 'object' && !customRules.providers) {
-                        customProviderCount = Object.keys(customRules).length;
-                        customRules = { providers: customRules };
                     }
                 } catch (error) {
                     customRules = null;
@@ -2398,15 +2309,12 @@ function applyRegressionRuleData(data) {
         return JSON.parse(JSON.stringify(value));
     };
     storage.ClearURLsData = {
-        ...(safeData.defaults && typeof safeData.defaults === 'object' && !Array.isArray(safeData.defaults)
-            ? { defaults: cloneValue(safeData.defaults) }
-            : {}),
         providers: safeData.providers && typeof safeData.providers === 'object' && !Array.isArray(safeData.providers)
             ? cloneValue(safeData.providers)
             : {}
     };
     if (safeData.activationState && typeof safeData.activationState === 'object' && !Array.isArray(safeData.activationState)) {
-        const disabledRuleIds = safeData.activationState.disabledRuleIds || safeData.activationState.disabledRules;
+        const disabledRuleIds = safeData.activationState.disabledRuleIds;
         if (Array.isArray(disabledRuleIds)) {
             storage.clearurls_disabled_rule_ids = disabledRuleIds.map(ruleId => String(ruleId || '').trim()).filter(Boolean);
         } else {

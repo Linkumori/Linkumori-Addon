@@ -101,7 +101,6 @@ var pslSupport = {
 
 function createEmptyProviderSnapshot() {
     return {
-        aliasRuleIds: {},
         disabledRuleIds: [],
         disabledRules: {},
         globalProviders: [],
@@ -179,35 +178,46 @@ function normalizeCoreRuleActivationIds(value) {
 
 function attachCoreRuleIdentity(providerName, compiledRule, section, activationScopeIds = []) {
     const ruleId = compiledRule.id || createGeneratedCoreRuleId(section, compiledRule.matchPattern);
-    const aliases = Array.isArray(compiledRule.aliases) ? compiledRule.aliases : [];
     const activationIds = normalizeCoreRuleActivationIds(compiledRule._linkumoriActivationIds);
     const fallbackActivationIds = (Array.isArray(activationScopeIds) && activationScopeIds.length > 0
         ? activationScopeIds : [providerName])
         .map(scopeId => buildCorePatternRuleActivationId(scopeId, ruleId));
     compiledRule.id = ruleId;
+    compiledRule.aliases = normalizeCoreRuleAliases(compiledRule.aliases).filter(alias => alias !== ruleId);
     compiledRule.providerName = providerName;
     compiledRule.runtimeRuleId = buildCoreRuntimeRuleId(providerName, ruleId);
-    compiledRule.aliasRuntimeIds = aliases.map(alias => buildCoreRuntimeRuleId(providerName, alias));
     compiledRule.activationIds = activationIds.length > 0 ? activationIds : fallbackActivationIds;
     return compiledRule;
 }
 
-function coreRuleDisableKeys(compiledRule) {
-    const keys = [];
-    if (!compiledRule) return keys;
-    if (compiledRule.runtimeRuleId) keys.push(compiledRule.runtimeRuleId);
-    if (compiledRule.id) keys.push(compiledRule.id);
-    (compiledRule.aliasRuntimeIds || []).forEach((aliasRuntimeId, index) => {
-        if (aliasRuntimeId) keys.push(aliasRuntimeId);
-        const alias = compiledRule.aliases && compiledRule.aliases[index];
-        if (alias) keys.push(alias);
-    });
-    return keys;
+// Disabled ids saved under a rule's old name (one of its "aliases"), keyed
+// by that old id, with the id they now belong to. Filled while providers are
+// built and written back by migrateCoreRuleAliasActivationIds().
+let pendingCoreRuleAliasMigrations = new Map();
+
+// True when `activationId` ("<scope>::<ruleId>") is disabled, either as is
+// or under one of the rule's aliases ("<scope>::<alias>").
+function isCoreActivationIdDisabled(activationId, aliases, disabledRuleIds) {
+    if (disabledRuleIds.has(activationId)) return true;
+    if (!Array.isArray(aliases) || aliases.length === 0) return false;
+    const sep = activationId.lastIndexOf("::");
+    if (sep === -1) return false;
+    const scope = activationId.slice(0, sep);
+    for (const alias of aliases) {
+        const aliasId = `${scope}::${alias}`;
+        if (disabledRuleIds.has(aliasId)) {
+            pendingCoreRuleAliasMigrations.set(aliasId, activationId);
+            return true;
+        }
+    }
+    return false;
 }
 
 function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     if (!compiledRule || !disabledRuleIds || disabledRuleIds.size === 0) return false;
-    if (coreRuleDisableKeys(compiledRule).some(k => disabledRuleIds.has(k))) {
+    // A rule is switched off either for its whole provider ("provider::ruleId")
+    // or for one of its match patterns ("domainPattern:<pattern>::ruleId").
+    if (compiledRule.runtimeRuleId && isCoreActivationIdDisabled(compiledRule.runtimeRuleId, compiledRule.aliases, disabledRuleIds)) {
         compiledRule.disabledActivationIds = (compiledRule.activationIds || []).slice();
         compiledRule.activationIds = [];
         return true;
@@ -215,26 +225,10 @@ function filterCoreRuleActivationIds(compiledRule, disabledRuleIds) {
     const activationIds = Array.isArray(compiledRule.activationIds) ? compiledRule.activationIds : [];
     if (activationIds.length === 0) return false;
     const active = [], disabled = [];
-    activationIds.forEach(aId => {
-        const localId = String(aId).split("::").pop();
-        const off = getCoreActivationIdDisableAliases(aId).some(a => disabledRuleIds.has(a))
-            || disabledRuleIds.has(localId);
-        (off ? disabled : active).push(aId);
-    });
+    activationIds.forEach(aId => (isCoreActivationIdDisabled(aId, compiledRule.aliases, disabledRuleIds) ? disabled : active).push(aId));
     compiledRule.disabledActivationIds = disabled;
     compiledRule.activationIds = active;
     return active.length === 0;
-}
-
-function getCoreActivationIdDisableAliases(activationId) {
-    const v = String(activationId || "").trim();
-    if (!v) return [];
-    const a = [v];
-    if (v.startsWith("domainPattern:")) a.push(`domain:${v.slice(14)}`);
-    else if (v.startsWith("urlPattern:")) a.push(`url:${v.slice(11)}`);
-    else if (v.startsWith("domain:")) a.push(`domainPattern:${v.slice(7)}`);
-    else if (v.startsWith("url:")) a.push(`urlPattern:${v.slice(4)}`);
-    return a;
 }
 
 function parseCorePatternActivationScope(activationId) {
@@ -244,8 +238,6 @@ function parseCorePatternActivationScope(activationId) {
     const scope = v.slice(0, sep);
     if (scope.startsWith("domainPattern:")) return { type: "domain", pattern: scope.slice(14) };
     if (scope.startsWith("urlPattern:")) return { type: "url", pattern: scope.slice(11) };
-    if (scope.startsWith("domain:")) return { type: "domain", pattern: scope.slice(7) };
-    if (scope.startsWith("url:")) return { type: "url", pattern: scope.slice(4) };
     return null;
 }
 
@@ -262,39 +254,54 @@ function coreRuleHasActivePatternForUrl(compiledRule, url) {
     });
 }
 
+// Moves disabled ids saved under a rule alias to the rule's current id, so
+// the rule on/off controls (which only know current ids) can switch it back on.
+function migrateCoreRuleAliasActivationIds() {
+    if (pendingCoreRuleAliasMigrations.size === 0) return false;
+    const current = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
+    const migrated = [...new Set(current.map(id => pendingCoreRuleAliasMigrations.get(id) || id))];
+    pendingCoreRuleAliasMigrations = new Map();
+    if (migrated.length === current.length && migrated.every((id, i) => id === current[i])) return false;
+    storage.clearurls_disabled_rule_ids = migrated;
+    if (clearurlsProviderSnapshot) clearurlsProviderSnapshot.disabledRuleIds = migrated.slice();
+    if (typeof saveOnDisk === 'function') saveOnDisk(['clearurls_disabled_rule_ids']);
+    return true;
+}
+
+function getCoreRuleKindForSection(section) {
+    if (section === 'rawRules') return 'raw';
+    if (section === 'redirections') return 'redirection';
+    if (section === 'exceptions') return 'exception';
+    return 'field';
+}
+
 function registerCoreRuleInSnapshot(compiledRule) {
     if (!compiledRule || !clearurlsProviderSnapshot) return;
     if (compiledRule.runtimeRuleId && !clearurlsProviderSnapshot.ruleIds[compiledRule.runtimeRuleId]) {
         clearurlsProviderSnapshot.ruleIds[compiledRule.runtimeRuleId] = {
             actionType: compiledRule.actionType,
-            aliases: (compiledRule.aliases || []).slice(),
-            aliasRuntimeIds: (compiledRule.aliasRuntimeIds || []).slice(),
             id: compiledRule.id,
-            kind: compiledRule.kind,
+            kind: getCoreRuleKindForSection(compiledRule.section),
             match: compiledRule.matchPattern,
             activationIds: (compiledRule.activationIds || []).slice(),
+            aliases: (compiledRule.aliases || []).slice(),
             providerName: compiledRule.providerName,
             runtimeRuleId: compiledRule.runtimeRuleId,
             section: compiledRule.section
         };
     }
-    (compiledRule.aliasRuntimeIds || []).forEach(aId => {
-        if (!clearurlsProviderSnapshot.aliasRuleIds[aId])
-            clearurlsProviderSnapshot.aliasRuleIds[aId] = compiledRule.runtimeRuleId;
-    });
 }
 
 function registerDisabledCoreRuleInSnapshot(compiledRule) {
     if (!compiledRule || !clearurlsProviderSnapshot || !compiledRule.runtimeRuleId) return;
     clearurlsProviderSnapshot.disabledRules[compiledRule.runtimeRuleId] = {
         actionType: compiledRule.actionType,
-        aliases: (compiledRule.aliases || []).slice(),
-        aliasRuntimeIds: (compiledRule.aliasRuntimeIds || []).slice(),
         id: compiledRule.id,
-        kind: compiledRule.kind,
+        kind: getCoreRuleKindForSection(compiledRule.section),
         match: compiledRule.matchPattern,
         activationIds: (compiledRule.activationIds || []).slice(),
         disabledActivationIds: (compiledRule.disabledActivationIds || []).slice(),
+        aliases: (compiledRule.aliases || []).slice(),
         providerName: compiledRule.providerName,
         runtimeRuleId: compiledRule.runtimeRuleId,
         section: compiledRule.section
@@ -898,12 +905,10 @@ function canonicalizeLinkumoriRemoveParamRule(rule) {
 }
 
 const LINKUMORI_REMOVE_PARAM_CONTENT_TYPES = Object.freeze({
-    document: ["main_frame"], doc: ["main_frame"], subdocument: ["sub_frame"],
-    frame: ["sub_frame"], iframe: ["sub_frame"], script: ["script"],
+    document: ["main_frame"], subdocument: ["sub_frame"], script: ["script"],
     stylesheet: ["stylesheet"], image: ["image"], imageset: ["imageset"],
     media: ["media"], object: ["object"], other: ["other"], ping: ["ping"],
-    websocket: ["websocket"], xmlhttprequest: ["xmlhttprequest"], xhr: ["xmlhttprequest"],
-    font: ["font"], popup: ["main_frame"]
+    websocket: ["websocket"], xmlhttprequest: ["xmlhttprequest"], font: ["font"]
 });
 
 function addLinkumoriRemoveParamRequestTypes(token, parsed) {
@@ -955,17 +960,14 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     for (const token of modifiers) {
         if (unsupportedModifier) break;
         const normalized = token.toLowerCase();
-        if (normalized === 'removeparam' || normalized.startsWith('removeparam=') ||
-            normalized === 'queryprune' || normalized.startsWith('queryprune=')) {
+        if (normalized === 'removeparam' || normalized.startsWith('removeparam=')) {
             removeParamToken = token; continue;
         }
         // BUGFIX 7 (secondary): collapsed two identical badfilter checks into one.
         if (normalized === 'badfilter') continue;
         if (normalized === 'match-case') continue;
-        if (['first-party','1p','~third-party','~3p','third-party','3p',
-             '~first-party','~1p','strict-first-party','strict1p',
-             'strict-third-party','strict3p'].includes(normalized)) continue;
-        if (normalized.startsWith('domain=') || normalized.startsWith('from=')) {
+        if (['first-party', 'third-party', 'strict-first-party', 'strict-third-party'].includes(normalized)) continue;
+        if (normalized.startsWith('domain=')) {
             domainToken = token.slice(token.indexOf('=') + 1); continue;
         }
         if (normalized.startsWith('to=')) { targetToken = token.slice(token.indexOf('=') + 1); continue; }
@@ -1002,7 +1004,7 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
         matchCase: modifiers.some(t => String(t || '').toLowerCase() === 'match-case'),
         historyBypassProtection,
         isBadfilter: !options.ignoreBadfilter && modifiers.some(t => String(t || '').toLowerCase() === 'badfilter'),
-        badfilterTarget: null, id: null, aliases: [], activationIds: [],
+        badfilterTarget: null, id: null, activationIds: [],
         requestTypes: [], excludeRequestTypes: [], replacePattern: null, preprocessors: [], canonical: null
     };
     parsed.badfilterTarget = parsed.isBadfilter ? withoutLinkumoriBadfilterModifier(rawRule) : null;
@@ -1055,10 +1057,10 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     }
     modifiers.forEach(token => {
         const n = String(token || '').toLowerCase();
-        if (['third-party','3p','~first-party','~1p'].includes(n)) parsed.thirdPartyOnly = true;
-        else if (['first-party','1p','~third-party','~3p'].includes(n)) parsed.firstPartyOnly = true;
-        else if (n === 'strict-third-party' || n === 'strict3p') parsed.strictThirdPartyOnly = true;
-        else if (n === 'strict-first-party' || n === 'strict1p') parsed.strictFirstPartyOnly = true;
+        if (n === 'third-party') parsed.thirdPartyOnly = true;
+        else if (n === 'first-party') parsed.firstPartyOnly = true;
+        else if (n === 'strict-third-party') parsed.strictThirdPartyOnly = true;
+        else if (n === 'strict-first-party') parsed.strictFirstPartyOnly = true;
     });
     if ((parsed.firstPartyOnly && parsed.thirdPartyOnly) ||
         (parsed.strictFirstPartyOnly && parsed.strictThirdPartyOnly) ||
@@ -1070,9 +1072,8 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
 
 function getLinkumoriRemoveParamRuleText(rule) {
     if (typeof rule === 'string') return rule;
-    if (rule && typeof rule === 'object' && !Array.isArray(rule)) {
-        if (typeof rule.match === 'string') return rule.match;
-        if (typeof rule.matchPattern === 'string') return rule.matchPattern;
+    if (rule && typeof rule === 'object' && !Array.isArray(rule) && typeof rule.matchPattern === 'string') {
+        return rule.matchPattern;
     }
     return '';
 }
@@ -1262,77 +1263,47 @@ function linkumoriRemoveParamExceptionMatchesContext(linkumoriRule, contextUrls,
 function resolveLinkumoriHistoryBypassProtection(rule, defaults) {
     if (rule && typeof rule === 'object') {
         if (typeof rule.historyBypassProtection === 'boolean') return rule.historyBypassProtection;
-        if (typeof rule['history-bypass-protection'] === 'boolean') return rule['history-bypass-protection'];
     }
     if (defaults && typeof defaults === 'object') {
         if (typeof defaults.historyBypassProtection === 'boolean') return defaults.historyBypassProtection;
-        if (typeof defaults['history-bypass-protection'] === 'boolean') return defaults['history-bypass-protection'];
     }
     // Missing everywhere in the rule chain: default to true (protection stays on for history updates).
     return true;
 }
 
-function resolveCoreRuleDefaults(rule, defaults = null) {
-    if (!rule || typeof rule !== "object" || Array.isArray(rule)) return rule;
-    const d = defaults && typeof defaults === "object" ? defaults : {};
-    return {
-        ...rule,
-        ...(rule.active === undefined && typeof d.active === "boolean" ? { active: d.active } : {}),
-        ...(rule.description === undefined && typeof d.description === "string" ? { description: d.description } : {}),
-        ...(rule.requestTypes === undefined && d.requestTypes !== undefined ? { requestTypes: d.requestTypes } : {}),
-        ...(rule.preprocessors === undefined && Array.isArray(d.preprocessors) ? { preprocessors: d.preprocessors } : {}),
-        ...(rule.exceptions === undefined && Array.isArray(d.exceptions) ? { exceptions: d.exceptions } : {})
-    };
+function normalizeCoreRuleAliases(value) {
+    if (!Array.isArray(value)) return [];
+    return [...new Set(value.filter(alias => typeof alias === "string" && /^[a-z0-9][a-z0-9_-]*$/.test(alias)))];
 }
 
 function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) {
     if (typeof rule === "string") {
-        const d = defaults && typeof defaults === "object" ? defaults : {};
-        const requestTypes = d.requestTypes === "all" ? null
-            : (Array.isArray(d.requestTypes) ? d.requestTypes.map(i => String(i || "").toLowerCase()).filter(Boolean) : null);
         return {
-            actionType: "remove", active: typeof d.active === "boolean" ? d.active : true,
-            aliases: [], description: typeof d.description === "string" ? d.description : "",
-            exceptions: Array.isArray(d.exceptions) ? d.exceptions.filter(i => typeof i === "string") : [],
-            flags: defaultFlags, id: null, kind: null, matchPattern: rule,
-            preprocessors: Array.isArray(d.preprocessors) ? d.preprocessors : [],
-            referralMarketing: false, replacePattern: null, requestTypes, raw: rule, sourceType: "legacy",
-            historyBypassProtection: resolveLinkumoriHistoryBypassProtection(null, d)
+            actionType: "remove", active: true, aliases: [], description: "", exceptions: [],
+            flags: defaultFlags, id: null, matchPattern: rule, preprocessors: [],
+            replacePattern: null, requestTypes: null, raw: rule,
+            historyBypassProtection: resolveLinkumoriHistoryBypassProtection(null, defaults)
         };
     }
-    const resolvedRule = resolveCoreRuleDefaults(rule, defaults);
-    if (!resolvedRule || typeof resolvedRule !== "object") return null;
-    const isCanonical = typeof resolvedRule.match === "string";
-    const matchPattern = isCanonical ? resolvedRule.match : resolvedRule.matchPattern;
+    const resolvedRule = rule;
+    if (!resolvedRule || typeof resolvedRule !== "object" || Array.isArray(resolvedRule)) return null;
+    const matchPattern = resolvedRule.matchPattern;
     if (typeof matchPattern !== "string") return null;
-    const action = resolvedRule.action && typeof resolvedRule.action === "object" ? resolvedRule.action : null;
-    const actionType = action && typeof action.type === "string" ? action.type
-        : (typeof resolvedRule.replacePattern === "string" ? "rewrite" : "remove");
-    const replacePattern = action && typeof action.replacePattern === "string" ? action.replacePattern
-        : (typeof resolvedRule.replacePattern === "string" ? resolvedRule.replacePattern : null);
-    const requestTypes = resolvedRule.requestTypes === "all" ? null
-        : (Array.isArray(resolvedRule.requestTypes)
-            ? resolvedRule.requestTypes.map(i => String(i || "").toLowerCase()).filter(Boolean) : null);
-    const sourceType = isCanonical ? "canonical" : "legacy-object";
-    const kind = typeof resolvedRule.kind === "string" ? resolvedRule.kind : null;
-    if (sourceType === "canonical") {
-        const ek = kind || "field";
-        if ((ek === "field" || ek === "raw") && actionType === "redirect") return null;
-        if (ek === "redirection" && actionType !== "redirect") return null;
-    }
+    const replacePattern = typeof resolvedRule.replacePattern === "string" ? resolvedRule.replacePattern : null;
+    const actionType = replacePattern !== null ? "rewrite" : "remove";
+    const requestTypes = Array.isArray(resolvedRule.requestTypes)
+        ? resolvedRule.requestTypes.map(i => String(i || "").toLowerCase()).filter(Boolean) : null;
     return {
         actionType,
-        active: typeof resolvedRule.active === "boolean" ? resolvedRule.active
-            : (typeof resolvedRule.activeDefault === "boolean" ? resolvedRule.activeDefault : true),
-        aliases: Array.isArray(resolvedRule.aliases) ? resolvedRule.aliases.filter(i => typeof i === "string") : [],
+        active: typeof resolvedRule.active === "boolean" ? resolvedRule.active : true,
+        aliases: normalizeCoreRuleAliases(resolvedRule.aliases),
         description: typeof resolvedRule.description === "string" ? resolvedRule.description : "",
         exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter(i => typeof i === "string") : [],
         flags: typeof resolvedRule.flags === "string" ? resolvedRule.flags : defaultFlags,
         id: typeof resolvedRule.id === "string" ? resolvedRule.id : null,
-        kind, matchPattern,
+        matchPattern,
         preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
-        referralMarketing: resolvedRule.referralMarketing === true,
-        replacePattern, requestTypes, raw: resolvedRule, sourceType,
+        replacePattern, requestTypes, raw: resolvedRule,
         historyBypassProtection: resolveLinkumoriHistoryBypassProtection(resolvedRule, defaults),
         _linkumoriActivationIds: normalizeCoreRuleActivationIds(resolvedRule._linkumoriActivationIds)
     };
@@ -1343,20 +1314,10 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
     if (!normalized) return null;
     const source = wrapFieldRule ? "^" + normalized.matchPattern + "$" : normalized.matchPattern;
     try {
-        const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex); } catch (_) { return null; } }).filter(Boolean);
+        // Per-rule exceptions are case-insensitive, like provider-level exceptions.
+        const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex, "i"); } catch (_) { return null; } }).filter(Boolean);
         return { ...normalized, exceptionRegexes, regex: new RegExp(source, normalized.flags) };
     } catch (_) { return null; }
-}
-
-function normalizeCoreDomainRedirection(redirection) {
-    if (typeof redirection === "string") return redirection.trim();
-    if (!redirection || typeof redirection !== "object" || Array.isArray(redirection)) return null;
-    const matchPattern = typeof redirection.match === "string" ? redirection.match : redirection.matchPattern;
-    const action = redirection.action && typeof redirection.action === "object" ? redirection.action : null;
-    const replacePattern = action && typeof action.replacePattern === "string" ? action.replacePattern : redirection.replacePattern;
-    if (typeof matchPattern !== "string" || typeof replacePattern !== "string") return null;
-    const pattern = matchPattern.trim(), target = replacePattern.trim();
-    return pattern && target ? `${pattern}$redirect=${target}` : null;
 }
 
 function getCoreRuleTraceName(compiledRule, fallback) {
@@ -1386,7 +1347,7 @@ function coreRuleAppliesToRequest(compiledRule, url, request, isHistoryUpdate = 
         return !compiledRule.exceptionRegexes.some(regex => { try { regex.lastIndex = 0; return regex.test(url); } catch (_) { return false; } });
     }
     const exceptions = Array.isArray(compiledRule.exceptions) ? compiledRule.exceptions : [];
-    return !exceptions.some(ex => { try { return (new RegExp(ex)).test(url); } catch (_) { return false; } });
+    return !exceptions.some(ex => { try { return (new RegExp(ex, "i")).test(url); } catch (_) { return false; } });
 }
 
 function applyCoreRulePreprocessors(values, preprocessors) {
@@ -1403,8 +1364,8 @@ function applyCoreRulePreprocessors(values, preprocessors) {
                 switch (preprocessor.type) {
                     case "urlEncode": next[index] = encodeURIComponent(current); break;
                     case "urlDecode": next[index] = decodeURIComponent(current); break;
-                    case "doubleUrlEncode": case "urlEncodeRepeated": next[index] = encodeURIComponent(encodeURIComponent(current)); break;
-                    case "doubleUrlDecode": case "urlDecodeRepeated": next[index] = decodeURIComponent(decodeURIComponent(current)); break;
+                    case "doubleUrlEncode": next[index] = encodeURIComponent(encodeURIComponent(current)); break;
+                    case "doubleUrlDecode": next[index] = decodeURIComponent(decodeURIComponent(current)); break;
                     case "base64Encode": next[index] = btoa(unescape(encodeURIComponent(current))); break;
                     case "base64Decode": next[index] = decodeURIComponent(escape(atob(current))); break;
                 }
@@ -1692,7 +1653,7 @@ function start() {
         providers = [];
         for (let p = 0; p < prvKeys.length; p++) {
             const providerData = data.providers[prvKeys[p]];
-            if (providerData.getOrDefault('active', providerData.getOrDefault('defaultActive', true)) === false) continue;
+            if (providerData.getOrDefault('active', true) === false) continue;
             const provider = new Provider(prvKeys[p],
                 providerData.getOrDefault('completeProvider', false),
                 providerData.getOrDefault('forceRedirection', false),
@@ -1711,40 +1672,22 @@ function start() {
                 if (hasIndex) provider.setIndexPattern(indexPattern);
             }
 
-            // A provider-level "historyBypassProtection" (or "history-bypass-protection")
-            // blanket applies to every rule under this provider that doesn't set its own
-            // value inline, without having to touch each rule string individually.
-            const globalRuleDefaults = data && data.defaults && typeof data.defaults === 'object' ? data.defaults : null;
-            const providerHistoryBypassProtection = providerData.getOrDefault('historyBypassProtection',
-                providerData.getOrDefault('history-bypass-protection', undefined));
-            const providerDefaults = (globalRuleDefaults || typeof providerHistoryBypassProtection === 'boolean')
-                ? Object.assign({}, globalRuleDefaults, typeof providerHistoryBypassProtection === 'boolean'
-                    ? { historyBypassProtection: providerHistoryBypassProtection } : {})
+            // A provider-level "historyBypassProtection" applies to every rule under
+            // this provider that doesn't set its own value inline.
+            const providerHistoryBypassProtection = providerData.getOrDefault('historyBypassProtection', undefined);
+            const providerDefaults = typeof providerHistoryBypassProtection === 'boolean'
+                ? { historyBypassProtection: providerHistoryBypassProtection }
                 : null;
             const rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
-            for (let r = 0; r < rules.length; r++) {
-                const normalizedRule = normalizeCoreRuleDefinition(rules[r], "i", providerDefaults);
-                if (normalizedRule && normalizedRule.sourceType === 'canonical') {
-                    if (normalizedRule.kind === 'raw') provider.addRawRule(rules[r], true, providerDefaults);
-                    else if (normalizedRule.kind === 'redirection' || normalizedRule.actionType === 'redirect') provider.addRedirection(rules[r], true, providerDefaults);
-                    else if (normalizedRule.referralMarketing === true) provider.addReferralMarketing(rules[r], true, providerDefaults);
-                    else provider.addRule(rules[r], true, providerDefaults);
-                    continue;
-                }
-                provider.addRule(rules[r], true, providerDefaults);
-            }
+            for (let r = 0; r < rules.length; r++) provider.addRule(rules[r], true, providerDefaults);
             const rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
             for (let raw = 0; raw < rawRules.length; raw++) provider.addRawRule(rawRules[raw], true, providerDefaults);
             const referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
             for (let rm = 0; rm < referralMarketingRules.length; rm++) provider.addReferralMarketing(referralMarketingRules[rm], true, providerDefaults);
             const exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
             for (let e = 0; e < exceptions.length; e++) provider.addException(exceptions[e], true, providerDefaults);
-            const domainExceptions = data.providers[prvKeys[p]].getOrDefault('domainExceptions', []);
-            for (let ude = 0; ude < domainExceptions.length; ude++) provider.addDomainException(domainExceptions[ude]);
             const redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
             for (let re = 0; re < redirections.length; re++) provider.addRedirection(redirections[re], true, providerDefaults);
-            const domainRedirections = data.providers[prvKeys[p]].getOrDefault('domainRedirections', []);
-            for (let udr = 0; udr < domainRedirections.length; udr++) provider.addDomainRedirection(domainRedirections[udr]);
             const methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
             for (let m = 0; m < methods.length; m++) provider.addMethod(methods[m]);
             const resourceTypes = data.providers[prvKeys[p]].getOrDefault('resourceTypes', []);
@@ -1790,8 +1733,10 @@ function start() {
         providersByToken = Object.create(null); globalProviders = [];
         clearurlsProviderSnapshot = createEmptyProviderSnapshot();
         clearurlsProviderSnapshot.disabledRuleIds = normalizeClearURLsDisabledRuleIds(storage.clearurls_disabled_rule_ids);
+        pendingCoreRuleAliasMigrations = new Map();
         getKeys(storage.ClearURLsData.providers);
         createProviders();
+        migrateCoreRuleAliasActivationIds();
         return true;
     }
 
@@ -1864,6 +1809,7 @@ function start() {
         const canceling = _completeProvider;
         const redirectionRuleMap = {}, rawRuleMap = {}, referralMarketingRuleMap = {};
         const linkumoriRemoveParamRules = [], linkumoriRemoveParamExceptions = [];
+        const referralMarketingRemoveParamRules = [], referralMarketingRemoveParamExceptions = [];
         const methods = [], resourceTypes = [];
 
         if (_completeProvider) fieldRuleMap[".*"] = true;
@@ -1993,51 +1939,57 @@ function start() {
             return false;
         };
 
-        this.addRule = function (rule, isActive = true, defaults = null) {
+        // Shared $removeparam handling for the `rules` and `referralMarketing`
+        // sections. Each section keeps its own rule/exception lists so that
+        // referral-marketing filters, including their @@ exceptions, are
+        // switched off together by the "allow referral marketing" setting.
+        // Returns false when `rule` is not a $removeparam filter.
+        function addLinkumoriRemoveParamEntry(rule, isActive, defaults, section, targetRules, targetExceptions) {
             const parsedLinkumoriRule = parseLinkumoriRemoveParamRuleDefinition(rule);
-            if (parsedLinkumoriRule) {
-                if (parsedLinkumoriRule.isBadfilter) {
-                    // BUGFIX 9: check isActive BEFORE applying badfilter cancellation.
-                    // An inactive badfilter rule must not cancel live rules.
-                    const badfilterNormalized = normalizeCoreRuleDefinition(rule, "i", defaults);
-                    if (!isActive || (badfilterNormalized && badfilterNormalized.active === false)) return;
-                    const target = parsedLinkumoriRule.badfilterTarget;
-                    for (let i = linkumoriRemoveParamRules.length - 1; i >= 0; i--)
-                        if (linkumoriRemoveParamRules[i].raw === target || linkumoriRemoveParamRules[i].canonical === target)
-                            linkumoriRemoveParamRules.splice(i, 1);
-                    for (let i = linkumoriRemoveParamExceptions.length - 1; i >= 0; i--)
-                        if (linkumoriRemoveParamExceptions[i].raw === target || linkumoriRemoveParamExceptions[i].canonical === target)
-                            linkumoriRemoveParamExceptions.splice(i, 1);
-                    return;
-                }
-                const normalizedRule = normalizeCoreRuleDefinition(rule, "i", defaults);
-                if (!isActive || (normalizedRule && normalizedRule.active === false)) return;
-                if (normalizedRule) {
-                    const activeRule = activateCompiledRule(normalizedRule, 'rules');
-                    if (!activeRule) return;
-                    parsedLinkumoriRule.id = activeRule.id;
-                    parsedLinkumoriRule.aliases = Array.isArray(activeRule.aliases) ? activeRule.aliases.slice() : [];
-                    parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
-                    // BUGFIX 5: only apply canonical requestTypes when the rule itself
-                    // declared none. Previously this unconditionally clobbered inline
-                    // type modifiers and wiped all ~type exclusions.
-                    if (Array.isArray(activeRule.requestTypes) &&
-                        parsedLinkumoriRule.requestTypes.length === 0 &&
-                        parsedLinkumoriRule.excludeRequestTypes.length === 0) {
-                        parsedLinkumoriRule.requestTypes = activeRule.requestTypes.slice();
-                    }
-                    parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
-                    parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
-                    // Only fall back to the canonical object's field when the $-modifier
-                    // text itself didn't specify history-bypass-protection inline.
-                    if (parsedLinkumoriRule.historyBypassProtection === null && typeof activeRule.historyBypassProtection === 'boolean') {
-                        parsedLinkumoriRule.historyBypassProtection = activeRule.historyBypassProtection;
-                    }
-                }
-                if (parsedLinkumoriRule.isException) linkumoriRemoveParamExceptions.push(parsedLinkumoriRule);
-                else linkumoriRemoveParamRules.push(parsedLinkumoriRule);
-                return;
+            if (!parsedLinkumoriRule) return false;
+            if (parsedLinkumoriRule.isBadfilter) {
+                // BUGFIX 9: check isActive BEFORE applying badfilter cancellation.
+                // An inactive badfilter rule must not cancel live rules.
+                const badfilterNormalized = normalizeCoreRuleDefinition(rule, "i", defaults);
+                if (!isActive || (badfilterNormalized && badfilterNormalized.active === false)) return true;
+                const target = parsedLinkumoriRule.badfilterTarget;
+                [linkumoriRemoveParamRules, linkumoriRemoveParamExceptions,
+                    referralMarketingRemoveParamRules, referralMarketingRemoveParamExceptions].forEach(list => {
+                    for (let i = list.length - 1; i >= 0; i--)
+                        if (list[i].raw === target || list[i].canonical === target) list.splice(i, 1);
+                });
+                return true;
             }
+            const normalizedRule = normalizeCoreRuleDefinition(rule, "i", defaults);
+            if (!isActive || (normalizedRule && normalizedRule.active === false)) return true;
+            if (normalizedRule) {
+                const activeRule = activateCompiledRule(normalizedRule, section);
+                if (!activeRule) return true;
+                parsedLinkumoriRule.id = activeRule.id;
+                parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
+                // BUGFIX 5: only apply canonical requestTypes when the rule itself
+                // declared none. Previously this unconditionally clobbered inline
+                // type modifiers and wiped all ~type exclusions.
+                if (Array.isArray(activeRule.requestTypes) &&
+                    parsedLinkumoriRule.requestTypes.length === 0 &&
+                    parsedLinkumoriRule.excludeRequestTypes.length === 0) {
+                    parsedLinkumoriRule.requestTypes = activeRule.requestTypes.slice();
+                }
+                parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
+                parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
+                // Only fall back to the canonical object's field when the $-modifier
+                // text itself didn't specify history-bypass-protection inline.
+                if (parsedLinkumoriRule.historyBypassProtection === null && typeof activeRule.historyBypassProtection === 'boolean') {
+                    parsedLinkumoriRule.historyBypassProtection = activeRule.historyBypassProtection;
+                }
+            }
+            (parsedLinkumoriRule.isException ? targetExceptions : targetRules).push(parsedLinkumoriRule);
+            return true;
+        }
+
+        this.addRule = function (rule, isActive = true, defaults = null) {
+            if (addLinkumoriRemoveParamEntry(rule, isActive, defaults, 'rules',
+                linkumoriRemoveParamRules, linkumoriRemoveParamExceptions)) return;
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'rules');
@@ -2059,10 +2011,19 @@ function start() {
         };
 
         this.getRawRulesMap = function () { return rawRuleMap; };
-        this.getLinkumoriRemoveParamRules = function () { return linkumoriRemoveParamRules.slice(); };
-        this.getLinkumoriRemoveParamExceptions = function () { return linkumoriRemoveParamExceptions.slice(); };
+        this.getLinkumoriRemoveParamRules = function () {
+            if (!storage.referralMarketing) return linkumoriRemoveParamRules.concat(referralMarketingRemoveParamRules);
+            return linkumoriRemoveParamRules.slice();
+        };
+        this.getLinkumoriRemoveParamExceptions = function () {
+            if (!storage.referralMarketing) return linkumoriRemoveParamExceptions.concat(referralMarketingRemoveParamExceptions);
+            return linkumoriRemoveParamExceptions.slice();
+        };
 
         this.addReferralMarketing = function (rule, isActive = true, defaults = null) {
+            // $removeparam filters and their @@ exceptions work here like in `rules`.
+            if (addLinkumoriRemoveParamEntry(rule, isActive, defaults, 'referralMarketing',
+                referralMarketingRemoveParamRules, referralMarketingRemoveParamExceptions)) return;
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'referralMarketing');
@@ -2071,6 +2032,14 @@ function start() {
         };
 
         this.addException = function (exception, isActive = true, defaults = null) {
+            // "exceptions" takes both pattern kinds: domain patterns such as
+            // "||example.com^/login" (anything starting with "|") and URL regexes.
+            const normalized = normalizeCoreRuleDefinition(exception, "i", defaults);
+            const pattern = normalized ? normalized.matchPattern.trim() : '';
+            if (pattern.startsWith('|')) {
+                if (isActive && normalized.active !== false) this.addDomainException(pattern);
+                return;
+            }
             const compiled = compileCoreRuleDefinition(exception, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'exceptions');
@@ -2123,6 +2092,15 @@ function start() {
         };
 
         this.addRedirection = function (redirection, isActive = true, defaults = null) {
+            // "redirections" takes both kinds: domain redirects such as
+            // "||go.example.com^$redirect=https://example.com/" (anything starting
+            // with "|") and URL regexes whose first capture group is the target.
+            const normalized = normalizeCoreRuleDefinition(redirection, "i", defaults);
+            const pattern = normalized ? normalized.matchPattern.trim() : '';
+            if (pattern.startsWith('|')) {
+                if (isActive && normalized.active !== false) this.addDomainRedirection(pattern);
+                return;
+            }
             const compiled = compileCoreRuleDefinition(redirection, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'redirections');
@@ -2131,8 +2109,8 @@ function start() {
         };
 
         this.addDomainRedirection = function (redirection) {
-            const normalized = normalizeCoreDomainRedirection(redirection);
-            if (normalized && domainRedirectionRules.indexOf(normalized) === -1) domainRedirectionRules.push(normalized);
+            const normalized = typeof redirection === 'string' ? redirection.trim() : '';
+            if (normalized.includes('$redirect=') && domainRedirectionRules.indexOf(normalized) === -1) domainRedirectionRules.push(normalized);
         };
 
         this.getRedirection = function (url, request = null) {

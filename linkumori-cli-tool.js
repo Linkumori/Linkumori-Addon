@@ -64,6 +64,9 @@ import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import vm from 'vm';
+import './core_js/linkumori_rule_formats.js';
+
+const { LinkumoriRuleFormats } = globalThis;
 
 // Resolve paths relative to this script file, not process.cwd(), so that
 // the CLI works correctly regardless of which directory it is invoked from
@@ -1034,234 +1037,6 @@ documentation when you run the build process.
     }
   }
 
-  // storage.js-compatible provider grouping key
-  getProviderGroupKey(providerData, providerName) {
-    const urlPattern = (typeof providerData?.urlPattern === 'string')
-      ? providerData.urlPattern.trim()
-      : '';
-    if (urlPattern) {
-      return `url:${urlPattern}`;
-    }
-
-    const domainPatterns = [];
-    if (Array.isArray(providerData?.domainPatterns)) {
-      providerData.domainPatterns.forEach(pattern => {
-        if (typeof pattern === 'string' && pattern.trim()) {
-          domainPatterns.push(pattern.trim());
-        }
-      });
-    } else if (typeof providerData?.domainPatterns === 'string' && providerData.domainPatterns.trim()) {
-      domainPatterns.push(providerData.domainPatterns.trim());
-    }
-
-    if (Array.isArray(providerData?.domainPattern)) {
-      providerData.domainPattern.forEach(pattern => {
-        if (typeof pattern === 'string' && pattern.trim()) {
-          domainPatterns.push(pattern.trim());
-        }
-      });
-    } else if (typeof providerData?.domainPattern === 'string' && providerData.domainPattern.trim()) {
-      domainPatterns.push(providerData.domainPattern.trim());
-    }
-
-    if (domainPatterns.length > 0) {
-      const normalized = [...new Set(domainPatterns)].sort((a, b) => a.localeCompare(b));
-      return `domain:${normalized.join('||')}`;
-    }
-
-    return `no-pattern:${providerName}`;
-  }
-
-  // storage.js-like group merge by pattern key
-  mergeProvidersByUrlPattern(providers, primaryProviderNames = new Set()) {
-    this.info('🔄 Analyzing providers for merge opportunities...');
-
-    const providerGroups = {};
-
-    Object.entries(providers || {}).forEach(([providerName, providerData]) => {
-      const safeName = (typeof providerName === 'string' && providerName.trim() !== '')
-        ? providerName
-        : 'provider';
-      const key = this.getProviderGroupKey(providerData, safeName);
-      // no-pattern providers still get their own unique key — do NOT drop them
-      if (!providerGroups[key]) {
-        providerGroups[key] = [];
-      }
-      providerGroups[key].push({
-        name: safeName,
-        data: providerData,
-        isPrimarySource: primaryProviderNames.has(safeName)
-      });
-    });
-
-    const mergedProviders = {};
-    const usedNames = new Set();
-    let totalMerged = 0;
-
-    Object.values(providerGroups).forEach(providerGroup => {
-      let finalProvider;
-
-      if (providerGroup.length === 1) {
-        finalProvider = providerGroup[0].data;
-      } else {
-        finalProvider = this.mergeProvidersGroup(providerGroup);
-        totalMerged += providerGroup.length - 1;
-      }
-
-      const baseName = this.createMergedProviderName(providerGroup);
-
-      let finalName = baseName;
-      if (usedNames.has(finalName)) {
-        // Try to qualify with a path segment before resorting to a counter
-        const pathName = this.derivePathQualifiedName(providerGroup, baseName);
-        if (pathName && !usedNames.has(pathName)) {
-          finalName = pathName;
-        } else {
-          let counter = 1;
-          do { finalName = `${baseName}_${counter++}`; } while (usedNames.has(finalName));
-        }
-      }
-      usedNames.add(finalName);
-      mergedProviders[finalName] = finalProvider;
-    });
-
-    this.success(`✅ Merge complete: ${totalMerged} providers optimized`);
-    return mergedProviders;
-  }
-
-  // storage.js-compatible provider group merge
-  mergeProvidersGroup(providerGroup) {
-    const merged = {
-      urlPattern: providerGroup[0].data?.urlPattern,
-      indexPattern: providerGroup[0].data?.indexPattern,
-      rules: [],
-      rawRules: [],
-      referralMarketing: [],
-      exceptions: [],
-      redirections: [],
-      domainPatterns: [],
-      domainExceptions: [],
-      domainRedirections: [],
-      methods: [],
-      resourceTypes: [],
-      completeProvider: false,
-      forceRedirection: false
-    };
-    
-    for (const provider of providerGroup) {
-      const data = provider.data || {};
-
-      if (!merged.indexPattern && data.indexPattern) {
-        merged.indexPattern = data.indexPattern;
-      }
-      
-      // Merge arrays (deduplicate)
-      if (Array.isArray(data.rules)) {
-        merged.rules = [...new Set([...merged.rules, ...data.rules])];
-      }
-      if (Array.isArray(data.rawRules)) {
-        merged.rawRules = [...new Set([...merged.rawRules, ...data.rawRules])];
-      }
-      if (Array.isArray(data.referralMarketing)) {
-        merged.referralMarketing = [...new Set([...merged.referralMarketing, ...data.referralMarketing])];
-      }
-      if (Array.isArray(data.exceptions)) {
-        merged.exceptions = [...new Set([...merged.exceptions, ...data.exceptions])];
-      }
-      if (Array.isArray(data.redirections)) {
-        merged.redirections = [...new Set([...merged.redirections, ...data.redirections])];
-      }
-
-      if (data.domainPatterns) {
-        let patterns = [];
-        if (Array.isArray(data.domainPatterns)) {
-          patterns = data.domainPatterns;
-        } else if (typeof data.domainPatterns === 'string') {
-          patterns = [data.domainPatterns];
-        }
-        if (patterns.length > 0) {
-          merged.domainPatterns = [...new Set([...merged.domainPatterns, ...patterns])];
-        }
-      }
-
-      if (Array.isArray(data.domainExceptions)) {
-        merged.domainExceptions = [...new Set([...merged.domainExceptions, ...data.domainExceptions])];
-      }
-      if (Array.isArray(data.domainRedirections)) {
-        merged.domainRedirections = [...new Set([...merged.domainRedirections, ...data.domainRedirections])];
-      }
-      if (Array.isArray(data.methods)) {
-        merged.methods = [...new Set([...merged.methods, ...data.methods])];
-      }
-      if (Array.isArray(data.resourceTypes)) {
-        merged.resourceTypes = [...new Set([...merged.resourceTypes, ...data.resourceTypes])];
-      }
-      
-      if (data.completeProvider === true) {
-        merged.completeProvider = true;
-      }
-      if (data.forceRedirection === true) {
-        merged.forceRedirection = true;
-      }
-      if (data.historyBypassProtection === false) {
-        merged.historyBypassProtection = false;
-      }
-    }
-
-    if (typeof merged.urlPattern !== 'string' || merged.urlPattern.length === 0) delete merged.urlPattern;
-    if (merged.domainPatterns.length > 0 ||
-      !merged.indexPattern ||
-      (Array.isArray(merged.indexPattern) && merged.indexPattern.length === 0)
-    ) delete merged.indexPattern;
-    if (merged.rules.length === 0) delete merged.rules;
-    if (merged.rawRules.length === 0) delete merged.rawRules;
-    if (merged.referralMarketing.length === 0) delete merged.referralMarketing;
-    if (merged.exceptions.length === 0) delete merged.exceptions;
-    if (merged.redirections.length === 0) delete merged.redirections;
-    if (merged.domainPatterns.length === 0) delete merged.domainPatterns;
-    if (merged.domainExceptions.length === 0) delete merged.domainExceptions;
-    if (merged.domainRedirections.length === 0) delete merged.domainRedirections;
-    if (merged.methods.length === 0) delete merged.methods;
-    if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
-    if (merged.completeProvider !== true) delete merged.completeProvider;
-    if (merged.forceRedirection !== true) delete merged.forceRedirection;
-    
-    return merged;
-  }
-
-  // Derive a clean provider name from a urlPattern regex string
-  deriveNameFromUrlPattern(urlPattern) {
-    try {
-      // Unescape common regex escapes: \/ -> /  and  \. -> .
-      const s = urlPattern
-        .replace(/\\\//g, '/')
-        .replace(/\\\./g, '.');
-
-      // Strip protocol boilerplate: ^https?://
-      const withoutProtocol = s.replace(/^\^?https?\??:\/\//, '');
-
-      // Strip leading non-capturing group prefix e.g. (?:[a-z0-9-]+.)*?
-      const withoutPrefix = withoutProtocol.replace(/^\(\?:[^)]+\)\*\??/, '');
-
-      // Match a domain-like pattern at the start of what remains
-      const m = withoutPrefix.match(/^([a-z0-9][a-z0-9-]*(?:\.[a-z]{2,})*\.?)/i);
-      if (m && m[1]) {
-        return m[1].replace(/\.$/, '').toLowerCase();
-      }
-
-      // Fallback: find any domain-like token anywhere in the remaining string
-      const anyDomain = withoutPrefix.match(/\b([a-z0-9][a-z0-9-]+(?:\.[a-z]{2,})+)/i);
-      if (anyDomain) return anyDomain[1].toLowerCase();
-
-      // Last resort: strip all regex meta-chars and return text
-      const text = withoutPrefix
-        .replace(/[^a-z0-9.]/gi, '')
-        .replace(/^\.+|\.+$/g, '');
-      if (text.length >= 2) return text.toLowerCase();
-    } catch (_) {}
-    return null;
-  }
-
   normalizeIndexHostname(hostname) {
     const normalized = String(hostname || '')
       .replace(/\\\./g, '.')
@@ -1608,86 +1383,6 @@ documentation when you run the build process.
     return { added, preserved, unresolved };
   }
 
-  // Derive a clean provider name from an array of domain pattern strings
-  deriveNameFromDomainPatterns(patterns) {
-    const nonWildcard = patterns.filter(p => !p.startsWith('*') && !p.startsWith('.'));
-    const candidates = nonWildcard.length > 0 ? nonWildcard : patterns;
-    const sorted = [...candidates].sort((a, b) => a.length - b.length);
-    return sorted[0].replace(/^\*\./, '').trim() || null;
-  }
-
-  // When baseName already collides, try to append the first meaningful path
-  // segment from the URL pattern: youtube.com + /pagead → youtube.com_pagead
-  derivePathQualifiedName(providerGroup, baseName) {
-    for (const provider of providerGroup) {
-      const up = provider.data?.urlPattern;
-      if (typeof up !== 'string') continue;
-      const s = up.replace(/\\\//g, '/').replace(/\\\./g, '.').replace(/\\\-/g, '-');
-      // Match first path segment that follows a domain-like token
-      const m = s.match(/[a-z0-9](?:\.[a-z]{2,})*\/?\/([a-z][a-z0-9_-]{1,})/i);
-      if (m && m[1]) return `${baseName}_${m[1].toLowerCase()}`;
-    }
-    return null;
-  }
-
-  // Derive elegant provider name from pattern data; fall back to existing names
-  createMergedProviderName(providerGroup) {
-    // 1. Try urlPattern from any provider in the group
-    for (const provider of providerGroup) {
-      const up = provider.data?.urlPattern;
-      if (typeof up === 'string' && up.trim()) {
-        const derived = this.deriveNameFromUrlPattern(up.trim());
-        if (derived) return derived;
-      }
-    }
-
-    // 2. Try domainPatterns / domainPattern fields
-    const allDomainPatterns = [];
-    for (const provider of providerGroup) {
-      const dp = provider.data?.domainPatterns ?? provider.data?.domainPattern;
-      if (Array.isArray(dp)) allDomainPatterns.push(...dp.filter(Boolean));
-      else if (typeof dp === 'string' && dp.trim()) allDomainPatterns.push(dp.trim());
-    }
-    if (allDomainPatterns.length > 0) {
-      const derived = this.deriveNameFromDomainPatterns(allDomainPatterns);
-      if (derived) return derived;
-    }
-
-    // 3. Fallback: primary source name, or shortest existing name.
-    // Strip artificial _N suffixes added during key-dedup in mergeOfficialWithCustomRules
-    // so that e.g. "dell.com_1" recovers its clean name "dell.com".
-    const stripSuffix = name => name.replace(/_\d+$/, '');
-    const prioritized = providerGroup.filter(provider => provider.isPrimarySource);
-    if (prioritized.length > 0) return stripSuffix(prioritized[0].name);
-    const names = providerGroup.map(provider => provider.name);
-    names.sort((a, b) => a.length - b.length);
-    return stripSuffix(names[0]);
-  }
-
-  // Apply same bundled + remote merge flow to official + custom in CLI.
-  mergeOfficialWithCustomRules(officialRules, customRules) {
-    const officialProviders = officialRules?.providers || {};
-    const customProviders = customRules?.providers || {};
-    const combinedProviders = {};
-    const primaryProviderNames = new Set();
-
-    Object.entries(officialProviders).forEach(([providerName, providerData]) => {
-      combinedProviders[providerName] = providerData;
-    });
-
-    Object.entries(customProviders).forEach(([providerName, providerData]) => {
-      let finalName = providerName;
-      let counter = 1;
-      while (combinedProviders[finalName]) {
-        finalName = `${providerName}_${counter++}`;
-      }
-      combinedProviders[finalName] = providerData;
-      primaryProviderNames.add(finalName);
-    });
-
-    return this.mergeProvidersByUrlPattern(combinedProviders, primaryProviderNames);
-  }
-
   // Minify rules data
   minifyRules(data) {
     this.info('🗜️  Creating minified version...');
@@ -1748,14 +1443,6 @@ documentation when you run the build process.
 
       if (data.providers[provider].domainPatterns && data.providers[provider].domainPatterns.length !== 0) {
         self.domainPatterns = data.providers[provider].domainPatterns;
-      }
-
-      if (data.providers[provider].domainExceptions && data.providers[provider].domainExceptions.length !== 0) {
-        self.domainExceptions = data.providers[provider].domainExceptions;
-      }
-
-      if (data.providers[provider].domainRedirections && data.providers[provider].domainRedirections.length !== 0) {
-        self.domainRedirections = data.providers[provider].domainRedirections;
       }
 
       if (data.providers[provider].methods && data.providers[provider].methods.length !== 0) {
@@ -2114,10 +1801,30 @@ ${commit.message}
     };
   }
 
-  // Lint a ClearURLs rules JSON file by replaying clearurls.js logic.
-  // Accepts both formats:
-  //   • wrapped { metadata?, providers } ← linkumori-clearurls.json
-  //   • flat  { providerName: { urlPattern, rules, ... }, ... }  ← legacy imports
+  // Lint a rules JSON file ({ metadata?, providers }) by replaying clearurls.js logic.
+  // Converts a rule file in any supported format to Linkumori JSON.
+  convertRulesFile(inputFile, outputFile = null) {
+    this.section('🔁 Convert Rules');
+    if (!fs.existsSync(inputFile)) {
+      this.error(`❌ Rules file not found: ${inputFile}`);
+      return false;
+    }
+    let result;
+    try {
+      result = LinkumoriRuleFormats.normalizeRuleDocument(this.readMaybeLZ4Text(inputFile));
+    } catch (err) {
+      this.error(`❌ ${err.message}`);
+      return false;
+    }
+    const target = outputFile || `${inputFile.replace(/\.(?:ya?ml|json)(?:\.lz4)?$/i, '')}.linkumori.json`;
+    fs.writeFileSync(target, `${JSON.stringify(result.data, null, 2)}\n`);
+    this.info(`📋 Input format: ${result.format}`);
+    this.info(`📦 Providers: ${Object.keys(result.data.providers || {}).length}`);
+    this.success(`Linkumori rules written to: ${target}`);
+    this.info(`Check them with: node linkumori-cli-tool.js lint-rules ${target}`);
+    return true;
+  }
+
   async lintClearURLsRules(rulesFile = null) {
     this.section('🔍 ClearURLs Rules Linter');
 
@@ -2165,14 +1872,20 @@ ${commit.message}
       return false;
     }
 
-    // ── 2. JSON parse ─────────────────────────────────────────────────────────
+    // ── 2. Parse (JSON or YAML; ClearURLs formats are converted) ──────────────
     let data;
+    let sourceFormat;
     try {
       const raw = this.readMaybeLZ4Text(rulesFile);
-      data = JSON.parse(raw);
+      const normalized = LinkumoriRuleFormats.normalizeRuleDocument(raw);
+      data = normalized.data;
+      sourceFormat = normalized.format;
     } catch (err) {
-      this.error(`❌ JSON parse error: ${err.message}`);
+      this.error(`❌ Parse error: ${err.message}`);
       return false;
+    }
+    if (sourceFormat !== 'linkumori') {
+      this.info(`🔁 Converted from ${sourceFormat === 'clearurls-v2' ? 'ClearURLs new rule format (version 2)' : 'ClearURLs compiled list'}`);
     }
 
     // ── 3. Auto-detect format and extract providers object ────────────────────
@@ -2181,24 +1894,13 @@ ${commit.message}
       return false;
     }
 
-    let providersObj;
-    let formatLabel;
-    if (data.providers && typeof data.providers === 'object' && !Array.isArray(data.providers)) {
-      // Wrapped format: { metadata?, providers }
-      providersObj = data.providers;
-      formatLabel  = 'wrapped unified ClearURLsData';
-    } else {
-      // Flat format: { providerName: { urlPattern, rules, ... }, ... }
-      // Validate that values look like provider objects (not metadata fields)
-      const values = Object.values(data);
-      const looksFlat = values.every(v => v === null || typeof v === 'object');
-      if (!looksFlat) {
-        this.error('❌ Cannot determine JSON format — root values must be provider objects');
-        return false;
-      }
-      providersObj = data;
-      formatLabel  = 'flat legacy provider map';
+    // { metadata?, providers }
+    if (!data.providers || typeof data.providers !== 'object' || Array.isArray(data.providers)) {
+      this.error('❌ Rules file must have a "providers" object');
+      return false;
     }
+    const providersObj = data.providers;
+    const formatLabel = data.metadata ? 'rules with metadata (LZ4 payload)' : 'source rules';
 
     const providerEntries = Object.entries(providersObj);
     this.info(`📋 Format detected: ${formatLabel}`);
@@ -2232,9 +1934,8 @@ ${commit.message}
 
     const getRulePattern = (rule) => {
       if (typeof rule === 'string') return rule;
-      if (rule && typeof rule === 'object' && !Array.isArray(rule)) {
-        if (typeof rule.match === 'string') return rule.match;
-        if (typeof rule.matchPattern === 'string') return rule.matchPattern;
+      if (rule && typeof rule === 'object' && !Array.isArray(rule) && typeof rule.matchPattern === 'string') {
+        return rule.matchPattern;
       }
       return '';
     };
@@ -2249,8 +1950,51 @@ ${commit.message}
       }
     };
 
+    const PROVIDER_FIELDS = new Set([
+      'domainPatterns', 'urlPattern', 'indexPattern', 'rules', 'referralMarketing', 'rawRules',
+      'exceptions', 'redirections', 'completeProvider', 'forceRedirection', 'methods',
+      'resourceTypes', 'historyBypassProtection', 'active'
+    ]);
+    const RULE_OBJECT_KEYS = new Set([
+      'id', 'aliases', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
+      'flags', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
+    ]);
+    const PREPROCESSORS = new Set(['urlEncode', 'urlDecode', 'doubleUrlEncode', 'doubleUrlDecode', 'base64Encode', 'base64Decode']);
+    const REMOVEPARAM_VALUE_OPTIONS = new Set(['removeparam', 'domain', 'to', 'denyallow', 'method', 'history-bypass-protection']);
+    const REMOVEPARAM_TYPE_OPTIONS = new Set([
+      'document', 'subdocument', 'script', 'stylesheet', 'image', 'imageset', 'media', 'object',
+      'other', 'ping', 'websocket', 'xmlhttprequest', 'font'
+    ]);
+    const REMOVEPARAM_FLAG_OPTIONS = new Set([
+      'removeparam', 'first-party', 'third-party', 'strict-first-party', 'strict-third-party',
+      'match-case', 'badfilter', ...REMOVEPARAM_TYPE_OPTIONS
+    ]);
+
+    // Options of a "$removeparam" filter ([] for anything else). The "$" that
+    // starts them comes after a leading /regex/ pattern, if there is one.
+    const getRemoveParamOptions = (text) => {
+      const body = String(text || '').startsWith('@@') ? String(text).slice(2) : String(text || '');
+      let start = body.indexOf('$');
+      if (body.startsWith('/')) {
+        let escaped = false;
+        let inClass = false;
+        start = -1;
+        for (let i = 1; i < body.length; i++) {
+          const ch = body.charAt(i);
+          if (escaped) { escaped = false; continue; }
+          if (ch === '\\') { escaped = true; continue; }
+          if (inClass) { if (ch === ']') inClass = false; continue; }
+          if (ch === '[') { inClass = true; continue; }
+          if (ch === '/') { start = body.indexOf('$', i + 1); break; }
+        }
+      }
+      if (start === -1) return [];
+      const options = splitRemoveParamModifiers(body.slice(start + 1));
+      return options.some(option => /^removeparam(?:=|$)/i.test(option)) ? options : [];
+    };
+
     const isRemoveParamRule = (rule) => (
-      /\$(?:[^,\s]*,)*(?:removeparam|queryprune)(?:[=,\s]|$)/i.test(getRulePattern(rule))
+      /\$(?:[^,\s]*,)*removeparam(?:[=,\s]|$)/i.test(getRulePattern(rule))
     );
 
     const splitRemoveParamModifiers = (modifiersText) => {
@@ -2304,7 +2048,7 @@ ${commit.message}
       const modifierStart = rulePattern.indexOf('$');
       if (modifierStart === -1) return null;
       const modifiers = splitRemoveParamModifiers(rulePattern.slice(modifierStart + 1));
-      const token = modifiers.find(part => /^(?:removeparam|queryprune)(?:=|$)/i.test(part.trim()));
+      const token = modifiers.find(part => /^removeparam(?:=|$)/i.test(part.trim()));
       if (!token) return null;
       const eqIndex = token.indexOf('=');
       return eqIndex === -1 ? '' : token.slice(eqIndex + 1).trim();
@@ -2313,7 +2057,7 @@ ${commit.message}
     const validateRemoveParamRule = (rule, label) => {
       const value = getRemoveParamValue(rule);
       if (value === null) {
-        errors.push(`${label} → missing removeparam/queryprune modifier`);
+        errors.push(`${label} → missing removeparam modifier`);
         return;
       }
       if (value === '') return;
@@ -2434,7 +2178,7 @@ ${commit.message}
         const rulePattern = getRulePattern(rule);
         const ruleLabel = getRuleLabel(rule);
         if (!rulePattern) {
-          errors.push(`${tag} rule "${ruleLabel}" → missing match/matchPattern`);
+          errors.push(`${tag} rule "${ruleLabel}" → missing matchPattern`);
           continue;
         }
         if (isRemoveParamRule(rule)) {
@@ -2449,7 +2193,7 @@ ${commit.message}
         const rawPattern = getRulePattern(raw);
         const rawLabel = getRuleLabel(raw);
         if (!rawPattern) {
-          errors.push(`${tag} rawRule "${rawLabel}" → missing match/matchPattern`);
+          errors.push(`${tag} rawRule "${rawLabel}" → missing matchPattern`);
           continue;
         }
         tryRegex(rawPattern, 'gi', `${tag} rawRule "${rawLabel}"`);
@@ -2460,10 +2204,14 @@ ${commit.message}
         const rmPattern = getRulePattern(rm);
         const rmLabel = getRuleLabel(rm);
         if (!rmPattern) {
-          errors.push(`${tag} referralMarketing "${rmLabel}" → missing match/matchPattern`);
+          errors.push(`${tag} referralMarketing "${rmLabel}" → missing matchPattern`);
           continue;
         }
-        tryRegex(`^${rmPattern}$`, 'gi', `${tag} referralMarketing "${rmLabel}"`);
+        if (isRemoveParamRule(rm)) {
+          validateRemoveParamRule(rm, `${tag} referralMarketing "${rmLabel}"`);
+        } else {
+          tryRegex(`^${rmPattern}$`, 'gi', `${tag} referralMarketing "${rmLabel}"`);
+        }
       }
 
       // exceptions
@@ -2471,9 +2219,11 @@ ${commit.message}
         const exPattern = getRulePattern(ex);
         const exLabel = getRuleLabel(ex);
         if (!exPattern) {
-          errors.push(`${tag} exception "${exLabel}" → missing match/matchPattern`);
+          errors.push(`${tag} exception "${exLabel}" → missing matchPattern`);
           continue;
         }
+        // Entries starting with "|" are domain patterns (||example.com^), not regexes.
+        if (exPattern.trim().startsWith('|')) continue;
         tryRegex(exPattern, 'i', `${tag} exception "${exLabel.substring(0, 60)}..."`);
       }
 
@@ -2482,25 +2232,122 @@ ${commit.message}
         const rdPattern = getRulePattern(rd);
         const rdLabel = getRuleLabel(rd);
         if (!rdPattern) {
-          errors.push(`${tag} redirection "${rdLabel}" → missing match/matchPattern`);
+          errors.push(`${tag} redirection "${rdLabel}" → missing matchPattern`);
+          continue;
+        }
+        // Entries starting with "|" are domain redirects: "||go.example.com^$redirect=https://target/".
+        if (rdPattern.trim().startsWith('|')) {
+          const marker = rdPattern.indexOf('$redirect=');
+          if (marker === -1 || !rdPattern.slice(0, marker).trim() || !rdPattern.slice(marker + 10).trim()) {
+            errors.push(`${tag} redirection "${rdLabel}" → a "|" redirect must look like "||example.com^$redirect=https://target/"`);
+          }
           continue;
         }
         const ok = tryRegex(rdPattern, 'i', `${tag} redirection "${rdLabel.substring(0, 60)}..."`);
-        if (ok && !rdPattern.includes('(')) {
-          warnings.push(`${tag} Redirection has no capture group (destination will be undefined): "${rdLabel.substring(0, 60)}..."`);
+        // Without replacePattern the target is the first capture group, so the
+        // regex needs exactly one: none never redirects, more than one is a trap.
+        const hasTemplate = rd && typeof rd === 'object' && typeof rd.replacePattern === 'string' && rd.replacePattern !== '';
+        if (ok && !hasTemplate) {
+          const groups = new RegExp(`${rdPattern}|`, 'i').exec('').length - 1;
+          if (groups !== 1) {
+            errors.push(`${tag} redirection "${rdLabel.substring(0, 60)}..." has ${groups} capture groups; it needs exactly one around the destination URL (write other groups as "(?: … )")`);
+          }
         }
       }
 
-      // domainExceptions / domainRedirections — confirm they are string arrays
-      for (const field of ['domainExceptions', 'domainRedirections']) {
-        const arr = provider[field];
-        if (arr !== undefined && !Array.isArray(arr)) {
-          errors.push(`${tag} "${field}" must be an array`);
+      // Valid JSON that silently does the wrong thing.
+      if (hasUrlPattern && hasDomainPattern) {
+        errors.push(`${tag} has both urlPattern and domainPatterns; domainPatterns would win and urlPattern is ignored. Keep one, or split the provider`);
+      }
+      if (hasUrlPattern && !hasDomainPattern && !provider.indexPattern) {
+        warnings.push(`${tag} urlPattern without indexPattern is checked against every URL; add indexPattern hints such as "||example.com^"`);
+      }
+      // "|example.com^" only matches URLs that literally begin with "example.com",
+      // and none do (they begin with a scheme), so it is always a typo for "||".
+      const checkSinglePipe = (pattern, where) => {
+        const text = String(pattern || '').trim();
+        if (text.startsWith('|') && !text.startsWith('||') && !/^\|[a-z][a-z0-9+.-]*:/i.test(text)) {
+          errors.push(`${tag} ${where} "${text}" starts with a single "|" and can never match; use "||${text.slice(1)}"`);
+        }
+      };
+      for (const dp of (Array.isArray(provider.domainPatterns) ? provider.domainPatterns : [])) checkSinglePipe(dp, 'domainPattern');
+      for (const ip of (Array.isArray(provider.indexPattern) ? provider.indexPattern : [provider.indexPattern])) checkSinglePipe(ip, 'indexPattern');
+      for (const field of ['exceptions', 'redirections']) {
+        for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
+          checkSinglePipe(getRulePattern(entry).split('$redirect=')[0], field);
+        }
+      }
+      for (const field of ['rules', 'referralMarketing']) {
+        for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
+          const text = getRulePattern(entry);
+          const body = text.startsWith('@@') ? text.slice(2) : text;
+          if (!body.startsWith('/') && /\$removeparam/i.test(body)) checkSinglePipe(body.slice(0, body.indexOf('$')), field);
+        }
+      }
+
+      // Unknown fields, rule-object keys, preprocessors and $removeparam options.
+      for (const key of Object.keys(provider)) {
+        if (!PROVIDER_FIELDS.has(key)) errors.push(`${tag} unknown field "${key}"`);
+      }
+      for (const field of ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections']) {
+        for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
+          if (entry && typeof entry === 'object' && !Array.isArray(entry)) {
+            for (const key of Object.keys(entry)) {
+              if (!RULE_OBJECT_KEYS.has(key)) errors.push(`${tag} ${field} "${getRuleLabel(entry)}" has unknown key "${key}"`);
+            }
+            for (const pre of (Array.isArray(entry.preprocessors) ? entry.preprocessors : [])) {
+              if (!PREPROCESSORS.has(pre && pre.type)) errors.push(`${tag} ${field} "${getRuleLabel(entry)}" has unknown preprocessor "${pre && pre.type}"`);
+            }
+          }
+          if (field !== 'rules' && field !== 'referralMarketing') continue;
+          for (const option of getRemoveParamOptions(getRulePattern(entry))) {
+            const lower = option.toLowerCase();
+            const name = lower.split('=')[0];
+            const known = lower.includes('=')
+              ? REMOVEPARAM_VALUE_OPTIONS.has(name)
+              : (REMOVEPARAM_FLAG_OPTIONS.has(lower) || (lower.startsWith('~') && REMOVEPARAM_TYPE_OPTIONS.has(lower.slice(1))));
+            if (!known) errors.push(`${tag} ${field} "${getRulePattern(entry)}" has unknown $removeparam option "${option}"`);
+          }
+        }
+      }
+
+      // Rule ids and aliases share one namespace per provider.
+      const usedRuleIds = new Map();
+      for (const field of ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections']) {
+        for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
+          if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue;
+          const names = [];
+          if (entry.id !== undefined) {
+            if (typeof entry.id !== 'string' || !LinkumoriRuleFormats.RULE_ID_PATTERN.test(entry.id)) {
+              errors.push(`${tag} ${field} "${getRuleLabel(entry)}" id must match ${LinkumoriRuleFormats.RULE_ID_PATTERN.source}`);
+            } else {
+              names.push(entry.id);
+            }
+          }
+          if (entry.aliases !== undefined) {
+            if (!Array.isArray(entry.aliases)) {
+              errors.push(`${tag} ${field} "${getRuleLabel(entry)}" aliases must be a list`);
+            } else {
+              for (const alias of entry.aliases) {
+                if (typeof alias !== 'string' || !LinkumoriRuleFormats.RULE_ID_PATTERN.test(alias)) {
+                  errors.push(`${tag} ${field} "${getRuleLabel(entry)}" alias "${alias}" must match ${LinkumoriRuleFormats.RULE_ID_PATTERN.source}`);
+                } else if (alias === entry.id) {
+                  errors.push(`${tag} ${field} "${getRuleLabel(entry)}" lists its own id "${alias}" as an alias`);
+                } else {
+                  names.push(alias);
+                }
+              }
+            }
+          }
+          for (const name of names) {
+            if (usedRuleIds.has(name)) errors.push(`${tag} rule id "${name}" is used twice (${usedRuleIds.get(name)} and ${field})`);
+            else usedRuleIds.set(name, field);
+          }
         }
       }
 
       // completeProvider / forceRedirection / historyBypassProtection must be boolean if present
-      for (const flag of ['completeProvider', 'forceRedirection', 'historyBypassProtection', 'history-bypass-protection']) {
+      for (const flag of ['completeProvider', 'forceRedirection', 'historyBypassProtection']) {
         if (provider[flag] !== undefined && typeof provider[flag] !== 'boolean') {
           errors.push(`${tag} "${flag}" must be a boolean, got ${typeof provider[flag]}`);
         }
@@ -2536,6 +2383,8 @@ ${commit.message}
         for (const rule of allRules) {
           const rulePattern = getRulePattern(rule);
           if (!rulePattern) continue;
+          // @@ exceptions keep parameters; they never remove anything.
+          if (rulePattern.trim().startsWith('@@')) continue;
           const toDelete = [];
           for (const key of params.keys()) {
             // Fresh RegExp each time — avoids stateful lastIndex with 'g' flag
@@ -4013,6 +3862,14 @@ coverage/**
           }
           break;
 
+        case 'convert-rules':
+          if (!args[1]) {
+            this.error('Missing input file. Example: node linkumori-cli-tool.js convert-rules rules.yaml rules.json');
+            process.exit(1);
+          }
+          if (!this.convertRulesFile(args[1], args[2] || null)) process.exit(1);
+          break;
+
         case 'unminify':
         case 'unminify-clearurls':
           await this.unminifyClearURLs();
@@ -4106,6 +3963,7 @@ coverage/**
     this.log('  lint-rules            Lint ClearURLs rules, including .lz4 output', 'white');
     this.log('  lint-clearurls        Alias for lint-rules', 'white');
     this.log('  compress-lz4          Create a Linkumori LZ4 copy of a JSON file', 'white');
+    this.log('  convert-rules         Convert ClearURLs new-format (YAML/JSON) or compiled rules to Linkumori JSON', 'white');
     this.log('  unminify              Unminify ClearURLs rules to readable JSON', 'white');
     this.log('  commit-history        Create formatted markdown of git commit history', 'white');
     this.log('  clearurls-template    Create ClearURLs source template', 'white');
@@ -4213,11 +4071,8 @@ coverage/**
     this.log('\nLint ClearURLs Rules (lint-rules / lint-clearurls):', 'cyan');
     this.log('  Validates a rules JSON file by replaying clearurls.js logic.', 'white');
     this.log('  Default target: data/linkumori-clearurls.json', 'white');
-    this.log('  Auto-detects both JSON formats:', 'dim');
-    this.log('    • Wrapped { providers } source JSON', 'dim');
-    this.log('    • Wrapped { metadata, providers } LZ4 payload', 'dim');
+    this.log('  Reads { providers } source JSON or the { metadata, providers } LZ4 payload', 'dim');
     this.log('      ← linkumori-clearurls.json / linkumori-clearurls-min.json.lz4', 'dim');
-    this.log('    • Flat  { providerName: {...} }          ← legacy imports', 'dim');
     this.log('  Checks per provider:', 'dim');
     this.log('    - urlPattern compiles as a valid JS regex', 'dim');
     this.log('    - rules / rawRules / referralMarketing / exceptions all compile', 'dim');
@@ -4229,6 +4084,12 @@ coverage/**
     this.log('    Tests are skipped (not failed) when no provider in the file matches', 'dim');
     this.log('  Optional path argument:', 'dim');
     this.log('    bun linkumori-cli-tool.js lint-rules data/linkumori-clearurls.json', 'dim');
+    this.log('  Also reads ClearURLs new-format (version 2, YAML or JSON) and compiled lists', 'dim');
+
+    this.log('\nConvert Rules (convert-rules <input> [output]):', 'cyan');
+    this.log('  Reads a ClearURLs new-format (version 2, YAML or JSON) or compiled list', 'white');
+    this.log('  and writes the same rules as Linkumori JSON (default: <input>.linkumori.json)', 'white');
+    this.log('    bun linkumori-cli-tool.js convert-rules new-rules.yaml my-rules.json', 'dim');
 
     this.log('\nCommit History Generator:', 'cyan');
     this.log('  The commit-history command creates a formatted markdown file with:', 'white');
