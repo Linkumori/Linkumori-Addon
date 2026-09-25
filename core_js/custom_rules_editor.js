@@ -273,16 +273,13 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
 
 const RULE_OBJECT_KEYS = Object.freeze([
     'id', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
-    'flags', 'active', 'description', 'aliases', 'historyBypassProtection', '_linkumoriActivationIds'
+    'flags', 'active', 'description', 'historyBypassProtection', '_linkumoriActivationIds'
 ]);
 
 function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     const prefix = `${providerName || 'Provider'}: ${fieldName}[${index}]`;
     if (!isPlainObject(rule)) {
         throw new Error(`${prefix} must be a string or rule object`);
-    }
-    if (rule.match !== undefined || rule.kind !== undefined || rule.action !== undefined) {
-        throw new Error(`${prefix} uses "match" / "kind" / "action"; write "matchPattern" (and "replacePattern"), and put raw rules in rawRules and redirects in redirections`);
     }
     assertOnlyKeys(rule, RULE_OBJECT_KEYS, prefix);
     if (typeof rule.matchPattern !== 'string') {
@@ -303,22 +300,6 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     if (rule.id !== undefined && !CORE_RULE_ID_PATTERN.test(rule.id)) {
         throw new Error(`${prefix}.id must match ${CORE_RULE_ID_PATTERN.source}`);
     }
-    if (rule.aliases !== undefined && (!Array.isArray(rule.aliases) || rule.aliases.some(item => typeof item !== 'string'))) {
-        throw new Error(`${prefix}.aliases must be an array of strings`);
-    }
-    if (Array.isArray(rule.aliases)) {
-        rule.aliases.forEach((alias, aliasIndex) => {
-            if (!CORE_RULE_ID_PATTERN.test(alias)) {
-                throw new Error(`${prefix}.aliases[${aliasIndex}] must match ${CORE_RULE_ID_PATTERN.source}`);
-            }
-        });
-        if (typeof rule.id === 'string' && rule.aliases.includes(rule.id)) {
-            throw new Error(`${prefix}.aliases must not contain the rule id itself`);
-        }
-        if (new Set(rule.aliases).size !== rule.aliases.length) {
-            throw new Error(`${prefix}.aliases must be unique`);
-        }
-    }
     if (rule.description !== undefined && typeof rule.description !== 'string') {
         throw new Error(`${prefix}.description must be a string`);
     }
@@ -329,9 +310,9 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
         (!Array.isArray(rule.exceptions) || rule.exceptions.some(item => typeof item !== 'string'))) {
         throw new Error(`${prefix}.exceptions must be an array of strings`);
     }
-    if (rule.requestTypes !== undefined && rule.requestTypes !== 'all' &&
+    if (rule.requestTypes !== undefined &&
         (!Array.isArray(rule.requestTypes) || rule.requestTypes.some(item => typeof item !== 'string'))) {
-        throw new Error(`${prefix}.requestTypes must be "all" or an array of strings`);
+        throw new Error(`${prefix}.requestTypes must be an array of strings`);
     }
     if (rule.preprocessors !== undefined && !Array.isArray(rule.preprocessors)) {
         throw new Error(`${prefix}.preprocessors must be an array`);
@@ -347,38 +328,91 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     (rule.exceptions || []).forEach(exception => new RegExp(exception));
 }
 
-// Spellings that duplicated another name and are no longer read. Rules that
-// are loaded or imported are rewritten automatically (core_js/rule_migration.js);
-// these checks catch old spellings typed straight into the JSON editor.
-const REMOVED_PROVIDER_KEYS = Object.freeze({
-    defaultActive: 'active',
-    'history-bypass-protection': 'historyBypassProtection',
-    syntax: 'nothing (remove it)'
-});
-const REMOVED_RULE_KEYS = Object.freeze({
-    activeDefault: 'active',
-    'history-bypass-protection': 'historyBypassProtection'
-});
+const PROVIDER_FIELDS = Object.freeze([
+    'domainPatterns', 'urlPattern', 'indexPattern', 'rules', 'referralMarketing', 'rawRules',
+    'exceptions', 'redirections', 'completeProvider', 'forceRedirection', 'methods',
+    'resourceTypes', 'historyBypassProtection', 'active'
+]);
+const REMOVEPARAM_VALUE_OPTIONS = new Set(['removeparam', 'domain', 'to', 'denyallow', 'method', 'history-bypass-protection']);
+const REMOVEPARAM_FLAG_OPTIONS = new Set([
+    'first-party', 'third-party', 'strict-first-party', 'strict-third-party', 'match-case', 'badfilter',
+    'document', 'subdocument', 'script', 'stylesheet', 'image', 'imageset', 'media', 'object',
+    'other', 'ping', 'websocket', 'xmlhttprequest', 'font'
+]);
+const REMOVEPARAM_NEGATABLE_OPTIONS = new Set([
+    'document', 'subdocument', 'script', 'stylesheet', 'image', 'imageset', 'media', 'object',
+    'other', 'ping', 'websocket', 'xmlhttprequest', 'font'
+]);
 
-function assertNoRemovedSpellings(provider, providerName = '') {
+// The options of a "$removeparam" filter, split on commas outside /regex/
+// values, or null when the text is not a $removeparam filter.
+function getRemoveParamOptions(text) {
+    const body = String(text || '').startsWith('@@') ? String(text).slice(2) : String(text || '');
+    let start = -1;
+    if (body.startsWith('/')) {
+        let escaped = false;
+        let inClass = false;
+        for (let i = 1; i < body.length; i++) {
+            const ch = body.charAt(i);
+            if (escaped) { escaped = false; continue; }
+            if (ch === '\\') { escaped = true; continue; }
+            if (inClass) { if (ch === ']') inClass = false; continue; }
+            if (ch === '[') { inClass = true; continue; }
+            if (ch === '/') { start = body.indexOf('$', i + 1); break; }
+        }
+    } else {
+        start = body.indexOf('$');
+    }
+    if (start === -1) return null;
+    const options = [];
+    let current = '';
+    let inRegex = false;
+    let escaped = false;
+    const text2 = body.slice(start + 1);
+    for (let i = 0; i < text2.length; i++) {
+        const ch = text2.charAt(i);
+        const next = text2.charAt(i + 1);
+        if (!inRegex) {
+            if (ch === ',') { options.push(current.trim()); current = ''; continue; }
+            current += ch;
+            if ((ch === '=' || ch === '|') && (next === '/' || (next === '~' && text2.charAt(i + 2) === '/'))) {
+                current += next === '~' ? '~/' : '/';
+                i += next === '~' ? 2 : 1;
+                inRegex = true;
+            }
+            continue;
+        }
+        current += ch;
+        if (escaped) { escaped = false; continue; }
+        if (ch === '\\') { escaped = true; continue; }
+        if (ch === '/') inRegex = false;
+    }
+    options.push(current.trim());
+    return options.some(option => /^removeparam(?:=|$)/i.test(option)) ? options : null;
+}
+
+function assertKnownFieldsAndOptions(provider, providerName = '') {
     const label = providerName || 'Provider';
-    Object.entries(REMOVED_PROVIDER_KEYS).forEach(([oldKey, newKey]) => {
-        if (Object.prototype.hasOwnProperty.call(provider, oldKey)) {
-            throw new Error(`${label}: "${oldKey}" is no longer supported; use ${newKey.includes('"') || newKey.includes(' ') ? newKey : `"${newKey}"`}`);
+    Object.keys(provider).forEach((key) => {
+        if (!PROVIDER_FIELDS.includes(key)) {
+            throw new Error(`${label}: unknown field "${key}"`);
         }
     });
-    ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections'].forEach((fieldName) => {
+    ['rules', 'referralMarketing'].forEach((fieldName) => {
         (Array.isArray(provider[fieldName]) ? provider[fieldName] : []).forEach((entry, index) => {
             const text = typeof entry === 'string' ? entry
                 : (isPlainObject(entry) && typeof entry.matchPattern === 'string' ? entry.matchPattern : '');
-            const migrated = LinkumoriRuleMigration.migrateFilterText(text);
-            if (migrated !== text) {
-                throw new Error(`${label}: ${fieldName}[${index}] uses an old option name; write it as "${migrated}"`);
-            }
-            if (!isPlainObject(entry)) return;
-            Object.entries(REMOVED_RULE_KEYS).forEach(([oldKey, newKey]) => {
-                if (Object.prototype.hasOwnProperty.call(entry, oldKey)) {
-                    throw new Error(`${label}: ${fieldName}[${index}] "${oldKey}" is no longer supported; use "${newKey}"`);
+            const options = getRemoveParamOptions(text);
+            if (!options) return;
+            options.forEach((option) => {
+                const lower = option.toLowerCase();
+                const name = lower.split('=')[0];
+                const known = lower.includes('=')
+                    ? REMOVEPARAM_VALUE_OPTIONS.has(name)
+                    : (lower === 'removeparam' || REMOVEPARAM_FLAG_OPTIONS.has(lower) ||
+                        (lower.startsWith('~') && REMOVEPARAM_NEGATABLE_OPTIONS.has(lower.slice(1))));
+                if (!known) {
+                    throw new Error(`${label}: ${fieldName}[${index}] has unknown $removeparam option "${option}"`);
                 }
             });
         });
@@ -419,7 +453,7 @@ function assertNoSilentMistakes(provider, providerName = '') {
     };
     toDomainPatternArray(provider.domainPatterns).forEach((pattern, index) => checkPattern(pattern, `domainPatterns[${index}]`));
     toDomainPatternArray(provider.indexPattern).forEach((pattern, index) => checkPattern(pattern, `indexPattern[${index}]`));
-    ['exceptions', 'redirections', 'domainExceptions', 'domainRedirections'].forEach((fieldName) => {
+    ['exceptions', 'redirections'].forEach((fieldName) => {
         (Array.isArray(provider[fieldName]) ? provider[fieldName] : []).forEach((entry, index) => {
             const text = typeof entry === 'string' ? entry : (isPlainObject(entry) ? entry.matchPattern : '');
             checkPattern(String(text || '').split('$redirect=')[0], `${fieldName}[${index}]`);
@@ -448,7 +482,7 @@ function assertNoSilentMistakes(provider, providerName = '') {
 }
 
 function assertRuleEntrySyntax(provider, providerName = '') {
-    assertNoRemovedSpellings(provider, providerName);
+    assertKnownFieldsAndOptions(provider, providerName);
     assertNoSilentMistakes(provider, providerName);
     const occupiedNames = new Map();
     OBJECT_STYLE_RULE_FIELDS.forEach((fieldName) => {
@@ -463,12 +497,11 @@ function assertRuleEntrySyntax(provider, providerName = '') {
             assertObjectStyleRuleSyntax(entry, providerName, fieldName, index);
             const names = [];
             if (typeof entry.id === 'string') names.push(entry.id);
-            if (Array.isArray(entry.aliases)) names.push(...entry.aliases);
             names.forEach((name) => {
                 const firstSeenAt = occupiedNames.get(name);
                 const here = `${fieldName}[${index}]`;
                 if (firstSeenAt) {
-                    throw new Error(`${providerName || 'Provider'} reuses rule id or alias "${name}" in ${here}; first used in ${firstSeenAt}`);
+                    throw new Error(`${providerName || 'Provider'} reuses rule id "${name}" in ${here}; first used in ${firstSeenAt}`);
                 }
                 occupiedNames.set(name, here);
             });
@@ -1049,22 +1082,6 @@ function buildProviderPatternRuntimeRuleId(scopeId, ruleId) {
     return `${scopeId}::${ruleId}`;
 }
 
-function getProviderRuleScopeAliases(scopeId) {
-    const value = String(scopeId || '').trim();
-    if (!value) return [];
-    const aliases = [value];
-    if (value.startsWith('domainPattern:')) {
-        aliases.push(`domain:${value.substring(14)}`);
-    } else if (value.startsWith('urlPattern:')) {
-        aliases.push(`url:${value.substring(11)}`);
-    } else if (value.startsWith('domain:')) {
-        aliases.push(`domainPattern:${value.substring(7)}`);
-    } else if (value.startsWith('url:')) {
-        aliases.push(`urlPattern:${value.substring(4)}`);
-    }
-    return aliases;
-}
-
 function getProviderRuleActivationScopeIds(providerName, provider) {
     const urlPattern = typeof provider?.urlPattern === 'string'
         ? provider.urlPattern.trim()
@@ -1081,15 +1098,12 @@ function getProviderRuleActivationScopeIds(providerName, provider) {
     return [providerName];
 }
 
-function getProviderRuleDisableKeys(scopeId, ruleId, aliases = [], legacyProviderName = '') {
-    const scopeAliases = getProviderRuleScopeAliases(scopeId);
+// A rule is off when it is switched off for this match pattern
+// ("<scope>::<ruleId>") or for its whole provider ("<provider>::<ruleId>").
+function getProviderRuleDisableKeys(scopeId, ruleId, providerName = '') {
     return [
-        ...scopeAliases.map(scope => buildProviderPatternRuntimeRuleId(scope, ruleId)),
-        ruleId,
-        ...aliases.flatMap(alias => scopeAliases.map(scope => buildProviderPatternRuntimeRuleId(scope, alias))),
-        ...aliases,
-        legacyProviderName ? buildProviderRuntimeRuleId(legacyProviderName, ruleId) : '',
-        ...aliases.map(alias => legacyProviderName ? buildProviderRuntimeRuleId(legacyProviderName, alias) : '')
+        scopeId ? buildProviderPatternRuntimeRuleId(scopeId, ruleId) : '',
+        providerName ? buildProviderRuntimeRuleId(providerName, ruleId) : ''
     ].filter(Boolean);
 }
 
@@ -1111,13 +1125,10 @@ function collectProviderRuleIdEntries(providerName, provider) {
                 return;
             }
 
-            const aliases = Array.isArray(rule.aliases)
-                ? rule.aliases.map(alias => String(alias || '').trim()).filter(Boolean)
-                : [];
             const disabledIds = new Set(clearURLsDisabledRuleIds);
             activationScopeIds.forEach(scopeId => {
                 const runtimeId = buildProviderPatternRuntimeRuleId(scopeId, rule.id);
-                const disableKeys = getProviderRuleDisableKeys(scopeId, rule.id, aliases, providerName);
+                const disableKeys = getProviderRuleDisableKeys(scopeId, rule.id, providerName);
                 const disabled = disableKeys.some(key => disabledIds.has(key));
 
                 entries.push({
@@ -1127,7 +1138,6 @@ function collectProviderRuleIdEntries(providerName, provider) {
                     runtimeId,
                     scopeId,
                     providerName,
-                    aliases,
                     disableKeys,
                     kind: section === 'rawRules' ? 'raw' : (section === 'redirections' ? 'redirection' : 'field'),
                     match: typeof rule.matchPattern === 'string' ? rule.matchPattern : '',
@@ -1155,7 +1165,6 @@ function renderProviderRuleIdControls(providerName, provider) {
     }
 
     const rows = entries.map(entry => {
-        const aliasText = entry.aliases.length > 0 ? ` aliases: ${entry.aliases.join(', ')}` : '';
         const matchText = entry.match ? ` · ${entry.match}` : '';
         const scopeText = entry.scopeId ? ` · ${entry.scopeId}` : '';
         const providerText = entry.providerName ? `${entry.providerName} · ` : '';
@@ -1164,7 +1173,7 @@ function renderProviderRuleIdControls(providerName, provider) {
                 <input type="hidden" class="provider-rule-id-disable-keys" value="${escapeHtml(JSON.stringify(entry.disableKeys))}">
                 <span class="provider-disabled-signature" title="${escapeHtml(entry.runtimeId)}">
                     <strong>${escapeHtml(entry.id)}</strong>
-                    <span class="provider-disabled-source">${escapeHtml(providerText)}${escapeHtml(entry.section)} · ${escapeHtml(entry.kind)}${escapeHtml(scopeText)}${escapeHtml(matchText)}${escapeHtml(aliasText)}</span>
+                    <span class="provider-disabled-source">${escapeHtml(providerText)}${escapeHtml(entry.section)} · ${escapeHtml(entry.kind)}${escapeHtml(scopeText)}${escapeHtml(matchText)}</span>
                 </span>
                 <button type="button" class="btn btn-sm ${entry.disabled ? 'btn-secondary provider-rule-id-restore-btn' : 'btn-warning provider-rule-id-disable-btn'}">
                     ${entry.disabled ? i18n('providerImport_disabledRestore') : i18n('providerImport_disable')}
@@ -1878,10 +1887,7 @@ async function importWhitelistDomainsFromFile(file) {
     }
 
     let importedDomainsByType = null;
-    if (Array.isArray(parsed)) {
-        // Legacy exports were a plain general-whitelist array.
-        importedDomainsByType = { general: parsed, history: [] };
-    } else if (parsed && typeof parsed === 'object') {
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
         const generalEntries = Array.isArray(parsed.userWhitelist) ? parsed.userWhitelist : [];
         const historyEntries = Array.isArray(parsed.historyApiWhitelist) ? parsed.historyApiWhitelist : [];
         if (Array.isArray(parsed.userWhitelist) || Array.isArray(parsed.historyApiWhitelist)) {
@@ -2360,15 +2366,11 @@ function createProviderListItemHTML(providerName, provider) {
     const rulesCount = countRuleEntries(provider.rules);
     const exceptionsCount = countRuleEntries(provider.exceptions);
     const domainPatternsCount = domainPatterns.length;
-    const domainExceptionsCount = (provider.domainExceptions || []).length;
-    const domainRedirectionsCount = (provider.domainRedirections || []).length;
     
     const stats = [];
     if (rulesCount > 0) stats.push(`${getLocalizedNumber(rulesCount)} ${i18n('providerList_rules')}`);
     if (exceptionsCount > 0) stats.push(`${getLocalizedNumber(exceptionsCount)} ${i18n('providerList_exceptions')}`);
     if (domainPatternsCount > 0) stats.push(`${getLocalizedNumber(domainPatternsCount)} ${i18n('customRulesEditor_domainPatterns')}`);
-    if (domainExceptionsCount > 0) stats.push(`${getLocalizedNumber(domainExceptionsCount)} ${i18n('customRulesEditor_domainExceptions')}`);
-    if (domainRedirectionsCount > 0) stats.push(`${getLocalizedNumber(domainRedirectionsCount)} ${i18n('customRulesEditor_domainRedirections')}`);
     if (provider.indexPattern) stats.push(`Index: ${provider.indexPattern}`);
     if (provider.completeProvider) stats.push(i18n('providerList_complete'));
     if (provider.historyBypassProtection === false) stats.push(i18n('providerList_historyBypassProtection'));
@@ -2687,7 +2689,7 @@ function getSnapshotRuleActivationRows() {
         activationIds.forEach(activationId => {
             const runtimeRuleId = String(activationId || '').trim();
             const parsed = parseActivationId(runtimeRuleId, rule.id || '');
-            const disableKeys = getProviderRuleDisableKeys(parsed.scopeId, parsed.ruleId, rule.aliases || [], rule.providerName || '');
+            const disableKeys = getProviderRuleDisableKeys(parsed.scopeId, parsed.ruleId, rule.providerName || '');
             if (!runtimeRuleId || disableKeys.some(key => disabled.has(key))) {
                 return;
             }
@@ -2714,21 +2716,13 @@ function getSnapshotProviderRuleRows() {
         const providerName = rule?.providerName || '';
         const ruleId = rule?.id || '';
         const runtimeRuleId = rule?.runtimeRuleId || buildProviderRuntimeRuleId(providerName, ruleId);
-        const aliases = Array.isArray(rule?.aliases) ? rule.aliases : [];
-        const disableKeys = [
-            runtimeRuleId,
-            ruleId,
-            ...(Array.isArray(rule?.aliasRuntimeIds) ? rule.aliasRuntimeIds : []),
-            ...aliases
-        ].filter(Boolean);
-        if (!runtimeRuleId || disableKeys.some(key => disabled.has(key))) {
+        if (!runtimeRuleId || disabled.has(runtimeRuleId)) {
             return;
         }
         rows.push({
             runtimeRuleId,
             providerName,
             ruleId,
-            aliases,
             section: rule.section || '',
             kind: rule.kind || '',
             match: rule.match || ''
@@ -3155,8 +3149,6 @@ function createProviderCard(name, provider, source) {
     const rulesCount = countRuleEntries(provider.rules);
     const exceptionsCount = countRuleEntries(provider.exceptions);
     const domainPatternsCount = domainPatterns.length;
-    const domainExceptionsCount = (provider.domainExceptions || []).length;
-    const domainRedirectionsCount = (provider.domainRedirections || []).length;
     
     // Check if provider already exists in custom rules
     const existsInCustom = customRules.providers[name] !== undefined;
@@ -3174,8 +3166,6 @@ function createProviderCard(name, provider, source) {
                 ${rulesCount > 0 ? `<span class="provider-card-stat" title="${i18n('providerImport_rules')}">${getLocalizedNumber(rulesCount)} ${i18n('providerImport_rulesAbbr')}</span>` : ''}
                 ${exceptionsCount > 0 ? `<span class="provider-card-stat" title="${i18n('providerImport_exceptions')}">${getLocalizedNumber(exceptionsCount)} ${i18n('providerImport_exceptionsAbbr')}</span>` : ''}
                 ${domainPatternsCount > 0 ? `<span class="provider-card-stat" title="${i18n('providerImport_domainPatterns')}">${getLocalizedNumber(domainPatternsCount)} ${i18n('providerImport_domainPatternsAbbr')}</span>` : ''}
-                ${domainExceptionsCount > 0 ? `<span class="provider-card-stat" title="${i18n('providerImport_domainExceptions')}">${getLocalizedNumber(domainExceptionsCount)} ${i18n('providerImport_domainExceptionsAbbr')}</span>` : ''}
-                ${domainRedirectionsCount > 0 ? `<span class="provider-card-stat" title="${i18n('providerImport_domainRedirections')}">${getLocalizedNumber(domainRedirectionsCount)} ${i18n('providerImport_domainRedirectionsAbbr')}</span>` : ''}
                 ${provider.completeProvider ? `<span class="provider-card-stat" title="${i18n('providerImport_completeProvider')}">${i18n('providerImport_complete')}</span>` : ''}
                 ${provider.historyBypassProtection === false ? `<span class="provider-card-stat" title="${i18n('providerList_historyBypassProtection')}">${i18n('providerImport_historyBypassProtectionAbbr')}</span>` : ''}
             </div>
@@ -3345,7 +3335,7 @@ async function confirmProviderImport() {
             }
             
             // Import the provider (deep copy to avoid reference issues)
-            customRules.providers[providerName] = LinkumoriRuleMigration.migrateProvider(JSON.parse(JSON.stringify(provider)));
+            customRules.providers[providerName] = JSON.parse(JSON.stringify(provider));
             importedCount++;
         }
         
@@ -3842,8 +3832,6 @@ async function loadCustomRules() {
         } else {
             customRules = { providers: {} };
         }
-        // Older spellings in saved rules are shown (and saved) in the current form.
-        customRules.providers = LinkumoriRuleMigration.migrateProviders(customRules.providers);
         
         updateUI();
     } catch (error) {
@@ -4398,7 +4386,7 @@ function createProviderSkeleton() {
 
 function compactProviderForEditor(provider) {
     const next = JSON.parse(JSON.stringify(provider || {}));
-    const optionalArrays = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'domainPatterns', 'exceptions', 'domainExceptions', 'domainRedirections', 'methods', 'resourceTypes'];
+    const optionalArrays = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'domainPatterns', 'exceptions', 'methods', 'resourceTypes'];
 
     optionalArrays.forEach((key) => {
         if (Array.isArray(next[key]) && next[key].length === 0) delete next[key];
@@ -4412,10 +4400,8 @@ function compactProviderForEditor(provider) {
     return next;
 }
 
-// Providers are shown and saved with one spelling for everything; older
-// spellings are rewritten when a provider is opened (core_js/rule_migration.js).
 function normalizeProviderForEditor(provider) {
-    const next = LinkumoriRuleMigration.migrateProvider(JSON.parse(JSON.stringify(provider || {})));
+    const next = JSON.parse(JSON.stringify(provider || {}));
     if (!Array.isArray(next.rules)) next.rules = [];
     return next;
 }
@@ -4428,7 +4414,6 @@ function getJsonFieldButtons() {
         referralMarketing: i18n('customRulesEditor_referralMarketing'),
         redirections: i18n('customRulesEditor_redirections'),
         exceptions: i18n('customRulesEditor_exceptions'),
-        domainExceptions: i18n('customRulesEditor_domainExceptions'),
         completeProvider: i18n('customRulesEditor_completeProvider'),
         forceRedirection: i18n('customRulesEditor_forceRedirection'),
         historyBypassProtection: i18n('customRulesEditor_historyBypassProtection'),
@@ -4480,8 +4465,6 @@ function getDefaultValueForJsonKey(key) {
         referralMarketing: [],
         redirections: [],
         exceptions: [],
-        domainExceptions: [],
-        domainRedirections: [],
         completeProvider: false,
         forceRedirection: false,
         historyBypassProtection: false,
@@ -5120,141 +5103,22 @@ async function exportCustomRules() {
     }
 }
 
+// Accepts this editor's export ({ clearurlsCustomRules: { providers } }) and a
+// plain rules file ({ providers }).
 function getProvidersFromImportedCustomRules(imported) {
-    if (!imported || typeof imported !== 'object' || Array.isArray(imported)) {
+    if (!isPlainObject(imported)) {
         return null;
     }
-
-    const candidates = [
-        imported.clearurlsCustomRules,
-        imported.custom_rules,
-        imported.customRules,
-        imported
-    ];
-
-    for (const candidate of candidates) {
-        if (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) {
-            continue;
-        }
-        if (candidate.providers && typeof candidate.providers === 'object' && !Array.isArray(candidate.providers)) {
-            if (candidate.version === 2) {
-                validateImportedV2Document(candidate);
-                return applyImportedV2Defaults(candidate.providers, candidate.defaults);
-            }
-            return candidate.providers;
-        }
-    }
-
-    const reservedKeys = new Set([
-        'format',
-        'version',
-        'exportedAt',
-        'clearurlsCustomRules',
-        'custom_rules',
-        'customRules'
-    ]);
-    const keys = Object.keys(imported).filter(key => !reservedKeys.has(key));
-    if (keys.length > 0 && keys.every(key => typeof imported[key] === 'object' && imported[key] !== null && !Array.isArray(imported[key]))) {
-        return keys.reduce((providers, key) => {
-            providers[key] = imported[key];
-            return providers;
-        }, {});
-    }
-
-    return null;
-}
-
-function assertRequestTypesSelection(value, label) {
-    if (value === 'all') return;
-    if (!Array.isArray(value) || value.some(item => typeof item !== 'string')) {
-        throw new Error(`${label} must be "all" or an array of strings`);
-    }
+    const container = isPlainObject(imported.clearurlsCustomRules) ? imported.clearurlsCustomRules : imported;
+    return isPlainObject(container.providers) ? container.providers : null;
 }
 
 function assertOnlyKeys(value, allowedKeys, label) {
     Object.keys(value || {}).forEach((key) => {
         if (!allowedKeys.includes(key)) {
-            throw new Error(`${label}.${key} is not allowed in ClearURLs core v2`);
+            throw new Error(`${label} has unknown key "${key}"`);
         }
     });
-}
-
-function validateImportedV2Document(document) {
-    if (!document || document.version !== 2) {
-        throw new Error('Imported v2 document must use version: 2');
-    }
-    assertOnlyKeys(document, ['version', 'defaults', 'providers'], 'Imported v2 document');
-    if (!isPlainObject(document.defaults)) {
-        throw new Error('Imported v2 document must include defaults');
-    }
-    assertOnlyKeys(document.defaults, ['active', 'description', 'requestTypes', 'preprocessors', 'exceptions'], 'Imported v2 defaults');
-    if (typeof document.defaults.active !== 'boolean') {
-        throw new Error('Imported v2 defaults.active must be a boolean');
-    }
-    if (document.defaults.description !== undefined && typeof document.defaults.description !== 'string') {
-        throw new Error('Imported v2 defaults.description must be a string');
-    }
-    assertRequestTypesSelection(document.defaults.requestTypes, 'Imported v2 defaults.requestTypes');
-    if (!Array.isArray(document.defaults.preprocessors)) {
-        throw new Error('Imported v2 defaults.preprocessors must be an array');
-    }
-    document.defaults.preprocessors.forEach((preprocessor, index) => {
-        assertPreprocessorSyntax(preprocessor, `Imported v2 defaults.preprocessors[${index}]`);
-    });
-    if (!Array.isArray(document.defaults.exceptions) || document.defaults.exceptions.some(item => typeof item !== 'string')) {
-        throw new Error('Imported v2 defaults.exceptions must be an array of strings');
-    }
-    if (!isPlainObject(document.providers)) {
-        throw new Error('Imported v2 providers must be an object');
-    }
-    Object.entries(document.providers).forEach(([providerName, provider]) => {
-        if (!isPlainObject(provider)) {
-            throw new Error(`Imported v2 provider "${providerName}" must be an object`);
-        }
-        assertOnlyKeys(provider, ['completeProvider', 'exceptions', 'forceRedirection', 'methods', 'rules', 'urlPattern'], `Imported v2 provider "${providerName}"`);
-        if (typeof provider.urlPattern !== 'string') {
-            throw new Error(`Imported v2 provider "${providerName}" must include urlPattern`);
-        }
-        if (provider.rules !== undefined && !Array.isArray(provider.rules)) {
-            throw new Error(`Imported v2 provider "${providerName}".rules must be an array`);
-        }
-        if (provider.exceptions !== undefined &&
-            (!Array.isArray(provider.exceptions) || provider.exceptions.some(item => typeof item !== 'string'))) {
-            throw new Error(`Imported v2 provider "${providerName}".exceptions must be an array of strings`);
-        }
-        if (provider.methods !== undefined &&
-            (!Array.isArray(provider.methods) || provider.methods.some(item => typeof item !== 'string'))) {
-            throw new Error(`Imported v2 provider "${providerName}".methods must be an array of strings`);
-        }
-        (provider.rules || []).forEach((rule, index) => {
-            if (isPlainObject(rule)) {
-                assertOnlyKeys(rule, ['action', 'active', 'aliases', 'description', 'exceptions', 'id', 'kind', 'match', 'preprocessors', 'referralMarketing', 'requestTypes'], `Imported v2 provider "${providerName}".rules[${index}]`);
-                if (isPlainObject(rule.action)) {
-                    assertOnlyKeys(rule.action, ['type', 'replacePattern'], `Imported v2 provider "${providerName}".rules[${index}].action`);
-                }
-            }
-        });
-        assertRuleEntrySyntax(provider, providerName);
-    });
-}
-
-function applyImportedV2Defaults(providers, defaults) {
-    const result = JSON.parse(JSON.stringify(providers || {}));
-    Object.values(result).forEach((provider) => {
-        if (!provider || !Array.isArray(provider.rules)) return;
-        provider.rules = provider.rules.map((rule) => {
-            if (!isPlainObject(rule) || typeof rule.match !== 'string') return rule;
-            return {
-                ...rule,
-                ...(rule.active === undefined && typeof defaults.active === 'boolean' ? { active: defaults.active } : {}),
-                ...(rule.description === undefined && typeof defaults.description === 'string' ? { description: defaults.description } : {}),
-                ...(rule.requestTypes === undefined && defaults.requestTypes !== undefined ? { requestTypes: defaults.requestTypes } : {}),
-                ...(rule.preprocessors === undefined && Array.isArray(defaults.preprocessors) ? { preprocessors: defaults.preprocessors } : {}),
-                ...(rule.exceptions === undefined && Array.isArray(defaults.exceptions) ? { exceptions: defaults.exceptions } : {})
-            };
-        });
-    });
-    return result;
 }
 
 function validateImportedProviders(providersData) {
@@ -5262,10 +5126,7 @@ function validateImportedProviders(providersData) {
         throw new Error(i18n('customRulesEditor_noProvidersInFile'));
     }
 
-    for (const [name, rawProvider] of Object.entries(providersData)) {
-        // Older spellings are rewritten before validation (core_js/rule_migration.js).
-        const provider = LinkumoriRuleMigration.migrateProvider(rawProvider);
-        providersData[name] = provider;
+    for (const [name, provider] of Object.entries(providersData)) {
         assertProviderArrayFields(provider, name);
         assertRuleEntrySyntax(provider, name);
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
@@ -5301,8 +5162,6 @@ function assertProviderArrayFields(provider, providerName = '') {
         'referralMarketing',
         'redirections',
         'exceptions',
-        'domainExceptions',
-        'domainRedirections',
         'methods',
         'resourceTypes'
     ].forEach((key) => {

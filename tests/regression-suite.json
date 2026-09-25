@@ -1044,16 +1044,10 @@
       }
     },
     {
-      "id": "provider canonical v2 field rewrite",
+      "id": "provider rule object with id: field rewrite",
       "dialect": "provider",
       "input": "https://example.com/v2-field/?token=abc&keep=1",
       "expectedOutput": "https://example.com/v2-field/?keep=1&token=v2-abc",
-      "defaults": {
-        "active": true,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
       "providers": {
         "provider-v2-field": {
           "urlPattern": "^https?:\\/\\/example\\.com\\/v2-field(?:[/?#]|$)",
@@ -1071,16 +1065,10 @@
       }
     },
     {
-      "id": "provider canonical v2 raw remove",
+      "id": "provider rule object with id: raw remove",
       "dialect": "provider",
       "input": "https://example.com/v2-raw/?raw=x&keep=1",
       "expectedOutput": "https://example.com/v2-raw/?keep=1",
-      "defaults": {
-        "active": true,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
       "providers": {
         "provider-v2-raw": {
           "urlPattern": "^https?:\\/\\/example\\.com\\/v2-raw(?:[/?#]|$)",
@@ -1098,16 +1086,10 @@
       }
     },
     {
-      "id": "provider canonical v2 redirect",
+      "id": "provider rule object with id: redirect with preprocessor",
       "dialect": "provider",
       "input": "https://example.com/v2-redirect/?url=https%253A%252F%252Fwww.iana.org%252F",
       "expectedOutput": "https://www.iana.org/",
-      "defaults": {
-        "active": true,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
       "providers": {
         "provider-v2-redirect": {
           "urlPattern": "^https?:\\/\\/example\\.com\\/v2-redirect(?:[/?#]|$)",
@@ -1132,60 +1114,6 @@
       "preferences": {
         "globalStatus": true,
         "redirectionEnabled": true
-      }
-    },
-    {
-      "id": "provider canonical v2 defaults request type",
-      "dialect": "provider",
-      "input": "https://example.com/v2-defaults/?token=abc",
-      "expectedOutput": "https://example.com/v2-defaults/?token=abc",
-      "defaults": {
-        "active": true,
-        "requestTypes": [
-          "xmlhttprequest"
-        ],
-        "preprocessors": [],
-        "exceptions": []
-      },
-      "providers": {
-        "provider-v2-defaults": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-defaults(?:[/?#]|$)",
-          "rules": [
-            {
-              "id": "default-gated",
-              "matchPattern": "token"
-            }
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      },
-      "request": {
-        "type": "main_frame"
-      }
-    },
-    {
-      "id": "provider canonical v2 defaults inactive string",
-      "dialect": "provider",
-      "input": "https://example.com/v2-default-inactive/?token=abc",
-      "expectedOutput": "https://example.com/v2-default-inactive/?token=abc",
-      "defaults": {
-        "active": false,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
-      "providers": {
-        "provider-v2-default-inactive": {
-          "urlPattern": "^https?:\\/\\/example\\.com\\/v2-default-inactive(?:[/?#]|$)",
-          "rules": [
-            "token"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
       }
     },
     {
@@ -1264,16 +1192,10 @@
       }
     },
     {
-      "id": "provider canonical v2 indexPattern",
+      "id": "provider rule object with id and indexPattern",
       "dialect": "provider",
       "input": "https://example.com/v2-index/?token=abc",
       "expectedOutput": "https://example.com/v2-index/",
-      "defaults": {
-        "active": true,
-        "requestTypes": "all",
-        "preprocessors": [],
-        "exceptions": []
-      },
       "providers": {
         "provider-v2-index": {
           "urlPattern": "^https?:\\/\\/example\\.com\\/v2-index(?:[/?#]|$)",
