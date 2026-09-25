@@ -955,8 +955,7 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     for (const token of modifiers) {
         if (unsupportedModifier) break;
         const normalized = token.toLowerCase();
-        if (normalized === 'removeparam' || normalized.startsWith('removeparam=') ||
-            normalized === 'queryprune' || normalized.startsWith('queryprune=')) {
+        if (normalized === 'removeparam' || normalized.startsWith('removeparam=')) {
             removeParamToken = token; continue;
         }
         // BUGFIX 7 (secondary): collapsed two identical badfilter checks into one.
@@ -1262,11 +1261,9 @@ function linkumoriRemoveParamExceptionMatchesContext(linkumoriRule, contextUrls,
 function resolveLinkumoriHistoryBypassProtection(rule, defaults) {
     if (rule && typeof rule === 'object') {
         if (typeof rule.historyBypassProtection === 'boolean') return rule.historyBypassProtection;
-        if (typeof rule['history-bypass-protection'] === 'boolean') return rule['history-bypass-protection'];
     }
     if (defaults && typeof defaults === 'object') {
         if (typeof defaults.historyBypassProtection === 'boolean') return defaults.historyBypassProtection;
-        if (typeof defaults['history-bypass-protection'] === 'boolean') return defaults['history-bypass-protection'];
     }
     // Missing everywhere in the rule chain: default to true (protection stays on for history updates).
     return true;
@@ -1322,8 +1319,7 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
     }
     return {
         actionType,
-        active: typeof resolvedRule.active === "boolean" ? resolvedRule.active
-            : (typeof resolvedRule.activeDefault === "boolean" ? resolvedRule.activeDefault : true),
+        active: typeof resolvedRule.active === "boolean" ? resolvedRule.active : true,
         aliases: Array.isArray(resolvedRule.aliases) ? resolvedRule.aliases.filter(i => typeof i === "string") : [],
         description: typeof resolvedRule.description === "string" ? resolvedRule.description : "",
         exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter(i => typeof i === "string") : [],
@@ -1692,7 +1688,7 @@ function start() {
         providers = [];
         for (let p = 0; p < prvKeys.length; p++) {
             const providerData = data.providers[prvKeys[p]];
-            if (providerData.getOrDefault('active', providerData.getOrDefault('defaultActive', true)) === false) continue;
+            if (providerData.getOrDefault('active', true) === false) continue;
             const provider = new Provider(prvKeys[p],
                 providerData.getOrDefault('completeProvider', false),
                 providerData.getOrDefault('forceRedirection', false),
@@ -1711,12 +1707,10 @@ function start() {
                 if (hasIndex) provider.setIndexPattern(indexPattern);
             }
 
-            // A provider-level "historyBypassProtection" (or "history-bypass-protection")
-            // blanket applies to every rule under this provider that doesn't set its own
+            // A provider-level "historyBypassProtection" blanket applies to every rule under this provider that doesn't set its own
             // value inline, without having to touch each rule string individually.
             const globalRuleDefaults = data && data.defaults && typeof data.defaults === 'object' ? data.defaults : null;
-            const providerHistoryBypassProtection = providerData.getOrDefault('historyBypassProtection',
-                providerData.getOrDefault('history-bypass-protection', undefined));
+            const providerHistoryBypassProtection = providerData.getOrDefault('historyBypassProtection', undefined);
             const providerDefaults = (globalRuleDefaults || typeof providerHistoryBypassProtection === 'boolean')
                 ? Object.assign({}, globalRuleDefaults, typeof providerHistoryBypassProtection === 'boolean'
                     ? { historyBypassProtection: providerHistoryBypassProtection } : {})

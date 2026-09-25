@@ -240,7 +240,7 @@
       }
     },
     {
-      "id": "core parity canonical activeDefault false rule",
+      "id": "core parity canonical active false rule",
       "dialect": "provider",
       "input": "https://example.com/core-inactive-rule/?utm_source=x",
       "expectedOutput": "https://example.com/core-inactive-rule/?utm_source=x",
@@ -253,10 +253,10 @@
               "id": "inactive-remove",
               "kind": "field",
               "match": "utm_source",
-              "activeDefault": false,
               "action": {
                 "type": "remove"
-              }
+              },
+              "active": false
             }
           ]
         }
@@ -266,14 +266,13 @@
       }
     },
     {
-      "id": "core parity canonical provider defaultActive false",
+      "id": "core parity canonical provider active false",
       "dialect": "provider",
       "input": "https://example.com/core-inactive-provider/?utm_source=x",
       "expectedOutput": "https://example.com/core-inactive-provider/?utm_source=x",
       "providers": {
         "core-inactive-provider": {
           "syntax": "linkumori-clearurls-dialect",
-          "defaultActive": false,
           "urlPattern": "^https?:\\/\\/example\\.com\\/core-inactive-provider(?:[/?#]|$)",
           "rules": [
             {
@@ -284,7 +283,8 @@
                 "type": "remove"
               }
             }
-          ]
+          ],
+          "active": false
         }
       },
       "preferences": {
@@ -2023,10 +2023,10 @@
       }
     },
     {
-      "id": "webrequest queryprune alias removes parameter",
+      "id": "webrequest queryprune is not supported",
       "dialect": "providerWebRequest",
       "input": "https://www.google.com/search?ei=abc&keep=1",
-      "expectedOutput": "https://www.google.com/search?keep=1",
+      "expectedOutput": "https://www.google.com/search?ei=abc&keep=1",
       "request": {
         "method": "GET",
         "type": "main_frame",

@@ -5161,18 +5161,6 @@
     "message": "הגדר את <code>false</code> כדי להשבית את הספק הזה.",
     "description": "Guide page text."
   },
-  "guide_0129": {
-    "message": "<code>defaultActive</code>",
-    "description": "Guide page text."
-  },
-  "guide_0130": {
-    "message": "Linkumori תוספת",
-    "description": "Guide page text."
-  },
-  "guide_0131": {
-    "message": "מצב ברירת מחדל פעיל כאשר <code>active</code> חסר.",
-    "description": "Guide page text."
-  },
   "guide_0132": {
     "message": "<code>completeProvider</code>",
     "description": "Guide page text."
@@ -6125,10 +6113,6 @@
     "message": "תוספת Linkumori - ספק לא פעיל:",
     "description": "Guide page text."
   },
-  "guide_0370": {
-    "message": "תוספת Linkumori — ספק ברירת מחדל פעיל:",
-    "description": "Guide page text."
-  },
   "guide_0371": {
     "message": "ClearURLs מדור קודם ו-ClearURLs core v2 canonical - ספק שלם/חוסם. תואם <code>domainPatterns</code> המוצג כאן הוא תוספת Linkumori:",
     "description": "Guide page text."
@@ -6446,7 +6430,7 @@
     "description": "Guide page text."
   },
   "guide_0628": {
-    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
+    "message": "{\n  \"providers\": {\n    \"Domain Pattern Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\n        \"||example.com^\"\n      ],\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"domainExceptions\": [],\n      \"redirections\": [],\n      \"domainRedirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    },\n    \"Regex URL Provider\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/tracking\\\\/.*\",\n      \"indexPattern\": \"||example.com^\",\n      \"rules\": [],\n      \"rawRules\": [],\n      \"referralMarketing\": [],\n      \"exceptions\": [],\n      \"redirections\": [],\n      \"methods\": [\n        \"GET\"\n      ],\n      \"resourceTypes\": [\n        \"main_frame\",\n        \"xmlhttprequest\"\n      ]\n    }\n  }\n}",
     "description": "Guide page text."
   },
   "guide_0629": {
@@ -6881,10 +6865,6 @@
     "message": "{\n  \"active\": false,\n  \"domainPatterns\": [\"||example.com^\"],\n  \"rules\": [\"utm_source\"]\n}\n",
     "description": "Guide page text."
   },
-  "guide_0737": {
-    "message": "{\n  \"defaultActive\": true,\n  \"domainPatterns\": [\"||example.com^\"],\n  \"rules\": [\"utm_source\"]\n}\n",
-    "description": "Guide page text."
-  },
   "guide_0738": {
     "message": "{\n  \"completeProvider\": true,\n  \"domainPatterns\": [\"||badtracker.example^\"]\n}\n",
     "description": "Guide page text."
@@ -7054,7 +7034,7 @@
     "description": "Guide page text."
   },
   "guide_0780": {
-    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Maximum Mixed Compatibility\": {\n      \"active\": true,\n      \"defaultActive\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\"||example.com^\", \"||example.org^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": [\"||example.com^\", \"||example.org^\"],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"^utm_\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"legacy-field-object\",\n          \"matchPattern\": \"gclid\"\n        },\n        {\n          \"id\": \"canonical-field-object\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]rule_raw=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-redirect-in-rules\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/r\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\",\n        {\n          \"id\": \"raw-object\",\n          \"matchPattern\": \"[?&]raw_object=[^&#]*\"\n        },\n        {\n          \"id\": \"canonical-raw-object\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]canonical_raw=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"referralMarketing\": [\n        \"tag\",\n        {\n          \"id\": \"canonical-referral-object\",\n          \"kind\": \"field\",\n          \"match\": \"ascsubtag\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/login\",\n        {\n          \"id\": \"exception-object\",\n          \"matchPattern\": \"example\\\\.com\\\\/checkout\"\n        },\n        {\n          \"id\": \"canonical-exception-object\",\n          \"match\": \"example\\\\.com\\\\/account\"\n        }\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        \"https://example\\\\.com/out-a\\\\?url=([^&#]+)\",\n        {\n          \"id\": \"legacy-redirection-object\",\n          \"matchPattern\": \"https://example\\\\.com/out-b\\\\?url=([^&#]+)\",\n          \"replacePattern\": \"§1§\"\n        },\n        {\n          \"id\": \"canonical-redirection-object\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out-c\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old-a.example.com^$redirect=https://example.com/a\",\n        {\n          \"match\": \"||old-b.example.com^\",\n          \"replacePattern\": \"https://example.com/b\"\n        },\n        {\n          \"match\": \"||old-c.example.com^\",\n          \"action\": {\n            \"replacePattern\": \"https://example.com/c\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+    "message": "{\n  \"defaults\": {\n    \"active\": true,\n    \"requestTypes\": \"all\"\n  },\n  \"providers\": {\n    \"Maximum Mixed Compatibility\": {\n      \"active\": true,\n      \"completeProvider\": false,\n      \"forceRedirection\": false,\n      \"domainPatterns\": [\"||example.com^\", \"||example.org^\"],\n      \"urlPattern\": \"https?:\\\\/\\\\/([^/]+\\\\.)?example\\\\.com\\\\/.*\",\n      \"indexPattern\": [\"||example.com^\", \"||example.org^\"],\n      \"methods\": [\"GET\", \"HEAD\"],\n      \"resourceTypes\": [\"main_frame\", \"xmlhttprequest\"],\n      \"rules\": [\n        \"utm_source\",\n        \"^utm_\",\n        \"*$removeparam=fbclid\",\n        \"@@||example.com/login^$removeparam=fbclid\",\n        {\n          \"id\": \"legacy-field-object\",\n          \"matchPattern\": \"gclid\"\n        },\n        {\n          \"id\": \"canonical-field-object\",\n          \"kind\": \"field\",\n          \"match\": \"msclkid\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-raw-in-rules\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]rule_raw=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        },\n        {\n          \"id\": \"canonical-redirect-in-rules\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/r\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"rawRules\": [\n        \"[?&]legacy_raw=[^&#]*\",\n        {\n          \"id\": \"raw-object\",\n          \"matchPattern\": \"[?&]raw_object=[^&#]*\"\n        },\n        {\n          \"id\": \"canonical-raw-object\",\n          \"kind\": \"raw\",\n          \"match\": \"[?&]canonical_raw=[^&#]*\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"referralMarketing\": [\n        \"tag\",\n        {\n          \"id\": \"canonical-referral-object\",\n          \"kind\": \"field\",\n          \"match\": \"ascsubtag\",\n          \"action\": {\n            \"type\": \"remove\"\n          }\n        }\n      ],\n      \"exceptions\": [\n        \"example\\\\.com\\\\/login\",\n        {\n          \"id\": \"exception-object\",\n          \"matchPattern\": \"example\\\\.com\\\\/checkout\"\n        },\n        {\n          \"id\": \"canonical-exception-object\",\n          \"match\": \"example\\\\.com\\\\/account\"\n        }\n      ],\n      \"domainExceptions\": [\n        \"||safe.example.com^\"\n      ],\n      \"redirections\": [\n        \"https://example\\\\.com/out-a\\\\?url=([^&#]+)\",\n        {\n          \"id\": \"legacy-redirection-object\",\n          \"matchPattern\": \"https://example\\\\.com/out-b\\\\?url=([^&#]+)\",\n          \"replacePattern\": \"§1§\"\n        },\n        {\n          \"id\": \"canonical-redirection-object\",\n          \"kind\": \"redirection\",\n          \"match\": \"https://example\\\\.com/out-c\\\\?url=([^&#]+)\",\n          \"action\": {\n            \"type\": \"redirect\",\n            \"replacePattern\": \"§1§\"\n          }\n        }\n      ],\n      \"domainRedirections\": [\n        \"||old-a.example.com^$redirect=https://example.com/a\",\n        {\n          \"match\": \"||old-b.example.com^\",\n          \"replacePattern\": \"https://example.com/b\"\n        },\n        {\n          \"match\": \"||old-c.example.com^\",\n          \"action\": {\n            \"replacePattern\": \"https://example.com/c\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
     "description": "Guide page text."
   },
   "guide_0781": {

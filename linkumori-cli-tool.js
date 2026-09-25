@@ -2250,7 +2250,7 @@ ${commit.message}
     };
 
     const isRemoveParamRule = (rule) => (
-      /\$(?:[^,\s]*,)*(?:removeparam|queryprune)(?:[=,\s]|$)/i.test(getRulePattern(rule))
+      /\$(?:[^,\s]*,)*removeparam(?:[=,\s]|$)/i.test(getRulePattern(rule))
     );
 
     const splitRemoveParamModifiers = (modifiersText) => {
@@ -2304,7 +2304,7 @@ ${commit.message}
       const modifierStart = rulePattern.indexOf('$');
       if (modifierStart === -1) return null;
       const modifiers = splitRemoveParamModifiers(rulePattern.slice(modifierStart + 1));
-      const token = modifiers.find(part => /^(?:removeparam|queryprune)(?:=|$)/i.test(part.trim()));
+      const token = modifiers.find(part => /^removeparam(?:=|$)/i.test(part.trim()));
       if (!token) return null;
       const eqIndex = token.indexOf('=');
       return eqIndex === -1 ? '' : token.slice(eqIndex + 1).trim();
@@ -2313,7 +2313,7 @@ ${commit.message}
     const validateRemoveParamRule = (rule, label) => {
       const value = getRemoveParamValue(rule);
       if (value === null) {
-        errors.push(`${label} → missing removeparam/queryprune modifier`);
+        errors.push(`${label} → missing removeparam modifier`);
         return;
       }
       if (value === '') return;
@@ -2505,8 +2505,25 @@ ${commit.message}
         }
       }
 
+      // Spellings that duplicated another name and are no longer read.
+      for (const [oldKey, newKey] of [['defaultActive', 'active'], ['history-bypass-protection', 'historyBypassProtection']]) {
+        if (provider[oldKey] !== undefined) errors.push(`${tag} "${oldKey}" is no longer supported; use "${newKey}"`);
+      }
+      for (const field of ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections']) {
+        for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
+          if (/(?:\$|,)\s*queryprune(?:[=,\s]|$)/i.test(getRulePattern(entry))) {
+            errors.push(`${tag} ${field} "${getRuleLabel(entry)}" uses "queryprune"; use "removeparam"`);
+          }
+          if (entry && typeof entry === 'object' && !Array.isArray(entry)) {
+            for (const [oldKey, newKey] of [['activeDefault', 'active'], ['history-bypass-protection', 'historyBypassProtection']]) {
+              if (entry[oldKey] !== undefined) errors.push(`${tag} ${field} "${getRuleLabel(entry)}" uses "${oldKey}"; use "${newKey}"`);
+            }
+          }
+        }
+      }
+
       // completeProvider / forceRedirection / historyBypassProtection must be boolean if present
-      for (const flag of ['completeProvider', 'forceRedirection', 'historyBypassProtection', 'history-bypass-protection']) {
+      for (const flag of ['completeProvider', 'forceRedirection', 'historyBypassProtection']) {
         if (provider[flag] !== undefined && typeof provider[flag] !== 'boolean') {
           errors.push(`${tag} "${flag}" must be a boolean, got ${typeof provider[flag]}`);
         }

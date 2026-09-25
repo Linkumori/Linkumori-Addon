@@ -370,9 +370,6 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     if (rule.active !== undefined && typeof rule.active !== 'boolean') {
         throw new Error(`${prefix}.active must be a boolean`);
     }
-    if (rule.activeDefault !== undefined && typeof rule.activeDefault !== 'boolean') {
-        throw new Error(`${prefix}.activeDefault must be a boolean`);
-    }
     if (rule.id !== undefined && typeof rule.id !== 'string') {
         throw new Error(`${prefix}.id must be a string`);
     }
@@ -427,7 +424,42 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     assertCoreSupportedAction(rule, providerName, fieldName, index);
 }
 
+// Spellings that duplicated another name and are no longer read.
+const REMOVED_PROVIDER_KEYS = Object.freeze({
+    defaultActive: 'active',
+    'history-bypass-protection': 'historyBypassProtection'
+});
+const REMOVED_RULE_KEYS = Object.freeze({
+    activeDefault: 'active',
+    'history-bypass-protection': 'historyBypassProtection'
+});
+
+function assertNoRemovedSpellings(provider, providerName = '') {
+    const label = providerName || 'Provider';
+    Object.entries(REMOVED_PROVIDER_KEYS).forEach(([oldKey, newKey]) => {
+        if (Object.prototype.hasOwnProperty.call(provider, oldKey)) {
+            throw new Error(`${label}: "${oldKey}" is no longer supported; use "${newKey}"`);
+        }
+    });
+    ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections'].forEach((fieldName) => {
+        (Array.isArray(provider[fieldName]) ? provider[fieldName] : []).forEach((entry, index) => {
+            const text = typeof entry === 'string' ? entry
+                : (isPlainObject(entry) ? (entry.match || entry.matchPattern || '') : '');
+            if (/(?:\$|,)\s*queryprune(?:[=,\s]|$)/i.test(text)) {
+                throw new Error(`${label}: ${fieldName}[${index}] uses "queryprune", which is no longer supported; use "removeparam"`);
+            }
+            if (!isPlainObject(entry)) return;
+            Object.entries(REMOVED_RULE_KEYS).forEach(([oldKey, newKey]) => {
+                if (Object.prototype.hasOwnProperty.call(entry, oldKey)) {
+                    throw new Error(`${label}: ${fieldName}[${index}] "${oldKey}" is no longer supported; use "${newKey}"`);
+                }
+            });
+        });
+    });
+}
+
 function assertRuleEntrySyntax(provider, providerName = '') {
+    assertNoRemovedSpellings(provider, providerName);
     const occupiedNames = new Map();
     OBJECT_STYLE_RULE_FIELDS.forEach((fieldName) => {
         const entries = provider[fieldName];
@@ -4458,7 +4490,7 @@ function createCanonicalRuleTemplate(kind) {
             exceptions: [],
             requestTypes: 'all',
             preprocessors: [],
-            activeDefault: true,
+            active: true,
             action: { type: 'remove' }
         };
     }
@@ -4472,7 +4504,7 @@ function createCanonicalRuleTemplate(kind) {
             exceptions: [],
             requestTypes: 'all',
             preprocessors: [],
-            activeDefault: true,
+            active: true,
             action: { type: 'redirect', replacePattern: '' }
         };
     }
@@ -4485,7 +4517,7 @@ function createCanonicalRuleTemplate(kind) {
         exceptions: [],
         requestTypes: 'all',
         preprocessors: [],
-        activeDefault: true,
+        active: true,
         action: { type: 'remove' }
     };
 }
