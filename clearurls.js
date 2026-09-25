@@ -955,8 +955,7 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     for (const token of modifiers) {
         if (unsupportedModifier) break;
         const normalized = token.toLowerCase();
-        if (normalized === 'removeparam' || normalized.startsWith('removeparam=') ||
-            normalized === 'queryprune' || normalized.startsWith('queryprune=')) {
+        if (normalized === 'removeparam' || normalized.startsWith('removeparam=')) {
             removeParamToken = token; continue;
         }
         // BUGFIX 7 (secondary): collapsed two identical badfilter checks into one.
@@ -1262,11 +1261,9 @@ function linkumoriRemoveParamExceptionMatchesContext(linkumoriRule, contextUrls,
 function resolveLinkumoriHistoryBypassProtection(rule, defaults) {
     if (rule && typeof rule === 'object') {
         if (typeof rule.historyBypassProtection === 'boolean') return rule.historyBypassProtection;
-        if (typeof rule['history-bypass-protection'] === 'boolean') return rule['history-bypass-protection'];
     }
     if (defaults && typeof defaults === 'object') {
         if (typeof defaults.historyBypassProtection === 'boolean') return defaults.historyBypassProtection;
-        if (typeof defaults['history-bypass-protection'] === 'boolean') return defaults['history-bypass-protection'];
     }
     // Missing everywhere in the rule chain: default to true (protection stays on for history updates).
     return true;
@@ -1322,8 +1319,7 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
     }
     return {
         actionType,
-        active: typeof resolvedRule.active === "boolean" ? resolvedRule.active
-            : (typeof resolvedRule.activeDefault === "boolean" ? resolvedRule.activeDefault : true),
+        active: typeof resolvedRule.active === "boolean" ? resolvedRule.active : true,
         aliases: Array.isArray(resolvedRule.aliases) ? resolvedRule.aliases.filter(i => typeof i === "string") : [],
         description: typeof resolvedRule.description === "string" ? resolvedRule.description : "",
         exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter(i => typeof i === "string") : [],
@@ -1691,8 +1687,11 @@ function start() {
         if (!data || !data.providers) return;
         providers = [];
         for (let p = 0; p < prvKeys.length; p++) {
-            const providerData = data.providers[prvKeys[p]];
-            if (providerData.getOrDefault('active', providerData.getOrDefault('defaultActive', true)) === false) continue;
+            // Unified-syntax providers ("match" + "rules") are lowered to the
+            // internal sections here; older-format providers only get their
+            // alias spellings folded (see core_js/rule_syntax.js).
+            const providerData = LinkumoriRuleSyntax.prepareProvider(data.providers[prvKeys[p]], prvKeys[p]);
+            if (providerData.getOrDefault('active', true) === false) continue;
             const provider = new Provider(prvKeys[p],
                 providerData.getOrDefault('completeProvider', false),
                 providerData.getOrDefault('forceRedirection', false),
@@ -1711,17 +1710,16 @@ function start() {
                 if (hasIndex) provider.setIndexPattern(indexPattern);
             }
 
-            // A provider-level "historyBypassProtection" (or "history-bypass-protection")
-            // blanket applies to every rule under this provider that doesn't set its own
-            // value inline, without having to touch each rule string individually.
+            // A provider-level "historyBypassProtection" blanket applies to every rule
+            // under this provider that doesn't set its own value inline, without
+            // having to touch each rule string individually.
             const globalRuleDefaults = data && data.defaults && typeof data.defaults === 'object' ? data.defaults : null;
-            const providerHistoryBypassProtection = providerData.getOrDefault('historyBypassProtection',
-                providerData.getOrDefault('history-bypass-protection', undefined));
+            const providerHistoryBypassProtection = providerData.getOrDefault('historyBypassProtection', undefined);
             const providerDefaults = (globalRuleDefaults || typeof providerHistoryBypassProtection === 'boolean')
                 ? Object.assign({}, globalRuleDefaults, typeof providerHistoryBypassProtection === 'boolean'
                     ? { historyBypassProtection: providerHistoryBypassProtection } : {})
                 : null;
-            const rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
+            const rules = providerData.getOrDefault('rules', []);
             for (let r = 0; r < rules.length; r++) {
                 const normalizedRule = normalizeCoreRuleDefinition(rules[r], "i", providerDefaults);
                 if (normalizedRule && normalizedRule.sourceType === 'canonical') {
@@ -1733,21 +1731,21 @@ function start() {
                 }
                 provider.addRule(rules[r], true, providerDefaults);
             }
-            const rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
+            const rawRules = providerData.getOrDefault('rawRules', []);
             for (let raw = 0; raw < rawRules.length; raw++) provider.addRawRule(rawRules[raw], true, providerDefaults);
-            const referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
+            const referralMarketingRules = providerData.getOrDefault('referralMarketing', []);
             for (let rm = 0; rm < referralMarketingRules.length; rm++) provider.addReferralMarketing(referralMarketingRules[rm], true, providerDefaults);
-            const exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
+            const exceptions = providerData.getOrDefault('exceptions', []);
             for (let e = 0; e < exceptions.length; e++) provider.addException(exceptions[e], true, providerDefaults);
-            const domainExceptions = data.providers[prvKeys[p]].getOrDefault('domainExceptions', []);
+            const domainExceptions = providerData.getOrDefault('domainExceptions', []);
             for (let ude = 0; ude < domainExceptions.length; ude++) provider.addDomainException(domainExceptions[ude]);
-            const redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
+            const redirections = providerData.getOrDefault('redirections', []);
             for (let re = 0; re < redirections.length; re++) provider.addRedirection(redirections[re], true, providerDefaults);
-            const domainRedirections = data.providers[prvKeys[p]].getOrDefault('domainRedirections', []);
+            const domainRedirections = providerData.getOrDefault('domainRedirections', []);
             for (let udr = 0; udr < domainRedirections.length; udr++) provider.addDomainRedirection(domainRedirections[udr]);
-            const methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
+            const methods = providerData.getOrDefault('methods', []);
             for (let m = 0; m < methods.length; m++) provider.addMethod(methods[m]);
-            const resourceTypes = data.providers[prvKeys[p]].getOrDefault('resourceTypes', []);
+            const resourceTypes = providerData.getOrDefault('resourceTypes', []);
             for (let rt = 0; rt < resourceTypes.length; rt++) provider.addResourceType(resourceTypes[rt]);
 
             const lookupTokens = provider.getLookupTokens();
