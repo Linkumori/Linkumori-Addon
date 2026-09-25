@@ -1688,6 +1688,17 @@ documentation when you run the build process.
     return this.mergeProvidersByUrlPattern(combinedProviders, primaryProviderNames);
   }
 
+  // Load core_js/rule_migration.js (shared with the extension) once.
+  getRuleMigration() {
+    if (!this._ruleMigration) {
+      const context = {};
+      vm.createContext(context);
+      vm.runInContext(fs.readFileSync('core_js/rule_migration.js', 'utf8'), context, { filename: 'core_js/rule_migration.js' });
+      this._ruleMigration = context.LinkumoriRuleMigration;
+    }
+    return this._ruleMigration;
+  }
+
   // Minify rules data
   minifyRules(data) {
     this.info('🗜️  Creating minified version...');
@@ -2491,6 +2502,14 @@ ${commit.message}
           errors.push(`${tag} redirection "${rdLabel}" → missing match/matchPattern`);
           continue;
         }
+        // Entries starting with "|" are domain redirects: "||go.example.com^$redirect=https://target/".
+        if (rdPattern.trim().startsWith('|')) {
+          const marker = rdPattern.indexOf('$redirect=');
+          if (marker === -1 || !rdPattern.slice(0, marker).trim() || !rdPattern.slice(marker + 10).trim()) {
+            errors.push(`${tag} redirection "${rdLabel}" → a "|" redirect must look like "||example.com^$redirect=https://target/"`);
+          }
+          continue;
+        }
         const ok = tryRegex(rdPattern, 'i', `${tag} redirection "${rdLabel.substring(0, 60)}..."`);
         if (ok && !rdPattern.includes('(')) {
           warnings.push(`${tag} Redirection has no capture group (destination will be undefined): "${rdLabel.substring(0, 60)}..."`);
@@ -2505,19 +2524,34 @@ ${commit.message}
         }
       }
 
-      // Spellings that duplicated another name and are no longer read.
+      // Older duplicate spellings: report the current form, which
+      // core_js/rule_migration.js would rewrite them to.
+      const migration = this.getRuleMigration();
       for (const [oldKey, newKey] of [['defaultActive', 'active'], ['history-bypass-protection', 'historyBypassProtection']]) {
         if (provider[oldKey] !== undefined) errors.push(`${tag} "${oldKey}" is no longer supported; use "${newKey}"`);
       }
+      if (provider.syntax !== undefined) errors.push(`${tag} "syntax" is no longer supported; remove it`);
+      for (const [oldKey, newKey] of [['domainRedirections', 'redirections'], ['domainExceptions', 'exceptions']]) {
+        for (const entry of (Array.isArray(provider[oldKey]) ? provider[oldKey] : [])) {
+          const text = typeof entry === 'string' ? entry : JSON.stringify(entry);
+          errors.push(`${tag} ${oldKey} "${text}" → put it in "${newKey}"`);
+        }
+      }
       for (const field of ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections']) {
         for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
-          if (/(?:\$|,)\s*queryprune(?:[=,\s]|$)/i.test(getRulePattern(entry))) {
-            errors.push(`${tag} ${field} "${getRuleLabel(entry)}" uses "queryprune"; use "removeparam"`);
+          const text = getRulePattern(entry);
+          const current = migration.migrateFilterText(text);
+          if (current !== text) errors.push(`${tag} ${field} "${text}" uses an old option name; write "${current}"`);
+          if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue;
+          for (const oldKey of ['match', 'kind', 'action', 'referralMarketing']) {
+            if (entry[oldKey] !== undefined) errors.push(`${tag} ${field} "${getRuleLabel(entry)}" uses "${oldKey}"; write "matchPattern"/"replacePattern" in the matching list`);
           }
-          if (entry && typeof entry === 'object' && !Array.isArray(entry)) {
-            for (const [oldKey, newKey] of [['activeDefault', 'active'], ['history-bypass-protection', 'historyBypassProtection']]) {
-              if (entry[oldKey] !== undefined) errors.push(`${tag} ${field} "${getRuleLabel(entry)}" uses "${oldKey}"; use "${newKey}"`);
-            }
+          for (const [oldKey, newKey] of [['activeDefault', 'active'], ['history-bypass-protection', 'historyBypassProtection']]) {
+            if (entry[oldKey] !== undefined) errors.push(`${tag} ${field} "${getRuleLabel(entry)}" uses "${oldKey}"; use "${newKey}"`);
+          }
+          for (const pre of (Array.isArray(entry.preprocessors) ? entry.preprocessors : [])) {
+            const renamed = { urlEncodeRepeated: 'doubleUrlEncode', urlDecodeRepeated: 'doubleUrlDecode' }[pre && pre.type];
+            if (renamed) errors.push(`${tag} ${field} "${getRuleLabel(entry)}" uses preprocessor "${pre.type}"; use "${renamed}"`);
           }
         }
       }

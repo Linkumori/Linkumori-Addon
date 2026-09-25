@@ -262,6 +262,13 @@ function coreRuleHasActivePatternForUrl(compiledRule, url) {
     });
 }
 
+function getCoreRuleKindForSection(section) {
+    if (section === 'rawRules') return 'raw';
+    if (section === 'redirections') return 'redirection';
+    if (section === 'exceptions') return 'exception';
+    return 'field';
+}
+
 function registerCoreRuleInSnapshot(compiledRule) {
     if (!compiledRule || !clearurlsProviderSnapshot) return;
     if (compiledRule.runtimeRuleId && !clearurlsProviderSnapshot.ruleIds[compiledRule.runtimeRuleId]) {
@@ -270,7 +277,7 @@ function registerCoreRuleInSnapshot(compiledRule) {
             aliases: (compiledRule.aliases || []).slice(),
             aliasRuntimeIds: (compiledRule.aliasRuntimeIds || []).slice(),
             id: compiledRule.id,
-            kind: compiledRule.kind,
+            kind: getCoreRuleKindForSection(compiledRule.section),
             match: compiledRule.matchPattern,
             activationIds: (compiledRule.activationIds || []).slice(),
             providerName: compiledRule.providerName,
@@ -291,7 +298,7 @@ function registerDisabledCoreRuleInSnapshot(compiledRule) {
         aliases: (compiledRule.aliases || []).slice(),
         aliasRuntimeIds: (compiledRule.aliasRuntimeIds || []).slice(),
         id: compiledRule.id,
-        kind: compiledRule.kind,
+        kind: getCoreRuleKindForSection(compiledRule.section),
         match: compiledRule.matchPattern,
         activationIds: (compiledRule.activationIds || []).slice(),
         disabledActivationIds: (compiledRule.disabledActivationIds || []).slice(),
@@ -898,12 +905,10 @@ function canonicalizeLinkumoriRemoveParamRule(rule) {
 }
 
 const LINKUMORI_REMOVE_PARAM_CONTENT_TYPES = Object.freeze({
-    document: ["main_frame"], doc: ["main_frame"], subdocument: ["sub_frame"],
-    frame: ["sub_frame"], iframe: ["sub_frame"], script: ["script"],
+    document: ["main_frame"], subdocument: ["sub_frame"], script: ["script"],
     stylesheet: ["stylesheet"], image: ["image"], imageset: ["imageset"],
     media: ["media"], object: ["object"], other: ["other"], ping: ["ping"],
-    websocket: ["websocket"], xmlhttprequest: ["xmlhttprequest"], xhr: ["xmlhttprequest"],
-    font: ["font"], popup: ["main_frame"]
+    websocket: ["websocket"], xmlhttprequest: ["xmlhttprequest"], font: ["font"]
 });
 
 function addLinkumoriRemoveParamRequestTypes(token, parsed) {
@@ -961,10 +966,8 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
         // BUGFIX 7 (secondary): collapsed two identical badfilter checks into one.
         if (normalized === 'badfilter') continue;
         if (normalized === 'match-case') continue;
-        if (['first-party','1p','~third-party','~3p','third-party','3p',
-             '~first-party','~1p','strict-first-party','strict1p',
-             'strict-third-party','strict3p'].includes(normalized)) continue;
-        if (normalized.startsWith('domain=') || normalized.startsWith('from=')) {
+        if (['first-party', 'third-party', 'strict-first-party', 'strict-third-party'].includes(normalized)) continue;
+        if (normalized.startsWith('domain=')) {
             domainToken = token.slice(token.indexOf('=') + 1); continue;
         }
         if (normalized.startsWith('to=')) { targetToken = token.slice(token.indexOf('=') + 1); continue; }
@@ -1054,10 +1057,10 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
     }
     modifiers.forEach(token => {
         const n = String(token || '').toLowerCase();
-        if (['third-party','3p','~first-party','~1p'].includes(n)) parsed.thirdPartyOnly = true;
-        else if (['first-party','1p','~third-party','~3p'].includes(n)) parsed.firstPartyOnly = true;
-        else if (n === 'strict-third-party' || n === 'strict3p') parsed.strictThirdPartyOnly = true;
-        else if (n === 'strict-first-party' || n === 'strict1p') parsed.strictFirstPartyOnly = true;
+        if (n === 'third-party') parsed.thirdPartyOnly = true;
+        else if (n === 'first-party') parsed.firstPartyOnly = true;
+        else if (n === 'strict-third-party') parsed.strictThirdPartyOnly = true;
+        else if (n === 'strict-first-party') parsed.strictFirstPartyOnly = true;
     });
     if ((parsed.firstPartyOnly && parsed.thirdPartyOnly) ||
         (parsed.strictFirstPartyOnly && parsed.strictThirdPartyOnly) ||
@@ -1069,9 +1072,8 @@ function parseLinkumoriRemoveParamRule(ruleText, options = {}) {
 
 function getLinkumoriRemoveParamRuleText(rule) {
     if (typeof rule === 'string') return rule;
-    if (rule && typeof rule === 'object' && !Array.isArray(rule)) {
-        if (typeof rule.match === 'string') return rule.match;
-        if (typeof rule.matchPattern === 'string') return rule.matchPattern;
+    if (rule && typeof rule === 'object' && !Array.isArray(rule) && typeof rule.matchPattern === 'string') {
+        return rule.matchPattern;
     }
     return '';
 }
@@ -1291,32 +1293,21 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
             actionType: "remove", active: typeof d.active === "boolean" ? d.active : true,
             aliases: [], description: typeof d.description === "string" ? d.description : "",
             exceptions: Array.isArray(d.exceptions) ? d.exceptions.filter(i => typeof i === "string") : [],
-            flags: defaultFlags, id: null, kind: null, matchPattern: rule,
+            flags: defaultFlags, id: null, matchPattern: rule,
             preprocessors: Array.isArray(d.preprocessors) ? d.preprocessors : [],
-            referralMarketing: false, replacePattern: null, requestTypes, raw: rule, sourceType: "legacy",
+            replacePattern: null, requestTypes, raw: rule,
             historyBypassProtection: resolveLinkumoriHistoryBypassProtection(null, d)
         };
     }
     const resolvedRule = resolveCoreRuleDefaults(rule, defaults);
     if (!resolvedRule || typeof resolvedRule !== "object") return null;
-    const isCanonical = typeof resolvedRule.match === "string";
-    const matchPattern = isCanonical ? resolvedRule.match : resolvedRule.matchPattern;
+    const matchPattern = resolvedRule.matchPattern;
     if (typeof matchPattern !== "string") return null;
-    const action = resolvedRule.action && typeof resolvedRule.action === "object" ? resolvedRule.action : null;
-    const actionType = action && typeof action.type === "string" ? action.type
-        : (typeof resolvedRule.replacePattern === "string" ? "rewrite" : "remove");
-    const replacePattern = action && typeof action.replacePattern === "string" ? action.replacePattern
-        : (typeof resolvedRule.replacePattern === "string" ? resolvedRule.replacePattern : null);
+    const replacePattern = typeof resolvedRule.replacePattern === "string" ? resolvedRule.replacePattern : null;
+    const actionType = replacePattern !== null ? "rewrite" : "remove";
     const requestTypes = resolvedRule.requestTypes === "all" ? null
         : (Array.isArray(resolvedRule.requestTypes)
             ? resolvedRule.requestTypes.map(i => String(i || "").toLowerCase()).filter(Boolean) : null);
-    const sourceType = isCanonical ? "canonical" : "legacy-object";
-    const kind = typeof resolvedRule.kind === "string" ? resolvedRule.kind : null;
-    if (sourceType === "canonical") {
-        const ek = kind || "field";
-        if ((ek === "field" || ek === "raw") && actionType === "redirect") return null;
-        if (ek === "redirection" && actionType !== "redirect") return null;
-    }
     return {
         actionType,
         active: typeof resolvedRule.active === "boolean" ? resolvedRule.active : true,
@@ -1325,10 +1316,9 @@ function normalizeCoreRuleDefinition(rule, defaultFlags = "i", defaults = null) 
         exceptions: Array.isArray(resolvedRule.exceptions) ? resolvedRule.exceptions.filter(i => typeof i === "string") : [],
         flags: typeof resolvedRule.flags === "string" ? resolvedRule.flags : defaultFlags,
         id: typeof resolvedRule.id === "string" ? resolvedRule.id : null,
-        kind, matchPattern,
+        matchPattern,
         preprocessors: Array.isArray(resolvedRule.preprocessors) ? resolvedRule.preprocessors : [],
-        referralMarketing: resolvedRule.referralMarketing === true,
-        replacePattern, requestTypes, raw: resolvedRule, sourceType,
+        replacePattern, requestTypes, raw: resolvedRule,
         historyBypassProtection: resolveLinkumoriHistoryBypassProtection(resolvedRule, defaults),
         _linkumoriActivationIds: normalizeCoreRuleActivationIds(resolvedRule._linkumoriActivationIds)
     };
@@ -1342,17 +1332,6 @@ function compileCoreRuleDefinition(rule, defaultFlags = "i", wrapFieldRule = fal
         const exceptionRegexes = normalized.exceptions.map(ex => { try { return new RegExp(ex); } catch (_) { return null; } }).filter(Boolean);
         return { ...normalized, exceptionRegexes, regex: new RegExp(source, normalized.flags) };
     } catch (_) { return null; }
-}
-
-function normalizeCoreDomainRedirection(redirection) {
-    if (typeof redirection === "string") return redirection.trim();
-    if (!redirection || typeof redirection !== "object" || Array.isArray(redirection)) return null;
-    const matchPattern = typeof redirection.match === "string" ? redirection.match : redirection.matchPattern;
-    const action = redirection.action && typeof redirection.action === "object" ? redirection.action : null;
-    const replacePattern = action && typeof action.replacePattern === "string" ? action.replacePattern : redirection.replacePattern;
-    if (typeof matchPattern !== "string" || typeof replacePattern !== "string") return null;
-    const pattern = matchPattern.trim(), target = replacePattern.trim();
-    return pattern && target ? `${pattern}$redirect=${target}` : null;
 }
 
 function getCoreRuleTraceName(compiledRule, fallback) {
@@ -1399,8 +1378,8 @@ function applyCoreRulePreprocessors(values, preprocessors) {
                 switch (preprocessor.type) {
                     case "urlEncode": next[index] = encodeURIComponent(current); break;
                     case "urlDecode": next[index] = decodeURIComponent(current); break;
-                    case "doubleUrlEncode": case "urlEncodeRepeated": next[index] = encodeURIComponent(encodeURIComponent(current)); break;
-                    case "doubleUrlDecode": case "urlDecodeRepeated": next[index] = decodeURIComponent(decodeURIComponent(current)); break;
+                    case "doubleUrlEncode": next[index] = encodeURIComponent(encodeURIComponent(current)); break;
+                    case "doubleUrlDecode": next[index] = decodeURIComponent(decodeURIComponent(current)); break;
                     case "base64Encode": next[index] = btoa(unescape(encodeURIComponent(current))); break;
                     case "base64Decode": next[index] = decodeURIComponent(escape(atob(current))); break;
                 }
@@ -1716,17 +1695,7 @@ function start() {
                     ? { historyBypassProtection: providerHistoryBypassProtection } : {})
                 : null;
             const rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
-            for (let r = 0; r < rules.length; r++) {
-                const normalizedRule = normalizeCoreRuleDefinition(rules[r], "i", providerDefaults);
-                if (normalizedRule && normalizedRule.sourceType === 'canonical') {
-                    if (normalizedRule.kind === 'raw') provider.addRawRule(rules[r], true, providerDefaults);
-                    else if (normalizedRule.kind === 'redirection' || normalizedRule.actionType === 'redirect') provider.addRedirection(rules[r], true, providerDefaults);
-                    else if (normalizedRule.referralMarketing === true) provider.addReferralMarketing(rules[r], true, providerDefaults);
-                    else provider.addRule(rules[r], true, providerDefaults);
-                    continue;
-                }
-                provider.addRule(rules[r], true, providerDefaults);
-            }
+            for (let r = 0; r < rules.length; r++) provider.addRule(rules[r], true, providerDefaults);
             const rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
             for (let raw = 0; raw < rawRules.length; raw++) provider.addRawRule(rawRules[raw], true, providerDefaults);
             const referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
@@ -2142,6 +2111,15 @@ function start() {
         };
 
         this.addRedirection = function (redirection, isActive = true, defaults = null) {
+            // "redirections" takes both kinds: domain redirects such as
+            // "||go.example.com^$redirect=https://example.com/" (anything starting
+            // with "|") and URL regexes whose first capture group is the target.
+            const normalized = normalizeCoreRuleDefinition(redirection, "i", defaults);
+            const pattern = normalized ? normalized.matchPattern.trim() : '';
+            if (pattern.startsWith('|')) {
+                if (isActive && normalized.active !== false) this.addDomainRedirection(pattern);
+                return;
+            }
             const compiled = compileCoreRuleDefinition(redirection, "i", false, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'redirections');
@@ -2150,8 +2128,8 @@ function start() {
         };
 
         this.addDomainRedirection = function (redirection) {
-            const normalized = normalizeCoreDomainRedirection(redirection);
-            if (normalized && domainRedirectionRules.indexOf(normalized) === -1) domainRedirectionRules.push(normalized);
+            const normalized = typeof redirection === 'string' ? redirection.trim() : '';
+            if (normalized.includes('$redirect=') && domainRedirectionRules.indexOf(normalized) === -1) domainRedirectionRules.push(normalized);
         };
 
         this.getRedirection = function (url, request = null) {

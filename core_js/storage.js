@@ -1508,7 +1508,7 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
         lastFailureReason: storage.hashFailureReason || storage.remoteRulesHealth?.lastFailureReason || null
     }, true);
 
-    return cachedData;
+    return LinkumoriRuleMigration.migrateRulesData(cachedData);
 }
 
 function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
@@ -1617,7 +1617,7 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
                 timestamp: verification.timestamp
             });
 
-            resolve(remoteRules);
+            resolve(LinkumoriRuleMigration.migrateRulesData(remoteRules));
         })
         .catch(error => {
             storage.hashFailureReason = error.message;
@@ -2068,9 +2068,10 @@ function loadCustomOnlyRules() {
                 customRules = { providers: customRules };
             }
 
-            const providers = (customRules && customRules.providers && typeof customRules.providers === 'object')
+            // Old spellings in saved custom rules are rewritten to the current ones.
+            const providers = LinkumoriRuleMigration.migrateProviders((customRules && customRules.providers && typeof customRules.providers === 'object')
                 ? customRules.providers
-                : {};
+                : {});
             const disabledSignatures = getDisabledSignatures(result[IMPORT_EXCLUSIONS_KEY]);
             const filteredCustom = filterProvidersByDisabledSignatures(providers, disabledSignatures);
             const providerCount = Object.keys(filteredCustom.providers).length;
@@ -2176,9 +2177,10 @@ function mergeCustomRules(bundledRules) {
             
             const bundledProvidersRaw = bundledRules?.providers || {};
             const filteredBundled = filterProvidersByDisabledSignatures(bundledProvidersRaw, disabledSignatures);
-            const customProvidersRaw = (customRules && customRules.providers && typeof customRules.providers === 'object')
+            // Old spellings in saved custom rules are rewritten to the current ones.
+            const customProvidersRaw = LinkumoriRuleMigration.migrateProviders((customRules && customRules.providers && typeof customRules.providers === 'object')
                 ? customRules.providers
-                : {};
+                : {});
             const filteredCustom = filterProvidersByDisabledSignatures(customProvidersRaw, disabledSignatures);
             const activeCustomProviderCount = Object.keys(filteredCustom.providers).length;
             const totalDisabledProviders = filteredBundled.removedCount + filteredCustom.removedCount;

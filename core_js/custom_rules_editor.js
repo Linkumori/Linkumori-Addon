@@ -216,49 +216,13 @@ function formatIndexPatternValue(value) {
         : (typeof value === 'string' ? value : '');
 }
 
-function normalizeDomainRedirectionEntry(rule) {
-    if (typeof rule === 'string') {
-        return rule.trim();
-    }
-    if (!isPlainObject(rule)) {
-        return null;
-    }
-
-    const pattern = typeof rule.match === 'string' ? rule.match : rule.matchPattern;
-    const action = isPlainObject(rule.action) ? rule.action : null;
-    const target = action && typeof action.replacePattern === 'string'
-        ? action.replacePattern
-        : rule.replacePattern;
-
-    if (typeof pattern !== 'string' || typeof target !== 'string') {
-        return null;
-    }
-
-    const normalizedPattern = pattern.trim();
-    const normalizedTarget = target.trim();
-    return normalizedPattern && normalizedTarget
-        ? `${normalizedPattern}$redirect=${normalizedTarget}`
-        : null;
-}
-
-function assertDomainRedirectionSyntax(provider, providerName = '') {
-    const rules = Array.isArray(provider?.domainRedirections) ? provider.domainRedirections : [];
-    const normalizedRules = [];
-    rules.forEach((rule, index) => {
-        const normalizedRule = normalizeDomainRedirectionEntry(rule);
-        if (typeof normalizedRule !== 'string') {
-            throw new Error(`${providerName || 'Provider'}: domainRedirections[${index}] must be a string or redirect rule object`);
-        }
-        const markerIndex = normalizedRule.indexOf('$redirect=');
-        const pattern = markerIndex === -1 ? '' : normalizedRule.slice(0, markerIndex).trim();
-        const target = markerIndex === -1 ? '' : normalizedRule.slice(markerIndex + '$redirect='.length).trim();
-        if (!pattern || !target) {
-            throw new Error(`${providerName || 'Provider'}: invalid domainRedirections entry "${normalizedRule}"`);
-        }
-        normalizedRules.push(normalizedRule);
-    });
-    if (provider && Array.isArray(provider.domainRedirections)) {
-        provider.domainRedirections = normalizedRules;
+// Checks a "|"-prefixed redirect entry: "||go.example.com^$redirect=https://example.com/".
+function assertDomainRedirectEntry(entry, label) {
+    const markerIndex = entry.indexOf('$redirect=');
+    const pattern = markerIndex === -1 ? '' : entry.slice(0, markerIndex).trim();
+    const target = markerIndex === -1 ? '' : entry.slice(markerIndex + '$redirect='.length).trim();
+    if (!pattern || !target) {
+        throw new Error(`${label}: a redirect starting with "|" must look like "||example.com^$redirect=https://target/"`);
     }
 }
 
@@ -266,6 +230,7 @@ const OBJECT_STYLE_RULE_FIELDS = Object.freeze([
     'rules',
     'rawRules',
     'referralMarketing',
+    'exceptions',
     'redirections'
 ]);
 
@@ -279,37 +244,14 @@ function countRuleEntries(entries) {
     return Array.isArray(entries) ? entries.length : 0;
 }
 
-function getEffectiveRuleKind(rule, fieldName) {
-    if (rule && typeof rule.kind === 'string') return rule.kind;
-    if (fieldName === 'rawRules') return 'raw';
-    if (fieldName === 'redirections') return 'redirection';
-    return 'field';
-}
-
-function getEffectiveActionType(rule, fieldName) {
-    if (rule && isPlainObject(rule.action) && typeof rule.action.type === 'string') {
-        return rule.action.type;
-    }
-    if (fieldName === 'redirections') return 'redirect';
-    if (rule && typeof rule.replacePattern === 'string' && rule.replacePattern !== '') return 'rewrite';
-    return 'remove';
-}
-
-function assertCoreSupportedAction(rule, providerName, fieldName, index) {
-    const prefix = `${providerName || 'Provider'}: ${fieldName}[${index}]`;
-    const kind = getEffectiveRuleKind(rule, fieldName);
-    const actionType = getEffectiveActionType(rule, fieldName);
-
-    if (kind === 'field' && actionType === 'redirect') {
-        throw new Error(`${prefix}: field rules do not support redirect actions`);
-    }
-    if (kind === 'raw' && actionType === 'redirect') {
-        throw new Error(`${prefix}: raw rules do not support redirect actions`);
-    }
-    if (kind === 'redirection' && actionType !== 'redirect') {
-        throw new Error(`${prefix}: redirection rules must use a redirect action`);
-    }
-}
+const SUPPORTED_PREPROCESSORS = Object.freeze([
+    'urlEncode',
+    'urlDecode',
+    'doubleUrlEncode',
+    'doubleUrlDecode',
+    'base64Encode',
+    'base64Decode'
+]);
 
 function assertPreprocessorSyntax(preprocessor, prefix) {
     if (!isPlainObject(preprocessor)) {
@@ -319,18 +261,8 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
     if (typeof preprocessor.type !== 'string' || preprocessor.type.trim() === '') {
         throw new Error(`${prefix}.type must be a non-empty string`);
     }
-    const supported = [
-        'urlEncode',
-        'urlDecode',
-        'doubleUrlEncode',
-        'urlEncodeRepeated',
-        'doubleUrlDecode',
-        'urlDecodeRepeated',
-        'base64Encode',
-        'base64Decode'
-    ];
-    if (!supported.includes(preprocessor.type)) {
-        throw new Error(`${prefix}.type is not supported`);
+    if (!SUPPORTED_PREPROCESSORS.includes(preprocessor.type)) {
+        throw new Error(`${prefix}.type must be one of: ${SUPPORTED_PREPROCESSORS.join(', ')}`);
     }
     if (preprocessor.inputs !== 'all' &&
         (!Array.isArray(preprocessor.inputs) ||
@@ -339,30 +271,25 @@ function assertPreprocessorSyntax(preprocessor, prefix) {
     }
 }
 
+const RULE_OBJECT_KEYS = Object.freeze([
+    'id', 'matchPattern', 'replacePattern', 'preprocessors', 'requestTypes', 'exceptions',
+    'flags', 'active', 'description', 'aliases', 'historyBypassProtection', '_linkumoriActivationIds'
+]);
+
 function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     const prefix = `${providerName || 'Provider'}: ${fieldName}[${index}]`;
     if (!isPlainObject(rule)) {
         throw new Error(`${prefix} must be a string or rule object`);
     }
-
-    const usesCanonicalShape = typeof rule.match === 'string';
-    const match = usesCanonicalShape ? rule.match : rule.matchPattern;
-    if (typeof match !== 'string') {
-        throw new Error(`${prefix}.${usesCanonicalShape ? 'match' : 'matchPattern'} must be a string`);
+    if (rule.match !== undefined || rule.kind !== undefined || rule.action !== undefined) {
+        throw new Error(`${prefix} uses "match" / "kind" / "action"; write "matchPattern" (and "replacePattern"), and put raw rules in rawRules and redirects in redirections`);
+    }
+    assertOnlyKeys(rule, RULE_OBJECT_KEYS, prefix);
+    if (typeof rule.matchPattern !== 'string') {
+        throw new Error(`${prefix}.matchPattern must be a string`);
     }
     if (rule.replacePattern !== undefined && typeof rule.replacePattern !== 'string') {
         throw new Error(`${prefix}.replacePattern must be a string`);
-    }
-    if (rule.action !== undefined) {
-        if (!isPlainObject(rule.action) || !['remove', 'rewrite', 'redirect'].includes(rule.action.type)) {
-            throw new Error(`${prefix}.action must be remove, rewrite, or redirect`);
-        }
-        if ((rule.action.type === 'rewrite' || rule.action.type === 'redirect') && typeof rule.action.replacePattern !== 'string') {
-            throw new Error(`${prefix}.action.replacePattern must be a string`);
-        }
-    }
-    if (rule.kind !== undefined && !['field', 'raw', 'redirection'].includes(rule.kind)) {
-        throw new Error(`${prefix}.kind must be field, raw, or redirection`);
     }
     if (rule.flags !== undefined && typeof rule.flags !== 'string') {
         throw new Error(`${prefix}.flags must be a string`);
@@ -395,9 +322,6 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     if (rule.description !== undefined && typeof rule.description !== 'string') {
         throw new Error(`${prefix}.description must be a string`);
     }
-    if (rule.referralMarketing !== undefined && typeof rule.referralMarketing !== 'boolean') {
-        throw new Error(`${prefix}.referralMarketing must be a boolean`);
-    }
     if (rule.historyBypassProtection !== undefined && typeof rule.historyBypassProtection !== 'boolean') {
         throw new Error(`${prefix}.historyBypassProtection must be a boolean`);
     }
@@ -415,19 +339,21 @@ function assertObjectStyleRuleSyntax(rule, providerName, fieldName, index) {
     (rule.preprocessors || []).forEach((preprocessor, preprocessorIndex) => {
         assertPreprocessorSyntax(preprocessor, `${prefix}.preprocessors[${preprocessorIndex}]`);
     });
-    if (usesCanonicalShape && typeof rule.id !== 'string') {
-        throw new Error(`${prefix}.id is required for canonical rule objects`);
+    if (rule.matchPattern.trim().startsWith('|') && (fieldName === 'exceptions' || fieldName === 'redirections')) {
+        if (fieldName === 'redirections') assertDomainRedirectEntry(rule.matchPattern, prefix);
+    } else {
+        new RegExp(rule.matchPattern, rule.flags === undefined ? 'i' : rule.flags);
     }
-
-    new RegExp(match, rule.flags === undefined ? 'i' : rule.flags);
-    (rule.exceptions || []).forEach(exception => new RegExp(exception, 'i'));
-    assertCoreSupportedAction(rule, providerName, fieldName, index);
+    (rule.exceptions || []).forEach(exception => new RegExp(exception));
 }
 
-// Spellings that duplicated another name and are no longer read.
+// Spellings that duplicated another name and are no longer read. Rules that
+// are loaded or imported are rewritten automatically (core_js/rule_migration.js);
+// these checks catch old spellings typed straight into the JSON editor.
 const REMOVED_PROVIDER_KEYS = Object.freeze({
     defaultActive: 'active',
-    'history-bypass-protection': 'historyBypassProtection'
+    'history-bypass-protection': 'historyBypassProtection',
+    syntax: 'nothing (remove it)'
 });
 const REMOVED_RULE_KEYS = Object.freeze({
     activeDefault: 'active',
@@ -438,15 +364,16 @@ function assertNoRemovedSpellings(provider, providerName = '') {
     const label = providerName || 'Provider';
     Object.entries(REMOVED_PROVIDER_KEYS).forEach(([oldKey, newKey]) => {
         if (Object.prototype.hasOwnProperty.call(provider, oldKey)) {
-            throw new Error(`${label}: "${oldKey}" is no longer supported; use "${newKey}"`);
+            throw new Error(`${label}: "${oldKey}" is no longer supported; use ${newKey.includes('"') || newKey.includes(' ') ? newKey : `"${newKey}"`}`);
         }
     });
     ['rules', 'rawRules', 'referralMarketing', 'exceptions', 'redirections'].forEach((fieldName) => {
         (Array.isArray(provider[fieldName]) ? provider[fieldName] : []).forEach((entry, index) => {
             const text = typeof entry === 'string' ? entry
-                : (isPlainObject(entry) ? (entry.match || entry.matchPattern || '') : '');
-            if (/(?:\$|,)\s*queryprune(?:[=,\s]|$)/i.test(text)) {
-                throw new Error(`${label}: ${fieldName}[${index}] uses "queryprune", which is no longer supported; use "removeparam"`);
+                : (isPlainObject(entry) && typeof entry.matchPattern === 'string' ? entry.matchPattern : '');
+            const migrated = LinkumoriRuleMigration.migrateFilterText(text);
+            if (migrated !== text) {
+                throw new Error(`${label}: ${fieldName}[${index}] uses an old option name; write it as "${migrated}"`);
             }
             if (!isPlainObject(entry)) return;
             Object.entries(REMOVED_RULE_KEYS).forEach(([oldKey, newKey]) => {
@@ -455,6 +382,11 @@ function assertNoRemovedSpellings(provider, providerName = '') {
                 }
             });
         });
+    });
+    (Array.isArray(provider.redirections) ? provider.redirections : []).forEach((entry, index) => {
+        if (typeof entry === 'string' && entry.trim().startsWith('|')) {
+            assertDomainRedirectEntry(entry, `${label}: redirections[${index}]`);
+        }
     });
 }
 
@@ -1139,8 +1071,8 @@ function collectProviderRuleIdEntries(providerName, provider) {
                     providerName,
                     aliases,
                     disableKeys,
-                    kind: rule.kind || (section === 'rawRules' ? 'raw' : (section === 'redirections' ? 'redirection' : 'field')),
-                    match: typeof rule.match === 'string' ? rule.match : '',
+                    kind: section === 'rawRules' ? 'raw' : (section === 'redirections' ? 'redirection' : 'field'),
+                    match: typeof rule.matchPattern === 'string' ? rule.matchPattern : '',
                     disabled
                 });
             });
@@ -3355,7 +3287,7 @@ async function confirmProviderImport() {
             }
             
             // Import the provider (deep copy to avoid reference issues)
-            customRules.providers[providerName] = JSON.parse(JSON.stringify(provider));
+            customRules.providers[providerName] = LinkumoriRuleMigration.migrateProvider(JSON.parse(JSON.stringify(provider)));
             importedCount++;
         }
         
@@ -3852,6 +3784,8 @@ async function loadCustomRules() {
         } else {
             customRules = { providers: {} };
         }
+        // Older spellings in saved rules are shown (and saved) in the current form.
+        customRules.providers = LinkumoriRuleMigration.migrateProviders(customRules.providers);
         
         updateUI();
     } catch (error) {
@@ -4397,11 +4331,8 @@ function syncPatternEditorFromJson() {
     }
 }
 
-const LINKUMORI_CLEARURLS_DIALECT_SYNTAX = 'linkumori-clearurls-dialect';
-
 function createProviderSkeleton() {
     return {
-        syntax: LINKUMORI_CLEARURLS_DIALECT_SYNTAX,
         urlPattern: '',
         rules: []
     };
@@ -4409,7 +4340,6 @@ function createProviderSkeleton() {
 
 function compactProviderForEditor(provider) {
     const next = JSON.parse(JSON.stringify(provider || {}));
-    next.syntax = LINKUMORI_CLEARURLS_DIALECT_SYNTAX;
     const optionalArrays = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'domainPatterns', 'exceptions', 'domainExceptions', 'domainRedirections', 'methods', 'resourceTypes'];
 
     optionalArrays.forEach((key) => {
@@ -4424,38 +4354,16 @@ function compactProviderForEditor(provider) {
     return next;
 }
 
+// Providers are shown and saved with one spelling for everything; older
+// spellings are rewritten when a provider is opened (core_js/rule_migration.js).
 function normalizeProviderForEditor(provider) {
-    const next = JSON.parse(JSON.stringify(provider || {}));
-    next.syntax = LINKUMORI_CLEARURLS_DIALECT_SYNTAX;
+    const next = LinkumoriRuleMigration.migrateProvider(JSON.parse(JSON.stringify(provider || {})));
     if (!Array.isArray(next.rules)) next.rules = [];
-    mergeDomainExceptionsIntoExceptions(next);
     return next;
 }
 
-// "exceptions" takes both URL regexes and "||example.com^"-style domain
-// patterns, so domain patterns from the older "domainExceptions" field are
-// moved there. Other domainExceptions entries (without a leading "|") would
-// be read as regexes in "exceptions", so they stay where they are.
-function mergeDomainExceptionsIntoExceptions(provider) {
-    if (!Array.isArray(provider.domainExceptions)) return provider;
-    const exceptions = Array.isArray(provider.exceptions) ? provider.exceptions : [];
-    const remaining = [];
-    provider.domainExceptions.forEach((pattern) => {
-        const value = typeof pattern === 'string' ? pattern.trim() : '';
-        if (!value.startsWith('|')) {
-            remaining.push(pattern);
-        } else if (!exceptions.includes(value)) {
-            exceptions.push(value);
-        }
-    });
-    if (exceptions.length > 0) provider.exceptions = exceptions;
-    if (remaining.length > 0) provider.domainExceptions = remaining;
-    else delete provider.domainExceptions;
-    return provider;
-}
-
 function getJsonFieldButtons() {
-    const fields = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions', 'domainRedirections', 'completeProvider', 'forceRedirection', 'historyBypassProtection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
+    const fields = ['rules', 'rawRules', 'referralMarketing', 'redirections', 'exceptions', 'completeProvider', 'forceRedirection', 'historyBypassProtection', 'urlPattern', 'indexPattern', 'domainPatterns', 'methods', 'resourceTypes'];
     const labels = {
         rules: i18n('customRulesEditor_rules'),
         rawRules: i18n('customRulesEditor_rawRules'),
@@ -4463,7 +4371,6 @@ function getJsonFieldButtons() {
         redirections: i18n('customRulesEditor_redirections'),
         exceptions: i18n('customRulesEditor_exceptions'),
         domainExceptions: i18n('customRulesEditor_domainExceptions'),
-        domainRedirections: i18n('customRulesEditor_domainRedirections'),
         completeProvider: i18n('customRulesEditor_completeProvider'),
         forceRedirection: i18n('customRulesEditor_forceRedirection'),
         historyBypassProtection: i18n('customRulesEditor_historyBypassProtection'),
@@ -4477,53 +4384,26 @@ function getJsonFieldButtons() {
 }
 
 
+// "+ rule" buttons: which list each template goes into.
+const RULE_TEMPLATE_LISTS = Object.freeze({
+    field: 'rules',
+    raw: 'rawRules',
+    redirection: 'redirections'
+});
+
 function createCanonicalRuleTemplate(kind) {
-    const idBase = kind === 'redirection' ? 'redirect-rule' : `${kind}-rule`;
-    const inertMatch = '(?!)';
-    if (kind === 'raw') {
-        return {
-            id: idBase,
-            kind: 'raw',
-            match: inertMatch,
-            description: '',
-            aliases: [],
-            exceptions: [],
-            requestTypes: 'all',
-            preprocessors: [],
-            active: true,
-            action: { type: 'remove' }
-        };
-    }
-    if (kind === 'redirection') {
-        return {
-            id: idBase,
-            kind: 'redirection',
-            match: inertMatch,
-            description: '',
-            aliases: [],
-            exceptions: [],
-            requestTypes: 'all',
-            preprocessors: [],
-            active: true,
-            action: { type: 'redirect', replacePattern: '' }
-        };
-    }
     return {
-        id: idBase,
-        kind: 'field',
-        match: inertMatch,
+        id: kind === 'redirection' ? 'redirect-rule' : `${kind}-rule`,
+        matchPattern: '(?!)',
         description: '',
-        aliases: [],
-        exceptions: [],
-        requestTypes: 'all',
-        preprocessors: [],
-        active: true,
-        action: { type: 'remove' }
+        active: true
     };
 }
 
 function createUniqueRuleId(provider, baseId) {
-    const occupied = new Set((provider.rules || [])
+    const occupied = new Set(Object.values(RULE_TEMPLATE_LISTS)
+        .concat(['referralMarketing', 'exceptions'])
+        .flatMap(list => (Array.isArray(provider[list]) ? provider[list] : []))
         .filter(rule => isPlainObject(rule) && typeof rule.id === 'string')
         .map(rule => rule.id));
     if (!occupied.has(baseId)) return baseId;
@@ -4581,13 +4461,15 @@ function handleJsonKeyButtonClick(e) {
 function addCanonicalRuleTemplate(kind) {
     const jsonEditor = document.getElementById('json-editor');
     const validation = document.getElementById('json-validation');
-    if (!jsonEditor || !['field', 'raw', 'redirection'].includes(kind)) return;
+    const list = RULE_TEMPLATE_LISTS[kind];
+    if (!jsonEditor || !list) return;
 
     try {
         const provider = normalizeProviderForEditor(JSON.parse(jsonEditor.value));
         const template = createCanonicalRuleTemplate(kind);
         template.id = createUniqueRuleId(provider, template.id);
-        provider.rules.push(template);
+        if (!Array.isArray(provider[list])) provider[list] = [];
+        provider[list].push(template);
         jsonEditor.value = JSON.stringify(compactProviderForEditor(provider), null, 2);
         updateJsonTextMateHighlighting(jsonEditor);
         renderProviderRuleIdControlsFromEditor();
@@ -4641,7 +4523,6 @@ function addJsonFieldIfMissing(key) {
         }
     }
 
-    provider.syntax = LINKUMORI_CLEARURLS_DIALECT_SYNTAX;
     jsonEditor.value = JSON.stringify(provider, null, 2);
     updateJsonTextMateHighlighting(jsonEditor);
     if (validation) {
@@ -4693,11 +4574,9 @@ async function saveCurrentProvider() {
         const provider = JSON.parse(jsonEditor.value);
         assertProviderArrayFields(provider, currentProvider || '');
         assertRuleEntrySyntax(provider, currentProvider || '');
-        assertDomainRedirectionSyntax(provider, currentProvider || '');
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
-        provider.syntax = LINKUMORI_CLEARURLS_DIALECT_SYNTAX;
-        
+            
         // Validate required fields - either urlPattern or domainPatterns must be present
         const normalizedDomainPatterns = toDomainPatternArray(provider.domainPatterns);
         if ((!provider.urlPattern || provider.urlPattern.trim() === '') &&
@@ -5325,13 +5204,14 @@ function validateImportedProviders(providersData) {
         throw new Error(i18n('customRulesEditor_noProvidersInFile'));
     }
 
-    for (const [name, provider] of Object.entries(providersData)) {
+    for (const [name, rawProvider] of Object.entries(providersData)) {
+        // Older spellings are rewritten before validation (core_js/rule_migration.js).
+        const provider = LinkumoriRuleMigration.migrateProvider(rawProvider);
+        providersData[name] = provider;
         assertProviderArrayFields(provider, name);
         assertRuleEntrySyntax(provider, name);
-        assertDomainRedirectionSyntax(provider, name);
         provider.indexPattern = normalizeIndexPatternValue(provider.indexPattern);
         if (!provider.indexPattern) delete provider.indexPattern;
-        provider.syntax = LINKUMORI_CLEARURLS_DIALECT_SYNTAX;
         const normalizedDomainPatterns = toDomainPatternArray(provider.domainPatterns);
         if (!provider.urlPattern && normalizedDomainPatterns.length === 0) {
             throw new Error(i18n('customRulesEditor_providerMissingUrlPatternOrDomainPatterns', name));

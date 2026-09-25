@@ -19,59 +19,18 @@
       }
     },
     {
-      "id": "provider dialect marker linkumori-clearurls",
-      "dialect": "provider",
-      "input": "https://example.com/provider-syntax/?fbclid=1&keep=1",
-      "expectedOutput": "https://example.com/provider-syntax/?keep=1",
-      "providers": {
-        "provider-syntax-clearurls": {
-          "syntax": "linkumori-clearurls-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-syntax(?:[/?#]|$)",
-          "rules": [
-            "fbclid"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
-      "id": "provider dialect typo alias linkumori-clearursl",
-      "dialect": "provider",
-      "input": "https://example.com/provider-syntax-alias/?fbclid=1&keep=1",
-      "expectedOutput": "https://example.com/provider-syntax-alias/?keep=1",
-      "providers": {
-        "provider-syntax-clearursl-alias": {
-          "syntax": "linkumori-clearursl-dialect",
-          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-syntax-alias(?:[/?#]|$)",
-          "rules": [
-            "fbclid"
-          ]
-        }
-      },
-      "preferences": {
-        "globalStatus": true
-      }
-    },
-    {
       "id": "provider canonical clearurls dialect field rule",
       "dialect": "provider",
       "input": "https://example.com/provider-canonical/?utm_source=x&keep=1",
       "expectedOutput": "https://example.com/provider-canonical/?keep=1",
       "providers": {
         "provider-canonical-clearurls": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-canonical(?:[/?#]|$)",
           "indexPattern": "||example.com^",
           "rules": [
             {
               "id": "remove-utm-source",
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "utm_source"
             }
           ]
         }
@@ -87,16 +46,11 @@
       "expectedOutput": "https://example.com/provider-canonical-alias/?keep=1",
       "providers": {
         "provider-canonical-linkumori-unified": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-canonical-alias(?:[/?#]|$)",
           "rules": [
             {
               "id": "remove-utm-medium",
-              "kind": "field",
-              "match": "utm_medium",
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "utm_medium"
             }
           ]
         }
@@ -112,16 +66,12 @@
       "expectedOutput": "https://example.com/provider-canonical-raw/?keep=1",
       "providers": {
         "provider-canonical-raw": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-canonical-raw(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "rawRules": [
             {
               "id": "remove-raw",
-              "kind": "raw",
-              "match": "[?&]raw=[^&#]*",
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "[?&]raw=[^&#]*"
             }
           ]
         }
@@ -137,17 +87,13 @@
       "expectedOutput": "https://example.com/core-section-raw/?keep=1",
       "providers": {
         "core-section-raw": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-raw(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "rawRules": [
             {
               "id": "raw-rule",
-              "kind": "raw",
-              "match": "[?&]raw=[^&#]*",
-              "action": {
-                "type": "remove"
-              },
-              "flags": "gi"
+              "flags": "gi",
+              "matchPattern": "[?&]raw=[^&#]*"
             }
           ]
         }
@@ -163,18 +109,14 @@
       "expectedOutput": "https://www.iana.org/",
       "providers": {
         "core-section-redirection": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-redirect(?:[/?#]|$)",
           "forceRedirection": true,
-          "rules": [
+          "rules": [],
+          "redirections": [
             {
               "id": "redirect-rule",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/core-section-redirect\\/go\\?target=([^&]+)$",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              }
+              "matchPattern": "^https?:\\/\\/example\\.com\\/core-section-redirect\\/go\\?target=([^&]+)$",
+              "replacePattern": "§1§"
             }
           ]
         }
@@ -191,17 +133,12 @@
       "expectedOutput": "https://example.com/core-section-referral/?keep=1",
       "providers": {
         "core-section-referral": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-referral(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "referralMarketing": [
             {
               "id": "referral-rule",
-              "kind": "field",
-              "match": "tag",
-              "referralMarketing": true,
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "tag"
             }
           ]
         }
@@ -218,7 +155,6 @@
       "expectedOutput": "https://example.com/core-section-exception/keep/?utm_source=x",
       "providers": {
         "core-section-exception": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/core-section-exception(?:[/?#]|$)",
           "exceptions": [
             "^https?:\\/\\/example\\.com\\/core-section-exception/keep"
@@ -226,11 +162,7 @@
           "rules": [
             {
               "id": "remove-utm",
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "utm_source"
             }
           ]
         }
@@ -246,17 +178,12 @@
       "expectedOutput": "https://example.com/core-inactive-rule/?utm_source=x",
       "providers": {
         "core-inactive-rule": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/core-inactive-rule(?:[/?#]|$)",
           "rules": [
             {
               "id": "inactive-remove",
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              },
-              "active": false
+              "active": false,
+              "matchPattern": "utm_source"
             }
           ]
         }
@@ -272,16 +199,11 @@
       "expectedOutput": "https://example.com/core-inactive-provider/?utm_source=x",
       "providers": {
         "core-inactive-provider": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/core-inactive-provider(?:[/?#]|$)",
           "rules": [
             {
               "id": "remove-utm",
-              "kind": "field",
-              "match": "utm_source",
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "utm_source"
             }
           ],
           "active": false
@@ -292,31 +214,26 @@
       }
     },
     {
-      "id": "core parity canonical urlDecodeRepeated preprocessor",
+      "id": "core parity canonical doubleUrlDecode preprocessor",
       "dialect": "provider",
       "input": "https://example.com/core-preprocessor/?target=hello%2520world",
       "expectedOutput": "https://example.com/core-preprocessor/?target=hello%20world",
       "providers": {
         "core-preprocessor": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/core-preprocessor(?:[/?#]|$)",
           "rules": [
             {
               "id": "decode-rewrite",
-              "kind": "field",
-              "match": "target",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "§1§"
-              },
               "preprocessors": [
                 {
-                  "type": "urlDecodeRepeated",
+                  "type": "doubleUrlDecode",
                   "inputs": [
                     1
                   ]
                 }
-              ]
+              ],
+              "matchPattern": "target",
+              "replacePattern": "§1§"
             }
           ]
         }
@@ -332,17 +249,13 @@
       "expectedOutput": "https://example.com/provider-raw/?keep=1",
       "providers": {
         "provider-raw": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-raw(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "rawRules": [
             {
               "id": "remove-raw",
-              "kind": "raw",
-              "match": "[?&]raw=[^&#]*",
-              "action": {
-                "type": "remove"
-              },
-              "flags": "gi"
+              "flags": "gi",
+              "matchPattern": "[?&]raw=[^&#]*"
             }
           ]
         }
@@ -358,17 +271,12 @@
       "expectedOutput": "https://example.com/provider-referral/?keep=1",
       "providers": {
         "provider-referral": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-referral(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "referralMarketing": [
             {
               "id": "remove-referral",
-              "kind": "field",
-              "match": "ref",
-              "referralMarketing": true,
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "ref"
             }
           ]
         }
@@ -440,17 +348,13 @@
       "expectedOutput": "https://www.iana.org/",
       "providers": {
         "provider-redirection": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-redirection(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "redirections": [
             {
               "id": "redirect-target",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/provider-redirection/redirect\\?url=(https%3A%2F%2Fwww\\.iana\\.org%2F)$",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              }
+              "matchPattern": "^https?:\\/\\/example\\.com\\/provider-redirection/redirect\\?url=(https%3A%2F%2Fwww\\.iana\\.org%2F)$",
+              "replacePattern": "§1§"
             }
           ]
         }
@@ -618,7 +522,7 @@
       }
     },
     {
-      "id": "provider domainExceptions",
+      "id": "provider exceptions domain pattern only",
       "dialect": "provider",
       "input": "https://example.com/provider-domain-exception/keep/?utm_source=x",
       "expectedOutput": "https://example.com/provider-domain-exception/keep/?utm_source=x",
@@ -630,7 +534,7 @@
           "rules": [
             "utm_source"
           ],
-          "domainExceptions": [
+          "exceptions": [
             "||example.com/provider-domain-exception/keep^"
           ]
         }
@@ -640,7 +544,7 @@
       }
     },
     {
-      "id": "provider domainRedirections",
+      "id": "provider redirections domain pattern only",
       "dialect": "provider",
       "input": "https://example.com/provider-domain-redirection/redirect?url=https%3A%2F%2Fwww.iana.org%2F",
       "expectedOutput": "https://www.iana.org/",
@@ -649,7 +553,7 @@
           "domainPatterns": [
             "||example.com/provider-domain-redirection^"
           ],
-          "domainRedirections": [
+          "redirections": [
             "||example.com/provider-domain-redirection^$redirect=https%3A%2F%2Fwww.iana.org%2F"
           ]
         }
@@ -834,18 +738,14 @@
       "expectedOutput": "https://www.iana.org/",
       "providers": {
         "provider-force-redirect": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-force-redirect(?:[/?#]|$)",
           "forceRedirection": true,
-          "rules": [
+          "rules": [],
+          "redirections": [
             {
               "id": "force-redirect-target",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/provider-force-redirect\\/?\\?url=([^&]+)",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              }
+              "matchPattern": "^https?:\\/\\/example\\.com\\/provider-force-redirect\\/?\\?url=([^&]+)",
+              "replacePattern": "§1§"
             }
           ]
         }
@@ -1097,17 +997,13 @@
       "expectedOutput": "https://example.com/object-raw/?clean=abc&keep=1",
       "providers": {
         "provider-object-raw": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/object-raw(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "rawRules": [
             {
               "id": "rewrite-wrapped",
-              "kind": "raw",
-              "match": "wrapped=([^&#]+)",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "clean=§1§"
-              }
+              "matchPattern": "wrapped=([^&#]+)",
+              "replacePattern": "clean=§1§"
             }
           ]
         }
@@ -1123,17 +1019,11 @@
       "expectedOutput": "https://www.iana.org/",
       "providers": {
         "provider-object-redirect": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/object-redirect(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "redirections": [
             {
               "id": "redirect-object",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/object-redirect\\/\\?url=(.+)$",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              },
               "preprocessors": [
                 {
                   "type": "doubleUrlDecode",
@@ -1141,7 +1031,9 @@
                     1
                   ]
                 }
-              ]
+              ],
+              "matchPattern": "^https?:\\/\\/example\\.com\\/object-redirect\\/\\?url=(.+)$",
+              "replacePattern": "§1§"
             }
           ]
         }
@@ -1168,12 +1060,8 @@
           "rules": [
             {
               "id": "rewrite-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "v2-§1§"
-              }
+              "matchPattern": "token",
+              "replacePattern": "v2-§1§"
             }
           ]
         }
@@ -1196,14 +1084,11 @@
       "providers": {
         "provider-v2-raw": {
           "urlPattern": "^https?:\\/\\/example\\.com\\/v2-raw(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "rawRules": [
             {
               "id": "remove-raw",
-              "kind": "raw",
-              "match": "[?&]raw=[^&#]*",
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "[?&]raw=[^&#]*"
             }
           ]
         }
@@ -1226,15 +1111,10 @@
       "providers": {
         "provider-v2-redirect": {
           "urlPattern": "^https?:\\/\\/example\\.com\\/v2-redirect(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "redirections": [
             {
               "id": "redirect-out",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/v2-redirect\\/\\?url=(.+)$",
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              },
               "preprocessors": [
                 {
                   "type": "doubleUrlDecode",
@@ -1242,7 +1122,9 @@
                     1
                   ]
                 }
-              ]
+              ],
+              "matchPattern": "^https?:\\/\\/example\\.com\\/v2-redirect\\/\\?url=(.+)$",
+              "replacePattern": "§1§"
             }
           ]
         }
@@ -1271,11 +1153,7 @@
           "rules": [
             {
               "id": "default-gated",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "token"
             }
           ]
         }
@@ -1322,16 +1200,11 @@
       },
       "providers": {
         "provider-rule-id-disabled": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/rule-id-disabled(?:[/?#]|$)",
           "rules": [
             {
               "id": "disable-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "token"
             }
           ]
         }
@@ -1374,19 +1247,14 @@
       },
       "providers": {
         "merged-activation-rule-id-disabled": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/activation-rule-id-disabled(?:[/?#]|$)",
           "rules": [
             {
               "id": "remove-activation-token",
-              "kind": "field",
-              "match": "activation_token",
               "_linkumoriActivationIds": [
                 "provider-activation-rule-id-disabled::remove-activation-token"
               ],
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "activation_token"
             }
           ]
         }
@@ -1413,11 +1281,7 @@
           "rules": [
             {
               "id": "remove-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "token"
             }
           ]
         }
@@ -1433,19 +1297,14 @@
       "expectedOutput": "https://example.com/per-rule-ex/keep/?utm_source=x",
       "providers": {
         "provider-per-rule-ex": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-ex(?:[/?#]|$)",
           "rules": [
             {
               "id": "remove-utm",
-              "kind": "field",
-              "match": "utm_source",
               "exceptions": [
                 "^https?:\\/\\/example\\.com\\/per-rule-ex\\/keep"
               ],
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "utm_source"
             }
           ]
         }
@@ -1461,19 +1320,14 @@
       "expectedOutput": "https://example.com/per-rule-ex/other/",
       "providers": {
         "provider-per-rule-ex": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-ex(?:[/?#]|$)",
           "rules": [
             {
               "id": "remove-utm",
-              "kind": "field",
-              "match": "utm_source",
               "exceptions": [
                 "^https?:\\/\\/example\\.com\\/per-rule-ex\\/keep"
               ],
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "utm_source"
             }
           ]
         }
@@ -1489,19 +1343,14 @@
       "expectedOutput": "https://example.com/per-rule-type/?token=abc",
       "providers": {
         "provider-per-rule-type": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-type(?:[/?#]|$)",
           "rules": [
             {
               "id": "remove-gated",
-              "kind": "field",
-              "match": "token",
               "requestTypes": [
                 "xmlhttprequest"
               ],
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "token"
             }
           ]
         }
@@ -1520,19 +1369,14 @@
       "expectedOutput": "https://example.com/per-rule-type/",
       "providers": {
         "provider-per-rule-type": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/per-rule-type(?:[/?#]|$)",
           "rules": [
             {
               "id": "remove-gated",
-              "kind": "field",
-              "match": "token",
               "requestTypes": [
                 "xmlhttprequest"
               ],
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "token"
             }
           ]
         }
@@ -1551,17 +1395,12 @@
       "expectedOutput": "https://example.com/rule-active-false/?token=abc",
       "providers": {
         "provider-rule-active-false": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/rule-active-false(?:[/?#]|$)",
           "rules": [
             {
               "id": "disabled-rule",
-              "kind": "field",
-              "match": "token",
               "active": false,
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "token"
             }
           ]
         }
@@ -1577,18 +1416,14 @@
       "expectedOutput": "https://example.com/provider-exception-type/",
       "providers": {
         "provider-exception-type": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-exception-type(?:[/?#]|$)",
           "exceptions": [
             {
               "id": "xhr-only-exception",
-              "match": "^https?:\\/\\/example\\.com\\/provider-exception-type",
               "requestTypes": [
                 "xmlhttprequest"
               ],
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "^https?:\\/\\/example\\.com\\/provider-exception-type"
             }
           ],
           "rules": [
@@ -1610,18 +1445,14 @@
       "expectedOutput": "https://example.com/provider-exception-type/?token=abc",
       "providers": {
         "provider-exception-type": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/provider-exception-type(?:[/?#]|$)",
           "exceptions": [
             {
               "id": "xhr-only-exception",
-              "match": "^https?:\\/\\/example\\.com\\/provider-exception-type",
               "requestTypes": [
                 "xmlhttprequest"
               ],
-              "action": {
-                "type": "remove"
-              }
+              "matchPattern": "^https?:\\/\\/example\\.com\\/provider-exception-type"
             }
           ],
           "rules": [
@@ -1643,20 +1474,16 @@
       "expectedOutput": "https://example.com/redirect-type/?target=https%3A%2F%2Ftarget.example%2F",
       "providers": {
         "provider-redirect-type": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/redirect-type(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "redirections": [
             {
               "id": "extract-target",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)",
               "requestTypes": [
                 "xmlhttprequest"
               ],
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              }
+              "matchPattern": "^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)",
+              "replacePattern": "§1§"
             }
           ]
         }
@@ -1676,20 +1503,16 @@
       "expectedOutput": "https://target.example/",
       "providers": {
         "provider-redirect-type": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/redirect-type(?:[/?#]|$)",
-          "rules": [
+          "rules": [],
+          "redirections": [
             {
               "id": "extract-target",
-              "kind": "redirection",
-              "match": "^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)",
               "requestTypes": [
                 "xmlhttprequest"
               ],
-              "action": {
-                "type": "redirect",
-                "replacePattern": "§1§"
-              }
+              "matchPattern": "^https?:\\/\\/example\\.com\\/redirect-type\\/\\?target=([^&]+)",
+              "replacePattern": "§1§"
             }
           ]
         }
@@ -1709,17 +1532,12 @@
       "expectedOutput": "https://example.com/rewrite-isolation/?keep=1&token=v2-abc",
       "providers": {
         "provider-rewrite-isolation": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/rewrite-isolation(?:[/?#]|$)",
           "rules": [
             {
               "id": "rewrite-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "v2-§1§"
-              }
+              "matchPattern": "token",
+              "replacePattern": "v2-§1§"
             }
           ]
         }
@@ -1735,17 +1553,12 @@
       "expectedOutput": "https://example.com/rewrite-isolation/?keep=1&token=v2-xyz",
       "providers": {
         "provider-rewrite-isolation": {
-          "syntax": "linkumori-clearurls-dialect",
           "urlPattern": "^https?:\\/\\/example\\.com\\/rewrite-isolation(?:[/?#]|$)",
           "rules": [
             {
               "id": "rewrite-token",
-              "kind": "field",
-              "match": "token",
-              "action": {
-                "type": "rewrite",
-                "replacePattern": "v2-§1§"
-              }
+              "matchPattern": "token",
+              "replacePattern": "v2-§1§"
             }
           ]
         }
@@ -2503,6 +2316,92 @@
           "exceptions": [
             "^https?:\\/\\/(?:www\\.)?example\\.com\\/merged-exceptions\\/regex",
             "||example.com^/merged-exceptions/domain"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider redirections domain redirect",
+      "dialect": "provider",
+      "input": "https://go.example.com/anything?x=1",
+      "expectedOutput": "https://www.iana.org/",
+      "providers": {
+        "provider-merged-redirect": {
+          "domainPatterns": [
+            "||go.example.com^"
+          ],
+          "redirections": [
+            "^https?:\\/\\/other\\.example\\/\\?u=([^&]+)",
+            "||go.example.com^$redirect=https://www.iana.org/"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rule object with match/kind/action is not supported",
+      "dialect": "provider",
+      "input": "https://example.com/removed-forms/?token=abc",
+      "expectedOutput": "https://example.com/removed-forms/?token=abc",
+      "providers": {
+        "removed-forms": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/removed-forms(?:[/?#]|$)",
+          "rules": [
+            {
+              "id": "old-style",
+              "kind": "field",
+              "match": "token",
+              "action": {
+                "type": "remove"
+              }
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest xhr shorthand is not supported",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/removed-forms/?token=abc",
+      "expectedOutput": "https://example.com/removed-forms/?token=abc",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest"
+      },
+      "providers": {
+        "removed-forms": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/removed-forms(?:[/?#]|$)",
+          "rules": [
+            "$removeparam=token,xhr"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "webrequest xmlhttprequest option",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/removed-forms/?token=abc",
+      "expectedOutput": "https://example.com/removed-forms/",
+      "request": {
+        "method": "GET",
+        "type": "xmlhttprequest"
+      },
+      "providers": {
+        "removed-forms": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/removed-forms(?:[/?#]|$)",
+          "rules": [
+            "$removeparam=token,xmlhttprequest"
           ]
         }
       },
