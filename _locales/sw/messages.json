@@ -262,42 +262,6 @@
   "customRulesEditor_domainPatterns": {
     "message": "Miundo ya Kikoa"
   },
-  "customRulesEditor_matchPatterns": {
-    "message": "Match Patterns"
-  },
-  "customRulesEditor_matchPatternsPlaceholder": {
-    "message": "||example.com^\n/^https?:\\/\\/example\\.com\\/out\\//i"
-  },
-  "customRulesEditor_matchPatternsHelp": {
-    "message": "One pattern per line. ||example.com^ matches the site and its subdomains, ||example.*^ matches every TLD, ||example.com^/path limits it to a path, and /regex/i matches the full URL."
-  },
-  "customRulesEditor_matchPatternsRequired": {
-    "message": "Add at least one match pattern."
-  },
-  "customRulesEditor_providerActive": {
-    "message": "Provider active"
-  },
-  "customRulesEditor_ruleTemplate_removeparam": {
-    "message": "Remove parameter"
-  },
-  "customRulesEditor_ruleTemplate_referral": {
-    "message": "Referral parameter"
-  },
-  "customRulesEditor_ruleTemplate_exception": {
-    "message": "Exception"
-  },
-  "customRulesEditor_ruleTemplate_redirect": {
-    "message": "Redirect"
-  },
-  "customRulesEditor_ruleTemplate_strip": {
-    "message": "Strip from URL"
-  },
-  "customRulesEditor_ruleTemplate_block": {
-    "message": "Block provider"
-  },
-  "customRulesEditor_ruleSyntaxHelp": {
-    "message": "Each rule is one filter: $removeparam=name (add ,referral for referral-marketing parameters), @@pattern for an exception, /regex/$redirect, /regex/$strip, or $block. Object form: {\"filter\": \"...\", \"id\": \"...\", \"active\": false}."
-  },
   "customRulesEditor_domainPatternsHelp": {
     "message": "Mifumo rahisi ya kikoa (haiwezi kutumika na Muundo wa URL). Miundo: example.com, *.example.com, ||example.com^, ||*.example.com^ Mchoro mmoja kwa kila mstari.",
     "description": "Help text for domain patterns field"

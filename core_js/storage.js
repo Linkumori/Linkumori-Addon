@@ -1508,7 +1508,7 @@ function loadRemoteRulesFromCache(expectedHash = null, cacheReason = 'cache_used
         lastFailureReason: storage.hashFailureReason || storage.remoteRulesHealth?.lastFailureReason || null
     }, true);
 
-    return LinkumoriRuleSyntax.prepareRulesData(cachedData);
+    return cachedData;
 }
 
 function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
@@ -1617,7 +1617,7 @@ function fetchRemoteRules(url, expectedHash = null, hashURLForHealth = null) {
                 timestamp: verification.timestamp
             });
 
-            resolve(LinkumoriRuleSyntax.prepareRulesData(remoteRules));
+            resolve(remoteRules);
         })
         .catch(error => {
             storage.hashFailureReason = error.message;
@@ -1689,7 +1689,7 @@ async function fetchBundledRulesRaw() {
     const payload = await fetchBundledRulesText();
     const rawRulesData = JSON.parse(payload.text);
     validateBundledRulesData(rawRulesData);
-    return LinkumoriRuleSyntax.prepareRulesData(rawRulesData);
+    return rawRulesData;
 }
 
 async function fetchBundledRulesText() {
@@ -1986,7 +1986,7 @@ function loadBundledRulesInternal(isFallback = false) {
 }
 
 function getEnhancedFallbackRules() {
-    return LinkumoriRuleSyntax.prepareRulesData({
+    return {
         "metadata": {
             "name": "Enhanced Fallback Rules",
             "version": "1.0.0",
@@ -1996,47 +1996,58 @@ function getEnhancedFallbackRules() {
         },
         "providers": {
             "globalRules": {
-                "match": ["*"],
+                "urlPattern": ".*",
+                "completeProvider": false,
                 "rules": [
-                    "$removeparam=/^(?:%3F)?utm(?:_[a-z_]*)?$/i",
-                    "$removeparam=/^(?:%3F)?ga_[a-z_]+$/i",
-                    "$removeparam=/^(?:%3F)?fbclid$/i",
-                    "$removeparam=/^(?:%3F)?gclid$/i",
-                    "$removeparam=/^(?:%3F)?_ga$/i",
-                    "$removeparam=/^(?:%3F)?_gl$/i",
-                    "$removeparam=/^(?:%3F)?twclid$/i",
-                    "$removeparam=/^(?:%3F)?msclkid$/i",
-                    "$removeparam=/^(?:%3F)?dclid$/i",
-                    "$removeparam=/^(?:%3F)?srsltid$/i",
-                    "$removeparam=/^(?:%3F)?ref_?$/i,referral",
-                    "$removeparam=/^(?:%3F)?referrer$/i,referral"
-                ]
+                    "(?:%3F)?utm(?:_[a-z_]*)?",
+                    "(?:%3F)?ga_[a-z_]+",
+                    "(?:%3F)?fbclid",
+                    "(?:%3F)?gclid",
+                    "(?:%3F)?_ga",
+                    "(?:%3F)?_gl",
+                    "(?:%3F)?twclid",
+                    "(?:%3F)?msclkid",
+                    "(?:%3F)?dclid",
+                    "(?:%3F)?srsltid"
+                ],
+                "referralMarketing": [
+                    "(?:%3F)?ref_?",
+                    "(?:%3F)?referrer"
+                ],
+                "rawRules": [],
+                "exceptions": [],
+                "redirections": [],
+                "forceRedirection": false
             },
             "fallback-google": {
-                "match": ["||google.*^"],
+                "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?google(?:\\.[a-z]{2,}){1,}",
+                "completeProvider": false,
                 "rules": [
-                    "$removeparam=ved", "$removeparam=ei", "$removeparam=uact", "$removeparam=cd",
-                    "$removeparam=cad", "$removeparam=gws_rd", "$removeparam=source", "$removeparam=gs_l",
-                    "$removeparam=referrer,referral",
-                    "@@/^https?:\\/\\/(?:docs|accounts)\\.google(?:\\.[a-z]{2,}){1,}/i"
-                ]
+                    "ved", "ei", "uact", "cd", "cad", 
+                    "gws_rd", "source", "gs_l"
+                ],
+                "referralMarketing": ["referrer"],
+                "rawRules": [],
+                "exceptions": [
+                    "^https?:\\/\\/(?:docs|accounts)\\.google(?:\\.[a-z]{2,}){1,}"
+                ],
+                "redirections": [],
+                "forceRedirection": false
             },
             "fallback-amazon": {
-                "match": ["||amazon.*^"],
+                "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?amazon(?:\\.[a-z]{2,}){1,}",
+                "completeProvider": false,
                 "rules": [
-                    "$removeparam=/^ref_?$/i", "$removeparam=tag", "$removeparam=/^pf_rd_[a-z]*$/i",
-                    "$removeparam=qid", "$removeparam=sr",
-                    "/\\/ref=[^\\/?]*/i$strip"
-                ]
+                    "ref_?", "tag", "pf_rd_[a-z]*", "qid", "sr"
+                ],
+                "referralMarketing": ["tag"],
+                "rawRules": ["\\/ref=[^/?]*"],
+                "exceptions": [],
+                "redirections": [],
+                "forceRedirection": false
             }
         }
-    });
-}
-
-// Lower unified-syntax providers ("match" + "rules") to the internal
-// sections the merge layer and engine work with.
-function prepareProviderMap(providers) {
-    return LinkumoriRuleSyntax.prepareRulesData({ providers }).providers;
+    };
 }
 
 function loadCustomOnlyRules() {
@@ -2057,9 +2068,9 @@ function loadCustomOnlyRules() {
                 customRules = { providers: customRules };
             }
 
-            const providers = prepareProviderMap((customRules && customRules.providers && typeof customRules.providers === 'object')
+            const providers = (customRules && customRules.providers && typeof customRules.providers === 'object')
                 ? customRules.providers
-                : {});
+                : {};
             const disabledSignatures = getDisabledSignatures(result[IMPORT_EXCLUSIONS_KEY]);
             const filteredCustom = filterProvidersByDisabledSignatures(providers, disabledSignatures);
             const providerCount = Object.keys(filteredCustom.providers).length;
@@ -2165,9 +2176,9 @@ function mergeCustomRules(bundledRules) {
             
             const bundledProvidersRaw = bundledRules?.providers || {};
             const filteredBundled = filterProvidersByDisabledSignatures(bundledProvidersRaw, disabledSignatures);
-            const customProvidersRaw = prepareProviderMap((customRules && customRules.providers && typeof customRules.providers === 'object')
+            const customProvidersRaw = (customRules && customRules.providers && typeof customRules.providers === 'object')
                 ? customRules.providers
-                : {});
+                : {};
             const filteredCustom = filterProvidersByDisabledSignatures(customProvidersRaw, disabledSignatures);
             const activeCustomProviderCount = Object.keys(filteredCustom.providers).length;
             const totalDisabledProviders = filteredBundled.removedCount + filteredCustom.removedCount;

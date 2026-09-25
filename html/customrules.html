@@ -192,14 +192,16 @@
         }
 
         /* Larger input fields for provider modal */
-        #provider-form #match-patterns {
+        #provider-form #url-pattern,
+        #provider-form #index-pattern,
+        #provider-form #domain-patterns {
             width: 100%;
             min-width: 400px;
             max-width: 100%;
             box-sizing: border-box;
         }
 
-        #provider-form #match-patterns {
+        #provider-form #domain-patterns {
             min-height: 80px;
             resize: vertical;
         }
@@ -211,7 +213,9 @@
         }
 
         @media (max-width: 600px) {
-            #provider-form #match-patterns {
+            #provider-form #url-pattern,
+            #provider-form #index-pattern,
+            #provider-form #domain-patterns {
                 min-width: 100%;
             }
             
@@ -1340,14 +1344,22 @@
             box-shadow: 0 2px 10px rgba(37, 99, 235, 0.28);
         }
 
-        #edit-match-patterns {
+        #edit-url-pattern,
+        #edit-index-pattern,
+        #edit-domain-patterns {
             background: var(--bg-primary);
             border-color: var(--editor-border);
             width: 100%;
             font-size: 14px;
         }
 
-        #edit-match-patterns {
+        #edit-url-pattern,
+        #edit-index-pattern {
+            min-height: 48px;
+            padding: 12px 14px;
+        }
+
+        #edit-domain-patterns {
             min-height: 170px;
             padding: 12px 14px;
         }
@@ -3702,15 +3714,48 @@ admin.example.com
                     <div class="form-help" id="provider-name-help" data-i18n="customRulesEditor_providerNameHelp"></div>
                 </div>
 
-                <div class="form-group" id="match-patterns-group">
-                    <label class="form-label" for="match-patterns" data-i18n="customRulesEditor_matchPatterns"></label>
-                    <textarea class="form-input" id="match-patterns" rows="3" aria-describedby="match-patterns-help" data-i18n-placeholder="customRulesEditor_matchPatternsPlaceholder"></textarea>
-                    <div class="form-help" id="match-patterns-help" data-i18n="customRulesEditor_matchPatternsHelp"></div>
+                <div class="form-group">
+                    <label class="form-label" data-i18n="customRulesEditor_patternType"></label>
+                    <div class="pattern-type-selector">
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="pattern-type" value="urlPattern" id="pattern-type-url" checked>
+                                <span data-i18n="customRulesEditor_urlPatternOption"></span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="pattern-type" value="domainPatterns" id="pattern-type-domain">
+                                <span data-i18n="customRulesEditor_domainPatternsOption"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-help" data-i18n="customRulesEditor_patternTypeHelp"></div>
+                </div>
+                
+                <div class="form-group" id="url-pattern-group">
+                    <label class="form-label" for="url-pattern" data-i18n="customRulesEditor_urlPattern"></label>
+                    <input type="text" class="form-input" id="url-pattern" aria-describedby="url-pattern-help" data-i18n-placeholder="customRulesEditor_urlPatternPlaceholder">
+                    <div class="form-help" id="url-pattern-help" data-i18n="customRulesEditor_urlPatternHelp"></div>
+                </div>
+
+                <div class="form-group" id="index-pattern-group">
+                    <label class="form-label" for="index-pattern" data-i18n="customRulesEditor_indexPattern"></label>
+                    <textarea class="form-input" id="index-pattern" rows="3" aria-describedby="index-pattern-help" data-i18n-placeholder="customRulesEditor_indexPatternPlaceholder"></textarea>
+                    <div class="form-help" id="index-pattern-help" data-i18n="customRulesEditor_indexPatternHelp"></div>
+                </div>
+
+                <div class="form-group u-hidden" id="domain-patterns-group">                    <label class="form-label" for="domain-patterns" data-i18n="customRulesEditor_domainPatterns"></label>
+                    <textarea class="form-input" id="domain-patterns" rows="3" aria-describedby="domain-patterns-help" data-i18n-placeholder="customRulesEditor_domainPatternsPlaceholder"></textarea>
+                    <div class="form-help" id="domain-patterns-help" data-i18n="customRulesEditor_domainPatternsHelp"></div>
                 </div>
 
                 <div class="form-checkbox">
                     <input type="checkbox" id="complete-provider">
                     <label for="complete-provider" data-i18n="customRulesEditor_completeProvider"></label>
+                </div>
+
+                <div class="form-checkbox">
+                    <input type="checkbox" id="force-redirection">
+                    <label for="force-redirection" data-i18n="customRulesEditor_forceRedirection"></label>
                 </div>
 
                 <div class="modal-footer">
@@ -3755,7 +3800,6 @@ admin.example.com
     <script src="../external_js/light-punycode.js"></script>
     <script src="../external_js/IP-Ranger.js"></script>
     <script src="../core_js/modal_dialog.js"></script>
-    <script src="../core_js/rule_syntax.js"></script>
     <script src="../core_js/custom_rules_editor.js"></script>
     <script src="../core_js/accessibility_tools.js"></script>
     <script src="../core_js/write_version.js"></script>

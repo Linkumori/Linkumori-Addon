@@ -1034,54 +1034,746 @@ documentation when you run the build process.
     }
   }
 
-  // Load the shared rule-syntax module (core_js/rule_syntax.js) once.
-  getRuleSyntax() {
-    if (!this._ruleSyntax) {
-      const context = { console };
-      vm.createContext(context);
-      vm.runInContext(fs.readFileSync('core_js/rule_syntax.js', 'utf8'), context, { filename: 'core_js/rule_syntax.js' });
-      this._ruleSyntax = context.LinkumoriRuleSyntax;
+  // storage.js-compatible provider grouping key
+  getProviderGroupKey(providerData, providerName) {
+    const urlPattern = (typeof providerData?.urlPattern === 'string')
+      ? providerData.urlPattern.trim()
+      : '';
+    if (urlPattern) {
+      return `url:${urlPattern}`;
     }
-    return this._ruleSyntax;
+
+    const domainPatterns = [];
+    if (Array.isArray(providerData?.domainPatterns)) {
+      providerData.domainPatterns.forEach(pattern => {
+        if (typeof pattern === 'string' && pattern.trim()) {
+          domainPatterns.push(pattern.trim());
+        }
+      });
+    } else if (typeof providerData?.domainPatterns === 'string' && providerData.domainPatterns.trim()) {
+      domainPatterns.push(providerData.domainPatterns.trim());
+    }
+
+    if (Array.isArray(providerData?.domainPattern)) {
+      providerData.domainPattern.forEach(pattern => {
+        if (typeof pattern === 'string' && pattern.trim()) {
+          domainPatterns.push(pattern.trim());
+        }
+      });
+    } else if (typeof providerData?.domainPattern === 'string' && providerData.domainPattern.trim()) {
+      domainPatterns.push(providerData.domainPattern.trim());
+    }
+
+    if (domainPatterns.length > 0) {
+      const normalized = [...new Set(domainPatterns)].sort((a, b) => a.localeCompare(b));
+      return `domain:${normalized.join('||')}`;
+    }
+
+    return `no-pattern:${providerName}`;
   }
 
-  // Normalize every provider to the unified "match" + "rules" syntax
-  // (docs/rule-syntax.md), converting older-format providers and dropping
-  // empty/default fields. Invalid rules abort the build.
-  minifyRules(data) {
-    this.info('🗜️  Normalizing rules to the unified syntax...');
+  // storage.js-like group merge by pattern key
+  mergeProvidersByUrlPattern(providers, primaryProviderNames = new Set()) {
+    this.info('🔄 Analyzing providers for merge opportunities...');
 
-    const syntax = this.getRuleSyntax();
-    const minifiedData = { providers: {} };
-    const errors = [];
-    let convertedProviders = 0;
-    let removedProviders = 0;
+    const providerGroups = {};
 
-    for (const [name, source] of Object.entries(data.providers || {})) {
-      if (!syntax.isCanonicalProvider(source)) convertedProviders++;
-      const provider = syntax.isCanonicalProvider(source) ? source : syntax.toCanonicalProvider(source);
-      const self = { match: provider.match };
-      if (Array.isArray(provider.rules) && provider.rules.length > 0) self.rules = provider.rules;
-      if (Array.isArray(provider.methods) && provider.methods.length > 0) self.methods = provider.methods;
-      if (Array.isArray(provider.resourceTypes) && provider.resourceTypes.length > 0) self.resourceTypes = provider.resourceTypes;
-      // Defaults are true, so only the non-default false is worth keeping.
-      if (provider.active === false) self.active = false;
-      if (provider.historyBypassProtection === false) self.historyBypassProtection = false;
+    Object.entries(providers || {}).forEach(([providerName, providerData]) => {
+      const safeName = (typeof providerName === 'string' && providerName.trim() !== '')
+        ? providerName
+        : 'provider';
+      const key = this.getProviderGroupKey(providerData, safeName);
+      // no-pattern providers still get their own unique key — do NOT drop them
+      if (!providerGroups[key]) {
+        providerGroups[key] = [];
+      }
+      providerGroups[key].push({
+        name: safeName,
+        data: providerData,
+        isPrimarySource: primaryProviderNames.has(safeName)
+      });
+    });
 
-      if (!self.rules && (!Array.isArray(self.match) || self.match.length === 0)) {
-        removedProviders++;
+    const mergedProviders = {};
+    const usedNames = new Set();
+    let totalMerged = 0;
+
+    Object.values(providerGroups).forEach(providerGroup => {
+      let finalProvider;
+
+      if (providerGroup.length === 1) {
+        finalProvider = providerGroup[0].data;
+      } else {
+        finalProvider = this.mergeProvidersGroup(providerGroup);
+        totalMerged += providerGroup.length - 1;
+      }
+
+      const baseName = this.createMergedProviderName(providerGroup);
+
+      let finalName = baseName;
+      if (usedNames.has(finalName)) {
+        // Try to qualify with a path segment before resorting to a counter
+        const pathName = this.derivePathQualifiedName(providerGroup, baseName);
+        if (pathName && !usedNames.has(pathName)) {
+          finalName = pathName;
+        } else {
+          let counter = 1;
+          do { finalName = `${baseName}_${counter++}`; } while (usedNames.has(finalName));
+        }
+      }
+      usedNames.add(finalName);
+      mergedProviders[finalName] = finalProvider;
+    });
+
+    this.success(`✅ Merge complete: ${totalMerged} providers optimized`);
+    return mergedProviders;
+  }
+
+  // storage.js-compatible provider group merge
+  mergeProvidersGroup(providerGroup) {
+    const merged = {
+      urlPattern: providerGroup[0].data?.urlPattern,
+      indexPattern: providerGroup[0].data?.indexPattern,
+      rules: [],
+      rawRules: [],
+      referralMarketing: [],
+      exceptions: [],
+      redirections: [],
+      domainPatterns: [],
+      domainExceptions: [],
+      domainRedirections: [],
+      methods: [],
+      resourceTypes: [],
+      completeProvider: false,
+      forceRedirection: false
+    };
+    
+    for (const provider of providerGroup) {
+      const data = provider.data || {};
+
+      if (!merged.indexPattern && data.indexPattern) {
+        merged.indexPattern = data.indexPattern;
+      }
+      
+      // Merge arrays (deduplicate)
+      if (Array.isArray(data.rules)) {
+        merged.rules = [...new Set([...merged.rules, ...data.rules])];
+      }
+      if (Array.isArray(data.rawRules)) {
+        merged.rawRules = [...new Set([...merged.rawRules, ...data.rawRules])];
+      }
+      if (Array.isArray(data.referralMarketing)) {
+        merged.referralMarketing = [...new Set([...merged.referralMarketing, ...data.referralMarketing])];
+      }
+      if (Array.isArray(data.exceptions)) {
+        merged.exceptions = [...new Set([...merged.exceptions, ...data.exceptions])];
+      }
+      if (Array.isArray(data.redirections)) {
+        merged.redirections = [...new Set([...merged.redirections, ...data.redirections])];
+      }
+
+      if (data.domainPatterns) {
+        let patterns = [];
+        if (Array.isArray(data.domainPatterns)) {
+          patterns = data.domainPatterns;
+        } else if (typeof data.domainPatterns === 'string') {
+          patterns = [data.domainPatterns];
+        }
+        if (patterns.length > 0) {
+          merged.domainPatterns = [...new Set([...merged.domainPatterns, ...patterns])];
+        }
+      }
+
+      if (Array.isArray(data.domainExceptions)) {
+        merged.domainExceptions = [...new Set([...merged.domainExceptions, ...data.domainExceptions])];
+      }
+      if (Array.isArray(data.domainRedirections)) {
+        merged.domainRedirections = [...new Set([...merged.domainRedirections, ...data.domainRedirections])];
+      }
+      if (Array.isArray(data.methods)) {
+        merged.methods = [...new Set([...merged.methods, ...data.methods])];
+      }
+      if (Array.isArray(data.resourceTypes)) {
+        merged.resourceTypes = [...new Set([...merged.resourceTypes, ...data.resourceTypes])];
+      }
+      
+      if (data.completeProvider === true) {
+        merged.completeProvider = true;
+      }
+      if (data.forceRedirection === true) {
+        merged.forceRedirection = true;
+      }
+      if (data.historyBypassProtection === false) {
+        merged.historyBypassProtection = false;
+      }
+    }
+
+    if (typeof merged.urlPattern !== 'string' || merged.urlPattern.length === 0) delete merged.urlPattern;
+    if (merged.domainPatterns.length > 0 ||
+      !merged.indexPattern ||
+      (Array.isArray(merged.indexPattern) && merged.indexPattern.length === 0)
+    ) delete merged.indexPattern;
+    if (merged.rules.length === 0) delete merged.rules;
+    if (merged.rawRules.length === 0) delete merged.rawRules;
+    if (merged.referralMarketing.length === 0) delete merged.referralMarketing;
+    if (merged.exceptions.length === 0) delete merged.exceptions;
+    if (merged.redirections.length === 0) delete merged.redirections;
+    if (merged.domainPatterns.length === 0) delete merged.domainPatterns;
+    if (merged.domainExceptions.length === 0) delete merged.domainExceptions;
+    if (merged.domainRedirections.length === 0) delete merged.domainRedirections;
+    if (merged.methods.length === 0) delete merged.methods;
+    if (merged.resourceTypes.length === 0) delete merged.resourceTypes;
+    if (merged.completeProvider !== true) delete merged.completeProvider;
+    if (merged.forceRedirection !== true) delete merged.forceRedirection;
+    
+    return merged;
+  }
+
+  // Derive a clean provider name from a urlPattern regex string
+  deriveNameFromUrlPattern(urlPattern) {
+    try {
+      // Unescape common regex escapes: \/ -> /  and  \. -> .
+      const s = urlPattern
+        .replace(/\\\//g, '/')
+        .replace(/\\\./g, '.');
+
+      // Strip protocol boilerplate: ^https?://
+      const withoutProtocol = s.replace(/^\^?https?\??:\/\//, '');
+
+      // Strip leading non-capturing group prefix e.g. (?:[a-z0-9-]+.)*?
+      const withoutPrefix = withoutProtocol.replace(/^\(\?:[^)]+\)\*\??/, '');
+
+      // Match a domain-like pattern at the start of what remains
+      const m = withoutPrefix.match(/^([a-z0-9][a-z0-9-]*(?:\.[a-z]{2,})*\.?)/i);
+      if (m && m[1]) {
+        return m[1].replace(/\.$/, '').toLowerCase();
+      }
+
+      // Fallback: find any domain-like token anywhere in the remaining string
+      const anyDomain = withoutPrefix.match(/\b([a-z0-9][a-z0-9-]+(?:\.[a-z]{2,})+)/i);
+      if (anyDomain) return anyDomain[1].toLowerCase();
+
+      // Last resort: strip all regex meta-chars and return text
+      const text = withoutPrefix
+        .replace(/[^a-z0-9.]/gi, '')
+        .replace(/^\.+|\.+$/g, '');
+      if (text.length >= 2) return text.toLowerCase();
+    } catch (_) {}
+    return null;
+  }
+
+  normalizeIndexHostname(hostname) {
+    const normalized = String(hostname || '')
+      .replace(/\\\./g, '.')
+      .replace(/\\-/g, '-')
+      .replace(/^\.+|\.+$/g, '')
+      .trim()
+      .toLowerCase();
+
+    if (!normalized || !/^[a-z0-9-]+(?:\.[a-z0-9-]+)+$/i.test(normalized)) {
+      return null;
+    }
+
+    // Avoid indexing bare public-suffix-looking fragments extracted from TLD alternations.
+    if (/^(?:ac|co|com|edu|gov|net|or|org)\.[a-z]{2}$/i.test(normalized)) {
+      return null;
+    }
+
+    const parsed = this.parseHostnameWithLocalPsl(normalized);
+    if (parsed && !parsed.domain) {
+      return null;
+    }
+
+    return normalized;
+  }
+
+  getLocalPslParser() {
+    if (this.localPslParser || this.localPslLoadFailed) {
+      return this.localPslParser;
+    }
+
+    try {
+      const context = {
+        module: { exports: {} },
+        exports: {},
+        globalThis: null
+      };
+      context.globalThis = context;
+
+      vm.runInNewContext(
+        fs.readFileSync('external_js/light-punycode.js', 'utf8'),
+        context,
+        { filename: 'external_js/light-punycode.js' }
+      );
+      const punycodeApi = context.module.exports || context.punycode;
+
+      context.module = { exports: {} };
+      context.exports = {};
+      vm.runInNewContext(
+        fs.readFileSync('external_js/publicsuffixlist.js', 'utf8'),
+        context,
+        { filename: 'external_js/publicsuffixlist.js' }
+      );
+
+      const pslModule = context.module.exports || {};
+      const parser = pslModule.publicSuffixList || context.publicSuffixList;
+      if (!parser || typeof parser.parse !== 'function') {
+        throw new Error('PublicSuffixList parser unavailable');
+      }
+
+      const pslText = fs.readFileSync(this.pslConfig.localFile, 'utf8');
+      const toAscii = (label) => punycodeApi && typeof punycodeApi.toASCII === 'function'
+        ? punycodeApi.toASCII(String(label || ''))
+        : String(label || '');
+      parser.parse(pslText, toAscii);
+      this.localPslParser = parser;
+    } catch (error) {
+      this.localPslLoadFailed = true;
+      this.warning(`⚠️  Local PSL validation unavailable: ${error.message}`);
+    }
+
+    return this.localPslParser;
+  }
+
+  parseHostnameWithLocalPsl(hostname) {
+    const parser = this.getLocalPslParser();
+    if (!parser) return null;
+
+    const normalized = String(hostname || '').trim().toLowerCase();
+    if (!normalized) return null;
+
+    return {
+      suffix: parser.getPublicSuffix(normalized) || null,
+      domain: parser.getDomain(normalized) || null
+    };
+  }
+
+  getUrlPatternHostSource(urlPattern) {
+    let source = String(urlPattern || '');
+    source = source.replace(/^\^?https?\??:(?:\\\/|\/){2}/i, '');
+    source = source.replace(/^\(\?:\[a-z0-9-\]\+\\\.\)\*\??/i, '');
+
+    let depth = 0;
+    for (let index = 0; index < source.length; index++) {
+      const ch = source.charAt(index);
+      if (ch === '(') {
+        depth += 1;
         continue;
       }
-      errors.push(...syntax.validateProvider(self, name));
-      minifiedData.providers[name] = self;
+      if (ch === ')') {
+        depth = Math.max(0, depth - 1);
+        continue;
+      }
+
+      const isEscapedSlash = ch === '\\' && source.charAt(index + 1) === '/';
+      const isPlainSlash = ch === '/';
+      if (depth === 0 && (isEscapedSlash || isPlainSlash)) {
+        source = source.slice(0, index);
+        break;
+      }
+
+      if (isEscapedSlash) {
+        index += 1;
+      }
     }
 
-    if (errors.length > 0) {
-      errors.forEach(error => this.error(`   • ${error}`));
-      throw new Error(`${errors.length} invalid rule(s)`);
+    return source;
+  }
+
+  extractConcreteIndexHostnames(urlPattern) {
+    const source = this.getUrlPatternHostSource(urlPattern).replace(/\\-/g, '-');
+    const hostnames = new Set();
+    const protectedHostnames = new Set();
+
+    const addHostname = (hostname, protect = false) => {
+      const normalized = this.normalizeIndexHostname(hostname);
+      if (normalized) {
+        hostnames.add(normalized);
+        if (protect) {
+          protectedHostnames.add(normalized);
+        }
+      }
+    };
+
+    // mercadoli[bv]re\.com -> mercadolibre.com, mercadolivre.com
+    for (const match of source.matchAll(/([a-z0-9-]*)\[([a-z0-9]+)\]([a-z0-9-]*(?:\\\.[a-z0-9-]+)+)/gi)) {
+      const prefix = match[1];
+      const variants = match[2].split('');
+      const suffix = match[3];
+      variants.forEach((variant) => addHostname(`${prefix}${variant}${suffix}`, true));
     }
-    if (convertedProviders > 0) this.info(`🔁 Converted ${convertedProviders} older-format provider(s)`);
-    this.success(`✅ Normalization complete: ${removedProviders} empty providers removed`);
+
+    // nikkei\.co(?:m|\.jp) -> nikkei.com, nikkei.co.jp
+    for (const match of source.matchAll(/([a-z0-9-]+(?:\\\.[a-z0-9-]+)*)\(\?:([^()]+)\)/gi)) {
+      const prefix = match[1];
+      const branches = match[2].split('|');
+      if (!branches.every(branch => /^[a-z0-9-]+$/.test(branch) || /^\\\.[a-z0-9-]+(?:\\\.[a-z0-9-]+)*$/.test(branch))) {
+        continue;
+      }
+      branches.forEach((branch) => addHostname(`${prefix}${branch}`, true));
+    }
+
+    // site(?:2|3)?\.com -> site.com, site2.com, site3.com
+    for (const match of source.matchAll(/([a-z0-9-]+)\(\?:([a-z0-9-]+(?:\|[a-z0-9-]+)+)\)\?\\\.([a-z0-9-]+(?:\\\.[a-z0-9-]+)*)/gi)) {
+      const base = match[1];
+      const branches = match[2].split('|');
+      const suffix = match[3];
+      addHostname(`${base}\\.${suffix}`, true);
+      branches.forEach(branch => addHostname(`${base}${branch}\\.${suffix}`, true));
+    }
+
+    // airbnb\.(com|co\.uk) -> airbnb.com, airbnb.co.uk
+    for (const match of source.matchAll(/([a-z0-9-]+(?:\\\.[a-z0-9-]+)*)\\\.\(([^()]+)\)/gi)) {
+      const prefix = match[1];
+      const branches = match[2].split('|');
+      if (!branches.every(branch => /^[a-z0-9-]+(?:\\\.[a-z0-9-]+)*$/i.test(branch))) {
+        continue;
+      }
+      branches.forEach(branch => addHostname(`${prefix}\\.${branch}`, true));
+    }
+
+    // (?:govexec|nextgov)\.com -> govexec.com, nextgov.com
+    for (const match of source.matchAll(/\(\?:([^()]+)\)\\\.([a-z0-9-]+(?:\\\.[a-z0-9-]+)*)/gi)) {
+      const branches = match[1].split('|');
+      const suffix = match[2];
+      if (!branches.every(branch => /^[a-z0-9-]+(?:\\\.[a-z0-9-]+)*$/i.test(branch))) {
+        continue;
+      }
+      branches.forEach(branch => addHostname(`${branch}\\.${suffix}`, true));
+    }
+
+    // (?:track\.a\.com\/click|trck\.b\.net|join\.c\.eu) -> all hostname branches.
+    for (const match of source.matchAll(/\(\?:([^()]+)\)/gi)) {
+      const branches = match[1].split('|');
+      if (branches.length < 2) continue;
+      const followingSource = source.slice((match.index || 0) + match[0].length);
+      if (followingSource.startsWith('\\.')) continue;
+      for (const branch of branches) {
+        const hostOnly = branch.split(/(?:\\\/|\/)/)[0];
+        addHostname(hostOnly, true);
+      }
+    }
+
+    // youtube\.com|youtu\.be, explicit hosts inside larger alternations, etc.
+    for (const match of source.matchAll(/[a-z0-9-]+(?:\\\.[a-z0-9-]+)+/gi)) {
+      addHostname(match[0]);
+    }
+
+    const expandedHostnames = Array.from(hostnames);
+    return expandedHostnames.filter((hostname) =>
+      protectedHostnames.has(hostname) ||
+      !expandedHostnames.some((other) =>
+        other !== hostname &&
+        (
+          other.startsWith(`${hostname}.`) ||
+          other.endsWith(`.${hostname}`) ||
+          other.endsWith(hostname)
+        )
+      )
+    );
+  }
+
+  extractWildcardIndexPatterns(urlPattern) {
+    const source = this.getUrlPatternHostSource(urlPattern);
+    const roots = new Set();
+
+    const addRoot = (root) => {
+      const normalized = String(root || '')
+        .replace(/^\.+|\.+$/g, '')
+        .trim()
+        .toLowerCase();
+      if (/^[a-z0-9-]+$/i.test(normalized)) {
+        roots.add(`||${normalized}.*^`);
+      }
+    };
+
+    // amazon(?:\.[a-z]{2,}){1,} -> ||amazon.*^
+    for (const match of source.matchAll(/([a-z0-9-]+)\(\?:\\\.\[a-z\]\{2,\}\)\{1,\}/gi)) {
+      addRoot(match[1]);
+    }
+
+    // zalando\. or practicum\.yandex\. -> ||zalando.*^ / ||yandex.*^
+    const trailingWildcard = source.match(/([a-z0-9-]+)\\\.$/i);
+    if (trailingWildcard) {
+      addRoot(trailingWildcard[1]);
+    }
+
+    return Array.from(roots);
+  }
+
+  deriveSimpleIndexPatternFromUrlPattern(urlPattern) {
+    const source = String(urlPattern || '').trim();
+    if (!source) return null;
+
+    const explicitWildcardPatterns = this.extractWildcardIndexPatterns(source);
+    if (explicitWildcardPatterns.length === 1) {
+      return explicitWildcardPatterns[0];
+    }
+
+    // Exact safe shape with an unescaped dot in the host portion:
+    //   ^https?:\/\/(?:[a-z0-9-]+\.)*?domain.com
+    // These appear in a few imported rules and are treated as concrete hosts.
+    const looseDotHostMatch = source.match(
+      /^\^https\?:\\\/\\\/\(\?:\[a-z0-9-\]\+\\\.\)\*\?([a-z0-9-]+\.[a-z0-9-]+)$/i
+    );
+    if (looseDotHostMatch && looseDotHostMatch[1]) {
+      const hostname = this.normalizeIndexHostname(looseDotHostMatch[1]);
+      if (hostname) {
+        return `||${hostname}^`;
+      }
+    }
+
+    // Explicit URL start with a concrete hostname:
+    //   ^https?:\/\/vk\.com
+    //   ^https?:\/\/www\.example\.org
+    const hostSource = this.getUrlPatternHostSource(source);
+    const explicitMatch = hostSource.match(
+      /^(?:www\\\.)?([a-z0-9-]+(?:\\\.[a-z0-9-]+)+)/i
+    );
+    if (explicitMatch && explicitMatch[1] && explicitMatch[0] === hostSource) {
+      const hostname = this.normalizeIndexHostname(explicitMatch[1]);
+      if (hostname) {
+        return `||${hostname}^`;
+      }
+    }
+
+    return null;
+  }
+
+  deriveIndexPatternFromUrlPattern(urlPattern) {
+    const simple = this.deriveSimpleIndexPatternFromUrlPattern(urlPattern);
+    if (simple) {
+      return simple;
+    }
+
+    const hostnames = this.extractConcreteIndexHostnames(urlPattern);
+    const wildcardPatterns = this.extractWildcardIndexPatterns(urlPattern);
+
+    const patterns = [
+      ...hostnames.map(hostname => `||${hostname}^`),
+      ...wildcardPatterns
+    ].sort((a, b) => a.localeCompare(b));
+
+    if (patterns.length === 0) {
+      return null;
+    }
+
+    return patterns.length === 1 ? patterns[0] : patterns;
+  }
+
+  hasUsableIndexPattern(indexPattern) {
+    if (Array.isArray(indexPattern)) {
+      return indexPattern.some(pattern => typeof pattern === 'string' && pattern.trim() !== '');
+    }
+    return typeof indexPattern === 'string' && indexPattern.trim() !== '';
+  }
+
+  addIndexPatternsForUrlProviders(providers) {
+    let added = 0;
+    let preserved = 0;
+    const unresolved = [];
+
+    Object.entries(providers || {}).forEach(([providerName, providerData]) => {
+      if (!providerData || typeof providerData.urlPattern !== 'string' || providerData.urlPattern.trim() === '') {
+        return;
+      }
+
+      if (Array.isArray(providerData.domainPatterns) && providerData.domainPatterns.length > 0) {
+        delete providerData.indexPattern;
+        return;
+      }
+
+      if (this.hasUsableIndexPattern(providerData.indexPattern)) {
+        preserved++;
+        return;
+      }
+
+      const derived = this.deriveIndexPatternFromUrlPattern(providerData.urlPattern);
+      if (!derived) {
+        unresolved.push(providerName);
+        return;
+      }
+
+      providerData.indexPattern = derived;
+      added++;
+    });
+
+    this.success(`✅ Index patterns ready: ${added} derived, ${preserved} preserved`);
+    if (unresolved.length > 0) {
+      this.warning(
+        `⚠️  ${unresolved.length} URL-pattern provider(s) remain without indexPattern because their regex is global or has no hostname hint: ${unresolved.join(', ')}`
+      );
+    }
+
+    return { added, preserved, unresolved };
+  }
+
+  // Derive a clean provider name from an array of domain pattern strings
+  deriveNameFromDomainPatterns(patterns) {
+    const nonWildcard = patterns.filter(p => !p.startsWith('*') && !p.startsWith('.'));
+    const candidates = nonWildcard.length > 0 ? nonWildcard : patterns;
+    const sorted = [...candidates].sort((a, b) => a.length - b.length);
+    return sorted[0].replace(/^\*\./, '').trim() || null;
+  }
+
+  // When baseName already collides, try to append the first meaningful path
+  // segment from the URL pattern: youtube.com + /pagead → youtube.com_pagead
+  derivePathQualifiedName(providerGroup, baseName) {
+    for (const provider of providerGroup) {
+      const up = provider.data?.urlPattern;
+      if (typeof up !== 'string') continue;
+      const s = up.replace(/\\\//g, '/').replace(/\\\./g, '.').replace(/\\\-/g, '-');
+      // Match first path segment that follows a domain-like token
+      const m = s.match(/[a-z0-9](?:\.[a-z]{2,})*\/?\/([a-z][a-z0-9_-]{1,})/i);
+      if (m && m[1]) return `${baseName}_${m[1].toLowerCase()}`;
+    }
+    return null;
+  }
+
+  // Derive elegant provider name from pattern data; fall back to existing names
+  createMergedProviderName(providerGroup) {
+    // 1. Try urlPattern from any provider in the group
+    for (const provider of providerGroup) {
+      const up = provider.data?.urlPattern;
+      if (typeof up === 'string' && up.trim()) {
+        const derived = this.deriveNameFromUrlPattern(up.trim());
+        if (derived) return derived;
+      }
+    }
+
+    // 2. Try domainPatterns / domainPattern fields
+    const allDomainPatterns = [];
+    for (const provider of providerGroup) {
+      const dp = provider.data?.domainPatterns ?? provider.data?.domainPattern;
+      if (Array.isArray(dp)) allDomainPatterns.push(...dp.filter(Boolean));
+      else if (typeof dp === 'string' && dp.trim()) allDomainPatterns.push(dp.trim());
+    }
+    if (allDomainPatterns.length > 0) {
+      const derived = this.deriveNameFromDomainPatterns(allDomainPatterns);
+      if (derived) return derived;
+    }
+
+    // 3. Fallback: primary source name, or shortest existing name.
+    // Strip artificial _N suffixes added during key-dedup in mergeOfficialWithCustomRules
+    // so that e.g. "dell.com_1" recovers its clean name "dell.com".
+    const stripSuffix = name => name.replace(/_\d+$/, '');
+    const prioritized = providerGroup.filter(provider => provider.isPrimarySource);
+    if (prioritized.length > 0) return stripSuffix(prioritized[0].name);
+    const names = providerGroup.map(provider => provider.name);
+    names.sort((a, b) => a.length - b.length);
+    return stripSuffix(names[0]);
+  }
+
+  // Apply same bundled + remote merge flow to official + custom in CLI.
+  mergeOfficialWithCustomRules(officialRules, customRules) {
+    const officialProviders = officialRules?.providers || {};
+    const customProviders = customRules?.providers || {};
+    const combinedProviders = {};
+    const primaryProviderNames = new Set();
+
+    Object.entries(officialProviders).forEach(([providerName, providerData]) => {
+      combinedProviders[providerName] = providerData;
+    });
+
+    Object.entries(customProviders).forEach(([providerName, providerData]) => {
+      let finalName = providerName;
+      let counter = 1;
+      while (combinedProviders[finalName]) {
+        finalName = `${providerName}_${counter++}`;
+      }
+      combinedProviders[finalName] = providerData;
+      primaryProviderNames.add(finalName);
+    });
+
+    return this.mergeProvidersByUrlPattern(combinedProviders, primaryProviderNames);
+  }
+
+  // Minify rules data
+  minifyRules(data) {
+    this.info('🗜️  Creating minified version...');
+
+    let minifiedData = { "providers": {} };
+    let removedProviders = 0;
+
+    for (let provider in data.providers) {
+      minifiedData.providers[provider] = {};
+      let self = minifiedData.providers[provider];
+
+      // Only include boolean flags if they are true
+      if (data.providers[provider].completeProvider === true) {
+        self.completeProvider = true;
+      }
+
+      if (data.providers[provider].forceRedirection === true) {
+        self.forceRedirection = true;
+      }
+
+      // Blanket per-provider override for history-triggered (SPA/pushState) cleaning.
+      // Default is true (protection stays on), so only the non-default false is worth keeping.
+      if (data.providers[provider].historyBypassProtection === false) {
+        self.historyBypassProtection = false;
+      }
+
+      // Only include non-empty strings and arrays
+      if (data.providers[provider].urlPattern && data.providers[provider].urlPattern !== "") {
+        self.urlPattern = data.providers[provider].urlPattern;
+      }
+
+      if (
+        this.hasUsableIndexPattern(data.providers[provider].indexPattern) &&
+        !(Array.isArray(data.providers[provider].domainPatterns) && data.providers[provider].domainPatterns.length > 0)
+      ) {
+        self.indexPattern = data.providers[provider].indexPattern;
+      }
+
+      if (data.providers[provider].rules && data.providers[provider].rules.length !== 0) {
+        self.rules = data.providers[provider].rules;
+      }
+
+      if (data.providers[provider].rawRules && data.providers[provider].rawRules.length !== 0) {
+        self.rawRules = data.providers[provider].rawRules;
+      }
+
+      if (data.providers[provider].referralMarketing && data.providers[provider].referralMarketing.length !== 0) {
+        self.referralMarketing = data.providers[provider].referralMarketing;
+      }
+
+      if (data.providers[provider].exceptions && data.providers[provider].exceptions.length !== 0) {
+        self.exceptions = data.providers[provider].exceptions;
+      }
+
+      if (data.providers[provider].redirections && data.providers[provider].redirections.length !== 0) {
+        self.redirections = data.providers[provider].redirections;
+      }
+
+      if (data.providers[provider].domainPatterns && data.providers[provider].domainPatterns.length !== 0) {
+        self.domainPatterns = data.providers[provider].domainPatterns;
+      }
+
+      if (data.providers[provider].domainExceptions && data.providers[provider].domainExceptions.length !== 0) {
+        self.domainExceptions = data.providers[provider].domainExceptions;
+      }
+
+      if (data.providers[provider].domainRedirections && data.providers[provider].domainRedirections.length !== 0) {
+        self.domainRedirections = data.providers[provider].domainRedirections;
+      }
+
+      if (data.providers[provider].methods && data.providers[provider].methods.length !== 0) {
+        self.methods = data.providers[provider].methods;
+      }
+
+      if (data.providers[provider].resourceTypes && data.providers[provider].resourceTypes.length !== 0) {
+        self.resourceTypes = data.providers[provider].resourceTypes;
+      }
+
+      // Remove provider if it has no properties
+      if (Object.keys(self).length === 0) {
+        delete minifiedData.providers[provider];
+        removedProviders++;
+      }
+    }
+
+    this.success(`✅ Minification complete: ${removedProviders} empty providers removed`);
     return minifiedData;
   }
 
@@ -1425,7 +2117,7 @@ ${commit.message}
   // Lint a ClearURLs rules JSON file by replaying clearurls.js logic.
   // Accepts both formats:
   //   • wrapped { metadata?, providers } ← linkumori-clearurls.json
-  //   • flat  { providerName: { match, rules, ... }, ... }
+  //   • flat  { providerName: { urlPattern, rules, ... }, ... }  ← legacy imports
   async lintClearURLsRules(rulesFile = null) {
     this.section('🔍 ClearURLs Rules Linter');
 
@@ -1496,7 +2188,7 @@ ${commit.message}
       providersObj = data.providers;
       formatLabel  = 'wrapped unified ClearURLsData';
     } else {
-      // Flat format: { providerName: { match, rules, ... }, ... }
+      // Flat format: { providerName: { urlPattern, rules, ... }, ... }
       // Validate that values look like provider objects (not metadata fields)
       const values = Object.values(data);
       const looksFlat = values.every(v => v === null || typeof v === 'object');
@@ -1514,7 +2206,19 @@ ${commit.message}
 
     const errors   = [];
     const warnings = [];
-    let totalRulesChecked = 0;
+    let totalRegexChecked = 0;
+
+    // helper — try to compile a regex, push error on failure
+    const tryRegex = (pattern, flags, label) => {
+      try {
+        new RegExp(pattern, flags);
+        totalRegexChecked++;
+        return true;
+      } catch (e) {
+        errors.push(`${label} → ${e.message}`);
+        return false;
+      }
+    };
 
     const parseRegexLiteral = (value) => {
       const text = String(value || '').trim();
@@ -1535,8 +2239,18 @@ ${commit.message}
       return '';
     };
 
+    const getRuleLabel = (rule) => {
+      const pattern = getRulePattern(rule);
+      if (pattern) return pattern;
+      try {
+        return JSON.stringify(rule).slice(0, 80);
+      } catch {
+        return String(rule);
+      }
+    };
+
     const isRemoveParamRule = (rule) => (
-      /\$(?:[^,\s]*,)*removeparam(?:[=,\s]|$)/i.test(getRulePattern(rule))
+      /\$(?:[^,\s]*,)*(?:removeparam|queryprune)(?:[=,\s]|$)/i.test(getRulePattern(rule))
     );
 
     const splitRemoveParamModifiers = (modifiersText) => {
@@ -1590,10 +2304,24 @@ ${commit.message}
       const modifierStart = rulePattern.indexOf('$');
       if (modifierStart === -1) return null;
       const modifiers = splitRemoveParamModifiers(rulePattern.slice(modifierStart + 1));
-      const token = modifiers.find(part => /^removeparam(?:=|$)/i.test(part.trim()));
+      const token = modifiers.find(part => /^(?:removeparam|queryprune)(?:=|$)/i.test(part.trim()));
       if (!token) return null;
       const eqIndex = token.indexOf('=');
       return eqIndex === -1 ? '' : token.slice(eqIndex + 1).trim();
+    };
+
+    const validateRemoveParamRule = (rule, label) => {
+      const value = getRemoveParamValue(rule);
+      if (value === null) {
+        errors.push(`${label} → missing removeparam/queryprune modifier`);
+        return;
+      }
+      if (value === '') return;
+      const normalizedValue = value.startsWith('~') ? value.slice(1).trim() : value;
+      const regexLiteral = parseRegexLiteral(normalizedValue);
+      if (regexLiteral) {
+        tryRegex(regexLiteral.body, regexLiteral.flags || 'i', label);
+      }
     };
 
     const removeParamRuleMatchesKey = (rule, key) => {
@@ -1676,43 +2404,129 @@ ${commit.message}
     };
 
     // ── 4. Per-provider validation ────────────────────────────────────────────
-    // One grammar for every rule (docs/rule-syntax.md), checked by the same
-    // module the extension uses (core_js/rule_syntax.js).
     this.info('🔎 Validating provider patterns & rules...');
 
-    const syntax = this.getRuleSyntax();
-    let legacyProviders = 0;
     for (const [name, provider] of providerEntries) {
-      if (!syntax.isCanonicalProvider(provider)) {
-        legacyProviders++;
-        continue;
+      const tag = `[${name}]`;
+
+      // urlPattern / domainPatterns
+      const hasUrlPattern    = typeof provider.urlPattern === 'string' && provider.urlPattern.trim() !== '';
+      const hasDomainPattern = Array.isArray(provider.domainPatterns) && provider.domainPatterns.length > 0;
+
+      if (!hasUrlPattern && !hasDomainPattern) {
+        warnings.push(`${tag} No urlPattern or domainPatterns — provider will never match any URL`);
       }
-      totalRulesChecked += Array.isArray(provider.rules) ? provider.rules.length : 0;
-      errors.push(...syntax.validateProvider(provider, name));
+
+      if (hasUrlPattern) {
+        tryRegex(provider.urlPattern, 'i', `${tag} urlPattern`);
+      }
+
+      if (hasDomainPattern) {
+        for (const dp of provider.domainPatterns) {
+          if (typeof dp !== 'string' || dp.trim() === '') {
+            warnings.push(`${tag} Empty/non-string entry in domainPatterns`);
+          }
+        }
+      }
+
+      // rules
+      for (const rule of (Array.isArray(provider.rules) ? provider.rules : [])) {
+        const rulePattern = getRulePattern(rule);
+        const ruleLabel = getRuleLabel(rule);
+        if (!rulePattern) {
+          errors.push(`${tag} rule "${ruleLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        if (isRemoveParamRule(rule)) {
+          validateRemoveParamRule(rule, `${tag} rule "${ruleLabel}"`);
+        } else {
+          tryRegex(`^${rulePattern}$`, 'gi', `${tag} rule "${ruleLabel}"`);
+        }
+      }
+
+      // rawRules
+      for (const raw of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
+        const rawPattern = getRulePattern(raw);
+        const rawLabel = getRuleLabel(raw);
+        if (!rawPattern) {
+          errors.push(`${tag} rawRule "${rawLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        tryRegex(rawPattern, 'gi', `${tag} rawRule "${rawLabel}"`);
+      }
+
+      // referralMarketing
+      for (const rm of (Array.isArray(provider.referralMarketing) ? provider.referralMarketing : [])) {
+        const rmPattern = getRulePattern(rm);
+        const rmLabel = getRuleLabel(rm);
+        if (!rmPattern) {
+          errors.push(`${tag} referralMarketing "${rmLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        if (isRemoveParamRule(rm)) {
+          validateRemoveParamRule(rm, `${tag} referralMarketing "${rmLabel}"`);
+        } else {
+          tryRegex(`^${rmPattern}$`, 'gi', `${tag} referralMarketing "${rmLabel}"`);
+        }
+      }
+
+      // exceptions
+      for (const ex of (Array.isArray(provider.exceptions) ? provider.exceptions : [])) {
+        const exPattern = getRulePattern(ex);
+        const exLabel = getRuleLabel(ex);
+        if (!exPattern) {
+          errors.push(`${tag} exception "${exLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        tryRegex(exPattern, 'i', `${tag} exception "${exLabel.substring(0, 60)}..."`);
+      }
+
+      // redirections — must be a valid regex AND contain at least one capture group
+      for (const rd of (Array.isArray(provider.redirections) ? provider.redirections : [])) {
+        const rdPattern = getRulePattern(rd);
+        const rdLabel = getRuleLabel(rd);
+        if (!rdPattern) {
+          errors.push(`${tag} redirection "${rdLabel}" → missing match/matchPattern`);
+          continue;
+        }
+        const ok = tryRegex(rdPattern, 'i', `${tag} redirection "${rdLabel.substring(0, 60)}..."`);
+        if (ok && !rdPattern.includes('(')) {
+          warnings.push(`${tag} Redirection has no capture group (destination will be undefined): "${rdLabel.substring(0, 60)}..."`);
+        }
+      }
+
+      // domainExceptions / domainRedirections — confirm they are string arrays
+      for (const field of ['domainExceptions', 'domainRedirections']) {
+        const arr = provider[field];
+        if (arr !== undefined && !Array.isArray(arr)) {
+          errors.push(`${tag} "${field}" must be an array`);
+        }
+      }
+
+      // completeProvider / forceRedirection / historyBypassProtection must be boolean if present
+      for (const flag of ['completeProvider', 'forceRedirection', 'historyBypassProtection', 'history-bypass-protection']) {
+        if (provider[flag] !== undefined && typeof provider[flag] !== 'boolean') {
+          errors.push(`${tag} "${flag}" must be a boolean, got ${typeof provider[flag]}`);
+        }
+      }
     }
-    if (legacyProviders > 0) {
-      errors.push(`${legacyProviders} provider(s) use the older multi-section format — convert with: node scripts/convert-rule-syntax.js ${rulesFile}`);
-    }
-    // The smoke tests below run on the compiled (engine-internal) form.
-    const runtimeEntries = providerEntries.map(([name, provider]) => [name, syntax.prepareProvider(provider, name)]);
 
     // ── 5. Functional smoke tests ─────────────────────────────────────────────
     // Mirrors clearurls.js removeFieldsFormURL.
-    // Finds ALL providers whose match patterns match the test URL and applies
+    // Finds ALL providers whose urlPattern matches the test URL and applies
     // their rules — works for any file regardless of provider naming.
     this.info('🧪 Running functional smoke tests...');
 
     // Apply every matching provider's rules to a URL string
     const applyAllMatchingProviders = (inputUrl) => {
       let urlStr = inputUrl;
-      for (const [, provider] of runtimeEntries) {
+      for (const [, provider] of providerEntries) {
         if (!providerMatchesUrl(provider, urlStr)) continue;
 
         // rawRules (full-string replace)
         for (const rawRule of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
           const rawPattern = getRulePattern(rawRule);
-          const rawFlags = rawRule && typeof rawRule.flags === 'string' ? rawRule.flags : 'gi';
-          try { if (rawPattern) urlStr = urlStr.replace(new RegExp(rawPattern, rawFlags), ''); } catch { /* bad regex already reported */ }
+          try { if (rawPattern) urlStr = urlStr.replace(new RegExp(rawPattern, 'gi'), ''); } catch { /* bad regex already reported */ }
         }
 
         // rules + referralMarketing (query-param name matching)
@@ -1831,7 +2645,7 @@ ${commit.message}
     this.info(`  File        : ${rulesFile}`);
     this.info(`  Format      : ${formatLabel}`);
     this.info(`  Providers   : ${providerEntries.length}`);
-    this.info(`  Rules checked: ${totalRulesChecked}`);
+    this.info(`  Regex checks: ${totalRegexChecked}`);
     this.info(`  Smoke tests : ${smokePass} passed, ${smokeFail} failed, ${smokeSkip} skipped`);
     this.info(`  Errors      : ${errors.length}`);
     this.info(`  Warnings    : ${warnings.length}`);
@@ -2026,6 +2840,8 @@ ${currentBuildInfo}`;
       }
 
       this.info(`📊 Source providers: ${providerCount}`);
+
+      this.addIndexPatternsForUrlProviders(sourceRules.providers);
 
       const minifiedRules = this.minifyRules(sourceRules);
       delete minifiedRules.metadata;
@@ -2637,14 +3453,16 @@ coverage/**
     const template = {
       "providers": {
         "example": {
-          "match": [
-            "||example.com^"
-          ],
           "rules": [
             "$removeparam=tracking_param",
-            "$removeparam=/^utm_/i",
-            "$removeparam=ref,referral",
-            "@@||example.com^/checkout"
+            "$removeparam=/^utm_/i"
+          ],
+          "rawRules": [],
+          "referralMarketing": [],
+          "exceptions": [],
+          "redirections": [],
+          "domainPatterns": [
+            "||example.com^"
           ]
         }
       }
@@ -3406,11 +4224,11 @@ coverage/**
     this.log('    • Wrapped { metadata, providers } LZ4 payload', 'dim');
     this.log('      ← linkumori-clearurls.json / linkumori-clearurls-min.json.lz4', 'dim');
     this.log('    • Flat  { providerName: {...} }          ← legacy imports', 'dim');
-    this.log('  Checks per provider (unified syntax, docs/rule-syntax.md):', 'dim');
-    this.log('    - "match" has at least one pattern', 'dim');
-    this.log('    - every "rules" filter parses: $removeparam, @@, $redirect, $strip, $block', 'dim');
-    this.log('    - regexes compile; regex $redirect has a capture group or a target', 'dim');
-    this.log('    - older multi-section providers are reported (convert-rule-syntax)', 'dim');
+    this.log('  Checks per provider:', 'dim');
+    this.log('    - urlPattern compiles as a valid JS regex', 'dim');
+    this.log('    - rules / rawRules / referralMarketing / exceptions all compile', 'dim');
+    this.log('    - redirections compile AND have a capture group', 'dim');
+    this.log('    - completeProvider / forceRedirection are boolean if present', 'dim');
     this.log('  Functional smoke tests (URL-pattern based, no hardcoded provider names):', 'dim');
     this.log('    Amazon qid/pd_rd_r/tag, Global utm_*/fbclid,', 'dim');
     this.log('    Google ved/ei/source, YouTube si/feature, Facebook hc_ref', 'dim');
