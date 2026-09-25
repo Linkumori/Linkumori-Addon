@@ -2463,7 +2463,11 @@ ${commit.message}
           errors.push(`${tag} referralMarketing "${rmLabel}" → missing match/matchPattern`);
           continue;
         }
-        tryRegex(`^${rmPattern}$`, 'gi', `${tag} referralMarketing "${rmLabel}"`);
+        if (isRemoveParamRule(rm)) {
+          validateRemoveParamRule(rm, `${tag} referralMarketing "${rmLabel}"`);
+        } else {
+          tryRegex(`^${rmPattern}$`, 'gi', `${tag} referralMarketing "${rmLabel}"`);
+        }
       }
 
       // exceptions
@@ -2536,6 +2540,8 @@ ${commit.message}
         for (const rule of allRules) {
           const rulePattern = getRulePattern(rule);
           if (!rulePattern) continue;
+          // @@ exceptions keep parameters; they never remove anything.
+          if (rulePattern.trim().startsWith('@@')) continue;
           const toDelete = [];
           for (const key of params.keys()) {
             // Fresh RegExp each time — avoids stateful lastIndex with 'g' flag

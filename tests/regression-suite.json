@@ -2410,6 +2410,42 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "provider referralMarketing removeparam",
+      "dialect": "provider",
+      "input": "https://example.com/provider-referral/?tag=x&keep=1",
+      "expectedOutput": "https://example.com/provider-referral/?keep=1",
+      "providers": {
+        "provider-referral-removeparam": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-referral(?:[/?#]|$)",
+          "referralMarketing": [
+            "||example.com/provider-referral^$removeparam=tag",
+            "@@||example.com/provider-referral/exception^$removeparam=tag"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "provider referralMarketing removeparam exception",
+      "dialect": "provider",
+      "input": "https://example.com/provider-referral/exception/?tag=x&keep=1",
+      "expectedOutput": "https://example.com/provider-referral/exception/?tag=x&keep=1",
+      "providers": {
+        "provider-referral-removeparam": {
+          "urlPattern": "^https?:\\/\\/example\\.com\\/provider-referral(?:[/?#]|$)",
+          "referralMarketing": [
+            "||example.com/provider-referral^$removeparam=tag",
+            "@@||example.com/provider-referral/exception^$removeparam=tag"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }

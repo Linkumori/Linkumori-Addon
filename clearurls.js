@@ -1864,6 +1864,7 @@ function start() {
         const canceling = _completeProvider;
         const redirectionRuleMap = {}, rawRuleMap = {}, referralMarketingRuleMap = {};
         const linkumoriRemoveParamRules = [], linkumoriRemoveParamExceptions = [];
+        const referralMarketingRemoveParamRules = [], referralMarketingRemoveParamExceptions = [];
         const methods = [], resourceTypes = [];
 
         if (_completeProvider) fieldRuleMap[".*"] = true;
@@ -1993,51 +1994,58 @@ function start() {
             return false;
         };
 
-        this.addRule = function (rule, isActive = true, defaults = null) {
+        // Shared $removeparam handling for the `rules` and `referralMarketing`
+        // sections. Each section keeps its own rule/exception lists so that
+        // referral-marketing filters, including their @@ exceptions, are
+        // switched off together by the "allow referral marketing" setting.
+        // Returns false when `rule` is not a $removeparam filter.
+        function addLinkumoriRemoveParamEntry(rule, isActive, defaults, section, targetRules, targetExceptions) {
             const parsedLinkumoriRule = parseLinkumoriRemoveParamRuleDefinition(rule);
-            if (parsedLinkumoriRule) {
-                if (parsedLinkumoriRule.isBadfilter) {
-                    // BUGFIX 9: check isActive BEFORE applying badfilter cancellation.
-                    // An inactive badfilter rule must not cancel live rules.
-                    const badfilterNormalized = normalizeCoreRuleDefinition(rule, "i", defaults);
-                    if (!isActive || (badfilterNormalized && badfilterNormalized.active === false)) return;
-                    const target = parsedLinkumoriRule.badfilterTarget;
-                    for (let i = linkumoriRemoveParamRules.length - 1; i >= 0; i--)
-                        if (linkumoriRemoveParamRules[i].raw === target || linkumoriRemoveParamRules[i].canonical === target)
-                            linkumoriRemoveParamRules.splice(i, 1);
-                    for (let i = linkumoriRemoveParamExceptions.length - 1; i >= 0; i--)
-                        if (linkumoriRemoveParamExceptions[i].raw === target || linkumoriRemoveParamExceptions[i].canonical === target)
-                            linkumoriRemoveParamExceptions.splice(i, 1);
-                    return;
-                }
-                const normalizedRule = normalizeCoreRuleDefinition(rule, "i", defaults);
-                if (!isActive || (normalizedRule && normalizedRule.active === false)) return;
-                if (normalizedRule) {
-                    const activeRule = activateCompiledRule(normalizedRule, 'rules');
-                    if (!activeRule) return;
-                    parsedLinkumoriRule.id = activeRule.id;
-                    parsedLinkumoriRule.aliases = Array.isArray(activeRule.aliases) ? activeRule.aliases.slice() : [];
-                    parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
-                    // BUGFIX 5: only apply canonical requestTypes when the rule itself
-                    // declared none. Previously this unconditionally clobbered inline
-                    // type modifiers and wiped all ~type exclusions.
-                    if (Array.isArray(activeRule.requestTypes) &&
-                        parsedLinkumoriRule.requestTypes.length === 0 &&
-                        parsedLinkumoriRule.excludeRequestTypes.length === 0) {
-                        parsedLinkumoriRule.requestTypes = activeRule.requestTypes.slice();
-                    }
-                    parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
-                    parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
-                    // Only fall back to the canonical object's field when the $-modifier
-                    // text itself didn't specify history-bypass-protection inline.
-                    if (parsedLinkumoriRule.historyBypassProtection === null && typeof activeRule.historyBypassProtection === 'boolean') {
-                        parsedLinkumoriRule.historyBypassProtection = activeRule.historyBypassProtection;
-                    }
-                }
-                if (parsedLinkumoriRule.isException) linkumoriRemoveParamExceptions.push(parsedLinkumoriRule);
-                else linkumoriRemoveParamRules.push(parsedLinkumoriRule);
-                return;
+            if (!parsedLinkumoriRule) return false;
+            if (parsedLinkumoriRule.isBadfilter) {
+                // BUGFIX 9: check isActive BEFORE applying badfilter cancellation.
+                // An inactive badfilter rule must not cancel live rules.
+                const badfilterNormalized = normalizeCoreRuleDefinition(rule, "i", defaults);
+                if (!isActive || (badfilterNormalized && badfilterNormalized.active === false)) return true;
+                const target = parsedLinkumoriRule.badfilterTarget;
+                [linkumoriRemoveParamRules, linkumoriRemoveParamExceptions,
+                    referralMarketingRemoveParamRules, referralMarketingRemoveParamExceptions].forEach(list => {
+                    for (let i = list.length - 1; i >= 0; i--)
+                        if (list[i].raw === target || list[i].canonical === target) list.splice(i, 1);
+                });
+                return true;
             }
+            const normalizedRule = normalizeCoreRuleDefinition(rule, "i", defaults);
+            if (!isActive || (normalizedRule && normalizedRule.active === false)) return true;
+            if (normalizedRule) {
+                const activeRule = activateCompiledRule(normalizedRule, section);
+                if (!activeRule) return true;
+                parsedLinkumoriRule.id = activeRule.id;
+                parsedLinkumoriRule.aliases = Array.isArray(activeRule.aliases) ? activeRule.aliases.slice() : [];
+                parsedLinkumoriRule.activationIds = (activeRule.activationIds || []).slice();
+                // BUGFIX 5: only apply canonical requestTypes when the rule itself
+                // declared none. Previously this unconditionally clobbered inline
+                // type modifiers and wiped all ~type exclusions.
+                if (Array.isArray(activeRule.requestTypes) &&
+                    parsedLinkumoriRule.requestTypes.length === 0 &&
+                    parsedLinkumoriRule.excludeRequestTypes.length === 0) {
+                    parsedLinkumoriRule.requestTypes = activeRule.requestTypes.slice();
+                }
+                parsedLinkumoriRule.replacePattern = activeRule.replacePattern;
+                parsedLinkumoriRule.preprocessors = Array.isArray(activeRule.preprocessors) ? activeRule.preprocessors.slice() : [];
+                // Only fall back to the canonical object's field when the $-modifier
+                // text itself didn't specify history-bypass-protection inline.
+                if (parsedLinkumoriRule.historyBypassProtection === null && typeof activeRule.historyBypassProtection === 'boolean') {
+                    parsedLinkumoriRule.historyBypassProtection = activeRule.historyBypassProtection;
+                }
+            }
+            (parsedLinkumoriRule.isException ? targetExceptions : targetRules).push(parsedLinkumoriRule);
+            return true;
+        }
+
+        this.addRule = function (rule, isActive = true, defaults = null) {
+            if (addLinkumoriRemoveParamEntry(rule, isActive, defaults, 'rules',
+                linkumoriRemoveParamRules, linkumoriRemoveParamExceptions)) return;
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'rules');
@@ -2059,10 +2067,19 @@ function start() {
         };
 
         this.getRawRulesMap = function () { return rawRuleMap; };
-        this.getLinkumoriRemoveParamRules = function () { return linkumoriRemoveParamRules.slice(); };
-        this.getLinkumoriRemoveParamExceptions = function () { return linkumoriRemoveParamExceptions.slice(); };
+        this.getLinkumoriRemoveParamRules = function () {
+            if (!storage.referralMarketing) return linkumoriRemoveParamRules.concat(referralMarketingRemoveParamRules);
+            return linkumoriRemoveParamRules.slice();
+        };
+        this.getLinkumoriRemoveParamExceptions = function () {
+            if (!storage.referralMarketing) return linkumoriRemoveParamExceptions.concat(referralMarketingRemoveParamExceptions);
+            return linkumoriRemoveParamExceptions.slice();
+        };
 
         this.addReferralMarketing = function (rule, isActive = true, defaults = null) {
+            // $removeparam filters and their @@ exceptions work here like in `rules`.
+            if (addLinkumoriRemoveParamEntry(rule, isActive, defaults, 'referralMarketing',
+                referralMarketingRemoveParamRules, referralMarketingRemoveParamExceptions)) return;
             const compiled = compileCoreRuleDefinition(rule, "i", true, defaults);
             if (!compiled || !isActive || compiled.active === false) return;
             const activeCompiled = activateCompiledRule(compiled, 'referralMarketing');
