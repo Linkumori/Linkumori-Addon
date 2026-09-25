@@ -184,7 +184,7 @@ To view full modification history for third-party files, run the CLI tool and se
 
 ## 7. Adding or Updating URL Rules
 
-URL cleaning rules tell Linkumori which tracking parameters to strip, which domains to apply them to, and how to handle redirects. Bundled rules live in `data/linkumori-clearurls.json`.
+URL cleaning rules tell Linkumori which tracking parameters to strip, which domains to apply them to, and how to handle redirects. Bundled rules live in `data/linkumori-clearurls.json`. The complete syntax reference is [docs/rule-syntax.md](docs/rule-syntax.md).
 
 ---
 
