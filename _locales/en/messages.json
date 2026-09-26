@@ -4946,6 +4946,67 @@
     "message": "Provider fields",
     "description": "Custom rules editor label for provider fields in unified Linkumori-ClearURLs mode"
   },
+  "customRulesEditor_addReferralRule": {
+    "message": "Add referral rule",
+    "description": "Rule template button: adds a rule object to referralMarketing"
+  },
+  "customRulesEditor_addRawExceptionRule": {
+    "message": "Add raw rule exception",
+    "description": "Rule template button: adds an @@\u2026$rawrule= exception with targetId to rawRules"
+  },
+  "customRulesEditor_addFieldRedirectRule": {
+    "message": "Add field redirect",
+    "description": "Rule template button: adds a rule object to fieldRedirections"
+  },
+  "customRulesEditor_addExceptionRule": {
+    "message": "Add exception",
+    "description": "Rule template button: adds a rule object to exceptions"
+  },
+  "customRulesEditor_ruleTemplatesHelp": {
+    "message": "Each template adds a rule object with an id and a placeholder matchPattern on example.com. An entry can also be a plain string: a parameter name, a name regex, a $removeparam filter or, in rawRules, a regex. Rule objects take id, aliases, matchPattern, replacePattern, preprocessors, requestTypes, exceptions, flags, order, referralMarketing, historyBypassProtection, active, description and targetId.",
+    "description": "Help text under the rule template buttons, describing the current rule syntax"
+  },
+  "customRulesEditor_lintTitle": {
+    "message": "Linter",
+    "description": "Title of the live rule linter panel under the JSON editor"
+  },
+  "customRulesEditor_lintClean": {
+    "message": "No problems found.",
+    "description": "Linter summary when a provider has no errors or warnings"
+  },
+  "customRulesEditor_lintError": {
+    "message": "Error",
+    "description": "Linter badge for a problem that stops saving"
+  },
+  "customRulesEditor_lintWarning": {
+    "message": "Warning",
+    "description": "Linter badge for a problem that does not stop saving"
+  },
+  "customRulesEditor_lintSummary": {
+    "message": "$ERRORS$ error(s), $WARNINGS$ warning(s)",
+    "description": "Linter summary with problem counts",
+    "placeholders": { "errors": { "content": "$1", "example": "2" }, "warnings": { "content": "$2", "example": "1" } }
+  },
+  "customRulesEditor_lintNoIndexPattern": {
+    "message": "$PROVIDER$: urlPattern without indexPattern is checked against every URL; add indexPattern hints such as \"||example.com^\"",
+    "description": "Linter warning for a urlPattern provider without indexPattern",
+    "placeholders": { "provider": { "content": "$1", "example": "example" } }
+  },
+  "customRulesEditor_lintDuplicateEntry": {
+    "message": "$WHERE$ repeats \"$ENTRY$\"; the copy does nothing and both share one id",
+    "description": "Linter warning for the same entry twice in one list",
+    "placeholders": { "where": { "content": "$1", "example": "rules[3]" }, "entry": { "content": "$2", "example": "utm_source" } }
+  },
+  "customRulesEditor_lintPlaceholder": {
+    "message": "$WHERE$ still has the template placeholder \"$PATTERN$\"; replace it with the real pattern",
+    "description": "Linter warning for a rule template whose matchPattern was not edited",
+    "placeholders": { "where": { "content": "$1", "example": "rules[0]" }, "pattern": { "content": "$2", "example": "$removeparam=example_param" } }
+  },
+  "customRulesEditor_lintNeverMatches": {
+    "message": "$WHERE$ has matchPattern \"(?!)\", which never matches anything",
+    "description": "Linter warning for the old never-matching template pattern",
+    "placeholders": { "where": { "content": "$1", "example": "rules[0]" } }
+  },
   "customRulesEditor_v3RuleTemplates": {
     "message": "Rule templates",
     "description": "Custom rules editor label for rule templates in unified Linkumori-ClearURLs mode"

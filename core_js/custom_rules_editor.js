@@ -678,6 +678,182 @@ function assertRuleEntrySyntax(provider, providerName = '') {
     });
 }
 
+// ============================================================================
+// LINTER
+// ============================================================================
+
+function getRuleEntryText(entry) {
+    if (typeof entry === 'string') return entry;
+    return isPlainObject(entry) && typeof entry.matchPattern === 'string' ? entry.matchPattern : '';
+}
+
+function getRuleEntryNames(entry) {
+    if (!isPlainObject(entry)) return [];
+    return [entry.id, ...(Array.isArray(entry.aliases) ? entry.aliases : [])].filter(name => typeof name === 'string');
+}
+
+function tryRuleEntrySyntax(provider, providerName) {
+    try {
+        assertProviderArrayFields(provider, providerName);
+        assertRuleEntrySyntax(provider, providerName);
+        return null;
+    } catch (error) {
+        return error.message;
+    }
+}
+
+// Every problem in a provider at once; saving stops at the first one.
+// Errors are what saving rejects. Warnings are what `lint-rules` warns about
+// (docs/filter-syntax.md §10), plus template placeholders left in place.
+// Returns [{ severity: 'error' | 'warning', message }].
+function lintProvider(provider, providerName = '') {
+    const label = providerName || 'Provider';
+    const problems = [];
+    const error = message => problems.push({ severity: 'error', message });
+    const warning = message => problems.push({ severity: 'warning', message });
+    if (!isPlainObject(provider)) {
+        error(`${label} must be a JSON object`);
+        return problems;
+    }
+
+    // Provider fields, checked without the rule lists.
+    const base = {};
+    Object.keys(provider).forEach((key) => {
+        if (!PROVIDER_FIELDS.includes(key)) {
+            error(`${label}: unknown field "${key}"`);
+        } else if (!OBJECT_STYLE_RULE_FIELDS.includes(key)) {
+            base[key] = provider[key];
+        }
+    });
+    const baseProblem = tryRuleEntrySyntax(base, label);
+    if (baseProblem) error(baseProblem);
+    const hasUrlPattern = typeof provider.urlPattern === 'string' && provider.urlPattern.trim() !== '';
+    if (!hasUrlPattern && toDomainPatternArray(provider.domainPatterns).length === 0) {
+        error(i18n('customRulesEditor_urlPatternOrDomainPatternsRequired'));
+    }
+    if (hasUrlPattern) {
+        try {
+            new RegExp(provider.urlPattern);
+        } catch (regexError) {
+            error(i18n('customRulesEditor_invalidUrlPattern', regexError.message));
+        }
+        if (!normalizeIndexPatternValue(provider.indexPattern)) {
+            warning(i18n('customRulesEditor_lintNoIndexPattern', label));
+        }
+    }
+
+    // Each entry is checked in a copy of the provider holding only that
+    // entry, so one broken entry does not hide the others. An "@@" raw rule
+    // exception also gets the raw rules it can point at.
+    const probeBase = baseProblem ? {} : base;
+    const rawRules = Array.isArray(provider.rawRules) ? provider.rawRules : [];
+    const rawRuleContext = [];
+    const rawRuleContextNames = new Set();
+    rawRules.forEach((entry) => {
+        if (getRuleEntryText(entry).trim().startsWith('@@')) return;
+        const names = getRuleEntryNames(entry);
+        if (names.some(name => rawRuleContextNames.has(name))) return;
+        if (tryRuleEntrySyntax({ rawRules: [entry] }, label)) return;
+        names.forEach(name => rawRuleContextNames.add(name));
+        rawRuleContext.push(entry);
+    });
+
+    const occupiedNames = new Map();
+    OBJECT_STYLE_RULE_FIELDS.forEach((list) => {
+        const entries = provider[list];
+        if (entries === undefined) return;
+        if (!Array.isArray(entries)) {
+            error(`${label}: ${list} must be an array`);
+            return;
+        }
+        const seenEntries = new Set();
+        entries.forEach((entry, index) => {
+            const here = `${list}[${index}]`;
+            const text = getRuleEntryText(entry);
+            const names = getRuleEntryNames(entry);
+            let context = [];
+            if (list === 'rawRules' && text.trim().startsWith('@@')) {
+                context = rawRuleContext.filter(rule =>
+                    rule !== entry && !getRuleEntryNames(rule).some(name => names.includes(name)));
+            }
+            const probeIndex = context.length;
+            const problem = tryRuleEntrySyntax({ ...probeBase, [list]: [...context, entry] }, label);
+            if (problem) error(problem.split(`${list}[${probeIndex}]`).join(here));
+
+            names.forEach((name) => {
+                const firstSeenAt = occupiedNames.get(name);
+                if (firstSeenAt) {
+                    error(`${label} reuses rule id "${name}" in ${here}; first used in ${firstSeenAt}`);
+                } else {
+                    occupiedNames.set(name, here);
+                }
+            });
+
+            const key = JSON.stringify(entry);
+            if (seenEntries.has(key)) {
+                warning(i18n('customRulesEditor_lintDuplicateEntry', here, text || key));
+            }
+            seenEntries.add(key);
+            if (RULE_TEMPLATE_PLACEHOLDERS.has(text)) {
+                warning(i18n('customRulesEditor_lintPlaceholder', here, text));
+            } else if (text.trim() === '(?!)') {
+                warning(i18n('customRulesEditor_lintNeverMatches', here));
+            }
+        });
+    });
+    return problems;
+}
+
+// The editor lints on every keystroke from two places; both share the
+// result for the same text. null when the text is not JSON.
+let lastEditorLint = { key: null, problems: null };
+
+function lintEditorText(jsonText) {
+    const key = `${currentProvider || ''}\u0000${jsonText}`;
+    if (lastEditorLint.key !== key) {
+        let problems = null;
+        try {
+            problems = lintProvider(JSON.parse(jsonText), currentProvider || '');
+        } catch (_) {
+            problems = null;
+        }
+        lastEditorLint = { key, problems };
+    }
+    return lastEditorLint.problems;
+}
+
+function renderProviderLint(jsonText) {
+    const container = document.getElementById('json-lint');
+    if (!container) return;
+    const problems = lintEditorText(jsonText);
+    if (!problems) {
+        // The JSON error itself is shown in #json-validation.
+        container.hidden = true;
+        setHTMLContent(container, '');
+        return;
+    }
+    const errorCount = problems.filter(problem => problem.severity === 'error').length;
+    const warningCount = problems.length - errorCount;
+    const summary = problems.length === 0
+        ? i18n('customRulesEditor_lintClean')
+        : i18n('customRulesEditor_lintSummary', getLocalizedNumber(errorCount), getLocalizedNumber(warningCount));
+    const items = problems.map(problem => `
+        <li class="json-lint-item json-lint-${problem.severity}">
+            <span class="json-lint-badge">${i18n(problem.severity === 'error' ? 'customRulesEditor_lintError' : 'customRulesEditor_lintWarning')}</span>
+            <span class="json-lint-message">${escapeHtml(problem.message)}</span>
+        </li>
+    `).join('');
+    container.hidden = false;
+    container.dataset.state = errorCount > 0 ? 'error' : (warningCount > 0 ? 'warning' : 'clean');
+    setHTMLContent(container, `
+        <div class="json-lint-header">
+            <span class="json-lint-title">${i18n('customRulesEditor_lintTitle')}</span>
+            <span class="json-lint-summary">${escapeHtml(summary)}</span>
+        </div>
+        ${items ? `<ul class="json-lint-list">${items}</ul>` : ''}
+    `);
+}
+
 // i18n helper function
 function i18n(key, ...substitutions) {
     return LinkumoriI18n.getMessage(key, substitutions);
@@ -1416,6 +1592,7 @@ function renderProviderRuleIdControlsFromEditor() {
     if (!jsonEditor) {
         return;
     }
+    renderProviderLint(jsonEditor.value);
     try {
         renderProviderRuleIdControls(currentProvider, JSON.parse(jsonEditor.value));
     } catch (_) {
@@ -4617,11 +4794,11 @@ function createProviderEditorHTML(provider) {
                     </div>
                     <div class="json-key-toolbar-help">${i18n('customRulesEditor_v3RuleTemplates')}</div>
                     <div class="json-rule-template-buttons">
-                        <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="field">+ ${i18n('customRulesEditor_addFieldRule')}</button>
-                        <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="raw">+ ${i18n('customRulesEditor_addRawRule')}</button>
-                        <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="redirection">+ ${i18n('customRulesEditor_addRedirectRule')}</button>
+                        ${Object.entries(RULE_TEMPLATES).map(([kind, template]) => `
+                            <button type="button" class="btn btn-secondary btn-sm json-rule-template-btn" data-rule-template="${kind}" title="${escapeHtml(template.list)}">+ ${i18n(template.labelKey)}</button>
+                        `).join('')}
                     </div>
-                    <div class="json-key-toolbar-help">Linkumori-ClearURLs supports provider fields, rules[] strings, $removeparam filters, and canonical objects with id, kind, match, and action.</div>
+                    <div class="json-key-toolbar-help">${i18n('customRulesEditor_ruleTemplatesHelp')}</div>
                 </div>
                 <div class="json-key-toolbar">
                     <div class="json-key-toolbar-title">${i18n('providerImport_ruleIdControls')}</div>
@@ -4634,6 +4811,7 @@ function createProviderEditorHTML(provider) {
                         <textarea class="json-editor-textarea" id="json-editor" placeholder="${i18n('customRulesEditor_jsonPlaceholder')}" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off">${JSON.stringify(provider, null, 2)}</textarea>
                     </div>
                     <div id="json-validation" style="display: none;"></div>
+                    <div class="json-lint" id="json-lint" aria-live="polite"></div>
                 </div>
             </div>
         </div>
@@ -5078,32 +5256,71 @@ function getJsonFieldButtons() {
 }
 
 
-// "+ rule" buttons: which list each template goes into.
-const RULE_TEMPLATE_LISTS = Object.freeze({
-    field: 'rules',
-    raw: 'rawRules',
-    redirection: 'redirections'
+// "+ rule" buttons: the list each template goes into and the rule object it
+// adds, in the rule object syntax of docs/filter-syntax.md §9. Every
+// matchPattern is a placeholder on example.com / example_…, which the linter
+// flags until it is replaced.
+const RULE_TEMPLATES = Object.freeze({
+    field: Object.freeze({
+        list: 'rules',
+        labelKey: 'customRulesEditor_addFieldRule',
+        rule: Object.freeze({ id: 'field-rule', matchPattern: '$removeparam=example_param' })
+    }),
+    referral: Object.freeze({
+        list: 'referralMarketing',
+        labelKey: 'customRulesEditor_addReferralRule',
+        rule: Object.freeze({ id: 'referral-rule', matchPattern: 'example_ref' })
+    }),
+    raw: Object.freeze({
+        list: 'rawRules',
+        labelKey: 'customRulesEditor_addRawRule',
+        rule: Object.freeze({ id: 'raw-rule', matchPattern: '\\/example_ref=[^/?]*' })
+    }),
+    rawException: Object.freeze({
+        list: 'rawRules',
+        labelKey: 'customRulesEditor_addRawExceptionRule',
+        // targetId is filled in with a raw rule of the provider.
+        rule: Object.freeze({ id: 'raw-exception', matchPattern: '@@||example.com^$rawrule=', targetId: '' })
+    }),
+    redirection: Object.freeze({
+        list: 'redirections',
+        labelKey: 'customRulesEditor_addRedirectRule',
+        // Exactly one capture group: the destination URL.
+        rule: Object.freeze({ id: 'redirect-rule', matchPattern: '^https?:\\/\\/example\\.com\\/out\\?.*?url=(https?[^&]+)' })
+    }),
+    fieldRedirection: Object.freeze({
+        list: 'fieldRedirections',
+        labelKey: 'customRulesEditor_addFieldRedirectRule',
+        rule: Object.freeze({ id: 'field-redirect-rule', matchPattern: 'example_url' })
+    }),
+    exception: Object.freeze({
+        list: 'exceptions',
+        labelKey: 'customRulesEditor_addExceptionRule',
+        rule: Object.freeze({ id: 'exception-rule', matchPattern: '||example.com^/login' })
+    })
 });
 
-function createCanonicalRuleTemplate(kind) {
-    return {
-        id: kind === 'redirection' ? 'redirect-rule' : `${kind}-rule`,
-        matchPattern: '(?!)',
-        description: '',
-        active: true
-    };
-}
+const RULE_TEMPLATE_PLACEHOLDERS = new Set(Object.values(RULE_TEMPLATES).map(template => template.rule.matchPattern));
 
 function createUniqueRuleId(provider, baseId) {
-    const occupied = new Set(Object.values(RULE_TEMPLATE_LISTS)
-        .concat(['referralMarketing', 'exceptions', 'fieldRedirections'])
+    const occupied = new Set(OBJECT_STYLE_RULE_FIELDS
         .flatMap(list => (Array.isArray(provider[list]) ? provider[list] : []))
-        .filter(rule => isPlainObject(rule) && typeof rule.id === 'string')
-        .map(rule => rule.id));
+        .filter(isPlainObject)
+        .flatMap(rule => [rule.id, ...(Array.isArray(rule.aliases) ? rule.aliases : [])])
+        .filter(id => typeof id === 'string'));
     if (!occupied.has(baseId)) return baseId;
     let counter = 2;
     while (occupied.has(`${baseId}-${counter}`)) counter++;
     return `${baseId}-${counter}`;
+}
+
+// The id of the provider's last raw rule that has an "id" and is not itself
+// an "@@" exception, or null.
+function findRawRuleTargetId(provider) {
+    const candidates = (Array.isArray(provider.rawRules) ? provider.rawRules : []).filter(rule =>
+        isPlainObject(rule) && typeof rule.id === 'string' &&
+        !String(rule.matchPattern || '').trim().startsWith('@@'));
+    return candidates.length > 0 ? candidates[candidates.length - 1].id : null;
 }
 
 /**
@@ -5154,14 +5371,27 @@ function handleJsonKeyButtonClick(e) {
 function addCanonicalRuleTemplate(kind) {
     const jsonEditor = document.getElementById('json-editor');
     const validation = document.getElementById('json-validation');
-    const list = RULE_TEMPLATE_LISTS[kind];
-    if (!jsonEditor || !list) return;
+    const definition = RULE_TEMPLATES[kind];
+    if (!jsonEditor || !definition) return;
+    const list = definition.list;
 
     try {
         const provider = normalizeProviderForEditor(JSON.parse(jsonEditor.value));
-        const template = createCanonicalRuleTemplate(kind);
-        template.id = createUniqueRuleId(provider, template.id);
         if (!Array.isArray(provider[list])) provider[list] = [];
+        const template = { ...definition.rule };
+        if (kind === 'rawException') {
+            // An exception names the raw rule it stops; add one to stop if
+            // the provider has none with an id.
+            let targetId = findRawRuleTargetId(provider);
+            if (!targetId) {
+                const rawRule = { ...RULE_TEMPLATES.raw.rule };
+                rawRule.id = createUniqueRuleId(provider, rawRule.id);
+                provider[list].push(rawRule);
+                targetId = rawRule.id;
+            }
+            template.targetId = targetId;
+        }
+        template.id = createUniqueRuleId(provider, template.id);
         provider[list].push(template);
         jsonEditor.value = JSON.stringify(compactProviderForEditor(provider), null, 2);
         updateJsonTextMateHighlighting(jsonEditor);
@@ -5236,13 +5466,16 @@ function validateAndUpdateJSON() {
     if (!jsonEditor || !validation) return;
 
     try {
-        const provider = JSON.parse(jsonEditor.value);
-        assertProviderArrayFields(provider, currentProvider || '');
-        assertRuleEntrySyntax(provider, currentProvider || '');
+        JSON.parse(jsonEditor.value);
         updateJsonTextMateHighlighting(jsonEditor);
         validation.style.display = 'none';
         hasUnsavedChanges = true;
-        updateEditorStatus('valid', i18n('status_validJsonUnsaved'));
+        // Rule problems are listed by the linter (#json-lint).
+        if (lintEditorText(jsonEditor.value).some(problem => problem.severity === 'error')) {
+            updateEditorStatus('invalid', i18n('status_invalidJson'));
+        } else {
+            updateEditorStatus('valid', i18n('status_validJsonUnsaved'));
+        }
     } catch (error) {
         updateJsonTextMateHighlighting(jsonEditor);
         validation.style.display = 'block';
