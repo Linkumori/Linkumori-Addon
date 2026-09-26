@@ -36,7 +36,7 @@ descriptive) mapped to the fields below.
 | `indexPattern` | string or array | Only with `urlPattern`: `\|\|host^` hints so the provider is only checked for those hosts. Without it, a `urlPattern` provider is checked against every URL, which is slow; `lint-rules` warns about it. |
 | `rules` | array | Query/fragment parameters to remove (see [§3](#3-rules)). |
 | `referralMarketing` | array | Referral/affiliate parameters to remove. Same syntax as `rules`; skipped while *Allow referral marketing* is on. |
-| `rawRules` | array | Regexes run against the full URL; every match is deleted. A pattern in front can limit one to some URLs (see [§5](#5-rawrules)). |
+| `rawRules` | array | Regexes run against the full URL; every match is deleted. A pattern in front can limit one to some URLs, and `@@` entries switch them off for some URLs (see [§5](#5-rawrules)). |
 | `exceptions` | array | URLs the provider leaves alone (see [§6](#6-exceptions)). |
 | `redirections` | array | Where to send the request instead (see [§7](#7-redirections)). Only used while *Enable Third-Party Redirect Bypass* is on. |
 | `fieldRedirections` | array | Redirects to a matching parameter's own value instead of removing it (see [§8](#8-fieldredirections)). Only used while *Enable Third-Party Redirect Bypass* is on. |
@@ -79,7 +79,7 @@ the result. The browser then sends the new URL through the same process.
 ## 2. Patterns
 
 Used by `domainPatterns`, by `|`-prefixed `exceptions` and `redirections`,
-and in front of `$removeparam` and `$rawrule`.
+and in front of `$removeparam` and `$rawrule` (also after `@@`).
 
 | Pattern | Matches |
 |---|---|
@@ -239,10 +239,42 @@ In a rule object, write the same string as `matchPattern`. `replacePattern`,
 
 A rule object's `flags` string applies to the regex after `$rawrule=`.
 
-`$rawrule` takes no options. `@@` in front is rejected: raw rules have no
-`@@` exceptions; use the provider's `exceptions` or the rule object's
-`exceptions` instead. A single `|` without a scheme (`|example.com^$rawrule=…`)
-is rejected as in §2.
+`$rawrule` takes no options. A single `|` without a scheme
+(`|example.com^$rawrule=…`) is rejected as in §2.
+
+### @@ exceptions
+
+An entry starting with `@@` keeps raw rules from running on the URLs its
+pattern matches, the way an `@@` filter keeps a parameter (§4):
+
+`@@pattern$rawrule=[regex]`
+
+```json
+"rawRules": [
+  "\\/ref=[^/?]*",
+  "\\/tag-[a-z]+",
+  "@@||smile.example.com^$rawrule=\\/ref=[^/?]*",
+  "@@||example.com^/checkout/$rawrule="
+]
+```
+
+- With a regex, the exception stops the raw rules in this provider whose
+  regex is **the same text**: a plain entry, or the part after `$rawrule=`
+  of a pattern entry. Above, `smile.example.com` keeps `/ref=…` but still
+  loses `/tag-…`.
+- With nothing after `$rawrule=`, it stops **every** raw rule of the
+  provider on those URLs. `rules`, `referralMarketing` and `$removeparam`
+  filters still run; to skip the whole provider, use `exceptions` (§6).
+- An `@@` entry only affects raw rules in its own provider. It never
+  deletes anything itself, and it applies whatever the `order` of the rules
+  it stops.
+
+As a rule object, write the entry as `matchPattern`. `id`, `aliases`,
+`active`, `description`, `requestTypes` and `exceptions` work as usual, so an
+exception can be switched off with the rule on/off controls.
+`replacePattern`, `preprocessors`, `order` and `flags` would do nothing and
+are rejected. `lint-rules` also warns when an `@@` entry names a regex that
+no raw rule in the provider uses.
 
 ## 6. exceptions
 
@@ -444,7 +476,8 @@ would silently do the wrong thing:
 | a `fieldRedirections` entry starting with `@@` | `@@` only works for `$removeparam` filters in `rules` and `referralMarketing`; use a rule object's `exceptions` |
 | an unknown tag in a rule's `flags` array, or a tag in a list where it does nothing | only `referralMarketing` exists, and only in `rules` / `referralMarketing` |
 | `order` in `exceptions`, `redirections` or `fieldRedirections`, or on a `$removeparam` filter | those always run at a fixed step, so `order` would do nothing |
-| a `rawRules` entry `@@…$rawrule=…` | raw rules have no `@@` exceptions; use `exceptions` |
+| `replacePattern`, `preprocessors`, `order` or `flags` on a `rawRules` entry `@@…$rawrule=…` | an `@@` entry only stops other raw rules, so those keys would do nothing |
+| an `@@…$rawrule=regex` entry whose regex no raw rule in the provider uses (warning only, in `lint-rules`) | the exception would never stop anything |
 | a `rawRules` entry with nothing after `$rawrule=` | there is no regex to delete |
 
 ### Copying a single rule
@@ -537,7 +570,8 @@ Everything on this page keeps working inside a `version: 2` or compiled file:
 - Provider `exceptions` and `match` of `kind: redirection` take `|` domain
   patterns, including `||host^$redirect=…` domain redirects.
 - `match` of `kind: raw` may start with a pattern:
-  `||host^$rawrule=regex` (see [§5](#5-rawrules)).
+  `||host^$rawrule=regex`, or `@@||host^$rawrule=regex` for an exception
+  (see [§5](#5-rawrules)).
 - Rule keys `flags` (regex flags, or a list of behavior tags), `order` and
   `historyBypassProtection`, and `defaults.historyBypassProtection`.
 - The `base64Decode` preprocessor.
@@ -707,8 +741,8 @@ custom rules editor.
 | Rule `order` | A number on a rule object in `rawRules`, `rules` or `referralMarketing` that moves it earlier or later, also across those lists. See [§9](#9-rule-objects). |
 | Rule `flags` as a list | `"flags": ["referralMarketing"]` makes a `rules` entry a referral-marketing rule without moving it. A `flags` string still means regex flags. See [§9](#9-rule-objects). |
 | Copying one rule | `show-rule <id>` (or `lint-rules --show-rule <id>`) and the editor's *Copy rule* button wrap the rule in the list it is in. See [§10](#10-checking-rules). |
-| Patterns in `rawRules` | `\|\|example.com^$rawrule=regex` runs a raw rule only on URLs the pattern matches, like the pattern in front of `$removeparam`. See [§5](#5-rawrules). |
-| New checks | The editor and `lint-rules` reject `@@` in `fieldRedirections`, unknown or misplaced `flags` tags, and `order` where it would do nothing. In `rawRules` they reject `@@…$rawrule=`, an empty regex after `$rawrule=`, and a single `\|` with no scheme. See [§10](#10-checking-rules). |
+| Patterns in `rawRules` | `\|\|example.com^$rawrule=regex` runs a raw rule only on URLs the pattern matches, like the pattern in front of `$removeparam`. `@@\|\|example.com^$rawrule=regex` keeps raw rules with that regex (or, with no regex, all of them) from running there. See [§5](#5-rawrules). |
+| New checks | The editor and `lint-rules` reject `@@` in `fieldRedirections`, unknown or misplaced `flags` tags, and `order` where it would do nothing. In `rawRules` they reject an empty regex after `$rawrule=` (except on `@@` entries), keys that do nothing on an `@@` entry, and a single `\|` with no scheme. See [§10](#10-checking-rules). |
 
 Adding `flags: ["referralMarketing"]` to a rule without an `id` keeps its
 generated id, so a rule you switched off stays off.

@@ -477,7 +477,8 @@ function assertKnownFieldsAndOptions(provider, providerName = '') {
 }
 
 // A rawRules entry can start with a pattern that limits it to some URLs:
-// "||amazon.*^$rawrule=\\/ref=[^/?]*". Null for a plain regex.
+// "||amazon.*^$rawrule=\\/ref=[^/?]*". With "@@" in front it is an exception
+// that stops raw rules with that regex. Null for a plain regex.
 function splitScopedRawRule(matchPattern) {
     const text = String(matchPattern || '');
     const marker = text.search(/\$rawrule=/i);
@@ -533,11 +534,16 @@ function assertNoSilentMistakes(provider, providerName = '') {
         const scoped = splitScopedRawRule(text);
         if (!scoped) return;
         const where = `${label}: rawRules[${index}]`;
-        if (scoped.pattern.startsWith('@@')) {
-            throw new Error(`${where} starts with "@@"; rawRules have no exceptions. Use the provider's or the rule object's "exceptions" instead`);
+        const isException = scoped.pattern.startsWith('@@');
+        if (isException && isPlainObject(entry)) {
+            // An @@ entry only names the raw rules it stops; nothing it would rewrite or reorder.
+            ['replacePattern', 'preprocessors', 'order', 'flags'].forEach((key) => {
+                if (entry[key] !== undefined) throw new Error(`${where} is an "@@" exception, so "${key}" would do nothing`);
+            });
         }
-        if (!scoped.regex) throw new Error(`${where} has nothing after "$rawrule="; it needs the regex to delete`);
-        checkPattern(scoped.pattern, `rawRules[${index}]`);
+        if (!isException && !scoped.regex) throw new Error(`${where} has nothing after "$rawrule="; it needs the regex to delete`);
+        checkPattern(isException ? scoped.pattern.slice(2).trim() : scoped.pattern, `rawRules[${index}]`);
+        if (!scoped.regex) return;
         try { new RegExp(scoped.regex, isPlainObject(entry) && typeof entry.flags === 'string' ? entry.flags : 'gi'); }
         catch (error) { throw new Error(`${where} has an invalid regex after "$rawrule=": ${error.message}`); }
     });

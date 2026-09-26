@@ -2256,7 +2256,13 @@ ${commit.message}
         }
       }
 
-      // rawRules
+      // rawRules. "@@…$rawrule=regex" exceptions name the rules they stop by regex text.
+      const rawRegexSources = new Set();
+      for (const raw of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
+        const scopedRaw = splitScopedRawRule(getRulePattern(raw));
+        if (!scopedRaw) rawRegexSources.add(getRulePattern(raw));
+        else if (!scopedRaw.pattern.startsWith('@@')) rawRegexSources.add(scopedRaw.regex);
+      }
       for (const raw of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
         const rawPattern = getRulePattern(raw);
         const rawLabel = getRuleLabel(raw);
@@ -2265,11 +2271,20 @@ ${commit.message}
           continue;
         }
         const scopedRaw = splitScopedRawRule(rawPattern);
-        if (scopedRaw) {
-          if (scopedRaw.pattern.startsWith('@@')) {
-            errors.push(`${tag} rawRule "${rawLabel}" starts with "@@"; rawRules have no exceptions. Use the provider's or the rule object's "exceptions" instead`);
-            continue;
+        if (scopedRaw && scopedRaw.pattern.startsWith('@@')) {
+          // An @@ entry only names the raw rules it stops.
+          for (const key of ['replacePattern', 'preprocessors', 'order', 'flags']) {
+            if (raw && typeof raw === 'object' && raw[key] !== undefined) {
+              errors.push(`${tag} rawRule "${rawLabel}" is an "@@" exception, so "${key}" would do nothing`);
+            }
           }
+          if (!scopedRaw.regex) continue;
+          if (tryRegex(scopedRaw.regex, 'gi', `${tag} rawRule "${rawLabel}"`) && !rawRegexSources.has(scopedRaw.regex)) {
+            warnings.push(`${tag} rawRule "${rawLabel}" is an "@@" exception for "${scopedRaw.regex}", but no raw rule in this provider uses that regex`);
+          }
+          continue;
+        }
+        if (scopedRaw) {
           if (!scopedRaw.regex) {
             errors.push(`${tag} rawRule "${rawLabel}" has nothing after "$rawrule="; it needs the regex to delete`);
             continue;
@@ -2379,7 +2394,7 @@ ${commit.message}
       }
       for (const entry of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
         const scopedRaw = splitScopedRawRule(getRulePattern(entry));
-        if (scopedRaw) checkSinglePipe(scopedRaw.pattern, 'rawRules');
+        if (scopedRaw) checkSinglePipe(scopedRaw.pattern.replace(/^@@/, '').trim(), 'rawRules');
       }
       for (const field of FIELD_RULE_LISTS) {
         for (const entry of (Array.isArray(provider[field]) ? provider[field] : [])) {
@@ -2497,8 +2512,16 @@ ${commit.message}
         for (const rawRule of (Array.isArray(provider.rawRules) ? provider.rawRules : [])) {
           const rawPattern = getRulePattern(rawRule);
           const scopedRaw = splitScopedRawRule(rawPattern);
+          if (scopedRaw && scopedRaw.pattern.startsWith('@@')) continue;
           if (scopedRaw && scopedRaw.pattern && scopedRaw.pattern !== '*' && !domainPatternMatchesUrl(scopedRaw.pattern, urlStr)) continue;
           const rawSource = scopedRaw ? scopedRaw.regex : rawPattern;
+          const excepted = (Array.isArray(provider.rawRules) ? provider.rawRules : []).some(entry => {
+            const ex = splitScopedRawRule(getRulePattern(entry));
+            if (!ex || !ex.pattern.startsWith('@@') || (ex.regex && ex.regex !== rawSource)) return false;
+            const exScope = ex.pattern.slice(2).trim();
+            return !exScope || exScope === '*' || domainPatternMatchesUrl(exScope, urlStr);
+          });
+          if (excepted) continue;
           try { if (rawSource) urlStr = urlStr.replace(new RegExp(rawSource, 'gi'), ''); } catch { /* bad regex already reported */ }
         }
 

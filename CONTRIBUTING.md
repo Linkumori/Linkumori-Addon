@@ -218,7 +218,7 @@ Each key inside `providers` is a unique name for that provider (website or servi
 | `completeProvider` | boolean | Yes | If `true`, blocks all requests to this provider entirely (domain blocking) |
 | `forceRedirection` | boolean | No | If `true`, forces following redirects even without a matching redirection rule |
 | `rules` | array of strings (regex) | No | Query parameter names to strip from the URL |
-| `rawRules` | array of strings (regex, or `\|\|domain^$rawrule=regex`) | No | Regex patterns applied directly to the raw URL string before parameter parsing, optionally limited to URLs matching a domain pattern |
+| `rawRules` | array of strings (regex, `\|\|domain^$rawrule=regex` or `@@\|\|domain^$rawrule=regex`) | No | Regex patterns applied directly to the raw URL string before parameter parsing, optionally limited to URLs matching a domain pattern; `@@` entries switch them off for matching URLs |
 | `referralMarketing` | array of strings (regex) | No | Affiliate/referral parameters — stripped separately and can be toggled by the user |
 | `exceptions` | array of strings (regex or `\|\|domain^` pattern) | No | URLs to skip even if they match `urlPattern` / `domainPatterns` |
 | `redirections` | array of strings (regex or `\|\|domain^$redirect=…`) | No | Unwrap redirect URLs (regex capturing the destination) or send a domain to a fixed address |
@@ -310,7 +310,19 @@ To run a raw rule only on some of the provider's URLs, put a domain pattern in f
 ]
 ```
 
-The pattern decides whether the rule runs; the regex after `$rawrule=` is what gets removed. See [docs/rule-syntax.md §5](docs/rule-syntax.md#5-rawrules).
+The pattern decides whether the rule runs; the regex after `$rawrule=` is what gets removed.
+
+To keep raw rules from running on some URLs, add an `@@` exception. With a regex it stops the raw rules that use that same regex; with nothing after `$rawrule=` it stops all of the provider's raw rules there:
+
+```json
+"rawRules": [
+  "\\/ref=[^/?]*",
+  "@@||smile.amazon.com^$rawrule=\\/ref=[^/?]*",
+  "@@||amazon.com^/checkout/$rawrule="
+]
+```
+
+See [docs/rule-syntax.md §5](docs/rule-syntax.md#5-rawrules).
 
 > Use `rawRules` sparingly — incorrect patterns can corrupt the URL.
 

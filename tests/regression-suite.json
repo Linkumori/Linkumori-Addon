@@ -2539,6 +2539,81 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "rawRules @@ exception keeps one raw rule on matching host",
+      "dialect": "provider",
+      "input": "https://keep.example.org/a/ref=1/tag-x",
+      "expectedOutput": "https://keep.example.org/a/ref=1",
+      "providers": {
+        "raw-exceptions": {
+          "domainPatterns": [
+            "||example.org^"
+          ],
+          "rawRules": [
+            "\\/ref=[^/?]*",
+            "\\/tag-[a-z]+",
+            "@@||keep.example.org^$rawrule=\\/ref=[^/?]*",
+            {
+              "id": "raw-safe-path",
+              "matchPattern": "@@||example.org^/safe/$rawrule="
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules @@ exception without regex keeps every raw rule",
+      "dialect": "provider",
+      "input": "https://www.example.org/safe/ref=1/tag-x",
+      "expectedOutput": "https://www.example.org/safe/ref=1/tag-x",
+      "providers": {
+        "raw-exceptions": {
+          "domainPatterns": [
+            "||example.org^"
+          ],
+          "rawRules": [
+            "\\/ref=[^/?]*",
+            "\\/tag-[a-z]+",
+            "@@||keep.example.org^$rawrule=\\/ref=[^/?]*",
+            {
+              "id": "raw-safe-path",
+              "matchPattern": "@@||example.org^/safe/$rawrule="
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules @@ exception leaves other URLs alone",
+      "dialect": "provider",
+      "input": "https://www.example.org/a/ref=1/tag-x",
+      "expectedOutput": "https://www.example.org/a",
+      "providers": {
+        "raw-exceptions": {
+          "domainPatterns": [
+            "||example.org^"
+          ],
+          "rawRules": [
+            "\\/ref=[^/?]*",
+            "\\/tag-[a-z]+",
+            "@@||keep.example.org^$rawrule=\\/ref=[^/?]*",
+            {
+              "id": "raw-safe-path",
+              "matchPattern": "@@||example.org^/safe/$rawrule="
+            }
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }
