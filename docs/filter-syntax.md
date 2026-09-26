@@ -199,7 +199,6 @@ An optional pattern in front limits the filter to matching URLs:
 | `document`, `subdocument`, `script`, `stylesheet`, `image`, `imageset`, `media`, `font`, `object`, `xmlhttprequest`, `websocket`, `ping`, `other` (`~` excludes) | request type |
 | `match-case` | case-sensitive parameter names |
 | `history-bypass-protection=false` | skip this filter for History API URL changes (`true`/`false`, also `1`/`0`, `yes`/`no`) |
-| `badfilter` | cancel an identical filter (for example one from another list) |
 
 Options have one spelling each. Separate multiple values with `|`.
 
@@ -272,7 +271,6 @@ Every `$removeparam` option works, with the same meaning as in §4:
 | `document`, `subdocument`, `script`, `xmlhttprequest`, … (`~` excludes) | request type; the same list as §4 |
 | `match-case` | the regex is case-sensitive (flags `g` instead of `gi`) |
 | `history-bypass-protection=false` | skip this rule for History API URL changes |
-| `badfilter` | cancel an identical raw rule (same pattern, options and regex) in this provider, for example one from another list; see below |
 
 `removeparam` and a second `rawrule` are not options here and are rejected.
 A single `|` without a scheme (`|example.com^$rawrule=…`) is rejected as in
@@ -292,16 +290,6 @@ work as usual, and `§1§`, `§2§`, … are the regex's capture groups:
 
 A rule object's `flags` string applies to the regex after `rawrule=` and
 takes precedence over `match-case`.
-
-#### badfilter
-
-`"$badfilter,rawrule=\\/ref=[^/?]*"` cancels the raw rule `"\\/ref=[^/?]*"` in
-the same provider, whether it comes before or after the `badfilter` entry.
-The pattern, options (in any order) and regex must be the same, apart from
-`badfilter` itself; a plain entry is the same as `$rawrule=` with that regex.
-Use it in custom rules to switch off a raw rule from the bundled list without
-editing it. A `badfilter` entry that is switched off (`active: false`)
-cancels nothing.
 
 ### @@ exceptions
 
