@@ -127,6 +127,41 @@ also count as a referral-marketing rule without moving lists, with
 `fieldRedirections` (see [§8](#8-fieldredirections)) takes the same kinds of
 entries, but redirects to the parameter's value instead of removing it.
 
+### Domain-specific rules
+
+A plain name or name regex applies to every URL the provider matches. To
+remove a parameter only on some of those URLs, write it as a `$removeparam`
+filter with a pattern in front ([§2](#2-patterns)). The pattern can use the
+same wildcards as `domainPatterns`, so a provider for `||amazon.*^` can
+still have rules for one country, one subdomain or one path:
+
+```json
+"amazon": {
+  "domainPatterns": ["||amazon.*^"],
+  "rules": [
+    "qid",
+    "||amazon.de^$removeparam=tag",
+    "||*.amazon.co.uk^$removeparam=/^pd_rd_/",
+    "||smile.amazon.*^$removeparam=sr",
+    "||amazon.*^/gp/$removeparam=ref_"
+  ]
+}
+```
+
+| Entry | Removes |
+|---|---|
+| `"qid"` | `qid` on every Amazon URL |
+| `"\|\|amazon.de^$removeparam=tag"` | `tag` only on `amazon.de` and its subdomains |
+| `"\|\|*.amazon.co.uk^$removeparam=/^pd_rd_/"` | `pd_rd_…` only on `amazon.co.uk` (`*.` changes nothing; same as `\|\|amazon.co.uk^`) |
+| `"\|\|smile.amazon.*^$removeparam=sr"` | `sr` only on `smile.amazon` on any public suffix |
+| `"\|\|amazon.*^/gp/$removeparam=ref_"` | `ref_` only when the path starts with `/gp/` |
+
+The rule still only runs on URLs the provider matches, so the pattern
+narrows the provider's `domainPatterns`; it cannot widen them. The same
+works in `referralMarketing` and `fieldRedirections`, and for raw rules
+with `$rawrule` ([§5](#5-rawrules)). To keep a parameter on some domains
+instead, use an `@@` filter ([§4](#4-removeparam-filters)).
+
 ## 4. $removeparam filters
 
 `[@@][pattern]$removeparam[=value][,option…]`

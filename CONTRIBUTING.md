@@ -289,6 +289,19 @@ Each rule is a regex pattern matched against **query parameter keys** (not value
 
 Rules use anchored matching (`^rule$`), so `"ref"` will only match a parameter named exactly `ref`, not `referral`. To match both, use `"ref(erral)?"`.
 
+To remove a parameter only on some of the provider's domains, put a domain pattern in front with `$removeparam`. Wildcards work as in `domainPatterns`:
+
+```json
+"domainPatterns": ["||amazon.*^"],
+"rules": [
+  "qid",
+  "||amazon.de^$removeparam=tag",
+  "||smile.amazon.*^$removeparam=sr"
+]
+```
+
+See [docs/rule-syntax.md §3](docs/rule-syntax.md#domain-specific-rules).
+
 ---
 
 ### `rawRules` — Raw URL String Replacement

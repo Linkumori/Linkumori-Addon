@@ -2722,6 +2722,131 @@
       "preferences": {
         "globalStatus": true
       }
+    },
+    {
+      "id": "rules domain-specific $removeparam on one country of a wildcard provider",
+      "dialect": "provider",
+      "input": "https://www.shopzone.de/dp/1?qid=1&tag=a&keep=1",
+      "expectedOutput": "https://www.shopzone.de/dp/1?keep=1",
+      "providers": {
+        "wildcard-domain-rules": {
+          "domainPatterns": [
+            "||shopzone.*^"
+          ],
+          "rules": [
+            "qid",
+            "||shopzone.de^$removeparam=tag",
+            "||smile.shopzone.*^$removeparam=sr",
+            "||shopzone.*^/gp/$removeparam=ref_"
+          ],
+          "rawRules": [
+            "||shopzone.*^/dp/$rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rules domain-specific $removeparam skips other countries",
+      "dialect": "provider",
+      "input": "https://www.shopzone.co.uk/x?qid=1&tag=a&keep=1",
+      "expectedOutput": "https://www.shopzone.co.uk/x?tag=a&keep=1",
+      "providers": {
+        "wildcard-domain-rules": {
+          "domainPatterns": [
+            "||shopzone.*^"
+          ],
+          "rules": [
+            "qid",
+            "||shopzone.de^$removeparam=tag",
+            "||smile.shopzone.*^$removeparam=sr",
+            "||shopzone.*^/gp/$removeparam=ref_"
+          ],
+          "rawRules": [
+            "||shopzone.*^/dp/$rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rules domain-specific $removeparam with subdomain and wildcard suffix",
+      "dialect": "provider",
+      "input": "https://smile.shopzone.fr/s?sr=1&keep=1",
+      "expectedOutput": "https://smile.shopzone.fr/s?keep=1",
+      "providers": {
+        "wildcard-domain-rules": {
+          "domainPatterns": [
+            "||shopzone.*^"
+          ],
+          "rules": [
+            "qid",
+            "||shopzone.de^$removeparam=tag",
+            "||smile.shopzone.*^$removeparam=sr",
+            "||shopzone.*^/gp/$removeparam=ref_"
+          ],
+          "rawRules": [
+            "||shopzone.*^/dp/$rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rules domain-specific $removeparam with wildcard suffix and path",
+      "dialect": "provider",
+      "input": "https://www.shopzone.fr/gp/x?ref_=a&keep=1",
+      "expectedOutput": "https://www.shopzone.fr/gp/x?keep=1",
+      "providers": {
+        "wildcard-domain-rules": {
+          "domainPatterns": [
+            "||shopzone.*^"
+          ],
+          "rules": [
+            "qid",
+            "||shopzone.de^$removeparam=tag",
+            "||smile.shopzone.*^$removeparam=sr",
+            "||shopzone.*^/gp/$removeparam=ref_"
+          ],
+          "rawRules": [
+            "||shopzone.*^/dp/$rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
+    },
+    {
+      "id": "rawRules wildcard-suffix domain pattern",
+      "dialect": "provider",
+      "input": "https://www.shopzone.co.uk/dp/1/ref=abc?keep=1",
+      "expectedOutput": "https://www.shopzone.co.uk/dp/1?keep=1",
+      "providers": {
+        "wildcard-domain-rules": {
+          "domainPatterns": [
+            "||shopzone.*^"
+          ],
+          "rules": [
+            "qid",
+            "||shopzone.de^$removeparam=tag",
+            "||smile.shopzone.*^$removeparam=sr",
+            "||shopzone.*^/gp/$removeparam=ref_"
+          ],
+          "rawRules": [
+            "||shopzone.*^/dp/$rawrule=\\/ref=[^/?]*"
+          ]
+        }
+      },
+      "preferences": {
+        "globalStatus": true
+      }
     }
   ]
 }
