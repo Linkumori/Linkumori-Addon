@@ -1375,7 +1375,7 @@ function renderProviderRuleIdControls(providerName, provider) {
         const scopeText = entry.scopeId ? ` · ${entry.scopeId}` : '';
         const providerText = entry.providerName ? `${entry.providerName} · ` : '';
         return `
-            <li class="provider-disabled-item provider-rule-id-item" data-rule-id="${escapeHtml(entry.runtimeId)}" data-runtime-id="${escapeHtml(entry.runtimeId)}">
+            <li class="provider-disabled-item provider-rule-id-item" data-rule-id="${escapeHtml(entry.runtimeId)}" data-runtime-id="${escapeHtml(entry.runtimeId)}" data-provider-name="${escapeHtml(entry.providerName)}" data-scope-id="${escapeHtml(entry.scopeId)}" data-canonical-id="${escapeHtml(entry.id)}">
                 <input type="hidden" class="provider-rule-id-disable-keys" value="${escapeHtml(JSON.stringify(entry.disableKeys))}">
                 <input type="hidden" class="provider-rule-id-pin-target" value="${escapeHtml(JSON.stringify({
                     providerName: entry.providerName,
@@ -4809,6 +4809,39 @@ async function renameProviderRuleId(section, index, oldId) {
     renderProviderRuleIdControlsFromEditor();
 }
 
+// Asks whether a rule is switched off for its whole provider
+// ("<provider>::<ruleId>") or only for this URL/domain pattern
+// ("<scope>::<ruleId>"). Resolves with the key to store, or null when
+// the dialog is dismissed. Without a pattern there is nothing to ask.
+async function chooseProviderRuleDisableKey(providerName, scopeId, ruleId) {
+    const providerKey = providerName ? buildProviderRuntimeRuleId(providerName, ruleId) : '';
+    const patternKey = scopeId && scopeId !== providerName
+        ? buildProviderPatternRuntimeRuleId(scopeId, ruleId)
+        : '';
+    if (!providerKey || !patternKey) {
+        return providerKey || patternKey || null;
+    }
+    if (!window.LinkumoriModal || typeof window.LinkumoriModal.choose !== 'function') {
+        return patternKey;
+    }
+    return window.LinkumoriModal.choose(
+        i18n('customRulesEditor_disableRuleScopePrompt', ruleId),
+        [
+            {
+                value: providerKey,
+                label: i18n('customRulesEditor_disableRuleForProvider'),
+                detail: providerKey
+            },
+            {
+                value: patternKey,
+                label: i18n('customRulesEditor_disableRuleForPattern'),
+                detail: patternKey
+            }
+        ],
+        { title: i18n('customRulesEditor_disableRuleScopeTitle') }
+    );
+}
+
 async function handleProviderRuleIdControlsClick(event) {
     const copyBtn = event.target.closest('.provider-rule-id-copy-btn');
     if (copyBtn) {
@@ -4846,7 +4879,20 @@ async function handleProviderRuleIdControlsClick(event) {
         pinTarget = null;
     }
 
-    await setClearURLsProviderRuleDisabled(ruleId, !!disableBtn, equivalentIds, pinTarget);
+    if (disableBtn) {
+        const disableKey = await chooseProviderRuleDisableKey(
+            item.dataset.providerName || '',
+            item.dataset.scopeId || '',
+            item.dataset.canonicalId || ''
+        );
+        if (!disableKey) {
+            return;
+        }
+        await setClearURLsProviderRuleDisabled(disableKey, true, equivalentIds, pinTarget);
+        return;
+    }
+
+    await setClearURLsProviderRuleDisabled(ruleId, false, equivalentIds, pinTarget);
 }
 
 function setupPatternEditorEvents() {

@@ -2544,6 +2544,23 @@
     "description": "Alert when a new rule id is already used in the provider",
     "placeholders": { "id": { "content": "$1", "example": "field-dd" } }
   },
+  "customRulesEditor_disableRuleScopeTitle": {
+    "message": "Disable rule",
+    "description": "Title of the dialog asking how widely to disable a provider rule"
+  },
+  "customRulesEditor_disableRuleScopePrompt": {
+    "message": "Disable $ID$ for the whole provider, or only for this URL/domain pattern?",
+    "description": "Dialog message asking whether to disable a rule by provider or by URL/domain pattern",
+    "placeholders": { "id": { "content": "$1", "example": "field-sx" } }
+  },
+  "customRulesEditor_disableRuleForProvider": {
+    "message": "My provider",
+    "description": "Dialog choice: disable the rule for the whole provider (provider::rule)"
+  },
+  "customRulesEditor_disableRuleForPattern": {
+    "message": "URL/domain pattern",
+    "description": "Dialog choice: disable the rule only for this urlPattern or domainPattern (pattern::rule)"
+  },
   "customRulesEditor_ruleIdRenamed": {
     "message": "Rule id renamed to $ID$",
     "description": "Status after a rule id was renamed and saved",
