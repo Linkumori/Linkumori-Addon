@@ -60,6 +60,7 @@
  * ============================================================
  */
 function eTagFilter(requestDetails) {
+    if (typeof isCleaningStarted === 'function' && !isCleaningStarted()) return {};
     if (!requestDetails.responseHeaders || !storage.eTagFiltering
         || storage.localHostsSkipping && checkLocalURL(new URL(requestDetails.url))) return {};
 

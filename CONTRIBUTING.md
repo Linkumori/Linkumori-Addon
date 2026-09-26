@@ -107,7 +107,7 @@ Linkumori-Addon-MV3-Firefox/
 ├── _locales/en/           # Internationalisation strings
 ├── Old-Country-Nobility/  # Custom font files
 ├── manifest.json          # Firefox MV3 extension manifest
-├── clearurls.js           # Main entry point
+├── clearurls.js           # Cleaning engine (providers, request cleaning)
 └── linkumori-cli-tool.js  # Build and utility CLI
 ```
 
@@ -116,12 +116,16 @@ Key files to be aware of:
 | File | Purpose |
 |------|---------|
 | `manifest.json` | Extension configuration, permissions, and entry points |
-| `core_js/cleaning_tool.js` | Core URL cleaning logic |
-| `core_js/settings.js` | User settings management |
-| `core_js/storage.js` | Storage abstraction layer |
+| `clearurls.js` | Cleaning engine: providers, request cleaning |
+| `core_js/storage.js` | Settings in memory and on disk; loads and merges rules; starts everything (`genesis()`) |
+| `core_js/settings.js` | Settings page |
 | `core_js/tools.js` | Shared utility functions |
 | `data/linkumori-clearurls.json` | Canonical bundled ClearURLs source rules |
 | `_locales/en/messages.json` | English UI strings |
+
+How these parts work together at runtime (startup, rule loading, request
+cleaning, messaging) is described in
+[docs/runtime-architecture.md](docs/runtime-architecture.md).
 
 ---
 

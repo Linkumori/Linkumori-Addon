@@ -2509,6 +2509,13 @@ function consumePostReloadOpenUrl() {
     }
 }
 
+// True once cleaning has started, which needs consent (see
+// hasPopupConsentForStartup). Listeners that are registered at load time
+// check this so they do nothing before that.
+function isCleaningStarted() {
+    return clearurlsStarted;
+}
+
 function startClearurlsIfConsentGranted() {
     if (clearurlsStarted) {
         return true;
